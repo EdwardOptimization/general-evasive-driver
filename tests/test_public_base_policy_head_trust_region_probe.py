@@ -24,6 +24,10 @@ from autodrift.public_base_controlled_fusion_boundary_objective_probe import (
 from autodrift.public_base_controlled_fusion_candidate_compatibility import (
     classify_controlled_fusion_candidate_compatibility,
 )
+from autodrift.public_base_controlled_fusion_candidate_replay_gate import (
+    classify_candidate_replay_gate,
+    failure_types_for_result_class,
+)
 from autodrift.train_ppo import ActorCritic
 
 
@@ -282,3 +286,45 @@ def test_classify_controlled_fusion_candidate_compatibility_contract_artifact():
         )
         == "public_base_controlled_fusion_candidate_compatibility_contract_artifact"
     )
+
+
+def test_classify_controlled_fusion_candidate_replay_gate_pass():
+    result = classify_candidate_replay_gate(
+        six_public_replay_gates_pass=True,
+        behavior_pass=True,
+        actor_inputs_changed=False,
+        training_started=False,
+        ppo_used=False,
+        promoted=False,
+    )
+
+    assert result == "public_base_controlled_fusion_candidate_replay_gate_pass"
+    assert failure_types_for_result_class(result) == ["none"]
+
+
+def test_classify_controlled_fusion_candidate_replay_gate_proof_washout():
+    result = classify_candidate_replay_gate(
+        six_public_replay_gates_pass=False,
+        behavior_pass=True,
+        actor_inputs_changed=False,
+        training_started=False,
+        ppo_used=False,
+        promoted=False,
+    )
+
+    assert result == "public_base_controlled_fusion_candidate_replay_gate_proof_washout"
+    assert failure_types_for_result_class(result) == ["proof_washout"]
+
+
+def test_classify_controlled_fusion_candidate_replay_gate_contract_artifact():
+    result = classify_candidate_replay_gate(
+        six_public_replay_gates_pass=True,
+        behavior_pass=True,
+        actor_inputs_changed=True,
+        training_started=False,
+        ppo_used=False,
+        promoted=False,
+    )
+
+    assert result == "public_base_controlled_fusion_candidate_replay_gate_contract_artifact"
+    assert failure_types_for_result_class(result) == ["contract_violation"]

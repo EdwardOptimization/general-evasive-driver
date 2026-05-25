@@ -14621,3 +14621,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M945 designs no-training closed-loop replay/proof retention for the materialized M944 alpha `0.0725` candidate. M946 should compare the candidate against M399 base on six public replay surfaces, source-diverse protected diagnostics if compatible, old key `9944` as diagnostic-only, behavior seeds `9505` and `9506`, reset/zero-all ordering, and input-contract retention. M945 explicitly blocks PPO and promotion; exact objective compatibility alone is not treated as closed-loop proof.
 - decision: `controlled_fusion_candidate_replay_gate_design_admit_m946`
 - next: `m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation`
+
+## 20260525T235219Z - m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate`
+- artifact: `docs/m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation.md`
+- result: M946 implements the no-training replay/proof gate for M944 alpha `0.0725` versus M399. It keeps actor inputs unchanged, starts no training, uses no PPO, and promotes nothing. Behavior seeds `9505` and `9506` pass with success delta `0.0` and retained `normal >= reset >= zero-all` ordering. Five of six public replay surfaces pass, but M267/M264 fails because success-drop count regresses `17 -> 13`; rows `6`, `13`, `15`, and `16` become wrong-history successes. Source-diverse diagnostics also fail on the row `15/16` family, while old key `9944` remains diagnostic-only. Result class is `public_base_controlled_fusion_candidate_replay_gate_proof_washout`.
+- decision: `public_base_controlled_fusion_candidate_replay_gate_proof_washout_route_to_failing_surface_audit`
+- next: `m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit`

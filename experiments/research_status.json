@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 954,
+    "completed": 955,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m945-v4-public-base-controlled-fusion-candidate-replay-gate-design",
+    "task_id": "m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m945-v4-public-base-controlled-fusion-candidate-replay-gate-design.md"
+    "command_log": "runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/summary.json"
   },
   "next_task": {
-    "id": "m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation",
+    "id": "m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit",
     "status": "pending",
-    "priority": 9410,
+    "priority": 9420,
     "kind": "gate",
-    "hypothesis": "The M944 alpha 0.0725 candidate may retain closed-loop proof and behavior surfaces while improving the public objective surface",
-    "command": "see experiments/manifests/m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation.json",
-    "success_artifact": "runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/summary.json",
-    "notes": "Pending: no-training public replay/proof and behavior gates for alpha 0.0725 candidate; PPO and promotion blocked"
+    "hypothesis": "M946 failed because the M944 controlled-fusion direction improves normal margins while moving a current-family rejected/wrong-history branch across the collision boundary",
+    "command": "see experiments/manifests/m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit.json",
+    "success_artifact": "docs/m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit.md",
+    "notes": "Pending: audit M946 M267/M264 wrong-history washout rows before any lower-alpha replay, repair objective, PPO, or promotion"
   },
-  "updated_at_utc": "20260525T234122Z"
+  "updated_at_utc": "20260525T235219Z"
 }

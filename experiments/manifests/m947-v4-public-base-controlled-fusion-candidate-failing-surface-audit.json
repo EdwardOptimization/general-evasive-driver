@@ -1,0 +1,108 @@
+{
+  "id": "m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/checkpoints/alpha_0_0725.pt"
+    ],
+    "parent_dataset": [
+      "runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/summary.json",
+      "runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/full_gates/m267_m264_replay/boundary_replay_rows.csv",
+      "runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/source_diverse_protected_diagnostic/replay_gate_summary.csv",
+      "runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/old_key_neighborhood_diagnostic/policy_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation.json"
+    ],
+    "parent_objective": [
+      "audit why the exact-compatible controlled-fusion candidate fails closed-loop wrong-history proof rows"
+    ],
+    "derived_from": [
+      "m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation"
+    ],
+    "blocked_by": [
+      "M946 fails M267/M264 public replay surface with success_drop_count 17 -> 13"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "promotion or PPO from M944 alpha 0.0725 before failing-surface repair"
+    ]
+  },
+  "review_artifact": "docs/reviews/m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit.md",
+  "public_gates": [
+    "M947 must not train",
+    "M947 must not run PPO",
+    "M947 must not promote",
+    "M947 must explain the M267/M264 row 6/13/15/16 wrong-history washout",
+    "M947 must decide whether to lower alpha, repair rejected-history branch, or close the controlled-fusion candidate route"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune from behavior seeds",
+    "do not treat exact objective pass as replay proof",
+    "do not add a new objective before classifying the failing rows",
+    "do not widen actor inputs",
+    "do not promote M944 alpha 0.0725"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_controlled_fusion_surface",
+    "evidence_axis": "G_replay: failure-mode diagnosis for controlled-fusion candidate proof washout",
+    "evidence_increment": "classifies whether the M946 failure is alpha overshoot, current-family rejected-history washout, old-key stale diagnostic, or a deeper controlled-fusion branch conflict",
+    "claim_scope": "process and proof audit only; no training, no PPO, no promotion, no generalization claim",
+    "stop_condition": [
+      "stop if the failure is explained by a known wrong-history branch washout",
+      "stop if the source-diverse failures show the same row family",
+      "stop if the route requires a new objective or a lower-alpha replay gate"
+    ],
+    "fallback_plan": [
+      "if alpha overshoot is likely, route to lower-alpha replay gate design using M944 backup candidates",
+      "if rejected-history branch washout is dominant, route to rejected-branch retention objective design",
+      "if controlled-fusion surface is fundamentally conflicting, route to branch synthesis",
+      "if diagnostics are stale, route to replay-surface refresh"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M946 proof_washout on one public replay surface plus source-diverse diagnostic failures",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M946 failed because the M944 controlled-fusion direction improves normal margins while moving a current-family rejected/wrong-history branch across the collision boundary.",
+  "success_criteria": [
+    "audit document exists",
+    "M267/M264 failing rows are enumerated",
+    "source-diverse diagnostic overlap is summarized",
+    "old-key diagnostic is kept diagnostic-only",
+    "next route is selected without training or PPO"
+  ],
+  "failure_criteria": [
+    "audit cannot identify a concrete failing row family",
+    "audit recommends PPO or promotion despite M946 proof_washout",
+    "audit changes actor inputs or training objectives"
+  ],
+  "commands": [
+    {
+      "name": "audit_m946_failure",
+      "command": "Inspect M946 public replay rows and diagnostics, write a failing-surface audit, then route the next milestone."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/checkpoints/alpha_0_0725.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation.md",
+    "runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/summary.json"
+  ],
+  "decision_rule": "M947 may only audit the M946 failure and choose the next no-training or objective-design route. It must not repair, train, PPO, or promote.",
+  "next_blocker": "M946 failing M267/M264 current-family wrong-history rows need diagnosis before any candidate repair"
+}

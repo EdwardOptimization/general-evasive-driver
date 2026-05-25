@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M946 rejects alpha 0.0725 because public M267/M264 success_drop_count regresses 17 to 13 while behavior seeds pass and PPO promotion remain blocked",
+  "failure_criteria": [
+    "any replay surface fails",
+    "behavior seeds materially regress",
+    "actor inputs change",
+    "M946 runs PPO or promotion"
+  ],
+  "failure_types": [
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor inputs",
+    "do not treat exact objective compatibility as closed-loop proof"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260525T235635Z",
+  "hypothesis": "The M944 alpha 0.0725 candidate may retain closed-loop proof and behavior surfaces while improving the public objective surface.",
+  "lineage": {
+    "blocked_by": [
+      "materialized exact candidate has not yet been checked on closed-loop replay/proof surfaces"
+    ],
+    "derived_from": [
+      "m945-v4-public-base-controlled-fusion-candidate-replay-gate-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/checkpoints/alpha_0_0725.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m945-v4-public-base-controlled-fusion-candidate-replay-gate-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m945-v4-public-base-controlled-fusion-candidate-replay-gate-design.md",
+      "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/summary.json",
+      "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/candidate_compatibility.csv"
+    ],
+    "parent_objective": [
+      "run no-training closed-loop replay/proof retention for materialized M944 primary candidate"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation",
+  "next_blocker": "m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_controlled_fusion_candidate_replay_gate_proof_washout_route_to_failing_surface_audit",
+  "public_gates": [
+    "M946 must run no-training replay/proof retention",
+    "M946 must evaluate six public replay surfaces",
+    "M946 must evaluate behavior seeds 9505 and 9506",
+    "M946 must keep PPO and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "public_base_controlled_fusion_candidate_replay_gate_proof_washout_route_to_failing_surface_audit",
+    "milestone": "m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation",
+    "reason": "M946 rejects alpha 0.0725 because public M267/M264 success_drop_count regresses 17 to 13 while behavior seeds pass and PPO promotion remain blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json exists",
+    "all six public replay surfaces are evaluated",
+    "behavior seeds 9505 and 9506 are evaluated",
+    "actor_inputs_changed is false",
+    "training_started is false",
+    "ppo_used and promoted are false"
+  ],
+  "type": "gate"
+}

@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "proof_washout"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -104,5 +104,5 @@
     "docs/m945-v4-public-base-controlled-fusion-candidate-replay-gate-design.md"
   ],
   "decision_rule": "M946 may only run no-training proof replay and behavior gates. It must not train, run PPO, or promote.",
-  "next_blocker": "candidate replay/proof gate has not yet run"
+  "next_blocker": "m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit"
 }

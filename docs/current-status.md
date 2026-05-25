@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation
+m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -91,10 +91,25 @@ allows exactly one no-training micro-alpha audit before any broader actor
 update. M942 runs that audit and finds strict objective-level candidates at
 alphas `0.0675`, `0.0700`, and `0.0725`. M944 materializes these candidates
 and confirms all three remain exact candidates from ordinary checkpoint
-loading.
+loading. M946 then rejects the primary alpha `0.0725` candidate at closed-loop
+proof-gate level: five public replay surfaces pass, but M267/M264 regresses
+success-drop count `17 -> 13` because rows `6`, `13`, `15`, and `16` become
+wrong-history successes. Behavior seeds `9505` and `9506` still pass, so the
+blocker is proof washout, not broad behavior regression.
 
 ## Recent Evidence Line
 
+- M946 implements the M945 no-training replay/proof gate for M944 alpha
+  `0.0725` versus M399. Actor inputs remain unchanged; no training, PPO, or
+  promotion occurs. Behavior seeds `9505` and `9506` pass with success delta
+  `0.0` and retained `normal >= reset >= zero-all` ordering. Public replay
+  surfaces pass `5/6`; M267/M264 fails with success-drop count `17 -> 13`
+  because rows `6`, `13`, `15`, and `16` move wrong-history margins positive.
+  Source-diverse diagnostics fail on the row `15/16` family and old key `9944`
+  stays diagnostic-only. The result class is
+  `public_base_controlled_fusion_candidate_replay_gate_proof_washout`, so M947
+  must audit the failing surface before any lower-alpha replay, repair
+  objective, PPO, or promotion.
 - M944 materializes the M942 candidate alphas as ordinary checkpoints and
   re-runs exact metrics from checkpoint loading. `materialized_checkpoint_count=3`,
   `exact_candidate_count=3`, `primary_candidate_exact_pass=true`,
