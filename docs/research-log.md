@@ -14526,3 +14526,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M935 synthesizes M929-M934 and closes the actor_mean-only policy-level trust-region branch. Supported: actor_mean-only tooling is valid, preserves the P0 contract, and has some low-tail leverage. Falsified: conservative actor_mean-only training, larger alpha on the M930 raw direction, and stronger actor_mean-only pressure are sufficient to create an admissible candidate. The next branch is `v4_public_base_controlled_fusion_surface`, with response/context encoders and GRU still blocked unless separately justified.
 - decision: `promote_to_next_branch`
 - next: `m936-v4-public-base-controlled-fusion-surface-design`
+
+## 20260525T225153Z - m936-v4-public-base-controlled-fusion-surface-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m936-v4-public-base-controlled-fusion-surface-design.md`
+- result: M936 designs the next controlled trainable surface after actor_mean-only synthesis. M937 may update only `actor_mean` and `response_context_fusion.0`, while freezing response/context encoders, online GRU, critic, log_std, and actor inputs. Because fusion-layer training needs gradients before final fused features, M937 must reconstruct observation/hidden samples rather than reuse cached final features. Replay, PPO, and promotion remain blocked.
+- decision: `controlled_fusion_surface_design_admit_m937`
+- next: `m937-v4-public-base-controlled-fusion-surface-implementation`

@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m936-v4-public-base-controlled-fusion-surface-design
+m937-v4-public-base-controlled-fusion-surface-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -75,10 +75,17 @@ no-training extended-alpha audit of the saved M930 raw actor_mean direction.
 M932 finds weak normal-safe low-tail movement but no tail-lift rows. M933
 designs one more actor_mean-only low-tail pressure pass, and M934 confirms that
 tail lift requires leaving the normal-retention trust region. M935 closes the
-actor_mean-only branch and opens controlled fusion surface design.
+actor_mean-only branch. M936 designs a controlled fusion-plus-head surface:
+train `actor_mean` plus `response_context_fusion.0`, while keeping
+response/context encoders, GRU, critic, log_std, replay, PPO, and promotion
+blocked.
 
 ## Recent Evidence Line
 
+- M936 designs the controlled fusion surface. M937 may update only
+  `actor_mean` and `response_context_fusion.0`; it must reconstruct
+  observation/hidden samples instead of using cached final features, because
+  gradients must pass through the fusion layer. Encoders and GRU remain frozen.
 - M935 synthesizes M929-M934 and closes the actor_mean-only branch. Supported:
   actor_mean-only tooling is valid and has some low-tail leverage. Falsified:
   conservative actor_mean-only training, larger alpha on M930 raw direction,

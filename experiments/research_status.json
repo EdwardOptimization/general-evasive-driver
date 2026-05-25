@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 944,
+    "completed": 945,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m935-v4-public-base-policy-level-trust-region-branch-synthesis",
+    "task_id": "m936-v4-public-base-controlled-fusion-surface-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m935-v4-public-base-policy-level-trust-region-branch-synthesis.md"
+    "command_log": "docs/m936-v4-public-base-controlled-fusion-surface-design.md"
   },
   "next_task": {
-    "id": "m936-v4-public-base-controlled-fusion-surface-design",
+    "id": "m937-v4-public-base-controlled-fusion-surface-implementation",
     "status": "pending",
-    "priority": 9310,
+    "priority": 9320,
     "kind": "infrastructure",
-    "hypothesis": "Design a narrow fusion-plus-head trainable surface after actor_mean-only synthesis",
-    "command": "see experiments/manifests/m936-v4-public-base-controlled-fusion-surface-design.json",
-    "success_artifact": "docs/m936-v4-public-base-controlled-fusion-surface-design.md",
-    "notes": "Pending: design-only controlled fusion surface; exact compatibility, replay, PPO, and promotion blocked"
+    "hypothesis": "Controlled fusion-plus-head training may provide more low-tail leverage while preserving recurrent encoders",
+    "command": "see experiments/manifests/m937-v4-public-base-controlled-fusion-surface-implementation.json",
+    "success_artifact": "runs/m937_v4_public_base_controlled_fusion_surface/summary.json",
+    "notes": "Pending: objective-only controlled fusion surface probe; replay, PPO, and promotion blocked"
   },
-  "updated_at_utc": "20260525T224851Z"
+  "updated_at_utc": "20260525T225153Z"
 }
