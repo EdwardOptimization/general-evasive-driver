@@ -1,0 +1,125 @@
+{
+  "id": "m854-v4-pair-delta-boundary-expansion-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m853-v4-pair-delta-boundary-expansion-design.md",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv",
+      "runs/m844_v4_source_diverse_sequence_effective_corpus/boundary_rows.csv",
+      "runs/m850_v4_pair_delta_focused_source_balanced_mining/balanced_pair_delta_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m853-v4-pair-delta-boundary-expansion-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training expanded boundary bracketing for underrepresented pair-delta sources"
+    ],
+    "derived_from": [
+      "m853-v4-pair-delta-boundary-expansion-design"
+    ],
+    "blocked_by": [
+      "M850 balanced pair-delta rows use only three source groups and two seeds"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m854-v4-pair-delta-boundary-expansion-implementation.md",
+  "public_gates": [
+    "M854 must implement no-training boundary expansion only",
+    "M854 must target underrepresented source seed and fault families",
+    "M854 must write boundary and pairability projection artifacts",
+    "M854 must preserve actor and residual-head checksums",
+    "M854 must not run pair-delta sequence replay, train, or promote"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add hidden fault labels or oracle fields to actor input",
+    "do not replay pair-delta sequences in M854",
+    "do not treat boundary rows as learned self-ID proof"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_boundary_expansion",
+    "evidence_axis": "G_data: expanded low-margin boundary source implementation",
+    "evidence_increment": "implements the M853 boundary expansion to broaden source/fault/seed coverage before pair-delta mining",
+    "claim_scope": "no-training boundary diagnostics only; no pair-delta outcome claim, PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if actor or residual-head checksums change",
+      "stop if implementation only replays M850 active source groups",
+      "stop if pair-delta sequence replay is run",
+      "stop if boundary rows are treated as learned self-ID proof"
+    ],
+    "fallback_plan": [
+      "if strong boundary expansion passes, audit before pair-delta mining",
+      "if sparse useful expansion passes, audit before limited pair-delta mining",
+      "if all weak, audit before source generation",
+      "if artifacts are incomplete, repair implementation before interpreting"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M853 admits one expanded boundary implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "No-training boundary expansion over underrepresented source/fault/seed families can produce a broader low-margin surface for later pair-delta mining.",
+  "success_criteria": [
+    "M854 implements target source selection",
+    "M854 writes expanded accepted boundary artifacts",
+    "M854 writes pairability projection artifacts without sequence replay",
+    "M854 verifies actor and residual-head checksums unchanged",
+    "M854 classifies the boundary expansion result without PPO or promotion"
+  ],
+  "failure_criteria": [
+    "M854 trains actor or residual-head parameters",
+    "M854 runs PPO",
+    "M854 promotes a checkpoint",
+    "M854 runs pair-delta sequence replay",
+    "M854 mutates actor input contract"
+  ],
+  "commands": [
+    {
+      "name": "pair_delta_boundary_expansion",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_pair_delta_boundary_expansion --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --candidate-plan-rows runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv --existing-boundary-rows runs/m844_v4_source_diverse_sequence_effective_corpus/boundary_rows.csv --balanced-pair-delta-rows runs/m850_v4_pair_delta_focused_source_balanced_mining/balanced_pair_delta_rows.csv --run-dir runs/m854_v4_pair_delta_boundary_expansion --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_pair_delta_boundary_expansion.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_pair_delta_boundary_expansion.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m854_v4_pair_delta_boundary_expansion/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m854-v4-pair-delta-boundary-expansion-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m853-v4-pair-delta-boundary-expansion-design.md",
+    "runs/m850_v4_pair_delta_focused_source_balanced_mining/summary.json",
+    "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv"
+  ],
+  "decision_rule": "M854 may produce a no-training boundary expansion diagnostic classification only. It must not train, run PPO, run pair-delta sequence replay, promote, or claim learned self-ID.",
+  "next_blocker": "expanded boundary coverage for underrepresented pair-delta sources has not yet been constructed"
+}

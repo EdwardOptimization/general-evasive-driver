@@ -13752,3 +13752,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M852 synthesizes the M843-M851 source-diverse sequence-effective corpus branch. Supported claims: sequence-level controllability is real, cross-source pair construction works, pair-delta sequence directions can change terminal outcome, and pair-delta-first mining improves raw yield (`17 -> 50` accepted pair-delta rows). Falsified or weakened claims: self-pair component rows are enough for objective design, M847/M850 are objective-ready, and PPO/promotion is justified by direct override rows. Primary failure taxonomy remains `scenario_sampling_failure`; `metric_artifact` remains a risk because direct sequence overrides are diagnostics, not learned self-ID. Public overfit risk remains high because rows are public-corpus, direct-intervention, and M850 has no source holdout. Decision is `promote_to_next_branch`: start `v4_pair_delta_boundary_expansion` to expand low-margin boundary sources for underrepresented source/fault/seed families before another pair-delta mining pass.
 - decision: `promote_to_pair_delta_boundary_expansion`
 - next: `m853-v4-pair-delta-boundary-expansion-design`
+
+## 20260525T141015Z - m853-v4-pair-delta-boundary-expansion-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m853-v4-pair-delta-boundary-expansion-design.md`
+- result: M853 designs the first step of the new `v4_pair_delta_boundary_expansion` branch. It targets the specific M850 coverage gap: balanced pair-delta positives use only source groups `35, 41, 47`, seeds `78053, 78059`, and fault families `mass_cg_shift`, `global_mu_drop`, and `delay_noise_fault`. The design selects underrepresented M825 source rows, prioritizing absent seeds and missing fault families such as brake/drive authority drops, front/rear lateral authority drops, steering fault, and combined fault. M854 is constrained to no-training boundary expansion only: adaptive bracketing on obstacle lateral offset, timing, and half-width; accepted boundary rows must be successful non-collision low-margin rows; pairability projection is allowed, but pair-delta sequence replay is explicitly blocked until after audit.
+- decision: `pair_delta_boundary_expansion_design_admit_m854`
+- next: `m854-v4-pair-delta-boundary-expansion-implementation`
