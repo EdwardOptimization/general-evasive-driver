@@ -13352,3 +13352,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M809 synthesizes M800-M808 and closes the `v4_low_margin_source_diverse_corpus_refresh` branch with decision `pivot`. The branch proved the strict primary low-margin band is reachable, but only through obstacle-half-width geometry retargeting on a concentrated public surface. Broad source refresh, boundary-window retargeting, and multi-axis retargeting did not create source-diverse or axis-diverse primary rows. M804/M807 rows remain useful only as limited debug data, not as calibration, PPO, or promotion evidence.
 - decision: `pivot_to_low_margin_new_data_route`
 - next: `m810-v4-low-margin-new-data-route-design`
+
+## 20260525T161500Z - m810-v4-low-margin-new-data-route-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m810-v4-low-margin-new-data-route-design.md`
+- result: M810 designs the new `v4_low_margin_new_data_route` branch after M809. The design changes the search problem from post-hoc retargeting of fixed public anchors to generating near-boundary source states during scenario collection. It specifies active diagnostic warm-up modes, joint fault and obstacle timing, in-collection boundary search, history interventions, source-balanced export, current-model proxy-fault limitations, and pass gates requiring at least `80` primary rows, `8` seeds, `16` source groups, `4` fault-family pairs, `2` warm-up modes, `3` boundary axes, and unchanged actor/residual checksums. Calibration, PPO, and promotion remain blocked.
+- decision: `low_margin_new_data_route_design_admit_m811`
+- next: `m811-v4-low-margin-new-data-route-implementation`

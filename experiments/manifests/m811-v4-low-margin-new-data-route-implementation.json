@@ -1,0 +1,135 @@
+{
+  "id": "m811-v4-low-margin-new-data-route-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m810-v4-low-margin-new-data-route-design.md",
+      "docs/m809-v4-low-margin-source-diverse-branch-synthesis.md",
+      "runs/m807_v4_low_margin_boundary_axis_expansion/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m810-v4-low-margin-new-data-route-design.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement no-training source-diverse near-boundary data route"
+    ],
+    "derived_from": [
+      "m810-v4-low-margin-new-data-route-design"
+    ],
+    "blocked_by": [
+      "m809-v4-low-margin-source-diverse-branch-synthesis"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m811-v4-low-margin-new-data-route-implementation.md",
+  "public_gates": [
+    "M811 implements and runs only a no-training data route",
+    "M811 preserves the P0 human-view actor contract",
+    "M811 keeps alpha 0.2 and the primary <=0.00005 margin threshold unchanged",
+    "M811 requires source warm-up fault and axis diversity before pass",
+    "M811 confirms actor and M761 residual-head checksums unchanged",
+    "M811 blocks residual calibration, PPO, and promotion"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not train a new residual calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not widen the primary 0.00005 margin threshold",
+    "do not weaken source fault warm-up or axis dominance thresholds",
+    "do not treat M804 or M807 half-width rows alone as a source-diverse pass",
+    "do not claim true wheel-level faults from current single-track proxy data",
+    "do not tune from private holdout failures"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: source-diverse near-boundary data-route implementation",
+    "evidence_increment": "tests whether active diagnostic warm-up and joint obstacle/fault timing can produce source-diverse primary low-margin rows",
+    "claim_scope": "no-training corpus implementation only; no residual calibration PPO or driver promotion",
+    "stop_condition": [
+      "stop if accepted rows are absent",
+      "stop if accepted rows are source concentrated",
+      "stop if accepted rows are boundary-axis concentrated",
+      "stop if warm-up probes create artifacts instead of valid source histories",
+      "stop if actor or residual checksums change"
+    ],
+    "fallback_plan": [
+      "if source diversity remains sparse, audit before another data route",
+      "if warm-up probes are artifacts, pivot to terminal local correction data",
+      "if current simulator limits dominate, route to simulator-fidelity planning",
+      "if corpus passes, route to audit before any active-steer calibration"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M810 designs new data route after M809 pivot",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Active diagnostic warm-up plus joint obstacle and fault timing can produce source-diverse primary low-margin rows without weakening the gate.",
+  "success_criteria": [
+    "M811 writes source group, warm-up, plan, replay, accepted, intervention, balance, limitations, progress, summary, and documentation artifacts",
+    "M811 reports accepted rows, unique seeds, source groups, source indices, warm-up modes, fault-family pairs, boundary axes, and dominance metrics",
+    "M811 confirms actor and residual-head checksums unchanged",
+    "M811 classifies the result without widening the primary margin gate",
+    "M811 keeps residual calibration, PPO, and promotion blocked"
+  ],
+  "failure_criteria": [
+    "implementation trains actor, residual head, or a new calibrator",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation omits source warm-up fault or axis diversity diagnostics",
+    "implementation treats M804/M807 half-width rows as primary-pass evidence without diversity",
+    "implementation claims true wheel-level faults from current proxy data"
+  ],
+  "commands": [
+    {
+      "name": "new_data_route",
+      "command": "implement and run the no-training low-margin new data route; expected run dir runs/m811_v4_low_margin_new_data_route"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_low_margin_new_data_route.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_low_margin_new_data_route.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m811_v4_low_margin_new_data_route/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m811_v4_low_margin_new_data_route/accepted_primary_rows.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m811-v4-low-margin-new-data-route-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m810-v4-low-margin-new-data-route-design.md",
+    "docs/m809-v4-low-margin-source-diverse-branch-synthesis.md",
+    "runs/m807_v4_low_margin_boundary_axis_expansion/summary.json",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M811 may implement and run only no-training source-diverse data generation. It must not train actor or residual parameters, run PPO, or promote a checkpoint.",
+  "next_blocker": "m812-v4-low-margin-new-data-route-audit"
+}
