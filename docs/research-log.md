@@ -13464,3 +13464,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M821 implements and runs the exact non-PPO fixed-gate calibration grid. It evaluates `53` identity/scalar/vector/template gate candidates over `85` source-heldout rows, producing `4505` normal replay rows and `13515` intervention replay rows. The merge preserves `57` train rows and `28` holdout rows with disjoint source groups and complete snapshot reconstruction (`110` lookup rows). Train-only selection picks identity (`rank 1`); the best nonidentity candidates have negative p05 margin lift (`scalar 0.999 train -1.07e-7 holdout -6.67e-7`, `scalar 0.980 train -2.18e-6 holdout -1.35e-5`). Identity preserves normal and intervention gates (`train intervention 0.678363`, `holdout intervention 0.702381`) with unchanged actor and M761 residual-head checksums. Result class is `v4_adaptive_primary_calibration_identity_only`.
 - decision: `v4_adaptive_primary_calibration_identity_only`
 - next: `m822-v4-adaptive-primary-calibration-grid-audit`
+
+## 20260525T191000Z - m822-v4-adaptive-primary-calibration-grid-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m822-v4-adaptive-primary-calibration-grid-audit.md`
+- result: M822 audits M821 as a clean identity-only fixed-gate negative, not a contract or runtime failure. M821 produced complete artifacts (`53` candidates, `4505` normal replay rows, `13515` intervention rows), respected train-only selection, and kept actor/M761 residual-head checksums unchanged. Identity ranked first on train and passed holdout retention; all top nonidentity candidates reduced p05 margin lift, including scalar `0.999` (`train -1.07e-7`, `holdout -6.67e-7`) and scalar `0.980` (`train -2.18e-6`, `holdout -1.35e-5`). M822 closes fixed scalar/vector residual suppression on the M814/M817 corpus and blocks learned adaptive gate training, PPO, promotion, threshold relaxation, and same-corpus fixed-gate tuning from this result alone.
+- decision: `stop_fixed_gate_calibration_on_m814_m817_corpus`
+- next: `m823-v4-adaptive-primary-calibration-next-route-design`

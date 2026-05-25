@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 830,
+        "completed": 831,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m821-v4-adaptive-primary-calibration-grid-implementation",
+        "task_id": "m822-v4-adaptive-primary-calibration-grid-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m821-v4-adaptive-primary-calibration-grid-implementation.md"
+        "command_log": "docs/m822-v4-adaptive-primary-calibration-grid-audit.md"
     },
     "next_task": {
-        "id": "m822-v4-adaptive-primary-calibration-grid-audit",
+        "id": "m823-v4-adaptive-primary-calibration-next-route-design",
         "status": "pending",
-        "priority": 8170,
-        "kind": "gate",
-        "hypothesis": "Audit M821 identity-only fixed-gate calibration-grid result before any further calibration route",
-        "command": "see experiments/manifests/m822-v4-adaptive-primary-calibration-grid-audit.json",
-        "success_artifact": "docs/m822-v4-adaptive-primary-calibration-grid-audit.md",
-        "notes": "Pending: audit identity-only result; training PPO promotion and threshold relaxation remain blocked"
+        "priority": 8180,
+        "kind": "infrastructure",
+        "hypothesis": "Design next evidence route after fixed-gate identity-only audit",
+        "command": "see experiments/manifests/m823-v4-adaptive-primary-calibration-next-route-design.json",
+        "success_artifact": "docs/m823-v4-adaptive-primary-calibration-next-route-design.md",
+        "notes": "Pending: design new data or objective route; no fixed-gate tuning on same corpus"
     },
-    "updated_at_utc": "20260525T185500Z"
+    "updated_at_utc": "20260525T191000Z"
 }

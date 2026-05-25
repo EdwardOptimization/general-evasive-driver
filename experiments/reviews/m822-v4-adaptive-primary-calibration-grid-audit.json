@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M822 audits M821 as a clean identity-only fixed-gate negative and blocks further scalar/vector residual suppression tuning on the same corpus",
+  "failure_criteria": [
+    "M822 treats identity-only as a fixed-gate candidate",
+    "M822 starts training or PPO",
+    "M822 promotes a checkpoint",
+    "M822 ignores M821 holdout or intervention metrics",
+    "M822 weakens threshold or selection rules"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not train a calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not reinterpret identity-only as performance improvement",
+    "do not tune from holdout failures",
+    "do not widen the primary 0.00005 margin threshold"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T095515Z",
+  "hypothesis": "M821 is a clean identity-only fixed-gate negative, so further calibration on the same corpus should not proceed without a new objective or data route.",
+  "lineage": {
+    "blocked_by": [
+      "M821 selected identity and found no strong fixed-gate candidate"
+    ],
+    "derived_from": [
+      "m821-v4-adaptive-primary-calibration-grid-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m821-v4-adaptive-primary-calibration-grid-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m821_v4_adaptive_primary_calibration_grid/summary.json",
+      "runs/m821_v4_adaptive_primary_calibration_grid/candidate_grid.csv",
+      "runs/m821_v4_adaptive_primary_calibration_grid/train_candidate_metrics.csv",
+      "runs/m821_v4_adaptive_primary_calibration_grid/holdout_candidate_metrics.csv",
+      "runs/m821_v4_adaptive_primary_calibration_grid/intervention_candidate_metrics.csv",
+      "docs/m821-v4-adaptive-primary-calibration-grid-implementation.md"
+    ],
+    "parent_objective": [
+      "audit fixed scalar/vector calibration grid identity-only result"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m822-v4-adaptive-primary-calibration-grid-audit",
+  "next_blocker": "m823-v4-adaptive-primary-calibration-next-route-design",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "stop_fixed_gate_calibration_on_m814_m817_corpus",
+  "public_gates": [
+    "M822 must audit M821 before any further calibration design",
+    "M822 must not train or run PPO",
+    "M822 must not promote a checkpoint",
+    "M822 must distinguish identity retention from fixed-gate improvement",
+    "M822 must decide whether to stop this calibration route pivot to data or design another objective"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m822-v4-adaptive-primary-calibration-grid-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "stop_fixed_gate_calibration_on_m814_m817_corpus",
+    "milestone": "m822-v4-adaptive-primary-calibration-grid-audit",
+    "reason": "M822 audits M821 as a clean identity-only fixed-gate negative and blocks further scalar/vector residual suppression tuning on the same corpus",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M822 documents M821 candidate ranking train and holdout metrics",
+    "M822 records supported and falsified claims",
+    "M822 preserves no-training no-PPO and no-promotion blocks",
+    "M822 names the next blocker explicitly"
+  ],
+  "type": "gate"
+}

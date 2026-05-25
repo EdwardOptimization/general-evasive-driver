@@ -1,0 +1,112 @@
+{
+  "id": "m823-v4-adaptive-primary-calibration-next-route-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "objective_overfit",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m822-v4-adaptive-primary-calibration-grid-audit.md",
+      "runs/m821_v4_adaptive_primary_calibration_grid/summary.json",
+      "runs/m821_v4_adaptive_primary_calibration_grid/train_candidate_metrics.csv",
+      "runs/m821_v4_adaptive_primary_calibration_grid/holdout_candidate_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m822-v4-adaptive-primary-calibration-grid-audit.json"
+    ],
+    "parent_objective": [
+      "design next route after fixed-gate identity-only audit"
+    ],
+    "derived_from": [
+      "m822-v4-adaptive-primary-calibration-grid-audit"
+    ],
+    "blocked_by": [
+      "fixed scalar/vector residual gates do not beat identity on M814/M817 corpus"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m823-v4-adaptive-primary-calibration-next-route-design.md",
+  "public_gates": [
+    "M823 must remain design-only",
+    "M823 must not train or run PPO",
+    "M823 must not promote a checkpoint",
+    "M823 must not continue fixed-gate tuning on the same corpus",
+    "M823 must choose a next route that adds new evidence rather than optimizing identity retention"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not train a calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not tune fixed scalar/vector gates on the same public corpus",
+    "do not reinterpret identity-only as improvement",
+    "do not widen the primary 0.00005 margin threshold",
+    "do not add oracle deploy-time inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: next route after fixed-gate identity-only audit",
+    "evidence_increment": "designs a new evidence route after M821/M822 close fixed residual suppression on the M814/M817 corpus",
+    "claim_scope": "design-only; no training, PPO, or driver promotion",
+    "stop_condition": [
+      "stop if the route only repeats fixed-gate tuning",
+      "stop if the route would train from an identity-only result",
+      "stop if the route lacks a new data or objective signal",
+      "stop if the route violates actor-input contract"
+    ],
+    "fallback_plan": [
+      "if no calibration route is justified, pivot to richer fault/source data generation",
+      "if objective signal is missing, design a diagnostic residual-necessity probe",
+      "if data coverage is the blocker, design new extreme hidden-dynamics scenarios",
+      "if branch evidence is exhausted, synthesize and close the branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M822 closes fixed-gate calibration on M814/M817 corpus",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "After M821/M822, the next useful step must add new data or a different objective signal rather than tuning fixed residual gates on the same corpus.",
+  "success_criteria": [
+    "M823 writes a design document for the next route",
+    "M823 explicitly rejects more fixed-gate tuning on the same corpus",
+    "M823 chooses between data-route expansion, diagnostic objective design, or branch closure",
+    "M823 keeps actor/residual training PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M823 admits fixed-gate tuning on the same corpus",
+    "M823 starts implementation or training",
+    "M823 allows PPO or promotion",
+    "M823 ignores M821 identity-only result",
+    "M823 weakens actor-input or primary-threshold constraints"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m823-v4-adaptive-primary-calibration-next-route-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m823-v4-adaptive-primary-calibration-next-route-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m822-v4-adaptive-primary-calibration-grid-audit.md",
+    "docs/m821-v4-adaptive-primary-calibration-grid-implementation.md",
+    "runs/m821_v4_adaptive_primary_calibration_grid/summary.json"
+  ],
+  "decision_rule": "M823 may only admit a new evidence route or branch closure. It must not train, run PPO, or promote.",
+  "next_blocker": "m824-v4-extreme-hidden-dynamics-data-route-design"
+}
