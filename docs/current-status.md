@@ -62,16 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m898-v4-pair-delta-raw-scaling-gate-audit
+m899-v4-pair-delta-raw-scaling-fresh-generalization-design
 ```
 
-M897 passed exact recheck, first replay, full replay, and behavior retention
-for both raw objective-only candidates. M898 must audit the result and choose
-the next route before any fresh/generalization test, public-base integration,
+M898 audited the raw scaling pass as proof-safe larger movement, but not
+success improvement or generalization. M899 must design a no-training
+fresh/generalization benchmark before any execution, public-base integration,
 PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M898 audits M897 as proof-safe raw scaling evidence and routes to fresh
+  generalization design. Supported: raw candidates preserve exact/replay/
+  behavior-retention gates while producing about `10x` the alpha `0.1`
+  clearance movement. Unsupported: success improvement, broad generalization,
+  public-base integration, and PPO safety.
 - M897 passes the controlled raw-candidate scaling gate. Both raw candidates
   reconstruct `247/247` exact rows, first replay gates pass `4/4`, full replay
   gates pass `12/12`, and behavior seeds `9505`/`9506` retain success `0.8125`

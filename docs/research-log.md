@@ -14170,3 +14170,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M897 passes the exact-first controlled scaling gate for both raw objective-only candidates. Both exact rechecks reconstruct `247/247` rows with finite losses and no actor changes. First replay gates pass `4/4`; full replay gates pass `12/12`; behavior seeds `9505` and `9506` retain success `0.8125` and termination `0.1875`. Raw candidates increase clearance versus M568 by about `+0.00488`, roughly `10x` the alpha `0.1` movement, but still do not improve success and slightly reduce return. PPO and promotion remain blocked.
 - decision: `raw_candidate_controlled_scaling_gate_pass`
 - next: `m898-v4-pair-delta-raw-scaling-gate-audit`
+
+## 20260525T202101Z - m898-v4-pair-delta-raw-scaling-gate-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m898-v4-pair-delta-raw-scaling-gate-audit.md`
+- result: M898 audits M897 as a proof-safe raw scaling positive but blocks promotion and PPO. The supported claim is that raw objective-only candidates preserve exact, replay, and behavior-retention gates while producing about `10x` the alpha `0.1` clearance movement. Unsupported claims remain success improvement, broad generalization, public-base integration, and PPO safety. The next route is a no-training fresh/generalization benchmark design.
+- decision: `raw_scaling_gate_audit_route_to_fresh_generalization_design`
+- next: `m899-v4-pair-delta-raw-scaling-fresh-generalization-design`

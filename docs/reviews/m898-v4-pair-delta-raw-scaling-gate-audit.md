@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T202017Z
+- Generated at UTC: 20260525T202300Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M898 may only audit M897 and choose the next route. It must not run replay, train, run PPO, or promote.
+- Promotion decision: raw_scaling_gate_audit_route_to_fresh_generalization_design
+- Decision reason: M898 audits raw scaling as proof-safe larger movement and routes to fresh generalization design before PPO promotion or integration
 
 ## Hypothesis
 
@@ -70,7 +70,18 @@ M897 raw candidates are proof-safe and larger than alpha_0_1, but they need an a
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m898-v4-pair-delta-raw-scaling-gate-audit
+- type: gate
+- checkpoint: docs/m898-v4-pair-delta-raw-scaling-gate-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: raw_scaling_gate_audit_route_to_fresh_generalization_design
+- reason: M898 audits raw scaling as proof-safe larger movement and routes to fresh generalization design before PPO promotion or integration
 
 ## Next Blocker
 

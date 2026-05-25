@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M898 may only audit M897 and choose the next route. It must not run replay, train, run PPO, or promote.",
+  "decision_reason": "M898 audits raw scaling as proof-safe larger movement and routes to fresh generalization design before PPO promotion or integration",
   "failure_criteria": [
     "M898 promotes raw candidates",
     "M898 admits PPO",
@@ -23,7 +23,7 @@
     "do not route directly to public-base integration without a separate design milestone"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260525T202017Z",
+  "generated_at_utc": "20260525T202300Z",
   "hypothesis": "M897 raw candidates are proof-safe and larger than alpha_0_1, but they need an audit before any fresh/generalization test, integration design, or PPO.",
   "lineage": {
     "blocked_by": [
@@ -58,7 +58,7 @@
   "milestone": "m898-v4-pair-delta-raw-scaling-gate-audit",
   "next_blocker": "Raw-candidate controlled scaling pass has not yet been audited for next-route selection",
   "private_holdout_policy": "promotion_only",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "raw_scaling_gate_audit_route_to_fresh_generalization_design",
   "public_gates": [
     "M898 must separate proof-safe raw scaling from driver improvement",
     "M898 must compare raw effect size against alpha_0_1",
@@ -66,7 +66,20 @@
     "M898 must record public-gate overfit limitations",
     "M898 must keep actor input contract unchanged"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m898-v4-pair-delta-raw-scaling-gate-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "raw_scaling_gate_audit_route_to_fresh_generalization_design",
+    "milestone": "m898-v4-pair-delta-raw-scaling-gate-audit",
+    "reason": "M898 audits raw scaling as proof-safe larger movement and routes to fresh generalization design before PPO promotion or integration",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "M898 records M897 exact, replay, and behavior results",
     "M898 compares raw movement with alpha_0_1",
