@@ -62,18 +62,28 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m872-v4-boundary-preserving-missing-seed-pair-delta-refresh-design
+m873-v4-boundary-preserving-missing-seed-pair-delta-refresh-implementation
 ```
 
-M871 audited M870 as clean but not objective-ready. M870 targeted all missing
-left seeds, but `0/1728` retarget replay rows stayed inside the accepted
-normal-branch margin window: retargets were either already colliding or too
-safe. M872 should design a normal-branch boundary-preserving missing-seed
-refresh before any further implementation, objective training, PPO, promotion,
-base actor mutation, or M761 residual-head mutation.
+M872 designed a normal-branch boundary-preserving refresh. M873 should first
+search/refine retarget parameters until missing-seed normal branches are inside
+the accepted margin window, then run pair-delta replay only on those accepted
+normal-window candidates. This is the final targeted implementation allowed
+before branch synthesis; objective training, PPO, promotion, base actor
+mutation, and M761 residual-head mutation remain blocked.
 
 ## Recent Evidence Line
 
+- M872 designs a no-training two-stage refresh for missing seeds. Stage A must
+  run normal-only boundary search, include the original target point, classify
+  wide-safe vs collision/negative vs accepted-window rows, and refine adjacent
+  brackets until normal branch satisfies `normal_success == true`,
+  `normal_collision == false`, and `0.0 <= normal_margin <= 0.03`. Stage B may
+  run pair-delta sequence replay only on accepted normal-window candidates.
+  Thresholds remain unchanged, component controls stay diagnostic-only, and
+  objective training, PPO, actor mutation, M761 mutation, and promotion remain
+  blocked. M873 is admitted as the final targeted implementation before branch
+  synthesis.
 - M871 audits M870 as clean but not objective-ready. Construction worked and
   targeted all missing seeds, but accepted-row failure is explained by normal
   branch window miss: `0/1728` retarget replay rows satisfy the accepted normal

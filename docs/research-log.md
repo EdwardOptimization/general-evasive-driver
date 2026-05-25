@@ -13929,3 +13929,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M871 audits M870 as clean but not objective-ready. M870 construction worked and targeted all missing seeds, but accepted-row failure is explained by normal-branch window miss: `0/1728` retarget replay rows satisfy the accepted normal branch condition, while `1152` rows are already colliding and `576` rows are too safe (`normal_margin > 0.03`). The largest missing-seed margin deltas are real diagnostics but occur on non-primary rows, so they cannot become objective data. Objective training, PPO, and promotion remain blocked.
 - decision: `route_to_boundary_preserving_missing_seed_pair_delta_refresh_design`
 - next: `m872-v4-boundary-preserving-missing-seed-pair-delta-refresh-design`
+
+## 20260525T181818Z - m872-v4-boundary-preserving-missing-seed-pair-delta-refresh-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m872-v4-boundary-preserving-missing-seed-pair-delta-refresh-design.md`
+- result: M872 designs a no-training two-stage refresh for missing seeds. Stage A must run normal-only boundary search, include the original target point, classify wide-safe vs collision/negative vs accepted-window rows, and refine adjacent brackets until normal branch satisfies `normal_success == true`, `normal_collision == false`, and `0.0 <= normal_margin <= 0.03`. Stage B may run pair-delta sequence replay only on accepted normal-window candidates. Thresholds remain unchanged, component controls stay diagnostic-only, and objective training, PPO, actor mutation, M761 mutation, and promotion remain blocked. M873 is admitted as the final targeted implementation before branch synthesis.
+- decision: `boundary_preserving_missing_seed_pair_delta_refresh_design_admit_m873`
+- next: `m873-v4-boundary-preserving-missing-seed-pair-delta-refresh-implementation`
