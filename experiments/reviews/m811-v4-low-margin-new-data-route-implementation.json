@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M811 runs 2688 no-training boundary candidates with unchanged actor and residual checksums zero warm-up artifacts zero replay errors but zero primary accepted rows; sparse result blocks calibration PPO and promotion pending audit",
+  "failure_criteria": [
+    "implementation trains actor, residual head, or a new calibrator",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation omits source warm-up fault or axis diversity diagnostics",
+    "implementation treats M804/M807 half-width rows as primary-pass evidence without diversity",
+    "implementation claims true wheel-level faults from current proxy data"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not train a new residual calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not widen the primary 0.00005 margin threshold",
+    "do not weaken source fault warm-up or axis dominance thresholds",
+    "do not treat M804 or M807 half-width rows alone as a source-diverse pass",
+    "do not claim true wheel-level faults from current single-track proxy data",
+    "do not tune from private holdout failures"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T071457Z",
+  "hypothesis": "Active diagnostic warm-up plus joint obstacle and fault timing can produce source-diverse primary low-margin rows without weakening the gate.",
+  "lineage": {
+    "blocked_by": [
+      "m809-v4-low-margin-source-diverse-branch-synthesis"
+    ],
+    "derived_from": [
+      "m810-v4-low-margin-new-data-route-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m810-v4-low-margin-new-data-route-design.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m810-v4-low-margin-new-data-route-design.md",
+      "docs/m809-v4-low-margin-source-diverse-branch-synthesis.md",
+      "runs/m807_v4_low_margin_boundary_axis_expansion/summary.json"
+    ],
+    "parent_objective": [
+      "implement no-training source-diverse near-boundary data route"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m811-v4-low-margin-new-data-route-implementation",
+  "next_blocker": "m812-v4-low-margin-new-data-route-audit",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "v4_low_margin_new_data_route_sparse",
+  "public_gates": [
+    "M811 implements and runs only a no-training data route",
+    "M811 preserves the P0 human-view actor contract",
+    "M811 keeps alpha 0.2 and the primary <=0.00005 margin threshold unchanged",
+    "M811 requires source warm-up fault and axis diversity before pass",
+    "M811 confirms actor and M761 residual-head checksums unchanged",
+    "M811 blocks residual calibration, PPO, and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m811_v4_low_margin_new_data_route/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_low_margin_new_data_route_sparse",
+    "milestone": "m811-v4-low-margin-new-data-route-implementation",
+    "reason": "M811 runs 2688 no-training boundary candidates with unchanged actor and residual checksums zero warm-up artifacts zero replay errors but zero primary accepted rows; sparse result blocks calibration PPO and promotion pending audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M811 writes source group, warm-up, plan, replay, accepted, intervention, balance, limitations, progress, summary, and documentation artifacts",
+    "M811 reports accepted rows, unique seeds, source groups, source indices, warm-up modes, fault-family pairs, boundary axes, and dominance metrics",
+    "M811 confirms actor and residual-head checksums unchanged",
+    "M811 classifies the result without widening the primary margin gate",
+    "M811 keeps residual calibration, PPO, and promotion blocked"
+  ],
+  "type": "infrastructure"
+}

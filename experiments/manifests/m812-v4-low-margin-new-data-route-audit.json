@@ -1,0 +1,113 @@
+{
+  "id": "m812-v4-low-margin-new-data-route-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m811_v4_low_margin_new_data_route/summary.json",
+      "runs/m811_v4_low_margin_new_data_route/boundary_search_replay_rows.csv",
+      "runs/m811_v4_low_margin_new_data_route/accepted_primary_rows.csv",
+      "docs/m811-v4-low-margin-new-data-route-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m811-v4-low-margin-new-data-route-implementation.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit M811 no-training source-diverse data route result"
+    ],
+    "derived_from": [
+      "m811-v4-low-margin-new-data-route-implementation"
+    ],
+    "blocked_by": [
+      "m811-v4-low-margin-new-data-route-sparse"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m812-v4-low-margin-new-data-route-audit.md",
+  "public_gates": [
+    "M812 must not train actor residual head calibrator or PPO",
+    "M812 must not promote a checkpoint",
+    "M812 must audit M811 sparse result using existing artifacts only",
+    "M812 must preserve the strict primary 0.00005 margin gate",
+    "M812 must decide whether adaptive boundary bracketing is admitted or the branch should pivot"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not train a new residual calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not weaken the primary 0.00005 margin threshold",
+    "do not treat sparse accepted rows as a pass",
+    "do not claim true wheel-level faults from current proxy data",
+    "do not tune from private holdout failures"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: audit source-diverse near-boundary data-route implementation",
+    "evidence_increment": "classifies whether M811's zero primary rows are a fixed-grid boundary miss, route failure, or simulator-fidelity blocker",
+    "claim_scope": "audit-only blocker classification; no residual calibration PPO or driver promotion",
+    "stop_condition": [
+      "stop if M811 artifacts are missing or inconsistent",
+      "stop if M811 violated no-training or checksum invariants",
+      "stop if sparse result is caused by replay errors or warm-up artifacts",
+      "stop if no meaningful collision/safe edge exists for adaptive bracketing"
+    ],
+    "fallback_plan": [
+      "if artifacts are inconsistent, repair M811 instrumentation before further data generation",
+      "if sparse result is fixed-grid boundary miss, design adaptive closed-loop bracketing",
+      "if sparse result is source-route failure, pivot branch instead of another narrow implementation",
+      "if simulator-fidelity limits dominate, route to simulator-fidelity planning"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M812 audits first implementation result in the v4_low_margin_new_data_route branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M811 sparse output is a fixed-grid boundary-resolution miss rather than a replay, checksum, or warm-up artifact failure.",
+  "success_criteria": [
+    "M812 documents M811 result class and key counts",
+    "M812 explains whether the margin distribution supports adaptive closed-loop bracketing",
+    "M812 preserves calibration PPO and promotion blocks",
+    "M812 records supported and falsified claims",
+    "M812 names the next blocker explicitly"
+  ],
+  "failure_criteria": [
+    "M812 treats zero accepted rows as a pass",
+    "M812 weakens the primary margin threshold",
+    "M812 starts training or PPO",
+    "M812 promotes a checkpoint",
+    "M812 ignores current-model proxy-fault limitations"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "inspect M811 artifacts and write docs/m812-v4-low-margin-new-data-route-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m812-v4-low-margin-new-data-route-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m811_v4_low_margin_new_data_route/summary.json",
+    "docs/m811-v4-low-margin-new-data-route-implementation.md"
+  ],
+  "decision_rule": "M812 may admit only an audit-backed next design milestone. It must not admit calibration, PPO, or promotion.",
+  "next_blocker": "m813-v4-adaptive-boundary-bracketing-design"
+}

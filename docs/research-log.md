@@ -13361,3 +13361,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M810 designs the new `v4_low_margin_new_data_route` branch after M809. The design changes the search problem from post-hoc retargeting of fixed public anchors to generating near-boundary source states during scenario collection. It specifies active diagnostic warm-up modes, joint fault and obstacle timing, in-collection boundary search, history interventions, source-balanced export, current-model proxy-fault limitations, and pass gates requiring at least `80` primary rows, `8` seeds, `16` source groups, `4` fault-family pairs, `2` warm-up modes, `3` boundary axes, and unchanged actor/residual checksums. Calibration, PPO, and promotion remain blocked.
 - decision: `low_margin_new_data_route_design_admit_m811`
 - next: `m811-v4-low-margin-new-data-route-implementation`
+
+## 20260525T163000Z - m811-v4-low-margin-new-data-route-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m811_v4_low_margin_new_data_route`
+- artifact: `docs/m811-v4-low-margin-new-data-route-implementation.md`
+- result: M811 implements and runs the no-training source-diverse data route with active diagnostic warm-up and joint obstacle/fault timing. It replays `2688` boundary candidates from `96` source groups and `192` snapshots with `0` replay errors, `0` warm-up artifact rows, and unchanged actor/residual-head checksums. The strict primary band remains empty: `0` rows in `0.0 <= margin <= 0.00005` and `0` rows in `0.00005 < margin <= 0.001`, while `542` rows collide and `2146` rows are safe. Result class is `v4_low_margin_new_data_route_sparse`.
+- decision: `v4_low_margin_new_data_route_sparse`
+- next: `m812-v4-low-margin-new-data-route-audit`
