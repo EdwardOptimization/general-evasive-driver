@@ -1,0 +1,99 @@
+{
+  "id": "m929-v4-public-base-policy-level-trust-region-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m928-v4-public-base-trust-region-feasibility-audit.md",
+      "runs/m927_v4_public_base_residual_direction_feasibility/summary.json",
+      "runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m928-v4-public-base-trust-region-feasibility-audit.json"
+    ],
+    "parent_objective": [
+      "design actor-level trust-region objective after residual bridge infeasibility"
+    ],
+    "derived_from": [
+      "m928-v4-public-base-trust-region-feasibility-audit"
+    ],
+    "blocked_by": [
+      "policy-level trust-region design has not yet been written"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m929-v4-public-base-policy-level-trust-region-design.md",
+  "public_gates": [
+    "M929 must be design-only",
+    "M929 must preserve P0 actor input contract",
+    "M929 must pre-register objective sanity and proof-retention gates before any actor update",
+    "M929 must block replay PPO and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M929",
+    "do not change actor inputs",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not weaken M927 normal-retention gates"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_policy_level_trust_region",
+    "evidence_axis": "G_policy_update: design actor-level trust-region route after residual infeasibility",
+    "evidence_increment": "opens actor-level design branch while keeping replay PPO and promotion blocked",
+    "claim_scope": "policy-level objective design only; no training, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if the design changes actor inputs",
+      "stop if the design skips objective sanity before replay",
+      "stop if PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if design passes, route to small actor-update objective sanity implementation",
+      "if actor-level route is too risky, route to corpus/source strategy instead"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M928 opens policy-level trust-region branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "After residual bridge infeasibility, the next controlled route is a design-only actor-level trust-region objective with exact proof gates before replay or PPO.",
+  "success_criteria": [
+    "docs/m929-v4-public-base-policy-level-trust-region-design.md exists",
+    "M929 pre-registers actor-level objective sanity and proof-retention gates",
+    "M929 preserves P0 input contract",
+    "M929 blocks replay PPO and promotion"
+  ],
+  "failure_criteria": [
+    "M929 starts training",
+    "M929 changes actor inputs",
+    "M929 admits replay PPO or promotion before objective sanity"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m929-v4-public-base-policy-level-trust-region-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m929-v4-public-base-policy-level-trust-region-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m928-v4-public-base-trust-region-feasibility-audit.md"
+  ],
+  "decision_rule": "M929 may only design actor-level trust-region objective work. It must not train, run replay, run PPO, or promote.",
+  "next_blocker": "policy-level trust-region design has not yet been written"
+}

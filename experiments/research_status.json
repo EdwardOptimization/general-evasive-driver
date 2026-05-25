@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 935,
+    "completed": 937,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m926-v4-public-base-residual-direction-feasibility-design",
+    "task_id": "m928-v4-public-base-trust-region-feasibility-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m926-v4-public-base-residual-direction-feasibility-design.md"
+    "command_log": "docs/m928-v4-public-base-trust-region-feasibility-audit.md"
   },
   "next_task": {
-    "id": "m927-v4-public-base-residual-direction-feasibility-implementation",
+    "id": "m929-v4-public-base-policy-level-trust-region-design",
     "status": "pending",
-    "priority": 9220,
+    "priority": 9240,
     "kind": "infrastructure",
-    "hypothesis": "Run no-training residual direction mixture feasibility sweep before more public-base residual training",
-    "command": "see experiments/manifests/m927-v4-public-base-residual-direction-feasibility-implementation.json",
-    "success_artifact": "runs/m927_v4_public_base_residual_direction_feasibility/summary.json",
-    "notes": "Pending: no-training feasibility audit; training, exact compatibility, replay, PPO, and promotion blocked"
+    "hypothesis": "Design actor-level trust-region objective sanity and proof gates after residual bridge infeasibility",
+    "command": "see experiments/manifests/m929-v4-public-base-policy-level-trust-region-design.json",
+    "success_artifact": "docs/m929-v4-public-base-policy-level-trust-region-design.md",
+    "notes": "Pending: design only; training, replay, PPO, and promotion blocked"
   },
-  "updated_at_utc": "20260525T220922Z"
+  "updated_at_utc": "20260525T221520Z"
 }

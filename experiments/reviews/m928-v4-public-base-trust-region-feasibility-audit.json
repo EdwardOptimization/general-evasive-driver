@@ -1,0 +1,77 @@
+{
+  "decision_reason": "M928 classifies M927 as promotion_gate_failure trust-region conflict and opens policy-level trust-region design branch",
+  "failure_criteria": [
+    "M928 admits M927 as feasible",
+    "M928 starts exact compatibility replay PPO or promotion",
+    "M928 omits failure classification"
+  ],
+  "failure_types": [
+    "promotion_gate_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat M927 as feasible",
+    "do not weaken normal-retention gates",
+    "do not run exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T221753Z",
+  "hypothesis": "M927 should be treated as a residual-bridge trust-region conflict and routed to policy-level trust-region design rather than another residual-head objective variant.",
+  "lineage": {
+    "blocked_by": [
+      "M927 feasible_candidate_count is zero"
+    ],
+    "derived_from": [
+      "m927-v4-public-base-residual-direction-feasibility-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m927-v4-public-base-residual-direction-feasibility-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m927-v4-public-base-residual-direction-feasibility-implementation.md",
+      "runs/m927_v4_public_base_residual_direction_feasibility/summary.json",
+      "runs/m927_v4_public_base_residual_direction_feasibility/feasibility_grid.csv"
+    ],
+    "parent_objective": [
+      "audit no-training residual direction feasibility result"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m928-v4-public-base-trust-region-feasibility-audit",
+  "next_blocker": "m929-v4-public-base-policy-level-trust-region-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_trust_region_feasibility_audit_route_to_policy_level_trust_region_design",
+  "public_gates": [
+    "M928 must classify M927 no-candidate result",
+    "M928 must choose the next branch",
+    "M928 must not run training, exact compatibility, replay, PPO, or promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m928-v4-public-base-trust-region-feasibility-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "public_base_trust_region_feasibility_audit_route_to_policy_level_trust_region_design",
+    "milestone": "m928-v4-public-base-trust-region-feasibility-audit",
+    "reason": "M928 classifies M927 as promotion_gate_failure trust-region conflict and opens policy-level trust-region design branch",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m928-v4-public-base-trust-region-feasibility-audit.md exists",
+    "M928 records M927 feasible_candidate_count == 0",
+    "M928 records tail_lift_rows > 0 and normal_retained_tail_lift_rows == 0",
+    "M928 routes to policy-level trust-region design",
+    "M928 blocks exact compatibility replay PPO and promotion"
+  ],
+  "type": "gate"
+}

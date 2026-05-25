@@ -62,19 +62,26 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m927-v4-public-base-residual-direction-feasibility-implementation
+m929-v4-public-base-policy-level-trust-region-design
 ```
 
-M925 synthesizes M916-M924 and closes the target-regeneration branch. Target
-generation succeeded, but residual objectives either improve target loss
-without enough low-tail lift or improve low-tail metrics only by violating
-normal retention. M926 designs a no-training residual-direction feasibility
-audit. M927 must run the alpha/mix sweep over existing residual heads before
-more public-base residual training, exact compatibility, replay, PPO, or
-promotion.
+M927 ran the no-training residual-direction feasibility sweep and found no
+alpha/mix candidate. M928 audits this as a residual-bridge trust-region
+conflict and routes to policy-level trust-region design. M929 must design
+actor-level objective sanity and proof-retention gates before any training,
+replay, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M928 audits M927 as `promotion_gate_failure`: existing residual directions
+  can produce tail lift or normal retention, but not both at the same alpha/mix
+  point. The next route is `v4_public_base_policy_level_trust_region`, not
+  another residual-head objective variant.
+- M927 implements no-training residual direction feasibility. It reconstructs
+  `1213/1213`, joins `122/122` targets, evaluates `121` alpha/mix rows, and
+  finds `feasible_candidate_count=0`. There are `22` tail-lift rows but
+  `0` normal-retained tail-lift rows. No training, exact compatibility, replay,
+  PPO, or promotion occurred.
 - M926 designs no-training residual-direction feasibility. M927 should load the
   existing M921 and M924 residual heads, evaluate mixtures
   `(1-w) * residual_M921 + w * residual_M924` across alpha values, and decide

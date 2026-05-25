@@ -1,0 +1,108 @@
+{
+  "id": "m928-v4-public-base-trust-region-feasibility-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "promotion_gate_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m927-v4-public-base-residual-direction-feasibility-implementation.md",
+      "runs/m927_v4_public_base_residual_direction_feasibility/summary.json",
+      "runs/m927_v4_public_base_residual_direction_feasibility/feasibility_grid.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m927-v4-public-base-residual-direction-feasibility-implementation.json"
+    ],
+    "parent_objective": [
+      "audit no-training residual direction feasibility result"
+    ],
+    "derived_from": [
+      "m927-v4-public-base-residual-direction-feasibility-implementation"
+    ],
+    "blocked_by": [
+      "M927 feasible_candidate_count is zero"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m928-v4-public-base-trust-region-feasibility-audit.md",
+  "public_gates": [
+    "M928 must classify M927 no-candidate result",
+    "M928 must choose the next branch",
+    "M928 must not run training, exact compatibility, replay, PPO, or promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat M927 as feasible",
+    "do not weaken normal-retention gates",
+    "do not run exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_trust_region_feasibility",
+    "evidence_axis": "G_feasibility: audit residual direction feasibility result",
+    "evidence_increment": "classifies M927 as trust-region conflict and routes away from residual-head bridge variants",
+    "claim_scope": "audit and route decision only; no training, exact compatibility, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if the audit admits a no-candidate residual direction",
+      "stop if exact compatibility replay PPO or promotion is attempted",
+      "stop if actor-input contract changes"
+    ],
+    "fallback_plan": [
+      "route to policy-level trust-region design",
+      "if policy-level design is rejected later, route to corpus/source strategy"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M927 no feasible residual direction",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m928-v4-public-base-trust-region-feasibility-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M927 should be treated as a residual-bridge trust-region conflict and routed to policy-level trust-region design rather than another residual-head objective variant.",
+  "success_criteria": [
+    "docs/m928-v4-public-base-trust-region-feasibility-audit.md exists",
+    "M928 records M927 feasible_candidate_count == 0",
+    "M928 records tail_lift_rows > 0 and normal_retained_tail_lift_rows == 0",
+    "M928 routes to policy-level trust-region design",
+    "M928 blocks exact compatibility replay PPO and promotion"
+  ],
+  "failure_criteria": [
+    "M928 admits M927 as feasible",
+    "M928 starts exact compatibility replay PPO or promotion",
+    "M928 omits failure classification"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m928-v4-public-base-trust-region-feasibility-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m928-v4-public-base-trust-region-feasibility-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m927_v4_public_base_residual_direction_feasibility/summary.json"
+  ],
+  "decision_rule": "M928 may only audit M927 and choose the next branch. It must not train, run exact compatibility, replay, PPO, or promote.",
+  "next_blocker": "m929-v4-public-base-policy-level-trust-region-design"
+}

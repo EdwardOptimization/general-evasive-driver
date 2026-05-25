@@ -14441,3 +14441,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M926 designs a no-training feasibility audit over existing M921 and M924 residual directions. M927 should sweep direction mixtures and alphas, compute the same normal-retention, low-tail, and target-action metrics as M921/M924, and route based on whether any mixture satisfies all candidate gates. Training, new residual fitting, exact compatibility, replay, PPO, and promotion remain blocked.
 - decision: `public_base_residual_direction_feasibility_design_admit_m927`
 - next: `m927-v4-public-base-residual-direction-feasibility-implementation`
+
+## 20260525T221520Z - m927-v4-public-base-residual-direction-feasibility-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m927_v4_public_base_residual_direction_feasibility`
+- artifact: `docs/m927-v4-public-base-residual-direction-feasibility-implementation.md`
+- result: M927 runs a deterministic no-training alpha/mix sweep over M921 and M924 residual heads. It reconstructs `1213/1213`, joins `122/122` targets, evaluates `121` grid rows, and finds `feasible_candidate_count=0`. There are `22` tail-lift rows, but `normal_retained_tail_lift_rows=0`, so the result is a trust-region conflict. No residual fitting, exact compatibility, replay, PPO, or promotion occurred.
+- decision: `public_base_residual_direction_feasibility_trust_region_conflict_route_to_policy_level_strategy_audit`
+- next: `m928-v4-public-base-trust-region-feasibility-audit`
+
+## 20260525T221520Z - m928-v4-public-base-trust-region-feasibility-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m928-v4-public-base-trust-region-feasibility-audit.md`
+- result: M928 classifies M927 as `promotion_gate_failure`: no residual mixture can be admitted toward exact compatibility because tail lift requires action drift outside the normal-retention gate. The residual-head bridge has reached a local stop condition. The next branch is policy-level trust-region design, not another residual-head objective variant.
+- decision: `public_base_trust_region_feasibility_audit_route_to_policy_level_trust_region_design`
+- next: `m929-v4-public-base-policy-level-trust-region-design`
