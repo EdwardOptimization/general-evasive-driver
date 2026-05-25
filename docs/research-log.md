@@ -12913,3 +12913,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M762 audits M761 as a clean objective-only positive. M761 is not a promoted driver, but it does show that the v4 sequence corpus has residual actor-coupling signal: alpha `0.2`, `0.5`, and `1.0` improve exact gap metrics while keeping normal first-action drift inside gates. The audit keeps `scenario_sampling_failure` visible because hard-negative availability remains `0.721352` and rows are dominated by `zero_command_obs` and long horizons. It admits only no-PPO closed-loop residual replay design.
 - decision: `promote_to_v4_residual_closed_loop_replay_design`
 - next: `m763-v4-residual-closed-loop-replay-design`
+
+## 20260525T055000Z - m763-v4-residual-closed-loop-replay-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m763-v4-residual-closed-loop-replay-design.md`
+- result: M763 designs a no-PPO closed-loop replay evaluator for the M761 residual head. It compares base alpha `0.0` with residual alphas `0.2`, `0.5`, and `1.0`, reconstructs M755/M761 source snapshots, applies the residual wrapper at every rollout step, and reports normal retention separately from intervention action/outcome sensitivity. Required metrics include success, collision, road departure, spin, terminal reason, clearance margin, first-action drift, sequence-action drift, variant/horizon/fault-family stratification, and hard-negative/sentinel diagnostics. The design blocks training, PPO, and promotion.
+- decision: `v4_residual_closed_loop_replay_design_admit_m764`
+- next: `m764-v4-residual-closed-loop-replay-implementation`

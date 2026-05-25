@@ -62,17 +62,26 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m763-v4-residual-closed-loop-replay-design
+m764-v4-residual-closed-loop-replay-implementation
 ```
 
-M763 should design a no-PPO closed-loop replay evaluator for the M761 residual
-head. It should compare base alpha `0.0` with residual alphas `0.2`, `0.5`,
-and `1.0`, report closed-loop outcome metrics and normal-retention metrics,
-stratify by variant/horizon/fault family/source, and keep PPO plus checkpoint
-promotion blocked.
+M764 should implement the no-PPO closed-loop replay evaluator designed in M763.
+It should compare base alpha `0.0` with residual alphas `0.2`, `0.5`, and
+`1.0`, reconstruct M755/M761 source rows, report normal retention separately
+from intervention sensitivity, stratify by variant/horizon/fault family, and
+keep training, PPO, and checkpoint promotion blocked.
 
 ## Recent Evidence Line
 
+- M763 designs a no-PPO closed-loop replay evaluator for the M761 residual
+  head. It compares base alpha `0.0` with residual alphas `0.2`, `0.5`, and
+  `1.0`, reconstructs M755/M761 source snapshots, applies the residual wrapper
+  at every rollout step, and reports normal retention separately from
+  intervention action/outcome sensitivity. Required metrics include success,
+  collision, road departure, spin, terminal reason, clearance margin,
+  first-action drift, sequence-action drift, variant/horizon/fault-family
+  stratification, and hard-negative/sentinel diagnostics. Training, PPO, and
+  promotion remain blocked.
 - M762 audits M761 as a clean objective-only positive, not a promoted driver.
   It supports that the v4 sequence corpus has residual actor-coupling signal:
   alpha `0.2`, `0.5`, and `1.0` improve exact gap metrics while keeping normal

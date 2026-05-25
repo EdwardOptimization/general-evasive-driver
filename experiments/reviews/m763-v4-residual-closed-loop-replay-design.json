@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M763 designs no-PPO base versus residual alpha replay with normal retention intervention sensitivity stratification and promotion blocked",
+  "failure_criteria": [
+    "design admits training or PPO",
+    "design lacks closed-loop outcome metrics",
+    "design ignores normal-history retention",
+    "design ignores variant/horizon/fault-family stratification",
+    "design treats exact objective gains as closed-loop proof"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train residual or actor parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not tune alphas from replay and call it unbiased",
+    "do not claim true four-wheel or single-wheel physics",
+    "do not hide closed-loop regressions behind exact objective gains"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T001847Z",
+  "hypothesis": "A no-PPO closed-loop replay evaluator can be designed to test whether M761 exact residual gains survive rollout without actor mutation or promotion.",
+  "lineage": {
+    "blocked_by": [
+      "m762-v4-sequence-objective-only-probe-audit"
+    ],
+    "derived_from": [
+      "m762-v4-sequence-objective-only-probe-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m762-v4-sequence-objective-only-probe-audit.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m762-v4-sequence-objective-only-probe-audit.md",
+      "runs/m761_v4_sequence_objective_probe/summary.json",
+      "runs/m761_v4_sequence_objective_probe/alpha_metrics.csv",
+      "runs/m761_v4_sequence_objective_probe/objective_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_objective": [
+      "design no-PPO closed-loop replay for M761 residual head"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m763-v4-residual-closed-loop-replay-design",
+  "next_blocker": "m764-v4-residual-closed-loop-replay-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "v4_residual_closed_loop_replay_design_admit_m764",
+  "public_gates": [
+    "M763 designs base-vs-residual closed-loop replay",
+    "M763 keeps PPO and promotion blocked",
+    "M763 requires variant horizon and fault-family stratification",
+    "M763 reports closed-loop outcomes separately from exact objective metrics",
+    "M763 preserves actor input contract"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m763-v4-residual-closed-loop-replay-design.md",
+    "clearance_margin_mean": "",
+    "decision": "v4_residual_closed_loop_replay_design_admit_m764",
+    "milestone": "m763-v4-residual-closed-loop-replay-design",
+    "reason": "M763 designs no-PPO base versus residual alpha replay with normal retention intervention sensitivity stratification and promotion blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M763 defines replay inputs and alpha set",
+    "M763 defines normal and intervention replay branches",
+    "M763 defines closed-loop metrics and stratification",
+    "M763 defines sentinel and hard-negative diagnostics",
+    "M763 blocks PPO, training, and promotion"
+  ],
+  "type": "infrastructure"
+}

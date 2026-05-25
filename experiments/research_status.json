@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 771,
+        "completed": 772,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m762-v4-sequence-objective-only-probe-audit",
+        "task_id": "m763-v4-residual-closed-loop-replay-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m762-v4-sequence-objective-only-probe-audit.md"
+        "command_log": "docs/m763-v4-residual-closed-loop-replay-design.md"
     },
     "next_task": {
-        "id": "m763-v4-residual-closed-loop-replay-design",
+        "id": "m764-v4-residual-closed-loop-replay-implementation",
         "status": "pending",
-        "priority": 7580,
+        "priority": 7590,
         "kind": "infrastructure",
-        "hypothesis": "Design no-PPO closed-loop replay for M761 residual head",
-        "command": "see experiments/manifests/m763-v4-residual-closed-loop-replay-design.json",
-        "success_artifact": "docs/m763-v4-residual-closed-loop-replay-design.md",
-        "notes": "Pending: design base-vs-residual alpha closed-loop replay while keeping PPO and promotion blocked"
+        "hypothesis": "Implement no-PPO closed-loop replay for M761 residual head",
+        "command": "see experiments/manifests/m764-v4-residual-closed-loop-replay-implementation.json",
+        "success_artifact": "docs/m764-v4-residual-closed-loop-replay-implementation.md",
+        "notes": "Pending: implement base-vs-residual alpha replay with normal retention and intervention sensitivity metrics"
     },
-    "updated_at_utc": "20260525T054000Z"
+    "updated_at_utc": "20260525T055000Z"
 }

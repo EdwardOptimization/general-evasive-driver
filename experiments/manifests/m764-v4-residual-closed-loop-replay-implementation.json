@@ -1,0 +1,128 @@
+{
+  "id": "m764-v4-residual-closed-loop-replay-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m763-v4-residual-closed-loop-replay-design.md",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt",
+      "runs/m761_v4_sequence_objective_probe/summary.json",
+      "runs/m761_v4_sequence_objective_probe/objective_rows.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m763-v4-residual-closed-loop-replay-design.json",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement no-PPO closed-loop residual replay evaluator"
+    ],
+    "derived_from": [
+      "m763-v4-residual-closed-loop-replay-design"
+    ],
+    "blocked_by": [
+      "m763-v4-residual-closed-loop-replay-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m764-v4-residual-closed-loop-replay-implementation.md",
+  "public_gates": [
+    "M764 reconstructs M755/M761 source rows",
+    "M764 compares alpha 0.0 0.2 0.5 1.0 without training",
+    "M764 reports normal retention and intervention sensitivity separately",
+    "M764 stratifies by variant horizon and fault family",
+    "PPO and checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not tune residual alpha during the replay",
+    "do not hide normal-regression rows",
+    "do not claim true four-wheel or single-wheel physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_closed_loop_replay",
+    "evidence_axis": "G_closed_loop: implement no-PPO replay for M761 residual head",
+    "evidence_increment": "tests whether M761 exact residual gains survive rollout across base and nonzero alphas",
+    "claim_scope": "diagnostic closed-loop replay only; no PPO or driver promotion",
+    "stop_condition": [
+      "stop if reconstruction is below threshold",
+      "stop if actor checksum changes",
+      "stop if normal rollout regresses broadly",
+      "stop if no closed-loop action or outcome gap survives"
+    ],
+    "fallback_plan": [
+      "if reconstruction fails, audit source snapshot replay",
+      "if normal regresses, audit alpha-specific residual magnitude",
+      "if gap does not survive, audit objective-to-rollout mismatch",
+      "if runtime is too high, rerun capped source-balanced smoke before full replay"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M763 admits no-PPO residual closed-loop replay implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M761 residual alphas can be evaluated in closed-loop replay without actor mutation, PPO, or promotion.",
+  "success_criteria": [
+    "M764 implements residual replay wrapper and tests",
+    "M764 reconstructs source rows at or above 0.98",
+    "M764 writes alpha_metrics.csv replay_rows.csv objective_rows.csv rejected_rows.csv and summary.json",
+    "M764 reports normal retention and intervention sensitivity gates",
+    "M764 assigns a result_class without PPO or promotion"
+  ],
+  "failure_criteria": [
+    "base actor checksum changes",
+    "optimizer or PPO path starts",
+    "checkpoint is promoted",
+    "normal retention metrics are missing",
+    "closed-loop outcome metrics are missing",
+    "stratification is missing"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "implement src/autodrift/v4_residual_closed_loop_replay.py and focused tests"
+    },
+    {
+      "name": "registered_replay",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_residual_closed_loop_replay --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --positive-rows runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv --scenario-config configs/extreme_fault_distribution_v4_scenarios.json --run-dir runs/m764_v4_residual_closed_loop_replay --device cpu --alphas 0.0,0.2,0.5,1.0"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_residual_closed_loop_replay.py",
+      "type": "source"
+    },
+    {
+      "path": "runs/m764_v4_residual_closed_loop_replay/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m764_v4_residual_closed_loop_replay/alpha_metrics.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m764-v4-residual-closed-loop-replay-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt",
+    "docs/m763-v4-residual-closed-loop-replay-design.md"
+  ],
+  "decision_rule": "M764 may only implement and run no-PPO closed-loop residual replay. It must not train, mutate actor parameters, or promote a checkpoint.",
+  "next_blocker": "m765-v4-residual-closed-loop-replay-audit"
+}
