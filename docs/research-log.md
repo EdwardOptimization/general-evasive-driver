@@ -13836,3 +13836,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M861 audits M860 as source-limited but refinement-ready. M860 generated broad plans and `17` accepted boundary-new-to-M844 rows, but sparse gates still fail (`17 < 32` accepted rows, `38 < 40` primary pairability rows, `4 < 5` seeds). Route-specific evidence shows all accepted rows came from `all_safe_closer_obstacle`, while all-collision safer-side rows remained negative and half-width-only rows produced zero accepted rows. The important new finding is that M860 generated replay contains `13` same-source same-axis groups with wide/negative brackets but no accepted boundary row, in addition to `17` groups with accepted rows. This makes no-training generated-boundary refinement a better next step than direct pair-delta replay or broad scenario generation.
 - decision: `admit_generated_boundary_refinement_design`
 - next: `m862-v4-generated-boundary-refinement-design`
+
+## 20260525T160859Z - m862-v4-generated-boundary-refinement-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m862-v4-generated-boundary-refinement-design.md`
+- result: M862 designs a no-training generated-boundary refinement route from M860 generated replay rows. The design selects same-source same-step same-axis `all_safe_closer_obstacle` groups with adjacent wide/negative endpoints, prioritizes groups with no M860 accepted boundary row, reconstructs the original M825 temporal snapshot, and performs bounded normal closed-loop bisection/refinement between endpoint parameters. The next implementation must report refined-only accepted rows and combined M860+refined coverage, because the actual question is whether generation plus refinement can cross sparse generated-boundary gates. Pairability remains a cheap projection only; pair-delta replay, objective training, PPO, actor mutation, M761 mutation, and promotion remain blocked. Validation requires branch synthesis before another implementation because M853-M862 has reached the 10-milestone cadence.
+- decision: `route_to_branch_synthesis_before_generated_boundary_refinement`
+- next: `m863-v4-pair-delta-boundary-expansion-branch-synthesis`

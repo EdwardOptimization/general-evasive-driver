@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M862 designs no-training bisection refinement over M860 generated wide negative brackets but routes to branch synthesis before implementation because cadence is reached",
+  "failure_criteria": [
+    "M862 runs replay",
+    "M862 admits PPO or promotion",
+    "M862 trains actor or residual parameters",
+    "M862 treats pairability projection as sequence outcome evidence",
+    "M862 ignores the sparse-gate shortfall"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not run replay in M862",
+    "do not train actor or residual-head parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not run pair-delta sequence replay",
+    "do not treat M860 pairability projection as pair-delta outcome evidence",
+    "do not use generated bracket rows as learned self-ID proof"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T162724Z",
+  "hypothesis": "M860's generated wide/negative brackets justify a no-training refinement design before pair-delta mining or broader scenario generation.",
+  "lineage": {
+    "blocked_by": [
+      "M860 has 13 generated source-axis groups with wide/negative brackets but no accepted boundary row"
+    ],
+    "derived_from": [
+      "m861-v4-closer-obstacle-source-generation-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m861-v4-closer-obstacle-source-generation-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m861-v4-closer-obstacle-source-generation-audit.md",
+      "runs/m860_v4_closer_obstacle_source_generation/summary.json",
+      "runs/m860_v4_closer_obstacle_source_generation/generated_replay_rows.csv",
+      "runs/m860_v4_closer_obstacle_source_generation/accepted_generated_boundary_rows.csv",
+      "runs/m860_v4_closer_obstacle_source_generation/pairability_projection_rows.csv"
+    ],
+    "parent_objective": [
+      "design no-training refinement of M860 generated wide/negative brackets"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m862-v4-generated-boundary-refinement-design",
+  "next_blocker": "M853-M862 branch has reached synthesis cadence before generated-boundary refinement implementation",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "route_to_branch_synthesis_before_generated_boundary_refinement",
+  "public_gates": [
+    "M862 must design refinement before another implementation",
+    "M862 must use M860 generated replay rows only as bracket evidence",
+    "M862 must preserve the no-training P0 actor contract",
+    "M862 must keep pair-delta sequence replay blocked",
+    "M862 must keep PPO and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m862-v4-generated-boundary-refinement-design.md",
+    "clearance_margin_mean": "",
+    "decision": "route_to_branch_synthesis_before_generated_boundary_refinement",
+    "milestone": "m862-v4-generated-boundary-refinement-design",
+    "reason": "M862 designs no-training bisection refinement over M860 generated wide negative brackets but routes to branch synthesis before implementation because cadence is reached",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M862 writes a design document for generated boundary refinement",
+    "M862 defines source/axis bracket selection from M860 generated replay rows",
+    "M862 defines replay/refinement acceptance gates and artifacts",
+    "M862 keeps pair-delta replay PPO training and promotion blocked",
+    "M862 routes to branch synthesis before implementation when cadence requires it"
+  ],
+  "type": "infrastructure"
+}

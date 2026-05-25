@@ -79,7 +79,7 @@
     "M862 defines source/axis bracket selection from M860 generated replay rows",
     "M862 defines replay/refinement acceptance gates and artifacts",
     "M862 keeps pair-delta replay PPO training and promotion blocked",
-    "M862 pre-registers the next implementation only if design is admitted"
+    "M862 routes to branch synthesis before implementation when cadence requires it"
   ],
   "failure_criteria": [
     "M862 runs replay",
@@ -107,6 +107,6 @@
     "docs/m861-v4-closer-obstacle-source-generation-audit.md",
     "runs/m860_v4_closer_obstacle_source_generation/generated_replay_rows.csv"
   ],
-  "decision_rule": "M862 may only design the generated-boundary refinement route. It must not run replay, train, run PPO, run pair-delta sequence replay, or promote.",
-  "next_blocker": "M860 generated brackets have not yet been refined into accepted boundary rows"
+  "decision_rule": "M862 may only design the generated-boundary refinement route and route to synthesis if branch cadence requires it. It must not run replay, train, run PPO, run pair-delta sequence replay, or promote.",
+  "next_blocker": "M853-M862 branch has reached synthesis cadence before generated-boundary refinement implementation"
 }

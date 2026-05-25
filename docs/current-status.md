@@ -62,16 +62,26 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m862-v4-generated-boundary-refinement-design
+m863-v4-pair-delta-boundary-expansion-branch-synthesis
 ```
 
-M862 should design no-training refinement of M860 generated wide/negative
-brackets before any pair-delta replay, objective training, PPO, promotion, or
-broader source generation. PPO, promotion, base actor mutation, M761
-residual-head mutation, and pair-delta sequence replay remain blocked.
+M863 should synthesize the M853-M862 pair-delta boundary expansion branch before
+generated-boundary refinement implementation or any pivot. PPO, promotion, base
+actor mutation, M761 residual-head mutation, and pair-delta sequence replay
+remain blocked.
 
 ## Recent Evidence Line
 
+- M862 designs the no-training generated-boundary refinement route. The next
+  implementation should select M860 same-source same-axis generated
+  wide/negative brackets, prioritize groups with no M860 accepted boundary row,
+  reconstruct the original M825 temporal snapshot, and replay bounded
+  bisection/refinement between endpoint parameters. It must report both
+  refined-only accepted rows and combined M860+refined coverage. Pairability
+  remains a cheap projection only; pair-delta replay, objective training, PPO,
+  actor mutation, M761 mutation, and promotion remain blocked. However, the
+  branch has reached the 10-milestone synthesis cadence, so M863 must synthesize
+  M853-M862 before another implementation.
 - M861 audits M860 as source-limited but refinement-ready. Sparse gates still
   fail (`17 < 32` accepted generated boundary rows, `38 < 40` primary
   pairability rows, `4 < 5` seeds), so pair-delta replay is still blocked. But
