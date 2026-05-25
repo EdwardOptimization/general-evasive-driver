@@ -13696,3 +13696,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M846 designs the next no-training data route after M845: construct real cross-source near-boundary pairs before any objective training. The design starts from M844 boundary rows and reconstructed snapshots, pairs distinct source groups with low normal margins and first-action divergence, then scans mandatory pair-delta sequence directions plus component controls over hold steps `[4, 6]` and epsilon grid `[0.025, 0.05, 0.075]`. Pair-delta rows are now first-class: strong corpus requires at least `120` accepted primary sequence-effective rows and at least `30` accepted pair-delta rows, while pair construction failure is explicitly classified if fewer than `40` paired candidates survive or no pair-delta rows are available. Source-aware train/eval/source-holdout splits are required, and all direct sequence rows remain controllability diagnostics only. M847 implementation is admitted; PPO, promotion, actor/residual training, and outcome-coupled objective training remain blocked.
 - decision: `cross_source_sequence_effective_pair_refresh_design_admit_m847`
 - next: `m847-v4-cross-source-sequence-effective-pair-refresh-implementation`
+
+## 20260525T133551Z - m847-v4-cross-source-sequence-effective-pair-refresh-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m847_v4_cross_source_sequence_effective_pair_refresh`
+- artifact: `docs/m847-v4-cross-source-sequence-effective-pair-refresh-implementation.md`
+- result: M847 implements the no-training real cross-source pair refresh. It builds `208` cross-source candidate pairs from M844 boundary rows, balances to `76` replayable pairs, reconstructs `76` pair rows across `18` unique snapshots, and evaluates `3648` sequence rows including `912` pair-delta rows. This fixes the M844 structural gap: accepted pair-delta rows increase from `0` to `17`. Overall accepted primary sequence-effective rows are `145`, with `115` success/collision flips and unchanged actor/M761 checksums. The result is `v4_cross_source_sequence_effective_pair_refresh_sparse_pair_positive`, not a strong corpus: pair-delta accepted rows are `17 < 30`, source groups are `9 < 10`, seeds `3 < 4`, left fault families `4 < 5`, max source dominance `0.3034 > 0.30`, max seed dominance `0.5517 > 0.35`, and direction dominance `0.6690 > 0.55`. Next is an audit before any objective training.
+- decision: `v4_cross_source_sequence_effective_pair_refresh_sparse_pair_positive`
+- next: `m848-v4-cross-source-sequence-effective-pair-refresh-audit`

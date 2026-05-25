@@ -1,0 +1,110 @@
+{
+  "id": "m848-v4-cross-source-sequence-effective-pair-refresh-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m847-v4-cross-source-sequence-effective-pair-refresh-implementation.md",
+      "runs/m847_v4_cross_source_sequence_effective_pair_refresh/summary.json",
+      "runs/m847_v4_cross_source_sequence_effective_pair_refresh/diversity_summary.json",
+      "runs/m847_v4_cross_source_sequence_effective_pair_refresh/accepted_pair_delta_rows.csv",
+      "runs/m847_v4_cross_source_sequence_effective_pair_refresh/accepted_sequence_effective_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m847-v4-cross-source-sequence-effective-pair-refresh-implementation.json"
+    ],
+    "parent_objective": [
+      "audit sparse pair-positive cross-source sequence-effectiveness result"
+    ],
+    "derived_from": [
+      "m847-v4-cross-source-sequence-effective-pair-refresh-implementation"
+    ],
+    "blocked_by": [
+      "M847 finds pair-delta sequence evidence but the accepted pair-delta subset is source/fault concentrated"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m848-v4-cross-source-sequence-effective-pair-refresh-audit.md",
+  "public_gates": [
+    "M848 must audit M847 before objective design",
+    "M848 must separate pair-delta evidence from component sequence evidence",
+    "M848 must decide whether to refine pair-delta corpus expand bracketing or synthesize",
+    "M848 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M848",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat direct pair-delta sequence rows as learned self-ID proof",
+    "do not ignore accepted pair-delta concentration"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_source_diverse_sequence_effective_corpus",
+    "evidence_axis": "G_data: sparse pair-positive cross-source corpus audit",
+    "evidence_increment": "audits whether M847 pair-delta evidence is strong enough for objective design or needs more data construction",
+    "claim_scope": "audit only; no replay, training, PPO, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if M847 artifacts are incomplete",
+      "stop if pair-delta concentration is ignored",
+      "stop if direct sequence override evidence is treated as learned self-ID proof",
+      "stop if PPO is admitted before corpus quality is sufficient"
+    ],
+    "fallback_plan": [
+      "if M847 is sparse pair-positive but concentrated, design source-balanced pair-delta refinement",
+      "if M847 is actually strong after audit, design objective sanity without PPO",
+      "if M847 exposes implementation artifacts, repair the runner",
+      "if branch stalls, synthesize before further continuation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M847 returns sparse pair-positive cross-source result",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M847 is a real pair-delta positive but source-concentrated result, so the next step should audit before any objective design.",
+  "success_criteria": [
+    "M848 writes an audit document for M847",
+    "M848 verifies M847 artifact completeness and frozen checksums",
+    "M848 classifies pair-delta concentration and failure taxonomy",
+    "M848 selects the next no-training branch or objective-sanity blocker",
+    "M848 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M848 admits PPO or promotion",
+    "M848 trains actor or residual parameters",
+    "M848 ignores M847 pair-delta concentration",
+    "M848 treats direct sequence override rows as learned self-ID proof"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m848-v4-cross-source-sequence-effective-pair-refresh-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m848-v4-cross-source-sequence-effective-pair-refresh-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m847-v4-cross-source-sequence-effective-pair-refresh-implementation.md",
+    "runs/m847_v4_cross_source_sequence_effective_pair_refresh/summary.json",
+    "runs/m847_v4_cross_source_sequence_effective_pair_refresh/diversity_summary.json"
+  ],
+  "decision_rule": "M848 may only audit M847 and pre-register the next branch. It must not run replay, train, run PPO, or promote.",
+  "next_blocker": "M847 pair-delta evidence is positive but source/fault concentrated"
+}
