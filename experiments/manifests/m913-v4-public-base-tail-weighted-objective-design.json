@@ -1,0 +1,106 @@
+{
+  "id": "m913-v4-public-base-tail-weighted-objective-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m912-v4-public-base-sequence-recalibration-audit-implementation.md",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/summary.json",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/group_deficit_summary.csv",
+      "runs/m909_v4_public_base_residual_head_probe/objective_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m912-v4-public-base-sequence-recalibration-audit-implementation.json"
+    ],
+    "parent_objective": [
+      "design a public-base tail-weighted residual objective for M399 low-tail rows"
+    ],
+    "derived_from": [
+      "m912-v4-public-base-sequence-recalibration-audit-implementation"
+    ],
+    "blocked_by": [
+      "M912 routes public-base sequence recalibration to tail-weighted objective design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m913-v4-public-base-tail-weighted-objective-design.md",
+  "public_gates": [
+    "M913 must design tail weighting over M912 low-tail rows",
+    "M913 must preserve normal-retention safeguards",
+    "M913 must keep M399 actor frozen in the next implementation",
+    "M913 must define exact candidate admission gates",
+    "M913 must block replay, PPO, actor update, and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M913",
+    "do not run M880 exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not optimize only mean gap while ignoring p10 and deficit"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_public_base_integration_readiness",
+    "evidence_axis": "G_objective_design: design tail-weighted objective for M399 low-tail rows",
+    "evidence_increment": "turns M912 route decision into a concrete low-tail weighted residual objective design",
+    "claim_scope": "design only; no training, exact compatibility, replay, PPO, integration claim, or promotion",
+    "stop_condition": [
+      "stop if low-tail rows are not first-class training weights",
+      "stop if p10/deficit gates are omitted",
+      "stop if normal-retention safeguards are omitted",
+      "stop if replay, PPO, or promotion is admitted"
+    ],
+    "fallback_plan": [
+      "if tail-weighted design is unsafe, route to target regeneration design",
+      "if design is accepted, route to residual-head-only implementation",
+      "if implementation fails, audit whether low-tail rows require fresh M399 target mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M912 route_decision is public_base_tail_weighted_objective_design",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A design-only milestone can specify a safe M399 tail-weighted residual objective that targets the broad M912 low-tail row set while keeping actor update, replay, PPO, and promotion blocked.",
+  "success_criteria": [
+    "M913 defines row weights from low-tail and deficit severity",
+    "M913 defines normal-retention penalties and gates",
+    "M913 defines p10 and deficit admission gates",
+    "M913 defines next implementation scope as residual-head-only with frozen M399",
+    "M913 blocks replay, PPO, actor update, and promotion"
+  ],
+  "failure_criteria": [
+    "M913 omits low-tail weighting",
+    "M913 optimizes mean gap only",
+    "M913 admits replay or PPO before residual-head-only evidence",
+    "M913 does not define exact candidate gates"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m913-v4-public-base-tail-weighted-objective-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m913-v4-public-base-tail-weighted-objective-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m912-v4-public-base-sequence-recalibration-audit-implementation.md"
+  ],
+  "decision_rule": "M913 may only design the tail-weighted objective. It must not train, run exact compatibility, run replay, run PPO, or promote.",
+  "next_blocker": "Public-base tail-weighted objective has not yet been designed"
+}

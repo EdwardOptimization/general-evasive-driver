@@ -62,16 +62,20 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m912-v4-public-base-sequence-recalibration-audit-implementation
+m913-v4-public-base-tail-weighted-objective-design
 ```
 
-M911 designed the no-training M399 recalibration audit. M912 must implement and
-run deterministic alpha comparison, low-tail row export, group deficit summary,
-and route decision before any new residual training, M880 exact execution,
-replay, PPO, or promotion.
+M912 found broad M399 low-tail deficit: `498/1213` near-base rows across `17`
+fault-family pairs. M913 must design a tail-weighted residual objective before
+any new training, M880 exact execution, replay, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M912 implements and runs deterministic recalibration audit. It does not load
+  model checkpoints or train. At near-base alpha `0.02`, M399 has `498/1213`
+  low-tail rows, low-tail fraction `0.4105523495465787`, and `17` distinct
+  fault-family pairs. Route decision:
+  `public_base_tail_weighted_objective_design`.
 - M911 designs deterministic public-base sequence recalibration. It uses M909
   alpha `0.02` only as a near-base diagnostic, exports low-tail rows where
   `normal_intervention_gap < 0.021141` or `gap_deficit > 0.02`, summarizes

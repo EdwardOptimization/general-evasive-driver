@@ -14300,3 +14300,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M911 designs a deterministic no-training recalibration audit for the M399 public-base sequence objective. The audit will compare M761 and M909 alpha metrics, label M909 alpha `0.02` as near-base diagnostic rather than exact zero, export low-tail rows and group deficit summaries, and choose exactly one next route: tail-weighted objective, target regeneration, or residual-free sanity. Training, M880 exact execution, replay, PPO, and promotion stay blocked.
 - decision: `public_base_sequence_recalibration_design_admit_m912`
 - next: `m912-v4-public-base-sequence-recalibration-audit-implementation`
+
+## 20260525T211318Z - m912-v4-public-base-sequence-recalibration-audit-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m912_v4_public_base_sequence_recalibration_audit`
+- artifact: `docs/m912-v4-public-base-sequence-recalibration-audit-implementation.md`
+- result: M912 implements and runs the deterministic no-training recalibration audit. It finds `498/1213` near-base low-tail rows at alpha `0.02`, with low-tail fraction `0.4105523495465787`, across `17` fault-family pairs. Near-base alpha is explicitly diagnostic and not exact zero. No model checkpoint was loaded, and no training, M880 exact execution, replay, PPO, or promotion occurred.
+- decision: `public_base_sequence_recalibration_audit_route_to_tail_weighted_objective_design`
+- next: `m913-v4-public-base-tail-weighted-objective-design`

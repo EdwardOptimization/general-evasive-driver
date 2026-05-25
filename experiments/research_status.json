@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 920,
+    "completed": 921,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m911-v4-public-base-sequence-objective-recalibration-design",
+    "task_id": "m912-v4-public-base-sequence-recalibration-audit-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m911-v4-public-base-sequence-objective-recalibration-design.md"
+    "command_log": "docs/m912-v4-public-base-sequence-recalibration-audit-implementation.md"
   },
   "next_task": {
-    "id": "m912-v4-public-base-sequence-recalibration-audit-implementation",
+    "id": "m913-v4-public-base-tail-weighted-objective-design",
     "status": "pending",
-    "priority": 9070,
+    "priority": 9080,
     "kind": "infrastructure",
-    "hypothesis": "Implement deterministic no-training M399 low-tail recalibration audit and route decision",
-    "command": "see experiments/manifests/m912-v4-public-base-sequence-recalibration-audit-implementation.json",
-    "success_artifact": "runs/m912_v4_public_base_sequence_recalibration_audit/summary.json",
-    "notes": "Pending: no-training alpha comparison, low-tail rows, group summaries, and route decision; no model mutation, exact compatibility, replay, PPO, or promotion"
+    "hypothesis": "Design a M399 tail-weighted residual objective using broad low-tail rows from M912",
+    "command": "see experiments/manifests/m913-v4-public-base-tail-weighted-objective-design.json",
+    "success_artifact": "docs/m913-v4-public-base-tail-weighted-objective-design.md",
+    "notes": "Pending: design tail-weighted residual objective; no training, exact compatibility, replay, PPO, or promotion"
   },
-  "updated_at_utc": "20260525T210806Z"
+  "updated_at_utc": "20260525T211318Z"
 }
