@@ -13501,3 +13501,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M825 implements and runs the no-training extreme hidden-dynamics data route. It evaluates `512` normal replays and `3072` history-intervention rows across `64` source groups and `18` fault specs with frozen M568 actor and M761 residual head checksums unchanged. Supported variants are reset-hidden-each-step, reset-hidden-then-normal, zero-command observation, command-shift observation, and response-delay observation. `wrong_cross_fault_history` is explicitly logged as unsupported diagnostic rather than faked. The route finds `47` raw / `18` balanced primary self-ID rows, `40` raw / `12` balanced mitigation rows, and `256` matched action-divergent proxy pairs, but the pre-registered `120` row and source-diversity gates fail. Accepted rows are concentrated in `2` seeds, `3` source groups, `3` fault-family pairs, `2` onset buckets, and `natural_policy` warm-up only. Result class is `v4_extreme_hidden_dynamics_data_route_sparse`.
 - decision: `v4_extreme_hidden_dynamics_data_route_sparse`
 - next: `m826-v4-extreme-hidden-dynamics-data-route-audit`
+
+## 20260525T201500Z - m826-v4-extreme-hidden-dynamics-data-route-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m826-v4-extreme-hidden-dynamics-data-route-audit.md`
+- result: M826 audits M825 as a clean sparse/source-concentrated result, not a contract or runtime failure. The full normal replay pool is broad (`512` rows across `12` seeds, `64` source groups, `9` fault-family pairs, `4` warm-up modes, and `4` onset buckets), but accepted self-ID rows collapse to `18` rows across `2` seeds, `3` source groups, `3` fault-family pairs, `2` onset buckets, and only `natural_policy` warm-up. The strongest intervention signal is `zero_command_obs` (`max gap 0.0282559`, `mean gap 0.0043561`), while `response_delay_obs` is weak (`max gap 0.0000653`, negative mean gap). M826 therefore rejects reading M825 as full response-history self-ID proof and admits wrong-cross-fault history intervention design using the `256` matched action-divergent proxy pairs.
+- decision: `admit_wrong_cross_fault_history_intervention_design`
+- next: `m827-v4-wrong-cross-fault-history-intervention-design`

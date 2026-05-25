@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 834,
+    "completed": 835,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m825-v4-extreme-hidden-dynamics-data-route-implementation",
+    "task_id": "m826-v4-extreme-hidden-dynamics-data-route-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m825-v4-extreme-hidden-dynamics-data-route-implementation.md"
+    "command_log": "docs/m826-v4-extreme-hidden-dynamics-data-route-audit.md"
   },
   "next_task": {
-    "id": "m826-v4-extreme-hidden-dynamics-data-route-audit",
+    "id": "m827-v4-wrong-cross-fault-history-intervention-design",
     "status": "pending",
-    "priority": 8210,
-    "kind": "gate",
-    "hypothesis": "Audit M825 sparse evidence before any source expansion wrong-history implementation PPO or promotion",
-    "command": "see experiments/manifests/m826-v4-extreme-hidden-dynamics-data-route-audit.json",
-    "success_artifact": "docs/m826-v4-extreme-hidden-dynamics-data-route-audit.md",
-    "notes": "Pending: M825 found 18 balanced self-ID rows versus 120 required; wrong-cross-fault history remains unsupported"
+    "priority": 8220,
+    "kind": "infrastructure",
+    "hypothesis": "Design real wrong-cross-fault history intervention before source expansion PPO or promotion",
+    "command": "see experiments/manifests/m827-v4-wrong-cross-fault-history-intervention-design.json",
+    "success_artifact": "docs/m827-v4-wrong-cross-fault-history-intervention-design.md",
+    "notes": "Pending: M826 found M825 sparse/source-concentrated and dominated by zero-command sensitivity; wrong-cross-fault history injection is the next control variable"
   },
-  "updated_at_utc": "20260525T200500Z"
+  "updated_at_utc": "20260525T201500Z"
 }

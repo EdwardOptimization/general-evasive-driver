@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M826 audits M825 as sparse/source-concentrated and zero-command dominated rather than full response-history self-ID proof; next is real wrong-cross-fault history injection design",
+  "failure_criteria": [
+    "M826 treats sparse M825 evidence as a pass",
+    "M826 relaxes source-diversity gates after seeing results",
+    "M826 admits PPO without wrong-history or stronger source-diverse evidence",
+    "M826 ignores current-model proxy claim boundary"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "objective_overfit",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not relax sparse gates after seeing M825",
+    "do not treat zero-command sensitivity alone as full self-ID proof",
+    "do not claim wrong-cross-fault history support until injection is implemented",
+    "do not claim true wheel-level physical faults from current proxies"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T104658Z",
+  "hypothesis": "M825 sparse evidence can be cleanly attributed to missing wrong-history injection plus source concentration rather than a contract or runtime failure.",
+  "lineage": {
+    "blocked_by": [
+      "M825 found only 18 balanced self-ID rows versus 120 required and wrong_cross_fault_history remains unsupported"
+    ],
+    "derived_from": [
+      "m825-v4-extreme-hidden-dynamics-data-route-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m825-v4-extreme-hidden-dynamics-data-route-implementation.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_dataset": [
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/summary.json",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/diversity_summary.json",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/history_intervention_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/accepted_self_id_rows.csv",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/matched_pair_rows.csv"
+    ],
+    "parent_objective": [
+      "audit sparse extreme hidden-dynamics data route before any further route expansion or training"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m826-v4-extreme-hidden-dynamics-data-route-audit",
+  "next_blocker": "M825 sparse result requires audit before more implementation",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "admit_wrong_cross_fault_history_intervention_design",
+  "public_gates": [
+    "M826 must inspect M825 summary/diversity/intervention artifacts",
+    "M826 must classify whether sparse evidence is source-coverage, intervention-support, or history-insensitivity limited",
+    "M826 must verify actor and residual-head checksum invariants",
+    "M826 must preserve current-model versus proxy-fault claim boundary",
+    "M826 must not train, run PPO, or promote a checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m826-v4-extreme-hidden-dynamics-data-route-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "admit_wrong_cross_fault_history_intervention_design",
+    "milestone": "m826-v4-extreme-hidden-dynamics-data-route-audit",
+    "reason": "M826 audits M825 as sparse/source-concentrated and zero-command dominated rather than full response-history self-ID proof; next is real wrong-cross-fault history injection design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M826 writes an audit document with evidence tables from M825 artifacts",
+    "M826 verifies no actor/residual training or promotion occurred",
+    "M826 identifies whether next should implement wrong-cross-fault history injection or expand source-balanced sampling",
+    "M826 keeps PPO and promotion blocked"
+  ],
+  "type": "gate"
+}
