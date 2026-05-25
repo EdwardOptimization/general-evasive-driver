@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 791,
+        "completed": 792,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m782-v4-normal-margin-aware-residual-calibration-design",
+        "task_id": "m783-v4-normal-margin-aware-residual-calibration-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m782-v4-normal-margin-aware-residual-calibration-design.md"
+        "command_log": "docs/m783-v4-normal-margin-aware-residual-calibration-implementation.md"
     },
     "next_task": {
-        "id": "m783-v4-normal-margin-aware-residual-calibration-implementation",
+        "id": "m784-v4-normal-margin-aware-residual-calibration-audit",
         "status": "pending",
-        "priority": 7780,
-        "kind": "infrastructure",
-        "hypothesis": "Implement no-PPO normal-margin-aware residual calibrator around frozen M761 residual head",
-        "command": "see experiments/manifests/m783-v4-normal-margin-aware-residual-calibration-implementation.json",
-        "success_artifact": "docs/m783-v4-normal-margin-aware-residual-calibration-implementation.md",
-        "notes": "Pending: implement calibrator probe; no base actor mutation PPO or promotion"
+        "priority": 7790,
+        "kind": "gate",
+        "hypothesis": "Audit M783 clean no-gap-lift normal-margin calibration result",
+        "command": "see experiments/manifests/m784-v4-normal-margin-aware-residual-calibration-audit.json",
+        "success_artifact": "docs/m784-v4-normal-margin-aware-residual-calibration-audit.md",
+        "notes": "Pending: audit before redesigning calibration objective PPO or promotion"
     },
-    "updated_at_utc": "20260525T090000Z"
+    "updated_at_utc": "20260525T091000Z"
 }

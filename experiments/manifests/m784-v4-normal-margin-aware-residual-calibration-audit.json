@@ -1,0 +1,114 @@
+{
+  "id": "m784-v4-normal-margin-aware-residual-calibration-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "objective_overfit",
+    "scenario_sampling_failure",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m783-v4-normal-margin-aware-residual-calibration-implementation.md",
+      "runs/m783_v4_normal_margin_calibration/summary.json",
+      "runs/m783_v4_normal_margin_calibration/alpha_metrics.csv",
+      "runs/m783_v4_normal_margin_calibration/training_metrics.csv",
+      "runs/m783_v4_normal_margin_calibration/objective_rows.csv",
+      "docs/m782-v4-normal-margin-aware-residual-calibration-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m783-v4-normal-margin-aware-residual-calibration-implementation.json",
+      "experiments/manifests/m782-v4-normal-margin-aware-residual-calibration-design.json"
+    ],
+    "parent_objective": [
+      "audit first normal-margin-aware residual calibration result before further repair PPO or promotion"
+    ],
+    "derived_from": [
+      "m783-v4-normal-margin-aware-residual-calibration-implementation"
+    ],
+    "blocked_by": [
+      "m783-v4-normal-margin-aware-residual-calibration-implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m784-v4-normal-margin-aware-residual-calibration-audit.md",
+  "public_gates": [
+    "M784 audits M783 calibrator result",
+    "M784 separates normal-retention fix from intervention-gap insufficiency",
+    "M784 classifies global half-gate behavior",
+    "M784 decides whether to redesign calibration objective or stop branch",
+    "PPO training and checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not call M783 a candidate despite normal retention pass",
+    "do not hide intervention-gap failure",
+    "do not claim broad generalization or true four-wheel physical fidelity"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_normal_margin_calibration",
+    "evidence_axis": "G_action: audit normal-margin calibration no-gap-lift result",
+    "evidence_increment": "audits whether the first calibrator repaired the active normal boundary at the cost of intervention sensitivity",
+    "claim_scope": "audit only; no replay, repair, PPO, or driver promotion",
+    "stop_condition": [
+      "stop if audit admits PPO or promotion",
+      "stop if audit ignores the gap-lift failure",
+      "stop if audit hides the global half-gate behavior",
+      "stop if audit treats normal retention alone as success"
+    ],
+    "fallback_plan": [
+      "if half-gate behavior is the main issue, design asymmetric intervention-retention calibration",
+      "if data sparsity dominates, design targeted boundary row mining",
+      "if scalar gate is too weak, design vector residual calibration",
+      "if calibration cannot beat alpha scaling, stop the branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M783 produces clean no-gap-lift result after fixing normal collisions",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M783 should be audited as a clean negative: normal-margin calibration fixed the active normal collision but behaved like global residual downscaling and failed the intervention-gap candidate gate.",
+  "success_criteria": [
+    "M784 records normal retention pass",
+    "M784 records candidate_alpha_count 0",
+    "M784 records near-global half-gate behavior",
+    "M784 classifies objective failure without PPO or promotion",
+    "M784 admits only one next blocker"
+  ],
+  "failure_criteria": [
+    "audit promotes a checkpoint",
+    "audit admits PPO",
+    "audit hides gap failure",
+    "audit treats normal retention alone as candidate",
+    "audit ignores source and hard-negative caveats"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m784-v4-normal-margin-aware-residual-calibration-audit.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m784-v4-normal-margin-aware-residual-calibration-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m783-v4-normal-margin-aware-residual-calibration-implementation.md",
+    "runs/m783_v4_normal_margin_calibration/summary.json",
+    "runs/m783_v4_normal_margin_calibration/alpha_metrics.csv"
+  ],
+  "decision_rule": "M784 may only audit M783. It must not run replay, train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "pending_audit_decision"
+}

@@ -62,15 +62,29 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m783-v4-normal-margin-aware-residual-calibration-implementation
+m784-v4-normal-margin-aware-residual-calibration-audit
 ```
 
-M783 should implement the no-PPO normal-margin-aware residual calibrator
-designed by M782. Base actor mutation, M761 residual-head mutation, PPO, and
-promotion remain blocked.
+M784 should audit the M783 clean no-gap-lift calibrator result before any
+objective redesign, PPO, or promotion. Base actor mutation, M761 residual-head
+mutation, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M783 adds `src/autodrift/v4_normal_margin_residual_calibration.py` and focused
+  tests, then runs the no-PPO calibrator probe. It reconstructs `2640/2652`
+  rows with `0` metadata misses and the same `12` unsupported
+  `command_shift_obs` rejects, writes `21120` replay rows and `10560` objective
+  rows, and confirms base actor and M761 residual-head checksums unchanged.
+  Only the 2113-parameter calibrator is trained. Result class is
+  `v4_normal_margin_calibration_no_gap_lift`: the calibrator fixes the active
+  normal boundary, with alpha `0.2` normal success `1.0`, collision `0.0`, and
+  active source margin `+0.000033`, but no alpha passes the intervention gap
+  candidate threshold. Final gates are almost global half-scale
+  (`gate_normal_mean 0.499727`, `gate_intervention_mean 0.499986`), so alpha
+  `0.2` gap mean improves only to `0.043298` versus base `0.040348`, just below
+  the required `+0.003` lift. This is a clean negative for the first gate-only
+  objective; no PPO or promotion occurred.
 - M782 designs a no-PPO normal-margin-aware residual calibration branch. The
   design keeps the M568 actor frozen, keeps the M761 residual head frozen for
   the first probe, and adds a small deployable-feature gate
