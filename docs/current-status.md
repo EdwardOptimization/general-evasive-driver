@@ -62,17 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m855-v4-pair-delta-boundary-expansion-audit
+m856-v4-boundary-new-to-m844-bracket-trace-design
 ```
 
-M855 should audit the M854 no-training boundary expansion before any further
-boundary implementation or pair-delta replay. M854 selected broad
-underrepresented M825 sources but accepted boundary rows only from existing
-M844 boundary sources, so PPO, promotion, base actor mutation, M761 residual
-head mutation, and pair-delta sequence replay remain blocked.
+M856 should design a no-training trace-first diagnostic for M854
+boundary-new-to-M844 no-bracket failures before any boundary-range change,
+source generation, or pair-delta replay. PPO, promotion, base actor mutation,
+M761 residual-head mutation, and pair-delta sequence replay remain blocked.
 
 ## Recent Evidence Line
 
+- M855 audits M854 as a clean source-limited boundary expansion rather than a
+  contract failure. Target selection and snapshot reconstruction work, and M854
+  expands beyond the M850 active pair-delta source groups. But accepted
+  boundary rows are still all from existing M844 boundary sources, while
+  boundary-new-to-M844 targets produce only `no_collision_safe_bracket`
+  failures. Because M854 did not persist full initial/expansion evaluation
+  traces for rejected axes, the next step is trace-first no-bracket diagnosis
+  rather than pair-delta replay or PPO.
 - M854 implements the no-training pair-delta boundary expansion. Target
   selection is broad: `61` source groups, `12` seeds, and `9` fault families,
   with all `61` requested snapshots reconstructed. Actor and M761 residual-head

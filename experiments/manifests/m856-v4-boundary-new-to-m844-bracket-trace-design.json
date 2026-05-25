@@ -1,0 +1,111 @@
+{
+  "id": "m856-v4-boundary-new-to-m844-bracket-trace-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m855-v4-pair-delta-boundary-expansion-audit.md",
+      "runs/m854_v4_pair_delta_boundary_expansion/summary.json",
+      "runs/m854_v4_pair_delta_boundary_expansion/target_source_rows.csv",
+      "runs/m854_v4_pair_delta_boundary_expansion/rejected_rows.csv",
+      "runs/m854_v4_pair_delta_boundary_expansion/boundary_diversity_summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m855-v4-pair-delta-boundary-expansion-audit.json"
+    ],
+    "parent_objective": [
+      "design no-training bracket trace diagnostic for boundary-new-to-M844 rejected sources"
+    ],
+    "derived_from": [
+      "m855-v4-pair-delta-boundary-expansion-audit"
+    ],
+    "blocked_by": [
+      "M854 accepted zero boundary-new-to-M844 rows and did not persist full evaluation traces for no-bracket axes"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m856-v4-boundary-new-to-m844-bracket-trace-design.md",
+  "public_gates": [
+    "M856 must remain design-only",
+    "M856 must target boundary-new-to-M844 no-bracket sources",
+    "M856 must require full initial and expansion evaluation trace artifacts",
+    "M856 must classify no-bracket causes before threshold changes or source generation",
+    "M856 must keep pair-delta replay, PPO, and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in M856",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat pairability projections as pair-delta outcome evidence",
+    "do not widen thresholds without first preserving no-bracket traces"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_boundary_expansion",
+    "evidence_axis": "G_data: no-bracket cause diagnosis for boundary-new-to-M844 sources",
+    "evidence_increment": "designs a trace-first diagnostic to explain why M854 broad targets did not become accepted boundary rows",
+    "claim_scope": "design only; no replay, training, PPO, pair-delta outcome claim, learned policy claim, or driver promotion",
+    "stop_condition": [
+      "stop if the design does not preserve every evaluated parameter and outcome for rejected axes",
+      "stop if it jumps directly to pair-delta replay over source-limited boundary rows",
+      "stop if it weakens gates without no-bracket cause evidence",
+      "stop if it mutates actor or residual-head parameters"
+    ],
+    "fallback_plan": [
+      "if trace diagnostics show all-safe wide margins, design closer obstacle/source generation",
+      "if traces show all-collision rows, design safer side bracketing or source-step shifts",
+      "if traces show axis-range limits, implement bounded range expansion",
+      "if traces show non-monotone behavior, classify as diagnostic-only and avoid objective training"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M855 audits M854 as boundary-new-to-M844 no-bracket limited",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A trace-first design can separate why boundary-new-to-M844 sources fail to bracket, enabling a targeted no-training implementation instead of another blind boundary expansion.",
+  "success_criteria": [
+    "M856 writes a design document for boundary-new-to-M844 bracket tracing",
+    "M856 defines trace artifacts for every evaluated parameter and outcome",
+    "M856 defines no-bracket cause taxonomy and gates",
+    "M856 selects the next no-training implementation path",
+    "M856 keeps pair-delta replay, PPO, and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M856 admits PPO or promotion",
+    "M856 trains actor or residual parameters",
+    "M856 treats pairability projection as sequence outcome evidence",
+    "M856 weakens boundary gates without trace evidence"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m856-v4-boundary-new-to-m844-bracket-trace-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m856-v4-boundary-new-to-m844-bracket-trace-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m855-v4-pair-delta-boundary-expansion-audit.md",
+    "runs/m854_v4_pair_delta_boundary_expansion/summary.json",
+    "runs/m854_v4_pair_delta_boundary_expansion/rejected_rows.csv"
+  ],
+  "decision_rule": "M856 may only design no-training boundary-new-to-M844 bracket tracing. It must not run replay, train, run PPO, run pair-delta sequence replay, or promote.",
+  "next_blocker": "boundary-new-to-M844 no-bracket causes are not observable in current M854 artifacts"
+}

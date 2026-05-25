@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 863,
+    "completed": 864,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m854-v4-pair-delta-boundary-expansion-implementation",
+    "task_id": "m855-v4-pair-delta-boundary-expansion-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m854-v4-pair-delta-boundary-expansion-implementation.md"
+    "command_log": "docs/m855-v4-pair-delta-boundary-expansion-audit.md"
   },
   "next_task": {
-    "id": "m855-v4-pair-delta-boundary-expansion-audit",
+    "id": "m856-v4-boundary-new-to-m844-bracket-trace-design",
     "status": "pending",
-    "priority": 8500,
-    "kind": "gate",
-    "hypothesis": "Audit source-limited pair-delta boundary expansion",
-    "command": "see experiments/manifests/m855-v4-pair-delta-boundary-expansion-audit.json",
-    "success_artifact": "docs/m855-v4-pair-delta-boundary-expansion-audit.md",
-    "notes": "Pending: audit M854 broad-target but source-limited boundary expansion before further implementation"
+    "priority": 8510,
+    "kind": "infrastructure",
+    "hypothesis": "Design trace-first diagnosis for boundary-new-to-M844 no-bracket failures",
+    "command": "see experiments/manifests/m856-v4-boundary-new-to-m844-bracket-trace-design.json",
+    "success_artifact": "docs/m856-v4-boundary-new-to-m844-bracket-trace-design.md",
+    "notes": "Pending: design no-training trace diagnostic before changing boundary ranges or running pair-delta replay"
   },
-  "updated_at_utc": "20260525T142923Z"
+  "updated_at_utc": "20260525T143621Z"
 }

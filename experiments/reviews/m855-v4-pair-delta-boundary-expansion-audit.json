@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M855 audits M854 as a clean source-limited boundary expansion; target selection worked but boundary-new-to-M844 sources all failed no-bracket so next is trace-first diagnosis before replay",
+  "failure_criteria": [
+    "M855 admits PPO or promotion",
+    "M855 trains actor or residual parameters",
+    "M855 treats pairability projection as pair-delta outcome evidence",
+    "M855 ignores M854 source/fault/seed limitations"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not run replay in M855",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat M854 pairability projections as pair-delta outcome evidence",
+    "do not treat recovered existing-boundary rows as broad source-diverse coverage"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T143816Z",
+  "hypothesis": "M854 is a clean source-limited boundary expansion result that needs audit before the branch chooses between wider bracketing, new source generation, or limited diagnostic pair-delta mining.",
+  "lineage": {
+    "blocked_by": [
+      "M854 selected broad targets but accepted only existing-boundary recovered sources"
+    ],
+    "derived_from": [
+      "m854-v4-pair-delta-boundary-expansion-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m854-v4-pair-delta-boundary-expansion-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m854-v4-pair-delta-boundary-expansion-implementation.md",
+      "runs/m854_v4_pair_delta_boundary_expansion/summary.json",
+      "runs/m854_v4_pair_delta_boundary_expansion/boundary_diversity_summary.json",
+      "runs/m854_v4_pair_delta_boundary_expansion/accepted_boundary_rows.csv",
+      "runs/m854_v4_pair_delta_boundary_expansion/rejected_rows.csv",
+      "runs/m854_v4_pair_delta_boundary_expansion/pairability_projection_rows.csv"
+    ],
+    "parent_objective": [
+      "audit source-limited pair-delta boundary expansion result"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m855-v4-pair-delta-boundary-expansion-audit",
+  "next_blocker": "M854 broad target selection did not open boundary_new_to_m844 low-margin rows",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "admit_boundary_new_to_m844_bracket_trace_design",
+  "public_gates": [
+    "M855 must audit M854 before further boundary implementation or pair-delta mining",
+    "M855 must separate target coverage from accepted boundary coverage",
+    "M855 must classify the boundary_new_to_m844 no-bracket result",
+    "M855 must decide whether to expand bracketing, generate sources, or run a limited diagnostic miner",
+    "M855 must keep PPO and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m855-v4-pair-delta-boundary-expansion-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "admit_boundary_new_to_m844_bracket_trace_design",
+    "milestone": "m855-v4-pair-delta-boundary-expansion-audit",
+    "reason": "M855 audits M854 as a clean source-limited boundary expansion; target selection worked but boundary-new-to-M844 sources all failed no-bracket so next is trace-first diagnosis before replay",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M855 writes an audit document for M854",
+    "M855 verifies M854 artifact completeness and frozen checksums",
+    "M855 classifies the boundary_new_to_m844 no-bracket limitation",
+    "M855 selects the next no-training route",
+    "M855 keeps PPO and promotion blocked"
+  ],
+  "type": "gate"
+}

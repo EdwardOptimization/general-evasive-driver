@@ -13771,3 +13771,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M854 implements the no-training pair-delta boundary expansion. Target selection is broad: `61` source groups, `12` seeds, and `9` fault families, with all `61` requested snapshots reconstructed and actor/M761 checksums unchanged. Boundary bracketing is still source-limited: it produces `73` expanded boundary rows and `32` accepted successful non-collision low-margin rows, with `17` source groups, `4` seeds, `7` fault families, and all `3` boundary axes. Pairability projection is near sparse but below gate with `77` primary rows and `125` diagnostic rows. The important failure mode is that all accepted rows are `existing_boundary_recovered`; the `44` target sources that were new to M844 produced only `no_collision_safe_bracket` rejections. M854 is therefore `v4_pair_delta_boundary_expansion_source_limited`, not a contract failure and not pair-delta outcome evidence.
 - decision: `v4_pair_delta_boundary_expansion_source_limited`
 - next: `m855-v4-pair-delta-boundary-expansion-audit`
+
+## 20260525T143621Z - m855-v4-pair-delta-boundary-expansion-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m855-v4-pair-delta-boundary-expansion-audit.md`
+- result: M855 audits M854 as a clean source-limited boundary expansion rather than a contract failure. Supported claims: target selection and snapshot reconstruction work; M854 expanded beyond M850 active pair-delta source groups; pairability projection is close to sparse-useful but remains diagnostic only. Unsupported claims: broad boundary-new-to-M844 coverage, objective-ready pair-delta corpus, pair-delta outcome evidence, PPO admission, or checkpoint promotion. The key blocker is that M854 accepted `0` boundary-new-to-M844 rows and all `151` rejected axis rows failed with `no_collision_safe_bracket`; current artifacts do not preserve full initial/expansion evaluation traces, so the no-bracket causes are not yet distinguishable.
+- decision: `admit_boundary_new_to_m844_bracket_trace_design`
+- next: `m856-v4-boundary-new-to-m844-bracket-trace-design`
