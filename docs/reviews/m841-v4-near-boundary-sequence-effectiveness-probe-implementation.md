@@ -1,0 +1,87 @@
+# m841-v4-near-boundary-sequence-effectiveness-probe-implementation Research Review
+
+## Summary
+
+- Generated at UTC: 20260525T124158Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: v4_near_boundary_sequence_effectiveness_sparse_diagnostic
+- Decision reason: M841 implements short-horizon sequence override probing and finds 73 accepted sequence-effective rows with max abs margin delta 0.01584 but source concentration keeps the result sparse diagnostic rather than promotion proof
+
+## Hypothesis
+
+Bounded short-horizon action sequence overrides can reveal terminal-margin sensitivity that one-step overrides missed on the M832 near-boundary states.
+
+## Lineage
+
+- parent_checkpoint: runs/m568_scaled_l3_bc_seed5660/checkpoint.pt
+- parent_dataset: docs/m840-v4-near-boundary-sequence-effectiveness-probe-design.md, runs/m838_v4_near_boundary_action_effectiveness_probe/summary.json, runs/m832_v4_near_boundary_wrong_history_pair_mining/near_boundary_pair_rows.csv, runs/m832_v4_near_boundary_wrong_history_pair_mining/accepted_boundary_rows.csv, runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv, runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv
+- parent_config: experiments/manifests/m840-v4-near-boundary-sequence-effectiveness-probe-design.json
+- parent_objective: implement no-training short-horizon sequence-effectiveness probe after first-step overrides are weak
+- derived_from: m840-v4-near-boundary-sequence-effectiveness-probe-design
+- blocked_by: M838 direct first-action overrides are outcome-weak and M839 admits sequence-effectiveness design
+- supersedes: None
+- invalidates: None
+
+## Success Criteria
+
+- M841 implements the sequence-effectiveness probe
+- M841 runs bounded direction and hold-step sequence overrides on M832 near-boundary pairs
+- M841 writes sequence-effectiveness accepted-row direction-hold-summary diversity and summary artifacts
+- M841 verifies actor and residual-head checksums unchanged
+- M841 classifies the result without PPO or promotion
+
+## Failure Criteria
+
+- M841 trains actor or residual-head parameters
+- M841 runs PPO
+- M841 promotes a checkpoint
+- M841 mutates actor input contract
+- M841 treats direct sequence override effects as learned self-ID proof
+
+## Evidence Gates
+
+- M841 must implement bounded short-horizon action sequence overrides only
+- M841 must reuse M832/M838 artifacts
+- M841 must log hold-step direction and epsilon summaries
+- M841 must preserve actor and residual-head checksums
+- M841 must not train or promote
+
+## Holdout Policy
+
+- promotion_only
+
+## Forbidden Shortcuts
+
+- do not train actor parameters
+- do not train M761 residual-head parameters
+- do not run PPO
+- do not promote a checkpoint
+- do not add hidden fault labels or oracle fields to actor input
+- do not reinterpret direct sequence override success as policy self-ID proof
+- do not relax M840 thresholds after seeing the result
+
+## Failure Taxonomy
+
+- scenario_sampling_failure
+- metric_artifact
+- contract_violation
+
+## Scoreboard
+
+- milestone: m841-v4-near-boundary-sequence-effectiveness-probe-implementation
+- type: infrastructure
+- checkpoint: runs/m841_v4_near_boundary_sequence_effectiveness_probe/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: v4_near_boundary_sequence_effectiveness_sparse_diagnostic
+- reason: M841 implements short-horizon sequence override probing and finds 73 accepted sequence-effective rows with max abs margin delta 0.01584 but source concentration keeps the result sparse diagnostic rather than promotion proof
+
+## Next Blocker
+
+short-horizon sequence effectiveness on M832 near-boundary states has not yet been measured

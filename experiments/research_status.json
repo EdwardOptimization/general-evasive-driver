@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 849,
+    "completed": 850,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m840-v4-near-boundary-sequence-effectiveness-probe-design",
+    "task_id": "m841-v4-near-boundary-sequence-effectiveness-probe-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m840-v4-near-boundary-sequence-effectiveness-probe-design.md"
+    "command_log": "runs/m841_v4_near_boundary_sequence_effectiveness_probe/summary.json"
   },
   "next_task": {
-    "id": "m841-v4-near-boundary-sequence-effectiveness-probe-implementation",
+    "id": "m842-v4-low-margin-new-data-route-third-branch-synthesis",
     "status": "pending",
-    "priority": 8360,
-    "kind": "infrastructure",
-    "hypothesis": "Implement short-horizon sequence-effectiveness probe after first-step overrides are outcome-weak",
-    "command": "see experiments/manifests/m841-v4-near-boundary-sequence-effectiveness-probe-implementation.json",
-    "success_artifact": "runs/m841_v4_near_boundary_sequence_effectiveness_probe/summary.json",
-    "notes": "Pending: M840 admits no-training sequence-effectiveness implementation; synthesize branch after M841"
+    "priority": 8370,
+    "kind": "gate",
+    "hypothesis": "Synthesize M832-M841 after sparse-positive sequence-effectiveness evidence",
+    "command": "see experiments/manifests/m842-v4-low-margin-new-data-route-third-branch-synthesis.json",
+    "success_artifact": "docs/m842-v4-low-margin-new-data-route-third-branch-synthesis.md",
+    "notes": "Pending: M841 found 73 sequence-effective rows but source concentration; synthesis required before further narrow continuation"
   },
-  "updated_at_utc": "20260525T233000Z"
+  "updated_at_utc": "20260525T234500Z"
 }

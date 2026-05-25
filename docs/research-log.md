@@ -13640,3 +13640,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M840 designs a no-training short-horizon sequence-effectiveness probe after M838/M839 showed one-step overrides are outcome-weak. The design keeps the actor contract unchanged and applies bounded per-step deltas around the frozen policy action for `hold_steps [2, 4, 6]`, then resumes normal policy control. Directions reuse M838 pair-delta and component axes; per-step epsilon grid remains `[0.014, 0.025, 0.05, 0.075]`. Acceptance requires near-boundary normal rows and either `abs_margin_delta >= 0.01` or success/collision flip, summarized by hold step, direction, direction family, and epsilon. Direct sequence overrides are explicitly controllability diagnostics only, not learned self-ID proof. M841 implementation is admitted; after M841 the branch should synthesize before further narrow continuation because it reaches the post-M831 cadence boundary.
 - decision: `near_boundary_sequence_effectiveness_probe_design_admit_m841`
 - next: `m841-v4-near-boundary-sequence-effectiveness-probe-implementation`
+
+## 20260525T234500Z - m841-v4-near-boundary-sequence-effectiveness-probe-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m841_v4_near_boundary_sequence_effectiveness_probe`
+- artifact: `docs/m841-v4-near-boundary-sequence-effectiveness-probe-implementation.md`
+- result: M841 implements the bounded short-horizon sequence override probe. It reuses the M832 pair set (`60` pairs, `16` reconstructed snapshots), evaluates `5760` rows over `8` directions, `4` epsilons, and hold steps `[2, 4, 6]`, and preserves actor/M761 checksums. Unlike M838, sequence overrides produce positive controllability evidence: `73` accepted primary sequence-effective rows, `65` degradation rows, `8` improvement rows, `59` success flips, `59` collision flips, and max abs margin delta `0.0158369` over the `0.01` gate. The result remains `v4_near_boundary_sequence_effectiveness_sparse_diagnostic`, not a pass, because accepted rows are source-concentrated (`unique_left_source_group_count 4 < 8`, `unique_left_fault_family_count 4 < 5`, max left source dominance `0.5616 > 0.30`). The branch should synthesize before more narrow work and likely decide between source-diverse sequence-effective corpus expansion and outcome-coupled sequence objective design.
+- decision: `v4_near_boundary_sequence_effectiveness_sparse_diagnostic`
+- next: `m842-v4-low-margin-new-data-route-third-branch-synthesis`
