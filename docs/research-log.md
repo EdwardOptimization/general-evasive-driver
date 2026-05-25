@@ -13222,3 +13222,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M795 extends `v4_normal_margin_residual_calibration.py` with `--objective-mode steer_attributed_gate`, a 2146-parameter `SteerAttributedResidualGate` that learns steer/brake gates and fixes throttle residual to zero, plus focused tests and component gate artifacts. The no-PPO run reconstructs `2640/2652` rows, writes `21120` replay rows and `10560` objective rows, and confirms M568 actor and M761 residual-head checksums unchanged. Result class is `v4_steer_attributed_calibration_component_collapse`: alpha `0.2` passes strict normal retention and reaches gap mean `0.044080`, slightly above the M780 alpha `0.125` gap reference, but active-source margin is only `+0.000003618`, below the M786 alpha `0.15` active-margin reference `+0.000028246`. Gate evidence explains the miss: active normal steer gate is `0.668225`, active intervention steer gate is `0.665187`, so active steer contrast is negative instead of selective. M795 is a clean negative and admits M796 audit only.
 - decision: `v4_steer_attributed_calibration_component_collapse`
 - next: `m796-v4-steer-attributed-residual-calibration-audit`
+
+## 20260525T121500Z - m796-v4-steer-attributed-residual-calibration-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m796-v4-steer-attributed-residual-calibration-audit.md`
+- result: M796 audits M795 as a clean near-miss negative. M795 is not a candidate and does not justify PPO because active-source margin and steer selectivity fail. However, alpha `0.2` is collision-free and reaches the strong gap reference, so the branch is not exhausted. The audit concludes that the next design must make active/source-diverse low-margin steering safety lexicographic before gap optimization, rather than simply tuning the same objective coefficients. M797 is admitted as design-only; PPO and promotion remain blocked.
+- decision: `admit_active_steer_guard_design`
+- next: `m797-v4-active-steer-guard-calibration-design`

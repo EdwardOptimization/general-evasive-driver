@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 804,
+        "completed": 805,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m795-v4-steer-attributed-residual-calibration-implementation",
+        "task_id": "m796-v4-steer-attributed-residual-calibration-audit",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m795-v4-steer-attributed-residual-calibration-implementation.md"
+        "command_log": "docs/m796-v4-steer-attributed-residual-calibration-audit.md"
     },
     "next_task": {
-        "id": "m796-v4-steer-attributed-residual-calibration-audit",
+        "id": "m797-v4-active-steer-guard-calibration-design",
         "status": "pending",
-        "priority": 7910,
-        "kind": "gate",
-        "hypothesis": "Audit M795 steer-attributed calibration clean negative before another residual objective",
-        "command": "see experiments/manifests/m796-v4-steer-attributed-residual-calibration-audit.json",
-        "success_artifact": "docs/m796-v4-steer-attributed-residual-calibration-audit.md",
-        "notes": "Pending: audit M795 active-margin miss and steer-selectivity collapse; PPO and promotion remain blocked"
+        "priority": 7920,
+        "kind": "infrastructure",
+        "hypothesis": "Design lexicographic active/source-diverse low-margin steer guard after M795 near miss",
+        "command": "see experiments/manifests/m797-v4-active-steer-guard-calibration-design.json",
+        "success_artifact": "docs/m797-v4-active-steer-guard-calibration-design.md",
+        "notes": "Pending: design stronger active-steer guard; training PPO and promotion remain blocked"
     },
-    "updated_at_utc": "20260525T120000Z"
+    "updated_at_utc": "20260525T121500Z"
 }

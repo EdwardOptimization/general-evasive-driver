@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M796 audits M795 as a clean near-miss negative and admits one design milestone for lexicographic active/source-diverse low-margin steer guarding while PPO and promotion remain blocked",
+  "failure_criteria": [
+    "audit reruns training or PPO",
+    "audit promotes a checkpoint",
+    "audit ignores active-source margin miss",
+    "audit claims broad generalization from the public corpus"
+  ],
+  "failure_types": [
+    "objective_overfit",
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train any parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not weaken M786 or M780 thresholds after seeing M795",
+    "do not claim broad generalization from public M773 rows",
+    "do not ignore active-source margin miss or steer-collapse evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T043320Z",
+  "hypothesis": "M795 can be classified from artifacts as either an actionable steer-attributed candidate or a clean negative requiring a different evidence axis.",
+  "lineage": {
+    "blocked_by": [
+      "m795-v4-steer-attributed-residual-calibration-implementation"
+    ],
+    "derived_from": [
+      "m795-v4-steer-attributed-residual-calibration-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m795-v4-steer-attributed-residual-calibration-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m795-v4-steer-attributed-residual-calibration-implementation.md",
+      "runs/m795_v4_steer_attributed_residual_calibration/summary.json",
+      "runs/m795_v4_steer_attributed_residual_calibration/alpha_metrics.csv",
+      "runs/m795_v4_steer_attributed_residual_calibration/gate_metrics.csv",
+      "runs/m795_v4_steer_attributed_residual_calibration/component_gate_metrics.csv",
+      "runs/m795_v4_steer_attributed_residual_calibration/active_source_metrics.csv"
+    ],
+    "parent_objective": [
+      "audit steer-attributed residual calibration diagnostic"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m796-v4-steer-attributed-residual-calibration-audit",
+  "next_blocker": "m797-v4-active-steer-guard-calibration-design",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "admit_active_steer_guard_design",
+  "public_gates": [
+    "M796 audits M795 without replay rerun",
+    "M796 classifies whether M795 is a candidate or clean negative",
+    "M796 checks active-source margin and steer selectivity",
+    "M796 chooses the next blocker or stops residual calibration",
+    "M796 blocks PPO and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m796-v4-steer-attributed-residual-calibration-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "admit_active_steer_guard_design",
+    "milestone": "m796-v4-steer-attributed-residual-calibration-audit",
+    "reason": "M796 audits M795 as a clean near-miss negative and admits one design milestone for lexicographic active/source-diverse low-margin steer guarding while PPO and promotion remain blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M796 documents supported and falsified claims from M795",
+    "M796 classifies the failure or candidate type",
+    "M796 identifies the next blocker",
+    "M796 keeps PPO and promotion blocked"
+  ],
+  "type": "gate"
+}

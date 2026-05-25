@@ -62,15 +62,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m796-v4-steer-attributed-residual-calibration-audit
+m797-v4-active-steer-guard-calibration-design
 ```
 
-M796 should audit the M795 clean negative before any further residual
-calibration objective. Base actor mutation, M761 residual-head mutation, PPO,
-and promotion remain blocked.
+M797 should design a lexicographic active/source-diverse low-margin steering
+guard before any new implementation. Base actor mutation, M761 residual-head
+mutation, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M796 audits M795 as a clean near-miss negative. M795 is not a candidate and
+  does not justify PPO because active-source margin and steer selectivity fail.
+  However, alpha `0.2` is collision-free and reaches the strong gap reference,
+  so the branch is not exhausted. The audit concludes that the next design must
+  make active/source-diverse low-margin steering safety lexicographic before
+  gap optimization, rather than simply tuning the same objective coefficients.
+  M797 is admitted as design-only; PPO and promotion remain blocked.
 - M795 extends `v4_normal_margin_residual_calibration.py` with
   `--objective-mode steer_attributed_gate`, a 2146-parameter
   `SteerAttributedResidualGate` that learns steer/brake gates and fixes
