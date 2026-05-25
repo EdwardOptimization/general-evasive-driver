@@ -13538,3 +13538,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M829 audits M828 as a clean negative and identifies pair-boundary slack as the primary limiter. M828 reconstructed pairs successfully and kept checksums unchanged, but all normal margins are wide (`min 0.217669`, `median 1.02877`, `0/108 <= 0.05`). Wrong hidden is directionally meaningful (`108/108` closer to right action), but below thresholds (`max action L2 0.00690`, `0/108 >= 0.014`; `max margin gap 0.0000260`, `0/108 >= 0.01`). No variant reaches the primary margin gate on the M828 pair set. M829 therefore admits near-boundary matched wrong-history pair mining before more wrong-history replay, PPO, or promotion.
 - decision: `admit_near_boundary_wrong_history_pair_mining_design`
 - next: `m830-v4-near-boundary-wrong-history-pair-mining-design`
+
+## 20260525T210000Z - m830-v4-near-boundary-wrong-history-pair-mining-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m830-v4-near-boundary-wrong-history-pair-mining-design.md`
+- result: M830 designs a boundary-first matched different-fault pair-mining route after M828/M829 showed that action-divergent pairs were too far from terminal boundary. The design requires source snapshots to be bracketed into finite non-collision near-boundary bands before matching; primary pair candidates must satisfy different fault families, visible ego/context matching, action divergence, and normal margins within `0.05` with strict proof preference at `0.02` and ultra-strict diagnostics at `0.005`. Follow-up wrong-history replay must keep wrong-cross-fault hidden evidence separate from zero-command evidence and pass source/fault/warm-up/onset diversity gates. M830 also enforces workflow discipline: because M821-M830 are ten non-synthesis milestones after M820, the next step is branch synthesis rather than immediate implementation.
+- decision: `near_boundary_wrong_history_pair_mining_design_ready_synthesis_required`
+- next: `m831-v4-low-margin-new-data-route-second-branch-synthesis`

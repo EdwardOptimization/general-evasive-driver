@@ -1,0 +1,133 @@
+{
+  "id": "m831-v4-low-margin-new-data-route-second-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m821-v4-adaptive-primary-calibration-grid-implementation.md",
+      "docs/m822-v4-adaptive-primary-calibration-grid-audit.md",
+      "docs/m823-v4-adaptive-primary-calibration-next-route-design.md",
+      "docs/m824-v4-extreme-hidden-dynamics-data-route-design.md",
+      "docs/m825-v4-extreme-hidden-dynamics-data-route-implementation.md",
+      "docs/m826-v4-extreme-hidden-dynamics-data-route-audit.md",
+      "docs/m827-v4-wrong-cross-fault-history-intervention-design.md",
+      "docs/m828-v4-wrong-cross-fault-history-intervention-implementation.md",
+      "docs/m829-v4-wrong-cross-fault-history-intervention-audit.md",
+      "docs/m830-v4-near-boundary-wrong-history-pair-mining-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m830-v4-near-boundary-wrong-history-pair-mining-design.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "synthesize v4_low_margin_new_data_route branch after M821-M830 before another implementation"
+    ],
+    "derived_from": [
+      "m830-v4-near-boundary-wrong-history-pair-mining-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence after ten post-M820 non-synthesis milestones",
+      "need branch-level decision before near-boundary wrong-history pair-mining implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m831-v4-low-margin-new-data-route-second-branch-synthesis.md",
+  "public_gates": [
+    "M831 must synthesize M821 through M830",
+    "M831 must answer required workflow synthesis questions",
+    "M831 must decide continue pivot stop or promote_to_next_branch",
+    "M831 must not run replay or train parameters",
+    "M831 must not run PPO or promote a checkpoint"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run replay in the synthesis",
+    "do not train actor or residual parameters",
+    "do not train a calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not skip public-gate overfit analysis",
+    "do not continue the branch without a synthesis decision"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "process: second branch synthesis before near-boundary wrong-history implementation",
+    "evidence_increment": "summarizes M821-M830 evidence from fixed-gate identity-only calibration through extreme hidden-dynamics data mining and near-boundary wrong-history pair-mining design",
+    "claim_scope": "synthesis decision only; no replay result, PPO claim, or driver promotion",
+    "stop_condition": [
+      "stop if evidence no longer supports this branch",
+      "stop if near-boundary pair mining would only optimize fixed public rows",
+      "stop if M828/M829 imply hidden-only wrong-history is too weak even with boundary data",
+      "stop if branch continuation would exceed synthesis cadence"
+    ],
+    "fallback_plan": [
+      "if branch continues, pre-register near-boundary wrong-history pair-mining implementation",
+      "if branch pivots, open a new branch name for near-boundary wrong-history mining",
+      "if branch stops, archive M814/M825/M828 as data-route evidence and return to objective design",
+      "if evidence supports a new branch, rename the branch before continuing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M830 reaches ten non-synthesis milestones after M820 in v4_low_margin_new_data_route",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m831-v4-low-margin-new-data-route-second-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M821-M830 have enough evidence to justify one near-boundary wrong-history pair-mining implementation, but only after explicitly recording the branch risks and limits.",
+  "success_criteria": [
+    "M831 summarizes M821 through M830 evidence",
+    "M831 answers all required synthesis questions",
+    "M831 records supported and falsified claims",
+    "M831 records public-gate overfit and metric-artifact risks",
+    "M831 preserves no-PPO no-training and no-promotion blocks",
+    "M831 names the next blocker if continuation is admitted"
+  ],
+  "failure_criteria": [
+    "M831 omits required synthesis questions",
+    "M831 trains or runs replay",
+    "M831 admits PPO or promotion",
+    "M831 hides the M821 identity-only or M828 wide-margin caveats",
+    "M831 continues without a branch decision"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m831-v4-low-margin-new-data-route-second-branch-synthesis.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m831-v4-low-margin-new-data-route-second-branch-synthesis.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m830-v4-near-boundary-wrong-history-pair-mining-design.md",
+    "docs/m829-v4-wrong-cross-fault-history-intervention-audit.md",
+    "runs/m828_v4_wrong_cross_fault_history_intervention/summary.json",
+    "runs/m825_v4_extreme_hidden_dynamics_data_route/summary.json",
+    "runs/m821_v4_adaptive_primary_calibration_grid/summary.json"
+  ],
+  "decision_rule": "M831 may only synthesize the branch. It must not run replay, train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "m832-v4-near-boundary-wrong-history-pair-mining-implementation"
+}

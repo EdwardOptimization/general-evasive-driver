@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 838,
+    "completed": 839,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m829-v4-wrong-cross-fault-history-intervention-audit",
+    "task_id": "m830-v4-near-boundary-wrong-history-pair-mining-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m829-v4-wrong-cross-fault-history-intervention-audit.md"
+    "command_log": "docs/m830-v4-near-boundary-wrong-history-pair-mining-design.md"
   },
   "next_task": {
-    "id": "m830-v4-near-boundary-wrong-history-pair-mining-design",
+    "id": "m831-v4-low-margin-new-data-route-second-branch-synthesis",
     "status": "pending",
-    "priority": 8250,
-    "kind": "infrastructure",
-    "hypothesis": "Design near-boundary matched different-fault pair mining after M828 wide-margin negative",
-    "command": "see experiments/manifests/m830-v4-near-boundary-wrong-history-pair-mining-design.json",
-    "success_artifact": "docs/m830-v4-near-boundary-wrong-history-pair-mining-design.md",
-    "notes": "Pending: M829 found M828 pairs had normal margins >=0.217m; next control variable is boundary-aware pair mining"
+    "priority": 8260,
+    "kind": "gate",
+    "hypothesis": "Synthesize M821-M830 before near-boundary wrong-history pair-mining implementation",
+    "command": "see experiments/manifests/m831-v4-low-margin-new-data-route-second-branch-synthesis.json",
+    "success_artifact": "docs/m831-v4-low-margin-new-data-route-second-branch-synthesis.md",
+    "notes": "Pending: M830 design is ready but cadence requires branch synthesis before another implementation"
   },
-  "updated_at_utc": "20260525T205000Z"
+  "updated_at_utc": "20260525T210000Z"
 }
