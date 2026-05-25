@@ -62,18 +62,29 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m873-v4-boundary-preserving-missing-seed-pair-delta-refresh-implementation
+m874-v4-pair-delta-boundary-expansion-second-branch-synthesis
 ```
 
-M872 designed a normal-branch boundary-preserving refresh. M873 should first
-search/refine retarget parameters until missing-seed normal branches are inside
-the accepted margin window, then run pair-delta replay only on those accepted
-normal-window candidates. This is the final targeted implementation allowed
-before branch synthesis; objective training, PPO, promotion, base actor
-mutation, and M761 residual-head mutation remain blocked.
+M873 passed no-training pair-delta coverage gates after fixing M870's
+normal-window miss. The result is positive but still diagnostic: new accepted
+rows cover missing seeds `78048` and `78057`, while `78055` has accepted
+normal-boundary candidates but no new accepted pair-delta rows. M874 must
+synthesize M864-M873 before any further narrow implementation, objective
+training, PPO, promotion, base actor mutation, or M761 residual-head mutation.
 
 ## Recent Evidence Line
 
+- M873 implements the no-training boundary-preserving refresh and passes the
+  registered coverage gates. Normal-boundary search produces `48`
+  accepted-window candidates across all `3` missing seeds and all `3` retarget
+  axes. Pair-delta replay over `48` candidates produces `864` sequence rows and
+  `39` new accepted pair-delta rows. Combined with existing accepted rows, the
+  balanced corpus reaches `56` rows across `4` left seeds, `11` source groups,
+  `8` fault families, `27` fault pairs, `2` directions, and `2` axis pairs;
+  seed/direction/axis dominance gates pass. Caveat: new accepted rows cover
+  `78048` and `78057` but not `78055`, so this is not a complete missing-seed
+  solution and not a promotion claim. Actor and M761 checksums are unchanged;
+  no training, PPO, or promotion occurs. M874 must synthesize before more work.
 - M872 designs a no-training two-stage refresh for missing seeds. Stage A must
   run normal-only boundary search, include the original target point, classify
   wide-safe vs collision/negative vs accepted-window rows, and refine adjacent

@@ -95,7 +95,7 @@
   "commands": [
     {
       "name": "boundary_preserving_refresh",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_boundary_preserving_missing_seed_pair_delta_refresh --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --target-weak-seed-rows runs/m870_v4_generated_boundary_pair_delta_coverage_expansion/target_weak_seed_rows.csv --combined-boundary-rows runs/m864_v4_generated_boundary_refinement/combined_generated_boundary_rows.csv --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --candidate-plan-rows runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv --run-dir runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh --device cpu"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_boundary_preserving_missing_seed_pair_delta_refresh --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --target-weak-seed-rows runs/m870_v4_generated_boundary_pair_delta_coverage_expansion/target_weak_seed_rows.csv --combined-boundary-rows runs/m864_v4_generated_boundary_refinement/combined_generated_boundary_rows.csv --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --candidate-plan-rows runs/m825_v4_extreme_hidden_dynamics_data_route/candidate_plan_rows.csv --existing-accepted-pair-delta-rows runs/m870_v4_generated_boundary_pair_delta_coverage_expansion/accepted_pair_delta_rows.csv --run-dir runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh --device cpu"
     }
   ],
   "required_artifacts": [
@@ -113,6 +113,10 @@
     },
     {
       "path": "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/normal_boundary_candidate_rows.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh/new_accepted_pair_delta_rows.csv",
       "type": "run_artifact"
     },
     {

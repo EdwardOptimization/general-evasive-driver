@@ -13938,3 +13938,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M872 designs a no-training two-stage refresh for missing seeds. Stage A must run normal-only boundary search, include the original target point, classify wide-safe vs collision/negative vs accepted-window rows, and refine adjacent brackets until normal branch satisfies `normal_success == true`, `normal_collision == false`, and `0.0 <= normal_margin <= 0.03`. Stage B may run pair-delta sequence replay only on accepted normal-window candidates. Thresholds remain unchanged, component controls stay diagnostic-only, and objective training, PPO, actor mutation, M761 mutation, and promotion remain blocked. M873 is admitted as the final targeted implementation before branch synthesis.
 - decision: `boundary_preserving_missing_seed_pair_delta_refresh_design_admit_m873`
 - next: `m873-v4-boundary-preserving-missing-seed-pair-delta-refresh-implementation`
+
+## 20260525T182802Z - m873-v4-boundary-preserving-missing-seed-pair-delta-refresh-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m873_v4_boundary_preserving_missing_seed_pair_delta_refresh`
+- artifact: `docs/m873-v4-boundary-preserving-missing-seed-pair-delta-refresh-implementation.md`
+- result: M873 implements the no-training boundary-preserving refresh and passes the registered coverage gates. Normal-boundary search produces `48` accepted-window candidates across all `3` missing seeds and all `3` retarget axes. Pair-delta replay over `48` candidates produces `864` sequence rows and `39` new accepted pair-delta rows. Combined with existing accepted rows, the balanced corpus reaches `56` rows across `4` left seeds, `11` source groups, `8` fault families, `27` fault pairs, `2` directions, and `2` axis pairs; seed/direction/axis dominance gates pass. Caveat: new accepted rows cover `78048` and `78057` but not `78055`, so this is not a complete missing-seed solution and not a promotion claim. Actor and M761 checksums are unchanged; no training, PPO, or promotion occurs.
+- decision: `v4_boundary_preserving_missing_seed_pair_delta_refresh_pass`
+- next: `m874-v4-pair-delta-boundary-expansion-second-branch-synthesis`
