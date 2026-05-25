@@ -1,0 +1,128 @@
+{
+  "id": "m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "proof_washout",
+    "objective_overfit",
+    "behavior_regression",
+    "metric_artifact",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit.md",
+      "runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m193_m189_boundary_outcome_corpus_seed9630/boundary_outcome_corpus.csv",
+      "runs/m212_m204_boundary_outcome_corpus_seed10040/boundary_outcome_corpus.csv",
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit.json"
+    ],
+    "parent_objective": [
+      "run exact recheck and closed-loop replay/proof gates for M891 alpha_0_1"
+    ],
+    "derived_from": [
+      "m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit"
+    ],
+    "blocked_by": [
+      "M891 repeated exact objective admissibility but its candidate has not run replay/proof gates"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate.md",
+  "public_gates": [
+    "exact objective recheck for M891 alpha_0_1 versus M568 base",
+    "six public replay surfaces pass versus M568 base",
+    "behavior seeds 9505 and 9506 retain M568-level success and termination if replay passes",
+    "fallback alpha_0_05 handling is recorded if alpha_0_1 fails",
+    "no PPO or promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not skip exact recheck before replay",
+    "do not lower replay thresholds after seeing failures",
+    "do not claim generalization from public replay surfaces"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_objective_probe",
+    "evidence_axis": "G_replay_retention: execute replay/proof gates for fresh-seed exact-admissible candidate",
+    "evidence_increment": "tests whether the fresh-seed objective-only repeat preserves closed-loop proof surfaces like M889",
+    "claim_scope": "proof-gate execution only; no PPO, promotion, or learned driver claim",
+    "stop_condition": [
+      "stop if exact recheck fails",
+      "stop if replay gates fail for alpha_0_1 and alpha_0_05 fallback",
+      "stop if behavior seeds regress after replay passes",
+      "stop if cadence requires synthesis before further work"
+    ],
+    "fallback_plan": [
+      "if alpha_0_1 fails replay, test alpha_0_05 once",
+      "if both fail, route to seed-fragility/proof-washout audit",
+      "if replay passes but behavior regresses, route to behavior-retention audit",
+      "if all gates pass, route to branch synthesis or repeat audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M892 admits fresh-seed exact-admissible candidate to replay/proof gates",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M891 seed-10887 alpha_0_1 exact-admissible objective-only checkpoint can preserve M568-relative replay/proof surfaces and behavior seeds without PPO or promotion.",
+  "success_criteria": [
+    "exact recheck passes for M891 alpha_0_1",
+    "all six replay/proof surfaces pass versus M568",
+    "behavior seeds 9505 and 9506 do not regress if behavior is run",
+    "fallback alpha handling is recorded if needed",
+    "M893 keeps promotion and PPO blocked"
+  ],
+  "failure_criteria": [
+    "exact recheck regresses holdouts",
+    "any replay surface fails",
+    "behavior success or termination regresses",
+    "M893 promotes or runs PPO"
+  ],
+  "commands": [
+    {
+      "name": "exact_recheck_alpha_0_1",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_enriched_pair_delta_objective_sanity --checkpoint runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --objective-train-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_train_public_rows.csv --objective-eval-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_eval_public_rows.csv --source-holdout-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_source_holdout_public_rows.csv --new-signature-holdout-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_new_signature_holdout_public_rows.csv --run-dir runs/m893_alpha_0_1_exact_recheck --device cpu"
+    },
+    {
+      "name": "replay_proof_gate_alpha_0_1",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_diverse_protected_gate --checkpoint-policy m568_base=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --checkpoint-policy m891_a010=runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt --replay-gate m183_m168=runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv,m568_base,m891_a010 --replay-gate m183_m170=runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv,m568_base,m891_a010 --replay-gate m193_m189=runs/m193_m189_boundary_outcome_corpus_seed9630/boundary_outcome_corpus.csv,m568_base,m891_a010 --replay-gate m212_m204=runs/m212_m204_boundary_outcome_corpus_seed10040/boundary_outcome_corpus.csv,m568_base,m891_a010 --replay-gate m223_m219=runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.csv,m568_base,m891_a010 --replay-gate m267_m264=runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv,m568_base,m891_a010 --env-config configs/m121_human_view_zero_obstacle_relvel.json --max-continuation-steps 60 --max-normal-success-drop 0.0 --max-normal-margin-regression 0.005 --max-margin-gap-regression 0.001 --max-success-drop-count-regression 0 --device cpu --run-dir runs/m893_m891_a010_replay_proof_gate"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m893_alpha_0_1_exact_recheck/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m893_m891_a010_replay_proof_gate/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+    "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit.md"
+  ],
+  "decision_rule": "M893 may only execute proof gates for the fresh repeat. It must not promote, run PPO, or claim generalization.",
+  "next_blocker": "M891 alpha_0_1 exact-admissible repeat has not run replay/proof gates"
+}

@@ -14114,3 +14114,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M891 repeats the M886 no-PPO objective-only recipe with optimizer/minibatch seed `10887` and otherwise identical settings. It reconstructs `247/247` rows, leaves the residual head and actor input contract unchanged, and again finds `7` nonzero exact-admissible interpolation candidates. The best alpha is `0.1`, with train weighted-loss delta `-0.00008399784564971924`; all exact holdout deltas are nonpositive. PPO and promotion remain blocked.
 - decision: `v4_enriched_pair_delta_objective_only_fresh_seed_repeat_exact_admissible`
 - next: `m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit`
+
+## 20260525T195728Z - m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit.md`
+- result: M892 audits M891 as a clean fresh-seed repeat of the M886 objective-only result. M891 matches M886 on the key exact-objective outcome: both reconstruct `247/247` tensor rows, both find `7` nonzero exact-admissible interpolation candidates, and both select alpha `0.1` as the best exact-admissible candidate. The supported claim is limited to objective-level repeatability across two optimizer/minibatch seeds; replay retention for the repeat remains untested.
+- decision: `v4_enriched_pair_delta_objective_only_fresh_seed_repeat_audit_admit_replay_gate`
+- next: `m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate`

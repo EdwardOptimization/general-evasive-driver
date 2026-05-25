@@ -62,15 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit
+m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate
 ```
 
-M891 repeated the M886 no-PPO objective-only recipe with seed `10887` and again
-found exact-admissible interpolation candidates. M892 must audit the repeat and
-decide whether to run replay/proof gates for its alpha `0.1` candidate.
+M892 audited M891 as a clean objective-level fresh-seed repeat. M893 must now
+run exact recheck and closed-loop replay/proof gates for M891 alpha `0.1`
+against the M568 diagnostic BC base, with alpha `0.05` kept as fallback if a
+boundary cliff appears.
 
 ## Recent Evidence Line
 
+- M892 audits M891 as a clean fresh-seed repeat of the M886 no-PPO
+  objective-only result. Both seeds reconstruct `247/247` rows, find `7`
+  nonzero exact-admissible interpolation candidates, and select alpha `0.1` as
+  the best exact-admissible candidate. This supports objective-level
+  repeatability only; replay retention for the M891 repeat is routed to M893.
 - M891 repeats the M886 objective-only recipe with seed `10887` and otherwise
   identical settings. It reconstructs `247/247` rows, keeps actor input and M761
   residual head unchanged, and again finds `7` nonzero exact-admissible alphas.

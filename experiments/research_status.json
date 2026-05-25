@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 900,
+    "completed": 901,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat",
+    "task_id": "m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat.md"
+    "command_log": "docs/m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit.md"
   },
   "next_task": {
-    "id": "m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit",
+    "id": "m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate",
     "status": "pending",
-    "priority": 8870,
+    "priority": 8880,
     "kind": "gate",
-    "hypothesis": "Audit M891 fresh-seed repeat and choose replay/proof gate or repeat routing",
-    "command": "see experiments/manifests/m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit.json",
-    "success_artifact": "docs/m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit.md",
-    "notes": "Pending: audit seed-10887 exact-admissible repeat before replay proof gate execution"
+    "hypothesis": "Run exact recheck and replay/proof gates for M891 alpha_0_1 versus M568",
+    "command": "see experiments/manifests/m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate.json",
+    "success_artifact": "runs/m893_m891_a010_replay_proof_gate/summary.json",
+    "notes": "Pending: execute proof gate for fresh-seed repeat before synthesis or further repeats"
   },
-  "updated_at_utc": "20260525T195417Z"
+  "updated_at_utc": "20260525T195728Z"
 }

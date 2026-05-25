@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T195532Z
+- Generated at UTC: 20260525T200024Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M892 may only audit the fresh-seed repeat. It must not train, run replay, run PPO, promote, or claim replay retention.
+- Promotion decision: v4_enriched_pair_delta_objective_only_fresh_seed_repeat_audit_admit_replay_gate
+- Decision reason: M892 audits M891 as a clean objective-only seed repeat and routes M891 alpha_0_1 to replay/proof gates while keeping PPO and promotion blocked
 
 ## Hypothesis
 
@@ -69,7 +69,18 @@ M891 is a clean fresh-seed objective-only repeat and should be routed to replay/
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit
+- type: gate
+- checkpoint: docs/m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: v4_enriched_pair_delta_objective_only_fresh_seed_repeat_audit_admit_replay_gate
+- reason: M892 audits M891 as a clean objective-only seed repeat and routes M891 alpha_0_1 to replay/proof gates while keeping PPO and promotion blocked
 
 ## Next Blocker
 

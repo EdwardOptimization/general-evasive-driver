@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M892 may only audit the fresh-seed repeat. It must not train, run replay, run PPO, promote, or claim replay retention.",
+  "decision_reason": "M892 audits M891 as a clean objective-only seed repeat and routes M891 alpha_0_1 to replay/proof gates while keeping PPO and promotion blocked",
   "failure_criteria": [
     "M892 promotes a checkpoint",
     "M892 runs PPO",
@@ -22,7 +22,7 @@
     "do not tune against exact holdouts after seeing M891"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260525T195532Z",
+  "generated_at_utc": "20260525T200024Z",
   "hypothesis": "M891 is a clean fresh-seed objective-only repeat and should be routed to replay/proof gates before any stronger claim.",
   "lineage": {
     "blocked_by": [
@@ -54,7 +54,7 @@
   "milestone": "m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit",
   "next_blocker": "M891 exact-admissible fresh-seed repeat has not been audited for replay/proof gate routing",
   "private_holdout_policy": "promotion_only",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "v4_enriched_pair_delta_objective_only_fresh_seed_repeat_audit_admit_replay_gate",
   "public_gates": [
     "M892 must be audit-only",
     "M892 must compare M891 against M886 exact-admissible behavior",
@@ -62,7 +62,20 @@
     "M892 must keep PPO and promotion blocked",
     "M892 must not claim repeat-stable replay before replay gates run"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "v4_enriched_pair_delta_objective_only_fresh_seed_repeat_audit_admit_replay_gate",
+    "milestone": "m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit",
+    "reason": "M892 audits M891 as a clean objective-only seed repeat and routes M891 alpha_0_1 to replay/proof gates while keeping PPO and promotion blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "M892 records M891 exact-admissible alpha count and best alpha",
     "M892 compares M891 deltas to M886",
