@@ -62,17 +62,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m886-v4-enriched-pair-delta-objective-only-probe-implementation
+m887-v4-enriched-pair-delta-objective-only-probe-audit
 ```
 
-M885 designed a tiny no-PPO objective-only probe for the
-`v4_pair_delta_objective_probe` branch. M886 may run only that registered
-actor-coupling probe with exact holdout and interpolation gates. PPO,
-checkpoint promotion, actor input changes, and M761 residual-head mutation
-remain blocked.
+M886 implemented the tiny no-PPO objective-only actor-coupling probe and found
+exact-admissible nonzero interpolation candidates. M887 must audit that result
+before any replay/proof gate evaluation. PPO, checkpoint promotion, actor input
+changes, and M761 residual-head mutation remain blocked.
 
 ## Recent Evidence Line
 
+- M886 implements the first no-PPO enriched pair-delta objective-only probe. It
+  reconstructs all `247/247` actor-state tensor rows with `0` missing rows,
+  keeps M761 residual-head parameters unchanged, trains only actor-coupling
+  parameters for `32` Adam steps, and finds `7` nonzero exact-admissible
+  interpolation candidates. The best exact-admissible alpha is `0.1` with train
+  weighted-loss delta `-0.00008386037042074079`; raw train delta is
+  `-0.0008391377425962521`, but raw is not accepted directly. This is exact
+  objective evidence only, not closed-loop replay evidence or promotion.
 - M885 designs the first no-PPO objective-only probe. It limits the update to a
   narrow actor-coupling scope, requires exact M883 objective metrics before and
   after update, uses interpolation from base to raw candidate, rejects exact

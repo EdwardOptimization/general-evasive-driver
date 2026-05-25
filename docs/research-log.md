@@ -14057,3 +14057,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M885 designs a tiny no-PPO objective-only probe for the new `v4_pair_delta_objective_probe` branch. The probe may train only a narrow actor-coupling scope, must use exact M883 objective metrics before and after update, must interpolate between base and raw candidate, must reject exact holdout regression, and cannot promote a checkpoint.
 - decision: `enriched_pair_delta_objective_only_probe_design_admit_m886`
 - next: `m886-v4-enriched-pair-delta-objective-only-probe-implementation`
+
+## 20260525T193034Z - m886-v4-enriched-pair-delta-objective-only-probe-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m886_v4_enriched_pair_delta_objective_only_probe`
+- artifact: `docs/m886-v4-enriched-pair-delta-objective-only-probe-implementation.md`
+- result: M886 implements the tiny no-PPO enriched pair-delta objective-only probe. It reconstructs all `247/247` expected tensor rows with `0` missing rows, uses only the actor-coupling train scope for `32` Adam steps, and leaves the M761 residual head unchanged. Raw train weighted exact loss improves by `-0.0008391377425962521`, but raw is not directly admissible by design. The interpolation grid finds `7` nonzero exact-admissible candidates; best exact train delta is alpha `0.1` with `-0.00008386037042074079`, and all registered exact holdout deltas are nonpositive. PPO, checkpoint promotion, and actor-input changes remain blocked.
+- decision: `v4_enriched_pair_delta_objective_only_probe_exact_admissible`
+- next: `m887-v4-enriched-pair-delta-objective-only-probe-audit`

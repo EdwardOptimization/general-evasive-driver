@@ -1,0 +1,74 @@
+{
+  "decision_reason": "M887 may only audit M886 and choose the next gate. It must not train, run PPO, promote, or claim closed-loop improvement.",
+  "failure_criteria": [
+    "M887 promotes a checkpoint",
+    "M887 runs PPO",
+    "M887 ignores exact holdout or action-drift evidence",
+    "M887 treats public exact-objective evidence as private generalization evidence"
+  ],
+  "failure_types": [
+    "objective_overfit",
+    "proof_washout",
+    "metric_artifact",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat exact objective improvement as closed-loop replay success",
+    "do not tune against source_holdout or new_signature_holdout"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260525T193321Z",
+  "hypothesis": "M886's exact-admissible nonzero interpolation candidates are clean enough to justify a later replay/proof gate evaluation, but not promotion or PPO.",
+  "lineage": {
+    "blocked_by": [
+      "M886 found exact-admissible interpolation candidates but no replay/proof audit has selected a candidate or next gate"
+    ],
+    "derived_from": [
+      "m886-v4-enriched-pair-delta-objective-only-probe-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m886-v4-enriched-pair-delta-objective-only-probe-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m886-v4-enriched-pair-delta-objective-only-probe-implementation.md",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/summary.json",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/candidate_metrics.csv",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/interpolation_metrics.csv",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/exact_objective_by_split.csv",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/action_drift_metrics.csv"
+    ],
+    "parent_objective": [
+      "audit exact-admissible objective-only pair-delta candidates before replay gates"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m887-v4-enriched-pair-delta-objective-only-probe-audit",
+  "next_blocker": "M886 exact-admissible objective-only candidates have not been audited for replay/proof gate admission",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M887 must be audit-only",
+    "M887 must check that M886 used no PPO and did not promote",
+    "M887 must verify residual-head and actor input contract preservation",
+    "M887 must summarize exact objective train and holdout deltas",
+    "M887 must choose replay/proof-gate next steps without claiming driver improvement"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "M887 records M886 exact train and holdout deltas",
+    "M887 confirms no PPO, promotion, actor-input change, or residual-head mutation",
+    "M887 identifies the most reasonable candidate for later replay/proof gates",
+    "M887 pre-registers the next replay/proof audit or objective repair",
+    "M887 keeps checkpoint promotion blocked"
+  ],
+  "type": "gate"
+}

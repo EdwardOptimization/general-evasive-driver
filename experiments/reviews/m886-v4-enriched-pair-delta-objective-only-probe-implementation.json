@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M886 may run only the registered no-PPO objective-only probe. It must not promote a checkpoint or claim learned self-ID.",
+  "decision_reason": "M886 reconstructs all 247 tensor rows and finds 7 nonzero exact-admissible interpolation candidates with no PPO promotion actor-input change or residual-head mutation",
   "failure_criteria": [
     "M886 runs PPO",
     "M886 promotes a checkpoint",
@@ -24,7 +24,7 @@
     "do not skip interpolation"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260525T191930Z",
+  "generated_at_utc": "20260525T193403Z",
   "hypothesis": "A tiny no-PPO actor-coupling update from M568 can improve the M883 exact train objective while preserving exact public holdout metrics within tolerance after interpolation.",
   "lineage": {
     "blocked_by": [
@@ -42,6 +42,13 @@
     ],
     "parent_dataset": [
       "docs/m885-v4-enriched-pair-delta-objective-only-probe-design.md",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_train_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_eval_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_source_holdout_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_new_signature_holdout_public_rows.csv",
       "runs/m883_v4_enriched_pair_delta_objective_sanity/summary.json",
       "runs/m883_v4_enriched_pair_delta_objective_sanity/objective_rows.csv",
       "runs/m883_v4_enriched_pair_delta_objective_sanity/objective_metrics.csv"
@@ -52,9 +59,9 @@
     "supersedes": []
   },
   "milestone": "m886-v4-enriched-pair-delta-objective-only-probe-implementation",
-  "next_blocker": "Enriched pair-delta objective-only probe has not yet been implemented",
+  "next_blocker": "M886 exact-admissible objective-only candidates need audit before replay/proof gate evaluation",
   "private_holdout_policy": "promotion_only",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "v4_enriched_pair_delta_objective_only_probe_exact_admissible",
   "public_gates": [
     "M886 must use no PPO",
     "M886 must train only the registered actor-coupling scope",
@@ -62,7 +69,20 @@
     "M886 must run interpolation and exact holdout non-regression gates",
     "M886 must not promote a checkpoint"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m886_v4_enriched_pair_delta_objective_only_probe/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_enriched_pair_delta_objective_only_probe_exact_admissible",
+    "milestone": "m886-v4-enriched-pair-delta-objective-only-probe-implementation",
+    "reason": "M886 reconstructs all 247 tensor rows and finds 7 nonzero exact-admissible interpolation candidates with no PPO promotion actor-input change or residual-head mutation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "M886 writes raw and interpolation candidate metrics",
     "M886 reports exact objective metrics per split",

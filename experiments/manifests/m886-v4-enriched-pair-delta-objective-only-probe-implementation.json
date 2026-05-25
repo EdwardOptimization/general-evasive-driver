@@ -17,6 +17,13 @@
     ],
     "parent_dataset": [
       "docs/m885-v4-enriched-pair-delta-objective-only-probe-design.md",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt",
+      "runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_train_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_eval_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_source_holdout_public_rows.csv",
+      "runs/m880_v4_pair_delta_objective_target_enrichment/enriched_new_signature_holdout_public_rows.csv",
       "runs/m883_v4_enriched_pair_delta_objective_sanity/summary.json",
       "runs/m883_v4_enriched_pair_delta_objective_sanity/objective_rows.csv",
       "runs/m883_v4_enriched_pair_delta_objective_sanity/objective_metrics.csv"
@@ -92,7 +99,7 @@
   "commands": [
     {
       "name": "objective_only_probe",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_enriched_pair_delta_objective_only_probe --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --objective-rows runs/m883_v4_enriched_pair_delta_objective_sanity/objective_rows.csv --run-dir runs/m886_v4_enriched_pair_delta_objective_only_probe --device cpu"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_enriched_pair_delta_objective_only_probe --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --scenario-config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --source-rows runs/m825_v4_extreme_hidden_dynamics_data_route/source_rows.csv --objective-train-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_train_public_rows.csv --objective-eval-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_objective_eval_public_rows.csv --source-holdout-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_source_holdout_public_rows.csv --new-signature-holdout-rows runs/m880_v4_pair_delta_objective_target_enrichment/enriched_new_signature_holdout_public_rows.csv --run-dir runs/m886_v4_enriched_pair_delta_objective_only_probe --device cpu --steps 32 --learning-rate 0.000001 --batch-size 32 --action-anchor-coef 0.1 --parameter-anchor-coef 0.0001 --exact-holdout-regression-tolerance 0.0001"
     }
   ],
   "required_artifacts": [
@@ -113,6 +120,22 @@
       "type": "run_artifact"
     },
     {
+      "path": "runs/m886_v4_enriched_pair_delta_objective_only_probe/candidate_metrics.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m886_v4_enriched_pair_delta_objective_only_probe/exact_objective_by_split.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m886_v4_enriched_pair_delta_objective_only_probe/action_drift_metrics.csv",
+      "type": "run_artifact"
+    },
+    {
+      "path": "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt",
+      "type": "checkpoint_artifact"
+    },
+    {
       "path": "docs/m886-v4-enriched-pair-delta-objective-only-probe-implementation.md",
       "type": "documentation"
     }
@@ -125,5 +148,5 @@
     "runs/m883_v4_enriched_pair_delta_objective_sanity/summary.json"
   ],
   "decision_rule": "M886 may run only the registered no-PPO objective-only probe. It must not promote a checkpoint or claim learned self-ID.",
-  "next_blocker": "Enriched pair-delta objective-only probe has not yet been implemented"
+  "next_blocker": "M886 exact-admissible objective-only candidates need audit before replay/proof gate evaluation"
 }
