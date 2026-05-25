@@ -1,0 +1,124 @@
+{
+  "id": "m895-v4-pair-delta-objective-effect-size-budget-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "metric_artifact",
+    "behavior_regression",
+    "seed_fragility",
+    "proof_washout",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m894-v4-pair-delta-objective-probe-branch-synthesis.md",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/interpolation_metrics.csv",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/action_drift_metrics.csv",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/interpolation_metrics.csv",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/action_drift_metrics.csv",
+      "runs/m889_m886_a010_replay_proof_gate/replay_gate_summary.csv",
+      "runs/m893_m891_a010_replay_proof_gate/replay_gate_summary.csv",
+      "runs/m889_m886_a010_behavior_seed9505/policy_summary.csv",
+      "runs/m889_m886_a010_behavior_seed9506/policy_summary.csv",
+      "runs/m893_m891_a010_behavior_seed9505/policy_summary.csv",
+      "runs/m893_m891_a010_behavior_seed9506/policy_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m894-v4-pair-delta-objective-probe-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "audit effect-size budget of the repeated no-PPO enriched pair-delta objective-only updates before scaling, fresh-source generalization, PPO, or promotion"
+    ],
+    "derived_from": [
+      "m894-v4-pair-delta-objective-probe-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M885-M893 proved repeatable proof retention but not whether movement is large enough to matter"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m895-v4-pair-delta-objective-effect-size-budget-audit.md",
+  "public_gates": [
+    "M895 must aggregate M886/M891 interpolation and action-drift metrics",
+    "M895 must aggregate M889/M893 replay and behavior deltas",
+    "M895 must classify whether the current effect size is meaningful, marginal, or too small",
+    "M895 must choose scaling, fresh-corpus, or stop routing",
+    "M895 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not run new replay gates",
+    "do not promote a checkpoint",
+    "do not treat behavior retention ties as improvement",
+    "do not tune alpha after seeing private holdout results"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_objective_effect_size",
+    "evidence_axis": "G_effect_size: quantify whether proof-safe objective-only movement is large enough to justify scaling",
+    "evidence_increment": "turns the M885-M893 proof-safe repeat into an effect-size and routing decision",
+    "claim_scope": "process/effect-size audit only; no replay, training, PPO, generalization, learned driver claim, or promotion",
+    "stop_condition": [
+      "stop if required M886/M891/M889/M893 artifacts are missing",
+      "stop if behavior retention is misread as improvement",
+      "stop if no routing decision is made",
+      "stop if PPO or promotion is admitted without a separate design milestone"
+    ],
+    "fallback_plan": [
+      "if effect size is meaningful and proof-safe, design controlled objective scaling",
+      "if effect size is too small, pivot to richer or fresher pair-delta corpus construction",
+      "if replay retention depends on tiny alphas only, design a trust-region or projection objective",
+      "if artifacts are inconsistent, repair or audit before continuation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M894 opens v4_pair_delta_objective_effect_size after proof-safe repeatability",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The repeated objective-only candidates are proof-safe, but their action and behavior movement may be too small; M895 should quantify the movement budget and route the next branch before any scaling or PPO.",
+  "success_criteria": [
+    "M895 records exact-objective deltas by seed and alpha",
+    "M895 records action-drift magnitudes by seed and alpha",
+    "M895 records replay margin and behavior deltas from M889/M893",
+    "M895 classifies effect-size adequacy",
+    "M895 chooses the next route without training, replay, PPO, or promotion"
+  ],
+  "failure_criteria": [
+    "M895 runs training or replay",
+    "M895 admits PPO or promotion",
+    "M895 treats retention as improvement",
+    "M895 skips effect-size classification",
+    "M895 omits seed-to-seed comparison"
+  ],
+  "commands": [
+    {
+      "name": "effect_size_audit",
+      "command": "write docs/m895-v4-pair-delta-objective-effect-size-budget-audit.md using existing artifacts only"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m895-v4-pair-delta-objective-effect-size-budget-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+    "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt",
+    "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m894-v4-pair-delta-objective-probe-branch-synthesis.md"
+  ],
+  "decision_rule": "M895 may only audit existing effect-size artifacts and choose scaling, fresh-corpus, or stop routing. It must not run replay, train, run PPO, or promote.",
+  "next_blocker": "The proof-safe objective-only branch has not yet quantified whether its movement is large enough to justify scaling or fresh-source work"
+}

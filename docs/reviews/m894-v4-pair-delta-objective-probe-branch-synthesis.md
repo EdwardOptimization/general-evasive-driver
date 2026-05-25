@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T200533Z
+- Generated at UTC: 20260525T200842Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M894 may only synthesize the M885-M893 branch and choose the next branch. It must not run replay, train, run PPO, or promote.
+- Promotion decision: promote_to_next_branch
+- Decision reason: M894 closes v4_pair_delta_objective_probe after two objective-only seeds and two replay/proof positives and opens v4_pair_delta_objective_effect_size
 
 ## Hypothesis
 
@@ -72,7 +72,18 @@ M885-M893 have produced enough no-PPO objective-probe evidence to close the curr
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m894-v4-pair-delta-objective-probe-branch-synthesis
+- type: gate
+- checkpoint: docs/m894-v4-pair-delta-objective-probe-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: promote_to_next_branch
+- reason: M894 closes v4_pair_delta_objective_probe after two objective-only seeds and two replay/proof positives and opens v4_pair_delta_objective_effect_size
 
 ## Next Blocker
 

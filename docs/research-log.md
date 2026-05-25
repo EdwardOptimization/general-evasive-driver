@@ -14133,3 +14133,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M893 passes the registered proof-gate stack for the M891 seed-10887 `alpha_0_1` candidate versus M568. Exact recheck reconstructs `247/247` rows with finite losses and nonpositive split deltas versus M568/M883. All six replay/proof surfaces pass with zero candidate success-drop regression. Behavior seeds `9505` and `9506` retain success `0.8125` and termination `0.1875`; aggregate clearance margin changes by `+0.0004909103515290392` while return changes by `-0.004009246678577938`. PPO and promotion remain blocked.
 - decision: `v4_enriched_pair_delta_fresh_seed_replay_proof_gate_pass`
 - next: `m894-v4-pair-delta-objective-probe-branch-synthesis`
+
+## 20260525T200616Z - m894-v4-pair-delta-objective-probe-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m894-v4-pair-delta-objective-probe-branch-synthesis.md`
+- result: M894 synthesizes M885-M893 and closes `v4_pair_delta_objective_probe`. The branch supports a narrow but real result: the no-PPO enriched pair-delta objective-only update repeats across two optimizer/minibatch seeds, selects alpha `0.1` both times, and preserves exact/replay/behavior proof gates versus M568 for both candidates. The synthesis explicitly rejects promotion, PPO admission, generalization claims, and meaningful driver-improvement claims because the movement is tiny and all gates are public workflow artifacts.
+- decision: `promote_to_next_branch`
+- next: `m895-v4-pair-delta-objective-effect-size-budget-audit`

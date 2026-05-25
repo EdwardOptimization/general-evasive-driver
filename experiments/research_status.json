@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 902,
+    "completed": 903,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate",
+    "task_id": "m894-v4-pair-delta-objective-probe-branch-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m893-v4-enriched-pair-delta-fresh-seed-replay-proof-gate.md"
+    "command_log": "docs/m894-v4-pair-delta-objective-probe-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m894-v4-pair-delta-objective-probe-branch-synthesis",
+    "id": "m895-v4-pair-delta-objective-effect-size-budget-audit",
     "status": "pending",
-    "priority": 8890,
+    "priority": 8900,
     "kind": "gate",
-    "hypothesis": "Synthesize M885-M893 objective-probe branch before further repeats, generalization, PPO, or promotion",
-    "command": "see experiments/manifests/m894-v4-pair-delta-objective-probe-branch-synthesis.json",
-    "success_artifact": "docs/m894-v4-pair-delta-objective-probe-branch-synthesis.md",
-    "notes": "Pending: branch synthesis after two objective-only seeds and two replay/proof gate positives"
+    "hypothesis": "Audit effect-size budget of repeated proof-safe objective-only pair-delta updates",
+    "command": "see experiments/manifests/m895-v4-pair-delta-objective-effect-size-budget-audit.json",
+    "success_artifact": "docs/m895-v4-pair-delta-objective-effect-size-budget-audit.md",
+    "notes": "Pending: quantify whether movement is meaningful enough to justify scaling, fresh-corpus work, or later PPO"
   },
-  "updated_at_utc": "20260525T200354Z"
+  "updated_at_utc": "20260525T200616Z"
 }

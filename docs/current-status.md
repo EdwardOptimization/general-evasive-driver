@@ -62,15 +62,23 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m894-v4-pair-delta-objective-probe-branch-synthesis
+m895-v4-pair-delta-objective-effect-size-budget-audit
 ```
 
-M893 repeated the M889 proof-gate positive on the M891 seed-10887 candidate.
-M894 must synthesize M885-M893 before any further repeat, generalization gate,
-PPO, or promotion work.
+M894 closed the `v4_pair_delta_objective_probe` branch after two objective-only
+seeds and two replay/proof positives. M895 must quantify whether that
+proof-safe movement is large enough to justify scaling, fresh-corpus work, or
+later PPO.
 
 ## Recent Evidence Line
 
+- M894 synthesizes M885-M893 and opens `v4_pair_delta_objective_effect_size`.
+  The supported claim is narrow: the no-PPO enriched pair-delta objective-only
+  update repeats across two optimizer/minibatch seeds, selects alpha `0.1` both
+  times, and preserves exact/replay/behavior proof gates versus M568 for both
+  candidates. PPO, promotion, generalization claims, and meaningful driver
+  improvement remain blocked because the movement is tiny and all gates are
+  public workflow artifacts.
 - M893 passes exact recheck, six replay/proof surfaces, and behavior seeds
   `9505`/`9506` for M891 `alpha_0_1` versus M568. Exact recheck reconstructs
   `247/247` rows; all six replay surfaces pass with zero candidate success-drop
