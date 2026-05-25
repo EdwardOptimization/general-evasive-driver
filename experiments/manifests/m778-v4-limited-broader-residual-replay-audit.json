@@ -2,7 +2,7 @@
   "id": "m778-v4-limited-broader-residual-replay-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "repair",
   "failure_types": [
     "behavior_regression",
     "scenario_sampling_failure"
@@ -106,6 +106,6 @@
     "runs/m777_v4_limited_broader_residual_replay/summary.json",
     "runs/m777_v4_limited_broader_residual_replay/alpha_metrics.csv"
   ],
-  "decision_rule": "M778 may only audit M777. It must not tune alpha, run replay, train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
-  "next_blocker": "pending_audit_decision"
+  "decision_rule": "M778 may only audit M777. It must not tune alpha, run replay, train, run PPO, mutate actor or residual parameters, or promote a checkpoint. The audit admits a pre-registered normal-boundary alpha probe design only.",
+  "next_blocker": "m779-v4-broader-normal-boundary-alpha-probe-design"
 }

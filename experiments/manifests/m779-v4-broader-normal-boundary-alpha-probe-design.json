@@ -1,0 +1,122 @@
+{
+  "id": "m779-v4-broader-normal-boundary-alpha-probe-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m778-v4-limited-broader-residual-replay-audit.md",
+      "docs/m777-v4-limited-broader-residual-replay-implementation.md",
+      "runs/m777_v4_limited_broader_residual_replay/summary.json",
+      "runs/m777_v4_limited_broader_residual_replay/alpha_metrics.csv",
+      "runs/m777_v4_limited_broader_residual_replay/replay_rows.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/summary.json",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m778-v4-limited-broader-residual-replay-audit.json",
+      "experiments/manifests/m777-v4-limited-broader-residual-replay-implementation.json",
+      "configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json"
+    ],
+    "parent_objective": [
+      "design a pre-registered no-training lower-alpha boundary probe after M777 strict normal-retention failure"
+    ],
+    "derived_from": [
+      "m778-v4-limited-broader-residual-replay-audit"
+    ],
+    "blocked_by": [
+      "m778-v4-limited-broader-residual-replay-audit"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m779-v4-broader-normal-boundary-alpha-probe-design.md",
+  "public_gates": [
+    "M779 designs a no-training lower-alpha boundary probe on M773 broader corpus",
+    "M779 preserves alpha 0.2 strict-normal-retention failure as the blocker",
+    "M779 pre-registers a lower-alpha ladder instead of retroactive tuning",
+    "M779 requires strict normal-retention and intervention-sensitivity metrics",
+    "M779 requires source 77025/source_index 12 stratification",
+    "PPO training residual retraining and checkpoint promotion remain blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not run the alpha probe in M779",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not erase or reinterpret M777 alpha 0.2 as a pass",
+    "do not choose a lower alpha after seeing M780 results",
+    "do not hide seed 77025/source_index 12 normal collisions",
+    "do not claim broad generalization or true four-wheel physical fidelity"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_source_holdout_replay",
+    "evidence_axis": "G_generalization: normal-retention boundary under residual alpha",
+    "evidence_increment": "designs a pre-registered lower-alpha diagnostic to decide whether M777's failure is a narrow alpha-threshold cliff, a source-specific retention issue, or an objective-design blocker",
+    "claim_scope": "design only; no replay result, repair, PPO, or driver promotion",
+    "stop_condition": [
+      "stop if design admits PPO or promotion",
+      "stop if design treats lower alpha as retroactive acceptance of M777",
+      "stop if design omits the M777 failing source",
+      "stop if design weakens strict normal-retention requirements"
+    ],
+    "fallback_plan": [
+      "if a lower alpha preserves strict normal retention and still improves intervention sensitivity, audit as a limited alpha-feasibility result",
+      "if every useful alpha collides at source 77025/source_index 12, design explicit normal-margin retention or boundary-source repair",
+      "if lower alphas pass normal retention but lose intervention signal, redesign residual objective scale or target selection",
+      "if additional normal sources fail, pivot back to source-balanced mining and objective normal-retention design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M778 admits only a pre-registered boundary alpha probe after M777 strict-normal-retention failure",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M777's strict normal-retention failure may be a narrow alpha-threshold cliff around one near-boundary source; a pre-registered lower-alpha probe can test whether residual intervention sensitivity survives under strict normal retention.",
+  "success_criteria": [
+    "M779 fixes the probe inputs to M568 actor, M761 residual head, and M773 positive/contrast rows",
+    "M779 pre-registers lower alphas before implementation",
+    "M779 keeps alpha 0.2 as the failed reference point",
+    "M779 requires strict normal_success_rate == 1.0 and normal_collision_rate == 0.0",
+    "M779 requires intervention action-gap and margin-gap improvement versus base",
+    "M779 requires source and duplicate-row stratification for seed 77025/source_index 12",
+    "M779 blocks PPO training residual retraining and promotion"
+  ],
+  "failure_criteria": [
+    "design runs replay instead of only designing it",
+    "design trains actor or residual parameters",
+    "design promotes a checkpoint",
+    "design retroactively reclassifies M777 alpha 0.2 as strict pass",
+    "design omits the normal-retention gate",
+    "design hides source concentration"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m779-v4-broader-normal-boundary-alpha-probe-design.md; no training command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m779-v4-broader-normal-boundary-alpha-probe-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m778-v4-limited-broader-residual-replay-audit.md",
+    "runs/m777_v4_limited_broader_residual_replay/summary.json",
+    "runs/m777_v4_limited_broader_residual_replay/replay_rows.csv",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M779 may only design a lower-alpha normal-boundary probe. It must not run replay, train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "m780-v4-broader-normal-boundary-alpha-probe-implementation"
+}

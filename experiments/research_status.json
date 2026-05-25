@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 786,
+        "completed": 788,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m777-v4-limited-broader-residual-replay-implementation",
+        "task_id": "m779-v4-broader-normal-boundary-alpha-probe-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m777-v4-limited-broader-residual-replay-implementation.md"
+        "command_log": "docs/m779-v4-broader-normal-boundary-alpha-probe-design.md"
     },
     "next_task": {
-        "id": "m778-v4-limited-broader-residual-replay-audit",
+        "id": "m780-v4-broader-normal-boundary-alpha-probe-implementation",
         "status": "pending",
-        "priority": 7730,
-        "kind": "gate",
-        "hypothesis": "Audit limited broader residual replay normal-retention regression",
-        "command": "see experiments/manifests/m778-v4-limited-broader-residual-replay-audit.json",
-        "success_artifact": "docs/m778-v4-limited-broader-residual-replay-audit.md",
-        "notes": "Pending: audit M777 mechanism-positive but strict-normal-retention-failed result before repair retuning PPO or promotion"
+        "priority": 7750,
+        "kind": "generalization",
+        "hypothesis": "Run pre-registered lower-alpha normal-boundary probe after M777 strict normal-retention failure",
+        "command": "see experiments/manifests/m780-v4-broader-normal-boundary-alpha-probe-implementation.json",
+        "success_artifact": "docs/m780-v4-broader-normal-boundary-alpha-probe-implementation.md",
+        "notes": "Pending: no-training alpha-boundary replay before repair retuning PPO or promotion"
     },
-    "updated_at_utc": "20260525T081000Z"
+    "updated_at_utc": "20260525T083000Z"
 }

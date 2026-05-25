@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M778 audits M777 as mechanism-positive but strict-normal-retention-failed: alpha 0.2 improves intervention action gap and margin gap but creates one unique near-boundary normal collision source; next is a pre-registered lower-alpha normal-boundary probe with PPO and promotion blocked",
+  "failure_criteria": [
+    "audit treats script candidate pass as strict pass",
+    "audit hides normal collisions",
+    "audit tunes alpha retroactively",
+    "audit admits PPO or promotion"
+  ],
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not tune alpha in the audit",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not hide alpha 0.2 normal collisions",
+    "do not claim broad generalization"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T020615Z",
+  "hypothesis": "M777's alpha 0.2 broader replay result should be audited as mechanism-positive but strict-normal-retention-failed due to a concentrated near-boundary source.",
+  "lineage": {
+    "blocked_by": [
+      "m777-v4-limited-broader-residual-replay-implementation"
+    ],
+    "derived_from": [
+      "m777-v4-limited-broader-residual-replay-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m777-v4-limited-broader-residual-replay-implementation.json",
+      "configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m777-v4-limited-broader-residual-replay-implementation.md",
+      "runs/m777_v4_limited_broader_residual_replay/summary.json",
+      "runs/m777_v4_limited_broader_residual_replay/alpha_metrics.csv",
+      "runs/m777_v4_limited_broader_residual_replay/replay_rows.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/summary.json"
+    ],
+    "parent_objective": [
+      "audit broader residual replay normal-retention regression before repair or retuning"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m778-v4-limited-broader-residual-replay-audit",
+  "next_blocker": "m779-v4-broader-normal-boundary-alpha-probe-design",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "admit_broader_normal_boundary_alpha_probe_design",
+  "public_gates": [
+    "M778 audits M777 broader residual replay",
+    "M778 separates script candidate status from stricter M775 normal-retention gate",
+    "M778 classifies the normal-branch collision source",
+    "M778 decides whether to repair near-boundary normal retention or re-mine sources",
+    "PPO training alpha retuning and checkpoint promotion remain blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m778-v4-limited-broader-residual-replay-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "admit_broader_normal_boundary_alpha_probe_design",
+    "milestone": "m778-v4-limited-broader-residual-replay-audit",
+    "reason": "M778 audits M777 as mechanism-positive but strict-normal-retention-failed: alpha 0.2 improves intervention action gap and margin gap but creates one unique near-boundary normal collision source; next is a pre-registered lower-alpha normal-boundary probe with PPO and promotion blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M778 records alpha 0.2 action-gap and margin-gap improvements",
+    "M778 records strict normal-retention failure",
+    "M778 identifies collision concentration",
+    "M778 classifies failure taxonomy",
+    "M778 admits only one next blocker without PPO promotion or alpha retuning"
+  ],
+  "type": "gate"
+}

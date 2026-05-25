@@ -1,0 +1,124 @@
+{
+  "id": "m780-v4-broader-normal-boundary-alpha-probe-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m779-v4-broader-normal-boundary-alpha-probe-design.md",
+      "docs/m778-v4-limited-broader-residual-replay-audit.md",
+      "runs/m777_v4_limited_broader_residual_replay/summary.json",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv",
+      "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m779-v4-broader-normal-boundary-alpha-probe-design.json",
+      "configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json"
+    ],
+    "parent_objective": [
+      "run pre-registered lower-alpha normal-boundary probe without training or promotion"
+    ],
+    "derived_from": [
+      "m779-v4-broader-normal-boundary-alpha-probe-design"
+    ],
+    "blocked_by": [
+      "m779-v4-broader-normal-boundary-alpha-probe-design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m780-v4-broader-normal-boundary-alpha-probe-implementation.md",
+  "public_gates": [
+    "M780 runs the pre-registered lower-alpha ladder on M773 broader corpus",
+    "M780 keeps alpha 0.2 as failed reference",
+    "M780 reports strict normal-retention and intervention-sensitivity metrics",
+    "M780 stratifies seed 77025/source_index 12 normal boundary source",
+    "M780 does not train mutate actor or residual parameters run PPO or promote"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not add or remove alphas after seeing results",
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not lower strict normal-retention criteria",
+    "do not hide seed 77025/source_index 12",
+    "do not claim broad generalization or true four-wheel physical fidelity"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_residual_source_holdout_replay",
+    "evidence_axis": "G_generalization: lower-alpha strict normal-retention feasibility",
+    "evidence_increment": "runs a pre-registered no-training lower-alpha ladder to decide whether residual intervention sensitivity can survive strict normal retention on the broader corpus",
+    "claim_scope": "limited no-training alpha-feasibility diagnostic only; no repair, PPO, or driver promotion",
+    "stop_condition": [
+      "stop if implementation mutates actor or residual parameters",
+      "stop if implementation changes the alpha ladder",
+      "stop if implementation omits strict normal-retention metrics",
+      "stop if implementation claims promotion readiness"
+    ],
+    "fallback_plan": [
+      "if lower alpha passes strict normal retention and improves intervention sensitivity, audit as limited alpha-feasibility",
+      "if no lower alpha works, design explicit normal-margin retention or boundary-source repair",
+      "if lower alpha passes normal retention but loses sensitivity, redesign residual objective scale or target selection",
+      "if additional normal sources fail, pivot to source-balanced mining and normal-retention objective design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M779 pre-registers alpha-boundary probe after M777 alpha 0.2 strict-retention failure",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A lower residual alpha may preserve strict normal retention on the broader M773 corpus while retaining a measurable intervention action-gap and margin-gap improvement.",
+  "success_criteria": [
+    "M780 runs the registered command with alphas 0.0 0.05 0.1 0.125 0.15 0.175 0.2",
+    "M780 reconstructs at least 0.98 of M773 rows with no metadata misses",
+    "M780 reports alpha-specific normal retention and intervention sensitivity",
+    "M780 reports source 77025/source_index 12 normal boundary metrics",
+    "M780 records actor/training/PPO/promotion flags as false"
+  ],
+  "failure_criteria": [
+    "implementation changes the alpha ladder",
+    "implementation trains actor or residual parameters",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation omits normal-retention metrics",
+    "implementation hides alpha 0.2 failure"
+  ],
+  "commands": [
+    {
+      "name": "alpha_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.v4_residual_closed_loop_replay --checkpoint runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --residual-head runs/m761_v4_sequence_objective_probe/residual_head.pt --positive-rows runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv --contrast-rows runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv --scenario-config configs/extreme_fault_distribution_v4_broader_holdout_scenarios.json --run-dir runs/m780_v4_broader_normal_boundary_alpha_probe --device cpu --alphas 0.0,0.05,0.1,0.125,0.15,0.175,0.2"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m780_v4_broader_normal_boundary_alpha_probe/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m780_v4_broader_normal_boundary_alpha_probe/alpha_metrics.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m780-v4-broader-normal-boundary-alpha-probe-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m779-v4-broader-normal-boundary-alpha-probe-design.md",
+    "runs/m777_v4_limited_broader_residual_replay/summary.json",
+    "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M780 may only run the registered no-training alpha-boundary probe. It must not train, run PPO, mutate actor or residual parameters, or promote a checkpoint.",
+  "next_blocker": "m781-v4-broader-normal-boundary-alpha-probe-audit"
+}

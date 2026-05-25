@@ -62,16 +62,44 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m778-v4-limited-broader-residual-replay-audit
+m780-v4-broader-normal-boundary-alpha-probe-implementation
 ```
 
-M778 should audit M777's broader residual replay. M777 is mechanism-positive
-but failed the stricter M775 normal-retention gate at alpha `0.2` due one
-concentrated normal collision source. Repair, alpha retuning, PPO, training,
-and promotion remain blocked until audit.
+M780 should run the pre-registered lower-alpha normal-boundary probe designed
+by M779. Repair, alpha retuning, PPO, training, and promotion remain blocked
+until this no-training replay determines whether a lower alpha can preserve
+strict normal retention while retaining intervention sensitivity.
 
 ## Recent Evidence Line
 
+- M779 designs the pre-registered no-training alpha-boundary probe admitted by
+  M778. It fixes inputs to the M568 diagnostic actor, M761 residual head, M773
+  positive/contrast rows, and broader scenario config, and registers alpha
+  ladder `0.0`, `0.05`, `0.1`, `0.125`, `0.15`, `0.175`, `0.2`. Alpha `0.2`
+  remains the failed reference; lower alphas are not a retroactive pass. M780
+  must require strict normal retention (`normal_success_rate == 1.0`,
+  `normal_collision_rate == 0.0`), intervention action-gap and margin-gap
+  improvement over base, outcome sensitivity retention `1.0`, no metadata
+  misses, and no actor/training/PPO/promotion mutation. It must stratify `seed
+  77025`, `source_index 12`, `step 24` to decide whether M777 is a narrow
+  alpha-boundary issue or requires explicit normal-margin retention/objective
+  repair.
+- M778 audits M777 as mechanism-positive but strict-normal-retention-failed.
+  Alpha `0.2` improves intervention action gap mean/p10 from base
+  `0.040348/0.025782` to `0.046317/0.027627`, improves margin gap mean from
+  `0.029796` to `0.033918`, and keeps outcome sensitivity retention at `1.0`;
+  reconstruction is `2640/2652` with `0` metadata misses and no
+  actor/training/PPO/promotion mutation. The stricter M775 gate still fails
+  because normal success drops to `0.995455` and normal collision rate becomes
+  `0.004545`. All 12 normal collision rows come from one unique source (`seed
+  77025`, `source_index 12`, `step 24`, `halfshaft_torque_loss_proxy`,
+  `drive_authority_drop->rear_lateral_authority_drop`) duplicated across three
+  intervention variants and four horizons. The source has only `+0.000124`
+  base margin, so alpha `0.2`'s small first-action drift `0.000380` flips it
+  to `-0.000062`. M778 classifies this as `behavior_regression` with
+  `scenario_sampling_failure` risk, not a metric artifact or contract
+  violation, and admits only a pre-registered lower-alpha normal-boundary probe
+  design. PPO and promotion remain blocked.
 - M777 runs no-PPO residual replay on the broader M773 corpus. It reconstructs
   `2640/2652` rows with `0` metadata misses and `12` rejected
   `unsupported_variant:command_shift_obs` rows, writes `21120` replay rows and
