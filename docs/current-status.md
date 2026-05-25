@@ -62,15 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark
+m901-v4-pair-delta-raw-scaling-fresh-result-audit
 ```
 
-M899 designed the no-training fresh/generalization benchmark. M900 must run
-fresh seeds `9705`/`9706` and seed-delta audit for M568, alpha `0.1`
-candidates, raw candidates, heuristic, and random.
+M900 passed the fresh public diagnostic threshold for raw candidates, but only
+as margin/clearance movement with no success flips. M901 must audit that result
+and choose the next route before any integration, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M900 runs the no-training fresh benchmark on seeds `9705`/`9706`, `256`
+  episodes each. Raw candidates retain success `0.761719` and termination
+  `0.238281` versus M568 and pass the clearance threshold: `m886_raw`
+  `+0.003236`, `m891_raw` `+0.003250`. Alpha `0.1` movement is about
+  `+0.000425`. Seed-delta audit shows no success flips, so this is a
+  margin-only fresh public diagnostic pass, not promotion or PPO admission.
 - M899 designs M900 fresh/generalization benchmark: seeds `9705`/`9706`,
   `256` episodes each, `configs/m121_human_view_zero_obstacle_relvel.json`,
   and seed-delta audit. Raw candidates must retain success within `-0.005`,

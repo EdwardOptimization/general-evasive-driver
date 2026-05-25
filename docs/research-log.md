@@ -14188,3 +14188,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M899 designs a no-training fresh/generalization benchmark for M568, alpha `0.1` candidates, raw candidates, heuristic, and random. M900 will run seeds `9705` and `9706` with `256` episodes each under `configs/m121_human_view_zero_obstacle_relvel.json`, then run seed-delta audit. Acceptance requires raw success non-regression within `-0.005`, termination non-regression within `+0.005`, and raw clearance delta at least `+0.002` versus M568 over the combined fresh benchmark. PPO and promotion remain blocked.
 - decision: `raw_scaling_fresh_generalization_design_admit_m900`
 - next: `m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark`
+
+## 20260525T202733Z - m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m900_raw_scaling_fresh_generalization_seed_delta`
+- artifact: `docs/m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark.md`
+- result: M900 runs the no-training fresh public diagnostic benchmark on seeds `9705` and `9706`, `256` episodes each. Raw candidates retain success `0.761719` and termination `0.238281` versus M568, pass the raw clearance threshold with deltas `+0.003236` for M886 raw and `+0.003250` for M891 raw, and outperform alpha `0.1` clearance movement (`~+0.000425`). Seed-delta audit shows no success flips: improved seeds `0`, regressed seeds `0`. The result is a margin-only fresh pass, not promotion or PPO admission.
+- decision: `raw_scaling_fresh_generalization_benchmark_pass_margin_only`
+- next: `m901-v4-pair-delta-raw-scaling-fresh-result-audit`

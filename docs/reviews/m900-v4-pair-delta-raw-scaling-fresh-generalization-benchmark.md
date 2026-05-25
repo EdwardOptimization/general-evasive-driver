@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T202605Z
+- Generated at UTC: 20260525T203253Z
 - Type: gate
 - Gate tier: generalization
-- Promotion decision: not_applicable
-- Decision reason: M900 may only execute the no-training fresh benchmark and seed-delta audit. It must not train, run PPO, or promote.
+- Promotion decision: raw_scaling_fresh_generalization_benchmark_pass_margin_only
+- Decision reason: M900 raw candidates retain success termination and exceed fresh clearance threshold with about 0.00325 margin lift but no success flips
 
 ## Hypothesis
 
@@ -71,7 +71,18 @@ Raw candidates will retain success/termination and show larger clearance movemen
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark
+- type: gate
+- checkpoint: runs/m900_raw_scaling_fresh_generalization_seed_delta/policy_delta_summary.csv
+- success_rate: 0.761719
+- termination_rate: 0.238281
+- clearance_margin_mean: 1.486368
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: raw_scaling_fresh_generalization_benchmark_pass_margin_only
+- reason: M900 raw candidates retain success termination and exceed fresh clearance threshold with about 0.00325 margin lift but no success flips
 
 ## Next Blocker
 

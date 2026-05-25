@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 908,
+    "completed": 909,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m899-v4-pair-delta-raw-scaling-fresh-generalization-design",
+    "task_id": "m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m899-v4-pair-delta-raw-scaling-fresh-generalization-design.md"
+    "command_log": "docs/m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark.md"
   },
   "next_task": {
-    "id": "m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark",
+    "id": "m901-v4-pair-delta-raw-scaling-fresh-result-audit",
     "status": "pending",
-    "priority": 8950,
+    "priority": 8960,
     "kind": "gate",
-    "hypothesis": "Run no-training fresh/generalization benchmark for raw scaling candidates",
-    "command": "see experiments/manifests/m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark.json",
-    "success_artifact": "runs/m900_raw_scaling_fresh_generalization_seed_delta/policy_delta_summary.csv",
-    "notes": "Pending: benchmark seeds 9705/9706 and seed-delta audit"
+    "hypothesis": "Audit M900 margin-only fresh pass and choose next route",
+    "command": "see experiments/manifests/m901-v4-pair-delta-raw-scaling-fresh-result-audit.json",
+    "success_artifact": "docs/m901-v4-pair-delta-raw-scaling-fresh-result-audit.md",
+    "notes": "Pending: decide second fresh scenario family, public-base integration design, corpus work, or stop"
   },
-  "updated_at_utc": "20260525T202345Z"
+  "updated_at_utc": "20260525T202733Z"
 }

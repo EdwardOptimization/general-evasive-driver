@@ -1,0 +1,114 @@
+{
+  "id": "m901-v4-pair-delta-raw-scaling-fresh-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "objective_overfit",
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/raw_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark.md",
+      "runs/m900_raw_scaling_fresh_generalization_seed9705/policy_summary.csv",
+      "runs/m900_raw_scaling_fresh_generalization_seed9706/policy_summary.csv",
+      "runs/m900_raw_scaling_fresh_generalization_seed_delta/policy_delta_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark.json"
+    ],
+    "parent_objective": [
+      "audit M900 fresh benchmark result and choose next route after margin-only pass"
+    ],
+    "derived_from": [
+      "m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark"
+    ],
+    "blocked_by": [
+      "M900 passed fresh clearance threshold but produced no success flips, so routing is not yet decided"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m901-v4-pair-delta-raw-scaling-fresh-result-audit.md",
+  "public_gates": [
+    "M901 must separate margin-only pass from success improvement",
+    "M901 must decide next route without PPO or promotion",
+    "M901 must record public diagnostic limitation",
+    "M901 must keep actor contract unchanged",
+    "M901 must not claim private holdout evidence"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not claim success improvement from clearance-only movement",
+    "do not route directly to private holdout tuning"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_objective_effect_size",
+    "evidence_axis": "G_generalization_audit: audit margin-only fresh public diagnostic pass",
+    "evidence_increment": "turns M900 fresh benchmark into a next-route decision before integration, corpus work, or PPO",
+    "claim_scope": "process audit only; no benchmark execution, training, PPO, public-base integration, private holdout claim, or promotion",
+    "stop_condition": [
+      "stop if M900 is treated as success improvement",
+      "stop if public diagnostic limitation is omitted",
+      "stop if no route is chosen",
+      "stop if PPO or promotion is admitted"
+    ],
+    "fallback_plan": [
+      "if margin-only signal is useful, design a second fresh scenario-family benchmark",
+      "if margin-only signal is too weak, route to richer pair-delta corpus design",
+      "if signal suggests integration value, design public-base integration separately",
+      "if metrics are ambiguous, design seed-level event mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M900 fresh benchmark passed raw clearance threshold but produced no success flips",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M900 provides a useful margin-only fresh signal, but it must be audited before deciding between another fresh scenario family, public-base integration design, or richer corpus construction.",
+  "success_criteria": [
+    "M901 records M900 aggregate and seed-delta results",
+    "M901 separates margin lift from success improvement",
+    "M901 chooses the next route",
+    "M901 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M901 promotes raw candidates",
+    "M901 admits PPO",
+    "M901 claims success improvement",
+    "M901 omits public diagnostic limitations",
+    "M901 skips routing"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m901-v4-pair-delta-raw-scaling-fresh-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m901-v4-pair-delta-raw-scaling-fresh-result-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+    "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt",
+    "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/raw_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark.md"
+  ],
+  "decision_rule": "M901 may only audit M900 and choose the next route. It must not run benchmark, train, run PPO, or promote.",
+  "next_blocker": "M900 fresh margin-only pass has not yet been audited for next-route selection"
+}

@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M900 may only execute the no-training fresh benchmark and seed-delta audit. It must not train, run PPO, or promote.",
+  "decision_reason": "M900 raw candidates retain success termination and exceed fresh clearance threshold with about 0.00325 margin lift but no success flips",
   "failure_criteria": [
     "benchmark sampling fails",
     "raw candidates regress success or termination beyond tolerance",
@@ -22,7 +22,7 @@
     "do not treat this public fresh benchmark as a private holdout"
   ],
   "gate_tier": "generalization",
-  "generated_at_utc": "20260525T202605Z",
+  "generated_at_utc": "20260525T203253Z",
   "hypothesis": "Raw candidates will retain success/termination and show larger clearance movement than alpha_0_1 on a fresh public diagnostic distribution.",
   "lineage": {
     "blocked_by": [
@@ -54,7 +54,7 @@
   "milestone": "m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark",
   "next_blocker": "Raw scaling candidates have not yet run the pre-registered fresh/generalization benchmark",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "raw_scaling_fresh_generalization_benchmark_pass_margin_only",
   "public_gates": [
     "benchmark seeds 9705 and 9706 over 256 episodes each",
     "include M568, alpha_0_1 candidates, raw candidates, heuristic, and random",
@@ -63,7 +63,20 @@
     "seed-delta audit after benchmark",
     "no PPO or promotion"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m900_raw_scaling_fresh_generalization_seed_delta/policy_delta_summary.csv",
+    "clearance_margin_mean": "1.486368",
+    "decision": "raw_scaling_fresh_generalization_benchmark_pass_margin_only",
+    "milestone": "m900-v4-pair-delta-raw-scaling-fresh-generalization-benchmark",
+    "reason": "M900 raw candidates retain success termination and exceed fresh clearance threshold with about 0.00325 margin lift but no success flips",
+    "reset_success": "",
+    "success_rate": "0.761719",
+    "termination_rate": "0.238281",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "both benchmark runs complete",
     "raw success_rate_delta >= -0.005 versus M568",
