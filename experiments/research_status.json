@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 910,
+    "completed": 911,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m901-v4-pair-delta-raw-scaling-fresh-result-audit",
+    "task_id": "m902-v4-pair-delta-raw-scaling-challenge-generalization-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m901-v4-pair-delta-raw-scaling-fresh-result-audit.md"
+    "command_log": "docs/m902-v4-pair-delta-raw-scaling-challenge-generalization-design.md"
   },
   "next_task": {
-    "id": "m902-v4-pair-delta-raw-scaling-challenge-generalization-design",
+    "id": "m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark",
     "status": "pending",
-    "priority": 8970,
-    "kind": "infrastructure",
-    "hypothesis": "Design challenge-family generalization benchmark for raw scaling candidates",
-    "command": "see experiments/manifests/m902-v4-pair-delta-raw-scaling-challenge-generalization-design.json",
-    "success_artifact": "docs/m902-v4-pair-delta-raw-scaling-challenge-generalization-design.md",
-    "notes": "Pending: design near-threshold and late high-energy robust challenge benchmarks"
+    "priority": 8980,
+    "kind": "gate",
+    "hypothesis": "Run robust challenge-family generalization benchmark for raw scaling candidates",
+    "command": "see experiments/manifests/m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark.json",
+    "success_artifact": "runs/m903_raw_scaling_challenge_seed_delta/policy_delta_summary.csv",
+    "notes": "Pending: benchmark robust near-threshold and late high-energy challenge configs"
   },
-  "updated_at_utc": "20260525T203330Z"
+  "updated_at_utc": "20260525T203619Z"
 }

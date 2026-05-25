@@ -62,15 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m902-v4-pair-delta-raw-scaling-challenge-generalization-design
+m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark
 ```
 
-M901 audited M900 as a useful but margin-only fresh pass. M902 must design a
-second public scenario-family benchmark on robust near-threshold and late
-high-energy challenge configs before any integration, PPO, or promotion.
+M902 designed the robust challenge-family benchmark. M903 must run the
+near-threshold and late high-energy challenge checks plus seed-delta audit
+before any integration, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M902 designs M903 challenge-family benchmark on
+  `m451_challenge_near_threshold_robust_zero_relvel` and
+  `m451_challenge_late_high_energy_robust_zero_relvel`, `128` episodes each.
+  Raw candidates must retain success/termination within `0.01` on each family,
+  keep nonnegative clearance on each family, and achieve combined clearance
+  delta at least `+0.001`. No PPO or promotion.
 - M901 audits M900 as margin-only fresh evidence. Raw candidates retained
   success/termination and exceeded the fresh clearance threshold, but seed-delta
   audit showed no success flips. The next route is a second scenario-family

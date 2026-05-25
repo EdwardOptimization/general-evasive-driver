@@ -1,0 +1,146 @@
+{
+  "id": "m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt",
+      "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/raw_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m902-v4-pair-delta-raw-scaling-challenge-generalization-design.md"
+    ],
+    "parent_config": [
+      "configs/m451_challenge_near_threshold_robust_zero_relvel.json",
+      "configs/m451_challenge_late_high_energy_robust_zero_relvel.json",
+      "experiments/manifests/m902-v4-pair-delta-raw-scaling-challenge-generalization-design.json"
+    ],
+    "parent_objective": [
+      "execute no-training challenge-family benchmark for raw scaling candidates"
+    ],
+    "derived_from": [
+      "m902-v4-pair-delta-raw-scaling-challenge-generalization-design"
+    ],
+    "blocked_by": [
+      "raw candidates have m121-style fresh margin evidence but no robust challenge-family evidence"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark.md",
+  "public_gates": [
+    "near-threshold robust challenge benchmark with 128 episodes",
+    "late high-energy robust challenge benchmark with 128 episodes",
+    "include M568, alpha_0_1 candidates, raw candidates, heuristic, and random",
+    "success/termination non-regression versus M568 on each family",
+    "raw clearance nonnegative on each family and combined clearance >= +0.001",
+    "seed-delta audit after benchmarks",
+    "no PPO or promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change thresholds after seeing challenge results",
+    "do not treat these public challenge configs as private holdouts"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_pair_delta_objective_effect_size",
+    "evidence_axis": "G_generalization: challenge-family check for raw scaling margin signal",
+    "evidence_increment": "executes second scenario-family benchmark after M900 margin-only fresh pass",
+    "claim_scope": "fresh public challenge diagnostic only; no training, PPO, public-base integration, private holdout claim, or promotion",
+    "stop_condition": [
+      "stop if either challenge benchmark cannot sample scenarios",
+      "stop if raw success or termination regresses beyond tolerance",
+      "stop if raw clearance turns negative on either challenge family",
+      "stop if PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if sampling fails, route to challenge config sampling audit",
+      "if behavior regresses, route to behavior-regression audit",
+      "if margin signal fails, route to raw scaling generalization failure audit",
+      "if margin signal passes, route to branch synthesis before integration design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M902 admits challenge-family benchmark execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Raw candidates will preserve success/termination and retain positive margin movement on robust challenge scenario families.",
+  "success_criteria": [
+    "both challenge benchmarks complete",
+    "raw success_rate_delta >= -0.01 on each family",
+    "raw termination_rate_delta <= +0.01 on each family",
+    "raw clearance_margin_mean_delta >= 0.0 on each family",
+    "raw combined clearance_margin_mean_delta >= +0.001",
+    "seed-delta audit is written",
+    "M903 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "benchmark sampling fails",
+    "raw candidates regress success or termination beyond tolerance",
+    "raw clearance is negative on either family",
+    "combined raw clearance is below +0.001",
+    "M903 runs PPO or promotes"
+  ],
+  "commands": [
+    {
+      "name": "near_threshold_benchmark",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m451_challenge_near_threshold_robust_zero_relvel.json --episodes 128 --seed 9905 --policies heuristic random --checkpoint-policy m568_base=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --checkpoint-policy m886_a010=runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt --checkpoint-policy m891_a010=runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt --checkpoint-policy m886_raw=runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt --checkpoint-policy m891_raw=runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/raw_candidate.pt --device cpu --run-dir runs/m903_raw_scaling_challenge_near_threshold_seed9905"
+    },
+    {
+      "name": "late_high_energy_benchmark",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.benchmark --env-config configs/m451_challenge_late_high_energy_robust_zero_relvel.json --episodes 128 --seed 9906 --policies heuristic random --checkpoint-policy m568_base=runs/m568_scaled_l3_bc_seed5660/checkpoint.pt --checkpoint-policy m886_a010=runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt --checkpoint-policy m891_a010=runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt --checkpoint-policy m886_raw=runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt --checkpoint-policy m891_raw=runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/raw_candidate.pt --device cpu --run-dir runs/m903_raw_scaling_challenge_late_high_energy_seed9906"
+    },
+    {
+      "name": "seed_delta_audit",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.seed_delta_audit --episodes-csv runs/m903_raw_scaling_challenge_near_threshold_seed9905/episodes.csv --episodes-csv runs/m903_raw_scaling_challenge_late_high_energy_seed9906/episodes.csv --baseline-policy m568_base --candidate-policy m886_a010 --candidate-policy m891_a010 --candidate-policy m886_raw --candidate-policy m891_raw --run-dir runs/m903_raw_scaling_challenge_seed_delta"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m903_raw_scaling_challenge_near_threshold_seed9905/policy_summary.csv",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m903_raw_scaling_challenge_late_high_energy_seed9906/policy_summary.csv",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m903_raw_scaling_challenge_seed_delta/seed_deltas.csv",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m903_raw_scaling_challenge_seed_delta/policy_delta_summary.csv",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+    "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/alpha_0_1.pt",
+    "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt",
+    "runs/m886_v4_enriched_pair_delta_objective_only_probe/checkpoints/raw_candidate.pt",
+    "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/raw_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m902-v4-pair-delta-raw-scaling-challenge-generalization-design.md"
+  ],
+  "decision_rule": "M903 may only execute the no-training challenge benchmarks and seed-delta audit. It must not train, run PPO, or promote.",
+  "next_blocker": "Raw scaling candidates have not yet run robust challenge-family generalization benchmarks"
+}

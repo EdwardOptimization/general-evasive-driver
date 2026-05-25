@@ -14207,3 +14207,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M901 audits M900 as useful but margin-only. The raw candidates retain success and termination and exceed the fresh clearance threshold, but seed-delta audit shows no success flips, so the result is not enough for public-base integration, PPO, or promotion. The next route is a second public scenario family: robust near-threshold and late high-energy challenge benchmarks.
 - decision: `margin_only_fresh_pass_route_to_challenge_generalization_design`
 - next: `m902-v4-pair-delta-raw-scaling-challenge-generalization-design`
+
+## 20260525T203619Z - m902-v4-pair-delta-raw-scaling-challenge-generalization-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m902-v4-pair-delta-raw-scaling-challenge-generalization-design.md`
+- result: M902 designs the second public scenario-family check for raw scaling. M903 will run `configs/m451_challenge_near_threshold_robust_zero_relvel.json` and `configs/m451_challenge_late_high_energy_robust_zero_relvel.json`, `128` episodes each, comparing M568, alpha `0.1`, raw candidates, heuristic, and random. Acceptance requires raw success and termination non-regression within `0.01` on each family, nonnegative raw clearance on each family, and combined raw clearance at least `+0.001`. PPO and promotion remain blocked.
+- decision: `raw_scaling_challenge_generalization_design_admit_m903`
+- next: `m903-v4-pair-delta-raw-scaling-challenge-generalization-benchmark`

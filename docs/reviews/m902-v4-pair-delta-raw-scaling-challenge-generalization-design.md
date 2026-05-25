@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260525T203542Z
+- Generated at UTC: 20260525T203839Z
 - Type: infrastructure
 - Gate tier: generalization
-- Promotion decision: not_applicable
-- Decision reason: M902 may only design the challenge-family benchmark. It must not run benchmark, train, run PPO, or promote.
+- Promotion decision: raw_scaling_challenge_generalization_design_admit_m903
+- Decision reason: M902 designs robust near-threshold and late-high-energy challenge benchmarks for raw scaling candidates before integration PPO or promotion
 
 ## Hypothesis
 
@@ -70,7 +70,18 @@ Raw scaling should be tested on robust challenge scenario families before public
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m902-v4-pair-delta-raw-scaling-challenge-generalization-design
+- type: infrastructure
+- checkpoint: docs/m902-v4-pair-delta-raw-scaling-challenge-generalization-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: raw_scaling_challenge_generalization_design_admit_m903
+- reason: M902 designs robust near-threshold and late-high-energy challenge benchmarks for raw scaling candidates before integration PPO or promotion
 
 ## Next Blocker
 
