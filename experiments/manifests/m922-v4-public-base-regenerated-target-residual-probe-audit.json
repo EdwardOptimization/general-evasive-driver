@@ -1,0 +1,97 @@
+{
+  "id": "m922-v4-public-base-regenerated-target-residual-probe-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m921-v4-public-base-regenerated-target-residual-probe-implementation.md",
+      "runs/m921_v4_public_base_regenerated_target_residual_probe/summary.json",
+      "runs/m921_v4_public_base_regenerated_target_residual_probe/alpha_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m921-v4-public-base-regenerated-target-residual-probe-implementation.json"
+    ],
+    "parent_objective": [
+      "audit no-candidate result from regenerated-target residual objective"
+    ],
+    "derived_from": [
+      "m921-v4-public-base-regenerated-target-residual-probe-implementation"
+    ],
+    "blocked_by": [
+      "M921 candidate_alpha_count is zero"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m922-v4-public-base-regenerated-target-residual-probe-audit.md",
+  "public_gates": [
+    "M922 must classify M921 no-candidate result",
+    "M922 must not run new training",
+    "M922 must block exact compatibility, replay, PPO, and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat M921 residual head as admitted",
+    "do not run M880 exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_target_regeneration",
+    "evidence_axis": "G_target_objective: audit regenerated-target residual no-candidate result",
+    "evidence_increment": "classifies M921 as objective-overfit target-loss improvement without normal-retained tail lift",
+    "claim_scope": "audit and route decision only; no new training, exact compatibility, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if the audit treats a no-candidate residual as admitted",
+      "stop if exact compatibility or replay is run",
+      "stop if actor-input contract changes"
+    ],
+    "fallback_plan": [
+      "route to alpha-aware low-tail objective design",
+      "if later alpha-aware objective also fails, route to branch synthesis before more narrow variants"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M921 no-candidate objective result",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M921 failed because target-action loss alone does not provide enough normal-retained low-tail lift, not because of reconstruction, target join, or actor-contract failure.",
+  "success_criteria": [
+    "docs/m922-v4-public-base-regenerated-target-residual-probe-audit.md exists",
+    "M922 records M921 candidate_alpha_count == 0",
+    "M922 classifies the failure and routes to alpha-aware low-tail objective design",
+    "M922 keeps exact compatibility replay PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M922 admits M921 residual head",
+    "M922 starts exact compatibility replay PPO or promotion",
+    "M922 omits failure classification"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m922-v4-public-base-regenerated-target-residual-probe-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m922-v4-public-base-regenerated-target-residual-probe-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m921_v4_public_base_regenerated_target_residual_probe/summary.json"
+  ],
+  "decision_rule": "M922 may only audit M921. It must not admit exact compatibility replay PPO or promotion.",
+  "next_blocker": "m923-v4-public-base-alpha-aware-low-tail-objective-design"
+}

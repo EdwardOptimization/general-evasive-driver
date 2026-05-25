@@ -14385,3 +14385,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M920 designs a frozen-M399 residual-head objective using the M919 regenerated targets. M921 may train only a `feature_dim=128` residual head, with target-action loss on the `122` accepted targets and normal-retention/low-tail metrics over the full reconstructed corpus. M880 exact compatibility, replay, PPO, actor update, and promotion remain blocked until objective gates pass.
 - decision: `public_base_regenerated_target_residual_objective_design_admit_m921`
 - next: `m921-v4-public-base-regenerated-target-residual-probe-implementation`
+
+## 20260525T215411Z - m921-v4-public-base-regenerated-target-residual-probe-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m921_v4_public_base_regenerated_target_residual_probe`
+- artifact: `docs/m921-v4-public-base-regenerated-target-residual-probe-implementation.md`
+- result: M921 trains only a residual head on frozen M399 features. Reconstruction and target join succeed (`1213/1213` reconstructed, `122/122` targets joined, `missing_target_keys=0`), and the actor checksum is unchanged. The objective has no admitted alpha (`candidate_alpha_count=0`). Target MSE improves at all alphas, but normal-retaining alphas do not produce enough low-tail lift, while larger alphas fail normal retention.
+- decision: `public_base_regenerated_target_probe_no_candidate_route_to_objective_audit`
+- next: `m922-v4-public-base-regenerated-target-residual-probe-audit`
+
+## 20260525T215411Z - m922-v4-public-base-regenerated-target-residual-probe-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m922-v4-public-base-regenerated-target-residual-probe-audit.md`
+- result: M922 classifies M921 as `objective_overfit`: the direct target-action objective improves, but the full candidate gate requiring normal-retained low-tail lift does not pass. This is not a reconstruction, target-join, contract, or training-instability failure. Exact compatibility, replay, PPO, and promotion remain blocked.
+- decision: `regenerated_target_residual_probe_audit_route_to_alpha_aware_low_tail_objective_design`
+- next: `m923-v4-public-base-alpha-aware-low-tail-objective-design`

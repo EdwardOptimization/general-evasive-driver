@@ -1,0 +1,101 @@
+{
+  "id": "m923-v4-public-base-alpha-aware-low-tail-objective-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m922-v4-public-base-regenerated-target-residual-probe-audit.md",
+      "runs/m921_v4_public_base_regenerated_target_residual_probe/summary.json",
+      "runs/m921_v4_public_base_regenerated_target_residual_probe/alpha_metrics.csv",
+      "runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m922-v4-public-base-regenerated-target-residual-probe-audit.json"
+    ],
+    "parent_objective": [
+      "design alpha-aware low-tail objective after M921 target-action objective no-candidate result"
+    ],
+    "derived_from": [
+      "m922-v4-public-base-regenerated-target-residual-probe-audit"
+    ],
+    "blocked_by": [
+      "alpha-aware low-tail objective is not yet designed"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m923-v4-public-base-alpha-aware-low-tail-objective-design.md",
+  "public_gates": [
+    "M923 must be design-only",
+    "M923 must preserve frozen M399 actor backbone",
+    "M923 must target normal-retaining alpha range and low-tail lift directly",
+    "M923 must block exact compatibility, replay, PPO, and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M923",
+    "do not update actor parameters",
+    "do not run exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_target_regeneration",
+    "evidence_axis": "G_target_objective: design alpha-aware low-tail residual objective",
+    "evidence_increment": "designs an objective that targets the M921 failure mode directly: low-tail lift inside normal-retention alpha range",
+    "claim_scope": "objective design only; no training, exact compatibility, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if the design only increases target-action imitation without low-tail objective terms",
+      "stop if the design updates actor backbone or actor inputs",
+      "stop if exact compatibility replay PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if M924 passes, route to exact no-update compatibility design",
+      "if M924 fails, route to target-regeneration branch synthesis before more narrow objective variants"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M922 routes M921 failure to alpha-aware objective design",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "An alpha-aware low-tail objective can improve the metrics that blocked M921 inside the normal-retention trust region better than target-action imitation alone.",
+  "success_criteria": [
+    "docs/m923-v4-public-base-alpha-aware-low-tail-objective-design.md exists",
+    "M923 pre-registers alpha-aware low-tail objective terms",
+    "M923 preserves frozen-M399 and actor-input constraints",
+    "M923 blocks exact compatibility replay PPO and promotion"
+  ],
+  "failure_criteria": [
+    "M923 starts training",
+    "M923 omits low-tail objective terms",
+    "M923 changes actor inputs or actor backbone",
+    "M923 starts exact compatibility replay PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m923-v4-public-base-alpha-aware-low-tail-objective-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m923-v4-public-base-alpha-aware-low-tail-objective-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m922-v4-public-base-regenerated-target-residual-probe-audit.md"
+  ],
+  "decision_rule": "M923 may only design the alpha-aware low-tail objective. It must not train or run exact compatibility until the design is complete.",
+  "next_blocker": "alpha-aware low-tail objective design has not yet been written"
+}

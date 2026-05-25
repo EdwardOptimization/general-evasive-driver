@@ -62,16 +62,29 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m921-v4-public-base-regenerated-target-residual-probe-implementation
+m923-v4-public-base-alpha-aware-low-tail-objective-design
 ```
 
-M919 passed expanded target generation with a source-diverse M399-rooted target
-corpus. M920 designs the next residual-head-only objective probe. M921 must
-train only a frozen-M399 residual head on the regenerated targets and evaluate
-objective gates before any M880 exact compatibility, replay, PPO, or promotion.
+M921 trained only a frozen-M399 residual head on M919 regenerated targets but
+found no admitted objective alpha. M922 audits this as target-action objective
+improvement without enough normal-retained low-tail lift. M923 must design an
+alpha-aware low-tail objective before any exact compatibility, replay, PPO, or
+promotion.
 
 ## Recent Evidence Line
 
+- M922 audits M921 as an objective-gate negative. The residual direction
+  improves target-action MSE and moves low-tail metrics in the right direction
+  at larger alphas, but normal-retaining alphas do not produce enough tail
+  lift. The failure is classified as `objective_overfit`, not reconstruction,
+  target-join, actor-contract, or training-instability failure. Route:
+  alpha-aware low-tail objective design.
+- M921 implements regenerated-target residual-head training. It reconstructs
+  `1213/1213`, joins `122/122` M919 targets, trains a `feature_dim=128`
+  residual head, and keeps the M399 actor checksum unchanged. Result:
+  `candidate_alpha_count=0`. Alpha `1.0` improves target MSE and low-tail
+  metrics but fails normal retention; alpha `0.35` keeps normal retention but
+  fails tail lift. No exact compatibility, replay, PPO, or promotion occurred.
 - M920 designs the regenerated-target residual objective. M921 may train only a
   `feature_dim=128` residual head on frozen M399 features using M919 target
   actions, while measuring normal-retention over the full `1213` reconstructed

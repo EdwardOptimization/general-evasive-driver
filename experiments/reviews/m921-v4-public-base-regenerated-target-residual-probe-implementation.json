@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M921 joins 122 targets and trains residual-only with actor unchanged but candidate_alpha_count is zero because tail lift fails inside normal-retention range",
+  "failure_criteria": [
+    "actor backbone changes",
+    "sample reconstruction fails",
+    "candidate_alpha_count == 0",
+    "M921 runs exact compatibility replay PPO or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not update the M399 actor backbone",
+    "do not change actor inputs",
+    "do not run M880 exact compatibility",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T215635Z",
+  "hypothesis": "A frozen-M399 residual head trained on M919 regenerated targets can produce at least one normal-retaining alpha that improves low-tail sequence objective metrics.",
+  "lineage": {
+    "blocked_by": [
+      "M920 design has not yet been implemented"
+    ],
+    "derived_from": [
+      "m920-v4-public-base-regenerated-target-residual-objective-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m920-v4-public-base-regenerated-target-residual-objective-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m920-v4-public-base-regenerated-target-residual-objective-design.md",
+      "runs/m919_v4_public_base_expanded_target_regeneration/accepted_target_rows.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m755_v4_sequence_outcome_corpus_export/contrast_rows.csv",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/summary.json",
+      "runs/m912_v4_public_base_sequence_recalibration_audit/low_tail_rows.csv",
+      "runs/m909_v4_public_base_residual_head_probe/objective_rows.csv"
+    ],
+    "parent_objective": [
+      "implement frozen-M399 regenerated-target residual-head objective probe"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m921-v4-public-base-regenerated-target-residual-probe-implementation",
+  "next_blocker": "regenerated target residual objective has not yet been implemented",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_regenerated_target_probe_no_candidate_route_to_objective_audit",
+  "public_gates": [
+    "M921 may train only a residual head",
+    "M921 must keep the M399 actor backbone unchanged",
+    "M921 must write target weight, alpha metrics, objective rows, residual head, and summary artifacts",
+    "M921 must block M880 exact compatibility, replay, PPO, and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m921_v4_public_base_regenerated_target_residual_probe/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "public_base_regenerated_target_probe_no_candidate_route_to_objective_audit",
+    "milestone": "m921-v4-public-base-regenerated-target-residual-probe-implementation",
+    "reason": "M921 joins 122 targets and trains residual-only with actor unchanged but candidate_alpha_count is zero because tail lift fails inside normal-retention range",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json exists",
+    "residual_head.pt exists",
+    "sample_reconstruction_success_rate >= 0.98",
+    "actor_backbone_changed is false",
+    "candidate_alpha_count >= 1",
+    "training_started is true",
+    "ppo_used and promoted are false"
+  ],
+  "type": "infrastructure"
+}
