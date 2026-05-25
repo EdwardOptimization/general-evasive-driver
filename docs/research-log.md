@@ -13445,3 +13445,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M819 designs the next non-PPO calibration comparison after M817/M818. It requires any follow-up to compare identity, fixed scalar gates, fixed vector gates, and only then train-only adaptive gates under the same source-heldout exact evaluation. Candidate selection is train-only and lexicographic: no train normal collisions, intervention collision-rate retention, old-behavior drift limits, unchanged actor and M761 residual-head checksums, then margin-lift ranking. Holdout acceptance requires no normal collisions, nonnegative holdout margin lift, intervention collision-rate retention within `0.05`, action drift bounds, no PPO, and no promotion. M819 explicitly routes to branch synthesis before implementation because the `v4_low_margin_new_data_route` branch reaches the cadence boundary.
 - decision: `adaptive_primary_calibration_followup_design_admit_branch_synthesis`
 - next: `m820-v4-low-margin-new-data-route-branch-synthesis`
+
+## 20260525T184000Z - m820-v4-low-margin-new-data-route-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m820-v4-low-margin-new-data-route-branch-synthesis.md`
+- result: M820 synthesizes M810-M819 with decision `continue`. The branch turned M811's sparse fixed-grid result (`0` primary rows but `48` collision/safe brackets) into M814's valid source-axis-diverse primary corpus (`85` balanced rows across `9` seeds, `55` source groups, `8` fault-family pairs, `4` warm-up modes, and `3` axes). M815 confirmed intervention sensitivity (`69/101` reset-hidden collisions and `67/101` zero-command collisions). M817/M818 validated source-heldout calibration infrastructure but showed the scalar calibrator was near identity (`gate_mean 0.998986`) and not performance-improving. M819 therefore defines a fixed scalar/vector calibration-grid follow-up. M820 continues only into that exact non-PPO grid implementation; actor training, M761 residual-head training, learned adaptive calibrator training, PPO, promotion, holdout optimization, and threshold relaxation stay blocked.
+- decision: `v4_low_margin_new_data_route_continue_to_calibration_grid`
+- next: `m821-v4-adaptive-primary-calibration-grid-implementation`

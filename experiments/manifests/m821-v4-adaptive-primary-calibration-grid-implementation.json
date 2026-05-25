@@ -1,0 +1,140 @@
+{
+  "id": "m821-v4-adaptive-primary-calibration-grid-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "objective_overfit",
+    "behavior_regression",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m820-v4-low-margin-new-data-route-branch-synthesis.md",
+      "docs/m819-v4-adaptive-primary-calibration-followup-design.md",
+      "runs/m814_v4_adaptive_boundary_bracketing/accepted_primary_rows.csv",
+      "runs/m814_v4_adaptive_boundary_bracketing/intervention_replay_rows.csv",
+      "runs/m817_v4_adaptive_primary_residual_calibration/split_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m820-v4-low-margin-new-data-route-branch-synthesis.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement exact non-PPO calibration grid over source-heldout M814 rows"
+    ],
+    "derived_from": [
+      "m820-v4-low-margin-new-data-route-branch-synthesis"
+    ],
+    "blocked_by": [
+      "need exact fixed scalar/vector residual gate grid to test M819 design"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m821-v4-adaptive-primary-calibration-grid-implementation.md",
+  "public_gates": [
+    "M821 must implement exact non-PPO grid evaluation only",
+    "M821 must not train actor parameters",
+    "M821 must not train M761 residual-head parameters",
+    "M821 must not run PPO",
+    "M821 must not promote a checkpoint",
+    "M821 must select candidate gates on train rows only",
+    "M821 must evaluate holdout rows exactly after train selection",
+    "M821 must classify identity-only train-overfit intervention-washout old-behavior-regression or candidate result"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not train M761 residual-head parameters",
+    "do not train an adaptive calibrator in M821",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not widen the primary 0.00005 margin threshold",
+    "do not use holdout rows for candidate selection",
+    "do not claim driver improvement from train-only lift",
+    "do not add oracle deploy-time inputs",
+    "do not claim true wheel-level mechanical faults from current proxy data"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: exact calibration grid after branch synthesis",
+    "evidence_increment": "tests whether nontrivial fixed scalar or vector residual gates beat identity on source-heldout exact normal-margin and intervention-sensitivity gates",
+    "claim_scope": "fixed-gate calibration probe only; no PPO and no driver promotion",
+    "stop_condition": [
+      "stop if actor or residual-head checksums change",
+      "stop if the implementation trains a calibrator",
+      "stop if train-selected gates fail holdout",
+      "stop if intervention sensitivity collapses",
+      "stop if no nontrivial gate beats identity"
+    ],
+    "fallback_plan": [
+      "if identity is best, audit as metric artifact and stop calibrator tuning on this corpus",
+      "if scalar gate works, design a minimal fixed-gate candidate audit",
+      "if vector gate works, audit component-specific behavior before learned gates",
+      "if train overfits holdout, rotate or expand source-heldout data"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M820 synthesis reset the branch cadence and admitted one exact grid implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A fixed scalar or vector residual gate may produce nontrivial normal-margin lift over identity while preserving source-heldout intervention sensitivity and old behavior.",
+  "success_criteria": [
+    "M821 implements source-heldout exact calibration grid evaluation",
+    "M821 writes summary grid train holdout intervention and gate artifacts",
+    "M821 compares identity fixed scalar and fixed vector gates",
+    "M821 selects candidates on train rows only",
+    "M821 evaluates holdout rows exactly",
+    "M821 verifies actor and residual-head checksums unchanged",
+    "M821 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M821 trains actor or M761 residual-head parameters",
+    "M821 trains an adaptive calibrator",
+    "M821 runs PPO",
+    "M821 promotes a checkpoint",
+    "M821 selects candidates from holdout rows",
+    "M821 weakens primary threshold",
+    "M821 ignores intervention sensitivity or old behavior drift"
+  ],
+  "commands": [
+    {
+      "name": "calibration_grid",
+      "command": "implement and run exact fixed scalar/vector calibration grid; expected run dir runs/m821_v4_adaptive_primary_calibration_grid"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_adaptive_primary_calibration_grid.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_adaptive_primary_calibration_grid.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m821_v4_adaptive_primary_calibration_grid/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m821-v4-adaptive-primary-calibration-grid-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m820-v4-low-margin-new-data-route-branch-synthesis.md",
+    "docs/m819-v4-adaptive-primary-calibration-followup-design.md",
+    "runs/m817_v4_adaptive_primary_residual_calibration/summary.json",
+    "runs/m814_v4_adaptive_boundary_bracketing/summary.json",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M821 may produce a fixed-gate calibration probe candidate or a classified negative result only. It must not train, run PPO, or promote.",
+  "next_blocker": "m822-v4-adaptive-primary-calibration-grid-audit"
+}

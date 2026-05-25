@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 828,
+        "completed": 829,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m819-v4-adaptive-primary-calibration-followup-design",
+        "task_id": "m820-v4-low-margin-new-data-route-branch-synthesis",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m819-v4-adaptive-primary-calibration-followup-design.md"
+        "command_log": "docs/m820-v4-low-margin-new-data-route-branch-synthesis.md"
     },
     "next_task": {
-        "id": "m820-v4-low-margin-new-data-route-branch-synthesis",
+        "id": "m821-v4-adaptive-primary-calibration-grid-implementation",
         "status": "pending",
-        "priority": 8150,
-        "kind": "gate",
-        "hypothesis": "Synthesize M810-M819 before any calibration-grid implementation",
-        "command": "see experiments/manifests/m820-v4-low-margin-new-data-route-branch-synthesis.json",
-        "success_artifact": "docs/m820-v4-low-margin-new-data-route-branch-synthesis.md",
-        "notes": "Pending: workflow synthesis for v4_low_margin_new_data_route after M819 cadence boundary"
+        "priority": 8160,
+        "kind": "infrastructure",
+        "hypothesis": "Implement exact non-PPO fixed scalar/vector calibration grid after M820 synthesis",
+        "command": "see experiments/manifests/m821-v4-adaptive-primary-calibration-grid-implementation.json",
+        "success_artifact": "docs/m821-v4-adaptive-primary-calibration-grid-implementation.md",
+        "notes": "Pending: exact grid only; no adaptive calibrator training PPO promotion or holdout selection"
     },
-    "updated_at_utc": "20260525T182500Z"
+    "updated_at_utc": "20260525T184000Z"
 }
