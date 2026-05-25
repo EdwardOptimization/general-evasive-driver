@@ -1,0 +1,102 @@
+{
+  "id": "m933-v4-public-base-policy-head-low-tail-pressure-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m932_v4_public_base_policy_head_raw_direction_feasibility/summary.json",
+      "runs/m932_v4_public_base_policy_head_raw_direction_feasibility/alpha_metrics.csv",
+      "docs/m932-v4-public-base-policy-head-raw-direction-feasibility-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m932-v4-public-base-policy-head-raw-direction-feasibility-audit.json"
+    ],
+    "parent_objective": [
+      "design a stronger actor_mean-only low-tail pressure objective after M932 weak normal-safe movement"
+    ],
+    "derived_from": [
+      "m932-v4-public-base-policy-head-raw-direction-feasibility-audit"
+    ],
+    "blocked_by": [
+      "actor_mean-only low-tail pressure design has not yet been written"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m933-v4-public-base-policy-head-low-tail-pressure-design.md",
+  "public_gates": [
+    "M933 must be design-only",
+    "M933 must preserve P0 actor input contract",
+    "M933 must keep trainable surface at actor_mean only",
+    "M933 must pre-register target-active-set diagnostics",
+    "M933 must block replay PPO and promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train in M933",
+    "do not change actor inputs",
+    "do not broaden trainable surface in M933",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_policy_level_trust_region",
+    "evidence_axis": "G_policy_update: design stronger actor-head low-tail objective",
+    "evidence_increment": "uses M932 weak but normal-safe raw movement to justify one more actor_mean-only objective design before broadening encoders",
+    "claim_scope": "objective design only; no training, replay, PPO, driver improvement claim, or promotion",
+    "stop_condition": [
+      "stop if the design broadens beyond actor_mean without a synthesis",
+      "stop if the design drops normal-retention gates",
+      "stop if replay PPO or promotion is attempted"
+    ],
+    "fallback_plan": [
+      "if design passes, route to a small actor_mean-only pressure-scaling implementation",
+      "if target-active-set conflict dominates, route to target/gate audit",
+      "if another actor_mean-only implementation fails, synthesize before broader actor updates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M932 finds weak normal-safe low-tail movement but no tail-lift row",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Because M932 shows actor_mean-only raw movement is normal-safe and weakly improves low-tail metrics, the next controlled step is stronger low-tail pressure with target-active-set diagnostics before broadening the trainable surface.",
+  "success_criteria": [
+    "docs/m933-v4-public-base-policy-head-low-tail-pressure-design.md exists",
+    "M933 keeps trainable surface actor_mean-only",
+    "M933 pre-registers low-tail effect-size and target-active-set diagnostics",
+    "M933 blocks replay PPO and promotion"
+  ],
+  "failure_criteria": [
+    "M933 starts training",
+    "M933 changes actor inputs",
+    "M933 broadens trainable surface",
+    "M933 admits replay PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m933-v4-public-base-policy-head-low-tail-pressure-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m933-v4-public-base-policy-head-low-tail-pressure-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m932-v4-public-base-policy-head-raw-direction-feasibility-audit.md"
+  ],
+  "decision_rule": "M933 may only design the next actor_mean-only objective pass. It must not train, run replay, run PPO, or promote.",
+  "next_blocker": "actor_mean-only low-tail pressure design has not yet been written"
+}

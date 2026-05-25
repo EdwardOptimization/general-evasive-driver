@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m932-v4-public-base-policy-head-raw-direction-feasibility-audit
+m933-v4-public-base-policy-head-low-tail-pressure-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -70,17 +70,24 @@ alpha/mix candidate. M928 audits this as a residual-bridge trust-region
 conflict and routes to policy-level trust-region design. M929 designs an
 actor_mean-only objective sanity probe. M930 updates only the policy mean head,
 freezes feature/recurrent encoders, critic, and log_std, and finds no
-tail-lift candidate inside the conservative alpha window. M931 audits this as
-insufficient evidence to broaden the actor yet, and routes to a no-training
-extended-alpha feasibility audit of the saved M930 raw actor_mean direction.
+tail-lift candidate inside the conservative alpha window. M931 routes to a
+no-training extended-alpha audit of the saved M930 raw actor_mean direction.
+M932 finds weak normal-safe low-tail movement but no tail-lift rows, so the next
+step is a stronger actor_mean-only low-tail pressure design with
+target-active-set diagnostics.
 
 ## Recent Evidence Line
 
+- M932 audits the saved M930 raw actor_mean direction through alpha `1.0` with
+  no training. The raw direction remains normal-safe and weakly improves
+  low-tail metrics (`low_tail_fraction` from about `0.41055` to `0.39736`),
+  but `tail_lift_rows=0`, `candidate_alpha_count=0`, and strict target MSE
+  worsens slightly. Next route: stronger actor_mean-only low-tail pressure
+  design before any broader actor update.
 - M931 audits M930 and blocks a premature broader actor update. The key
   distinction is that M930 proves no admissible tail lift inside the registered
   conservative alpha window, but does not yet prove the raw actor-head direction
-  lacks tail-lift leverage. M932 should evaluate the saved raw direction across
-  extended alphas with no new training.
+  lacks tail-lift leverage. This routed to M932's saved-raw-direction audit.
 - M930 implements the actor_mean-only trust-region probe. It reconstructs
   `1213/1213`, joins `122/122` targets, changes only `actor_mean`, and keeps
   feature backbone, critic, log_std, and all non-head checksums unchanged.

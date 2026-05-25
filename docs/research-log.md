@@ -14488,3 +14488,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M931 audits M930 as a clean negative inside the conservative alpha window, not yet proof that actor_mean has no useful raw direction. Because M930 only evaluated alphas up to `0.100`, the next step should be a no-training extended-alpha audit of the saved M930 raw actor_mean update before any broader trainable surface is designed.
 - decision: `policy_head_no_tail_lift_audit_route_to_raw_direction_feasibility`
 - next: `m932-v4-public-base-policy-head-raw-direction-feasibility-audit`
+
+## 20260525T223747Z - m932-v4-public-base-policy-head-raw-direction-feasibility-audit
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m932_v4_public_base_policy_head_raw_direction_feasibility`
+- artifact: `docs/m932-v4-public-base-policy-head-raw-direction-feasibility-audit.md`
+- result: M932 performs a no-training extended-alpha audit of the saved M930 raw actor_mean direction. It reconstructs `1213/1213`, joins `122/122` targets, confirms base and raw checkpoints differ only in `actor_mean`, and evaluates alphas through `1.0`. Alpha `1.0` remains normal-retained and weakly improves low-tail fraction from about `0.41055` to `0.39736`, but `tail_lift_rows=0`, `normal_retained_tail_lift_rows=0`, and `candidate_alpha_count=0`. No training, exact compatibility, replay, PPO, or promotion occurred.
+- decision: `public_base_policy_head_raw_direction_feasibility_no_tail_lift_route_to_low_tail_pressure_design`
+- next: `m933-v4-public-base-policy-head-low-tail-pressure-design`

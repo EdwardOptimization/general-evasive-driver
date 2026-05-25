@@ -6,6 +6,9 @@ from autodrift.public_base_policy_head_trust_region_probe import (
     set_actor_mean_trainable_only,
     state_checksums,
 )
+from autodrift.public_base_policy_head_raw_direction_feasibility import (
+    classify_policy_head_raw_direction_feasibility,
+)
 from autodrift.train_ppo import ActorCritic
 
 
@@ -83,3 +86,41 @@ def test_state_checksums_separate_actor_head_from_backbone():
     assert base_checksums["critic"] == updated_checksums["critic"]
     assert base_checksums["log_std"] == updated_checksums["log_std"]
     assert base_checksums["non_actor_mean"] == updated_checksums["non_actor_mean"]
+
+
+def test_classify_policy_head_raw_direction_feasibility_trust_region_conflict():
+    assert (
+        classify_policy_head_raw_direction_feasibility(
+            non_actor_mean_changed_between_checkpoints=False,
+            actor_mean_changed_between_checkpoints=True,
+            reconstruction_success_rate=1.0,
+            metadata_missing_rows=0,
+            missing_target_keys=0,
+            candidate_count=0,
+            any_tail_lift=True,
+            any_normal_retained_tail_lift=False,
+            training_started=False,
+            ppo_used=False,
+            promoted=False,
+        )
+        == "public_base_policy_head_raw_direction_feasibility_trust_region_conflict"
+    )
+
+
+def test_classify_policy_head_raw_direction_feasibility_contract_artifact():
+    assert (
+        classify_policy_head_raw_direction_feasibility(
+            non_actor_mean_changed_between_checkpoints=True,
+            actor_mean_changed_between_checkpoints=True,
+            reconstruction_success_rate=1.0,
+            metadata_missing_rows=0,
+            missing_target_keys=0,
+            candidate_count=0,
+            any_tail_lift=True,
+            any_normal_retained_tail_lift=False,
+            training_started=False,
+            ppo_used=False,
+            promoted=False,
+        )
+        == "public_base_policy_head_raw_direction_feasibility_contract_artifact"
+    )

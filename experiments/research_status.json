@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 940,
+    "completed": 941,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m931-v4-public-base-policy-head-no-tail-lift-audit",
+    "task_id": "m932-v4-public-base-policy-head-raw-direction-feasibility-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m931-v4-public-base-policy-head-no-tail-lift-audit.md"
+    "command_log": "runs/m932_v4_public_base_policy_head_raw_direction_feasibility/summary.json"
   },
   "next_task": {
-    "id": "m932-v4-public-base-policy-head-raw-direction-feasibility-audit",
+    "id": "m933-v4-public-base-policy-head-low-tail-pressure-design",
     "status": "pending",
-    "priority": 9270,
+    "priority": 9280,
     "kind": "infrastructure",
-    "hypothesis": "Evaluate the saved M930 raw actor_mean direction across extended alphas without new training",
-    "command": "see experiments/manifests/m932-v4-public-base-policy-head-raw-direction-feasibility-audit.json",
-    "success_artifact": "runs/m932_v4_public_base_policy_head_raw_direction_feasibility/summary.json",
-    "notes": "Pending: no-training raw direction feasibility audit; replay, PPO, and promotion blocked"
+    "hypothesis": "Design stronger actor_mean-only low-tail pressure with target-active-set diagnostics after M932 weak normal-safe movement",
+    "command": "see experiments/manifests/m933-v4-public-base-policy-head-low-tail-pressure-design.json",
+    "success_artifact": "docs/m933-v4-public-base-policy-head-low-tail-pressure-design.md",
+    "notes": "Pending: design-only; trainable surface remains actor_mean only; replay, PPO, and promotion blocked"
   },
-  "updated_at_utc": "20260525T223249Z"
+  "updated_at_utc": "20260525T223747Z"
 }
