@@ -1,0 +1,74 @@
+{
+  "decision_reason": "M892 may only audit the fresh-seed repeat. It must not train, run replay, run PPO, promote, or claim replay retention.",
+  "failure_criteria": [
+    "M892 promotes a checkpoint",
+    "M892 runs PPO",
+    "M892 treats exact metrics as replay proof",
+    "M892 skips routing"
+  ],
+  "failure_types": [
+    "seed_fragility",
+    "objective_overfit",
+    "proof_washout",
+    "metric_artifact",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not claim fresh replay retention from exact metrics alone",
+    "do not tune against exact holdouts after seeing M891"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260525T195532Z",
+  "hypothesis": "M891 is a clean fresh-seed objective-only repeat and should be routed to replay/proof gates before any stronger claim.",
+  "lineage": {
+    "blocked_by": [
+      "M891 produced a fresh-seed exact-admissible candidate but no audit has routed replay/proof evaluation"
+    ],
+    "derived_from": [
+      "m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat.json"
+    ],
+    "parent_dataset": [
+      "docs/m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat.md",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/summary.json",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/interpolation_metrics.csv",
+      "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/action_drift_metrics.csv",
+      "docs/m890-v4-enriched-pair-delta-replay-proof-gate-audit.md"
+    ],
+    "parent_objective": [
+      "audit fresh-seed repeat exact-admissible objective-only candidate"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit",
+  "next_blocker": "M891 exact-admissible fresh-seed repeat has not been audited for replay/proof gate routing",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M892 must be audit-only",
+    "M892 must compare M891 against M886 exact-admissible behavior",
+    "M892 must decide replay/proof gate routing",
+    "M892 must keep PPO and promotion blocked",
+    "M892 must not claim repeat-stable replay before replay gates run"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "M892 records M891 exact-admissible alpha count and best alpha",
+    "M892 compares M891 deltas to M886",
+    "M892 selects replay/proof gate or repeat routing",
+    "M892 pre-registers the next milestone",
+    "M892 keeps PPO and promotion blocked"
+  ],
+  "type": "gate"
+}

@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M891 may only repeat the registered no-PPO objective-only probe with seed 10887. It must not promote or claim repeat stability before audit.",
+  "decision_reason": "M891 repeats M886 objective-only recipe with seed 10887 and again finds 7 nonzero exact-admissible interpolation candidates with PPO and promotion blocked",
   "failure_criteria": [
     "M891 runs PPO",
     "M891 promotes a checkpoint",
@@ -25,7 +25,7 @@
     "do not change actor inputs"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260525T195215Z",
+  "generated_at_utc": "20260525T195532Z",
   "hypothesis": "The M886 objective-only recipe remains exact-admissible when repeated from M568 with optimizer/minibatch seed 10887 and otherwise identical settings.",
   "lineage": {
     "blocked_by": [
@@ -61,7 +61,7 @@
   "milestone": "m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat",
   "next_blocker": "M886 objective-only recipe has one proof-gate-positive seed but no fresh-seed repeat",
   "private_holdout_policy": "promotion_only",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "v4_enriched_pair_delta_objective_only_fresh_seed_repeat_exact_admissible",
   "public_gates": [
     "M891 must use no PPO",
     "M891 must change only optimizer/minibatch seed relative to M886",
@@ -69,7 +69,20 @@
     "M891 must run exact holdout interpolation gates",
     "M891 must not promote a checkpoint"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_enriched_pair_delta_objective_only_fresh_seed_repeat_exact_admissible",
+    "milestone": "m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat",
+    "reason": "M891 repeats M886 objective-only recipe with seed 10887 and again finds 7 nonzero exact-admissible interpolation candidates with PPO and promotion blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "M891 reconstructs 247 / 247 tensor rows",
     "M891 finds at least one nonzero exact-admissible interpolation alpha",

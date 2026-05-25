@@ -62,15 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat
+m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit
 ```
 
-M890 audited M889 as a clean but single-seed proof-gate positive and routed to a
-fresh-seed repeat of the M886 objective-only recipe. M891 must change only the
-optimizer/minibatch seed (`10887`) before any generalization, PPO, or promotion.
+M891 repeated the M886 no-PPO objective-only recipe with seed `10887` and again
+found exact-admissible interpolation candidates. M892 must audit the repeat and
+decide whether to run replay/proof gates for its alpha `0.1` candidate.
 
 ## Recent Evidence Line
 
+- M891 repeats the M886 objective-only recipe with seed `10887` and otherwise
+  identical settings. It reconstructs `247/247` rows, keeps actor input and M761
+  residual head unchanged, and again finds `7` nonzero exact-admissible alphas.
+  Best alpha is `0.1` with train weighted-loss delta
+  `-0.00008399784564971924`. This supports objective seed repeatability but not
+  replay retention for the repeat yet.
 - M890 audits M889 as clean but single-seed proof evidence. The supported claim
   is limited to M886 seed-10886 `alpha_0_1` preserving M568-relative exact,
   replay, and behavior-retention gates. Unsupported claims include repeat

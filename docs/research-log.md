@@ -14104,3 +14104,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M890 audits M889 as a clean but single-seed proof-gate positive. The supported claim is limited to M886 seed-10886 `alpha_0_1` preserving M568-relative exact, replay, and behavior-retention gates. Unsupported claims include repeat stability, meaningful driver improvement, public-base promotion, generalization, and PPO safety. M890 routes to an identical no-PPO objective-only fresh-seed repeat using seed `10887` before any generalization, PPO, or promotion work.
 - decision: `v4_enriched_pair_delta_replay_proof_gate_audit_route_to_fresh_seed_repeat`
 - next: `m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat`
+
+## 20260525T195417Z - m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m891_v4_enriched_pair_delta_objective_only_repeat_seed10887`
+- artifact: `docs/m891-v4-enriched-pair-delta-objective-only-fresh-seed-repeat.md`
+- result: M891 repeats the M886 no-PPO objective-only recipe with optimizer/minibatch seed `10887` and otherwise identical settings. It reconstructs `247/247` rows, leaves the residual head and actor input contract unchanged, and again finds `7` nonzero exact-admissible interpolation candidates. The best alpha is `0.1`, with train weighted-loss delta `-0.00008399784564971924`; all exact holdout deltas are nonpositive. PPO and promotion remain blocked.
+- decision: `v4_enriched_pair_delta_objective_only_fresh_seed_repeat_exact_admissible`
+- next: `m892-v4-enriched-pair-delta-objective-only-fresh-seed-repeat-audit`
