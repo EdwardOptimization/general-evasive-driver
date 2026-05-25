@@ -13231,3 +13231,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M796 audits M795 as a clean near-miss negative. M795 is not a candidate and does not justify PPO because active-source margin and steer selectivity fail. However, alpha `0.2` is collision-free and reaches the strong gap reference, so the branch is not exhausted. The audit concludes that the next design must make active/source-diverse low-margin steering safety lexicographic before gap optimization, rather than simply tuning the same objective coefficients. M797 is admitted as design-only; PPO and promotion remain blocked.
 - decision: `admit_active_steer_guard_design`
 - next: `m797-v4-active-steer-guard-calibration-design`
+
+## 20260525T123000Z - m797-v4-active-steer-guard-calibration-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m797-v4-active-steer-guard-calibration-design.md`
+- result: M797 designs a no-PPO active steer guard calibration after M795's near miss. The design keeps the M568 actor and M761 residual head frozen, keeps the M795 steer/brake gate with fixed-zero throttle, and adds a stronger workflow: source-diverse low-margin guard-row selection, supervised gate separability probe, active-steer feasibility projection, then gap retention under the guard. It requires exact alpha `0.2` closed-loop gates, M786/M780 references, active/source-diverse low-margin steering safety, and steer selectivity before any candidate claim. It also adds explicit stop conditions for low-margin corpus block and deployable feature separation failure. M798 is admitted as implementation diagnostic only; PPO and promotion remain blocked.
+- decision: `active_steer_guard_design_admit_m798`
+- next: `m798-v4-active-steer-guard-calibration-implementation`

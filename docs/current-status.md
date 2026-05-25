@@ -62,15 +62,25 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m797-v4-active-steer-guard-calibration-design
+m798-v4-active-steer-guard-calibration-implementation
 ```
 
-M797 should design a lexicographic active/source-diverse low-margin steering
-guard before any new implementation. Base actor mutation, M761 residual-head
-mutation, PPO, and promotion remain blocked.
+M798 should implement and run the no-PPO active/source-diverse low-margin
+steer guard calibration diagnostic from M797. Base actor mutation, M761
+residual-head mutation, PPO, and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M797 designs a no-PPO active steer guard calibration after M795's near miss.
+  The design keeps the M568 actor and M761 residual head frozen, keeps the M795
+  steer/brake gate with fixed-zero throttle, and adds a stronger workflow:
+  source-diverse low-margin guard-row selection, supervised gate separability
+  probe, active-steer feasibility projection, then gap retention under the
+  guard. It requires exact alpha `0.2` closed-loop gates, M786/M780 references,
+  active/source-diverse low-margin steering safety, and steer selectivity
+  before any candidate claim. It also adds explicit stop conditions for
+  low-margin corpus block and deployable feature separation failure. M798 is
+  admitted as implementation diagnostic only; PPO and promotion remain blocked.
 - M796 audits M795 as a clean near-miss negative. M795 is not a candidate and
   does not justify PPO because active-source margin and steer selectivity fail.
   However, alpha `0.2` is collision-free and reaches the strong gap reference,

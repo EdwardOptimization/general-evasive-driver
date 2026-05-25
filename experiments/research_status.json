@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 805,
+        "completed": 806,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m796-v4-steer-attributed-residual-calibration-audit",
+        "task_id": "m797-v4-active-steer-guard-calibration-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m796-v4-steer-attributed-residual-calibration-audit.md"
+        "command_log": "docs/m797-v4-active-steer-guard-calibration-design.md"
     },
     "next_task": {
-        "id": "m797-v4-active-steer-guard-calibration-design",
+        "id": "m798-v4-active-steer-guard-calibration-implementation",
         "status": "pending",
-        "priority": 7920,
+        "priority": 7930,
         "kind": "infrastructure",
-        "hypothesis": "Design lexicographic active/source-diverse low-margin steer guard after M795 near miss",
-        "command": "see experiments/manifests/m797-v4-active-steer-guard-calibration-design.json",
-        "success_artifact": "docs/m797-v4-active-steer-guard-calibration-design.md",
-        "notes": "Pending: design stronger active-steer guard; training PPO and promotion remain blocked"
+        "hypothesis": "Implement no-PPO active/source-diverse low-margin steer guard calibration from M797 design",
+        "command": "see experiments/manifests/m798-v4-active-steer-guard-calibration-implementation.json",
+        "success_artifact": "docs/m798-v4-active-steer-guard-calibration-implementation.md",
+        "notes": "Pending: implement active-steer guard diagnostic; actor/residual training PPO and promotion remain blocked"
     },
-    "updated_at_utc": "20260525T121500Z"
+    "updated_at_utc": "20260525T123000Z"
 }

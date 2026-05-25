@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M797 designs no-PPO active steer guard calibration with source-diverse low-margin rows supervised separability projection and exact gates before any implementation",
+  "failure_criteria": [
+    "design ignores M795 active margin miss",
+    "design only changes scalar coefficients without a stronger guard mechanism",
+    "design uses oracle deploy-time inputs",
+    "design tunes only one public active source",
+    "design admits PPO or promotion"
+  ],
+  "failure_types": [
+    "objective_overfit",
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not implement the calibrator",
+    "do not train any parameters",
+    "do not run replay as a result claim",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not weaken M786 or M780 thresholds",
+    "do not tune only the single public active source"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T043607Z",
+  "hypothesis": "An active-steer guard design can turn M795's collision-free strong-gap near miss into a safer diagnostic candidate by enforcing low-margin steering safety before gap optimization.",
+  "lineage": {
+    "blocked_by": [
+      "m796-v4-steer-attributed-residual-calibration-audit"
+    ],
+    "derived_from": [
+      "m796-v4-steer-attributed-residual-calibration-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m796-v4-steer-attributed-residual-calibration-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m796-v4-steer-attributed-residual-calibration-audit.md",
+      "docs/m795-v4-steer-attributed-residual-calibration-implementation.md",
+      "runs/m795_v4_steer_attributed_residual_calibration/summary.json",
+      "runs/m795_v4_steer_attributed_residual_calibration/alpha_metrics.csv",
+      "runs/m795_v4_steer_attributed_residual_calibration/gate_metrics.csv",
+      "runs/m795_v4_steer_attributed_residual_calibration/component_gate_metrics.csv"
+    ],
+    "parent_objective": [
+      "design an active-steer guard calibration after M795 steer-selectivity collapse"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m797-v4-active-steer-guard-calibration-design",
+  "next_blocker": "m798-v4-active-steer-guard-calibration-implementation",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "active_steer_guard_design_admit_m798",
+  "public_gates": [
+    "M797 designs only; it does not implement or train",
+    "M797 preserves the P0 human-view actor contract",
+    "M797 makes active/low-margin steer safety lexicographic before gap optimization",
+    "M797 requires source-diverse low-margin rows",
+    "M797 blocks PPO and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m797-v4-active-steer-guard-calibration-design.md",
+    "clearance_margin_mean": "",
+    "decision": "active_steer_guard_design_admit_m798",
+    "milestone": "m797-v4-active-steer-guard-calibration-design",
+    "reason": "M797 designs no-PPO active steer guard calibration with source-diverse low-margin rows supervised separability projection and exact gates before any implementation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M797 documents a lexicographic active-steer guard design",
+    "M797 specifies source-diverse low-margin row selection",
+    "M797 specifies exact active-source and component-selectivity gates",
+    "M797 preserves actor and residual-head input contracts",
+    "M797 keeps PPO and promotion blocked"
+  ],
+  "type": "infrastructure"
+}
