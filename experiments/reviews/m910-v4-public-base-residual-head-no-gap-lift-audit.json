@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M910 classifies M909 as objective target-lineage blocker and routes to M399-specific sequence recalibration before M880 exact use",
+  "failure_criteria": [
+    "M910 omits candidate_alpha_count zero",
+    "M910 treats M909 residual head as admitted",
+    "M910 runs M880 exact compatibility, replay, PPO, or promotion",
+    "M910 does not choose a next route"
+  ],
+  "failure_types": [
+    "objective_overfit",
+    "lineage_invalid",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not train in M910",
+    "do not run M880 exact compatibility with M909 head yet",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat candidate_alpha_count zero as a pass"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260525T210705Z",
+  "hypothesis": "The M909 no-gap-lift result is a public-base objective/target-lineage blocker, not a feature-dim or actor-input compatibility failure.",
+  "lineage": {
+    "blocked_by": [
+      "M909 produced a 128-dim residual head but candidate_alpha_count was zero"
+    ],
+    "derived_from": [
+      "m909-v4-public-base-residual-head-probe-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m909_v4_public_base_residual_head_probe/residual_head.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m909-v4-public-base-residual-head-probe-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m909-v4-public-base-residual-head-probe-implementation.md",
+      "runs/m909_v4_public_base_residual_head_probe/summary.json",
+      "runs/m909_v4_public_base_residual_head_probe/alpha_metrics.csv"
+    ],
+    "parent_objective": [
+      "audit M909 no-gap-lift result and select the next public-base objective route"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m910-v4-public-base-residual-head-no-gap-lift-audit",
+  "next_blocker": "M909 no-gap-lift result has not yet been audited",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_base_residual_head_no_gap_lift_route_to_sequence_recalibration_design",
+  "public_gates": [
+    "M910 must audit M909 no-gap-lift result",
+    "M910 must separate compatibility success from objective admissibility failure",
+    "M910 must choose a route before using M909 residual head in M880 exact checks",
+    "M910 must keep training, replay, PPO, and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m910-v4-public-base-residual-head-no-gap-lift-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "public_base_residual_head_no_gap_lift_route_to_sequence_recalibration_design",
+    "milestone": "m910-v4-public-base-residual-head-no-gap-lift-audit",
+    "reason": "M910 classifies M909 as objective target-lineage blocker and routes to M399-specific sequence recalibration before M880 exact use",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M910 records M909 compatibility successes",
+    "M910 records candidate_alpha_count zero as objective admissibility failure",
+    "M910 chooses the next route",
+    "M910 keeps training, exact execution, replay, PPO, and promotion blocked"
+  ],
+  "type": "gate"
+}

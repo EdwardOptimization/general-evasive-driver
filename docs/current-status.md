@@ -62,16 +62,21 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m910-v4-public-base-residual-head-no-gap-lift-audit
+m911-v4-public-base-sequence-objective-recalibration-design
 ```
 
-M909 generated a 128-dim residual head on frozen M399 features, but no alpha
-passed the registered normal-retention plus gap-lift gates. M910 must audit
-whether this is target-lineage/metric mismatch and choose the next route before
-using the head in M880 exact checks.
+M910 classified M909 as an objective/target-lineage blocker rather than a
+feature-dim or input-contract problem. M911 must design M399-specific sequence
+objective recalibration before any new residual training, M880 exact execution,
+replay, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M910 audits M909 no-gap-lift. Compared with M761, M909 has no admitted alpha:
+  its mean gap is already large (`~0.144-0.150`), but low-tail p10 remains low
+  (`~0.007-0.012`) and larger alphas break normal retention before fixing the
+  deficit. The route is M399-specific sequence objective recalibration, not
+  direct M880 exact use of the M909 residual head.
 - M909 trains only a residual head on frozen M399 features. Compatibility
   succeeds: `1213/1213` rows reconstruct, metadata missing is `0`, residual
   `feature_dim=128`, residual parameters `8451`, and actor checksum is

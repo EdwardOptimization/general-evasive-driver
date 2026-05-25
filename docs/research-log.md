@@ -14282,3 +14282,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M909 trains only a residual head on frozen M399 features. Compatibility succeeds: `1213/1213` rows reconstruct, metadata missing is `0`, residual `feature_dim=128`, residual parameters `8451`, and actor checksum is unchanged. Objective admissibility fails: `candidate_alpha_count=0`; small alphas preserve normal actions but do not lift p10/deficit enough, while large alphas break normal retention. No replay, PPO, actor update, or promotion occurred.
 - decision: `public_base_residual_head_probe_no_gap_lift_blocked`
 - next: `m910-v4-public-base-residual-head-no-gap-lift-audit`
+
+## 20260525T210526Z - m910-v4-public-base-residual-head-no-gap-lift-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m910-v4-public-base-residual-head-no-gap-lift-audit.md`
+- result: M910 compares M761 and M909 alpha metrics. M761 has admitted alphas `0.2`, `0.5`, and `1.0`, while M909 has no admitted alpha. M909's mean normal/intervention gap is already large but p10 remains low and gap deficit remains above threshold; increasing alpha breaks normal retention before fixing the low tail. M909 is therefore a public-base objective/target-lineage blocker, not a feature_dim or actor-input compatibility failure.
+- decision: `public_base_residual_head_no_gap_lift_route_to_sequence_recalibration_design`
+- next: `m911-v4-public-base-sequence-objective-recalibration-design`
