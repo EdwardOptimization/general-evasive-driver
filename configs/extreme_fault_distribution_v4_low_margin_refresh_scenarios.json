@@ -1,0 +1,566 @@
+{
+  "env_config": "configs/ppo_m541_matched_l3_variance_4096.json",
+  "distribution_version": "v4",
+  "notes": "M801 low-margin v4 source-mining config. Current faults remain single-track or axle-level VehicleParams changes. Proxy faults are for self-ID mining only and must not be claimed as true single-wheel, split-mu, stuck-caliper, halfshaft, or suspension physics.",
+  "claim_boundary": {
+    "current_model_fault": "directly represented by current VehicleParams changes",
+    "current_model_proxy": "capability-loss proxy in the current single-track model; useful for stress and self-ID mining but not a true asymmetric wheel-level physical claim",
+    "future_four_wheel_or_high_fidelity": "requires four-wheel/contact-patch dynamics, per-wheel actuation/sensing, or a higher-fidelity engine before physical claims are allowed"
+  },
+  "coverage_intent": {
+    "primary_question": "Can a boundary-retargeted public mining wave expose source-diverse residual-assisted normal branches whose alpha 0.2 clearance margin is very low but still collision-free?",
+    "training_policy": "no actor update, no PPO, and no checkpoint promotion in this data wave",
+    "actor_input_contract": "P0 human-view no-wheel no-oracle actor input remains unchanged"
+  },
+  "future_four_wheel_or_high_fidelity_faults": [
+    "true_single_wheel_puncture_or_blowout_with_radius_drag_and_pull",
+    "true_single_corner_grip_collapse",
+    "true_left_right_split_mu_patch",
+    "true_stuck_caliper_or_single_wheel_brake_pull",
+    "true_single_wheel_brake_pressure_loss",
+    "true_asymmetric_half_shaft_or_cv_joint_torque_loss",
+    "open_or_locked_differential_failure",
+    "per_wheel_abs_fault",
+    "wheel_speed_sensor_drop_bias_or_quantization",
+    "steering_rack_asymmetry_or_tie_rod_damage",
+    "corner_suspension_damage_or_toe_change",
+    "tire_pressure_temperature_wear_or_delamination_dynamics",
+    "road_crown_bank_or_curbstone_induced_wheel_load_asymmetry",
+    "combined_single_corner_damage"
+  ],
+  "future_only_faults": [
+    "true_single_wheel_puncture_or_blowout_with_radius_drag_and_pull",
+    "true_single_corner_grip_collapse",
+    "true_left_right_split_mu_patch",
+    "true_stuck_caliper_or_single_wheel_brake_pull",
+    "true_single_wheel_brake_pressure_loss",
+    "true_asymmetric_half_shaft_or_cv_joint_torque_loss",
+    "open_or_locked_differential_failure",
+    "per_wheel_abs_fault",
+    "wheel_speed_sensor_drop_bias_or_quantization",
+    "steering_rack_asymmetry_or_tie_rod_damage",
+    "corner_suspension_damage_or_toe_change",
+    "tire_pressure_temperature_wear_or_delamination_dynamics",
+    "road_crown_bank_or_curbstone_induced_wheel_load_asymmetry",
+    "combined_single_corner_damage"
+  ],
+  "proxy_fault_map": {
+    "true_single_wheel_puncture_or_blowout_with_radius_drag_and_pull": [
+      "front_blowout_grip_proxy_pre_emergency",
+      "rear_blowout_drive_grip_proxy_emergency"
+    ],
+    "true_single_corner_grip_collapse": [
+      "front_corner_grip_collapse_proxy",
+      "rear_corner_grip_collapse_proxy"
+    ],
+    "true_left_right_split_mu_patch": [
+      "split_mu_front_authority_proxy",
+      "split_mu_rear_oversteer_proxy"
+    ],
+    "true_stuck_caliper_or_single_wheel_brake_pull": [
+      "stuck_caliper_brake_pull_proxy",
+      "brake_pull_steer_delay_proxy"
+    ],
+    "true_single_wheel_brake_pressure_loss": [
+      "single_wheel_brake_loss_proxy",
+      "low_mu_brake_loss_proxy"
+    ],
+    "true_asymmetric_half_shaft_or_cv_joint_torque_loss": [
+      "halfshaft_torque_loss_proxy",
+      "rear_blowout_drive_grip_proxy_emergency"
+    ],
+    "wheel_speed_sensor_drop_bias_or_quantization": [
+      "sensor_delay_authority_proxy",
+      "actuator_sensor_delay_extreme"
+    ],
+    "corner_suspension_damage_or_toe_change": [
+      "front_corner_suspension_proxy",
+      "rear_corner_suspension_proxy"
+    ]
+  },
+  "scenario_axes": {
+    "fault_onset": [
+      "preexisting",
+      "warmup",
+      "pre_emergency",
+      "emergency_entry",
+      "mid_maneuver",
+      "recovery"
+    ],
+    "difficulty": [
+      "healthy_margin",
+      "near_boundary",
+      "aeb_infeasible",
+      "stable_aes_infeasible",
+      "drift_required",
+      "mitigation_only"
+    ],
+    "history_interventions": [
+      "normal",
+      "reset_hidden",
+      "wrong_cross_fault_history",
+      "zero_command_history_sequence",
+      "delayed_response_sequence",
+      "command_response_mismatch_sequence"
+    ],
+    "split_policy": {
+      "public": "debug and source mining",
+      "holdout": "promotion-only; rotate if used for repair"
+    }
+  },
+  "low_margin_refresh_targets": {
+    "seed_start": 78048,
+    "seed_count": 2048,
+    "min_positive_rows": 1500,
+    "min_unique_positive_seeds": 40,
+    "min_unique_positive_fault_family_pairs": 18,
+    "max_positive_seed_dominance": 0.15,
+    "max_positive_fault_family_pair_dominance": 0.22,
+    "min_low_margin_guard_rows": 80,
+    "min_low_margin_guard_seeds": 8,
+    "min_low_margin_guard_source_indices": 8,
+    "min_low_margin_guard_fault_family_pairs": 4,
+    "max_low_margin_guard_seed_dominance": 0.25,
+    "max_low_margin_guard_source_index_dominance": 0.15,
+    "primary_low_margin_threshold": 0.00005,
+    "diagnostic_low_margin_thresholds": [
+      0.00005,
+      0.0001,
+      0.0005,
+      0.001,
+      0.01,
+      0.1,
+      0.2
+    ]
+  },
+  "max_pairs": 49152,
+  "max_snapshots_per_scenario": 7,
+  "max_steps": 340,
+  "max_continuation_steps": 70,
+  "min_accepted_rows": 240,
+  "min_action_l2_gap": 0.014,
+  "min_history_margin_gap": 0.018,
+  "min_history_rows": 80,
+  "min_normal_margin": 0.0,
+  "min_step": 20,
+  "min_unique_fault_families": 8,
+  "min_unique_seeds": 96,
+  "min_unique_severities": 3,
+  "obstacle_longitudinal_max": 115.0,
+  "obstacle_longitudinal_min": -14.0,
+  "snapshot_stride": 3,
+  "faults": [
+    {
+      "name": "mu_drop_extreme_preexisting",
+      "family": "global_mu_drop",
+      "severity": "extreme",
+      "activation_step": 0,
+      "fidelity_class": "current_model_fault",
+      "params": {
+        "mu_scale": 0.30
+      }
+    },
+    {
+      "name": "ice_patch_emergency_entry",
+      "family": "global_mu_drop",
+      "severity": "extreme",
+      "activation_step": 40,
+      "fidelity_class": "current_model_fault",
+      "params": {
+        "mu_scale": 0.24
+      }
+    },
+    {
+      "name": "wet_to_ice_mid_maneuver",
+      "family": "global_mu_drop",
+      "severity": "severe",
+      "activation_step": 52,
+      "fidelity_class": "current_model_fault",
+      "params": {
+        "mu_scale": 0.36
+      }
+    },
+    {
+      "name": "front_corner_grip_collapse_proxy",
+      "family": "front_lateral_authority_drop",
+      "severity": "extreme",
+      "activation_step": 28,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "cf_scale": 0.10
+      }
+    },
+    {
+      "name": "front_blowout_grip_proxy_pre_emergency",
+      "family": "front_lateral_authority_drop",
+      "severity": "extreme",
+      "activation_step": 36,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "cf_scale": 0.07
+      }
+    },
+    {
+      "name": "front_corner_suspension_proxy",
+      "family": "front_lateral_authority_drop",
+      "severity": "severe",
+      "activation_step": 18,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "cf_scale": 0.22
+      }
+    },
+    {
+      "name": "rear_corner_grip_collapse_proxy",
+      "family": "rear_lateral_authority_drop",
+      "severity": "extreme",
+      "activation_step": 28,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "cr_scale": 0.10
+      }
+    },
+    {
+      "name": "rear_blowout_drive_grip_proxy_emergency",
+      "family": "combined_fault",
+      "severity": "extreme",
+      "activation_step": 40,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "cr_scale": 0.10,
+        "max_drive_force_scale": 0.16
+      }
+    },
+    {
+      "name": "rear_corner_suspension_proxy",
+      "family": "rear_lateral_authority_drop",
+      "severity": "severe",
+      "activation_step": 18,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "cr_scale": 0.22
+      }
+    },
+    {
+      "name": "brake_fade_extreme_pre_emergency",
+      "family": "brake_authority_drop",
+      "severity": "extreme",
+      "activation_step": 30,
+      "fidelity_class": "current_model_fault",
+      "params": {
+        "max_brake_force_scale": 0.12
+      }
+    },
+    {
+      "name": "single_wheel_brake_loss_proxy",
+      "family": "brake_authority_drop",
+      "severity": "severe",
+      "activation_step": 34,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "max_brake_force_scale": 0.25
+      }
+    },
+    {
+      "name": "stuck_caliper_brake_pull_proxy",
+      "family": "combined_fault",
+      "severity": "extreme",
+      "activation_step": 32,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "max_brake_force_scale": 0.42,
+        "cf_scale": 0.40,
+        "steer_tau_scale": 2.4
+      }
+    },
+    {
+      "name": "low_mu_brake_loss_proxy",
+      "family": "combined_fault",
+      "severity": "extreme",
+      "activation_step": 34,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "mu_scale": 0.34,
+        "max_brake_force_scale": 0.28
+      }
+    },
+    {
+      "name": "halfshaft_torque_loss_proxy",
+      "family": "drive_authority_drop",
+      "severity": "extreme",
+      "activation_step": 24,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "max_drive_force_scale": 0.05
+      }
+    },
+    {
+      "name": "drive_cut_mid_maneuver",
+      "family": "drive_authority_drop",
+      "severity": "severe",
+      "activation_step": 50,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "max_drive_force_scale": 0.12
+      }
+    },
+    {
+      "name": "rear_drive_oversteer_loss_proxy",
+      "family": "combined_fault",
+      "severity": "extreme",
+      "activation_step": 36,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "max_drive_force_scale": 0.20,
+        "cr_scale": 0.16
+      }
+    },
+    {
+      "name": "steering_authority_collapse",
+      "family": "steering_fault",
+      "severity": "extreme",
+      "activation_step": 34,
+      "fidelity_class": "current_model_fault",
+      "params": {
+        "max_steer_rate_scale": 0.12,
+        "max_steer_scale": 0.22,
+        "steer_tau_scale": 5.0
+      }
+    },
+    {
+      "name": "steering_stuck_mid_maneuver_proxy",
+      "family": "steering_fault",
+      "severity": "extreme",
+      "activation_step": 52,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "max_steer_rate_scale": 0.08,
+        "max_steer_scale": 0.18,
+        "steer_tau_scale": 6.0
+      }
+    },
+    {
+      "name": "brake_pull_steer_delay_proxy",
+      "family": "combined_fault",
+      "severity": "severe",
+      "activation_step": 30,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "max_brake_force_scale": 0.55,
+        "steer_tau_scale": 2.8,
+        "cf_scale": 0.55
+      }
+    },
+    {
+      "name": "payload_front_heavy_extreme",
+      "family": "mass_cg_shift",
+      "severity": "extreme",
+      "activation_step": 0,
+      "fidelity_class": "current_model_fault",
+      "params": {
+        "mass_scale": 1.35,
+        "inertia_scale": 1.65,
+        "cg_shift": 0.22
+      }
+    },
+    {
+      "name": "payload_rear_heavy_extreme",
+      "family": "mass_cg_shift",
+      "severity": "extreme",
+      "activation_step": 0,
+      "fidelity_class": "current_model_fault",
+      "params": {
+        "mass_scale": 1.35,
+        "inertia_scale": 1.65,
+        "cg_shift": -0.22
+      }
+    },
+    {
+      "name": "high_inertia_roof_load",
+      "family": "mass_cg_shift",
+      "severity": "severe",
+      "activation_step": 0,
+      "fidelity_class": "current_model_fault",
+      "params": {
+        "mass_scale": 1.22,
+        "inertia_scale": 1.85
+      }
+    },
+    {
+      "name": "actuator_sensor_delay_extreme",
+      "family": "delay_noise_fault",
+      "severity": "extreme",
+      "activation_step": 22,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "drive_tau_scale": 5.2,
+        "steer_tau_scale": 5.5
+      }
+    },
+    {
+      "name": "sensor_delay_authority_proxy",
+      "family": "delay_noise_fault",
+      "severity": "severe",
+      "activation_step": 16,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "drive_tau_scale": 3.4,
+        "steer_tau_scale": 3.8
+      }
+    },
+    {
+      "name": "split_mu_front_authority_proxy",
+      "family": "combined_fault",
+      "severity": "extreme",
+      "activation_step": 34,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "mu_scale": 0.42,
+        "cf_scale": 0.24,
+        "steer_tau_scale": 2.0
+      }
+    },
+    {
+      "name": "split_mu_rear_oversteer_proxy",
+      "family": "combined_fault",
+      "severity": "extreme",
+      "activation_step": 34,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "mu_scale": 0.42,
+        "cr_scale": 0.18,
+        "max_drive_force_scale": 0.22
+      }
+    },
+    {
+      "name": "blowout_low_mu_brake_proxy",
+      "family": "combined_fault",
+      "severity": "extreme",
+      "activation_step": 38,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "mu_scale": 0.36,
+        "cf_scale": 0.18,
+        "max_brake_force_scale": 0.36
+      }
+    },
+    {
+      "name": "loaded_vehicle_brake_fade_extreme",
+      "family": "combined_fault",
+      "severity": "extreme",
+      "activation_step": 22,
+      "fidelity_class": "current_model_proxy",
+      "params": {
+        "mass_scale": 1.30,
+        "inertia_scale": 1.55,
+        "max_brake_force_scale": 0.32
+      }
+    }
+  ],
+  "pairing_rules": [
+    {
+      "preferred_family": "global_mu_drop",
+      "wrong_family": "front_lateral_authority_drop"
+    },
+    {
+      "preferred_family": "global_mu_drop",
+      "wrong_family": "rear_lateral_authority_drop"
+    },
+    {
+      "preferred_family": "global_mu_drop",
+      "wrong_family": "brake_authority_drop"
+    },
+    {
+      "preferred_family": "front_lateral_authority_drop",
+      "wrong_family": "steering_fault"
+    },
+    {
+      "preferred_family": "rear_lateral_authority_drop",
+      "wrong_family": "drive_authority_drop"
+    },
+    {
+      "preferred_family": "brake_authority_drop",
+      "wrong_family": "global_mu_drop"
+    },
+    {
+      "preferred_family": "brake_authority_drop",
+      "wrong_family": "steering_fault"
+    },
+    {
+      "preferred_family": "drive_authority_drop",
+      "wrong_family": "rear_lateral_authority_drop"
+    },
+    {
+      "preferred_family": "steering_fault",
+      "wrong_family": "front_lateral_authority_drop"
+    },
+    {
+      "preferred_family": "mass_cg_shift",
+      "wrong_family": "brake_authority_drop"
+    },
+    {
+      "preferred_family": "mass_cg_shift",
+      "wrong_family": "front_lateral_authority_drop"
+    },
+    {
+      "preferred_family": "delay_noise_fault",
+      "wrong_family": "steering_fault"
+    },
+    {
+      "preferred_family": "delay_noise_fault",
+      "wrong_family": "brake_authority_drop"
+    },
+    {
+      "preferred_family": "combined_fault",
+      "wrong_family": "global_mu_drop"
+    },
+    {
+      "preferred_family": "combined_fault",
+      "wrong_family": "front_lateral_authority_drop"
+    },
+    {
+      "preferred_family": "combined_fault",
+      "wrong_family": "rear_lateral_authority_drop"
+    },
+    {
+      "preferred_family": "combined_fault",
+      "wrong_family": "brake_authority_drop"
+    },
+    {
+      "preferred_family": "combined_fault",
+      "wrong_family": "drive_authority_drop"
+    },
+    {
+      "preferred_family": "combined_fault",
+      "wrong_family": "steering_fault"
+    },
+    {
+      "preferred_family": "combined_fault",
+      "wrong_family": "delay_noise_fault"
+    },
+    {
+      "preferred_family": "front_lateral_authority_drop",
+      "wrong_family": "combined_fault"
+    },
+    {
+      "preferred_family": "rear_lateral_authority_drop",
+      "wrong_family": "combined_fault"
+    },
+    {
+      "preferred_family": "brake_authority_drop",
+      "wrong_family": "combined_fault"
+    },
+    {
+      "preferred_family": "drive_authority_drop",
+      "wrong_family": "combined_fault"
+    },
+    {
+      "preferred_family": "steering_fault",
+      "wrong_family": "combined_fault"
+    },
+    {
+      "preferred_family": "delay_noise_fault",
+      "wrong_family": "combined_fault"
+    }
+  ]
+}

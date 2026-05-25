@@ -13268,3 +13268,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M800 designs a no-training low-margin corpus refresh after M799 accepted the M798 source-diversity blocker. A direct margin-distribution check on M795 parent replay shows the problem is not only the exact cutoff: alpha `0.2` normal rows have `12` rows at margin `<= 0.00005`, still `12` at `<= 0.00010`, only `36` through `<= 0.10000`, all from one seed, before the next distinct rows jump to about `0.201 m`. M800 therefore requires M801 to retarget source sampling toward low normal-boundary margins, export reference replay rows, and pass strict primary gates: at least `80` accepted low-margin normal rows, `8` seeds, `8` source indices, `4` fault-family pairs, max seed dominance `0.25`, and no actor/residual training.
 - decision: `low_margin_corpus_refresh_design_admit_m801`
 - next: `m801-v4-low-margin-source-diverse-corpus-refresh-implementation`
+
+## 20260525T140000Z - m801-v4-low-margin-source-diverse-corpus-refresh-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m801_v4_low_margin_source_diverse_corpus_refresh`
+- artifact: `docs/m801-v4-low-margin-source-diverse-corpus-refresh-implementation.md`
+- result: M801 implements the low-margin refresh config and selector, then runs the no-training data pipeline. The source wave expands to `49152` matched pairs and `3552` reset-only rows. Sequence intervention exports `4825` outcome-critical positives across `108` seeds and `18` fault-family pairs with sentinel false positives `0`. Reference residual replay reconstructs `4805/4825` rows with actor checksum unchanged and no training/PPO, but raw residual alpha `0.2` has normal success `0.987513` and collision `0.012487`. The low-margin selector finds `76` collision-free successful diagnostic rows at margin `<= 0.2`, but `0` rows in the primary `<= 0.00005` band and `0` through `<= 0.001`; all rows at margin `<= 0.001` are collisions. Result class is `v4_low_margin_guard_refresh_diagnostic_band_only`.
+- decision: `v4_low_margin_guard_refresh_diagnostic_band_only`
+- next: `m802-v4-low-margin-source-diverse-corpus-refresh-audit`

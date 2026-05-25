@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M801 expands sequence-outcome coverage to 4825 positives across 108 seeds and 18 fault pairs but finds zero successful non-collision rows in the primary low-margin band",
+  "failure_criteria": [
+    "implementation trains actor, residual head, or a new calibrator",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation omits low-margin source-diversity metrics",
+    "implementation treats diagnostic wider bands as primary-pass evidence",
+    "implementation counts the old active source as fresh diversity"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not train a new residual calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not pass by widening the primary 0.00005 margin threshold",
+    "do not count seed 77025 source_index 12 toward fresh-source diversity",
+    "do not tune from private holdout failures"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T054852Z",
+  "hypothesis": "A boundary-retargeted no-training public mining wave can produce a source-diverse set of low-margin normal guard rows for active-steer residual calibration.",
+  "lineage": {
+    "blocked_by": [
+      "m799-v4-active-steer-guard-calibration-audit"
+    ],
+    "derived_from": [
+      "m800-v4-low-margin-source-diverse-corpus-refresh-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m800-v4-low-margin-source-diverse-corpus-refresh-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m800-v4-low-margin-source-diverse-corpus-refresh-design.md",
+      "docs/m799-v4-active-steer-guard-calibration-audit.md",
+      "runs/m798_v4_active_steer_guard_calibration/summary.json",
+      "runs/m798_v4_active_steer_guard_calibration/low_margin_guard_rows.csv",
+      "runs/m795_v4_steer_attributed_residual_calibration/replay_rows.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/positive_sequence_outcomes.csv",
+      "runs/m773_v4_broader_source_holdout_corpus_export/contrast_rows.csv"
+    ],
+    "parent_objective": [
+      "implement no-training source-diverse low-margin normal-boundary corpus refresh"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m801-v4-low-margin-source-diverse-corpus-refresh-implementation",
+  "next_blocker": "m802-v4-low-margin-source-diverse-corpus-refresh-audit",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "v4_low_margin_guard_refresh_diagnostic_band_only",
+  "public_gates": [
+    "M801 implements and runs only no-training corpus refresh tooling",
+    "M801 preserves the P0 human-view actor contract",
+    "M801 confirms actor and M761 residual-head checksums unchanged",
+    "M801 exports source-diverse low-margin normal guard candidates",
+    "M801 blocks residual calibration, PPO, and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m801_v4_low_margin_source_diverse_corpus_refresh/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "v4_low_margin_guard_refresh_diagnostic_band_only",
+    "milestone": "m801-v4-low-margin-source-diverse-corpus-refresh-implementation",
+    "reason": "M801 expands sequence-outcome coverage to 4825 positives across 108 seeds and 18 fault pairs but finds zero successful non-collision rows in the primary low-margin band",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M801 writes refreshed config, source wave, sequence export, reference replay, and low-margin guard artifacts",
+    "M801 reports accepted rows, unique seeds, unique source indices, fault-family pairs, and dominance metrics",
+    "M801 confirms actor and residual-head checksums unchanged",
+    "M801 classifies the result without widening the primary margin gate",
+    "M801 keeps residual calibration, PPO, and promotion blocked"
+  ],
+  "type": "infrastructure"
+}

@@ -62,16 +62,27 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m801-v4-low-margin-source-diverse-corpus-refresh-implementation
+m802-v4-low-margin-source-diverse-corpus-refresh-audit
 ```
 
-M801 should implement a no-training boundary-retargeted low-margin
-source-diverse corpus refresh before any further active-steer residual
-calibration. Base actor mutation, M761 residual-head mutation, PPO, and
-promotion remain blocked.
+M802 should audit M801's diagnostic-band-only result before any boundary-window
+retargeting, further active-steer residual calibration, PPO, or promotion.
+Base actor mutation and M761 residual-head mutation remain blocked.
 
 ## Recent Evidence Line
 
+- M801 implements the low-margin refresh config and selector, then runs the
+  no-training data pipeline. The source wave expands to `49152` matched pairs
+  and `3552` reset-only rows. Sequence intervention exports `4825`
+  outcome-critical positives across `108` seeds and `18` fault-family pairs
+  with sentinel false positives `0`. Reference residual replay reconstructs
+  `4805/4825` rows with actor checksum unchanged and no training/PPO, but raw
+  residual alpha `0.2` has normal success `0.987513` and collision `0.012487`.
+  The low-margin selector finds `76` collision-free successful diagnostic rows
+  at margin `<= 0.2`, but `0` rows in the primary `<= 0.00005` band and `0`
+  through `<= 0.001`; all rows at margin `<= 0.001` are collisions. Result
+  class is `v4_low_margin_guard_refresh_diagnostic_band_only`. M802 audit is
+  required before retargeting or calibration.
 - M800 designs the required low-margin corpus refresh after M799 accepted the
   M798 source-diversity blocker. A direct M795 parent replay margin-distribution
   check shows alpha `0.2` normal rows have only `12` rows at margin
