@@ -13482,3 +13482,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M823 chooses the next evidence route after M821/M822. It rejects continuing fixed-gate calibration on the M814/M817 corpus and rejects learned adaptive gate training from an identity-only result. It selects an extreme hidden-dynamics data route focused on source-diverse command-response-history necessity: matched-current-state/action-divergent rows, wrong-history sensitivity, reset/delayed/zero-command history sensitivity, normal-history margin advantage, and mitigation-only margin differences. It preserves the current-model versus proxy-fault boundary: the single-track model may use proxy faults for blowout, split-mu, stuck-caliper, halfshaft, and corner-damage stress, but must not claim true wheel-level physical fidelity. PPO, promotion, actor/residual training, and oracle deploy-time inputs remain blocked.
 - decision: `admit_extreme_hidden_dynamics_data_route_design`
 - next: `m824-v4-extreme-hidden-dynamics-data-route-design`
+
+## 20260525T194000Z - m824-v4-extreme-hidden-dynamics-data-route-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m824-v4-extreme-hidden-dynamics-data-route-design.md`
+- result: M824 designs the no-training extreme hidden-dynamics self-ID route. It targets source-diverse evidence where normal command-response history outperforms reset, zero-command, delayed/shifted-response, or wrong-cross-fault history. It defines accepted row classes for primary self-ID rows, matched-current-state/action-divergent rows, and mitigation rows; proposes diversity gates (`>=120` primary self-ID rows, `>=16` seeds, `>=48` source groups, `>=8` fault-family pairs, `>=4` onset buckets, `>=3` warm-up modes, and dominance limits); and requires artifacts for source rows, matched pairs, history interventions, accepted rows, rejected rows, diversity summary, and gate summary. The design preserves actor-input restrictions and explicitly marks current-model faults versus proxy faults, blocking true wheel-level physical claims until a higher-fidelity model exists.
+- decision: `extreme_hidden_dynamics_data_route_design_admit_m825`
+- next: `m825-v4-extreme-hidden-dynamics-data-route-implementation`

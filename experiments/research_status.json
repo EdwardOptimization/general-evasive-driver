@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 832,
+        "completed": 833,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m823-v4-adaptive-primary-calibration-next-route-design",
+        "task_id": "m824-v4-extreme-hidden-dynamics-data-route-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m823-v4-adaptive-primary-calibration-next-route-design.md"
+        "command_log": "docs/m824-v4-extreme-hidden-dynamics-data-route-design.md"
     },
     "next_task": {
-        "id": "m824-v4-extreme-hidden-dynamics-data-route-design",
+        "id": "m825-v4-extreme-hidden-dynamics-data-route-implementation",
         "status": "pending",
-        "priority": 8190,
+        "priority": 8200,
         "kind": "infrastructure",
-        "hypothesis": "Design source-diverse extreme hidden-dynamics self-ID data route after fixed-gate identity-only audit",
-        "command": "see experiments/manifests/m824-v4-extreme-hidden-dynamics-data-route-design.json",
-        "success_artifact": "docs/m824-v4-extreme-hidden-dynamics-data-route-design.md",
-        "notes": "Pending: design normal wrong reset delayed history gates and current-model/proxy fault boundary"
+        "hypothesis": "Implement no-training extreme hidden-dynamics self-ID data route after M824 design",
+        "command": "see experiments/manifests/m825-v4-extreme-hidden-dynamics-data-route-implementation.json",
+        "success_artifact": "docs/m825-v4-extreme-hidden-dynamics-data-route-implementation.md",
+        "notes": "Pending: source mining only; actor residual training PPO and promotion blocked"
     },
-    "updated_at_utc": "20260525T192500Z"
+    "updated_at_utc": "20260525T194000Z"
 }

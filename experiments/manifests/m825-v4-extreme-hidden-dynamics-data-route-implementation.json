@@ -1,0 +1,126 @@
+{
+  "id": "m825-v4-extreme-hidden-dynamics-data-route-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m824-v4-extreme-hidden-dynamics-data-route-design.md",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m824-v4-extreme-hidden-dynamics-data-route-design.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement no-training extreme hidden-dynamics self-ID data route"
+    ],
+    "derived_from": [
+      "m824-v4-extreme-hidden-dynamics-data-route-design"
+    ],
+    "blocked_by": [
+      "need source-diverse history-intervention corpus beyond M814/M817 fixed-gate route"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m825-v4-extreme-hidden-dynamics-data-route-implementation.md",
+  "public_gates": [
+    "M825 must implement a no-training data route",
+    "M825 must preserve actor and residual-head checksums",
+    "M825 must evaluate normal wrong/reset/delayed/zero-command history variants or explicitly classify unsupported variants",
+    "M825 must report source and fault diversity",
+    "M825 must separate current-model faults from proxy faults",
+    "M825 must not run PPO or promote a checkpoint"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use hidden fault labels as actor inputs",
+    "do not claim true wheel-level physical faults from current proxies",
+    "do not optimize only fixed public proof rows",
+    "do not report aggregate success as self-ID proof"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: implement extreme hidden-dynamics self-ID data route",
+    "evidence_increment": "runs no-training source mining for history-dependent hidden-dynamics evidence after fixed-gate calibration failed",
+    "claim_scope": "data-route evidence only; no PPO and no driver promotion",
+    "stop_condition": [
+      "stop if actor or residual-head checksums change",
+      "stop if route cannot produce source-diverse rows",
+      "stop if history interventions are unsupported and untested",
+      "stop if proxy rows are mislabeled as true wheel-level faults"
+    ],
+    "fallback_plan": [
+      "if sparse, audit scenario sampling before implementation tuning",
+      "if history-insensitive, design stronger matched-action-divergent mining",
+      "if unsupported variants block the run, implement intervention support tests first",
+      "if proxy-only evidence dominates, plan model-fidelity upgrade separately"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M824 admitted no-training extreme hidden-dynamics source mining",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "No-training extreme hidden-dynamics source mining can produce source-diverse rows where command-response history interventions degrade margin or action quality.",
+  "success_criteria": [
+    "M825 writes source test run summary and documentation artifacts",
+    "M825 reports accepted self-ID and mitigation row counts",
+    "M825 reports normal versus intervention margin/action gaps",
+    "M825 reports diversity and dominance metrics",
+    "M825 confirms actor and residual-head checksums unchanged",
+    "M825 keeps PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "M825 trains actor or residual parameters",
+    "M825 runs PPO",
+    "M825 promotes a checkpoint",
+    "M825 uses hidden fault labels as actor inputs",
+    "M825 mislabels proxy faults as true wheel-level faults",
+    "M825 omits history-intervention gates"
+  ],
+  "commands": [
+    {
+      "name": "data_route",
+      "command": "implement and run no-training extreme hidden-dynamics data route; expected run dir runs/m825_v4_extreme_hidden_dynamics_data_route"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_extreme_hidden_dynamics_data_route.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_extreme_hidden_dynamics_data_route.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m825_v4_extreme_hidden_dynamics_data_route/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m825-v4-extreme-hidden-dynamics-data-route-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m824-v4-extreme-hidden-dynamics-data-route-design.md",
+    "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M825 may produce a data-route pass or classified negative only. It must not train, run PPO, or promote.",
+  "next_blocker": "m826-v4-extreme-hidden-dynamics-data-route-audit"
+}
