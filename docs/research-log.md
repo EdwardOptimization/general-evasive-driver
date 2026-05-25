@@ -13399,3 +13399,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M814 implements and runs the no-training adaptive bracketing route. It attempts `576` brackets, validates/refines `193`, and finds `101` raw primary rows. The balanced accepted corpus has `85` rows across `9` seeds, `55` source groups, `73` source indices, `8` fault-family pairs, `4` warm-up modes, and `3` axes with axis counts `48` lateral, `25` timing, and `12` half-width. Max seed dominance is `0.235294`, max source-group dominance `0.047059`, max fault-pair dominance `0.235294`, and max axis dominance `0.564706`. Actor and residual checksums are unchanged; no training, PPO, or promotion occurs. Result class is `v4_adaptive_boundary_bracketing_pass`.
 - decision: `v4_adaptive_boundary_bracketing_pass`
 - next: `m815-v4-adaptive-boundary-bracketing-audit`
+
+## 20260525T173000Z - m815-v4-adaptive-boundary-bracketing-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m815-v4-adaptive-boundary-bracketing-audit.md`
+- result: M815 audits M814 as a valid source-axis-diverse primary corpus and not a driver promotion. It confirms `85` balanced rows across `9` seeds, `55` source groups, `8` fault-family pairs, `4` warm-up modes, and `3` axes, with unchanged checksums and no training/PPO/promotion. Intervention diagnostics remain mechanism-positive: reset-hidden variants collide on `69/101` raw accepted rows and zero-command intervention collides on `67/101`. M815 admits only a residual calibration design with source-heldout split and retention gates.
+- decision: `admit_adaptive_primary_residual_calibration_design_with_holdout_guard`
+- next: `m816-v4-adaptive-primary-residual-calibration-design`

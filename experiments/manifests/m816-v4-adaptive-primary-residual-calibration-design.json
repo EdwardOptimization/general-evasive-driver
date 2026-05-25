@@ -1,0 +1,112 @@
+{
+  "id": "m816-v4-adaptive-primary-residual-calibration-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m815-v4-adaptive-boundary-bracketing-audit.md",
+      "runs/m814_v4_adaptive_boundary_bracketing/summary.json",
+      "runs/m814_v4_adaptive_boundary_bracketing/accepted_primary_rows.csv",
+      "runs/m814_v4_adaptive_boundary_bracketing/intervention_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m815-v4-adaptive-boundary-bracketing-audit.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "design source-heldout residual calibration using M814 adaptive primary corpus"
+    ],
+    "derived_from": [
+      "m815-v4-adaptive-boundary-bracketing-audit"
+    ],
+    "blocked_by": [
+      "need calibration design with source-heldout and retention gates"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m816-v4-adaptive-primary-residual-calibration-design.md",
+  "public_gates": [
+    "M816 is design-only",
+    "M816 must preserve the P0 human-view actor contract",
+    "M816 must keep actor and residual-head base weights frozen in the design unless a separate calibrator is explicitly proposed",
+    "M816 must define source-heldout split and old-gate retention before implementation",
+    "M816 must keep PPO and promotion blocked"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not widen the primary 0.00005 margin threshold",
+    "do not ignore source-heldout split",
+    "do not tune from private holdout failures",
+    "do not claim true wheel-level faults from current proxy data"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: residual calibration design from adaptive primary corpus",
+    "evidence_increment": "designs the first calibration route allowed by the M814 source/axis-diverse primary corpus pass",
+    "claim_scope": "design only; no calibrator implementation PPO or driver promotion",
+    "stop_condition": [
+      "stop if design lacks source-heldout split",
+      "stop if design lacks old replay or behavior retention gates",
+      "stop if design updates actor weights",
+      "stop if design treats M814 corpus pass as promotion evidence"
+    ],
+    "fallback_plan": [
+      "if calibration design is too weak, design holdout/generalization audit first",
+      "if intervention sensitivity cannot be represented, return to corpus diagnostics",
+      "if simulator limits dominate, route to simulator-fidelity planning"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M816 follows M815 audit after adaptive bracketing corpus pass",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A residual calibration design can use the M814 adaptive primary corpus safely if it includes source-heldout split, normal-margin retention, intervention sensitivity retention, and old-gate replay checks.",
+  "success_criteria": [
+    "M816 specifies train and holdout split rules",
+    "M816 specifies calibration objective and exact gates",
+    "M816 specifies old-gate and behavior retention checks",
+    "M816 preserves no-PPO and no-promotion invariants",
+    "M816 names the implementation blocker explicitly"
+  ],
+  "failure_criteria": [
+    "M816 admits training without holdout",
+    "M816 updates actor weights",
+    "M816 starts PPO or promotes a checkpoint",
+    "M816 weakens the primary margin threshold",
+    "M816 ignores current-model proxy-fault limitations"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m816-v4-adaptive-primary-residual-calibration-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m816-v4-adaptive-primary-residual-calibration-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m814_v4_adaptive_boundary_bracketing/summary.json",
+    "docs/m815-v4-adaptive-boundary-bracketing-audit.md"
+  ],
+  "decision_rule": "M816 may only design the residual calibration route. It must not run calibration, PPO, or promotion.",
+  "next_blocker": "m817-v4-adaptive-primary-residual-calibration-implementation"
+}
