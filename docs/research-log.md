@@ -13417,3 +13417,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M816 designs a source-heldout residual calibration route using the M814 adaptive primary corpus. The design allows training only a separate scalar/vector residual gate initialized near identity, keeps the M568 actor and M761 residual head frozen, requires disjoint source-group heldout rows before optimization, and defines exact gates for normal primary retention, intervention-sensitivity retention, old residual replay/behavior retention, checksum invariants, no PPO, and no promotion.
 - decision: `adaptive_primary_residual_calibration_design_admit_m817`
 - next: `m817-v4-adaptive-primary-residual-calibration-implementation`
+
+## 20260525T180500Z - m817-v4-adaptive-primary-residual-calibration-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m817_v4_adaptive_primary_residual_calibration`
+- artifact: `docs/m817-v4-adaptive-primary-residual-calibration-implementation.md`
+- result: M817 implements and runs a source-heldout residual calibration probe. It trains only a separate near-identity scalar gate (`initial_gate=0.999`, `target_gate=0.999`) with `57` train and `28` holdout rows. Train and holdout normal exact replay remain `100%` successful with `0` collisions. Intervention collision rates are retained exactly (`train 0.678363 -> 0.678363`, `holdout 0.702381 -> 0.702381`), and old-behavior action drift is near zero (`mean 8.15e-7`, `max 1.58e-6`). Actor and M761 residual-head checksums are unchanged; no PPO or promotion occurs. Result class is `v4_adaptive_primary_residual_calibration_candidate`.
+- decision: `v4_adaptive_primary_residual_calibration_candidate`
+- next: `m818-v4-adaptive-primary-residual-calibration-audit`

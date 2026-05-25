@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 825,
+        "completed": 826,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m816-v4-adaptive-primary-residual-calibration-design",
+        "task_id": "m817-v4-adaptive-primary-residual-calibration-implementation",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m816-v4-adaptive-primary-residual-calibration-design.md"
+        "command_log": "docs/m817-v4-adaptive-primary-residual-calibration-implementation.md"
     },
     "next_task": {
-        "id": "m817-v4-adaptive-primary-residual-calibration-implementation",
+        "id": "m818-v4-adaptive-primary-residual-calibration-audit",
         "status": "pending",
-        "priority": 8120,
-        "kind": "infrastructure",
-        "hypothesis": "Implement source-heldout residual calibrator probe using M814 adaptive primary corpus",
-        "command": "see experiments/manifests/m817-v4-adaptive-primary-residual-calibration-implementation.json",
-        "success_artifact": "docs/m817-v4-adaptive-primary-residual-calibration-implementation.md",
-        "notes": "Pending: implement calibrator probe with actor residual-head PPO and promotion blocked"
+        "priority": 8130,
+        "kind": "gate",
+        "hypothesis": "Audit conservative M817 calibrator candidate before stronger calibration or PPO design",
+        "command": "see experiments/manifests/m818-v4-adaptive-primary-residual-calibration-audit.json",
+        "success_artifact": "docs/m818-v4-adaptive-primary-residual-calibration-audit.md",
+        "notes": "Pending: audit M817 near-identity candidate with actor residual-head PPO and promotion blocked"
     },
-    "updated_at_utc": "20260525T174500Z"
+    "updated_at_utc": "20260525T180500Z"
 }

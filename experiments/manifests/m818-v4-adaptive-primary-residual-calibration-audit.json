@@ -1,0 +1,110 @@
+{
+  "id": "m818-v4-adaptive-primary-residual-calibration-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "metric_artifact",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m817_v4_adaptive_primary_residual_calibration/summary.json",
+      "runs/m817_v4_adaptive_primary_residual_calibration/gate_summary.csv",
+      "runs/m817_v4_adaptive_primary_residual_calibration/train_eval_rows.csv",
+      "runs/m817_v4_adaptive_primary_residual_calibration/holdout_eval_rows.csv",
+      "runs/m817_v4_adaptive_primary_residual_calibration/intervention_eval_rows.csv",
+      "docs/m817-v4-adaptive-primary-residual-calibration-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m817-v4-adaptive-primary-residual-calibration-implementation.json"
+    ],
+    "parent_objective": [
+      "audit conservative source-heldout residual calibrator candidate"
+    ],
+    "derived_from": [
+      "m817-v4-adaptive-primary-residual-calibration-implementation"
+    ],
+    "blocked_by": [
+      "m817 conservative calibrator candidate requires audit before stronger objective"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m818-v4-adaptive-primary-residual-calibration-audit.md",
+  "public_gates": [
+    "M818 must audit M817 before stronger calibration or PPO",
+    "M818 must not promote a checkpoint",
+    "M818 must distinguish retention candidate from performance improvement",
+    "M818 must preserve actor and residual-head contract boundaries",
+    "M818 must decide whether stronger calibration design, vector ablation, or holdout wave is next"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not treat near-identity calibrator as performance improvement",
+    "do not widen the primary 0.00005 margin threshold",
+    "do not claim true wheel-level faults from current proxy data",
+    "do not tune from private holdout failures"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: audit conservative source-heldout residual calibrator",
+    "evidence_increment": "classifies whether M817's near-identity source-heldout candidate admits a stronger calibration design or only validates the harness",
+    "claim_scope": "audit-only blocker classification; no PPO or driver promotion",
+    "stop_condition": [
+      "stop if M817 artifacts are missing or inconsistent",
+      "stop if M817 mutated actor or residual-head weights",
+      "stop if intervention sensitivity was actually washed out",
+      "stop if old behavior drift exceeds gate thresholds"
+    ],
+    "fallback_plan": [
+      "if M817 is only harness-positive, design stronger objective carefully",
+      "if M817 shows hidden regression, repair exact gates before more calibration",
+      "if source-heldout evidence is too weak, design a fresh holdout wave"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M818 audits the first source-heldout residual calibrator probe",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M817 validates the source-heldout calibration harness but should not be interpreted as a performance-improving driver update.",
+  "success_criteria": [
+    "M818 documents M817 split normal intervention and drift metrics",
+    "M818 records supported and falsified claims",
+    "M818 preserves no-PPO and no-promotion blocks",
+    "M818 names the next blocker explicitly"
+  ],
+  "failure_criteria": [
+    "M818 treats M817 as driver promotion",
+    "M818 starts training or PPO",
+    "M818 ignores the near-identity nature of the candidate",
+    "M818 weakens exact gates or threshold requirements"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "inspect M817 artifacts and write docs/m818-v4-adaptive-primary-residual-calibration-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m818-v4-adaptive-primary-residual-calibration-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m817_v4_adaptive_primary_residual_calibration/summary.json",
+    "docs/m817-v4-adaptive-primary-residual-calibration-implementation.md"
+  ],
+  "decision_rule": "M818 may admit only an audit-backed next design milestone. It must not train, run PPO, or promote.",
+  "next_blocker": "m819-v4-adaptive-primary-calibration-followup-design"
+}
