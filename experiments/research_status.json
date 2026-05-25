@@ -1,27 +1,27 @@
 {
     "counts": {
         "blocked": 1,
-        "completed": 821,
+        "completed": 822,
         "failed": 0,
         "pending": 1,
         "planned": 0,
         "running": 0
     },
     "last_result": {
-        "task_id": "m812-v4-low-margin-new-data-route-audit",
+        "task_id": "m813-v4-adaptive-boundary-bracketing-design",
         "status": "completed",
         "returncode": 0,
-        "command_log": "docs/m812-v4-low-margin-new-data-route-audit.md"
+        "command_log": "docs/m813-v4-adaptive-boundary-bracketing-design.md"
     },
     "next_task": {
-        "id": "m813-v4-adaptive-boundary-bracketing-design",
+        "id": "m814-v4-adaptive-boundary-bracketing-implementation",
         "status": "pending",
-        "priority": 8080,
+        "priority": 8090,
         "kind": "infrastructure",
-        "hypothesis": "Design deterministic adaptive bracketing over M811 collision/safe edges",
-        "command": "see experiments/manifests/m813-v4-adaptive-boundary-bracketing-design.json",
-        "success_artifact": "docs/m813-v4-adaptive-boundary-bracketing-design.md",
-        "notes": "Pending: design adaptive bracket refinement while keeping calibration PPO and promotion blocked"
+        "hypothesis": "Implement no-training adaptive bracketing over M811 collision/safe edges",
+        "command": "see experiments/manifests/m814-v4-adaptive-boundary-bracketing-implementation.json",
+        "success_artifact": "docs/m814-v4-adaptive-boundary-bracketing-implementation.md",
+        "notes": "Pending: implement adaptive bracket refinement while keeping calibration PPO and promotion blocked"
     },
-    "updated_at_utc": "20260525T164500Z"
+    "updated_at_utc": "20260525T170000Z"
 }

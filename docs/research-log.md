@@ -13380,3 +13380,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M812 audits M811 as a clean sparse result, not an instrumentation failure. M811 has `0` replay errors, `0` warm-up artifact rows, unchanged checksums, and no training/PPO/promotion. It contains `48` collision/safe snapshot-axis brackets (`40` obstacle lateral and `8` obstacle timing), but the closest bracket gap is `0.015385162709582234`, far wider than the `0.00005` primary window. This classifies the blocker as a fixed-grid boundary-resolution miss.
 - decision: `admit_adaptive_boundary_bracketing_design`
 - next: `m813-v4-adaptive-boundary-bracketing-design`
+
+## 20260525T170000Z - m813-v4-adaptive-boundary-bracketing-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m813-v4-adaptive-boundary-bracketing-design.md`
+- result: M813 designs deterministic no-training adaptive bracketing after the M812 fixed-grid boundary-resolution miss. The design regenerates source snapshots deterministically, constructs collision/safe brackets per snapshot-axis, uses bounded expansion when only one side exists, refines continuous axes with bisection and nonmonotone guards, and preserves alpha `0.2`, the `0.00005` primary threshold, source/fault/warm-up/axis diversity gates, checksum invariants, and current-model proxy-fault claim limits. It explicitly classifies two-axis or geometry-only primary rows as diagnostic rather than a full pass.
+- decision: `adaptive_boundary_bracketing_design_admit_m814`
+- next: `m814-v4-adaptive-boundary-bracketing-implementation`

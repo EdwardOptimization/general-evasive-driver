@@ -1,0 +1,135 @@
+{
+  "id": "m814-v4-adaptive-boundary-bracketing-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m813-v4-adaptive-boundary-bracketing-design.md",
+      "docs/m812-v4-low-margin-new-data-route-audit.md",
+      "runs/m811_v4_low_margin_new_data_route/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m813-v4-adaptive-boundary-bracketing-design.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "implement no-training adaptive closed-loop boundary bracketing"
+    ],
+    "derived_from": [
+      "m813-v4-adaptive-boundary-bracketing-design"
+    ],
+    "blocked_by": [
+      "fixed_grid_boundary_resolution_miss"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m814-v4-adaptive-boundary-bracketing-implementation.md",
+  "public_gates": [
+    "M814 implements and runs only a no-training adaptive bracketing route",
+    "M814 preserves the P0 human-view actor contract",
+    "M814 keeps alpha 0.2 and the primary <=0.00005 margin threshold unchanged",
+    "M814 requires source warm-up fault and axis diversity before pass",
+    "M814 confirms actor and M761 residual-head checksums unchanged",
+    "M814 blocks residual calibration PPO and promotion"
+  ],
+  "private_holdout_policy": "promotion_only",
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not train a new residual calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not widen the primary 0.00005 margin threshold",
+    "do not weaken source fault warm-up or axis dominance thresholds",
+    "do not treat two-axis or geometry-only rows as a full pass",
+    "do not claim true wheel-level faults from current single-track proxy data",
+    "do not tune from private holdout failures"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_low_margin_new_data_route",
+    "evidence_axis": "G_distribution: adaptive source-diverse near-boundary bracketing implementation",
+    "evidence_increment": "tests whether deterministic bracket refinement can populate the strict primary low-margin band after M811 fixed-grid miss",
+    "claim_scope": "no-training corpus implementation only; no residual calibration PPO or driver promotion",
+    "stop_condition": [
+      "stop if accepted rows are absent",
+      "stop if accepted rows are source concentrated",
+      "stop if accepted rows are boundary-axis concentrated",
+      "stop if bracket refinement is nonmonotone or artifact-dominated",
+      "stop if actor or residual checksums change"
+    ],
+    "fallback_plan": [
+      "if bracket refinement is sparse, audit before another data route",
+      "if refinement is two-axis only, audit before calibration",
+      "if nonmonotone behavior dominates, pivot to source-route or simulator-fidelity planning",
+      "if corpus passes, route to audit before any residual calibration"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M814 implements the adaptive bracketing design from M813",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Adaptive closed-loop bracketing can resolve M811 collision/safe edges into source-diverse primary low-margin rows without weakening thresholds or training parameters.",
+  "success_criteria": [
+    "M814 writes source bracket refinement accepted intervention balance limitations progress summary and documentation artifacts",
+    "M814 reports brackets attempted valid refined nonmonotone and failed",
+    "M814 reports accepted rows seeds source groups source indices warm-up modes fault-family pairs boundary axes and dominance metrics",
+    "M814 confirms actor and residual-head checksums unchanged",
+    "M814 classifies the result without widening the primary margin gate",
+    "M814 keeps residual calibration PPO and promotion blocked"
+  ],
+  "failure_criteria": [
+    "implementation trains actor residual head or a new calibrator",
+    "implementation runs PPO",
+    "implementation promotes a checkpoint",
+    "implementation omits source warm-up fault or axis diversity diagnostics",
+    "implementation treats two-axis or geometry-only rows as a full pass",
+    "implementation claims true wheel-level faults from current proxy data"
+  ],
+  "commands": [
+    {
+      "name": "adaptive_bracketing",
+      "command": "implement and run the no-training adaptive bracketing route; expected run dir runs/m814_v4_adaptive_boundary_bracketing"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/v4_adaptive_boundary_bracketing.py",
+      "type": "source"
+    },
+    {
+      "path": "tests/test_v4_adaptive_boundary_bracketing.py",
+      "type": "test"
+    },
+    {
+      "path": "runs/m814_v4_adaptive_boundary_bracketing/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "runs/m814_v4_adaptive_boundary_bracketing/accepted_primary_rows.csv",
+      "type": "metrics"
+    },
+    {
+      "path": "docs/m814-v4-adaptive-boundary-bracketing-implementation.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m813-v4-adaptive-boundary-bracketing-design.md",
+    "runs/m811_v4_low_margin_new_data_route/summary.json",
+    "runs/m761_v4_sequence_objective_probe/residual_head.pt"
+  ],
+  "decision_rule": "M814 may implement and run only no-training adaptive bracketing. It must not train actor or residual parameters, run PPO, or promote a checkpoint.",
+  "next_blocker": "m815-v4-adaptive-boundary-bracketing-audit"
+}

@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M813 designs deterministic no-training bracket refinement over M811 collision/safe edges with bracket expansion bisection nonmonotone guards strict primary threshold and unchanged source axis diversity gates",
+  "failure_criteria": [
+    "M813 weakens the primary margin threshold",
+    "M813 admits calibration or PPO before primary rows exist",
+    "M813 omits source or axis diversity gates",
+    "M813 ignores current-model proxy-fault limitations",
+    "M813 treats geometry-only primary rows as a source-diverse pass"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor or residual parameters",
+    "do not train a new residual calibrator",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not add oracle deploy-time inputs",
+    "do not widen the primary 0.00005 margin threshold",
+    "do not treat fixed-grid sparse output as a pass",
+    "do not claim true wheel-level faults from current proxy data",
+    "do not tune from private holdout failures"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260525T072238Z",
+  "hypothesis": "A deterministic adaptive bracketing route can resolve M811 collision/safe edges into the strict primary low-margin band without weakening thresholds or training parameters.",
+  "lineage": {
+    "blocked_by": [
+      "m811-v4-low-margin-new-data-route-sparse",
+      "fixed_grid_boundary_resolution_miss"
+    ],
+    "derived_from": [
+      "m812-v4-low-margin-new-data-route-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m568_scaled_l3_bc_seed5660/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m812-v4-low-margin-new-data-route-audit.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m812-v4-low-margin-new-data-route-audit.md",
+      "docs/m811-v4-low-margin-new-data-route-implementation.md",
+      "runs/m811_v4_low_margin_new_data_route/summary.json",
+      "runs/m811_v4_low_margin_new_data_route/boundary_search_replay_rows.csv"
+    ],
+    "parent_objective": [
+      "design adaptive closed-loop bracketing over M811 collision/safe edges"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m813-v4-adaptive-boundary-bracketing-design",
+  "next_blocker": "m814-v4-adaptive-boundary-bracketing-implementation",
+  "private_holdout_policy": "promotion_only",
+  "promotion_decision": "adaptive_boundary_bracketing_design_admit_m814",
+  "public_gates": [
+    "M813 is design-only",
+    "M813 must preserve the P0 human-view actor contract",
+    "M813 must keep alpha 0.2 and primary <=0.00005 margin threshold unchanged",
+    "M813 must design adaptive bracketing without training actor residual or calibrator parameters",
+    "M813 must keep calibration PPO and promotion blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m813-v4-adaptive-boundary-bracketing-design.md",
+    "clearance_margin_mean": "",
+    "decision": "adaptive_boundary_bracketing_design_admit_m814",
+    "milestone": "m813-v4-adaptive-boundary-bracketing-design",
+    "reason": "M813 designs deterministic no-training bracket refinement over M811 collision/safe edges with bracket expansion bisection nonmonotone guards strict primary threshold and unchanged source axis diversity gates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M813 specifies source bracket selection from M811 artifacts",
+    "M813 specifies bracket refinement axes and stopping criteria",
+    "M813 specifies source/fault/warm-up/axis diversity gates",
+    "M813 preserves no-training no-PPO and no-promotion invariants",
+    "M813 names the implementation blocker explicitly"
+  ],
+  "type": "infrastructure"
+}
