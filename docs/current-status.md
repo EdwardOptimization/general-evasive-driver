@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m979-v4-public-base-post-repair-surface-refresh-design
+m980-v4-public-base-post-repair-surface-refresh-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -233,10 +233,16 @@ claims still blocked. M978 should synthesize M972-M977 before any further PPO
 continuation or repair branch. M978 completes that synthesis: M972 raw PPO is
 classified as proof-washing, exact repair is useful but raw-start repair remains
 partial, and public-gate overfit risk is moderate. The next branch is fresh
-post-repair surface refresh before any new PPO continuation.
+post-repair surface refresh before any new PPO continuation. M979 designs that
+refresh using the current M974 public-gate base, fresh public seed ranges, and
+the no-PPO `normal_success_boundary_source_miner`. M980 should run the refresh
+and route by accepted-row/source-diversity results.
 
 ## Recent Evidence Line
 
+- M979 designs the fresh post-repair surface refresh. It keeps PPO and
+  promotion blocked, uses fresh public seed ranges, and requires accepted
+  source-diverse wrong-history/preference rows before another PPO branch.
 - M978 synthesizes M972-M977 and pivots to
   `v4_public_base_post_repair_surface_refresh`. Next: design fresh current-base
   wrong-history, preference, and source-diverse proof surface refresh before

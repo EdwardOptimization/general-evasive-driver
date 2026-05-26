@@ -102,6 +102,24 @@
   "baseline_artifacts": [
     "docs/m978-v4-public-base-post-exact-repair-promotion-synthesis.md"
   ],
+  "results": {
+    "design_doc": "docs/m979-v4-public-base-post-repair-surface-refresh-design.md",
+    "public_gate_base": "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+    "refresh_tool": "autodrift.normal_success_boundary_source_miner",
+    "surface_configs": {
+      "fresh": "configs/ppo_m541_matched_l3_variance_4096.json",
+      "ood": "configs/eval_m574_moderate_ood_l3.json"
+    },
+    "surface_seed_ranges": {
+      "fresh": "98000:98079",
+      "ood": "98100:98179"
+    },
+    "ppo_blocked": true,
+    "promotion_blocked": true,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "post_repair_surface_refresh_design_admit_m980",
   "decision_rule": "M979 should only design the fresh surface refresh. It must route implementation to a separate milestone.",
-  "next_blocker": "fresh post-repair surface refresh has not been designed"
+  "next_blocker": "m980-v4-public-base-post-repair-surface-refresh-implementation"
 }

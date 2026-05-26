@@ -1,0 +1,122 @@
+{
+  "id": "m980-v4-public-base-post-repair-surface-refresh-implementation",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m979-v4-public-base-post-repair-surface-refresh-design.md",
+      "docs/m978-v4-public-base-post-exact-repair-promotion-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m979-v4-public-base-post-repair-surface-refresh-design.json"
+    ],
+    "parent_objective": [
+      "run no-PPO current-base wrong-history/preference surface refresh before another guarded PPO continuation"
+    ],
+    "derived_from": [
+      "m979-v4-public-base-post-repair-surface-refresh-design",
+      "m978-v4-public-base-post-exact-repair-promotion-synthesis"
+    ],
+    "blocked_by": [
+      "M978 synthesis requires fresh current-base proof/preference surfaces before another PPO continuation"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "starting new guarded PPO from M974 public base before surface refresh"
+    ]
+  },
+  "review_artifact": "docs/reviews/m980-v4-public-base-post-repair-surface-refresh-implementation.md",
+  "public_gates": [
+    "M980 must not run PPO",
+    "M980 must not promote",
+    "M980 must not use private holdout",
+    "M980 must preserve P0 actor-input contract",
+    "M980 must use fresh seed ranges rather than old M667 ranges",
+    "M980 must report accepted row, source diversity, split, and target summaries"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change actor inputs",
+    "do not train or optimize",
+    "do not lower thresholds after seeing results",
+    "do not use old public proof rows as fresh evidence",
+    "do not promote from surface refresh"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_post_repair_surface_refresh",
+    "evidence_axis": "G_surface_refresh: fresh proof/preference surfaces around the new public base",
+    "evidence_increment": "runs no-PPO normal-success boundary source mining around the M974 public base",
+    "claim_scope": "fresh surface diagnostic only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if actor parameters change",
+      "stop if PPO or optimizer starts",
+      "stop if artifacts show no fresh seed/config provenance",
+      "stop if thresholds are changed after seeing output"
+    ],
+    "fallback_plan": [
+      "if corpus passes, route to exact objective sanity / compact corpus conversion",
+      "if near-boundary exists but no accepted rows, route to action/outcome sensitivity audit",
+      "if near-boundary is sparse, route to scenario/source expansion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M979 designs current-base surface refresh before PPO",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M974 public-gate base will expose fresh normal-success wrong-history boundary rows under new public seed ranges, reducing public-row overfit risk before another PPO continuation.",
+  "success_criteria": [
+    "summary artifact exists",
+    "near_boundary_preferred_snapshots is reported",
+    "accepted_rows and diversity metrics are reported",
+    "normal_success_boundary_corpus.npz is written",
+    "actor parameters are unchanged",
+    "PPO and promotion are not used",
+    "route decision is explicit"
+  ],
+  "failure_criteria": [
+    "miner crashes",
+    "actor parameters change",
+    "PPO or optimizer starts",
+    "fresh seed ranges are not used",
+    "thresholds are changed after seeing results",
+    "route decision is missing"
+  ],
+  "commands": [
+    {
+      "name": "post_repair_surface_refresh",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.normal_success_boundary_source_miner --checkpoint runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --surface-seed-range fresh=98000:98079 --surface-seed-range ood=98100:98179 --sequence-lengths 5,7,9 --obstacle-distance-min 0.0 --obstacle-distance-max 35.0 --normal-margin-min 0.0 --normal-margin-max 1.0 --max-right-candidates-per-left 64 --max-candidate-pairs-per-surface 2000 --context-distance-threshold 0.25 --response-distance-threshold 0.20 --obstacle-x-abs-delta 10.0 --obstacle-y-abs-delta 2.0 --step-abs-delta 30 --min-wrong-first-action-l2 0.002 --min-wrong-action-sequence-mean-l2 0.006 --min-preferred-rejected-action-mean-l2 0.010 --min-margin-gap 0.010 --max-snapshots-per-surface 640 --max-snapshots-per-seed 8 --sample-stride 3 --max-continuation-steps 9 --device auto --run-dir runs/m980_v4_public_base_post_repair_surface_refresh"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m980_v4_public_base_post_repair_surface_refresh/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m980_v4_public_base_post_repair_surface_refresh/candidate_scores.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m980_v4_public_base_post_repair_surface_refresh/normal_success_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m980_v4_public_base_post_repair_surface_refresh/normal_success_boundary_corpus.npz",
+      "type": "npz"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m979-v4-public-base-post-repair-surface-refresh-design.md"
+  ],
+  "decision_rule": "M980 must classify the refresh result and route to objective sanity, action/outcome sensitivity audit, or scenario/source expansion. It must not train or promote.",
+  "next_blocker": "fresh post-repair surface refresh has not been run"
+}

@@ -14931,3 +14931,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M978 synthesizes M972-M977. Supported: raw PPO should be treated as a proposal, exact full-corpus repair can restore proof feasibility, and the M974 base-start repair is the current public-gate base under current public gates. Falsified: accepting M972 raw PPO directly, direct interpolation toward raw PPO, and raw-start repair as sufficient. Public-gate overfit risk is `moderate`.
 - decision: `pivot_to_post_repair_surface_refresh`
 - next: `m979-v4-public-base-post-repair-surface-refresh-design`
+
+## 20260526T112654Z - m979-v4-public-base-post-repair-surface-refresh-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m979-v4-public-base-post-repair-surface-refresh-design.md`
+- result: M979 designs a no-PPO current-base surface refresh for `runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt`. It reuses `normal_success_boundary_source_miner` with fresh public seed ranges `98000:98079` and `98100:98179`, requires source-diverse accepted wrong-history rows before objective sanity, and keeps PPO, promotion, private holdout, and actor-input changes blocked.
+- decision: `post_repair_surface_refresh_design_admit_m980`
+- next: `m980-v4-public-base-post-repair-surface-refresh-implementation`

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 987,
+    "completed": 988,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m978-v4-public-base-post-exact-repair-promotion-synthesis",
+    "task_id": "m979-v4-public-base-post-repair-surface-refresh-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m978-v4-public-base-post-exact-repair-promotion-synthesis.md"
+    "command_log": "docs/m979-v4-public-base-post-repair-surface-refresh-design.md"
   },
   "next_task": {
-    "id": "m979-v4-public-base-post-repair-surface-refresh-design",
+    "id": "m980-v4-public-base-post-repair-surface-refresh-implementation",
     "status": "pending",
-    "priority": 9740,
+    "priority": 9750,
     "kind": "gate",
-    "hypothesis": "Before another guarded PPO continuation from the M974 public base, the project should refresh current-base wrong-history, preference, and source-diverse proof surfaces to reduce public-gate overfit risk",
-    "command": "see experiments/manifests/m979-v4-public-base-post-repair-surface-refresh-design.json",
-    "success_artifact": "docs/m979-v4-public-base-post-repair-surface-refresh-design.md",
-    "notes": "Pending: design current-base wrong-history preference and source-diverse surface refresh before PPO"
+    "hypothesis": "The M974 public-gate base will expose fresh normal-success wrong-history boundary rows under new public seed ranges, reducing public-row overfit risk before another PPO continuation",
+    "command": "see experiments/manifests/m980-v4-public-base-post-repair-surface-refresh-implementation.json",
+    "success_artifact": "runs/m980_v4_public_base_post_repair_surface_refresh/summary.json",
+    "notes": "Pending: run no-PPO current-base surface refresh and route by accepted rows and source diversity"
   },
-  "updated_at_utc": "20260526T111518Z"
+  "updated_at_utc": "20260526T112654Z"
 }
