@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -120,6 +120,40 @@
     "docs/m984-v4-public-base-extreme-scenario-family-config-smoke.md",
     "runs/m984_v4_public_base_extreme_scenario_family_config_smoke/summary.json"
   ],
+  "results": {
+    "run_dir": "runs/m985_v4_public_base_extreme_scenario_family_source_mining",
+    "corpus_passed": false,
+    "classification": "extreme_scenario_family_broad_window_no_outcome_sensitive_rows",
+    "snapshot_count": 1137,
+    "near_boundary_preferred_snapshots": 246,
+    "candidate_pairs": 5056,
+    "candidate_rows": 15168,
+    "accepted_rows": 0,
+    "snapshots_by_surface": {
+      "brake_loss": 245,
+      "heavy_cg_delay": 265,
+      "high_speed_close": 141,
+      "lateral_loss": 238,
+      "low_mu": 248
+    },
+    "near_boundary_by_surface": {
+      "brake_loss": 68,
+      "heavy_cg_delay": 66,
+      "high_speed_close": 4,
+      "lateral_loss": 43,
+      "low_mu": 65
+    },
+    "candidate_all_action_threshold_rows": 15019,
+    "candidate_margin_threshold_rows": 0,
+    "candidate_max_margin_gap": 0.0044032821363666486,
+    "candidate_normal_success_rate": 1.0,
+    "candidate_wrong_success_rate": 1.0,
+    "actor_parameters_changed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "next_route": "near_cliff_source_mining"
+  },
+  "decision": "extreme_scenario_broad_window_empty_route_to_near_cliff_mining",
   "decision_rule": "M985 must classify whether richer scenario families produce a source-diverse accepted surface, only isolated pockets, or no outcome-sensitive rows. It must not train or promote.",
-  "next_blocker": "source-diverse extreme scenario-family proof rows have not been mined"
+  "next_blocker": "m986-v4-public-base-extreme-near-cliff-source-mining"
 }

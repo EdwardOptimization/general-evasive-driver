@@ -14989,3 +14989,42 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M984 creates five scenario-family configs: `low_mu`, `brake_loss`, `lateral_loss`, `heavy_cg_delay`, and `high_speed_close`. The no-PPO smoke produces `211` snapshots across all families, `57` near-boundary preferred rows, and `534` candidate rows. Action separation is live (`468` all-action-threshold rows), but no accepted rows appear in the smoke. Actor parameters are unchanged and no PPO/promotion occurs.
 - decision: `extreme_scenario_family_config_smoke_pass_route_to_source_mining`
 - next: `m985-v4-public-base-extreme-scenario-family-source-mining`
+
+## 20260526T123044Z - m985-v4-public-base-extreme-scenario-family-source-mining
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m985_v4_public_base_extreme_scenario_family_source_mining`
+- artifact: `docs/m985-v4-public-base-extreme-scenario-family-source-mining.md`
+- result: M985 mines all five M984 families. It produces `1137` snapshots, `246` near-boundary preferred rows, and `15168` candidate rows. Action separation is strong (`15019` all-action-threshold rows), but `candidate_wrong_success_rate=1.0`, `accepted_rows=0`, and `candidate_max_margin_gap=0.004403`, below the accepted-row threshold. Actor parameters are unchanged and no PPO/promotion occurs.
+- decision: `extreme_scenario_broad_window_empty_route_to_near_cliff_mining`
+- next: `m986-v4-public-base-extreme-near-cliff-source-mining`
+
+## 20260526T123440Z - m986-v4-public-base-extreme-near-cliff-source-mining
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m986_v4_public_base_extreme_near_cliff_source_mining`
+- artifact: `docs/m986-v4-public-base-extreme-near-cliff-source-mining.md`
+- result: M986 keeps the five M984 families and restricts `normal_margin_max` to `0.20`. It produces `60` near-cliff preferred rows and `10581` candidate rows. Action separation remains live (`10431` all-action-threshold rows), but `candidate_wrong_success_rate=1.0`, `accepted_rows=0`, and `candidate_max_margin_gap=0.002745`. Actor parameters are unchanged and no PPO/promotion occurs.
+- decision: `extreme_near_cliff_empty_route_to_long_horizon_audit`
+- next: `m987-v4-public-base-extreme-near-cliff-long-horizon-audit`
+
+## 20260526T124354Z - m987-v4-public-base-extreme-near-cliff-long-horizon-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m987_v4_public_base_extreme_near_cliff_long_horizon_audit`
+- artifact: `docs/m987-v4-public-base-extreme-near-cliff-long-horizon-audit.md`
+- result: M987 keeps the near-cliff filter and increases `max_continuation_steps` to `20`. It produces `39` near-cliff preferred rows and `7158` candidate rows. Action separation remains live (`7090` all-action-threshold rows), but `candidate_wrong_success_rate=1.0`, `accepted_rows=0`, and `candidate_max_margin_gap=0.002010`. Actor parameters are unchanged and no PPO/promotion occurs.
+- decision: `extreme_near_cliff_long_horizon_empty_route_to_synthesis`
+- next: `m988-v4-public-base-extreme-scenario-family-synthesis`
+
+## 20260526T124354Z - m988-v4-public-base-extreme-scenario-family-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m988-v4-public-base-extreme-scenario-family-synthesis.md`
+- result: M988 synthesizes M984-M987. Supported: the M984 configs are valid stress infrastructure, and action separation stays live. Falsified: config-only global extreme randomization, near-cliff filtering, or longer continuation horizon is enough to expose source-diverse wrong-history outcome-sensitive rows around M974.
+- decision: `pivot_to_capability_step_fault_generation`
+- next: `m989-v4-public-base-capability-step-fault-design`

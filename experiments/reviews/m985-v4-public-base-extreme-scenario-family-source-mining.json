@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M985 mines all five M984 families with broad normal-margin window and finds zero accepted rows despite 15019 action-threshold rows and candidate max margin gap 0.00440",
+  "failure_criteria": [
+    "miner crashes",
+    "actor parameters change",
+    "training or PPO starts",
+    "thresholds are lowered after seeing output",
+    "route decision is missing"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not add hidden parameters to actor inputs",
+    "do not train or optimize",
+    "do not use private holdout",
+    "do not claim unsupported per-wheel fault coverage",
+    "do not promote any checkpoint"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260526T123239Z",
+  "hypothesis": "Richer hidden-dynamics scenario families will expose source-diverse outcome-sensitive wrong-history rows more reliably than the ordinary fresh/OOD public families used in M980-M982.",
+  "lineage": {
+    "blocked_by": [
+      "M984 creates and smokes configs but does not yet run source-diverse mining"
+    ],
+    "derived_from": [
+      "m984-v4-public-base-extreme-scenario-family-config-smoke",
+      "m983-v4-public-base-post-repair-surface-refresh-synthesis"
+    ],
+    "invalidates": [
+      "training before source-diverse accepted rows exist",
+      "using the isolated M980/M982 pocket as the only new surface"
+    ],
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/m984_extreme_low_mu_drop.json",
+      "configs/m984_brake_authority_loss.json",
+      "configs/m984_lateral_authority_loss.json",
+      "configs/m984_heavy_cg_delay.json",
+      "configs/m984_high_speed_close_obstacle.json",
+      "experiments/manifests/m984-v4-public-base-extreme-scenario-family-config-smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m984-v4-public-base-extreme-scenario-family-config-smoke.md",
+      "runs/m984_v4_public_base_extreme_scenario_family_config_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "mine source-diverse wrong-history outcome-sensitive rows from richer scenario families"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m985-v4-public-base-extreme-scenario-family-source-mining",
+  "next_blocker": "m986-v4-public-base-extreme-near-cliff-source-mining",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "extreme_scenario_broad_window_empty_route_to_near_cliff_mining",
+  "public_gates": [
+    "M985 must not run PPO",
+    "M985 must not promote",
+    "M985 must not use private holdout",
+    "M985 must preserve P0 actor-input contract",
+    "M985 must report source diversity by scenario family",
+    "M985 must not lower acceptance thresholds after seeing output"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m985_v4_public_base_extreme_scenario_family_source_mining/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "extreme_scenario_broad_window_empty_route_to_near_cliff_mining",
+    "milestone": "m985-v4-public-base-extreme-scenario-family-source-mining",
+    "reason": "M985 mines all five M984 families with broad normal-margin window and finds zero accepted rows despite 15019 action-threshold rows and candidate max margin gap 0.00440",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary artifact exists",
+    "accepted rows and source diversity are reported by family",
+    "actor parameters are unchanged",
+    "PPO and promotion are not used",
+    "route decision is explicit"
+  ],
+  "type": "gate"
+}

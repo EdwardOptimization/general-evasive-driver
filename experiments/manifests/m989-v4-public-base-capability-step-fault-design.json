@@ -1,0 +1,104 @@
+{
+  "id": "m989-v4-public-base-capability-step-fault-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m988-v4-public-base-extreme-scenario-family-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m988-v4-public-base-extreme-scenario-family-synthesis.json"
+    ],
+    "parent_objective": [
+      "design hidden capability-step/fault events after config-only global randomization failed to expose source-diverse proof rows"
+    ],
+    "derived_from": [
+      "m988-v4-public-base-extreme-scenario-family-synthesis"
+    ],
+    "blocked_by": [
+      "M988 pivots from config-only mining to capability-step/fault event design"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "claiming split-mu or per-wheel fault support before dynamics support exists"
+    ]
+  },
+  "review_artifact": "docs/reviews/m989-v4-public-base-capability-step-fault-design.md",
+  "public_gates": [
+    "M989 must not run PPO",
+    "M989 must not promote",
+    "M989 must preserve P0 actor-input contract",
+    "M989 must keep hidden capability changes simulator-only/logging-only",
+    "M989 must distinguish global single-track faults from future asymmetric/per-wheel faults"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden parameters to actor inputs",
+    "do not train or optimize",
+    "do not use private holdout",
+    "do not claim split-mu or individual-wheel failure support without changing dynamics",
+    "do not promote any checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_capability_step_fault_generation",
+    "evidence_axis": "G_scenario_family: hidden capability-step/fault events that create online self-identification pressure",
+    "evidence_increment": "designs simulator semantics for sudden hidden changes in tire/brake/drive/actuator authority before implementation",
+    "claim_scope": "design only; no code, no training, no promotion unless explicitly implemented later",
+    "stop_condition": [
+      "stop if the design would expose hidden parameters in actor observation",
+      "stop if the design claims unsupported per-wheel faults",
+      "stop if it bypasses the existing P0 input contract"
+    ],
+    "fallback_plan": [
+      "if global capability-step design is insufficient, design asymmetric or four-wheel dynamics extension separately",
+      "if design is accepted, route to minimal simulator implementation plus tests",
+      "after implementation, smoke configs before any source mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M988 opens capability-step/fault generation after M984-M987 negatives",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Explicit hidden capability-step events will create stronger online self-identification pressure than static episode-level randomization while preserving the P0 actor-input contract.",
+  "success_criteria": [
+    "design artifact exists",
+    "supported global single-track capability steps are specified",
+    "unsupported asymmetric/per-wheel faults are separated",
+    "actor input contract preservation is explicit",
+    "implementation and test route is explicit",
+    "no PPO or promotion occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "hidden parameters would enter actor observation",
+    "unsupported per-wheel faults are claimed as implemented",
+    "training or PPO starts",
+    "route decision is missing"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "manual design documentation; planned artifact docs/m989-v4-public-base-capability-step-fault-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m989-v4-public-base-capability-step-fault-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m988-v4-public-base-extreme-scenario-family-synthesis.md"
+  ],
+  "decision_rule": "M989 must produce a concrete implementation route for hidden global capability-step faults without changing actor inputs or claiming unsupported per-wheel dynamics.",
+  "next_blocker": "capability-step fault semantics are not yet designed"
+}

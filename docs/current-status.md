@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m985-v4-public-base-extreme-scenario-family-source-mining
+m989-v4-public-base-capability-step-fault-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -254,10 +254,34 @@ loss as future simulator extensions rather than current single-track claims.
 M984 creates five configs (`low_mu`, `brake_loss`, `lateral_loss`,
 `heavy_cg_delay`, `high_speed_close`) and smoke-runs them successfully with
 `211` snapshots and `57` near-boundary preferred rows. M985 should run the first
-larger source-mining pass across those five families before any training.
+larger source-mining pass across those five families before any training. M985
+runs that pass and finds zero accepted rows despite `1137` snapshots, `246`
+near-boundary preferred rows, and strong action separation. The next step is
+near-cliff mining with `normal_margin_max=0.20`, not training or threshold
+relaxation. M986 runs that near-cliff pass and still finds zero accepted rows;
+wrong-history continuations remain successful over the 9-step outcome horizon.
+M987 should keep the near-cliff filter and increase continuation horizon to 20
+steps before deciding whether to recalibrate scenarios or extend simulator
+fault modeling. M987 runs the long-horizon audit and still finds zero accepted
+rows. M988 synthesizes M984-M987 and pivots to hidden capability-step/fault
+event design. The next task is M989: design global tire/brake/drive/actuator
+capability-step semantics under the existing P0 actor contract, while keeping
+per-wheel faults as future dynamics extensions.
 
 ## Recent Evidence Line
 
+- M988 synthesizes M984-M987 and pivots to
+  `v4_public_base_capability_step_fault_generation`. Config-only global
+  extreme mining creates action separation but not outcome-sensitive proof rows.
+- M987 extends near-cliff continuation horizon to 20 steps and still finds zero
+  accepted rows. This rules out the short-horizon explanation for M986.
+- M986 narrows source mining to `normal_margin <= 0.20`. It still finds no
+  accepted rows; action separation is live but wrong-history rollouts remain
+  successful over 9 continuation steps. Next: long-horizon outcome audit.
+- M985 mines all five M984 families at larger scale. The scenario families
+  produce broad coverage and action separation, but no wrong-history outcome
+  degradation under the broad normal-margin window. Next: terminal-margin
+  near-cliff mining.
 - M984 creates and smokes five extreme scenario-family configs. All families
   sample valid scenarios and produce artifacts; no actor/PPO/promotion changes
   occur. Next: multi-family source mining.

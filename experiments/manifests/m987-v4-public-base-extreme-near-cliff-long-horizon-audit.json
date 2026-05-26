@@ -1,0 +1,153 @@
+{
+  "id": "m987-v4-public-base-extreme-near-cliff-long-horizon-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m986-v4-public-base-extreme-near-cliff-source-mining.md",
+      "runs/m986_v4_public_base_extreme_near_cliff_source_mining/summary.json"
+    ],
+    "parent_config": [
+      "configs/m984_extreme_low_mu_drop.json",
+      "configs/m984_brake_authority_loss.json",
+      "configs/m984_lateral_authority_loss.json",
+      "configs/m984_heavy_cg_delay.json",
+      "configs/m984_high_speed_close_obstacle.json",
+      "experiments/manifests/m986-v4-public-base-extreme-near-cliff-source-mining.json"
+    ],
+    "parent_objective": [
+      "audit whether 9-step continuation hides delayed wrong-history outcome degradation in near-cliff rows"
+    ],
+    "derived_from": [
+      "m986-v4-public-base-extreme-near-cliff-source-mining",
+      "m985-v4-public-base-extreme-scenario-family-source-mining"
+    ],
+    "blocked_by": [
+      "M986 near-cliff mining finds no accepted rows and all wrong-history continuations remain successful over 9 steps"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "starting PPO from the M986 result",
+      "lowering accepted-row thresholds before auditing continuation horizon"
+    ]
+  },
+  "review_artifact": "docs/reviews/m987-v4-public-base-extreme-near-cliff-long-horizon-audit.md",
+  "public_gates": [
+    "M987 must not run PPO",
+    "M987 must not promote",
+    "M987 must not use private holdout",
+    "M987 must preserve P0 actor-input contract",
+    "M987 must keep accepted-row action and margin thresholds unchanged",
+    "M987 may increase max_continuation_steps from 9 to 20"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden parameters to actor inputs",
+    "do not train or optimize",
+    "do not use private holdout",
+    "do not lower accepted-row thresholds",
+    "do not promote any checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_extreme_scenario_family_generation",
+    "evidence_axis": "G_scenario_family: delayed wrong-history outcome degradation over near-cliff rows",
+    "evidence_increment": "extends the near-cliff continuation horizon from 9 to 20 steps without changing actor inputs or accepted-row thresholds",
+    "claim_scope": "proof-surface mining/audit only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if actor parameters change",
+      "stop if PPO or optimizer starts",
+      "stop if long-horizon near-cliff mining still yields no accepted rows"
+    ],
+    "fallback_plan": [
+      "if source-diverse rows pass, route to compact corpus and exact objective sanity",
+      "if only isolated pockets appear, route to source-diversity expansion around those pockets",
+      "if no accepted rows appear, route to scenario range calibration or simulator fault-extension design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M986 near-cliff mining has live action separation but no 9-step outcome degradation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Some near-cliff wrong-history failures are delayed beyond the 9-step continuation horizon; increasing max_continuation_steps to 20 will reveal accepted rows without changing thresholds.",
+  "success_criteria": [
+    "summary artifact exists",
+    "accepted rows and source diversity are reported by family",
+    "max_continuation_steps is 20",
+    "actor parameters are unchanged",
+    "PPO and promotion are not used",
+    "route decision is explicit"
+  ],
+  "failure_criteria": [
+    "miner crashes",
+    "actor parameters change",
+    "training or PPO starts",
+    "accepted-row thresholds are lowered",
+    "route decision is missing"
+  ],
+  "commands": [
+    {
+      "name": "near_cliff_long_horizon_source_mining",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.normal_success_boundary_source_miner --checkpoint runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt --surface-config low_mu=configs/m984_extreme_low_mu_drop.json --surface-config brake_loss=configs/m984_brake_authority_loss.json --surface-config lateral_loss=configs/m984_lateral_authority_loss.json --surface-config heavy_cg_delay=configs/m984_heavy_cg_delay.json --surface-config high_speed_close=configs/m984_high_speed_close_obstacle.json --surface-seed-range low_mu=98500:98563 --surface-seed-range brake_loss=98580:98643 --surface-seed-range lateral_loss=98660:98723 --surface-seed-range heavy_cg_delay=98740:98803 --surface-seed-range high_speed_close=98820:98883 --sequence-lengths 5,7,9 --obstacle-distance-min 0.0 --obstacle-distance-max 35.0 --normal-margin-min 0.0 --normal-margin-max 0.20 --max-right-candidates-per-left 64 --max-candidate-pairs-per-surface 1200 --context-distance-threshold 0.25 --response-distance-threshold 0.20 --obstacle-x-abs-delta 10.0 --obstacle-y-abs-delta 2.0 --step-abs-delta 30 --min-wrong-first-action-l2 0.002 --min-wrong-action-sequence-mean-l2 0.006 --min-preferred-rejected-action-mean-l2 0.010 --min-margin-gap 0.010 --max-snapshots-per-surface 320 --max-snapshots-per-seed 6 --sample-stride 3 --max-continuation-steps 20 --device auto --run-dir runs/m987_v4_public_base_extreme_near_cliff_long_horizon_audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m987_v4_public_base_extreme_near_cliff_long_horizon_audit/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m987_v4_public_base_extreme_near_cliff_long_horizon_audit/candidate_scores.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m987_v4_public_base_extreme_near_cliff_long_horizon_audit/normal_success_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m987_v4_public_base_extreme_near_cliff_long_horizon_audit/normal_success_boundary_corpus.npz",
+      "type": "npz"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m986-v4-public-base-extreme-near-cliff-source-mining.md",
+    "runs/m986_v4_public_base_extreme_near_cliff_source_mining/summary.json"
+  ],
+  "results": {
+    "run_dir": "runs/m987_v4_public_base_extreme_near_cliff_long_horizon_audit",
+    "corpus_passed": false,
+    "classification": "extreme_near_cliff_long_horizon_no_outcome_sensitive_rows",
+    "snapshot_count": 1137,
+    "near_boundary_preferred_snapshots": 39,
+    "candidate_pairs": 2386,
+    "candidate_rows": 7158,
+    "accepted_rows": 0,
+    "near_boundary_by_surface": {
+      "brake_loss": 9,
+      "heavy_cg_delay": 20,
+      "high_speed_close": 0,
+      "lateral_loss": 0,
+      "low_mu": 10
+    },
+    "candidate_all_action_threshold_rows": 7090,
+    "candidate_margin_threshold_rows": 0,
+    "candidate_max_margin_gap": 0.0020102345584196435,
+    "candidate_normal_success_rate": 1.0,
+    "candidate_wrong_success_rate": 1.0,
+    "actor_parameters_changed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "next_route": "extreme_scenario_family_synthesis_then_capability_step_fault_design"
+  },
+  "decision": "extreme_near_cliff_long_horizon_empty_route_to_synthesis",
+  "decision_rule": "M987 must classify whether extending near-cliff continuation horizon produces a source-diverse accepted surface, isolated pockets, or no outcome-sensitive rows. It must not train or promote.",
+  "next_blocker": "m988-v4-public-base-extreme-scenario-family-synthesis"
+}

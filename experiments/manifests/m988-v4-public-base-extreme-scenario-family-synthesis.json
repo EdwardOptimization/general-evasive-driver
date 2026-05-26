@@ -1,0 +1,128 @@
+{
+  "id": "m988-v4-public-base-extreme-scenario-family-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m984-v4-public-base-extreme-scenario-family-config-smoke.md",
+      "docs/m985-v4-public-base-extreme-scenario-family-source-mining.md",
+      "docs/m986-v4-public-base-extreme-near-cliff-source-mining.md",
+      "docs/m987-v4-public-base-extreme-near-cliff-long-horizon-audit.md"
+    ],
+    "parent_config": [
+      "configs/m984_extreme_low_mu_drop.json",
+      "configs/m984_brake_authority_loss.json",
+      "configs/m984_lateral_authority_loss.json",
+      "configs/m984_heavy_cg_delay.json",
+      "configs/m984_high_speed_close_obstacle.json"
+    ],
+    "parent_objective": [
+      "synthesize config-only extreme scenario-family mining before changing simulator semantics"
+    ],
+    "derived_from": [
+      "m984-v4-public-base-extreme-scenario-family-config-smoke",
+      "m985-v4-public-base-extreme-scenario-family-source-mining",
+      "m986-v4-public-base-extreme-near-cliff-source-mining",
+      "m987-v4-public-base-extreme-near-cliff-long-horizon-audit"
+    ],
+    "blocked_by": [
+      "M985-M987 all find zero accepted rows despite live action separation"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "continuing same config-only mining as the main branch",
+      "training from M984-M987",
+      "claiming source-diverse extreme scenario proof-surface evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m988-v4-public-base-extreme-scenario-family-synthesis.md",
+  "public_gates": [
+    "M988 must synthesize M984-M987 before opening a new branch",
+    "M988 must not run PPO",
+    "M988 must not promote",
+    "M988 must not use private holdout",
+    "M988 must preserve P0 actor-input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train or optimize",
+    "do not lower thresholds retroactively",
+    "do not claim source-diverse proof rows from M984-M987",
+    "do not claim per-wheel faults under the current single-track dynamics"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_extreme_scenario_family_generation",
+    "evidence_axis": "G_scenario_family: whether config-only global extreme families expose source-diverse wrong-history outcome sensitivity",
+    "evidence_increment": "synthesizes M984-M987 and decides whether to continue config-only mining or pivot to simulator fault/capability-step semantics",
+    "claim_scope": "process synthesis only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop config-only mining if full, near-cliff, and long-horizon passes all find zero accepted rows",
+      "stop before converting action-only differences into outcome-proof corpora",
+      "stop before claiming unsupported per-wheel fault coverage"
+    ],
+    "fallback_plan": [
+      "pivot to hidden capability-step/fault event design supported by the current model",
+      "if global capability-step still fails, design asymmetric or four-wheel dynamics extensions",
+      "only route to objective sanity after source-diverse accepted rows exist"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M987 long-horizon audit finds no accepted rows after M985/M986 negatives",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m988-v4-public-base-extreme-scenario-family-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M984-M987 provide enough evidence to close the config-only extreme scenario branch and pivot to hidden capability-step/fault event design.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "supported and falsified claims are explicit",
+    "failure taxonomy is explicit",
+    "public gate overfit risk is updated",
+    "next branch decision is explicit",
+    "no training or promotion occurs"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "route decision is missing",
+    "thresholds are lowered retroactively",
+    "training or PPO starts",
+    "unsupported per-wheel failure claims are made"
+  ],
+  "commands": [
+    {
+      "name": "write_synthesis",
+      "command": "manual documentation only; see docs/m988-v4-public-base-extreme-scenario-family-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m988-v4-public-base-extreme-scenario-family-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m984-v4-public-base-extreme-scenario-family-config-smoke.md",
+    "docs/m985-v4-public-base-extreme-scenario-family-source-mining.md",
+    "docs/m986-v4-public-base-extreme-near-cliff-source-mining.md",
+    "docs/m987-v4-public-base-extreme-near-cliff-long-horizon-audit.md"
+  ],
+  "decision": "pivot_to_capability_step_fault_generation",
+  "decision_rule": "M988 must decide whether M984-M987 justify more config-only mining or pivoting to hidden capability-step/fault event design.",
+  "next_blocker": "m989-v4-public-base-capability-step-fault-design"
+}
