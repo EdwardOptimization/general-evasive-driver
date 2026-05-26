@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 958,
+    "completed": 959,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe",
+    "task_id": "m950-v4-public-base-rejected-branch-retention-objective-conflict-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/summary.json"
+    "command_log": "docs/m950-v4-public-base-rejected-branch-retention-objective-conflict-audit.md"
   },
   "next_task": {
-    "id": "m950-v4-public-base-rejected-branch-retention-objective-conflict-audit",
+    "id": "m951-v4-public-base-rejected-branch-boundary-retune-probe",
     "status": "pending",
-    "priority": 9450,
-    "kind": "gate",
-    "hypothesis": "M949 exposed a tradeoff where low alphas preserve M267 proof but lack tail lift while higher alphas lift low-tail metrics but break normal retention or M267 proof",
-    "command": "see experiments/manifests/m950-v4-public-base-rejected-branch-retention-objective-conflict-audit.json",
-    "success_artifact": "docs/m950-v4-public-base-rejected-branch-retention-objective-conflict-audit.md",
-    "notes": "Pending: audit M949 objective conflict before more local objective tweaks, full replay, PPO, or promotion"
+    "priority": 9460,
+    "kind": "infrastructure",
+    "hypothesis": "Training the rejected-branch retention objective at lower boundary alphas may create overlap between exact low-tail compatibility and M267/M264 preflight",
+    "command": "see experiments/manifests/m951-v4-public-base-rejected-branch-boundary-retune-probe.json",
+    "success_artifact": "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/summary.json",
+    "notes": "Pending: run exactly one bounded lower-boundary retune; failure routes to synthesis or trajectory-target export, not another local tweak"
   },
-  "updated_at_utc": "20260526T001432Z"
+  "updated_at_utc": "20260526T001914Z"
 }

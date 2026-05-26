@@ -1,0 +1,111 @@
+{
+  "id": "m951-v4-public-base-rejected-branch-boundary-retune-probe",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m950-v4-public-base-rejected-branch-retention-objective-conflict-audit.md",
+      "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/summary.json",
+      "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/alpha_metrics.csv",
+      "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/m267_preflight_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m950-v4-public-base-rejected-branch-retention-objective-conflict-audit.json"
+    ],
+    "parent_objective": [
+      "run one bounded lower-boundary retune of the rejected-branch retention objective"
+    ],
+    "derived_from": [
+      "m950-v4-public-base-rejected-branch-retention-objective-conflict-audit"
+    ],
+    "blocked_by": [
+      "M949 has no overlap between exact low-tail candidate and M267/M264 preflight"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m951-v4-public-base-rejected-branch-boundary-retune-probe.md",
+  "public_gates": [
+    "M951 must preserve the P0 actor-input contract",
+    "M951 may train only actor_mean and response_context_fusion.0",
+    "M951 must use lower boundary train alphas",
+    "M951 must evaluate exact metrics and M267/M264 preflight",
+    "M951 must not run PPO",
+    "M951 must not promote"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run another local coefficient tweak after M951 without synthesis",
+    "do not open encoders or GRU",
+    "do not widen actor inputs",
+    "do not full-replay a non-candidate",
+    "do not run PPO or promotion"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_controlled_fusion_surface",
+    "evidence_axis": "G_replay: bounded retune of rejected-branch retention near the exact/preflight boundary",
+    "evidence_increment": "tests whether lower train alphas and adjusted rejected-branch coefficients can create exact/preflight overlap",
+    "claim_scope": "objective/preflight only; no full replay unless a candidate exists, no private holdout, no PPO, no promotion",
+    "stop_condition": [
+      "stop if candidate_alpha_count is zero",
+      "stop if forbidden parameters change",
+      "stop if exact/preflight overlap still does not exist"
+    ],
+    "fallback_plan": [
+      "if no candidate exists, route to branch synthesis or rejected-branch trajectory target export",
+      "if a candidate exists, route to full replay gate design",
+      "if implementation is invalid, route to tooling audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M950 admits exactly one bounded lower-boundary retune after M949 objective conflict",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Training the rejected-branch retention objective at lower boundary alphas may create overlap between exact low-tail compatibility and M267/M264 preflight.",
+  "success_criteria": [
+    "summary.json exists",
+    "loss coefficients are recorded",
+    "train_alphas include 0.0675, 0.0750, 0.0900, and 0.1000",
+    "exact metrics and M267 preflight are evaluated",
+    "candidate_alpha_count is reported",
+    "ppo_used and promoted are false"
+  ],
+  "failure_criteria": [
+    "actor inputs change",
+    "forbidden parameters change",
+    "M267/M264 preflight is skipped",
+    "PPO or promotion is run",
+    "a second local retune is recommended without synthesis"
+  ],
+  "commands": [
+    {
+      "name": "run_retune_probe",
+      "command": "Expose rejected-branch loss coefficients if needed, run one lower-boundary objective-only retune, and write the result."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m951-v4-public-base-rejected-branch-boundary-retune-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m950-v4-public-base-rejected-branch-retention-objective-conflict-audit.md",
+    "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/summary.json"
+  ],
+  "decision_rule": "M951 is the only allowed local retune after M949. It must not run PPO or promote; failure routes to synthesis or trajectory-target export.",
+  "next_blocker": "bounded lower-boundary retune has not been run"
+}

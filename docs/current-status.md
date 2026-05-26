@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m950-v4-public-base-rejected-branch-retention-objective-conflict-audit
+m951-v4-public-base-rejected-branch-boundary-retune-probe
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -106,10 +106,19 @@ before any full replay, PPO, or promotion. M949 implements that probe. It
 recovers M267/M264 preflight at alphas `0.005`, `0.010`, and `0.200`, but has
 zero exact candidates because low alphas lack tail lift and higher alphas break
 normal retention or M267 proof. The current blocker is the M950 objective
-conflict audit.
+conflict audit. M950 classifies this as a real alpha-boundary conflict and
+admits exactly one bounded lower-boundary retune before synthesis or trajectory
+target export.
 
 ## Recent Evidence Line
 
+- M950 audits M949 and admits one bounded retune. The rejected-branch proxy is
+  live, but M949 trained at inherited high alphas `0.125/0.150/0.175`. Low
+  alphas `0.005/0.010` preserve M267 proof but are too small for low-tail lift;
+  alphas `0.100+` lift low-tail metrics but fail normal retention. M951 should
+  train at `0.0675/0.075/0.090/0.100`, record coefficients, keep M267 preflight
+  mandatory, and if it still fails, route to synthesis or trajectory-target
+  export rather than another local tweak.
 - M949 implements the no-PPO rejected-branch retention probe. It reconstructs
   `1213/1213` objective rows and `4/4` active rejected rows, changes only
   `actor_mean` plus `response_context_fusion.0`, and keeps the P0 actor-input

@@ -100,5 +100,5 @@
     "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/summary.json"
   ],
   "decision_rule": "M950 may only audit the M949 conflict and choose the next route. It must not train, full-replay a non-candidate, PPO, or promote.",
-  "next_blocker": "M949 objective conflict needs classification before more local objective tweaks"
+  "next_blocker": "m951-v4-public-base-rejected-branch-boundary-retune-probe"
 }

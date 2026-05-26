@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M950 classifies M949 as a real alpha-boundary conflict and admits exactly one bounded lower-boundary retune before synthesis or trajectory target export",
+  "failure_criteria": [
+    "audit recommends full replay from a non-candidate",
+    "audit recommends PPO or promotion",
+    "audit ignores the M267 preflight and exact candidate mismatch"
+  ],
+  "failure_types": [
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not tune after looking at private holdout",
+    "do not run full replay from a non-candidate",
+    "do not promote M949",
+    "do not widen actor inputs",
+    "do not open encoders or GRU without synthesis"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260526T002130Z",
+  "hypothesis": "M949 exposed a real tradeoff: low alphas preserve M267 proof but lack tail lift, while higher alphas lift low-tail metrics but break normal retention or M267 proof.",
+  "lineage": {
+    "blocked_by": [
+      "M949 has M267 preflight pass alphas but zero exact candidate alphas"
+    ],
+    "derived_from": [
+      "m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe"
+    ],
+    "invalidates": [
+      "full replay, PPO, or promotion from M949 raw update"
+    ],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/checkpoints/raw_rejected_branch_retention_update.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe.json"
+    ],
+    "parent_dataset": [
+      "docs/m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe.md",
+      "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/summary.json",
+      "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/alpha_metrics.csv",
+      "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/m267_preflight_summary.csv"
+    ],
+    "parent_objective": [
+      "audit why rejected-branch retention restored M267 preflight at some alphas but lost exact low-tail candidate overlap"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m950-v4-public-base-rejected-branch-retention-objective-conflict-audit",
+  "next_blocker": "m951-v4-public-base-rejected-branch-boundary-retune-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "rejected_branch_retention_conflict_audit_admit_one_boundary_retune",
+  "public_gates": [
+    "M950 must not train",
+    "M950 must not run PPO",
+    "M950 must not promote",
+    "M950 must classify the 0.075-0.100 objective conflict boundary",
+    "M950 must choose between coefficient retuning, trajectory-target export, or branch synthesis"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m950-v4-public-base-rejected-branch-retention-objective-conflict-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "rejected_branch_retention_conflict_audit_admit_one_boundary_retune",
+    "milestone": "m950-v4-public-base-rejected-branch-retention-objective-conflict-audit",
+    "reason": "M950 classifies M949 as a real alpha-boundary conflict and admits exactly one bounded lower-boundary retune before synthesis or trajectory target export",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit document exists",
+    "M949 alpha/preflight conflict is summarized",
+    "next route is selected without training, full replay, PPO, or promotion"
+  ],
+  "type": "gate"
+}
