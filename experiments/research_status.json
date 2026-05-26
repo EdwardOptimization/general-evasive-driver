@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1036,
+    "completed": 1037,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit",
+    "task_id": "m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit.md"
+    "command_log": "docs/m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design.md"
   },
   "next_task": {
-    "id": "m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design",
+    "id": "m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe",
     "status": "pending",
-    "priority": 10230,
-    "kind": "gate",
-    "hypothesis": "Design exact post-PPO repair/projection for the localized M1026 M267/M264 row 15 proof washout",
-    "command": "see experiments/manifests/m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design.json",
-    "success_artifact": "docs/m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design.md",
-    "notes": "Pending: pre-register lexicographic repair/projection design before any implementation or longer PPO"
+    "priority": 10240,
+    "kind": "driver_candidate",
+    "hypothesis": "Run no-PPO exact repair/projection candidates for M1026 raw PPO with row15 conflict residual and first replay gates",
+    "command": "see experiments/manifests/m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe.json",
+    "success_artifact": "docs/m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe.md",
+    "notes": "Pending: run exact repair candidates and gate exact M297/M270 M997 temporal M267/M264 row15 and M183/M170 without promotion"
   },
-  "updated_at_utc": "20260526T213626Z"
+  "updated_at_utc": "20260526T215145Z"
 }

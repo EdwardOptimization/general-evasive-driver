@@ -15394,3 +15394,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1027 audits the M1026 proof washout without training, PPO, private holdout, promotion, or actor-input changes. The failure is localized to M267/M264 `row_id=15`, physical pair `9530:21:9550:21`, target `future_braking_deceleration`. Candidate B wrong-history margin is `-0.000112` and M1026 raw PPO wrong-history margin is `+0.000311`; normal margin also improves by `+0.000533`. This confirms a near-boundary rejected-branch lift, not normal-branch regression or training instability.
 - decision: `candidate_b_guarded_ppo_washout_localized_route_to_exact_repair_design`
 - next: `m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design`
+
+## 20260526T215145Z - m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design.md`
+- result: M1028 designs a no-PPO exact repair/projection route for the M1026 raw PPO proposal. M1029 must generate raw-start, base-start, and line-boundary candidates with `autodrift.exact_post_ppo_repair`, using M297/M270 exact objectives, M293 trajectory anchor, and M393 current-family conflict corpus as an explicit row15 constraint. Acceptance order is P0 actor-input contract, exact M297/M270, M997 temporal exact retention, M267/M264 row15/full-surface first replay, then M183/M170 first replay. No repair, PPO, promotion, private holdout, or actor-input change occurs in M1028.
+- decision: `candidate_b_post_ppo_exact_repair_design_admit_m1029_probe`
+- next: `m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe`

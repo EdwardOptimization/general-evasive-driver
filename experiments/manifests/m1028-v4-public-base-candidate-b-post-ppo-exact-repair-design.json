@@ -107,5 +107,31 @@
     "docs/m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit.md"
   ],
   "decision_rule": "M1028 should admit implementation only if exact repair/projection constraints and gate order are pre-registered without actor-input or promotion shortcuts.",
-  "next_blocker": "m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design"
+  "next_blocker": "m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design.md",
+    "decision": "candidate_b_post_ppo_exact_repair_design_admit_m1029_probe",
+    "result_class": "candidate_b_post_ppo_exact_repair_design_ready",
+    "base_checkpoint": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "raw_checkpoint": "runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt",
+    "repair_tool": "python -m autodrift.exact_post_ppo_repair",
+    "candidate_family": [
+      "raw_conflict_s40",
+      "base_conflict_s40",
+      "line_conflict_s40"
+    ],
+    "current_family_conflict_npz": "runs/m393_current_family_rejected_boundary_targets/current_family_conflict_corpus.npz",
+    "required_first_replay": [
+      "m267_m264",
+      "m183_m170"
+    ],
+    "row15_required": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe"
+  },
+  "decision": "candidate_b_post_ppo_exact_repair_design_admit_m1029_probe"
 }

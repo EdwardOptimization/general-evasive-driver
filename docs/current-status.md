@@ -75,11 +75,11 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design
+m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe
 ```
 
-M1027 completed the proof-washout audit for the first 1024-step guarded PPO
-smoke proposal from the Candidate B public-gate base:
+M1028 completed the exact post-PPO repair design for the first 1024-step
+guarded PPO smoke proposal from the Candidate B public-gate base:
 
 ```text
 base:
@@ -124,14 +124,18 @@ normal_margin_delta: +0.000533
 wrong_history_margin_delta: +0.000423
 ```
 
-The next step is M1028: design an exact post-PPO repair/projection route that
-treats PPO as a proposal and restores lexicographic proof feasibility before
-any longer PPO, scalar-coefficient tuning, promotion, or private holdout.
+M1028 routes to M1029: run a no-PPO exact repair/projection probe using
+`autodrift.exact_post_ppo_repair` with M297/M270 exact objectives, the M293
+rejected-history trajectory anchor, and the M393 current-family conflict corpus
+as a first-class row15 constraint. M1029 must also gate M997 temporal exact
+retention, M267/M264 row15/full-surface replay, and M183/M170 first replay
+before any full public gate, longer PPO, scalar-coefficient tuning, promotion,
+or private holdout.
 
 ### Historical Trace
 
-The branch trace below is retained for context; the live blocker is the M1028
-design above.
+The branch trace below is retained for context; the live blocker is the M1029
+probe above.
 
 M927 ran the no-training residual-direction feasibility sweep and found no
 alpha/mix candidate. M928 audits this as a residual-bridge trust-region
