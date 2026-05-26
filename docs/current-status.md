@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m989-v4-public-base-capability-step-fault-design
+m990-v4-public-base-capability-step-fault-smoke
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -264,12 +264,18 @@ M987 should keep the near-cliff filter and increase continuation horizon to 20
 steps before deciding whether to recalibrate scenarios or extend simulator
 fault modeling. M987 runs the long-horizon audit and still finds zero accepted
 rows. M988 synthesizes M984-M987 and pivots to hidden capability-step/fault
-event design. The next task is M989: design global tire/brake/drive/actuator
-capability-step semantics under the existing P0 actor contract, while keeping
-per-wheel faults as future dynamics extensions.
+event design. M989 completes that design. It reuses the existing
+`extreme_dynamics_scenario_corpus` fault-event harness for the M974 public-gate
+base, keeps hidden event labels out of actor observations, and keeps per-wheel
+or asymmetric faults as future dynamics extensions. The next task is M990:
+create a small current-base capability-step config and run a no-training
+cross-fault smoke before any larger source mining or training.
 
 ## Recent Evidence Line
 
+- M989 designs the hidden capability-step route. The current repo already has a
+  no-training fault-event harness; the next step is a small M974 current-base
+  smoke, not PPO or a new simulator claim.
 - M988 synthesizes M984-M987 and pivots to
   `v4_public_base_capability_step_fault_generation`. Config-only global
   extreme mining creates action separation but not outcome-sensitive proof rows.

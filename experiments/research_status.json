@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 997,
+    "completed": 998,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m988-v4-public-base-extreme-scenario-family-synthesis",
+    "task_id": "m989-v4-public-base-capability-step-fault-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m988-v4-public-base-extreme-scenario-family-synthesis.md"
+    "command_log": "docs/m989-v4-public-base-capability-step-fault-design.md"
   },
   "next_task": {
-    "id": "m989-v4-public-base-capability-step-fault-design",
+    "id": "m990-v4-public-base-capability-step-fault-smoke",
     "status": "pending",
-    "priority": 9840,
+    "priority": 9850,
     "kind": "infrastructure",
-    "hypothesis": "Explicit hidden capability-step events will create stronger online self-identification pressure than static episode-level randomization while preserving the P0 actor-input contract",
-    "command": "see experiments/manifests/m989-v4-public-base-capability-step-fault-design.json",
-    "success_artifact": "docs/m989-v4-public-base-capability-step-fault-design.md",
-    "notes": "Pending: design hidden global capability-step/fault events before implementation"
+    "hypothesis": "The existing fault-event corpus harness can be run against the M974 public-gate base with a small current-base capability-step config while preserving the P0 actor contract",
+    "command": "see experiments/manifests/m990-v4-public-base-capability-step-fault-smoke.json",
+    "success_artifact": "runs/m990_v4_public_base_capability_step_fault_smoke/summary.json",
+    "notes": "Pending: create the M990 fault-event config and run a no-training cross-fault smoke"
   },
-  "updated_at_utc": "20260526T124354Z"
+  "updated_at_utc": "20260526T125724Z"
 }

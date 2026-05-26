@@ -15028,3 +15028,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M988 synthesizes M984-M987. Supported: the M984 configs are valid stress infrastructure, and action separation stays live. Falsified: config-only global extreme randomization, near-cliff filtering, or longer continuation horizon is enough to expose source-diverse wrong-history outcome-sensitive rows around M974.
 - decision: `pivot_to_capability_step_fault_generation`
 - next: `m989-v4-public-base-capability-step-fault-design`
+
+## 20260526T125724Z - m989-v4-public-base-capability-step-fault-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m989-v4-public-base-capability-step-fault-design.md`
+- result: M989 designs the capability-step fault route. It finds that the repo already has a suitable no-training hidden-fault event harness in `src/autodrift/extreme_dynamics_scenario_corpus.py`; the next step should reuse that harness on the M974 public-gate base with a small cross-fault smoke. The design keeps hidden event labels, severities, activation steps, and parameters out of actor observations and treats per-wheel/asymmetric faults as future dynamics extensions rather than current single-track claims.
+- decision: `capability_step_fault_design_admit_smoke`
+- next: `m990-v4-public-base-capability-step-fault-smoke`

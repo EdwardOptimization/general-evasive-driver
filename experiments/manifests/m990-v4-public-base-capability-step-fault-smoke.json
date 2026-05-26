@@ -1,0 +1,125 @@
+{
+  "id": "m990-v4-public-base-capability-step-fault-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m989-v4-public-base-capability-step-fault-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m989-v4-public-base-capability-step-fault-design.json",
+      "src/autodrift/extreme_dynamics_scenario_corpus.py",
+      "configs/extreme_fault_distribution_v4_scenarios.json"
+    ],
+    "parent_objective": [
+      "validate current-base compatibility for hidden capability-step fault-event source mining"
+    ],
+    "derived_from": [
+      "m989-v4-public-base-capability-step-fault-design",
+      "m988-v4-public-base-extreme-scenario-family-synthesis"
+    ],
+    "blocked_by": [
+      "M989 admits only a small no-training smoke before source mining or training"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m990-v4-public-base-capability-step-fault-smoke.md",
+  "public_gates": [
+    "M990 must not run PPO",
+    "M990 must not promote",
+    "M990 must not change actor inputs",
+    "M990 must keep hidden fault labels as logging/pairing metadata only",
+    "M990 must report model fidelity limits",
+    "M990 must not require accepted rows at smoke scale"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not train or optimize",
+    "do not use private holdout",
+    "do not claim true per-wheel/asymmetric faults",
+    "do not promote any checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_capability_step_fault_generation",
+    "evidence_axis": "G_scenario_family: current-base hidden capability-step/fault event compatibility",
+    "evidence_increment": "creates a minimal current-base fault-event config and smoke-runs the existing cross-fault source harness before larger mining",
+    "claim_scope": "infrastructure smoke only; no training, no promotion, no proof-positive claim unless rows appear incidentally",
+    "stop_condition": [
+      "stop if checkpoint/config observation compatibility fails",
+      "stop if actor checksum changes",
+      "stop if artifacts are missing or hidden labels enter actor observation",
+      "stop if model fidelity limits are not written"
+    ],
+    "fallback_plan": [
+      "if M974 is incompatible with the old fault-event env config, create a P0 72-dim env config matching the M974 actor contract",
+      "if no matched pairs appear, loosen matching windows or adjust activation timing in a new pre-registered milestone",
+      "if smoke passes, route to larger no-training source mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M989 design admits a minimal no-training capability-step smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The existing fault-event corpus harness can be run against the M974 public-gate base with a small current-base capability-step config while preserving the P0 actor contract.",
+  "success_criteria": [
+    "configs/m990_capability_step_fault_scenarios.json exists",
+    "summary.json exists",
+    "scenario_count > 0",
+    "snapshot_count > 0",
+    "matched_pair_count > 0",
+    "scenario_summary.csv exists",
+    "matched_cross_fault_pairs.csv exists",
+    "intervention_rollouts.csv exists",
+    "model_fidelity_limits.md exists",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false"
+  ],
+  "failure_criteria": [
+    "checkpoint/config observation compatibility fails",
+    "no snapshots or matched pairs are produced",
+    "actor parameters change",
+    "hidden fault/event labels enter actor observations",
+    "model fidelity boundary is missing",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt --config configs/m990_capability_step_fault_scenarios.json --pairing-mode cross_fault --seed-start 99000 --seed-count 64 --device auto --run-dir runs/m990_v4_public_base_capability_step_fault_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "configs/m990_capability_step_fault_scenarios.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m990_v4_public_base_capability_step_fault_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m990-v4-public-base-capability-step-fault-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m989-v4-public-base-capability-step-fault-design.md",
+    "src/autodrift/extreme_dynamics_scenario_corpus.py"
+  ],
+  "decision_rule": "M990 passes only if the no-training fault-event harness produces core artifacts and matched pairs without actor/input mutation. Accepted rows are reported but not required.",
+  "next_blocker": "capability-step fault-event smoke has not been run"
+}

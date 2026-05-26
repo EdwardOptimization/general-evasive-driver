@@ -99,6 +99,17 @@
   "baseline_artifacts": [
     "docs/m988-v4-public-base-extreme-scenario-family-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m989-v4-public-base-capability-step-fault-design.md",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "actor_input_contract_changed": false,
+    "implementation_route": "reuse existing extreme_dynamics_scenario_corpus fault-event harness for a small M974 current-base smoke before larger source mining",
+    "claim_boundary": "current single-track model supports global or axle-level capability steps and proxies only; per-wheel/asymmetric physical faults remain future dynamics extensions"
+  },
+  "decision": "capability_step_fault_design_admit_smoke",
   "decision_rule": "M989 must produce a concrete implementation route for hidden global capability-step faults without changing actor inputs or claiming unsupported per-wheel dynamics.",
-  "next_blocker": "capability-step fault semantics are not yet designed"
+  "next_blocker": "m990-v4-public-base-capability-step-fault-smoke"
 }
