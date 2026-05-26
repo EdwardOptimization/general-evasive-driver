@@ -14839,3 +14839,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M968 implements the no-training proof/generalization/behavior comparison gate for M966 alpha `1.0`. Result: `direction_target_actor_fit_promotion_gate_candidate`. Public proof replay passes `6/6`; source-diverse diagnostics pass; fresh public eval seeds `96700/96701` and moderate OOD seed `96720` show no success/termination/collision regression; behavior seeds `9505/9506/96730/96731` pass with reset/zero-all ordering retained. Training, PPO, private holdout, and promotion remain blocked.
 - decision: `direction_target_actor_fit_promotion_gate_candidate_route_to_promotion_audit`
 - next: `m969-v4-public-base-direction-target-actor-fit-promotion-audit`
+
+## 20260526T075154Z - m969-v4-public-base-direction-target-actor-fit-promotion-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m969-v4-public-base-direction-target-actor-fit-promotion-audit.md`
+- result: M969 audits M964 alpha `1.0` after M966 replay pass and M968 proof/generalization/behavior pass. Decision: `direction_target_actor_fit_promote_public_gate_base`. The new public-gate base is `runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt`. This is a public-gate base promotion only; PPO, private holdout, paper-level generalization, and real-vehicle claims remain blocked.
+- decision: `direction_target_actor_fit_promote_public_gate_base`
+- next: `m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis`

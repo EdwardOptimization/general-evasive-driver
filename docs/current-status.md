@@ -42,23 +42,23 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
-```
-
-Status: M400 promoted M399 alpha `0.05` as the current public-gate base after
-six public replay surfaces and behavior seeds passed. M487-M606 did not promote
-a new public-gate driver checkpoint.
-
-Latest replay-gate-passing actor-fit candidate:
-
-```text
 runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt
 ```
 
-Status: M966 selected M964 alpha `1.0` after `5/5` candidate alphas passed
-M267/M264 full-surface preflight. The selected candidate passed all six public
-replay surfaces, source-diverse protected diagnostics, and behavior seeds
-`9505/9506`. It is not promoted as the public-gate base.
+Status: M969 promoted M964 alpha `1.0` as the current public-gate base after
+M966 public replay/proof gates and M968 proof/generalization/behavior gates
+passed. This is a public-gate base promotion only; PPO, private holdout,
+paper-level generalization, and real-vehicle claims remain blocked.
+
+Previous public-gate base:
+
+```text
+runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
+```
+
+Status: M400 promoted M399 alpha `0.05` after six public replay surfaces and
+behavior seeds passed. M969 supersedes it with the M964 alpha `1.0` public-gate
+base.
 
 Latest active diagnostic BC checkpoint:
 
@@ -73,7 +73,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m969-v4-public-base-direction-target-actor-fit-promotion-audit
+m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -198,9 +198,15 @@ promotion-gate candidate: public proof replay passes `6/6`, source-diverse
 diagnostics pass, fresh public eval and moderate OOD eval show no material
 regression, and behavior seeds `9505/9506/96730/96731` retain reset/zero-all
 ordering. M969 should audit whether alpha `1.0` becomes the new public-gate base.
+M969 promotes alpha `1.0` as the new public-gate base and routes to M970
+post-promotion synthesis before any PPO continuation.
 
 ## Recent Evidence Line
 
+- M969 audits M966/M968 evidence and promotes M964 alpha `1.0` as the new
+  public-gate base. This supersedes M399 alpha `0.05` for subsequent public-base
+  research. PPO, private holdout, paper-level generalization, and real-vehicle
+  claims remain blocked. Next: M964-M969 post-promotion synthesis.
 - M968 implements the no-training proof/generalization/behavior comparison gate
   for alpha `1.0`. Result:
   `direction_target_actor_fit_promotion_gate_candidate`. It passes public proof

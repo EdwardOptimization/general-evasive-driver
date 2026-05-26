@@ -1,0 +1,123 @@
+{
+  "id": "m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt",
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m964-v4-public-base-direction-target-actor-fit-objective-implementation.md",
+      "docs/m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation.md",
+      "docs/m968-v4-public-base-direction-target-actor-fit-promotion-generalization-gate-implementation.md",
+      "docs/m969-v4-public-base-direction-target-actor-fit-promotion-audit.md",
+      "runs/m968_v4_public_base_direction_target_actor_fit_promotion_generalization_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m969-v4-public-base-direction-target-actor-fit-promotion-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M964-M969 direction-target actor-fit promotion branch before PPO continuation"
+    ],
+    "derived_from": [
+      "m969-v4-public-base-direction-target-actor-fit-promotion-audit",
+      "m968-v4-public-base-direction-target-actor-fit-promotion-generalization-gate-implementation"
+    ],
+    "blocked_by": [
+      "alpha_1_0 has been promoted as the public-gate base, but the branch has not been synthesized before next-branch work"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "starting PPO continuation from alpha_1_0 before post-promotion synthesis"
+    ]
+  },
+  "review_artifact": "docs/reviews/m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis.md",
+  "public_gates": [
+    "M970 must not train",
+    "M970 must not run PPO",
+    "M970 must not use private holdout",
+    "M970 must preserve the P0 actor-input contract",
+    "M970 must summarize M964-M969 evidence",
+    "M970 must decide the next branch before continuation work"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not run PPO",
+    "do not skip synthesis after promotion"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_direction_target_actor_fit",
+    "evidence_axis": "G_promotion: direction-target actor-fit branch outcome after alpha_1_0 public-base promotion",
+    "evidence_increment": "synthesizes M964-M969 and opens the next research branch",
+    "claim_scope": "process synthesis only; no training, no PPO, no private holdout, no paper-level claim",
+    "stop_condition": [
+      "stop if synthesis omits public-gate overfit risk",
+      "stop if synthesis does not distinguish public-base promotion from paper-level generalization",
+      "stop if next-branch decision is omitted"
+    ],
+    "fallback_plan": [
+      "if evidence supports continuation, open a guarded post-promotion PPO-readiness branch",
+      "if evidence is too public-row dependent, route to fresh source-surface expansion",
+      "if promotion caveats are too restrictive, route to promotion-risk audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M969 promotes alpha_1_0 as the public-gate base after M966 and M968 gates pass",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M964-M969 should be synthesized before any PPO continuation from the newly promoted alpha_1_0 public-gate base.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "evidence summary covers M964-M969",
+    "supported and falsified claims are explicit",
+    "failure taxonomy is summarized",
+    "public-gate overfit risk is assessed",
+    "next branch decision is explicit",
+    "training, PPO, and private holdout remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis omits M966 or M968 evidence",
+    "synthesis changes actor inputs",
+    "synthesis runs PPO",
+    "synthesis uses private holdout",
+    "synthesis omits next branch decision"
+  ],
+  "commands": [
+    {
+      "name": "write_synthesis",
+      "command": "Write M964-M969 post-promotion synthesis and decide the next branch."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt",
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m969-v4-public-base-direction-target-actor-fit-promotion-audit.md",
+    "runs/m968_v4_public_base_direction_target_actor_fit_promotion_generalization_gate/summary.json"
+  ],
+  "decision_rule": "M970 may only synthesize the post-promotion branch. It must not update actor parameters, run PPO, change actor inputs, use private holdout, or claim paper-level generalization.",
+  "next_blocker": "M964-M969 post-promotion synthesis has not been written"
+}
