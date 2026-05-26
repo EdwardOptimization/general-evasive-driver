@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1005-v4-public-base-temporal-sequence-update-replay-failure-audit
+m1006-v4-public-base-branch-preserving-temporal-repair-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -305,10 +305,18 @@ candidate alpha `0.2` regresses M267/M264 success-drop count `17 -> 6`; the
 smallest alpha `0.01` still regresses `17 -> 15` because rows `6` and `15`
 become wrong-history successes. The next task is M1005: audit this proof
 washout and decide whether to design a branch-preserving temporal objective
-repair or synthesize the branch. PPO remains blocked.
+repair or synthesize the branch. M1005 completes that audit and classifies the
+failure as localized wrong-history branch lift: normal success and actor
+contract are intact, but the exact temporal update makes wrong-history
+near-threshold rows safer. The next task is M1006: design a
+branch-preserving temporal repair objective before any new actor update. PPO
+remains blocked.
 
 ## Recent Evidence Line
 
+- M1005 audits M1004 as localized wrong-history branch lift proof washout. It
+  rejects contract violation, training instability, and broad normal-regression
+  explanations, and routes to branch-preserving temporal repair design.
 - M1004 implements the public replay gate for M1002 temporal candidates. It
   rejects all candidates before full replay: exact/contract pass count is `5/5`,
   but M267/M264 preflight pass count is `0/5`; alpha `0.01` still loses rows

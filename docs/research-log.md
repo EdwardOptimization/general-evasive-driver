@@ -15179,3 +15179,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1004 implements the no-training public replay gate and classifies the M1002 temporal sequence update as `proof_washout`. All `5/5` candidates pass exact/contract retention and change only `actor_mean`, but `0/5` pass M267/M264 preflight. The best exact candidate alpha `0.2` regresses success-drop count `17 -> 6`; the smallest alpha `0.01` still regresses `17 -> 15` because rows `6` and `15` become wrong-history successes. Full six-surface replay and behavior seeds are not run because the preflight has no passing candidate.
 - decision: `temporal_sequence_public_replay_gate_no_preflight_candidate_route_to_replay_failure_audit`
 - next: `m1005-v4-public-base-temporal-sequence-update-replay-failure-audit`
+
+## 20260526T171140Z - m1005-v4-public-base-temporal-sequence-update-replay-failure-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1005-v4-public-base-temporal-sequence-update-replay-failure-audit.md`
+- result: M1005 audits the M1004 preflight failure as localized wrong-history branch lift. Contract and exact gates are valid; normal success is retained for all candidate alphas. The smallest alpha `0.01` loses only rows `6` and `15`, where wrong-history margins move from lightly negative to positive while normal margins also improve. The failure is `proof_washout`, not contract violation, training instability, or broad normal-branch regression.
+- decision: `temporal_sequence_replay_failure_audit_route_to_branch_preserving_temporal_repair_design`
+- next: `m1006-v4-public-base-branch-preserving-temporal-repair-design`

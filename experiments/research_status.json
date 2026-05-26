@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1013,
+    "completed": 1014,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1004-v4-public-base-temporal-sequence-update-public-replay-gate",
+    "task_id": "m1005-v4-public-base-temporal-sequence-update-replay-failure-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/summary.json"
+    "command_log": "docs/m1005-v4-public-base-temporal-sequence-update-replay-failure-audit.md"
   },
   "next_task": {
-    "id": "m1005-v4-public-base-temporal-sequence-update-replay-failure-audit",
+    "id": "m1006-v4-public-base-branch-preserving-temporal-repair-design",
     "status": "pending",
-    "priority": 10000,
-    "kind": "gate",
-    "hypothesis": "M1004 failed because the actor_mean-only temporal objective lifts wrong-history near-threshold public proof rows, not because of actor contract changes or broad normal-branch regression",
-    "command": "see experiments/manifests/m1005-v4-public-base-temporal-sequence-update-replay-failure-audit.json",
-    "success_artifact": "docs/m1005-v4-public-base-temporal-sequence-update-replay-failure-audit.md",
-    "notes": "Pending: classify M1004 proof washout and decide branch-preserving objective repair versus synthesis"
+    "priority": 10010,
+    "kind": "infrastructure",
+    "hypothesis": "A branch-preserving temporal repair design can combine M997 temporal sequence positives with M267/M264 wrong-history proof retention before any further actor update",
+    "command": "see experiments/manifests/m1006-v4-public-base-branch-preserving-temporal-repair-design.json",
+    "success_artifact": "docs/m1006-v4-public-base-branch-preserving-temporal-repair-design.md",
+    "notes": "Pending: design temporal objective repair that preserves M267/M264 wrong-history branch before another actor update"
   },
-  "updated_at_utc": "20260526T170617Z"
+  "updated_at_utc": "20260526T171140Z"
 }

@@ -102,6 +102,26 @@
     "docs/m1004-v4-public-base-temporal-sequence-update-public-replay-gate.md",
     "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1005-v4-public-base-temporal-sequence-update-replay-failure-audit.md",
+    "result_class": "temporal_sequence_replay_failure_audit_proof_washout",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "subtype": "wrong_history_branch_lift",
+    "smallest_alpha": 0.01,
+    "smallest_alpha_success_drop_count": 15,
+    "smallest_alpha_lost_rows": [
+      6,
+      15
+    ],
+    "contract_violation": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "temporal_sequence_replay_failure_audit_route_to_branch_preserving_temporal_repair_design",
   "decision_rule": "M1005 should route to objective repair only if the failure is localized proof washout and not a contract or tool artifact.",
-  "next_blocker": "m1005-v4-public-base-temporal-sequence-update-replay-failure-audit"
+  "next_blocker": "m1006-v4-public-base-branch-preserving-temporal-repair-design"
 }
