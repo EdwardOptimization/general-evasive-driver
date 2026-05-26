@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1003,
+    "completed": 1004,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m994-v4-public-base-capability-step-sequence-intervention-probe",
+    "task_id": "m995-v4-public-base-capability-step-temporal-history-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/summary.json"
+    "command_log": "docs/m995-v4-public-base-capability-step-temporal-history-audit.md"
   },
   "next_task": {
-    "id": "m995-v4-public-base-capability-step-temporal-history-audit",
+    "id": "m996-v4-public-base-temporal-sequence-corpus-export-design",
     "status": "pending",
-    "priority": 9900,
-    "kind": "gate",
-    "hypothesis": "M994 provides useful temporal-history evidence, but the project must audit claim scope and route before exporting a corpus or training",
-    "command": "see experiments/manifests/m995-v4-public-base-capability-step-temporal-history-audit.json",
-    "success_artifact": "docs/m995-v4-public-base-capability-step-temporal-history-audit.md",
-    "notes": "Pending: audit M994 temporal-history positive evidence and choose export/redesign/synthesis route"
+    "priority": 9910,
+    "kind": "infrastructure",
+    "hypothesis": "M994 temporal accepted rows can be converted into a structured, exact-auditable sequence corpus without changing actor inputs or overclaiming cross-fault self-ID",
+    "command": "see experiments/manifests/m996-v4-public-base-temporal-sequence-corpus-export-design.json",
+    "success_artifact": "docs/m996-v4-public-base-temporal-sequence-corpus-export-design.md",
+    "notes": "Pending: design temporal sequence corpus export and exact objective sanity before implementation, training, or PPO"
   },
-  "updated_at_utc": "20260526T141742Z"
+  "updated_at_utc": "20260526T143355Z"
 }

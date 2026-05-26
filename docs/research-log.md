@@ -15085,3 +15085,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M994 implements the trace-window sequence intervention probe. After correcting the result taxonomy, the run is `sequence_temporal_history_positive`: `277` accepted temporal sequence rows, `0` accepted cross-fault sequence rows, `1442` action-critical rows, `9` accepted fault pairs, and `17` accepted seeds. The accepted variants are `reset_then_warm_history` (`253`) and `delayed_capability_history` (`24`); cross-fault response/action-response mismatch variants have zero accepted rows. Actor parameters are unchanged and no training/PPO/promotion occurs.
 - decision: `sequence_temporal_history_positive_route_to_audit`
 - next: `m995-v4-public-base-capability-step-temporal-history-audit`
+
+## 20260526T143355Z - m995-v4-public-base-capability-step-temporal-history-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m995-v4-public-base-capability-step-temporal-history-audit.md`
+- result: M995 separates M994's evidence into a positive temporal-history claim and a blocked cross-fault wrong-history claim. M994 has `277` temporal accepted rows across `9` fault pairs and `17` seeds, but `0` cross-fault accepted rows. Accepted temporal variants are `reset_then_warm_history` and `delayed_capability_history`; cross-fault/action-response mismatch variants remain diagnostic-only.
+- decision: `route_to_temporal_sequence_corpus_export_design`
+- next: `m996-v4-public-base-temporal-sequence-corpus-export-design`

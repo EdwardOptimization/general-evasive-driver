@@ -1,0 +1,114 @@
+{
+  "id": "m996-v4-public-base-temporal-sequence-corpus-export-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m995-v4-public-base-capability-step-temporal-history-audit.md",
+      "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/summary.json",
+      "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/accepted_sequence_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m995-v4-public-base-capability-step-temporal-history-audit.json",
+      "experiments/manifests/m994-v4-public-base-capability-step-sequence-intervention-probe.json",
+      "configs/m991_capability_step_fault_source_wave.json"
+    ],
+    "parent_objective": [
+      "design an exact-auditable temporal sequence corpus export for M994 temporal accepted rows"
+    ],
+    "derived_from": [
+      "m995-v4-public-base-capability-step-temporal-history-audit",
+      "m994-v4-public-base-capability-step-sequence-intervention-probe"
+    ],
+    "blocked_by": [
+      "M995 routes source-diverse temporal-history evidence to corpus export design while cross-fault positives remain absent"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "training directly from M994 CSV metrics",
+      "treating cross-fault zero variants as positive targets"
+    ]
+  },
+  "review_artifact": "docs/reviews/m996-v4-public-base-temporal-sequence-corpus-export-design.md",
+  "public_gates": [
+    "M996 must not run PPO",
+    "M996 must not promote",
+    "M996 must not change actor inputs",
+    "M996 must design exact objective sanity before any objective update",
+    "M996 must keep cross-fault zero variants diagnostic-only"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not train or optimize actor parameters",
+    "do not use private holdout",
+    "do not claim cross-fault wrong-history self-identification",
+    "do not export cross-fault zero variants as positives",
+    "do not proceed to PPO"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_capability_step_fault_generation",
+    "evidence_axis": "G_temporal_history: exact-auditable corpus export design",
+    "evidence_increment": "turns M995 route decision into a concrete corpus schema, source-diversity gate, and exact objective sanity plan before implementation",
+    "claim_scope": "design/infrastructure only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if the design cannot separate temporal positives from cross-fault diagnostics",
+      "stop if exact objective sanity would require hidden labels as actor inputs",
+      "stop if the corpus cannot preserve source metadata and sequence masks"
+    ],
+    "fallback_plan": [
+      "if temporal corpus schema is insufficient, add a trace exporter design before implementation",
+      "if source diversity is too narrow after schema constraints, synthesize branch before training",
+      "if exact objective sanity is ambiguous, run a no-training corpus dry-run before actor objective design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M995 routes temporal-history evidence to corpus export design",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M994 temporal accepted rows can be converted into a structured, exact-auditable sequence corpus without changing actor inputs or overclaiming cross-fault self-ID.",
+  "success_criteria": [
+    "design artifact exists",
+    "positive rows are limited to reset_then_warm_history and delayed_capability_history",
+    "cross-fault/action-response mismatch zero variants are diagnostic-only",
+    "schema includes normal/variant observations, hidden states, actions, masks, gaps, and source metadata",
+    "exact objective sanity and source-diversity gates are defined",
+    "no training or PPO occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "cross-fault zero variants are treated as positive targets",
+    "hidden event labels enter actor observations",
+    "exact objective sanity is omitted",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m996-v4-public-base-temporal-sequence-corpus-export-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m996-v4-public-base-temporal-sequence-corpus-export-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m995-v4-public-base-capability-step-temporal-history-audit.md",
+    "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/summary.json",
+    "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/accepted_sequence_rows.csv"
+  ],
+  "decision_rule": "M996 must produce a design that lets a later implementation export exact sequence tensors and run no-update objective sanity before any actor training.",
+  "next_blocker": "m996-v4-public-base-temporal-sequence-corpus-export-design"
+}

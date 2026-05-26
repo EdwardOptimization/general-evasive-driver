@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m995-v4-public-base-capability-step-temporal-history-audit
+m996-v4-public-base-temporal-sequence-corpus-export-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -283,12 +283,16 @@ implement/run a trace-window sequence intervention probe using M991 reset-only
 rows. M994 implements and runs that probe. The corrected result is
 `sequence_temporal_history_positive`: `277` accepted temporal sequence rows
 across `9` fault pairs and `17` seeds, but `0` accepted cross-fault sequence
-rows. The next task is M995: audit claim scope and decide whether to export a
-temporal-history corpus, redesign cross-fault mismatch, or synthesize. Training
-and PPO remain blocked.
+rows. M995 audits the claim scope: M994 is temporal-history positive but not
+cross-fault wrong-history positive. The next task is M996: design an
+exact-auditable temporal sequence corpus export before implementation,
+objective update, training, or PPO. Training and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M995 audits M994 and routes to temporal sequence corpus export design. The
+  allowed claim is temporal-history dependence in capability-step scenarios;
+  the blocked claim remains source-diverse cross-fault wrong-history self-ID.
 - M994 implements the trace-window sequence probe. Result:
   `sequence_temporal_history_positive`, not cross-fault positive. Accepted rows
   come from `reset_then_warm_history` and `delayed_capability_history`; cross-

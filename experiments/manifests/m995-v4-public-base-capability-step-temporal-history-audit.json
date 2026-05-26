@@ -105,6 +105,19 @@
     "docs/m994-v4-public-base-capability-step-sequence-intervention-probe.md",
     "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m995-v4-public-base-capability-step-temporal-history-audit.md",
+    "accepted_temporal_sequence_rows": 277,
+    "accepted_cross_fault_sequence_rows": 0,
+    "unique_temporal_accepted_fault_pairs": 9,
+    "unique_temporal_accepted_seeds": 17,
+    "claim_scope": "temporal-history positive, not cross-fault wrong-history positive",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "route_to_temporal_sequence_corpus_export_design",
   "decision_rule": "M995 must decide whether M994 temporal-history evidence can be exported as a corpus or whether the branch must redesign cross-fault mismatch first.",
-  "next_blocker": "capability-step temporal-history evidence has not been audited"
+  "next_blocker": "m996-v4-public-base-temporal-sequence-corpus-export-design"
 }
