@@ -14753,3 +14753,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M959 designs the no-training direction-family target audit after M958. It promotes no checkpoint and blocks actor training, PPO, threshold relaxation, private holdout, and actor-input changes. The design makes `throttle_minus`, `brake_plus`, `toward_intervention`, and `steer_minus_brake_plus` primary target families; keeps `steer_minus` and `steer_plus_brake_plus` secondary; and treats `away_from_intervention`, `throttle_plus`, `brake_minus`, and `steer_plus` as diagnostic-only unless row-specific terminal-margin evidence justifies otherwise. M960 must check normal retention, terminal-margin behavior grounding, low-tail metric compatibility, and M267/M264 branch-separated proof retention before any actor fitting.
 - decision: `low_tail_direction_family_target_audit_design_admit_m960`
 - next: `m960-v4-public-base-low-tail-direction-family-target-audit-implementation`
+
+## 20260526T030821Z - m960-v4-public-base-low-tail-direction-family-target-audit-implementation
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m960_v4_public_base_low_tail_direction_family_target_audit`
+- artifact: `docs/m960-v4-public-base-low-tail-direction-family-target-audit-implementation.md`
+- result: M960 implements the no-training direction-family target audit. It evaluates `50` target families from `10` direction families and amplitudes `0.001/0.002/0.004/0.006/0.008` over `64` low-tail rows. Result: `low_tail_direction_family_target_audit_joint_candidate`, with `20` joint candidates, all from primary behavior-improving families. Best candidate is `throttle_minus_amp_0_0080`; diagnostic-only anti-aligned families are not accepted.
+- decision: `low_tail_direction_family_target_audit_joint_candidate_route_to_export_objective_design`
+- next: `m961-v4-public-base-direction-target-export-actor-fit-objective-design`

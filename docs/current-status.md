@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m960-v4-public-base-low-tail-direction-family-target-audit-implementation
+m961-v4-public-base-direction-target-export-actor-fit-objective-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -151,9 +151,21 @@ families before any actor training. M959 completes that design. It makes
 `away_from_intervention` diagnostic-only. M960 should implement the no-training
 direction-family target audit and require normal retention, terminal-margin
 behavior grounding, and M267/M264 proof retention before any actor update.
+M960 implements that audit and finds `20` joint direction-target candidates, all
+from primary behavior-improving families. The best candidate is
+`throttle_minus_amp_0_0080`. M961 should design a branch-separated target export
+and actor-fit objective before any training.
 
 ## Recent Evidence Line
 
+- M960 implements the direction-family target audit. It evaluates `50` target
+  families from `10` direction families over `64` low-tail rows and active
+  M267/M264 rows `6/13/15/16`. Result:
+  `low_tail_direction_family_target_audit_joint_candidate`, with `20` joint
+  candidates and `20` primary candidates. Best candidate:
+  `throttle_minus_amp_0_0080`. Anti-aligned diagnostic-only families are not
+  accepted. M961 should design target export and actor-fit objective before
+  training.
 - M959 designs the low-tail direction-family target audit. It blocks training,
   PPO, promotion, private holdout, threshold relaxation, and actor-input
   changes. Primary target families are `throttle_minus`, `brake_plus`,

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 968,
+    "completed": 969,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m959-v4-public-base-low-tail-direction-family-target-audit-design",
+    "task_id": "m960-v4-public-base-low-tail-direction-family-target-audit-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m959-v4-public-base-low-tail-direction-family-target-audit-design.md"
+    "command_log": "runs/m960_v4_public_base_low_tail_direction_family_target_audit/summary.json"
   },
   "next_task": {
-    "id": "m960-v4-public-base-low-tail-direction-family-target-audit-implementation",
+    "id": "m961-v4-public-base-direction-target-export-actor-fit-objective-design",
     "status": "pending",
-    "priority": 9550,
-    "kind": "gate",
-    "hypothesis": "Behavior-improving direction families from M958 can yield at least one normal-retained, proof-retained target candidate before actor training",
-    "command": "see experiments/manifests/m960-v4-public-base-low-tail-direction-family-target-audit-implementation.json",
-    "success_artifact": "runs/m960_v4_public_base_low_tail_direction_family_target_audit/summary.json",
-    "notes": "Pending: implement no-training target audit for behavior-improving direction families from M958"
+    "priority": 9560,
+    "kind": "infrastructure",
+    "hypothesis": "M960 accepted direction-target candidates can be exported into a branch-separated target corpus and used to design a constrained actor-fit objective before any training",
+    "command": "see experiments/manifests/m961-v4-public-base-direction-target-export-actor-fit-objective-design.json",
+    "success_artifact": "docs/m961-v4-public-base-direction-target-export-actor-fit-objective-design.md",
+    "notes": "Pending: design target export and actor-fit objective for M960 joint direction-target candidates"
   },
-  "updated_at_utc": "20260526T023006Z"
+  "updated_at_utc": "20260526T030821Z"
 }
