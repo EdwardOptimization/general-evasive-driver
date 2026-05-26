@@ -2,7 +2,7 @@
   "id": "m1022-v4-public-base-candidate-b-promotion-generalization-gate",
   "type": "gate",
   "gate_tier": "promotion",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -107,6 +107,28 @@
     "docs/m1021-v4-public-base-candidate-b-promotion-generalization-design.md",
     "runs/m1019_v4_public_base_m1013_candidate_b_full_replay_gate/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1022_v4_public_base_candidate_b_promotion_generalization_gate/summary.json",
+    "report": "docs/m1022-v4-public-base-candidate-b-promotion-generalization-gate.md",
+    "decision": "candidate_b_promotion_gate_candidate_route_to_promotion_audit",
+    "result_class": "candidate_b_promotion_gate_candidate",
+    "exact_contract_pass_count": 1,
+    "proof_pass": true,
+    "source_diverse_pass": true,
+    "fresh_generalization_comparison_count": 2,
+    "ood_generalization_comparison_count": 1,
+    "generalization_pass": true,
+    "behavior_seed_count": 4,
+    "behavior_pass": true,
+    "actor_inputs_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1023-v4-public-base-candidate-b-promotion-audit"
+  },
+  "decision": "candidate_b_promotion_gate_candidate_route_to_promotion_audit",
   "decision_rule": "M1022 may only classify Candidate B as a promotion-audit candidate; actual promotion must be a separate milestone.",
-  "next_blocker": "m1022-v4-public-base-candidate-b-promotion-generalization-gate"
+  "next_blocker": "m1023-v4-public-base-candidate-b-promotion-audit"
 }

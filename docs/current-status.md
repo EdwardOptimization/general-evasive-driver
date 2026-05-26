@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1022-v4-public-base-candidate-b-promotion-generalization-gate
+m1023-v4-public-base-candidate-b-promotion-audit
 ```
 
 M1019 passed the full public gate for Candidate B `m1013_lam0030_a050`.
@@ -89,10 +89,13 @@ The live blocker is now workflow cadence, not Candidate B replay evidence:
 M1020 synthesized M1010-M1019 and closed the local temporal sequence objective
 repair loop. Candidate B is now a full public-gate candidate, but not a
 promoted public base. M1021 designed the separate promotion/generalization
-audit. M1022 must now run that no-training gate: recompute exact retention,
-rerun proof replay/source-diverse diagnostics, evaluate fresh public and
-moderate-OOD seeds, run behavior/ablation retention, and route to either a
-promotion audit or a tier-specific failure audit.
+audit, and M1022 passed it. Candidate B is now a promotion-audit candidate:
+exact retention, proof replay, source-diverse diagnostics, fresh public,
+moderate-OOD, and behavior/ablation tiers all passed without training, PPO,
+private holdout, or actor-input change. M1023 must decide whether Candidate B
+replaces M974 as the current public-gate base. That promotion, if accepted, is
+public-gate status only and must not claim private holdout, paper-level, or
+real-vehicle evidence.
 
 ### Historical Trace
 

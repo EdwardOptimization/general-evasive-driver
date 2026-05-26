@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1030,
+    "completed": 1031,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1021-v4-public-base-candidate-b-promotion-generalization-design",
+    "task_id": "m1022-v4-public-base-candidate-b-promotion-generalization-gate",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1021-v4-public-base-candidate-b-promotion-generalization-design.md"
+    "command_log": "runs/m1022_v4_public_base_candidate_b_promotion_generalization_gate/summary.json"
   },
   "next_task": {
-    "id": "m1022-v4-public-base-candidate-b-promotion-generalization-gate",
+    "id": "m1023-v4-public-base-candidate-b-promotion-audit",
     "status": "pending",
-    "priority": 10170,
+    "priority": 10180,
     "kind": "gate",
-    "hypothesis": "Candidate B can pass a no-training promotion/generalization gate against the M974 public base after passing M1019 full public replay",
-    "command": "see experiments/manifests/m1022-v4-public-base-candidate-b-promotion-generalization-gate.json",
-    "success_artifact": "runs/m1022_v4_public_base_candidate_b_promotion_generalization_gate/summary.json",
-    "notes": "Pending: run exact, proof replay, fresh public, moderate-OOD, behavior, and promotion-candidate gate without promotion"
+    "hypothesis": "Candidate B should replace M974 as the current public-gate base if M1019 and M1022 evidence is complete and promotion remains scoped to public-gate status",
+    "command": "see experiments/manifests/m1023-v4-public-base-candidate-b-promotion-audit.json",
+    "success_artifact": "docs/m1023-v4-public-base-candidate-b-promotion-audit.md",
+    "notes": "Pending: audit whether Candidate B replaces M974 as current public-gate base without PPO, private holdout, or paper-level claims"
   },
-  "updated_at_utc": "20260526T201020Z"
+  "updated_at_utc": "20260526T202013Z"
 }

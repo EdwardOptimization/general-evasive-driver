@@ -1,0 +1,107 @@
+{
+  "id": "m1023-v4-public-base-candidate-b-promotion-audit",
+  "type": "gate",
+  "gate_tier": "promotion",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1019_v4_public_base_m1013_candidate_b_full_replay_gate/summary.json",
+      "runs/m1022_v4_public_base_candidate_b_promotion_generalization_gate/summary.json",
+      "docs/m1022-v4-public-base-candidate-b-promotion-generalization-gate.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1022-v4-public-base-candidate-b-promotion-generalization-gate.json"
+    ],
+    "parent_objective": [
+      "audit whether Candidate B should replace M974 as the current public-gate base"
+    ],
+    "derived_from": [
+      "m1022-v4-public-base-candidate-b-promotion-generalization-gate"
+    ],
+    "blocked_by": [
+      "Candidate B passed promotion/generalization gates but has not been explicitly promoted or rejected"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "using Candidate B as the public base before explicit promotion audit"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1023-v4-public-base-candidate-b-promotion-audit.md",
+  "public_gates": [
+    "M1023 must audit M1019 and M1022 evidence",
+    "M1023 must decide promote or reject for public-gate base status",
+    "M1023 must not train or run PPO",
+    "M1023 must not use private holdout",
+    "M1023 must preserve actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote without updating current status and scoreboard lineage",
+    "do not claim paper-level generalization"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_candidate_b_promotion_generalization",
+    "evidence_axis": "G_promotion: Candidate B public-base promotion audit",
+    "evidence_increment": "decides whether Candidate B becomes the current public-gate base after M1022 candidate pass",
+    "claim_scope": "public-base promotion audit only; no PPO, no private holdout, no paper-level claim",
+    "stop_condition": [
+      "stop if promotion evidence is incomplete",
+      "stop if lineage or actor contract is ambiguous",
+      "stop if current-status update would overclaim private or paper-level evidence"
+    ],
+    "fallback_plan": [
+      "if evidence is accepted, promote Candidate B as public-gate base and route to post-promotion synthesis/readiness",
+      "if evidence is incomplete, reject promotion and route to the missing audit tier",
+      "if overfit risk is too high, require fresh surface refresh before promotion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1022 classifies Candidate B as promotion-audit candidate",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Candidate B should replace M974 as the current public-gate base if M1019 and M1022 evidence is complete and promotion remains scoped to public-gate status.",
+  "success_criteria": [
+    "promotion audit artifact exists",
+    "M1019 and M1022 evidence are summarized",
+    "promotion decision is explicit",
+    "current-status and scoreboard lineage are updated if promoted",
+    "PPO, private holdout, and paper-level claims remain blocked"
+  ],
+  "failure_criteria": [
+    "promotion decision is missing",
+    "promotion occurs without current-status update",
+    "private holdout is used",
+    "PPO starts",
+    "paper-level generalization is claimed"
+  ],
+  "commands": [
+    {
+      "name": "promotion_audit",
+      "command": "write docs/m1023-v4-public-base-candidate-b-promotion-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1023-v4-public-base-candidate-b-promotion-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1022_v4_public_base_candidate_b_promotion_generalization_gate/summary.json",
+    "docs/m1022-v4-public-base-candidate-b-promotion-generalization-gate.md"
+  ],
+  "decision_rule": "M1023 must explicitly promote or reject Candidate B as the public-gate base; promotion is public-gate status only.",
+  "next_blocker": "m1023-v4-public-base-candidate-b-promotion-audit"
+}

@@ -15337,3 +15337,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1021 designs the no-training Candidate B promotion/generalization gate. The next gate must recompute exact temporal retention, rerun proof replay and source-diverse diagnostics, run fresh public seeds `102100/102101`, run moderate-OOD seed `102120`, retain behavior/ablation seeds `9505/9506/102130/102131`, and classify Candidate B as a promotion-audit candidate or a tier-specific failure. M1021 does not promote, train, run PPO, use private holdout, or change actor inputs.
 - decision: `candidate_b_promotion_generalization_design_admit_m1022_gate`
 - next: `m1022-v4-public-base-candidate-b-promotion-generalization-gate`
+
+## 20260526T202013Z - m1022-v4-public-base-candidate-b-promotion-generalization-gate
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m1022_v4_public_base_candidate_b_promotion_generalization_gate`
+- artifact: `docs/m1022-v4-public-base-candidate-b-promotion-generalization-gate.md`
+- result: M1022 classifies Candidate B as `candidate_b_promotion_gate_candidate`. Exact temporal retention passes `1/1`; six public proof replay surfaces pass `6/6`; source-diverse diagnostics pass `3/3`; fresh public seeds `102100/102101` and moderate-OOD seed `102120` all match M974 success and improve margin slightly; behavior seeds `9505/9506/102130/102131` retain normal >= reset >= zero-all ordering. No training, PPO, promotion, private holdout, or actor-input change occurs.
+- decision: `candidate_b_promotion_gate_candidate_route_to_promotion_audit`
+- next: `m1023-v4-public-base-candidate-b-promotion-audit`
