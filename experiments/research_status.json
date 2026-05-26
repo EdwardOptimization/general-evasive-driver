@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 959,
+    "completed": 960,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m950-v4-public-base-rejected-branch-retention-objective-conflict-audit",
+    "task_id": "m951-v4-public-base-rejected-branch-boundary-retune-probe",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m950-v4-public-base-rejected-branch-retention-objective-conflict-audit.md"
+    "command_log": "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/summary.json"
   },
   "next_task": {
-    "id": "m951-v4-public-base-rejected-branch-boundary-retune-probe",
+    "id": "m952-v4-public-base-controlled-fusion-branch-synthesis-2",
     "status": "pending",
-    "priority": 9460,
-    "kind": "infrastructure",
-    "hypothesis": "Training the rejected-branch retention objective at lower boundary alphas may create overlap between exact low-tail compatibility and M267/M264 preflight",
-    "command": "see experiments/manifests/m951-v4-public-base-rejected-branch-boundary-retune-probe.json",
-    "success_artifact": "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/summary.json",
-    "notes": "Pending: run exactly one bounded lower-boundary retune; failure routes to synthesis or trajectory-target export, not another local tweak"
+    "priority": 9470,
+    "kind": "gate",
+    "hypothesis": "The controlled-fusion local objective branch has enough evidence to decide whether to stop local retuning and pivot to a new branch",
+    "command": "see experiments/manifests/m952-v4-public-base-controlled-fusion-branch-synthesis-2.json",
+    "success_artifact": "docs/m952-v4-public-base-controlled-fusion-branch-synthesis-2.md",
+    "notes": "Pending: synthesize M942-M951 before any further local objective, trainable-surface, replay, PPO, or promotion"
   },
-  "updated_at_utc": "20260526T001914Z"
+  "updated_at_utc": "20260526T002455Z"
 }

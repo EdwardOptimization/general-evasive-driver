@@ -494,6 +494,7 @@ def run_rejected_branch_retention_probe(
     train_alphas: tuple[float, ...] = DEFAULT_TRAIN_ALPHAS,
     alphas: tuple[float, ...] = DEFAULT_REPAIR_ALPHAS,
     active_row_ids: tuple[int, ...] = DEFAULT_ACTIVE_ROW_IDS,
+    loss_coefficients: dict[str, float] | None = None,
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     scenario_config = load_scenario_config(scenario_config_path)
@@ -560,6 +561,7 @@ def run_rejected_branch_retention_probe(
                 seed=seed,
                 lr=lr,
                 train_alphas=train_alphas,
+                loss_coefficients=loss_coefficients,
             )
             raw_state = _clone_state_dict(model)
             m912_summary = read_json(m912_summary_path)
@@ -683,7 +685,7 @@ def run_rejected_branch_retention_probe(
         "lr": float(lr),
         "train_alphas": [float(alpha) for alpha in train_alphas],
         "alphas": [float(alpha) for alpha in alphas],
-        "loss_coefficients": DEFAULT_LOSS_COEFFICIENTS,
+        "loss_coefficients": dict(DEFAULT_LOSS_COEFFICIENTS if loss_coefficients is None else loss_coefficients),
         "exact_candidate_alpha_count": int(len(exact_candidate_rows)),
         "exact_candidate_alphas": [float(row.get("alpha")) for row in exact_candidate_rows],
         "m267_preflight_pass_alpha_count": int(len(preflight_pass_alphas)),
@@ -746,7 +748,41 @@ def main() -> None:
     parser.add_argument("--train-alphas", type=_parse_float_list, default=DEFAULT_TRAIN_ALPHAS)
     parser.add_argument("--alphas", type=_parse_float_list, default=DEFAULT_REPAIR_ALPHAS)
     parser.add_argument("--active-row-ids", type=lambda raw: tuple(int(item) for item in raw.split(",") if item), default=DEFAULT_ACTIVE_ROW_IDS)
+    parser.add_argument("--boundary-deficit-coef", type=float, default=DEFAULT_LOSS_COEFFICIENTS["boundary_deficit_loss"])
+    parser.add_argument("--boundary-gap-floor-coef", type=float, default=DEFAULT_LOSS_COEFFICIENTS["boundary_gap_floor_loss"])
+    parser.add_argument("--normal-retention-coef", type=float, default=DEFAULT_LOSS_COEFFICIENTS["normal_retention_hinge"])
+    parser.add_argument("--normal-anchor-coef", type=float, default=DEFAULT_LOSS_COEFFICIENTS["normal_anchor_mse"])
+    parser.add_argument("--intervention-anchor-coef", type=float, default=DEFAULT_LOSS_COEFFICIENTS["intervention_anchor_mse"])
+    parser.add_argument("--target-action-coef", type=float, default=DEFAULT_LOSS_COEFFICIENTS["target_action_loss"])
+    parser.add_argument(
+        "--rejected-wrong-action-anchor-coef",
+        type=float,
+        default=DEFAULT_LOSS_COEFFICIENTS["rejected_wrong_action_anchor"],
+    )
+    parser.add_argument(
+        "--rejected-wrong-separation-coef",
+        type=float,
+        default=DEFAULT_LOSS_COEFFICIENTS["rejected_wrong_separation_floor"],
+    )
+    parser.add_argument(
+        "--rejected-wrong-direction-coef",
+        type=float,
+        default=DEFAULT_LOSS_COEFFICIENTS["rejected_wrong_direction_anchor"],
+    )
+    parser.add_argument("--parameter-anchor-coef", type=float, default=DEFAULT_LOSS_COEFFICIENTS["allowed_parameter_anchor"])
     args = parser.parse_args()
+    loss_coefficients = {
+        "boundary_deficit_loss": float(args.boundary_deficit_coef),
+        "boundary_gap_floor_loss": float(args.boundary_gap_floor_coef),
+        "normal_retention_hinge": float(args.normal_retention_coef),
+        "normal_anchor_mse": float(args.normal_anchor_coef),
+        "intervention_anchor_mse": float(args.intervention_anchor_coef),
+        "target_action_loss": float(args.target_action_coef),
+        "rejected_wrong_action_anchor": float(args.rejected_wrong_action_anchor_coef),
+        "rejected_wrong_separation_floor": float(args.rejected_wrong_separation_coef),
+        "rejected_wrong_direction_anchor": float(args.rejected_wrong_direction_coef),
+        "allowed_parameter_anchor": float(args.parameter_anchor_coef),
+    }
     summary = run_rejected_branch_retention_probe(
         checkpoint_path=args.checkpoint,
         positive_rows_path=args.positive_rows,
@@ -765,6 +801,7 @@ def main() -> None:
         train_alphas=tuple(args.train_alphas),
         alphas=tuple(args.alphas),
         active_row_ids=tuple(args.active_row_ids),
+        loss_coefficients=loss_coefficients,
     )
     for key, value in summary.items():
         if isinstance(value, (str, int, float, bool)):

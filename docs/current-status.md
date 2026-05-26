@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m951-v4-public-base-rejected-branch-boundary-retune-probe
+m952-v4-public-base-controlled-fusion-branch-synthesis-2
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -108,10 +108,21 @@ zero exact candidates because low alphas lack tail lift and higher alphas break
 normal retention or M267 proof. The current blocker is the M950 objective
 conflict audit. M950 classifies this as a real alpha-boundary conflict and
 admits exactly one bounded lower-boundary retune before synthesis or trajectory
-target export.
+target export. M951 runs that retune and improves M267 preflight to `13` pass
+alphas, but exact candidates remain `0`: proof retention is now mostly solved,
+while normal-retention and low-tail lift still do not overlap. The branch must
+synthesize before any further local objective or trainable-surface change.
 
 ## Recent Evidence Line
 
+- M951 runs the one bounded lower-boundary retune allowed by M950. M267/M264
+  preflight improves to `13` pass alphas, including all alphas `0.005` through
+  `0.150`, while forbidden parameters remain unchanged. Exact candidate count
+  is still `0`: alphas up to `0.050` retain normal behavior but do not tail-lift,
+  and alphas `0.0675+` tail-lift but fail normal retention. This exhausts local
+  controlled-fusion objective retuning; M952 must synthesize M942-M951 before
+  any further objective, wider trainable surface, full replay, PPO, or
+  promotion.
 - M950 audits M949 and admits one bounded retune. The rejected-branch proxy is
   live, but M949 trained at inherited high alphas `0.125/0.150/0.175`. Low
   alphas `0.005/0.010` preserve M267 proof but are too small for low-tail lift;

@@ -4,7 +4,7 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -107,5 +107,5 @@
     "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/summary.json"
   ],
   "decision_rule": "M951 is the only allowed local retune after M949. It must not run PPO or promote; failure routes to synthesis or trajectory-target export.",
-  "next_blocker": "bounded lower-boundary retune has not been run"
+  "next_blocker": "m952-v4-public-base-controlled-fusion-branch-synthesis-2"
 }

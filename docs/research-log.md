@@ -14668,3 +14668,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M950 audits M949 as a real alpha-boundary objective conflict. Low alphas `0.005` and `0.010` preserve M267 proof but are too small to lift low-tail metrics. Alphas `0.100+` lift low-tail metrics but fail normal retention, and M267 proof is non-monotonic. The current proxy terms are live, but M949 inherited high train alphas `0.125/0.150/0.175`; the conflict is concentrated around `0.075-0.100`.
 - decision: `rejected_branch_retention_conflict_audit_admit_one_boundary_retune`
 - next: `m951-v4-public-base-rejected-branch-boundary-retune-probe`
+
+## 20260526T002455Z - m951-v4-public-base-rejected-branch-boundary-retune-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m951_v4_public_base_rejected_branch_boundary_retune_probe`
+- artifact: `docs/m951-v4-public-base-rejected-branch-boundary-retune-probe.md`
+- result: M951 runs the one bounded lower-boundary retune admitted by M950. It trains at alphas `0.0675/0.075/0.090/0.100`, records explicit coefficients, reconstructs all rows, changes only `actor_mean` plus `response_context_fusion.0`, and keeps forbidden parameters unchanged. M267/M264 preflight improves to `13` pass alphas, including every alpha from `0.005` through `0.150`. But exact candidate count remains `0`: alphas up to `0.050` retain normal behavior but do not tail-lift; alphas `0.0675+` tail-lift but fail normal retention. Result class remains `controlled_fusion_rejected_branch_retention_objective_conflict`.
+- decision: `rejected_branch_boundary_retune_objective_conflict_route_to_branch_synthesis`
+- next: `m952-v4-public-base-controlled-fusion-branch-synthesis-2`
