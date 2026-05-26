@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1044,
+    "completed": 1045,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis",
+    "task_id": "m1036-v4-public-base-candidate-b-combined-active-set-repair-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis.md"
+    "command_log": "docs/m1036-v4-public-base-candidate-b-combined-active-set-repair-design.md"
   },
   "next_task": {
-    "id": "m1036-v4-public-base-candidate-b-combined-active-set-repair-design",
+    "id": "m1037-v4-public-base-candidate-b-combined-active-set-anchor-export",
     "status": "pending",
-    "priority": 10310,
-    "kind": "gate",
-    "hypothesis": "Design combined active-set repair/projection using M293 rejected-history trajectory anchor plus M1034 M183 row16 normal trajectory anchor",
-    "command": "see experiments/manifests/m1036-v4-public-base-candidate-b-combined-active-set-repair-design.json",
-    "success_artifact": "docs/m1036-v4-public-base-candidate-b-combined-active-set-repair-design.md",
-    "notes": "Pending: design only no PPO no repair no promotion no private holdout"
+    "priority": 10320,
+    "kind": "infrastructure",
+    "hypothesis": "Export source-namespaced family-normalized combined anchors from M293 rejected-history trajectory data and M1034 M183 row16 normal trajectory data",
+    "command": "see experiments/manifests/m1037-v4-public-base-candidate-b-combined-active-set-anchor-export.json",
+    "success_artifact": "runs/m1037_candidate_b_combined_active_set_anchor_export/summary.json",
+    "notes": "Pending: no-update anchor export only no PPO no repair no promotion no private holdout"
   },
-  "updated_at_utc": "20260526T234036Z"
+  "updated_at_utc": "20260526T234954Z"
 }

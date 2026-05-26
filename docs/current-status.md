@@ -75,79 +75,83 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1036-v4-public-base-candidate-b-combined-active-set-repair-design
+m1037-v4-public-base-candidate-b-combined-active-set-anchor-export
 ```
 
-M1035 completed the required workflow synthesis for the M1025-M1034 Candidate B
-guarded PPO readiness branch. The synthesis decision is:
+M1036 completed the combined active-set repair design. It keeps the branch in
+public proof-retention engineering scope and does not run repair, PPO,
+promotion, private holdout, or actor-input changes.
 
 ```text
-candidate_b_guarded_ppo_readiness_synthesis_promote_to_combined_active_set_repair
+decision:
+  candidate_b_combined_active_set_repair_design_admit_combined_anchor_export
 ```
 
-The new branch is:
+M1036 inspected the two trajectory anchors needed for the next repair:
 
 ```text
-candidate_b_combined_active_set_repair
+M293 rejected-history trajectory anchor:
+  rows: 3900
+  sources: 48
+  source range: 0..300064
+  weight sum: 106426.71
+
+M1034 M183/M170 row16 normal anchor:
+  rows: 57
+  sources: 1
+  source range: 0..0
+  weight sum: 570.00
 ```
 
-The accumulated guarded PPO readiness evidence is:
+Both use the same `TrajectoryActionAnchor` schema, but naive concatenation is
+rejected because:
 
 ```text
-M1026 raw PPO proposal is finite but not promotable.
-M1027 localizes raw PPO proof washout to M267/M264 row15.
-M1029 exact repair recovers M297/M270 but violates M997 temporal retention.
-M1031 temporal-safe projection recovers M997 and M267/M264 row15 for some
-candidates, but fails M183/M170 first replay on row16.
-M1032 classifies that as M183/M170 normal-branch terminal-margin active-set
-failure, not wrong-history sensitivity loss.
-M1034 exports an exact-loadable M183/M170 row16 normal trajectory anchor.
+source_index collision:
+  both M293 and M1034 use source_index 0
+
+family weight dilution:
+  M1034 row16 has only 57 rows versus M293's 3900 rows
 ```
 
-The M1034 active-set anchor is:
+The current blocker is therefore M1037: export source-namespaced,
+family-normalized combined active-set anchors before any optimizer run.
 
 ```text
-runs/m1034_candidate_b_m183_row16_active_set_anchor_export/m183_row16_normal_trajectory_anchor.npz
-
-anchor_rows: 57
-observation shape: 57 x 72
-hidden shape: 57 x 128
-reference_action shape: 57 x 3
-normal_success_all: true
-wrong_history_success_any: false
-normal_margin_min: 0.001315984
-wrong_history_margin_min: -0.005083863
+runs/m1037_candidate_b_combined_active_set_anchor_export/combined_active_set_anchor_balanced.npz
+runs/m1037_candidate_b_combined_active_set_anchor_export/combined_active_set_anchor_row16x4.npz
+runs/m1037_candidate_b_combined_active_set_anchor_export/combined_active_set_anchor_row16x8.npz
 ```
 
-M1036 is design-only. It must specify a combined active-set repair/projection
-strategy before any implementation run. The hard constraints are:
+The variants should normalize family weight sums to:
 
 ```text
-P0 actor-input contract unchanged
-M997 temporal exact retention
-M297/M270 exact no-regression
-M267/M264 row15 rejected-history failure retention
-M183/M170 row16 normal branch retention
+balanced: M293 total 1.0, M1034 total 1.0
+row16x4: M293 total 1.0, M1034 total 4.0
+row16x8: M293 total 1.0, M1034 total 8.0
 ```
 
-Candidate data for M1036:
+M1037 success requires:
 
 ```text
-M297 rejected-history preference corpus
-M270 outcome-intervention snippets
-M293 current-family rejected-history trajectory anchor
-M393 row15 conflict corpus
-M997 temporal sequence corpus
-M1034 M183/M170 row16 normal trajectory anchor
+all combined anchors load with load_trajectory_action_anchor
+combined row count = 3957
+M1034 source ids offset away from M293 source ids
+family weight sums match declared variant totals
+P0 actor inputs unchanged
+ppo_used = false
+repair_used = false
+checkpoint_promoted = false
+private_holdout_used = false
 ```
 
-No PPO, repair run, promotion, private holdout, or actor-input change is allowed
-in M1036.
+No repair, PPO, promotion, private holdout, first replay, or actor-input change
+is allowed in M1037.
 
 ### Historical Trace
 
-The branch trace below is retained for context; the live blocker is the M1036
-combined active-set repair design above.
+The branch trace below is retained for context; the live blocker is the M1037
+combined active-set anchor export above.
 
 M927 ran the no-training residual-direction feasibility sweep and found no
 alpha/mix candidate. M928 audits this as a residual-bridge trust-region

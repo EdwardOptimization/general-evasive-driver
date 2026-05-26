@@ -111,5 +111,19 @@
     "docs/m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis.md"
   ],
   "decision_rule": "M1036 should admit implementation only if the combined active-set repair/projection gate order is explicit and no update or promotion happens in the design milestone.",
-  "next_blocker": "m1036-v4-public-base-candidate-b-combined-active-set-repair-design"
+  "next_blocker": "m1037-v4-public-base-candidate-b-combined-active-set-anchor-export",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1036-v4-public-base-candidate-b-combined-active-set-repair-design.md",
+    "decision": "candidate_b_combined_active_set_repair_design_admit_combined_anchor_export",
+    "result_class": "candidate_b_combined_active_set_repair_design_admit_combined_anchor_export",
+    "failure_types": [
+      "none"
+    ],
+    "m293_rows": 3900,
+    "m1034_rows": 57,
+    "combined_anchor_feasible": true,
+    "direct_concat_rejected": true,
+    "next_blocker": "m1037-v4-public-base-candidate-b-combined-active-set-anchor-export"
+  }
 }
