@@ -4,7 +4,7 @@
   "gate_tier": "generalization",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -112,6 +112,31 @@
     "docs/m993-v4-public-base-capability-step-sequence-intervention-design.md",
     "runs/m991_v4_public_base_capability_step_fault_source_wave/reset_only_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "run_dir": "runs/m994_v4_public_base_capability_step_sequence_intervention_probe",
+    "summary": "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/summary.json",
+    "result_class": "sequence_temporal_history_positive",
+    "selected_source_rows": 384,
+    "intervention_rows": 6912,
+    "accepted_sequence_rows": 277,
+    "accepted_cross_fault_sequence_rows": 0,
+    "accepted_temporal_sequence_rows": 277,
+    "sequence_action_critical_rows": 1442,
+    "normal_failed_rows": 0,
+    "rejected_trace_rows": 0,
+    "unique_accepted_fault_pairs": 9,
+    "unique_accepted_seeds": 17,
+    "unique_cross_fault_accepted_fault_pairs": 0,
+    "unique_cross_fault_accepted_seeds": 0,
+    "unique_temporal_accepted_fault_pairs": 9,
+    "unique_temporal_accepted_seeds": 17,
+    "actor_parameters_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "sequence_temporal_history_positive_route_to_audit",
   "decision_rule": "M994 must determine whether sequence-level action-response mismatch produces outcome-relevant self-ID evidence or remains reset-only/action-only.",
-  "next_blocker": "capability-step sequence intervention probe has not been implemented or run"
+  "next_blocker": "m995-v4-public-base-capability-step-temporal-history-audit"
 }

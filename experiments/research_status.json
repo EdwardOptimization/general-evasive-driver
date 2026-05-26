@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1002,
+    "completed": 1003,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m993-v4-public-base-capability-step-sequence-intervention-design",
+    "task_id": "m994-v4-public-base-capability-step-sequence-intervention-probe",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m993-v4-public-base-capability-step-sequence-intervention-design.md"
+    "command_log": "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/summary.json"
   },
   "next_task": {
-    "id": "m994-v4-public-base-capability-step-sequence-intervention-probe",
+    "id": "m995-v4-public-base-capability-step-temporal-history-audit",
     "status": "pending",
-    "priority": 9890,
+    "priority": 9900,
     "kind": "gate",
-    "hypothesis": "Sequence-level command-response mismatch over M991 reset-only rows will create stronger and more behaviorally grounded belief-mismatch evidence than a single wrong hidden-state swap",
-    "command": "see experiments/manifests/m994-v4-public-base-capability-step-sequence-intervention-probe.json",
-    "success_artifact": "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/summary.json",
-    "notes": "Pending: implement and run no-training trace-window sequence intervention probe"
+    "hypothesis": "M994 provides useful temporal-history evidence, but the project must audit claim scope and route before exporting a corpus or training",
+    "command": "see experiments/manifests/m995-v4-public-base-capability-step-temporal-history-audit.json",
+    "success_artifact": "docs/m995-v4-public-base-capability-step-temporal-history-audit.md",
+    "notes": "Pending: audit M994 temporal-history positive evidence and choose export/redesign/synthesis route"
   },
-  "updated_at_utc": "20260526T134010Z"
+  "updated_at_utc": "20260526T141742Z"
 }

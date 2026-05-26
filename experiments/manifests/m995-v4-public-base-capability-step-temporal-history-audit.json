@@ -1,0 +1,110 @@
+{
+  "id": "m995-v4-public-base-capability-step-temporal-history-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m994-v4-public-base-capability-step-sequence-intervention-probe.md",
+      "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/summary.json",
+      "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/accepted_sequence_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m994-v4-public-base-capability-step-sequence-intervention-probe.json",
+      "configs/m991_capability_step_fault_source_wave.json"
+    ],
+    "parent_objective": [
+      "audit temporal-history-positive sequence evidence before corpus export or objective design"
+    ],
+    "derived_from": [
+      "m994-v4-public-base-capability-step-sequence-intervention-probe",
+      "m993-v4-public-base-capability-step-sequence-intervention-design"
+    ],
+    "blocked_by": [
+      "M994 is temporal-history positive but cross-fault sequence variants have zero accepted rows"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "calling M994 cross-fault wrong-history positive",
+      "running PPO directly from M994"
+    ]
+  },
+  "review_artifact": "docs/reviews/m995-v4-public-base-capability-step-temporal-history-audit.md",
+  "public_gates": [
+    "M995 must not run PPO",
+    "M995 must not promote",
+    "M995 must not change actor inputs",
+    "M995 must separate temporal-history evidence from cross-fault wrong-history evidence",
+    "M995 must choose a route before objective training"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not train or optimize",
+    "do not use private holdout",
+    "do not claim true per-wheel/asymmetric faults",
+    "do not call M994 cross-fault positive",
+    "do not proceed to PPO"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_capability_step_fault_generation",
+    "evidence_axis": "G_temporal_history: capability-step temporal-history positive evidence route selection",
+    "evidence_increment": "audits M994 temporal positive / cross-fault zero split and decides whether to export a temporal corpus, redesign cross-fault mismatch, or synthesize",
+    "claim_scope": "process/audit only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if M994 temporal accepted rows are source-narrow",
+      "stop if cross-fault zero means the claimed evidence axis must change",
+      "stop before any objective design if evidence label is ambiguous"
+    ],
+    "fallback_plan": [
+      "if temporal rows are source-diverse, route to temporal corpus export and exact objective sanity",
+      "if temporal rows are narrow, retarget source selection or synthesize",
+      "if cross-fault remains required for the branch claim, design a stronger cross-fault trace intervention separately"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M994 returns sequence_temporal_history_positive with zero cross-fault accepted rows",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M994 provides useful temporal-history evidence, but the project must audit claim scope and route before exporting a corpus or training.",
+  "success_criteria": [
+    "audit artifact exists",
+    "temporal and cross-fault evidence are separated",
+    "source diversity of accepted temporal rows is summarized",
+    "route decision is explicit",
+    "no training or PPO occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "M994 is overclaimed as cross-fault positive",
+    "route decision is missing",
+    "training or PPO starts",
+    "hidden event labels enter actor observations"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit over M994 summary and CSV outputs; see docs/m995-v4-public-base-capability-step-temporal-history-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m995-v4-public-base-capability-step-temporal-history-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m994-v4-public-base-capability-step-sequence-intervention-probe.md",
+    "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/summary.json"
+  ],
+  "decision_rule": "M995 must decide whether M994 temporal-history evidence can be exported as a corpus or whether the branch must redesign cross-fault mismatch first.",
+  "next_blocker": "capability-step temporal-history evidence has not been audited"
+}

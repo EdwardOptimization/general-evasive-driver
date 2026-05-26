@@ -15075,3 +15075,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M993 designs a no-training trace-window sequence intervention probe. It identifies five intervention families: delayed capability history, cross-fault response window, action-response mismatch window, zero-command history window, and reset-then-warm history. Acceptance must be terminal-margin or success relevant, and reset-only rows remain diagnostic rather than proof-positive.
 - decision: `sequence_intervention_design_admit_probe`
 - next: `m994-v4-public-base-capability-step-sequence-intervention-probe`
+
+## 20260526T141742Z - m994-v4-public-base-capability-step-sequence-intervention-probe
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m994_v4_public_base_capability_step_sequence_intervention_probe`
+- artifact: `docs/m994-v4-public-base-capability-step-sequence-intervention-probe.md`
+- result: M994 implements the trace-window sequence intervention probe. After correcting the result taxonomy, the run is `sequence_temporal_history_positive`: `277` accepted temporal sequence rows, `0` accepted cross-fault sequence rows, `1442` action-critical rows, `9` accepted fault pairs, and `17` accepted seeds. The accepted variants are `reset_then_warm_history` (`253`) and `delayed_capability_history` (`24`); cross-fault response/action-response mismatch variants have zero accepted rows. Actor parameters are unchanged and no training/PPO/promotion occurs.
+- decision: `sequence_temporal_history_positive_route_to_audit`
+- next: `m995-v4-public-base-capability-step-temporal-history-audit`

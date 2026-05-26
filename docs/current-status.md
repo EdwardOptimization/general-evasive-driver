@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m994-v4-public-base-capability-step-sequence-intervention-probe
+m995-v4-public-base-capability-step-temporal-history-audit
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -280,10 +280,19 @@ mostly near zero while reset-hidden action and margin gaps are large. The next
 task is M993: design a no-training sequence-level action-response mismatch
 intervention before implementation. M993 completes that design and admits M994:
 implement/run a trace-window sequence intervention probe using M991 reset-only
-rows. Training and PPO remain blocked.
+rows. M994 implements and runs that probe. The corrected result is
+`sequence_temporal_history_positive`: `277` accepted temporal sequence rows
+across `9` fault pairs and `17` seeds, but `0` accepted cross-fault sequence
+rows. The next task is M995: audit claim scope and decide whether to export a
+temporal-history corpus, redesign cross-fault mismatch, or synthesize. Training
+and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M994 implements the trace-window sequence probe. Result:
+  `sequence_temporal_history_positive`, not cross-fault positive. Accepted rows
+  come from `reset_then_warm_history` and `delayed_capability_history`; cross-
+  fault/action-response mismatch variants still have zero accepted rows.
 - M993 designs the next no-training probe: trace-window sequence interventions
   over M991 reset-only rows, with delayed history, cross-fault response window,
   action-response mismatch, zero-command history, and reset-then-warm variants.
