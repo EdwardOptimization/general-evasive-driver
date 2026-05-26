@@ -1,0 +1,118 @@
+{
+  "id": "m1000-v4-public-base-temporal-sequence-objective-evaluator",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m999-v4-public-base-temporal-sequence-objective-design.md",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/metadata.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m999-v4-public-base-temporal-sequence-objective-design.json"
+    ],
+    "parent_objective": [
+      "implement exact no-update evaluator for temporal sequence objective"
+    ],
+    "derived_from": [
+      "m999-v4-public-base-temporal-sequence-objective-design",
+      "m997-v4-public-base-temporal-sequence-corpus-export-implementation"
+    ],
+    "blocked_by": [
+      "M999 requires an exact evaluator before any objective-only actor update"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running actor update before exact objective evaluator exists"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1000-v4-public-base-temporal-sequence-objective-evaluator.md",
+  "public_gates": [
+    "M1000 must not train",
+    "M1000 must not run PPO",
+    "M1000 must not promote",
+    "M1000 must preserve P0 actor inputs",
+    "M1000 must report finite exact objective metrics"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not train or optimize actor parameters",
+    "do not use private holdout",
+    "do not claim cross-fault wrong-history self-ID",
+    "do not train variant histories toward degraded actions",
+    "do not proceed to PPO"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_temporal_sequence_objective",
+    "evidence_axis": "G_temporal_objective: exact evaluator over M997 temporal sequence corpus",
+    "evidence_increment": "implements the no-update objective evaluator required before any actor update",
+    "claim_scope": "infrastructure/no-update objective sanity only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if losses are non-finite",
+      "stop if action replay sanity fails",
+      "stop if actor checksum changes",
+      "stop if row weights or masks are invalid"
+    ],
+    "fallback_plan": [
+      "if evaluator disagrees with M997 scale, audit loss normalization and sequence masks",
+      "if replay sanity fails, audit corpus serialization before objective design",
+      "if metrics are finite, route to exact objective-only actor update design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M999 admits exact evaluator implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M999 temporal sequence objective can be evaluated exactly on the M997 corpus with finite baseline metrics and unchanged actor parameters.",
+  "success_criteria": [
+    "evaluator command completes",
+    "summary.json exists",
+    "all exact objective metrics are finite",
+    "row_weight and mask sanity pass",
+    "normal action replay sanity passes",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false"
+  ],
+  "failure_criteria": [
+    "hidden event labels enter actor observations",
+    "actor parameters change",
+    "training or PPO starts",
+    "promotion occurs",
+    "loss metrics are non-finite",
+    "row weights or masks are invalid"
+  ],
+  "commands": [
+    {
+      "name": "evaluate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_step_temporal_sequence_objective --checkpoint runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt --corpus runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz --metadata runs/m997_v4_public_base_temporal_sequence_corpus_export/metadata.csv --run-dir runs/m1000_v4_public_base_temporal_sequence_objective_evaluator"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1000-v4-public-base-temporal-sequence-objective-evaluator.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m999-v4-public-base-temporal-sequence-objective-design.md",
+    "runs/m997_v4_public_base_temporal_sequence_corpus_export/summary.json"
+  ],
+  "decision_rule": "M1000 should route to objective-only actor update design only if exact no-update objective sanity passes.",
+  "next_blocker": "m1000-v4-public-base-temporal-sequence-objective-evaluator"
+}

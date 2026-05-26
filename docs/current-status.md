@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m999-v4-public-base-temporal-sequence-objective-design
+m1000-v4-public-base-temporal-sequence-objective-evaluator
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -289,11 +289,17 @@ sequence corpus export. M997 implements it and exports `277` temporal positive
 rows with replay, exact no-update, tensor, and source-diversity sanity passing.
 M998 synthesizes M989-M997, closes the capability-step fault generation branch,
 and opens `v4_public_base_temporal_sequence_objective` while blocking
-cross-fault overclaims. The next task is M999: design the exact temporal
-sequence objective before actor update or PPO. Training and PPO remain blocked.
+cross-fault overclaims. M999 designs the exact temporal sequence objective:
+normal-sequence retention, temporal preference separation, and a base-logp
+anchor, with disrupted histories used only as contrast conditions. The next
+task is M1000: implement the no-update exact evaluator before actor update or
+PPO. Training and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M999 designs the temporal sequence objective. Normal uninterrupted history is
+  the only direct behavior target; disrupted temporal histories are contrast-
+  only and must not be trained toward degraded actions.
 - M998 synthesizes M989-M997 and opens the temporal sequence objective branch.
   Supported: M997 corpus is usable. Blocked: source-diverse cross-fault
   wrong-history self-ID remains unproven.

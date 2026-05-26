@@ -15122,3 +15122,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M998 synthesizes M989-M997. Supported: hidden capability-step events are compatible with M974, temporal-history dependence is source-diverse enough for exact corpus work, and M997 exports a replay/exact-sanity-passing temporal sequence corpus. Falsified/blocked: source-diverse cross-fault wrong-history self-ID is not proven, reset-only sensitivity is not cross-fault proof, and cross-fault zero variants are diagnostic-only.
 - decision: `capability_step_fault_generation_synthesis_open_temporal_sequence_objective`
 - next: `m999-v4-public-base-temporal-sequence-objective-design`
+
+## 20260526T153335Z - m999-v4-public-base-temporal-sequence-objective-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m999-v4-public-base-temporal-sequence-objective-design.md`
+- result: M999 designs the first objective over the M997 corpus: normal-sequence retention is the only direct behavior imitation target, temporal preference separation contrasts normal hidden against disrupted temporal hidden on the normal sequence, and a base-logp anchor constrains drift. Variant histories remain contrast-only and must not be trained toward degraded actions. Row weights, exact no-update metrics, and public replay/proof gates are required before any actor update.
+- decision: `temporal_sequence_objective_design_admit_exact_evaluator`
+- next: `m1000-v4-public-base-temporal-sequence-objective-evaluator`

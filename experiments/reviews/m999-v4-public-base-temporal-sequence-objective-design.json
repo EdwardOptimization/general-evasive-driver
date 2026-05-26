@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M999 designs a temporal sequence objective with normal-sequence retention temporal preference separation and base-logp anchor before any actor update",
+  "failure_criteria": [
+    "design artifact is missing",
+    "objective uses diagnostic cross-fault rows as positives",
+    "objective trains variant histories toward degraded actions",
+    "row weights are ignored without justification",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not train or optimize actor parameters",
+    "do not use private holdout",
+    "do not claim cross-fault wrong-history self-ID",
+    "do not train variant histories toward degraded actions",
+    "do not proceed to PPO"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260526T153450Z",
+  "hypothesis": "The M997 corpus can support an exact temporal sequence objective that preserves normal-history behavior while using disrupted temporal histories only as preference/separation evidence.",
+  "lineage": {
+    "blocked_by": [
+      "M998 opens the temporal sequence objective branch and blocks PPO until objective design exists"
+    ],
+    "derived_from": [
+      "m998-v4-public-base-capability-step-fault-generation-synthesis",
+      "m997-v4-public-base-temporal-sequence-corpus-export-implementation"
+    ],
+    "invalidates": [
+      "training directly from the M997 corpus without objective design",
+      "using diagnostic cross-fault rows as positive targets"
+    ],
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m998-v4-public-base-capability-step-fault-generation-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m998-v4-public-base-capability-step-fault-generation-synthesis.md",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/summary.json",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/metadata.csv"
+    ],
+    "parent_objective": [
+      "design an exact temporal sequence preference objective over the M997 corpus"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m999-v4-public-base-temporal-sequence-objective-design",
+  "next_blocker": "m1000-v4-public-base-temporal-sequence-objective-evaluator",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "temporal_sequence_objective_design_admit_exact_evaluator",
+  "public_gates": [
+    "M999 must not train",
+    "M999 must not run PPO",
+    "M999 must not promote",
+    "M999 must preserve P0 actor inputs",
+    "M999 must keep cross-fault rows diagnostic-only"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m999-v4-public-base-temporal-sequence-objective-design.md",
+    "clearance_margin_mean": "",
+    "decision": "temporal_sequence_objective_design_admit_exact_evaluator",
+    "milestone": "m999-v4-public-base-temporal-sequence-objective-design",
+    "reason": "M999 designs a temporal sequence objective with normal-sequence retention temporal preference separation and base-logp anchor before any actor update",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design artifact exists",
+    "objective terms are defined",
+    "exact no-update evaluator requirements are defined",
+    "row weighting is specified",
+    "variant histories are not trained toward degraded actions",
+    "public proof/replay gates are specified",
+    "no training or PPO occurs"
+  ],
+  "type": "infrastructure"
+}

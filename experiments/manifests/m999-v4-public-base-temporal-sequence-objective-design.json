@@ -109,6 +109,23 @@
     "runs/m997_v4_public_base_temporal_sequence_corpus_export/summary.json",
     "docs/m998-v4-public-base-capability-step-fault-generation-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m999-v4-public-base-temporal-sequence-objective-design.md",
+    "objective_terms": [
+      "normal_sequence_retention",
+      "temporal_preference_separation",
+      "base_logp_anchor"
+    ],
+    "initial_lambda_pref": 1.0,
+    "initial_lambda_anchor": 0.25,
+    "variant_history_target_policy": "contrast_only_do_not_imitate_degraded_actions",
+    "next_evaluator": "m1000-v4-public-base-temporal-sequence-objective-evaluator",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "temporal_sequence_objective_design_admit_exact_evaluator",
   "decision_rule": "M999 must decide the exact objective and evaluator design before any objective-only actor update.",
-  "next_blocker": "m999-v4-public-base-temporal-sequence-objective-design"
+  "next_blocker": "m1000-v4-public-base-temporal-sequence-objective-evaluator"
 }

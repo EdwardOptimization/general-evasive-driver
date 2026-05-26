@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1007,
+    "completed": 1008,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m998-v4-public-base-capability-step-fault-generation-synthesis",
+    "task_id": "m999-v4-public-base-temporal-sequence-objective-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m998-v4-public-base-capability-step-fault-generation-synthesis.md"
+    "command_log": "docs/m999-v4-public-base-temporal-sequence-objective-design.md"
   },
   "next_task": {
-    "id": "m999-v4-public-base-temporal-sequence-objective-design",
+    "id": "m1000-v4-public-base-temporal-sequence-objective-evaluator",
     "status": "pending",
-    "priority": 9940,
+    "priority": 9950,
     "kind": "infrastructure",
-    "hypothesis": "The M997 corpus can support an exact temporal sequence objective that preserves normal-history behavior while using disrupted temporal histories only as preference/separation evidence",
-    "command": "see experiments/manifests/m999-v4-public-base-temporal-sequence-objective-design.json",
-    "success_artifact": "docs/m999-v4-public-base-temporal-sequence-objective-design.md",
-    "notes": "Pending: design exact temporal sequence objective and evaluator before actor update or PPO"
+    "hypothesis": "The M999 temporal sequence objective can be evaluated exactly on the M997 corpus with finite baseline metrics and unchanged actor parameters",
+    "command": "see experiments/manifests/m1000-v4-public-base-temporal-sequence-objective-evaluator.json",
+    "success_artifact": "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json",
+    "notes": "Pending: implement exact no-update temporal sequence objective evaluator before actor update or PPO"
   },
-  "updated_at_utc": "20260526T151949Z"
+  "updated_at_utc": "20260526T153335Z"
 }
