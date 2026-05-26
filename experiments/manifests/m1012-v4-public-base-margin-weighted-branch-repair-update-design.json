@@ -104,6 +104,29 @@
   "baseline_artifacts": [
     "runs/m1011_v4_public_base_margin_weighted_branch_trust_region_evaluator/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1012-v4-public-base-margin-weighted-branch-repair-update-design.md",
+    "decision": "margin_weighted_branch_repair_update_design_admit_m1013_probe",
+    "trainable_surface": [
+      "actor_mean"
+    ],
+    "lambda_wrong_trust_sweep": [
+      0.001,
+      0.003,
+      0.01,
+      0.03
+    ],
+    "branch_trust_loss_gate": 0.1,
+    "row_6_contribution_gate": 0.05,
+    "row_15_contribution_gate": 0.02,
+    "row_16_contribution_gate": 0.05,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "next_probe": "m1013-v4-public-base-margin-weighted-branch-repair-update-probe"
+  },
+  "decision": "margin_weighted_branch_repair_update_design_admit_m1013_probe",
   "decision_rule": "M1012 should admit implementation only if it keeps actor_mean-only repair, preserves P0 inputs, and gates candidates with exact temporal and M1011 branch-trust metrics before replay.",
-  "next_blocker": "m1012-v4-public-base-margin-weighted-branch-repair-update-design"
+  "next_blocker": "m1013-v4-public-base-margin-weighted-branch-repair-update-probe"
 }

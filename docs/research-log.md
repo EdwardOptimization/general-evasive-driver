@@ -15244,3 +15244,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1011 implements the no-update margin-weighted wrong-branch trust-region evaluator. It keeps M974 base trust loss at `0.0`, activates on the known alpha `0.01` proof-washing candidate with trust loss `3.529714`, and scales to `1407.006193` at alpha `0.2`. Rows `6` and `15` jointly contribute `66.45%` of alpha `0.01` loss under `margin_floor=1e-4`; row `16` is still significant and should remain in the active proof-retention set. Actor parameters are unchanged, and PPO/promotion/private holdout are not used.
 - decision: `margin_weighted_branch_trust_region_evaluator_pass_route_to_repair_update_design`
 - next: `m1012-v4-public-base-margin-weighted-branch-repair-update-design`
+
+## 20260526T183848Z - m1012-v4-public-base-margin-weighted-branch-repair-update-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1012-v4-public-base-margin-weighted-branch-repair-update-design.md`
+- result: M1012 designs the repaired actor_mean-only temporal update. The future M1013 loss combines the M999/M1002 temporal exact objective with the M1011 margin-weighted wrong-branch trust residual on rows `6`, `15`, `11`, and `16`; `lambda_wrong_trust` sweep is `{0.001, 0.003, 0.01, 0.03}`. Candidate gates require M1002-style exact temporal retention plus strict M1011 trust limits (`weighted_branch_trust_loss <= 0.10`, row `6 <= 0.05`, row `15 <= 0.02`, row `16 <= 0.05`) before any M267/M264 replay preflight. PPO, promotion, private holdout, and actor-input changes remain blocked.
+- decision: `margin_weighted_branch_repair_update_design_admit_m1013_probe`
+- next: `m1013-v4-public-base-margin-weighted-branch-repair-update-probe`

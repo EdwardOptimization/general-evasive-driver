@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1020,
+    "completed": 1021,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator",
+    "task_id": "m1012-v4-public-base-margin-weighted-branch-repair-update-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m1011_v4_public_base_margin_weighted_branch_trust_region_evaluator/summary.json"
+    "command_log": "docs/m1012-v4-public-base-margin-weighted-branch-repair-update-design.md"
   },
   "next_task": {
-    "id": "m1012-v4-public-base-margin-weighted-branch-repair-update-design",
+    "id": "m1013-v4-public-base-margin-weighted-branch-repair-update-probe",
     "status": "pending",
-    "priority": 10070,
+    "priority": 10080,
     "kind": "infrastructure",
-    "hypothesis": "A repaired actor_mean-only temporal update can combine M997 temporal exact progress with M1011 margin-weighted wrong-branch trust retention before replay preflight",
-    "command": "see experiments/manifests/m1012-v4-public-base-margin-weighted-branch-repair-update-design.json",
-    "success_artifact": "docs/m1012-v4-public-base-margin-weighted-branch-repair-update-design.md",
-    "notes": "Pending: design the actor_mean-only repair objective and gate order before any actor update"
+    "hypothesis": "The M1012 actor_mean-only repair objective can produce at least one exact temporal candidate that stays inside the M1011 margin-weighted wrong-branch trust region",
+    "command": "see experiments/manifests/m1013-v4-public-base-margin-weighted-branch-repair-update-probe.json",
+    "success_artifact": "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/summary.json",
+    "notes": "Pending: implement and run the exact actor_mean-only repair update probe before any replay or PPO"
   },
-  "updated_at_utc": "20260526T182605Z"
+  "updated_at_utc": "20260526T183848Z"
 }

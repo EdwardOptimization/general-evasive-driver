@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1012-v4-public-base-margin-weighted-branch-repair-update-design
+m1013-v4-public-base-margin-weighted-branch-repair-update-probe
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -340,10 +340,16 @@ loss. Row `16` still contributes materially, so the next design should keep it
 in the active proof-retention set. The next task is M1012: design an
 actor_mean-only repaired temporal update that combines M997 exact temporal
 progress with M1011 margin-weighted branch trust retention before any replay,
-PPO, or promotion.
+PPO, or promotion. M1012 completes that design. M1013 should implement the
+objective-only actor_mean repair probe with `lambda_wrong_trust` sweep
+`{0.001, 0.003, 0.01, 0.03}` and require strict M1011 branch-trust gates before
+any M267/M264 replay preflight.
 
 ## Recent Evidence Line
 
+- M1012 designs the repaired update: actor_mean-only, M999/M1002 temporal exact
+  objective plus M1011 wrong-branch trust residual, with strict trust gates
+  before replay. PPO and promotion remain blocked.
 - M1011 implements the margin-slack-weighted no-update evaluator. It is
   sensitive to the known alpha `0.01` proof washout while leaving the M974 base
   loss at zero, so the branch can move to repaired actor_mean-only update
