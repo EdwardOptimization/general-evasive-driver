@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M978 synthesizes M972-M977 and pivots to fresh current-base proof surface refresh before any further PPO continuation",
+  "failure_criteria": [
+    "synthesis omits M972 proof washout",
+    "synthesis omits M974 raw-start partial failure",
+    "synthesis starts PPO directly",
+    "synthesis omits promotion caveats"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not start PPO before synthesis",
+    "do not claim private-holdout or paper-level validation",
+    "do not ignore raw-start partial repair failure",
+    "do not omit public-gate overfit risk"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260526T111655Z",
+  "hypothesis": "After M977 promotes the exact-repaired candidate, the branch should synthesize PPO raw failure, exact repair success, and overfit risk before any further PPO continuation.",
+  "lineage": {
+    "blocked_by": [
+      "M977 promotes a new public-gate base and the branch needs synthesis before more PPO or repair"
+    ],
+    "derived_from": [
+      "m977-v4-public-base-post-promotion-exact-repair-promotion-audit",
+      "m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis"
+    ],
+    "invalidates": [
+      "starting another PPO continuation before synthesizing M972-M977"
+    ],
+    "parent_checkpoint": [
+      "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt",
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m977-v4-public-base-post-promotion-exact-repair-promotion-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation.md",
+      "docs/m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design.md",
+      "docs/m974-v4-public-base-post-promotion-exact-repair-projection-probe.md",
+      "docs/m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design.md",
+      "docs/m976-v4-public-base-post-promotion-exact-repair-full-public-gate-implementation.md",
+      "docs/m977-v4-public-base-post-promotion-exact-repair-promotion-audit.md"
+    ],
+    "parent_objective": [
+      "synthesize the post-promotion guarded PPO readiness branch after exact repair promotion"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m978-v4-public-base-post-exact-repair-promotion-synthesis",
+  "next_blocker": "m979-v4-public-base-post-repair-surface-refresh-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pivot_to_post_repair_surface_refresh",
+  "public_gates": [
+    "M978 must not train",
+    "M978 must not run PPO",
+    "M978 must not use private holdout",
+    "M978 must synthesize M972-M977 evidence",
+    "M978 must state the next branch decision"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m978-v4-public-base-post-exact-repair-promotion-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "pivot_to_post_repair_surface_refresh",
+    "milestone": "m978-v4-public-base-post-exact-repair-promotion-synthesis",
+    "reason": "M978 synthesizes M972-M977 and pivots to fresh current-base proof surface refresh before any further PPO continuation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "synthesis document exists",
+    "M972-M977 evidence is summarized",
+    "supported and falsified claims are explicit",
+    "failure taxonomy is summarized",
+    "public-gate overfit risk is stated",
+    "next branch decision is explicit"
+  ],
+  "type": "gate"
+}

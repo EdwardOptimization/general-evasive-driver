@@ -69,7 +69,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M977 promoted the exact-repaired candidate as current public-gate base",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "pivot",
     "synthesis_artifact": "docs/m978-v4-public-base-post-exact-repair-promotion-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -114,6 +114,26 @@
     "docs/m977-v4-public-base-post-promotion-exact-repair-promotion-audit.md",
     "runs/m976_v4_public_base_post_promotion_exact_repair_full_public_gate/summary.json"
   ],
+  "results": {
+    "synthesis_doc": "docs/m978-v4-public-base-post-exact-repair-promotion-synthesis.md",
+    "promoted_public_gate_base": "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+    "supported_claims": [
+      "raw PPO from alpha_1_0 is behavior-retaining but proof-washing",
+      "exact repair/projection can restore public proof feasibility",
+      "M974 base-start exact repair is a public-gate base under current protocol"
+    ],
+    "falsified_claims": [
+      "M972 raw PPO can be accepted directly",
+      "direct interpolation toward M972 raw is enough",
+      "raw-start exact repair fully recovers M267/M264"
+    ],
+    "public_gate_overfit_risk": "moderate",
+    "next_branch": "v4_public_base_post_repair_surface_refresh",
+    "next_task": "m979-v4-public-base-post-repair-surface-refresh-design",
+    "ppo_blocked": true,
+    "private_holdout_used": false
+  },
+  "decision": "pivot_to_post_repair_surface_refresh",
   "decision_rule": "M978 must synthesize before opening any further PPO continuation or repair branch.",
-  "next_blocker": "M977 promotion has not been synthesized into the next branch decision"
+  "next_blocker": "m979-v4-public-base-post-repair-surface-refresh-design"
 }

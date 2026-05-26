@@ -14922,3 +14922,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M977 audits M974 and M976 evidence and promotes `runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt` as the current public-gate base. This promotion remains limited to public-gate evidence; PPO continuation, private holdout, paper-level generalization, broader scenario distribution, and real-vehicle claims remain blocked.
 - decision: `exact_repair_promote_public_gate_base`
 - next: `m978-v4-public-base-post-exact-repair-promotion-synthesis`
+
+## 20260526T111518Z - m978-v4-public-base-post-exact-repair-promotion-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m978-v4-public-base-post-exact-repair-promotion-synthesis.md`
+- result: M978 synthesizes M972-M977. Supported: raw PPO should be treated as a proposal, exact full-corpus repair can restore proof feasibility, and the M974 base-start repair is the current public-gate base under current public gates. Falsified: accepting M972 raw PPO directly, direct interpolation toward raw PPO, and raw-start repair as sufficient. Public-gate overfit risk is `moderate`.
+- decision: `pivot_to_post_repair_surface_refresh`
+- next: `m979-v4-public-base-post-repair-surface-refresh-design`

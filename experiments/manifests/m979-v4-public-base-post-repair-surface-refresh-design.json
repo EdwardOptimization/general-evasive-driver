@@ -1,0 +1,107 @@
+{
+  "id": "m979-v4-public-base-post-repair-surface-refresh-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m978-v4-public-base-post-exact-repair-promotion-synthesis.md",
+      "docs/m977-v4-public-base-post-promotion-exact-repair-promotion-audit.md",
+      "runs/m976_v4_public_base_post_promotion_exact_repair_full_public_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m978-v4-public-base-post-exact-repair-promotion-synthesis.json"
+    ],
+    "parent_objective": [
+      "design a fresh current-base surface refresh before another PPO continuation"
+    ],
+    "derived_from": [
+      "m978-v4-public-base-post-exact-repair-promotion-synthesis",
+      "m977-v4-public-base-post-promotion-exact-repair-promotion-audit"
+    ],
+    "blocked_by": [
+      "M978 synthesis identifies moderate public-gate overfit risk after repeated optimization on established surfaces"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "starting a new guarded PPO branch from M974 base before refreshing current-base proof surfaces"
+    ]
+  },
+  "review_artifact": "docs/reviews/m979-v4-public-base-post-repair-surface-refresh-design.md",
+  "public_gates": [
+    "M979 must not run PPO",
+    "M979 must not promote",
+    "M979 must not use private holdout",
+    "M979 must preserve P0 actor-input contract",
+    "M979 must design fresh current-base wrong-history and source-diverse surface mining",
+    "M979 must keep old public surfaces as retention gates, not the only discovery source"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not start PPO from the new base before surface refresh",
+    "do not mine only the existing M267/M264 rows",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not treat surface refresh as driver promotion"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_post_repair_surface_refresh",
+    "evidence_axis": "G_surface_refresh: fresh proof/preference surfaces around the new public base",
+    "evidence_increment": "designs a no-PPO refresh to reduce public-row overfit risk before new PPO continuation",
+    "claim_scope": "surface-refresh design only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if design reuses only old public proof rows",
+      "stop if design cannot specify source diversity and acceptance thresholds",
+      "stop if design requires actor-input contract changes"
+    ],
+    "fallback_plan": [
+      "if fresh rows are sparse, design an expanded scenario/source mining step",
+      "if fresh rows are abundant, route to compact corpus export",
+      "if old surfaces disagree with fresh surfaces, route to overfit audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M978 pivots from exact-repair promotion to surface refresh before PPO",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Before another guarded PPO continuation from the M974 public base, the project should refresh current-base wrong-history, preference, and source-diverse proof surfaces to reduce public-gate overfit risk.",
+  "success_criteria": [
+    "design document exists",
+    "design names the new public-gate base",
+    "design specifies fresh wrong-history boundary mining",
+    "design specifies preference/source-diverse acceptance thresholds",
+    "design keeps PPO, promotion, and private holdout blocked"
+  ],
+  "failure_criteria": [
+    "design starts PPO",
+    "design uses only old M267/M264 rows",
+    "design omits source diversity",
+    "design changes actor inputs",
+    "design uses private holdout"
+  ],
+  "commands": [
+    {
+      "name": "write_surface_refresh_design",
+      "command": "write docs/m979-v4-public-base-post-repair-surface-refresh-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m979-v4-public-base-post-repair-surface-refresh-design.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m978-v4-public-base-post-exact-repair-promotion-synthesis.md"
+  ],
+  "decision_rule": "M979 should only design the fresh surface refresh. It must route implementation to a separate milestone.",
+  "next_blocker": "fresh post-repair surface refresh has not been designed"
+}

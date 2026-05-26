@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m978-v4-public-base-post-exact-repair-promotion-synthesis
+m979-v4-public-base-post-repair-surface-refresh-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -230,10 +230,17 @@ behavior/ablation gates. M977 promotes
 `runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt` as the
 new public-gate base, with PPO, private holdout, paper-level, and real-vehicle
 claims still blocked. M978 should synthesize M972-M977 before any further PPO
-continuation or repair branch.
+continuation or repair branch. M978 completes that synthesis: M972 raw PPO is
+classified as proof-washing, exact repair is useful but raw-start repair remains
+partial, and public-gate overfit risk is moderate. The next branch is fresh
+post-repair surface refresh before any new PPO continuation.
 
 ## Recent Evidence Line
 
+- M978 synthesizes M972-M977 and pivots to
+  `v4_public_base_post_repair_surface_refresh`. Next: design fresh current-base
+  wrong-history, preference, and source-diverse proof surface refresh before
+  more PPO.
 - M977 promotes the M974 exact-repaired candidate as the current public-gate
   base after M976 passes full public proof/generalization/behavior gates. This
   is not a private-holdout, paper-level, or real-vehicle claim. Next:
