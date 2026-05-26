@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1029,
+    "completed": 1030,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1020-v4-public-base-temporal-sequence-objective-post-candidate-b-synthesis",
+    "task_id": "m1021-v4-public-base-candidate-b-promotion-generalization-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1020-v4-public-base-temporal-sequence-objective-post-candidate-b-synthesis.md"
+    "command_log": "docs/m1021-v4-public-base-candidate-b-promotion-generalization-design.md"
   },
   "next_task": {
-    "id": "m1021-v4-public-base-candidate-b-promotion-generalization-design",
+    "id": "m1022-v4-public-base-candidate-b-promotion-generalization-gate",
     "status": "pending",
-    "priority": 10160,
+    "priority": 10170,
     "kind": "gate",
-    "hypothesis": "Candidate B can only be considered for public-base promotion after a separate promotion/generalization protocol that goes beyond M1019 public replay evidence",
-    "command": "see experiments/manifests/m1021-v4-public-base-candidate-b-promotion-generalization-design.json",
-    "success_artifact": "docs/m1021-v4-public-base-candidate-b-promotion-generalization-design.md",
-    "notes": "Pending: design tiered proof, fresh-public generalization, behavior, and promotion-decision gate for Candidate B"
+    "hypothesis": "Candidate B can pass a no-training promotion/generalization gate against the M974 public base after passing M1019 full public replay",
+    "command": "see experiments/manifests/m1022-v4-public-base-candidate-b-promotion-generalization-gate.json",
+    "success_artifact": "runs/m1022_v4_public_base_candidate_b_promotion_generalization_gate/summary.json",
+    "notes": "Pending: run exact, proof replay, fresh public, moderate-OOD, behavior, and promotion-candidate gate without promotion"
   },
-  "updated_at_utc": "20260526T200358Z"
+  "updated_at_utc": "20260526T201020Z"
 }

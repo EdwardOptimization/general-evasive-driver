@@ -2,7 +2,7 @@
   "id": "m1021-v4-public-base-candidate-b-promotion-generalization-design",
   "type": "gate",
   "gate_tier": "promotion",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -99,6 +99,38 @@
     "docs/m1020-v4-public-base-temporal-sequence-objective-post-candidate-b-synthesis.md",
     "runs/m1019_v4_public_base_m1013_candidate_b_full_replay_gate/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1021-v4-public-base-candidate-b-promotion-generalization-design.md",
+    "decision": "candidate_b_promotion_generalization_design_admit_m1022_gate",
+    "candidate_b_checkpoint": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "base_checkpoint": "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+    "required_tiers": [
+      "contract_and_exact_temporal_retention",
+      "proof_replay_and_source_diverse_diagnostics",
+      "fresh_public_generalization",
+      "behavior_and_ablation_retention",
+      "promotion_decision_routing"
+    ],
+    "fresh_public_seeds": [
+      102100,
+      102101
+    ],
+    "moderate_ood_seeds": [
+      102120
+    ],
+    "behavior_seeds": [
+      9505,
+      9506,
+      102130,
+      102131
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "next_gate": "m1022-v4-public-base-candidate-b-promotion-generalization-gate"
+  },
+  "decision": "candidate_b_promotion_generalization_design_admit_m1022_gate",
   "decision_rule": "M1021 should admit M1022 only if the promotion/generalization protocol remains public, tiered, and non-promotional at design time.",
-  "next_blocker": "m1021-v4-public-base-candidate-b-promotion-generalization-design"
+  "next_blocker": "m1022-v4-public-base-candidate-b-promotion-generalization-gate"
 }

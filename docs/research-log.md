@@ -15328,3 +15328,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1020 synthesizes M1010-M1019. It preserves the useful part of the branch: margin-weighted wrong-branch residuals are sensitivity detectors, but strict unsigned branch-L2 is not an acceptance gate. Candidate B is now a full public-gate candidate, not a promoted base. Local temporal-objective repair should pause and Candidate B should enter a separate promotion/generalization audit branch.
 - decision: `temporal_sequence_objective_post_candidate_b_synthesis_promote_to_candidate_b_promotion_generalization`
 - next: `m1021-v4-public-base-candidate-b-promotion-generalization-design`
+
+## 20260526T201020Z - m1021-v4-public-base-candidate-b-promotion-generalization-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1021-v4-public-base-candidate-b-promotion-generalization-design.md`
+- result: M1021 designs the no-training Candidate B promotion/generalization gate. The next gate must recompute exact temporal retention, rerun proof replay and source-diverse diagnostics, run fresh public seeds `102100/102101`, run moderate-OOD seed `102120`, retain behavior/ablation seeds `9505/9506/102130/102131`, and classify Candidate B as a promotion-audit candidate or a tier-specific failure. M1021 does not promote, train, run PPO, use private holdout, or change actor inputs.
+- decision: `candidate_b_promotion_generalization_design_admit_m1022_gate`
+- next: `m1022-v4-public-base-candidate-b-promotion-generalization-gate`
