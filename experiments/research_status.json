@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 980,
+    "completed": 983,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m971-v4-public-base-post-promotion-guarded-ppo-readiness-design",
+    "task_id": "m974-v4-public-base-post-promotion-exact-repair-projection-probe",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m971-v4-public-base-post-promotion-guarded-ppo-readiness-design.md"
+    "command_log": "docs/m974-v4-public-base-post-promotion-exact-repair-projection-probe.md"
   },
   "next_task": {
-    "id": "m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation",
+    "id": "m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design",
     "status": "pending",
-    "priority": 9670,
-    "kind": "driver_candidate",
-    "hypothesis": "A 1024-step guarded PPO proposal from alpha_1_0 can run and be evaluated against proof, fresh generalization, and behavior gates without promotion",
-    "command": "see experiments/manifests/m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation.json",
-    "success_artifact": "runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke/summary.json",
-    "notes": "Pending: run one smoke PPO proposal and proof/generalization/behavior gates without promotion or private holdout"
+    "priority": 9700,
+    "kind": "gate",
+    "hypothesis": "The M974 base-start exact-repaired candidate should be evaluated through the full public proof/generalization/behavior stack before any promotion audit",
+    "command": "see experiments/manifests/m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design.json",
+    "success_artifact": "docs/m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design.md",
+    "notes": "Pending: design six-surface proof fresh-generalization and behavior gates before any promotion audit"
   },
-  "updated_at_utc": "20260526T085818Z"
+  "updated_at_utc": "20260526T102349Z"
 }

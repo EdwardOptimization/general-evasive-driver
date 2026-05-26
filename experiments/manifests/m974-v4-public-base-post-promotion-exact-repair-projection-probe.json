@@ -1,0 +1,152 @@
+{
+  "id": "m974-v4-public-base-post-promotion-exact-repair-projection-probe",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt",
+      "runs/ppo_m972_post_promotion_guarded_smoke_seed5972/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design.md",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m293_current_family_rejected_history_ppo_repair_design/m267_failed_rows_extra4_anchor.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design.json"
+    ],
+    "parent_objective": [
+      "generate no-PPO exact repair/projection candidates for the M972 raw PPO proposal and gate exact objectives before first replay"
+    ],
+    "derived_from": [
+      "m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design",
+      "m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation"
+    ],
+    "blocked_by": [
+      "M972 raw PPO checkpoint fails M267/M264 success-drop retention 17 -> 15"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "promotion of M972 raw PPO checkpoint",
+      "longer PPO before exact repair/projection probe"
+    ]
+  },
+  "review_artifact": "docs/reviews/m974-v4-public-base-post-promotion-exact-repair-projection-probe.md",
+  "public_gates": [
+    "preserve human-view P0 actor input contract",
+    "run no PPO",
+    "produce raw-start, base-start, and line-boundary exact repair candidates",
+    "exact M297 candidate loss must not regress versus alpha_1_0",
+    "exact M270 candidate loss must not regress versus alpha_1_0",
+    "only exact-passing candidates may enter M267/M264 and M183/M170 first replay gates",
+    "do not promote unless a later full public gate passes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not run medium or long PPO",
+    "do not run full replay for exact-regressing candidates",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not relax M267/M264 success-drop retention"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_post_promotion_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo_readiness: exact repair of a post-promotion PPO proposal",
+    "evidence_increment": "tests whether M972 raw PPO movement can be made exact-proof-feasible before first replay",
+    "claim_scope": "no-PPO repair/projection diagnostic only; no promotion, no private holdout, no long-run claim",
+    "stop_condition": [
+      "stop if no candidate passes exact M297/M270",
+      "stop if exact-passing candidates fail M267/M264 first replay",
+      "stop if actor-input contract changes"
+    ],
+    "fallback_plan": [
+      "if no exact candidate passes, audit exact objective conflict versus M972 raw movement",
+      "if exact passes but replay fails, design objective-coverage audit for rows 6 and 15",
+      "if first replay passes, route to full public-gate design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M973 designed exact post-PPO repair/projection after M972 proof washout",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M972 raw PPO proposal contains useful movement that can be repaired by exact full-corpus projection while retaining M297/M270 and first replay proof gates.",
+  "success_criteria": [
+    "raw-start, base-start, and line-boundary candidates are generated or explicit failures are logged",
+    "at least one candidate passes exact M297 and M270 no-regression versus alpha_1_0",
+    "selected exact-passing candidate passes M267/M264 first replay",
+    "selected exact-passing candidate passes M183/M170 first replay",
+    "no PPO, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "all candidates regress exact M297 or M270",
+    "exact-passing candidate fails M267/M264 first replay",
+    "exact-passing candidate fails M183/M170 first replay",
+    "repair only reproduces base-equivalent movement with no useful raw proposal retention",
+    "actor input contract is changed"
+  ],
+  "commands": [
+    {
+      "name": "exact_repair_raw_start",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.exact_post_ppo_repair --base-checkpoint runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt --raw-checkpoint runs/ppo_m972_post_promotion_guarded_smoke_seed5972/checkpoint.pt --preference-npz runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz --outcome-npz runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz --replay-trajectory-anchor-npz runs/m293_current_family_rejected_history_ppo_repair_design/m267_failed_rows_extra4_anchor.npz --start-mode repair_from_raw --steps 40 --learning-rate 5e-6 --lambda-replay-trajectory-anchor 1 --lambda-param-raw 0.05 --device auto --seed 5973 --run-dir runs/m974_exact_repair_from_raw_s40_seed5973"
+    },
+    {
+      "name": "exact_repair_base_start",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.exact_post_ppo_repair --base-checkpoint runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt --raw-checkpoint runs/ppo_m972_post_promotion_guarded_smoke_seed5972/checkpoint.pt --preference-npz runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz --outcome-npz runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz --replay-trajectory-anchor-npz runs/m293_current_family_rejected_history_ppo_repair_design/m267_failed_rows_extra4_anchor.npz --start-mode repair_from_base --steps 40 --learning-rate 5e-6 --lambda-replay-trajectory-anchor 1 --lambda-param-raw 0.0 --device auto --seed 5974 --run-dir runs/m974_exact_repair_from_base_s40_seed5974"
+    },
+    {
+      "name": "exact_repair_line_boundary",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.exact_post_ppo_repair --base-checkpoint runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt --raw-checkpoint runs/ppo_m972_post_promotion_guarded_smoke_seed5972/checkpoint.pt --preference-npz runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz --outcome-npz runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz --replay-trajectory-anchor-npz runs/m293_current_family_rejected_history_ppo_repair_design/m267_failed_rows_extra4_anchor.npz --start-mode line_search_boundary --line-search-alphas 0,0.001,0.0025,0.005,0.01,0.025,0.05,0.1 --steps 40 --learning-rate 5e-6 --lambda-replay-trajectory-anchor 1 --lambda-param-raw 0.0 --device auto --seed 5975 --run-dir runs/m974_exact_repair_line_boundary_s40_seed5975"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m974-v4-public-base-post-promotion-exact-repair-projection-probe.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design.md",
+    "runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke/summary.json"
+  ],
+  "results": {
+    "raw_start_run_dir": "runs/m974_exact_repair_from_raw_s40_seed5973",
+    "base_start_run_dir": "runs/m974_exact_repair_from_base_s40_seed5974",
+    "line_boundary_run_dir": "runs/m974_exact_repair_line_boundary_s40_seed5975",
+    "raw_start_checkpoint": "runs/m974_exact_repair_from_raw_s40_seed5973/candidate_checkpoint.pt",
+    "base_start_checkpoint": "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+    "line_boundary_checkpoint": "runs/m974_exact_repair_line_boundary_s40_seed5975/candidate_checkpoint.pt",
+    "raw_start_exact_m297_delta": -0.000009298324584960938,
+    "raw_start_exact_m270_delta": -0.00003331899642944336,
+    "base_start_exact_m297_delta": -0.00004458427429199219,
+    "base_start_exact_m270_delta": -0.00006079673767089844,
+    "line_boundary_exact_m297_delta": -0.00004458427429199219,
+    "line_boundary_exact_m270_delta": -0.00006079673767089844,
+    "raw_start_m267_m264_success_drops": 16,
+    "raw_start_m267_m264_rows": 17,
+    "raw_start_remaining_failed_rows": [
+      15
+    ],
+    "selected_checkpoint": "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+    "selected_m267_m264_first_replay_pass": true,
+    "selected_m267_m264_success_drops": 17,
+    "selected_m267_m264_rows": 17,
+    "selected_m183_m170_first_replay_pass": true,
+    "selected_m183_m170_success_drops": 17,
+    "selected_m183_m170_rows": 17,
+    "ppo_run": false,
+    "promotion_recommended": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "exact_repair_projection_first_replay_pass_route_to_full_public_gate_design",
+  "decision_rule": "M974 may only route to a full public gate if exact M297/M270 no-regression and M267/M264 plus M183/M170 first replay gates pass.",
+  "next_blocker": "m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design"
+}

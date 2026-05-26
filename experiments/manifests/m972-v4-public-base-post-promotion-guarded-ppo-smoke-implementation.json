@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "proof_washout"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -140,6 +140,33 @@
     "docs/m971-v4-public-base-post-promotion-guarded-ppo-readiness-design.md",
     "configs/ppo_m972_post_promotion_guarded_smoke.json"
   ],
+  "results": {
+    "run_dir": "runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke",
+    "ppo_run_dir": "runs/ppo_m972_post_promotion_guarded_smoke_seed5972",
+    "raw_checkpoint": "runs/ppo_m972_post_promotion_guarded_smoke_seed5972/checkpoint.pt",
+    "result_class": "post_promotion_guarded_ppo_proof_washout",
+    "ppo_returncode": 0,
+    "training_metrics_finite": true,
+    "actor_inputs_changed": false,
+    "proof_pass": false,
+    "proof_replay_gates_passed": 5,
+    "proof_replay_surface_count": 6,
+    "failed_proof_surfaces": [
+      "m267_m264"
+    ],
+    "m267_m264_baseline_success_drop_count": 17,
+    "m267_m264_candidate_success_drop_count": 15,
+    "m267_m264_failed_rows": [
+      6,
+      15
+    ],
+    "generalization_pass": true,
+    "behavior_pass": true,
+    "private_holdout_used": false,
+    "promoted": false,
+    "next_blocker": "post-promotion guarded PPO exact repair/projection design"
+  },
+  "decision": "post_promotion_guarded_ppo_proof_washout",
   "decision_rule": "M972 may only run one smoke PPO proposal and gates. It must not promote, use private holdout, run longer PPO, or claim final driver improvement.",
-  "next_blocker": "M971 readiness design has not been implemented as a smoke PPO proposal"
+  "next_blocker": "m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design"
 }

@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M974 selects base-start exact repair candidate after exact M297/M270 and M267/M264 plus M183/M170 first replay pass",
+  "failure_criteria": [
+    "all candidates regress exact M297 or M270",
+    "exact-passing candidate fails M267/M264 first replay",
+    "exact-passing candidate fails M183/M170 first replay",
+    "repair only reproduces base-equivalent movement with no useful raw proposal retention",
+    "actor input contract is changed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not run medium or long PPO",
+    "do not run full replay for exact-regressing candidates",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not relax M267/M264 success-drop retention"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260526T102402Z",
+  "hypothesis": "The M972 raw PPO proposal contains useful movement that can be repaired by exact full-corpus projection while retaining M297/M270 and first replay proof gates.",
+  "lineage": {
+    "blocked_by": [
+      "M972 raw PPO checkpoint fails M267/M264 success-drop retention 17 -> 15"
+    ],
+    "derived_from": [
+      "m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design",
+      "m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation"
+    ],
+    "invalidates": [
+      "promotion of M972 raw PPO checkpoint",
+      "longer PPO before exact repair/projection probe"
+    ],
+    "parent_checkpoint": [
+      "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt",
+      "runs/ppo_m972_post_promotion_guarded_smoke_seed5972/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design.md",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m293_current_family_rejected_history_ppo_repair_design/m267_failed_rows_extra4_anchor.npz"
+    ],
+    "parent_objective": [
+      "generate no-PPO exact repair/projection candidates for the M972 raw PPO proposal and gate exact objectives before first replay"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m974-v4-public-base-post-promotion-exact-repair-projection-probe",
+  "next_blocker": "m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "exact_repair_projection_first_replay_pass_route_to_full_public_gate_design",
+  "public_gates": [
+    "preserve human-view P0 actor input contract",
+    "run no PPO",
+    "produce raw-start, base-start, and line-boundary exact repair candidates",
+    "exact M297 candidate loss must not regress versus alpha_1_0",
+    "exact M270 candidate loss must not regress versus alpha_1_0",
+    "only exact-passing candidates may enter M267/M264 and M183/M170 first replay gates",
+    "do not promote unless a later full public gate passes"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+    "clearance_margin_mean": "",
+    "decision": "exact_repair_projection_first_replay_pass_route_to_full_public_gate_design",
+    "milestone": "m974-v4-public-base-post-promotion-exact-repair-projection-probe",
+    "reason": "M974 selects base-start exact repair candidate after exact M297/M270 and M267/M264 plus M183/M170 first replay pass",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "driver_candidate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "raw-start, base-start, and line-boundary candidates are generated or explicit failures are logged",
+    "at least one candidate passes exact M297 and M270 no-regression versus alpha_1_0",
+    "selected exact-passing candidate passes M267/M264 first replay",
+    "selected exact-passing candidate passes M183/M170 first replay",
+    "no PPO, promotion, private holdout, or actor-input change occurs"
+  ],
+  "type": "driver_candidate"
+}

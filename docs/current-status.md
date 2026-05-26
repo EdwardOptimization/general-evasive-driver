@@ -73,7 +73,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation
+m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -205,10 +205,38 @@ M964-M969, keeps the public-gate overfit risk at moderate, and opens
 guarded PPO readiness protocol before any smoke PPO from alpha `1.0`. M971
 completes that design and registers a `1024` step low-LR guarded PPO smoke
 proposal initialized and anchored to alpha `1.0`. M972 should run exactly one
-smoke proposal and gate it before any promotion or longer PPO.
+smoke proposal and gate it before any promotion or longer PPO. M972 completes
+that smoke PPO proposal. PPO runs, training metrics are finite, actor inputs are
+unchanged, fresh public/moderate-OOD generalization gates pass, and
+behavior/ablation seeds pass. The raw checkpoint is rejected because
+M267/M264 proof retention fails: success-drop count regresses `17 -> 15` when
+wrong-history rows `6` and `15` become successful. M973 should design exact
+post-PPO repair/projection before any longer PPO, scalar auxiliary escalation,
+private holdout, or promotion. M973 completes that design: PPO is treated as a
+noisy proposal, M297/M270 exact full-corpus no-regression becomes lexicographic
+before replay, and M974 should run raw-start, base-start, and line-boundary
+repair candidates before first replay gates. M974 completes the no-PPO exact
+repair probe. Raw-start repair only restores M267/M264 to `16/17`, with row
+`15` still wrong-history-safe. Base-start and line-boundary candidates pass
+exact M297/M270 with stronger deltas; the base-start candidate passes
+M267/M264 and M183/M170 first replay gates with `17/17` success drops. M975
+should design the full public gate before any promotion audit.
 
 ## Recent Evidence Line
 
+- M974 runs no-PPO exact repair/projection on the M972 raw PPO proposal.
+  Raw-start repair is only partial, but the base-start exact repair candidate
+  passes exact M297/M270 and first replay gates on M267/M264 and M183/M170.
+  Next: design full public proof/generalization/behavior gate before promotion.
+- M973 designs exact post-PPO repair/projection for the M972 raw PPO proposal.
+  The next probe must run no PPO, generate raw/base/line-boundary candidates,
+  require exact M297/M270 no-regression, and only then run M267/M264 plus
+  M183/M170 first replay gates.
+- M972 runs the first smoke-scale guarded PPO proposal from alpha `1.0`. The
+  PPO run completes and fresh/behavior gates pass, but M267/M264 proof
+  retention fails because wrong-history rows `6` and `15` become successful;
+  success-drop count regresses `17 -> 15`. No checkpoint is promoted. Next:
+  design exact post-PPO repair/projection.
 - M971 designs guarded PPO readiness from the promoted alpha `1.0` public-gate
   base. It registers `configs/ppo_m972_post_promotion_guarded_smoke.json` and
   requires M972 to run only one smoke PPO proposal, then proof/fresh

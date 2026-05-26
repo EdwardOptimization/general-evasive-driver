@@ -1,0 +1,136 @@
+{
+  "id": "m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt",
+      "runs/ppo_m972_post_promotion_guarded_smoke_seed5972/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke/summary.json",
+      "runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke/proof_replay_summary.csv",
+      "runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke/proof_gates/m267_m264_replay/boundary_replay_rows.csv",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation.json",
+      "configs/ppo_m972_post_promotion_guarded_smoke.json"
+    ],
+    "parent_objective": [
+      "M972 smoke PPO proposal preserved fresh/behavior gates but washed out M267/M264 wrong-history proof rows 6 and 15"
+    ],
+    "derived_from": [
+      "m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation",
+      "m971-v4-public-base-post-promotion-guarded-ppo-readiness-design"
+    ],
+    "blocked_by": [
+      "M972 raw PPO checkpoint fails M267/M264 success-drop retention 17 -> 15"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "longer PPO from M972 raw checkpoint before exact repair/projection design",
+      "promotion of runs/ppo_m972_post_promotion_guarded_smoke_seed5972/checkpoint.pt"
+    ]
+  },
+  "review_artifact": "docs/reviews/m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design.md",
+  "public_gates": [
+    "M973 must not run PPO",
+    "M973 must not promote a checkpoint",
+    "M973 must not use private holdout",
+    "M973 must preserve the P0 actor-input contract",
+    "M973 must design exact full-corpus proof objectives before replay promotion",
+    "M973 must route any implementation to a separate pre-registered milestone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not lengthen PPO",
+    "do not increase scalar PPO auxiliary coefficients as the main fix",
+    "do not accept aggregate fresh or behavior pass as sufficient",
+    "do not change actor inputs",
+    "do not tune on private holdout",
+    "do not promote M972 raw"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_post_promotion_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo_readiness: exact feasibility restoration for a post-promotion PPO proposal",
+    "evidence_increment": "turns the M972 proof-washout result into a pre-registered exact repair/projection design",
+    "claim_scope": "design-only process milestone; no training, no checkpoint promotion, no driver capability claim",
+    "stop_condition": [
+      "stop if design cannot name exact no-regression constraints for M297/M270/M267 proof rows",
+      "stop if design would require actor-input contract changes",
+      "stop if design depends on private holdout evidence"
+    ],
+    "fallback_plan": [
+      "if exact repair is underspecified, first run a no-training M972 proof-washout audit",
+      "if exact objectives cannot explain replay failures, route to objective coverage audit",
+      "if repair requires changing the PPO recipe, register a separate PPO recipe audit after exact design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M972 completed the first guarded PPO smoke and failed proof retention",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M972's useful but proof-washing PPO proposal should be handled as a noisy proposal followed by exact lexicographic repair/projection, not by longer PPO or larger scalar auxiliary pressure.",
+  "success_criteria": [
+    "M973 writes an exact repair/projection design document",
+    "the design names base checkpoint, raw PPO checkpoint, exact proof objectives, and acceptance order",
+    "the design keeps PPO, promotion, private holdout, and actor-input changes blocked",
+    "the design routes implementation to a separate milestone"
+  ],
+  "failure_criteria": [
+    "design recommends longer PPO before exact repair",
+    "design accepts M972 raw despite M267/M264 proof washout",
+    "design changes the actor input contract",
+    "design uses private holdout",
+    "design lacks a proof-first acceptance order"
+  ],
+  "commands": [
+    {
+      "name": "write_exact_repair_projection_design",
+      "command": "write docs/m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation.md",
+    "runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke/summary.json"
+  ],
+  "results": {
+    "design_doc": "docs/m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design.md",
+    "base_checkpoint": "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt",
+    "raw_checkpoint": "runs/ppo_m972_post_promotion_guarded_smoke_seed5972/checkpoint.pt",
+    "candidate_start_modes": [
+      "repair_from_raw",
+      "repair_from_base",
+      "line_search_boundary"
+    ],
+    "exact_constraints": [
+      "M297 rejected-history preference no-regression",
+      "M270 source-balanced outcome-intervention no-regression"
+    ],
+    "first_replay_gates": [
+      "M267/M264",
+      "M183/M170"
+    ],
+    "ppo_blocked": true,
+    "promotion_blocked": true,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "exact_post_ppo_repair_projection_design_admit_m974",
+  "decision_rule": "M973 is complete only when the next implementation milestone has a proof-first exact repair/projection design and still blocks PPO continuation and promotion.",
+  "next_blocker": "m974-v4-public-base-post-promotion-exact-repair-projection-probe"
+}

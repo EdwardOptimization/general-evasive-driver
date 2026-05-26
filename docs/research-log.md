@@ -14866,3 +14866,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M971 designs the first guarded PPO readiness step from the promoted alpha `1.0` public-gate base. It registers `configs/ppo_m972_post_promotion_guarded_smoke.json`: a `1024` step low-LR PPO proposal initialized and anchored to alpha `1.0`, with existing outcome-intervention, rejected-history preference, and trajectory-anchor signals. M972 must run only one smoke proposal and gate it through proof replay, fresh generalization, and behavior/ablation checks before any promotion or longer PPO.
 - decision: `post_promotion_guarded_ppo_readiness_design_admit_m972`
 - next: `m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation`
+
+## 20260526T094029Z - m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke`
+- artifact: `docs/m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation.md`
+- result: M972 runs one `1024` step guarded PPO proposal from alpha `1.0`. PPO completes, training metrics are finite, actor inputs are unchanged, fresh public/moderate-OOD generalization gates pass, and behavior/ablation seeds pass. The raw checkpoint is rejected because M267/M264 proof retention fails: success-drop count regresses `17 -> 15` when wrong-history rows `6` and `15` become successful.
+- decision: `post_promotion_guarded_ppo_proof_washout`
+- next: `m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design`
+
+## 20260526T094029Z - m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design.md`
+- result: M973 designs the response to M972 proof washout. PPO is treated as a noisy proposal, not an accepted update. The next probe must generate raw-start, base-start, and line-boundary exact repair candidates using exact M297/M270 full-corpus no-regression plus M293 trajectory anchoring; only exact-passing candidates may enter M267/M264 and M183/M170 first replay gates.
+- decision: `exact_post_ppo_repair_projection_design_admit_m974`
+- next: `m974-v4-public-base-post-promotion-exact-repair-projection-probe`
+
+## 20260526T102349Z - m974-v4-public-base-post-promotion-exact-repair-projection-probe
+
+- status: `completed`
+- kind: `driver_candidate`
+- artifact: `docs/m974-v4-public-base-post-promotion-exact-repair-projection-probe.md`
+- result: M974 runs no-PPO exact repair/projection for the M972 raw PPO proposal. Raw-start repair passes exact M297/M270 but only restores M267/M264 from `15/17` to `16/17`; row `15` remains wrong-history-safe. Base-start and line-boundary candidates pass exact M297/M270 with stronger deltas. The base-start candidate is selected after passing M267/M264 and M183/M170 first replay gates with `17/17` success drops on both surfaces.
+- decision: `exact_repair_projection_first_replay_pass_route_to_full_public_gate_design`
+- next: `m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design`
