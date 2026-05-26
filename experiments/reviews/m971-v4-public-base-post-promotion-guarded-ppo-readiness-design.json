@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M971 designs a 1024-step guarded PPO smoke proposal from alpha 1.0 with proof fresh-generalization behavior gates and rollback criteria",
+  "failure_criteria": [
+    "design runs PPO",
+    "design changes actor inputs",
+    "design omits M966/M968 retention gates",
+    "design omits fresh generalization",
+    "design lacks rollback criteria",
+    "design uses private holdout"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not change actor inputs",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not treat alpha_1_0 promotion as permission for unguarded PPO"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260526T090524Z",
+  "hypothesis": "A guarded PPO readiness protocol can be designed for the promoted alpha_1_0 public-gate base without weakening proof, generalization, behavior, or actor-input constraints.",
+  "lineage": {
+    "blocked_by": [
+      "alpha_1_0 is the public-gate base, but no guarded PPO readiness protocol exists"
+    ],
+    "derived_from": [
+      "m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis",
+      "m969-v4-public-base-direction-target-actor-fit-promotion-audit"
+    ],
+    "invalidates": [
+      "running PPO from alpha_1_0 without pre-registered proof/generalization retention and rollback criteria"
+    ],
+    "parent_checkpoint": [
+      "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt",
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis.md",
+      "docs/m969-v4-public-base-direction-target-actor-fit-promotion-audit.md",
+      "runs/m968_v4_public_base_direction_target_actor_fit_promotion_generalization_gate/summary.json"
+    ],
+    "parent_objective": [
+      "design guarded PPO readiness from the newly promoted alpha_1_0 public-gate base"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m971-v4-public-base-post-promotion-guarded-ppo-readiness-design",
+  "next_blocker": "guarded PPO readiness has not been designed for the promoted alpha_1_0 public-gate base",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "post_promotion_guarded_ppo_readiness_design_admit_m972",
+  "public_gates": [
+    "M971 must not train",
+    "M971 must not run PPO",
+    "M971 must not use private holdout",
+    "M971 must preserve the P0 actor-input contract",
+    "M971 must specify proof retention gates before PPO",
+    "M971 must specify fresh generalization and behavior gates before PPO",
+    "M971 must specify rollback or rejection criteria for PPO proposals"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m971-v4-public-base-post-promotion-guarded-ppo-readiness-design.md",
+    "clearance_margin_mean": "",
+    "decision": "post_promotion_guarded_ppo_readiness_design_admit_m972",
+    "milestone": "m971-v4-public-base-post-promotion-guarded-ppo-readiness-design",
+    "reason": "M971 designs a 1024-step guarded PPO smoke proposal from alpha 1.0 with proof fresh-generalization behavior gates and rollback criteria",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design document exists",
+    "base checkpoint is explicit",
+    "PPO proposal config is scoped",
+    "proof replay retention gates are explicit",
+    "fresh generalization and behavior gates are explicit",
+    "rollback or rejection criteria are explicit",
+    "training, PPO, and private holdout remain blocked"
+  ],
+  "type": "gate"
+}

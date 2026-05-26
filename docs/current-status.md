@@ -73,7 +73,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m971-v4-public-base-post-promotion-guarded-ppo-readiness-design
+m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -202,10 +202,17 @@ M969 promotes alpha `1.0` as the new public-gate base and routes to M970
 post-promotion synthesis before any PPO continuation. M970 synthesizes
 M964-M969, keeps the public-gate overfit risk at moderate, and opens
 `v4_public_base_post_promotion_guarded_ppo_readiness`. M971 should design the
-guarded PPO readiness protocol before any smoke PPO from alpha `1.0`.
+guarded PPO readiness protocol before any smoke PPO from alpha `1.0`. M971
+completes that design and registers a `1024` step low-LR guarded PPO smoke
+proposal initialized and anchored to alpha `1.0`. M972 should run exactly one
+smoke proposal and gate it before any promotion or longer PPO.
 
 ## Recent Evidence Line
 
+- M971 designs guarded PPO readiness from the promoted alpha `1.0` public-gate
+  base. It registers `configs/ppo_m972_post_promotion_guarded_smoke.json` and
+  requires M972 to run only one smoke PPO proposal, then proof/fresh
+  generalization/behavior gates. No promotion or private holdout is allowed.
 - M970 synthesizes M964-M969 after alpha `1.0` public-base promotion. It
   supports alpha `1.0` as the current public-gate base, explicitly rejects
   paper-level/private-holdout/real-vehicle claims, and opens

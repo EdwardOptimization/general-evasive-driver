@@ -14857,3 +14857,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M970 synthesizes M964-M969 after alpha `1.0` public-base promotion. Supported: direction-target actor-fit produced a public-proof-passing, fresh-generalization non-regressing public-gate base. Not supported: private-holdout, paper-level, real-vehicle, high-fidelity, or long-PPO safety claims. Public-gate overfit risk remains moderate. The next branch is `v4_public_base_post_promotion_guarded_ppo_readiness`, starting with a no-training readiness design before any PPO.
 - decision: `promote_to_next_branch`
 - next: `m971-v4-public-base-post-promotion-guarded-ppo-readiness-design`
+
+## 20260526T085818Z - m971-v4-public-base-post-promotion-guarded-ppo-readiness-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m971-v4-public-base-post-promotion-guarded-ppo-readiness-design.md`
+- result: M971 designs the first guarded PPO readiness step from the promoted alpha `1.0` public-gate base. It registers `configs/ppo_m972_post_promotion_guarded_smoke.json`: a `1024` step low-LR PPO proposal initialized and anchored to alpha `1.0`, with existing outcome-intervention, rejected-history preference, and trajectory-anchor signals. M972 must run only one smoke proposal and gate it through proof replay, fresh generalization, and behavior/ablation checks before any promotion or longer PPO.
+- decision: `post_promotion_guarded_ppo_readiness_design_admit_m972`
+- next: `m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation`

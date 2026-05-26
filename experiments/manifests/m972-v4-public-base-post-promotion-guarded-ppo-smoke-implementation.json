@@ -1,0 +1,145 @@
+{
+  "id": "m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt"
+    ],
+    "parent_dataset": [
+      "docs/m971-v4-public-base-post-promotion-guarded-ppo-readiness-design.md",
+      "configs/ppo_m972_post_promotion_guarded_smoke.json",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m293_current_family_rejected_history_ppo_repair_design/m267_failed_rows_extra4_anchor.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m971-v4-public-base-post-promotion-guarded-ppo-readiness-design.json",
+      "configs/ppo_m972_post_promotion_guarded_smoke.json"
+    ],
+    "parent_objective": [
+      "run one smoke-scale guarded PPO proposal from alpha_1_0 and gate it without promotion"
+    ],
+    "derived_from": [
+      "m971-v4-public-base-post-promotion-guarded-ppo-readiness-design",
+      "m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis"
+    ],
+    "blocked_by": [
+      "M971 designs readiness but the smoke PPO proposal has not been run"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "longer PPO from alpha_1_0 before smoke proposal proof/generalization result"
+    ]
+  },
+  "review_artifact": "docs/reviews/m972-v4-public-base-post-promotion-guarded-ppo-smoke-implementation.md",
+  "public_gates": [
+    "M972 must run only smoke-scale PPO",
+    "M972 must not promote",
+    "M972 must not use private holdout",
+    "M972 must preserve the P0 actor-input contract",
+    "M972 must gate raw PPO against alpha_1_0 proof replay stack",
+    "M972 must gate raw PPO against fresh generalization and behavior ablations"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run medium or long PPO",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote from M972",
+    "do not skip proof replay gates",
+    "do not accept aggregate eval if wrong-history proof washes out"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_post_promotion_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo_readiness: first guarded PPO proposal from promoted alpha_1_0 base",
+    "evidence_increment": "runs and gates one smoke-scale PPO proposal",
+    "claim_scope": "smoke PPO proposal diagnostic only; no promotion, no private holdout, no long-run claim",
+    "stop_condition": [
+      "stop if raw PPO fails or training metrics are non-finite",
+      "stop if actor-input contract changes",
+      "stop if proof replay gates fail",
+      "stop if fresh generalization or behavior ablations regress"
+    ],
+    "fallback_plan": [
+      "if raw candidate passes all gates, route to full public-gate design",
+      "if proof or generalization fails but raw movement is useful, route to exact repair/projection design",
+      "if training is unstable, route to PPO recipe audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M971 designs guarded PPO readiness from alpha_1_0",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A 1024-step guarded PPO proposal from alpha_1_0 can run and be evaluated against proof, fresh generalization, and behavior gates without promotion.",
+  "success_criteria": [
+    "raw PPO run completes",
+    "summary artifact exists",
+    "proof replay summary is written",
+    "fresh randomized eval summary is written",
+    "OOD eval summary is written",
+    "behavior summary and comparison are written",
+    "route decision is explicit",
+    "no promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "PPO run crashes",
+    "actor inputs change",
+    "proof replay gates are skipped",
+    "fresh generalization or behavior gates are skipped",
+    "checkpoint is promoted",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "run_guarded_ppo_smoke",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_post_promotion_guarded_ppo_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke/ppo_run_dir.txt",
+      "type": "text"
+    },
+    {
+      "path": "runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke/proof_replay_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke/fresh_randomized_eval_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke/ood_eval_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke/behavior_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke/behavior_comparison.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m972_v4_public_base_post_promotion_guarded_ppo_smoke/route_decision.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m971-v4-public-base-post-promotion-guarded-ppo-readiness-design.md",
+    "configs/ppo_m972_post_promotion_guarded_smoke.json"
+  ],
+  "decision_rule": "M972 may only run one smoke PPO proposal and gates. It must not promote, use private holdout, run longer PPO, or claim final driver improvement.",
+  "next_blocker": "M971 readiness design has not been implemented as a smoke PPO proposal"
+}
