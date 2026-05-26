@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M991 scales to 4096 matched pairs and finds 0 accepted wrong-history rows but 1380 reset-only rows so training remains blocked",
+  "failure_criteria": [
+    "checkpoint/config compatibility fails",
+    "matched_pair_count < 2500",
+    "actor parameters change",
+    "hidden fault/event labels enter actor observations",
+    "training or PPO starts",
+    "promotion occurs",
+    "reset-only rows are counted as accepted wrong-history rows"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not train or optimize",
+    "do not use private holdout",
+    "do not claim true per-wheel/asymmetric faults",
+    "do not promote any checkpoint",
+    "do not count reset-only rows as wrong-history proof-positive rows"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260526T132203Z",
+  "hypothesis": "Scaling M990 capability-step source coverage will reveal whether its steering-vs-front-authority wrong-history signal is repeatable or merely a narrow smoke artifact.",
+  "lineage": {
+    "blocked_by": [
+      "M990 is infrastructure-positive but accepted rows are source-narrow"
+    ],
+    "derived_from": [
+      "m990-v4-public-base-capability-step-fault-smoke",
+      "m989-v4-public-base-capability-step-fault-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/m990_capability_step_fault_scenarios.json",
+      "experiments/manifests/m990-v4-public-base-capability-step-fault-smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m990-v4-public-base-capability-step-fault-smoke.md",
+      "runs/m990_v4_public_base_capability_step_fault_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "test whether M990 sparse wrong-history and reset-only signals scale under larger no-training source coverage"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m991-v4-public-base-capability-step-fault-source-wave",
+  "next_blocker": "m992-v4-public-base-capability-step-reset-only-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "capability_step_source_wave_reset_only_route_to_audit",
+  "public_gates": [
+    "M991 must not run PPO",
+    "M991 must not promote",
+    "M991 must not change actor inputs",
+    "M991 must keep hidden fault labels as logging/pairing metadata only",
+    "M991 must report reset-only rows separately from accepted wrong-history rows",
+    "M991 must not tune from private holdout"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m991_v4_public_base_capability_step_fault_source_wave/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "capability_step_source_wave_reset_only_route_to_audit",
+    "milestone": "m991-v4-public-base-capability-step-fault-source-wave",
+    "reason": "M991 scales to 4096 matched pairs and finds 0 accepted wrong-history rows but 1380 reset-only rows so training remains blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json exists",
+    "scenario_count >= 3000",
+    "snapshot_count >= 10000",
+    "matched_pair_count >= 2500",
+    "unique preferred fault-family groups >= 6",
+    "unique wrong fault-family groups >= 6",
+    "fault-family pair groups >= 10",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "wrong_history_action_critical_rows and reset_only_rows are reported separately"
+  ],
+  "type": "gate"
+}

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 999,
+    "completed": 1000,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m990-v4-public-base-capability-step-fault-smoke",
+    "task_id": "m991-v4-public-base-capability-step-fault-source-wave",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m990_v4_public_base_capability_step_fault_smoke/summary.json"
+    "command_log": "runs/m991_v4_public_base_capability_step_fault_source_wave/summary.json"
   },
   "next_task": {
-    "id": "m991-v4-public-base-capability-step-fault-source-wave",
+    "id": "m992-v4-public-base-capability-step-reset-only-audit",
     "status": "pending",
-    "priority": 9860,
+    "priority": 9870,
     "kind": "gate",
-    "hypothesis": "Scaling M990 capability-step source coverage will reveal whether its steering-vs-front-authority wrong-history signal is repeatable or merely a narrow smoke artifact",
-    "command": "see experiments/manifests/m991-v4-public-base-capability-step-fault-source-wave.json",
-    "success_artifact": "runs/m991_v4_public_base_capability_step_fault_source_wave/summary.json",
-    "notes": "Pending: create the M991 source-wave config and run larger no-training cross-fault coverage"
+    "hypothesis": "M991's reset-only result is a routeable intervention-design problem rather than evidence for immediate training",
+    "command": "see experiments/manifests/m992-v4-public-base-capability-step-reset-only-audit.json",
+    "success_artifact": "docs/m992-v4-public-base-capability-step-reset-only-audit.md",
+    "notes": "Pending: audit why capability-step source wave is reset-only and choose the next no-training intervention route"
   },
-  "updated_at_utc": "20260526T131030Z"
+  "updated_at_utc": "20260526T132032Z"
 }

@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m991-v4-public-base-capability-step-fault-source-wave
+m992-v4-public-base-capability-step-reset-only-audit
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -271,12 +271,20 @@ or asymmetric faults as future dynamics extensions. M990 creates that small
 current-base capability-step config and smoke-runs the existing cross-fault
 corpus harness on M974. The smoke passes compatibility with `832` scenarios,
 `3289` snapshots, `768` matched pairs, `2` accepted wrong-history rows, and
-`132` reset-only rows. This is nonzero but source-narrow signal. The next task
-is M991: scale the no-training source wave before any objective design, PPO, or
-promotion.
+`132` reset-only rows. This is nonzero but source-narrow signal. M991 scales
+the no-training source wave to `3328` scenarios, `16393` snapshots, and `4096`
+matched pairs. It finds `0` accepted wrong-history rows and `1380` reset-only
+rows, so the M990 wrong-history signal does not repeat under fresh larger
+coverage. The next task is M992: audit the reset-only result and choose between
+sequence-level intervention, stronger action-response mismatch, retargeted
+fault generation, or simulator/dynamics extension. Training and PPO remain
+blocked.
 
 ## Recent Evidence Line
 
+- M991 scales the capability-step source wave and gets `cross_fault_reset_only`:
+  `0` accepted wrong-history rows, `1380` reset-only rows. This blocks training
+  and routes to reset-only/sequence-intervention audit.
 - M990 passes the hidden capability-step smoke: M974 is compatible with the
   existing fault-event harness, and the run finds `2` accepted wrong-history
   rows plus `132` reset-only rows. This admits a larger no-training source wave,

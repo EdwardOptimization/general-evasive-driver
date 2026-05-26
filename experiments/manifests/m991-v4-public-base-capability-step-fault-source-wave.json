@@ -4,7 +4,8 @@
   "gate_tier": "generalization",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure",
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -120,6 +121,25 @@
     "docs/m990-v4-public-base-capability-step-fault-smoke.md",
     "runs/m990_v4_public_base_capability_step_fault_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "run_dir": "runs/m991_v4_public_base_capability_step_fault_source_wave",
+    "summary": "runs/m991_v4_public_base_capability_step_fault_source_wave/summary.json",
+    "result_class": "cross_fault_reset_only",
+    "scenario_count": 3328,
+    "snapshot_count": 16393,
+    "matched_pair_count": 4096,
+    "unmatched_rows": 1,
+    "accepted_rows": 0,
+    "reset_only_rows": 1380,
+    "wrong_history_action_critical_rows": 0,
+    "reset_history_action_critical_rows": 1380,
+    "actor_parameters_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "capability_step_source_wave_reset_only_route_to_audit",
   "decision_rule": "M991 decides whether M990's sparse capability-step wrong-history signal scales into source-diverse no-training evidence, remains source-narrow, or is reset-only.",
-  "next_blocker": "capability-step source wave has not been run"
+  "next_blocker": "m992-v4-public-base-capability-step-reset-only-audit"
 }

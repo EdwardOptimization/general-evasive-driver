@@ -1,0 +1,113 @@
+{
+  "id": "m992-v4-public-base-capability-step-reset-only-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m991-v4-public-base-capability-step-fault-source-wave.md",
+      "runs/m991_v4_public_base_capability_step_fault_source_wave/summary.json",
+      "runs/m991_v4_public_base_capability_step_fault_source_wave/reset_only_rows.csv",
+      "runs/m991_v4_public_base_capability_step_fault_source_wave/matched_cross_fault_pairs.csv"
+    ],
+    "parent_config": [
+      "configs/m991_capability_step_fault_source_wave.json",
+      "experiments/manifests/m991-v4-public-base-capability-step-fault-source-wave.json"
+    ],
+    "parent_objective": [
+      "audit why capability-step source wave is reset-only and choose the next no-training intervention route"
+    ],
+    "derived_from": [
+      "m991-v4-public-base-capability-step-fault-source-wave",
+      "m990-v4-public-base-capability-step-fault-smoke"
+    ],
+    "blocked_by": [
+      "M991 has 1380 reset-only rows but zero accepted wrong-history rows"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "counting M991 reset-only rows as wrong-history proof",
+      "training directly from M991 reset-only rows"
+    ]
+  },
+  "review_artifact": "docs/reviews/m992-v4-public-base-capability-step-reset-only-audit.md",
+  "public_gates": [
+    "M992 must not run PPO",
+    "M992 must not promote",
+    "M992 must not change actor inputs",
+    "M992 must not count reset-only rows as wrong-history proof",
+    "M992 must choose a route before further source mining or training"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not train or optimize",
+    "do not use private holdout",
+    "do not claim true per-wheel/asymmetric faults",
+    "do not export reset-only rows as accepted wrong-history rows",
+    "do not proceed to PPO"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_capability_step_fault_generation",
+    "evidence_axis": "G_sequence_intervention: whether reset-only capability-step evidence can be converted into clean wrong-history interventions",
+    "evidence_increment": "audits M991 reset-only rows and chooses between sequence-level wrong-history intervention, action-response mismatch, retargeted fault generation, or simulator extension",
+    "claim_scope": "process/audit only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if the audit shows wrong-history action gaps are near zero despite reset gaps",
+      "stop if reset-only rows dominate without source-diverse wrong-history rows",
+      "stop before using reset-only rows as proof-positive training data"
+    ],
+    "fallback_plan": [
+      "if wrong histories are too similar, design sequence-level or delayed/action-response mismatch interventions",
+      "if reset-only rows are source-diverse, export them only as diagnostic sequence-intervention seeds",
+      "if current-model faults are insufficient, design asymmetric/four-wheel dynamics extension separately"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M991 larger source wave returns cross_fault_reset_only",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M991's reset-only result is a routeable intervention-design problem rather than evidence for immediate training: wrong-history hidden states are too compatible or too weak, while reset-hidden rows identify candidate sequence-intervention seeds.",
+  "success_criteria": [
+    "audit artifact exists",
+    "M990 and M991 results are compared",
+    "reset-only rows are separated from wrong-history accepted rows",
+    "dominant fault-family pairs and seed coverage are summarized",
+    "next route is explicitly chosen",
+    "no training or PPO occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "reset-only rows are treated as wrong-history proof",
+    "route decision is missing",
+    "training or PPO starts",
+    "hidden event labels enter actor observations"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit over M990/M991 summary and CSV outputs; see docs/m992-v4-public-base-capability-step-reset-only-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m992-v4-public-base-capability-step-reset-only-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m990-v4-public-base-capability-step-fault-smoke.md",
+    "docs/m991-v4-public-base-capability-step-fault-source-wave.md",
+    "runs/m991_v4_public_base_capability_step_fault_source_wave/summary.json"
+  ],
+  "decision_rule": "M992 must choose the next no-training route for capability-step reset-only evidence before any training or PPO.",
+  "next_blocker": "capability-step reset-only audit has not been completed"
+}

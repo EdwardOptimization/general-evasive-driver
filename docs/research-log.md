@@ -15047,3 +15047,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M990 creates `configs/m990_capability_step_fault_scenarios.json` and smoke-runs the existing cross-fault hidden-fault corpus harness on the M974 public-gate base. It produces `832` scenarios, `3289` snapshots, `768` matched pairs, `2` accepted wrong-history rows, and `132` reset-only rows. The result class is `cross_fault_wrong_sparse`; actor parameters are unchanged and no training/PPO/promotion occurs.
 - decision: `capability_step_fault_smoke_pass_route_to_source_wave`
 - next: `m991-v4-public-base-capability-step-fault-source-wave`
+
+## 20260526T132032Z - m991-v4-public-base-capability-step-fault-source-wave
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m991_v4_public_base_capability_step_fault_source_wave`
+- artifact: `docs/m991-v4-public-base-capability-step-fault-source-wave.md`
+- result: M991 scales the M990 fault-event source wave to `3328` scenarios, `16393` snapshots, and `4096` matched pairs. The sparse M990 wrong-history accepted rows do not repeat: `accepted_rows=0`, `wrong_history_action_critical_rows=0`. Reset-hidden sensitivity is broad: `reset_only_rows=1380`, `reset_history_action_critical_rows=1380`. Actor parameters remain unchanged and no training/PPO/promotion occurs.
+- decision: `capability_step_source_wave_reset_only_route_to_audit`
+- next: `m992-v4-public-base-capability-step-reset-only-audit`
