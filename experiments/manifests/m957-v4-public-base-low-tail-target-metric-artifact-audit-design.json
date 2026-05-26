@@ -101,5 +101,5 @@
     "docs/m956-v4-public-base-low-tail-sequence-target-audit-implementation.md"
   ],
   "decision_rule": "M957 may only design the metric-artifact audit. It must not train, run PPO, relax thresholds, or promote.",
-  "next_blocker": "low-tail target metric artifact audit has not been designed"
+  "next_blocker": "m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation"
 }

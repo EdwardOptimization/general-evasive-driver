@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 965,
+    "completed": 966,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m956-v4-public-base-low-tail-sequence-target-audit-implementation",
+    "task_id": "m957-v4-public-base-low-tail-target-metric-artifact-audit-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m956_v4_public_base_low_tail_sequence_target_audit/summary.json"
+    "command_log": "docs/m957-v4-public-base-low-tail-target-metric-artifact-audit-design.md"
   },
   "next_task": {
-    "id": "m957-v4-public-base-low-tail-target-metric-artifact-audit-design",
+    "id": "m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation",
     "status": "pending",
-    "priority": 9520,
+    "priority": 9530,
     "kind": "gate",
-    "hypothesis": "M956 indicates the current low-tail action-gap target may be a metric artifact, so the next step should design a no-training grounding audit before threshold relaxation or actor training",
-    "command": "see experiments/manifests/m957-v4-public-base-low-tail-target-metric-artifact-audit-design.json",
-    "success_artifact": "docs/m957-v4-public-base-low-tail-target-metric-artifact-audit-design.md",
-    "notes": "Pending: design no-training audit comparing low-tail action-gap metrics against closed-loop terminal margin effects"
+    "hypothesis": "The current low-tail action-gap target is behaviorally ungrounded if proxy improvements do not correlate with closed-loop terminal margin improvement",
+    "command": "see experiments/manifests/m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation.json",
+    "success_artifact": "runs/m958_v4_public_base_low_tail_target_metric_artifact_audit/summary.json",
+    "notes": "Pending: implement no-training metric-grounding audit for low-tail action-gap proxy versus terminal margin"
   },
-  "updated_at_utc": "20260526T011729Z"
+  "updated_at_utc": "20260526T014423Z"
 }

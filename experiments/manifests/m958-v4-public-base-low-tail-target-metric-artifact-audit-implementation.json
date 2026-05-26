@@ -1,0 +1,125 @@
+{
+  "id": "m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m957-v4-public-base-low-tail-target-metric-artifact-audit-design.md",
+      "runs/m956_v4_public_base_low_tail_sequence_target_audit/summary.json",
+      "runs/m956_v4_public_base_low_tail_sequence_target_audit/low_tail_sequence_metrics.csv",
+      "runs/m956_v4_public_base_low_tail_sequence_target_audit/sequence_family_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m957-v4-public-base-low-tail-target-metric-artifact-audit-design.json"
+    ],
+    "parent_objective": [
+      "implement a no-training audit comparing low-tail action-gap proxy changes against closed-loop terminal margin effects"
+    ],
+    "derived_from": [
+      "m957-v4-public-base-low-tail-target-metric-artifact-audit-design"
+    ],
+    "blocked_by": [
+      "low-tail target metric artifact audit has only been designed, not implemented"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "threshold relaxation or actor training before checking low-tail metric grounding"
+    ]
+  },
+  "review_artifact": "docs/reviews/m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation.md",
+  "public_gates": [
+    "M958 must not train",
+    "M958 must not run PPO",
+    "M958 must not promote",
+    "M958 must preserve the P0 actor-input contract",
+    "M958 must compare proxy metric changes with terminal margin effects",
+    "M958 must classify target-metric artifact, direction-sign suspicion, threshold-only issue, or target-source refresh"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not relax thresholds",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_replay_constrained_target_feasibility",
+    "evidence_axis": "G_target_feasibility: existence of replay-constrained targets before more actor updates",
+    "evidence_increment": "implements the metric-grounding audit designed in M957",
+    "claim_scope": "process/no-training metric diagnostic only; no actor training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if proxy and terminal margin cannot be compared",
+      "stop if no direction family can be evaluated",
+      "stop if result class points to target redefinition or source refresh"
+    ],
+    "fallback_plan": [
+      "if metric artifact is confirmed, route to low-tail target redefinition",
+      "if direction sign is wrong, route to direction-family target audit",
+      "if thresholds only are implicated, route to exact threshold sensitivity audit",
+      "if no local direction is actionable, route to target-source refresh"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M957 designs low-tail metric-grounding audit after M956",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The current low-tail action-gap target is behaviorally ungrounded if proxy improvements do not correlate with closed-loop terminal margin improvement.",
+  "success_criteria": [
+    "summary artifact exists",
+    "direction-family summary is written",
+    "row-level proxy/behavior grounding rows are written",
+    "correlation metrics are written",
+    "route decision is explicit",
+    "training, PPO, threshold relaxation, and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "implementation trains or updates model weights",
+    "implementation changes actor inputs",
+    "implementation relaxes thresholds",
+    "implementation omits terminal margin comparison",
+    "implementation promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "run_metric_artifact_audit",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_low_tail_metric_artifact_audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m958_v4_public_base_low_tail_target_metric_artifact_audit/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m958_v4_public_base_low_tail_target_metric_artifact_audit/direction_family_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m958_v4_public_base_low_tail_target_metric_artifact_audit/row_metric_grounding.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m958_v4_public_base_low_tail_target_metric_artifact_audit/proxy_behavior_correlation.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m958_v4_public_base_low_tail_target_metric_artifact_audit/route_decision.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m957-v4-public-base-low-tail-target-metric-artifact-audit-design.md"
+  ],
+  "decision_rule": "M958 may only run a no-training metric-grounding audit. It must not update actor parameters, run PPO, relax thresholds, or promote.",
+  "next_blocker": "low-tail target metric artifact audit has not been implemented"
+}

@@ -14725,3 +14725,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M956 implements the no-training sequence audit. It evaluates `9` delayed projection families over `64/498` low-tail rows with horizons `2/4/6` and amplitudes `0.004/0.006/0.008`. All families retain first action and M267 proof retention passes for all `9`, but no sequence family improves low-tail terminal margin: `sequence_low_tail_candidate_count=0`, `terminal_margin_positive_family_count=0`, and `joint_sequence_candidate_count=0`.
 - decision: `low_tail_sequence_target_audit_metric_artifact_route_to_audit`
 - next: `m957-v4-public-base-low-tail-target-metric-artifact-audit-design`
+
+## 20260526T014423Z - m957-v4-public-base-low-tail-target-metric-artifact-audit-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m957-v4-public-base-low-tail-target-metric-artifact-audit-design.md`
+- result: M957 designs a no-training metric-grounding audit after M956. The audit compares low-tail action-gap proxy improvements against closed-loop terminal-margin effects across away-from-intervention, toward-intervention, simple action-axis, and existing-direction families. It explicitly separates target-metric artifact, direction-sign suspicion, threshold-only issue, and target-source refresh routes before any threshold relaxation, PPO, actor training, or promotion.
+- decision: `low_tail_metric_artifact_audit_design_admit_m958`
+- next: `m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation`

@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M957 designs no-training metric-grounding audit comparing low-tail action-gap proxy changes against closed-loop terminal margin effects before threshold relaxation or actor training",
+  "failure_criteria": [
+    "design recommends actor training before metric grounding",
+    "design changes actor inputs",
+    "design relaxes thresholds without a sensitivity audit",
+    "design omits terminal margin comparison"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not relax thresholds without a registered sensitivity plan",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260526T015038Z",
+  "hypothesis": "M956 indicates the current low-tail action-gap target may be a metric artifact, so the next step should design a no-training grounding audit before threshold relaxation or actor training.",
+  "lineage": {
+    "blocked_by": [
+      "M956 finds delayed action-gap projection sequences preserve retention and M267 proof but do not improve terminal margin"
+    ],
+    "derived_from": [
+      "m956-v4-public-base-low-tail-sequence-target-audit-implementation"
+    ],
+    "invalidates": [
+      "threshold relaxation or actor training before checking low-tail metric grounding"
+    ],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m956-v4-public-base-low-tail-sequence-target-audit-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m956-v4-public-base-low-tail-sequence-target-audit-implementation.md",
+      "runs/m956_v4_public_base_low_tail_sequence_target_audit/summary.json",
+      "runs/m956_v4_public_base_low_tail_sequence_target_audit/sequence_family_summary.csv",
+      "runs/m956_v4_public_base_low_tail_sequence_target_audit/low_tail_sequence_metrics.csv"
+    ],
+    "parent_objective": [
+      "design a target-metric artifact audit after delayed low-tail projection sequences worsen terminal margin"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m957-v4-public-base-low-tail-target-metric-artifact-audit-design",
+  "next_blocker": "m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "low_tail_metric_artifact_audit_design_admit_m958",
+  "public_gates": [
+    "M957 must not train",
+    "M957 must not run PPO",
+    "M957 must not promote",
+    "M957 must preserve the P0 actor-input contract",
+    "M957 must design a no-training audit comparing low-tail action-gap metrics to closed-loop terminal margin effects"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m957-v4-public-base-low-tail-target-metric-artifact-audit-design.md",
+    "clearance_margin_mean": "",
+    "decision": "low_tail_metric_artifact_audit_design_admit_m958",
+    "milestone": "m957-v4-public-base-low-tail-target-metric-artifact-audit-design",
+    "reason": "M957 designs no-training metric-grounding audit comparing low-tail action-gap proxy changes against closed-loop terminal margin effects before threshold relaxation or actor training",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design document exists",
+    "metric-artifact criteria are explicit",
+    "closed-loop terminal margin comparison is required",
+    "direction-sign and threshold-sensitivity routes are separated",
+    "training, PPO, and promotion remain blocked"
+  ],
+  "type": "gate"
+}

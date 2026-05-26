@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m957-v4-public-base-low-tail-target-metric-artifact-audit-design
+m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -136,10 +136,20 @@ families retain the first action and pass M267 proof preflight, but
 `terminal_margin_positive_family_count=0` and every delayed projection slightly
 worsens terminal margin. The next blocker is therefore metric grounding: audit
 whether the low-tail action-gap target is a target-metric artifact before
-relaxing thresholds or training.
+relaxing thresholds or training. M957 designs that audit: compare proxy changes
+against closed-loop terminal margin effects across away/toward intervention,
+simple action-axis, and existing-direction families; separately classify
+target-metric artifact, direction-sign suspicion, threshold-only issue, or
+target-source refresh. M958 should implement this no-training grounding audit.
 
 ## Recent Evidence Line
 
+- M957 designs the low-tail target-metric artifact audit. It blocks training,
+  PPO, promotion, threshold relaxation, and actor-input changes. The audit will
+  compare action-gap proxy improvement with terminal-margin improvement across
+  away/toward intervention directions, simple action axes, and existing M951
+  directions. M958 should implement it and classify whether the current
+  low-tail proxy is ungrounded, sign-wrong, threshold-only, or source-limited.
 - M956 implements the no-training low-tail sequence target audit. It evaluates
   `9` delayed projection sequence families over `64/498` low-tail rows, with
   horizons `2/4/6` and amplitudes `0.004/0.006/0.008`. All families retain the
