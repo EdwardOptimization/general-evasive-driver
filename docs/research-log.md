@@ -14706,3 +14706,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M954 implements the no-training target-space audit. It evaluates 56 one-step target families, including M951 existing directions, low-tail projection targets with drift budgets up to `0.008`, accepted-target blends, and M267 active-row first-action target preflight. The result is `replay_constrained_target_feasibility_low_tail_exact_failure`: `m267_target_preflight_pass_count=55`, `exact_target_candidate_count=0`, `joint_feasible_target_count=0`, `normal_safe_low_tail_trend_count=27`, with no training, PPO, promotion, or actor-input change.
 - decision: `replay_constrained_target_feasibility_low_tail_exact_failure_route_to_sequence_audit`
 - next: `m955-v4-public-base-low-tail-sequence-target-audit-design`
+
+## 20260526T010243Z - m955-v4-public-base-low-tail-sequence-target-audit-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m955-v4-public-base-low-tail-sequence-target-audit-design.md`
+- result: M955 designs the no-training short-horizon sequence target audit after M954. The audit keeps the deployed actor single-step and keeps `u_0` under M954 first-action retention, while allowing delayed maneuver intent in `u_1..u_{K-1}` for horizons `2`, `4`, and `6`. It separates first-action retention, prefix retention, sequence low-tail effect, terminal margin effect, and M267/M264 branch-separated proof retention. Threshold relaxation is only a fallback after sequence feasibility is tested.
+- decision: `low_tail_sequence_target_audit_design_admit_m956`
+- next: `m956-v4-public-base-low-tail-sequence-target-audit-implementation`

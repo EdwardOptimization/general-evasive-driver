@@ -1,0 +1,127 @@
+{
+  "id": "m956-v4-public-base-low-tail-sequence-target-audit-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m955-v4-public-base-low-tail-sequence-target-audit-design.md",
+      "runs/m954_v4_public_base_replay_constrained_target_feasibility/summary.json",
+      "runs/m954_v4_public_base_replay_constrained_target_feasibility/target_family_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m955-v4-public-base-low-tail-sequence-target-audit-design.json"
+    ],
+    "parent_objective": [
+      "implement a no-training short-horizon sequence target audit after one-step target families fail"
+    ],
+    "derived_from": [
+      "m955-v4-public-base-low-tail-sequence-target-audit-design"
+    ],
+    "blocked_by": [
+      "low-tail sequence target audit has only been designed, not implemented"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "actor training before sequence target feasibility"
+    ]
+  },
+  "review_artifact": "docs/reviews/m956-v4-public-base-low-tail-sequence-target-audit-implementation.md",
+  "public_gates": [
+    "M956 must not train",
+    "M956 must not run PPO",
+    "M956 must not promote",
+    "M956 must preserve the P0 actor-input contract",
+    "M956 must report first-action retention",
+    "M956 must report sequence low-tail metrics",
+    "M956 must report M267 sequence proof retention"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not change actor output contract",
+    "do not widen actor inputs",
+    "do not open encoders or GRU",
+    "do not use private holdout",
+    "do not promote"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_replay_constrained_target_feasibility",
+    "evidence_axis": "G_target_feasibility: existence of replay-constrained targets before more actor updates",
+    "evidence_increment": "implements the short-horizon sequence target audit designed in M955",
+    "claim_scope": "sequence target-feasibility diagnostic only; no actor training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if first-action retention cannot be evaluated",
+      "stop if no sequence family can be replayed",
+      "stop if joint sequence feasibility is impossible under registered criteria"
+    ],
+    "fallback_plan": [
+      "if joint sequence candidates exist, route to sequence target export and actor-fit objective design",
+      "if sequence metrics improve but terminal margins do not, route to target-metric artifact audit",
+      "if no sequence candidate appears, route to exact threshold sensitivity audit",
+      "if M267 proof fails, route to branch-separated sequence target refinement"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M955 designs sequence audit after M954 one-step target failure",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Short-horizon sequence targets may show low-tail feasibility under first-action retention where one-step target families failed.",
+  "success_criteria": [
+    "summary artifact exists",
+    "sequence family metrics are written",
+    "first-action retention is reported",
+    "sequence low-tail effect is reported",
+    "M267 sequence proof-retention metrics are written",
+    "joint sequence candidate count is reported",
+    "training, PPO, and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "implementation trains or updates model weights",
+    "implementation changes actor inputs or output contract",
+    "implementation omits first-action retention metrics",
+    "implementation omits M267 proof-retention handling",
+    "implementation promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "run_sequence_target_audit",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_low_tail_sequence_target_audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m956_v4_public_base_low_tail_sequence_target_audit/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m956_v4_public_base_low_tail_sequence_target_audit/sequence_family_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m956_v4_public_base_low_tail_sequence_target_audit/low_tail_sequence_metrics.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m956_v4_public_base_low_tail_sequence_target_audit/m267_sequence_preflight.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m956_v4_public_base_low_tail_sequence_target_audit/sequence_row_conflicts.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m955-v4-public-base-low-tail-sequence-target-audit-design.md"
+  ],
+  "decision_rule": "M956 may only run a no-training sequence target feasibility audit. It must not update actor parameters, run PPO, or promote.",
+  "next_blocker": "low-tail sequence target audit has not been implemented"
+}

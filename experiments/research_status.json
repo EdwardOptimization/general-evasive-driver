@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 963,
+    "completed": 964,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m954-v4-public-base-replay-constrained-target-feasibility-implementation",
+    "task_id": "m955-v4-public-base-low-tail-sequence-target-audit-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m954_v4_public_base_replay_constrained_target_feasibility/summary.json"
+    "command_log": "docs/m955-v4-public-base-low-tail-sequence-target-audit-design.md"
   },
   "next_task": {
-    "id": "m955-v4-public-base-low-tail-sequence-target-audit-design",
+    "id": "m956-v4-public-base-low-tail-sequence-target-audit-implementation",
     "status": "pending",
-    "priority": 9500,
+    "priority": 9510,
     "kind": "infrastructure",
-    "hypothesis": "M954's zero joint candidates may be a first-action target under-specification, so the next no-training step should design a short-horizon low-tail sequence target audit before changing actor parameters or thresholds",
-    "command": "see experiments/manifests/m955-v4-public-base-low-tail-sequence-target-audit-design.json",
-    "success_artifact": "docs/m955-v4-public-base-low-tail-sequence-target-audit-design.md",
-    "notes": "Pending: design no-training short-horizon sequence target audit after M954 shows one-step target families fail exact low-tail feasibility"
+    "hypothesis": "Short-horizon sequence targets may show low-tail feasibility under first-action retention where one-step target families failed",
+    "command": "see experiments/manifests/m956-v4-public-base-low-tail-sequence-target-audit-implementation.json",
+    "success_artifact": "runs/m956_v4_public_base_low_tail_sequence_target_audit/summary.json",
+    "notes": "Pending: implement no-training short-horizon sequence target audit after M955 design"
   },
-  "updated_at_utc": "20260526T005846Z"
+  "updated_at_utc": "20260526T010243Z"
 }

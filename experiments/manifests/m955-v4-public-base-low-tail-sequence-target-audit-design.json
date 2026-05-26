@@ -103,5 +103,5 @@
     "docs/m954-v4-public-base-replay-constrained-target-feasibility-implementation.md"
   ],
   "decision_rule": "M955 may only design the sequence-target or threshold-audit route. It must not train, run PPO, or promote.",
-  "next_blocker": "low-tail sequence target audit has not been designed"
+  "next_blocker": "m956-v4-public-base-low-tail-sequence-target-audit-implementation"
 }

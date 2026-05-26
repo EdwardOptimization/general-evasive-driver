@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m955-v4-public-base-low-tail-sequence-target-audit-design
+m956-v4-public-base-low-tail-sequence-target-audit-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -126,10 +126,21 @@ passes for `55/56` families. The blocker is one-step exact low-tail
 feasibility: `exact_target_candidate_count=0`, with the same normal-retention
 versus low-tail boundary appearing in target space. M955 should design a
 short-horizon low-tail sequence target audit, with threshold sensitivity as a
-fallback, before actor training or threshold changes.
+fallback, before actor training or threshold changes. M955 designs that audit:
+retain the first action under M954 thresholds, distribute maneuver intent over
+`K in {2,4,6}` prefix actions, evaluate sequence-level low-tail and terminal
+margin effects, and keep M267 branch-separated sequence proof retention
+mandatory. M956 should implement the no-training sequence audit.
 
 ## Recent Evidence Line
 
+- M955 designs the low-tail sequence target audit after M954. It blocks actor
+  training, PPO, promotion, actor-input changes, and output-contract changes.
+  The design tests whether M954's zero joint one-step candidates are a
+  first-action under-specification: `u_0` must still pass M954 first-action
+  retention, while `u_1..u_{K-1}` may carry delayed maneuver intent over
+  horizons `2/4/6`. M267/M264 proof retention remains branch-separated and
+  mandatory. M956 should implement this no-training sequence audit.
 - M954 implements the no-training replay-constrained target feasibility audit.
   It reconstructs `1213/1213` rows, keeps training/PPO/promotion off, and
   preserves the P0 actor-input contract. Result:
