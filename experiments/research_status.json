@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 956,
+    "completed": 957,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit",
+    "task_id": "m948-v4-public-base-controlled-fusion-rejected-branch-retention-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit.md"
+    "command_log": "docs/m948-v4-public-base-controlled-fusion-rejected-branch-retention-design.md"
   },
   "next_task": {
-    "id": "m948-v4-public-base-controlled-fusion-rejected-branch-retention-design",
+    "id": "m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe",
     "status": "pending",
-    "priority": 9430,
+    "priority": 9440,
     "kind": "infrastructure",
-    "hypothesis": "A replay-admissible controlled-fusion repair needs explicit rejected-history branch retention and an M267/M264 preflight gate",
-    "command": "see experiments/manifests/m948-v4-public-base-controlled-fusion-rejected-branch-retention-design.json",
-    "success_artifact": "docs/m948-v4-public-base-controlled-fusion-rejected-branch-retention-design.md",
-    "notes": "Pending: design rejected-history branch retention route after all known M944 candidate alphas fail the same M267/M264 rows"
+    "hypothesis": "Adding rejected-history branch retention to the controlled-fusion objective may preserve M267/M264 wrong-history failures while retaining low-tail exact objective lift",
+    "command": "see experiments/manifests/m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe.json",
+    "success_artifact": "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/summary.json",
+    "notes": "Pending: implement no-PPO objective-only rejected-branch retention proxy and M267/M264 preflight; promotion remains blocked"
   },
-  "updated_at_utc": "20260525T235918Z"
+  "updated_at_utc": "20260526T000533Z"
 }

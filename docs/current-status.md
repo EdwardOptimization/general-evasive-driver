@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m948-v4-public-base-controlled-fusion-rejected-branch-retention-design
+m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -98,10 +98,22 @@ wrong-history successes. Behavior seeds `9505` and `9506` still pass, so the
 blocker is proof washout, not broad behavior regression. M947 audits the
 failure and shows all known M944 candidate alphas `0.0675`, `0.0700`, and
 `0.0725` fail the same M267/M264 rows. The next route is therefore explicit
-rejected-history branch retention, not direct lower-alpha replay.
+rejected-history branch retention, not direct lower-alpha replay. M948 designs
+that route as an objective-only controlled-fusion repair: keep only
+`actor_mean` and `response_context_fusion.0` trainable, add rejected-branch
+action-retention proxies, and require M267/M264 row `6/13/15/16` preflight
+before any full replay, PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M948 designs the rejected-branch retention route. It keeps the existing
+  controlled-fusion trainable surface only and blocks actor-input changes, GRU
+  updates, PPO, and promotion. The active rejected set is M267/M264 rows `6`,
+  `13`, `15`, and `16`, with source-diverse rows `15/16` as overlap checks and
+  old key `9944` diagnostic-only. M949 should implement a no-PPO objective-only
+  probe with wrong-action anchor, wrong-vs-normal separation floor, and
+  wrong-direction anchor proxies, then require M267/M264 preflight before full
+  replay.
 - M947 audits the M946 failure. It confirms a rejected-history branch washout:
   rows `6`, `13`, `15`, and `16` of M267/M264 keep normal success but their
   wrong-history margins cross positive. No-training checks of backup alpha

@@ -1,0 +1,110 @@
+{
+  "id": "m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m948-v4-public-base-controlled-fusion-rejected-branch-retention-design.md",
+      "runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/full_gates/m267_m264_replay/boundary_replay_rows.csv",
+      "runs/m320_m316_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m314_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m948-v4-public-base-controlled-fusion-rejected-branch-retention-design.json"
+    ],
+    "parent_objective": [
+      "implement controlled-fusion objective-only probe with explicit rejected-history branch retention proxy and M267/M264 preflight"
+    ],
+    "derived_from": [
+      "m948-v4-public-base-controlled-fusion-rejected-branch-retention-design"
+    ],
+    "blocked_by": [
+      "controlled-fusion low-tail objective has no rejected-history branch retention implementation"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe.md",
+  "public_gates": [
+    "M949 must preserve P0 actor-input contract",
+    "M949 may train only actor_mean and response_context_fusion.0",
+    "M949 must evaluate exact objective metrics",
+    "M949 must evaluate M267/M264 preflight rows 6/13/15/16",
+    "M949 must not run PPO",
+    "M949 must not promote"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not widen actor inputs",
+    "do not update response/context encoders or online GRU",
+    "do not use old key 9944 as a singleton veto",
+    "do not skip M267/M264 preflight",
+    "do not run PPO or promotion"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_controlled_fusion_surface",
+    "evidence_axis": "G_replay: objective-only rejected-history branch retention feasibility",
+    "evidence_increment": "tests whether adding an explicit rejected-branch retention proxy can produce a controlled-fusion candidate that passes M267/M264 preflight",
+    "claim_scope": "objective/proof preflight only; no full promotion, no private holdout, no PPO",
+    "stop_condition": [
+      "stop if no candidate alpha passes M267/M264 preflight",
+      "stop if forbidden parameters change",
+      "stop if low-tail objective compatibility disappears at all preflight-safe alphas"
+    ],
+    "fallback_plan": [
+      "if preflight fails but proxy loss works, route to rejected-branch trajectory target export",
+      "if preflight and low-tail objectives conflict, route to objective conflict audit",
+      "if no useful signal appears, route to controlled-fusion branch synthesis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M948 admits one no-PPO objective-only rejected-branch retention implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Adding rejected-history branch retention to the controlled-fusion objective may preserve M267/M264 wrong-history failures while retaining low-tail exact objective lift.",
+  "success_criteria": [
+    "summary.json exists",
+    "active rejected rows are reconstructed",
+    "forbidden_parameter_changed is false",
+    "M267/M264 preflight is evaluated",
+    "candidate_alpha_count is reported",
+    "ppo_used and promoted are false"
+  ],
+  "failure_criteria": [
+    "actor inputs change",
+    "forbidden parameters change",
+    "M267/M264 preflight is skipped",
+    "PPO or promotion is run",
+    "active rejected rows cannot be reconstructed"
+  ],
+  "commands": [
+    {
+      "name": "run_probe",
+      "command": "Implement and run a no-PPO controlled-fusion rejected-branch retention objective probe, then write summary and milestone doc."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/summary.json",
+      "type": "run_summary"
+    },
+    {
+      "path": "docs/m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m948-v4-public-base-controlled-fusion-rejected-branch-retention-design.md"
+  ],
+  "decision_rule": "M949 may run only objective-only controlled-fusion training with rejected-branch retention proxy and preflight replay. It must not run PPO or promote.",
+  "next_blocker": "rejected-branch retention probe has not been implemented"
+}

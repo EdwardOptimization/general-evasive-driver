@@ -104,5 +104,5 @@
     "docs/m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit.md"
   ],
   "decision_rule": "M948 may only design the rejected-branch retention route. It must not train, replay a new candidate as promoted, PPO, or promote.",
-  "next_blocker": "controlled-fusion repair objective does not yet include rejected-history branch retention"
+  "next_blocker": "m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe"
 }

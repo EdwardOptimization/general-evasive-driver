@@ -14640,3 +14640,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M947 audits the M946 failure. It confirms the public failure is rejected-history branch washout, not broad behavior regression or actor-contract violation. The M267/M264 failed rows are `6`, `13`, `15`, and `16`; all keep normal success but wrong-history margins cross positive. No-training targeted replay of the M944 backup candidates `0.0675` and `0.0700` also fails M267/M264 with success-drop count `17 -> 13` on the same four rows. Source-diverse diagnostics overlap on rows `15` and `16`. Old key `9944` remains diagnostic-only. Lowering to the known backup alphas is therefore not sufficient.
 - decision: `controlled_fusion_candidate_rejected_branch_washout_route_to_retention_design`
 - next: `m948-v4-public-base-controlled-fusion-rejected-branch-retention-design`
+
+## 20260526T000533Z - m948-v4-public-base-controlled-fusion-rejected-branch-retention-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m948-v4-public-base-controlled-fusion-rejected-branch-retention-design.md`
+- result: M948 designs the next repair route after M947. It keeps the M936 controlled-fusion trainable surface only: `actor_mean` plus `response_context_fusion.0`; response/context encoders, online GRU, critic, log_std, and actor inputs remain frozen. The active rejected-branch set is M267/M264 rows `6`, `13`, `15`, `16`, with source-diverse rows `15/16` as preflight overlap and old key `9944` diagnostic-only. The proposed objective adds rejected wrong-action anchor, wrong-vs-normal separation floor, and wrong-direction anchor proxy terms to the existing low-tail and normal-retention terms. Closed-loop M267/M264 preflight is mandatory before full replay.
+- decision: `controlled_fusion_rejected_branch_retention_design_admit_m949`
+- next: `m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe`
