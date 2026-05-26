@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1016,
+    "completed": 1017,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1007-v4-public-base-branch-preserving-temporal-repair-evaluator",
+    "task_id": "m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator/summary.json"
+    "command_log": "docs/m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit.md"
   },
   "next_task": {
-    "id": "m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit",
+    "id": "m1009-v4-public-base-temporal-sequence-objective-branch-synthesis",
     "status": "pending",
-    "priority": 10030,
+    "priority": 10040,
     "kind": "gate",
-    "hypothesis": "M1007 fails because fixed one-step logp/separation metrics are weakly coupled to closed-loop terminal margin on near-boundary wrong-history rows",
-    "command": "see experiments/manifests/m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit.json",
-    "success_artifact": "docs/m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit.md",
-    "notes": "Pending: compare M1007 fixed one-step proxy against M1004 closed-loop margin lift and decide replacement residual"
+    "hypothesis": "M999-M1008 should be synthesized before another temporal objective repair because exact temporal improvement and public replay retention currently conflict",
+    "command": "see experiments/manifests/m1009-v4-public-base-temporal-sequence-objective-branch-synthesis.json",
+    "success_artifact": "docs/m1009-v4-public-base-temporal-sequence-objective-branch-synthesis.md",
+    "notes": "Pending: synthesize M999-M1008 before any margin-weighted branch trust-region design"
   },
-  "updated_at_utc": "20260526T175257Z"
+  "updated_at_utc": "20260526T175919Z"
 }

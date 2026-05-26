@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit
+m1009-v4-public-base-temporal-sequence-objective-branch-synthesis
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -321,10 +321,21 @@ proxy is not sensitive to the smallest proof-washing candidate. Alpha `0.01`
 gets branch loss `0.0` despite M1004 showing rows `6` and `15` become
 wrong-history successes. The next task is M1008: audit this evaluator
 sensitivity failure against closed-loop margin evidence and design a replacement
-residual or synthesize the branch.
+residual or synthesize the branch. M1008 completes that audit and classifies
+M1007 as a margin-slack mismatch: rows `6` and `15` have near-zero wrong-history
+margins, so alpha `0.01` action shifts of only `1e-4` can flip closed-loop
+terminal margin while fixed one-step logp/separation penalties stay zero. The
+harness cadence check now requires synthesis, so the next task is M1009:
+temporal sequence objective branch synthesis. It should decide whether the next
+ordinary milestone is margin-weighted trust-region design, trajectory-target
+export, or stopping the branch.
 
 ## Recent Evidence Line
 
+- M1008 audits the failed branch-preserving evaluator. The issue is not row
+  reconstruction or actor mutation; the proxy scale is mismatched to near-cliff
+  terminal margins. Cadence now requires branch synthesis before the next repair
+  design.
 - M1007 implements the branch-preserving no-update evaluator. It changes no
   actor parameters and keeps M974 branch loss at zero, but it fails as a repair
   objective proxy: alpha `0.01` remains branch-loss zero despite known

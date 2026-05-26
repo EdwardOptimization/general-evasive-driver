@@ -101,6 +101,26 @@
     "docs/m1007-v4-public-base-branch-preserving-temporal-repair-evaluator.md",
     "runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit.md",
+    "result_class": "branch_preserving_evaluator_sensitivity_audit_margin_slack_mismatch",
+    "failure_types": [
+      "metric_artifact"
+    ],
+    "subtype": "margin_slack_mismatch",
+    "row6_base_wrong_margin": -0.000117,
+    "row15_base_wrong_margin": -0.000025,
+    "alpha_0_01_branch_loss": 0.0,
+    "alpha_0_01_lost_rows": [
+      6,
+      15
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "branch_preserving_evaluator_sensitivity_audit_route_to_temporal_objective_branch_synthesis",
   "decision_rule": "M1008 should route to a replacement residual design only if it identifies why M1007 is insensitive and preserves the P0 actor contract.",
-  "next_blocker": "m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit"
+  "next_blocker": "m1009-v4-public-base-temporal-sequence-objective-branch-synthesis"
 }

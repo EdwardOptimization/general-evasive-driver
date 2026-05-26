@@ -1,0 +1,132 @@
+{
+  "id": "m1009-v4-public-base-temporal-sequence-objective-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_01.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_2.pt"
+    ],
+    "parent_dataset": [
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/summary.json",
+      "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/summary.json",
+      "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/summary.json",
+      "runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator/summary.json",
+      "docs/m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m998-v4-public-base-capability-step-fault-generation-synthesis.json",
+      "experiments/manifests/m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M999-M1008 temporal sequence objective branch before continuing"
+    ],
+    "derived_from": [
+      "m999-v4-public-base-temporal-sequence-objective-design",
+      "m1000-v4-public-base-temporal-sequence-objective-evaluator",
+      "m1001-v4-public-base-temporal-sequence-objective-update-design",
+      "m1002-v4-public-base-temporal-sequence-objective-update-probe",
+      "m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design",
+      "m1004-v4-public-base-temporal-sequence-update-public-replay-gate",
+      "m1005-v4-public-base-temporal-sequence-update-replay-failure-audit",
+      "m1006-v4-public-base-branch-preserving-temporal-repair-design",
+      "m1007-v4-public-base-branch-preserving-temporal-repair-evaluator",
+      "m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M999-M1008 branch work"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "continuing temporal objective local repairs without branch synthesis"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1009-v4-public-base-temporal-sequence-objective-branch-synthesis.md",
+  "public_gates": [
+    "M1009 must synthesize M999-M1008",
+    "M1009 must not train",
+    "M1009 must not run PPO",
+    "M1009 must not promote",
+    "M1009 must decide whether to continue with margin-weighted repair, pivot, or stop"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not skip synthesis cadence",
+    "do not overclaim M1002 exact candidates as replay-valid",
+    "do not use private holdout",
+    "do not promote a checkpoint",
+    "do not run PPO"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_temporal_sequence_objective",
+    "evidence_axis": "G_temporal_objective: synthesize temporal sequence objective branch",
+    "evidence_increment": "synthesizes M999-M1008 and decides whether to continue with margin-weighted branch trust-region design",
+    "claim_scope": "process synthesis only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop this branch if temporal exact candidates cannot be made replay-valid",
+      "stop unweighted fixed one-step branch proxies after M1007/M1008 negative result",
+      "stop before another local objective without synthesis"
+    ],
+    "fallback_plan": [
+      "continue with margin-slack-weighted branch trust-region design if synthesis supports it",
+      "pivot to trajectory-target export if margin-weighted trust regions are judged too anchor-like",
+      "stop and return to data generation if branch evidence is too narrow"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1008 completes after M999-M1008 branch count reaches cadence",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1009-v4-public-base-temporal-sequence-objective-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M999-M1008 should be synthesized before another temporal objective repair because exact temporal improvement and public replay retention currently conflict.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "supported and falsified claims are explicit",
+    "failure taxonomy is explicit",
+    "public gate overfit risk is updated",
+    "next branch decision is explicit",
+    "no training or promotion occurs"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "route decision is missing",
+    "M1002 is overclaimed as replay-valid",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "write_synthesis",
+      "command": "write docs/m1009-v4-public-base-temporal-sequence-objective-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1009-v4-public-base-temporal-sequence-objective-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit.md",
+    "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/summary.json",
+    "runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator/summary.json"
+  ],
+  "decision_rule": "M1009 must decide whether to continue with margin-weighted repair, pivot to trajectory targets, or stop the branch.",
+  "next_blocker": "m1009-v4-public-base-temporal-sequence-objective-branch-synthesis"
+}
