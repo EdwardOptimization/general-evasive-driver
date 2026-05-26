@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M975 designs full public proof generalization behavior gate for the M974 exact-repaired candidate before promotion audit",
+  "failure_criteria": [
+    "design promotes from first replay only",
+    "design skips public replay surfaces",
+    "design changes actor inputs",
+    "design uses private holdout",
+    "design allows PPO continuation before full gate"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not promote from first replay only",
+    "do not skip M267/M264 full-surface replay",
+    "do not skip old public proof surfaces",
+    "do not use private holdout",
+    "do not run PPO",
+    "do not change actor inputs"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260526T102815Z",
+  "hypothesis": "The M974 base-start exact-repaired candidate should be evaluated through the full public proof/generalization/behavior stack before any promotion audit.",
+  "lineage": {
+    "blocked_by": [
+      "M974 selected candidate has only first replay evidence, not full public gate evidence"
+    ],
+    "derived_from": [
+      "m974-v4-public-base-post-promotion-exact-repair-projection-probe",
+      "m973-v4-public-base-post-promotion-ppo-exact-repair-projection-design"
+    ],
+    "invalidates": [
+      "promotion of M974 candidate before full public proof/generalization/behavior gates"
+    ],
+    "parent_checkpoint": [
+      "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt",
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m974-v4-public-base-post-promotion-exact-repair-projection-probe.json"
+    ],
+    "parent_dataset": [
+      "docs/m974-v4-public-base-post-promotion-exact-repair-projection-probe.md",
+      "runs/m974_exact_repair_from_base_s40_seed5974/summary.json",
+      "runs/m974_base_s40_m267_m264_first_replay/summary.json",
+      "runs/m974_base_s40_m183_m170_first_replay/summary.json"
+    ],
+    "parent_objective": [
+      "design full public gate for the M974 exact-repaired base-start candidate after exact M297/M270 and first replay pass"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design",
+  "next_blocker": "m976-v4-public-base-post-promotion-exact-repair-full-public-gate-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "exact_repair_full_public_gate_design_admit_m976",
+  "public_gates": [
+    "M975 must not run PPO",
+    "M975 must not promote",
+    "M975 must not use private holdout",
+    "M975 must preserve the P0 actor-input contract",
+    "M975 must design six-surface proof replay for the M974 selected candidate",
+    "M975 must design fresh public/moderate-OOD and behavior/ablation gates before promotion audit"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design.md",
+    "clearance_margin_mean": "",
+    "decision": "exact_repair_full_public_gate_design_admit_m976",
+    "milestone": "m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design",
+    "reason": "M975 designs full public proof generalization behavior gate for the M974 exact-repaired candidate before promotion audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M975 writes a full public-gate design document",
+    "the design names the selected M974 checkpoint and alpha_1_0 baseline",
+    "the design requires six public replay surfaces",
+    "the design requires fresh public, moderate OOD, and behavior/ablation comparisons",
+    "the design blocks PPO, private holdout, and promotion"
+  ],
+  "type": "gate"
+}

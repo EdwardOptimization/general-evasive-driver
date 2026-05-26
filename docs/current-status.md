@@ -42,23 +42,25 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt
+runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt
 ```
 
-Status: M969 promoted M964 alpha `1.0` as the current public-gate base after
-M966 public replay/proof gates and M968 proof/generalization/behavior gates
-passed. This is a public-gate base promotion only; PPO, private holdout,
-paper-level generalization, and real-vehicle claims remain blocked.
+Status: M977 promoted the M974 base-start exact-repaired candidate as the
+current public-gate base after M974 exact/first-replay gates and M976 full
+public proof/generalization/behavior gates passed. This is a public-gate base
+promotion only; PPO, private holdout, paper-level generalization, and
+real-vehicle claims remain blocked.
 
 Previous public-gate base:
 
 ```text
-runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt
+runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt
 ```
 
-Status: M400 promoted M399 alpha `0.05` after six public replay surfaces and
-behavior seeds passed. M969 supersedes it with the M964 alpha `1.0` public-gate
-base.
+Status: M969 promoted M964 alpha `1.0` after M966 public replay/proof gates and
+M968 proof/generalization/behavior gates passed. M977 supersedes it with the
+M974 exact-repaired public-gate base. The older M399 alpha `0.05` base remains
+the earlier public-base lineage point.
 
 Latest active diagnostic BC checkpoint:
 
@@ -73,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design
+m978-v4-public-base-post-exact-repair-promotion-synthesis
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -220,10 +222,29 @@ repair probe. Raw-start repair only restores M267/M264 to `16/17`, with row
 `15` still wrong-history-safe. Base-start and line-boundary candidates pass
 exact M297/M270 with stronger deltas; the base-start candidate passes
 M267/M264 and M183/M170 first replay gates with `17/17` success drops. M975
-should design the full public gate before any promotion audit.
+should design the full public gate before any promotion audit. M975 completes
+that design. M976 should run the no-training full public proof/generalization/
+behavior gate for the M974 selected candidate and must not promote directly.
+M976 passes all public proof, source-diverse diagnostic, fresh/OOD, and
+behavior/ablation gates. M977 promotes
+`runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt` as the
+new public-gate base, with PPO, private holdout, paper-level, and real-vehicle
+claims still blocked. M978 should synthesize M972-M977 before any further PPO
+continuation or repair branch.
 
 ## Recent Evidence Line
 
+- M977 promotes the M974 exact-repaired candidate as the current public-gate
+  base after M976 passes full public proof/generalization/behavior gates. This
+  is not a private-holdout, paper-level, or real-vehicle claim. Next:
+  synthesize M972-M977 before any further PPO continuation.
+- M976 runs the no-training full public gate for the M974 candidate. Six public
+  replay surfaces pass, source-diverse diagnostics pass, fresh/OOD comparisons
+  pass, and behavior ablations retain reset/zero-all ordering.
+- M975 designs the full public gate for the M974 exact-repaired candidate.
+  M976 must run six public replay surfaces, source-diverse/old-key diagnostics,
+  fresh public/moderate-OOD eval, and behavior ablations before any promotion
+  audit.
 - M974 runs no-PPO exact repair/projection on the M972 raw PPO proposal.
   Raw-start repair is only partial, but the base-start exact repair candidate
   passes exact M297/M270 and first replay gates on M267/M264 and M183/M170.

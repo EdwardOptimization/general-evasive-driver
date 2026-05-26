@@ -106,6 +106,37 @@
     "docs/m974-v4-public-base-post-promotion-exact-repair-projection-probe.md",
     "runs/m974_exact_repair_from_base_s40_seed5974/summary.json"
   ],
+  "results": {
+    "design_doc": "docs/m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design.md",
+    "baseline_checkpoint": "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt",
+    "candidate_checkpoint": "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+    "required_replay_surfaces": [
+      "M183/M168",
+      "M183/M170",
+      "M193/M189",
+      "M212/M204",
+      "M223/M219",
+      "M267/M264"
+    ],
+    "fresh_seeds": [
+      96700,
+      96701
+    ],
+    "ood_seeds": [
+      96720
+    ],
+    "behavior_seeds": [
+      9505,
+      9506,
+      96730,
+      96731
+    ],
+    "ppo_blocked": true,
+    "promotion_blocked": true,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false
+  },
+  "decision": "exact_repair_full_public_gate_design_admit_m976",
   "decision_rule": "M975 is complete only when M976 has a proof-first full public gate design and still blocks promotion until a later audit.",
-  "next_blocker": "full public gate has not been designed for the M974 exact-repaired candidate"
+  "next_blocker": "m976-v4-public-base-post-promotion-exact-repair-full-public-gate-implementation"
 }

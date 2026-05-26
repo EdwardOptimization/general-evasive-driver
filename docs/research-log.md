@@ -14894,3 +14894,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M974 runs no-PPO exact repair/projection for the M972 raw PPO proposal. Raw-start repair passes exact M297/M270 but only restores M267/M264 from `15/17` to `16/17`; row `15` remains wrong-history-safe. Base-start and line-boundary candidates pass exact M297/M270 with stronger deltas. The base-start candidate is selected after passing M267/M264 and M183/M170 first replay gates with `17/17` success drops on both surfaces.
 - decision: `exact_repair_projection_first_replay_pass_route_to_full_public_gate_design`
 - next: `m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design`
+
+## 20260526T102627Z - m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m975-v4-public-base-post-promotion-exact-repair-full-public-gate-design.md`
+- result: M975 designs the full public gate for the M974 base-start exact-repaired candidate. M976 must run no PPO and compare alpha `1.0` versus `runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt` through six public replay surfaces, source-diverse and old-key diagnostics, fresh public/moderate-OOD evaluations, and behavior seeds with reset/zero-all ablations. Promotion remains blocked until a separate audit.
+- decision: `exact_repair_full_public_gate_design_admit_m976`
+- next: `m976-v4-public-base-post-promotion-exact-repair-full-public-gate-implementation`
+
+## 20260526T105024Z - m976-v4-public-base-post-promotion-exact-repair-full-public-gate-implementation
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m976_v4_public_base_post_promotion_exact_repair_full_public_gate`
+- artifact: `docs/m976-v4-public-base-post-promotion-exact-repair-full-public-gate-implementation.md`
+- result: M976 runs the no-training full public gate for the M974 exact-repaired candidate. All six public replay surfaces pass, source-diverse protected diagnostic passes `3/3`, fresh public and moderate-OOD comparisons pass, behavior seeds `9505/9506/96730/96731` pass, reset/zero-all ordering is retained, actor inputs are unchanged, and no PPO/private holdout/promotion occurs.
+- decision: `exact_repair_full_public_gate_candidate_route_to_promotion_audit`
+- next: `m977-v4-public-base-post-promotion-exact-repair-promotion-audit`
+
+## 20260526T105024Z - m977-v4-public-base-post-promotion-exact-repair-promotion-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m977-v4-public-base-post-promotion-exact-repair-promotion-audit.md`
+- result: M977 audits M974 and M976 evidence and promotes `runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt` as the current public-gate base. This promotion remains limited to public-gate evidence; PPO continuation, private holdout, paper-level generalization, broader scenario distribution, and real-vehicle claims remain blocked.
+- decision: `exact_repair_promote_public_gate_base`
+- next: `m978-v4-public-base-post-exact-repair-promotion-synthesis`
