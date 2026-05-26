@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit
+m948-v4-public-base-controlled-fusion-rejected-branch-retention-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -95,10 +95,21 @@ loading. M946 then rejects the primary alpha `0.0725` candidate at closed-loop
 proof-gate level: five public replay surfaces pass, but M267/M264 regresses
 success-drop count `17 -> 13` because rows `6`, `13`, `15`, and `16` become
 wrong-history successes. Behavior seeds `9505` and `9506` still pass, so the
-blocker is proof washout, not broad behavior regression.
+blocker is proof washout, not broad behavior regression. M947 audits the
+failure and shows all known M944 candidate alphas `0.0675`, `0.0700`, and
+`0.0725` fail the same M267/M264 rows. The next route is therefore explicit
+rejected-history branch retention, not direct lower-alpha replay.
 
 ## Recent Evidence Line
 
+- M947 audits the M946 failure. It confirms a rejected-history branch washout:
+  rows `6`, `13`, `15`, and `16` of M267/M264 keep normal success but their
+  wrong-history margins cross positive. No-training checks of backup alpha
+  `0.0675` and alpha `0.0700` also fail M267/M264 with success-drop count
+  `17 -> 13` on the same rows. Source-diverse diagnostics overlap on rows `15`
+  and `16`; old key `9944` remains diagnostic-only. M948 should design
+  rejected-history branch retention and an M267/M264 preflight gate before any
+  repair probe, PPO, or promotion.
 - M946 implements the M945 no-training replay/proof gate for M944 alpha
   `0.0725` versus M399. Actor inputs remain unchanged; no training, PPO, or
   promotion occurs. Behavior seeds `9505` and `9506` pass with success delta

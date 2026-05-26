@@ -14631,3 +14631,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M946 implements the no-training replay/proof gate for M944 alpha `0.0725` versus M399. It keeps actor inputs unchanged, starts no training, uses no PPO, and promotes nothing. Behavior seeds `9505` and `9506` pass with success delta `0.0` and retained `normal >= reset >= zero-all` ordering. Five of six public replay surfaces pass, but M267/M264 fails because success-drop count regresses `17 -> 13`; rows `6`, `13`, `15`, and `16` become wrong-history successes. Source-diverse diagnostics also fail on the row `15/16` family, while old key `9944` remains diagnostic-only. Result class is `public_base_controlled_fusion_candidate_replay_gate_proof_washout`.
 - decision: `public_base_controlled_fusion_candidate_replay_gate_proof_washout_route_to_failing_surface_audit`
 - next: `m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit`
+
+## 20260525T235918Z - m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit.md`
+- result: M947 audits the M946 failure. It confirms the public failure is rejected-history branch washout, not broad behavior regression or actor-contract violation. The M267/M264 failed rows are `6`, `13`, `15`, and `16`; all keep normal success but wrong-history margins cross positive. No-training targeted replay of the M944 backup candidates `0.0675` and `0.0700` also fails M267/M264 with success-drop count `17 -> 13` on the same four rows. Source-diverse diagnostics overlap on rows `15` and `16`. Old key `9944` remains diagnostic-only. Lowering to the known backup alphas is therefore not sufficient.
+- decision: `controlled_fusion_candidate_rejected_branch_washout_route_to_retention_design`
+- next: `m948-v4-public-base-controlled-fusion-rejected-branch-retention-design`

@@ -1,0 +1,108 @@
+{
+  "id": "m948-v4-public-base-controlled-fusion-rejected-branch-retention-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/checkpoints/alpha_0_0675.pt",
+      "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/checkpoints/alpha_0_07.pt",
+      "runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/checkpoints/alpha_0_0725.pt"
+    ],
+    "parent_dataset": [
+      "docs/m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit.md",
+      "runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/full_gates/m267_m264_replay/boundary_replay_rows.csv",
+      "runs/m947_v4_public_base_controlled_fusion_candidate_failing_surface_audit/m267_m264_a0675/summary.json",
+      "runs/m947_v4_public_base_controlled_fusion_candidate_failing_surface_audit/m267_m264_a0700/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit.json"
+    ],
+    "parent_objective": [
+      "design a replay-admissible controlled-fusion repair objective that protects rejected-history branch failures"
+    ],
+    "derived_from": [
+      "m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit"
+    ],
+    "blocked_by": [
+      "all known M944 controlled-fusion candidate alphas fail the same M267/M264 rejected-history rows"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "direct lower-alpha replay gate using M944 alpha 0.0675 or 0.0700 as sufficient repair"
+    ]
+  },
+  "review_artifact": "docs/reviews/m948-v4-public-base-controlled-fusion-rejected-branch-retention-design.md",
+  "public_gates": [
+    "M948 must not train",
+    "M948 must not run PPO",
+    "M948 must not promote",
+    "M948 must preserve the P0 actor-input contract",
+    "M948 must design a preflight gate for M267/M264 rows 6/13/15/16 before any full replay gate"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not widen actor inputs",
+    "do not update response/context encoders or GRU in the design unless routing to synthesis first",
+    "do not use old key 9944 as a singleton veto",
+    "do not claim generalization",
+    "do not run training in the design milestone"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_controlled_fusion_surface",
+    "evidence_axis": "G_replay: rejected-history branch retention after controlled-fusion objective compatibility",
+    "evidence_increment": "designs the next objective/gate needed because exact objective-compatible controlled-fusion candidates wash out rejected-history branch failures",
+    "claim_scope": "design only; no training, no replay pass claim, no generalization, no promotion",
+    "stop_condition": [
+      "stop if the design cannot express rejected-history terminal sign retention with existing artifacts",
+      "stop if the design requires changing actor inputs",
+      "stop if the design requires opening encoders or GRU without branch synthesis"
+    ],
+    "fallback_plan": [
+      "if existing one-step artifacts are insufficient, route to rejected-branch trajectory target export",
+      "if controlled-fusion surface cannot retain both normal lift and rejected failure, route to branch synthesis",
+      "if a design is feasible, route to a small no-PPO objective-only probe"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M947 classifies candidate failure as rejected-history branch washout across all known candidate alphas",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A replay-admissible controlled-fusion repair needs an explicit rejected-history branch retention term and an M267/M264 preflight gate, because low-tail exact compatibility and lower backup alphas do not preserve wrong-history failures.",
+  "success_criteria": [
+    "design document exists",
+    "active rejected-history row set is specified",
+    "objective terms are specified separately for normal retention, low-tail lift, and rejected-branch retention",
+    "preflight gate and full replay escalation are specified",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "design relies on hidden or oracle actor inputs",
+    "design skips M267/M264 preflight",
+    "design recommends PPO before rejected-branch repair",
+    "design uses old key 9944 as singleton veto"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "Write the controlled-fusion rejected-branch retention design document and route M949."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m948-v4-public-base-controlled-fusion-rejected-branch-retention-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit.md"
+  ],
+  "decision_rule": "M948 may only design the rejected-branch retention route. It must not train, replay a new candidate as promoted, PPO, or promote.",
+  "next_blocker": "controlled-fusion repair objective does not yet include rejected-history branch retention"
+}

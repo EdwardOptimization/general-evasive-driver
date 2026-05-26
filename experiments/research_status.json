@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 955,
+    "completed": 956,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation",
+    "task_id": "m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/summary.json"
+    "command_log": "docs/m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit.md"
   },
   "next_task": {
-    "id": "m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit",
+    "id": "m948-v4-public-base-controlled-fusion-rejected-branch-retention-design",
     "status": "pending",
-    "priority": 9420,
-    "kind": "gate",
-    "hypothesis": "M946 failed because the M944 controlled-fusion direction improves normal margins while moving a current-family rejected/wrong-history branch across the collision boundary",
-    "command": "see experiments/manifests/m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit.json",
-    "success_artifact": "docs/m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit.md",
-    "notes": "Pending: audit M946 M267/M264 wrong-history washout rows before any lower-alpha replay, repair objective, PPO, or promotion"
+    "priority": 9430,
+    "kind": "infrastructure",
+    "hypothesis": "A replay-admissible controlled-fusion repair needs explicit rejected-history branch retention and an M267/M264 preflight gate",
+    "command": "see experiments/manifests/m948-v4-public-base-controlled-fusion-rejected-branch-retention-design.json",
+    "success_artifact": "docs/m948-v4-public-base-controlled-fusion-rejected-branch-retention-design.md",
+    "notes": "Pending: design rejected-history branch retention route after all known M944 candidate alphas fail the same M267/M264 rows"
   },
-  "updated_at_utc": "20260525T235219Z"
+  "updated_at_utc": "20260525T235918Z"
 }

@@ -1,0 +1,81 @@
+# m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260526T000246Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: controlled_fusion_candidate_rejected_branch_washout_route_to_retention_design
+- Decision reason: M947 shows all known M944 candidate alphas 0.0675 0.0700 0.0725 fail M267/M264 rows 6 13 15 16 so the route needs explicit rejected-history branch retention rather than lower-alpha replay
+
+## Hypothesis
+
+M946 failed because the M944 controlled-fusion direction improves normal margins while moving a current-family rejected/wrong-history branch across the collision boundary.
+
+## Lineage
+
+- parent_checkpoint: runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt, runs/m944_v4_public_base_controlled_fusion_candidate_compatibility/interpolation/checkpoints/alpha_0_0725.pt
+- parent_dataset: runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/summary.json, runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/full_gates/m267_m264_replay/boundary_replay_rows.csv, runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/source_diverse_protected_diagnostic/replay_gate_summary.csv, runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/old_key_neighborhood_diagnostic/policy_summary.csv
+- parent_config: experiments/manifests/m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation.json
+- parent_objective: audit why the exact-compatible controlled-fusion candidate fails closed-loop wrong-history proof rows
+- derived_from: m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation
+- blocked_by: M946 fails M267/M264 public replay surface with success_drop_count 17 -> 13
+- supersedes: None
+- invalidates: promotion or PPO from M944 alpha 0.0725 before failing-surface repair
+
+## Success Criteria
+
+- audit document exists
+- M267/M264 failing rows are enumerated
+- source-diverse diagnostic overlap is summarized
+- old-key diagnostic is kept diagnostic-only
+- next route is selected without training or PPO
+
+## Failure Criteria
+
+- audit cannot identify a concrete failing row family
+- audit recommends PPO or promotion despite M946 proof_washout
+- audit changes actor inputs or training objectives
+
+## Evidence Gates
+
+- M947 must not train
+- M947 must not run PPO
+- M947 must not promote
+- M947 must explain the M267/M264 row 6/13/15/16 wrong-history washout
+- M947 must decide whether to lower alpha, repair rejected-history branch, or close the controlled-fusion candidate route
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not tune from behavior seeds
+- do not treat exact objective pass as replay proof
+- do not add a new objective before classifying the failing rows
+- do not widen actor inputs
+- do not promote M944 alpha 0.0725
+
+## Failure Taxonomy
+
+- proof_washout
+
+## Scoreboard
+
+- milestone: m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit
+- type: gate
+- checkpoint: docs/m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: controlled_fusion_candidate_rejected_branch_washout_route_to_retention_design
+- reason: M947 shows all known M944 candidate alphas 0.0675 0.0700 0.0725 fail M267/M264 rows 6 13 15 16 so the route needs explicit rejected-history branch retention rather than lower-alpha replay
+
+## Next Blocker
+
+m948-v4-public-base-controlled-fusion-rejected-branch-retention-design

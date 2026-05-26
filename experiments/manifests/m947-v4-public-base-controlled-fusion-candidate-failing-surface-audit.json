@@ -104,5 +104,5 @@
     "runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/summary.json"
   ],
   "decision_rule": "M947 may only audit the M946 failure and choose the next no-training or objective-design route. It must not repair, train, PPO, or promote.",
-  "next_blocker": "M946 failing M267/M264 current-family wrong-history rows need diagnosis before any candidate repair"
+  "next_blocker": "m948-v4-public-base-controlled-fusion-rejected-branch-retention-design"
 }
