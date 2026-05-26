@@ -1,0 +1,116 @@
+{
+  "id": "m969-v4-public-base-direction-target-actor-fit-promotion-audit",
+  "type": "gate",
+  "gate_tier": "promotion",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt"
+    ],
+    "parent_dataset": [
+      "docs/m968-v4-public-base-direction-target-actor-fit-promotion-generalization-gate-implementation.md",
+      "runs/m968_v4_public_base_direction_target_actor_fit_promotion_generalization_gate/summary.json",
+      "docs/m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation.md",
+      "runs/m966_v4_public_base_direction_target_actor_fit_replay_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m968-v4-public-base-direction-target-actor-fit-promotion-generalization-gate-implementation.json"
+    ],
+    "parent_objective": [
+      "audit whether M964 alpha_1_0 should become the new public-gate base"
+    ],
+    "derived_from": [
+      "m968-v4-public-base-direction-target-actor-fit-promotion-generalization-gate-implementation",
+      "m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation"
+    ],
+    "blocked_by": [
+      "M968 classifies alpha_1_0 as a promotion-gate candidate, but promotion has not been audited or recorded"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "using alpha_1_0 as public-gate base without a promotion audit"
+    ]
+  },
+  "review_artifact": "docs/reviews/m969-v4-public-base-direction-target-actor-fit-promotion-audit.md",
+  "public_gates": [
+    "M969 must not train",
+    "M969 must not run PPO",
+    "M969 must not use private holdout",
+    "M969 must preserve the P0 actor-input contract",
+    "M969 must verify M966 public replay pass",
+    "M969 must verify M968 proof/generalization/behavior pass",
+    "M969 must explicitly decide whether to update the public-gate base"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not run PPO",
+    "do not promote without recording lineage and non-promotion caveats"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_direction_target_actor_fit",
+    "evidence_axis": "G_promotion: public-base promotion decision after proof and fresh generalization gates",
+    "evidence_increment": "audits whether alpha_1_0 can replace M399 as the public-gate base",
+    "claim_scope": "public-base promotion audit only; no training, no PPO, no private holdout, no paper-level claim",
+    "stop_condition": [
+      "stop if M966 replay/proof evidence is missing or failed",
+      "stop if M968 promotion/generalization evidence is missing or failed",
+      "stop if actor-input contract changed",
+      "stop if promotion caveats are not recorded"
+    ],
+    "fallback_plan": [
+      "if audit passes, promote alpha_1_0 as the public-gate base and route to post-promotion synthesis or PPO design",
+      "if audit fails, route to the matching proof/generalization/behavior audit",
+      "if evidence is incomplete, route to evidence-completion gate"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M968 classifies alpha_1_0 as a promotion-gate candidate",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M964 alpha_1_0 has enough public proof, fresh generalization, and behavior evidence to be promoted as the new public-gate base, while still blocking PPO and private-holdout claims.",
+  "success_criteria": [
+    "audit document exists",
+    "M966 result is cited",
+    "M968 result is cited",
+    "promotion or rejection decision is explicit",
+    "public-gate base status is updated if promoted",
+    "PPO and private holdout remain blocked"
+  ],
+  "failure_criteria": [
+    "audit promotes without checking M966 and M968 evidence",
+    "audit changes actor inputs",
+    "audit runs PPO",
+    "audit uses private holdout evidence",
+    "audit omits promotion caveats"
+  ],
+  "commands": [
+    {
+      "name": "write_promotion_audit",
+      "command": "Write the M968 alpha_1_0 promotion audit and update public-gate base status only if the audit passes."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m969-v4-public-base-direction-target-actor-fit-promotion-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m968-v4-public-base-direction-target-actor-fit-promotion-generalization-gate-implementation.md",
+    "runs/m968_v4_public_base_direction_target_actor_fit_promotion_generalization_gate/summary.json",
+    "docs/m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation.md",
+    "runs/m966_v4_public_base_direction_target_actor_fit_replay_gate/summary.json"
+  ],
+  "decision_rule": "M969 may only audit promotion. It must not update actor parameters, run PPO, change actor inputs, use private holdout, or claim paper-level generalization.",
+  "next_blocker": "M968 classifies alpha_1_0 as a promotion candidate but promotion has not been audited"
+}

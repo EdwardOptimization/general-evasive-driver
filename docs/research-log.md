@@ -14829,3 +14829,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M967 designs the next gate layer for the M966 replay-gate-passing `alpha=1.0` candidate. The design separates proof retention, fresh public randomized generalization, behavior/ablation retention, holdout discipline, and promotion decision. It requires M968 to keep training, PPO, private holdout, actor-input changes, and promotion blocked while comparing the M399 base against the M964 alpha `1.0` candidate.
 - decision: `direction_target_actor_fit_promotion_generalization_design_admit_m968`
 - next: `m968-v4-public-base-direction-target-actor-fit-promotion-generalization-gate-implementation`
+
+## 20260526T072906Z - m968-v4-public-base-direction-target-actor-fit-promotion-generalization-gate-implementation
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m968_v4_public_base_direction_target_actor_fit_promotion_generalization_gate`
+- artifact: `docs/m968-v4-public-base-direction-target-actor-fit-promotion-generalization-gate-implementation.md`
+- result: M968 implements the no-training proof/generalization/behavior comparison gate for M966 alpha `1.0`. Result: `direction_target_actor_fit_promotion_gate_candidate`. Public proof replay passes `6/6`; source-diverse diagnostics pass; fresh public eval seeds `96700/96701` and moderate OOD seed `96720` show no success/termination/collision regression; behavior seeds `9505/9506/96730/96731` pass with reset/zero-all ordering retained. Training, PPO, private holdout, and promotion remain blocked.
+- decision: `direction_target_actor_fit_promotion_gate_candidate_route_to_promotion_audit`
+- next: `m969-v4-public-base-direction-target-actor-fit-promotion-audit`
