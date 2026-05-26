@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M965 designs no-training public replay gate for M964 candidates including M267/M264 preflight six public surfaces behavior seeds and diagnostics",
+  "failure_criteria": [
+    "design recommends promotion before replay gates",
+    "design changes actor inputs",
+    "design omits M267/M264 full surface",
+    "design omits behavior seeds",
+    "design runs PPO"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote",
+    "do not run PPO",
+    "do not accept target-fit metrics as replay evidence"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260526T053526Z",
+  "hypothesis": "M964 candidate checkpoints need a no-training public replay gate before PPO or promotion decisions.",
+  "lineage": {
+    "blocked_by": [
+      "M964 produced objective-level candidate checkpoints but no full replay/proof gate has been designed"
+    ],
+    "derived_from": [
+      "m964-v4-public-base-direction-target-actor-fit-objective-implementation"
+    ],
+    "invalidates": [
+      "promotion or PPO continuation before replay-gating M964 candidates"
+    ],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m964-v4-public-base-direction-target-actor-fit-objective-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m964-v4-public-base-direction-target-actor-fit-objective-implementation.md",
+      "runs/m964_v4_public_base_direction_target_actor_fit/summary.json",
+      "runs/m964_v4_public_base_direction_target_actor_fit/route_decision.csv",
+      "runs/m964_v4_public_base_direction_target_actor_fit/candidate_checkpoints.csv"
+    ],
+    "parent_objective": [
+      "design no-training replay gate for M964 direction-target actor-fit candidates"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m965-v4-public-base-direction-target-actor-fit-replay-gate-design",
+  "next_blocker": "direction-target actor-fit replay gate has not been designed",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "direction_target_actor_fit_replay_gate_design_admit_m966",
+  "public_gates": [
+    "M965 must not train",
+    "M965 must not run PPO",
+    "M965 must not promote",
+    "M965 must preserve the P0 actor-input contract",
+    "M965 must design public replay gates for M964 candidate checkpoints",
+    "M965 must include M267/M264 full surface and behavior seeds"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m965-v4-public-base-direction-target-actor-fit-replay-gate-design.md",
+    "clearance_margin_mean": "",
+    "decision": "direction_target_actor_fit_replay_gate_design_admit_m966",
+    "milestone": "m965-v4-public-base-direction-target-actor-fit-replay-gate-design",
+    "reason": "M965 designs no-training public replay gate for M964 candidates including M267/M264 preflight six public surfaces behavior seeds and diagnostics",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design document exists",
+    "candidate checkpoints are identified",
+    "public replay surfaces are explicit",
+    "behavior seeds are explicit",
+    "pass/fail route logic is explicit",
+    "training, PPO, and promotion remain blocked"
+  ],
+  "type": "gate"
+}

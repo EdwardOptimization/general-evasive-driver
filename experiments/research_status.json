@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 973,
+    "completed": 974,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m964-v4-public-base-direction-target-actor-fit-objective-implementation",
+    "task_id": "m965-v4-public-base-direction-target-actor-fit-replay-gate-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m964_v4_public_base_direction_target_actor_fit/summary.json"
+    "command_log": "docs/m965-v4-public-base-direction-target-actor-fit-replay-gate-design.md"
   },
   "next_task": {
-    "id": "m965-v4-public-base-direction-target-actor-fit-replay-gate-design",
+    "id": "m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation",
     "status": "pending",
-    "priority": 9600,
+    "priority": 9610,
     "kind": "gate",
-    "hypothesis": "M964 candidate checkpoints need a no-training public replay gate before PPO or promotion decisions",
-    "command": "see experiments/manifests/m965-v4-public-base-direction-target-actor-fit-replay-gate-design.json",
-    "success_artifact": "docs/m965-v4-public-base-direction-target-actor-fit-replay-gate-design.md",
-    "notes": "Pending: design no-training replay gate for M964 direction-target actor-fit candidates"
+    "hypothesis": "At least one M964 direction-target actor-fit candidate can pass no-training public replay/proof gates before PPO or promotion",
+    "command": "see experiments/manifests/m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation.json",
+    "success_artifact": "runs/m966_v4_public_base_direction_target_actor_fit_replay_gate/summary.json",
+    "notes": "Pending: implement no-training public replay gate for M964 candidate checkpoints"
   },
-  "updated_at_utc": "20260526T045522Z"
+  "updated_at_utc": "20260526T052842Z"
 }

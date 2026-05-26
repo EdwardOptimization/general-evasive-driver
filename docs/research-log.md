@@ -14801,3 +14801,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M964 runs objective-only actor_mean fitting on the M962 exported corpus. Result: `direction_target_actor_fit_candidate`, with `5` candidate alphas (`0.05`, `0.10`, `0.20`, `0.50`, `1.00`). Direction-target MSE improves at all alphas, M267/M264 active preflight passes at all alphas, retention/proof anchors remain within tolerance, and only `actor_mean` changes. PPO and promotion remain blocked.
 - decision: `direction_target_actor_fit_candidate_route_to_replay_gate_design`
 - next: `m965-v4-public-base-direction-target-actor-fit-replay-gate-design`
+
+## 20260526T052842Z - m965-v4-public-base-direction-target-actor-fit-replay-gate-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m965-v4-public-base-direction-target-actor-fit-replay-gate-design.md`
+- result: M965 designs the no-training public replay gate for M964 candidate checkpoints. The design ranks `alpha_1_0` primary with `alpha_0_5`, `alpha_0_2`, `alpha_0_1`, and `alpha_0_05` as backups; requires M267/M264 full-surface preflight before the full stack; and then requires six public replay surfaces, behavior seeds `9505/9506`, reset/zero-all ordering, source-diverse diagnostics, old-key diagnostic-only reporting, and actor input contract checks. PPO and promotion remain blocked.
+- decision: `direction_target_actor_fit_replay_gate_design_admit_m966`
+- next: `m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation`

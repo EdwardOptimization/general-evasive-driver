@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m965-v4-public-base-direction-target-actor-fit-replay-gate-design
+m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -168,10 +168,19 @@ promotion, private holdout, and actor-input changes blocked. M964 completes
 that probe and finds `5` objective-level candidate alphas. It changes only
 `actor_mean`; direction-target MSE improves, M267/M264 active preflight passes,
 and retention/proof anchors remain within tolerance. M965 should design the
-public replay gate before any PPO or promotion.
+public replay gate before any PPO or promotion. M965 completes that design:
+rank `alpha_1_0` primary, run M267/M264 full-surface preflight over candidate
+alphas, then run six public replay surfaces, behavior seeds `9505/9506`, and
+diagnostics before any PPO or promotion. M966 should implement that no-training
+gate.
 
 ## Recent Evidence Line
 
+- M965 designs the no-training replay gate for M964 candidates. It requires
+  M267/M264 full-surface preflight, six public replay surfaces, behavior seeds
+  `9505/9506`, reset/zero-all ordering, source-diverse diagnostics, old-key
+  diagnostic-only reporting, and actor input contract checks. M966 should
+  implement this gate before PPO or promotion.
 - M964 runs objective-only actor_mean fitting on M962 targets. Result:
   `direction_target_actor_fit_candidate`, with candidate alphas `0.05`, `0.10`,
   `0.20`, `0.50`, and `1.00`. `alpha=1.00` gives the best target-fit MSE among
