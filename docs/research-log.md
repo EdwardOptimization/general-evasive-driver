@@ -15449,3 +15449,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1033 designs the response to the M183/M170 row16 normal terminal-margin cliff. The next step is not repair or PPO; it is a no-update export of a Candidate-B normal-trajectory anchor for M183/M170 row16. Later repair/projection must keep P0 actor inputs unchanged and gate M997 temporal retention, M297/M270 exact no-regression, M267/M264 row15 rejected-history retention, and M183/M170 row16 normal retention before first replay.
 - decision: `candidate_b_m183_row16_active_set_retention_design_admit_anchor_export`
 - next: `m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export`
+
+## 20260526T232700Z - m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `runs/m1034_candidate_b_m183_row16_active_set_anchor_export/summary.json`
+- doc: `docs/m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export.md`
+- result: M1034 implements and runs a no-update export of Candidate B's M183/M170 row16 normal-trajectory anchor. The anchor has `57` rows with shapes `observation 57x72`, `hidden 57x128`, and `reference_action 57x3`; it loads through `load_trajectory_action_anchor`. Replay sanity confirms Candidate B normal success true with normal margin `0.001315984` and wrong-history success false with wrong-history margin `-0.005083863`. No repair, PPO, promotion, private holdout, or actor-input change occurs.
+- decision: `candidate_b_m183_row16_active_set_anchor_export_pass`
+- next: `m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis`

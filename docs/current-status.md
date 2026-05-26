@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export
+m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis
 ```
 
 M1031 implemented and ran the no-PPO temporal-safe projection probe after the
@@ -149,9 +149,32 @@ M267/M264 row15 rejected-history failure retention
 M183/M170 row16 normal branch retention
 ```
 
-The current blocker is M1034: implement and run a no-update, exact-loadable
-anchor export for M183/M170 row16 normal branch. No repair, PPO, promotion,
-private holdout, or actor-input change is allowed in M1034.
+M1034 implements and runs that no-update export:
+
+```text
+anchor:
+  runs/m1034_candidate_b_m183_row16_active_set_anchor_export/m183_row16_normal_trajectory_anchor.npz
+
+anchor_rows: 57
+observation shape: 57 x 72
+hidden shape: 57 x 128
+reference_action shape: 57 x 3
+normal_success_all: true
+wrong_history_success_any: false
+normal_margin_min: 0.001315984
+wrong_history_margin_min: -0.005083863
+actor_inputs_changed: false
+ppo_used: false
+promoted: false
+```
+
+Workflow synthesis cadence has fired after the M1025-M1034 Candidate B guarded
+PPO readiness branch. The current blocker is M1035: synthesize the branch before
+opening another ordinary repair/design milestone. The likely next branch is a
+combined active-set repair/projection using the M293 rejected-history trajectory
+anchor plus the M1034 M183/M170 row16 normal trajectory anchor, but M1035 must
+make that decision explicitly. No optimizer run, PPO, promotion, private
+holdout, or actor-input change is allowed in the synthesis milestone.
 
 ### Historical Trace
 

@@ -1,0 +1,131 @@
+{
+  "id": "m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+      "runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design.md",
+      "docs/m1026-v4-public-base-candidate-b-guarded-ppo-smoke.md",
+      "docs/m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit.md",
+      "docs/m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design.md",
+      "docs/m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe.md",
+      "docs/m1030-v4-public-base-candidate-b-temporal-retention-repair-design.md",
+      "docs/m1031-v4-public-base-candidate-b-temporal-safe-projection-probe.md",
+      "docs/m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit.md",
+      "docs/m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design.md",
+      "docs/m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design.json",
+      "experiments/manifests/m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export.json"
+    ],
+    "parent_objective": [
+      "synthesize Candidate B guarded PPO readiness branch before opening the next repair branch"
+    ],
+    "derived_from": [
+      "m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design",
+      "m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1025-M1034 non-synthesis milestones"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "creating another ordinary repair/design milestone before branch synthesis",
+      "continuing guarded PPO readiness without summarizing active-set evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis.md",
+  "public_gates": [
+    "M1035 must be synthesis/process only",
+    "M1035 must run no PPO",
+    "M1035 must not run repair or promote",
+    "M1035 must not use private holdout",
+    "M1035 must preserve P0 actor inputs",
+    "M1035 must decide whether to continue, pivot, stop, or promote_to_next_branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not run exact repair",
+    "do not promote",
+    "do not create another narrow implementation milestone before synthesis",
+    "do not change actor inputs",
+    "do not claim full public-gate or paper-level evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_candidate_b_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo: branch synthesis after guarded PPO, exact repair, temporal projection, and active-set anchor export",
+    "evidence_increment": "synthesizes M1025-M1034 and decides whether to open a combined active-set repair branch",
+    "claim_scope": "process synthesis only; no repair run, no first-replay pass claim, no promotion",
+    "stop_condition": [
+      "stop if evidence does not support another repair/projection branch",
+      "stop if failures indicate PPO recipe audit is required instead",
+      "stop if next branch would require actor-input changes or private holdout"
+    ],
+    "fallback_plan": [
+      "if active-set repair remains supported, promote_to_next_branch with a new combined_active_set_repair branch name",
+      "if evidence is too narrow, pivot to first-replay surface refresh",
+      "if PPO proposal is no longer useful, stop guarded PPO readiness and audit PPO recipe"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1034 completes the tenth-plus ordinary milestone in the Candidate B guarded PPO readiness branch",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "The Candidate B guarded PPO readiness branch should be synthesized before continuing so the next repair branch is justified by accumulated evidence rather than local gate-chasing.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "evidence_summary is explicit",
+    "supported_claims and falsified_claims are explicit",
+    "failure_taxonomy_summary is explicit",
+    "public_gate_overfit_risk is explicit",
+    "next_branch_decision is explicit",
+    "no PPO repair promotion private holdout or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "synthesis omits M1025-M1034 evidence",
+    "synthesis creates another ordinary milestone without a branch decision",
+    "synthesis runs repair or PPO",
+    "synthesis changes actor inputs",
+    "synthesis promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design.md",
+    "docs/m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export.md"
+  ],
+  "decision_rule": "M1035 should open a new branch only after answering the required synthesis questions and selecting continue, pivot, stop, or promote_to_next_branch.",
+  "next_blocker": "m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis"
+}

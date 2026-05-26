@@ -111,5 +111,24 @@
     "docs/m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design.md"
   ],
   "decision_rule": "M1034 can admit a later combined repair/projection only if the row16 normal anchor is exact-loadable and no update or promotion occurs during export.",
-  "next_blocker": "m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export"
+  "next_blocker": "m1035-v4-public-base-candidate-b-combined-active-set-repair-design",
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1034_candidate_b_m183_row16_active_set_anchor_export/summary.json",
+    "doc": "docs/m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export.md",
+    "decision": "candidate_b_m183_row16_active_set_anchor_export_pass",
+    "result_class": "m183_row16_active_set_anchor_export_pass",
+    "failure_types": [
+      "none"
+    ],
+    "anchor_rows": 57,
+    "selected_rows": 1,
+    "normal_branch_only": true,
+    "normal_success_all": true,
+    "wrong_history_success_any": false,
+    "normal_margin_min": 0.0013159841633283431,
+    "wrong_history_margin_min": -0.005083862751063206,
+    "actor_inputs_changed": false,
+    "next_blocker": "m1035-v4-public-base-candidate-b-combined-active-set-repair-design"
+  }
 }

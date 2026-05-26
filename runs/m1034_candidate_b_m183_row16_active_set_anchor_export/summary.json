@@ -1,0 +1,44 @@
+{
+  "actor_inputs_changed": false,
+  "anchor_csv": "runs/m1034_candidate_b_m183_row16_active_set_anchor_export/m183_row16_normal_trajectory_anchor.csv",
+  "anchor_npz": "runs/m1034_candidate_b_m183_row16_active_set_anchor_export/m183_row16_normal_trajectory_anchor.npz",
+  "anchor_rows": 57,
+  "anchor_shape": {
+    "hidden": [
+      57,
+      128
+    ],
+    "observation": [
+      57,
+      72
+    ],
+    "reference_action": [
+      57,
+      3
+    ]
+  },
+  "checkpoint": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+  "checkpoint_promoted": false,
+  "corpus_csv": "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+  "env_config": "configs/m121_human_view_zero_obstacle_relvel.json",
+  "max_continuation_steps": 60,
+  "normal_branch_only": true,
+  "normal_margin_min": 0.0013159841633283431,
+  "normal_success_all": true,
+  "optimizer_started": false,
+  "ppo_used": false,
+  "private_holdout_used": false,
+  "promoted": false,
+  "replay_sanity_csv": "runs/m1034_candidate_b_m183_row16_active_set_anchor_export/row16_replay_sanity.csv",
+  "result_class": "m183_row16_active_set_anchor_export_pass",
+  "row_ids": [
+    16
+  ],
+  "row_weight": 10.0,
+  "run_type": "m183_row16_active_set_anchor_export",
+  "selected_rows": 1,
+  "summary_json": "runs/m1034_candidate_b_m183_row16_active_set_anchor_export/summary.json",
+  "training_started": false,
+  "wrong_history_margin_min": -0.005083862751063206,
+  "wrong_history_success_any": false
+}
