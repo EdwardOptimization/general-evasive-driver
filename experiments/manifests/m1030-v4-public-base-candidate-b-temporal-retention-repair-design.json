@@ -108,5 +108,38 @@
     "docs/m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe.md"
   ],
   "decision_rule": "M1030 should admit implementation only if M997 temporal retention is explicit and remains before first replay in the gate order.",
-  "next_blocker": "m1030-v4-public-base-candidate-b-temporal-retention-repair-design"
+  "next_blocker": "m1031-v4-public-base-candidate-b-temporal-safe-projection-probe",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1030-v4-public-base-candidate-b-temporal-retention-repair-design.md",
+    "decision": "candidate_b_temporal_retention_design_admit_projection_probe",
+    "result_class": "candidate_b_temporal_retention_design_ready",
+    "selected_route": "temporal_safe_interpolation_projection_before_objective_integration",
+    "alpha_grid": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.6,
+      0.75,
+      1.0
+    ],
+    "candidate_sources": [
+      "raw_conflict_s40",
+      "base_conflict_s40",
+      "line_conflict_s40"
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1031-v4-public-base-candidate-b-temporal-safe-projection-probe"
+  },
+  "decision": "candidate_b_temporal_retention_design_admit_projection_probe"
 }

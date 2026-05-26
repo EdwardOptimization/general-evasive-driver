@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1038,
+    "completed": 1039,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe",
+    "task_id": "m1030-v4-public-base-candidate-b-temporal-retention-repair-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe.md"
+    "command_log": "docs/m1030-v4-public-base-candidate-b-temporal-retention-repair-design.md"
   },
   "next_task": {
-    "id": "m1030-v4-public-base-candidate-b-temporal-retention-repair-design",
+    "id": "m1031-v4-public-base-candidate-b-temporal-safe-projection-probe",
     "status": "pending",
-    "priority": 10250,
-    "kind": "gate",
-    "hypothesis": "Design temporal-retention-aware exact repair after M1029 M297/M270 candidates fail M997 temporal exact action-drift gate",
-    "command": "see experiments/manifests/m1030-v4-public-base-candidate-b-temporal-retention-repair-design.json",
-    "success_artifact": "docs/m1030-v4-public-base-candidate-b-temporal-retention-repair-design.md",
-    "notes": "Pending: design M997 temporal-retention-aware repair/projection before first replay or more PPO"
+    "priority": 10260,
+    "kind": "driver_candidate",
+    "hypothesis": "Run temporal-safe interpolation/projection over M1029 repair candidates before first replay",
+    "command": "see experiments/manifests/m1031-v4-public-base-candidate-b-temporal-safe-projection-probe.json",
+    "success_artifact": "runs/m1031_candidate_b_temporal_safe_projection_probe/summary.json",
+    "notes": "Pending: implement/run no-PPO temporal-safe projection and gate M997 plus M297/M270 before first replay"
   },
-  "updated_at_utc": "20260526T220800Z"
+  "updated_at_utc": "20260526T222215Z"
 }

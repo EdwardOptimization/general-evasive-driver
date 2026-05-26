@@ -75,11 +75,11 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1030-v4-public-base-candidate-b-temporal-retention-repair-design
+m1031-v4-public-base-candidate-b-temporal-safe-projection-probe
 ```
 
-M1029 completed the no-PPO exact post-PPO repair probe for the first 1024-step
-guarded PPO smoke proposal from the Candidate B public-gate base:
+M1030 completed the temporal-retention repair design after the no-PPO exact
+post-PPO repair probe from the Candidate B public-gate base:
 
 ```text
 base:
@@ -146,14 +146,17 @@ line_conflict_s40: 0.032059840
 ```
 
 M1029 therefore intentionally skips M267/M264 and M183/M170 first replay. The
-next blocker is M1030: design temporal-retention-aware exact repair/projection
-so M997 temporal normal action/logp retention becomes first-class before first
-replay, longer PPO, promotion, or private holdout.
+M1030 chooses the lowest-risk next step before modifying the repair objective:
+M1031 should run a no-PPO temporal-safe interpolation/projection over the M1029
+repair directions. It must evaluate M997 temporal exact retention first, then
+M297/M270 exact no-regression, and only then M267/M264 row15 plus M183/M170
+first replay. No longer PPO, promotion, private holdout, or M997 threshold
+relaxation is allowed.
 
 ### Historical Trace
 
-The branch trace below is retained for context; the live blocker is the M1030
-design above.
+The branch trace below is retained for context; the live blocker is the M1031
+projection probe above.
 
 M927 ran the no-training residual-direction feasibility sweep and found no
 alpha/mix candidate. M928 audits this as a residual-bridge trust-region

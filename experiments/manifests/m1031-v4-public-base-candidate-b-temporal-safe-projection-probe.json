@@ -1,0 +1,120 @@
+{
+  "id": "m1031-v4-public-base-candidate-b-temporal-safe-projection-probe",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+      "runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1030-v4-public-base-candidate-b-temporal-retention-repair-design.md",
+      "runs/m1029_candidate_b_repair_temporal_exact_retention/exact_retention_summary.csv",
+      "runs/m1029_candidate_b_post_ppo_exact_repair_raw_s40_seed61028/candidate_checkpoint.pt",
+      "runs/m1029_candidate_b_post_ppo_exact_repair_base_s40_seed61029/candidate_checkpoint.pt",
+      "runs/m1029_candidate_b_post_ppo_exact_repair_line_s40_seed61030/candidate_checkpoint.pt",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1030-v4-public-base-candidate-b-temporal-retention-repair-design.json"
+    ],
+    "parent_objective": [
+      "run temporal-safe interpolation/projection over M1029 repair candidates before first replay"
+    ],
+    "derived_from": [
+      "m1030-v4-public-base-candidate-b-temporal-retention-repair-design"
+    ],
+    "blocked_by": [
+      "M1030 chooses temporal-safe projection before modifying exact_post_ppo_repair"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running first replay on temporal-failing M1029 endpoints",
+      "relaxing M997 temporal gate thresholds"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1031-v4-public-base-candidate-b-temporal-safe-projection-probe.md",
+  "public_gates": [
+    "M1031 must run no PPO",
+    "M1031 must not promote",
+    "M1031 must not use private holdout",
+    "M1031 must preserve P0 actor inputs",
+    "M997 temporal exact retention must pass before M297/M270/replay acceptance",
+    "M297/M270 exact no-regression must pass before replay",
+    "M267/M264 row15 and M183/M170 first replay must pass before any full public gate route"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not relax M997 thresholds",
+    "do not run replay for temporal-failing alphas",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote any projection candidate"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_candidate_b_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo: temporal-safe projection before first replay",
+    "evidence_increment": "tests whether any bounded fraction of M1029 repair directions preserves M997 temporal exact while retaining enough exact repair movement",
+    "claim_scope": "no-PPO projection diagnostic only; no promotion, no private holdout, no full public gate claim",
+    "stop_condition": [
+      "stop if no alpha passes M997 temporal exact",
+      "stop if temporal-safe alphas lose M297/M270 exact no-regression",
+      "stop if selected temporal/exact candidate fails M267/M264 row15 or M183/M170 first replay",
+      "stop if actor-input contract changes"
+    ],
+    "fallback_plan": [
+      "if no temporal-safe alpha exists, design direct M997 objective integration",
+      "if temporal/exact passes but replay fails, route to objective coverage audit",
+      "if first replay passes, route to full public gate design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1030 admitted temporal-safe interpolation/projection probe",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A bounded interpolation from Candidate B to one M1029 repair candidate can satisfy M997 temporal exact retention while preserving enough M297/M270 repair signal to justify first replay gates.",
+  "success_criteria": [
+    "projection metrics artifact exists",
+    "candidate checkpoints for evaluated alphas exist",
+    "at least one alpha passes M997 temporal exact and M297/M270 exact no-regression",
+    "selected candidate passes M267/M264 first replay with row15 retained",
+    "selected candidate passes M183/M170 first replay",
+    "no PPO promotion private holdout or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "no alpha passes M997 temporal exact",
+    "temporal-safe alphas are base-equivalent only",
+    "temporal-safe alphas fail M297/M270 exact no-regression",
+    "selected candidate fails M267/M264 row15 or M183/M170 first replay",
+    "actor inputs change"
+  ],
+  "commands": [
+    {
+      "name": "temporal_safe_projection_probe",
+      "command": "implement/run temporal-safe interpolation projection over M1029 candidates; write docs/m1031-v4-public-base-candidate-b-temporal-safe-projection-probe.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1031_candidate_b_temporal_safe_projection_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1031-v4-public-base-candidate-b-temporal-safe-projection-probe.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1030-v4-public-base-candidate-b-temporal-retention-repair-design.md"
+  ],
+  "decision_rule": "M1031 can route to full public gate design only if M997 temporal exact, M297/M270 exact, M267/M264 row15, and M183/M170 first replay all pass without actor-input changes.",
+  "next_blocker": "m1031-v4-public-base-candidate-b-temporal-safe-projection-probe"
+}

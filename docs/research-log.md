@@ -15412,3 +15412,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1029 runs the no-PPO exact repair probe. Raw, base, and line-boundary candidates all pass M297/M270 exact lexicographic checks with M393 current-family conflict residual active. However, `0/3` candidates pass M997 temporal exact retention: action L2 mean is `0.043320605` for raw-start and `0.032059840` for base/line, above the `0.015` threshold. First replay is intentionally skipped by the registered gate order. No PPO, promotion, private holdout, or actor-input change occurs.
 - decision: `candidate_b_post_ppo_exact_repair_temporal_regression_route_to_temporal_retention_design`
 - next: `m1030-v4-public-base-candidate-b-temporal-retention-repair-design`
+
+## 20260526T222215Z - m1030-v4-public-base-candidate-b-temporal-retention-repair-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1030-v4-public-base-candidate-b-temporal-retention-repair-design.md`
+- result: M1030 designs the response to M1029's temporal exact regression. The next step is not first replay and not longer PPO; it is a no-PPO temporal-safe interpolation/projection probe over the M1029 repair directions. M1031 must evaluate M997 temporal exact retention first, then M297/M270 exact no-regression, then M267/M264 row15/full-surface and M183/M170 first replay. If no temporal-safe alpha exists, route to direct M997 objective integration.
+- decision: `candidate_b_temporal_retention_design_admit_projection_probe`
+- next: `m1031-v4-public-base-candidate-b-temporal-safe-projection-probe`

@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M1030 chooses temporal-safe interpolation/projection over M1029 repair candidates before objective integration or first replay",
+  "failure_criteria": [
+    "design relaxes M997 thresholds",
+    "design omits M267/M264 row15 retention",
+    "design runs repair or PPO",
+    "design changes actor inputs",
+    "design promotes a candidate"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not relax M997 temporal action-drift thresholds",
+    "do not run first replay for temporal-regressing candidates",
+    "do not run longer PPO",
+    "do not change actor inputs",
+    "do not promote repair candidates from the design milestone"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260526T222359Z",
+  "hypothesis": "M997 temporal retention should be made a first-class repair/projection constraint so exact M297/M270 row15 repair candidates cannot drift temporally before first replay.",
+  "lineage": {
+    "blocked_by": [
+      "M1029 exact repair candidates pass M297/M270 but all fail M997 temporal exact due action drift above 0.015"
+    ],
+    "derived_from": [
+      "m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe"
+    ],
+    "invalidates": [
+      "running first replay for M1029 temporal-regressing candidates",
+      "longer PPO before temporal-retention-aware repair design"
+    ],
+    "parent_checkpoint": [
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+      "runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe.json"
+    ],
+    "parent_dataset": [
+      "docs/m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe.md",
+      "runs/m1029_candidate_b_repair_temporal_exact_retention/exact_retention_summary.csv",
+      "runs/m1029_candidate_b_post_ppo_exact_repair_raw_s40_seed61028/summary.json",
+      "runs/m1029_candidate_b_post_ppo_exact_repair_base_s40_seed61029/summary.json",
+      "runs/m1029_candidate_b_post_ppo_exact_repair_line_s40_seed61030/summary.json",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz"
+    ],
+    "parent_objective": [
+      "design temporal-retention-aware exact repair after M1029 exact repair candidates fail M997 temporal exact gate"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1030-v4-public-base-candidate-b-temporal-retention-repair-design",
+  "next_blocker": "m1031-v4-public-base-candidate-b-temporal-safe-projection-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "candidate_b_temporal_retention_design_admit_projection_probe",
+  "public_gates": [
+    "M1030 must design only and not train",
+    "M1030 must not run PPO or repair",
+    "M1030 must not promote",
+    "M1030 must not use private holdout",
+    "M1030 must preserve P0 actor inputs",
+    "M1030 must make M997 temporal retention first-class before first replay"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1030-v4-public-base-candidate-b-temporal-retention-repair-design.md",
+    "clearance_margin_mean": "",
+    "decision": "candidate_b_temporal_retention_design_admit_projection_probe",
+    "milestone": "m1030-v4-public-base-candidate-b-temporal-retention-repair-design",
+    "reason": "M1030 chooses temporal-safe interpolation/projection over M1029 repair candidates before objective integration or first replay",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design artifact exists",
+    "temporal-retention objective or projection option is specified",
+    "gate order remains exact temporal before first replay",
+    "next implementation scope is bounded",
+    "no training repair PPO promotion or private holdout occurs"
+  ],
+  "type": "gate"
+}
