@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m962-v4-public-base-direction-target-export-implementation
+m963-v4-public-base-target-feasibility-export-branch-synthesis
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -156,10 +156,19 @@ from primary behavior-improving families. The best candidate is
 `throttle_minus_amp_0_0080`. M961 should design a branch-separated target export
 and actor-fit objective before any training. M961 completes that design: export
 accepted primary target rows, branch-separated proof anchors, and retention
-anchors before any actor fitting. M962 should implement the no-training export.
+anchors before any actor fitting. M962 implements the no-training export:
+`1280` accepted direction targets, `160` branch-separated proof targets, `1149`
+retention anchors, diagnostic target count `0`, and max direction-family
+fraction `0.25`. Because M953-M962 reaches the branch synthesis cadence, M963
+should synthesize this branch before actor-fit continuation.
 
 ## Recent Evidence Line
 
+- M962 implements the direction-target export. Result:
+  `direction_target_export_pass`, with `1280` accepted direction target rows,
+  `20` accepted families, `160` branch-separated proof targets, `1149`
+  retention anchors, diagnostic target count `0`, and max direction-family
+  fraction `0.25`. M963 should synthesize M953-M962 before actor fitting.
 - M961 designs direction-target export and actor-fit objective. It keeps
   training, PPO, promotion, private holdout, and actor-input changes blocked.
   The next implementation must export accepted primary M960 target rows,

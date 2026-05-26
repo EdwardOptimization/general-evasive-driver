@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 970,
+    "completed": 971,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m961-v4-public-base-direction-target-export-actor-fit-objective-design",
+    "task_id": "m962-v4-public-base-direction-target-export-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m961-v4-public-base-direction-target-export-actor-fit-objective-design.md"
+    "command_log": "runs/m962_v4_public_base_direction_target_export/summary.json"
   },
   "next_task": {
-    "id": "m962-v4-public-base-direction-target-export-implementation",
+    "id": "m963-v4-public-base-target-feasibility-export-branch-synthesis",
     "status": "pending",
-    "priority": 9570,
-    "kind": "infrastructure",
-    "hypothesis": "M960 accepted direction targets can be materialized into an auditable branch-separated target corpus without actor changes",
-    "command": "see experiments/manifests/m962-v4-public-base-direction-target-export-implementation.json",
-    "success_artifact": "runs/m962_v4_public_base_direction_target_export/summary.json",
-    "notes": "Pending: implement no-training export of M960 accepted direction targets and branch-separated proof anchors"
+    "priority": 9580,
+    "kind": "gate",
+    "hypothesis": "M953-M962 provide enough target-feasibility evidence to justify a new direction-target actor-fit branch, but synthesis must happen before training",
+    "command": "see experiments/manifests/m963-v4-public-base-target-feasibility-export-branch-synthesis.json",
+    "success_artifact": "docs/m963-v4-public-base-target-feasibility-export-branch-synthesis.md",
+    "notes": "Pending: synthesize M953-M962 target-feasibility/export branch before actor-fit continuation"
   },
-  "updated_at_utc": "20260526T032626Z"
+  "updated_at_utc": "20260526T035954Z"
 }

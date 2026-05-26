@@ -14772,3 +14772,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M961 designs the branch-separated export and actor-fit objective route after M960. It requires accepted target export to include only primary joint candidates, keeps diagnostic-only and secondary families out of training targets, defines `accepted_direction_targets.csv`, `direction_target_family_catalog.csv`, `branch_separated_proof_targets.csv`, and `retention_anchor_targets.csv`, and specifies an objective-only actor-fit stage with direction-target, proof-normal, proof-wrong, retention, and KL/drift losses. Training, PPO, promotion, private holdout, and actor-input changes remain blocked.
 - decision: `direction_target_export_actor_fit_design_admit_m962`
 - next: `m962-v4-public-base-direction-target-export-implementation`
+
+## 20260526T035954Z - m962-v4-public-base-direction-target-export-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m962_v4_public_base_direction_target_export`
+- artifact: `docs/m962-v4-public-base-direction-target-export-implementation.md`
+- result: M962 implements the no-training direction-target export. Result: `direction_target_export_pass`, with `1280` accepted direction target rows, `20` accepted families, `160` branch-separated proof targets, `1149` retention anchors, diagnostic target count `0`, and max direction-family fraction `0.25`.
+- decision: `direction_target_export_pass_route_to_branch_synthesis`
+- next: `m963-v4-public-base-target-feasibility-export-branch-synthesis`
