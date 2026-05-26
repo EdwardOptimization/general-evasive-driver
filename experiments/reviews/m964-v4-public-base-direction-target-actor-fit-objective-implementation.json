@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M964 objective-only actor_mean fit produces 5 candidate alphas; alpha 1.0 best improves direction-target MSE while M267 active proof and retention pass",
+  "failure_criteria": [
+    "implementation runs PPO",
+    "implementation changes actor inputs",
+    "implementation trains diagnostic-only target families",
+    "implementation omits proof-anchor or retention metrics",
+    "implementation promotes a checkpoint"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote",
+    "do not run PPO",
+    "do not train diagnostic-only anti-aligned target families",
+    "do not collapse wrong-history proof anchors into normal safe targets"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260526T050655Z",
+  "hypothesis": "An objective-only actor-fit update can reduce M962 direction-target loss while preserving M267/M264 proof preflight and retention anchors.",
+  "lineage": {
+    "blocked_by": [
+      "M962 exported targets but no actor-fit probe has tested whether the actor can fit them without proof washout"
+    ],
+    "derived_from": [
+      "m963-v4-public-base-target-feasibility-export-branch-synthesis",
+      "m962-v4-public-base-direction-target-export-implementation"
+    ],
+    "invalidates": [
+      "PPO or promotion before objective-only direction-target actor-fit gate"
+    ],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m963-v4-public-base-target-feasibility-export-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m963-v4-public-base-target-feasibility-export-branch-synthesis.md",
+      "runs/m962_v4_public_base_direction_target_export/summary.json",
+      "runs/m962_v4_public_base_direction_target_export/accepted_direction_targets.csv",
+      "runs/m962_v4_public_base_direction_target_export/direction_target_family_catalog.csv",
+      "runs/m962_v4_public_base_direction_target_export/branch_separated_proof_targets.csv",
+      "runs/m962_v4_public_base_direction_target_export/retention_anchor_targets.csv"
+    ],
+    "parent_objective": [
+      "run first objective-only actor-fit probe on M962 exported direction-target corpus"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m964-v4-public-base-direction-target-actor-fit-objective-implementation",
+  "next_blocker": "direction-target actor-fit objective has not been implemented",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "direction_target_actor_fit_candidate_route_to_replay_gate_design",
+  "public_gates": [
+    "M964 must not run PPO",
+    "M964 must not promote",
+    "M964 must preserve the P0 actor-input contract",
+    "M964 must start from the M399 public base",
+    "M964 must use M962 exported targets",
+    "M964 must report exact target-fit metrics and M267/M264 proof preflight"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m964_v4_public_base_direction_target_actor_fit/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "direction_target_actor_fit_candidate_route_to_replay_gate_design",
+    "milestone": "m964-v4-public-base-direction-target-actor-fit-objective-implementation",
+    "reason": "M964 objective-only actor_mean fit produces 5 candidate alphas; alpha 1.0 best improves direction-target MSE while M267 active proof and retention pass",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary artifact exists",
+    "target-fit metrics are written",
+    "proof-anchor metrics are written",
+    "retention-anchor metrics are written",
+    "M267/M264 preflight is written",
+    "interpolation candidates are evaluated",
+    "PPO and promotion remain blocked"
+  ],
+  "type": "infrastructure"
+}

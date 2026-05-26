@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m964-v4-public-base-direction-target-actor-fit-objective-implementation
+m965-v4-public-base-direction-target-actor-fit-replay-gate-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -164,10 +164,20 @@ should synthesize this branch before actor-fit continuation. M963 completes the
 synthesis and promotes to a new branch,
 `v4_public_base_direction_target_actor_fit`. M964 should run the first
 objective-only actor-fit probe on the exported M962 targets while keeping PPO,
-promotion, private holdout, and actor-input changes blocked.
+promotion, private holdout, and actor-input changes blocked. M964 completes
+that probe and finds `5` objective-level candidate alphas. It changes only
+`actor_mean`; direction-target MSE improves, M267/M264 active preflight passes,
+and retention/proof anchors remain within tolerance. M965 should design the
+public replay gate before any PPO or promotion.
 
 ## Recent Evidence Line
 
+- M964 runs objective-only actor_mean fitting on M962 targets. Result:
+  `direction_target_actor_fit_candidate`, with candidate alphas `0.05`, `0.10`,
+  `0.20`, `0.50`, and `1.00`. `alpha=1.00` gives the best target-fit MSE among
+  evaluated alphas. M267/M264 active preflight and retention anchors pass at
+  all alphas; feature backbone, critic, log_std, and actor inputs are
+  unchanged. Next: design no-training public replay gate.
 - M963 synthesizes M953-M962 and opens
   `v4_public_base_direction_target_actor_fit`. Supported: corrected
   terminal-margin-improving target directions yield exportable targets; old

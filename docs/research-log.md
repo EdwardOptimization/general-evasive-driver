@@ -14791,3 +14791,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M963 synthesizes M953-M962. Supported: target feasibility exists after correcting the old away-from-intervention direction; M267/M264 proof retention is not the target-space bottleneck when proof targets are branch-separated; M962 exports an auditable corpus without actor contract changes. Falsified: one-step or delayed away-from-intervention targets are behaviorally grounded, the blocker is only a strict threshold, and actor training is justified before target feasibility/export. Public-gate overfit risk remains moderate to high because targets are derived from 64 public low-tail rows.
 - decision: `promote_to_next_branch`
 - next: `m964-v4-public-base-direction-target-actor-fit-objective-implementation`
+
+## 20260526T045522Z - m964-v4-public-base-direction-target-actor-fit-objective-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m964_v4_public_base_direction_target_actor_fit`
+- artifact: `docs/m964-v4-public-base-direction-target-actor-fit-objective-implementation.md`
+- result: M964 runs objective-only actor_mean fitting on the M962 exported corpus. Result: `direction_target_actor_fit_candidate`, with `5` candidate alphas (`0.05`, `0.10`, `0.20`, `0.50`, `1.00`). Direction-target MSE improves at all alphas, M267/M264 active preflight passes at all alphas, retention/proof anchors remain within tolerance, and only `actor_mean` changes. PPO and promotion remain blocked.
+- decision: `direction_target_actor_fit_candidate_route_to_replay_gate_design`
+- next: `m965-v4-public-base-direction-target-actor-fit-replay-gate-design`

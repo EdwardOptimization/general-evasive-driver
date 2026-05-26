@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 972,
+    "completed": 973,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m963-v4-public-base-target-feasibility-export-branch-synthesis",
+    "task_id": "m964-v4-public-base-direction-target-actor-fit-objective-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m963-v4-public-base-target-feasibility-export-branch-synthesis.md"
+    "command_log": "runs/m964_v4_public_base_direction_target_actor_fit/summary.json"
   },
   "next_task": {
-    "id": "m964-v4-public-base-direction-target-actor-fit-objective-implementation",
+    "id": "m965-v4-public-base-direction-target-actor-fit-replay-gate-design",
     "status": "pending",
-    "priority": 9590,
-    "kind": "infrastructure",
-    "hypothesis": "An objective-only actor-fit update can reduce M962 direction-target loss while preserving M267/M264 proof preflight and retention anchors",
-    "command": "see experiments/manifests/m964-v4-public-base-direction-target-actor-fit-objective-implementation.json",
-    "success_artifact": "runs/m964_v4_public_base_direction_target_actor_fit/summary.json",
-    "notes": "Pending: run first objective-only actor-fit probe on M962 exported direction-target corpus"
+    "priority": 9600,
+    "kind": "gate",
+    "hypothesis": "M964 candidate checkpoints need a no-training public replay gate before PPO or promotion decisions",
+    "command": "see experiments/manifests/m965-v4-public-base-direction-target-actor-fit-replay-gate-design.json",
+    "success_artifact": "docs/m965-v4-public-base-direction-target-actor-fit-replay-gate-design.md",
+    "notes": "Pending: design no-training replay gate for M964 direction-target actor-fit candidates"
   },
-  "updated_at_utc": "20260526T041234Z"
+  "updated_at_utc": "20260526T045522Z"
 }
