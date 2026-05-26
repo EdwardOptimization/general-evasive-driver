@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "proof_washout"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -28,11 +28,12 @@
       "m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design"
     ],
     "blocked_by": [
-      "M1025 designs readiness but the smoke PPO proposal has not been run"
+      "M1026 was pending before the smoke PPO proposal and gates were run"
     ],
     "supersedes": [],
     "invalidates": [
-      "longer PPO from Candidate B before a smoke PPO proof/generalization result"
+      "longer PPO from Candidate B before auditing M1026 proof washout",
+      "promoting the M1026 raw PPO checkpoint from aggregate generalization or behavior retention alone"
     ]
   },
   "review_artifact": "docs/reviews/m1026-v4-public-base-candidate-b-guarded-ppo-smoke.md",
@@ -121,6 +122,18 @@
     {
       "path": "runs/m1026_v4_public_base_candidate_b_guarded_ppo_smoke/behavior_comparison.csv",
       "type": "csv"
+    },
+    {
+      "path": "runs/m1026_v4_public_base_candidate_b_guarded_ppo_smoke/route_decision.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/train_metrics.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1026-v4-public-base-candidate-b-guarded-ppo-smoke.md",
+      "type": "md"
     }
   ],
   "baseline_checkpoints": [
@@ -130,5 +143,34 @@
     "docs/m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design.md"
   ],
   "decision_rule": "M1026 may only run one smoke PPO proposal and gates. It must not promote, use private holdout, run longer PPO, or claim final driver improvement.",
-  "next_blocker": "m1026-v4-public-base-candidate-b-guarded-ppo-smoke"
+  "next_blocker": "m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1026-v4-public-base-candidate-b-guarded-ppo-smoke.md",
+    "summary_json": "runs/m1026_v4_public_base_candidate_b_guarded_ppo_smoke/summary.json",
+    "decision": "candidate_b_guarded_ppo_proof_washout_route_to_exact_repair_projection_audit",
+    "result_class": "candidate_b_guarded_ppo_proof_washout",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "base_checkpoint": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "raw_checkpoint": "runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt",
+    "ppo_returncode": 0,
+    "training_metrics_finite": true,
+    "exact_retention_pass": true,
+    "proof_pass": false,
+    "source_diverse_pass": false,
+    "generalization_pass": true,
+    "behavior_pass": true,
+    "actor_inputs_changed": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "failed_surface": "m267_m264",
+    "baseline_success_drop_count": 17,
+    "candidate_success_drop_count": 16,
+    "normal_success_delta": 0.0,
+    "normal_margin_mean_delta": 0.000386112488785186,
+    "next_milestone": "m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit"
+  },
+  "decision": "candidate_b_guarded_ppo_proof_washout_route_to_exact_repair_projection_audit"
 }

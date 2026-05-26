@@ -75,38 +75,51 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1026-v4-public-base-candidate-b-guarded-ppo-smoke
+m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit
 ```
 
-M1019 passed the full public gate for Candidate B `m1013_lam0030_a050`.
-Exact temporal retention passed `1/1`, M267/M264 preflight passed `1/1`, all
-six public replay surfaces passed, source-diverse diagnostics passed `3/3`, and
-behavior seeds `9505`/`9506` retained baseline success plus reset/zero-all
-ordering. Actor inputs were unchanged; no training, PPO, private holdout, or
-promotion occurred.
+M1026 ran the first 1024-step guarded PPO smoke proposal from the Candidate B
+public-gate base:
 
-The live blocker is now workflow cadence, not Candidate B replay evidence:
-M1020 synthesized M1010-M1019 and closed the local temporal sequence objective
-repair loop. Candidate B is now a full public-gate candidate, but not a
-promoted public base. M1021 designed the separate promotion/generalization
-audit, and M1022 passed it. Candidate B is now a promotion-audit candidate:
-exact retention, proof replay, source-diverse diagnostics, fresh public,
-moderate-OOD, and behavior/ablation tiers all passed without training, PPO,
-private holdout, or actor-input change. M1023 promoted Candidate B as the
-current public-gate base. That promotion is public-gate status only and does
-not claim private holdout, paper-level, or real-vehicle evidence. M1024 must
-synthesize the post-promotion route before PPO continuation, surface refresh,
-or further objective work. M1024 completed that synthesis and opened the
-Candidate B guarded PPO readiness branch. M1025 must design a smoke-scale PPO
-proposal with exact/proof/generalization/behavior rollback criteria before any
-PPO run. M1025 completed that design. M1026 must run exactly one 1024-step
-guarded PPO smoke proposal from Candidate B, then gate the raw checkpoint
-without promotion.
+```text
+base:
+  runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt
+
+raw PPO checkpoint:
+  runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt
+```
+
+The run is a true PPO/proof result, not a training-instability result:
+
+```text
+ppo_returncode: 0
+training_metrics_finite: true
+exact_retention_pass: true
+proof_pass: false
+source_diverse_pass: false
+generalization_pass: true
+behavior_pass: true
+actor_inputs_changed: false
+promoted: false
+private_holdout_used: false
+```
+
+Five of six public proof replay surfaces passed, but M267/M264 dropped from
+`17/17` to `16/17` success drops while normal success stayed unchanged. This is
+localized wrong-history proof washout, not normal-branch regression and not a
+wrapper/training metrics artifact. Fresh public seeds `102100`/`102101`,
+moderate-OOD seed `102120`, and behavior/ablation seeds
+`9505`/`9506`/`102130`/`102131` all passed.
+
+M1027 must audit the M1026 M267/M264 proof washout before any longer PPO,
+scalar-coefficient tuning, promotion, or private holdout. The expected route is
+to decide whether exact post-PPO repair/projection is justified from the raw
+PPO proposal or whether the PPO recipe/proof surface needs redesign.
 
 ### Historical Trace
 
-The branch trace below is retained for context; the live blocker is the M1024
-gate above.
+The branch trace below is retained for context; the live blocker is the M1027
+audit above.
 
 M927 ran the no-training residual-direction feasibility sweep and found no
 alpha/mix candidate. M928 audits this as a residual-bridge trust-region

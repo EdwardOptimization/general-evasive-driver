@@ -15374,3 +15374,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1025 designs exactly one smoke-scale guarded PPO proposal from the Candidate B public-gate base. M1026 must create `configs/ppo_m1026_candidate_b_guarded_smoke.json`, run `1024` PPO steps initialized from Candidate B, and gate the raw checkpoint through exact M997 retention, six public replay surfaces, source-diverse diagnostics, fresh public/moderate-OOD evals, and behavior/ablation seeds. M1025 does not run PPO or promote.
 - decision: `candidate_b_guarded_ppo_readiness_design_admit_m1026_smoke`
 - next: `m1026-v4-public-base-candidate-b-guarded-ppo-smoke`
+
+## 20260526T212316Z - m1026-v4-public-base-candidate-b-guarded-ppo-smoke
+
+- status: `completed`
+- kind: `driver_candidate`
+- run dir: `runs/m1026_v4_public_base_candidate_b_guarded_ppo_smoke`
+- PPO run dir: `runs/ppo_m1026_candidate_b_guarded_smoke_seed61026`
+- artifact: `docs/m1026-v4-public-base-candidate-b-guarded-ppo-smoke.md`
+- result: M1026 runs a `1024`-step guarded PPO proposal from Candidate B. PPO completes with finite `train_metrics.csv`, exact temporal retention passes, fresh public and moderate-OOD generalization pass, behavior/ablation seeds pass, and actor inputs remain unchanged. Proof replay still fails: five of six public replay surfaces pass, but M267/M264 drops from `17/17` to `16/17` success drops while normal success stays unchanged. The corrected result is `candidate_b_guarded_ppo_proof_washout`, not training instability.
+- decision: `candidate_b_guarded_ppo_proof_washout_route_to_exact_repair_projection_audit`
+- next: `m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit`

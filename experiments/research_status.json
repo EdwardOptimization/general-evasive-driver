@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1034,
+    "completed": 1035,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design",
+    "task_id": "m1026-v4-public-base-candidate-b-guarded-ppo-smoke",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design.md"
+    "command_log": "docs/m1026-v4-public-base-candidate-b-guarded-ppo-smoke.md"
   },
   "next_task": {
-    "id": "m1026-v4-public-base-candidate-b-guarded-ppo-smoke",
+    "id": "m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit",
     "status": "pending",
-    "priority": 10210,
-    "kind": "driver_candidate",
-    "hypothesis": "A 1024-step guarded PPO proposal from Candidate B can run and be evaluated against exact, proof, fresh generalization, and behavior gates without promotion",
-    "command": "see experiments/manifests/m1026-v4-public-base-candidate-b-guarded-ppo-smoke.json",
-    "success_artifact": "runs/m1026_v4_public_base_candidate_b_guarded_ppo_smoke/summary.json",
-    "notes": "Pending: run one smoke-scale guarded PPO proposal from Candidate B and gate it without promotion"
+    "priority": 10220,
+    "kind": "gate",
+    "hypothesis": "Audit M1026 proof washout and decide whether exact post-PPO repair/projection is the next route",
+    "command": "see experiments/manifests/m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit.json",
+    "success_artifact": "docs/m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit.md",
+    "notes": "Pending: diagnose M1026 localized M267/M264 proof washout without training, PPO, promotion, or private holdout"
   },
-  "updated_at_utc": "20260526T204222Z"
+  "updated_at_utc": "20260526T212316Z"
 }
