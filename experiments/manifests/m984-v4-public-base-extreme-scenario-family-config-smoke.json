@@ -85,7 +85,7 @@
   "commands": [
     {
       "name": "create_extreme_family_configs_and_smoke",
-      "command": "create configs/m984_extreme_low_mu_drop.json configs/m984_brake_authority_loss.json configs/m984_lateral_authority_loss.json configs/m984_heavy_cg_delay.json configs/m984_high_speed_close_obstacle.json, then run a no-PPO config/sampling smoke into runs/m984_v4_public_base_extreme_scenario_family_config_smoke"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.normal_success_boundary_source_miner --checkpoint runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt --surface-config low_mu=configs/m984_extreme_low_mu_drop.json --surface-config brake_loss=configs/m984_brake_authority_loss.json --surface-config lateral_loss=configs/m984_lateral_authority_loss.json --surface-config heavy_cg_delay=configs/m984_heavy_cg_delay.json --surface-config high_speed_close=configs/m984_high_speed_close_obstacle.json --surface-seed-range low_mu=98400:98415 --surface-seed-range brake_loss=98420:98435 --surface-seed-range lateral_loss=98440:98455 --surface-seed-range heavy_cg_delay=98460:98475 --surface-seed-range high_speed_close=98480:98495 --sequence-lengths 5 --obstacle-distance-min 0.0 --obstacle-distance-max 35.0 --normal-margin-min 0.0 --normal-margin-max 1.0 --max-right-candidates-per-left 32 --max-candidate-pairs-per-surface 120 --context-distance-threshold 0.25 --response-distance-threshold 0.20 --obstacle-x-abs-delta 10.0 --obstacle-y-abs-delta 2.0 --step-abs-delta 30 --min-wrong-first-action-l2 0.002 --min-wrong-action-sequence-mean-l2 0.006 --min-preferred-rejected-action-mean-l2 0.010 --min-margin-gap 0.010 --max-snapshots-per-surface 80 --max-snapshots-per-seed 4 --sample-stride 4 --max-continuation-steps 7 --device auto --run-dir runs/m984_v4_public_base_extreme_scenario_family_config_smoke"
     }
   ],
   "required_artifacts": [
@@ -124,6 +124,40 @@
   "baseline_artifacts": [
     "docs/m983-v4-public-base-post-repair-surface-refresh-synthesis.md"
   ],
+  "results": {
+    "run_dir": "runs/m984_v4_public_base_extreme_scenario_family_config_smoke",
+    "corpus_passed": false,
+    "classification": "extreme_scenario_family_config_smoke_pass",
+    "snapshot_count": 211,
+    "near_boundary_preferred_snapshots": 57,
+    "candidate_pairs": 534,
+    "candidate_rows": 534,
+    "accepted_rows": 0,
+    "snapshots_by_surface": {
+      "brake_loss": 50,
+      "heavy_cg_delay": 52,
+      "high_speed_close": 30,
+      "lateral_loss": 39,
+      "low_mu": 40
+    },
+    "near_boundary_by_surface": {
+      "brake_loss": 24,
+      "heavy_cg_delay": 12,
+      "high_speed_close": 2,
+      "lateral_loss": 11,
+      "low_mu": 8
+    },
+    "candidate_all_action_threshold_rows": 468,
+    "candidate_margin_threshold_rows": 0,
+    "candidate_max_margin_gap": 0.00037287141831132686,
+    "candidate_normal_success_rate": 1.0,
+    "candidate_wrong_success_rate": 1.0,
+    "actor_parameters_changed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "next_route": "multi_family_source_mining"
+  },
+  "decision": "extreme_scenario_family_config_smoke_pass_route_to_source_mining",
   "decision_rule": "M984 should only admit multi-family source mining after every config samples valid scenarios and the actor contract remains unchanged.",
-  "next_blocker": "extreme scenario-family configs do not yet exist"
+  "next_blocker": "m985-v4-public-base-extreme-scenario-family-source-mining"
 }

@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m984-v4-public-base-extreme-scenario-family-config-smoke
+m985-v4-public-base-extreme-scenario-family-source-mining
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -251,9 +251,16 @@ same-family seed mining. The next branch is extreme scenario-family generation:
 use currently supported global hidden-dynamics knobs first, and explicitly keep
 split-mu, single-tire puncture, half-shaft failure, and corner-specific brake
 loss as future simulator extensions rather than current single-track claims.
+M984 creates five configs (`low_mu`, `brake_loss`, `lateral_loss`,
+`heavy_cg_delay`, `high_speed_close`) and smoke-runs them successfully with
+`211` snapshots and `57` near-boundary preferred rows. M985 should run the first
+larger source-mining pass across those five families before any training.
 
 ## Recent Evidence Line
 
+- M984 creates and smokes five extreme scenario-family configs. All families
+  sample valid scenarios and produce artifacts; no actor/PPO/promotion changes
+  occur. Next: multi-family source mining.
 - M983 synthesizes M979-M982 and pivots to
   `v4_public_base_extreme_scenario_family_generation`. Same-family fresh/OOD
   seed mining found a real but isolated OOD pocket, not a source-diverse proof

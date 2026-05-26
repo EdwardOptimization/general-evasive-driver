@@ -1,0 +1,125 @@
+{
+  "id": "m985-v4-public-base-extreme-scenario-family-source-mining",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m984-v4-public-base-extreme-scenario-family-config-smoke.md",
+      "runs/m984_v4_public_base_extreme_scenario_family_config_smoke/summary.json"
+    ],
+    "parent_config": [
+      "configs/m984_extreme_low_mu_drop.json",
+      "configs/m984_brake_authority_loss.json",
+      "configs/m984_lateral_authority_loss.json",
+      "configs/m984_heavy_cg_delay.json",
+      "configs/m984_high_speed_close_obstacle.json",
+      "experiments/manifests/m984-v4-public-base-extreme-scenario-family-config-smoke.json"
+    ],
+    "parent_objective": [
+      "mine source-diverse wrong-history outcome-sensitive rows from richer scenario families"
+    ],
+    "derived_from": [
+      "m984-v4-public-base-extreme-scenario-family-config-smoke",
+      "m983-v4-public-base-post-repair-surface-refresh-synthesis"
+    ],
+    "blocked_by": [
+      "M984 creates and smokes configs but does not yet run source-diverse mining"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "training before source-diverse accepted rows exist",
+      "using the isolated M980/M982 pocket as the only new surface"
+    ]
+  },
+  "review_artifact": "docs/reviews/m985-v4-public-base-extreme-scenario-family-source-mining.md",
+  "public_gates": [
+    "M985 must not run PPO",
+    "M985 must not promote",
+    "M985 must not use private holdout",
+    "M985 must preserve P0 actor-input contract",
+    "M985 must report source diversity by scenario family",
+    "M985 must not lower acceptance thresholds after seeing output"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden parameters to actor inputs",
+    "do not train or optimize",
+    "do not use private holdout",
+    "do not claim unsupported per-wheel fault coverage",
+    "do not promote any checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_extreme_scenario_family_generation",
+    "evidence_axis": "G_scenario_family: source-diverse proof mining over richer hidden-dynamics families",
+    "evidence_increment": "runs first multi-family source mining pass over the M984 configs",
+    "claim_scope": "proof-surface mining only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if actor parameters change",
+      "stop if PPO or optimizer starts",
+      "stop if accepted rows are absent or isolated after larger multi-family coverage"
+    ],
+    "fallback_plan": [
+      "if source-diverse rows pass, route to compact corpus and exact objective sanity",
+      "if rows are absent but near-boundary windows exist, route to scenario range calibration",
+      "if supported config families remain insufficient, design simulator fault extensions for asymmetric/per-wheel failures"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M984 config smoke passes and admits full source mining",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Richer hidden-dynamics scenario families will expose source-diverse outcome-sensitive wrong-history rows more reliably than the ordinary fresh/OOD public families used in M980-M982.",
+  "success_criteria": [
+    "summary artifact exists",
+    "accepted rows and source diversity are reported by family",
+    "actor parameters are unchanged",
+    "PPO and promotion are not used",
+    "route decision is explicit"
+  ],
+  "failure_criteria": [
+    "miner crashes",
+    "actor parameters change",
+    "training or PPO starts",
+    "thresholds are lowered after seeing output",
+    "route decision is missing"
+  ],
+  "commands": [
+    {
+      "name": "multi_family_source_mining",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.normal_success_boundary_source_miner --checkpoint runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt --surface-config low_mu=configs/m984_extreme_low_mu_drop.json --surface-config brake_loss=configs/m984_brake_authority_loss.json --surface-config lateral_loss=configs/m984_lateral_authority_loss.json --surface-config heavy_cg_delay=configs/m984_heavy_cg_delay.json --surface-config high_speed_close=configs/m984_high_speed_close_obstacle.json --surface-seed-range low_mu=98500:98563 --surface-seed-range brake_loss=98580:98643 --surface-seed-range lateral_loss=98660:98723 --surface-seed-range heavy_cg_delay=98740:98803 --surface-seed-range high_speed_close=98820:98883 --sequence-lengths 5,7,9 --obstacle-distance-min 0.0 --obstacle-distance-max 35.0 --normal-margin-min 0.0 --normal-margin-max 1.0 --max-right-candidates-per-left 64 --max-candidate-pairs-per-surface 1200 --context-distance-threshold 0.25 --response-distance-threshold 0.20 --obstacle-x-abs-delta 10.0 --obstacle-y-abs-delta 2.0 --step-abs-delta 30 --min-wrong-first-action-l2 0.002 --min-wrong-action-sequence-mean-l2 0.006 --min-preferred-rejected-action-mean-l2 0.010 --min-margin-gap 0.010 --max-snapshots-per-surface 320 --max-snapshots-per-seed 6 --sample-stride 3 --max-continuation-steps 9 --device auto --run-dir runs/m985_v4_public_base_extreme_scenario_family_source_mining"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m985_v4_public_base_extreme_scenario_family_source_mining/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m985_v4_public_base_extreme_scenario_family_source_mining/candidate_scores.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m985_v4_public_base_extreme_scenario_family_source_mining/normal_success_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m985_v4_public_base_extreme_scenario_family_source_mining/normal_success_boundary_corpus.npz",
+      "type": "npz"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m984-v4-public-base-extreme-scenario-family-config-smoke.md",
+    "runs/m984_v4_public_base_extreme_scenario_family_config_smoke/summary.json"
+  ],
+  "decision_rule": "M985 must classify whether richer scenario families produce a source-diverse accepted surface, only isolated pockets, or no outcome-sensitive rows. It must not train or promote.",
+  "next_blocker": "source-diverse extreme scenario-family proof rows have not been mined"
+}

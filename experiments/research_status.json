@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 992,
+    "completed": 993,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m983-v4-public-base-post-repair-surface-refresh-synthesis",
+    "task_id": "m984-v4-public-base-extreme-scenario-family-config-smoke",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m983-v4-public-base-post-repair-surface-refresh-synthesis.md"
+    "command_log": "docs/m984-v4-public-base-extreme-scenario-family-config-smoke.md"
   },
   "next_task": {
-    "id": "m984-v4-public-base-extreme-scenario-family-config-smoke",
+    "id": "m985-v4-public-base-extreme-scenario-family-source-mining",
     "status": "pending",
-    "priority": 9790,
-    "kind": "infrastructure",
-    "hypothesis": "Existing single-track simulator knobs can define richer global-failure scenario families that are more likely to expose source-diverse wrong-history outcome sensitivity without violating the P0 actor contract",
-    "command": "see experiments/manifests/m984-v4-public-base-extreme-scenario-family-config-smoke.json",
-    "success_artifact": "runs/m984_v4_public_base_extreme_scenario_family_config_smoke/summary.json",
-    "notes": "Pending: create and smoke extreme scenario-family configs before full source mining"
+    "priority": 9800,
+    "kind": "gate",
+    "hypothesis": "Richer hidden-dynamics scenario families will expose source-diverse outcome-sensitive wrong-history rows more reliably than the ordinary fresh/OOD public families used in M980-M982",
+    "command": "see experiments/manifests/m985-v4-public-base-extreme-scenario-family-source-mining.json",
+    "success_artifact": "runs/m985_v4_public_base_extreme_scenario_family_source_mining/summary.json",
+    "notes": "Pending: run first multi-family source mining pass over M984 configs"
   },
-  "updated_at_utc": "20260526T120700Z"
+  "updated_at_utc": "20260526T121449Z"
 }

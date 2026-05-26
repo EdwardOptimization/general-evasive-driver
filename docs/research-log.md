@@ -14979,3 +14979,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M983 synthesizes M979-M982. Supported: the M974 public base has a real repeatable wrong-history outcome-sensitive OOD pocket. Falsified: same-family fresh/OOD seed mining yields a source-diverse post-repair proof surface, and M980 source narrowness was caused by candidate-pair limits. Public-gate overfit risk remains `moderate`.
 - decision: `pivot_to_extreme_scenario_family_generation`
 - next: `m984-v4-public-base-extreme-scenario-family-config-smoke`
+
+## 20260526T121449Z - m984-v4-public-base-extreme-scenario-family-config-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m984_v4_public_base_extreme_scenario_family_config_smoke`
+- artifact: `docs/m984-v4-public-base-extreme-scenario-family-config-smoke.md`
+- result: M984 creates five scenario-family configs: `low_mu`, `brake_loss`, `lateral_loss`, `heavy_cg_delay`, and `high_speed_close`. The no-PPO smoke produces `211` snapshots across all families, `57` near-boundary preferred rows, and `534` candidate rows. Action separation is live (`468` all-action-threshold rows), but no accepted rows appear in the smoke. Actor parameters are unchanged and no PPO/promotion occurs.
+- decision: `extreme_scenario_family_config_smoke_pass_route_to_source_mining`
+- next: `m985-v4-public-base-extreme-scenario-family-source-mining`
