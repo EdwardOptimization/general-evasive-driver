@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m956-v4-public-base-low-tail-sequence-target-audit-implementation
+m957-v4-public-base-low-tail-target-metric-artifact-audit-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -131,9 +131,24 @@ retain the first action under M954 thresholds, distribute maneuver intent over
 `K in {2,4,6}` prefix actions, evaluate sequence-level low-tail and terminal
 margin effects, and keep M267 branch-separated sequence proof retention
 mandatory. M956 should implement the no-training sequence audit.
+M956 implements it and finds no sequence candidate: all `9/9` sequence
+families retain the first action and pass M267 proof preflight, but
+`terminal_margin_positive_family_count=0` and every delayed projection slightly
+worsens terminal margin. The next blocker is therefore metric grounding: audit
+whether the low-tail action-gap target is a target-metric artifact before
+relaxing thresholds or training.
 
 ## Recent Evidence Line
 
+- M956 implements the no-training low-tail sequence target audit. It evaluates
+  `9` delayed projection sequence families over `64/498` low-tail rows, with
+  horizons `2/4/6` and amplitudes `0.004/0.006/0.008`. All families retain the
+  first action and pass M267 proof preflight, but
+  `sequence_low_tail_candidate_count=0`,
+  `terminal_margin_positive_family_count=0`, and
+  `joint_sequence_candidate_count=0`. Delayed action-gap movement worsens
+  terminal margin, so M957 should audit low-tail target-metric grounding before
+  threshold relaxation or actor training.
 - M955 designs the low-tail sequence target audit after M954. It blocks actor
   training, PPO, promotion, actor-input changes, and output-contract changes.
   The design tests whether M954's zero joint one-step candidates are a

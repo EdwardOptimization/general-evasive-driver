@@ -4,7 +4,7 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -123,5 +123,5 @@
     "docs/m955-v4-public-base-low-tail-sequence-target-audit-design.md"
   ],
   "decision_rule": "M956 may only run a no-training sequence target feasibility audit. It must not update actor parameters, run PPO, or promote.",
-  "next_blocker": "low-tail sequence target audit has not been implemented"
+  "next_blocker": "m957-v4-public-base-low-tail-target-metric-artifact-audit-design"
 }

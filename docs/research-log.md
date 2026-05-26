@@ -14715,3 +14715,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M955 designs the no-training short-horizon sequence target audit after M954. The audit keeps the deployed actor single-step and keeps `u_0` under M954 first-action retention, while allowing delayed maneuver intent in `u_1..u_{K-1}` for horizons `2`, `4`, and `6`. It separates first-action retention, prefix retention, sequence low-tail effect, terminal margin effect, and M267/M264 branch-separated proof retention. Threshold relaxation is only a fallback after sequence feasibility is tested.
 - decision: `low_tail_sequence_target_audit_design_admit_m956`
 - next: `m956-v4-public-base-low-tail-sequence-target-audit-implementation`
+
+## 20260526T011729Z - m956-v4-public-base-low-tail-sequence-target-audit-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m956_v4_public_base_low_tail_sequence_target_audit`
+- artifact: `docs/m956-v4-public-base-low-tail-sequence-target-audit-implementation.md`
+- result: M956 implements the no-training sequence audit. It evaluates `9` delayed projection families over `64/498` low-tail rows with horizons `2/4/6` and amplitudes `0.004/0.006/0.008`. All families retain first action and M267 proof retention passes for all `9`, but no sequence family improves low-tail terminal margin: `sequence_low_tail_candidate_count=0`, `terminal_margin_positive_family_count=0`, and `joint_sequence_candidate_count=0`.
+- decision: `low_tail_sequence_target_audit_metric_artifact_route_to_audit`
+- next: `m957-v4-public-base-low-tail-target-metric-artifact-audit-design`

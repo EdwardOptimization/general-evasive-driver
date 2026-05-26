@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M956 finds delayed low-tail projection sequences preserve first-action retention and M267 proof but terminal margin worsens for all nine sequence families",
+  "failure_criteria": [
+    "implementation trains or updates model weights",
+    "implementation changes actor inputs or output contract",
+    "implementation omits first-action retention metrics",
+    "implementation omits M267 proof-retention handling",
+    "implementation promotes a checkpoint"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not change actor output contract",
+    "do not widen actor inputs",
+    "do not open encoders or GRU",
+    "do not use private holdout",
+    "do not promote"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260526T012334Z",
+  "hypothesis": "Short-horizon sequence targets may show low-tail feasibility under first-action retention where one-step target families failed.",
+  "lineage": {
+    "blocked_by": [
+      "low-tail sequence target audit has only been designed, not implemented"
+    ],
+    "derived_from": [
+      "m955-v4-public-base-low-tail-sequence-target-audit-design"
+    ],
+    "invalidates": [
+      "actor training before sequence target feasibility"
+    ],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m955-v4-public-base-low-tail-sequence-target-audit-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m955-v4-public-base-low-tail-sequence-target-audit-design.md",
+      "runs/m954_v4_public_base_replay_constrained_target_feasibility/summary.json",
+      "runs/m954_v4_public_base_replay_constrained_target_feasibility/target_family_summary.csv"
+    ],
+    "parent_objective": [
+      "implement a no-training short-horizon sequence target audit after one-step target families fail"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m956-v4-public-base-low-tail-sequence-target-audit-implementation",
+  "next_blocker": "m957-v4-public-base-low-tail-target-metric-artifact-audit-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "low_tail_sequence_target_audit_metric_artifact_route_to_audit",
+  "public_gates": [
+    "M956 must not train",
+    "M956 must not run PPO",
+    "M956 must not promote",
+    "M956 must preserve the P0 actor-input contract",
+    "M956 must report first-action retention",
+    "M956 must report sequence low-tail metrics",
+    "M956 must report M267 sequence proof retention"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m956_v4_public_base_low_tail_sequence_target_audit/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "low_tail_sequence_target_audit_metric_artifact_route_to_audit",
+    "milestone": "m956-v4-public-base-low-tail-sequence-target-audit-implementation",
+    "reason": "M956 finds delayed low-tail projection sequences preserve first-action retention and M267 proof but terminal margin worsens for all nine sequence families",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary artifact exists",
+    "sequence family metrics are written",
+    "first-action retention is reported",
+    "sequence low-tail effect is reported",
+    "M267 sequence proof-retention metrics are written",
+    "joint sequence candidate count is reported",
+    "training, PPO, and promotion remain blocked"
+  ],
+  "type": "infrastructure"
+}
