@@ -75,85 +75,39 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis
+m1036-v4-public-base-candidate-b-combined-active-set-repair-design
 ```
 
-M1031 implemented and ran the no-PPO temporal-safe projection probe after the
-M1029 exact repair endpoints failed M997 temporal exact retention.
+M1035 completed the required workflow synthesis for the M1025-M1034 Candidate B
+guarded PPO readiness branch. The synthesis decision is:
 
 ```text
-base:
-  runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt
-
-raw PPO checkpoint:
-  runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt
+candidate_b_guarded_ppo_readiness_synthesis_promote_to_combined_active_set_repair
 ```
 
-M1031 result:
+The new branch is:
 
 ```text
-candidate_count: 39
-actor_input_change_count: 0
-temporal_exact_pass_count: 16
-temporal_and_exact_pass_count: 16
-eligible_candidate_count: 14
-first_replay_attempted_candidate_count: 14
-first_replay_pass_candidate_found: false
-result_class: candidate_b_temporal_safe_projection_proof_washout
+candidate_b_combined_active_set_repair
 ```
 
-M1031 sharpens the blocker:
+The accumulated guarded PPO readiness evidence is:
 
 ```text
-M1029 endpoint repair was too large for M997 temporal retention.
-M1031 projection recovers M997 temporal retention and M297/M270 exact
-no-regression for 16 candidates.
-Several candidates also retain M267/M264 at 17/17 success drops with row15
-retained.
-No candidate passes M183/M170 first replay.
+M1026 raw PPO proposal is finite but not promotable.
+M1027 localizes raw PPO proof washout to M267/M264 row15.
+M1029 exact repair recovers M297/M270 but violates M997 temporal retention.
+M1031 temporal-safe projection recovers M997 and M267/M264 row15 for some
+candidates, but fails M183/M170 first replay on row16.
+M1032 classifies that as M183/M170 normal-branch terminal-margin active-set
+failure, not wrong-history sensitivity loss.
+M1034 exports an exact-loadable M183/M170 row16 normal trajectory anchor.
 ```
 
-Closest M1031 miss:
+The M1034 active-set anchor is:
 
 ```text
-candidate: raw_conflict_s40 alpha 0.05
-M267/M264: 17/17 success drops, row15 retained
-M183/M170: 16/17 success drops
-failed row: row16
-normal_success: false
-wrong_history_success: false
-normal_margin: -0.000165
-wrong_history_margin: -0.006597
-```
-
-M1032 audits the M1031 failure and classifies it as:
-
-```text
-M183/M170 normal-branch terminal-margin active-set failure
-```
-
-It is not wrong-history sensitivity loss: inspected M183/M170 candidates keep
-`wrong_history_successes = 0/17`; the rejected branch remains unsafe. The
-closest useful direction is `raw_conflict_s40 alpha 0.05`, where only M183/M170
-row16 fails and the candidate normal margin is `-0.000165`.
-
-M1033 designs the next route: export a Candidate-B normal-trajectory anchor for
-M183/M170 row16 and make it part of the hard active set before another repair
-or projection run. The hard active set is:
-
-```text
-P0 actor-input contract unchanged
-M997 temporal exact retention
-M297/M270 exact no-regression
-M267/M264 row15 rejected-history failure retention
-M183/M170 row16 normal branch retention
-```
-
-M1034 implements and runs that no-update export:
-
-```text
-anchor:
-  runs/m1034_candidate_b_m183_row16_active_set_anchor_export/m183_row16_normal_trajectory_anchor.npz
+runs/m1034_candidate_b_m183_row16_active_set_anchor_export/m183_row16_normal_trajectory_anchor.npz
 
 anchor_rows: 57
 observation shape: 57 x 72
@@ -163,23 +117,37 @@ normal_success_all: true
 wrong_history_success_any: false
 normal_margin_min: 0.001315984
 wrong_history_margin_min: -0.005083863
-actor_inputs_changed: false
-ppo_used: false
-promoted: false
 ```
 
-Workflow synthesis cadence has fired after the M1025-M1034 Candidate B guarded
-PPO readiness branch. The current blocker is M1035: synthesize the branch before
-opening another ordinary repair/design milestone. The likely next branch is a
-combined active-set repair/projection using the M293 rejected-history trajectory
-anchor plus the M1034 M183/M170 row16 normal trajectory anchor, but M1035 must
-make that decision explicitly. No optimizer run, PPO, promotion, private
-holdout, or actor-input change is allowed in the synthesis milestone.
+M1036 is design-only. It must specify a combined active-set repair/projection
+strategy before any implementation run. The hard constraints are:
+
+```text
+P0 actor-input contract unchanged
+M997 temporal exact retention
+M297/M270 exact no-regression
+M267/M264 row15 rejected-history failure retention
+M183/M170 row16 normal branch retention
+```
+
+Candidate data for M1036:
+
+```text
+M297 rejected-history preference corpus
+M270 outcome-intervention snippets
+M293 current-family rejected-history trajectory anchor
+M393 row15 conflict corpus
+M997 temporal sequence corpus
+M1034 M183/M170 row16 normal trajectory anchor
+```
+
+No PPO, repair run, promotion, private holdout, or actor-input change is allowed
+in M1036.
 
 ### Historical Trace
 
-The branch trace below is retained for context; the live blocker is the M1031
-projection probe above.
+The branch trace below is retained for context; the live blocker is the M1036
+combined active-set repair design above.
 
 M927 ran the no-training residual-direction feasibility sweep and found no
 alpha/mix candidate. M928 audits this as a residual-bridge trust-region

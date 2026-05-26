@@ -15459,3 +15459,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1034 implements and runs a no-update export of Candidate B's M183/M170 row16 normal-trajectory anchor. The anchor has `57` rows with shapes `observation 57x72`, `hidden 57x128`, and `reference_action 57x3`; it loads through `load_trajectory_action_anchor`. Replay sanity confirms Candidate B normal success true with normal margin `0.001315984` and wrong-history success false with wrong-history margin `-0.005083863`. No repair, PPO, promotion, private holdout, or actor-input change occurs.
 - decision: `candidate_b_m183_row16_active_set_anchor_export_pass`
 - next: `m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis`
+
+## 20260526T234036Z - m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis.md`
+- result: M1035 synthesizes the M1025-M1034 Candidate B guarded PPO readiness branch. It supports Candidate B as a valid public-gate base, confirms smoke PPO can produce a finite but unsafe proposal, localizes the raw PPO proof washout to M267/M264 row15, shows exact M297/M270 repair alone violates M997 temporal retention, shows temporal-safe projection alone still exposes M183/M170 row16 normal-branch active-set failure, and records M1034 as the exact-loadable row16 normal trajectory anchor needed next. Public-gate overfit risk is moderate to high, so the next branch is explicitly public proof-retention engineering only.
+- decision: `candidate_b_guarded_ppo_readiness_synthesis_promote_to_combined_active_set_repair`
+- next: `m1036-v4-public-base-candidate-b-combined-active-set-repair-design`

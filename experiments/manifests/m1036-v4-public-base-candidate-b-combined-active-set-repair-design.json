@@ -1,0 +1,115 @@
+{
+  "id": "m1036-v4-public-base-candidate-b-combined-active-set-repair-design",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+      "runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis.md",
+      "runs/m1034_candidate_b_m183_row16_active_set_anchor_export/m183_row16_normal_trajectory_anchor.npz",
+      "runs/m293_current_family_rejected_history_ppo_repair_design/m267_failed_rows_extra4_anchor.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m393_current_family_rejected_boundary_targets/current_family_conflict_corpus.npz",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis.json"
+    ],
+    "parent_objective": [
+      "design combined active-set repair/projection using M293 plus M1034 trajectory anchors"
+    ],
+    "derived_from": [
+      "m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis"
+    ],
+    "blocked_by": [
+      "M1035 promotes the Candidate B guarded PPO readiness branch to combined active-set repair"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "rerunning M1029 repair without M183/M170 row16 active-set anchor",
+      "running longer PPO before combined active-set repair is designed",
+      "promoting M1031 or M1034 artifacts"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1036-v4-public-base-candidate-b-combined-active-set-repair-design.md",
+  "public_gates": [
+    "M1036 must run no PPO",
+    "M1036 must not run repair or promote",
+    "M1036 must not use private holdout",
+    "M1036 must preserve P0 actor inputs",
+    "M1036 must specify how M293 and M1034 anchors are combined and gated before replay"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not run exact repair from the design milestone",
+    "do not promote",
+    "do not drop M997 temporal retention",
+    "do not drop M267/M264 row15",
+    "do not drop M183/M170 row16",
+    "do not change actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "candidate_b_combined_active_set_repair",
+    "evidence_axis": "G_ppo: combined active-set repair design",
+    "evidence_increment": "turns exported row16 active-set data into a bounded combined repair/projection plan",
+    "claim_scope": "design only; no repair run, no first-replay pass claim, no promotion",
+    "stop_condition": [
+      "stop if M293 and M1034 anchors cannot be combined into one exact-loadable trajectory anchor",
+      "stop if the design would relax M997 or exact proof thresholds",
+      "stop if the design would change actor inputs"
+    ],
+    "fallback_plan": [
+      "if combined anchor is feasible, implement a no-PPO combined active-set repair/projection probe next",
+      "if combined anchor is not feasible, implement a separate multi-anchor loss path with tests",
+      "if both are too broad, route to a finer low-alpha diagnostic projection before another optimizer run"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1035 opens candidate_b_combined_active_set_repair branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A combined active-set repair/projection design can preserve M997 temporal retention, M297/M270 exact no-regression, M267/M264 row15, and M183/M170 row16 before first replay.",
+  "success_criteria": [
+    "design artifact exists",
+    "combined anchor or multi-anchor strategy is specified",
+    "gate order includes M997, M297/M270, M267/M264 row15, and M183/M170 row16",
+    "next implementation scope is bounded",
+    "no PPO repair promotion private holdout or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "design omits any hard active-set component",
+    "design relaxes M997 thresholds",
+    "design runs repair or PPO",
+    "design changes actor inputs",
+    "design promotes a candidate"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1036-v4-public-base-candidate-b-combined-active-set-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1036-v4-public-base-candidate-b-combined-active-set-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1035-v4-public-base-candidate-b-guarded-ppo-readiness-synthesis.md"
+  ],
+  "decision_rule": "M1036 should admit implementation only if the combined active-set repair/projection gate order is explicit and no update or promotion happens in the design milestone.",
+  "next_blocker": "m1036-v4-public-base-candidate-b-combined-active-set-repair-design"
+}
