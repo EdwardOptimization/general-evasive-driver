@@ -1,0 +1,128 @@
+{
+  "id": "m983-v4-public-base-post-repair-surface-refresh-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m979-v4-public-base-post-repair-surface-refresh-design.md",
+      "docs/m980-v4-public-base-post-repair-surface-refresh-implementation.md",
+      "docs/m981-v4-public-base-post-repair-expanded-source-refresh.md",
+      "docs/m982-v4-public-base-post-repair-ood-pocket-expansion-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m979-v4-public-base-post-repair-surface-refresh-design.json",
+      "experiments/manifests/m980-v4-public-base-post-repair-surface-refresh-implementation.json",
+      "experiments/manifests/m981-v4-public-base-post-repair-expanded-source-refresh.json",
+      "experiments/manifests/m982-v4-public-base-post-repair-ood-pocket-expansion-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize the post-repair surface-refresh branch before extending it into new scenario families"
+    ],
+    "derived_from": [
+      "m979-v4-public-base-post-repair-surface-refresh-design",
+      "m980-v4-public-base-post-repair-surface-refresh-implementation",
+      "m981-v4-public-base-post-repair-expanded-source-refresh",
+      "m982-v4-public-base-post-repair-ood-pocket-expansion-audit"
+    ],
+    "blocked_by": [
+      "M980/M982 accepted rows remain isolated to one OOD left seed and two physical pairs",
+      "M981 expanded seed coverage finds zero accepted rows"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "continuing same-family seed mining as the main branch",
+      "training from the isolated M980/M982 rows",
+      "claiming source-diverse current-base proof-surface evidence from M980/M982"
+    ]
+  },
+  "review_artifact": "docs/reviews/m983-v4-public-base-post-repair-surface-refresh-synthesis.md",
+  "public_gates": [
+    "M983 must synthesize M979-M982 before opening a new branch",
+    "M983 must not run PPO",
+    "M983 must not promote",
+    "M983 must not use private holdout",
+    "M983 must preserve P0 actor-input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train or optimize",
+    "do not lower thresholds retroactively",
+    "do not treat the M980/M982 isolated pocket as source-diverse evidence",
+    "do not claim unsupported per-wheel failure coverage under the current single-track dynamics"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_post_repair_surface_refresh",
+    "evidence_axis": "G_surface_refresh: whether the current public scenario family exposes fresh source-diverse proof rows",
+    "evidence_increment": "synthesizes M979-M982 and decides whether to continue same-family mining or pivot",
+    "claim_scope": "process synthesis only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop same-family mining if accepted rows remain isolated after M982",
+      "stop same-family mining if expanded seeds produce zero outcome-sensitive rows",
+      "stop before converting isolated rows into a training corpus"
+    ],
+    "fallback_plan": [
+      "pivot to extreme scenario-family generation using existing simulator knobs",
+      "if new families still fail, design simulator fault extensions for asymmetric/per-wheel failures",
+      "only route to objective sanity after source-diverse accepted rows exist"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M982 confirms M980 source narrowness is not a candidate-limit artifact",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m983-v4-public-base-post-repair-surface-refresh-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "M979-M982 provide enough evidence to close the same-family post-repair surface-refresh branch and pivot to richer hidden-dynamics scenario-family generation before training.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "supported and falsified claims are explicit",
+    "failure taxonomy is explicit",
+    "public gate overfit risk is updated",
+    "next branch decision is explicit",
+    "no training or promotion occurs"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "route decision is missing",
+    "thresholds are lowered retroactively",
+    "training or PPO starts",
+    "unsupported per-wheel failure claims are made under the single-track model"
+  ],
+  "commands": [
+    {
+      "name": "write_synthesis",
+      "command": "manual documentation only; see docs/m983-v4-public-base-post-repair-surface-refresh-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m983-v4-public-base-post-repair-surface-refresh-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m979-v4-public-base-post-repair-surface-refresh-design.md",
+    "docs/m980-v4-public-base-post-repair-surface-refresh-implementation.md",
+    "docs/m981-v4-public-base-post-repair-expanded-source-refresh.md",
+    "docs/m982-v4-public-base-post-repair-ood-pocket-expansion-audit.md"
+  ],
+  "decision": "pivot_to_extreme_scenario_family_generation",
+  "decision_rule": "M983 must decide whether M979-M982 justify continuing same-family mining or pivoting to richer scenario-family generation.",
+  "next_blocker": "m984-v4-public-base-extreme-scenario-family-config-smoke"
+}

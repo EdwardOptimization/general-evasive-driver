@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M981 expands fresh/OOD seeds and finds zero accepted rows despite 29959 action-threshold rows and candidate max margin gap 0.00449",
+  "failure_criteria": [
+    "miner crashes",
+    "thresholds are lowered",
+    "actor parameters change",
+    "PPO or optimizer starts",
+    "route decision is missing"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not change actor inputs",
+    "do not train or optimize",
+    "do not lower min action or margin thresholds",
+    "do not train from M980 source-narrow rows",
+    "do not use private holdout",
+    "do not promote"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260526T120358Z",
+  "hypothesis": "Expanding fresh public seed coverage around the M974 public base while keeping M980 thresholds fixed will turn the M980 source-narrow accepted pocket into a source-diverse surface or prove that it is a narrow OOD artifact.",
+  "lineage": {
+    "blocked_by": [
+      "M980 accepted rows are source-narrow: 30 rows from one left seed and two physical pairs"
+    ],
+    "derived_from": [
+      "m980-v4-public-base-post-repair-surface-refresh-implementation",
+      "m979-v4-public-base-post-repair-surface-refresh-design"
+    ],
+    "invalidates": [
+      "training from M980 source-narrow corpus",
+      "lowering thresholds to force M980 corpus pass"
+    ],
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m980-v4-public-base-post-repair-surface-refresh-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m980-v4-public-base-post-repair-surface-refresh-implementation.md",
+      "runs/m980_v4_public_base_post_repair_surface_refresh/summary.json",
+      "runs/m980_v4_public_base_post_repair_surface_refresh/candidate_scores.csv",
+      "runs/m980_v4_public_base_post_repair_surface_refresh/normal_success_boundary_rows.csv"
+    ],
+    "parent_objective": [
+      "expand source coverage after M980 found a narrow accepted wrong-history pocket"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m981-v4-public-base-post-repair-expanded-source-refresh",
+  "next_blocker": "m982-v4-public-base-post-repair-ood-pocket-expansion-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "post_repair_expanded_source_refresh_empty_route_to_targeted_ood_pocket_audit",
+  "public_gates": [
+    "M981 must not run PPO",
+    "M981 must not promote",
+    "M981 must not use private holdout",
+    "M981 must preserve P0 actor-input contract",
+    "M981 must keep M980 thresholds unchanged",
+    "M981 must expand seed/source coverage rather than lowering thresholds"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m981_v4_public_base_post_repair_expanded_source_refresh/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "post_repair_expanded_source_refresh_empty_route_to_targeted_ood_pocket_audit",
+    "milestone": "m981-v4-public-base-post-repair-expanded-source-refresh",
+    "reason": "M981 expands fresh/OOD seeds and finds zero accepted rows despite 29959 action-threshold rows and candidate max margin gap 0.00449",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary artifact exists",
+    "accepted_rows and source diversity are reported",
+    "thresholds match M980",
+    "actor parameters are unchanged",
+    "PPO and promotion are not used",
+    "route decision is explicit"
+  ],
+  "type": "gate"
+}

@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -117,6 +117,29 @@
   "baseline_artifacts": [
     "docs/m979-v4-public-base-post-repair-surface-refresh-design.md"
   ],
+  "results": {
+    "run_dir": "runs/m980_v4_public_base_post_repair_surface_refresh",
+    "corpus_passed": false,
+    "classification": "post_repair_surface_refresh_source_narrow_positive",
+    "near_boundary_preferred_snapshots": 301,
+    "candidate_pairs": 4000,
+    "candidate_rows": 12000,
+    "accepted_rows": 30,
+    "accepted_success_drop_rate": 1.0,
+    "accepted_physical_pairs": 2,
+    "accepted_left_seeds": 1,
+    "accepted_right_seeds": 2,
+    "source_holdout_nonempty": true,
+    "max_left_seed_share": 1.0,
+    "max_physical_pair_share": 0.5,
+    "mean_preferred_vs_rejected_action_mean_l2": 0.13870376262604175,
+    "mean_margin_gap": 0.00033310215041124633,
+    "actor_parameters_changed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "next_route": "expanded_source_refresh"
+  },
+  "decision": "post_repair_surface_refresh_source_narrow_route_to_expanded_source_refresh",
   "decision_rule": "M980 must classify the refresh result and route to objective sanity, action/outcome sensitivity audit, or scenario/source expansion. It must not train or promote.",
-  "next_blocker": "fresh post-repair surface refresh has not been run"
+  "next_blocker": "m981-v4-public-base-post-repair-expanded-source-refresh"
 }

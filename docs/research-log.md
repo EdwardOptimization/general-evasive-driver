@@ -14940,3 +14940,42 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M979 designs a no-PPO current-base surface refresh for `runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt`. It reuses `normal_success_boundary_source_miner` with fresh public seed ranges `98000:98079` and `98100:98179`, requires source-diverse accepted wrong-history rows before objective sanity, and keeps PPO, promotion, private holdout, and actor-input changes blocked.
 - decision: `post_repair_surface_refresh_design_admit_m980`
 - next: `m980-v4-public-base-post-repair-surface-refresh-implementation`
+
+## 20260526T114504Z - m980-v4-public-base-post-repair-surface-refresh-implementation
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m980_v4_public_base_post_repair_surface_refresh`
+- artifact: `docs/m980-v4-public-base-post-repair-surface-refresh-implementation.md`
+- result: M980 runs the no-PPO current-base surface refresh. It finds `301` near-boundary preferred snapshots and `30` accepted wrong-history success-drop rows, with strong action separation (`mean_preferred_vs_rejected_action_mean_l2=0.138704`). The corpus does not pass because accepted rows are source-narrow: one left seed, two right seeds, two physical pairs, `unavoidable` target only, OOD only. Actor parameters are unchanged and no PPO/promotion occurs.
+- decision: `post_repair_surface_refresh_source_narrow_route_to_expanded_source_refresh`
+- next: `m981-v4-public-base-post-repair-expanded-source-refresh`
+
+## 20260526T120144Z - m981-v4-public-base-post-repair-expanded-source-refresh
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m981_v4_public_base_post_repair_expanded_source_refresh`
+- artifact: `docs/m981-v4-public-base-post-repair-expanded-source-refresh.md`
+- result: M981 expands fresh/OOD seed coverage with M980 thresholds unchanged. It finds `465` near-boundary preferred snapshots and `30000` candidate rows. Action separation is live (`29959` rows pass the all-action threshold), but `candidate_wrong_success_rate=1.0`, `accepted_rows=0`, and `candidate_max_margin_gap=0.004490`, below the `0.010` margin threshold. Actor parameters are unchanged and no PPO/promotion occurs.
+- decision: `post_repair_expanded_source_refresh_empty_route_to_targeted_ood_pocket_audit`
+- next: `m982-v4-public-base-post-repair-ood-pocket-expansion-audit`
+
+## 20260526T120700Z - m982-v4-public-base-post-repair-ood-pocket-expansion-audit
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m982_v4_public_base_post_repair_ood_pocket_expansion_audit`
+- artifact: `docs/m982-v4-public-base-post-repair-ood-pocket-expansion-audit.md`
+- result: M982 returns to the M980 OOD seed range with `8000` candidate pairs and higher snapshot coverage. It reproduces `30` accepted wrong-history success-drop rows, but the source shape remains one left seed (`98107`), two right seeds, two physical pairs, OOD only, `unavoidable` only. Candidate coverage is therefore not the reason M980 was source-narrow.
+- decision: `post_repair_ood_pocket_isolated_route_to_synthesis`
+- next: `m983-v4-public-base-post-repair-surface-refresh-synthesis`
+
+## 20260526T120700Z - m983-v4-public-base-post-repair-surface-refresh-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m983-v4-public-base-post-repair-surface-refresh-synthesis.md`
+- result: M983 synthesizes M979-M982. Supported: the M974 public base has a real repeatable wrong-history outcome-sensitive OOD pocket. Falsified: same-family fresh/OOD seed mining yields a source-diverse post-repair proof surface, and M980 source narrowness was caused by candidate-pair limits. Public-gate overfit risk remains `moderate`.
+- decision: `pivot_to_extreme_scenario_family_generation`
+- next: `m984-v4-public-base-extreme-scenario-family-config-smoke`

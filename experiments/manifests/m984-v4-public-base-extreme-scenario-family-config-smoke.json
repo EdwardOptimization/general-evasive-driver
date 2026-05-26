@@ -1,0 +1,129 @@
+{
+  "id": "m984-v4-public-base-extreme-scenario-family-config-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m983-v4-public-base-post-repair-surface-refresh-synthesis.md"
+    ],
+    "parent_config": [
+      "configs/ppo_m541_matched_l3_variance_4096.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "create richer source-mining families after ordinary fresh/OOD mining failed to expose source-diverse outcome-sensitive rows"
+    ],
+    "derived_from": [
+      "m983-v4-public-base-post-repair-surface-refresh-synthesis"
+    ],
+    "blocked_by": [
+      "M983 pivots away from same-family mining to scenario-family generation"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "claiming per-wheel or asymmetric fault coverage before dynamics support exists"
+    ]
+  },
+  "review_artifact": "docs/reviews/m984-v4-public-base-extreme-scenario-family-config-smoke.md",
+  "public_gates": [
+    "M984 must not run PPO",
+    "M984 must not promote",
+    "M984 must preserve P0 actor-input contract",
+    "M984 must keep hidden dynamics as simulator-only/logging-only fields",
+    "M984 must explicitly separate supported global-failure approximations from unsupported per-wheel failures"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden parameters to actor inputs",
+    "do not train or optimize",
+    "do not use private holdout",
+    "do not claim split-mu or individual-wheel failure support without changing dynamics",
+    "do not promote any checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_extreme_scenario_family_generation",
+    "evidence_axis": "G_scenario_family: richer hidden-dynamics and emergency distributions for source-diverse proof mining",
+    "evidence_increment": "creates and smokes configs for extreme but currently supported scenario families before full mining",
+    "claim_scope": "infrastructure/config smoke only; no proof corpus, no training, no promotion",
+    "stop_condition": [
+      "stop if any config cannot sample obstacle scenarios",
+      "stop if configs expose forbidden actor inputs",
+      "stop if the design depends on unsupported per-wheel dynamics"
+    ],
+    "fallback_plan": [
+      "if config smoke passes, route to multi-family source mining",
+      "if config smoke fails, narrow ranges until scenarios sample without changing actor inputs",
+      "if supported knobs are insufficient, design simulator fault extensions separately"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M983 opens extreme scenario-family generation after same-family surface refresh stalls",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Existing single-track simulator knobs can define richer global-failure scenario families that are more likely to expose source-diverse wrong-history outcome sensitivity without violating the P0 actor contract.",
+  "success_criteria": [
+    "extreme family configs are created",
+    "config smoke artifact exists",
+    "each family samples valid obstacle scenarios",
+    "actor input contract remains P0 no-wheel/no-oracle",
+    "unsupported per-wheel failure scope is documented",
+    "no PPO or promotion occurs"
+  ],
+  "failure_criteria": [
+    "a config cannot sample scenarios",
+    "a config changes actor input contract",
+    "hidden parameters enter actor observation",
+    "training or PPO starts",
+    "unsupported per-wheel fault claims are made"
+  ],
+  "commands": [
+    {
+      "name": "create_extreme_family_configs_and_smoke",
+      "command": "create configs/m984_extreme_low_mu_drop.json configs/m984_brake_authority_loss.json configs/m984_lateral_authority_loss.json configs/m984_heavy_cg_delay.json configs/m984_high_speed_close_obstacle.json, then run a no-PPO config/sampling smoke into runs/m984_v4_public_base_extreme_scenario_family_config_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "configs/m984_extreme_low_mu_drop.json",
+      "type": "json"
+    },
+    {
+      "path": "configs/m984_brake_authority_loss.json",
+      "type": "json"
+    },
+    {
+      "path": "configs/m984_lateral_authority_loss.json",
+      "type": "json"
+    },
+    {
+      "path": "configs/m984_heavy_cg_delay.json",
+      "type": "json"
+    },
+    {
+      "path": "configs/m984_high_speed_close_obstacle.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m984_v4_public_base_extreme_scenario_family_config_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m984-v4-public-base-extreme-scenario-family-config-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m983-v4-public-base-post-repair-surface-refresh-synthesis.md"
+  ],
+  "decision_rule": "M984 should only admit multi-family source mining after every config samples valid scenarios and the actor contract remains unchanged.",
+  "next_blocker": "extreme scenario-family configs do not yet exist"
+}

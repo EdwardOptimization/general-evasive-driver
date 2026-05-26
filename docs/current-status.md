@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m980-v4-public-base-post-repair-surface-refresh-implementation
+m984-v4-public-base-extreme-scenario-family-config-smoke
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -236,10 +236,38 @@ partial, and public-gate overfit risk is moderate. The next branch is fresh
 post-repair surface refresh before any new PPO continuation. M979 designs that
 refresh using the current M974 public-gate base, fresh public seed ranges, and
 the no-PPO `normal_success_boundary_source_miner`. M980 should run the refresh
-and route by accepted-row/source-diversity results.
+and route by accepted-row/source-diversity results. M980 finds a narrow positive
+surface: `301` near-boundary preferred snapshots and `30` accepted wrong-history
+success-drop rows, but all accepted rows come from one OOD left seed and two
+physical pairs. M981 expands source coverage with thresholds unchanged and
+finds no accepted rows: `465` near-boundary preferred snapshots, `30000`
+candidate rows, `29959` all-action-threshold rows, but
+`candidate_wrong_success_rate=1.0` and `candidate_max_margin_gap=0.004490`.
+M982 should return to the original M980 OOD seed range with higher candidate
+coverage to distinguish a candidate-limit artifact from an isolated OOD pocket.
+M982 does that and reproduces the same `30` accepted rows, still one left seed
+and two physical pairs. M983 synthesizes M979-M982 and pivots away from
+same-family seed mining. The next branch is extreme scenario-family generation:
+use currently supported global hidden-dynamics knobs first, and explicitly keep
+split-mu, single-tire puncture, half-shaft failure, and corner-specific brake
+loss as future simulator extensions rather than current single-track claims.
 
 ## Recent Evidence Line
 
+- M983 synthesizes M979-M982 and pivots to
+  `v4_public_base_extreme_scenario_family_generation`. Same-family fresh/OOD
+  seed mining found a real but isolated OOD pocket, not a source-diverse proof
+  surface.
+- M982 returns to the M980 OOD seed range with higher candidate coverage and
+  still finds only the same isolated 30 accepted rows. Candidate-pair cap is not
+  the main blocker.
+- M981 expands fresh/OOD source coverage and finds zero accepted rows under
+  unchanged thresholds. Action separation is live, but wrong histories remain
+  successful, so the M980 pocket is not broadly reproduced. Next: targeted OOD
+  pocket expansion before any training or threshold relaxation.
+- M980 finds real wrong-history outcome sensitivity under the M974 public base,
+  unlike the old BC5660 M667 run, but the accepted surface is source-narrow.
+  Next: expand source coverage without lowering thresholds.
 - M979 designs the fresh post-repair surface refresh. It keeps PPO and
   promotion blocked, uses fresh public seed ranges, and requires accepted
   source-diverse wrong-history/preference rows before another PPO branch.

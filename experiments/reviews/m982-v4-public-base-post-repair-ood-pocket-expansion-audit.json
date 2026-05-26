@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M982 increases candidate coverage on the M980 OOD range but still finds only the same 30 rows from one left seed and two physical pairs",
+  "failure_criteria": [
+    "miner crashes",
+    "thresholds are lowered",
+    "actor parameters change",
+    "PPO or optimizer starts",
+    "route decision is missing"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not change actor inputs",
+    "do not train or optimize",
+    "do not lower min action or margin thresholds",
+    "do not train from M980 source-narrow rows",
+    "do not use private holdout",
+    "do not promote"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260526T121008Z",
+  "hypothesis": "The M980 accepted pocket may be source-narrow because the original OOD pass capped candidate-pair coverage; increasing candidate coverage on the same OOD seed range will either expose more source-diverse rows or prove the pocket is isolated.",
+  "lineage": {
+    "blocked_by": [
+      "M980 accepted rows are source-narrow",
+      "M981 expanded fresh/OOD seed coverage finds zero accepted rows"
+    ],
+    "derived_from": [
+      "m980-v4-public-base-post-repair-surface-refresh-implementation",
+      "m981-v4-public-base-post-repair-expanded-source-refresh"
+    ],
+    "invalidates": [
+      "training from M980 source-narrow rows",
+      "claiming M980 as a source-diverse proof surface",
+      "lowering thresholds after M981"
+    ],
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m980-v4-public-base-post-repair-surface-refresh-implementation.json",
+      "experiments/manifests/m981-v4-public-base-post-repair-expanded-source-refresh.json"
+    ],
+    "parent_dataset": [
+      "docs/m980-v4-public-base-post-repair-surface-refresh-implementation.md",
+      "docs/m981-v4-public-base-post-repair-expanded-source-refresh.md",
+      "runs/m980_v4_public_base_post_repair_surface_refresh/summary.json",
+      "runs/m981_v4_public_base_post_repair_expanded_source_refresh/summary.json"
+    ],
+    "parent_objective": [
+      "audit whether the M980 OOD accepted pocket is a candidate-limit artifact or an isolated source pocket"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m982-v4-public-base-post-repair-ood-pocket-expansion-audit",
+  "next_blocker": "m983-v4-public-base-post-repair-surface-refresh-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "post_repair_ood_pocket_isolated_route_to_synthesis",
+  "public_gates": [
+    "M982 must not run PPO",
+    "M982 must not promote",
+    "M982 must not use private holdout",
+    "M982 must preserve P0 actor-input contract",
+    "M982 must keep M980/M981 acceptance thresholds unchanged",
+    "M982 must expand candidate coverage around the M980 OOD seed range rather than lowering thresholds"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m982_v4_public_base_post_repair_ood_pocket_expansion_audit/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "post_repair_ood_pocket_isolated_route_to_synthesis",
+    "milestone": "m982-v4-public-base-post-repair-ood-pocket-expansion-audit",
+    "reason": "M982 increases candidate coverage on the M980 OOD range but still finds only the same 30 rows from one left seed and two physical pairs",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary artifact exists",
+    "thresholds match M980/M981",
+    "accepted_rows and source diversity are reported",
+    "actor parameters are unchanged",
+    "PPO and promotion are not used",
+    "route decision is explicit"
+  ],
+  "type": "gate"
+}

@@ -1,0 +1,152 @@
+{
+  "id": "m981-v4-public-base-post-repair-expanded-source-refresh",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m980-v4-public-base-post-repair-surface-refresh-implementation.md",
+      "runs/m980_v4_public_base_post_repair_surface_refresh/summary.json",
+      "runs/m980_v4_public_base_post_repair_surface_refresh/candidate_scores.csv",
+      "runs/m980_v4_public_base_post_repair_surface_refresh/normal_success_boundary_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m980-v4-public-base-post-repair-surface-refresh-implementation.json"
+    ],
+    "parent_objective": [
+      "expand source coverage after M980 found a narrow accepted wrong-history pocket"
+    ],
+    "derived_from": [
+      "m980-v4-public-base-post-repair-surface-refresh-implementation",
+      "m979-v4-public-base-post-repair-surface-refresh-design"
+    ],
+    "blocked_by": [
+      "M980 accepted rows are source-narrow: 30 rows from one left seed and two physical pairs"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "training from M980 source-narrow corpus",
+      "lowering thresholds to force M980 corpus pass"
+    ]
+  },
+  "review_artifact": "docs/reviews/m981-v4-public-base-post-repair-expanded-source-refresh.md",
+  "public_gates": [
+    "M981 must not run PPO",
+    "M981 must not promote",
+    "M981 must not use private holdout",
+    "M981 must preserve P0 actor-input contract",
+    "M981 must keep M980 thresholds unchanged",
+    "M981 must expand seed/source coverage rather than lowering thresholds"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change actor inputs",
+    "do not train or optimize",
+    "do not lower min action or margin thresholds",
+    "do not train from M980 source-narrow rows",
+    "do not use private holdout",
+    "do not promote"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_post_repair_surface_refresh",
+    "evidence_axis": "G_surface_refresh: source-diverse expansion of fresh proof/preference rows",
+    "evidence_increment": "tests whether the M980 source-narrow accepted pocket expands into a source-diverse current-base surface under broader fresh public seeds",
+    "claim_scope": "surface-refresh diagnostic only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if actor parameters change",
+      "stop if PPO or optimizer starts",
+      "stop if source diversity remains below threshold after expanded seed coverage"
+    ],
+    "fallback_plan": [
+      "if corpus passes, route to compact corpus / exact objective sanity",
+      "if accepted rows remain source-narrow, route to scenario-family expansion or targeted OOD source audit",
+      "if accepted rows disappear, audit M980 pocket fragility"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M980 finds source-narrow accepted wrong-history rows",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Expanding fresh public seed coverage around the M974 public base while keeping M980 thresholds fixed will turn the M980 source-narrow accepted pocket into a source-diverse surface or prove that it is a narrow OOD artifact.",
+  "success_criteria": [
+    "summary artifact exists",
+    "accepted_rows and source diversity are reported",
+    "thresholds match M980",
+    "actor parameters are unchanged",
+    "PPO and promotion are not used",
+    "route decision is explicit"
+  ],
+  "failure_criteria": [
+    "miner crashes",
+    "thresholds are lowered",
+    "actor parameters change",
+    "PPO or optimizer starts",
+    "route decision is missing"
+  ],
+  "commands": [
+    {
+      "name": "expanded_source_refresh",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.normal_success_boundary_source_miner --checkpoint runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt --surface-config fresh=configs/ppo_m541_matched_l3_variance_4096.json --surface-config ood=configs/eval_m574_moderate_ood_l3.json --surface-seed-range fresh=98200:98319 --surface-seed-range ood=98320:98479 --sequence-lengths 5,7,9 --obstacle-distance-min 0.0 --obstacle-distance-max 35.0 --normal-margin-min 0.0 --normal-margin-max 1.0 --max-right-candidates-per-left 96 --max-candidate-pairs-per-surface 5000 --context-distance-threshold 0.25 --response-distance-threshold 0.20 --obstacle-x-abs-delta 10.0 --obstacle-y-abs-delta 2.0 --step-abs-delta 30 --min-wrong-first-action-l2 0.002 --min-wrong-action-sequence-mean-l2 0.006 --min-preferred-rejected-action-mean-l2 0.010 --min-margin-gap 0.010 --max-snapshots-per-surface 1200 --max-snapshots-per-seed 8 --sample-stride 3 --max-continuation-steps 9 --device auto --run-dir runs/m981_v4_public_base_post_repair_expanded_source_refresh"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m981_v4_public_base_post_repair_expanded_source_refresh/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m981_v4_public_base_post_repair_expanded_source_refresh/candidate_scores.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m981_v4_public_base_post_repair_expanded_source_refresh/normal_success_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m981_v4_public_base_post_repair_expanded_source_refresh/normal_success_boundary_corpus.npz",
+      "type": "npz"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m980-v4-public-base-post-repair-surface-refresh-implementation.md",
+    "runs/m980_v4_public_base_post_repair_surface_refresh/summary.json"
+  ],
+  "results": {
+    "run_dir": "runs/m981_v4_public_base_post_repair_expanded_source_refresh",
+    "corpus_passed": false,
+    "classification": "post_repair_expanded_source_refresh_empty_outcome_sensitive_surface",
+    "near_boundary_preferred_snapshots": 465,
+    "snapshot_count": 1564,
+    "candidate_pairs": 10000,
+    "candidate_rows": 30000,
+    "accepted_rows": 0,
+    "accepted_physical_pairs": 0,
+    "accepted_left_seeds": 0,
+    "accepted_right_seeds": 0,
+    "source_holdout_nonempty": false,
+    "candidate_normal_success_rate": 1.0,
+    "candidate_wrong_success_rate": 1.0,
+    "candidate_wrong_first_action_threshold_rows": 30000,
+    "candidate_wrong_sequence_threshold_rows": 29994,
+    "candidate_preferred_rejected_threshold_rows": 29959,
+    "candidate_all_action_threshold_rows": 29959,
+    "candidate_margin_threshold_rows": 0,
+    "candidate_all_action_and_margin_threshold_rows": 0,
+    "candidate_max_margin_gap": 0.004489682912892423,
+    "actor_parameters_changed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "next_route": "targeted_ood_pocket_expansion_audit"
+  },
+  "decision": "post_repair_expanded_source_refresh_empty_route_to_targeted_ood_pocket_audit",
+  "decision_rule": "M981 must classify whether expanded seeds produce a source-diverse accepted surface, a source-narrow artifact, or an empty/fragile pocket. It must not train or promote.",
+  "next_blocker": "m982-v4-public-base-post-repair-ood-pocket-expansion-audit"
+}
