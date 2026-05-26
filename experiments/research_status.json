@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1041,
+    "completed": 1042,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit",
+    "task_id": "m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit.md"
+    "command_log": "docs/m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design.md"
   },
   "next_task": {
-    "id": "m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design",
+    "id": "m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export",
     "status": "pending",
-    "priority": 10280,
-    "kind": "gate",
-    "hypothesis": "Design M183/M170 row16 active-set retention before another Candidate B post-PPO repair/projection attempt",
-    "command": "see experiments/manifests/m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design.json",
-    "success_artifact": "docs/m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design.md",
-    "notes": "Pending: design hard active-set retention for M183/M170 row16 normal terminal-margin cliff while preserving M997 temporal and M267/M264 row15 gates"
+    "priority": 10290,
+    "kind": "infrastructure",
+    "hypothesis": "Export Candidate B M183/M170 row16 normal trajectory as exact-loadable active-set retention data",
+    "command": "see experiments/manifests/m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export.json",
+    "success_artifact": "runs/m1034_candidate_b_m183_row16_active_set_anchor_export/summary.json",
+    "notes": "Pending: implement/run no-update anchor export before any combined repair/projection attempt"
   },
-  "updated_at_utc": "20260526T231000Z"
+  "updated_at_utc": "20260526T231800Z"
 }

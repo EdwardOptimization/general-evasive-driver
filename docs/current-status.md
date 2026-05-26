@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design
+m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export
 ```
 
 M1031 implemented and ran the no-PPO temporal-safe projection probe after the
@@ -137,11 +137,21 @@ It is not wrong-history sensitivity loss: inspected M183/M170 candidates keep
 closest useful direction is `raw_conflict_s40 alpha 0.05`, where only M183/M170
 row16 fails and the candidate normal margin is `-0.000165`.
 
-The current blocker is therefore M1033: design M183/M170 row16 active-set
-retention before another repair/projection run. The design must keep M997
-temporal retention, M297/M270 exact checks, M267/M264 row15, and M183/M170
-row16 in the gate order. No longer PPO, promotion, private holdout, or actor
-input change is allowed before that design.
+M1033 designs the next route: export a Candidate-B normal-trajectory anchor for
+M183/M170 row16 and make it part of the hard active set before another repair
+or projection run. The hard active set is:
+
+```text
+P0 actor-input contract unchanged
+M997 temporal exact retention
+M297/M270 exact no-regression
+M267/M264 row15 rejected-history failure retention
+M183/M170 row16 normal branch retention
+```
+
+The current blocker is M1034: implement and run a no-update, exact-loadable
+anchor export for M183/M170 row16 normal branch. No repair, PPO, promotion,
+private holdout, or actor-input change is allowed in M1034.
 
 ### Historical Trace
 

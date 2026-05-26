@@ -1,0 +1,115 @@
+{
+  "id": "m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design.md",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m1031_candidate_b_temporal_safe_projection_probe/first_replay/m1031_raw_conflict_s40_a0_05/m183_m170/boundary_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design.json"
+    ],
+    "parent_objective": [
+      "export Candidate B normal-trajectory anchor for M183/M170 row16 active-set retention"
+    ],
+    "derived_from": [
+      "m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design"
+    ],
+    "blocked_by": [
+      "M1033 requires M183/M170 row16 normal trajectory retention data before another repair/projection attempt"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running repair before M183/M170 row16 retention data exists",
+      "using M183/M170 row16 as a narrative constraint without exact-loadable anchor data"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export.md",
+  "public_gates": [
+    "M1034 must run no PPO",
+    "M1034 must not run repair or promote",
+    "M1034 must not use private holdout",
+    "M1034 must preserve P0 actor inputs",
+    "exported anchor must load through load_trajectory_action_anchor",
+    "exported anchor must be normal branch for M183/M170 row16"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not run exact repair",
+    "do not promote",
+    "do not change actor inputs",
+    "do not export wrong-history row16 as the primary retention target",
+    "do not relax M997 thresholds"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_candidate_b_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo: active-set retention corpus export",
+    "evidence_increment": "creates exact-loadable M183/M170 row16 normal trajectory retention data for the next repair/projection attempt",
+    "claim_scope": "export/no-update infrastructure only; no repair, no first-replay pass claim, no promotion",
+    "stop_condition": [
+      "stop if row16 cannot be reconstructed from the boundary-outcome corpus",
+      "stop if exported anchor cannot be loaded by existing objective tooling",
+      "stop if export changes actor inputs or requires private holdout"
+    ],
+    "fallback_plan": [
+      "if normal trajectory anchor export succeeds, design a combined active-set repair/projection probe next",
+      "if export fails because replay reconstruction is insufficient, audit boundary-outcome corpus schema",
+      "if export is not exact-loadable, extend TrajectoryActionAnchor tooling with tests before repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1033 admits active-set anchor export before repair",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M183/M170 row16 normal branch can be exported as an exact-loadable trajectory anchor from the Candidate B public-gate base without PPO, repair, promotion, private holdout, or actor-input change.",
+  "success_criteria": [
+    "anchor npz exists",
+    "anchor csv exists",
+    "summary json exists",
+    "anchor loads with load_trajectory_action_anchor",
+    "anchor rows > 0",
+    "source row is M183/M170 row16 normal branch",
+    "no PPO repair promotion private holdout or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "row16 cannot be reconstructed",
+    "anchor is empty",
+    "anchor cannot be loaded by existing objective tooling",
+    "export uses wrong-history as the primary row16 branch",
+    "export runs repair or PPO",
+    "actor inputs change"
+  ],
+  "commands": [
+    {
+      "name": "anchor_export",
+      "command": "implement/run M183/M170 row16 normal trajectory anchor export; write runs/m1034_candidate_b_m183_row16_active_set_anchor_export/summary.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1034_candidate_b_m183_row16_active_set_anchor_export/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design.md"
+  ],
+  "decision_rule": "M1034 can admit a later combined repair/projection only if the row16 normal anchor is exact-loadable and no update or promotion occurs during export.",
+  "next_blocker": "m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export"
+}

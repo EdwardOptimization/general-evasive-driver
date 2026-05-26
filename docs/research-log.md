@@ -15440,3 +15440,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1032 audits the M1031 first-replay failure without PPO, promotion, private holdout, or actor-input changes. The failure is not wrong-history sensitivity loss: inspected M183/M170 candidates keep `wrong_history_successes = 0/17`. The closest miss is `raw_conflict_s40 alpha 0.05`, which passes M267/M264 `17/17` but fails only M183/M170 row16 with normal margin `-0.000165` versus Candidate B baseline `+0.001316`. M1032 classifies the blocker as M183/M170 normal-branch terminal-margin active-set failure.
 - decision: `candidate_b_temporal_projection_first_replay_failure_audit_route_to_m183_row16_active_set_retention_design`
 - next: `m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design`
+
+## 20260526T231800Z - m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design.md`
+- result: M1033 designs the response to the M183/M170 row16 normal terminal-margin cliff. The next step is not repair or PPO; it is a no-update export of a Candidate-B normal-trajectory anchor for M183/M170 row16. Later repair/projection must keep P0 actor inputs unchanged and gate M997 temporal retention, M297/M270 exact no-regression, M267/M264 row15 rejected-history retention, and M183/M170 row16 normal retention before first replay.
+- decision: `candidate_b_m183_row16_active_set_retention_design_admit_anchor_export`
+- next: `m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export`

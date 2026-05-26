@@ -104,5 +104,23 @@
     "docs/m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit.md"
   ],
   "decision_rule": "M1033 should admit implementation only if M183/M170 row16 normal retention is explicit and remains subordinate to no actor-input change, no PPO, and no promotion.",
-  "next_blocker": "m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design"
+  "next_blocker": "m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design.md",
+    "decision": "candidate_b_m183_row16_active_set_retention_design_admit_anchor_export",
+    "result_class": "candidate_b_m183_row16_active_set_retention_design_ready",
+    "failure_types": [
+      "none"
+    ],
+    "selected_route": "export Candidate B normal-trajectory anchor for M183/M170 row16 before another repair/projection",
+    "hard_active_set": [
+      "P0 actor-input contract unchanged",
+      "M997 temporal exact retention",
+      "M297/M270 exact no-regression",
+      "M267/M264 row15 rejected-history failure retention",
+      "M183/M170 row16 normal branch retention"
+    ],
+    "next_blocker": "m1034-v4-public-base-candidate-b-m183-row16-active-set-anchor-export"
+  }
 }
