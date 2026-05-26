@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1006-v4-public-base-branch-preserving-temporal-repair-design
+m1007-v4-public-base-branch-preserving-temporal-repair-evaluator
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -310,10 +310,19 @@ failure as localized wrong-history branch lift: normal success and actor
 contract are intact, but the exact temporal update makes wrong-history
 near-threshold rows safer. The next task is M1006: design a
 branch-preserving temporal repair objective before any new actor update. PPO
-remains blocked.
+remains blocked. M1006 completes the design: keep M997 normal temporal sequences
+as the only direct behavior target, keep disrupted temporal histories
+contrast-only, and add M267/M264 branch-ceiling plus first-action separation
+terms for rows `6`, `15`, `11`, and `16`. The next task is M1007: implement a
+no-update evaluator for these branch-retention terms before any repaired actor
+update.
 
 ## Recent Evidence Line
 
+- M1006 designs the branch-preserving temporal repair route. First repair keeps
+  only `actor_mean` trainable, requires a no-update evaluator first, and keeps
+  wrong-history branches as proof-retention constraints rather than degraded
+  behavior targets.
 - M1005 audits M1004 as localized wrong-history branch lift proof washout. It
   rejects contract violation, training instability, and broad normal-regression
   explanations, and routes to branch-preserving temporal repair design.

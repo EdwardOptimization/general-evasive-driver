@@ -15188,3 +15188,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1005 audits the M1004 preflight failure as localized wrong-history branch lift. Contract and exact gates are valid; normal success is retained for all candidate alphas. The smallest alpha `0.01` loses only rows `6` and `15`, where wrong-history margins move from lightly negative to positive while normal margins also improve. The failure is `proof_washout`, not contract violation, training instability, or broad normal-branch regression.
 - decision: `temporal_sequence_replay_failure_audit_route_to_branch_preserving_temporal_repair_design`
 - next: `m1006-v4-public-base-branch-preserving-temporal-repair-design`
+
+## 20260526T172105Z - m1006-v4-public-base-branch-preserving-temporal-repair-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1006-v4-public-base-branch-preserving-temporal-repair-design.md`
+- result: M1006 designs the branch-preserving repair route. The next objective keeps M997 normal temporal sequences as the only direct behavior target, keeps disrupted temporal histories contrast-only, and adds M267/M264 public-proof branch ceiling and first-action separation terms on rows `6`, `15`, `11`, and `16`. The first repair keeps only `actor_mean` trainable and requires a no-update evaluator before any actor update.
+- decision: `branch_preserving_temporal_repair_design_admit_m1007_evaluator`
+- next: `m1007-v4-public-base-branch-preserving-temporal-repair-evaluator`

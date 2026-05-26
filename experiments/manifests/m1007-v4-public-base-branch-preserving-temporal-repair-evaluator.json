@@ -1,0 +1,115 @@
+{
+  "id": "m1007-v4-public-base-branch-preserving-temporal-repair-evaluator",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_01.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_2.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1006-v4-public-base-branch-preserving-temporal-repair-design.md",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv",
+      "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/candidate_preflight/m1002_temporal_a0_01/boundary_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1006-v4-public-base-branch-preserving-temporal-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement a no-update branch-preserving temporal repair evaluator"
+    ],
+    "derived_from": [
+      "m1006-v4-public-base-branch-preserving-temporal-repair-design"
+    ],
+    "blocked_by": [
+      "M1006 requires evaluator sanity before any repaired actor update"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "actor update before branch-ceiling evaluator sanity"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1007-v4-public-base-branch-preserving-temporal-repair-evaluator.md",
+  "public_gates": [
+    "M1007 must not update actor parameters",
+    "M1007 must not run PPO",
+    "M1007 must not promote",
+    "M1007 must preserve P0 actor inputs",
+    "M1007 must show branch-ceiling terms are active on M1002 proof-washing candidates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not imitate wrong-history degraded actions",
+    "do not use private holdout",
+    "do not run replay gates as promotion evidence",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_temporal_sequence_objective",
+    "evidence_axis": "G_temporal_objective: branch-preserving repair evaluator",
+    "evidence_increment": "implements no-update exact metrics for branch ceiling and branch separation on M267/M264 active rows",
+    "claim_scope": "evaluator sanity only; no actor update, no replay promotion, no private holdout",
+    "stop_condition": [
+      "stop if branch-ceiling loss is not finite",
+      "stop if M974 base does not reproduce near-zero branch retention loss",
+      "stop if M1002 proof-washing alphas do not activate the new branch terms",
+      "stop if evaluator changes actor parameters"
+    ],
+    "fallback_plan": [
+      "if evaluator is not sensitive, audit feature choice and active-row reconstruction",
+      "if active-row reconstruction is unreliable, synthesize the branch before another objective",
+      "if evaluator passes, route to actor_mean-only repaired update design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1006 admits no-update evaluator",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A no-update evaluator can expose branch-ceiling and branch-separation penalties that are near zero for M974 but positive for M1002 proof-washing candidates.",
+  "success_criteria": [
+    "summary.json exists",
+    "M974 base branch metrics are finite",
+    "M1002 alpha 0.01 and alpha 0.2 activate branch-retention penalties",
+    "M997 temporal metrics still reproduce M1000",
+    "actor parameters are unchanged",
+    "ppo_used == false",
+    "promoted == false"
+  ],
+  "failure_criteria": [
+    "evaluator changes actor parameters",
+    "branch metrics are non-finite",
+    "M1002 proof-washing candidates are not distinguishable from base",
+    "PPO starts",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "evaluator",
+      "command": "implement and run branch-preserving temporal repair evaluator; output runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator/summary.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1007-v4-public-base-branch-preserving-temporal-repair-evaluator.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1006-v4-public-base-branch-preserving-temporal-repair-design.md"
+  ],
+  "decision_rule": "M1007 should route to actor_mean-only repaired update design only if the no-update branch terms are finite, base-safe, and active on M1002 proof-washing candidates.",
+  "next_blocker": "m1007-v4-public-base-branch-preserving-temporal-repair-evaluator"
+}

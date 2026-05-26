@@ -102,6 +102,28 @@
     "docs/m1005-v4-public-base-temporal-sequence-update-replay-failure-audit.md",
     "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1006-v4-public-base-branch-preserving-temporal-repair-design.md",
+    "decision": "branch_preserving_temporal_repair_design_admit_m1007_evaluator",
+    "trainable_surface": [
+      "actor_mean.weight",
+      "actor_mean.bias"
+    ],
+    "primary_active_rows": [
+      6,
+      15
+    ],
+    "secondary_active_rows": [
+      11,
+      16
+    ],
+    "next_evaluator": "m1007-v4-public-base-branch-preserving-temporal-repair-evaluator",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "branch_preserving_temporal_repair_design_admit_m1007_evaluator",
   "decision_rule": "M1006 should admit an implementation only if it preserves P0 inputs, keeps wrong-history actions contrast-only, and makes M267/M264 branch retention lexicographic before full replay.",
-  "next_blocker": "m1006-v4-public-base-branch-preserving-temporal-repair-design"
+  "next_blocker": "m1007-v4-public-base-branch-preserving-temporal-repair-evaluator"
 }

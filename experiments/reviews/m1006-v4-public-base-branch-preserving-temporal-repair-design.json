@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1006 designs actor_mean-only branch-preserving temporal repair using M997 temporal positives plus M267/M264 branch ceiling and separation terms before any update",
+  "failure_criteria": [
+    "design trains toward wrong-history degraded actions",
+    "design changes actor inputs",
+    "design skips M267/M264 rows 6 and 15",
+    "design routes directly to PPO or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train toward wrong-history degraded actions",
+    "do not add hidden labels or oracle feasibility to actor input",
+    "do not choose lower alpha without a new objective",
+    "do not run PPO",
+    "do not use private holdout"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260526T174512Z",
+  "hypothesis": "A branch-preserving temporal repair design can combine M997 temporal sequence positives with M267/M264 wrong-history proof retention before any further actor update.",
+  "lineage": {
+    "blocked_by": [
+      "M1002 temporal objective improves exact metrics but lifts M267/M264 wrong-history rows 6 and 15"
+    ],
+    "derived_from": [
+      "m1005-v4-public-base-temporal-sequence-update-replay-failure-audit",
+      "m1004-v4-public-base-temporal-sequence-update-public-replay-gate"
+    ],
+    "invalidates": [
+      "plain temporal actor_mean update without public proof branch retention",
+      "PPO from M1002 temporal candidates"
+    ],
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1005-v4-public-base-temporal-sequence-update-replay-failure-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1005-v4-public-base-temporal-sequence-update-replay-failure-audit.md",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz",
+      "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/candidate_preflight/m1002_temporal_a0_01/boundary_replay_rows.csv"
+    ],
+    "parent_objective": [
+      "design a branch-preserving temporal repair objective after M1004 proof washout"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1006-v4-public-base-branch-preserving-temporal-repair-design",
+  "next_blocker": "m1007-v4-public-base-branch-preserving-temporal-repair-evaluator",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "branch_preserving_temporal_repair_design_admit_m1007_evaluator",
+  "public_gates": [
+    "M1006 must not run PPO",
+    "M1006 must not promote",
+    "M1006 must preserve P0 actor inputs",
+    "M1006 must keep disrupted temporal histories contrast-only",
+    "M1006 must define M267/M264 branch-retention gates before another actor update"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1006-v4-public-base-branch-preserving-temporal-repair-design.md",
+    "clearance_margin_mean": "",
+    "decision": "branch_preserving_temporal_repair_design_admit_m1007_evaluator",
+    "milestone": "m1006-v4-public-base-branch-preserving-temporal-repair-design",
+    "reason": "M1006 designs actor_mean-only branch-preserving temporal repair using M997 temporal positives plus M267/M264 branch ceiling and separation terms before any update",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design document exists",
+    "trainable parameters are pre-registered",
+    "positive temporal targets and public proof-retention terms are separated",
+    "exact, preflight, and stop gates are defined",
+    "PPO and promotion remain blocked"
+  ],
+  "type": "infrastructure"
+}
