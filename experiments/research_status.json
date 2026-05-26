@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1025,
+    "completed": 1026,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1016-v4-public-base-m1013-exact-candidate-preflight",
+    "task_id": "m1017-v4-public-base-signed-branch-metric-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/summary.json"
+    "command_log": "docs/m1017-v4-public-base-signed-branch-metric-audit.md"
   },
   "next_task": {
-    "id": "m1017-v4-public-base-signed-branch-metric-audit",
+    "id": "m1018-v4-public-base-m1013-candidate-b-full-replay-design",
     "status": "pending",
-    "priority": 10120,
+    "priority": 10130,
     "kind": "gate",
-    "hypothesis": "M1016 can be explained by branch action direction: Candidate B has larger unsigned action drift but moves wrong-history margins negative while Candidate A has smaller drift but moves rows 6 and 15 positive",
-    "command": "see experiments/manifests/m1017-v4-public-base-signed-branch-metric-audit.json",
-    "success_artifact": "docs/m1017-v4-public-base-signed-branch-metric-audit.md",
-    "notes": "Pending: audit unsigned branch metric ordering artifact before full replay or new objective"
+    "hypothesis": "Candidate B should be evaluated by the standard full public replay stack because it passed M267/M264 preflight despite the unsigned branch metric artifact",
+    "command": "see experiments/manifests/m1018-v4-public-base-m1013-candidate-b-full-replay-design.json",
+    "success_artifact": "docs/m1018-v4-public-base-m1013-candidate-b-full-replay-design.md",
+    "notes": "Pending: design full public replay and behavior gate for Candidate B without promotion"
   },
-  "updated_at_utc": "20260526T192524Z"
+  "updated_at_utc": "20260526T192934Z"
 }

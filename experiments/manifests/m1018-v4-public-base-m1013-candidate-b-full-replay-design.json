@@ -1,0 +1,103 @@
+{
+  "id": "m1018-v4-public-base-m1013-candidate-b-full-replay-design",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1017-v4-public-base-signed-branch-metric-audit.md",
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/m267_preflight_summary.csv",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/interpolation_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1017-v4-public-base-signed-branch-metric-audit.json"
+    ],
+    "parent_objective": [
+      "design full public replay gate for M1013 Candidate B after M267/M264 preflight pass"
+    ],
+    "derived_from": [
+      "m1017-v4-public-base-signed-branch-metric-audit"
+    ],
+    "blocked_by": [
+      "Candidate B has passed only M267/M264 preflight and needs the full public replay gate before any promotion/generalization discussion"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "discarding Candidate B solely because of unsigned branch L2"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1018-v4-public-base-m1013-candidate-b-full-replay-design.md",
+  "public_gates": [
+    "M1018 must not train",
+    "M1018 must not run PPO",
+    "M1018 must not promote",
+    "M1018 must preserve P0 actor inputs",
+    "M1018 must design full replay evaluation before Candidate B can advance"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use private holdout",
+    "do not promote Candidate B from M267/M264 alone",
+    "do not skip exact temporal retention",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_temporal_sequence_objective",
+    "evidence_axis": "G_temporal_objective: Candidate B full replay design",
+    "evidence_increment": "moves the M267/M264-passing Candidate B to a full public replay design while keeping promotion blocked",
+    "claim_scope": "design only; no replay result, no PPO, no promotion",
+    "stop_condition": [
+      "stop if Candidate B checkpoint cannot be validated",
+      "stop if full replay would use private holdout",
+      "stop if branch cadence requires synthesis before implementation"
+    ],
+    "fallback_plan": [
+      "if design is clean, route to M1019 full public replay implementation",
+      "if Candidate B checkpoint is invalid, audit materialization",
+      "if replay scope is too broad, split exact retention and six-surface replay"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1017 routes Candidate B to full public replay design",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Candidate B should be evaluated by the standard full public replay stack because it passed M267/M264 preflight despite the unsigned branch metric artifact.",
+  "success_criteria": [
+    "design document exists",
+    "six public replay surfaces are specified",
+    "exact temporal retention and behavior seeds are specified",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "design promotes Candidate B",
+    "design uses private holdout",
+    "design skips public proof surfaces",
+    "design changes actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1018-v4-public-base-m1013-candidate-b-full-replay-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1018-v4-public-base-m1013-candidate-b-full-replay-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1017-v4-public-base-signed-branch-metric-audit.md"
+  ],
+  "decision_rule": "M1018 should admit implementation only if full replay remains public proof/generalization gating and not promotion.",
+  "next_blocker": "m1018-v4-public-base-m1013-candidate-b-full-replay-design"
+}

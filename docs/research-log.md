@@ -15291,3 +15291,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1016 materializes the selected M1013 exact candidates and runs only M267/M264 preflight. Materialization contract passes for all candidates. Candidate A `lambda=0.001, alpha=0.2` fails rows `6` and `15` with success-drop count `15/17`; Candidate C `lambda=0.001, alpha=0.5` fails rows `6`, `11`, and `15` with `14/17`; Candidate B `lambda=0.03, alpha=0.5` passes M267/M264 with `17/17` success drops. Because Candidate B has higher unsigned branch trust loss than failing Candidate A, M1016 classifies the L2 branch trust ordering as `metric_artifact`.
 - decision: `m1013_exact_candidate_preflight_metric_ordering_artifact_route_to_signed_branch_metric_audit`
 - next: `m1017-v4-public-base-signed-branch-metric-audit`
+
+## 20260526T192934Z - m1017-v4-public-base-signed-branch-metric-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1017-v4-public-base-signed-branch-metric-audit.md`
+- result: M1017 audits the M1016 ordering artifact. It concludes the unsigned branch L2 residual is useful as a detector but not an ordering gate, because it penalizes safe-direction and unsafe-direction wrong-branch action changes equally. Candidate B moves active wrong-history margins negative and passes M267/M264, while Candidates A/C move rows across zero. Candidate B is not promoted; it is routed to full public replay design.
+- decision: `signed_branch_metric_audit_route_to_candidate_b_full_public_replay_design`
+- next: `m1018-v4-public-base-m1013-candidate-b-full-replay-design`

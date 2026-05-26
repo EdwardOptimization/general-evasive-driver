@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1017-v4-public-base-signed-branch-metric-audit
+m1018-v4-public-base-m1013-candidate-b-full-replay-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -364,9 +364,15 @@ fails rows `6`, `11`, and `15`; Candidate B passes M267/M264 with `17/17`
 success drops. Because Candidate B has higher unsigned branch trust loss than
 failing Candidate A, the next task is M1017: audit signed/outcome-aware branch
 metrics before full replay, threshold relaxation, or another update.
+M1017 audits that result and concludes unsigned branch L2 is a detector, not an
+ordering gate. Candidate B passes because it moves active wrong-history margins
+negative; Candidate A/C fail because they move rows across zero. Candidate B is
+not promoted, but it should advance to full public replay design.
 
 ## Recent Evidence Line
 
+- M1017 downgrades unsigned branch L2 from ordering gate to diagnostic detector
+  and routes Candidate B to full public replay design.
 - M1016 shows unsigned branch action L2 is not a reliable ordering metric:
   Candidate B has larger branch-trust loss than Candidate A but passes
   M267/M264 because it moves wrong-history margins in the safe direction.

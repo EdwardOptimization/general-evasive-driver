@@ -99,6 +99,28 @@
   "baseline_artifacts": [
     "docs/m1016-v4-public-base-m1013-exact-candidate-preflight.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1017-v4-public-base-signed-branch-metric-audit.md",
+    "decision": "signed_branch_metric_audit_route_to_candidate_b_full_public_replay_design",
+    "metric_diagnosis": "unsigned_branch_l2_is_detector_not_ordering_gate",
+    "candidate_b_checkpoint": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "candidate_b_m267_success_drop_count": 17,
+    "candidate_a_failed_rows": [
+      6,
+      15
+    ],
+    "candidate_c_failed_rows": [
+      6,
+      11,
+      15
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "next_design": "m1018-v4-public-base-m1013-candidate-b-full-replay-design"
+  },
+  "decision": "signed_branch_metric_audit_route_to_candidate_b_full_public_replay_design",
   "decision_rule": "M1017 should not promote; it should either design a signed branch residual, design full public replay for Candidate B, or request broader replay calibration.",
-  "next_blocker": "m1017-v4-public-base-signed-branch-metric-audit"
+  "next_blocker": "m1018-v4-public-base-m1013-candidate-b-full-replay-design"
 }
