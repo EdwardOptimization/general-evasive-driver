@@ -127,6 +127,30 @@
     "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/summary.json",
     "runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1009-v4-public-base-temporal-sequence-objective-branch-synthesis.md",
+    "supported_claims": [
+      "M997 temporal sequence corpus is usable for exact objective work",
+      "actor_mean-only temporal update can improve exact metrics without actor-input or non-actor parameter changes",
+      "exact temporal improvement alone is not public replay valid",
+      "M267/M264 rows 6 and 15 are active near-cliff proof constraints",
+      "fixed one-step logp/separation branch proxies are too insensitive"
+    ],
+    "falsified_claims": [
+      "M1002 exact candidates are replay-valid",
+      "lower alpha alone repairs M1002",
+      "M1007 fixed one-step branch proxy is a sufficient repair objective",
+      "temporal objective progress proves cross-fault wrong-history self-identification",
+      "PPO continuation is admissible from M1002 candidates"
+    ],
+    "synthesis_decision": "continue",
+    "next_milestone": "m1010-v4-public-base-margin-weighted-branch-trust-region-design",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "temporal_sequence_objective_branch_synthesis_continue_to_margin_weighted_trust_region_design",
   "decision_rule": "M1009 must decide whether to continue with margin-weighted repair, pivot to trajectory targets, or stop the branch.",
-  "next_blocker": "m1009-v4-public-base-temporal-sequence-objective-branch-synthesis"
+  "next_blocker": "m1010-v4-public-base-margin-weighted-branch-trust-region-design"
 }

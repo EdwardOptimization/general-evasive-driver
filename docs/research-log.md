@@ -15216,3 +15216,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1008 compares M1007 fixed one-step proxy metrics with M1004 closed-loop margins and classifies the mismatch as `metric_artifact` / `margin_slack_mismatch`. Rows `6` and `15` have base wrong-history margins near zero (`-0.000117` and `-0.000025`), so alpha `0.01` action shifts on the order of `1e-4` can flip terminal margin even when M1007 logp/separation penalties remain zero. The branch has reached synthesis cadence, so the next step must synthesize before margin-weighted repair design.
 - decision: `branch_preserving_evaluator_sensitivity_audit_route_to_temporal_objective_branch_synthesis`
 - next: `m1009-v4-public-base-temporal-sequence-objective-branch-synthesis`
+
+## 20260526T181052Z - m1009-v4-public-base-temporal-sequence-objective-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1009-v4-public-base-temporal-sequence-objective-branch-synthesis.md`
+- result: M1009 synthesizes M999-M1008. Supported: M997/M1000 exact temporal objective surface is valid, and M1002 shows actor_mean-only exact movement without actor-input or non-actor changes. Falsified: exact temporal candidates are not replay-valid, lower alpha alone is insufficient, fixed one-step branch proxies are insufficient, and PPO from M1002 remains blocked. Public gate overfit risk is moderate-high because rows `6` and `15` are now active public constraints.
+- decision: `temporal_sequence_objective_branch_synthesis_continue_to_margin_weighted_trust_region_design`
+- next: `m1010-v4-public-base-margin-weighted-branch-trust-region-design`

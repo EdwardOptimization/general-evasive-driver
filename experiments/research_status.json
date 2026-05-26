@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1017,
+    "completed": 1018,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit",
+    "task_id": "m1009-v4-public-base-temporal-sequence-objective-branch-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit.md"
+    "command_log": "docs/m1009-v4-public-base-temporal-sequence-objective-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m1009-v4-public-base-temporal-sequence-objective-branch-synthesis",
+    "id": "m1010-v4-public-base-margin-weighted-branch-trust-region-design",
     "status": "pending",
-    "priority": 10040,
-    "kind": "gate",
-    "hypothesis": "M999-M1008 should be synthesized before another temporal objective repair because exact temporal improvement and public replay retention currently conflict",
-    "command": "see experiments/manifests/m1009-v4-public-base-temporal-sequence-objective-branch-synthesis.json",
-    "success_artifact": "docs/m1009-v4-public-base-temporal-sequence-objective-branch-synthesis.md",
-    "notes": "Pending: synthesize M999-M1008 before any margin-weighted branch trust-region design"
+    "priority": 10050,
+    "kind": "infrastructure",
+    "hypothesis": "A margin-slack-weighted rejected-branch trust-region can detect the tiny action shifts that flip M267/M264 near-cliff wrong-history rows",
+    "command": "see experiments/manifests/m1010-v4-public-base-margin-weighted-branch-trust-region-design.json",
+    "success_artifact": "docs/m1010-v4-public-base-margin-weighted-branch-trust-region-design.md",
+    "notes": "Pending: design margin-slack-weighted rejected-branch trust-region residual before any repaired actor update"
   },
-  "updated_at_utc": "20260526T175919Z"
+  "updated_at_utc": "20260526T181052Z"
 }

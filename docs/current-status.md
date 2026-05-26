@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1009-v4-public-base-temporal-sequence-objective-branch-synthesis
+m1010-v4-public-base-margin-weighted-branch-trust-region-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -328,10 +328,16 @@ terminal margin while fixed one-step logp/separation penalties stay zero. The
 harness cadence check now requires synthesis, so the next task is M1009:
 temporal sequence objective branch synthesis. It should decide whether the next
 ordinary milestone is margin-weighted trust-region design, trajectory-target
-export, or stopping the branch.
+export, or stopping the branch. M1009 completes that synthesis and chooses to
+continue the branch with margin-weighted rejected-branch trust-region design.
+PPO and promotion remain blocked.
 
 ## Recent Evidence Line
 
+- M1009 synthesizes M999-M1008. The branch has real exact temporal-objective
+  movement, but public replay retention fails; unweighted fixed one-step branch
+  proxies are stopped. The next ordinary task is margin-weighted branch
+  trust-region design.
 - M1008 audits the failed branch-preserving evaluator. The issue is not row
   reconstruction or actor mutation; the proxy scale is mismatched to near-cliff
   terminal margins. Cadence now requires branch synthesis before the next repair
