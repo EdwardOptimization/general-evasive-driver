@@ -108,6 +108,22 @@
     "docs/m991-v4-public-base-capability-step-fault-source-wave.md",
     "runs/m991_v4_public_base_capability_step_fault_source_wave/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m992-v4-public-base-capability-step-reset-only-audit.md",
+    "m991_reset_only_rows": 1380,
+    "m991_accepted_wrong_history_rows": 0,
+    "wrong_action_l2_p50": 0.0,
+    "wrong_action_l2_mean": 0.008224032243794916,
+    "reset_action_l2_p50": 0.8119835257530212,
+    "reset_action_l2_mean": 0.8256146802418474,
+    "wrong_margin_gap_mean": 0.0000059918746219198536,
+    "reset_margin_gap_mean": 0.030334132884160554,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "route_to_sequence_level_action_response_mismatch_design",
   "decision_rule": "M992 must choose the next no-training route for capability-step reset-only evidence before any training or PPO.",
-  "next_blocker": "capability-step reset-only audit has not been completed"
+  "next_blocker": "m993-v4-public-base-capability-step-sequence-intervention-design"
 }

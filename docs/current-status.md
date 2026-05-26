@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m992-v4-public-base-capability-step-reset-only-audit
+m993-v4-public-base-capability-step-sequence-intervention-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -275,13 +275,17 @@ corpus harness on M974. The smoke passes compatibility with `832` scenarios,
 the no-training source wave to `3328` scenarios, `16393` snapshots, and `4096`
 matched pairs. It finds `0` accepted wrong-history rows and `1380` reset-only
 rows, so the M990 wrong-history signal does not repeat under fresh larger
-coverage. The next task is M992: audit the reset-only result and choose between
-sequence-level intervention, stronger action-response mismatch, retargeted
-fault generation, or simulator/dynamics extension. Training and PPO remain
-blocked.
+coverage. M992 audits the reset-only rows: wrong-history first-action gaps are
+mostly near zero while reset-hidden action and margin gaps are large. The next
+task is M993: design a no-training sequence-level action-response mismatch
+intervention before implementation. Training and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M992 shows the reset-only issue is structural: wrong matched histories are
+  too compatible (`action_l2 p50=0.0`, wrong margin gap near zero), while
+  reset-hidden is a large disruption. Route: sequence-level action-response
+  mismatch design.
 - M991 scales the capability-step source wave and gets `cross_fault_reset_only`:
   `0` accepted wrong-history rows, `1380` reset-only rows. This blocks training
   and routes to reset-only/sequence-intervention audit.

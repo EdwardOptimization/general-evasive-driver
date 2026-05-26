@@ -1,0 +1,109 @@
+{
+  "id": "m993-v4-public-base-capability-step-sequence-intervention-design",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m992-v4-public-base-capability-step-reset-only-audit.md",
+      "runs/m991_v4_public_base_capability_step_fault_source_wave/reset_only_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m992-v4-public-base-capability-step-reset-only-audit.json",
+      "configs/m991_capability_step_fault_source_wave.json"
+    ],
+    "parent_objective": [
+      "design sequence-level action-response mismatch interventions for capability-step reset-only rows"
+    ],
+    "derived_from": [
+      "m992-v4-public-base-capability-step-reset-only-audit",
+      "m991-v4-public-base-capability-step-fault-source-wave"
+    ],
+    "blocked_by": [
+      "M991 wrong-history hidden swaps are too compatible while reset-hidden is strongly disruptive"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "continuing same-style single-hidden-swap mining without a new intervention"
+    ]
+  },
+  "review_artifact": "docs/reviews/m993-v4-public-base-capability-step-sequence-intervention-design.md",
+  "public_gates": [
+    "M993 must not run PPO",
+    "M993 must not promote",
+    "M993 must not change actor inputs",
+    "M993 must keep reset-only rows diagnostic",
+    "M993 must define terminal/outcome relevance before implementation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not train or optimize",
+    "do not use private holdout",
+    "do not claim true per-wheel/asymmetric faults",
+    "do not count reset-only rows as accepted wrong-history rows",
+    "do not proceed to PPO"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_capability_step_fault_generation",
+    "evidence_axis": "G_sequence_intervention: capability-step sequence-level action-response mismatch design",
+    "evidence_increment": "designs a no-training sequence intervention probe after M992 shows single hidden swaps are too compatible",
+    "claim_scope": "design only; no implementation, no training, no promotion",
+    "stop_condition": [
+      "stop if design cannot preserve P0 actor contract",
+      "stop if intervention acceptance does not include terminal margin or success relevance",
+      "stop if reset-only rows would be treated as proof-positive"
+    ],
+    "fallback_plan": [
+      "if sequence design is not implementable with existing artifacts, design a minimal sequence trace exporter",
+      "if sequence intervention still yields reset-only only, synthesize branch and consider dynamics extension",
+      "if source-diverse sequence wrong-history rows appear, route to corpus export/objective sanity"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M992 routes from reset-only audit to sequence-level intervention design",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A sequence-level action-response mismatch intervention can create a cleaner belief mismatch than single hidden-state swaps on capability-step reset-only rows.",
+  "success_criteria": [
+    "design artifact exists",
+    "candidate interventions are specified",
+    "input-contract preservation is explicit",
+    "acceptance gates include terminal margin or success relevance",
+    "implementation route is explicit",
+    "no training or PPO occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "route decision is missing",
+    "hidden labels would enter actor observation",
+    "reset-only rows are treated as proof-positive",
+    "training or PPO starts"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "manual design documentation; planned artifact docs/m993-v4-public-base-capability-step-sequence-intervention-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m993-v4-public-base-capability-step-sequence-intervention-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m992-v4-public-base-capability-step-reset-only-audit.md",
+    "runs/m991_v4_public_base_capability_step_fault_source_wave/reset_only_rows.csv"
+  ],
+  "decision_rule": "M993 must define the no-training sequence-level intervention probe before any implementation or training.",
+  "next_blocker": "capability-step sequence intervention has not been designed"
+}

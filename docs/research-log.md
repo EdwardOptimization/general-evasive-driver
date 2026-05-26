@@ -15057,3 +15057,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M991 scales the M990 fault-event source wave to `3328` scenarios, `16393` snapshots, and `4096` matched pairs. The sparse M990 wrong-history accepted rows do not repeat: `accepted_rows=0`, `wrong_history_action_critical_rows=0`. Reset-hidden sensitivity is broad: `reset_only_rows=1380`, `reset_history_action_critical_rows=1380`. Actor parameters remain unchanged and no training/PPO/promotion occurs.
 - decision: `capability_step_source_wave_reset_only_route_to_audit`
 - next: `m992-v4-public-base-capability-step-reset-only-audit`
+
+## 20260526T132441Z - m992-v4-public-base-capability-step-reset-only-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m992-v4-public-base-capability-step-reset-only-audit.md`
+- result: M992 audits the M991 reset-only rows. Wrong-history first-action gaps are near zero for most reset-only rows (`p50=0.0`, mean `0.008224`, `868/1380 <= 0.002`) and wrong-history margin gaps never reach the `0.012` threshold. Reset-hidden gaps are large (`reset_action_l2_p50=0.811984`, reset margin gap mean `0.030334`, `1377/1380 >= 0.012`). The diagnosis is that wrong matched histories are too compatible, while reset hidden is a broad disruption.
+- decision: `route_to_sequence_level_action_response_mismatch_design`
+- next: `m993-v4-public-base-capability-step-sequence-intervention-design`

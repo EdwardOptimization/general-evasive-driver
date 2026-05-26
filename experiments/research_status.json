@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1000,
+    "completed": 1001,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m991-v4-public-base-capability-step-fault-source-wave",
+    "task_id": "m992-v4-public-base-capability-step-reset-only-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m991_v4_public_base_capability_step_fault_source_wave/summary.json"
+    "command_log": "docs/m992-v4-public-base-capability-step-reset-only-audit.md"
   },
   "next_task": {
-    "id": "m992-v4-public-base-capability-step-reset-only-audit",
+    "id": "m993-v4-public-base-capability-step-sequence-intervention-design",
     "status": "pending",
-    "priority": 9870,
-    "kind": "gate",
-    "hypothesis": "M991's reset-only result is a routeable intervention-design problem rather than evidence for immediate training",
-    "command": "see experiments/manifests/m992-v4-public-base-capability-step-reset-only-audit.json",
-    "success_artifact": "docs/m992-v4-public-base-capability-step-reset-only-audit.md",
-    "notes": "Pending: audit why capability-step source wave is reset-only and choose the next no-training intervention route"
+    "priority": 9880,
+    "kind": "infrastructure",
+    "hypothesis": "A sequence-level action-response mismatch intervention can create a cleaner belief mismatch than single hidden-state swaps on capability-step reset-only rows",
+    "command": "see experiments/manifests/m993-v4-public-base-capability-step-sequence-intervention-design.json",
+    "success_artifact": "docs/m993-v4-public-base-capability-step-sequence-intervention-design.md",
+    "notes": "Pending: design the no-training sequence-level intervention probe before implementation"
   },
-  "updated_at_utc": "20260526T132032Z"
+  "updated_at_utc": "20260526T132441Z"
 }
