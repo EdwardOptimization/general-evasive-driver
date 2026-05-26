@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1018,
+    "completed": 1019,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1009-v4-public-base-temporal-sequence-objective-branch-synthesis",
+    "task_id": "m1010-v4-public-base-margin-weighted-branch-trust-region-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1009-v4-public-base-temporal-sequence-objective-branch-synthesis.md"
+    "command_log": "docs/m1010-v4-public-base-margin-weighted-branch-trust-region-design.md"
   },
   "next_task": {
-    "id": "m1010-v4-public-base-margin-weighted-branch-trust-region-design",
+    "id": "m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator",
     "status": "pending",
-    "priority": 10050,
+    "priority": 10060,
     "kind": "infrastructure",
-    "hypothesis": "A margin-slack-weighted rejected-branch trust-region can detect the tiny action shifts that flip M267/M264 near-cliff wrong-history rows",
-    "command": "see experiments/manifests/m1010-v4-public-base-margin-weighted-branch-trust-region-design.json",
-    "success_artifact": "docs/m1010-v4-public-base-margin-weighted-branch-trust-region-design.md",
-    "notes": "Pending: design margin-slack-weighted rejected-branch trust-region residual before any repaired actor update"
+    "hypothesis": "Margin slack weighting will make the rejected-branch trust residual sensitive to alpha 0.01 on rows 6 and 15 while preserving zero base loss",
+    "command": "see experiments/manifests/m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator.json",
+    "success_artifact": "runs/m1011_v4_public_base_margin_weighted_branch_trust_region_evaluator/summary.json",
+    "notes": "Pending: implement no-update evaluator to test whether alpha 0.01 activates margin-weighted wrong-branch residual"
   },
-  "updated_at_utc": "20260526T181052Z"
+  "updated_at_utc": "20260526T181455Z"
 }

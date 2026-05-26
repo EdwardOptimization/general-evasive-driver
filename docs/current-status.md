@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1010-v4-public-base-margin-weighted-branch-trust-region-design
+m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -331,9 +331,18 @@ ordinary milestone is margin-weighted trust-region design, trajectory-target
 export, or stopping the branch. M1009 completes that synthesis and chooses to
 continue the branch with margin-weighted rejected-branch trust-region design.
 PPO and promotion remain blocked.
+M1010 completes the margin-weighted branch trust-region design: rows `6` and
+`15` are primary, rows `11` and `16` are secondary, and `margin_floor=1e-4`.
+The next task is M1011: implement a no-update evaluator that should make alpha
+`0.01` produce positive weighted wrong-branch residual while keeping M974 base
+loss zero.
 
 ## Recent Evidence Line
 
+- M1010 designs the margin-slack-weighted rejected-branch trust-region residual
+  and explicitly frames it as proof-retention, not deployable wrong-history
+  behavior imitation. M1011 should implement a no-update evaluator before any
+  actor update.
 - M1009 synthesizes M999-M1008. The branch has real exact temporal-objective
   movement, but public replay retention fails; unweighted fixed one-step branch
   proxies are stopped. The next ordinary task is margin-weighted branch

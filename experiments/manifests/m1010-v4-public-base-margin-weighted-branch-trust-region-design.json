@@ -100,6 +100,25 @@
   "baseline_artifacts": [
     "docs/m1009-v4-public-base-temporal-sequence-objective-branch-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1010-v4-public-base-margin-weighted-branch-trust-region-design.md",
+    "decision": "margin_weighted_branch_trust_region_design_admit_m1011_evaluator",
+    "primary_active_rows": [
+      6,
+      15
+    ],
+    "secondary_active_rows": [
+      11,
+      16
+    ],
+    "margin_floor": 0.0001,
+    "next_evaluator": "m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "margin_weighted_branch_trust_region_design_admit_m1011_evaluator",
   "decision_rule": "M1010 should admit implementation only if the residual is margin-aware, proof-branch-scoped, and keeps actor inputs unchanged.",
-  "next_blocker": "m1010-v4-public-base-margin-weighted-branch-trust-region-design"
+  "next_blocker": "m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator"
 }

@@ -1,0 +1,113 @@
+{
+  "id": "m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_01.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_2.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1010-v4-public-base-margin-weighted-branch-trust-region-design.md",
+      "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/candidate_preflight/*/boundary_replay_rows.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1010-v4-public-base-margin-weighted-branch-trust-region-design.json"
+    ],
+    "parent_objective": [
+      "implement no-update margin-weighted rejected-branch trust-region evaluator"
+    ],
+    "derived_from": [
+      "m1010-v4-public-base-margin-weighted-branch-trust-region-design"
+    ],
+    "blocked_by": [
+      "M1010 requires evaluator calibration before any actor update"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "actor update before margin-weighted branch trust-region evaluator sanity"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator.md",
+  "public_gates": [
+    "M1011 must not train",
+    "M1011 must not run PPO",
+    "M1011 must not promote",
+    "M1011 must preserve P0 actor inputs",
+    "M1011 must show alpha 0.01 activates the margin-weighted wrong-branch trust residual"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update actor parameters",
+    "do not use private holdout",
+    "do not run replay gates as promotion evidence",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_temporal_sequence_objective",
+    "evidence_axis": "G_temporal_objective: margin-weighted branch trust-region evaluator",
+    "evidence_increment": "tests whether margin slack weighting detects the tiny wrong-branch action shifts that M1007 missed",
+    "claim_scope": "evaluator sanity only; no actor update, no replay promotion, no private holdout",
+    "stop_condition": [
+      "stop if alpha 0.01 does not activate the margin-weighted residual",
+      "stop if base residual is not zero",
+      "stop if evaluator changes actor parameters"
+    ],
+    "fallback_plan": [
+      "if evaluator is not sensitive, pivot to trajectory-target export or synthesize",
+      "if evaluator passes, route to actor_mean-only repaired update design",
+      "if active-row dominance is pathological, broaden proof-retention corpus before update"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1010 admits margin-weighted evaluator implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Margin slack weighting will make the rejected-branch trust residual sensitive to alpha 0.01 on rows 6 and 15 while preserving zero base loss.",
+  "success_criteria": [
+    "summary.json exists",
+    "M974 base trust loss is zero",
+    "alpha 0.01 trust loss is positive",
+    "alpha 0.20 trust loss exceeds alpha 0.01",
+    "row 6 and row 15 dominate weighted loss",
+    "actor parameters are unchanged",
+    "ppo_used == false",
+    "promoted == false"
+  ],
+  "failure_criteria": [
+    "evaluator changes actor parameters",
+    "margin-weighted metrics are non-finite",
+    "alpha 0.01 is not distinguished from base",
+    "PPO starts",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "evaluator",
+      "command": "implement and run margin-weighted branch trust-region evaluator; output runs/m1011_v4_public_base_margin_weighted_branch_trust_region_evaluator/summary.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1011_v4_public_base_margin_weighted_branch_trust_region_evaluator/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1010-v4-public-base-margin-weighted-branch-trust-region-design.md"
+  ],
+  "decision_rule": "M1011 should route to repaired actor_mean update design only if the margin-weighted residual is finite, base-zero, and active on alpha 0.01.",
+  "next_blocker": "m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator"
+}

@@ -15225,3 +15225,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1009 synthesizes M999-M1008. Supported: M997/M1000 exact temporal objective surface is valid, and M1002 shows actor_mean-only exact movement without actor-input or non-actor changes. Falsified: exact temporal candidates are not replay-valid, lower alpha alone is insufficient, fixed one-step branch proxies are insufficient, and PPO from M1002 remains blocked. Public gate overfit risk is moderate-high because rows `6` and `15` are now active public constraints.
 - decision: `temporal_sequence_objective_branch_synthesis_continue_to_margin_weighted_trust_region_design`
 - next: `m1010-v4-public-base-margin-weighted-branch-trust-region-design`
+
+## 20260526T181455Z - m1010-v4-public-base-margin-weighted-branch-trust-region-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1010-v4-public-base-margin-weighted-branch-trust-region-design.md`
+- result: M1010 designs a margin-slack-weighted rejected-branch trust-region residual for M267/M264 near-cliff proof rows. Rows `6` and `15` are primary, rows `11` and `16` secondary, and `margin_floor=1e-4`. The residual is explicitly framed as a training-time proof-retention constraint, not deployable wrong-history behavior imitation.
+- decision: `margin_weighted_branch_trust_region_design_admit_m1011_evaluator`
+- next: `m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator`

@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M1010 designs margin-slack-weighted rejected-branch trust-region residual on M267/M264 rows 6 and 15 primary before any actor update",
+  "failure_criteria": [
+    "design trains directly toward wrong-history behavior without proof-constraint framing",
+    "design changes actor inputs",
+    "design skips rows 6 and 15",
+    "design routes directly to PPO or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat wrong-history action anchors as deployable behavior targets",
+    "do not use private holdout",
+    "do not skip M267/M264 preflight",
+    "do not run PPO"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260526T181620Z",
+  "hypothesis": "A margin-slack-weighted rejected-branch trust-region can detect the tiny action shifts that flip M267/M264 near-cliff wrong-history rows.",
+  "lineage": {
+    "blocked_by": [
+      "M1009 synthesis continues the branch but stops unweighted fixed one-step branch proxies"
+    ],
+    "derived_from": [
+      "m1009-v4-public-base-temporal-sequence-objective-branch-synthesis",
+      "m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit"
+    ],
+    "invalidates": [
+      "actor update using unweighted fixed one-step branch ceiling or separation proxy"
+    ],
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1009-v4-public-base-temporal-sequence-objective-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1009-v4-public-base-temporal-sequence-objective-branch-synthesis.md",
+      "docs/m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit.md",
+      "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/candidate_preflight/*/boundary_replay_rows.csv",
+      "runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator/branch_metric_rows.csv"
+    ],
+    "parent_objective": [
+      "design a margin-slack-weighted rejected-branch trust-region residual"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1010-v4-public-base-margin-weighted-branch-trust-region-design",
+  "next_blocker": "m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "margin_weighted_branch_trust_region_design_admit_m1011_evaluator",
+  "public_gates": [
+    "M1010 must not train",
+    "M1010 must not run PPO",
+    "M1010 must not promote",
+    "M1010 must preserve P0 actor inputs",
+    "M1010 must define a margin-weighted branch trust-region evaluator before any actor update"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1010-v4-public-base-margin-weighted-branch-trust-region-design.md",
+    "clearance_margin_mean": "",
+    "decision": "margin_weighted_branch_trust_region_design_admit_m1011_evaluator",
+    "milestone": "m1010-v4-public-base-margin-weighted-branch-trust-region-design",
+    "reason": "M1010 designs margin-slack-weighted rejected-branch trust-region residual on M267/M264 rows 6 and 15 primary before any actor update",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design document exists",
+    "wrong-history branch trust-region is defined as a proof constraint, not a deployable behavior target",
+    "margin weighting and active rows are specified",
+    "no-update evaluator gates are specified before any actor update",
+    "PPO and promotion remain blocked"
+  ],
+  "type": "infrastructure"
+}
