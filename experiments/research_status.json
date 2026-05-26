@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 975,
+    "completed": 976,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation",
+    "task_id": "m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m966_v4_public_base_direction_target_actor_fit_replay_gate/summary.json"
+    "command_log": "docs/m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design.md"
   },
   "next_task": {
-    "id": "m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design",
+    "id": "m968-v4-public-base-direction-target-actor-fit-promotion-generalization-gate-implementation",
     "status": "pending",
-    "priority": 9620,
+    "priority": 9630,
     "kind": "gate",
-    "hypothesis": "The M966 replay-gate-passing alpha_1_0 candidate needs a separate promotion/generalization protocol before it can replace the current public-gate base or be used for PPO continuation",
-    "command": "see experiments/manifests/m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design.json",
-    "success_artifact": "docs/m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design.md",
-    "notes": "Pending: design proof generalization behavior and promotion protocol for alpha 1.0 before PPO or promotion"
+    "hypothesis": "The M966 alpha_1_0 candidate can pass proof replay retention, fresh public randomized generalization, and behavior retention without training or promotion",
+    "command": "see experiments/manifests/m968-v4-public-base-direction-target-actor-fit-promotion-generalization-gate-implementation.json",
+    "success_artifact": "runs/m968_v4_public_base_direction_target_actor_fit_promotion_generalization_gate/summary.json",
+    "notes": "Pending: run no-training proof fresh generalization behavior and route decision gate for alpha 1.0"
   },
-  "updated_at_utc": "20260526T061933Z"
+  "updated_at_utc": "20260526T064628Z"
 }

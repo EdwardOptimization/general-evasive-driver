@@ -1,0 +1,141 @@
+{
+  "id": "m968-v4-public-base-direction-target-actor-fit-promotion-generalization-gate-implementation",
+  "type": "gate",
+  "gate_tier": "promotion",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt"
+    ],
+    "parent_dataset": [
+      "docs/m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design.md",
+      "docs/m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation.md",
+      "runs/m966_v4_public_base_direction_target_actor_fit_replay_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training proof/generalization/behavior comparison gate for M966 alpha_1_0"
+    ],
+    "derived_from": [
+      "m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design",
+      "m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation"
+    ],
+    "blocked_by": [
+      "M967 designs promotion/generalization criteria but alpha_1_0 has not been evaluated through them"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "promotion or PPO continuation before the M967 gate is implemented"
+    ]
+  },
+  "review_artifact": "docs/reviews/m968-v4-public-base-direction-target-actor-fit-promotion-generalization-gate-implementation.md",
+  "public_gates": [
+    "M968 must not train",
+    "M968 must not run PPO",
+    "M968 must not promote",
+    "M968 must preserve the P0 actor-input contract",
+    "M968 must run proof replay retention",
+    "M968 must run fresh randomized public generalization eval",
+    "M968 must run behavior seeds and candidate ablations"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote",
+    "do not run PPO",
+    "do not skip proof gates because fresh eval passes"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_direction_target_actor_fit",
+    "evidence_axis": "G_promotion: whether alpha_1_0 remains safe under proof, fresh generalization, and behavior gates",
+    "evidence_increment": "implements the no-training M967 promotion/generalization gate",
+    "claim_scope": "candidate comparison only; no training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if any public proof replay gate fails",
+      "stop if fresh randomized eval shows material regression",
+      "stop if behavior ablation ordering fails",
+      "stop if actor-input contract changes"
+    ],
+    "fallback_plan": [
+      "if all tiers pass, route to a separate promotion audit",
+      "if proof fails, route to proof_washout audit",
+      "if fresh eval fails, route to generalization regression audit",
+      "if behavior fails, route to behavior regression audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M967 designs proof/generalization/promotion separation after M966 public replay pass",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M966 alpha_1_0 candidate can pass proof replay retention, fresh public randomized generalization, and behavior retention without training or promotion.",
+  "success_criteria": [
+    "summary artifact exists",
+    "proof replay summary is written",
+    "fresh randomized eval summary is written",
+    "OOD eval summary is written",
+    "behavior summary and comparison are written",
+    "route decision is explicit",
+    "training, PPO, private holdout, and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "implementation trains or updates model weights",
+    "implementation changes actor inputs",
+    "implementation omits proof replay gates",
+    "implementation omits fresh randomized generalization",
+    "implementation omits behavior ablations",
+    "implementation promotes the candidate"
+  ],
+  "commands": [
+    {
+      "name": "run_promotion_generalization_gate",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_direction_target_actor_fit_promotion_generalization_gate"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m968_v4_public_base_direction_target_actor_fit_promotion_generalization_gate/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m968_v4_public_base_direction_target_actor_fit_promotion_generalization_gate/proof_replay_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m968_v4_public_base_direction_target_actor_fit_promotion_generalization_gate/fresh_randomized_eval_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m968_v4_public_base_direction_target_actor_fit_promotion_generalization_gate/ood_eval_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m968_v4_public_base_direction_target_actor_fit_promotion_generalization_gate/behavior_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m968_v4_public_base_direction_target_actor_fit_promotion_generalization_gate/behavior_comparison.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m968_v4_public_base_direction_target_actor_fit_promotion_generalization_gate/route_decision.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design.md",
+    "runs/m966_v4_public_base_direction_target_actor_fit_replay_gate/summary.json"
+  ],
+  "decision_rule": "M968 may only run no-training comparison gates. It must not update actor parameters, run PPO, change actor inputs, use private holdout, or promote.",
+  "next_blocker": "M967 promotion/generalization design has not been implemented"
+}

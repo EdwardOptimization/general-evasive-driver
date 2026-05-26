@@ -73,7 +73,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design
+m968-v4-public-base-direction-target-actor-fit-promotion-generalization-gate-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -190,9 +190,18 @@ behavior seeds `9505/9506` retain baseline success, and reset/zero-all ordering
 is retained. Training, PPO, promotion, private holdout, and actor-input changes
 remain blocked. M967 should design the promotion/generalization protocol before
 alpha `1.0` can replace the public-gate base or be used for PPO continuation.
+M967 completes that design and separates proof retention, fresh public
+randomized generalization, behavior/ablation retention, holdout discipline, and
+promotion decision. M968 should implement the no-training comparison gate before
+any PPO or promotion.
 
 ## Recent Evidence Line
 
+- M967 designs the promotion/generalization layer for the M966
+  replay-gate-passing `alpha=1.0` candidate. It keeps PPO and promotion blocked
+  and requires M968 to compare the M399 base against alpha `1.0` through proof
+  retention, fresh public randomized eval, moderate OOD eval, behavior seeds,
+  and reset/zero-all ablations before any promotion audit.
 - M966 implements the no-training public replay gate for M964 direction-target
   actor-fit candidates. Result: `direction_target_actor_fit_replay_gate_pass`.
   All `5/5` candidate alphas pass M267/M264 preflight; selected `alpha=1.0`
