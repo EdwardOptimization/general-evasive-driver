@@ -14810,3 +14810,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M965 designs the no-training public replay gate for M964 candidate checkpoints. The design ranks `alpha_1_0` primary with `alpha_0_5`, `alpha_0_2`, `alpha_0_1`, and `alpha_0_05` as backups; requires M267/M264 full-surface preflight before the full stack; and then requires six public replay surfaces, behavior seeds `9505/9506`, reset/zero-all ordering, source-diverse diagnostics, old-key diagnostic-only reporting, and actor input contract checks. PPO and promotion remain blocked.
 - decision: `direction_target_actor_fit_replay_gate_design_admit_m966`
 - next: `m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation`
+
+## 20260526T061933Z - m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m966_v4_public_base_direction_target_actor_fit_replay_gate`
+- artifact: `docs/m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation.md`
+- result: M966 implements the no-training replay/proof gate for M964 candidate checkpoints. Result: `direction_target_actor_fit_replay_gate_pass`. All `5/5` candidate alphas pass M267/M264 full-surface preflight; the highest-ranked `alpha=1.0` candidate is selected; all six public replay surfaces pass; source-diverse protected diagnostics pass; behavior seeds `9505/9506` retain baseline success and reset/zero-all ordering. Actor inputs are unchanged and training/PPO/promotion remain blocked.
+- decision: `direction_target_actor_fit_replay_gate_pass_route_to_promotion_generalization_design`
+- next: `m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design`

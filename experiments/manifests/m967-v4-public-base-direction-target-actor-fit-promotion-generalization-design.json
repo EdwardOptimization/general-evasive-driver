@@ -1,0 +1,116 @@
+{
+  "id": "m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design",
+  "type": "gate",
+  "gate_tier": "promotion",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt"
+    ],
+    "parent_dataset": [
+      "docs/m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation.md",
+      "runs/m966_v4_public_base_direction_target_actor_fit_replay_gate/summary.json",
+      "runs/m966_v4_public_base_direction_target_actor_fit_replay_gate/public_replay_gate_summary.csv",
+      "runs/m966_v4_public_base_direction_target_actor_fit_replay_gate/behavior_comparison.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation.json"
+    ],
+    "parent_objective": [
+      "design promotion and generalization protocol for the M966 replay-gate-passing direction-target actor-fit candidate"
+    ],
+    "derived_from": [
+      "m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation",
+      "m964-v4-public-base-direction-target-actor-fit-objective-implementation"
+    ],
+    "blocked_by": [
+      "M966 replay/proof gates passed, but no promotion/generalization protocol exists for alpha_1_0"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "promoting alpha_1_0 based only on public proof replay gates",
+      "running PPO continuation before generalization and promotion gates are designed"
+    ]
+  },
+  "review_artifact": "docs/reviews/m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design.md",
+  "public_gates": [
+    "M967 must not train",
+    "M967 must not run PPO",
+    "M967 must not promote",
+    "M967 must preserve the P0 actor-input contract",
+    "M967 must separate proof, generalization, and promotion gates",
+    "M967 must specify holdout discipline before using any private evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not change actor inputs",
+    "do not use private holdout evidence",
+    "do not promote",
+    "do not run PPO",
+    "do not treat public proof-gate pass as sufficient promotion evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_direction_target_actor_fit",
+    "evidence_axis": "G_promotion: whether a public-proof-passing actor-fit candidate can become a new base after generalization checks",
+    "evidence_increment": "designs the next gate layer after M966 public replay/proof pass",
+    "claim_scope": "promotion/generalization design only; no training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if design collapses proof, generalization, and promotion into one gate",
+      "stop if design uses private holdout as an iterative repair signal",
+      "stop if design recommends PPO before replay-gate pass is converted into promotion criteria"
+    ],
+    "fallback_plan": [
+      "if promotion/generalization design is accepted, route to implementation of a no-training candidate comparison gate",
+      "if fresh scenario definition is underspecified, route to randomized scenario-distribution design",
+      "if holdout policy is ambiguous, route to holdout governance audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M966 finds alpha_1_0 passes M267/M264 preflight, all six public replay surfaces, behavior seeds, and source-diverse diagnostics",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M966 replay-gate-passing alpha_1_0 candidate needs a separate promotion/generalization protocol before it can replace the current public-gate base or be used for PPO continuation.",
+  "success_criteria": [
+    "design document exists",
+    "proof gates are listed separately from generalization gates",
+    "promotion criteria are explicit",
+    "fresh randomized scenario distribution is scoped",
+    "behavior retention and ablations are included",
+    "holdout discipline is specified",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "design recommends promotion based only on M966 public replay pass",
+    "design changes actor inputs",
+    "design omits fresh randomized scenarios",
+    "design omits behavior seeds or ablations",
+    "design uses private holdout for iterative tuning",
+    "design runs PPO"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "Write the M966 alpha_1_0 promotion/generalization gate design and route the next implementation."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+    "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation.md",
+    "runs/m966_v4_public_base_direction_target_actor_fit_replay_gate/summary.json"
+  ],
+  "decision_rule": "M967 may only design generalization and promotion gates. It must not update actor parameters, run PPO, change actor inputs, use private holdout evidence, or promote.",
+  "next_blocker": "direction-target actor-fit alpha_1_0 has passed public replay gates but lacks a promotion/generalization protocol"
+}

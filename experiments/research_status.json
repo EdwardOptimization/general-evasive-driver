@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 974,
+    "completed": 975,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m965-v4-public-base-direction-target-actor-fit-replay-gate-design",
+    "task_id": "m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m965-v4-public-base-direction-target-actor-fit-replay-gate-design.md"
+    "command_log": "runs/m966_v4_public_base_direction_target_actor_fit_replay_gate/summary.json"
   },
   "next_task": {
-    "id": "m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation",
+    "id": "m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design",
     "status": "pending",
-    "priority": 9610,
+    "priority": 9620,
     "kind": "gate",
-    "hypothesis": "At least one M964 direction-target actor-fit candidate can pass no-training public replay/proof gates before PPO or promotion",
-    "command": "see experiments/manifests/m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation.json",
-    "success_artifact": "runs/m966_v4_public_base_direction_target_actor_fit_replay_gate/summary.json",
-    "notes": "Pending: implement no-training public replay gate for M964 candidate checkpoints"
+    "hypothesis": "The M966 replay-gate-passing alpha_1_0 candidate needs a separate promotion/generalization protocol before it can replace the current public-gate base or be used for PPO continuation",
+    "command": "see experiments/manifests/m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design.json",
+    "success_artifact": "docs/m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design.md",
+    "notes": "Pending: design proof generalization behavior and promotion protocol for alpha 1.0 before PPO or promotion"
   },
-  "updated_at_utc": "20260526T052842Z"
+  "updated_at_utc": "20260526T061933Z"
 }

@@ -49,6 +49,17 @@ Status: M400 promoted M399 alpha `0.05` as the current public-gate base after
 six public replay surfaces and behavior seeds passed. M487-M606 did not promote
 a new public-gate driver checkpoint.
 
+Latest replay-gate-passing actor-fit candidate:
+
+```text
+runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt
+```
+
+Status: M966 selected M964 alpha `1.0` after `5/5` candidate alphas passed
+M267/M264 full-surface preflight. The selected candidate passed all six public
+replay surfaces, source-diverse protected diagnostics, and behavior seeds
+`9505/9506`. It is not promoted as the public-gate base.
+
 Latest active diagnostic BC checkpoint:
 
 ```text
@@ -62,7 +73,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m966-v4-public-base-direction-target-actor-fit-replay-gate-implementation
+m967-v4-public-base-direction-target-actor-fit-promotion-generalization-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -172,10 +183,22 @@ public replay gate before any PPO or promotion. M965 completes that design:
 rank `alpha_1_0` primary, run M267/M264 full-surface preflight over candidate
 alphas, then run six public replay surfaces, behavior seeds `9505/9506`, and
 diagnostics before any PPO or promotion. M966 should implement that no-training
-gate.
+gate. M966 implements it and passes: all `5/5` M964 alphas pass M267/M264
+full-surface preflight, the highest-ranked `alpha=1.0` candidate is selected,
+all six public replay surfaces pass, source-diverse protected diagnostics pass,
+behavior seeds `9505/9506` retain baseline success, and reset/zero-all ordering
+is retained. Training, PPO, promotion, private holdout, and actor-input changes
+remain blocked. M967 should design the promotion/generalization protocol before
+alpha `1.0` can replace the public-gate base or be used for PPO continuation.
 
 ## Recent Evidence Line
 
+- M966 implements the no-training public replay gate for M964 direction-target
+  actor-fit candidates. Result: `direction_target_actor_fit_replay_gate_pass`.
+  All `5/5` candidate alphas pass M267/M264 preflight; selected `alpha=1.0`
+  passes all six public replay surfaces, source-diverse protected diagnostics,
+  and behavior seeds `9505/9506`. The checkpoint is not promoted. Next: design
+  proof/generalization/promotion protocol.
 - M965 designs the no-training replay gate for M964 candidates. It requires
   M267/M264 full-surface preflight, six public replay surfaces, behavior seeds
   `9505/9506`, reset/zero-all ordering, source-diverse diagnostics, old-key
