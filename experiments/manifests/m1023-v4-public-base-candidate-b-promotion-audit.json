@@ -2,7 +2,7 @@
   "id": "m1023-v4-public-base-candidate-b-promotion-audit",
   "type": "gate",
   "gate_tier": "promotion",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -102,6 +102,26 @@
     "runs/m1022_v4_public_base_candidate_b_promotion_generalization_gate/summary.json",
     "docs/m1022-v4-public-base-candidate-b-promotion-generalization-gate.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1023-v4-public-base-candidate-b-promotion-audit.md",
+    "decision": "candidate_b_promote_public_gate_base",
+    "promotion_decision": "promote",
+    "new_public_gate_base": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "previous_public_gate_base": "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+    "evidence": [
+      "M1019 full public replay gate pass",
+      "M1022 promotion/generalization gate pass",
+      "actor input contract unchanged",
+      "no training, PPO, private holdout, or paper-level claims"
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "paper_level_claim": false,
+    "next_milestone": "m1024-v4-public-base-candidate-b-post-promotion-synthesis"
+  },
+  "decision": "candidate_b_promote_public_gate_base",
   "decision_rule": "M1023 must explicitly promote or reject Candidate B as the public-gate base; promotion is public-gate status only.",
-  "next_blocker": "m1023-v4-public-base-candidate-b-promotion-audit"
+  "next_blocker": "m1024-v4-public-base-candidate-b-post-promotion-synthesis"
 }

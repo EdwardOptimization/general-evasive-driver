@@ -15347,3 +15347,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1022 classifies Candidate B as `candidate_b_promotion_gate_candidate`. Exact temporal retention passes `1/1`; six public proof replay surfaces pass `6/6`; source-diverse diagnostics pass `3/3`; fresh public seeds `102100/102101` and moderate-OOD seed `102120` all match M974 success and improve margin slightly; behavior seeds `9505/9506/102130/102131` retain normal >= reset >= zero-all ordering. No training, PPO, promotion, private holdout, or actor-input change occurs.
 - decision: `candidate_b_promotion_gate_candidate_route_to_promotion_audit`
 - next: `m1023-v4-public-base-candidate-b-promotion-audit`
+
+## 20260526T202604Z - m1023-v4-public-base-candidate-b-promotion-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1023-v4-public-base-candidate-b-promotion-audit.md`
+- result: M1023 promotes Candidate B `runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt` as the current public-gate base. The promotion is based on M1019 full public replay pass and M1022 promotion/generalization pass. It supersedes M974 as public-gate base only; PPO, private holdout, paper-level, and real-vehicle claims remain blocked.
+- decision: `candidate_b_promote_public_gate_base`
+- next: `m1024-v4-public-base-candidate-b-post-promotion-synthesis`

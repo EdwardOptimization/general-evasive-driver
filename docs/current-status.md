@@ -42,25 +42,25 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt
+runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt
 ```
 
-Status: M977 promoted the M974 base-start exact-repaired candidate as the
-current public-gate base after M974 exact/first-replay gates and M976 full
-public proof/generalization/behavior gates passed. This is a public-gate base
-promotion only; PPO, private holdout, paper-level generalization, and
-real-vehicle claims remain blocked.
+Status: M1023 promoted Candidate B as the current public-gate base after M1019
+full public replay gates and M1022 promotion/generalization gates passed. This
+is a public-gate base promotion only; PPO, private holdout, paper-level
+generalization, and real-vehicle claims remain blocked.
 
 Previous public-gate base:
 
 ```text
-runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt
+runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt
 ```
 
-Status: M969 promoted M964 alpha `1.0` after M966 public replay/proof gates and
-M968 proof/generalization/behavior gates passed. M977 supersedes it with the
-M974 exact-repaired public-gate base. The older M399 alpha `0.05` base remains
-the earlier public-base lineage point.
+Status: M977 promoted the M974 base-start exact-repaired candidate after M974
+exact/first-replay gates and M976 full public proof/generalization/behavior
+gates passed. M1023 supersedes it with Candidate B. M964 alpha `1.0` remains
+the older public-base lineage point, and M399 alpha `0.05` remains an earlier
+lineage point.
 
 Latest active diagnostic BC checkpoint:
 
@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1023-v4-public-base-candidate-b-promotion-audit
+m1024-v4-public-base-candidate-b-post-promotion-synthesis
 ```
 
 M1019 passed the full public gate for Candidate B `m1013_lam0030_a050`.
@@ -92,14 +92,15 @@ promoted public base. M1021 designed the separate promotion/generalization
 audit, and M1022 passed it. Candidate B is now a promotion-audit candidate:
 exact retention, proof replay, source-diverse diagnostics, fresh public,
 moderate-OOD, and behavior/ablation tiers all passed without training, PPO,
-private holdout, or actor-input change. M1023 must decide whether Candidate B
-replaces M974 as the current public-gate base. That promotion, if accepted, is
-public-gate status only and must not claim private holdout, paper-level, or
-real-vehicle evidence.
+private holdout, or actor-input change. M1023 promoted Candidate B as the
+current public-gate base. That promotion is public-gate status only and does
+not claim private holdout, paper-level, or real-vehicle evidence. M1024 must
+synthesize the post-promotion route before PPO continuation, surface refresh,
+or further objective work.
 
 ### Historical Trace
 
-The branch trace below is retained for context; the live blocker is the M1019
+The branch trace below is retained for context; the live blocker is the M1024
 gate above.
 
 M927 ran the no-training residual-direction feasibility sweep and found no
