@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1024,
+    "completed": 1025,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1015-v4-public-base-m1013-exact-candidate-preflight-design",
+    "task_id": "m1016-v4-public-base-m1013-exact-candidate-preflight",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1015-v4-public-base-m1013-exact-candidate-preflight-design.md"
+    "command_log": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/summary.json"
   },
   "next_task": {
-    "id": "m1016-v4-public-base-m1013-exact-candidate-preflight",
+    "id": "m1017-v4-public-base-signed-branch-metric-audit",
     "status": "pending",
-    "priority": 10110,
+    "priority": 10120,
     "kind": "gate",
-    "hypothesis": "Selected M1013 exact-but-branch-unsafe candidates will reveal whether M1011 branch trust thresholds are conservative or necessary by their M267/M264 preflight result",
-    "command": "see experiments/manifests/m1016-v4-public-base-m1013-exact-candidate-preflight.json",
-    "success_artifact": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/summary.json",
-    "notes": "Pending: materialize selected M1013 exact candidates and run M267/M264 preflight only"
+    "hypothesis": "M1016 can be explained by branch action direction: Candidate B has larger unsigned action drift but moves wrong-history margins negative while Candidate A has smaller drift but moves rows 6 and 15 positive",
+    "command": "see experiments/manifests/m1017-v4-public-base-signed-branch-metric-audit.json",
+    "success_artifact": "docs/m1017-v4-public-base-signed-branch-metric-audit.md",
+    "notes": "Pending: audit unsigned branch metric ordering artifact before full replay or new objective"
   },
-  "updated_at_utc": "20260526T190852Z"
+  "updated_at_utc": "20260526T192524Z"
 }

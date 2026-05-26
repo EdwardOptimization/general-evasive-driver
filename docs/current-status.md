@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1016-v4-public-base-m1013-exact-candidate-preflight
+m1017-v4-public-base-signed-branch-metric-audit
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -359,9 +359,17 @@ threshold relaxation or new update.
 M1015 completes that design. M1016 should materialize Candidate A
 `lambda=0.001, alpha=0.2`, Candidate B `lambda=0.03, alpha=0.5`, and Candidate
 C `lambda=0.001, alpha=0.5`, then run only M267/M264 preflight as calibration.
+M1016 runs that preflight. Candidate A fails rows `6` and `15`; Candidate C
+fails rows `6`, `11`, and `15`; Candidate B passes M267/M264 with `17/17`
+success drops. Because Candidate B has higher unsigned branch trust loss than
+failing Candidate A, the next task is M1017: audit signed/outcome-aware branch
+metrics before full replay, threshold relaxation, or another update.
 
 ## Recent Evidence Line
 
+- M1016 shows unsigned branch action L2 is not a reliable ordering metric:
+  Candidate B has larger branch-trust loss than Candidate A but passes
+  M267/M264 because it moves wrong-history margins in the safe direction.
 - M1015 designs the replay-calibrated trust audit: materialize three selected
   M1013 exact candidates and run only M267/M264 preflight, not full replay or
   promotion.

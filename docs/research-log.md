@@ -15281,3 +15281,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1015 designs a minimal replay-calibrated trust audit. M1016 should materialize three exact-but-branch-unsafe M1013 candidates by interpolating actor_mean from M974 base to saved M1013 raw checkpoints: Candidate A `lambda=0.001, alpha=0.2`, Candidate B `lambda=0.03, alpha=0.5`, and Candidate C `lambda=0.001, alpha=0.5`. It must run only M267/M264 preflight with `configs/m121_human_view_zero_obstacle_relvel.json`, not full public replay, PPO, private holdout, or promotion.
 - decision: `m1013_exact_candidate_preflight_design_admit_m1016_implementation`
 - next: `m1016-v4-public-base-m1013-exact-candidate-preflight`
+
+## 20260526T192524Z - m1016-v4-public-base-m1013-exact-candidate-preflight
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m1016_v4_public_base_m1013_exact_candidate_preflight`
+- artifact: `docs/m1016-v4-public-base-m1013-exact-candidate-preflight.md`
+- result: M1016 materializes the selected M1013 exact candidates and runs only M267/M264 preflight. Materialization contract passes for all candidates. Candidate A `lambda=0.001, alpha=0.2` fails rows `6` and `15` with success-drop count `15/17`; Candidate C `lambda=0.001, alpha=0.5` fails rows `6`, `11`, and `15` with `14/17`; Candidate B `lambda=0.03, alpha=0.5` passes M267/M264 with `17/17` success drops. Because Candidate B has higher unsigned branch trust loss than failing Candidate A, M1016 classifies the L2 branch trust ordering as `metric_artifact`.
+- decision: `m1013_exact_candidate_preflight_metric_ordering_artifact_route_to_signed_branch_metric_audit`
+- next: `m1017-v4-public-base-signed-branch-metric-audit`

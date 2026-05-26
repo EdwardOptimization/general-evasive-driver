@@ -1,0 +1,104 @@
+{
+  "id": "m1017-v4-public-base-signed-branch-metric-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0001_a020.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1016-v4-public-base-m1013-exact-candidate-preflight.md",
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/m267_preflight_summary.csv",
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/candidate_preflight/*/boundary_replay_rows.csv",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/interpolation_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1016-v4-public-base-m1013-exact-candidate-preflight.json"
+    ],
+    "parent_objective": [
+      "audit why L2 branch trust ordering disagrees with M267/M264 replay outcome"
+    ],
+    "derived_from": [
+      "m1016-v4-public-base-m1013-exact-candidate-preflight"
+    ],
+    "blocked_by": [
+      "M1016 shows Candidate B passes preflight despite higher L2 branch trust loss than failing Candidate A"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "using unsigned branch action L2 as candidate ordering objective by itself"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1017-v4-public-base-signed-branch-metric-audit.md",
+  "public_gates": [
+    "M1017 must not train",
+    "M1017 must not run PPO",
+    "M1017 must not promote",
+    "M1017 must preserve P0 actor inputs",
+    "M1017 must decide whether to design signed/outcome-aware branch residuals or run full replay for Candidate B"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat Candidate B preflight pass as promotion",
+    "do not use private holdout",
+    "do not run new actor update",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_temporal_sequence_objective",
+    "evidence_axis": "G_temporal_objective: signed branch metric audit",
+    "evidence_increment": "uses M1016 replay evidence to determine whether branch residuals need signed/outcome-aware calibration",
+    "claim_scope": "metric audit only; no training, no PPO, no promotion",
+    "stop_condition": [
+      "stop if signed metric cannot explain Candidate B versus Candidate A",
+      "stop if full replay is needed before metric redesign",
+      "stop if cadence requires synthesis before more objective design"
+    ],
+    "fallback_plan": [
+      "if signed margin direction explains replay, design signed branch residual",
+      "if Candidate B should advance, design full public replay gate separately",
+      "if evidence is ambiguous, run a broader replay-calibration set"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1016 finds branch trust metric ordering artifact",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M1016 can be explained by branch action direction: Candidate B has larger unsigned action drift but moves wrong-history margins negative, while Candidate A has smaller drift but moves rows 6 and 15 positive.",
+  "success_criteria": [
+    "audit document exists",
+    "metric artifact is explained or rejected",
+    "next route is explicit",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit promotes Candidate B",
+    "audit runs new training",
+    "audit uses private holdout",
+    "audit changes actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1017-v4-public-base-signed-branch-metric-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1017-v4-public-base-signed-branch-metric-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1016-v4-public-base-m1013-exact-candidate-preflight.md"
+  ],
+  "decision_rule": "M1017 should not promote; it should either design a signed branch residual, design full public replay for Candidate B, or request broader replay calibration.",
+  "next_blocker": "m1017-v4-public-base-signed-branch-metric-audit"
+}

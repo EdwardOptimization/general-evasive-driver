@@ -100,6 +100,33 @@
   "baseline_artifacts": [
     "docs/m1015-v4-public-base-m1013-exact-candidate-preflight-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/summary.json",
+    "decision": "m1013_exact_candidate_preflight_metric_ordering_artifact_route_to_signed_branch_metric_audit",
+    "result_class": "m1013_exact_candidate_preflight_metric_ordering_artifact",
+    "failure_types": [
+      "metric_artifact"
+    ],
+    "preflight_pass_count": 1,
+    "candidate_a_pass": false,
+    "passing_candidate": "m1013_lam0030_a050",
+    "candidate_a_failed_rows": [
+      6,
+      15
+    ],
+    "candidate_c_failed_rows": [
+      6,
+      11,
+      15
+    ],
+    "materialization_contract_pass": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "next_audit": "m1017-v4-public-base-signed-branch-metric-audit"
+  },
+  "decision": "m1013_exact_candidate_preflight_metric_ordering_artifact_route_to_signed_branch_metric_audit",
   "decision_rule": "M1016 should route by Candidate A M267/M264 result: pass means trust threshold audit, fail means projection/line-search or synthesis before more scalar training.",
-  "next_blocker": "m1016-v4-public-base-m1013-exact-candidate-preflight"
+  "next_blocker": "m1017-v4-public-base-signed-branch-metric-audit"
 }
