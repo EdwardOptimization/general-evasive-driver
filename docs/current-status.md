@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m997-v4-public-base-temporal-sequence-corpus-export-implementation
+m998-v4-public-base-capability-step-fault-generation-synthesis
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -285,14 +285,18 @@ rows. M994 implements and runs that probe. The corrected result is
 across `9` fault pairs and `17` seeds, but `0` accepted cross-fault sequence
 rows. M995 audits the claim scope: M994 is temporal-history positive but not
 cross-fault wrong-history positive. M996 designs an exact-auditable temporal
-sequence corpus export: positives are limited to `reset_then_warm_history` and
-`delayed_capability_history`, cross-fault variants remain diagnostic-only, and
-the exporter must write tensors plus exact no-update sanity. The next task is
-M997: implement that exporter before objective update, training, or PPO.
-Training and PPO remain blocked.
+sequence corpus export. M997 implements it and exports `277` temporal positive
+rows with replay, exact no-update, tensor, and source-diversity sanity passing.
+The next task is M998: synthesize M989-M997 before opening a temporal objective
+branch or redesigning cross-fault generation. Training and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M997 exports M994 temporal positives into
+  `runs/m997_v4_public_base_temporal_sequence_corpus_export`: `277` positive
+  rows, `9` fault pairs, `17` seeds, replay/action sanity exact (`0.0` max
+  L2), exact no-update sanity pass, and source-diversity pass. No actor/PPO/
+  promotion change occurs.
 - M996 designs the M994 temporal sequence corpus export. It requires tensor
   replay sanity, source-diversity gates, row weighting, and exact no-update
   temporal preference diagnostics before any objective update.

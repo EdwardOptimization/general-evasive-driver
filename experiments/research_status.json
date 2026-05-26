@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1005,
+    "completed": 1006,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m996-v4-public-base-temporal-sequence-corpus-export-design",
+    "task_id": "m997-v4-public-base-temporal-sequence-corpus-export-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m996-v4-public-base-temporal-sequence-corpus-export-design.md"
+    "command_log": "runs/m997_v4_public_base_temporal_sequence_corpus_export/summary.json"
   },
   "next_task": {
-    "id": "m997-v4-public-base-temporal-sequence-corpus-export-implementation",
+    "id": "m998-v4-public-base-capability-step-fault-generation-synthesis",
     "status": "pending",
-    "priority": 9920,
-    "kind": "infrastructure",
-    "hypothesis": "A no-training exporter can reconstruct M994 temporal accepted rows into exact-auditable sequence tensors with finite sanity metrics and unchanged actor parameters",
-    "command": "see experiments/manifests/m997-v4-public-base-temporal-sequence-corpus-export-implementation.json",
-    "success_artifact": "runs/m997_v4_public_base_temporal_sequence_corpus_export/summary.json",
-    "notes": "Pending: implement temporal sequence corpus exporter and exact no-update sanity before any objective design or training"
+    "priority": 9930,
+    "kind": "gate",
+    "hypothesis": "M989-M997 should be synthesized before temporal objective design because the branch produced a usable temporal corpus but did not produce cross-fault wrong-history evidence",
+    "command": "see experiments/manifests/m998-v4-public-base-capability-step-fault-generation-synthesis.json",
+    "success_artifact": "docs/m998-v4-public-base-capability-step-fault-generation-synthesis.md",
+    "notes": "Pending: synthesize capability-step fault generation branch and decide next branch before objective design"
   },
-  "updated_at_utc": "20260526T144905Z"
+  "updated_at_utc": "20260526T151532Z"
 }

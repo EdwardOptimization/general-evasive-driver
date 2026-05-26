@@ -121,6 +121,33 @@
     "docs/m996-v4-public-base-temporal-sequence-corpus-export-design.md",
     "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "run_dir": "runs/m997_v4_public_base_temporal_sequence_corpus_export",
+    "summary": "runs/m997_v4_public_base_temporal_sequence_corpus_export/summary.json",
+    "result_class": "temporal_sequence_corpus_export_pass",
+    "row_count": 277,
+    "positive_row_count": 277,
+    "diagnostic_row_count": 4608,
+    "unique_positive_fault_pairs": 9,
+    "unique_positive_seeds": 17,
+    "max_fault_pair_fraction": 0.19133574007220217,
+    "delayed_capability_history_positive_rows": 24,
+    "reset_then_warm_history_positive_rows": 253,
+    "normal_action_replay_l2_max": 0.0,
+    "variant_action_replay_l2_max": 0.0,
+    "temporal_logp_gap_mean": 33.59846878051758,
+    "temporal_preference_loss_mean": 0.034724775701761246,
+    "tensor_sanity_passed": true,
+    "replay_sanity_passed": true,
+    "exact_sanity_passed": true,
+    "source_diversity_passed": true,
+    "actor_parameters_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "temporal_sequence_corpus_export_pass_route_to_branch_synthesis",
   "decision_rule": "M997 should route to temporal objective design only if exact no-update corpus sanity and source-diversity gates pass.",
-  "next_blocker": "m997-v4-public-base-temporal-sequence-corpus-export-implementation"
+  "next_blocker": "m998-v4-public-base-capability-step-fault-generation-synthesis"
 }

@@ -15103,3 +15103,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M996 designs the temporal sequence corpus export. Positives are limited to `reset_then_warm_history` and `delayed_capability_history`; cross-fault/action-response mismatch variants remain diagnostic-only. The design requires `temporal_sequence_corpus.npz`, metadata, source-diversity gates, row weighting for the reset-dominated variant distribution, replay-action sanity, and finite exact no-update temporal preference diagnostics before any objective update.
 - decision: `temporal_sequence_corpus_export_design_admit_m997`
 - next: `m997-v4-public-base-temporal-sequence-corpus-export-implementation`
+
+## 20260526T151532Z - m997-v4-public-base-temporal-sequence-corpus-export-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m997_v4_public_base_temporal_sequence_corpus_export`
+- artifact: `docs/m997-v4-public-base-temporal-sequence-corpus-export-implementation.md`
+- result: M997 exports the M994 temporal positives into exact-auditable tensors: `277` positive rows, `4608` diagnostic rows, `9` positive fault pairs, `17` positive seeds, max fault-pair fraction `0.191336`, `24` delayed-history rows, and `253` reset-then-warm rows. Tensor sanity, replay sanity, exact no-update sanity, and source-diversity gates all pass; normal and variant action replay L2 max are both `0.0`; actor parameters are unchanged and no training/PPO/promotion occurs.
+- decision: `temporal_sequence_corpus_export_pass_route_to_branch_synthesis`
+- next: `m998-v4-public-base-capability-step-fault-generation-synthesis`
