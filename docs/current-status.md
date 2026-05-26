@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m961-v4-public-base-direction-target-export-actor-fit-objective-design
+m962-v4-public-base-direction-target-export-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -154,10 +154,17 @@ behavior grounding, and M267/M264 proof retention before any actor update.
 M960 implements that audit and finds `20` joint direction-target candidates, all
 from primary behavior-improving families. The best candidate is
 `throttle_minus_amp_0_0080`. M961 should design a branch-separated target export
-and actor-fit objective before any training.
+and actor-fit objective before any training. M961 completes that design: export
+accepted primary target rows, branch-separated proof anchors, and retention
+anchors before any actor fitting. M962 should implement the no-training export.
 
 ## Recent Evidence Line
 
+- M961 designs direction-target export and actor-fit objective. It keeps
+  training, PPO, promotion, private holdout, and actor-input changes blocked.
+  The next implementation must export accepted primary M960 target rows,
+  branch-separated M267/M264 proof anchors, and retention anchors before actor
+  fitting.
 - M960 implements the direction-family target audit. It evaluates `50` target
   families from `10` direction families over `64` low-tail rows and active
   M267/M264 rows `6/13/15/16`. Result:

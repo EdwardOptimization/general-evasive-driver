@@ -14763,3 +14763,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M960 implements the no-training direction-family target audit. It evaluates `50` target families from `10` direction families and amplitudes `0.001/0.002/0.004/0.006/0.008` over `64` low-tail rows. Result: `low_tail_direction_family_target_audit_joint_candidate`, with `20` joint candidates, all from primary behavior-improving families. Best candidate is `throttle_minus_amp_0_0080`; diagnostic-only anti-aligned families are not accepted.
 - decision: `low_tail_direction_family_target_audit_joint_candidate_route_to_export_objective_design`
 - next: `m961-v4-public-base-direction-target-export-actor-fit-objective-design`
+
+## 20260526T032626Z - m961-v4-public-base-direction-target-export-actor-fit-objective-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m961-v4-public-base-direction-target-export-actor-fit-objective-design.md`
+- result: M961 designs the branch-separated export and actor-fit objective route after M960. It requires accepted target export to include only primary joint candidates, keeps diagnostic-only and secondary families out of training targets, defines `accepted_direction_targets.csv`, `direction_target_family_catalog.csv`, `branch_separated_proof_targets.csv`, and `retention_anchor_targets.csv`, and specifies an objective-only actor-fit stage with direction-target, proof-normal, proof-wrong, retention, and KL/drift losses. Training, PPO, promotion, private holdout, and actor-input changes remain blocked.
+- decision: `direction_target_export_actor_fit_design_admit_m962`
+- next: `m962-v4-public-base-direction-target-export-implementation`

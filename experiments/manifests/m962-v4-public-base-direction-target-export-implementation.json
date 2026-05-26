@@ -1,0 +1,137 @@
+{
+  "id": "m962-v4-public-base-direction-target-export-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m961-v4-public-base-direction-target-export-actor-fit-objective-design.md",
+      "runs/m960_v4_public_base_low_tail_direction_family_target_audit/summary.json",
+      "runs/m960_v4_public_base_low_tail_direction_family_target_audit/direction_target_family_summary.csv",
+      "runs/m960_v4_public_base_low_tail_direction_family_target_audit/direction_target_rows.csv",
+      "runs/m960_v4_public_base_low_tail_direction_family_target_audit/m267_direction_target_preflight.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m961-v4-public-base-direction-target-export-actor-fit-objective-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training export of M960 accepted direction targets and branch-separated proof targets"
+    ],
+    "derived_from": [
+      "m961-v4-public-base-direction-target-export-actor-fit-objective-design"
+    ],
+    "blocked_by": [
+      "M961 designs the export and actor-fit objective but the target corpus has not been materialized"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "actor fitting before accepted direction targets and branch-separated proof anchors are exported"
+    ]
+  },
+  "review_artifact": "docs/reviews/m962-v4-public-base-direction-target-export-implementation.md",
+  "public_gates": [
+    "M962 must not train",
+    "M962 must not run PPO",
+    "M962 must not promote",
+    "M962 must preserve the P0 actor-input contract",
+    "M962 must export only M960 accepted primary target families",
+    "M962 must export branch-separated proof targets"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote",
+    "do not export diagnostic-only anti-aligned families as training targets",
+    "do not collapse wrong-history proof targets into normal safe targets"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_replay_constrained_target_feasibility",
+    "evidence_axis": "G_target_feasibility: existence of replay-constrained targets before more actor updates",
+    "evidence_increment": "materializes accepted direction-target corpus after M961 design",
+    "claim_scope": "process/no-training export only; no actor training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if accepted target rows cannot be reconstructed",
+      "stop if export includes diagnostic-only anti-aligned target families",
+      "stop if branch-separated proof anchors cannot be exported"
+    ],
+    "fallback_plan": [
+      "if export succeeds, route to direction-target actor-fit objective implementation",
+      "if export is source dominated, route to source-diverse direction target refresh",
+      "if proof anchors fail export, route to branch-separated target refinement"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M961 designs target export after M960 joint candidates",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M960 accepted direction targets can be materialized into an auditable branch-separated target corpus without actor changes.",
+  "success_criteria": [
+    "summary artifact exists",
+    "accepted_direction_targets.csv is written",
+    "direction_target_family_catalog.csv is written",
+    "branch_separated_proof_targets.csv is written",
+    "retention_anchor_targets.csv is written",
+    "rejected_export_candidates.csv is written",
+    "route decision is explicit",
+    "training, PPO, and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "implementation trains or updates model weights",
+    "implementation changes actor inputs",
+    "implementation exports diagnostic-only anti-aligned families as targets",
+    "implementation omits branch-separated proof targets",
+    "implementation promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "run_direction_target_export",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_direction_target_export"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m962_v4_public_base_direction_target_export/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m962_v4_public_base_direction_target_export/accepted_direction_targets.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m962_v4_public_base_direction_target_export/direction_target_family_catalog.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m962_v4_public_base_direction_target_export/branch_separated_proof_targets.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m962_v4_public_base_direction_target_export/retention_anchor_targets.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m962_v4_public_base_direction_target_export/rejected_export_candidates.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m962_v4_public_base_direction_target_export/route_decision.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m961-v4-public-base-direction-target-export-actor-fit-objective-design.md",
+    "runs/m960_v4_public_base_low_tail_direction_family_target_audit/summary.json"
+  ],
+  "decision_rule": "M962 may only export direction-target corpus artifacts. It must not update actor parameters, run PPO, change actor inputs, use private holdout, or promote.",
+  "next_blocker": "direction target export has not been implemented"
+}
