@@ -1,0 +1,136 @@
+{
+  "id": "m960-v4-public-base-low-tail-direction-family-target-audit-implementation",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m959-v4-public-base-low-tail-direction-family-target-audit-design.md",
+      "runs/m958_v4_public_base_low_tail_target_metric_artifact_audit/summary.json",
+      "runs/m958_v4_public_base_low_tail_target_metric_artifact_audit/direction_family_summary.csv",
+      "runs/m958_v4_public_base_low_tail_target_metric_artifact_audit/row_metric_grounding.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m959-v4-public-base-low-tail-direction-family-target-audit-design.json"
+    ],
+    "parent_objective": [
+      "implement a no-training audit converting behavior-improving M958 direction families into normal-retained proof-retained target candidates"
+    ],
+    "derived_from": [
+      "m959-v4-public-base-low-tail-direction-family-target-audit-design"
+    ],
+    "blocked_by": [
+      "M958 finds direction-sign suspicion and M959 designs direction-family target audit but the audit has not been implemented"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "training on away-from-intervention low-tail targets",
+      "actor fitting on direction-family targets before normal-retention and M267 proof-retention checks"
+    ]
+  },
+  "review_artifact": "docs/reviews/m960-v4-public-base-low-tail-direction-family-target-audit-implementation.md",
+  "public_gates": [
+    "M960 must not train",
+    "M960 must not run PPO",
+    "M960 must not promote",
+    "M960 must preserve the P0 actor-input contract",
+    "M960 must evaluate normal-retention metrics",
+    "M960 must evaluate terminal-margin behavior grounding",
+    "M960 must evaluate M267/M264 branch-separated proof retention"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote",
+    "do not treat old low-tail proxy improvement as sufficient without terminal-margin grounding",
+    "do not export diagnostic-only anti-aligned families as training targets"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_replay_constrained_target_feasibility",
+    "evidence_axis": "G_target_feasibility: existence of replay-constrained targets before more actor updates",
+    "evidence_increment": "implements no-training target admissibility audit for M958 behavior-improving direction families",
+    "claim_scope": "process/no-training target feasibility diagnostic only; no actor training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if no direction target family can be evaluated",
+      "stop if normal-retention metrics are unavailable",
+      "stop if terminal-margin behavior grounding is omitted",
+      "stop if M267/M264 proof retention is omitted"
+    ],
+    "fallback_plan": [
+      "if joint direction target candidates exist, route to direction target export and actor-fit objective design",
+      "if behavior improves but retention fails, route to amplitude-calibrated direction target audit",
+      "if M267 proof fails, route to branch-separated direction target refinement",
+      "if no behavior-grounded family remains, route to target-source refresh"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M959 designs direction-family target audit after M958 direction-sign suspicion",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Behavior-improving direction families from M958 can yield at least one normal-retained, proof-retained target candidate before actor training.",
+  "success_criteria": [
+    "summary artifact exists",
+    "direction target family summary is written",
+    "row-level direction target metrics are written",
+    "normal-retention metrics are written",
+    "M267/M264 direction target preflight is written",
+    "route decision is explicit",
+    "training, PPO, and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "implementation trains or updates model weights",
+    "implementation changes actor inputs",
+    "implementation omits normal-retention checks",
+    "implementation omits terminal-margin behavior grounding",
+    "implementation omits M267/M264 proof retention",
+    "implementation promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "run_direction_family_target_audit",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_low_tail_direction_family_target_audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m960_v4_public_base_low_tail_direction_family_target_audit/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m960_v4_public_base_low_tail_direction_family_target_audit/direction_target_family_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m960_v4_public_base_low_tail_direction_family_target_audit/direction_target_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m960_v4_public_base_low_tail_direction_family_target_audit/normal_retention_metrics.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m960_v4_public_base_low_tail_direction_family_target_audit/m267_direction_target_preflight.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m960_v4_public_base_low_tail_direction_family_target_audit/route_decision.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m959-v4-public-base-low-tail-direction-family-target-audit-design.md",
+    "runs/m958_v4_public_base_low_tail_target_metric_artifact_audit/summary.json"
+  ],
+  "decision_rule": "M960 may only run a no-training direction-family target audit. It must not update actor parameters, run PPO, change actor inputs, use private holdout, or promote.",
+  "next_blocker": "low-tail direction-family target audit has not been implemented"
+}

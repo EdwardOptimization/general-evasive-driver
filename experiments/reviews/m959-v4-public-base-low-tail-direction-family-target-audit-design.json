@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M959 designs no-training direction-family target audit using M958 behavior-improving families with normal-retention terminal-margin and M267 proof-retention checks before actor training",
+  "failure_criteria": [
+    "design recommends actor training before target feasibility",
+    "design changes actor inputs",
+    "design omits M267 proof retention",
+    "design reuses away-from-intervention targets as primary without justification"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote",
+    "do not train on direction-family targets before target audit"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260526T023244Z",
+  "hypothesis": "Behavior-improving direction families from M958 can be converted into normal-retained low-tail target candidates before actor training.",
+  "lineage": {
+    "blocked_by": [
+      "M958 finds away-from-intervention proxy improvement is anti-aligned with terminal margin while toward/brake/throttle directions improve behavior"
+    ],
+    "derived_from": [
+      "m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation"
+    ],
+    "invalidates": [
+      "training on away-from-intervention low-tail targets before direction-family target audit"
+    ],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation.md",
+      "runs/m958_v4_public_base_low_tail_target_metric_artifact_audit/summary.json",
+      "runs/m958_v4_public_base_low_tail_target_metric_artifact_audit/direction_family_summary.csv",
+      "runs/m958_v4_public_base_low_tail_target_metric_artifact_audit/row_metric_grounding.csv"
+    ],
+    "parent_objective": [
+      "design no-training target-direction audit after M958 finds direction-sign suspicion"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m959-v4-public-base-low-tail-direction-family-target-audit-design",
+  "next_blocker": "low-tail direction-family target audit has not been designed",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "low_tail_direction_family_target_audit_design_admit_m960",
+  "public_gates": [
+    "M959 must not train",
+    "M959 must not run PPO",
+    "M959 must not promote",
+    "M959 must preserve the P0 actor-input contract",
+    "M959 must design a no-training audit for behavior-improving direction-family target candidates"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m959-v4-public-base-low-tail-direction-family-target-audit-design.md",
+    "clearance_margin_mean": "",
+    "decision": "low_tail_direction_family_target_audit_design_admit_m960",
+    "milestone": "m959-v4-public-base-low-tail-direction-family-target-audit-design",
+    "reason": "M959 designs no-training direction-family target audit using M958 behavior-improving families with normal-retention terminal-margin and M267 proof-retention checks before actor training",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design document exists",
+    "candidate direction families are explicit",
+    "normal-retention and terminal-margin criteria are explicit",
+    "M267 proof-retention handling remains explicit",
+    "training, PPO, and promotion remain blocked"
+  ],
+  "type": "gate"
+}

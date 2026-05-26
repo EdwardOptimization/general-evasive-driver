@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m959-v4-public-base-low-tail-direction-family-target-audit-design
+m960-v4-public-base-low-tail-direction-family-target-audit-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -144,10 +144,24 @@ target-source refresh. M958 implements it and finds direction-sign suspicion:
 away-from-intervention improves the proxy but worsens terminal margin, while
 toward-intervention and several action-axis directions improve terminal margin.
 M959 should design a no-training target audit for behavior-improving direction
-families before any actor training.
+families before any actor training. M959 completes that design. It makes
+`throttle_minus`, `brake_plus`, `toward_intervention`, and
+`steer_minus_brake_plus` primary target families; keeps `steer_minus` and
+`steer_plus_brake_plus` secondary; and marks anti-aligned families such as
+`away_from_intervention` diagnostic-only. M960 should implement the no-training
+direction-family target audit and require normal retention, terminal-margin
+behavior grounding, and M267/M264 proof retention before any actor update.
 
 ## Recent Evidence Line
 
+- M959 designs the low-tail direction-family target audit. It blocks training,
+  PPO, promotion, private holdout, threshold relaxation, and actor-input
+  changes. Primary target families are `throttle_minus`, `brake_plus`,
+  `toward_intervention`, and `steer_minus_brake_plus`, with `steer_minus` and
+  `steer_plus_brake_plus` secondary. M960 must implement a no-training audit
+  that accepts a direction target only if it passes normal retention,
+  terminal-margin behavior grounding, and M267/M264 branch-separated proof
+  retention.
 - M958 implements the low-tail target metric artifact audit. It evaluates `10`
   direction families over `64` low-tail rows and `1920` row/action cases.
   Result: `low_tail_metric_artifact_audit_direction_sign_suspicion`.

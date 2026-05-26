@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 967,
+    "completed": 968,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation",
+    "task_id": "m959-v4-public-base-low-tail-direction-family-target-audit-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m958_v4_public_base_low_tail_target_metric_artifact_audit/summary.json"
+    "command_log": "docs/m959-v4-public-base-low-tail-direction-family-target-audit-design.md"
   },
   "next_task": {
-    "id": "m959-v4-public-base-low-tail-direction-family-target-audit-design",
+    "id": "m960-v4-public-base-low-tail-direction-family-target-audit-implementation",
     "status": "pending",
-    "priority": 9540,
+    "priority": 9550,
     "kind": "gate",
-    "hypothesis": "Behavior-improving direction families from M958 can be converted into normal-retained low-tail target candidates before actor training",
-    "command": "see experiments/manifests/m959-v4-public-base-low-tail-direction-family-target-audit-design.json",
-    "success_artifact": "docs/m959-v4-public-base-low-tail-direction-family-target-audit-design.md",
-    "notes": "Pending: design no-training target audit for behavior-improving direction families from M958"
+    "hypothesis": "Behavior-improving direction families from M958 can yield at least one normal-retained, proof-retained target candidate before actor training",
+    "command": "see experiments/manifests/m960-v4-public-base-low-tail-direction-family-target-audit-implementation.json",
+    "success_artifact": "runs/m960_v4_public_base_low_tail_direction_family_target_audit/summary.json",
+    "notes": "Pending: implement no-training target audit for behavior-improving direction families from M958"
   },
-  "updated_at_utc": "20260526T021007Z"
+  "updated_at_utc": "20260526T023006Z"
 }
