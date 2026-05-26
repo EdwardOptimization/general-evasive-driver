@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1024-v4-public-base-candidate-b-post-promotion-synthesis
+m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design
 ```
 
 M1019 passed the full public gate for Candidate B `m1013_lam0030_a050`.
@@ -96,7 +96,10 @@ private holdout, or actor-input change. M1023 promoted Candidate B as the
 current public-gate base. That promotion is public-gate status only and does
 not claim private holdout, paper-level, or real-vehicle evidence. M1024 must
 synthesize the post-promotion route before PPO continuation, surface refresh,
-or further objective work.
+or further objective work. M1024 completed that synthesis and opened the
+Candidate B guarded PPO readiness branch. M1025 must design a smoke-scale PPO
+proposal with exact/proof/generalization/behavior rollback criteria before any
+PPO run.
 
 ### Historical Trace
 

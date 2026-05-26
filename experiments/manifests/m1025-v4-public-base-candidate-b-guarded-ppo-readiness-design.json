@@ -1,0 +1,103 @@
+{
+  "id": "m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1024-v4-public-base-candidate-b-post-promotion-synthesis.md",
+      "runs/m1022_v4_public_base_candidate_b_promotion_generalization_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1024-v4-public-base-candidate-b-post-promotion-synthesis.json"
+    ],
+    "parent_objective": [
+      "design guarded PPO readiness protocol from the Candidate B public-gate base"
+    ],
+    "derived_from": [
+      "m1024-v4-public-base-candidate-b-post-promotion-synthesis"
+    ],
+    "blocked_by": [
+      "Candidate B is promoted but PPO continuation has no guarded readiness protocol yet"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running PPO directly from Candidate B without readiness design"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design.md",
+  "public_gates": [
+    "M1025 must design PPO readiness only",
+    "M1025 must not run PPO",
+    "M1025 must not promote",
+    "M1025 must not use private holdout",
+    "M1025 must preserve P0 actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO in the design milestone",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote from smoke PPO",
+    "do not omit rollback criteria"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_candidate_b_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo: Candidate B guarded PPO readiness design",
+    "evidence_increment": "starts guarded PPO readiness branch from the Candidate B public-gate base",
+    "claim_scope": "design only; no PPO run, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if rollback criteria cannot be specified",
+      "stop if proof, generalization, and behavior gates are not separated",
+      "stop if the protocol would allow promotion from a smoke PPO result"
+    ],
+    "fallback_plan": [
+      "if readiness design is accepted, run exactly one smoke-scale PPO proposal in the next milestone",
+      "if proof risk is too high, route to post-promotion surface refresh before PPO",
+      "if generalization risk is too high, route to additional public generalization first"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1024 opens the Candidate B guarded PPO readiness branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A smoke-scale guarded PPO proposal from Candidate B should only be attempted after explicit exact/proof/generalization/behavior rollback criteria are designed.",
+  "success_criteria": [
+    "design artifact exists",
+    "base checkpoint and PPO proposal scope are explicit",
+    "proof, generalization, behavior, and rollback gates are specified",
+    "PPO, promotion, and private holdout remain blocked"
+  ],
+  "failure_criteria": [
+    "design runs PPO",
+    "design omits replay proof retention",
+    "design omits fresh public checks",
+    "design omits rollback criteria",
+    "design allows promotion from smoke PPO"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1024-v4-public-base-candidate-b-post-promotion-synthesis.md"
+  ],
+  "decision_rule": "M1025 should admit a single smoke-scale guarded PPO proposal only if rollback and gate ordering are explicit.",
+  "next_blocker": "m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design"
+}

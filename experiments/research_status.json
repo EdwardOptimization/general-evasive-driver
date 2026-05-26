@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1032,
+    "completed": 1033,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1023-v4-public-base-candidate-b-promotion-audit",
+    "task_id": "m1024-v4-public-base-candidate-b-post-promotion-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1023-v4-public-base-candidate-b-promotion-audit.md"
+    "command_log": "docs/m1024-v4-public-base-candidate-b-post-promotion-synthesis.md"
   },
   "next_task": {
-    "id": "m1024-v4-public-base-candidate-b-post-promotion-synthesis",
+    "id": "m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design",
     "status": "pending",
-    "priority": 10190,
+    "priority": 10200,
     "kind": "gate",
-    "hypothesis": "Candidate B post-promotion work should be synthesized before PPO continuation or additional objective updates",
-    "command": "see experiments/manifests/m1024-v4-public-base-candidate-b-post-promotion-synthesis.json",
-    "success_artifact": "docs/m1024-v4-public-base-candidate-b-post-promotion-synthesis.md",
-    "notes": "Pending: synthesize post-promotion route before PPO, surface refresh, or further objective work"
+    "hypothesis": "A smoke-scale guarded PPO proposal from Candidate B should only be attempted after explicit exact/proof/generalization/behavior rollback criteria are designed",
+    "command": "see experiments/manifests/m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design.json",
+    "success_artifact": "docs/m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design.md",
+    "notes": "Pending: design guarded PPO readiness and rollback gates before any PPO run"
   },
-  "updated_at_utc": "20260526T202604Z"
+  "updated_at_utc": "20260526T203151Z"
 }

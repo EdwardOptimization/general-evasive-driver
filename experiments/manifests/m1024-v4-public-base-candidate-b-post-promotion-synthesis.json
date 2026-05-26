@@ -65,7 +65,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1023 promotes Candidate B as the public-gate base",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "promote_to_next_branch",
     "synthesis_artifact": "docs/m1024-v4-public-base-candidate-b-post-promotion-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -109,6 +109,29 @@
   "baseline_artifacts": [
     "docs/m1023-v4-public-base-candidate-b-promotion-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1024-v4-public-base-candidate-b-post-promotion-synthesis.md",
+    "supported_claims": [
+      "Candidate B is a valid public-gate base successor to M974",
+      "promotion discipline worked through separate promotion/generalization and audit milestones",
+      "next PPO work requires a guarded readiness protocol"
+    ],
+    "falsified_claims": [
+      "Candidate B should be dismissed because unsigned branch-L2 was high",
+      "Candidate B can be promoted from a single proof surface",
+      "PPO can start immediately after promotion",
+      "public-gate promotion is paper-level evidence"
+    ],
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "v4_public_base_candidate_b_promotion_generalization",
+    "opened_branch": "v4_public_base_candidate_b_guarded_ppo_readiness",
+    "next_milestone": "m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design",
+    "training_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false
+  },
+  "decision": "candidate_b_post_promotion_synthesis_promote_to_guarded_ppo_readiness",
   "decision_rule": "M1024 must decide whether the next route is guarded PPO readiness, surface refresh, or more public generalization.",
-  "next_blocker": "m1024-v4-public-base-candidate-b-post-promotion-synthesis"
+  "next_blocker": "m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design"
 }
