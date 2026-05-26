@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1008,
+    "completed": 1009,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m999-v4-public-base-temporal-sequence-objective-design",
+    "task_id": "m1000-v4-public-base-temporal-sequence-objective-evaluator",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m999-v4-public-base-temporal-sequence-objective-design.md"
+    "command_log": "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json"
   },
   "next_task": {
-    "id": "m1000-v4-public-base-temporal-sequence-objective-evaluator",
+    "id": "m1001-v4-public-base-temporal-sequence-objective-update-design",
     "status": "pending",
-    "priority": 9950,
+    "priority": 9960,
     "kind": "infrastructure",
-    "hypothesis": "The M999 temporal sequence objective can be evaluated exactly on the M997 corpus with finite baseline metrics and unchanged actor parameters",
-    "command": "see experiments/manifests/m1000-v4-public-base-temporal-sequence-objective-evaluator.json",
-    "success_artifact": "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json",
-    "notes": "Pending: implement exact no-update temporal sequence objective evaluator before actor update or PPO"
+    "hypothesis": "A tiny objective-only actor_mean update can be designed with exact preflight gates before any implementation or PPO",
+    "command": "see experiments/manifests/m1001-v4-public-base-temporal-sequence-objective-update-design.json",
+    "success_artifact": "docs/m1001-v4-public-base-temporal-sequence-objective-update-design.md",
+    "notes": "Pending: design exact-gated objective-only actor update before implementation or PPO"
   },
-  "updated_at_utc": "20260526T153335Z"
+  "updated_at_utc": "20260526T154915Z"
 }

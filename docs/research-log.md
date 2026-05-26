@@ -15131,3 +15131,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M999 designs the first objective over the M997 corpus: normal-sequence retention is the only direct behavior imitation target, temporal preference separation contrasts normal hidden against disrupted temporal hidden on the normal sequence, and a base-logp anchor constrains drift. Variant histories remain contrast-only and must not be trained toward degraded actions. Row weights, exact no-update metrics, and public replay/proof gates are required before any actor update.
 - decision: `temporal_sequence_objective_design_admit_exact_evaluator`
 - next: `m1000-v4-public-base-temporal-sequence-objective-evaluator`
+
+## 20260526T154915Z - m1000-v4-public-base-temporal-sequence-objective-evaluator
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m1000_v4_public_base_temporal_sequence_objective_evaluator`
+- artifact: `docs/m1000-v4-public-base-temporal-sequence-objective-evaluator.md`
+- result: M1000 implements the exact no-update evaluator over the M997 corpus. It passes finite metric, mask, weight, replay, and actor-checksum sanity. Key baselines: weighted normal sequence NLL `-1.373014`, weighted temporal preference loss `0.491601`, weighted logp gap mean `0.640106`, temporal logp gap p10/p50/p90 `0.053981/0.419248/1.734969`, normal action replay L2 max `0.0`. No training/PPO/promotion occurs.
+- decision: `temporal_sequence_objective_evaluator_pass_route_to_update_design`
+- next: `m1001-v4-public-base-temporal-sequence-objective-update-design`

@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1000-v4-public-base-temporal-sequence-objective-evaluator
+m1001-v4-public-base-temporal-sequence-objective-update-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -291,12 +291,17 @@ M998 synthesizes M989-M997, closes the capability-step fault generation branch,
 and opens `v4_public_base_temporal_sequence_objective` while blocking
 cross-fault overclaims. M999 designs the exact temporal sequence objective:
 normal-sequence retention, temporal preference separation, and a base-logp
-anchor, with disrupted histories used only as contrast conditions. The next
-task is M1000: implement the no-update exact evaluator before actor update or
-PPO. Training and PPO remain blocked.
+anchor, with disrupted histories used only as contrast conditions. M1000
+implements the no-update evaluator and passes exact objective, replay, mask,
+weight, and actor-checksum sanity. The next task is M1001: design a tiny
+exact-gated objective-only actor update before implementation or PPO. Training
+and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M1000 implements the temporal sequence objective evaluator. Exact no-update
+  sanity passes on M997: weighted normal NLL `-1.373014`, weighted preference
+  loss `0.491601`, weighted logp gap `0.640106`, replay L2 max `0.0`.
 - M999 designs the temporal sequence objective. Normal uninterrupted history is
   the only direct behavior target; disrupted temporal histories are contrast-
   only and must not be trained toward degraded actions.

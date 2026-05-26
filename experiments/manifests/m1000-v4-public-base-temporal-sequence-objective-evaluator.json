@@ -113,6 +113,30 @@
     "docs/m999-v4-public-base-temporal-sequence-objective-design.md",
     "runs/m997_v4_public_base_temporal_sequence_corpus_export/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "run_dir": "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator",
+    "summary": "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json",
+    "result_class": "temporal_sequence_objective_evaluator_pass",
+    "row_count": 277,
+    "positive_row_count": 277,
+    "normal_sequence_nll_mean": -1.365234613418579,
+    "temporal_preference_loss_mean": 0.47018685936927795,
+    "temporal_logp_gap_mean": 0.7140212655067444,
+    "temporal_logp_gap_p10": 0.053981408476829536,
+    "temporal_logp_gap_p50": 0.41924795508384705,
+    "temporal_logp_gap_p90": 1.7349691390991213,
+    "weighted_normal_sequence_nll": -1.3730138611383471,
+    "weighted_temporal_preference_loss": 0.49160101263735884,
+    "weighted_logp_gap_mean": 0.6401062368431285,
+    "normal_action_replay_l2_max": 0.0,
+    "exact_objective_sanity_passed": true,
+    "actor_parameters_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "temporal_sequence_objective_evaluator_pass_route_to_update_design",
   "decision_rule": "M1000 should route to objective-only actor update design only if exact no-update objective sanity passes.",
-  "next_blocker": "m1000-v4-public-base-temporal-sequence-objective-evaluator"
+  "next_blocker": "m1001-v4-public-base-temporal-sequence-objective-update-design"
 }

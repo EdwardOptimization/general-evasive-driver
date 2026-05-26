@@ -1,0 +1,111 @@
+{
+  "id": "m1001-v4-public-base-temporal-sequence-objective-update-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1000-v4-public-base-temporal-sequence-objective-evaluator.md",
+      "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1000-v4-public-base-temporal-sequence-objective-evaluator.json"
+    ],
+    "parent_objective": [
+      "design a tiny objective-only temporal sequence actor update after exact evaluator sanity passes"
+    ],
+    "derived_from": [
+      "m1000-v4-public-base-temporal-sequence-objective-evaluator",
+      "m999-v4-public-base-temporal-sequence-objective-design"
+    ],
+    "blocked_by": [
+      "M1000 passes no-update exact objective sanity and admits update design only"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running actor update without exact objective acceptance criteria"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1001-v4-public-base-temporal-sequence-objective-update-design.md",
+  "public_gates": [
+    "M1001 must not train",
+    "M1001 must not run PPO",
+    "M1001 must not promote",
+    "M1001 must specify exact objective acceptance gates",
+    "M1001 must preserve P0 actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not train or optimize actor parameters",
+    "do not use private holdout",
+    "do not claim cross-fault wrong-history self-ID",
+    "do not train variant histories toward degraded actions",
+    "do not proceed to PPO"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_temporal_sequence_objective",
+    "evidence_axis": "G_temporal_objective: design exact-gated objective-only actor update",
+    "evidence_increment": "turns M1000 exact evaluator baselines into a bounded actor-update design and gate plan",
+    "claim_scope": "design/infrastructure only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if update design cannot preserve the temporal logp gap",
+      "stop if trainable surface is broader than justified",
+      "stop if public replay gates are not specified",
+      "stop if diagnostic cross-fault rows enter the positive loss"
+    ],
+    "fallback_plan": [
+      "if actor_mean-only is too weak, require a design audit before widening to fusion",
+      "if temporal gap collapse risk is high, add a gap-floor exact gate before training",
+      "if public proof gates are too expensive, design a preflight subset before full replay"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1000 exact evaluator passes and admits update design",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A tiny objective-only actor_mean update can be designed with exact preflight gates before any implementation or PPO.",
+  "success_criteria": [
+    "design artifact exists",
+    "trainable surface is specified",
+    "exact objective acceptance gates are specified",
+    "public replay gates are specified",
+    "rollback criteria are specified",
+    "no training or PPO occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "trainable surface is too broad",
+    "exact gates are missing",
+    "diagnostic cross-fault rows are positive targets",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1001-v4-public-base-temporal-sequence-objective-update-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1001-v4-public-base-temporal-sequence-objective-update-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json",
+    "docs/m1000-v4-public-base-temporal-sequence-objective-evaluator.md"
+  ],
+  "decision_rule": "M1001 must decide whether an objective-only actor update is admissible and exactly how M1002 should gate it.",
+  "next_blocker": "m1001-v4-public-base-temporal-sequence-objective-update-design"
+}
