@@ -104,6 +104,23 @@
     "docs/m992-v4-public-base-capability-step-reset-only-audit.md",
     "runs/m991_v4_public_base_capability_step_fault_source_wave/reset_only_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m993-v4-public-base-capability-step-sequence-intervention-design.md",
+    "candidate_interventions": [
+      "delayed_capability_history",
+      "cross_fault_response_window",
+      "action_response_mismatch_window",
+      "zero_command_history_window",
+      "reset_then_warm_history"
+    ],
+    "requires_trace_window_probe": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "actor_input_contract_changed": false
+  },
+  "decision": "sequence_intervention_design_admit_probe",
   "decision_rule": "M993 must define the no-training sequence-level intervention probe before any implementation or training.",
-  "next_blocker": "capability-step sequence intervention has not been designed"
+  "next_blocker": "m994-v4-public-base-capability-step-sequence-intervention-probe"
 }

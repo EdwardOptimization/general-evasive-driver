@@ -1,0 +1,117 @@
+{
+  "id": "m994-v4-public-base-capability-step-sequence-intervention-probe",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m993-v4-public-base-capability-step-sequence-intervention-design.md",
+      "runs/m991_v4_public_base_capability_step_fault_source_wave/reset_only_rows.csv"
+    ],
+    "parent_config": [
+      "configs/m991_capability_step_fault_source_wave.json",
+      "experiments/manifests/m993-v4-public-base-capability-step-sequence-intervention-design.json"
+    ],
+    "parent_objective": [
+      "implement and run a no-training sequence-level action-response mismatch probe for capability-step reset-only rows"
+    ],
+    "derived_from": [
+      "m993-v4-public-base-capability-step-sequence-intervention-design",
+      "m992-v4-public-base-capability-step-reset-only-audit"
+    ],
+    "blocked_by": [
+      "M993 requires a trace-window probe before sequence-level interventions can be evaluated"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m994-v4-public-base-capability-step-sequence-intervention-probe.md",
+  "public_gates": [
+    "M994 must not run PPO",
+    "M994 must not promote",
+    "M994 must not change actor inputs",
+    "M994 must preserve hidden fault labels as metadata only",
+    "M994 must report reset-only, action-only, and outcome-critical sequence rows separately"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not train or optimize actor parameters",
+    "do not use private holdout",
+    "do not claim true per-wheel/asymmetric faults",
+    "do not count reset-only rows as accepted sequence wrong-history rows",
+    "do not proceed to PPO"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_capability_step_fault_generation",
+    "evidence_axis": "G_sequence_intervention: no-training capability-step sequence intervention evidence",
+    "evidence_increment": "implements and smoke-runs the sequence-level probe designed in M993",
+    "claim_scope": "no-training probe only; no promotion, no PPO, no private holdout",
+    "stop_condition": [
+      "stop if trace-window reconstruction fails",
+      "stop if actor checksum changes",
+      "stop if normal rows fail too often to evaluate interventions",
+      "stop if sequence interventions produce only reset-only evidence"
+    ],
+    "fallback_plan": [
+      "if trace reconstruction fails, split a minimal trace exporter into a separate infrastructure milestone",
+      "if sequence interventions are action-only, design terminal-margin-grounded sequence target redesign",
+      "if sequence interventions are reset-only, synthesize branch and consider dynamics extension",
+      "if source-diverse sequence outcomes appear, route to corpus export and exact objective sanity"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M993 admits implementation of the sequence-level intervention probe",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Sequence-level command-response mismatch over M991 reset-only rows will create stronger and more behaviorally grounded belief-mismatch evidence than a single wrong hidden-state swap.",
+  "success_criteria": [
+    "probe runner exists or an implementation blocker is documented",
+    "summary.json exists if the probe runs",
+    "source rows are reconstructed from M991 reset-only diagnostics",
+    "normal rows and intervention rows are reported separately",
+    "sequence action gaps and terminal margin gaps are reported",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false"
+  ],
+  "failure_criteria": [
+    "hidden event labels enter actor observations",
+    "actor parameters change",
+    "training or PPO starts",
+    "promotion occurs",
+    "reset-only rows are counted as sequence wrong-history proof",
+    "route decision is missing"
+  ],
+  "commands": [
+    {
+      "name": "probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_step_sequence_intervention_probe --checkpoint runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt --config configs/m991_capability_step_fault_source_wave.json --source-rows runs/m991_v4_public_base_capability_step_fault_source_wave/reset_only_rows.csv --max-source-rows 384 --per-fault-pair-cap 48 --history-lengths 4,8,12 --max-continuation-steps 48 --min-margin-gap 0.012 --min-sequence-action-l2 0.025 --device auto --run-dir runs/m994_v4_public_base_capability_step_sequence_intervention_probe"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m994-v4-public-base-capability-step-sequence-intervention-probe.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m993-v4-public-base-capability-step-sequence-intervention-design.md",
+    "runs/m991_v4_public_base_capability_step_fault_source_wave/reset_only_rows.csv"
+  ],
+  "decision_rule": "M994 must determine whether sequence-level action-response mismatch produces outcome-relevant self-ID evidence or remains reset-only/action-only.",
+  "next_blocker": "capability-step sequence intervention probe has not been implemented or run"
+}

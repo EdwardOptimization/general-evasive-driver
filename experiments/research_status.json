@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1001,
+    "completed": 1002,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m992-v4-public-base-capability-step-reset-only-audit",
+    "task_id": "m993-v4-public-base-capability-step-sequence-intervention-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m992-v4-public-base-capability-step-reset-only-audit.md"
+    "command_log": "docs/m993-v4-public-base-capability-step-sequence-intervention-design.md"
   },
   "next_task": {
-    "id": "m993-v4-public-base-capability-step-sequence-intervention-design",
+    "id": "m994-v4-public-base-capability-step-sequence-intervention-probe",
     "status": "pending",
-    "priority": 9880,
-    "kind": "infrastructure",
-    "hypothesis": "A sequence-level action-response mismatch intervention can create a cleaner belief mismatch than single hidden-state swaps on capability-step reset-only rows",
-    "command": "see experiments/manifests/m993-v4-public-base-capability-step-sequence-intervention-design.json",
-    "success_artifact": "docs/m993-v4-public-base-capability-step-sequence-intervention-design.md",
-    "notes": "Pending: design the no-training sequence-level intervention probe before implementation"
+    "priority": 9890,
+    "kind": "gate",
+    "hypothesis": "Sequence-level command-response mismatch over M991 reset-only rows will create stronger and more behaviorally grounded belief-mismatch evidence than a single wrong hidden-state swap",
+    "command": "see experiments/manifests/m994-v4-public-base-capability-step-sequence-intervention-probe.json",
+    "success_artifact": "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/summary.json",
+    "notes": "Pending: implement and run no-training trace-window sequence intervention probe"
   },
-  "updated_at_utc": "20260526T132441Z"
+  "updated_at_utc": "20260526T134010Z"
 }

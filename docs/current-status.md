@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m993-v4-public-base-capability-step-sequence-intervention-design
+m994-v4-public-base-capability-step-sequence-intervention-probe
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -278,10 +278,15 @@ rows, so the M990 wrong-history signal does not repeat under fresh larger
 coverage. M992 audits the reset-only rows: wrong-history first-action gaps are
 mostly near zero while reset-hidden action and margin gaps are large. The next
 task is M993: design a no-training sequence-level action-response mismatch
-intervention before implementation. Training and PPO remain blocked.
+intervention before implementation. M993 completes that design and admits M994:
+implement/run a trace-window sequence intervention probe using M991 reset-only
+rows. Training and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M993 designs the next no-training probe: trace-window sequence interventions
+  over M991 reset-only rows, with delayed history, cross-fault response window,
+  action-response mismatch, zero-command history, and reset-then-warm variants.
 - M992 shows the reset-only issue is structural: wrong matched histories are
   too compatible (`action_l2 p50=0.0`, wrong margin gap near zero), while
   reset-hidden is a large disruption. Route: sequence-level action-response

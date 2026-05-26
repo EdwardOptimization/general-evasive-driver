@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M993 designs a no-training trace-window sequence intervention probe to test action-response mismatch on M991 reset-only rows",
+  "failure_criteria": [
+    "design artifact is missing",
+    "route decision is missing",
+    "hidden labels would enter actor observation",
+    "reset-only rows are treated as proof-positive",
+    "training or PPO starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not train or optimize",
+    "do not use private holdout",
+    "do not claim true per-wheel/asymmetric faults",
+    "do not count reset-only rows as accepted wrong-history rows",
+    "do not proceed to PPO"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260526T134151Z",
+  "hypothesis": "A sequence-level action-response mismatch intervention can create a cleaner belief mismatch than single hidden-state swaps on capability-step reset-only rows.",
+  "lineage": {
+    "blocked_by": [
+      "M991 wrong-history hidden swaps are too compatible while reset-hidden is strongly disruptive"
+    ],
+    "derived_from": [
+      "m992-v4-public-base-capability-step-reset-only-audit",
+      "m991-v4-public-base-capability-step-fault-source-wave"
+    ],
+    "invalidates": [
+      "continuing same-style single-hidden-swap mining without a new intervention"
+    ],
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m992-v4-public-base-capability-step-reset-only-audit.json",
+      "configs/m991_capability_step_fault_source_wave.json"
+    ],
+    "parent_dataset": [
+      "docs/m992-v4-public-base-capability-step-reset-only-audit.md",
+      "runs/m991_v4_public_base_capability_step_fault_source_wave/reset_only_rows.csv"
+    ],
+    "parent_objective": [
+      "design sequence-level action-response mismatch interventions for capability-step reset-only rows"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m993-v4-public-base-capability-step-sequence-intervention-design",
+  "next_blocker": "m994-v4-public-base-capability-step-sequence-intervention-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "sequence_intervention_design_admit_probe",
+  "public_gates": [
+    "M993 must not run PPO",
+    "M993 must not promote",
+    "M993 must not change actor inputs",
+    "M993 must keep reset-only rows diagnostic",
+    "M993 must define terminal/outcome relevance before implementation"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m993-v4-public-base-capability-step-sequence-intervention-design.md",
+    "clearance_margin_mean": "",
+    "decision": "sequence_intervention_design_admit_probe",
+    "milestone": "m993-v4-public-base-capability-step-sequence-intervention-design",
+    "reason": "M993 designs a no-training trace-window sequence intervention probe to test action-response mismatch on M991 reset-only rows",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design artifact exists",
+    "candidate interventions are specified",
+    "input-contract preservation is explicit",
+    "acceptance gates include terminal margin or success relevance",
+    "implementation route is explicit",
+    "no training or PPO occurs"
+  ],
+  "type": "infrastructure"
+}

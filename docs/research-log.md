@@ -15066,3 +15066,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M992 audits the M991 reset-only rows. Wrong-history first-action gaps are near zero for most reset-only rows (`p50=0.0`, mean `0.008224`, `868/1380 <= 0.002`) and wrong-history margin gaps never reach the `0.012` threshold. Reset-hidden gaps are large (`reset_action_l2_p50=0.811984`, reset margin gap mean `0.030334`, `1377/1380 >= 0.012`). The diagnosis is that wrong matched histories are too compatible, while reset hidden is a broad disruption.
 - decision: `route_to_sequence_level_action_response_mismatch_design`
 - next: `m993-v4-public-base-capability-step-sequence-intervention-design`
+
+## 20260526T134010Z - m993-v4-public-base-capability-step-sequence-intervention-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m993-v4-public-base-capability-step-sequence-intervention-design.md`
+- result: M993 designs a no-training trace-window sequence intervention probe. It identifies five intervention families: delayed capability history, cross-fault response window, action-response mismatch window, zero-command history window, and reset-then-warm history. Acceptance must be terminal-margin or success relevant, and reset-only rows remain diagnostic rather than proof-positive.
+- decision: `sequence_intervention_design_admit_probe`
+- next: `m994-v4-public-base-capability-step-sequence-intervention-probe`
