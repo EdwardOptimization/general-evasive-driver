@@ -4,7 +4,7 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "promotion_gate_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -124,5 +124,5 @@
     "docs/m953-v4-public-base-replay-constrained-target-feasibility-design.md"
   ],
   "decision_rule": "M954 may only run a no-training feasibility audit. It must not update actor parameters, run PPO, or promote.",
-  "next_blocker": "replay-constrained target feasibility has not been implemented"
+  "next_blocker": "m955-v4-public-base-low-tail-sequence-target-audit-design"
 }

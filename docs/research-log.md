@@ -14696,3 +14696,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M953 designs a no-training target-space audit before any more actor updates. The design requires candidate targets to satisfy three constraints together: normal retention, low-tail lift, and M267/M264 wrong-history proof retention. It separates low-tail objective rows from active rejected-history rows `6`, `13`, `15`, and `16`, defines existing-direction, low-tail projection, branch-separated proof, and optional short-horizon sequence target families, and requires a joint feasibility gate where the same target construction passes both offline exact target metrics and M267/M264 active-row closed-loop target preflight.
 - decision: `replay_constrained_target_feasibility_design_admit_m954`
 - next: `m954-v4-public-base-replay-constrained-target-feasibility-implementation`
+
+## 20260526T005846Z - m954-v4-public-base-replay-constrained-target-feasibility-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m954_v4_public_base_replay_constrained_target_feasibility`
+- artifact: `docs/m954-v4-public-base-replay-constrained-target-feasibility-implementation.md`
+- result: M954 implements the no-training target-space audit. It evaluates 56 one-step target families, including M951 existing directions, low-tail projection targets with drift budgets up to `0.008`, accepted-target blends, and M267 active-row first-action target preflight. The result is `replay_constrained_target_feasibility_low_tail_exact_failure`: `m267_target_preflight_pass_count=55`, `exact_target_candidate_count=0`, `joint_feasible_target_count=0`, `normal_safe_low_tail_trend_count=27`, with no training, PPO, promotion, or actor-input change.
+- decision: `replay_constrained_target_feasibility_low_tail_exact_failure_route_to_sequence_audit`
+- next: `m955-v4-public-base-low-tail-sequence-target-audit-design`

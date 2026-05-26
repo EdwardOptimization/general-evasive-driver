@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m954-v4-public-base-replay-constrained-target-feasibility-implementation
+m955-v4-public-base-low-tail-sequence-target-audit-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -120,10 +120,26 @@ offline exact low-tail metrics, then through M267/M264 active-row target
 preflight, and accept only target families that jointly preserve normal
 retention, produce low-tail lift, and keep wrong-history proof rows failing.
 M954 should implement this target-space audit before any actor update, PPO, or
-promotion.
+promotion. M954 implements the audit and finds zero joint one-step target
+candidates. The result is not a wrong-history blocker: M267 target preflight
+passes for `55/56` families. The blocker is one-step exact low-tail
+feasibility: `exact_target_candidate_count=0`, with the same normal-retention
+versus low-tail boundary appearing in target space. M955 should design a
+short-horizon low-tail sequence target audit, with threshold sensitivity as a
+fallback, before actor training or threshold changes.
 
 ## Recent Evidence Line
 
+- M954 implements the no-training replay-constrained target feasibility audit.
+  It reconstructs `1213/1213` rows, keeps training/PPO/promotion off, and
+  preserves the P0 actor-input contract. Result:
+  `joint_feasible_target_count=0`,
+  `exact_target_candidate_count=0`,
+  `m267_target_preflight_pass_count=55/56`, and
+  `normal_safe_low_tail_trend_count=27`. This shows M267 proof retention is not
+  the current target-space bottleneck; one-step target families cannot pass the
+  exact low-tail gate under normal retention. M955 should design a short-horizon
+  sequence target audit before changing actor parameters or relaxing thresholds.
 - M953 designs the replay-constrained target feasibility audit. It explicitly
   blocks training, PPO, promotion, actor-input changes, and encoder/GRU changes.
   The next implementation should compare existing-direction targets, low-tail

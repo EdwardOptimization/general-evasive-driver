@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M954 finds zero joint one-step target candidates: M267 target preflight passes for 55 of 56 families but exact low-tail target candidates remain zero",
+  "failure_criteria": [
+    "implementation trains or updates model weights",
+    "implementation changes actor inputs",
+    "implementation omits offline exact target gate",
+    "implementation omits M267/M264 target preflight gate",
+    "implementation promotes a checkpoint"
+  ],
+  "failure_types": [
+    "promotion_gate_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run another controlled-fusion local retune",
+    "do not update model weights",
+    "do not widen actor inputs",
+    "do not open encoders or GRU",
+    "do not use private holdout",
+    "do not promote"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260526T005950Z",
+  "hypothesis": "A no-training target-space audit can determine whether normal-retained low-tail-lift targets and M267/M264 wrong-history proof-retaining targets are jointly feasible before any actor update.",
+  "lineage": {
+    "blocked_by": [
+      "replay-constrained target feasibility has only been designed, not implemented"
+    ],
+    "derived_from": [
+      "m953-v4-public-base-replay-constrained-target-feasibility-design"
+    ],
+    "invalidates": [
+      "training another controlled-fusion objective before target feasibility is checked"
+    ],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m953-v4-public-base-replay-constrained-target-feasibility-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m953-v4-public-base-replay-constrained-target-feasibility-design.md",
+      "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/objective_rows.csv",
+      "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/active_rejected_branch_rows.csv",
+      "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/m267_preflight_summary.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_objective": [
+      "implement a no-training feasibility audit for replay-constrained target construction"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m954-v4-public-base-replay-constrained-target-feasibility-implementation",
+  "next_blocker": "m955-v4-public-base-low-tail-sequence-target-audit-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "replay_constrained_target_feasibility_low_tail_exact_failure_route_to_sequence_audit",
+  "public_gates": [
+    "M954 must not train",
+    "M954 must not run PPO",
+    "M954 must not promote",
+    "M954 must preserve the P0 actor-input contract",
+    "M954 must report offline exact target feasibility",
+    "M954 must report M267/M264 active-row target preflight feasibility",
+    "M954 must classify whether joint feasible replay-constrained targets exist"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m954_v4_public_base_replay_constrained_target_feasibility/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "replay_constrained_target_feasibility_low_tail_exact_failure_route_to_sequence_audit",
+    "milestone": "m954-v4-public-base-replay-constrained-target-feasibility-implementation",
+    "reason": "M954 finds zero joint one-step target candidates: M267 target preflight passes for 55 of 56 families but exact low-tail target candidates remain zero",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary artifact exists",
+    "offline exact target metrics are written",
+    "M267/M264 target preflight metrics are written",
+    "joint feasible target count is reported",
+    "result class and next blocker are specified",
+    "training, PPO, and promotion remain blocked"
+  ],
+  "type": "infrastructure"
+}

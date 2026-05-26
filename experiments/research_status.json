@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 962,
+    "completed": 963,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m953-v4-public-base-replay-constrained-target-feasibility-design",
+    "task_id": "m954-v4-public-base-replay-constrained-target-feasibility-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m953-v4-public-base-replay-constrained-target-feasibility-design.md"
+    "command_log": "runs/m954_v4_public_base_replay_constrained_target_feasibility/summary.json"
   },
   "next_task": {
-    "id": "m954-v4-public-base-replay-constrained-target-feasibility-implementation",
+    "id": "m955-v4-public-base-low-tail-sequence-target-audit-design",
     "status": "pending",
-    "priority": 9490,
+    "priority": 9500,
     "kind": "infrastructure",
-    "hypothesis": "A no-training target-space audit can determine whether normal-retained low-tail-lift targets and M267/M264 wrong-history proof-retaining targets are jointly feasible before any actor update",
-    "command": "see experiments/manifests/m954-v4-public-base-replay-constrained-target-feasibility-implementation.json",
-    "success_artifact": "runs/m954_v4_public_base_replay_constrained_target_feasibility/summary.json",
-    "notes": "Pending: implement no-training target-space audit for joint normal-retention, low-tail-lift, and M267 proof-retention feasibility"
+    "hypothesis": "M954's zero joint candidates may be a first-action target under-specification, so the next no-training step should design a short-horizon low-tail sequence target audit before changing actor parameters or thresholds",
+    "command": "see experiments/manifests/m955-v4-public-base-low-tail-sequence-target-audit-design.json",
+    "success_artifact": "docs/m955-v4-public-base-low-tail-sequence-target-audit-design.md",
+    "notes": "Pending: design no-training short-horizon sequence target audit after M954 shows one-step target families fail exact low-tail feasibility"
   },
-  "updated_at_utc": "20260526T003650Z"
+  "updated_at_utc": "20260526T005846Z"
 }
