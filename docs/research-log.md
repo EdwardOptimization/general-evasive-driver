@@ -15309,3 +15309,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1018 designs the full public replay gate for Candidate B `m1013_lam0030_a050`. The next gate must recompute M997 temporal exact retention, verify the actor/non-actor checkpoint contract, run six public replay surfaces, run source-diverse protected diagnostics, and retain behavior seeds `9505`/`9506`. M1018 does not run replay, train, run PPO, use private holdout, or promote.
 - decision: `candidate_b_full_replay_design_admit_m1019_gate`
 - next: `m1019-v4-public-base-m1013-candidate-b-full-replay-gate`
+
+## 20260526T195911Z - m1019-v4-public-base-m1013-candidate-b-full-replay-gate
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m1019_v4_public_base_m1013_candidate_b_full_replay_gate`
+- artifact: `docs/m1019-v4-public-base-m1013-candidate-b-full-replay-gate.md`
+- result: M1019 runs the full public gate for Candidate B and passes. Exact temporal retention passes `1/1`, M267/M264 preflight passes `1/1`, six public replay surfaces pass `6/6`, source-diverse protected diagnostics pass `3/3`, and behavior seeds `9505`/`9506` retain baseline success plus reset/zero-all ordering. Actor inputs are unchanged; only `actor_mean.bias` and `actor_mean.weight` differ from M974; no training, PPO, promotion, or private holdout occurs.
+- decision: `candidate_b_full_replay_gate_pass_route_to_branch_synthesis`
+- next: `m1020-v4-public-base-temporal-sequence-objective-post-candidate-b-synthesis`
+
+## 20260526T200358Z - m1020-v4-public-base-temporal-sequence-objective-post-candidate-b-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1020-v4-public-base-temporal-sequence-objective-post-candidate-b-synthesis.md`
+- result: M1020 synthesizes M1010-M1019. It preserves the useful part of the branch: margin-weighted wrong-branch residuals are sensitivity detectors, but strict unsigned branch-L2 is not an acceptance gate. Candidate B is now a full public-gate candidate, not a promoted base. Local temporal-objective repair should pause and Candidate B should enter a separate promotion/generalization audit branch.
+- decision: `temporal_sequence_objective_post_candidate_b_synthesis_promote_to_candidate_b_promotion_generalization`
+- next: `m1021-v4-public-base-candidate-b-promotion-generalization-design`

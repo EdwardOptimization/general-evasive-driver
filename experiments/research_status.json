@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1027,
+    "completed": 1029,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1018-v4-public-base-m1013-candidate-b-full-replay-design",
+    "task_id": "m1020-v4-public-base-temporal-sequence-objective-post-candidate-b-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1018-v4-public-base-m1013-candidate-b-full-replay-design.md"
+    "command_log": "docs/m1020-v4-public-base-temporal-sequence-objective-post-candidate-b-synthesis.md"
   },
   "next_task": {
-    "id": "m1019-v4-public-base-m1013-candidate-b-full-replay-gate",
+    "id": "m1021-v4-public-base-candidate-b-promotion-generalization-design",
     "status": "pending",
-    "priority": 10140,
+    "priority": 10160,
     "kind": "gate",
-    "hypothesis": "Candidate B can pass exact temporal retention, six public replay surfaces, source-diverse diagnostics, and behavior seeds after passing M267/M264 preflight",
-    "command": "see experiments/manifests/m1019-v4-public-base-m1013-candidate-b-full-replay-gate.json",
-    "success_artifact": "runs/m1019_v4_public_base_m1013_candidate_b_full_replay_gate/summary.json",
-    "notes": "Pending: run exact temporal retention, six public replay, diagnostics, and behavior gates for Candidate B without promotion"
+    "hypothesis": "Candidate B can only be considered for public-base promotion after a separate promotion/generalization protocol that goes beyond M1019 public replay evidence",
+    "command": "see experiments/manifests/m1021-v4-public-base-candidate-b-promotion-generalization-design.json",
+    "success_artifact": "docs/m1021-v4-public-base-candidate-b-promotion-generalization-design.md",
+    "notes": "Pending: design tiered proof, fresh-public generalization, behavior, and promotion-decision gate for Candidate B"
   },
-  "updated_at_utc": "20260526T194640Z"
+  "updated_at_utc": "20260526T200358Z"
 }

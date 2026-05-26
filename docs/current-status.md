@@ -75,20 +75,22 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1019-v4-public-base-m1013-candidate-b-full-replay-gate
+m1021-v4-public-base-candidate-b-promotion-generalization-design
 ```
 
-M1018 completed the design-only gate for Candidate B
-`m1013_lam0030_a050`, the only M1013 exact candidate that passed M267/M264
-preflight. M1019 must now run the full public gate: recompute M997 temporal
-exact retention, verify the actor/non-actor checkpoint contract, run all six
-public replay surfaces, run source-diverse protected diagnostics, and retain
-behavior seeds `9505`/`9506`.
+M1019 passed the full public gate for Candidate B `m1013_lam0030_a050`.
+Exact temporal retention passed `1/1`, M267/M264 preflight passed `1/1`, all
+six public replay surfaces passed, source-diverse diagnostics passed `3/3`, and
+behavior seeds `9505`/`9506` retained baseline success plus reset/zero-all
+ordering. Actor inputs were unchanged; no training, PPO, private holdout, or
+promotion occurred.
 
-M1019 is not promotion, PPO, or private-holdout evidence. If it passes, the
-next step is a separate promotion/generalization audit or branch synthesis,
-depending on cadence. If it fails, the result should be classified by the
-failing tier before any new objective update.
+The live blocker is now workflow cadence, not Candidate B replay evidence:
+M1020 synthesized M1010-M1019 and closed the local temporal sequence objective
+repair loop. Candidate B is now a full public-gate candidate, but not a
+promoted public base. M1021 must design a separate promotion/generalization
+audit with proof retention, fresh public generalization, behavior ablation, and
+promotion decision tiers before any PPO or promotion.
 
 ### Historical Trace
 

@@ -105,6 +105,26 @@
   "baseline_artifacts": [
     "docs/m1018-v4-public-base-m1013-candidate-b-full-replay-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1019_v4_public_base_m1013_candidate_b_full_replay_gate/summary.json",
+    "report": "docs/m1019-v4-public-base-m1013-candidate-b-full-replay-gate.md",
+    "decision": "candidate_b_full_replay_gate_pass_route_to_branch_synthesis",
+    "result_class": "m1013_candidate_b_full_replay_gate_pass",
+    "candidate_b_checkpoint": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "exact_contract_pass_count": 1,
+    "candidate_preflight_pass_count": 1,
+    "public_replay_gates_passed": 6,
+    "source_diverse_pass": true,
+    "behavior_pass": true,
+    "actor_inputs_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1020-v4-public-base-temporal-sequence-objective-post-candidate-b-synthesis"
+  },
+  "decision": "candidate_b_full_replay_gate_pass_route_to_branch_synthesis",
   "decision_rule": "Candidate B can advance only if exact retention, all public replay surfaces, diagnostics, and behavior seeds pass; passing M1019 is not promotion.",
-  "next_blocker": "m1019-v4-public-base-m1013-candidate-b-full-replay-gate"
+  "next_blocker": "m1020-v4-public-base-temporal-sequence-objective-post-candidate-b-synthesis"
 }
