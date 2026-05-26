@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M958 finds direction-sign suspicion: away-from-intervention proxy improvement worsens margin while toward-intervention and behavior-improving action axes improve terminal margin",
+  "failure_criteria": [
+    "implementation trains or updates model weights",
+    "implementation changes actor inputs",
+    "implementation relaxes thresholds",
+    "implementation omits terminal margin comparison",
+    "implementation promotes a checkpoint"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not relax thresholds",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260526T021632Z",
+  "hypothesis": "The current low-tail action-gap target is behaviorally ungrounded if proxy improvements do not correlate with closed-loop terminal margin improvement.",
+  "lineage": {
+    "blocked_by": [
+      "low-tail target metric artifact audit has only been designed, not implemented"
+    ],
+    "derived_from": [
+      "m957-v4-public-base-low-tail-target-metric-artifact-audit-design"
+    ],
+    "invalidates": [
+      "threshold relaxation or actor training before checking low-tail metric grounding"
+    ],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m957-v4-public-base-low-tail-target-metric-artifact-audit-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m957-v4-public-base-low-tail-target-metric-artifact-audit-design.md",
+      "runs/m956_v4_public_base_low_tail_sequence_target_audit/summary.json",
+      "runs/m956_v4_public_base_low_tail_sequence_target_audit/low_tail_sequence_metrics.csv",
+      "runs/m956_v4_public_base_low_tail_sequence_target_audit/sequence_family_summary.csv"
+    ],
+    "parent_objective": [
+      "implement a no-training audit comparing low-tail action-gap proxy changes against closed-loop terminal margin effects"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation",
+  "next_blocker": "m959-v4-public-base-low-tail-direction-family-target-audit-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "low_tail_metric_artifact_direction_sign_suspicion_route_to_direction_family_audit",
+  "public_gates": [
+    "M958 must not train",
+    "M958 must not run PPO",
+    "M958 must not promote",
+    "M958 must preserve the P0 actor-input contract",
+    "M958 must compare proxy metric changes with terminal margin effects",
+    "M958 must classify target-metric artifact, direction-sign suspicion, threshold-only issue, or target-source refresh"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m958_v4_public_base_low_tail_target_metric_artifact_audit/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "low_tail_metric_artifact_direction_sign_suspicion_route_to_direction_family_audit",
+    "milestone": "m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation",
+    "reason": "M958 finds direction-sign suspicion: away-from-intervention proxy improvement worsens margin while toward-intervention and behavior-improving action axes improve terminal margin",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary artifact exists",
+    "direction-family summary is written",
+    "row-level proxy/behavior grounding rows are written",
+    "correlation metrics are written",
+    "route decision is explicit",
+    "training, PPO, threshold relaxation, and promotion remain blocked"
+  ],
+  "type": "gate"
+}

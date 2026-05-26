@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -121,5 +121,5 @@
     "docs/m957-v4-public-base-low-tail-target-metric-artifact-audit-design.md"
   ],
   "decision_rule": "M958 may only run a no-training metric-grounding audit. It must not update actor parameters, run PPO, relax thresholds, or promote.",
-  "next_blocker": "low-tail target metric artifact audit has not been implemented"
+  "next_blocker": "m959-v4-public-base-low-tail-direction-family-target-audit-design"
 }

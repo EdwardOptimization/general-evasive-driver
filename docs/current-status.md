@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation
+m959-v4-public-base-low-tail-direction-family-target-audit-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -140,10 +140,24 @@ relaxing thresholds or training. M957 designs that audit: compare proxy changes
 against closed-loop terminal margin effects across away/toward intervention,
 simple action-axis, and existing-direction families; separately classify
 target-metric artifact, direction-sign suspicion, threshold-only issue, or
-target-source refresh. M958 should implement this no-training grounding audit.
+target-source refresh. M958 implements it and finds direction-sign suspicion:
+away-from-intervention improves the proxy but worsens terminal margin, while
+toward-intervention and several action-axis directions improve terminal margin.
+M959 should design a no-training target audit for behavior-improving direction
+families before any actor training.
 
 ## Recent Evidence Line
 
+- M958 implements the low-tail target metric artifact audit. It evaluates `10`
+  direction families over `64` low-tail rows and `1920` row/action cases.
+  Result: `low_tail_metric_artifact_audit_direction_sign_suspicion`.
+  `away_from_intervention` has `proxy_improved_fraction=1.0` and
+  `behavior_improved_fraction=0.0`, while `toward_intervention` has
+  `proxy_improved_fraction=0.0` and `behavior_improved_fraction=1.0`.
+  Behavior-improving families include `throttle_minus`, `brake_plus`,
+  `steer_minus_brake_plus`, `steer_minus`, and `steer_plus_brake_plus`.
+  M959 should design a direction-family target audit instead of training on the
+  old away-from-intervention target.
 - M957 designs the low-tail target-metric artifact audit. It blocks training,
   PPO, promotion, threshold relaxation, and actor-input changes. The audit will
   compare action-gap proxy improvement with terminal-margin improvement across

@@ -14734,3 +14734,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M957 designs a no-training metric-grounding audit after M956. The audit compares low-tail action-gap proxy improvements against closed-loop terminal-margin effects across away-from-intervention, toward-intervention, simple action-axis, and existing-direction families. It explicitly separates target-metric artifact, direction-sign suspicion, threshold-only issue, and target-source refresh routes before any threshold relaxation, PPO, actor training, or promotion.
 - decision: `low_tail_metric_artifact_audit_design_admit_m958`
 - next: `m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation`
+
+## 20260526T021007Z - m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m958_v4_public_base_low_tail_target_metric_artifact_audit`
+- artifact: `docs/m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation.md`
+- result: M958 implements the no-training metric-grounding audit. It evaluates `10` direction families over `64` low-tail rows and `1920` row/action cases. The result is `low_tail_metric_artifact_audit_direction_sign_suspicion`: `away_from_intervention` improves the proxy on all rows but worsens terminal margin, while `toward_intervention` worsens the proxy but improves terminal margin. Behavior-improving directions also include `throttle_minus`, `brake_plus`, `steer_minus_brake_plus`, `steer_minus`, and `steer_plus_brake_plus`.
+- decision: `low_tail_metric_artifact_direction_sign_suspicion_route_to_direction_family_audit`
+- next: `m959-v4-public-base-low-tail-direction-family-target-audit-design`
