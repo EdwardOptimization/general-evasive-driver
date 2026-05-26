@@ -1,0 +1,115 @@
+{
+  "id": "m971-v4-public-base-post-promotion-guarded-ppo-readiness-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt",
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis.md",
+      "docs/m969-v4-public-base-direction-target-actor-fit-promotion-audit.md",
+      "runs/m968_v4_public_base_direction_target_actor_fit_promotion_generalization_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis.json"
+    ],
+    "parent_objective": [
+      "design guarded PPO readiness from the newly promoted alpha_1_0 public-gate base"
+    ],
+    "derived_from": [
+      "m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis",
+      "m969-v4-public-base-direction-target-actor-fit-promotion-audit"
+    ],
+    "blocked_by": [
+      "alpha_1_0 is the public-gate base, but no guarded PPO readiness protocol exists"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running PPO from alpha_1_0 without pre-registered proof/generalization retention and rollback criteria"
+    ]
+  },
+  "review_artifact": "docs/reviews/m971-v4-public-base-post-promotion-guarded-ppo-readiness-design.md",
+  "public_gates": [
+    "M971 must not train",
+    "M971 must not run PPO",
+    "M971 must not use private holdout",
+    "M971 must preserve the P0 actor-input contract",
+    "M971 must specify proof retention gates before PPO",
+    "M971 must specify fresh generalization and behavior gates before PPO",
+    "M971 must specify rollback or rejection criteria for PPO proposals"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not change actor inputs",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not treat alpha_1_0 promotion as permission for unguarded PPO"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_post_promotion_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo_readiness: guarded continuation design from the promoted public-gate base",
+    "evidence_increment": "designs the first post-promotion PPO-readiness gate without running PPO",
+    "claim_scope": "process/design only; no training, no PPO, no private holdout, no new driver capability claim",
+    "stop_condition": [
+      "stop if proof replay gates are not mandatory",
+      "stop if fresh generalization gates are omitted",
+      "stop if behavior/ablation retention is omitted",
+      "stop if rollback criteria are not explicit"
+    ],
+    "fallback_plan": [
+      "if readiness design passes, route to smoke-scale guarded PPO proposal implementation",
+      "if PPO risk is too high, route to exact repair/projection design before PPO",
+      "if generalization coverage is too weak, route to fresh scenario expansion before PPO"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M970 opens a post-promotion guarded PPO-readiness branch after alpha_1_0 public-base promotion",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A guarded PPO readiness protocol can be designed for the promoted alpha_1_0 public-gate base without weakening proof, generalization, behavior, or actor-input constraints.",
+  "success_criteria": [
+    "design document exists",
+    "base checkpoint is explicit",
+    "PPO proposal config is scoped",
+    "proof replay retention gates are explicit",
+    "fresh generalization and behavior gates are explicit",
+    "rollback or rejection criteria are explicit",
+    "training, PPO, and private holdout remain blocked"
+  ],
+  "failure_criteria": [
+    "design runs PPO",
+    "design changes actor inputs",
+    "design omits M966/M968 retention gates",
+    "design omits fresh generalization",
+    "design lacks rollback criteria",
+    "design uses private holdout"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "Write the guarded PPO readiness design for the promoted alpha_1_0 public-gate base."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m971-v4-public-base-post-promotion-guarded-ppo-readiness-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt",
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis.md",
+    "docs/m969-v4-public-base-direction-target-actor-fit-promotion-audit.md"
+  ],
+  "decision_rule": "M971 may only design guarded PPO readiness. It must not update actor parameters, run PPO, change actor inputs, use private holdout, or claim new driver capability.",
+  "next_blocker": "guarded PPO readiness has not been designed for the promoted alpha_1_0 public-gate base"
+}

@@ -14848,3 +14848,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M969 audits M964 alpha `1.0` after M966 replay pass and M968 proof/generalization/behavior pass. Decision: `direction_target_actor_fit_promote_public_gate_base`. The new public-gate base is `runs/m964_v4_public_base_direction_target_actor_fit/checkpoints/alpha_1_0.pt`. This is a public-gate base promotion only; PPO, private holdout, paper-level generalization, and real-vehicle claims remain blocked.
 - decision: `direction_target_actor_fit_promote_public_gate_base`
 - next: `m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis`
+
+## 20260526T083210Z - m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis.md`
+- result: M970 synthesizes M964-M969 after alpha `1.0` public-base promotion. Supported: direction-target actor-fit produced a public-proof-passing, fresh-generalization non-regressing public-gate base. Not supported: private-holdout, paper-level, real-vehicle, high-fidelity, or long-PPO safety claims. Public-gate overfit risk remains moderate. The next branch is `v4_public_base_post_promotion_guarded_ppo_readiness`, starting with a no-training readiness design before any PPO.
+- decision: `promote_to_next_branch`
+- next: `m971-v4-public-base-post-promotion-guarded-ppo-readiness-design`

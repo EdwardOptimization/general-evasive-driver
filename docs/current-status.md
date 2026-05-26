@@ -73,7 +73,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m970-v4-public-base-direction-target-actor-fit-post-promotion-synthesis
+m971-v4-public-base-post-promotion-guarded-ppo-readiness-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -199,10 +199,18 @@ diagnostics pass, fresh public eval and moderate OOD eval show no material
 regression, and behavior seeds `9505/9506/96730/96731` retain reset/zero-all
 ordering. M969 should audit whether alpha `1.0` becomes the new public-gate base.
 M969 promotes alpha `1.0` as the new public-gate base and routes to M970
-post-promotion synthesis before any PPO continuation.
+post-promotion synthesis before any PPO continuation. M970 synthesizes
+M964-M969, keeps the public-gate overfit risk at moderate, and opens
+`v4_public_base_post_promotion_guarded_ppo_readiness`. M971 should design the
+guarded PPO readiness protocol before any smoke PPO from alpha `1.0`.
 
 ## Recent Evidence Line
 
+- M970 synthesizes M964-M969 after alpha `1.0` public-base promotion. It
+  supports alpha `1.0` as the current public-gate base, explicitly rejects
+  paper-level/private-holdout/real-vehicle claims, and opens
+  `v4_public_base_post_promotion_guarded_ppo_readiness`. Next: design guarded
+  PPO readiness before any PPO.
 - M969 audits M966/M968 evidence and promotes M964 alpha `1.0` as the new
   public-gate base. This supersedes M399 alpha `0.05` for subsequent public-base
   research. PPO, private holdout, paper-level generalization, and real-vehicle
