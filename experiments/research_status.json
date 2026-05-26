@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1004,
+    "completed": 1005,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m995-v4-public-base-capability-step-temporal-history-audit",
+    "task_id": "m996-v4-public-base-temporal-sequence-corpus-export-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m995-v4-public-base-capability-step-temporal-history-audit.md"
+    "command_log": "docs/m996-v4-public-base-temporal-sequence-corpus-export-design.md"
   },
   "next_task": {
-    "id": "m996-v4-public-base-temporal-sequence-corpus-export-design",
+    "id": "m997-v4-public-base-temporal-sequence-corpus-export-implementation",
     "status": "pending",
-    "priority": 9910,
+    "priority": 9920,
     "kind": "infrastructure",
-    "hypothesis": "M994 temporal accepted rows can be converted into a structured, exact-auditable sequence corpus without changing actor inputs or overclaiming cross-fault self-ID",
-    "command": "see experiments/manifests/m996-v4-public-base-temporal-sequence-corpus-export-design.json",
-    "success_artifact": "docs/m996-v4-public-base-temporal-sequence-corpus-export-design.md",
-    "notes": "Pending: design temporal sequence corpus export and exact objective sanity before implementation, training, or PPO"
+    "hypothesis": "A no-training exporter can reconstruct M994 temporal accepted rows into exact-auditable sequence tensors with finite sanity metrics and unchanged actor parameters",
+    "command": "see experiments/manifests/m997-v4-public-base-temporal-sequence-corpus-export-implementation.json",
+    "success_artifact": "runs/m997_v4_public_base_temporal_sequence_corpus_export/summary.json",
+    "notes": "Pending: implement temporal sequence corpus exporter and exact no-update sanity before any objective design or training"
   },
-  "updated_at_utc": "20260526T143355Z"
+  "updated_at_utc": "20260526T144905Z"
 }

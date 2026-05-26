@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M996 designs a no-training exact-auditable temporal sequence corpus export with temporal positives diagnostic-only cross-fault rows weighting and objective sanity gates",
+  "failure_criteria": [
+    "design artifact is missing",
+    "cross-fault zero variants are treated as positive targets",
+    "hidden event labels enter actor observations",
+    "exact objective sanity is omitted",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not train or optimize actor parameters",
+    "do not use private holdout",
+    "do not claim cross-fault wrong-history self-identification",
+    "do not export cross-fault zero variants as positives",
+    "do not proceed to PPO"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260526T145622Z",
+  "hypothesis": "M994 temporal accepted rows can be converted into a structured, exact-auditable sequence corpus without changing actor inputs or overclaiming cross-fault self-ID.",
+  "lineage": {
+    "blocked_by": [
+      "M995 routes source-diverse temporal-history evidence to corpus export design while cross-fault positives remain absent"
+    ],
+    "derived_from": [
+      "m995-v4-public-base-capability-step-temporal-history-audit",
+      "m994-v4-public-base-capability-step-sequence-intervention-probe"
+    ],
+    "invalidates": [
+      "training directly from M994 CSV metrics",
+      "treating cross-fault zero variants as positive targets"
+    ],
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m995-v4-public-base-capability-step-temporal-history-audit.json",
+      "experiments/manifests/m994-v4-public-base-capability-step-sequence-intervention-probe.json",
+      "configs/m991_capability_step_fault_source_wave.json"
+    ],
+    "parent_dataset": [
+      "docs/m995-v4-public-base-capability-step-temporal-history-audit.md",
+      "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/summary.json",
+      "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/accepted_sequence_rows.csv"
+    ],
+    "parent_objective": [
+      "design an exact-auditable temporal sequence corpus export for M994 temporal accepted rows"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m996-v4-public-base-temporal-sequence-corpus-export-design",
+  "next_blocker": "m997-v4-public-base-temporal-sequence-corpus-export-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "temporal_sequence_corpus_export_design_admit_m997",
+  "public_gates": [
+    "M996 must not run PPO",
+    "M996 must not promote",
+    "M996 must not change actor inputs",
+    "M996 must design exact objective sanity before any objective update",
+    "M996 must keep cross-fault zero variants diagnostic-only"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m996-v4-public-base-temporal-sequence-corpus-export-design.md",
+    "clearance_margin_mean": "",
+    "decision": "temporal_sequence_corpus_export_design_admit_m997",
+    "milestone": "m996-v4-public-base-temporal-sequence-corpus-export-design",
+    "reason": "M996 designs a no-training exact-auditable temporal sequence corpus export with temporal positives diagnostic-only cross-fault rows weighting and objective sanity gates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design artifact exists",
+    "positive rows are limited to reset_then_warm_history and delayed_capability_history",
+    "cross-fault/action-response mismatch zero variants are diagnostic-only",
+    "schema includes normal/variant observations, hidden states, actions, masks, gaps, and source metadata",
+    "exact objective sanity and source-diversity gates are defined",
+    "no training or PPO occurs"
+  ],
+  "type": "infrastructure"
+}

@@ -15094,3 +15094,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M995 separates M994's evidence into a positive temporal-history claim and a blocked cross-fault wrong-history claim. M994 has `277` temporal accepted rows across `9` fault pairs and `17` seeds, but `0` cross-fault accepted rows. Accepted temporal variants are `reset_then_warm_history` and `delayed_capability_history`; cross-fault/action-response mismatch variants remain diagnostic-only.
 - decision: `route_to_temporal_sequence_corpus_export_design`
 - next: `m996-v4-public-base-temporal-sequence-corpus-export-design`
+
+## 20260526T144905Z - m996-v4-public-base-temporal-sequence-corpus-export-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m996-v4-public-base-temporal-sequence-corpus-export-design.md`
+- result: M996 designs the temporal sequence corpus export. Positives are limited to `reset_then_warm_history` and `delayed_capability_history`; cross-fault/action-response mismatch variants remain diagnostic-only. The design requires `temporal_sequence_corpus.npz`, metadata, source-diversity gates, row weighting for the reset-dominated variant distribution, replay-action sanity, and finite exact no-update temporal preference diagnostics before any objective update.
+- decision: `temporal_sequence_corpus_export_design_admit_m997`
+- next: `m997-v4-public-base-temporal-sequence-corpus-export-implementation`

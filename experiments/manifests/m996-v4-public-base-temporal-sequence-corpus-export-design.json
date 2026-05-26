@@ -109,6 +109,26 @@
     "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/summary.json",
     "runs/m994_v4_public_base_capability_step_sequence_intervention_probe/accepted_sequence_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m996-v4-public-base-temporal-sequence-corpus-export-design.md",
+    "allowed_positive_variants": [
+      "reset_then_warm_history",
+      "delayed_capability_history"
+    ],
+    "diagnostic_only_variants": [
+      "cross_fault_response_window",
+      "wrong_commands_preferred_response",
+      "wrong_response_preferred_commands",
+      "zero_command_history_window"
+    ],
+    "planned_row_count": 277,
+    "planned_max_sequence_len": 48,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "temporal_sequence_corpus_export_design_admit_m997",
   "decision_rule": "M996 must produce a design that lets a later implementation export exact sequence tensors and run no-update objective sanity before any actor training.",
-  "next_blocker": "m996-v4-public-base-temporal-sequence-corpus-export-design"
+  "next_blocker": "m997-v4-public-base-temporal-sequence-corpus-export-implementation"
 }
