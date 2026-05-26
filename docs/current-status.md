@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m990-v4-public-base-capability-step-fault-smoke
+m991-v4-public-base-capability-step-fault-source-wave
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -267,12 +267,20 @@ rows. M988 synthesizes M984-M987 and pivots to hidden capability-step/fault
 event design. M989 completes that design. It reuses the existing
 `extreme_dynamics_scenario_corpus` fault-event harness for the M974 public-gate
 base, keeps hidden event labels out of actor observations, and keeps per-wheel
-or asymmetric faults as future dynamics extensions. The next task is M990:
-create a small current-base capability-step config and run a no-training
-cross-fault smoke before any larger source mining or training.
+or asymmetric faults as future dynamics extensions. M990 creates that small
+current-base capability-step config and smoke-runs the existing cross-fault
+corpus harness on M974. The smoke passes compatibility with `832` scenarios,
+`3289` snapshots, `768` matched pairs, `2` accepted wrong-history rows, and
+`132` reset-only rows. This is nonzero but source-narrow signal. The next task
+is M991: scale the no-training source wave before any objective design, PPO, or
+promotion.
 
 ## Recent Evidence Line
 
+- M990 passes the hidden capability-step smoke: M974 is compatible with the
+  existing fault-event harness, and the run finds `2` accepted wrong-history
+  rows plus `132` reset-only rows. This admits a larger no-training source wave,
+  not training.
 - M989 designs the hidden capability-step route. The current repo already has a
   no-training fault-event harness; the next step is a small M974 current-base
   smoke, not PPO or a new simulator claim.

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 998,
+    "completed": 999,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m989-v4-public-base-capability-step-fault-design",
+    "task_id": "m990-v4-public-base-capability-step-fault-smoke",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m989-v4-public-base-capability-step-fault-design.md"
+    "command_log": "runs/m990_v4_public_base_capability_step_fault_smoke/summary.json"
   },
   "next_task": {
-    "id": "m990-v4-public-base-capability-step-fault-smoke",
+    "id": "m991-v4-public-base-capability-step-fault-source-wave",
     "status": "pending",
-    "priority": 9850,
-    "kind": "infrastructure",
-    "hypothesis": "The existing fault-event corpus harness can be run against the M974 public-gate base with a small current-base capability-step config while preserving the P0 actor contract",
-    "command": "see experiments/manifests/m990-v4-public-base-capability-step-fault-smoke.json",
-    "success_artifact": "runs/m990_v4_public_base_capability_step_fault_smoke/summary.json",
-    "notes": "Pending: create the M990 fault-event config and run a no-training cross-fault smoke"
+    "priority": 9860,
+    "kind": "gate",
+    "hypothesis": "Scaling M990 capability-step source coverage will reveal whether its steering-vs-front-authority wrong-history signal is repeatable or merely a narrow smoke artifact",
+    "command": "see experiments/manifests/m991-v4-public-base-capability-step-fault-source-wave.json",
+    "success_artifact": "runs/m991_v4_public_base_capability_step_fault_source_wave/summary.json",
+    "notes": "Pending: create the M991 source-wave config and run larger no-training cross-fault coverage"
   },
-  "updated_at_utc": "20260526T125724Z"
+  "updated_at_utc": "20260526T131030Z"
 }

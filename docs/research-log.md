@@ -15037,3 +15037,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M989 designs the capability-step fault route. It finds that the repo already has a suitable no-training hidden-fault event harness in `src/autodrift/extreme_dynamics_scenario_corpus.py`; the next step should reuse that harness on the M974 public-gate base with a small cross-fault smoke. The design keeps hidden event labels, severities, activation steps, and parameters out of actor observations and treats per-wheel/asymmetric faults as future dynamics extensions rather than current single-track claims.
 - decision: `capability_step_fault_design_admit_smoke`
 - next: `m990-v4-public-base-capability-step-fault-smoke`
+
+## 20260526T131030Z - m990-v4-public-base-capability-step-fault-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m990_v4_public_base_capability_step_fault_smoke`
+- artifact: `docs/m990-v4-public-base-capability-step-fault-smoke.md`
+- result: M990 creates `configs/m990_capability_step_fault_scenarios.json` and smoke-runs the existing cross-fault hidden-fault corpus harness on the M974 public-gate base. It produces `832` scenarios, `3289` snapshots, `768` matched pairs, `2` accepted wrong-history rows, and `132` reset-only rows. The result class is `cross_fault_wrong_sparse`; actor parameters are unchanged and no training/PPO/promotion occurs.
+- decision: `capability_step_fault_smoke_pass_route_to_source_wave`
+- next: `m991-v4-public-base-capability-step-fault-source-wave`

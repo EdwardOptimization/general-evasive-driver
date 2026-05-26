@@ -120,6 +120,29 @@
     "docs/m989-v4-public-base-capability-step-fault-design.md",
     "src/autodrift/extreme_dynamics_scenario_corpus.py"
   ],
+  "result": {
+    "status": "completed",
+    "run_dir": "runs/m990_v4_public_base_capability_step_fault_smoke",
+    "summary": "runs/m990_v4_public_base_capability_step_fault_smoke/summary.json",
+    "result_class": "cross_fault_wrong_sparse",
+    "scenario_count": 832,
+    "snapshot_count": 3289,
+    "matched_pair_count": 768,
+    "unmatched_rows": 0,
+    "accepted_rows": 2,
+    "reset_only_rows": 132,
+    "wrong_history_action_critical_rows": 2,
+    "reset_history_action_critical_rows": 132,
+    "unique_accepted_fault_families": 1,
+    "unique_accepted_wrong_fault_families": 1,
+    "unique_accepted_severities": 1,
+    "unique_accepted_seeds": 1,
+    "actor_parameters_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "capability_step_fault_smoke_pass_route_to_source_wave",
   "decision_rule": "M990 passes only if the no-training fault-event harness produces core artifacts and matched pairs without actor/input mutation. Accepted rows are reported but not required.",
-  "next_blocker": "capability-step fault-event smoke has not been run"
+  "next_blocker": "m991-v4-public-base-capability-step-fault-source-wave"
 }

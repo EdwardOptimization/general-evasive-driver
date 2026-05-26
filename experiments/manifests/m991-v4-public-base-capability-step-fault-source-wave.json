@@ -1,0 +1,125 @@
+{
+  "id": "m991-v4-public-base-capability-step-fault-source-wave",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m990-v4-public-base-capability-step-fault-smoke.md",
+      "runs/m990_v4_public_base_capability_step_fault_smoke/summary.json"
+    ],
+    "parent_config": [
+      "configs/m990_capability_step_fault_scenarios.json",
+      "experiments/manifests/m990-v4-public-base-capability-step-fault-smoke.json"
+    ],
+    "parent_objective": [
+      "test whether M990 sparse wrong-history and reset-only signals scale under larger no-training source coverage"
+    ],
+    "derived_from": [
+      "m990-v4-public-base-capability-step-fault-smoke",
+      "m989-v4-public-base-capability-step-fault-design"
+    ],
+    "blocked_by": [
+      "M990 is infrastructure-positive but accepted rows are source-narrow"
+    ],
+    "supersedes": [],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m991-v4-public-base-capability-step-fault-source-wave.md",
+  "public_gates": [
+    "M991 must not run PPO",
+    "M991 must not promote",
+    "M991 must not change actor inputs",
+    "M991 must keep hidden fault labels as logging/pairing metadata only",
+    "M991 must report reset-only rows separately from accepted wrong-history rows",
+    "M991 must not tune from private holdout"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not train or optimize",
+    "do not use private holdout",
+    "do not claim true per-wheel/asymmetric faults",
+    "do not promote any checkpoint",
+    "do not count reset-only rows as wrong-history proof-positive rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_capability_step_fault_generation",
+    "evidence_axis": "G_scenario_family: source diversity of hidden capability-step/fault event wrong-history signal",
+    "evidence_increment": "scales the M990 current-base fault-event smoke to a larger no-training source wave to test whether sparse rows repeat across seeds and fault-family pairs",
+    "claim_scope": "no-training source gate only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if matched pairs remain too low for source-wave judgment",
+      "stop if actor checksum changes",
+      "stop if accepted rows remain source-narrow after larger coverage",
+      "stop if only reset-only rows appear and no wrong-history rows repeat"
+    ],
+    "fallback_plan": [
+      "if accepted rows are source-narrow, run an audit before retargeting fault pairs",
+      "if only reset-only rows scale, route to sequence-level intervention instead of training",
+      "if source-diverse wrong-history rows appear, route to corpus export/objective sanity before PPO"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M990 passes compatibility smoke with sparse nonzero wrong-history rows and many reset-only rows",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Scaling M990 capability-step source coverage will reveal whether its steering-vs-front-authority wrong-history signal is repeatable or merely a narrow smoke artifact.",
+  "success_criteria": [
+    "summary.json exists",
+    "scenario_count >= 3000",
+    "snapshot_count >= 10000",
+    "matched_pair_count >= 2500",
+    "unique preferred fault-family groups >= 6",
+    "unique wrong fault-family groups >= 6",
+    "fault-family pair groups >= 10",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "wrong_history_action_critical_rows and reset_only_rows are reported separately"
+  ],
+  "failure_criteria": [
+    "checkpoint/config compatibility fails",
+    "matched_pair_count < 2500",
+    "actor parameters change",
+    "hidden fault/event labels enter actor observations",
+    "training or PPO starts",
+    "promotion occurs",
+    "reset-only rows are counted as accepted wrong-history rows"
+  ],
+  "commands": [
+    {
+      "name": "source_wave",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt --config configs/m991_capability_step_fault_source_wave.json --pairing-mode cross_fault --seed-start 99100 --seed-count 256 --device auto --run-dir runs/m991_v4_public_base_capability_step_fault_source_wave"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "configs/m991_capability_step_fault_source_wave.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m991_v4_public_base_capability_step_fault_source_wave/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m991-v4-public-base-capability-step-fault-source-wave.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m990-v4-public-base-capability-step-fault-smoke.md",
+    "runs/m990_v4_public_base_capability_step_fault_smoke/summary.json"
+  ],
+  "decision_rule": "M991 decides whether M990's sparse capability-step wrong-history signal scales into source-diverse no-training evidence, remains source-narrow, or is reset-only.",
+  "next_blocker": "capability-step source wave has not been run"
+}
