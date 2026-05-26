@@ -121,5 +121,5 @@
     "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/summary.json"
   ],
   "decision_rule": "M952 may only synthesize the branch and select the next blocker. It must not train, run replay, run PPO, or promote.",
-  "next_blocker": "controlled-fusion branch needs synthesis before any further local objective change"
+  "next_blocker": "m953-v4-public-base-replay-constrained-target-feasibility-design"
 }

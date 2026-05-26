@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M952 synthesizes M942-M951 and pivots away from local controlled-fusion retuning to no-training replay-constrained target feasibility before more actor updates",
+  "failure_criteria": [
+    "M952 omits synthesis questions",
+    "M952 admits another local retune without synthesis",
+    "M952 runs training, full replay, PPO, or promotion",
+    "M952 does not choose the next blocker"
+  ],
+  "failure_types": [
+    "promotion_gate_failure",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not run another local retune",
+    "do not train in M952",
+    "do not run full replay",
+    "do not run PPO",
+    "do not promote",
+    "do not open encoders or GRU without an explicit synthesis decision"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260526T003155Z",
+  "hypothesis": "The controlled-fusion local objective branch has enough evidence to decide whether to stop local retuning and pivot to a new branch.",
+  "lineage": {
+    "blocked_by": [
+      "M951 used the one allowed local retune and still produced zero candidate alphas"
+    ],
+    "derived_from": [
+      "m941-v4-public-base-controlled-fusion-branch-synthesis",
+      "m951-v4-public-base-rejected-branch-boundary-retune-probe"
+    ],
+    "invalidates": [
+      "additional local coefficient tweaks on the same controlled-fusion objective before synthesis"
+    ],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/checkpoints/raw_rejected_branch_retention_update.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m951-v4-public-base-rejected-branch-boundary-retune-probe.json"
+    ],
+    "parent_dataset": [
+      "docs/m941-v4-public-base-controlled-fusion-branch-synthesis.md",
+      "docs/m942-v4-public-base-controlled-fusion-micro-boundary-audit.md",
+      "docs/m944-v4-public-base-controlled-fusion-candidate-compatibility-implementation.md",
+      "docs/m946-v4-public-base-controlled-fusion-candidate-replay-gate-implementation.md",
+      "docs/m947-v4-public-base-controlled-fusion-candidate-failing-surface-audit.md",
+      "docs/m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe.md",
+      "docs/m951-v4-public-base-rejected-branch-boundary-retune-probe.md",
+      "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/summary.json"
+    ],
+    "parent_objective": [
+      "synthesize controlled-fusion evidence after exact-compatible candidates and rejected-branch retune both fail promotion-level overlap"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m952-v4-public-base-controlled-fusion-branch-synthesis-2",
+  "next_blocker": "m953-v4-public-base-replay-constrained-target-feasibility-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pivot_to_replay_constrained_target_feasibility",
+  "public_gates": [
+    "M952 must synthesize M942-M951 evidence",
+    "M952 must list supported and falsified claims",
+    "M952 must classify failure taxonomy",
+    "M952 must decide whether to stop, pivot, or open a new branch",
+    "M952 must block training, replay, PPO, and promotion"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m952-v4-public-base-controlled-fusion-branch-synthesis-2.md",
+    "clearance_margin_mean": "",
+    "decision": "pivot_to_replay_constrained_target_feasibility",
+    "milestone": "m952-v4-public-base-controlled-fusion-branch-synthesis-2",
+    "reason": "M952 synthesizes M942-M951 and pivots away from local controlled-fusion retuning to no-training replay-constrained target feasibility before more actor updates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "synthesis document exists",
+    "M942-M951 evidence is summarized",
+    "supported and falsified claims are recorded",
+    "failure taxonomy is recorded",
+    "next branch decision is recorded",
+    "training, replay, PPO, and promotion are blocked"
+  ],
+  "type": "gate"
+}

@@ -1,0 +1,105 @@
+{
+  "id": "m953-v4-public-base-replay-constrained-target-feasibility-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m952-v4-public-base-controlled-fusion-branch-synthesis-2.md",
+      "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/summary.json",
+      "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/alpha_metrics.csv",
+      "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/m267_preflight_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m952-v4-public-base-controlled-fusion-branch-synthesis-2.json"
+    ],
+    "parent_objective": [
+      "design a no-training feasibility audit for replay-constrained target construction before more actor updates"
+    ],
+    "derived_from": [
+      "m952-v4-public-base-controlled-fusion-branch-synthesis-2"
+    ],
+    "blocked_by": [
+      "controlled-fusion local objectives cannot produce exact/preflight overlap"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "additional local controlled-fusion coefficient retunes before target feasibility"
+    ]
+  },
+  "review_artifact": "docs/reviews/m953-v4-public-base-replay-constrained-target-feasibility-design.md",
+  "public_gates": [
+    "M953 must not train",
+    "M953 must not run PPO",
+    "M953 must not promote",
+    "M953 must preserve the P0 actor-input contract",
+    "M953 must design a feasibility check for targets satisfying normal retention, low-tail lift, and M267 proof retention"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run another controlled-fusion local retune",
+    "do not widen actor inputs",
+    "do not open encoders or GRU",
+    "do not use private holdout",
+    "do not promote"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_replay_constrained_target_feasibility",
+    "evidence_axis": "G_target_feasibility: existence of replay-constrained targets before more actor updates",
+    "evidence_increment": "designs a no-training target feasibility audit after controlled-fusion synthesis",
+    "claim_scope": "design only; no training, no replay promotion, no private holdout, no PPO",
+    "stop_condition": [
+      "stop if the design cannot define target feasibility criteria",
+      "stop if the design relies on hidden actor inputs",
+      "stop if it proposes training before target feasibility"
+    ],
+    "fallback_plan": [
+      "if feasible targets exist, route to target export implementation",
+      "if no feasible targets exist, route to wider-surface synthesis or objective-threshold audit",
+      "if tooling is missing, route to infrastructure implementation first"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M952 pivots from controlled-fusion local objective retuning to target feasibility",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Before widening the actor or running more training, the project should prove that replay-constrained targets exist inside the current trust region.",
+  "success_criteria": [
+    "design document exists",
+    "target feasibility criteria are explicit",
+    "normal-retention, low-tail lift, and M267 proof constraints are all included",
+    "next implementation route is specified",
+    "training, PPO, and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "design skips one of the three feasibility constraints",
+    "design recommends training before feasibility",
+    "design changes actor inputs",
+    "design uses private holdout"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "Write the replay-constrained target feasibility design and route M954."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m953-v4-public-base-replay-constrained-target-feasibility-design.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m952-v4-public-base-controlled-fusion-branch-synthesis-2.md"
+  ],
+  "decision_rule": "M953 may only design the target feasibility audit. It must not train, run PPO, or promote.",
+  "next_blocker": "replay-constrained target feasibility has not been designed"
+}

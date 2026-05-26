@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 960,
+    "completed": 961,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m951-v4-public-base-rejected-branch-boundary-retune-probe",
+    "task_id": "m952-v4-public-base-controlled-fusion-branch-synthesis-2",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/summary.json"
+    "command_log": "docs/m952-v4-public-base-controlled-fusion-branch-synthesis-2.md"
   },
   "next_task": {
-    "id": "m952-v4-public-base-controlled-fusion-branch-synthesis-2",
+    "id": "m953-v4-public-base-replay-constrained-target-feasibility-design",
     "status": "pending",
-    "priority": 9470,
-    "kind": "gate",
-    "hypothesis": "The controlled-fusion local objective branch has enough evidence to decide whether to stop local retuning and pivot to a new branch",
-    "command": "see experiments/manifests/m952-v4-public-base-controlled-fusion-branch-synthesis-2.json",
-    "success_artifact": "docs/m952-v4-public-base-controlled-fusion-branch-synthesis-2.md",
-    "notes": "Pending: synthesize M942-M951 before any further local objective, trainable-surface, replay, PPO, or promotion"
+    "priority": 9480,
+    "kind": "infrastructure",
+    "hypothesis": "Before widening the actor or running more training, the project should prove that replay-constrained targets exist inside the current trust region",
+    "command": "see experiments/manifests/m953-v4-public-base-replay-constrained-target-feasibility-design.json",
+    "success_artifact": "docs/m953-v4-public-base-replay-constrained-target-feasibility-design.md",
+    "notes": "Pending: design no-training feasibility check for targets satisfying normal retention, low-tail lift, and M267 proof retention"
   },
-  "updated_at_utc": "20260526T002455Z"
+  "updated_at_utc": "20260526T002854Z"
 }

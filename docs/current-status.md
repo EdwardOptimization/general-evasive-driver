@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m952-v4-public-base-controlled-fusion-branch-synthesis-2
+m953-v4-public-base-replay-constrained-target-feasibility-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -112,9 +112,21 @@ target export. M951 runs that retune and improves M267 preflight to `13` pass
 alphas, but exact candidates remain `0`: proof retention is now mostly solved,
 while normal-retention and low-tail lift still do not overlap. The branch must
 synthesize before any further local objective or trainable-surface change.
+M952 completes that synthesis and pivots to a new branch: first prove that
+replay-constrained targets exist inside the current trust region before
+widening the actor or training again.
 
 ## Recent Evidence Line
 
+- M952 synthesizes M942-M951 and closes the local controlled-fusion retuning
+  loop. Supported: controlled-fusion has low-tail leverage, M267 preflight is
+  live, and rejected-branch retention can protect proof rows. Falsified: exact
+  compatibility alone is replay proof; backup alphas are sufficient; one-step
+  rejected retention plus one bounded retune can create exact/preflight overlap.
+  The branch pivots to `v4_public_base_replay_constrained_target_feasibility`.
+  M953 should design a no-training feasibility check for targets satisfying
+  normal retention, low-tail lift, and M267 proof retention before any more
+  actor updates.
 - M951 runs the one bounded lower-boundary retune allowed by M950. M267/M264
   preflight improves to `13` pass alphas, including all alphas `0.005` through
   `0.150`, while forbidden parameters remain unchanged. Exact candidate count

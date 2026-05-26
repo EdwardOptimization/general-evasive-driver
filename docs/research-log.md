@@ -14678,3 +14678,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M951 runs the one bounded lower-boundary retune admitted by M950. It trains at alphas `0.0675/0.075/0.090/0.100`, records explicit coefficients, reconstructs all rows, changes only `actor_mean` plus `response_context_fusion.0`, and keeps forbidden parameters unchanged. M267/M264 preflight improves to `13` pass alphas, including every alpha from `0.005` through `0.150`. But exact candidate count remains `0`: alphas up to `0.050` retain normal behavior but do not tail-lift; alphas `0.0675+` tail-lift but fail normal retention. Result class remains `controlled_fusion_rejected_branch_retention_objective_conflict`.
 - decision: `rejected_branch_boundary_retune_objective_conflict_route_to_branch_synthesis`
 - next: `m952-v4-public-base-controlled-fusion-branch-synthesis-2`
+
+## 20260526T002854Z - m952-v4-public-base-controlled-fusion-branch-synthesis-2
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m952-v4-public-base-controlled-fusion-branch-synthesis-2.md`
+- result: M952 synthesizes M942-M951. Supported: the controlled-fusion surface is correctly constrained, has real low-tail leverage, exact compatibility is insufficient for replay proof, M267 preflight is live, and rejected-branch retention can protect M267 rows. Falsified: M944 exact candidates are replay admissible, backup alphas are enough, one-step rejected retention plus one bounded retune can create exact/preflight overlap, and another local coefficient tweak is justified. Public-gate overfit risk is high.
+- decision: `pivot_to_replay_constrained_target_feasibility`
+- next: `m953-v4-public-base-replay-constrained-target-feasibility-design`
