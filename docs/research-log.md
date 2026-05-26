@@ -15160,3 +15160,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1002 runs the actor_mean-only exact update probe. Only `actor_mean.bias` and `actor_mean.weight` change; non-actor parameters are unchanged. Five interpolation alphas pass exact gates: `0.01`, `0.02`, `0.05`, `0.1`, `0.2`. The best exact candidate is alpha `0.2`, with weighted total loss `-0.907863`, weighted temporal preference loss `0.463279`, weighted logp gap `0.758060`, action L2 mean/max `0.008939/0.036729`, and all exact gates passing. PPO and promotion do not occur.
 - decision: `temporal_sequence_update_exact_candidate_route_to_public_replay_gate_design`
 - next: `m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design`
+
+## 20260526T162950Z - m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design.md`
+- result: M1003 designs the no-training public replay/proof gate for M1002 candidates. Candidate order is alpha `0.2`, `0.1`, `0.05`, `0.02`, `0.01`. M1004 must run M267/M264 preflight first, then the six public replay surfaces for the selected candidate, behavior seeds `9505/9506`, temporal corpus exact retention, source-diverse diagnostics, and contract checks. PPO, private holdout, and promotion remain blocked.
+- decision: `temporal_sequence_public_replay_gate_design_admit_m1004`
+- next: `m1004-v4-public-base-temporal-sequence-update-public-replay-gate`

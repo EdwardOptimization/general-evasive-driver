@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1003 designs M267/M264 preflight six public replay surfaces behavior seeds and temporal exact retention for M1002 candidates",
+  "failure_criteria": [
+    "design artifact is missing",
+    "proof replay surfaces are omitted",
+    "private holdout is used",
+    "PPO starts",
+    "promotion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not use private holdout",
+    "do not promote exact-only candidates",
+    "do not skip old proof surfaces",
+    "do not claim cross-fault wrong-history self-ID",
+    "do not proceed to PPO"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260526T164059Z",
+  "hypothesis": "M1002 exact candidates need a no-training public replay/proof gate before any candidate can advance toward PPO or promotion.",
+  "lineage": {
+    "blocked_by": [
+      "M1002 admits exact objective candidates but public replay/proof retention has not been evaluated"
+    ],
+    "derived_from": [
+      "m1002-v4-public-base-temporal-sequence-objective-update-probe",
+      "m1001-v4-public-base-temporal-sequence-objective-update-design"
+    ],
+    "invalidates": [
+      "using M1002 candidates for PPO before public replay gates"
+    ],
+    "parent_checkpoint": [
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_2.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1002-v4-public-base-temporal-sequence-objective-update-probe.json"
+    ],
+    "parent_dataset": [
+      "docs/m1002-v4-public-base-temporal-sequence-objective-update-probe.md",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/summary.json",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/interpolation_metrics.csv"
+    ],
+    "parent_objective": [
+      "design public replay/proof gate for M1002 exact temporal objective candidates"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design",
+  "next_blocker": "m1004-v4-public-base-temporal-sequence-update-public-replay-gate",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "temporal_sequence_public_replay_gate_design_admit_m1004",
+  "public_gates": [
+    "M1003 must not run PPO",
+    "M1003 must not promote",
+    "M1003 must design proof replay gates before implementation",
+    "M1003 must include M267/M264 and M183/M170 replay surfaces",
+    "M1003 must preserve P0 actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design.md",
+    "clearance_margin_mean": "",
+    "decision": "temporal_sequence_public_replay_gate_design_admit_m1004",
+    "milestone": "m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design",
+    "reason": "M1003 designs M267/M264 preflight six public replay surfaces behavior seeds and temporal exact retention for M1002 candidates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design artifact exists",
+    "candidate ranking is specified",
+    "proof replay surfaces are specified",
+    "behavior seeds and temporal corpus checks are specified",
+    "no PPO or promotion occurs"
+  ],
+  "type": "gate"
+}

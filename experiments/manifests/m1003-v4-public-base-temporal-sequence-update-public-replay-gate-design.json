@@ -103,6 +103,34 @@
     "docs/m1002-v4-public-base-temporal-sequence-objective-update-probe.md",
     "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design.md",
+    "candidate_order": [
+      0.2,
+      0.1,
+      0.05,
+      0.02,
+      0.01
+    ],
+    "required_preflight_surface": "M267/M264",
+    "required_public_replay_surfaces": [
+      "M183/M168",
+      "M183/M170",
+      "M193/M189",
+      "M212/M204",
+      "M223/M219",
+      "M267/M264"
+    ],
+    "required_behavior_seeds": [
+      9505,
+      9506
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "temporal_sequence_public_replay_gate_design_admit_m1004",
   "decision_rule": "M1003 must define the public replay gate that M1004 should implement before any M1002 candidate can be advanced.",
-  "next_blocker": "m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design"
+  "next_blocker": "m1004-v4-public-base-temporal-sequence-update-public-replay-gate"
 }
