@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1010,
+    "completed": 1011,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1001-v4-public-base-temporal-sequence-objective-update-design",
+    "task_id": "m1002-v4-public-base-temporal-sequence-objective-update-probe",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1001-v4-public-base-temporal-sequence-objective-update-design.md"
+    "command_log": "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/summary.json"
   },
   "next_task": {
-    "id": "m1002-v4-public-base-temporal-sequence-objective-update-probe",
+    "id": "m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design",
     "status": "pending",
-    "priority": 9970,
-    "kind": "infrastructure",
-    "hypothesis": "A small actor_mean-only update over the M997 temporal objective can produce an exact-gate-passing candidate without PPO or promotion",
-    "command": "see experiments/manifests/m1002-v4-public-base-temporal-sequence-objective-update-probe.json",
-    "success_artifact": "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/summary.json",
-    "notes": "Pending: implement exact actor_mean-only temporal objective update probe and gate candidates before public replay"
+    "priority": 9980,
+    "kind": "gate",
+    "hypothesis": "M1002 exact candidates need a no-training public replay/proof gate before any candidate can advance toward PPO or promotion",
+    "command": "see experiments/manifests/m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design.json",
+    "success_artifact": "docs/m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design.md",
+    "notes": "Pending: design public replay/proof gate for M1002 exact temporal objective candidates"
   },
-  "updated_at_utc": "20260526T155925Z"
+  "updated_at_utc": "20260526T161457Z"
 }

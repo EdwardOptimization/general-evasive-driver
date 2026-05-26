@@ -15150,3 +15150,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1001 designs the first temporal objective actor-update probe. M1002 is limited to `actor_mean` only, freezes encoders/GRU/fusion/critic/log_std, uses the M999 loss with M997 row weights, and selects candidates only by exact interpolated metrics. Acceptance gates include weighted total loss improvement, normal NLL retention, temporal preference retention, temporal gap floor, action-drift trust region, and actor_mean-only checksum. Public replay, PPO, and promotion remain blocked.
 - decision: `temporal_sequence_update_design_admit_exact_probe`
 - next: `m1002-v4-public-base-temporal-sequence-objective-update-probe`
+
+## 20260526T161457Z - m1002-v4-public-base-temporal-sequence-objective-update-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m1002_v4_public_base_temporal_sequence_objective_update_probe`
+- artifact: `docs/m1002-v4-public-base-temporal-sequence-objective-update-probe.md`
+- result: M1002 runs the actor_mean-only exact update probe. Only `actor_mean.bias` and `actor_mean.weight` change; non-actor parameters are unchanged. Five interpolation alphas pass exact gates: `0.01`, `0.02`, `0.05`, `0.1`, `0.2`. The best exact candidate is alpha `0.2`, with weighted total loss `-0.907863`, weighted temporal preference loss `0.463279`, weighted logp gap `0.758060`, action L2 mean/max `0.008939/0.036729`, and all exact gates passing. PPO and promotion do not occur.
+- decision: `temporal_sequence_update_exact_candidate_route_to_public_replay_gate_design`
+- next: `m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design`

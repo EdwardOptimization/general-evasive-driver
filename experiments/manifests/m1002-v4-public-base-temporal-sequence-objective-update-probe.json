@@ -89,7 +89,7 @@
   "commands": [
     {
       "name": "probe",
-      "command": "implement and run exact actor_mean-only update probe; see docs/m1001-v4-public-base-temporal-sequence-objective-update-design.md"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_step_temporal_sequence_update_probe --checkpoint runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt --corpus runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz --metadata runs/m997_v4_public_base_temporal_sequence_corpus_export/metadata.csv --base-summary runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json --epochs 200 --seed 1002 --lr 1e-4 --grad-clip-norm 1.0 --alphas 0.005,0.010,0.020,0.050,0.100,0.200,0.500,1.000 --run-dir runs/m1002_v4_public_base_temporal_sequence_objective_update_probe --device auto"
     }
   ],
   "required_artifacts": [
@@ -109,6 +109,32 @@
     "docs/m1001-v4-public-base-temporal-sequence-objective-update-design.md",
     "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "run_dir": "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe",
+    "summary": "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/summary.json",
+    "result_class": "temporal_sequence_update_exact_candidate",
+    "exact_candidate_count": 5,
+    "best_candidate_alpha": 0.2,
+    "best_candidate_checkpoint": "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_2.pt",
+    "best_weighted_total_loss": -0.907862698002847,
+    "best_weighted_normal_sequence_nll": -1.3711439703909214,
+    "best_weighted_temporal_preference_loss": 0.4632792187605101,
+    "best_weighted_logp_gap_mean": 0.758060496725818,
+    "best_temporal_logp_gap_p10": 0.06525393575429916,
+    "best_candidate_action_l2_mean": 0.008938592669939507,
+    "best_candidate_action_l2_max": 0.03672904893755913,
+    "raw_changed_parameter_names": [
+      "actor_mean.bias",
+      "actor_mean.weight"
+    ],
+    "raw_actor_mean_changed": true,
+    "raw_non_actor_changed": false,
+    "training_started": true,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "temporal_sequence_update_exact_candidate_route_to_public_replay_gate_design",
   "decision_rule": "M1002 should route to public replay gate design only if an exact objective-level candidate passes all M1001 gates.",
-  "next_blocker": "m1002-v4-public-base-temporal-sequence-objective-update-probe"
+  "next_blocker": "m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design"
 }

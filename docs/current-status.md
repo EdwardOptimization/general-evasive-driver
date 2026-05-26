@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1002-v4-public-base-temporal-sequence-objective-update-probe
+m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -295,11 +295,16 @@ anchor, with disrupted histories used only as contrast conditions. M1000
 implements the no-update evaluator and passes exact objective, replay, mask,
 weight, and actor-checksum sanity. M1001 designs a tiny exact-gated
 actor_mean-only update probe with interpolation and strict trust-region gates.
-The next task is M1002: implement and run that exact objective-only update probe
-before any public replay, PPO, or promotion. PPO remains blocked.
+M1002 implements it and finds `5` exact candidates, with best alpha `0.2`, while
+changing only `actor_mean`. The next task is M1003: design the no-training
+public replay/proof gate for these exact candidates before any replay
+implementation, PPO, or promotion. PPO remains blocked.
 
 ## Recent Evidence Line
 
+- M1002 runs the actor_mean-only temporal objective update probe. It changes
+  only `actor_mean`, finds five exact candidates, and selects alpha `0.2` as the
+  best exact candidate. Public replay and promotion have not run.
 - M1001 designs the first temporal objective update probe. It is actor_mean-only
   and exact-gated; public replay, PPO, and promotion remain blocked until a
   candidate passes interpolation trust-region gates.
