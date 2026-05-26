@@ -4,7 +4,7 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "proof_washout"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -102,6 +102,27 @@
   "baseline_artifacts": [
     "docs/m1012-v4-public-base-margin-weighted-branch-repair-update-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/summary.json",
+    "decision": "margin_weighted_branch_repair_update_branch_trust_blocked_route_to_audit",
+    "result_class": "margin_weighted_branch_repair_update_branch_trust_blocked",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "exact_candidate_count": 10,
+    "exact_and_branch_candidate_count": 0,
+    "raw_changed_parameter_names": [
+      "actor_mean.bias",
+      "actor_mean.weight"
+    ],
+    "raw_non_actor_changed": false,
+    "training_started": true,
+    "ppo_used": false,
+    "promoted": false,
+    "next_audit": "m1014-v4-public-base-margin-weighted-repair-failure-audit"
+  },
+  "decision": "margin_weighted_branch_repair_update_branch_trust_blocked_route_to_audit",
   "decision_rule": "M1013 should route to M267/M264 preflight design only if a candidate passes exact temporal gates and M1011 branch trust gates with only actor_mean changed.",
-  "next_blocker": "m1013-v4-public-base-margin-weighted-branch-repair-update-probe"
+  "next_blocker": "m1014-v4-public-base-margin-weighted-repair-failure-audit"
 }

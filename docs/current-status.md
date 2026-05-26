@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1013-v4-public-base-margin-weighted-branch-repair-update-probe
+m1014-v4-public-base-margin-weighted-repair-failure-audit
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -344,9 +344,19 @@ PPO, or promotion. M1012 completes that design. M1013 should implement the
 objective-only actor_mean repair probe with `lambda_wrong_trust` sweep
 `{0.001, 0.003, 0.01, 0.03}` and require strict M1011 branch-trust gates before
 any M267/M264 replay preflight.
+M1013 implements that probe and returns a clean negative result: `10`
+interpolated candidates pass exact temporal gates, but `0` pass both exact and
+M1011 branch-trust gates. Only `actor_mean.bias` and `actor_mean.weight`
+change. PPO and promotion remain unused. The next task is M1014: audit whether
+this is a strict-threshold conflict, actor_mean capacity conflict, optimizer
+instability, or a sign that the next repair should use projection/line-search
+rather than scalar joint training.
 
 ## Recent Evidence Line
 
+- M1013 finds `10` exact temporal candidates but no candidate that also stays
+  inside the M1011 branch trust region. The failure is `proof_washout`, not
+  contract violation, and must be audited before changing thresholds.
 - M1012 designs the repaired update: actor_mean-only, M999/M1002 temporal exact
   objective plus M1011 wrong-branch trust residual, with strict trust gates
   before replay. PPO and promotion remain blocked.

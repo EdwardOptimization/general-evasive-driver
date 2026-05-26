@@ -1,0 +1,103 @@
+{
+  "id": "m1014-v4-public-base-margin-weighted-repair-failure-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1013-v4-public-base-margin-weighted-branch-repair-update-probe.md",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/summary.json",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/interpolation_metrics.csv",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/train_history.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1013-v4-public-base-margin-weighted-branch-repair-update-probe.json"
+    ],
+    "parent_objective": [
+      "audit why exact temporal candidates fail the M1011 branch trust region"
+    ],
+    "derived_from": [
+      "m1013-v4-public-base-margin-weighted-branch-repair-update-probe"
+    ],
+    "blocked_by": [
+      "M1013 found exact candidates but zero exact+branch candidates"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "direct threshold relaxation without failure audit"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1014-v4-public-base-margin-weighted-repair-failure-audit.md",
+  "public_gates": [
+    "M1014 must not train",
+    "M1014 must not run PPO",
+    "M1014 must not promote",
+    "M1014 must preserve P0 actor inputs",
+    "M1014 must classify whether M1013 is threshold conflict, actor_mean capacity conflict, optimizer instability, or projection-needed"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not relax M1011 trust gates inside this audit",
+    "do not use private holdout",
+    "do not run replay gates as promotion evidence",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_temporal_sequence_objective",
+    "evidence_axis": "G_temporal_objective: repair failure diagnosis",
+    "evidence_increment": "classifies the M1013 exact-versus-branch conflict before any threshold change or new update",
+    "claim_scope": "failure audit only; no actor update, no replay claim, no PPO, no promotion",
+    "stop_condition": [
+      "stop if M1013 failure is explained by contract violation",
+      "stop if branch trust gates are shown to be invalid metrics",
+      "stop if the only next action would be threshold relaxation without replay evidence"
+    ],
+    "fallback_plan": [
+      "if threshold conflict is credible, design a replay-calibrated trust threshold audit",
+      "if actor_mean capacity conflict is credible, synthesize before widening trainable surface",
+      "if optimizer instability is credible, design a constrained projection or line-search repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1013 branch-trust-blocked result requires audit before next update",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M1013 negative result can be diagnosed without new training by comparing exact-safe small-alpha points, exact-but-unsafe points, branch contributions, and train-history branch-loss oscillation.",
+  "success_criteria": [
+    "audit document exists",
+    "failure is classified with process-v2 taxonomy",
+    "audit names the next route without relaxing thresholds in-place",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "audit runs new training",
+    "audit changes branch thresholds and declares success",
+    "audit routes directly to PPO or promotion",
+    "audit ignores actor contract"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1014-v4-public-base-margin-weighted-repair-failure-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1014-v4-public-base-margin-weighted-repair-failure-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/summary.json"
+  ],
+  "decision_rule": "M1014 should choose the next route by failure cause rather than continuing scalar coefficient sweeps blindly.",
+  "next_blocker": "m1014-v4-public-base-margin-weighted-repair-failure-audit"
+}

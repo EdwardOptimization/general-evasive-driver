@@ -15253,3 +15253,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1012 designs the repaired actor_mean-only temporal update. The future M1013 loss combines the M999/M1002 temporal exact objective with the M1011 margin-weighted wrong-branch trust residual on rows `6`, `15`, `11`, and `16`; `lambda_wrong_trust` sweep is `{0.001, 0.003, 0.01, 0.03}`. Candidate gates require M1002-style exact temporal retention plus strict M1011 trust limits (`weighted_branch_trust_loss <= 0.10`, row `6 <= 0.05`, row `15 <= 0.02`, row `16 <= 0.05`) before any M267/M264 replay preflight. PPO, promotion, private holdout, and actor-input changes remain blocked.
 - decision: `margin_weighted_branch_repair_update_design_admit_m1013_probe`
 - next: `m1013-v4-public-base-margin-weighted-branch-repair-update-probe`
+
+## 20260526T185528Z - m1013-v4-public-base-margin-weighted-branch-repair-update-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe`
+- artifact: `docs/m1013-v4-public-base-margin-weighted-branch-repair-update-probe.md`
+- result: M1013 implements the actor_mean-only temporal repair update with M1011 branch trust residual. Only `actor_mean.bias` and `actor_mean.weight` change, and PPO/promotion/private holdout are unused. The result is negative: `10` interpolated candidates pass exact temporal gates, but `0` pass both exact temporal and M1011 branch-trust gates. Trust-safe tiny-alpha points exist but have too little temporal improvement; exact-safe points move rows `6` and `15` far outside the trust region.
+- decision: `margin_weighted_branch_repair_update_branch_trust_blocked_route_to_audit`
+- next: `m1014-v4-public-base-margin-weighted-repair-failure-audit`
