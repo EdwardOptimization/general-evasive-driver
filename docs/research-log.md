@@ -15431,3 +15431,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1031 implements and runs a no-PPO temporal-safe interpolation/projection probe over the three M1029 repair directions. It evaluates `39` projected checkpoints; `16` pass M997 temporal exact and M297/M270 exact no-regression, and `14` retain enough movement for first replay. Actor inputs remain unchanged. First replay is still blocked: several candidates pass M267/M264 with row15 retained, but `0/14` pass both M267/M264 and M183/M170. The closest miss is `raw_conflict_s40 alpha 0.05`, which passes M267/M264 `17/17` but fails M183/M170 row16 normal margin at `-0.000165`.
 - decision: `candidate_b_temporal_safe_projection_proof_washout`
 - next: `m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit`
+
+## 20260526T231000Z - m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit.md`
+- result: M1032 audits the M1031 first-replay failure without PPO, promotion, private holdout, or actor-input changes. The failure is not wrong-history sensitivity loss: inspected M183/M170 candidates keep `wrong_history_successes = 0/17`. The closest miss is `raw_conflict_s40 alpha 0.05`, which passes M267/M264 `17/17` but fails only M183/M170 row16 with normal margin `-0.000165` versus Candidate B baseline `+0.001316`. M1032 classifies the blocker as M183/M170 normal-branch terminal-margin active-set failure.
+- decision: `candidate_b_temporal_projection_first_replay_failure_audit_route_to_m183_row16_active_set_retention_design`
+- next: `m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design`

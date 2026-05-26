@@ -110,5 +110,27 @@
     "runs/m1031_candidate_b_temporal_safe_projection_probe/summary.json"
   ],
   "decision_rule": "M1032 should admit implementation only after it identifies whether M183/M170 failure is a normal-margin active-set problem, a broad regression, or a rejected-history proof loss.",
-  "next_blocker": "m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit"
+  "next_blocker": "m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit.md",
+    "decision": "candidate_b_temporal_projection_first_replay_failure_audit_route_to_m183_row16_active_set_retention_design",
+    "result_class": "candidate_b_temporal_projection_first_replay_failure_localized",
+    "failure_types": [
+      "none"
+    ],
+    "classification": "M183/M170 normal-branch terminal-margin active-set failure",
+    "closest_miss": {
+      "candidate": "m1031_raw_conflict_s40_a0_05",
+      "surface": "M183/M170",
+      "row_id": 16,
+      "baseline_normal_margin": 0.001316,
+      "candidate_normal_margin": -0.000165,
+      "candidate_wrong_history_margin": -0.006597,
+      "candidate_success_drop_count": 16,
+      "baseline_success_drop_count": 17
+    },
+    "wrong_history_sensitivity_loss": false,
+    "next_blocker": "m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design"
+  }
 }

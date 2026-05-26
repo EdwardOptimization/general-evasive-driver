@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit
+m1033-v4-public-base-candidate-b-m183-row16-active-set-retention-design
 ```
 
 M1031 implemented and ran the no-PPO temporal-safe projection probe after the
@@ -126,11 +126,22 @@ normal_margin: -0.000165
 wrong_history_margin: -0.006597
 ```
 
-The current blocker is therefore not M267 row15 alone. M1032 must audit whether
-the remaining issue is an M183/M170 row16 normal terminal-margin active-set
-problem, broader normal-branch regression, or rejected-history sensitivity loss.
-No longer PPO, promotion, private holdout, or actor-input change is allowed
-before that audit.
+M1032 audits the M1031 failure and classifies it as:
+
+```text
+M183/M170 normal-branch terminal-margin active-set failure
+```
+
+It is not wrong-history sensitivity loss: inspected M183/M170 candidates keep
+`wrong_history_successes = 0/17`; the rejected branch remains unsafe. The
+closest useful direction is `raw_conflict_s40 alpha 0.05`, where only M183/M170
+row16 fails and the candidate normal margin is `-0.000165`.
+
+The current blocker is therefore M1033: design M183/M170 row16 active-set
+retention before another repair/projection run. The design must keep M997
+temporal retention, M297/M270 exact checks, M267/M264 row15, and M183/M170
+row16 in the gate order. No longer PPO, promotion, private holdout, or actor
+input change is allowed before that design.
 
 ### Historical Trace
 
