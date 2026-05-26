@@ -75,10 +75,10 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe
+m1030-v4-public-base-candidate-b-temporal-retention-repair-design
 ```
 
-M1028 completed the exact post-PPO repair design for the first 1024-step
+M1029 completed the no-PPO exact post-PPO repair probe for the first 1024-step
 guarded PPO smoke proposal from the Candidate B public-gate base:
 
 ```text
@@ -124,18 +124,36 @@ normal_margin_delta: +0.000533
 wrong_history_margin_delta: +0.000423
 ```
 
-M1028 routes to M1029: run a no-PPO exact repair/projection probe using
-`autodrift.exact_post_ppo_repair` with M297/M270 exact objectives, the M293
-rejected-history trajectory anchor, and the M393 current-family conflict corpus
-as a first-class row15 constraint. M1029 must also gate M997 temporal exact
-retention, M267/M264 row15/full-surface replay, and M183/M170 first replay
-before any full public gate, longer PPO, scalar-coefficient tuning, promotion,
-or private holdout.
+M1029 generated three no-PPO candidates with `autodrift.exact_post_ppo_repair`
+using M297/M270 exact objectives, the M293 rejected-history trajectory anchor,
+and the M393 current-family conflict corpus:
+
+```text
+raw_conflict_s40:  M297 delta -0.000571609, M270 delta -0.000009418
+base_conflict_s40: M297 delta -0.000331402, M270 delta -0.000004232
+line_conflict_s40: M297 delta -0.000331402, M270 delta -0.000004232
+```
+
+All three pass M297/M270 exact lexicographic repair, but all fail M997 temporal
+exact retention before first replay:
+
+```text
+exact_gate_pass_count: 0 / 3
+candidate_action_l2_mean threshold: <= 0.015
+raw_conflict_s40:  0.043320605
+base_conflict_s40: 0.032059840
+line_conflict_s40: 0.032059840
+```
+
+M1029 therefore intentionally skips M267/M264 and M183/M170 first replay. The
+next blocker is M1030: design temporal-retention-aware exact repair/projection
+so M997 temporal normal action/logp retention becomes first-class before first
+replay, longer PPO, promotion, or private holdout.
 
 ### Historical Trace
 
-The branch trace below is retained for context; the live blocker is the M1029
-probe above.
+The branch trace below is retained for context; the live blocker is the M1030
+design above.
 
 M927 ran the no-training residual-direction feasibility sweep and found no
 alpha/mix candidate. M928 audits this as a residual-bridge trust-region

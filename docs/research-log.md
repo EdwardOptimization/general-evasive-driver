@@ -15403,3 +15403,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1028 designs a no-PPO exact repair/projection route for the M1026 raw PPO proposal. M1029 must generate raw-start, base-start, and line-boundary candidates with `autodrift.exact_post_ppo_repair`, using M297/M270 exact objectives, M293 trajectory anchor, and M393 current-family conflict corpus as an explicit row15 constraint. Acceptance order is P0 actor-input contract, exact M297/M270, M997 temporal exact retention, M267/M264 row15/full-surface first replay, then M183/M170 first replay. No repair, PPO, promotion, private holdout, or actor-input change occurs in M1028.
 - decision: `candidate_b_post_ppo_exact_repair_design_admit_m1029_probe`
 - next: `m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe`
+
+## 20260526T220800Z - m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe
+
+- status: `completed`
+- kind: `driver_candidate`
+- artifact: `docs/m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe.md`
+- result: M1029 runs the no-PPO exact repair probe. Raw, base, and line-boundary candidates all pass M297/M270 exact lexicographic checks with M393 current-family conflict residual active. However, `0/3` candidates pass M997 temporal exact retention: action L2 mean is `0.043320605` for raw-start and `0.032059840` for base/line, above the `0.015` threshold. First replay is intentionally skipped by the registered gate order. No PPO, promotion, private holdout, or actor-input change occurs.
+- decision: `candidate_b_post_ppo_exact_repair_temporal_regression_route_to_temporal_retention_design`
+- next: `m1030-v4-public-base-candidate-b-temporal-retention-repair-design`

@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "proof_washout"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -139,5 +139,36 @@
     "docs/m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design.md"
   ],
   "decision_rule": "M1029 can route to full public gate design only if exact M297/M270, M997 temporal exact, M267/M264 row15, and M183/M170 first replay all pass without actor-input changes.",
-  "next_blocker": "m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe"
+  "next_blocker": "m1030-v4-public-base-candidate-b-temporal-retention-repair-design",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe.md",
+    "decision": "candidate_b_post_ppo_exact_repair_temporal_regression_route_to_temporal_retention_design",
+    "result_class": "candidate_b_post_ppo_exact_repair_temporal_regression",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "raw_candidate_checkpoint": "runs/m1029_candidate_b_post_ppo_exact_repair_raw_s40_seed61028/candidate_checkpoint.pt",
+    "base_candidate_checkpoint": "runs/m1029_candidate_b_post_ppo_exact_repair_base_s40_seed61029/candidate_checkpoint.pt",
+    "line_candidate_checkpoint": "runs/m1029_candidate_b_post_ppo_exact_repair_line_s40_seed61030/candidate_checkpoint.pt",
+    "raw_exact_m297_delta": -0.0005716085433959961,
+    "raw_exact_m270_delta": -9.417533874511719e-06,
+    "base_exact_m297_delta": -0.0003314018249511719,
+    "base_exact_m270_delta": -4.231929779052734e-06,
+    "line_exact_m297_delta": -0.0003314018249511719,
+    "line_exact_m270_delta": -4.231929779052734e-06,
+    "m997_temporal_exact_pass_count": 0,
+    "candidate_count": 3,
+    "raw_temporal_action_l2_mean": 0.04332060543231763,
+    "base_temporal_action_l2_mean": 0.03205984038624954,
+    "line_temporal_action_l2_mean": 0.03205984038624954,
+    "temporal_action_l2_mean_threshold": 0.015,
+    "first_replay_run": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1030-v4-public-base-candidate-b-temporal-retention-repair-design"
+  },
+  "decision": "candidate_b_post_ppo_exact_repair_temporal_regression_route_to_temporal_retention_design"
 }

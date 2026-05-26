@@ -1,0 +1,112 @@
+{
+  "id": "m1030-v4-public-base-candidate-b-temporal-retention-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+      "runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe.md",
+      "runs/m1029_candidate_b_repair_temporal_exact_retention/exact_retention_summary.csv",
+      "runs/m1029_candidate_b_post_ppo_exact_repair_raw_s40_seed61028/summary.json",
+      "runs/m1029_candidate_b_post_ppo_exact_repair_base_s40_seed61029/summary.json",
+      "runs/m1029_candidate_b_post_ppo_exact_repair_line_s40_seed61030/summary.json",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe.json"
+    ],
+    "parent_objective": [
+      "design temporal-retention-aware exact repair after M1029 exact repair candidates fail M997 temporal exact gate"
+    ],
+    "derived_from": [
+      "m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe"
+    ],
+    "blocked_by": [
+      "M1029 exact repair candidates pass M297/M270 but all fail M997 temporal exact due action drift above 0.015"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running first replay for M1029 temporal-regressing candidates",
+      "longer PPO before temporal-retention-aware repair design"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1030-v4-public-base-candidate-b-temporal-retention-repair-design.md",
+  "public_gates": [
+    "M1030 must design only and not train",
+    "M1030 must not run PPO or repair",
+    "M1030 must not promote",
+    "M1030 must not use private holdout",
+    "M1030 must preserve P0 actor inputs",
+    "M1030 must make M997 temporal retention first-class before first replay"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not relax M997 temporal action-drift thresholds",
+    "do not run first replay for temporal-regressing candidates",
+    "do not run longer PPO",
+    "do not change actor inputs",
+    "do not promote repair candidates from the design milestone"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_candidate_b_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo: temporal-retention-aware exact repair design",
+    "evidence_increment": "turns M1029 temporal exact regression into a design for integrating M997 temporal retention into repair/projection",
+    "claim_scope": "design only; no repair run, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if M997 temporal retention cannot be represented as an objective or projection",
+      "stop if the design would let first replay override temporal exact failure",
+      "stop if actor-input contract would need to change"
+    ],
+    "fallback_plan": [
+      "if temporal objective integration is feasible, implement a temporal-retention-aware repair probe next",
+      "if objective integration is too broad, design temporal-safe interpolation/projection from M1029 candidates",
+      "if neither is viable, route to PPO recipe audit or lower-scope repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1029 exact repair candidates fail M997 temporal exact gate before first replay",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M997 temporal retention should be made a first-class repair/projection constraint so exact M297/M270 row15 repair candidates cannot drift temporally before first replay.",
+  "success_criteria": [
+    "design artifact exists",
+    "temporal-retention objective or projection option is specified",
+    "gate order remains exact temporal before first replay",
+    "next implementation scope is bounded",
+    "no training repair PPO promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design relaxes M997 thresholds",
+    "design omits M267/M264 row15 retention",
+    "design runs repair or PPO",
+    "design changes actor inputs",
+    "design promotes a candidate"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1030-v4-public-base-candidate-b-temporal-retention-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1030-v4-public-base-candidate-b-temporal-retention-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1029-v4-public-base-candidate-b-post-ppo-exact-repair-probe.md"
+  ],
+  "decision_rule": "M1030 should admit implementation only if M997 temporal retention is explicit and remains before first replay in the gate order.",
+  "next_blocker": "m1030-v4-public-base-candidate-b-temporal-retention-repair-design"
+}
