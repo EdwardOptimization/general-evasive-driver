@@ -15300,3 +15300,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1017 audits the M1016 ordering artifact. It concludes the unsigned branch L2 residual is useful as a detector but not an ordering gate, because it penalizes safe-direction and unsafe-direction wrong-branch action changes equally. Candidate B moves active wrong-history margins negative and passes M267/M264, while Candidates A/C move rows across zero. Candidate B is not promoted; it is routed to full public replay design.
 - decision: `signed_branch_metric_audit_route_to_candidate_b_full_public_replay_design`
 - next: `m1018-v4-public-base-m1013-candidate-b-full-replay-design`
+
+## 20260526T194640Z - m1018-v4-public-base-m1013-candidate-b-full-replay-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1018-v4-public-base-m1013-candidate-b-full-replay-design.md`
+- result: M1018 designs the full public replay gate for Candidate B `m1013_lam0030_a050`. The next gate must recompute M997 temporal exact retention, verify the actor/non-actor checkpoint contract, run six public replay surfaces, run source-diverse protected diagnostics, and retain behavior seeds `9505`/`9506`. M1018 does not run replay, train, run PPO, use private holdout, or promote.
+- decision: `candidate_b_full_replay_design_admit_m1019_gate`
+- next: `m1019-v4-public-base-m1013-candidate-b-full-replay-gate`

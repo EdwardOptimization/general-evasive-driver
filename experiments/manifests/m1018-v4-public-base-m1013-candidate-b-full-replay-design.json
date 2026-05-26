@@ -98,6 +98,23 @@
   "baseline_artifacts": [
     "docs/m1017-v4-public-base-signed-branch-metric-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1018-v4-public-base-m1013-candidate-b-full-replay-design.md",
+    "decision": "candidate_b_full_replay_design_admit_m1019_gate",
+    "candidate_b_checkpoint": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "required_tiers": [
+      "contract_and_exact_temporal_retention",
+      "six_public_replay_surfaces",
+      "source_diverse_protected_diagnostics",
+      "behavior_seeds_9505_9506"
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "next_gate": "m1019-v4-public-base-m1013-candidate-b-full-replay-gate"
+  },
+  "decision": "candidate_b_full_replay_design_admit_m1019_gate",
   "decision_rule": "M1018 should admit implementation only if full replay remains public proof/generalization gating and not promotion.",
-  "next_blocker": "m1018-v4-public-base-m1013-candidate-b-full-replay-design"
+  "next_blocker": "m1019-v4-public-base-m1013-candidate-b-full-replay-gate"
 }

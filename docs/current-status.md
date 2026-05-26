@@ -75,8 +75,25 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1018-v4-public-base-m1013-candidate-b-full-replay-design
+m1019-v4-public-base-m1013-candidate-b-full-replay-gate
 ```
+
+M1018 completed the design-only gate for Candidate B
+`m1013_lam0030_a050`, the only M1013 exact candidate that passed M267/M264
+preflight. M1019 must now run the full public gate: recompute M997 temporal
+exact retention, verify the actor/non-actor checkpoint contract, run all six
+public replay surfaces, run source-diverse protected diagnostics, and retain
+behavior seeds `9505`/`9506`.
+
+M1019 is not promotion, PPO, or private-holdout evidence. If it passes, the
+next step is a separate promotion/generalization audit or branch synthesis,
+depending on cadence. If it fails, the result should be classified by the
+failing tier before any new objective update.
+
+### Historical Trace
+
+The branch trace below is retained for context; the live blocker is the M1019
+gate above.
 
 M927 ran the no-training residual-direction feasibility sweep and found no
 alpha/mix candidate. M928 audits this as a residual-bridge trust-region

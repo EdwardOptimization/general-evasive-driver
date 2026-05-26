@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1026,
+    "completed": 1027,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1017-v4-public-base-signed-branch-metric-audit",
+    "task_id": "m1018-v4-public-base-m1013-candidate-b-full-replay-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1017-v4-public-base-signed-branch-metric-audit.md"
+    "command_log": "docs/m1018-v4-public-base-m1013-candidate-b-full-replay-design.md"
   },
   "next_task": {
-    "id": "m1018-v4-public-base-m1013-candidate-b-full-replay-design",
+    "id": "m1019-v4-public-base-m1013-candidate-b-full-replay-gate",
     "status": "pending",
-    "priority": 10130,
+    "priority": 10140,
     "kind": "gate",
-    "hypothesis": "Candidate B should be evaluated by the standard full public replay stack because it passed M267/M264 preflight despite the unsigned branch metric artifact",
-    "command": "see experiments/manifests/m1018-v4-public-base-m1013-candidate-b-full-replay-design.json",
-    "success_artifact": "docs/m1018-v4-public-base-m1013-candidate-b-full-replay-design.md",
-    "notes": "Pending: design full public replay and behavior gate for Candidate B without promotion"
+    "hypothesis": "Candidate B can pass exact temporal retention, six public replay surfaces, source-diverse diagnostics, and behavior seeds after passing M267/M264 preflight",
+    "command": "see experiments/manifests/m1019-v4-public-base-m1013-candidate-b-full-replay-gate.json",
+    "success_artifact": "runs/m1019_v4_public_base_m1013_candidate_b_full_replay_gate/summary.json",
+    "notes": "Pending: run exact temporal retention, six public replay, diagnostics, and behavior gates for Candidate B without promotion"
   },
-  "updated_at_utc": "20260526T192934Z"
+  "updated_at_utc": "20260526T194640Z"
 }
