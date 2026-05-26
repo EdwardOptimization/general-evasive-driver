@@ -1,0 +1,114 @@
+{
+  "id": "m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+      "runs/m1031_candidate_b_temporal_safe_projection_probe/checkpoints/m1031_raw_conflict_s40_a0_05.pt",
+      "runs/m1031_candidate_b_temporal_safe_projection_probe/checkpoints/m1031_base_conflict_s40_a0_25.pt",
+      "runs/m1031_candidate_b_temporal_safe_projection_probe/checkpoints/m1031_line_conflict_s40_a0_25.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1031_candidate_b_temporal_safe_projection_probe/summary.json",
+      "runs/m1031_candidate_b_temporal_safe_projection_probe/projection_metrics.csv",
+      "runs/m1031_candidate_b_temporal_safe_projection_probe/first_replay_summary.csv",
+      "runs/m1031_candidate_b_temporal_safe_projection_probe/first_replay/m1031_raw_conflict_s40_a0_05/m183_m170/boundary_replay_rows.csv",
+      "docs/m1031-v4-public-base-candidate-b-temporal-safe-projection-probe.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1031-v4-public-base-candidate-b-temporal-safe-projection-probe.json"
+    ],
+    "parent_objective": [
+      "audit why temporal/exact-safe projections still fail first replay"
+    ],
+    "derived_from": [
+      "m1031-v4-public-base-candidate-b-temporal-safe-projection-probe"
+    ],
+    "blocked_by": [
+      "M1031 finds 14 temporal/exact-safe projection candidates but 0 pass both M267/M264 and M183/M170 first replay"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "routing M1031 directly to full public gate",
+      "running longer PPO from M1026 before first-replay failure is audited",
+      "promoting any M1031 projected checkpoint"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit.md",
+  "public_gates": [
+    "M1032 must run no PPO",
+    "M1032 must not promote",
+    "M1032 must not use private holdout",
+    "M1032 must preserve P0 actor inputs",
+    "M1032 must classify whether the M1031 replay failure is M183 row16 normal-margin cliff, broader normal-branch regression, or wrong-history sensitivity loss"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not relax M997 thresholds",
+    "do not treat M267/M264 pass as full first-replay pass",
+    "do not ignore M183/M170 row16 normal failure",
+    "do not change actor inputs",
+    "do not promote any projection candidate"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_candidate_b_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo: first-replay proof failure after temporal-safe projection",
+    "evidence_increment": "separates M1031 first-replay failure into row-level normal-margin cliff versus wrong-history sensitivity loss and chooses the next repair route",
+    "claim_scope": "audit/design only; no checkpoint promotion, no private holdout, no PPO continuation claim",
+    "stop_condition": [
+      "stop if M183/M170 row-level failure cannot be localized from existing replay artifacts",
+      "stop if the next route would require relaxing M997 temporal thresholds",
+      "stop if the next route would change actor inputs"
+    ],
+    "fallback_plan": [
+      "if the failure is a single low-slack normal-margin cliff, design active-set terminal-margin retention",
+      "if the failure is broad normal-branch regression, design direct M997 plus M183 retention integration",
+      "if wrong-history sensitivity is lost, route to rejected-branch objective coverage audit",
+      "if low-alpha interpolation is the only remaining uncertainty, design a bounded finer-alpha probe"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1031 projection recovers temporal exact and M267/M264 but fails M183/M170 first replay",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M1031's remaining proof washout is caused by an M183/M170 normal-branch terminal-margin cliff, especially row16, rather than loss of wrong-history sensitivity.",
+  "success_criteria": [
+    "audit artifact exists",
+    "M1031 first replay failures are summarized by surface, row, branch, and margin",
+    "the next repair route is selected with no PPO, no promotion, and no actor-input change",
+    "M183/M170 row16 is either admitted as a hard active-set constraint or ruled out with evidence"
+  ],
+  "failure_criteria": [
+    "audit cannot localize the M1031 failure",
+    "audit recommends longer PPO before repair/gate correction",
+    "audit ignores the M183/M170 first replay failure",
+    "audit changes actor inputs",
+    "audit promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1031-v4-public-base-candidate-b-temporal-safe-projection-probe.md",
+    "runs/m1031_candidate_b_temporal_safe_projection_probe/summary.json"
+  ],
+  "decision_rule": "M1032 should admit implementation only after it identifies whether M183/M170 failure is a normal-margin active-set problem, a broad regression, or a rejected-history proof loss.",
+  "next_blocker": "m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit"
+}

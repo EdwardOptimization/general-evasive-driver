@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1039,
+    "completed": 1040,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1030-v4-public-base-candidate-b-temporal-retention-repair-design",
+    "task_id": "m1031-v4-public-base-candidate-b-temporal-safe-projection-probe",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1030-v4-public-base-candidate-b-temporal-retention-repair-design.md"
+    "command_log": "runs/m1031_candidate_b_temporal_safe_projection_probe/summary.json"
   },
   "next_task": {
-    "id": "m1031-v4-public-base-candidate-b-temporal-safe-projection-probe",
+    "id": "m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit",
     "status": "pending",
-    "priority": 10260,
-    "kind": "driver_candidate",
-    "hypothesis": "Run temporal-safe interpolation/projection over M1029 repair candidates before first replay",
-    "command": "see experiments/manifests/m1031-v4-public-base-candidate-b-temporal-safe-projection-probe.json",
-    "success_artifact": "runs/m1031_candidate_b_temporal_safe_projection_probe/summary.json",
-    "notes": "Pending: implement/run no-PPO temporal-safe projection and gate M997 plus M297/M270 before first replay"
+    "priority": 10270,
+    "kind": "gate",
+    "hypothesis": "Audit why M1031 temporal/exact-safe projections pass M267/M264 for some candidates but fail M183/M170 first replay",
+    "command": "see experiments/manifests/m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit.json",
+    "success_artifact": "docs/m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit.md",
+    "notes": "Pending: localize M1031 M183/M170 row16 normal-margin cliff and choose next repair route without PPO or promotion"
   },
-  "updated_at_utc": "20260526T222215Z"
+  "updated_at_utc": "20260526T230059Z"
 }

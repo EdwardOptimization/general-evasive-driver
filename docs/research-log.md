@@ -15421,3 +15421,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1030 designs the response to M1029's temporal exact regression. The next step is not first replay and not longer PPO; it is a no-PPO temporal-safe interpolation/projection probe over the M1029 repair directions. M1031 must evaluate M997 temporal exact retention first, then M297/M270 exact no-regression, then M267/M264 row15/full-surface and M183/M170 first replay. If no temporal-safe alpha exists, route to direct M997 objective integration.
 - decision: `candidate_b_temporal_retention_design_admit_projection_probe`
 - next: `m1031-v4-public-base-candidate-b-temporal-safe-projection-probe`
+
+## 20260526T230059Z - m1031-v4-public-base-candidate-b-temporal-safe-projection-probe
+
+- status: `completed`
+- kind: `driver_candidate`
+- artifact: `runs/m1031_candidate_b_temporal_safe_projection_probe/summary.json`
+- doc: `docs/m1031-v4-public-base-candidate-b-temporal-safe-projection-probe.md`
+- result: M1031 implements and runs a no-PPO temporal-safe interpolation/projection probe over the three M1029 repair directions. It evaluates `39` projected checkpoints; `16` pass M997 temporal exact and M297/M270 exact no-regression, and `14` retain enough movement for first replay. Actor inputs remain unchanged. First replay is still blocked: several candidates pass M267/M264 with row15 retained, but `0/14` pass both M267/M264 and M183/M170. The closest miss is `raw_conflict_s40 alpha 0.05`, which passes M267/M264 `17/17` but fails M183/M170 row16 normal margin at `-0.000165`.
+- decision: `candidate_b_temporal_safe_projection_proof_washout`
+- next: `m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit`

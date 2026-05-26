@@ -75,11 +75,11 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1031-v4-public-base-candidate-b-temporal-safe-projection-probe
+m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit
 ```
 
-M1030 completed the temporal-retention repair design after the no-PPO exact
-post-PPO repair probe from the Candidate B public-gate base:
+M1031 implemented and ran the no-PPO temporal-safe projection probe after the
+M1029 exact repair endpoints failed M997 temporal exact retention.
 
 ```text
 base:
@@ -89,69 +89,48 @@ raw PPO checkpoint:
   runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt
 ```
 
-The run is a true PPO/proof result, not a training-instability result:
+M1031 result:
 
 ```text
-ppo_returncode: 0
-training_metrics_finite: true
-exact_retention_pass: true
-proof_pass: false
-source_diverse_pass: false
-generalization_pass: true
-behavior_pass: true
-actor_inputs_changed: false
-promoted: false
-private_holdout_used: false
+candidate_count: 39
+actor_input_change_count: 0
+temporal_exact_pass_count: 16
+temporal_and_exact_pass_count: 16
+eligible_candidate_count: 14
+first_replay_attempted_candidate_count: 14
+first_replay_pass_candidate_found: false
+result_class: candidate_b_temporal_safe_projection_proof_washout
 ```
 
-Five of six public proof replay surfaces passed, but M267/M264 dropped from
-`17/17` to `16/17` success drops while normal success stayed unchanged. This is
-localized wrong-history proof washout, not normal-branch regression and not a
-wrapper/training metrics artifact. Fresh public seeds `102100`/`102101`,
-moderate-OOD seed `102120`, and behavior/ablation seeds
-`9505`/`9506`/`102130`/`102131` all passed.
-
-M1027 localizes the failed row:
+M1031 sharpens the blocker:
 
 ```text
-surface: M267/M264
-row_id: 15
-physical_pair_key: 9530:21:9550:21
-target: future_braking_deceleration
-baseline wrong-history margin: -0.000112
-M1026 raw wrong-history margin: +0.000311
-normal_margin_delta: +0.000533
-wrong_history_margin_delta: +0.000423
+M1029 endpoint repair was too large for M997 temporal retention.
+M1031 projection recovers M997 temporal retention and M297/M270 exact
+no-regression for 16 candidates.
+Several candidates also retain M267/M264 at 17/17 success drops with row15
+retained.
+No candidate passes M183/M170 first replay.
 ```
 
-M1029 generated three no-PPO candidates with `autodrift.exact_post_ppo_repair`
-using M297/M270 exact objectives, the M293 rejected-history trajectory anchor,
-and the M393 current-family conflict corpus:
+Closest M1031 miss:
 
 ```text
-raw_conflict_s40:  M297 delta -0.000571609, M270 delta -0.000009418
-base_conflict_s40: M297 delta -0.000331402, M270 delta -0.000004232
-line_conflict_s40: M297 delta -0.000331402, M270 delta -0.000004232
+candidate: raw_conflict_s40 alpha 0.05
+M267/M264: 17/17 success drops, row15 retained
+M183/M170: 16/17 success drops
+failed row: row16
+normal_success: false
+wrong_history_success: false
+normal_margin: -0.000165
+wrong_history_margin: -0.006597
 ```
 
-All three pass M297/M270 exact lexicographic repair, but all fail M997 temporal
-exact retention before first replay:
-
-```text
-exact_gate_pass_count: 0 / 3
-candidate_action_l2_mean threshold: <= 0.015
-raw_conflict_s40:  0.043320605
-base_conflict_s40: 0.032059840
-line_conflict_s40: 0.032059840
-```
-
-M1029 therefore intentionally skips M267/M264 and M183/M170 first replay. The
-M1030 chooses the lowest-risk next step before modifying the repair objective:
-M1031 should run a no-PPO temporal-safe interpolation/projection over the M1029
-repair directions. It must evaluate M997 temporal exact retention first, then
-M297/M270 exact no-regression, and only then M267/M264 row15 plus M183/M170
-first replay. No longer PPO, promotion, private holdout, or M997 threshold
-relaxation is allowed.
+The current blocker is therefore not M267 row15 alone. M1032 must audit whether
+the remaining issue is an M183/M170 row16 normal terminal-margin active-set
+problem, broader normal-branch regression, or rejected-history sensitivity loss.
+No longer PPO, promotion, private holdout, or actor-input change is allowed
+before that audit.
 
 ### Historical Trace
 

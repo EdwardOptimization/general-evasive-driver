@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "proof_washout"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -116,5 +116,34 @@
     "docs/m1030-v4-public-base-candidate-b-temporal-retention-repair-design.md"
   ],
   "decision_rule": "M1031 can route to full public gate design only if M997 temporal exact, M297/M270 exact, M267/M264 row15, and M183/M170 first replay all pass without actor-input changes.",
-  "next_blocker": "m1031-v4-public-base-candidate-b-temporal-safe-projection-probe"
+  "next_blocker": "m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit",
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1031_candidate_b_temporal_safe_projection_probe/summary.json",
+    "doc": "docs/m1031-v4-public-base-candidate-b-temporal-safe-projection-probe.md",
+    "decision": "candidate_b_temporal_safe_projection_proof_washout",
+    "result_class": "candidate_b_temporal_safe_projection_proof_washout",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "candidate_count": 39,
+    "temporal_exact_pass_count": 16,
+    "temporal_and_exact_pass_count": 16,
+    "eligible_candidate_count": 14,
+    "first_replay_attempted_candidate_count": 14,
+    "first_replay_pass_candidate_found": false,
+    "actor_input_change_count": 0,
+    "m267_m264_row15_retained_for_some_candidates": true,
+    "m183_m170_first_replay_pass": false,
+    "closest_miss": {
+      "candidate": "m1031_raw_conflict_s40_a0_05",
+      "surface": "M183/M170",
+      "row_id": 16,
+      "normal_margin": -0.000165,
+      "wrong_history_margin": -0.006597,
+      "candidate_success_drop_count": 16,
+      "baseline_success_drop_count": 17
+    },
+    "next_blocker": "m1032-v4-public-base-candidate-b-temporal-projection-first-replay-failure-audit"
+  }
 }
