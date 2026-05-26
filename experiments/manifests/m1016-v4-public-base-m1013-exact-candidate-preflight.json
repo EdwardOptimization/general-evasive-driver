@@ -1,0 +1,105 @@
+{
+  "id": "m1016-v4-public-base-m1013-exact-candidate-preflight",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/checkpoints/lambda_0_001/raw_actor_mean_update.pt",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/checkpoints/lambda_0_03/raw_actor_mean_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1015-v4-public-base-m1013-exact-candidate-preflight-design.md",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/interpolation_metrics.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1015-v4-public-base-m1013-exact-candidate-preflight-design.json"
+    ],
+    "parent_objective": [
+      "materialize selected M1013 exact candidates and run M267/M264 preflight calibration"
+    ],
+    "derived_from": [
+      "m1015-v4-public-base-m1013-exact-candidate-preflight-design"
+    ],
+    "blocked_by": [
+      "M1015 requires public proof preflight calibration before threshold relaxation"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "threshold relaxation without M267/M264 evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1016-v4-public-base-m1013-exact-candidate-preflight.md",
+  "public_gates": [
+    "M1016 must not train",
+    "M1016 must not run PPO",
+    "M1016 must not promote",
+    "M1016 must preserve P0 actor inputs",
+    "M1016 must run only M267/M264 preflight calibration"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run full public replay stack",
+    "do not use private holdout",
+    "do not treat preflight pass as promotion",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_temporal_sequence_objective",
+    "evidence_axis": "G_temporal_objective: replay-calibrated trust threshold implementation",
+    "evidence_increment": "tests whether exact-but-branch-unsafe M1013 candidates actually fail M267/M264 preflight",
+    "claim_scope": "public proof calibration only; no promotion, no private holdout, no PPO",
+    "stop_condition": [
+      "stop if all selected candidates fail M267/M264",
+      "stop if candidate materialization changes non-actor parameters",
+      "stop if trust metric ordering contradicts replay outcome"
+    ],
+    "fallback_plan": [
+      "if all fail, route to projection/line-search design or synthesis",
+      "if Candidate A passes, route to replay-calibrated trust threshold redesign",
+      "if ordering contradicts replay, route to metric-artifact audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1015 admits selected exact-candidate preflight implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Selected M1013 exact-but-branch-unsafe candidates will reveal whether M1011 branch trust thresholds are conservative or necessary by their M267/M264 preflight result.",
+  "success_criteria": [
+    "summary.json exists",
+    "selected candidate checkpoints are materialized",
+    "non-actor checksum matches M974 base for all candidates",
+    "M267/M264 preflight runs for selected candidates",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "candidate materialization changes non-actor parameters",
+    "PPO starts",
+    "promotion occurs",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "preflight",
+      "command": "implement and run selected M1013 exact-candidate M267/M264 preflight; output runs/m1016_v4_public_base_m1013_exact_candidate_preflight/summary.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1015-v4-public-base-m1013-exact-candidate-preflight-design.md"
+  ],
+  "decision_rule": "M1016 should route by Candidate A M267/M264 result: pass means trust threshold audit, fail means projection/line-search or synthesis before more scalar training.",
+  "next_blocker": "m1016-v4-public-base-m1013-exact-candidate-preflight"
+}

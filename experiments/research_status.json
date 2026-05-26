@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1023,
+    "completed": 1024,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1014-v4-public-base-margin-weighted-repair-failure-audit",
+    "task_id": "m1015-v4-public-base-m1013-exact-candidate-preflight-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1014-v4-public-base-margin-weighted-repair-failure-audit.md"
+    "command_log": "docs/m1015-v4-public-base-m1013-exact-candidate-preflight-design.md"
   },
   "next_task": {
-    "id": "m1015-v4-public-base-m1013-exact-candidate-preflight-design",
+    "id": "m1016-v4-public-base-m1013-exact-candidate-preflight",
     "status": "pending",
-    "priority": 10100,
+    "priority": 10110,
     "kind": "gate",
-    "hypothesis": "A minimal M267/M264 preflight over selected exact-but-branch-unsafe M1013 candidates can determine whether M1011 trust thresholds are too conservative or necessary",
-    "command": "see experiments/manifests/m1015-v4-public-base-m1013-exact-candidate-preflight-design.json",
-    "success_artifact": "docs/m1015-v4-public-base-m1013-exact-candidate-preflight-design.md",
-    "notes": "Pending: design replay-calibrated preflight before threshold relaxation or new update"
+    "hypothesis": "Selected M1013 exact-but-branch-unsafe candidates will reveal whether M1011 branch trust thresholds are conservative or necessary by their M267/M264 preflight result",
+    "command": "see experiments/manifests/m1016-v4-public-base-m1013-exact-candidate-preflight.json",
+    "success_artifact": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/summary.json",
+    "notes": "Pending: materialize selected M1013 exact candidates and run M267/M264 preflight only"
   },
-  "updated_at_utc": "20260526T185932Z"
+  "updated_at_utc": "20260526T190852Z"
 }

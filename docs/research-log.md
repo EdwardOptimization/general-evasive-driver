@@ -15272,3 +15272,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1014 audits M1013 as `proof_washout` with subtype `exact_branch_active_set_conflict`. It rejects contract violation and immediate metric-artifact explanations: the lowest-branch exact candidate (`lambda=0.001`, `alpha=0.2`) has branch trust loss `1.325315` and row `15` contribution `0.721845`, higher than the known M1002 alpha `0.01` failing row `15` contribution `0.600505`. The next route is a replay-calibrated M267/M264 preflight over selected exact-but-branch-unsafe M1013 candidates before any threshold relaxation or new update.
 - decision: `margin_weighted_repair_failure_audit_route_to_replay_calibrated_trust_audit_design`
 - next: `m1015-v4-public-base-m1013-exact-candidate-preflight-design`
+
+## 20260526T190852Z - m1015-v4-public-base-m1013-exact-candidate-preflight-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1015-v4-public-base-m1013-exact-candidate-preflight-design.md`
+- result: M1015 designs a minimal replay-calibrated trust audit. M1016 should materialize three exact-but-branch-unsafe M1013 candidates by interpolating actor_mean from M974 base to saved M1013 raw checkpoints: Candidate A `lambda=0.001, alpha=0.2`, Candidate B `lambda=0.03, alpha=0.5`, and Candidate C `lambda=0.001, alpha=0.5`. It must run only M267/M264 preflight with `configs/m121_human_view_zero_obstacle_relvel.json`, not full public replay, PPO, private holdout, or promotion.
+- decision: `m1013_exact_candidate_preflight_design_admit_m1016_implementation`
+- next: `m1016-v4-public-base-m1013-exact-candidate-preflight`

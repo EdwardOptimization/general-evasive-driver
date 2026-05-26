@@ -99,6 +99,35 @@
   "baseline_artifacts": [
     "docs/m1014-v4-public-base-margin-weighted-repair-failure-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1015-v4-public-base-m1013-exact-candidate-preflight-design.md",
+    "decision": "m1013_exact_candidate_preflight_design_admit_m1016_implementation",
+    "selected_candidates": [
+      {
+        "name": "m1013_lam0001_a020",
+        "raw_checkpoint": "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/checkpoints/lambda_0_001/raw_actor_mean_update.pt",
+        "alpha": 0.2
+      },
+      {
+        "name": "m1013_lam0030_a050",
+        "raw_checkpoint": "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/checkpoints/lambda_0_03/raw_actor_mean_update.pt",
+        "alpha": 0.5
+      },
+      {
+        "name": "m1013_lam0001_a050",
+        "raw_checkpoint": "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/checkpoints/lambda_0_001/raw_actor_mean_update.pt",
+        "alpha": 0.5
+      }
+    ],
+    "preflight_corpus": "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv",
+    "env_config": "configs/m121_human_view_zero_obstacle_relvel.json",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "next_implementation": "m1016-v4-public-base-m1013-exact-candidate-preflight"
+  },
+  "decision": "m1013_exact_candidate_preflight_design_admit_m1016_implementation",
   "decision_rule": "M1015 should admit implementation only if it keeps the replay check to public M267/M264 preflight calibration and does not relax thresholds in-place.",
-  "next_blocker": "m1015-v4-public-base-m1013-exact-candidate-preflight-design"
+  "next_blocker": "m1016-v4-public-base-m1013-exact-candidate-preflight"
 }

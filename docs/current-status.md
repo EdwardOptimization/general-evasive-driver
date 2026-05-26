@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1015-v4-public-base-m1013-exact-candidate-preflight-design
+m1016-v4-public-base-m1013-exact-candidate-preflight
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -356,9 +356,15 @@ M1014 classifies the result as `proof_washout` /
 minimal replay-calibrated trust audit next: materialize selected exact-but-
 branch-unsafe M1013 candidates and run only M267/M264 preflight before any
 threshold relaxation or new update.
+M1015 completes that design. M1016 should materialize Candidate A
+`lambda=0.001, alpha=0.2`, Candidate B `lambda=0.03, alpha=0.5`, and Candidate
+C `lambda=0.001, alpha=0.5`, then run only M267/M264 preflight as calibration.
 
 ## Recent Evidence Line
 
+- M1015 designs the replay-calibrated trust audit: materialize three selected
+  M1013 exact candidates and run only M267/M264 preflight, not full replay or
+  promotion.
 - M1014 audits M1013 and routes to replay-calibrated trust-threshold evidence:
   test selected exact-but-branch-unsafe M1013 candidates on M267/M264 preflight
   before relaxing trust gates or changing the objective.

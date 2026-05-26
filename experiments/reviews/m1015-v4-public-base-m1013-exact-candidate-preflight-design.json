@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M1015 designs minimal M267/M264 preflight calibration for selected exact-but-branch-unsafe M1013 candidates before threshold relaxation or new update",
+  "failure_criteria": [
+    "design routes directly to PPO",
+    "design uses private holdout",
+    "design treats preflight as promotion evidence",
+    "design changes actor inputs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not use private holdout",
+    "do not run full public replay stack before preflight calibration",
+    "do not relax M1011 thresholds without replay evidence",
+    "do not change actor input contract"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260526T192011Z",
+  "hypothesis": "A minimal M267/M264 preflight over selected exact-but-branch-unsafe M1013 candidates can determine whether M1011 trust thresholds are too conservative or necessary.",
+  "lineage": {
+    "blocked_by": [
+      "M1014 requires replay calibration before threshold relaxation or new update"
+    ],
+    "derived_from": [
+      "m1014-v4-public-base-margin-weighted-repair-failure-audit"
+    ],
+    "invalidates": [
+      "blind lambda sweep continuation after M1013"
+    ],
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/checkpoints/lambda_0_001/raw_actor_mean_update.pt",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/checkpoints/lambda_0_03/raw_actor_mean_update.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1014-v4-public-base-margin-weighted-repair-failure-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1014-v4-public-base-margin-weighted-repair-failure-audit.md",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/interpolation_metrics.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_objective": [
+      "design replay-calibrated M267/M264 preflight for exact-but-branch-unsafe M1013 candidates"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1015-v4-public-base-m1013-exact-candidate-preflight-design",
+  "next_blocker": "m1016-v4-public-base-m1013-exact-candidate-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "m1013_exact_candidate_preflight_design_admit_m1016_implementation",
+  "public_gates": [
+    "M1015 must not train",
+    "M1015 must not run PPO",
+    "M1015 must not promote",
+    "M1015 must preserve P0 actor inputs",
+    "M1015 must design only M267/M264 preflight calibration for selected M1013 exact candidates"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1015-v4-public-base-m1013-exact-candidate-preflight-design.md",
+    "clearance_margin_mean": "",
+    "decision": "m1013_exact_candidate_preflight_design_admit_m1016_implementation",
+    "milestone": "m1015-v4-public-base-m1013-exact-candidate-preflight-design",
+    "reason": "M1015 designs minimal M267/M264 preflight calibration for selected exact-but-branch-unsafe M1013 candidates before threshold relaxation or new update",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design document exists",
+    "selected candidates are specified",
+    "preflight is limited to M267/M264 calibration",
+    "PPO and promotion remain blocked"
+  ],
+  "type": "gate"
+}
