@@ -75,11 +75,11 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit
+m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design
 ```
 
-M1026 ran the first 1024-step guarded PPO smoke proposal from the Candidate B
-public-gate base:
+M1027 completed the proof-washout audit for the first 1024-step guarded PPO
+smoke proposal from the Candidate B public-gate base:
 
 ```text
 base:
@@ -111,15 +111,27 @@ wrapper/training metrics artifact. Fresh public seeds `102100`/`102101`,
 moderate-OOD seed `102120`, and behavior/ablation seeds
 `9505`/`9506`/`102130`/`102131` all passed.
 
-M1027 must audit the M1026 M267/M264 proof washout before any longer PPO,
-scalar-coefficient tuning, promotion, or private holdout. The expected route is
-to decide whether exact post-PPO repair/projection is justified from the raw
-PPO proposal or whether the PPO recipe/proof surface needs redesign.
+M1027 localizes the failed row:
+
+```text
+surface: M267/M264
+row_id: 15
+physical_pair_key: 9530:21:9550:21
+target: future_braking_deceleration
+baseline wrong-history margin: -0.000112
+M1026 raw wrong-history margin: +0.000311
+normal_margin_delta: +0.000533
+wrong_history_margin_delta: +0.000423
+```
+
+The next step is M1028: design an exact post-PPO repair/projection route that
+treats PPO as a proposal and restores lexicographic proof feasibility before
+any longer PPO, scalar-coefficient tuning, promotion, or private holdout.
 
 ### Historical Trace
 
-The branch trace below is retained for context; the live blocker is the M1027
-audit above.
+The branch trace below is retained for context; the live blocker is the M1028
+design above.
 
 M927 ran the no-training residual-direction feasibility sweep and found no
 alpha/mix candidate. M928 audits this as a residual-bridge trust-region

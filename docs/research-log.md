@@ -15385,3 +15385,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1026 runs a `1024`-step guarded PPO proposal from Candidate B. PPO completes with finite `train_metrics.csv`, exact temporal retention passes, fresh public and moderate-OOD generalization pass, behavior/ablation seeds pass, and actor inputs remain unchanged. Proof replay still fails: five of six public replay surfaces pass, but M267/M264 drops from `17/17` to `16/17` success drops while normal success stays unchanged. The corrected result is `candidate_b_guarded_ppo_proof_washout`, not training instability.
 - decision: `candidate_b_guarded_ppo_proof_washout_route_to_exact_repair_projection_audit`
 - next: `m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit`
+
+## 20260526T213626Z - m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit.md`
+- result: M1027 audits the M1026 proof washout without training, PPO, private holdout, promotion, or actor-input changes. The failure is localized to M267/M264 `row_id=15`, physical pair `9530:21:9550:21`, target `future_braking_deceleration`. Candidate B wrong-history margin is `-0.000112` and M1026 raw PPO wrong-history margin is `+0.000311`; normal margin also improves by `+0.000533`. This confirms a near-boundary rejected-branch lift, not normal-branch regression or training instability.
+- decision: `candidate_b_guarded_ppo_washout_localized_route_to_exact_repair_design`
+- next: `m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design`

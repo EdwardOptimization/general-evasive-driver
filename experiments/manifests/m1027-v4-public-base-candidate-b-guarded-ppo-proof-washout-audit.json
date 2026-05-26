@@ -110,5 +110,30 @@
     "runs/m1026_v4_public_base_candidate_b_guarded_ppo_smoke/summary.json"
   ],
   "decision_rule": "M1027 should route to exact repair/projection only if M1026 is confirmed as localized proof washout with retained exact/generalization/behavior evidence.",
-  "next_blocker": "m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit"
+  "next_blocker": "m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit.md",
+    "decision": "candidate_b_guarded_ppo_washout_localized_route_to_exact_repair_design",
+    "result_class": "candidate_b_guarded_ppo_localized_proof_washout",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "failed_surface": "m267_m264",
+    "failed_row_id": 15,
+    "physical_pair_key": "9530:21:9550:21",
+    "target": "future_braking_deceleration",
+    "baseline_success_drop_count": 17,
+    "candidate_success_drop_count": 16,
+    "normal_margin_delta": 0.000533,
+    "wrong_history_margin_delta": 0.000423,
+    "baseline_wrong_history_margin": -0.000112,
+    "candidate_wrong_history_margin": 0.000311,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design"
+  },
+  "decision": "candidate_b_guarded_ppo_washout_localized_route_to_exact_repair_design"
 }

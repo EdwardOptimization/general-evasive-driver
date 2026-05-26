@@ -1,0 +1,111 @@
+{
+  "id": "m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+      "runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit.md",
+      "runs/m1026_v4_public_base_candidate_b_guarded_ppo_smoke/raw_candidate_gate/full_gates/m267_m264_replay/boundary_replay_rows.csv",
+      "runs/m1026_v4_public_base_candidate_b_guarded_ppo_smoke/proof_replay_summary.csv",
+      "runs/m1026_v4_public_base_candidate_b_guarded_ppo_smoke/exact_retention_summary.csv"
+    ],
+    "parent_config": [
+      "configs/ppo_m1026_candidate_b_guarded_smoke.json"
+    ],
+    "parent_objective": [
+      "design exact post-PPO repair/projection after localized M1026 M267/M264 row 15 proof washout"
+    ],
+    "derived_from": [
+      "m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit"
+    ],
+    "blocked_by": [
+      "M1027 confirms M1026 proof washout is localized to M267/M264 row 15 wrong-history branch lift"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "longer PPO before exact post-PPO repair/projection design",
+      "raw M1026 checkpoint promotion"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design.md",
+  "public_gates": [
+    "M1028 must design only and not train",
+    "M1028 must not promote",
+    "M1028 must not use private holdout",
+    "M1028 must preserve P0 actor inputs",
+    "M1028 must define exact/proof/generalization/behavior ordering before repair implementation",
+    "M1028 must include row 15 rejected-history retention as a first-class constraint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run repair in the design milestone",
+    "do not run longer PPO",
+    "do not tune scalar PPO aux coefficients before repair design",
+    "do not change actor inputs",
+    "do not promote raw M1026 or any repair candidate from the design milestone"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_candidate_b_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo: exact repair/projection design after localized proof washout",
+    "evidence_increment": "turns the M1026 localized M267/M264 row 15 washout into an exact post-PPO repair design",
+    "claim_scope": "design only; no repair run, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if repair constraints cannot be ordered lexicographically",
+      "stop if row 15 proof retention cannot be represented without changing actor inputs",
+      "stop if design would allow promotion without replay gates"
+    ],
+    "fallback_plan": [
+      "if exact repair design is feasible, implement the repair/projection tool next",
+      "if exact row constraints are not representable, route to closed-loop row-specific replay gate tooling",
+      "if PPO movement is not worth retaining, route to PPO recipe audit instead"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1027 localized proof-washout audit routes to exact repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A post-PPO repair/projection step can be designed to keep useful M1026 PPO movement only after exact temporal retention and M267/M264 row 15 proof retention are restored.",
+  "success_criteria": [
+    "design artifact exists",
+    "theta_base theta_raw and candidate output are defined",
+    "lexicographic repair constraints are explicit",
+    "row 15 rejected-history branch constraint is explicit",
+    "gate order for implementation is explicit",
+    "no training PPO promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design runs repair or PPO",
+    "design omits row 15 proof retention",
+    "design allows scalar aggregate metrics to override proof replay",
+    "design changes actor inputs",
+    "design uses private holdout or promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "runs/ppo_m1026_candidate_b_guarded_smoke_seed61026/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1027-v4-public-base-candidate-b-guarded-ppo-proof-washout-audit.md"
+  ],
+  "decision_rule": "M1028 should admit implementation only if exact repair/projection constraints and gate order are pre-registered without actor-input or promotion shortcuts.",
+  "next_blocker": "m1028-v4-public-base-candidate-b-post-ppo-exact-repair-design"
+}
