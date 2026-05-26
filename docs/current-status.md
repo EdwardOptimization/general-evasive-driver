@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1014-v4-public-base-margin-weighted-repair-failure-audit
+m1015-v4-public-base-m1013-exact-candidate-preflight-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -351,9 +351,17 @@ change. PPO and promotion remain unused. The next task is M1014: audit whether
 this is a strict-threshold conflict, actor_mean capacity conflict, optimizer
 instability, or a sign that the next repair should use projection/line-search
 rather than scalar joint training.
+M1014 classifies the result as `proof_washout` /
+`exact_branch_active_set_conflict`, not contract violation. It chooses a
+minimal replay-calibrated trust audit next: materialize selected exact-but-
+branch-unsafe M1013 candidates and run only M267/M264 preflight before any
+threshold relaxation or new update.
 
 ## Recent Evidence Line
 
+- M1014 audits M1013 and routes to replay-calibrated trust-threshold evidence:
+  test selected exact-but-branch-unsafe M1013 candidates on M267/M264 preflight
+  before relaxing trust gates or changing the objective.
 - M1013 finds `10` exact temporal candidates but no candidate that also stays
   inside the M1011 branch trust region. The failure is `proof_washout`, not
   contract violation, and must be audited before changing thresholds.

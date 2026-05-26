@@ -98,6 +98,28 @@
   "baseline_artifacts": [
     "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1014-v4-public-base-margin-weighted-repair-failure-audit.md",
+    "decision": "margin_weighted_repair_failure_audit_route_to_replay_calibrated_trust_audit_design",
+    "failure_classification": "proof_washout",
+    "failure_subclassification": "exact_branch_active_set_conflict",
+    "exact_candidate_count": 10,
+    "exact_and_branch_candidate_count": 0,
+    "lowest_branch_exact_candidate": {
+      "lambda_wrong_trust": 0.001,
+      "alpha": 0.2,
+      "weighted_branch_trust_loss": 1.325315,
+      "row_6_contribution": 0.467241,
+      "row_15_contribution": 0.721845,
+      "row_16_contribution": 0.078579
+    },
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "next_design": "m1015-v4-public-base-m1013-exact-candidate-preflight-design"
+  },
+  "decision": "margin_weighted_repair_failure_audit_route_to_replay_calibrated_trust_audit_design",
   "decision_rule": "M1014 should choose the next route by failure cause rather than continuing scalar coefficient sweeps blindly.",
-  "next_blocker": "m1014-v4-public-base-margin-weighted-repair-failure-audit"
+  "next_blocker": "m1015-v4-public-base-m1013-exact-candidate-preflight-design"
 }

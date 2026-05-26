@@ -15263,3 +15263,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1013 implements the actor_mean-only temporal repair update with M1011 branch trust residual. Only `actor_mean.bias` and `actor_mean.weight` change, and PPO/promotion/private holdout are unused. The result is negative: `10` interpolated candidates pass exact temporal gates, but `0` pass both exact temporal and M1011 branch-trust gates. Trust-safe tiny-alpha points exist but have too little temporal improvement; exact-safe points move rows `6` and `15` far outside the trust region.
 - decision: `margin_weighted_branch_repair_update_branch_trust_blocked_route_to_audit`
 - next: `m1014-v4-public-base-margin-weighted-repair-failure-audit`
+
+## 20260526T185932Z - m1014-v4-public-base-margin-weighted-repair-failure-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1014-v4-public-base-margin-weighted-repair-failure-audit.md`
+- result: M1014 audits M1013 as `proof_washout` with subtype `exact_branch_active_set_conflict`. It rejects contract violation and immediate metric-artifact explanations: the lowest-branch exact candidate (`lambda=0.001`, `alpha=0.2`) has branch trust loss `1.325315` and row `15` contribution `0.721845`, higher than the known M1002 alpha `0.01` failing row `15` contribution `0.600505`. The next route is a replay-calibrated M267/M264 preflight over selected exact-but-branch-unsafe M1013 candidates before any threshold relaxation or new update.
+- decision: `margin_weighted_repair_failure_audit_route_to_replay_calibrated_trust_audit_design`
+- next: `m1015-v4-public-base-m1013-exact-candidate-preflight-design`

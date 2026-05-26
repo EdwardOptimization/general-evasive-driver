@@ -1,0 +1,104 @@
+{
+  "id": "m1015-v4-public-base-m1013-exact-candidate-preflight-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/checkpoints/lambda_0_001/raw_actor_mean_update.pt",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/checkpoints/lambda_0_03/raw_actor_mean_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1014-v4-public-base-margin-weighted-repair-failure-audit.md",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/interpolation_metrics.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1014-v4-public-base-margin-weighted-repair-failure-audit.json"
+    ],
+    "parent_objective": [
+      "design replay-calibrated M267/M264 preflight for exact-but-branch-unsafe M1013 candidates"
+    ],
+    "derived_from": [
+      "m1014-v4-public-base-margin-weighted-repair-failure-audit"
+    ],
+    "blocked_by": [
+      "M1014 requires replay calibration before threshold relaxation or new update"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "blind lambda sweep continuation after M1013"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1015-v4-public-base-m1013-exact-candidate-preflight-design.md",
+  "public_gates": [
+    "M1015 must not train",
+    "M1015 must not run PPO",
+    "M1015 must not promote",
+    "M1015 must preserve P0 actor inputs",
+    "M1015 must design only M267/M264 preflight calibration for selected M1013 exact candidates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use private holdout",
+    "do not run full public replay stack before preflight calibration",
+    "do not relax M1011 thresholds without replay evidence",
+    "do not change actor input contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_temporal_sequence_objective",
+    "evidence_axis": "G_temporal_objective: replay-calibrated trust threshold design",
+    "evidence_increment": "designs a minimal M267/M264 preflight to test whether M1011 strict trust gates are conservative or necessary",
+    "claim_scope": "design only; no training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if M1013 exact candidates cannot be materialized reproducibly",
+      "stop if preflight would become promotion evidence",
+      "stop if private holdout would be needed"
+    ],
+    "fallback_plan": [
+      "if materialization is blocked, audit checkpoint export first",
+      "if design is clean, route to M1016 preflight implementation",
+      "if cadence triggers, synthesize before additional scalar objectives"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1014 chooses replay calibration before threshold changes",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A minimal M267/M264 preflight over selected exact-but-branch-unsafe M1013 candidates can determine whether M1011 trust thresholds are too conservative or necessary.",
+  "success_criteria": [
+    "design document exists",
+    "selected candidates are specified",
+    "preflight is limited to M267/M264 calibration",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "design routes directly to PPO",
+    "design uses private holdout",
+    "design treats preflight as promotion evidence",
+    "design changes actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1015-v4-public-base-m1013-exact-candidate-preflight-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1015-v4-public-base-m1013-exact-candidate-preflight-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1014-v4-public-base-margin-weighted-repair-failure-audit.md"
+  ],
+  "decision_rule": "M1015 should admit implementation only if it keeps the replay check to public M267/M264 preflight calibration and does not relax thresholds in-place.",
+  "next_blocker": "m1015-v4-public-base-m1013-exact-candidate-preflight-design"
+}

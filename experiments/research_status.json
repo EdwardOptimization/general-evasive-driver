@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1022,
+    "completed": 1023,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1013-v4-public-base-margin-weighted-branch-repair-update-probe",
+    "task_id": "m1014-v4-public-base-margin-weighted-repair-failure-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/summary.json"
+    "command_log": "docs/m1014-v4-public-base-margin-weighted-repair-failure-audit.md"
   },
   "next_task": {
-    "id": "m1014-v4-public-base-margin-weighted-repair-failure-audit",
+    "id": "m1015-v4-public-base-m1013-exact-candidate-preflight-design",
     "status": "pending",
-    "priority": 10090,
+    "priority": 10100,
     "kind": "gate",
-    "hypothesis": "The M1013 negative result can be diagnosed without new training by comparing exact-safe small-alpha points exact-but-unsafe points branch contributions and train-history branch-loss oscillation",
-    "command": "see experiments/manifests/m1014-v4-public-base-margin-weighted-repair-failure-audit.json",
-    "success_artifact": "docs/m1014-v4-public-base-margin-weighted-repair-failure-audit.md",
-    "notes": "Pending: audit exact-versus-branch conflict before any threshold relaxation or new update"
+    "hypothesis": "A minimal M267/M264 preflight over selected exact-but-branch-unsafe M1013 candidates can determine whether M1011 trust thresholds are too conservative or necessary",
+    "command": "see experiments/manifests/m1015-v4-public-base-m1013-exact-candidate-preflight-design.json",
+    "success_artifact": "docs/m1015-v4-public-base-m1013-exact-candidate-preflight-design.md",
+    "notes": "Pending: design replay-calibrated preflight before threshold relaxation or new update"
   },
-  "updated_at_utc": "20260526T185528Z"
+  "updated_at_utc": "20260526T185932Z"
 }

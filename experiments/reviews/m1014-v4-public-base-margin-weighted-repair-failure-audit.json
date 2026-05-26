@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M1014 classifies M1013 as exact_branch_active_set_conflict and routes to minimal M267/M264 preflight calibration before threshold relaxation",
+  "failure_criteria": [
+    "audit runs new training",
+    "audit changes branch thresholds and declares success",
+    "audit routes directly to PPO or promotion",
+    "audit ignores actor contract"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not relax M1011 trust gates inside this audit",
+    "do not use private holdout",
+    "do not run replay gates as promotion evidence",
+    "do not change actor input contract"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260526T190554Z",
+  "hypothesis": "The M1013 negative result can be diagnosed without new training by comparing exact-safe small-alpha points, exact-but-unsafe points, branch contributions, and train-history branch-loss oscillation.",
+  "lineage": {
+    "blocked_by": [
+      "M1013 found exact candidates but zero exact+branch candidates"
+    ],
+    "derived_from": [
+      "m1013-v4-public-base-margin-weighted-branch-repair-update-probe"
+    ],
+    "invalidates": [
+      "direct threshold relaxation without failure audit"
+    ],
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1013-v4-public-base-margin-weighted-branch-repair-update-probe.json"
+    ],
+    "parent_dataset": [
+      "docs/m1013-v4-public-base-margin-weighted-branch-repair-update-probe.md",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/summary.json",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/interpolation_metrics.csv",
+      "runs/m1013_v4_public_base_margin_weighted_branch_repair_update_probe/train_history.csv"
+    ],
+    "parent_objective": [
+      "audit why exact temporal candidates fail the M1011 branch trust region"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1014-v4-public-base-margin-weighted-repair-failure-audit",
+  "next_blocker": "m1015-v4-public-base-m1013-exact-candidate-preflight-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "margin_weighted_repair_failure_audit_route_to_replay_calibrated_trust_audit_design",
+  "public_gates": [
+    "M1014 must not train",
+    "M1014 must not run PPO",
+    "M1014 must not promote",
+    "M1014 must preserve P0 actor inputs",
+    "M1014 must classify whether M1013 is threshold conflict, actor_mean capacity conflict, optimizer instability, or projection-needed"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1014-v4-public-base-margin-weighted-repair-failure-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "margin_weighted_repair_failure_audit_route_to_replay_calibrated_trust_audit_design",
+    "milestone": "m1014-v4-public-base-margin-weighted-repair-failure-audit",
+    "reason": "M1014 classifies M1013 as exact_branch_active_set_conflict and routes to minimal M267/M264 preflight calibration before threshold relaxation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit document exists",
+    "failure is classified with process-v2 taxonomy",
+    "audit names the next route without relaxing thresholds in-place",
+    "PPO and promotion remain blocked"
+  ],
+  "type": "gate"
+}
