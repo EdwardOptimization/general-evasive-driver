@@ -14687,3 +14687,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M952 synthesizes M942-M951. Supported: the controlled-fusion surface is correctly constrained, has real low-tail leverage, exact compatibility is insufficient for replay proof, M267 preflight is live, and rejected-branch retention can protect M267 rows. Falsified: M944 exact candidates are replay admissible, backup alphas are enough, one-step rejected retention plus one bounded retune can create exact/preflight overlap, and another local coefficient tweak is justified. Public-gate overfit risk is high.
 - decision: `pivot_to_replay_constrained_target_feasibility`
 - next: `m953-v4-public-base-replay-constrained-target-feasibility-design`
+
+## 20260526T003650Z - m953-v4-public-base-replay-constrained-target-feasibility-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m953-v4-public-base-replay-constrained-target-feasibility-design.md`
+- result: M953 designs a no-training target-space audit before any more actor updates. The design requires candidate targets to satisfy three constraints together: normal retention, low-tail lift, and M267/M264 wrong-history proof retention. It separates low-tail objective rows from active rejected-history rows `6`, `13`, `15`, and `16`, defines existing-direction, low-tail projection, branch-separated proof, and optional short-horizon sequence target families, and requires a joint feasibility gate where the same target construction passes both offline exact target metrics and M267/M264 active-row closed-loop target preflight.
+- decision: `replay_constrained_target_feasibility_design_admit_m954`
+- next: `m954-v4-public-base-replay-constrained-target-feasibility-implementation`

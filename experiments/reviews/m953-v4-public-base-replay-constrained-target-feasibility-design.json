@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M953 designs a no-training target-space audit with offline exact target metrics M267/M264 active-row closed-loop target preflight and joint feasibility route logic before any actor update",
+  "failure_criteria": [
+    "design skips one of the three feasibility constraints",
+    "design recommends training before feasibility",
+    "design changes actor inputs",
+    "design uses private holdout"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run another controlled-fusion local retune",
+    "do not widen actor inputs",
+    "do not open encoders or GRU",
+    "do not use private holdout",
+    "do not promote"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260526T003752Z",
+  "hypothesis": "Before widening the actor or running more training, the project should prove that replay-constrained targets exist inside the current trust region.",
+  "lineage": {
+    "blocked_by": [
+      "controlled-fusion local objectives cannot produce exact/preflight overlap"
+    ],
+    "derived_from": [
+      "m952-v4-public-base-controlled-fusion-branch-synthesis-2"
+    ],
+    "invalidates": [
+      "additional local controlled-fusion coefficient retunes before target feasibility"
+    ],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m952-v4-public-base-controlled-fusion-branch-synthesis-2.json"
+    ],
+    "parent_dataset": [
+      "docs/m952-v4-public-base-controlled-fusion-branch-synthesis-2.md",
+      "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/summary.json",
+      "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/alpha_metrics.csv",
+      "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/m267_preflight_summary.csv"
+    ],
+    "parent_objective": [
+      "design a no-training feasibility audit for replay-constrained target construction before more actor updates"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m953-v4-public-base-replay-constrained-target-feasibility-design",
+  "next_blocker": "m954-v4-public-base-replay-constrained-target-feasibility-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "replay_constrained_target_feasibility_design_admit_m954",
+  "public_gates": [
+    "M953 must not train",
+    "M953 must not run PPO",
+    "M953 must not promote",
+    "M953 must preserve the P0 actor-input contract",
+    "M953 must design a feasibility check for targets satisfying normal retention, low-tail lift, and M267 proof retention"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m953-v4-public-base-replay-constrained-target-feasibility-design.md",
+    "clearance_margin_mean": "",
+    "decision": "replay_constrained_target_feasibility_design_admit_m954",
+    "milestone": "m953-v4-public-base-replay-constrained-target-feasibility-design",
+    "reason": "M953 designs a no-training target-space audit with offline exact target metrics M267/M264 active-row closed-loop target preflight and joint feasibility route logic before any actor update",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design document exists",
+    "target feasibility criteria are explicit",
+    "normal-retention, low-tail lift, and M267 proof constraints are all included",
+    "next implementation route is specified",
+    "training, PPO, and promotion remain blocked"
+  ],
+  "type": "infrastructure"
+}

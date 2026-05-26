@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m953-v4-public-base-replay-constrained-target-feasibility-design
+m954-v4-public-base-replay-constrained-target-feasibility-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -114,10 +114,24 @@ while normal-retention and low-tail lift still do not overlap. The branch must
 synthesize before any further local objective or trainable-surface change.
 M952 completes that synthesis and pivots to a new branch: first prove that
 replay-constrained targets exist inside the current trust region before
-widening the actor or training again.
+widening the actor or training again. M953 designs that no-training audit:
+evaluate candidate target actions or short target sequences first through
+offline exact low-tail metrics, then through M267/M264 active-row target
+preflight, and accept only target families that jointly preserve normal
+retention, produce low-tail lift, and keep wrong-history proof rows failing.
+M954 should implement this target-space audit before any actor update, PPO, or
+promotion.
 
 ## Recent Evidence Line
 
+- M953 designs the replay-constrained target feasibility audit. It explicitly
+  blocks training, PPO, promotion, actor-input changes, and encoder/GRU changes.
+  The next implementation should compare existing-direction targets, low-tail
+  projection targets, branch-separated proof targets, and optional short-horizon
+  sequence targets. A target family is only accepted if the same construction
+  passes both offline exact target metrics and M267/M264 active-row closed-loop
+  target preflight. M954 should implement that no-training audit and classify
+  whether joint feasible targets exist.
 - M952 synthesizes M942-M951 and closes the local controlled-fusion retuning
   loop. Supported: controlled-fusion has low-tail leverage, M267 preflight is
   live, and rejected-branch retention can protect proof rows. Falsified: exact

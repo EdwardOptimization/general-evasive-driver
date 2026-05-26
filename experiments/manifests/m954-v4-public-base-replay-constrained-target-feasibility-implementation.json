@@ -1,0 +1,128 @@
+{
+  "id": "m954-v4-public-base-replay-constrained-target-feasibility-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m953-v4-public-base-replay-constrained-target-feasibility-design.md",
+      "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/objective_rows.csv",
+      "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/active_rejected_branch_rows.csv",
+      "runs/m951_v4_public_base_rejected_branch_boundary_retune_probe/m267_preflight_summary.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m953-v4-public-base-replay-constrained-target-feasibility-design.json"
+    ],
+    "parent_objective": [
+      "implement a no-training feasibility audit for replay-constrained target construction"
+    ],
+    "derived_from": [
+      "m953-v4-public-base-replay-constrained-target-feasibility-design"
+    ],
+    "blocked_by": [
+      "replay-constrained target feasibility has only been designed, not implemented"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "training another controlled-fusion objective before target feasibility is checked"
+    ]
+  },
+  "review_artifact": "docs/reviews/m954-v4-public-base-replay-constrained-target-feasibility-implementation.md",
+  "public_gates": [
+    "M954 must not train",
+    "M954 must not run PPO",
+    "M954 must not promote",
+    "M954 must preserve the P0 actor-input contract",
+    "M954 must report offline exact target feasibility",
+    "M954 must report M267/M264 active-row target preflight feasibility",
+    "M954 must classify whether joint feasible replay-constrained targets exist"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run another controlled-fusion local retune",
+    "do not update model weights",
+    "do not widen actor inputs",
+    "do not open encoders or GRU",
+    "do not use private holdout",
+    "do not promote"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_replay_constrained_target_feasibility",
+    "evidence_axis": "G_target_feasibility: existence of replay-constrained targets before more actor updates",
+    "evidence_increment": "implements the no-training target feasibility audit designed in M953",
+    "claim_scope": "target-feasibility diagnostic only; no actor training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if no target family can be evaluated without training",
+      "stop if the audit requires hidden actor inputs",
+      "stop if joint feasibility is impossible under the registered criteria"
+    ],
+    "fallback_plan": [
+      "if joint feasible targets exist, route to target export and actor-fit objective design",
+      "if exact target candidates exist but M267 preflight fails, route to branch-separated target refinement",
+      "if M267 preflight passes but low-tail exact gate fails, route to low-tail threshold or sequence target audit",
+      "if neither side can pass, route to synthesis before widening actor surface"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M953 opens the replay-constrained target feasibility branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A no-training target-space audit can determine whether normal-retained low-tail-lift targets and M267/M264 wrong-history proof-retaining targets are jointly feasible before any actor update.",
+  "success_criteria": [
+    "summary artifact exists",
+    "offline exact target metrics are written",
+    "M267/M264 target preflight metrics are written",
+    "joint feasible target count is reported",
+    "result class and next blocker are specified",
+    "training, PPO, and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "implementation trains or updates model weights",
+    "implementation changes actor inputs",
+    "implementation omits offline exact target gate",
+    "implementation omits M267/M264 target preflight gate",
+    "implementation promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "run_target_feasibility_audit",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_replay_constrained_target_feasibility"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m954_v4_public_base_replay_constrained_target_feasibility/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m954_v4_public_base_replay_constrained_target_feasibility/target_family_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m954_v4_public_base_replay_constrained_target_feasibility/offline_exact_target_metrics.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m954_v4_public_base_replay_constrained_target_feasibility/m267_target_preflight.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m954_v4_public_base_replay_constrained_target_feasibility/row_conflicts.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m953-v4-public-base-replay-constrained-target-feasibility-design.md"
+  ],
+  "decision_rule": "M954 may only run a no-training feasibility audit. It must not update actor parameters, run PPO, or promote.",
+  "next_blocker": "replay-constrained target feasibility has not been implemented"
+}

@@ -101,5 +101,5 @@
     "docs/m952-v4-public-base-controlled-fusion-branch-synthesis-2.md"
   ],
   "decision_rule": "M953 may only design the target feasibility audit. It must not train, run PPO, or promote.",
-  "next_blocker": "replay-constrained target feasibility has not been designed"
+  "next_blocker": "m954-v4-public-base-replay-constrained-target-feasibility-implementation"
 }
