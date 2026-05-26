@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m998-v4-public-base-capability-step-fault-generation-synthesis
+m999-v4-public-base-temporal-sequence-objective-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -287,11 +287,16 @@ rows. M995 audits the claim scope: M994 is temporal-history positive but not
 cross-fault wrong-history positive. M996 designs an exact-auditable temporal
 sequence corpus export. M997 implements it and exports `277` temporal positive
 rows with replay, exact no-update, tensor, and source-diversity sanity passing.
-The next task is M998: synthesize M989-M997 before opening a temporal objective
-branch or redesigning cross-fault generation. Training and PPO remain blocked.
+M998 synthesizes M989-M997, closes the capability-step fault generation branch,
+and opens `v4_public_base_temporal_sequence_objective` while blocking
+cross-fault overclaims. The next task is M999: design the exact temporal
+sequence objective before actor update or PPO. Training and PPO remain blocked.
 
 ## Recent Evidence Line
 
+- M998 synthesizes M989-M997 and opens the temporal sequence objective branch.
+  Supported: M997 corpus is usable. Blocked: source-diverse cross-fault
+  wrong-history self-ID remains unproven.
 - M997 exports M994 temporal positives into
   `runs/m997_v4_public_base_temporal_sequence_corpus_export`: `277` positive
   rows, `9` fault pairs, `17` seeds, replay/action sanity exact (`0.0` max

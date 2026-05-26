@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1006,
+    "completed": 1007,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m997-v4-public-base-temporal-sequence-corpus-export-implementation",
+    "task_id": "m998-v4-public-base-capability-step-fault-generation-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m997_v4_public_base_temporal_sequence_corpus_export/summary.json"
+    "command_log": "docs/m998-v4-public-base-capability-step-fault-generation-synthesis.md"
   },
   "next_task": {
-    "id": "m998-v4-public-base-capability-step-fault-generation-synthesis",
+    "id": "m999-v4-public-base-temporal-sequence-objective-design",
     "status": "pending",
-    "priority": 9930,
-    "kind": "gate",
-    "hypothesis": "M989-M997 should be synthesized before temporal objective design because the branch produced a usable temporal corpus but did not produce cross-fault wrong-history evidence",
-    "command": "see experiments/manifests/m998-v4-public-base-capability-step-fault-generation-synthesis.json",
-    "success_artifact": "docs/m998-v4-public-base-capability-step-fault-generation-synthesis.md",
-    "notes": "Pending: synthesize capability-step fault generation branch and decide next branch before objective design"
+    "priority": 9940,
+    "kind": "infrastructure",
+    "hypothesis": "The M997 corpus can support an exact temporal sequence objective that preserves normal-history behavior while using disrupted temporal histories only as preference/separation evidence",
+    "command": "see experiments/manifests/m999-v4-public-base-temporal-sequence-objective-design.json",
+    "success_artifact": "docs/m999-v4-public-base-temporal-sequence-objective-design.md",
+    "notes": "Pending: design exact temporal sequence objective and evaluator before actor update or PPO"
   },
-  "updated_at_utc": "20260526T151532Z"
+  "updated_at_utc": "20260526T151949Z"
 }

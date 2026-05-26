@@ -15113,3 +15113,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M997 exports the M994 temporal positives into exact-auditable tensors: `277` positive rows, `4608` diagnostic rows, `9` positive fault pairs, `17` positive seeds, max fault-pair fraction `0.191336`, `24` delayed-history rows, and `253` reset-then-warm rows. Tensor sanity, replay sanity, exact no-update sanity, and source-diversity gates all pass; normal and variant action replay L2 max are both `0.0`; actor parameters are unchanged and no training/PPO/promotion occurs.
 - decision: `temporal_sequence_corpus_export_pass_route_to_branch_synthesis`
 - next: `m998-v4-public-base-capability-step-fault-generation-synthesis`
+
+## 20260526T151949Z - m998-v4-public-base-capability-step-fault-generation-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m998-v4-public-base-capability-step-fault-generation-synthesis.md`
+- result: M998 synthesizes M989-M997. Supported: hidden capability-step events are compatible with M974, temporal-history dependence is source-diverse enough for exact corpus work, and M997 exports a replay/exact-sanity-passing temporal sequence corpus. Falsified/blocked: source-diverse cross-fault wrong-history self-ID is not proven, reset-only sensitivity is not cross-fault proof, and cross-fault zero variants are diagnostic-only.
+- decision: `capability_step_fault_generation_synthesis_open_temporal_sequence_objective`
+- next: `m999-v4-public-base-temporal-sequence-objective-design`

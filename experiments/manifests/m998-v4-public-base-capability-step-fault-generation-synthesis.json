@@ -126,6 +126,25 @@
     "runs/m997_v4_public_base_temporal_sequence_corpus_export/summary.json",
     "docs/m997-v4-public-base-temporal-sequence-corpus-export-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m998-v4-public-base-capability-step-fault-generation-synthesis.md",
+    "supported_claims": [
+      "capability-step events are compatible with the M974 public base without actor-input changes",
+      "temporal-history dependence is source-diverse enough for exact corpus work",
+      "M997 exports a replay/exact-sanity-passing temporal sequence corpus"
+    ],
+    "falsified_claims": [
+      "source-diverse cross-fault wrong-history self-ID is already proven",
+      "reset-only sensitivity can be counted as cross-fault proof",
+      "diagnostic cross-fault zero variants are positive targets"
+    ],
+    "next_branch": "v4_public_base_temporal_sequence_objective",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "capability_step_fault_generation_synthesis_open_temporal_sequence_objective",
   "decision_rule": "M998 must decide whether the next branch is temporal objective design, cross-fault generation redesign, or stop.",
-  "next_blocker": "m998-v4-public-base-capability-step-fault-generation-synthesis"
+  "next_blocker": "m999-v4-public-base-temporal-sequence-objective-design"
 }

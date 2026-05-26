@@ -1,0 +1,114 @@
+{
+  "id": "m999-v4-public-base-temporal-sequence-objective-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m998-v4-public-base-capability-step-fault-generation-synthesis.md",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/summary.json",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/metadata.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m998-v4-public-base-capability-step-fault-generation-synthesis.json"
+    ],
+    "parent_objective": [
+      "design an exact temporal sequence preference objective over the M997 corpus"
+    ],
+    "derived_from": [
+      "m998-v4-public-base-capability-step-fault-generation-synthesis",
+      "m997-v4-public-base-temporal-sequence-corpus-export-implementation"
+    ],
+    "blocked_by": [
+      "M998 opens the temporal sequence objective branch and blocks PPO until objective design exists"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "training directly from the M997 corpus without objective design",
+      "using diagnostic cross-fault rows as positive targets"
+    ]
+  },
+  "review_artifact": "docs/reviews/m999-v4-public-base-temporal-sequence-objective-design.md",
+  "public_gates": [
+    "M999 must not train",
+    "M999 must not run PPO",
+    "M999 must not promote",
+    "M999 must preserve P0 actor inputs",
+    "M999 must keep cross-fault rows diagnostic-only"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not train or optimize actor parameters",
+    "do not use private holdout",
+    "do not claim cross-fault wrong-history self-ID",
+    "do not train variant histories toward degraded actions",
+    "do not proceed to PPO"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_temporal_sequence_objective",
+    "evidence_axis": "G_temporal_objective: exact objective design over M997 temporal sequence corpus",
+    "evidence_increment": "designs the first temporal sequence objective and gate plan after M998 closes the capability-step fault generation branch",
+    "claim_scope": "design/infrastructure only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if the objective would train disrupted variant histories toward degraded actions",
+      "stop if the objective cannot use M997 row weights",
+      "stop if exact no-update baseline metrics are not defined",
+      "stop if public replay/proof gates are missing"
+    ],
+    "fallback_plan": [
+      "if a sequence objective is ambiguous, design an exact no-update evaluator first",
+      "if variant imbalance dominates the loss, add stratified weighting or source caps",
+      "if temporal objective conflicts with proof gates, route to objective sanity before actor update"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M998 opens temporal sequence objective branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M997 corpus can support an exact temporal sequence objective that preserves normal-history behavior while using disrupted temporal histories only as preference/separation evidence.",
+  "success_criteria": [
+    "design artifact exists",
+    "objective terms are defined",
+    "exact no-update evaluator requirements are defined",
+    "row weighting is specified",
+    "variant histories are not trained toward degraded actions",
+    "public proof/replay gates are specified",
+    "no training or PPO occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "objective uses diagnostic cross-fault rows as positives",
+    "objective trains variant histories toward degraded actions",
+    "row weights are ignored without justification",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m999-v4-public-base-temporal-sequence-objective-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m999-v4-public-base-temporal-sequence-objective-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m997_v4_public_base_temporal_sequence_corpus_export/summary.json",
+    "docs/m998-v4-public-base-capability-step-fault-generation-synthesis.md"
+  ],
+  "decision_rule": "M999 must decide the exact objective and evaluator design before any objective-only actor update.",
+  "next_blocker": "m999-v4-public-base-temporal-sequence-objective-design"
+}
