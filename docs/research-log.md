@@ -15169,3 +15169,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1003 designs the no-training public replay/proof gate for M1002 candidates. Candidate order is alpha `0.2`, `0.1`, `0.05`, `0.02`, `0.01`. M1004 must run M267/M264 preflight first, then the six public replay surfaces for the selected candidate, behavior seeds `9505/9506`, temporal corpus exact retention, source-diverse diagnostics, and contract checks. PPO, private holdout, and promotion remain blocked.
 - decision: `temporal_sequence_public_replay_gate_design_admit_m1004`
 - next: `m1004-v4-public-base-temporal-sequence-update-public-replay-gate`
+
+## 20260526T170617Z - m1004-v4-public-base-temporal-sequence-update-public-replay-gate
+
+- status: `completed`
+- kind: `gate`
+- run dir: `runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate`
+- artifact: `docs/m1004-v4-public-base-temporal-sequence-update-public-replay-gate.md`
+- result: M1004 implements the no-training public replay gate and classifies the M1002 temporal sequence update as `proof_washout`. All `5/5` candidates pass exact/contract retention and change only `actor_mean`, but `0/5` pass M267/M264 preflight. The best exact candidate alpha `0.2` regresses success-drop count `17 -> 6`; the smallest alpha `0.01` still regresses `17 -> 15` because rows `6` and `15` become wrong-history successes. Full six-surface replay and behavior seeds are not run because the preflight has no passing candidate.
+- decision: `temporal_sequence_public_replay_gate_no_preflight_candidate_route_to_replay_failure_audit`
+- next: `m1005-v4-public-base-temporal-sequence-update-replay-failure-audit`

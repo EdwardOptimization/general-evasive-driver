@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1004 finds 5/5 exact contract candidates but 0/5 M267/M264 preflight pass; smallest alpha 0.01 regresses success-drop count 17 to 15 on rows 6 and 15",
+  "failure_criteria": [
+    "M267/M264 preflight is missing",
+    "public replay surfaces are missing",
+    "PPO starts",
+    "promotion occurs",
+    "private holdout is used"
+  ],
+  "failure_types": [
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not use private holdout",
+    "do not promote exact-only candidates",
+    "do not skip M267/M264 preflight",
+    "do not skip old proof surfaces",
+    "do not proceed to PPO"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260526T171413Z",
+  "hypothesis": "At least one M1002 exact temporal objective candidate will retain public replay/proof gates and behavior seeds without PPO or promotion.",
+  "lineage": {
+    "blocked_by": [
+      "M1003 requires replay/proof validation before any candidate can advance"
+    ],
+    "derived_from": [
+      "m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design",
+      "m1002-v4-public-base-temporal-sequence-objective-update-probe"
+    ],
+    "invalidates": [
+      "promoting M1002 exact candidates without public replay"
+    ],
+    "parent_checkpoint": [
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_2.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_1.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_02.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_01.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design.md",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/summary.json",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/candidate_checkpoints.csv"
+    ],
+    "parent_objective": [
+      "run no-training public replay/proof gate for M1002 exact candidates"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1004-v4-public-base-temporal-sequence-update-public-replay-gate",
+  "next_blocker": "m1005-v4-public-base-temporal-sequence-update-replay-failure-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "temporal_sequence_public_replay_gate_no_preflight_candidate_route_to_replay_failure_audit",
+  "public_gates": [
+    "M1004 must not run PPO",
+    "M1004 must not promote",
+    "M1004 must run M267/M264 preflight before full replay",
+    "M1004 must run six public replay surfaces for the selected candidate",
+    "M1004 must run behavior seeds 9505 and 9506"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "temporal_sequence_public_replay_gate_no_preflight_candidate_route_to_replay_failure_audit",
+    "milestone": "m1004-v4-public-base-temporal-sequence-update-public-replay-gate",
+    "reason": "M1004 finds 5/5 exact contract candidates but 0/5 M267/M264 preflight pass; smallest alpha 0.01 regresses success-drop count 17 to 15 on rows 6 and 15",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "gate command completes",
+    "summary.json exists",
+    "M267/M264 preflight is reported for candidate alphas",
+    "six public replay surfaces are reported for selected candidate",
+    "behavior seeds 9505 and 9506 are reported",
+    "ppo_used == false",
+    "promoted == false"
+  ],
+  "type": "gate"
+}

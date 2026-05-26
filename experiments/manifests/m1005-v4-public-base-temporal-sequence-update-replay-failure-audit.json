@@ -1,0 +1,107 @@
+{
+  "id": "m1005-v4-public-base-temporal-sequence-update-replay-failure-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_2.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_1.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_02.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_01.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/summary.json",
+      "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/candidate_preflight_summary.csv",
+      "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/candidate_preflight/m1002_temporal_a0_01/boundary_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1004-v4-public-base-temporal-sequence-update-public-replay-gate.json"
+    ],
+    "parent_objective": [
+      "audit why exact temporal sequence candidates failed M267/M264 preflight"
+    ],
+    "derived_from": [
+      "m1004-v4-public-base-temporal-sequence-update-public-replay-gate"
+    ],
+    "blocked_by": [
+      "M1004 exact temporal candidates all fail M267/M264 success-drop retention"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "lower-alpha replay without auditing rows 6 and 15",
+      "PPO from M1002 temporal candidates"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1005-v4-public-base-temporal-sequence-update-replay-failure-audit.md",
+  "public_gates": [
+    "M1005 must not run PPO",
+    "M1005 must not promote",
+    "M1005 must classify the M1004 preflight failure",
+    "M1005 must decide whether the next step is objective repair or branch synthesis"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune alpha after seeing M1004 without a new objective",
+    "do not run full public replay for candidates that failed M267/M264 preflight",
+    "do not use private holdout",
+    "do not claim temporal objective update improves deployable driver behavior"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_temporal_sequence_objective",
+    "evidence_axis": "G_temporal_objective: replay failure audit",
+    "evidence_increment": "classifies why exact temporal objective improvement washes out M267/M264 success-drop proof",
+    "claim_scope": "process/proof audit only; no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if failure is a contract/tool artifact",
+      "stop if M1004 shows objective metric artifact rather than repairable proof washout",
+      "stop if branch cadence requires synthesis before another local objective"
+    ],
+    "fallback_plan": [
+      "if contract/tool artifact, repair the M1004 gate runner",
+      "if proof washout is localized, design a branch-preserving temporal objective repair",
+      "if proof washout is systematic, synthesize the branch before more local objectives"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1004 fails M267/M264 preflight for all candidates",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M1004 failed because the actor_mean-only temporal objective lifts wrong-history near-threshold public proof rows, not because of actor contract changes or broad normal-branch regression.",
+  "success_criteria": [
+    "audit document exists",
+    "failure cause is classified with process-v2 taxonomy",
+    "rows lost by the smallest alpha are identified",
+    "next blocker is registered"
+  ],
+  "failure_criteria": [
+    "audit ignores M267/M264 row-level evidence",
+    "audit routes to PPO",
+    "audit routes to promotion",
+    "audit uses private holdout"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "inspect M1004 summary and candidate_preflight artifacts; write docs/m1005-v4-public-base-temporal-sequence-update-replay-failure-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1005-v4-public-base-temporal-sequence-update-replay-failure-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1004-v4-public-base-temporal-sequence-update-public-replay-gate.md",
+    "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/summary.json"
+  ],
+  "decision_rule": "M1005 should route to objective repair only if the failure is localized proof washout and not a contract or tool artifact.",
+  "next_blocker": "m1005-v4-public-base-temporal-sequence-update-replay-failure-audit"
+}

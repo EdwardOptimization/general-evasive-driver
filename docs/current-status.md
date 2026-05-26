@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1004-v4-public-base-temporal-sequence-update-public-replay-gate
+m1005-v4-public-base-temporal-sequence-update-replay-failure-audit
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -298,11 +298,21 @@ actor_mean-only update probe with interpolation and strict trust-region gates.
 M1002 implements it and finds `5` exact candidates, with best alpha `0.2`, while
 changing only `actor_mean`. M1003 designs the no-training public replay/proof
 gate: M267/M264 preflight, six public replay surfaces, behavior seeds, temporal
-exact retention, and diagnostics. The next task is M1004: implement/run that
-gate before any PPO or promotion. PPO remains blocked.
+exact retention, and diagnostics. M1004 implements the gate and rejects all
+M1002 candidates at M267/M264 preflight. All `5/5` candidates still pass
+exact/contract retention, but `0/5` retain success-drop count. The best exact
+candidate alpha `0.2` regresses M267/M264 success-drop count `17 -> 6`; the
+smallest alpha `0.01` still regresses `17 -> 15` because rows `6` and `15`
+become wrong-history successes. The next task is M1005: audit this proof
+washout and decide whether to design a branch-preserving temporal objective
+repair or synthesize the branch. PPO remains blocked.
 
 ## Recent Evidence Line
 
+- M1004 implements the public replay gate for M1002 temporal candidates. It
+  rejects all candidates before full replay: exact/contract pass count is `5/5`,
+  but M267/M264 preflight pass count is `0/5`; alpha `0.01` still loses rows
+  `6` and `15`.
 - M1003 designs public replay validation for M1002 exact candidates. Candidate
   order is `0.2`, `0.1`, `0.05`, `0.02`, `0.01`; M267/M264 preflight comes
   before six-surface replay.

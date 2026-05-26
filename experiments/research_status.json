@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1012,
+    "completed": 1013,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design",
+    "task_id": "m1004-v4-public-base-temporal-sequence-update-public-replay-gate",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1003-v4-public-base-temporal-sequence-update-public-replay-gate-design.md"
+    "command_log": "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/summary.json"
   },
   "next_task": {
-    "id": "m1004-v4-public-base-temporal-sequence-update-public-replay-gate",
+    "id": "m1005-v4-public-base-temporal-sequence-update-replay-failure-audit",
     "status": "pending",
-    "priority": 9990,
+    "priority": 10000,
     "kind": "gate",
-    "hypothesis": "At least one M1002 exact temporal objective candidate will retain public replay/proof gates and behavior seeds without PPO or promotion",
-    "command": "see experiments/manifests/m1004-v4-public-base-temporal-sequence-update-public-replay-gate.json",
-    "success_artifact": "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/summary.json",
-    "notes": "Pending: implement no-training public replay/proof gate for M1002 exact candidates"
+    "hypothesis": "M1004 failed because the actor_mean-only temporal objective lifts wrong-history near-threshold public proof rows, not because of actor contract changes or broad normal-branch regression",
+    "command": "see experiments/manifests/m1005-v4-public-base-temporal-sequence-update-replay-failure-audit.json",
+    "success_artifact": "docs/m1005-v4-public-base-temporal-sequence-update-replay-failure-audit.md",
+    "notes": "Pending: classify M1004 proof washout and decide branch-preserving objective repair versus synthesis"
   },
-  "updated_at_utc": "20260526T162950Z"
+  "updated_at_utc": "20260526T170617Z"
 }
