@@ -1,0 +1,135 @@
+{
+  "id": "m964-v4-public-base-direction-target-actor-fit-objective-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m963-v4-public-base-target-feasibility-export-branch-synthesis.md",
+      "runs/m962_v4_public_base_direction_target_export/summary.json",
+      "runs/m962_v4_public_base_direction_target_export/accepted_direction_targets.csv",
+      "runs/m962_v4_public_base_direction_target_export/direction_target_family_catalog.csv",
+      "runs/m962_v4_public_base_direction_target_export/branch_separated_proof_targets.csv",
+      "runs/m962_v4_public_base_direction_target_export/retention_anchor_targets.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m963-v4-public-base-target-feasibility-export-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "run first objective-only actor-fit probe on M962 exported direction-target corpus"
+    ],
+    "derived_from": [
+      "m963-v4-public-base-target-feasibility-export-branch-synthesis",
+      "m962-v4-public-base-direction-target-export-implementation"
+    ],
+    "blocked_by": [
+      "M962 exported targets but no actor-fit probe has tested whether the actor can fit them without proof washout"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "PPO or promotion before objective-only direction-target actor-fit gate"
+    ]
+  },
+  "review_artifact": "docs/reviews/m964-v4-public-base-direction-target-actor-fit-objective-implementation.md",
+  "public_gates": [
+    "M964 must not run PPO",
+    "M964 must not promote",
+    "M964 must preserve the P0 actor-input contract",
+    "M964 must start from the M399 public base",
+    "M964 must use M962 exported targets",
+    "M964 must report exact target-fit metrics and M267/M264 proof preflight"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote",
+    "do not run PPO",
+    "do not train diagnostic-only anti-aligned target families",
+    "do not collapse wrong-history proof anchors into normal safe targets"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_direction_target_actor_fit",
+    "evidence_axis": "G_actor_fit: ability to fit exported direction targets without proof washout",
+    "evidence_increment": "runs first objective-only actor-fit probe using M962 exported targets",
+    "claim_scope": "objective-only actor-fit diagnostic; no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if target-fit metrics improve but M267/M264 proof fails",
+      "stop if retention anchors regress beyond tolerance",
+      "stop if no interpolation alpha preserves proof and target-fit improvement"
+    ],
+    "fallback_plan": [
+      "if actor fit passes exact and proof gates, route to replay gate design",
+      "if target fit improves but proof fails, route to stronger proof-anchor objective",
+      "if no target-fit movement occurs, route to trainable-surface audit",
+      "if target fit overfits public rows, route to source-diverse target refresh"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M963 promotes target-feasibility branch to actor-fit branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "An objective-only actor-fit update can reduce M962 direction-target loss while preserving M267/M264 proof preflight and retention anchors.",
+  "success_criteria": [
+    "summary artifact exists",
+    "target-fit metrics are written",
+    "proof-anchor metrics are written",
+    "retention-anchor metrics are written",
+    "M267/M264 preflight is written",
+    "interpolation candidates are evaluated",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "implementation runs PPO",
+    "implementation changes actor inputs",
+    "implementation trains diagnostic-only target families",
+    "implementation omits proof-anchor or retention metrics",
+    "implementation promotes a checkpoint"
+  ],
+  "commands": [
+    {
+      "name": "run_direction_target_actor_fit",
+      "command": "PYTHONPATH=src python -m autodrift.public_base_direction_target_actor_fit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m964_v4_public_base_direction_target_actor_fit/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m964_v4_public_base_direction_target_actor_fit/target_fit_metrics.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m964_v4_public_base_direction_target_actor_fit/proof_anchor_metrics.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m964_v4_public_base_direction_target_actor_fit/retention_anchor_metrics.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m964_v4_public_base_direction_target_actor_fit/m267_preflight_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m964_v4_public_base_direction_target_actor_fit/route_decision.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m963-v4-public-base-target-feasibility-export-branch-synthesis.md",
+    "runs/m962_v4_public_base_direction_target_export/summary.json"
+  ],
+  "decision_rule": "M964 may run objective-only actor fitting, but it must not run PPO, change actor inputs, use private holdout, or promote.",
+  "next_blocker": "direction-target actor-fit objective has not been implemented"
+}

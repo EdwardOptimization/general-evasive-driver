@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m963-v4-public-base-target-feasibility-export-branch-synthesis
+m964-v4-public-base-direction-target-actor-fit-objective-implementation
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -160,10 +160,21 @@ anchors before any actor fitting. M962 implements the no-training export:
 `1280` accepted direction targets, `160` branch-separated proof targets, `1149`
 retention anchors, diagnostic target count `0`, and max direction-family
 fraction `0.25`. Because M953-M962 reaches the branch synthesis cadence, M963
-should synthesize this branch before actor-fit continuation.
+should synthesize this branch before actor-fit continuation. M963 completes the
+synthesis and promotes to a new branch,
+`v4_public_base_direction_target_actor_fit`. M964 should run the first
+objective-only actor-fit probe on the exported M962 targets while keeping PPO,
+promotion, private holdout, and actor-input changes blocked.
 
 ## Recent Evidence Line
 
+- M963 synthesizes M953-M962 and opens
+  `v4_public_base_direction_target_actor_fit`. Supported: corrected
+  terminal-margin-improving target directions yield exportable targets; old
+  away-from-intervention target directions are behaviorally wrong; proof
+  anchors and retention anchors are available. Public-gate overfit risk remains
+  moderate to high because the target rows are public and limited. M964 should
+  test objective-only actor fit before any PPO or promotion.
 - M962 implements the direction-target export. Result:
   `direction_target_export_pass`, with `1280` accepted direction target rows,
   `20` accepted families, `160` branch-separated proof targets, `1149`

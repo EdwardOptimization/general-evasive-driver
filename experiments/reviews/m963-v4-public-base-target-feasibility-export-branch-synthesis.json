@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M963 synthesizes M953-M962 target-feasibility/export evidence and opens v4_public_base_direction_target_actor_fit for objective-only actor-fit probing",
+  "failure_criteria": [
+    "synthesis recommends actor fitting without evidence summary",
+    "synthesis changes actor inputs",
+    "synthesis omits public-gate overfit risk",
+    "synthesis omits next branch decision",
+    "synthesis promotes a checkpoint"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not update model weights",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote",
+    "do not start actor fitting before synthesis"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260526T041543Z",
+  "hypothesis": "M953-M962 provide enough target-feasibility evidence to justify a new direction-target actor-fit branch, but synthesis must happen before training.",
+  "lineage": {
+    "blocked_by": [
+      "branch cadence reached after M962 export pass"
+    ],
+    "derived_from": [
+      "m953-v4-public-base-replay-constrained-target-feasibility-design",
+      "m962-v4-public-base-direction-target-export-implementation"
+    ],
+    "invalidates": [
+      "starting actor-fit implementation before M953-M962 synthesis"
+    ],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m962-v4-public-base-direction-target-export-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m953-v4-public-base-replay-constrained-target-feasibility-design.md",
+      "docs/m954-v4-public-base-replay-constrained-target-feasibility-implementation.md",
+      "docs/m955-v4-public-base-low-tail-sequence-target-audit-design.md",
+      "docs/m956-v4-public-base-low-tail-sequence-target-audit-implementation.md",
+      "docs/m957-v4-public-base-low-tail-target-metric-artifact-audit-design.md",
+      "docs/m958-v4-public-base-low-tail-target-metric-artifact-audit-implementation.md",
+      "docs/m959-v4-public-base-low-tail-direction-family-target-audit-design.md",
+      "docs/m960-v4-public-base-low-tail-direction-family-target-audit-implementation.md",
+      "docs/m961-v4-public-base-direction-target-export-actor-fit-objective-design.md",
+      "docs/m962-v4-public-base-direction-target-export-implementation.md",
+      "runs/m962_v4_public_base_direction_target_export/summary.json"
+    ],
+    "parent_objective": [
+      "synthesize M953-M962 target-feasibility/export evidence before actor-fit continuation"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m963-v4-public-base-target-feasibility-export-branch-synthesis",
+  "next_blocker": "M953-M962 branch synthesis has not been written",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "promote_to_next_branch",
+  "public_gates": [
+    "M963 must not train",
+    "M963 must not run PPO",
+    "M963 must not promote",
+    "M963 must preserve the P0 actor-input contract",
+    "M963 must synthesize M953-M962 evidence before actor-fit continuation"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m963-v4-public-base-target-feasibility-export-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "promote_to_next_branch",
+    "milestone": "m963-v4-public-base-target-feasibility-export-branch-synthesis",
+    "reason": "M963 synthesizes M953-M962 target-feasibility/export evidence and opens v4_public_base_direction_target_actor_fit for objective-only actor-fit probing",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "synthesis artifact exists",
+    "evidence summary covers M953-M962",
+    "supported and falsified claims are explicit",
+    "failure taxonomy is summarized",
+    "public-gate overfit risk is assessed",
+    "next branch decision is explicit",
+    "training, PPO, and promotion remain blocked"
+  ],
+  "type": "gate"
+}

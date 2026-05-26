@@ -14782,3 +14782,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M962 implements the no-training direction-target export. Result: `direction_target_export_pass`, with `1280` accepted direction target rows, `20` accepted families, `160` branch-separated proof targets, `1149` retention anchors, diagnostic target count `0`, and max direction-family fraction `0.25`.
 - decision: `direction_target_export_pass_route_to_branch_synthesis`
 - next: `m963-v4-public-base-target-feasibility-export-branch-synthesis`
+
+## 20260526T041234Z - m963-v4-public-base-target-feasibility-export-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m963-v4-public-base-target-feasibility-export-branch-synthesis.md`
+- result: M963 synthesizes M953-M962. Supported: target feasibility exists after correcting the old away-from-intervention direction; M267/M264 proof retention is not the target-space bottleneck when proof targets are branch-separated; M962 exports an auditable corpus without actor contract changes. Falsified: one-step or delayed away-from-intervention targets are behaviorally grounded, the blocker is only a strict threshold, and actor training is justified before target feasibility/export. Public-gate overfit risk remains moderate to high because targets are derived from 64 public low-tail rows.
+- decision: `promote_to_next_branch`
+- next: `m964-v4-public-base-direction-target-actor-fit-objective-implementation`
