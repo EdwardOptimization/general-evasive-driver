@@ -1,0 +1,104 @@
+{
+  "id": "m950-v4-public-base-rejected-branch-retention-objective-conflict-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt",
+      "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/checkpoints/raw_rejected_branch_retention_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe.md",
+      "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/summary.json",
+      "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/alpha_metrics.csv",
+      "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/m267_preflight_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe.json"
+    ],
+    "parent_objective": [
+      "audit why rejected-branch retention restored M267 preflight at some alphas but lost exact low-tail candidate overlap"
+    ],
+    "derived_from": [
+      "m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe"
+    ],
+    "blocked_by": [
+      "M949 has M267 preflight pass alphas but zero exact candidate alphas"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "full replay, PPO, or promotion from M949 raw update"
+    ]
+  },
+  "review_artifact": "docs/reviews/m950-v4-public-base-rejected-branch-retention-objective-conflict-audit.md",
+  "public_gates": [
+    "M950 must not train",
+    "M950 must not run PPO",
+    "M950 must not promote",
+    "M950 must classify the 0.075-0.100 objective conflict boundary",
+    "M950 must choose between coefficient retuning, trajectory-target export, or branch synthesis"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune after looking at private holdout",
+    "do not run full replay from a non-candidate",
+    "do not promote M949",
+    "do not widen actor inputs",
+    "do not open encoders or GRU without synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_controlled_fusion_surface",
+    "evidence_axis": "G_replay: rejected-branch retention versus exact low-tail objective conflict",
+    "evidence_increment": "classifies whether M949 needs coefficient retuning, richer rejected trajectory targets, or branch synthesis",
+    "claim_scope": "process audit only; no training, no full replay, no promotion",
+    "stop_condition": [
+      "stop if M949 conflict is explained by the 0.075-0.100 alpha boundary",
+      "stop if objective retuning would be another narrow local tweak without synthesis",
+      "stop if trajectory-target export is required before another probe"
+    ],
+    "fallback_plan": [
+      "if coefficient retuning is justified, route to one bounded design milestone",
+      "if action proxies are insufficient, route to rejected-branch trajectory target export",
+      "if the branch is over-optimized, route to synthesis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M949 result_class controlled_fusion_rejected_branch_retention_objective_conflict",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M949 exposed a real tradeoff: low alphas preserve M267 proof but lack tail lift, while higher alphas lift low-tail metrics but break normal retention or M267 proof.",
+  "success_criteria": [
+    "audit document exists",
+    "M949 alpha/preflight conflict is summarized",
+    "next route is selected without training, full replay, PPO, or promotion"
+  ],
+  "failure_criteria": [
+    "audit recommends full replay from a non-candidate",
+    "audit recommends PPO or promotion",
+    "audit ignores the M267 preflight and exact candidate mismatch"
+  ],
+  "commands": [
+    {
+      "name": "write_audit",
+      "command": "Inspect M949 alpha metrics and preflight rows, write the objective-conflict audit, then route the next milestone."
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m950-v4-public-base-rejected-branch-retention-objective-conflict-audit.md",
+      "type": "documentation"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe.md",
+    "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/summary.json"
+  ],
+  "decision_rule": "M950 may only audit the M949 conflict and choose the next route. It must not train, full-replay a non-candidate, PPO, or promote.",
+  "next_blocker": "M949 objective conflict needs classification before more local objective tweaks"
+}

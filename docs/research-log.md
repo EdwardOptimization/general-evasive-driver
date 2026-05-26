@@ -14649,3 +14649,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M948 designs the next repair route after M947. It keeps the M936 controlled-fusion trainable surface only: `actor_mean` plus `response_context_fusion.0`; response/context encoders, online GRU, critic, log_std, and actor inputs remain frozen. The active rejected-branch set is M267/M264 rows `6`, `13`, `15`, `16`, with source-diverse rows `15/16` as preflight overlap and old key `9944` diagnostic-only. The proposed objective adds rejected wrong-action anchor, wrong-vs-normal separation floor, and wrong-direction anchor proxy terms to the existing low-tail and normal-retention terms. Closed-loop M267/M264 preflight is mandatory before full replay.
 - decision: `controlled_fusion_rejected_branch_retention_design_admit_m949`
 - next: `m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe`
+
+## 20260526T001432Z - m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe`
+- artifact: `docs/m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe.md`
+- result: M949 implements the no-PPO controlled-fusion rejected-branch retention probe. It reconstructs `1213/1213` objective rows and `4/4` active rejected rows, joins `122` targets with no missing keys, changes only `actor_mean` plus `response_context_fusion.0`, and keeps actor inputs, encoders, GRU, critic, and log_std unchanged. The M267/M264 preflight is live and passes at alphas `0.005`, `0.010`, and `0.200`, but exact candidate count is `0`. Low alphas retain normal behavior but lack tail lift; higher alphas tail-lift but fail normal retention or M267 proof. Result class is `controlled_fusion_rejected_branch_retention_objective_conflict`.
+- decision: `controlled_fusion_rejected_branch_retention_objective_conflict_route_to_audit`
+- next: `m950-v4-public-base-rejected-branch-retention-objective-conflict-audit`

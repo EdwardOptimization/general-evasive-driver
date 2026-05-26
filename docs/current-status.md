@@ -62,7 +62,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe
+m950-v4-public-base-rejected-branch-retention-objective-conflict-audit
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -102,10 +102,23 @@ rejected-history branch retention, not direct lower-alpha replay. M948 designs
 that route as an objective-only controlled-fusion repair: keep only
 `actor_mean` and `response_context_fusion.0` trainable, add rejected-branch
 action-retention proxies, and require M267/M264 row `6/13/15/16` preflight
-before any full replay, PPO, or promotion.
+before any full replay, PPO, or promotion. M949 implements that probe. It
+recovers M267/M264 preflight at alphas `0.005`, `0.010`, and `0.200`, but has
+zero exact candidates because low alphas lack tail lift and higher alphas break
+normal retention or M267 proof. The current blocker is the M950 objective
+conflict audit.
 
 ## Recent Evidence Line
 
+- M949 implements the no-PPO rejected-branch retention probe. It reconstructs
+  `1213/1213` objective rows and `4/4` active rejected rows, changes only
+  `actor_mean` plus `response_context_fusion.0`, and keeps the P0 actor-input
+  contract. M267/M264 preflight passes at alphas `0.005`, `0.010`, and `0.200`,
+  proving the rejected-branch retention signal is live. However,
+  `exact_candidate_alpha_count=0`: alphas through `0.075` retain normal behavior
+  but do not pass tail lift, while alphas `0.100+` pass tail lift but fail
+  normal retention. M950 must audit this objective conflict before more local
+  tweaks, full replay, PPO, or promotion.
 - M948 designs the rejected-branch retention route. It keeps the existing
   controlled-fusion trainable surface only and blocks actor-input changes, GRU
   updates, PPO, and promotion. The active rejected set is M267/M264 rows `6`,

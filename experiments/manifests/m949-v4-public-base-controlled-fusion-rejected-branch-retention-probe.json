@@ -4,7 +4,7 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "objective_overfit"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -106,5 +106,5 @@
     "docs/m948-v4-public-base-controlled-fusion-rejected-branch-retention-design.md"
   ],
   "decision_rule": "M949 may run only objective-only controlled-fusion training with rejected-branch retention proxy and preflight replay. It must not run PPO or promote.",
-  "next_blocker": "rejected-branch retention probe has not been implemented"
+  "next_blocker": "m950-v4-public-base-rejected-branch-retention-objective-conflict-audit"
 }

@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M949 restores M267 preflight at alphas 0.005 0.010 0.200 but exact_candidate_alpha_count is 0 so no full replay PPO or promotion is allowed",
+  "failure_criteria": [
+    "actor inputs change",
+    "forbidden parameters change",
+    "M267/M264 preflight is skipped",
+    "PPO or promotion is run",
+    "active rejected rows cannot be reconstructed"
+  ],
+  "failure_types": [
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not widen actor inputs",
+    "do not update response/context encoders or online GRU",
+    "do not use old key 9944 as a singleton veto",
+    "do not skip M267/M264 preflight",
+    "do not run PPO or promotion"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260526T001711Z",
+  "hypothesis": "Adding rejected-history branch retention to the controlled-fusion objective may preserve M267/M264 wrong-history failures while retaining low-tail exact objective lift.",
+  "lineage": {
+    "blocked_by": [
+      "controlled-fusion low-tail objective has no rejected-history branch retention implementation"
+    ],
+    "derived_from": [
+      "m948-v4-public-base-controlled-fusion-rejected-branch-retention-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m399_s02_interpolation/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m948-v4-public-base-controlled-fusion-rejected-branch-retention-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m948-v4-public-base-controlled-fusion-rejected-branch-retention-design.md",
+      "runs/m946_v4_public_base_controlled_fusion_candidate_replay_gate/full_gates/m267_m264_replay/boundary_replay_rows.csv",
+      "runs/m320_m316_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m314_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv"
+    ],
+    "parent_objective": [
+      "implement controlled-fusion objective-only probe with explicit rejected-history branch retention proxy and M267/M264 preflight"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe",
+  "next_blocker": "m950-v4-public-base-rejected-branch-retention-objective-conflict-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controlled_fusion_rejected_branch_retention_objective_conflict_route_to_audit",
+  "public_gates": [
+    "M949 must preserve P0 actor-input contract",
+    "M949 may train only actor_mean and response_context_fusion.0",
+    "M949 must evaluate exact objective metrics",
+    "M949 must evaluate M267/M264 preflight rows 6/13/15/16",
+    "M949 must not run PPO",
+    "M949 must not promote"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m949_v4_public_base_controlled_fusion_rejected_branch_retention_probe/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "controlled_fusion_rejected_branch_retention_objective_conflict_route_to_audit",
+    "milestone": "m949-v4-public-base-controlled-fusion-rejected-branch-retention-probe",
+    "reason": "M949 restores M267 preflight at alphas 0.005 0.010 0.200 but exact_candidate_alpha_count is 0 so no full replay PPO or promotion is allowed",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary.json exists",
+    "active rejected rows are reconstructed",
+    "forbidden_parameter_changed is false",
+    "M267/M264 preflight is evaluated",
+    "candidate_alpha_count is reported",
+    "ppo_used and promoted are false"
+  ],
+  "type": "infrastructure"
+}

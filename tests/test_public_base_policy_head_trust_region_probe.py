@@ -28,6 +28,9 @@ from autodrift.public_base_controlled_fusion_candidate_replay_gate import (
     classify_candidate_replay_gate,
     failure_types_for_result_class,
 )
+from autodrift.public_base_controlled_fusion_rejected_branch_retention_probe import (
+    classify_rejected_branch_retention_probe,
+)
 from autodrift.train_ppo import ActorCritic
 
 
@@ -328,3 +331,72 @@ def test_classify_controlled_fusion_candidate_replay_gate_contract_artifact():
 
     assert result == "public_base_controlled_fusion_candidate_replay_gate_contract_artifact"
     assert failure_types_for_result_class(result) == ["contract_violation"]
+
+
+def test_classify_rejected_branch_retention_probe_candidate():
+    assert (
+        classify_rejected_branch_retention_probe(
+            forbidden_parameter_changed=False,
+            actor_mean_changed=True,
+            fusion_changed=True,
+            reconstruction_success_rate=1.0,
+            active_rejected_rows=4,
+            expected_active_rejected_rows=4,
+            metadata_missing_rows=0,
+            missing_target_keys=0,
+            exact_candidate_count=1,
+            m267_preflight_pass_count=1,
+            candidate_count=1,
+            any_tail_lift=True,
+            any_m267_preflight_pass=True,
+            ppo_used=False,
+            promoted=False,
+        )
+        == "controlled_fusion_rejected_branch_retention_candidate"
+    )
+
+
+def test_classify_rejected_branch_retention_probe_preflight_failure():
+    assert (
+        classify_rejected_branch_retention_probe(
+            forbidden_parameter_changed=False,
+            actor_mean_changed=True,
+            fusion_changed=True,
+            reconstruction_success_rate=1.0,
+            active_rejected_rows=4,
+            expected_active_rejected_rows=4,
+            metadata_missing_rows=0,
+            missing_target_keys=0,
+            exact_candidate_count=1,
+            m267_preflight_pass_count=0,
+            candidate_count=0,
+            any_tail_lift=True,
+            any_m267_preflight_pass=False,
+            ppo_used=False,
+            promoted=False,
+        )
+        == "controlled_fusion_rejected_branch_retention_preflight_failure"
+    )
+
+
+def test_classify_rejected_branch_retention_probe_contract_artifact():
+    assert (
+        classify_rejected_branch_retention_probe(
+            forbidden_parameter_changed=True,
+            actor_mean_changed=True,
+            fusion_changed=True,
+            reconstruction_success_rate=1.0,
+            active_rejected_rows=4,
+            expected_active_rejected_rows=4,
+            metadata_missing_rows=0,
+            missing_target_keys=0,
+            exact_candidate_count=1,
+            m267_preflight_pass_count=1,
+            candidate_count=1,
+            any_tail_lift=True,
+            any_m267_preflight_pass=True,
+            ppo_used=False,
+            promoted=False,
+        )
+        == "controlled_fusion_rejected_branch_retention_contract_artifact"
+    )
