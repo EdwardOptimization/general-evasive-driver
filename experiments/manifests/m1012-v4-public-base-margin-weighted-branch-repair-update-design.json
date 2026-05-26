@@ -1,0 +1,109 @@
+{
+  "id": "m1012-v4-public-base-margin-weighted-branch-repair-update-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_01.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_2.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator.md",
+      "runs/m1011_v4_public_base_margin_weighted_branch_trust_region_evaluator/summary.json",
+      "runs/m1011_v4_public_base_margin_weighted_branch_trust_region_evaluator/margin_weighted_branch_rows.csv",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator.json"
+    ],
+    "parent_objective": [
+      "design actor_mean-only temporal repair update with margin-weighted wrong-branch trust residual"
+    ],
+    "derived_from": [
+      "m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator",
+      "m1010-v4-public-base-margin-weighted-branch-trust-region-design"
+    ],
+    "blocked_by": [
+      "M1011 evaluator passes but no repaired actor update has been specified"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "temporal actor update without margin-weighted wrong-branch trust gate"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1012-v4-public-base-margin-weighted-branch-repair-update-design.md",
+  "public_gates": [
+    "M1012 must not train",
+    "M1012 must not run PPO",
+    "M1012 must not promote",
+    "M1012 must preserve P0 actor inputs",
+    "M1012 must keep wrong-history anchors scoped as proof-retention constraints"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not update actor parameters",
+    "do not use private holdout",
+    "do not treat wrong-history failure as deployable behavior",
+    "do not change actor input contract",
+    "do not skip M267/M264 preflight in the later implementation"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_temporal_sequence_objective",
+    "evidence_axis": "G_temporal_objective: margin-weighted repaired update design",
+    "evidence_increment": "turns the M1011 calibrated no-update residual into an actor_mean-only repair objective and gate order",
+    "claim_scope": "design only; no actor update, no replay result, no PPO, no promotion",
+    "stop_condition": [
+      "stop if the update cannot remain actor_mean-only",
+      "stop if the objective cannot combine temporal exact progress with M1011 wrong-branch trust retention",
+      "stop if it would require actor input changes"
+    ],
+    "fallback_plan": [
+      "if actor_mean-only repair is not defensible, synthesize and consider trajectory-target export",
+      "if the design is clean, route to an exact actor_mean update probe",
+      "if row 16 pressure conflicts with rows 6 and 15, require a pre-update weighting audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1011 passes the margin-weighted no-update evaluator",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A repaired actor_mean-only temporal update can be specified by combining the M997 temporal objective with the M1011 margin-weighted wrong-branch trust residual before any replay gate.",
+  "success_criteria": [
+    "design document exists",
+    "trainable surface is actor_mean only",
+    "objective includes temporal exact terms and margin-weighted wrong-branch trust residual",
+    "candidate gate order requires exact temporal gates before M267/M264 replay preflight",
+    "PPO and promotion remain blocked"
+  ],
+  "failure_criteria": [
+    "design changes actor inputs",
+    "design trains non-actor_mean parameters",
+    "design skips M1011 trust residual",
+    "design routes directly to PPO or promotion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1012-v4-public-base-margin-weighted-branch-repair-update-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1012-v4-public-base-margin-weighted-branch-repair-update-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1011_v4_public_base_margin_weighted_branch_trust_region_evaluator/summary.json"
+  ],
+  "decision_rule": "M1012 should admit implementation only if it keeps actor_mean-only repair, preserves P0 inputs, and gates candidates with exact temporal and M1011 branch-trust metrics before replay.",
+  "next_blocker": "m1012-v4-public-base-margin-weighted-branch-repair-update-design"
+}

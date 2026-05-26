@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator
+m1012-v4-public-base-margin-weighted-branch-repair-update-design
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -333,16 +333,24 @@ continue the branch with margin-weighted rejected-branch trust-region design.
 PPO and promotion remain blocked.
 M1010 completes the margin-weighted branch trust-region design: rows `6` and
 `15` are primary, rows `11` and `16` are secondary, and `margin_floor=1e-4`.
-The next task is M1011: implement a no-update evaluator that should make alpha
-`0.01` produce positive weighted wrong-branch residual while keeping M974 base
-loss zero.
+M1011 implements the no-update evaluator and passes: M974 base trust loss is
+`0.0`, alpha `0.01` trust loss is `3.529714`, alpha `0.2` trust loss is
+`1407.006193`, and rows `6` and `15` contribute `66.45%` of the alpha `0.01`
+loss. Row `16` still contributes materially, so the next design should keep it
+in the active proof-retention set. The next task is M1012: design an
+actor_mean-only repaired temporal update that combines M997 exact temporal
+progress with M1011 margin-weighted branch trust retention before any replay,
+PPO, or promotion.
 
 ## Recent Evidence Line
 
+- M1011 implements the margin-slack-weighted no-update evaluator. It is
+  sensitive to the known alpha `0.01` proof washout while leaving the M974 base
+  loss at zero, so the branch can move to repaired actor_mean-only update
+  design before replay preflight.
 - M1010 designs the margin-slack-weighted rejected-branch trust-region residual
   and explicitly frames it as proof-retention, not deployable wrong-history
-  behavior imitation. M1011 should implement a no-update evaluator before any
-  actor update.
+  behavior imitation.
 - M1009 synthesizes M999-M1008. The branch has real exact temporal-objective
   movement, but public replay retention fails; unweighted fixed one-step branch
   proxies are stopped. The next ordinary task is margin-weighted branch

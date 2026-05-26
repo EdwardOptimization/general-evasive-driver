@@ -108,6 +108,26 @@
   "baseline_artifacts": [
     "docs/m1010-v4-public-base-margin-weighted-branch-trust-region-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1011_v4_public_base_margin_weighted_branch_trust_region_evaluator/summary.json",
+    "decision": "margin_weighted_branch_trust_region_evaluator_pass_route_to_repair_update_design",
+    "result_class": "margin_weighted_branch_trust_region_evaluator_pass",
+    "failure_types": [
+      "none"
+    ],
+    "base_weighted_branch_trust_loss": 0.0,
+    "alpha_0_01_weighted_branch_trust_loss": 3.529713744145817,
+    "alpha_0_2_weighted_branch_trust_loss": 1407.006193470631,
+    "alpha_0_01_primary_contribution_fraction": 0.6645155784636552,
+    "primary_dominance_min": 0.6,
+    "actor_parameters_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "next_design": "m1012-v4-public-base-margin-weighted-branch-repair-update-design"
+  },
+  "decision": "margin_weighted_branch_trust_region_evaluator_pass_route_to_repair_update_design",
   "decision_rule": "M1011 should route to repaired actor_mean update design only if the margin-weighted residual is finite, base-zero, and active on alpha 0.01.",
-  "next_blocker": "m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator"
+  "next_blocker": "m1012-v4-public-base-margin-weighted-branch-repair-update-design"
 }

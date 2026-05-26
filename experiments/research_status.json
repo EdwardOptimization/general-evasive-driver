@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1019,
+    "completed": 1020,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1010-v4-public-base-margin-weighted-branch-trust-region-design",
+    "task_id": "m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1010-v4-public-base-margin-weighted-branch-trust-region-design.md"
+    "command_log": "runs/m1011_v4_public_base_margin_weighted_branch_trust_region_evaluator/summary.json"
   },
   "next_task": {
-    "id": "m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator",
+    "id": "m1012-v4-public-base-margin-weighted-branch-repair-update-design",
     "status": "pending",
-    "priority": 10060,
+    "priority": 10070,
     "kind": "infrastructure",
-    "hypothesis": "Margin slack weighting will make the rejected-branch trust residual sensitive to alpha 0.01 on rows 6 and 15 while preserving zero base loss",
-    "command": "see experiments/manifests/m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator.json",
-    "success_artifact": "runs/m1011_v4_public_base_margin_weighted_branch_trust_region_evaluator/summary.json",
-    "notes": "Pending: implement no-update evaluator to test whether alpha 0.01 activates margin-weighted wrong-branch residual"
+    "hypothesis": "A repaired actor_mean-only temporal update can combine M997 temporal exact progress with M1011 margin-weighted wrong-branch trust retention before replay preflight",
+    "command": "see experiments/manifests/m1012-v4-public-base-margin-weighted-branch-repair-update-design.json",
+    "success_artifact": "docs/m1012-v4-public-base-margin-weighted-branch-repair-update-design.md",
+    "notes": "Pending: design the actor_mean-only repair objective and gate order before any actor update"
   },
-  "updated_at_utc": "20260526T181455Z"
+  "updated_at_utc": "20260526T182605Z"
 }

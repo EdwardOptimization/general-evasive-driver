@@ -15234,3 +15234,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1010 designs a margin-slack-weighted rejected-branch trust-region residual for M267/M264 near-cliff proof rows. Rows `6` and `15` are primary, rows `11` and `16` secondary, and `margin_floor=1e-4`. The residual is explicitly framed as a training-time proof-retention constraint, not deployable wrong-history behavior imitation.
 - decision: `margin_weighted_branch_trust_region_design_admit_m1011_evaluator`
 - next: `m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator`
+
+## 20260526T182605Z - m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m1011_v4_public_base_margin_weighted_branch_trust_region_evaluator`
+- artifact: `docs/m1011-v4-public-base-margin-weighted-branch-trust-region-evaluator.md`
+- result: M1011 implements the no-update margin-weighted wrong-branch trust-region evaluator. It keeps M974 base trust loss at `0.0`, activates on the known alpha `0.01` proof-washing candidate with trust loss `3.529714`, and scales to `1407.006193` at alpha `0.2`. Rows `6` and `15` jointly contribute `66.45%` of alpha `0.01` loss under `margin_floor=1e-4`; row `16` is still significant and should remain in the active proof-retention set. Actor parameters are unchanged, and PPO/promotion/private holdout are not used.
+- decision: `margin_weighted_branch_trust_region_evaluator_pass_route_to_repair_update_design`
+- next: `m1012-v4-public-base-margin-weighted-branch-repair-update-design`
