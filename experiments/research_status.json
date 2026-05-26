@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1009,
+    "completed": 1010,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1000-v4-public-base-temporal-sequence-objective-evaluator",
+    "task_id": "m1001-v4-public-base-temporal-sequence-objective-update-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json"
+    "command_log": "docs/m1001-v4-public-base-temporal-sequence-objective-update-design.md"
   },
   "next_task": {
-    "id": "m1001-v4-public-base-temporal-sequence-objective-update-design",
+    "id": "m1002-v4-public-base-temporal-sequence-objective-update-probe",
     "status": "pending",
-    "priority": 9960,
+    "priority": 9970,
     "kind": "infrastructure",
-    "hypothesis": "A tiny objective-only actor_mean update can be designed with exact preflight gates before any implementation or PPO",
-    "command": "see experiments/manifests/m1001-v4-public-base-temporal-sequence-objective-update-design.json",
-    "success_artifact": "docs/m1001-v4-public-base-temporal-sequence-objective-update-design.md",
-    "notes": "Pending: design exact-gated objective-only actor update before implementation or PPO"
+    "hypothesis": "A small actor_mean-only update over the M997 temporal objective can produce an exact-gate-passing candidate without PPO or promotion",
+    "command": "see experiments/manifests/m1002-v4-public-base-temporal-sequence-objective-update-probe.json",
+    "success_artifact": "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/summary.json",
+    "notes": "Pending: implement exact actor_mean-only temporal objective update probe and gate candidates before public replay"
   },
-  "updated_at_utc": "20260526T154915Z"
+  "updated_at_utc": "20260526T155925Z"
 }

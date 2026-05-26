@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M1001 designs actor_mean-only temporal objective update with exact trust-region gates and no PPO or promotion",
+  "failure_criteria": [
+    "design artifact is missing",
+    "trainable surface is too broad",
+    "exact gates are missing",
+    "diagnostic cross-fault rows are positive targets",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not train or optimize actor parameters",
+    "do not use private holdout",
+    "do not claim cross-fault wrong-history self-ID",
+    "do not train variant histories toward degraded actions",
+    "do not proceed to PPO"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260526T160016Z",
+  "hypothesis": "A tiny objective-only actor_mean update can be designed with exact preflight gates before any implementation or PPO.",
+  "lineage": {
+    "blocked_by": [
+      "M1000 passes no-update exact objective sanity and admits update design only"
+    ],
+    "derived_from": [
+      "m1000-v4-public-base-temporal-sequence-objective-evaluator",
+      "m999-v4-public-base-temporal-sequence-objective-design"
+    ],
+    "invalidates": [
+      "running actor update without exact objective acceptance criteria"
+    ],
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1000-v4-public-base-temporal-sequence-objective-evaluator.json"
+    ],
+    "parent_dataset": [
+      "docs/m1000-v4-public-base-temporal-sequence-objective-evaluator.md",
+      "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz"
+    ],
+    "parent_objective": [
+      "design a tiny objective-only temporal sequence actor update after exact evaluator sanity passes"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1001-v4-public-base-temporal-sequence-objective-update-design",
+  "next_blocker": "m1002-v4-public-base-temporal-sequence-objective-update-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "temporal_sequence_update_design_admit_exact_probe",
+  "public_gates": [
+    "M1001 must not train",
+    "M1001 must not run PPO",
+    "M1001 must not promote",
+    "M1001 must specify exact objective acceptance gates",
+    "M1001 must preserve P0 actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1001-v4-public-base-temporal-sequence-objective-update-design.md",
+    "clearance_margin_mean": "",
+    "decision": "temporal_sequence_update_design_admit_exact_probe",
+    "milestone": "m1001-v4-public-base-temporal-sequence-objective-update-design",
+    "reason": "M1001 designs actor_mean-only temporal objective update with exact trust-region gates and no PPO or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design artifact exists",
+    "trainable surface is specified",
+    "exact objective acceptance gates are specified",
+    "public replay gates are specified",
+    "rollback criteria are specified",
+    "no training or PPO occurs"
+  ],
+  "type": "infrastructure"
+}

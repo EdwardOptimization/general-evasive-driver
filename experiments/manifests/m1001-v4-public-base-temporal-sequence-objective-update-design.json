@@ -106,6 +106,27 @@
     "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json",
     "docs/m1000-v4-public-base-temporal-sequence-objective-evaluator.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1001-v4-public-base-temporal-sequence-objective-update-design.md",
+    "trainable_surface": [
+      "actor_mean"
+    ],
+    "frozen_surfaces": [
+      "response_encoder",
+      "context_encoder",
+      "online_gru_cell",
+      "response_context_fusion",
+      "critic",
+      "log_std"
+    ],
+    "exact_gate_summary": "weighted total improvement, normal NLL retention, preference retention, logp-gap floor, action-drift trust region, actor_mean-only checksum",
+    "next_probe": "m1002-v4-public-base-temporal-sequence-objective-update-probe",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "temporal_sequence_update_design_admit_exact_probe",
   "decision_rule": "M1001 must decide whether an objective-only actor update is admissible and exactly how M1002 should gate it.",
-  "next_blocker": "m1001-v4-public-base-temporal-sequence-objective-update-design"
+  "next_blocker": "m1002-v4-public-base-temporal-sequence-objective-update-probe"
 }

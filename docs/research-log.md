@@ -15141,3 +15141,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1000 implements the exact no-update evaluator over the M997 corpus. It passes finite metric, mask, weight, replay, and actor-checksum sanity. Key baselines: weighted normal sequence NLL `-1.373014`, weighted temporal preference loss `0.491601`, weighted logp gap mean `0.640106`, temporal logp gap p10/p50/p90 `0.053981/0.419248/1.734969`, normal action replay L2 max `0.0`. No training/PPO/promotion occurs.
 - decision: `temporal_sequence_objective_evaluator_pass_route_to_update_design`
 - next: `m1001-v4-public-base-temporal-sequence-objective-update-design`
+
+## 20260526T155925Z - m1001-v4-public-base-temporal-sequence-objective-update-design
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1001-v4-public-base-temporal-sequence-objective-update-design.md`
+- result: M1001 designs the first temporal objective actor-update probe. M1002 is limited to `actor_mean` only, freezes encoders/GRU/fusion/critic/log_std, uses the M999 loss with M997 row weights, and selects candidates only by exact interpolated metrics. Acceptance gates include weighted total loss improvement, normal NLL retention, temporal preference retention, temporal gap floor, action-drift trust region, and actor_mean-only checksum. Public replay, PPO, and promotion remain blocked.
+- decision: `temporal_sequence_update_design_admit_exact_probe`
+- next: `m1002-v4-public-base-temporal-sequence-objective-update-probe`

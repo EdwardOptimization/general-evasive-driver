@@ -1,0 +1,114 @@
+{
+  "id": "m1002-v4-public-base-temporal-sequence-objective-update-probe",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1001-v4-public-base-temporal-sequence-objective-update-design.md",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz",
+      "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1001-v4-public-base-temporal-sequence-objective-update-design.json"
+    ],
+    "parent_objective": [
+      "run exact-gated actor_mean-only temporal sequence objective update probe"
+    ],
+    "derived_from": [
+      "m1001-v4-public-base-temporal-sequence-objective-update-design",
+      "m1000-v4-public-base-temporal-sequence-objective-evaluator"
+    ],
+    "blocked_by": [
+      "M1001 admits only a tiny exact objective-only actor_mean update probe"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running PPO or replay gates before exact candidate selection"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1002-v4-public-base-temporal-sequence-objective-update-probe.md",
+  "public_gates": [
+    "M1002 must not run PPO",
+    "M1002 must not promote",
+    "M1002 must update only actor_mean",
+    "M1002 must select candidates only by exact objective gates",
+    "M1002 must not use diagnostic cross-fault rows as positives"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not add hidden event labels to actor observations",
+    "do not update GRU or encoders",
+    "do not use private holdout",
+    "do not claim cross-fault wrong-history self-ID",
+    "do not train variant histories toward degraded actions",
+    "do not proceed to PPO"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_temporal_sequence_objective",
+    "evidence_axis": "G_temporal_objective: exact-gated actor_mean-only update probe",
+    "evidence_increment": "tests whether the M999/M1000 exact objective can produce a trust-region candidate before replay gates",
+    "claim_scope": "objective-only candidate probe; no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if no alpha passes exact gates",
+      "stop if any non-actor_mean parameter changes",
+      "stop if temporal gap collapses",
+      "stop if action drift exceeds the exact trust region"
+    ],
+    "fallback_plan": [
+      "if no exact candidate exists, audit objective coefficients and gap floor",
+      "if actor_mean-only is too weak, design a separate trainable-surface audit",
+      "if exact candidate exists, route to public replay gate design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1001 admits exact-gated update probe",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A small actor_mean-only update over the M997 temporal objective can produce an exact-gate-passing candidate without PPO or promotion.",
+  "success_criteria": [
+    "probe command completes",
+    "summary.json exists",
+    "only actor_mean changes",
+    "candidate exact gates are evaluated",
+    "ppo_used == false",
+    "promoted == false"
+  ],
+  "failure_criteria": [
+    "non-actor_mean parameters change",
+    "training metrics are non-finite",
+    "diagnostic cross-fault rows are positive targets",
+    "PPO starts",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "probe",
+      "command": "implement and run exact actor_mean-only update probe; see docs/m1001-v4-public-base-temporal-sequence-objective-update-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1002-v4-public-base-temporal-sequence-objective-update-probe.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1001-v4-public-base-temporal-sequence-objective-update-design.md",
+    "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json"
+  ],
+  "decision_rule": "M1002 should route to public replay gate design only if an exact objective-level candidate passes all M1001 gates.",
+  "next_blocker": "m1002-v4-public-base-temporal-sequence-objective-update-probe"
+}

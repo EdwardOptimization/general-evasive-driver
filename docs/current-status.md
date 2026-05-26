@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1001-v4-public-base-temporal-sequence-objective-update-design
+m1002-v4-public-base-temporal-sequence-objective-update-probe
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -293,12 +293,16 @@ cross-fault overclaims. M999 designs the exact temporal sequence objective:
 normal-sequence retention, temporal preference separation, and a base-logp
 anchor, with disrupted histories used only as contrast conditions. M1000
 implements the no-update evaluator and passes exact objective, replay, mask,
-weight, and actor-checksum sanity. The next task is M1001: design a tiny
-exact-gated objective-only actor update before implementation or PPO. Training
-and PPO remain blocked.
+weight, and actor-checksum sanity. M1001 designs a tiny exact-gated
+actor_mean-only update probe with interpolation and strict trust-region gates.
+The next task is M1002: implement and run that exact objective-only update probe
+before any public replay, PPO, or promotion. PPO remains blocked.
 
 ## Recent Evidence Line
 
+- M1001 designs the first temporal objective update probe. It is actor_mean-only
+  and exact-gated; public replay, PPO, and promotion remain blocked until a
+  candidate passes interpolation trust-region gates.
 - M1000 implements the temporal sequence objective evaluator. Exact no-update
   sanity passes on M997: weighted normal NLL `-1.373014`, weighted preference
   loss `0.491601`, weighted logp gap `0.640106`, replay L2 max `0.0`.
