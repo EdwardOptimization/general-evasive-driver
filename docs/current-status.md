@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1007-v4-public-base-branch-preserving-temporal-repair-evaluator
+m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit
 ```
 
 M927 ran the no-training residual-direction feasibility sweep and found no
@@ -315,10 +315,20 @@ as the only direct behavior target, keep disrupted temporal histories
 contrast-only, and add M267/M264 branch-ceiling plus first-action separation
 terms for rows `6`, `15`, `11`, and `16`. The next task is M1007: implement a
 no-update evaluator for these branch-retention terms before any repaired actor
-update.
+update. M1007 implements that evaluator, but the result is negative: it is
+finite, base-safe, and reproduces M1000, yet the fixed one-step logp/separation
+proxy is not sensitive to the smallest proof-washing candidate. Alpha `0.01`
+gets branch loss `0.0` despite M1004 showing rows `6` and `15` become
+wrong-history successes. The next task is M1008: audit this evaluator
+sensitivity failure against closed-loop margin evidence and design a replacement
+residual or synthesize the branch.
 
 ## Recent Evidence Line
 
+- M1007 implements the branch-preserving no-update evaluator. It changes no
+  actor parameters and keeps M974 branch loss at zero, but it fails as a repair
+  objective proxy: alpha `0.01` remains branch-loss zero despite known
+  closed-loop M267/M264 proof washout.
 - M1006 designs the branch-preserving temporal repair route. First repair keeps
   only `actor_mean` trainable, requires a no-update evaluator first, and keeps
   wrong-history branches as proof-retention constraints rather than degraded

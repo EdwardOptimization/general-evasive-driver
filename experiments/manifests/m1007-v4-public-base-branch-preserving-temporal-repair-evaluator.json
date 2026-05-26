@@ -91,7 +91,7 @@
   "commands": [
     {
       "name": "evaluator",
-      "command": "implement and run branch-preserving temporal repair evaluator; output runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator/summary.json"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.branch_preserving_temporal_repair_evaluator --base-checkpoint runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt --candidate-checkpoints runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/candidate_checkpoints.csv --corpus runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz --base-summary runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json --m267-corpus runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv --run-dir runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator --device auto --active-rows 6,15,11,16 --max-continuation-steps 60"
     }
   ],
   "required_artifacts": [
@@ -110,6 +110,27 @@
   "baseline_artifacts": [
     "docs/m1006-v4-public-base-branch-preserving-temporal-repair-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "run_dir": "runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator",
+    "summary": "runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator/summary.json",
+    "result_class": "branch_preserving_temporal_repair_evaluator_not_sensitive",
+    "failure_types": [
+      "metric_artifact"
+    ],
+    "finite_metrics": true,
+    "temporal_base_reproduced": true,
+    "base_branch_near_zero": true,
+    "proofwashing_candidates_active": false,
+    "base_weighted_branch_total_loss": 0.0,
+    "alpha_0_01_weighted_branch_total_loss": 0.0,
+    "alpha_0_2_weighted_branch_total_loss": 0.0000004144670038006855,
+    "actor_parameters_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "branch_preserving_temporal_repair_evaluator_not_sensitive_route_to_evaluator_sensitivity_audit",
   "decision_rule": "M1007 should route to actor_mean-only repaired update design only if the no-update branch terms are finite, base-safe, and active on M1002 proof-washing candidates.",
-  "next_blocker": "m1007-v4-public-base-branch-preserving-temporal-repair-evaluator"
+  "next_blocker": "m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit"
 }

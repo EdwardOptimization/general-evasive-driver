@@ -15197,3 +15197,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1006 designs the branch-preserving repair route. The next objective keeps M997 normal temporal sequences as the only direct behavior target, keeps disrupted temporal histories contrast-only, and adds M267/M264 public-proof branch ceiling and first-action separation terms on rows `6`, `15`, `11`, and `16`. The first repair keeps only `actor_mean` trainable and requires a no-update evaluator before any actor update.
 - decision: `branch_preserving_temporal_repair_design_admit_m1007_evaluator`
 - next: `m1007-v4-public-base-branch-preserving-temporal-repair-evaluator`
+
+## 20260526T175257Z - m1007-v4-public-base-branch-preserving-temporal-repair-evaluator
+
+- status: `completed`
+- kind: `infrastructure`
+- run dir: `runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator`
+- artifact: `docs/m1007-v4-public-base-branch-preserving-temporal-repair-evaluator.md`
+- result: M1007 implements the no-update branch-preserving evaluator. It is finite, reproduces M1000 temporal base metrics, keeps M974 branch loss at `0.0`, and changes no actor parameters. However, it is not sensitive enough: alpha `0.01` has weighted branch total loss `0.0` even though M1004 showed that alpha loses M267/M264 rows `6` and `15`; alpha `0.2` only reaches `4.14467e-7`. The fixed one-step logp/separation proxy is classified as a `metric_artifact`.
+- decision: `branch_preserving_temporal_repair_evaluator_not_sensitive_route_to_evaluator_sensitivity_audit`
+- next: `m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit`

@@ -1,0 +1,106 @@
+{
+  "id": "m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_01.pt",
+      "runs/m1002_v4_public_base_temporal_sequence_objective_update_probe/checkpoints/alpha_0_2.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1007-v4-public-base-branch-preserving-temporal-repair-evaluator.md",
+      "runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator/summary.json",
+      "runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator/branch_metric_rows.csv",
+      "runs/m1004_v4_public_base_temporal_sequence_update_public_replay_gate/candidate_preflight_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1007-v4-public-base-branch-preserving-temporal-repair-evaluator.json"
+    ],
+    "parent_objective": [
+      "audit why fixed one-step branch-ceiling and branch-separation terms are insensitive to M1004 proof washout"
+    ],
+    "derived_from": [
+      "m1007-v4-public-base-branch-preserving-temporal-repair-evaluator"
+    ],
+    "blocked_by": [
+      "M1007 branch proxy is finite and base-safe but does not activate for alpha 0.01 proof washout"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "actor update using the M1007 fixed one-step branch proxy"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit.md",
+  "public_gates": [
+    "M1008 must not train",
+    "M1008 must not run PPO",
+    "M1008 must not promote",
+    "M1008 must compare M1007 proxy metrics against M1004 closed-loop proof washout",
+    "M1008 must decide whether to design a margin-aware or trajectory-aware residual"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune the failed M1007 proxy into an actor update",
+    "do not use private holdout",
+    "do not claim branch preservation from fixed one-step metrics",
+    "do not run PPO"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_temporal_sequence_objective",
+    "evidence_axis": "G_temporal_objective: evaluator sensitivity audit",
+    "evidence_increment": "determines why M1007 fixed one-step branch metrics miss M1004 closed-loop wrong-history margin lift",
+    "claim_scope": "process audit only; no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if M1007 sensitivity failure is explained and a replacement residual is specified",
+      "stop if no proxy can be justified without closed-loop replay",
+      "stop if branch cadence requires synthesis before another objective"
+    ],
+    "fallback_plan": [
+      "if fixed one-step proxy is insufficient, design a closed-loop margin-aware residual using replay-derived active rows",
+      "if no differentiable proxy is defensible, synthesize the branch and pivot to target-space or trajectory-target export",
+      "if evaluator implementation is wrong, repair the evaluator before objective design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1007 evaluator not sensitive",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M1007 fails because fixed one-step logp/separation metrics are weakly coupled to closed-loop terminal margin on near-boundary wrong-history rows.",
+  "success_criteria": [
+    "audit document exists",
+    "M1007 proxy metrics and M1004 closed-loop margins are compared",
+    "failure is classified with process-v2 taxonomy",
+    "next residual design or branch synthesis route is registered"
+  ],
+  "failure_criteria": [
+    "audit ignores M1004 row-level replay evidence",
+    "audit routes to actor update with the failed M1007 proxy",
+    "audit routes to PPO",
+    "audit uses private holdout"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "inspect M1007 and M1004 artifacts; write docs/m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1007-v4-public-base-branch-preserving-temporal-repair-evaluator.md",
+    "runs/m1007_v4_public_base_branch_preserving_temporal_repair_evaluator/summary.json"
+  ],
+  "decision_rule": "M1008 should route to a replacement residual design only if it identifies why M1007 is insensitive and preserves the P0 actor contract.",
+  "next_blocker": "m1008-v4-public-base-branch-preserving-evaluator-sensitivity-audit"
+}
