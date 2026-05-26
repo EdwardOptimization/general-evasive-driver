@@ -98,6 +98,29 @@
   "baseline_artifacts": [
     "docs/m1024-v4-public-base-candidate-b-post-promotion-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design.md",
+    "decision": "candidate_b_guarded_ppo_readiness_design_admit_m1026_smoke",
+    "base_checkpoint": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "ppo_config_to_create": "configs/ppo_m1026_candidate_b_guarded_smoke.json",
+    "ppo_run_dir": "runs/ppo_m1026_candidate_b_guarded_smoke_seed61026",
+    "proposal_steps": 1024,
+    "required_gates": [
+      "training_finite",
+      "actor_input_contract",
+      "M997 exact temporal retention",
+      "six public replay surfaces",
+      "source-diverse protected diagnostics",
+      "fresh public and moderate-OOD generalization",
+      "behavior and ablation retention"
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "next_milestone": "m1026-v4-public-base-candidate-b-guarded-ppo-smoke"
+  },
+  "decision": "candidate_b_guarded_ppo_readiness_design_admit_m1026_smoke",
   "decision_rule": "M1025 should admit a single smoke-scale guarded PPO proposal only if rollback and gate ordering are explicit.",
-  "next_blocker": "m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design"
+  "next_blocker": "m1026-v4-public-base-candidate-b-guarded-ppo-smoke"
 }

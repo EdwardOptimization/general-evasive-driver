@@ -15365,3 +15365,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1024 synthesizes the Candidate B promotion branch. It supports Candidate B as a valid public-gate base successor, keeps public-overfit risk at moderate, blocks private/paper/real-vehicle overclaims, and opens `v4_public_base_candidate_b_guarded_ppo_readiness`. PPO remains blocked until a readiness design specifies exact/proof/generalization/behavior rollback criteria.
 - decision: `candidate_b_post_promotion_synthesis_promote_to_guarded_ppo_readiness`
 - next: `m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design`
+
+## 20260526T204222Z - m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design.md`
+- result: M1025 designs exactly one smoke-scale guarded PPO proposal from the Candidate B public-gate base. M1026 must create `configs/ppo_m1026_candidate_b_guarded_smoke.json`, run `1024` PPO steps initialized from Candidate B, and gate the raw checkpoint through exact M997 retention, six public replay surfaces, source-diverse diagnostics, fresh public/moderate-OOD evals, and behavior/ablation seeds. M1025 does not run PPO or promote.
+- decision: `candidate_b_guarded_ppo_readiness_design_admit_m1026_smoke`
+- next: `m1026-v4-public-base-candidate-b-guarded-ppo-smoke`

@@ -1,0 +1,134 @@
+{
+  "id": "m1026-v4-public-base-candidate-b-guarded-ppo-smoke",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design.md",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m293_current_family_rejected_history_ppo_repair_design/m267_failed_rows_extra4_anchor.npz"
+    ],
+    "parent_config": [
+      "configs/ppo_m972_post_promotion_guarded_smoke.json",
+      "experiments/manifests/m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design.json"
+    ],
+    "parent_objective": [
+      "run one smoke-scale guarded PPO proposal from Candidate B and gate it without promotion"
+    ],
+    "derived_from": [
+      "m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design"
+    ],
+    "blocked_by": [
+      "M1025 designs readiness but the smoke PPO proposal has not been run"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "longer PPO from Candidate B before a smoke PPO proof/generalization result"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1026-v4-public-base-candidate-b-guarded-ppo-smoke.md",
+  "public_gates": [
+    "M1026 must run only smoke-scale PPO",
+    "M1026 must not promote",
+    "M1026 must not use private holdout",
+    "M1026 must preserve the P0 actor-input contract",
+    "M1026 must gate raw PPO against exact temporal retention",
+    "M1026 must gate raw PPO against proof replay, fresh generalization, and behavior ablations"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run medium or long PPO",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote from M1026",
+    "do not skip proof replay gates",
+    "do not accept aggregate eval if wrong-history proof washes out"
+  ],
+  "workflow_synthesis": {
+    "branch": "v4_public_base_candidate_b_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo: first guarded PPO proposal from Candidate B",
+    "evidence_increment": "runs and gates one smoke-scale PPO proposal from the Candidate B public-gate base",
+    "claim_scope": "smoke PPO proposal diagnostic only; no promotion, no private holdout, no long-run claim",
+    "stop_condition": [
+      "stop if raw PPO fails or training metrics are non-finite",
+      "stop if actor-input contract changes",
+      "stop if exact temporal retention regresses",
+      "stop if proof replay gates fail",
+      "stop if fresh generalization or behavior ablations regress"
+    ],
+    "fallback_plan": [
+      "if raw candidate passes all gates, route to full public-gate design",
+      "if exact or proof gates fail but raw movement is useful, route to exact repair/projection design",
+      "if training is unstable, route to PPO recipe audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1025 designs guarded PPO readiness from Candidate B",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A 1024-step guarded PPO proposal from Candidate B can run and be evaluated against exact, proof, fresh generalization, and behavior gates without promotion.",
+  "success_criteria": [
+    "raw PPO run completes",
+    "summary artifact exists",
+    "exact retention summary is written",
+    "proof replay summary is written",
+    "fresh randomized eval summary is written",
+    "OOD eval summary is written",
+    "behavior summary and comparison are written",
+    "route decision is explicit",
+    "no promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "PPO run crashes",
+    "actor inputs change",
+    "exact retention gates are skipped",
+    "proof replay gates are skipped",
+    "fresh generalization or behavior gates are skipped",
+    "checkpoint is promoted",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "run_candidate_b_guarded_ppo_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.candidate_b_guarded_ppo_smoke --base-checkpoint runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt --config configs/ppo_m1026_candidate_b_guarded_smoke.json --run-dir runs/m1026_v4_public_base_candidate_b_guarded_ppo_smoke --ppo-run-dir runs/ppo_m1026_candidate_b_guarded_smoke_seed61026 --device auto"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "configs/ppo_m1026_candidate_b_guarded_smoke.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1026_v4_public_base_candidate_b_guarded_ppo_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1026_v4_public_base_candidate_b_guarded_ppo_smoke/exact_retention_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1026_v4_public_base_candidate_b_guarded_ppo_smoke/proof_replay_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1026_v4_public_base_candidate_b_guarded_ppo_smoke/behavior_comparison.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design.md"
+  ],
+  "decision_rule": "M1026 may only run one smoke PPO proposal and gates. It must not promote, use private holdout, run longer PPO, or claim final driver improvement.",
+  "next_blocker": "m1026-v4-public-base-candidate-b-guarded-ppo-smoke"
+}

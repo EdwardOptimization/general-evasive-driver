@@ -75,7 +75,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1025-v4-public-base-candidate-b-guarded-ppo-readiness-design
+m1026-v4-public-base-candidate-b-guarded-ppo-smoke
 ```
 
 M1019 passed the full public gate for Candidate B `m1013_lam0030_a050`.
@@ -99,7 +99,9 @@ synthesize the post-promotion route before PPO continuation, surface refresh,
 or further objective work. M1024 completed that synthesis and opened the
 Candidate B guarded PPO readiness branch. M1025 must design a smoke-scale PPO
 proposal with exact/proof/generalization/behavior rollback criteria before any
-PPO run.
+PPO run. M1025 completed that design. M1026 must run exactly one 1024-step
+guarded PPO smoke proposal from Candidate B, then gate the raw checkpoint
+without promotion.
 
 ### Historical Trace
 
