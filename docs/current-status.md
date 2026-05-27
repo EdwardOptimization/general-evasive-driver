@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1096-v4-public-base-family-aggregate-conversion-design
+m1097-v4-public-base-family-aggregate-conversion-implementation
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -216,11 +216,17 @@ closes `source_balanced_boundary_tooling`, and opens
 `family_aggregate_boundary_conversion`. The next step is M1096: design the
 family-aggregate raw-retained conversion contract, including source-policy
 metadata, duplicate-geometry semantics, replay sanity before objective
-optimization, and hidden-state/source-policy handling.
+optimization, and hidden-state/source-policy handling. M1096 completes that
+design. It selects an export-only contract first: keep raw retained rows,
+source checkpoint labels/paths, duplicate geometry groups, and a replay plan;
+do not write a mixed-source objective NPZ because the existing objective path
+intentionally avoids hidden-state space mixing. The next step is M1097:
+implement and run the export-only conversion without replay or objective
+optimization.
 
 ```text
 decision:
-  source_balanced_tooling_synthesis_promote_to_family_aggregate_conversion
+  family_aggregate_conversion_design_admit_export_implementation
 ```
 
 M1068 design:

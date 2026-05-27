@@ -15760,3 +15760,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - synthesis: closes `source_balanced_boundary_tooling` and opens `family_aggregate_boundary_conversion`
 - decision: `source_balanced_tooling_synthesis_promote_to_family_aggregate_conversion`
 - next: `m1096-v4-public-base-family-aggregate-conversion-design`
+
+## 20260527T191122Z - m1096-v4-public-base-family-aggregate-conversion-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1096-v4-public-base-family-aggregate-conversion-design.md`
+- result: M1096 designs the raw-retained family-aggregate conversion contract selected by M1094/M1095. The existing `boundary_outcome_corpus_objective` is deliberately single-checkpoint to avoid hidden-state space mixing, so the next artifact must be export-only rather than a mixed-source objective NPZ. The contract preserves source checkpoint labels/paths, raw duplicate geometry groups, aggregate threshold metrics, and a replay plan.
+- blocked shortcut: do not silently mix source checkpoint hidden states into one objective corpus
+- decision: `family_aggregate_conversion_design_admit_export_implementation`
+- next: `m1097-v4-public-base-family-aggregate-conversion-implementation`

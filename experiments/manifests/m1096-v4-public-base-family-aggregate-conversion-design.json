@@ -159,6 +159,34 @@
     "docs/m1095-v4-public-base-source-balanced-boundary-tooling-synthesis.md",
     "runs/m1094_source_balanced_compactability_audit/recommended_conversion_mode.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1096-v4-public-base-family-aggregate-conversion-design.md",
+    "decision": "family_aggregate_conversion_design_admit_export_implementation",
+    "result_class": "family_aggregate_conversion_design_export_only",
+    "failure_types": [
+      "none"
+    ],
+    "selected_contract": "family_aggregate_raw_retained_export_only",
+    "must_preserve_raw_rows": true,
+    "must_preserve_duplicate_geometry": true,
+    "must_write_source_policy_metadata": true,
+    "must_write_replay_plan": true,
+    "mixed_source_objective_npz_admitted": false,
+    "recommended_objective_options": [
+      "source-specific objective corpora",
+      "target-base rebuilt hidden states before objective optimization"
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1097-v4-public-base-family-aggregate-conversion-implementation"
+  },
+  "decision": "family_aggregate_conversion_design_admit_export_implementation",
   "decision_rule": "M1096 may only design the family-aggregate raw-retained conversion contract. It cannot train, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, or weaken M1092 thresholds.",
-  "next_blocker": "m1096-v4-public-base-family-aggregate-conversion-design"
+  "next_blocker": "m1097-v4-public-base-family-aggregate-conversion-implementation"
 }

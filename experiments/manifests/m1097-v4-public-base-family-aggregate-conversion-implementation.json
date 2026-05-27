@@ -1,0 +1,188 @@
+{
+  "id": "m1097-v4-public-base-family-aggregate-conversion-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1096-v4-public-base-family-aggregate-conversion-design.md",
+      "runs/m1092_source_balanced_coverage_expansion_seed109200/balanced_accepted_wrong_history_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1096-v4-public-base-family-aggregate-conversion-design.json"
+    ],
+    "parent_objective": [
+      "implement and run export-only family-aggregate raw-retained conversion contract"
+    ],
+    "derived_from": [
+      "m1096-v4-public-base-family-aggregate-conversion-design"
+    ],
+    "blocked_by": [
+      "M1096 requires an export-only conversion before replay sanity or objective optimization"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "writing a mixed-source objective NPZ in the conversion implementation",
+      "dropping duplicate geometry rows across checkpoint labels",
+      "running replay or objective optimization from M1097"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1097-v4-public-base-family-aggregate-conversion-implementation.md",
+  "public_gates": [
+    "M1097 must implement export-only conversion",
+    "M1097 must not train",
+    "M1097 must not run PPO",
+    "M1097 must not run replay",
+    "M1097 must not run objective optimization",
+    "M1097 must not mine rows",
+    "M1097 must not promote",
+    "M1097 must not use private holdout",
+    "M1097 must fail closed on unmapped source checkpoint labels"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken M1092 thresholds",
+    "do not silently mix hidden states into one objective corpus"
+  ],
+  "workflow_synthesis": {
+    "branch": "family_aggregate_boundary_conversion",
+    "evidence_axis": "G_conversion: family-aggregate export implementation",
+    "evidence_increment": "implements and runs the export-only conversion contract before replay sanity",
+    "claim_scope": "infrastructure/export only; no replay, no objective run, no training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if export cannot preserve M1092 aggregate thresholds",
+      "stop if source checkpoint labels cannot be mapped",
+      "stop if duplicate geometry accounting is ambiguous"
+    ],
+    "fallback_plan": [
+      "if export passes, route to replay sanity design or run",
+      "if export fails because of missing metadata, repair the exporter",
+      "if export fails because raw-retained aggregate is not viable, route back to design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1096 admits export-only family-aggregate conversion implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement and run export-only conversion without training, replay, or PPO",
+    "admission_evidence": [
+      "M1096 specifies the family-aggregate raw-retained conversion contract",
+      "M1094/M1095 selected raw-retained family aggregate as the only audited route preserving M1092"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not run replay",
+      "do not write objective NPZ",
+      "do not promote from an export"
+    ],
+    "allowed_updates": [
+      "exporter code",
+      "focused tests",
+      "export artifacts",
+      "milestone documentation",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "export artifacts exist",
+      "aggregate thresholds pass",
+      "source labels are all mapped",
+      "duplicate geometry summary is written",
+      "replay_plan.json exists for a future replay milestone"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1097 is export infrastructure. It cannot upgrade self-ID evidence beyond the matched-current proof-surface scope.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1097 reads existing M1092 rows only and does not run a new temporal task.",
+    "negative_result_policy": "If export fails, repair the contract or route back to design instead of weakening source-diversity or compactability thresholds.",
+    "allowed_claims": [
+      "export-only conversion infrastructure for a level2 source-balanced proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The M1096 family-aggregate raw-retained contract can be implemented as an export-only conversion tool that preserves the M1092 source-balanced surface and writes replay-ready metadata without mixing hidden states into an objective corpus.",
+  "success_criteria": [
+    "exporter implementation exists",
+    "focused tests pass",
+    "family_aggregate_boundary_rows.csv exists",
+    "source_policy_map.json exists",
+    "source_summary.csv exists",
+    "duplicate_geometry_summary.csv exists",
+    "replay_plan.json exists",
+    "summary.json exists",
+    "aggregate thresholds pass",
+    "no training, PPO, replay, objective optimization, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "exporter is missing",
+    "unmapped source labels do not fail closed",
+    "duplicate geometry is dropped or not summarized",
+    "aggregate thresholds fail",
+    "replay or objective optimization starts",
+    "training, PPO, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "implement_and_run_export",
+      "command": "edit src/autodrift/family_aggregate_boundary_conversion.py and tests, then run export over runs/m1092_source_balanced_coverage_expansion_seed109200/balanced_accepted_wrong_history_rows.csv"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/family_aggregate_boundary_conversion.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_family_aggregate_boundary_conversion.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m1097_family_aggregate_boundary_conversion/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1097_family_aggregate_boundary_conversion/replay_plan.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1097-v4-public-base-family-aggregate-conversion-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1096-v4-public-base-family-aggregate-conversion-design.md",
+    "runs/m1092_source_balanced_coverage_expansion_seed109200/balanced_accepted_wrong_history_rows.csv"
+  ],
+  "decision_rule": "M1097 may only implement and run export-only conversion. It cannot train, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or weaken M1092 thresholds.",
+  "next_blocker": "m1097-v4-public-base-family-aggregate-conversion-implementation"
+}
