@@ -1,0 +1,79 @@
+# m1151-v4-public-base-row15-promoted-target-materialization-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260527T232338Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: not_applicable
+- Decision reason: M1151 may only synthesize the row15_promoted_target_materialization branch and choose the next branch. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, or change actor inputs.
+
+## Hypothesis
+
+The row15-promoted target-materialization branch should close because it found a useful materialized objective surface but falsified direct actor-update continuation through first-replay proof washout.
+
+## Lineage
+
+- parent_checkpoint: runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt, runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt
+- parent_dataset: docs/m1141-v4-public-base-row15-promoted-surface-refresh-synthesis.md, docs/m1142-v4-public-base-row15-promoted-target-materialization.md, docs/m1144-v4-public-base-row15-promoted-objective-corpus-run.md, docs/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.md, docs/m1149-v4-public-base-row15-promoted-actor-update-first-replay-run.md, docs/m1150-v4-public-base-row15-promoted-first-replay-failure-audit.md, runs/m1150_row15_promoted_first_replay_failure_audit/summary.json
+- parent_config: experiments/manifests/m1150-v4-public-base-row15-promoted-first-replay-failure-audit.json
+- parent_objective: synthesize the row15-promoted target-materialization branch before starting the next repair branch
+- derived_from: m1141-v4-public-base-row15-promoted-surface-refresh-synthesis, m1150-v4-public-base-row15-promoted-first-replay-failure-audit
+- blocked_by: M1150 confirms M1149 proof washout through wrong-history-safe terminal-margin crossing, workflow synthesis cadence has fired for the row15_promoted_target_materialization branch
+- supersedes: None
+- invalidates: another narrow actor update before synthesis, family-intersection replay before synthesis, PPO from m1147_114602, promotion of m1147_114602
+
+## Success Criteria
+
+- synthesis artifact exists
+- evidence summary covers M1142 through M1150
+- supported and falsified claims are explicit
+- failure taxonomy summary is explicit
+- public-gate overfit risk is explicit
+- next branch decision is explicit
+- no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurs
+
+## Failure Criteria
+
+- synthesis artifact is missing
+- supported or falsified claims remain ambiguous
+- next branch decision is ambiguous
+- actor training, PPO, replay, mining, promotion, private holdout, or actor-input change starts
+
+## Evidence Gates
+
+- M1151 must synthesize M1142-M1150 evidence only
+- M1151 must not train actor weights
+- M1151 must not run PPO
+- M1151 must not run replay
+- M1151 must not mine new rows
+- M1151 must not promote
+- M1151 must not use private holdout
+- M1151 must preserve actor inputs
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train actor weights
+- do not run PPO
+- do not run replay
+- do not mine new rows
+- do not promote
+- do not use private holdout
+- do not change actor inputs
+- do not continue the same narrow branch without synthesis
+
+## Failure Taxonomy
+
+- proof_washout
+
+## Scoreboard
+
+- No scoreboard row recorded.
+
+## Next Blocker
+
+m1151-v4-public-base-row15-promoted-target-materialization-synthesis

@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1150-v4-public-base-row15-promoted-first-replay-failure-audit
+m1151-v4-public-base-row15-promoted-target-materialization-synthesis
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -312,10 +312,30 @@ row15_promoted_materialized:
 ```
 
 This is not normal-history collapse. The candidate keeps normal success rate at
-`1.0` on every surface, but wrong-history branches become safe. The next
-milestone is M1150, a process-only failure audit over existing M1144, M1147,
-and M1149 artifacts. M1150 must not train, run PPO, run replay, mine new rows,
-promote, use private holdout, or change actor inputs.
+`1.0` on every surface, but wrong-history branches become safe.
+
+M1150 audited the failure:
+
+```text
+materialized_lost_rows: 75
+materialized_lost_unique_boundary_geometries: 49
+lost_rows_boundary_geometry_selected_in_m1144_fraction: 1.0
+m267_failure_present_in_m1144_objective: false
+failed_rows_weight_mean: 0.003962
+nonfailed_rows_weight_mean: 0.015196
+failed_rows_wrong_history_margin_mean: -0.000463
+nonfailed_rows_wrong_history_margin_mean: -0.004114
+```
+
+The materialized failures were covered by M1144, so this is not a materialized
+corpus coverage miss. The failure is objective-form insufficiency: exact M1144
+preference loss can improve while low-weight near-boundary braking rows lose
+wrong-history terminal-margin negativity. M267 remains a separate old-public
+retention row outside the M1144 corpus.
+
+The next milestone is M1151 branch synthesis. It should close
+`row15_promoted_target_materialization` and open a new unsafe-margin projection
+branch before any further actor update, replay escalation, PPO, or promotion.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

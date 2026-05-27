@@ -16381,3 +16381,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, M1061 family replay, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_first_replay_reject_wrong_history_safe_route_to_failure_audit`
 - next: `m1150-v4-public-base-row15-promoted-first-replay-failure-audit`
+
+## 20260528T023200Z - m1150-v4-public-base-row15-promoted-first-replay-failure-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1150-v4-public-base-row15-promoted-first-replay-failure-audit.md`
+- result: M1150 confirms M1149 as proof washout through wrong-history-safe terminal-margin crossing, not normal-history collapse.
+- objective coverage: all `75` row15-promoted materialized failed rows and all `49` unique failed boundary geometries were covered by the M1144 objective corpus.
+- exception: the old-public `m267_m264` row-15 failure is outside M1144 and remains an explicit old-public retention requirement.
+- mechanism: failed materialized rows are low-weight near-boundary braking rows; failed-row weight mean `0.003962` versus nonfailed mean `0.015196`, and failed wrong-history margin mean `-0.000463` versus nonfailed `-0.004114`.
+- diagnosis: exact M1144 loss improvement is not enough because the objective does not directly enforce wrong-history terminal margins.
+- guardrail: no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_first_replay_failure_audit_route_to_branch_synthesis`
+- next: `m1151-v4-public-base-row15-promoted-target-materialization-synthesis`

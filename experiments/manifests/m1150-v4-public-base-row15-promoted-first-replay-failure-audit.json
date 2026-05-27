@@ -165,6 +165,40 @@
     "runs/m1149_row15_promoted_actor_update_first_replay/summary.json",
     "runs/m1149_row15_promoted_actor_update_first_replay/lost_success_drop_rows.csv"
   ],
-  "decision_rule": "M1150 may only audit the M1149 first-replay wrong-history-safe failure and route the next repair design. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, or continue to family-intersection replay.",
-  "next_blocker": "m1150-v4-public-base-row15-promoted-first-replay-failure-audit"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1150-v4-public-base-row15-promoted-first-replay-failure-audit.md",
+    "summary": "runs/m1150_row15_promoted_first_replay_failure_audit/summary.json",
+    "decision": "row15_promoted_first_replay_failure_audit_route_to_branch_synthesis",
+    "result_class": "wrong_history_safe_terminal_margin_crossing_objective_form_insufficient",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "materialized_lost_rows": 75,
+    "materialized_lost_unique_boundary_geometries": 49,
+    "lost_rows_boundary_geometry_selected_in_m1144_fraction": 1.0,
+    "m267_failure_present_in_m1144_objective": false,
+    "all_materialized_failures_are_in_m1144_objective_coverage": true,
+    "failed_rows_are_low_weight_near_boundary": true,
+    "failed_rows_weight_mean": 0.003962,
+    "nonfailed_rows_weight_mean": 0.015196,
+    "failed_rows_wrong_history_margin_mean": -0.000463,
+    "nonfailed_rows_wrong_history_margin_mean": -0.004114,
+    "actor_contract_violation": false,
+    "optimizer_instability": false,
+    "coverage_miss_for_materialized_rows": false,
+    "objective_form_insufficient": true,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "admitted_next": "branch_synthesis_before_unsafe_margin_projection_design",
+    "next_milestone": "m1151-v4-public-base-row15-promoted-target-materialization-synthesis"
+  },
+  "decision": "row15_promoted_first_replay_failure_audit_route_to_branch_synthesis",
+  "decision_rule": "M1150 may only audit the M1149 first-replay wrong-history-safe failure and route the next repair design. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, or continue to family-intersection replay. Because all materialized failed geometries were covered by M1144 but near-boundary wrong-history margins still crossed positive, the next route is branch synthesis before terminal-margin-aware unsafe-margin projection design.",
+  "next_blocker": "m1151-v4-public-base-row15-promoted-target-materialization-synthesis"
 }

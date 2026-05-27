@@ -1,0 +1,179 @@
+{
+  "id": "m1151-v4-public-base-row15-promoted-target-materialization-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+      "runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1141-v4-public-base-row15-promoted-surface-refresh-synthesis.md",
+      "docs/m1142-v4-public-base-row15-promoted-target-materialization.md",
+      "docs/m1144-v4-public-base-row15-promoted-objective-corpus-run.md",
+      "docs/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.md",
+      "docs/m1149-v4-public-base-row15-promoted-actor-update-first-replay-run.md",
+      "docs/m1150-v4-public-base-row15-promoted-first-replay-failure-audit.md",
+      "runs/m1150_row15_promoted_first_replay_failure_audit/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1150-v4-public-base-row15-promoted-first-replay-failure-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize the row15-promoted target-materialization branch before starting the next repair branch"
+    ],
+    "derived_from": [
+      "m1141-v4-public-base-row15-promoted-surface-refresh-synthesis",
+      "m1150-v4-public-base-row15-promoted-first-replay-failure-audit"
+    ],
+    "blocked_by": [
+      "M1150 confirms M1149 proof washout through wrong-history-safe terminal-margin crossing",
+      "workflow synthesis cadence has fired for the row15_promoted_target_materialization branch"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "another narrow actor update before synthesis",
+      "family-intersection replay before synthesis",
+      "PPO from m1147_114602",
+      "promotion of m1147_114602"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1151-v4-public-base-row15-promoted-target-materialization-synthesis.md",
+  "public_gates": [
+    "M1151 must synthesize M1142-M1150 evidence only",
+    "M1151 must not train actor weights",
+    "M1151 must not run PPO",
+    "M1151 must not run replay",
+    "M1151 must not mine new rows",
+    "M1151 must not promote",
+    "M1151 must not use private holdout",
+    "M1151 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not mine new rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not continue the same narrow branch without synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_target_materialization",
+    "evidence_axis": "G_synthesis: row15-promoted materialized objective and replay evidence",
+    "evidence_increment": "closes the materialization/objective/actor-update branch and selects the next repair branch",
+    "claim_scope": "branch synthesis only; no training, replay, PPO, promotion, private holdout, or driver capability claim",
+    "stop_condition": [
+      "stop if M1149/M1150 proof-washout evidence invalidates direct actor-update continuation",
+      "stop if branch evidence requires a new objective class rather than another parameter tweak",
+      "stop if synthesis cannot name supported and falsified claims"
+    ],
+    "fallback_plan": [
+      "if evidence is sufficient, open row15_promoted_unsafe_margin_projection",
+      "if evidence is ambiguous, audit M1149/M1150 artifacts again before design",
+      "do not run another actor update until the branch decision is durable"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1150 completed the M1149 failure audit and the branch cadence fired",
+    "synthesis_decision": "not_applicable"
+  },
+  "synthesis_artifact": "docs/m1151-v4-public-base-row15-promoted-target-materialization-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize the target-materialization branch and route the next branch",
+    "admission_evidence": [
+      "M1142 materialized 148 row15-current success-drop rows",
+      "M1144 objective sanity passed on 76 deduplicated rows",
+      "M1147 actor update improved exact M1144 objective under allowed parameter scope",
+      "M1149 rejected first replay through 76 wrong-history-safe lost success-drop events",
+      "M1150 classified the failure as objective-form insufficiency rather than coverage miss"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not promote from failed first replay"
+    ],
+    "allowed_updates": [
+      "synthesis documentation",
+      "next design manifest if synthesis is clear",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "supported and falsified claims are explicit",
+      "failure taxonomy is explicit",
+      "next branch name is explicit",
+      "next branch admission criteria are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1151 synthesizes wrong-history proof retention and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1151 synthesizes existing branch artifacts and adds no new temporal task.",
+    "negative_result_policy": "Preserve M1149/M1150 as proof-washout evidence and use it to select the next branch.",
+    "allowed_claims": [
+      "branch-level evidence synthesis for a level2 proof-retention candidate",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The row15-promoted target-materialization branch should close because it found a useful materialized objective surface but falsified direct actor-update continuation through first-replay proof washout.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "evidence summary covers M1142 through M1150",
+    "supported and falsified claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "supported or falsified claims remain ambiguous",
+    "next branch decision is ambiguous",
+    "actor training, PPO, replay, mining, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_branch_synthesis",
+      "command": "write docs/m1151-v4-public-base-row15-promoted-target-materialization-synthesis.md from M1142-M1150 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1151-v4-public-base-row15-promoted-target-materialization-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1150-v4-public-base-row15-promoted-first-replay-failure-audit.md",
+    "runs/m1150_row15_promoted_first_replay_failure_audit/summary.json"
+  ],
+  "decision_rule": "M1151 may only synthesize the row15_promoted_target_materialization branch and choose the next branch. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1151-v4-public-base-row15-promoted-target-materialization-synthesis"
+}

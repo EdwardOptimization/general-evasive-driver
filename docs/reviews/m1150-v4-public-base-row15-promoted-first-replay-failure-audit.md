@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260527T231724Z
+- Generated at UTC: 20260527T232338Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: repair
-- Decision reason: M1150 may only audit the M1149 first-replay wrong-history-safe failure and route the next repair design. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, or continue to family-intersection replay.
+- Promotion decision: row15_promoted_first_replay_failure_audit_route_to_branch_synthesis
+- Decision reason: M1150 audits M1149 and finds all materialized failed geometries were covered by M1144 but low-weight near-boundary braking rows crossed wrong-history terminal margin so unsafe-margin projection is the next branch after synthesis
 
 ## Hypothesis
 
@@ -73,8 +73,19 @@ M1149 failed because the M1147 exact-objective actor update improves the dedupli
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1150-v4-public-base-row15-promoted-first-replay-failure-audit
+- type: gate
+- checkpoint: runs/m1150_row15_promoted_first_replay_failure_audit/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_first_replay_failure_audit_route_to_branch_synthesis
+- reason: M1150 audits M1149 and finds all materialized failed geometries were covered by M1144 but low-weight near-boundary braking rows crossed wrong-history terminal margin so unsafe-margin projection is the next branch after synthesis
 
 ## Next Blocker
 
-m1150-v4-public-base-row15-promoted-first-replay-failure-audit
+m1151-v4-public-base-row15-promoted-target-materialization-synthesis
