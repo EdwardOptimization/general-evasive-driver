@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260527T233917Z
+- Generated at UTC: 20260527T234335Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: repair
-- Decision reason: M1154 may only run no-training projection and selected-alpha M1149 first replay. It cannot train actor weights, run PPO, mine rows, promote, use private holdout, change actor inputs, run M1061 family-intersection replay, run fresh/OOD, run behavior gates, weaken thresholds, or try another alpha after selected first-replay failure inside this milestone.
+- Promotion decision: row15_promoted_unsafe_margin_projection_first_replay_candidate_route_to_family_behavior_design
+- Decision reason: M1154 selects alpha_0_05: exact M1144 delta -0.000378 all 76 failed rows unsafe and all 10 M1149 first-replay surfaces pass; next is family/behavior diagnostic design not promotion
 
 ## Hypothesis
 
@@ -76,8 +76,19 @@ A small nonzero alpha along the M1147 direction can retain the exact M1144 objec
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run
+- type: gate
+- checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_unsafe_margin_projection_first_replay_candidate_route_to_family_behavior_design
+- reason: M1154 selects alpha_0_05: exact M1144 delta -0.000378 all 76 failed rows unsafe and all 10 M1149 first-replay surfaces pass; next is family/behavior diagnostic design not promotion
 
 ## Next Blocker
 
-m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run
+m1155-v4-public-base-row15-promoted-projection-family-behavior-design

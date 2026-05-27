@@ -16436,3 +16436,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no projection replay, actor training, PPO, mining, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_unsafe_margin_projection_runner_implemented_route_to_projection_run`
 - next: `m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run`
+
+## 20260528T032900Z - m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run.md`
+- result: M1154 finds a nonzero no-training projection candidate.
+- selected alpha: `0.05`
+- selected checkpoint: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`
+- exact M1144: loss `0.417322`, delta `-0.000378` versus alpha `0.0`.
+- failed-row unsafe screen: all `76/76` M1149 failed rows pass with zero wrong-history successes.
+- selected margin slack: `m267_m264` wrong-history margin max `-0.000260`; row15-promoted materialized wrong-history margin max `-0.000000497`.
+- first replay: all `10/10` M1149 surfaces pass; row15-promoted materialized retains `148/148` success drops.
+- caveat: selected alpha is near the unsafe-margin boundary, so this remains proof repair only and is not promotable.
+- guardrail: no actor training, PPO, mining, M1061 family replay, full public gate, fresh/OOD, behavior eval, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_unsafe_margin_projection_first_replay_candidate_route_to_family_behavior_design`
+- next: `m1155-v4-public-base-row15-promoted-projection-family-behavior-design`

@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M1155 may only design family-intersection and behavior diagnostics for alpha_0_05. It cannot train actor weights, run PPO, run replay, run behavior eval, mine rows, promote, use private holdout, change actor inputs, skip family-intersection replay, or treat M1154 first replay as promotion evidence.",
+  "failure_criteria": [
+    "design artifact is missing",
+    "family-intersection replay scope is ambiguous",
+    "behavior diagnostic scope is ambiguous",
+    "promotion route is accidentally admitted",
+    "actor training, PPO, replay, behavior eval, mining, promotion, private holdout, or actor-input change starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run behavior eval",
+    "do not mine new rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not skip family-intersection replay",
+    "do not treat M1154 first replay as promotion evidence"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260527T234335Z",
+  "hypothesis": "The M1154 alpha_0_05 first-replay candidate should next be tested on family-intersection replay and behavior diagnostics before any promotion, PPO, or private holdout.",
+  "lineage": {
+    "blocked_by": [
+      "M1154 first replay candidate is not promotable without family and behavior diagnostics"
+    ],
+    "derived_from": [
+      "m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run"
+    ],
+    "invalidates": [
+      "promotion from M1154 first replay alone",
+      "PPO from alpha_0_05 before family/behavior diagnostics",
+      "private holdout before public proof diagnostics"
+    ],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run.json"
+    ],
+    "parent_dataset": [
+      "docs/m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run.md",
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/summary.json",
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/first_replay_summary.csv",
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/failed_row_gate_rows.csv"
+    ],
+    "parent_objective": [
+      "design family-intersection and behavior diagnostics for the M1154 selected alpha"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1155-v4-public-base-row15-promoted-projection-family-behavior-design",
+  "next_blocker": "m1155-v4-public-base-row15-promoted-projection-family-behavior-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M1155 must be design-only",
+    "M1155 must not train actor weights",
+    "M1155 must not run PPO",
+    "M1155 must not run replay",
+    "M1155 must not run behavior eval",
+    "M1155 must not mine new rows",
+    "M1155 must not promote",
+    "M1155 must not use private holdout",
+    "M1155 must preserve actor inputs"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "design artifact exists",
+    "M1061 family-intersection replay scope is explicit",
+    "behavior diagnostic scope is explicit",
+    "failure routing is explicit",
+    "promotion remains blocked",
+    "no actor training, PPO, replay, behavior eval, mining, promotion, private holdout, or actor-input change occurs"
+  ],
+  "type": "gate"
+}

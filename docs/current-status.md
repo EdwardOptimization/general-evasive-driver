@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run
+m1155-v4-public-base-row15-promoted-projection-family-behavior-design
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -394,10 +394,35 @@ The runner consumes arbitrary failed-row CSVs, groups by surface, applies the
 M1152 unsafe-margin rule, evaluates exact M1144 objective, and only then allows
 selected-alpha M1149 first replay. M1153 did not run the projection experiment.
 
-The next milestone is M1154: run the no-training projection and selected-alpha
-M1149 first replay only. It must not train, run PPO, mine rows, promote, use
-private holdout, run M1061 family replay, run behavior gates, or change actor
-inputs.
+M1154 ran the no-training projection:
+
+```text
+selected_alpha: 0.05
+selected_checkpoint:
+  runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+exact_M1144_delta: -0.000378
+failed_row_count: 76
+failed_row_unsafe_margin_pass_count: 76
+first_replay_pass: true
+first_replay_surface_count: 10
+```
+
+The selected alpha restores the M1149 failed-row proof surface:
+
+```text
+m267_m264 wrong_history_margin_max: -0.000260
+row15_promoted_materialized wrong_history_margin_max: -0.000000497
+row15_promoted_materialized first replay: 148 / 148 success drops retained
+```
+
+This is a positive proof-repair result, but it is not promotable. The margin is
+very close to zero on the promoted materialized surface, and the checkpoint has
+not passed M1061 family-intersection replay, behavior diagnostics, full public
+gate, private holdout, or PPO stability.
+
+The next milestone is M1155, design-only: specify family-intersection replay
+and behavior diagnostics for `alpha_0_05` before any replay run, PPO, or
+promotion.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

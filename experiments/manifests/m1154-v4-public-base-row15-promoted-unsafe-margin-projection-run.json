@@ -164,6 +164,39 @@
   "baseline_artifacts": [
     "docs/m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation.md"
   ],
-  "decision_rule": "M1154 may only run no-training projection and selected-alpha M1149 first replay. It cannot train actor weights, run PPO, mine rows, promote, use private holdout, change actor inputs, run M1061 family-intersection replay, run fresh/OOD, run behavior gates, weaken thresholds, or try another alpha after selected first-replay failure inside this milestone.",
-  "next_blocker": "m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run.md",
+    "summary": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/summary.json",
+    "decision": "row15_promoted_unsafe_margin_projection_first_replay_candidate_route_to_family_behavior_design",
+    "result_class": "row15_promoted_unsafe_margin_projection_first_replay_candidate",
+    "failure_types": [
+      "none"
+    ],
+    "candidate_count": 18,
+    "projection_candidate_pass_count": 6,
+    "selected_alpha": 0.05,
+    "selected_checkpoint": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "exact_m1144_delta": -0.000378,
+    "failed_row_count": 76,
+    "failed_row_unsafe_margin_pass_count": 76,
+    "selected_wrong_history_success_count": 0,
+    "selected_row15_promoted_wrong_history_margin_max": -0.000000497,
+    "first_replay_pass": true,
+    "first_replay_surface_count": 10,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "family_intersection_replay_started": false,
+    "fresh_ood_started": false,
+    "behavior_gate_started": false,
+    "admitted_next": "family_behavior_diagnostic_design_only",
+    "next_milestone": "m1155-v4-public-base-row15-promoted-projection-family-behavior-design"
+  },
+  "decision": "row15_promoted_unsafe_margin_projection_first_replay_candidate_route_to_family_behavior_design",
+  "decision_rule": "M1154 may only run no-training projection and selected-alpha M1149 first replay. It cannot train actor weights, run PPO, mine rows, promote, use private holdout, change actor inputs, run M1061 family-intersection replay, run fresh/OOD, run behavior gates, weaken thresholds, or try another alpha after selected first-replay failure inside this milestone. Because alpha_0_05 passed failed-row unsafe screening and M1149 first replay, the next step is family/behavior diagnostic design only.",
+  "next_blocker": "m1155-v4-public-base-row15-promoted-projection-family-behavior-design"
 }

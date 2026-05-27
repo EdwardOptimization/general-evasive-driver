@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1162,
+    "completed": 1163,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation",
+    "task_id": "m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation.md",
-    "result_class": "promoted_unsafe_margin_projection_runner_implemented",
-    "decision": "row15_promoted_unsafe_margin_projection_runner_implemented_route_to_projection_run"
+    "command_log": "docs/m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run.md",
+    "result_class": "row15_promoted_unsafe_margin_projection_first_replay_candidate",
+    "decision": "row15_promoted_unsafe_margin_projection_first_replay_candidate_route_to_family_behavior_design"
   },
   "next_task": {
-    "id": "m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run",
+    "id": "m1155-v4-public-base-row15-promoted-projection-family-behavior-design",
     "status": "pending",
-    "priority": 11490,
+    "priority": 11500,
     "kind": "gate",
-    "hypothesis": "A small nonzero alpha along the M1147 direction can improve exact M1144 objective while preserving M1149 failed-row unsafe margins and selected-alpha first replay",
-    "command": "see experiments/manifests/m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run.json",
-    "success_artifact": "docs/m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run.md",
-    "notes": "Pending: run no-training projection and selected-alpha M1149 first replay only; no actor training PPO mining promotion private holdout family replay behavior or actor-input change"
+    "hypothesis": "The M1154 alpha_0_05 first-replay candidate should next be tested on family-intersection replay and behavior diagnostics before any promotion PPO or private holdout",
+    "command": "see experiments/manifests/m1155-v4-public-base-row15-promoted-projection-family-behavior-design.json",
+    "success_artifact": "docs/m1155-v4-public-base-row15-promoted-projection-family-behavior-design.md",
+    "notes": "Pending: design family/behavior diagnostics only; no actor training PPO replay behavior eval mining promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T031700Z"
+  "updated_at_utc": "20260528T032900Z"
 }
