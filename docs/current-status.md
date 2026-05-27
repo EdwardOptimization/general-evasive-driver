@@ -77,18 +77,18 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1049-v4-public-base-guarded-ppo-short-escalation-smoke
+m1050-v4-public-base-guarded-ppo-short-escalation-repeat
 ```
 
-M1048 designed the first bounded PPO escalation after M1047 passed two fresh
-1024-step guarded PPO repeats. M1049 should run exactly one 4096-step guarded
-PPO proposal from the current public-gate base, gate it with the full
-M1044/M1047 exact/proof/source-diverse/fresh/OOD/behavior stack, and keep
-promotion and private holdout blocked.
+M1049 ran one 4096-step guarded PPO proposal from the current public-gate base.
+The raw checkpoint passed exact, proof, source-diverse, fresh/OOD, and behavior
+gates while retaining row15 wrong-history failure and row16 normal-history
+success. M1050 should repeat the same 4096-step recipe on two fresh PPO seeds
+before any promotion or medium PPO.
 
 ```text
 decision:
-  guarded_ppo_short_escalation_design_admit_m1049_short_smoke
+  guarded_ppo_short_escalation_raw_candidate_route_to_fresh_seed_repeat
 ```
 
 Current public-gate base:
@@ -197,6 +197,23 @@ M183/M170 row16:
   normal_success must remain true
   normal_margin must remain > 0
   success_drop_count must remain 17 / 17
+```
+
+M1049 result:
+
+```text
+result_class: combined_active_set_guarded_ppo_raw_candidate
+raw checkpoint: runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt
+total_steps: 4096
+seed: 61049
+exact_pass: true
+proof_pass: true
+source_diverse_pass: true
+generalization_pass: true
+behavior_pass: true
+actor_inputs_changed: false
+promoted: false
+private_holdout_used: false
 ```
 
 ### Historical Trace

@@ -15590,3 +15590,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1048 designs the first short PPO escalation after M1047 passed two fresh 1024-step repeats. It admits exactly one 4096-step guarded PPO proposal with seed `61049` from the M1045 public-gate base, keeps the M1044/M1047 gate stack unchanged, and blocks promotion, private holdout, medium PPO, long PPO, and actor-input changes. M1049 must retain M267/M264 row15 wrong-history failure and M183/M170 row16 normal success as hard rollback rows.
 - decision: `guarded_ppo_short_escalation_design_admit_m1049_short_smoke`
 - next: `m1049-v4-public-base-guarded-ppo-short-escalation-smoke`
+
+## 20260527T031046Z - m1049-v4-public-base-guarded-ppo-short-escalation-smoke
+
+- status: `completed`
+- kind: `driver_candidate`
+- artifact: `runs/m1049_guarded_ppo_short_escalation_seed61049/summary.json`
+- doc: `docs/m1049-v4-public-base-guarded-ppo-short-escalation-smoke.md`
+- result: M1049 runs one 4096-step guarded PPO proposal from the M1045 public-gate base with seed `61049`. PPO returns `0`, training metrics are finite, actor inputs remain unchanged, and the raw checkpoint passes exact M997/M297/M270/combined-active-set checks, all six public replay surfaces, source-diverse diagnostics, fresh public seeds `103900/103901`, moderate-OOD seed `103920`, and behavior seeds `9505/9506/103930/103931`. Row15 keeps wrong-history failure with margin `-0.000567`, and row16 keeps normal success with margin `0.000621`. No promotion or private holdout occurs.
+- decision: `guarded_ppo_short_escalation_raw_candidate_route_to_fresh_seed_repeat`
+- next: `m1050-v4-public-base-guarded-ppo-short-escalation-repeat`

@@ -1,0 +1,151 @@
+{
+  "id": "m1050-v4-public-base-guarded-ppo-short-escalation-repeat",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1049-v4-public-base-guarded-ppo-short-escalation-smoke.md",
+      "runs/m1049_guarded_ppo_short_escalation_seed61049/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m1049_guarded_short_escalation_seed61049.json",
+      "experiments/manifests/m1049-v4-public-base-guarded-ppo-short-escalation-smoke.json"
+    ],
+    "parent_objective": [
+      "repeat the 4096-step guarded PPO short-escalation recipe on two fresh seeds without promotion"
+    ],
+    "derived_from": [
+      "m1049-v4-public-base-guarded-ppo-short-escalation-smoke"
+    ],
+    "blocked_by": [
+      "M1049 is one 4096-step seed and does not prove short-escalation repeatability"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "promoting or lengthening PPO from a single 4096-step seed"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1050-v4-public-base-guarded-ppo-short-escalation-repeat.md",
+  "public_gates": [
+    "M1050 must run exactly two fresh 4096-step guarded PPO repeats",
+    "M1050 must not promote",
+    "M1050 must not use private holdout",
+    "M1050 must preserve the P0 actor-input contract for both raw checkpoints",
+    "M1050 must gate each raw checkpoint against exact M997/M297/M270 and combined active-set checks",
+    "M1050 must gate each raw checkpoint against six public proof replay surfaces",
+    "M1050 must gate source-diverse diagnostics, fresh public seeds, moderate-OOD seed, and behavior ablations",
+    "M1050 must fail on any M267/M264 row15 wrong-history success or M183/M170 row16 normal-history failure"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run medium or long PPO",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote from M1050",
+    "do not skip exact or combined active-set checks",
+    "do not skip proof replay gates",
+    "do not accept aggregate eval if row15 or row16 proof washes out",
+    "do not change loss coefficients while testing repeatability"
+  ],
+  "workflow_synthesis": {
+    "branch": "combined_active_set_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo: 4096-step guarded PPO repeatability",
+    "evidence_increment": "tests whether the 4096-step short-escalation recipe that passed M1049 is repeatable on two fresh PPO seeds",
+    "claim_scope": "fresh-seed short-escalation repeat diagnostic only; no promotion, no private holdout, no medium/long PPO claim",
+    "stop_condition": [
+      "stop if either PPO run crashes or metrics are non-finite",
+      "stop if actor-input contract changes",
+      "stop if exact or combined active-set retention regresses",
+      "stop if any public proof replay surface fails",
+      "stop if row15 wrong-history failure or row16 normal-history success flips",
+      "stop if fresh/OOD/behavior gates regress"
+    ],
+    "fallback_plan": [
+      "if both seeds pass, route to short-escalation synthesis before promotion or longer PPO",
+      "if one seed fails proof but training is finite, route to seed-fragility or localized proof-washout audit",
+      "if training is unstable, route to PPO recipe audit",
+      "if fresh/OOD/behavior regresses while proof holds, route to generalization or behavior regression audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1049 passes one 4096-step guarded PPO proposal",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Two fresh 4096-step guarded PPO proposals from the M1045 public-gate base can complete with finite metrics and preserve exact, proof, source-diverse, fresh/OOD, and behavior gates without promotion.",
+  "success_criteria": [
+    "configs for seeds 61050 and 61051 exist",
+    "both PPO runs complete and write checkpoints",
+    "both training metric sets are finite",
+    "both actor input contracts are unchanged",
+    "both exact and combined active-set gates pass",
+    "both six-surface public replay gate stacks pass",
+    "both source-diverse diagnostics pass",
+    "both fresh public and moderate-OOD gates pass",
+    "both behavior ablation gates pass",
+    "both row15 and row16 rollback checks pass",
+    "aggregate repeat summary is written",
+    "no promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "a PPO run crashes or checkpoint is missing",
+    "training metrics are non-finite",
+    "actor inputs change",
+    "exact or combined active-set gate fails",
+    "a public replay surface fails",
+    "row15 wrong-history branch becomes successful",
+    "row16 normal-history branch becomes unsuccessful",
+    "fresh/OOD or behavior gate regresses",
+    "checkpoint is promoted",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "run_short_seed_61050",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.combined_active_set_guarded_ppo_smoke --base-checkpoint runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt --config configs/ppo_m1050_guarded_short_repeat_seed61050.json --run-dir runs/m1050_guarded_ppo_short_repeat_seed61050 --ppo-run-dir runs/ppo_m1050_guarded_short_repeat_seed61050 --device auto"
+    },
+    {
+      "name": "run_short_seed_61051",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.combined_active_set_guarded_ppo_smoke --base-checkpoint runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt --config configs/ppo_m1050_guarded_short_repeat_seed61051.json --run-dir runs/m1050_guarded_ppo_short_repeat_seed61051 --ppo-run-dir runs/ppo_m1050_guarded_short_repeat_seed61051 --device auto"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "configs/ppo_m1050_guarded_short_repeat_seed61050.json",
+      "type": "json"
+    },
+    {
+      "path": "configs/ppo_m1050_guarded_short_repeat_seed61051.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1050_guarded_ppo_short_repeat_seed61050/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1050_guarded_ppo_short_repeat_seed61051/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1050_guarded_ppo_short_escalation_repeat_summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1050-v4-public-base-guarded-ppo-short-escalation-repeat.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1049-v4-public-base-guarded-ppo-short-escalation-smoke.md"
+  ],
+  "decision_rule": "M1050 may only run two 4096-step PPO repeats and gates. It must not promote, use private holdout, or claim medium/long PPO stability.",
+  "next_blocker": "m1050-v4-public-base-guarded-ppo-short-escalation-repeat"
+}

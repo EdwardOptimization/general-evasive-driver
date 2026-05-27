@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1057,
+    "completed": 1058,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1048-v4-public-base-guarded-ppo-short-escalation-design",
+    "task_id": "m1049-v4-public-base-guarded-ppo-short-escalation-smoke",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1048-v4-public-base-guarded-ppo-short-escalation-design.md"
+    "command_log": "docs/m1049-v4-public-base-guarded-ppo-short-escalation-smoke.md"
   },
   "next_task": {
-    "id": "m1049-v4-public-base-guarded-ppo-short-escalation-smoke",
+    "id": "m1050-v4-public-base-guarded-ppo-short-escalation-repeat",
     "status": "pending",
-    "priority": 10440,
+    "priority": 10450,
     "kind": "driver_candidate",
-    "hypothesis": "Run one 4096-step guarded PPO proposal from the current public-gate base and gate it without promotion",
-    "command": "see experiments/manifests/m1049-v4-public-base-guarded-ppo-short-escalation-smoke.json",
-    "success_artifact": "docs/m1049-v4-public-base-guarded-ppo-short-escalation-smoke.md",
-    "notes": "Pending: one short 4096-step PPO proposal; no promotion no private holdout"
+    "hypothesis": "Run two fresh 4096-step guarded PPO repeats from the current public-gate base and gate each without promotion",
+    "command": "see experiments/manifests/m1050-v4-public-base-guarded-ppo-short-escalation-repeat.json",
+    "success_artifact": "docs/m1050-v4-public-base-guarded-ppo-short-escalation-repeat.md",
+    "notes": "Pending: two short 4096-step PPO repeats; no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T030444Z"
+  "updated_at_utc": "20260527T031046Z"
 }

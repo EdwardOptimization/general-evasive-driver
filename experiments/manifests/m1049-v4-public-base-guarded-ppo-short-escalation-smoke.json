@@ -130,6 +130,36 @@
   "baseline_artifacts": [
     "docs/m1048-v4-public-base-guarded-ppo-short-escalation-design.md"
   ],
-  "decision_rule": "M1049 may only run one 4096-step PPO proposal and gates. It must not promote, use private holdout, or claim repeatability.",
-  "next_blocker": "m1049-v4-public-base-guarded-ppo-short-escalation-smoke"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1049-v4-public-base-guarded-ppo-short-escalation-smoke.md",
+    "summary_json": "runs/m1049_guarded_ppo_short_escalation_seed61049/summary.json",
+    "decision": "guarded_ppo_short_escalation_raw_candidate_route_to_fresh_seed_repeat",
+    "result_class": "combined_active_set_guarded_ppo_raw_candidate",
+    "failure_types": [
+      "none"
+    ],
+    "base_checkpoint": "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt",
+    "raw_checkpoint": "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+    "total_steps": 4096,
+    "seed": 61049,
+    "ppo_returncode": 0,
+    "training_metrics_finite": true,
+    "actor_inputs_changed": false,
+    "exact_pass": true,
+    "proof_pass": true,
+    "source_diverse_pass": true,
+    "generalization_pass": true,
+    "behavior_pass": true,
+    "m267_m264_success_drop_count": 17,
+    "m183_m170_success_drop_count": 17,
+    "row15_wrong_history_margin": -0.0005672970156440638,
+    "row16_normal_margin": 0.0006210534290982395,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1050-v4-public-base-guarded-ppo-short-escalation-repeat"
+  },
+  "decision": "guarded_ppo_short_escalation_raw_candidate_route_to_fresh_seed_repeat",
+  "decision_rule": "M1049 ran one 4096-step PPO proposal and full public gates. It must not promote, use private holdout, or claim repeatability.",
+  "next_blocker": "m1050-v4-public-base-guarded-ppo-short-escalation-repeat"
 }
