@@ -15477,3 +15477,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1036 designs the combined active-set repair/projection route without running repair, PPO, private holdout, promotion, first replay, or actor-input changes. It finds that M293 and M1034 share the same `TrajectoryActionAnchor` schema and compatible `72/128/3` observation/hidden/action dimensions, but rejects naive concatenation because `source_index` collides at `0` and the 57-row M1034 row16 anchor would be diluted by the 3900-row M293 anchor. The next step is a no-update export of source-namespaced family-normalized combined anchors with `balanced`, `row16x4`, and `row16x8` variants.
 - decision: `candidate_b_combined_active_set_repair_design_admit_combined_anchor_export`
 - next: `m1037-v4-public-base-candidate-b-combined-active-set-anchor-export`
+
+## 20260527T000353Z - m1037-v4-public-base-candidate-b-combined-active-set-anchor-export
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `runs/m1037_candidate_b_combined_active_set_anchor_export/summary.json`
+- doc: `docs/m1037-v4-public-base-candidate-b-combined-active-set-anchor-export.md`
+- result: M1037 implements and runs the no-update combined active-set anchor export. It creates `balanced`, `row16x4`, and `row16x8` combined anchors, each with `3957` rows from M293 `3900` rejected-history rows plus M1034 `57` row16 normal rows. All variants load with `load_trajectory_action_anchor`, source namespacing moves M1034 to `1000000`, family-normalized weight sums match expected totals, and no repair, PPO, promotion, private holdout, or actor-input change occurs.
+- decision: `candidate_b_combined_active_set_anchor_export_pass_route_to_repair_projection_probe`
+- next: `m1038-v4-public-base-candidate-b-combined-active-set-repair-projection-probe`

@@ -75,83 +75,85 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1037-v4-public-base-candidate-b-combined-active-set-anchor-export
+m1038-v4-public-base-candidate-b-combined-active-set-repair-projection-probe
 ```
 
-M1036 completed the combined active-set repair design. It keeps the branch in
-public proof-retention engineering scope and does not run repair, PPO,
-promotion, private holdout, or actor-input changes.
+M1037 implemented and ran the no-update combined active-set anchor export. It
+does not run repair, PPO, promotion, private holdout, first replay, or
+actor-input changes.
 
 ```text
+result_class:
+  candidate_b_combined_active_set_anchor_export_pass
+
 decision:
-  candidate_b_combined_active_set_repair_design_admit_combined_anchor_export
+  candidate_b_combined_active_set_anchor_export_pass_route_to_repair_projection_probe
 ```
 
-M1036 inspected the two trajectory anchors needed for the next repair:
+M1037 combines:
 
 ```text
 M293 rejected-history trajectory anchor:
   rows: 3900
-  sources: 48
-  source range: 0..300064
-  weight sum: 106426.71
 
 M1034 M183/M170 row16 normal anchor:
   rows: 57
-  sources: 1
-  source range: 0..0
-  weight sum: 570.00
+
+combined rows:
+  3957
 ```
 
-Both use the same `TrajectoryActionAnchor` schema, but naive concatenation is
-rejected because:
+Source namespacing and family-weight checks pass:
 
 ```text
-source_index collision:
-  both M293 and M1034 use source_index 0
-
-family weight dilution:
-  M1034 row16 has only 57 rows versus M293's 3900 rows
+M293 source range: 0..300064
+M1034 source range after offset: 1000000..1000000
+source_collision: false
+all_variants_loadable: true
+all_family_weights_match: true
+all_row_counts_match: true
 ```
 
-The current blocker is therefore M1037: export source-namespaced,
-family-normalized combined active-set anchors before any optimizer run.
+Exported variants:
 
 ```text
-runs/m1037_candidate_b_combined_active_set_anchor_export/combined_active_set_anchor_balanced.npz
+balanced:
+  M293 total 1.0
+  M1034 row16 total 1.0
+
+row16x4:
+  M293 total 1.0
+  M1034 row16 total 4.0
+
+row16x8:
+  M293 total 1.0
+  M1034 row16 total 8.0
+```
+
+Primary next anchor:
+
+```text
 runs/m1037_candidate_b_combined_active_set_anchor_export/combined_active_set_anchor_row16x4.npz
-runs/m1037_candidate_b_combined_active_set_anchor_export/combined_active_set_anchor_row16x8.npz
 ```
 
-The variants should normalize family weight sums to:
+The current blocker is M1038: run a no-PPO exact repair/projection probe with
+the `row16x4` combined anchor. Gate order:
 
 ```text
-balanced: M293 total 1.0, M1034 total 1.0
-row16x4: M293 total 1.0, M1034 total 4.0
-row16x8: M293 total 1.0, M1034 total 8.0
-```
-
-M1037 success requires:
-
-```text
-all combined anchors load with load_trajectory_action_anchor
-combined row count = 3957
-M1034 source ids offset away from M293 source ids
-family weight sums match declared variant totals
 P0 actor inputs unchanged
-ppo_used = false
-repair_used = false
-checkpoint_promoted = false
-private_holdout_used = false
+M297/M270 exact no-regression
+combined active-set anchor sanity
+M997 temporal exact retention before replay
+M267/M264 first replay row15 retained
+M183/M170 first replay row16 retained
 ```
 
-No repair, PPO, promotion, private holdout, first replay, or actor-input change
-is allowed in M1037.
+No PPO, promotion, private holdout, or actor-input change is allowed in M1038.
 
 ### Historical Trace
 
-The branch trace below is retained for context; the live blocker is the M1037
-combined active-set anchor export above.
+The branch trace below is retained for context; the live blocker is the M1038
+combined active-set repair/projection probe above.
 
 M927 ran the no-training residual-direction feasibility sweep and found no
 alpha/mix candidate. M928 audits this as a residual-bridge trust-region

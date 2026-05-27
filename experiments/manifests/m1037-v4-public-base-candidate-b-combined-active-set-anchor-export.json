@@ -115,5 +115,26 @@
     "docs/m1036-v4-public-base-candidate-b-combined-active-set-repair-design.md"
   ],
   "decision_rule": "M1037 can admit a later repair/projection only if all combined active-set anchor variants are exact-loadable, source-namespaced, family-normalized, and no update or promotion occurs during export.",
-  "next_blocker": "m1037-v4-public-base-candidate-b-combined-active-set-anchor-export"
+  "next_blocker": "m1038-v4-public-base-candidate-b-combined-active-set-repair-projection-probe",
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1037_candidate_b_combined_active_set_anchor_export/summary.json",
+    "doc": "docs/m1037-v4-public-base-candidate-b-combined-active-set-anchor-export.md",
+    "decision": "candidate_b_combined_active_set_anchor_export_pass_route_to_repair_projection_probe",
+    "result_class": "candidate_b_combined_active_set_anchor_export_pass",
+    "failure_types": [
+      "none"
+    ],
+    "variant_count": 3,
+    "combined_rows_expected": 3957,
+    "m267_rows": 3900,
+    "m183_rows": 57,
+    "all_variants_loadable": true,
+    "all_source_namespaced": true,
+    "all_family_weights_match": true,
+    "all_row_counts_match": true,
+    "primary_anchor": "runs/m1037_candidate_b_combined_active_set_anchor_export/combined_active_set_anchor_row16x4.npz",
+    "actor_inputs_changed": false,
+    "next_blocker": "m1038-v4-public-base-candidate-b-combined-active-set-repair-projection-probe"
+  }
 }
