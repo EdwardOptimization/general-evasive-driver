@@ -15873,3 +15873,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: driver improvement, checkpoint promotion, PPO readiness, private generalization, level3 anticipatory self-identification, and auxiliary objective learnability
 - decision: `family_aggregate_conversion_synthesis_open_materialized_objective_corpus_sanity`
 - next: `m1107-v4-public-base-materialized-objective-corpus-run`
+
+## 20260527T200707Z - m1107-v4-public-base-materialized-objective-corpus-run
+
+- status: `completed`
+- kind: `objective_sanity`
+- artifact: `docs/m1107-v4-public-base-materialized-objective-corpus-run.md`
+- result: M1107 builds the proof-current materialized boundary-outcome corpus and runs auxiliary objective sanity. Corpus gates pass with `68` rows, `14` physical pairs, `3` targets, `68` success-drop rows, and zero action reconstruction error. Objective sanity passes with `objective_pass=true`, `seed_pass_count=3`, mean validation combined-loss improvement `2.951631`, min validation combined-loss improvement `1.762006`, mean validation delta-loss improvement `4.031372`, and mean validation pairwise accuracy after `0.944444`.
+- interpretation: the materialized corpus is valid and learnable as an auxiliary objective; this is not driver improvement, promotion, PPO readiness, or level3 self-ID evidence
+- decision: `materialized_objective_corpus_pass_route_to_result_audit`
+- next: `m1108-v4-public-base-materialized-objective-result-audit`

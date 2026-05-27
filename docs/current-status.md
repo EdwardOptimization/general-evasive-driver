@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1107-v4-public-base-materialized-objective-corpus-run
+m1108-v4-public-base-materialized-objective-result-audit
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -282,10 +282,15 @@ readiness for a level2 replay-calibrated proof surface; unsupported claims
 remain driver improvement, PPO readiness, promotion, private generalization, and
 level3 anticipatory self-identification. The next step is M1107: run the
 pre-registered proof-current corpus build and auxiliary objective sanity only.
+M1107 passes: `68` corpus rows, `14` physical pairs, `3` targets, zero action
+reconstruction error, and `objective_pass=true` across three optimization seeds
+with mean validation pairwise accuracy `0.944444`. This is still only auxiliary
+objective evidence. The next step is M1108: audit whether a guarded actor-update
+design is admissible and define required post-update gates.
 
 ```text
 decision:
-  family_aggregate_conversion_synthesis_open_materialized_objective_corpus_sanity
+  materialized_objective_corpus_pass_route_to_result_audit
 ```
 
 M1068 design:

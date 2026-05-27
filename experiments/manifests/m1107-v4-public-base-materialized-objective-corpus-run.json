@@ -170,6 +170,41 @@
     "docs/m1106-v4-public-base-family-aggregate-conversion-synthesis.md",
     "runs/m1104_target_policy_materialization/proof_current_boundary_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1107-v4-public-base-materialized-objective-corpus-run.md",
+    "decision": "materialized_objective_corpus_pass_route_to_result_audit",
+    "result_class": "materialized_objective_corpus_objective_pass",
+    "failure_types": [
+      "none"
+    ],
+    "run_dir": "runs/m1107_materialized_objective_corpus",
+    "target_policy_label": "proof_current",
+    "corpus_rows": 68,
+    "physical_pairs": 14,
+    "targets": 3,
+    "success_drop_rows": 68,
+    "selected_source_rows": 68,
+    "action_reconstruction_error_max": 0.0,
+    "action_reconstruction_error_mean": 0.0,
+    "objective_pass": true,
+    "seed_pass_count": 3,
+    "mean_val_combined_loss_improvement": 2.9516308307647705,
+    "min_val_combined_loss_improvement": 1.762006402015686,
+    "mean_val_delta_loss_improvement": 4.0313720703125,
+    "min_val_delta_loss_improvement": 2.8520150184631348,
+    "mean_val_pairwise_accuracy_after": 0.9444444179534912,
+    "min_val_pairwise_accuracy_after": 0.8333333134651184,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1108-v4-public-base-materialized-objective-result-audit"
+  },
+  "decision": "materialized_objective_corpus_pass_route_to_result_audit",
   "decision_rule": "M1107 may only build the proof_current corpus and run auxiliary objective sanity. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1107-v4-public-base-materialized-objective-corpus-run"
+  "next_blocker": "m1108-v4-public-base-materialized-objective-result-audit"
 }

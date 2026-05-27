@@ -1,0 +1,161 @@
+{
+  "id": "m1108-v4-public-base-materialized-objective-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1107-v4-public-base-materialized-objective-corpus-run.md",
+      "runs/m1107_materialized_objective_corpus/corpus_summary.json",
+      "runs/m1107_materialized_objective_corpus/objective_summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1107-v4-public-base-materialized-objective-corpus-run.json"
+    ],
+    "parent_objective": [
+      "audit materialized objective pass before any actor update design"
+    ],
+    "derived_from": [
+      "m1107-v4-public-base-materialized-objective-corpus-run"
+    ],
+    "blocked_by": [
+      "M1107 objective sanity passes but cannot directly admit actor update without audit"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "direct actor update from objective sanity pass",
+      "promotion from objective sanity",
+      "claiming driver improvement from auxiliary objective"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1108-v4-public-base-materialized-objective-result-audit.md",
+  "public_gates": [
+    "M1108 must audit only",
+    "M1108 must not train actor weights",
+    "M1108 must not run PPO",
+    "M1108 must not run replay",
+    "M1108 must not run corpus build or objective sanity",
+    "M1108 must not mine rows",
+    "M1108 must not promote",
+    "M1108 must not use private holdout",
+    "M1108 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run corpus build",
+    "do not run objective sanity",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not interpret objective sanity pass as driver improvement"
+  ],
+  "workflow_synthesis": {
+    "branch": "materialized_objective_corpus_sanity",
+    "evidence_axis": "G_objective: objective pass audit",
+    "evidence_increment": "audits M1107 objective pass and decides whether guarded actor update design is admissible",
+    "claim_scope": "audit only; no actor training, PPO, replay, corpus build, objective run, promotion, or private holdout",
+    "stop_condition": [
+      "stop if objective pass is too narrow for actor update design",
+      "stop if corpus sparsity or target imbalance requires repair",
+      "stop if required post-update gates are unclear"
+    ],
+    "fallback_plan": [
+      "if objective pass is sufficient, route to guarded actor update design",
+      "if corpus imbalance is concerning, route to corpus expansion or weighting design",
+      "if objective signal is likely metric artifact, route to objective audit/ablation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1107 objective sanity passes",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit objective sanity before any actor update",
+    "admission_evidence": [
+      "M1107 objective_pass is true",
+      "M1107 corpus/action reconstruction gates pass"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not run PPO",
+      "do not promote from objective sanity"
+    ],
+    "allowed_updates": [
+      "audit documentation",
+      "pre-register next route if audit is clear",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "objective pass interpretation is explicit",
+      "corpus limitations are explicit",
+      "required post-update gates are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1108 audits matched-current objective sanity and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1108 audits existing M1107 artifacts only and adds no new temporal task.",
+    "negative_result_policy": "If objective pass is insufficient for actor update, route to corpus/objective audit rather than actor update.",
+    "allowed_claims": [
+      "objective-pass audit for a level2 replay-calibrated proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The M1107 objective pass is strong enough to admit a tightly guarded actor-update design, but not an actor update itself.",
+  "success_criteria": [
+    "audit artifact exists",
+    "corpus limitations are summarized",
+    "objective pass interpretation is explicit",
+    "required guarded actor update gates are explicit if admitted",
+    "next route is explicit",
+    "no actor training, PPO, replay, corpus build, objective sanity, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "objective pass is overclaimed",
+    "post-update gates are ambiguous",
+    "next route is ambiguous",
+    "actor training, PPO, replay, corpus build, objective sanity, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_audit",
+      "command": "write docs/m1108-v4-public-base-materialized-objective-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1108-v4-public-base-materialized-objective-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1107-v4-public-base-materialized-objective-corpus-run.md",
+    "runs/m1107_materialized_objective_corpus/objective_summary.json"
+  ],
+  "decision_rule": "M1108 may only audit M1107 objective sanity. It cannot train actor weights, run PPO, run replay, run corpus build, run objective sanity, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1108-v4-public-base-materialized-objective-result-audit"
+}

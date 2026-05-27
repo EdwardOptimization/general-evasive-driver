@@ -1,0 +1,99 @@
+{
+  "decision_reason": "M1107 corpus passes with 68 rows 14 physical pairs 3 targets zero action reconstruction error and objective_pass true with seed_pass_count 3 and mean val pairwise accuracy 0.944444",
+  "failure_criteria": [
+    "corpus build fails",
+    "corpus is sparse",
+    "action reconstruction error exceeds threshold",
+    "objective_pass is false",
+    "actor training, PPO, replay, mining, promotion, or private holdout starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not interpret auxiliary objective pass as driver improvement"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260527T200756Z",
+  "hypothesis": "The proof_current materialized rows can build a valid single-checkpoint boundary-outcome corpus and pass auxiliary objective sanity.",
+  "lineage": {
+    "blocked_by": [
+      "M1106 opens materialized_objective_corpus_sanity branch"
+    ],
+    "derived_from": [
+      "m1106-v4-public-base-family-aggregate-conversion-synthesis"
+    ],
+    "invalidates": [
+      "actor update before objective sanity",
+      "promotion from objective sanity",
+      "running PPO from materialized rows"
+    ],
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1106-v4-public-base-family-aggregate-conversion-synthesis.json",
+      "experiments/manifests/m1105-v4-public-base-materialized-objective-corpus-design.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_dataset": [
+      "docs/m1106-v4-public-base-family-aggregate-conversion-synthesis.md",
+      "docs/m1105-v4-public-base-materialized-objective-corpus-design.md",
+      "runs/m1104_target_policy_materialization/proof_current_boundary_rows.csv"
+    ],
+    "parent_objective": [
+      "build proof_current boundary-outcome corpus and run auxiliary objective sanity"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1107-v4-public-base-materialized-objective-corpus-run",
+  "next_blocker": "m1108-v4-public-base-materialized-objective-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "materialized_objective_corpus_pass_route_to_result_audit",
+  "public_gates": [
+    "M1107 may build corpus and run auxiliary objective sanity only",
+    "M1107 must use proof_current only",
+    "M1107 must not train actor weights",
+    "M1107 must not run PPO",
+    "M1107 must not run replay",
+    "M1107 must not mine rows",
+    "M1107 must not promote",
+    "M1107 must not use private holdout",
+    "M1107 must preserve actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1107_materialized_objective_corpus/objective_summary.json",
+    "clearance_margin_mean": "",
+    "decision": "materialized_objective_corpus_pass_route_to_result_audit",
+    "milestone": "m1107-v4-public-base-materialized-objective-corpus-run",
+    "reason": "M1107 corpus passes with 68 rows 14 physical pairs 3 targets zero action reconstruction error and objective_pass true with seed_pass_count 3 and mean val pairwise accuracy 0.944444",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "objective_sanity",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "corpus_summary.json exists",
+    "objective_summary.json exists",
+    "corpus_rows >= 60",
+    "physical_pairs >= 10",
+    "targets == 3",
+    "success_drop_rows == corpus_rows",
+    "action_reconstruction_error_max <= 0.005",
+    "action_reconstruction_error_mean <= 0.001",
+    "objective_pass is true",
+    "seed_pass_count == 3",
+    "no actor training, PPO, replay, mining, promotion, or private holdout occurs"
+  ],
+  "type": "objective_sanity"
+}
