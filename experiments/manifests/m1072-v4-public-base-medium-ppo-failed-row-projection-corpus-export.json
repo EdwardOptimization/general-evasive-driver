@@ -118,6 +118,30 @@
   "baseline_artifacts": [
     "docs/m1071-v4-public-base-medium-ppo-repair-projection-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export.md",
+    "summary_json": "runs/m1072_medium_ppo_failed_row_projection_corpus/summary.json",
+    "decision": "medium_ppo_failed_row_projection_corpus_pass_route_to_projection_probe",
+    "result_class": "medium_ppo_failed_row_projection_corpus_pass",
+    "failure_types": [
+      "none"
+    ],
+    "rows": 22,
+    "surface_count": 8,
+    "source_policy_count": 4,
+    "source_checkpoint_count": 3,
+    "corpus_npz": "runs/m1072_medium_ppo_failed_row_projection_corpus/current_family_conflict_corpus.npz",
+    "failed_row_map_csv": "runs/m1072_medium_ppo_failed_row_projection_corpus/failed_row_map.csv",
+    "actor_inputs_changed": false,
+    "training_started": false,
+    "optimizer_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe"
+  },
+  "decision": "medium_ppo_failed_row_projection_corpus_pass_route_to_projection_probe",
   "decision_rule": "M1072 may only export/validate failed-row projection corpora. It cannot run PPO, optimize actor weights, promote, or use private holdout.",
-  "next_blocker": "m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export"
+  "next_blocker": "m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe"
 }

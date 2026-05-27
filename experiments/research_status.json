@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1080,
+    "completed": 1081,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1071-v4-public-base-medium-ppo-repair-projection-design",
+    "task_id": "m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1071-v4-public-base-medium-ppo-repair-projection-design.md"
+    "command_log": "docs/m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export.md"
   },
   "next_task": {
-    "id": "m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export",
+    "id": "m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe",
     "status": "pending",
-    "priority": 10670,
-    "kind": "objective_sanity",
-    "hypothesis": "Export source-labeled failed-row projection corpus for M1069 proof washout repair",
-    "command": "see experiments/manifests/m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export.json",
-    "success_artifact": "docs/m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export.md",
-    "notes": "Pending: corpus/export only; no PPO no actor training no promotion no private holdout"
+    "priority": 10680,
+    "kind": "driver_candidate",
+    "hypothesis": "Run no-PPO repair/projection probe using the M1072 failed-row corpus",
+    "command": "see experiments/manifests/m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe.json",
+    "success_artifact": "docs/m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe.md",
+    "notes": "Pending: no PPO no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T081017Z"
+  "updated_at_utc": "20260527T082235Z"
 }

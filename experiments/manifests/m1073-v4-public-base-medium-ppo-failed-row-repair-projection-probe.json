@@ -1,0 +1,120 @@
+{
+  "id": "m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1069_expanded_gate_medium_seed61069/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export.md",
+      "runs/m1072_medium_ppo_failed_row_projection_corpus/current_family_conflict_corpus.npz",
+      "runs/m1072_medium_ppo_failed_row_projection_corpus/failed_row_map.csv",
+      "runs/m1037_candidate_b_combined_active_set_anchor_export/combined_active_set_anchor_row16x4.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export.json"
+    ],
+    "parent_objective": [
+      "run no-PPO exact repair/projection using the M1072 failed-row projection corpus"
+    ],
+    "derived_from": [
+      "m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export"
+    ],
+    "blocked_by": [
+      "M1072 exports a loadable source-labeled failed-row corpus; no projection candidate has been tested with it"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running another PPO proposal before testing no-PPO projection",
+      "running projection with only the old M1037 anchor and not the M1072 failed-row corpus"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe.md",
+  "public_gates": [
+    "M1073 must not run PPO",
+    "M1073 must not promote",
+    "M1073 must not use private holdout",
+    "M1073 must preserve the P0 actor-input contract",
+    "M1073 must use the M1072 failed-row projection corpus",
+    "M1073 must gate candidates through exact/first-replay checks before any later full public gate"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not change actor inputs",
+    "do not promote from M1073",
+    "do not use private holdout",
+    "do not skip M1072 corpus",
+    "do not claim full public-gate pass from a first-replay projection probe"
+  ],
+  "workflow_synthesis": {
+    "branch": "expanded_gate_medium_ppo_readiness",
+    "evidence_axis": "G_control: failed-row no-PPO projection probe",
+    "evidence_increment": "tests whether the M1069 proposal can be repaired by exact projection using the M1072 failed-row corpus before any new PPO",
+    "claim_scope": "projection probe only; no promotion, no private holdout, no full public-gate claim unless routed separately",
+    "stop_condition": [
+      "stop if actor-input contract changes",
+      "stop if exact gates fail for all candidates",
+      "stop if first replay gates fail for all candidates",
+      "stop if projection ignores M1072 failed-row corpus"
+    ],
+    "fallback_plan": [
+      "if a first-replay candidate exists, route to expanded full public gate",
+      "if no exact candidate exists, route to exact repair objective audit",
+      "if exact passes but replay fails, route to failed-row objective/anchor audit",
+      "if projection is base-equivalent, route to PPO recipe redesign"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1072 exports the M1069 failed-row corpus needed by the projection probe",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A no-PPO repair/projection probe using the M1072 failed-row corpus can find a candidate that restores exact and first-replay proof constraints after the M1069 medium PPO washout.",
+  "success_criteria": [
+    "projection run completes",
+    "summary artifact exists",
+    "actor inputs are unchanged",
+    "M1072 corpus is used",
+    "exact candidate status is reported",
+    "first replay status is reported",
+    "no promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "projection run crashes",
+    "summary artifact is missing",
+    "actor inputs change",
+    "M1072 corpus is not used",
+    "projection result is ambiguous",
+    "checkpoint is promoted",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "run_failed_row_projection_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.candidate_b_combined_active_set_repair_projection_probe --base-checkpoint runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --raw-checkpoint runs/ppo_m1069_expanded_gate_medium_seed61069/checkpoint.pt --current-family-conflict-npz runs/m1072_medium_ppo_failed_row_projection_corpus/current_family_conflict_corpus.npz --combined-anchor-npz runs/m1037_candidate_b_combined_active_set_anchor_export/combined_active_set_anchor_row16x4.npz --run-dir runs/m1073_medium_ppo_failed_row_repair_projection_probe --device auto"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1073_medium_ppo_failed_row_repair_projection_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export.md"
+  ],
+  "decision_rule": "M1073 may only run a no-PPO projection probe and route from its exact/first-replay result. It cannot promote, run PPO, or use private holdout.",
+  "next_blocker": "m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe"
+}

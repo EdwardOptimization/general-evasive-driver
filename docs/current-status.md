@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export
+m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -131,11 +131,13 @@ family-intersection, and source-diverse continuity surfaces. M1070 routes to
 projection design before any new PPO. M1071 completed that design and decided
 that the next step is not an optimizer yet: first export a source-labeled
 failed-row projection corpus covering old public, M1061 family-intersection,
-and source-diverse failed rows.
+and source-diverse failed rows. M1072 completed that export: 22 source-labeled
+rows across eight surfaces were written into a loadable current-family conflict
+NPZ. The next step is a no-PPO repair/projection probe using that corpus.
 
 ```text
 decision:
-  medium_ppo_repair_projection_design_route_to_failed_row_corpus_export
+  medium_ppo_failed_row_projection_corpus_pass_route_to_projection_probe
 ```
 
 M1068 design:
@@ -296,6 +298,24 @@ training_started: false
 promoted: false
 private_holdout_used: false
 next: m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export
+```
+
+M1072 result:
+
+```text
+result_class: medium_ppo_failed_row_projection_corpus_pass
+rows: 22
+surfaces: 8
+source_policy_count: 4
+source_checkpoint_count: 3
+corpus_npz: runs/m1072_medium_ppo_failed_row_projection_corpus/current_family_conflict_corpus.npz
+failed_row_map_csv: runs/m1072_medium_ppo_failed_row_projection_corpus/failed_row_map.csv
+training_started: false
+optimizer_started: false
+ppo_used: false
+promoted: false
+private_holdout_used: false
+next: m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe
 ```
 
 M1058 result:
