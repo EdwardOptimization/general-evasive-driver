@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1149-v4-public-base-row15-promoted-actor-update-first-replay-run
+m1150-v4-public-base-row15-promoted-first-replay-failure-audit
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -285,9 +285,37 @@ max_margin_gap_regression: 0.001
 max_success_drop_count_regression: 0
 ```
 
-M1149 should run first replay only. It must not run M1061 family replay,
-behavior eval, full public gate, PPO, promotion, private holdout, or actor-input
-change. If any surface fails, the next step is a row-level failure audit.
+M1149 ran first replay for `m1147_114602` and rejected the candidate:
+
+```text
+surface_count: 10
+passed_surface_count: 8
+failed_surface_count: 2
+old_public_first_replay_pass: false
+source_diverse_first_replay_pass: true
+row15_promoted_materialized_replay_pass: false
+lost_success_drop_events: 76
+normal_lost_events: 0
+wrong_history_safe_events: 76
+```
+
+Failed surfaces:
+
+```text
+m267_m264:
+  baseline success drops: 17
+  candidate success drops: 16
+
+row15_promoted_materialized:
+  baseline success drops: 148
+  candidate success drops: 73
+```
+
+This is not normal-history collapse. The candidate keeps normal success rate at
+`1.0` on every surface, but wrong-history branches become safe. The next
+milestone is M1150, a process-only failure audit over existing M1144, M1147,
+and M1149 artifacts. M1150 must not train, run PPO, run replay, mine new rows,
+promote, use private holdout, or change actor inputs.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

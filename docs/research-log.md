@@ -16366,3 +16366,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, actor training, PPO, corpus build, objective sanity, mining, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_first_replay_design_admit_m1149`
 - next: `m1149-v4-public-base-row15-promoted-actor-update-first-replay-run`
+
+## 20260528T021900Z - m1149-v4-public-base-row15-promoted-actor-update-first-replay-run
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1149-v4-public-base-row15-promoted-actor-update-first-replay-run.md`
+- result: M1149 rejects `m1147_114602` at first replay as proof washout.
+- aggregate: `10` surfaces evaluated, `8` passed, `2` failed, and first replay pass is `false`.
+- passed surfaces: `m183_m168`, `m183_m170`, `m193_m189`, `m212_m204`, `m223_m219`, `current_m333_surface`, `m314_continuity_surface`, and `m317_continuity_surface`.
+- failed surfaces: `m267_m264` loses `1` success-drop event and `row15_promoted_materialized` loses `75` success-drop events.
+- failure taxonomy: `wrong_history_safe`; `lost_success_drop_events=76`, `normal_lost_events=0`, and `wrong_history_safe_events=76`.
+- artifact summary: `runs/m1149_row15_promoted_actor_update_first_replay/summary.json`, `first_replay_summary.csv`, and `lost_success_drop_rows.csv`.
+- guardrail: no actor training, PPO, M1061 family replay, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_first_replay_reject_wrong_history_safe_route_to_failure_audit`
+- next: `m1150-v4-public-base-row15-promoted-first-replay-failure-audit`

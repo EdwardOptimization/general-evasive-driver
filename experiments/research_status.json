@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1157,
+    "completed": 1158,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1148-v4-public-base-row15-promoted-actor-update-first-replay-design",
+    "task_id": "m1149-v4-public-base-row15-promoted-actor-update-first-replay-run",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1148-v4-public-base-row15-promoted-actor-update-first-replay-design.md",
-    "result_class": "first_replay_design_complete",
-    "decision": "row15_promoted_first_replay_design_admit_m1149"
+    "command_log": "docs/m1149-v4-public-base-row15-promoted-actor-update-first-replay-run.md",
+    "result_class": "row15_promoted_first_replay_rejected_wrong_history_safe",
+    "decision": "row15_promoted_first_replay_reject_wrong_history_safe_route_to_failure_audit"
   },
   "next_task": {
-    "id": "m1149-v4-public-base-row15-promoted-actor-update-first-replay-run",
+    "id": "m1150-v4-public-base-row15-promoted-first-replay-failure-audit",
     "status": "pending",
-    "priority": 11440,
+    "priority": 11450,
     "kind": "gate",
-    "hypothesis": "The M1147 best candidate preserves old-public source-diverse and row15-promoted materialized replay surfaces",
-    "command": "see experiments/manifests/m1149-v4-public-base-row15-promoted-actor-update-first-replay-run.json",
-    "success_artifact": "docs/m1149-v4-public-base-row15-promoted-actor-update-first-replay-run.md",
-    "notes": "Pending: first replay only; no actor training PPO family replay behavior full gate promotion private holdout or actor-input change"
+    "hypothesis": "M1149 failed because exact-objective actor coupling did not preserve wrong-history unsafe margins on the promoted materialized surface",
+    "command": "see experiments/manifests/m1150-v4-public-base-row15-promoted-first-replay-failure-audit.json",
+    "success_artifact": "docs/m1150-v4-public-base-row15-promoted-first-replay-failure-audit.md",
+    "notes": "Pending: audit M1149 wrong-history-safe failure only; no actor training PPO replay mining promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T012900Z"
+  "updated_at_utc": "20260528T021900Z"
 }

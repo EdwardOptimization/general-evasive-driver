@@ -2,9 +2,9 @@
   "id": "m1149-v4-public-base-row15-promoted-actor-update-first-replay-run",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "repair",
   "failure_types": [
-    "none"
+    "proof_washout"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -165,6 +165,43 @@
   "baseline_artifacts": [
     "docs/m1148-v4-public-base-row15-promoted-actor-update-first-replay-design.md"
   ],
-  "decision_rule": "M1149 may only run first replay for M1147. It cannot train actor weights, run PPO, promote, use private holdout, change actor inputs, run M1061 family replay, run fresh/OOD, or run behavior gates.",
-  "next_blocker": "m1149-v4-public-base-row15-promoted-actor-update-first-replay-run"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1149-v4-public-base-row15-promoted-actor-update-first-replay-run.md",
+    "summary": "runs/m1149_row15_promoted_actor_update_first_replay/summary.json",
+    "decision": "row15_promoted_first_replay_reject_wrong_history_safe_route_to_failure_audit",
+    "result_class": "row15_promoted_first_replay_rejected_wrong_history_safe",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "surface_count": 10,
+    "passed_surface_count": 8,
+    "failed_surface_count": 2,
+    "old_public_first_replay_pass": false,
+    "source_diverse_first_replay_pass": true,
+    "row15_promoted_materialized_replay_pass": false,
+    "first_replay_pass": false,
+    "lost_success_drop_events": 76,
+    "normal_lost_events": 0,
+    "wrong_history_safe_events": 76,
+    "failed_surfaces": [
+      "m267_m264",
+      "row15_promoted_materialized"
+    ],
+    "row15_promoted_materialized_lost_success_drop_events": 75,
+    "m267_m264_lost_success_drop_events": 1,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "family_intersection_replay_started": false,
+    "fresh_ood_started": false,
+    "behavior_gate_started": false,
+    "admitted_next": "first_replay_failure_audit_only",
+    "next_milestone": "m1150-v4-public-base-row15-promoted-first-replay-failure-audit"
+  },
+  "decision": "row15_promoted_first_replay_reject_wrong_history_safe_route_to_failure_audit",
+  "decision_rule": "M1149 may only run first replay for M1147. It cannot train actor weights, run PPO, promote, use private holdout, change actor inputs, run M1061 family replay, run fresh/OOD, or run behavior gates. Because M267 and the row15-promoted materialized surface failed through wrong-history-safe lost success drops with zero normal-lost events, the next step is a failure audit rather than replay escalation.",
+  "next_blocker": "m1150-v4-public-base-row15-promoted-first-replay-failure-audit"
 }

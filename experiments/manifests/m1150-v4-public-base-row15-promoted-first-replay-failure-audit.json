@@ -1,0 +1,170 @@
+{
+  "id": "m1150-v4-public-base-row15-promoted-first-replay-failure-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "repair",
+  "failure_types": [
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+      "runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1149_row15_promoted_actor_update_first_replay/summary.json",
+      "runs/m1149_row15_promoted_actor_update_first_replay/first_replay_summary.csv",
+      "runs/m1149_row15_promoted_actor_update_first_replay/lost_success_drop_rows.csv",
+      "runs/m1144_row15_promoted_objective_corpus/boundary_outcome_corpus.npz",
+      "runs/m1144_row15_promoted_objective_corpus/corpus_summary.json",
+      "runs/m1147_row15_promoted_actor_update_exact_eval/summary.json",
+      "runs/m1147_row15_promoted_actor_update_parameter_audit/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1149-v4-public-base-row15-promoted-actor-update-first-replay-run.json"
+    ],
+    "parent_objective": [
+      "audit why M1147 exact objective improvement makes M267 and row15-promoted materialized wrong-history branches safe"
+    ],
+    "derived_from": [
+      "m1149-v4-public-base-row15-promoted-actor-update-first-replay-run"
+    ],
+    "blocked_by": [
+      "M1149 rejects m1147_114602 first replay through 76 wrong-history-safe lost success-drop events"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "family-intersection replay before M1149 failure audit",
+      "behavior gates before M1149 failure audit",
+      "full public gate before M1149 failure audit",
+      "PPO from m1147_114602",
+      "promotion of m1147_114602"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1150-v4-public-base-row15-promoted-first-replay-failure-audit.md",
+  "public_gates": [
+    "M1150 must audit existing M1144, M1147, and M1149 artifacts only",
+    "M1150 must not train actor weights",
+    "M1150 must not run PPO",
+    "M1150 must not run replay",
+    "M1150 must not mine new rows",
+    "M1150 must not promote",
+    "M1150 must not use private holdout",
+    "M1150 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not mine new rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not continue to family-intersection replay before audit",
+    "do not weaken replay thresholds"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_target_materialization",
+    "evidence_axis": "G_audit: promoted-row15 wrong-history-safe failure",
+    "evidence_increment": "classifies the M1149 first-replay failure before any new update or replay escalation",
+    "claim_scope": "failure audit only; no training, replay, PPO, promotion, private holdout, or driver capability claim",
+    "stop_condition": [
+      "stop if failures concentrate in corpus rows absent from the M1144 objective",
+      "stop if exact objective improvement conflicts with closed-loop wrong-history unsafe margins",
+      "stop if duplicate/materialized rows require a source-diverse retention objective rather than another actor update"
+    ],
+    "fallback_plan": [
+      "if objective coverage is incomplete, design an expanded materialized objective or retention corpus",
+      "if coverage exists but wrong-history margins cross zero, design wrong-history unsafe-margin retention",
+      "if failure is a replay artifact, repair the gate/artifact before any update"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1149 first replay failed on M267 and row15-promoted materialized wrong-history-safe events",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit the M1149 first-replay proof-washout before any further update or replay escalation",
+    "admission_evidence": [
+      "M1149 has 76 lost success-drop events",
+      "M1149 has zero normal-lost events",
+      "M1149 failure class is wrong_history_safe",
+      "M1149 row15-promoted materialized replay loses 75 of 148 success drops"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not promote from failed first replay"
+    ],
+    "allowed_updates": [
+      "audit documentation",
+      "next design manifest if audit is clear",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "failure concentration by surface, pair, target, and source is explicit",
+      "M1144 objective coverage versus M1149 failed rows is explicit",
+      "normal-success retention versus wrong-history unsafe-margin loss is explicit",
+      "next repair route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1150 audits replay-calibrated wrong-history proof and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1150 reads existing M1144, M1147, and M1149 artifacts only and adds no new temporal task.",
+    "negative_result_policy": "Record M1149 as proof_washout and classify the row/materialized-surface mechanism before any new update.",
+    "allowed_claims": [
+      "failure audit for a level2 actor-coupling candidate",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "M1149 failed because the M1147 exact-objective actor update improves the deduplicated M1144 objective but does not preserve closed-loop wrong-history unsafe margins on the promoted materialized surface.",
+  "success_criteria": [
+    "audit artifact exists",
+    "M1149 failed rows are grouped by surface, target, physical pair, and source label",
+    "M1144 objective coverage of M1149 failed rows is classified",
+    "wrong-history terminal-margin crossing is separated from normal-history regression",
+    "next repair route is explicit",
+    "no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "failure concentration remains ambiguous",
+    "M1144 objective coverage remains ambiguous",
+    "next route is ambiguous",
+    "actor training, PPO, replay, mining, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "audit_m1149_failure",
+      "command": "inspect M1144 corpus, M1147 exact/parameter artifacts, and M1149 lost_success_drop_rows.csv; write docs/m1150-v4-public-base-row15-promoted-first-replay-failure-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1150-v4-public-base-row15-promoted-first-replay-failure-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1149-v4-public-base-row15-promoted-actor-update-first-replay-run.md",
+    "runs/m1149_row15_promoted_actor_update_first_replay/summary.json",
+    "runs/m1149_row15_promoted_actor_update_first_replay/lost_success_drop_rows.csv"
+  ],
+  "decision_rule": "M1150 may only audit the M1149 first-replay wrong-history-safe failure and route the next repair design. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, or continue to family-intersection replay.",
+  "next_blocker": "m1150-v4-public-base-row15-promoted-first-replay-failure-audit"
+}
