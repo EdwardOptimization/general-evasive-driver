@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1131-v4-public-base-row15-promoted-surface-refresh-design
+m1132-v4-public-base-row15-promoted-surface-refresh
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -123,13 +123,13 @@ audit. It does not prove PPO readiness, medium/long training stability,
 private-holdout generalization, paper-level evidence, real-vehicle transfer, or
 level3 anticipatory self-identification.
 
-M1130 completed the post-promotion synthesis. It closes
-`row15_projection_promotion_audit` and opens
-`row15_promoted_base_surface_refresh`. M1131 should design a current-base
-source-diverse protected/preference surface refresh for alpha `0.15` before any
-new PPO proposal. M1131 must not mine rows, run replay, train actor weights,
-run PPO, promote another checkpoint, use private holdout, or change actor
-inputs.
+M1131 completed the promoted-base surface refresh design. M1132 should run the
+pre-registered matched-current, matched-history outcome, and source-balanced
+boundary relocation pipeline for alpha `0.15`. The refresh family is
+`row15_current`, `previous_m1078_base`, `short61049`, `short61050`, and
+`short61051`. M1132 must not train actor weights, run PPO, optimize objectives,
+promote, use private holdout, change actor inputs, or weaken thresholds after
+seeing the result.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

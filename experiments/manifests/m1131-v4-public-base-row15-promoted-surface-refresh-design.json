@@ -146,6 +146,39 @@
   "baseline_artifacts": [
     "docs/m1130-v4-public-base-row15-projection-post-promotion-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1131-v4-public-base-row15-promoted-surface-refresh-design.md",
+    "decision": "row15_promoted_surface_refresh_design_admit_m1132_refresh",
+    "result_class": "row15_promoted_surface_refresh_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "current_public_gate_base": "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "refresh_family": [
+      "row15_current",
+      "previous_m1078_base",
+      "short61049",
+      "short61050",
+      "short61051"
+    ],
+    "primary_margin_bucket_width": 0.005,
+    "min_accepted_wrong_rows": 100,
+    "min_physical_pairs": 12,
+    "min_left_steps": 6,
+    "min_checkpoints": 4,
+    "min_targets": 2,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1132-v4-public-base-row15-promoted-surface-refresh"
+  },
+  "decision": "row15_promoted_surface_refresh_design_admit_m1132_refresh",
   "decision_rule": "M1131 may only design the current-base surface refresh. It cannot train actor weights, run PPO, mine rows, run replay, promote, or use private holdout.",
-  "next_blocker": "m1131-v4-public-base-row15-promoted-surface-refresh-design"
+  "next_blocker": "m1132-v4-public-base-row15-promoted-surface-refresh"
 }

@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1139,
+    "completed": 1140,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1130-v4-public-base-row15-projection-post-promotion-synthesis",
+    "task_id": "m1131-v4-public-base-row15-promoted-surface-refresh-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1130-v4-public-base-row15-projection-post-promotion-synthesis.md",
-    "result_class": "post_promotion_synthesis_promote_to_next_branch",
-    "decision": "row15_projection_post_promotion_synthesis_open_surface_refresh"
+    "command_log": "docs/m1131-v4-public-base-row15-promoted-surface-refresh-design.md",
+    "result_class": "row15_promoted_surface_refresh_design_complete",
+    "decision": "row15_promoted_surface_refresh_design_admit_m1132_refresh"
   },
   "next_task": {
-    "id": "m1131-v4-public-base-row15-promoted-surface-refresh-design",
+    "id": "m1132-v4-public-base-row15-promoted-surface-refresh",
     "status": "pending",
-    "priority": 11260,
+    "priority": 11270,
     "kind": "gate",
-    "hypothesis": "The promoted M1129 alpha_0_15 public-gate base needs a fresh source-diverse protected/preference surface before any new PPO proposal",
-    "command": "see experiments/manifests/m1131-v4-public-base-row15-promoted-surface-refresh-design.json",
-    "success_artifact": "docs/m1131-v4-public-base-row15-promoted-surface-refresh-design.md",
-    "notes": "Pending: design-only current-base surface refresh; no mining replay training PPO promotion private holdout or actor-input change"
+    "hypothesis": "The promoted alpha_0_15 public-gate base still exposes a fresh source-diverse wrong-history boundary surface suitable for later conversion",
+    "command": "see experiments/manifests/m1132-v4-public-base-row15-promoted-surface-refresh.json",
+    "success_artifact": "docs/m1132-v4-public-base-row15-promoted-surface-refresh.md",
+    "notes": "Pending: run pre-registered source-diverse promoted-base surface refresh; no actor training PPO objective optimization promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260527T224000Z"
+  "updated_at_utc": "20260527T225000Z"
 }

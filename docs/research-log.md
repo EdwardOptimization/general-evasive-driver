@@ -16136,3 +16136,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, replay, objective optimization, mining, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_projection_post_promotion_synthesis_open_surface_refresh`
 - next: `m1131-v4-public-base-row15-promoted-surface-refresh-design`
+
+## 20260527T225000Z - m1131-v4-public-base-row15-promoted-surface-refresh-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1131-v4-public-base-row15-promoted-surface-refresh-design.md`
+- result: M1131 designs the promoted-base fresh surface refresh for alpha `0.15` using source-balanced boundary relocation rather than the older post-hoc-only relocation path.
+- refresh family: `row15_current`, `previous_m1078_base`, `short61049`, `short61050`, and `short61051`.
+- acceptance thresholds: at least `100` accepted wrong-history rows, `12` physical pairs, `6` left steps, `4` checkpoints, `2` targets, `2` normal-margin buckets at `0.005m`, success-drop fraction `1.0`, max physical-pair fraction `0.25`, and zero control rows.
+- guardrail: no mining, replay, actor training, PPO, objective optimization, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_surface_refresh_design_admit_m1132_refresh`
+- next: `m1132-v4-public-base-row15-promoted-surface-refresh`
