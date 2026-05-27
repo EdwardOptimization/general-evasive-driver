@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1089,
+    "completed": 1090,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1080-v4-public-base-proof-hardened-surface-refresh-design",
+    "task_id": "m1081-v4-public-base-proof-hardened-surface-refresh",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1080-v4-public-base-proof-hardened-surface-refresh-design.md"
+    "command_log": "docs/m1081-v4-public-base-proof-hardened-surface-refresh.md"
   },
   "next_task": {
-    "id": "m1081-v4-public-base-proof-hardened-surface-refresh",
+    "id": "m1082-v4-public-base-proof-hardened-surface-retarget-design",
     "status": "pending",
-    "priority": 10760,
+    "priority": 10770,
     "kind": "gate",
-    "hypothesis": "Mine and robustness-gate a fresh source-diverse wrong-history boundary surface for the M1078 proof-hardened public-gate base",
-    "command": "see experiments/manifests/m1081-v4-public-base-proof-hardened-surface-refresh.json",
-    "success_artifact": "docs/m1081-v4-public-base-proof-hardened-surface-refresh.md",
-    "notes": "Pending: surface refresh only; no PPO no actor training no promotion no private holdout"
+    "hypothesis": "Design a retargeted current-base surface refresh after M1081 failed primary robustness on physical-pair diversity and success-drop fraction",
+    "command": "see experiments/manifests/m1082-v4-public-base-proof-hardened-surface-retarget-design.json",
+    "success_artifact": "docs/m1082-v4-public-base-proof-hardened-surface-retarget-design.md",
+    "notes": "Pending: design only; no PPO no actor training no mining no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T112740Z"
+  "updated_at_utc": "20260527T121559Z"
 }

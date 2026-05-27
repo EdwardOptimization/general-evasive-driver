@@ -1,0 +1,109 @@
+{
+  "id": "m1082-v4-public-base-proof-hardened-surface-retarget-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1081-v4-public-base-proof-hardened-surface-refresh.md",
+      "runs/m1081_proof_hardened_boundary_robustness_w005_seed108100/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1081-v4-public-base-proof-hardened-surface-refresh.json"
+    ],
+    "parent_objective": [
+      "design a retargeted current-base surface refresh after M1081 found a duplicate/source-diversity dominated surface"
+    ],
+    "derived_from": [
+      "m1081-v4-public-base-proof-hardened-surface-refresh"
+    ],
+    "blocked_by": [
+      "M1081 found a surface but primary robustness failed on physical-pair diversity, success-drop fraction, and pair dominance"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "converting the M1081 surface directly into replay/objective corpora",
+      "loosening M1081 robustness gates after failure"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1082-v4-public-base-proof-hardened-surface-retarget-design.md",
+  "public_gates": [
+    "M1082 must not train",
+    "M1082 must not run PPO",
+    "M1082 must not mine rows; design only",
+    "M1082 must not promote",
+    "M1082 must not use private holdout",
+    "M1082 must address physical-pair diversity and success-drop fraction explicitly"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not lower source-diversity or success-drop thresholds"
+  ],
+  "workflow_synthesis": {
+    "branch": "proof_hardened_base_surface_refresh",
+    "evidence_axis": "G_surface: retarget source-diverse proof refresh",
+    "evidence_increment": "pre-registers a retargeted sampling/boundary plan after M1081 duplicate-dominated failure",
+    "claim_scope": "design only; no mining, no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if design lowers robustness thresholds",
+      "stop if design does not increase physical-pair/source diversity",
+      "stop if design does not improve success-drop filtering pressure"
+    ],
+    "fallback_plan": [
+      "if design is accepted, run retargeted refresh in M1083",
+      "if design is inadequate, route to tooling audit for success-drop-filtered boundary relocation",
+      "if repeated retargeting fails, synthesize branch and pivot away from surface refresh"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1081 failed primary robustness as duplicate/source-diversity dominated",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A retargeted refresh with more probe sources, stricter source caps, and boundary relocation offsets can recover a source-diverse all-success-drop surface without weakening robustness thresholds.",
+  "success_criteria": [
+    "design artifact exists",
+    "retargeted sampling changes are explicit",
+    "physical-pair diversity mitigation is explicit",
+    "success-drop fraction mitigation is explicit",
+    "no robustness thresholds are weakened",
+    "no training, PPO, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "thresholds are weakened",
+    "physical-pair diversity mitigation is missing",
+    "success-drop mitigation is missing",
+    "training, PPO, or mining starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "write_retarget_design",
+      "command": "write docs/m1082-v4-public-base-proof-hardened-surface-retarget-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1082-v4-public-base-proof-hardened-surface-retarget-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1081-v4-public-base-proof-hardened-surface-refresh.md"
+  ],
+  "decision_rule": "M1082 may only design a retargeted refresh. It cannot train, run PPO, mine rows, promote, use private holdout, or weaken M1081 acceptance thresholds.",
+  "next_blocker": "m1082-v4-public-base-proof-hardened-surface-retarget-design"
+}

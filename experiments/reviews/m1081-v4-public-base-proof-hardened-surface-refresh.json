@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M1081 finds 252 accepted wrong-history rows but rejects direct conversion because physical-pair diversity and success-drop fraction fail primary robustness",
+  "failure_criteria": [
+    "surface is sparse",
+    "surface is duplicate-dominated",
+    "primary margin-bucket gate fails",
+    "wrong-history outcome sensitivity is absent",
+    "actor inputs change",
+    "training or PPO starts",
+    "private holdout is used"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not loosen source-diversity thresholds after seeing failure",
+    "do not route to medium PPO directly from M1081"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260527T121738Z",
+  "hypothesis": "The M1078 proof-hardened public-gate base family still exposes a fresh source-diverse wrong-history outcome boundary surface suitable for conversion into replay/objective corpora.",
+  "lineage": {
+    "blocked_by": [
+      "current public-gate base was promoted from public proof repairs; refreshed source-diverse current-base surface is needed before another medium PPO"
+    ],
+    "derived_from": [
+      "m1080-v4-public-base-proof-hardened-surface-refresh-design"
+    ],
+    "invalidates": [
+      "running medium PPO before current-base surface refresh",
+      "using only M1072/M1073 rows as current-base evidence"
+    ],
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1080-v4-public-base-proof-hardened-surface-refresh-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1080-v4-public-base-proof-hardened-surface-refresh-design.md"
+    ],
+    "parent_objective": [
+      "mine and robustness-gate a source-diverse current-base wrong-history boundary surface for the M1078 proof-hardened base"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1081-v4-public-base-proof-hardened-surface-refresh",
+  "next_blocker": "m1082-v4-public-base-proof-hardened-surface-retarget-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "proof_hardened_surface_refresh_duplicate_dominated_route_to_retarget_design",
+  "public_gates": [
+    "M1081 must not train or run PPO",
+    "M1081 must preserve actor inputs",
+    "M1081 must mine matched-current ambiguity for the four-checkpoint family",
+    "M1081 must run outcome, boundary relocation, and three robustness bucket stages",
+    "M1081 must use 0.005 as the primary margin-bucket acceptance gate",
+    "M1081 must not promote a checkpoint"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1081_proof_hardened_boundary_robustness_w005_seed108100/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "proof_hardened_surface_refresh_duplicate_dominated_route_to_retarget_design",
+    "milestone": "m1081-v4-public-base-proof-hardened-surface-refresh",
+    "reason": "M1081 finds 252 accepted wrong-history rows but rejects direct conversion because physical-pair diversity and success-drop fraction fail primary robustness",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "matched-current summary exists",
+    "outcome summary exists",
+    "boundary relocation summary exists",
+    "0.005 robustness summary exists and passes",
+    "accepted wrong-history rows >= 80",
+    "physical pairs >= 10",
+    "left steps >= 5",
+    "checkpoints >= 3",
+    "targets >= 2",
+    "margin_buckets >= 2 at width 0.005",
+    "success_drop_fraction == 1.0",
+    "no training or PPO occurs"
+  ],
+  "type": "gate"
+}

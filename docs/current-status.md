@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1081-v4-public-base-proof-hardened-surface-refresh
+m1082-v4-public-base-proof-hardened-surface-retarget-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -160,11 +160,14 @@ step is M1079: post-promotion synthesis and next-branch selection. M1079 closed
 current-base source-diverse protected/preference surface refresh before any new
 medium PPO. M1080 completed that design with a four-checkpoint family and a
 primary `0.005` margin-bucket robustness gate. The next step is M1081: run the
-pre-registered surface refresh.
+pre-registered surface refresh. M1081 found a non-sparse wrong-history surface
+but rejected direct conversion because the primary robustness gate failed on
+physical-pair diversity, success-drop fraction, and single-pair dominance. The
+next step is M1082: design a retargeted refresh without weakening thresholds.
 
 ```text
 decision:
-  proof_hardened_surface_refresh_design_admit_m1081_refresh
+  proof_hardened_surface_refresh_duplicate_dominated_route_to_retarget_design
 ```
 
 M1068 design:
@@ -498,6 +501,26 @@ mining_started: false
 promoted: false
 private_holdout_used: false
 next: m1081-v4-public-base-proof-hardened-surface-refresh
+```
+
+M1081 result:
+
+```text
+result_class: proof_hardened_surface_refresh_duplicate_dominated
+matched_current_accepted_pairs: 3129
+matched_current_physical_pairs: 220
+boundary_accepted_wrong_history_rows: 252
+boundary_wrong_history_success_drop_count: 192
+primary_w005_passed: false
+primary_w005_decision: reject_duplicate_dominated_boundary_surface
+primary_w005_physical_pairs: 9
+primary_w005_success_drop_fraction: 0.7619047619
+primary_w005_max_rows_per_physical_pair_fraction: 0.253968254
+training_started: false
+ppo_used: false
+promoted: false
+private_holdout_used: false
+next: m1082-v4-public-base-proof-hardened-surface-retarget-design
 ```
 
 M1058 result:
