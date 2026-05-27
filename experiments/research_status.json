@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1109,
+    "completed": 1110,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1100-v4-public-base-family-aggregate-cross-family-replay-audit",
+    "task_id": "m1101-v4-public-base-family-aggregate-intersection-selector-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1100-v4-public-base-family-aggregate-cross-family-replay-audit.md"
+    "command_log": "docs/m1101-v4-public-base-family-aggregate-intersection-selector-design.md"
   },
   "next_task": {
-    "id": "m1101-v4-public-base-family-aggregate-intersection-selector-design",
+    "id": "m1102-v4-public-base-family-aggregate-intersection-selector-implementation",
     "status": "pending",
-    "priority": 10960,
-    "kind": "gate",
-    "hypothesis": "Design a deterministic selector over M1099 replay-calibrated all-policy intersection rows",
-    "command": "see experiments/manifests/m1101-v4-public-base-family-aggregate-intersection-selector-design.json",
-    "success_artifact": "docs/m1101-v4-public-base-family-aggregate-intersection-selector-design.md",
-    "notes": "Pending: design only; no PPO no training no replay no objective optimization no mining no promotion no private holdout"
+    "priority": 10970,
+    "kind": "infrastructure",
+    "hypothesis": "Implement and run the deterministic selector over existing M1097/M1099 replay artifacts",
+    "command": "see experiments/manifests/m1102-v4-public-base-family-aggregate-intersection-selector-implementation.json",
+    "success_artifact": "docs/m1102-v4-public-base-family-aggregate-intersection-selector-implementation.md",
+    "notes": "Pending: selector only over existing artifacts; no PPO no training no replay no objective optimization no mining no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T193435Z"
+  "updated_at_utc": "20260527T193935Z"
 }

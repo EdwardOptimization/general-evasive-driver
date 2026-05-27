@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1101-v4-public-base-family-aggregate-intersection-selector-design
+m1102-v4-public-base-family-aggregate-intersection-selector-implementation
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -245,11 +245,17 @@ valid, but direct mixed-source objective optimization is not defensible because
 intersection remains broad enough: `133` rows, `14` physical pairs, `4` source
 labels, `3` targets, and `9` left steps. M1100 therefore routes to M1101:
 design a deterministic family-intersection selector over the M1099
-replay-calibrated rows before any objective optimization.
+replay-calibrated rows before any objective optimization. M1101 completes that
+design. The selector will keep only rows that pass normal-history success and
+wrong-history failure under all four family policies, preserve source and
+duplicate-geometry metadata, and fail closed unless it keeps at least `80`
+rows, `10` physical pairs, `4` source labels, `3` targets, and `8` left steps.
+The next step is M1102: implement and run the selector over existing M1097/M1099
+artifacts only.
 
 ```text
 decision:
-  family_aggregate_cross_family_audit_route_to_intersection_selector_design
+  family_aggregate_intersection_selector_design_admit_implementation
 ```
 
 M1068 design:

@@ -15810,3 +15810,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: direct mixed-source objective optimization over all `146` rows is not defensible, but source-specific corpora and target-base rebuild are premature because the all-policy intersection is not sparse
 - decision: `family_aggregate_cross_family_audit_route_to_intersection_selector_design`
 - next: `m1101-v4-public-base-family-aggregate-intersection-selector-design`
+
+## 20260527T193935Z - m1101-v4-public-base-family-aggregate-intersection-selector-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1101-v4-public-base-family-aggregate-intersection-selector-design.md`
+- result: M1101 designs the deterministic family-intersection selector selected by M1100. The keep rule requires every family policy to have `normal_success=true`, `wrong_history_success=false`, `success_drop=true`, and finite margins for the same `family_row_id`. The selector must preserve source and duplicate-geometry metadata and write kept rows, dropped rows, a policy pass matrix, source/target summaries, and summary JSON.
+- diversity gate: kept rows must have at least `80` rows, `10` physical pairs, `4` source labels, `3` targets, and `8` left steps, with max physical-pair fraction `<= 0.20` and max source-label fraction `<= 0.45`
+- decision: `family_aggregate_intersection_selector_design_admit_implementation`
+- next: `m1102-v4-public-base-family-aggregate-intersection-selector-implementation`

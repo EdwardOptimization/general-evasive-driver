@@ -163,6 +163,37 @@
     "docs/m1100-v4-public-base-family-aggregate-cross-family-replay-audit.md",
     "runs/m1099_family_aggregate_replay_sanity/cross_family_replay_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1101-v4-public-base-family-aggregate-intersection-selector-design.md",
+    "decision": "family_aggregate_intersection_selector_design_admit_implementation",
+    "result_class": "family_intersection_selector_contract_defined",
+    "failure_types": [
+      "none"
+    ],
+    "expected_all_policy_intersection_rows": 133,
+    "expected_all_policy_intersection_physical_pairs": 14,
+    "expected_all_policy_intersection_source_labels": 4,
+    "expected_all_policy_intersection_targets": 3,
+    "expected_all_policy_intersection_left_steps": 9,
+    "minimum_rows": 80,
+    "minimum_physical_pairs": 10,
+    "minimum_source_labels": 4,
+    "minimum_targets": 3,
+    "minimum_left_steps": 8,
+    "max_physical_pair_fraction": 0.2,
+    "max_source_label_fraction": 0.45,
+    "training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1102-v4-public-base-family-aggregate-intersection-selector-implementation"
+  },
+  "decision": "family_aggregate_intersection_selector_design_admit_implementation",
   "decision_rule": "M1101 may only design the family-intersection selector. It cannot train, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1101-v4-public-base-family-aggregate-intersection-selector-design"
+  "next_blocker": "m1102-v4-public-base-family-aggregate-intersection-selector-implementation"
 }

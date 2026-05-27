@@ -1,0 +1,184 @@
+{
+  "id": "m1102-v4-public-base-family-aggregate-intersection-selector-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1101-v4-public-base-family-aggregate-intersection-selector-design.md",
+      "runs/m1097_family_aggregate_boundary_conversion/family_aggregate_boundary_rows.csv",
+      "runs/m1099_family_aggregate_replay_sanity/cross_family_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1101-v4-public-base-family-aggregate-intersection-selector-design.json"
+    ],
+    "parent_objective": [
+      "implement and run the deterministic family-intersection selector over existing M1099 replay artifacts"
+    ],
+    "derived_from": [
+      "m1101-v4-public-base-family-aggregate-intersection-selector-design"
+    ],
+    "blocked_by": [
+      "M1101 defines the selector contract and blocks objective conversion until selector artifacts pass diversity gates"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "direct objective conversion from all 146 M1097 rows",
+      "selector implementation that calls replay again",
+      "selector implementation that drops source or duplicate metadata"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1102-v4-public-base-family-aggregate-intersection-selector-implementation.md",
+  "public_gates": [
+    "M1102 may implement and run selector only over existing artifacts",
+    "M1102 must not train",
+    "M1102 must not run PPO",
+    "M1102 must not run replay",
+    "M1102 must not run objective optimization",
+    "M1102 must not mine rows",
+    "M1102 must not promote",
+    "M1102 must not use private holdout",
+    "M1102 must preserve actor inputs",
+    "selector output must pass diversity gates before objective conversion is admitted"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken selector thresholds",
+    "do not write mixed-source objective NPZ"
+  ],
+  "workflow_synthesis": {
+    "branch": "family_aggregate_boundary_conversion",
+    "evidence_axis": "G_conversion: family-intersection selector implementation",
+    "evidence_increment": "implements selector artifacts needed before any objective conversion",
+    "claim_scope": "infrastructure/proof preprocessing only; no replay, objective run, training, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if selector output fails diversity gates",
+      "stop if replay artifact coverage is incomplete",
+      "stop if source or duplicate metadata is lost"
+    ],
+    "fallback_plan": [
+      "if diversity fails, route to source-specific objective corpora design",
+      "if coverage is incomplete, repair M1099 replay artifacts",
+      "if metadata is lost, repair selector implementation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1101 admits selector implementation over M1099 replay artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run selector without replay, training, PPO, or objective optimization",
+    "admission_evidence": [
+      "M1101 defines keep/drop rule and diversity gates",
+      "M1100 finds an expected 133-row all-policy intersection"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not run replay",
+      "do not run objective optimization",
+      "do not promote from selector output"
+    ],
+    "allowed_updates": [
+      "selector code",
+      "focused tests",
+      "selector artifacts",
+      "milestone documentation",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "selector output rows are explicit",
+      "diversity gate pass/fail is explicit",
+      "dropped row reasons are explicit",
+      "next objective conversion route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1102 selects matched-current replay rows and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1102 reads M1099 replay artifacts only and adds no new temporal task.",
+    "negative_result_policy": "If selector output is sparse, classify as scenario_sampling_failure and route to source-specific objective corpora rather than weakening gates.",
+    "allowed_claims": [
+      "selector artifact for a level2 source-balanced proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The deterministic selector can produce a broad all-policy-intersection row set from M1099 artifacts while preserving source and duplicate metadata.",
+  "success_criteria": [
+    "selector implementation exists",
+    "focused tests pass",
+    "family_intersection_rows.csv exists",
+    "dropped_cross_family_rows.csv exists",
+    "policy_pass_matrix.csv exists",
+    "source_summary.csv exists",
+    "target_summary.csv exists",
+    "summary.json exists",
+    "diversity gate result is explicit",
+    "no training, PPO, replay, objective optimization, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "selector implementation is missing",
+    "selector calls replay",
+    "selector output loses source or duplicate metadata",
+    "diversity gate result is missing",
+    "training, PPO, replay, objective optimization, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "implement_and_run_selector",
+      "command": "edit src/autodrift/family_aggregate_intersection_selector.py and tests, then run selector over existing M1097/M1099 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/family_aggregate_intersection_selector.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_family_aggregate_intersection_selector.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m1102_family_aggregate_intersection_selector/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1102-v4-public-base-family-aggregate-intersection-selector-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1101-v4-public-base-family-aggregate-intersection-selector-design.md",
+    "runs/m1099_family_aggregate_replay_sanity/cross_family_replay_rows.csv"
+  ],
+  "decision_rule": "M1102 may only implement and run selector over existing artifacts. It cannot train, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1102-v4-public-base-family-aggregate-intersection-selector-implementation"
+}
