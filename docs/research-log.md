@@ -15691,3 +15691,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1059 audits the M1058 replay failure. The three failed rows are wrong-history successes under `short61050` with very small positive margins: row `0` margin `+0.000086`, row `1` margin `+0.000259`, and row `21` margin `+0.000114`. The audit classifies the blocker as missing family-intersection replay filtering rather than objective failure or compact-corpus sparsity. The next route is a family-intersection compact corpus design that keeps rows only if they preserve normal success and wrong-history failure across the short-PPO family.
 - decision: `post_short_promotion_conversion_replay_failure_route_to_family_intersection_design`
 - next: `m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design`
+
+## 20260527T045254Z - m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design.md`
+- result: M1060 designs a deterministic family-intersection compact corpus selector. The selector must start from `runs/m1056_margin_bucket_width_0005/accepted_wrong_history_rows.csv`, replay/filter rows against the short-PPO family `short61049/short61050/short61051`, keep only rows with normal success and wrong-history failure under every family policy, cap rows at two per physical pair, and preserve at least `20` rows, `10` physical pairs, and `2` targets before objective/replay sanity. It blocks PPO, actor training, promotion, private holdout, and actor-input changes.
+- decision: `post_short_promotion_family_intersection_design_admit_m1061_selector`
+- next: `m1061-v4-public-base-post-short-promotion-family-intersection-corpus`

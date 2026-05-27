@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1068,
+    "completed": 1069,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit",
+    "task_id": "m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit.md"
+    "command_log": "docs/m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design.md"
   },
   "next_task": {
-    "id": "m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design",
+    "id": "m1061-v4-public-base-post-short-promotion-family-intersection-corpus",
     "status": "pending",
-    "priority": 10550,
-    "kind": "gate",
-    "hypothesis": "Design family-intersection replay-calibrated compact corpus filtering after M1058 replay failure",
-    "command": "see experiments/manifests/m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design.json",
-    "success_artifact": "docs/m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design.md",
-    "notes": "Pending: design only; no PPO no private holdout"
+    "priority": 10560,
+    "kind": "objective_sanity",
+    "hypothesis": "Implement and run family-intersection replay-calibrated compact corpus filtering after M1058 replay failure",
+    "command": "see experiments/manifests/m1061-v4-public-base-post-short-promotion-family-intersection-corpus.json",
+    "success_artifact": "docs/m1061-v4-public-base-post-short-promotion-family-intersection-corpus.md",
+    "notes": "Pending: selector implementation and proof sanity only; no PPO no private holdout"
   },
-  "updated_at_utc": "20260527T045032Z"
+  "updated_at_utc": "20260527T045254Z"
 }

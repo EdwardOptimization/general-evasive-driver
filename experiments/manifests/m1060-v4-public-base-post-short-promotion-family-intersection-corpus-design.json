@@ -102,6 +102,32 @@
   "baseline_artifacts": [
     "docs/m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit.md"
   ],
-  "decision_rule": "M1060 must design family-intersection compact corpus filtering and cannot train, run PPO, promote, or use private holdout.",
-  "next_blocker": "m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design.md",
+    "decision": "post_short_promotion_family_intersection_design_admit_m1061_selector",
+    "result_class": "post_short_promotion_family_intersection_corpus_design",
+    "failure_types": [
+      "none"
+    ],
+    "source_rows": "runs/m1056_margin_bucket_width_0005/accepted_wrong_history_rows.csv",
+    "family_policies": [
+      "short61049",
+      "short61050",
+      "short61051"
+    ],
+    "min_rows": 20,
+    "min_physical_pairs": 10,
+    "min_targets": 2,
+    "max_rows_per_physical_pair": 2,
+    "optional_wrong_history_margin_floor": -0.0001,
+    "training_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "promoted": false,
+    "next_milestone": "m1061-v4-public-base-post-short-promotion-family-intersection-corpus"
+  },
+  "decision": "post_short_promotion_family_intersection_design_admit_m1061_selector",
+  "decision_rule": "M1060 designs family-intersection replay-calibrated compact corpus filtering and admits M1061 selector implementation; it cannot train, run PPO, promote, or use private holdout.",
+  "next_blocker": "m1061-v4-public-base-post-short-promotion-family-intersection-corpus"
 }
