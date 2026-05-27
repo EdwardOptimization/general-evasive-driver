@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1122,
+    "completed": 1123,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1113-v4-public-base-materialized-actor-update-proof-washout-audit",
+    "task_id": "m1114-v4-public-base-materialized-failed-wrong-history-retention-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1113-v4-public-base-materialized-actor-update-proof-washout-audit.md"
+    "command_log": "docs/m1114-v4-public-base-materialized-failed-wrong-history-retention-design.md"
   },
   "next_task": {
-    "id": "m1114-v4-public-base-materialized-failed-wrong-history-retention-design",
+    "id": "m1115-v4-public-base-materialized-failed-wrong-history-retention-export",
     "status": "pending",
-    "priority": 11090,
-    "kind": "gate",
-    "hypothesis": "Design failed wrong-history retention before another materialized actor update",
-    "command": "see experiments/manifests/m1114-v4-public-base-materialized-failed-wrong-history-retention-design.json",
-    "success_artifact": "docs/m1114-v4-public-base-materialized-failed-wrong-history-retention-design.md",
-    "notes": "Pending: design only; no training no PPO no replay no corpus export no mining no promotion no private holdout no backup-candidate retry"
+    "priority": 11100,
+    "kind": "infrastructure",
+    "hypothesis": "Export failed wrong-history registry and target-base retention anchor without short-family hidden leakage",
+    "command": "see experiments/manifests/m1115-v4-public-base-materialized-failed-wrong-history-retention-export.json",
+    "success_artifact": "docs/m1115-v4-public-base-materialized-failed-wrong-history-retention-export.md",
+    "notes": "Pending: implement/export registry and target-base anchors; no training no PPO no replay no mining no promotion no private holdout no backup-candidate retry"
   },
-  "updated_at_utc": "20260527T203538Z"
+  "updated_at_utc": "20260527T204029Z"
 }

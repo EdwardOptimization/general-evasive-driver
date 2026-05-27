@@ -15944,3 +15944,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1112 is not a broad normal-driving collapse or contract artifact. The actor update makes wrong-history rollouts safe while preserving normal success and aggregate behavior, so the missing constraint is closed-loop rejected-history trajectory retention.
 - decision: `materialized_actor_update_proof_washout_audit_route_to_failed_wrong_history_retention_design`
 - next: `m1114-v4-public-base-materialized-failed-wrong-history-retention-design`
+
+## 20260527T204029Z - m1114-v4-public-base-materialized-failed-wrong-history-retention-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1114-v4-public-base-materialized-failed-wrong-history-retention-design.md`
+- result: M1114 designs the failed wrong-history retention route. M1115 should export a deterministic failed-row registry, split current-base rows from short-family source rows, and export target-base rejected-history trajectory anchors only for rows that can be represented in the current public-base hidden-state space.
+- guardrail: short61049/short61050/short61051 hidden states must not be used directly as training anchors; family-source failed rows remain replay diagnostics until target-policy materialization is designed.
+- decision: `materialized_failed_wrong_history_retention_design_admit_export`
+- next: `m1115-v4-public-base-materialized-failed-wrong-history-retention-export`

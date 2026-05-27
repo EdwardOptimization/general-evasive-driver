@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1114-v4-public-base-materialized-failed-wrong-history-retention-design
+m1115-v4-public-base-materialized-failed-wrong-history-retention-export
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -317,11 +317,15 @@ candidate retry. M1113 completes that audit: across failed gates there are `47`
 lost success-drop events, `0` normal-lost events, and `47` wrong-history-safe
 events. The missing constraint is therefore closed-loop rejected-history
 trajectory retention, not normal-history repair. The next step is M1114: design
-failed wrong-history retention before any new actor update.
+failed wrong-history retention before any new actor update. M1114 completes
+that design. It requires M1115 to export a failed-row registry and target-base
+rejected-history trajectory anchors, while keeping short61049/short61050/
+short61051 rows as replay diagnostics until target-policy materialization is
+designed. Direct short-family hidden-state anchors are forbidden.
 
 ```text
 decision:
-  materialized_actor_update_proof_washout_audit_route_to_failed_wrong_history_retention_design
+  materialized_failed_wrong_history_retention_design_admit_export
 ```
 
 M1068 design:

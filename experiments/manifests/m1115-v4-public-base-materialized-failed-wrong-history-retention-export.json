@@ -1,0 +1,173 @@
+{
+  "id": "m1115-v4-public-base-materialized-failed-wrong-history-retention-export",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1114-v4-public-base-materialized-failed-wrong-history-retention-design.md",
+      "runs/m1112_materialized_actor_update_full_public_gate/summary.json",
+      "runs/m1112_materialized_actor_update_full_public_gate/proof_replay_summary.csv",
+      "runs/m1112_materialized_actor_update_full_public_gate/family_intersection_public_gate/replay_gate_summary.csv",
+      "runs/m1112_materialized_actor_update_full_public_gate/source_diverse_protected_diagnostic/replay_gate_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1114-v4-public-base-materialized-failed-wrong-history-retention-design.json"
+    ],
+    "parent_objective": [
+      "export failed wrong-history registry and target-base rejected trajectory anchor"
+    ],
+    "derived_from": [
+      "m1114-v4-public-base-materialized-failed-wrong-history-retention-design"
+    ],
+    "blocked_by": [
+      "M1114 requires target-base materialization before training from failed wrong-history rows"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "using short-family hidden states directly as training anchors",
+      "actor update before failed-row retention export",
+      "PPO before failed-row retention export"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1115-v4-public-base-materialized-failed-wrong-history-retention-export.md",
+  "public_gates": [
+    "M1115 may implement/export failed-row registry and target-base trajectory anchors",
+    "M1115 must not train actor weights",
+    "M1115 must not run PPO",
+    "M1115 must not run replay",
+    "M1115 must not mine new rows",
+    "M1115 must not promote",
+    "M1115 must not use private holdout",
+    "M1115 must preserve actor inputs",
+    "M1115 must not use short-family hidden states as training anchors"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not mine new rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken replay gates",
+    "do not try backup M1110 candidates",
+    "do not use short-family hidden states as training anchors"
+  ],
+  "workflow_synthesis": {
+    "branch": "materialized_objective_corpus_sanity",
+    "evidence_axis": "G_artifact: failed wrong-history retention export",
+    "evidence_increment": "creates the registry and target-base trajectory anchor needed before another actor update",
+    "claim_scope": "export/infrastructure only; no training, replay, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if failed event count is not 47",
+      "stop if any exported training anchor uses short-family hidden states",
+      "stop if trajectory anchor fails load sanity"
+    ],
+    "fallback_plan": [
+      "if registry counts mismatch, audit M1112 artifact parsing",
+      "if target-base split is sparse, route to materialization design for family rows",
+      "if anchor export fails, route to exporter implementation audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1114 admits failed wrong-history retention export",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "export failed-row retention artifacts before any further training",
+    "admission_evidence": [
+      "M1113 classifies all lost success-drop events as wrong-history-safe",
+      "M1114 designs target-base-only trajectory-anchor export"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not promote from export"
+    ],
+    "allowed_updates": [
+      "export tooling",
+      "failed-row registry artifacts",
+      "trajectory anchor artifacts",
+      "focused tests",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "registry count pass/fail is explicit",
+      "target-base/family-source split is explicit",
+      "anchor load sanity is explicit",
+      "next actor-update design route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1115 exports retention artifacts for replay-calibrated wrong-history proof and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1115 exports trajectory anchors from existing failed rows and adds no new task.",
+    "negative_result_policy": "If target-base export is sparse or invalid, route to family materialization design rather than training.",
+    "allowed_claims": [
+      "retention artifact export for a level2 proof-washout failure",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The M1112 failed wrong-history rows can be exported into a deterministic registry and target-base trajectory anchor without using short-family hidden states.",
+  "success_criteria": [
+    "failed_wrong_history_events.csv exists",
+    "failed event count is 47",
+    "normal_lost count is 0",
+    "wrong_history_safe count is 47",
+    "target_base_failed_rows.csv exists",
+    "family_source_failed_rows.csv exists",
+    "target_base_rejected_trajectory_anchor.npz loads",
+    "combined_target_base_rejected_anchor.npz loads",
+    "short-family rows are not included in training anchor",
+    "no actor training, PPO, replay, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "failed event count mismatch",
+    "normal_lost count is nonzero",
+    "anchor includes short-family hidden states",
+    "anchor load sanity fails",
+    "actor training, PPO, replay, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "implement_and_run_failed_wrong_history_export",
+      "command": "implement/run autodrift.materialized_failed_wrong_history_retention_export into runs/m1115_materialized_failed_wrong_history_retention_export"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1115_materialized_failed_wrong_history_retention_export/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1115-v4-public-base-materialized-failed-wrong-history-retention-export.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1114-v4-public-base-materialized-failed-wrong-history-retention-design.md",
+    "runs/m1112_materialized_actor_update_full_public_gate/summary.json"
+  ],
+  "decision_rule": "M1115 may only implement/export failed-row retention artifacts. It cannot train actor weights, run PPO, run replay, mine new rows, promote, use private holdout, change actor inputs, weaken gates, retry backup candidates, or use short-family hidden states as training anchors.",
+  "next_blocker": "m1115-v4-public-base-materialized-failed-wrong-history-retention-export"
+}
