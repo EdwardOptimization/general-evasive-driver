@@ -16197,3 +16197,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, objective optimization, actor training, PPO, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_replay_sanity_design_admit_m1136_run`
 - next: `m1136-v4-public-base-row15-promoted-replay-sanity`
+
+## 20260527T234000Z - m1136-v4-public-base-row15-promoted-replay-sanity
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1136-v4-public-base-row15-promoted-replay-sanity.md`
+- source gate: all `172` source rows replay correctly under their own source policies: normal success `172`, wrong-history success `0`, success drops `172`, `15` physical pairs, `5` checkpoints, and `3` targets.
+- per-source gates: previous base `7/7`, row15 current `28/28`, short61049 `51/51`, short61050 `37/37`, short61051 `49/49`, all with zero wrong-history successes.
+- cross-family report: `860` replay rows, `65` summary rows, and `34` failed duplicate geometry groups. Direct mixed-family objective optimization remains blocked.
+- guardrail: no objective optimization, actor training, PPO, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_replay_sanity_source_gate_pass_route_to_cross_family_audit`
+- next: `m1137-v4-public-base-row15-promoted-cross-family-replay-audit`

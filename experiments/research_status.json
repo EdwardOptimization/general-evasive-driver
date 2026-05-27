@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1144,
+    "completed": 1145,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1135-v4-public-base-row15-promoted-replay-sanity-design",
+    "task_id": "m1136-v4-public-base-row15-promoted-replay-sanity",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1135-v4-public-base-row15-promoted-replay-sanity-design.md",
-    "result_class": "row15_promoted_replay_sanity_design_complete",
-    "decision": "row15_promoted_replay_sanity_design_admit_m1136_run"
+    "command_log": "docs/m1136-v4-public-base-row15-promoted-replay-sanity.md",
+    "result_class": "family_aggregate_replay_sanity_source_gate_pass",
+    "decision": "row15_promoted_replay_sanity_source_gate_pass_route_to_cross_family_audit"
   },
   "next_task": {
-    "id": "m1136-v4-public-base-row15-promoted-replay-sanity",
+    "id": "m1137-v4-public-base-row15-promoted-cross-family-replay-audit",
     "status": "pending",
-    "priority": 11310,
+    "priority": 11320,
     "kind": "gate",
-    "hypothesis": "M1134 aggregate rows reproduce source-policy normal-history success and wrong-history failure under replay",
-    "command": "see experiments/manifests/m1136-v4-public-base-row15-promoted-replay-sanity.json",
-    "success_artifact": "docs/m1136-v4-public-base-row15-promoted-replay-sanity.md",
-    "notes": "Pending: source-aware replay sanity only; no objective optimization training PPO promotion private holdout or actor-input change"
+    "hypothesis": "M1136 source-policy replay validates the aggregate export, but cross-family failures require an audit before objective conversion",
+    "command": "see experiments/manifests/m1137-v4-public-base-row15-promoted-cross-family-replay-audit.json",
+    "success_artifact": "docs/m1137-v4-public-base-row15-promoted-cross-family-replay-audit.md",
+    "notes": "Pending: audit-only cross-family route selection; no replay objective optimization training PPO promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260527T233000Z"
+  "updated_at_utc": "20260527T234000Z"
 }

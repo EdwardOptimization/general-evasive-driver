@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1136-v4-public-base-row15-promoted-replay-sanity
+m1137-v4-public-base-row15-promoted-cross-family-replay-audit
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -123,16 +123,17 @@ audit. It does not prove PPO readiness, medium/long training stability,
 private-holdout generalization, paper-level evidence, real-vehicle transfer, or
 level3 anticipatory self-identification.
 
-M1135 completed source-aware replay sanity design for the M1134 aggregate rows:
+M1136 completed source-aware replay sanity for the M1134 aggregate rows:
 
 ```text
 runs/m1134_row15_promoted_family_aggregate_conversion/family_aggregate_boundary_rows.csv
 ```
 
-M1136 should run only the pre-registered family aggregate replay sanity command.
-It must produce source-policy gate, cross-family replay, and duplicate geometry
-reports. It must not optimize an objective, train actor weights, run PPO,
-promote, use private holdout, or change actor inputs.
+The source-policy gate passes for all `172` rows, but the cross-family report
+has `34` failed duplicate geometry groups. M1137 should audit this report and
+choose family-intersection, source-specific objective, or target-base
+materialization route. It must not run replay, optimize an objective, train
+actor weights, run PPO, promote, use private holdout, or change actor inputs.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

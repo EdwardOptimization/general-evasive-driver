@@ -1,0 +1,157 @@
+{
+  "id": "m1137-v4-public-base-row15-promoted-cross-family-replay-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1136_row15_promoted_family_aggregate_replay_sanity/cross_family_policy_summary.csv",
+      "runs/m1136_row15_promoted_family_aggregate_replay_sanity/failed_duplicate_geometry_groups.csv",
+      "docs/m1136-v4-public-base-row15-promoted-replay-sanity.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1136-v4-public-base-row15-promoted-replay-sanity.json"
+    ],
+    "parent_objective": [
+      "audit cross-family replay report after source-policy replay sanity pass"
+    ],
+    "derived_from": [
+      "m1136-v4-public-base-row15-promoted-replay-sanity"
+    ],
+    "blocked_by": [
+      "cross-family replay report has not been audited"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "direct mixed-family objective optimization after M1136",
+      "ignoring duplicate geometry failures"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1137-v4-public-base-row15-promoted-cross-family-replay-audit.md",
+  "public_gates": [
+    "M1137 must audit existing M1136 artifacts only",
+    "M1137 must choose family-intersection, source-specific, or target-base materialization route",
+    "M1137 must not train actor weights",
+    "M1137 must not run PPO",
+    "M1137 must not run replay",
+    "M1137 must not run objective optimization",
+    "M1137 must not promote",
+    "M1137 must not use private holdout",
+    "M1137 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not claim cross-family rows are objective-ready without audit"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_base_surface_refresh",
+    "evidence_axis": "G_audit: cross-family replay route selection",
+    "evidence_increment": "audits the M1136 cross-family report and chooses the next conversion/objective route",
+    "claim_scope": "process audit only; no replay, objective optimization, training, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if no route preserves source-policy proof",
+      "stop if cross-family failures are too broad for family-intersection conversion",
+      "stop if direct mixed objective is being proposed"
+    ],
+    "fallback_plan": [
+      "if all-policy intersection remains broad, route to family-intersection selector design",
+      "if intersection is too sparse, route to source-specific objective corpus design",
+      "if hidden-state mismatch dominates, route to target-base materialization design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1136 source gate pass with cross-family failures",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit cross-family replay failures before objective conversion",
+    "admission_evidence": [
+      "M1136 source-policy source-row gate passes",
+      "M1136 cross-family report has failed duplicate geometry groups"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not run objective optimization"
+    ],
+    "allowed_updates": [
+      "audit document",
+      "pre-register next route if audit supports it",
+      "queue, status, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "source gate conclusion is explicit",
+      "cross-family failure scope is explicit",
+      "next route is explicit",
+      "unsupported objective claims are blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1137 audits matched-current proof rows and cannot upgrade self-ID claim level.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1137 is audit-only and adds no pre-emergency warm-up evidence.",
+    "negative_result_policy": "Cross-family failures must block direct mixed objective optimization unless a calibrated intersection or target-base materialization route is selected.",
+    "allowed_claims": [
+      "cross-family replay audit route selection",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "M1136 source-policy replay validates the aggregate export, but cross-family failures require an audit before objective conversion.",
+  "success_criteria": [
+    "audit artifact exists",
+    "source-policy source-row pass is summarized",
+    "cross-family failure scope is summarized",
+    "failed duplicate geometry groups are summarized",
+    "next conversion/objective route is explicit",
+    "no training, PPO, replay, objective optimization, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "cross-family failures are ignored",
+    "direct mixed-family objective optimization is admitted",
+    "training, PPO, replay, objective optimization, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_cross_family_audit",
+      "command": "write docs/m1137-v4-public-base-row15-promoted-cross-family-replay-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1137-v4-public-base-row15-promoted-cross-family-replay-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1136-v4-public-base-row15-promoted-replay-sanity.md",
+    "runs/m1136_row15_promoted_family_aggregate_replay_sanity/summary.json"
+  ],
+  "decision_rule": "M1137 may only audit existing M1136 cross-family replay artifacts and choose the next route. It cannot train actor weights, run PPO, run replay, optimize objectives, promote, use private holdout, change actor inputs, or admit direct mixed-family objective optimization.",
+  "next_blocker": "m1137-v4-public-base-row15-promoted-cross-family-replay-audit"
+}

@@ -165,6 +165,43 @@
     "docs/m1135-v4-public-base-row15-promoted-replay-sanity-design.md",
     "runs/m1134_row15_promoted_family_aggregate_conversion/family_aggregate_boundary_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1136-v4-public-base-row15-promoted-replay-sanity.md",
+    "summary": "runs/m1136_row15_promoted_family_aggregate_replay_sanity/summary.json",
+    "decision": "row15_promoted_replay_sanity_source_gate_pass_route_to_cross_family_audit",
+    "result_class": "family_aggregate_replay_sanity_source_gate_pass",
+    "failure_types": [
+      "none"
+    ],
+    "source_policy_gate_pass": true,
+    "source_row_count": 172,
+    "normal_success_count": 172,
+    "wrong_history_success_count": 0,
+    "success_drop_count": 172,
+    "physical_pairs": 15,
+    "checkpoints": 5,
+    "targets": 3,
+    "replay_rows": 860,
+    "cross_family_summary_rows": 65,
+    "duplicate_geometry_summary_rows": 460,
+    "failed_duplicate_geometry_groups": 34,
+    "source_policy_source_rows_replay_csv": "runs/m1136_row15_promoted_family_aggregate_replay_sanity/source_policy_source_rows_replay.csv",
+    "source_policy_gate_summary_csv": "runs/m1136_row15_promoted_family_aggregate_replay_sanity/source_policy_gate_summary.csv",
+    "cross_family_replay_rows_csv": "runs/m1136_row15_promoted_family_aggregate_replay_sanity/cross_family_replay_rows.csv",
+    "cross_family_policy_summary_csv": "runs/m1136_row15_promoted_family_aggregate_replay_sanity/cross_family_policy_summary.csv",
+    "duplicate_geometry_replay_summary_csv": "runs/m1136_row15_promoted_family_aggregate_replay_sanity/duplicate_geometry_replay_summary.csv",
+    "failed_duplicate_geometry_groups_csv": "runs/m1136_row15_promoted_family_aggregate_replay_sanity/failed_duplicate_geometry_groups.csv",
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "objective_optimization_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1137-v4-public-base-row15-promoted-cross-family-replay-audit"
+  },
+  "decision": "row15_promoted_replay_sanity_source_gate_pass_route_to_cross_family_audit",
   "decision_rule": "M1136 may only run the pre-registered source-aware replay sanity command. It cannot train actor weights, run PPO, optimize objectives, promote, use private holdout, change actor inputs, skip cross-family report, or skip duplicate-geometry failure report.",
-  "next_blocker": "m1136-v4-public-base-row15-promoted-replay-sanity"
+  "next_blocker": "m1137-v4-public-base-row15-promoted-cross-family-replay-audit"
 }
