@@ -15862,3 +15862,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: the M1104 raw proof surface remains the proof artifact; the deduplicated corpus is an auxiliary learnability check and cannot support promotion or driver-improvement claims
 - decision: `materialized_objective_corpus_design_route_to_branch_synthesis`
 - next: `m1106-v4-public-base-family-aggregate-conversion-synthesis`
+
+## 20260527T200335Z - m1106-v4-public-base-family-aggregate-conversion-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1106-v4-public-base-family-aggregate-conversion-synthesis.md`
+- result: M1106 synthesizes M1096-M1105. The branch converted the M1092 source-balanced surface into an export-only family aggregate, verified source-policy proof for all `146` rows, audited cross-family failures, selected a `133`-row all-policy intersection, materialized `133` `proof_current` objective-ready rows, and designed the deduplicated objective corpus sanity run.
+- supported: conversion readiness for a level2 replay-calibrated proof surface with hidden-state-space separation preserved by target-policy materialization
+- unsupported: driver improvement, checkpoint promotion, PPO readiness, private generalization, level3 anticipatory self-identification, and auxiliary objective learnability
+- decision: `family_aggregate_conversion_synthesis_open_materialized_objective_corpus_sanity`
+- next: `m1107-v4-public-base-materialized-objective-corpus-run`

@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1106-v4-public-base-family-aggregate-conversion-synthesis
+m1107-v4-public-base-materialized-objective-corpus-run
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -275,11 +275,17 @@ builder (`68` unique boundary rows). The objective corpus threshold is therefore
 `>= 60` unique rows with `>= 10` physical pairs and `3` targets, plus action
 reconstruction and objective-sanity gates. The workflow synthesis cadence has
 fired, so the next step is M1106: synthesize M1096-M1105 and open the next
-branch before running corpus build or objective sanity.
+branch before running corpus build or objective sanity. M1106 completes that
+synthesis. It closes `family_aggregate_boundary_conversion` and opens
+`materialized_objective_corpus_sanity`. The supported claim is conversion
+readiness for a level2 replay-calibrated proof surface; unsupported claims
+remain driver improvement, PPO readiness, promotion, private generalization, and
+level3 anticipatory self-identification. The next step is M1107: run the
+pre-registered proof-current corpus build and auxiliary objective sanity only.
 
 ```text
 decision:
-  materialized_objective_corpus_design_route_to_branch_synthesis
+  family_aggregate_conversion_synthesis_open_materialized_objective_corpus_sanity
 ```
 
 M1068 design:

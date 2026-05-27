@@ -176,6 +176,34 @@
     "docs/m1105-v4-public-base-materialized-objective-corpus-design.md",
     "runs/m1104_target_policy_materialization/proof_current_boundary_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1106-v4-public-base-family-aggregate-conversion-synthesis.md",
+    "decision": "family_aggregate_conversion_synthesis_open_materialized_objective_corpus_sanity",
+    "result_class": "branch_synthesis_promote_to_next_branch",
+    "failure_types": [
+      "none"
+    ],
+    "closed_branch": "family_aggregate_boundary_conversion",
+    "opened_branch": "materialized_objective_corpus_sanity",
+    "supported_raw_family_rows": 146,
+    "source_policy_success_drop_rows": 146,
+    "all_policy_intersection_rows": 133,
+    "materialized_proof_current_rows": 133,
+    "expected_deduplicated_objective_rows": 68,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "corpus_build_started": false,
+    "objective_sanity_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1107-v4-public-base-materialized-objective-corpus-run"
+  },
+  "decision": "family_aggregate_conversion_synthesis_open_materialized_objective_corpus_sanity",
   "decision_rule": "M1106 may only synthesize the family_aggregate_boundary_conversion branch. It cannot train actor weights, run PPO, run replay, run corpus build, run objective sanity, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1106-v4-public-base-family-aggregate-conversion-synthesis"
+  "next_blocker": "m1107-v4-public-base-materialized-objective-corpus-run"
 }

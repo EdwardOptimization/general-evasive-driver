@@ -1,0 +1,175 @@
+{
+  "id": "m1107-v4-public-base-materialized-objective-corpus-run",
+  "type": "objective_sanity",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1106-v4-public-base-family-aggregate-conversion-synthesis.md",
+      "docs/m1105-v4-public-base-materialized-objective-corpus-design.md",
+      "runs/m1104_target_policy_materialization/proof_current_boundary_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1106-v4-public-base-family-aggregate-conversion-synthesis.json",
+      "experiments/manifests/m1105-v4-public-base-materialized-objective-corpus-design.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_objective": [
+      "build proof_current boundary-outcome corpus and run auxiliary objective sanity"
+    ],
+    "derived_from": [
+      "m1106-v4-public-base-family-aggregate-conversion-synthesis"
+    ],
+    "blocked_by": [
+      "M1106 opens materialized_objective_corpus_sanity branch"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "actor update before objective sanity",
+      "promotion from objective sanity",
+      "running PPO from materialized rows"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1107-v4-public-base-materialized-objective-corpus-run.md",
+  "public_gates": [
+    "M1107 may build corpus and run auxiliary objective sanity only",
+    "M1107 must use proof_current only",
+    "M1107 must not train actor weights",
+    "M1107 must not run PPO",
+    "M1107 must not run replay",
+    "M1107 must not mine rows",
+    "M1107 must not promote",
+    "M1107 must not use private holdout",
+    "M1107 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not interpret auxiliary objective pass as driver improvement"
+  ],
+  "workflow_synthesis": {
+    "branch": "materialized_objective_corpus_sanity",
+    "evidence_axis": "G_objective: materialized objective corpus run",
+    "evidence_increment": "tests whether proof_current materialized rows yield a valid corpus and learnable auxiliary objective",
+    "claim_scope": "objective sanity only; no actor training, PPO, replay, promotion, or private holdout",
+    "stop_condition": [
+      "stop if corpus_rows < 60",
+      "stop if action reconstruction error exceeds threshold",
+      "stop if objective_pass is false"
+    ],
+    "fallback_plan": [
+      "if corpus build fails, repair materialized rows",
+      "if action reconstruction fails, audit target-policy field mapping",
+      "if objective sanity fails, route to objective audit rather than actor update"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1106 opens materialized_objective_corpus_sanity",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "capability_pretrain",
+    "stage_objective": "run auxiliary objective sanity before any actor update",
+    "admission_evidence": [
+      "M1105 pre-registers command and thresholds",
+      "M1106 opens objective corpus sanity branch",
+      "M1104 materialized rows pass validation"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not run PPO",
+      "do not promote from objective sanity"
+    ],
+    "allowed_updates": [
+      "corpus and objective sanity artifacts",
+      "milestone documentation",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "corpus pass/fail is explicit",
+      "objective pass/fail is explicit",
+      "action reconstruction pass/fail is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1107 objective sanity uses matched-current proof rows and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1107 builds corpus from M1104 rows only and adds no new temporal task.",
+    "negative_result_policy": "If objective sanity fails, record it as objective_sanity failure and do not proceed to actor update.",
+    "allowed_claims": [
+      "auxiliary objective sanity for a level2 replay-calibrated proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The proof_current materialized rows can build a valid single-checkpoint boundary-outcome corpus and pass auxiliary objective sanity.",
+  "success_criteria": [
+    "corpus_summary.json exists",
+    "objective_summary.json exists",
+    "corpus_rows >= 60",
+    "physical_pairs >= 10",
+    "targets == 3",
+    "success_drop_rows == corpus_rows",
+    "action_reconstruction_error_max <= 0.005",
+    "action_reconstruction_error_mean <= 0.001",
+    "objective_pass is true",
+    "seed_pass_count == 3",
+    "no actor training, PPO, replay, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "corpus build fails",
+    "corpus is sparse",
+    "action reconstruction error exceeds threshold",
+    "objective_pass is false",
+    "actor training, PPO, replay, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "run_materialized_objective_corpus",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_corpus_objective --checkpoint-policy proof_current=runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --boundary-rows-csv runs/m1104_target_policy_materialization/proof_current_boundary_rows.csv --run-dir runs/m1107_materialized_objective_corpus --device cpu --objective-device cpu --delay-steps 10 --min-margin-gap 0.0 --max-rows-per-physical-pair 0 --max-rows-per-target 0 --optimization-seeds 110700,110701,110702"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1107_materialized_objective_corpus/corpus_summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1107_materialized_objective_corpus/objective_summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1107-v4-public-base-materialized-objective-corpus-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1106-v4-public-base-family-aggregate-conversion-synthesis.md",
+    "runs/m1104_target_policy_materialization/proof_current_boundary_rows.csv"
+  ],
+  "decision_rule": "M1107 may only build the proof_current corpus and run auxiliary objective sanity. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1107-v4-public-base-materialized-objective-corpus-run"
+}

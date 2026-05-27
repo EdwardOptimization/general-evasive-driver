@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1114,
+    "completed": 1115,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1105-v4-public-base-materialized-objective-corpus-design",
+    "task_id": "m1106-v4-public-base-family-aggregate-conversion-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1105-v4-public-base-materialized-objective-corpus-design.md"
+    "command_log": "docs/m1106-v4-public-base-family-aggregate-conversion-synthesis.md"
   },
   "next_task": {
-    "id": "m1106-v4-public-base-family-aggregate-conversion-synthesis",
+    "id": "m1107-v4-public-base-materialized-objective-corpus-run",
     "status": "pending",
-    "priority": 11010,
-    "kind": "gate",
-    "hypothesis": "Synthesize family_aggregate_boundary_conversion branch before opening objective corpus sanity branch",
-    "command": "see experiments/manifests/m1106-v4-public-base-family-aggregate-conversion-synthesis.json",
-    "success_artifact": "docs/m1106-v4-public-base-family-aggregate-conversion-synthesis.md",
-    "notes": "Pending: process synthesis only; no actor training no PPO no replay no corpus build no objective sanity no mining no promotion no private holdout"
+    "priority": 11020,
+    "kind": "objective_sanity",
+    "hypothesis": "Build proof_current corpus and run auxiliary objective sanity over materialized rows",
+    "command": "see experiments/manifests/m1107-v4-public-base-materialized-objective-corpus-run.json",
+    "success_artifact": "docs/m1107-v4-public-base-materialized-objective-corpus-run.md",
+    "notes": "Pending: objective sanity only; no actor training no PPO no replay no mining no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T195814Z"
+  "updated_at_utc": "20260527T200335Z"
 }
