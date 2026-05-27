@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1118,
+    "completed": 1119,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1109-v4-public-base-materialized-guarded-actor-update-design",
+    "task_id": "m1110-v4-public-base-materialized-guarded-actor-update-probe",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1109-v4-public-base-materialized-guarded-actor-update-design.md"
+    "command_log": "docs/m1110-v4-public-base-materialized-guarded-actor-update-probe.md"
   },
   "next_task": {
-    "id": "m1110-v4-public-base-materialized-guarded-actor-update-probe",
+    "id": "m1111-v4-public-base-materialized-actor-update-full-public-gate-design",
     "status": "pending",
-    "priority": 11050,
-    "kind": "training",
-    "hypothesis": "Run bounded actor_coupling-only update probes from the materialized objective",
-    "command": "see experiments/manifests/m1110-v4-public-base-materialized-guarded-actor-update-probe.json",
-    "success_artifact": "docs/m1110-v4-public-base-materialized-guarded-actor-update-probe.md",
-    "notes": "Pending: run three low-drift actor_coupling candidates and exact objective/parameter-scope audit; no PPO no premature replay no mining no promotion no private holdout"
+    "priority": 11060,
+    "kind": "gate",
+    "hypothesis": "Design the full public gate for the M1110 exact-pass materialized actor-update candidate",
+    "command": "see experiments/manifests/m1111-v4-public-base-materialized-actor-update-full-public-gate-design.json",
+    "success_artifact": "docs/m1111-v4-public-base-materialized-actor-update-full-public-gate-design.md",
+    "notes": "Pending: design only; pre-register exact old public replay family-intersection source-diverse fresh/OOD and behavior gates for m1110_110901; no training no PPO no replay no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T201627Z"
+  "updated_at_utc": "20260527T202204Z"
 }

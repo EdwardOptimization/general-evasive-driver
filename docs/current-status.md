@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1110-v4-public-base-materialized-guarded-actor-update-probe
+m1111-v4-public-base-materialized-actor-update-full-public-gate-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -296,11 +296,17 @@ rollout action anchors and snippet action anchors, include rejected hidden
 states, audit changed parameter prefixes, and pass exact M1107 objective gates
 before any replay. PPO, promotion, private holdout, mining, corpus rebuild, and
 actor-input changes remain blocked. The next step is M1110: run three
-low-drift actor-coupling candidates and classify them before any replay.
+low-drift actor-coupling candidates and classify them before any replay. M1110
+runs those three candidates. All improve exact M1107 loss (`0.679117` base;
+best `m1110_110901=0.674349`), keep action/snippet anchor MSE below `0.0001`,
+and change only `actor_mean.` plus `response_context_fusion.0.` tensors with
+`log_std` unchanged. This admits full public gate design only; no replay, PPO,
+promotion, or private holdout has run. The next step is M1111: design the full
+public gate for primary candidate `m1110_110901`.
 
 ```text
 decision:
-  materialized_guarded_actor_update_design_admit_probe
+  materialized_guarded_actor_update_exact_candidate_route_to_full_public_gate_design
 ```
 
 M1068 design:

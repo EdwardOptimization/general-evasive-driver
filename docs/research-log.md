@@ -15903,3 +15903,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - required gates: exact M1107 objective no-regression/improvement, allowed changed prefixes `actor_mean.` and `response_context_fusion.0.`, low anchor MSE, unchanged actor inputs, and no replay until exact/contract gates pass
 - decision: `materialized_guarded_actor_update_design_admit_probe`
 - next: `m1110-v4-public-base-materialized-guarded-actor-update-probe`
+
+## 20260527T202204Z - m1110-v4-public-base-materialized-guarded-actor-update-probe
+
+- status: `completed`
+- kind: `driver_candidate`
+- artifact: `docs/m1110-v4-public-base-materialized-guarded-actor-update-probe.md`
+- result: M1110 runs three low-drift actor-coupling candidates. All three improve exact M1107 loss versus `proof_current` (`0.679117`): `m1110_110900=0.674470`, `m1110_110901=0.674349`, `m1110_110902=0.674359`. All anchor MSE values are below `0.0001`.
+- parameter audit: each candidate changes only `response_context_fusion.0.weight`, `response_context_fusion.0.bias`, `actor_mean.weight`, and `actor_mean.bias`; `log_std` is unchanged and no disallowed tensors changed.
+- decision: `materialized_guarded_actor_update_exact_candidate_route_to_full_public_gate_design`
+- next: `m1111-v4-public-base-materialized-actor-update-full-public-gate-design`
