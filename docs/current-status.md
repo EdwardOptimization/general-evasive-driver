@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1142-v4-public-base-row15-promoted-target-materialization
+m1143-v4-public-base-row15-promoted-objective-corpus-design
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -179,9 +179,32 @@ all-policy materialization surface:
 Direct mixed-family objective conversion remains blocked. The branch is now
 closed and the next branch is `row15_promoted_target_materialization`.
 
-M1142 should run only the existing `row15_current` materializer. It must not run
-replay, optimize an objective, train actor weights, run PPO, promote, use
-private holdout, change actor inputs, or write an objective NPZ.
+M1142 ran the existing `row15_current` materializer and passed:
+
+```text
+rows: 148
+normal_success_count: 148
+wrong_history_success_count: 0
+success_drop_count: 148
+finite_objective_rows: 148
+physical_pairs: 13
+source_labels: 5
+targets: 2
+left_steps: 6
+min_normal_margin: 0.000997985
+max_wrong_history_margin: -0.000063233
+min_margin_gap: 0.001313707
+```
+
+Output:
+
+```text
+runs/m1142_row15_promoted_target_materialization/row15_current_boundary_rows.csv
+```
+
+M1143 should design the corpus/objective sanity run over these materialized
+rows. It must not build the corpus, run objective sanity, replay, train actor
+weights, run PPO, promote, use private holdout, or change actor inputs.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

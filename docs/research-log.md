@@ -16275,3 +16275,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, objective optimization, actor training, PPO, promotion, private holdout, objective NPZ, or actor-input change occurred.
 - decision: `row15_promoted_surface_refresh_synthesis_open_target_materialization`
 - next: `m1142-v4-public-base-row15-promoted-target-materialization`
+
+## 20260528T003200Z - m1142-v4-public-base-row15-promoted-target-materialization
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1142-v4-public-base-row15-promoted-target-materialization.md`
+- result: M1142 materializes the M1139 all-policy intersection under `row15_current`.
+- materialization gate: `148` rows, `148` normal successes, `0` wrong-history successes, `148` success drops, and `148` finite objective rows.
+- diversity gate: `13` physical pairs, `5` source labels, `2` targets, `6` left steps, max physical-pair fraction `0.135135`, and max source-label fraction `0.283784`.
+- margins: minimum normal margin `0.000997985`, maximum wrong-history margin `-0.000063233`, and minimum margin gap `0.001313707`.
+- guardrail: no replay, objective optimization, actor training, PPO, promotion, private holdout, objective NPZ, or actor-input change occurred.
+- decision: `row15_promoted_target_materialization_pass_route_to_objective_corpus_design`
+- next: `m1143-v4-public-base-row15-promoted-objective-corpus-design`

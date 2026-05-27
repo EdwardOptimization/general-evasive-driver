@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1150,
+    "completed": 1151,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1141-v4-public-base-row15-promoted-surface-refresh-synthesis",
+    "task_id": "m1142-v4-public-base-row15-promoted-target-materialization",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1141-v4-public-base-row15-promoted-surface-refresh-synthesis.md",
-    "result_class": "branch_synthesis_promote_to_next_branch",
-    "decision": "row15_promoted_surface_refresh_synthesis_open_target_materialization"
+    "command_log": "docs/m1142-v4-public-base-row15-promoted-target-materialization.md",
+    "result_class": "target_policy_materialization_pass",
+    "decision": "row15_promoted_target_materialization_pass_route_to_objective_corpus_design"
   },
   "next_task": {
-    "id": "m1142-v4-public-base-row15-promoted-target-materialization",
+    "id": "m1143-v4-public-base-row15-promoted-objective-corpus-design",
     "status": "pending",
-    "priority": 11370,
-    "kind": "infrastructure",
-    "hypothesis": "The existing materializer can emit row15_current objective-ready boundary rows for all 148 M1139 all-policy intersection rows without replay or objective optimization",
-    "command": "see experiments/manifests/m1142-v4-public-base-row15-promoted-target-materialization.json",
-    "success_artifact": "docs/m1142-v4-public-base-row15-promoted-target-materialization.md",
-    "notes": "Pending: materializer only; no replay objective optimization training PPO promotion private holdout or actor-input change"
+    "priority": 11380,
+    "kind": "gate",
+    "hypothesis": "A single-checkpoint boundary-outcome corpus/objective sanity run can be pre-registered for the M1142 row15_current materialized rows without violating hidden-state-space separation",
+    "command": "see experiments/manifests/m1143-v4-public-base-row15-promoted-objective-corpus-design.json",
+    "success_artifact": "docs/m1143-v4-public-base-row15-promoted-objective-corpus-design.md",
+    "notes": "Pending: design only; no corpus build objective sanity training PPO promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T002400Z"
+  "updated_at_utc": "20260528T003200Z"
 }

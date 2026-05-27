@@ -1,0 +1,162 @@
+{
+  "id": "m1143-v4-public-base-row15-promoted-objective-corpus-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1142-v4-public-base-row15-promoted-target-materialization.md",
+      "runs/m1142_row15_promoted_target_materialization/row15_current_boundary_rows.csv",
+      "runs/m1142_row15_promoted_target_materialization/row15_current_materialization_summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1142-v4-public-base-row15-promoted-target-materialization.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_objective": [
+      "design boundary-outcome corpus and objective sanity run from row15_current materialized rows"
+    ],
+    "derived_from": [
+      "m1142-v4-public-base-row15-promoted-target-materialization"
+    ],
+    "blocked_by": [
+      "M1142 materialized row15_current rows are ready, but corpus/objective sanity must be pre-registered before writing NPZ"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running objective sanity without pre-registered corpus thresholds",
+      "using any checkpoint other than row15_current for the first M1142 corpus",
+      "promoting from corpus/objective sanity"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1143-v4-public-base-row15-promoted-objective-corpus-design.md",
+  "public_gates": [
+    "M1143 must design only",
+    "M1143 must not train actor weights",
+    "M1143 must not run PPO",
+    "M1143 must not run replay",
+    "M1143 must not run corpus build or objective sanity",
+    "M1143 must not mine rows",
+    "M1143 must not promote",
+    "M1143 must not use private holdout",
+    "M1143 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run corpus build",
+    "do not run objective sanity",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not conflate objective sanity with promotion"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_target_materialization",
+    "evidence_axis": "G_objective: materialized objective corpus design",
+    "evidence_increment": "pre-registers row15_current corpus build and objective sanity over M1142 materialized rows",
+    "claim_scope": "design only; no corpus build, objective run, actor training, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if corpus contract would be too sparse after geometry deduplication",
+      "stop if action reconstruction errors are not planned as a gate",
+      "stop if objective sanity would be interpreted as promotion evidence"
+    ],
+    "fallback_plan": [
+      "if corpus thresholds are not defensible, route back to materialization audit",
+      "if objective sanity fails, classify as objective_overfit or metric_artifact and do not proceed to actor update",
+      "if corpus build fails, repair materialized rows before objective"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1142 materialized rows pass validation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "capability_pretrain",
+    "stage_objective": "design auxiliary boundary-outcome corpus sanity before any actor update",
+    "admission_evidence": [
+      "M1142 row15_current materialized rows pass validation",
+      "existing boundary_outcome_corpus_objective supports single-checkpoint corpus build"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not run PPO",
+      "do not promote from objective sanity"
+    ],
+    "allowed_updates": [
+      "write corpus/objective design documentation",
+      "pre-register corpus implementation/run if design is clear",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "corpus command is explicit",
+      "objective sanity command is explicit",
+      "corpus and action reconstruction thresholds are explicit",
+      "next route after pass/fail is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1143 designs objective sanity for matched-current proof rows and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1143 uses materialized M1142 rows only and adds no new temporal task.",
+    "negative_result_policy": "If objective signal is weak, record it as objective_sanity failure and do not proceed to actor update.",
+    "allowed_claims": [
+      "design for auxiliary objective sanity over a level2 replay-calibrated proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A single-checkpoint boundary-outcome corpus/objective sanity run can be pre-registered for the M1142 row15_current materialized rows without violating hidden-state-space separation.",
+  "success_criteria": [
+    "design artifact exists",
+    "corpus command is explicit",
+    "objective sanity command is explicit",
+    "corpus thresholds are explicit",
+    "action reconstruction and objective pass/fail interpretation are explicit",
+    "no actor training, PPO, replay, corpus build, objective sanity, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "corpus command is ambiguous",
+    "objective sanity pass/fail thresholds are missing",
+    "objective sanity is conflated with promotion",
+    "actor training, PPO, replay, corpus build, objective sanity, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m1143-v4-public-base-row15-promoted-objective-corpus-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1143-v4-public-base-row15-promoted-objective-corpus-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1142-v4-public-base-row15-promoted-target-materialization.md",
+    "runs/m1142_row15_promoted_target_materialization/row15_current_boundary_rows.csv"
+  ],
+  "decision_rule": "M1143 may only design the materialized corpus/objective sanity run. It cannot train actor weights, run PPO, run replay, run corpus build, run objective sanity, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1143-v4-public-base-row15-promoted-objective-corpus-design"
+}
