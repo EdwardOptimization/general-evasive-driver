@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit
+m1122-v4-public-base-row15-unsafe-margin-retention-design
 ```
 
 M1115 completed the failed wrong-history retention export. It reproduced the
@@ -102,7 +102,14 @@ old-public/source-diverse first replay surfaces. It passed `m183_m168` and
 the same row `15` physical pair `9530:21:9550:21`: `0` normal-lost events and
 `4` wrong-history-safe events. This rejects the M1118 candidate for first replay
 and routes to M1121 row15 failure audit before any family replay, full replay,
-PPO, promotion, or private holdout.
+PPO, promotion, or private holdout. M1121 completed that audit. Row `15` was
+not missing from the M1115 target-base trajectory anchor: it had `170` anchor
+rows across five surfaces and full step range `0..33`. M1118 seed `111800` also
+kept target-base-only trajectory-anchor MSE low (`0.000001498` versus `0.0001`
+threshold). The remaining failure is therefore wrong-history terminal margin
+crossing despite action-anchor coverage. M1122 should design a row15
+unsafe-margin or terminal-margin retention objective before any new update,
+replay escalation, PPO, promotion, or private holdout.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

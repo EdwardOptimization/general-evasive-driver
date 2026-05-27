@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M1121 finds row15 pair 9530:21:9550:21 was covered by 170 target-base trajectory anchor rows but low action MSE still allowed wrong-history terminal margin crossing so the next repair must target unsafe margin directly",
+  "failure_criteria": [
+    "audit artifact is missing",
+    "row15 coverage remains ambiguous",
+    "next route is ambiguous",
+    "actor training, PPO, replay, mining, promotion, private holdout, or actor-input change starts"
+  ],
+  "failure_types": [
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not mine new rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not continue to family-intersection replay before audit",
+    "do not weaken replay thresholds"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T212458Z",
+  "hypothesis": "M1120 failed because row15's wrong-history terminal margin crosses zero despite low trajectory-action-anchor MSE, so the next repair must target terminal or unsafe-margin retention rather than more generic action anchoring.",
+  "lineage": {
+    "blocked_by": [
+      "M1120 rejects m1118_seed111800 first replay through wrong-history-safe row15"
+    ],
+    "derived_from": [
+      "m1120-v4-public-base-failed-wrong-history-retention-first-replay-run"
+    ],
+    "invalidates": [
+      "family-intersection replay before row15 audit",
+      "full public gate before row15 audit",
+      "PPO from m1118_seed111800",
+      "promotion of m1118_seed111800"
+    ],
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/m1118_failed_wrong_history_retention_actor_update_seed111800/optimized_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1120-v4-public-base-failed-wrong-history-retention-first-replay-run.json"
+    ],
+    "parent_dataset": [
+      "runs/m1120_failed_wrong_history_retention_first_replay/summary.json",
+      "runs/m1120_failed_wrong_history_retention_first_replay/first_replay_summary.csv",
+      "runs/m1120_failed_wrong_history_retention_first_replay/lost_success_drop_rows.csv",
+      "runs/m1115_materialized_failed_wrong_history_retention_export/target_base_rejected_trajectory_anchor.csv",
+      "runs/m1115_materialized_failed_wrong_history_retention_export/combined_target_base_rejected_anchor.npz"
+    ],
+    "parent_objective": [
+      "audit why the M1118 retention-aware candidate still makes row15 wrong-history rollouts safe"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit",
+  "next_blocker": "m1122-v4-public-base-row15-unsafe-margin-retention-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "failed_wrong_history_retention_failure_audit_route_to_row15_unsafe_margin_retention_design",
+  "public_gates": [
+    "M1121 must audit existing M1115 and M1120 artifacts only",
+    "M1121 must not train actor weights",
+    "M1121 must not run PPO",
+    "M1121 must not run replay",
+    "M1121 must not mine new rows",
+    "M1121 must not promote",
+    "M1121 must not use private holdout",
+    "M1121 must preserve actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "failed_wrong_history_retention_failure_audit_route_to_row15_unsafe_margin_retention_design",
+    "milestone": "m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit",
+    "reason": "M1121 finds row15 pair 9530:21:9550:21 was covered by 170 target-base trajectory anchor rows but low action MSE still allowed wrong-history terminal margin crossing so the next repair must target unsafe margin directly",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit artifact exists",
+    "row15 anchor coverage in M1115 is classified",
+    "row15 target-base trajectory MSE versus terminal-margin crossing is classified",
+    "next repair route is explicit",
+    "no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurs"
+  ],
+  "type": "gate"
+}

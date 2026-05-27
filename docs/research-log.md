@@ -16019,3 +16019,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, family-intersection replay, full public gate, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change occurred.
 - decision: `failed_wrong_history_retention_first_replay_reject_wrong_history_safe_route_to_audit`
 - next: `m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit`
+
+## 20260527T212412Z - m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.md`
+- result: M1121 audits existing M1115/M1118/M1120 artifacts. Row `15` / physical pair `9530:21:9550:21` was present in the M1115 target-base rejected-history trajectory anchor with `170` rows across five surfaces and step range `0..33`.
+- interpretation: M1120 is not an anchor-coverage miss. M1118 seed `111800` had low target-base-only trajectory-anchor MSE (`0.000001498` versus `0.0001` threshold), but row15 wrong-history terminal margin still crossed zero on four surfaces. Generic trajectory-action MSE is therefore insufficient for the remaining near-boundary proof row.
+- guardrail: no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurred.
+- decision: `failed_wrong_history_retention_failure_audit_route_to_row15_unsafe_margin_retention_design`
+- next: `m1122-v4-public-base-row15-unsafe-margin-retention-design`

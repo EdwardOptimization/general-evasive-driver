@@ -1,30 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1129,
+    "completed": 1130,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1120-v4-public-base-failed-wrong-history-retention-first-replay-run",
+    "task_id": "m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1120-v4-public-base-failed-wrong-history-retention-first-replay-run.md",
-    "summary": "runs/m1120_failed_wrong_history_retention_first_replay/summary.json",
-    "result_class": "failed_wrong_history_retention_first_replay_failed_wrong_history_safe",
-    "decision": "failed_wrong_history_retention_first_replay_reject_wrong_history_safe_route_to_audit"
+    "command_log": "docs/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.md",
+    "result_class": "wrong_history_safe_terminal_margin_crossing_despite_anchor_coverage",
+    "decision": "failed_wrong_history_retention_failure_audit_route_to_row15_unsafe_margin_retention_design"
   },
   "next_task": {
-    "id": "m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit",
+    "id": "m1122-v4-public-base-row15-unsafe-margin-retention-design",
     "status": "pending",
-    "priority": 11160,
+    "priority": 11170,
     "kind": "gate",
-    "hypothesis": "The remaining M1120 row15 wrong-history-safe failure is a terminal-margin or unsafe-margin retention gap rather than normal-history collapse",
-    "command": "see experiments/manifests/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.json",
-    "success_artifact": "docs/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.md",
-    "notes": "Pending: audit existing M1115/M1120 artifacts only; no actor training no PPO no replay no promotion no private holdout"
+    "hypothesis": "A row15-specific unsafe-margin or terminal-margin retention objective can target the remaining wrong-history-safe failure more directly than generic trajectory-action anchor pressure",
+    "command": "see experiments/manifests/m1122-v4-public-base-row15-unsafe-margin-retention-design.json",
+    "success_artifact": "docs/m1122-v4-public-base-row15-unsafe-margin-retention-design.md",
+    "notes": "Pending: design only; no actor training no PPO no replay no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T211907Z"
+  "updated_at_utc": "20260527T212412Z"
 }

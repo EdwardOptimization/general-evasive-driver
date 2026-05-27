@@ -1,0 +1,159 @@
+{
+  "id": "m1122-v4-public-base-row15-unsafe-margin-retention-design",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/m1118_failed_wrong_history_retention_actor_update_seed111800/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.md",
+      "runs/m1120_failed_wrong_history_retention_first_replay/lost_success_drop_rows.csv",
+      "runs/m1115_materialized_failed_wrong_history_retention_export/target_base_rejected_trajectory_anchor.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.json"
+    ],
+    "parent_objective": [
+      "design a row15 unsafe-margin retention objective before any further update"
+    ],
+    "derived_from": [
+      "m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit"
+    ],
+    "blocked_by": [
+      "M1121 classifies the M1120 failure as row15 wrong-history terminal-margin crossing despite anchor coverage"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "generic trajectory-anchor pressure increase without terminal-margin objective",
+      "family-intersection replay before row15 repair design",
+      "PPO from m1118_seed111800",
+      "promotion of m1118_seed111800"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1122-v4-public-base-row15-unsafe-margin-retention-design.md",
+  "public_gates": [
+    "M1122 must be design-only",
+    "M1122 must not train actor weights",
+    "M1122 must not run PPO",
+    "M1122 must not run replay",
+    "M1122 must not mine new rows",
+    "M1122 must not promote",
+    "M1122 must not use private holdout",
+    "M1122 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not mine new rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken replay thresholds",
+    "do not rely on action MSE alone for row15"
+  ],
+  "workflow_synthesis": {
+    "branch": "failed_wrong_history_retention_repair",
+    "evidence_axis": "G_design: row15 unsafe-margin retention",
+    "evidence_increment": "turns the M1121 audit into a bounded repair design that targets wrong-history terminal margin crossing directly",
+    "claim_scope": "design only; no training, replay, PPO, promotion, private holdout, or driver capability claim",
+    "stop_condition": [
+      "stop if the design cannot keep correct-history normal success and wrong-history unsafe margin in the same objective",
+      "stop if the design would require privileged actor inputs",
+      "stop if the design would train from short-family hidden states directly"
+    ],
+    "fallback_plan": [
+      "if terminal-margin objective is not implementable with existing artifacts, route to retention artifact extension design",
+      "if row15 objective conflicts with M1107 exact objective, route to lexicographic repair design",
+      "if design is viable, admit one bounded actor-coupling probe only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1121 routes from row15 audit to unsafe-margin retention design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design a row15 unsafe-margin retention repair before any optimizer run",
+    "admission_evidence": [
+      "M1121 shows row15 was present in M1115 target-base anchor",
+      "M1121 shows action-anchor MSE can stay small while wrong-history terminal margin crosses zero"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not promote from design"
+    ],
+    "allowed_updates": [
+      "design documentation",
+      "next run manifest if design is accepted",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "objective terms are explicit",
+      "input contract remains unchanged",
+      "pre-replay gates are explicit",
+      "failure route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1122 designs proof retention for wrong-history rows and cannot claim anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1122 adds no new temporal evidence; it designs a repair for existing row15 replay evidence.",
+    "negative_result_policy": "If no design can directly protect wrong-history unsafe terminal margin, close this repair route and synthesize before another narrow update.",
+    "allowed_claims": [
+      "row15 unsafe-margin retention design for a level2 proof-retention candidate",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A row15-specific unsafe-margin or terminal-margin retention objective can target the remaining wrong-history-safe failure more directly than increasing generic trajectory-action anchor pressure.",
+  "success_criteria": [
+    "design artifact exists",
+    "objective terms distinguish normal-history safety from wrong-history unsafe-margin retention",
+    "pre-replay exact and anchor gates are specified",
+    "first replay thresholds remain unchanged",
+    "no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "objective relies on deploy-time privileged actor inputs",
+    "objective relies only on generic action MSE",
+    "next route is ambiguous",
+    "actor training, PPO, replay, mining, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_row15_unsafe_margin_design",
+      "command": "write docs/m1122-v4-public-base-row15-unsafe-margin-retention-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1122-v4-public-base-row15-unsafe-margin-retention-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.md"
+  ],
+  "decision_rule": "M1122 may only design a row15 unsafe-margin retention repair. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, weaken gates, or rely on generic action MSE alone.",
+  "next_blocker": "m1122-v4-public-base-row15-unsafe-margin-retention-design"
+}

@@ -2,9 +2,9 @@
   "id": "m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "repair",
   "failure_types": [
-    "none"
+    "proof_washout"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -158,6 +158,36 @@
     "runs/m1120_failed_wrong_history_retention_first_replay/summary.json",
     "runs/m1120_failed_wrong_history_retention_first_replay/lost_success_drop_rows.csv"
   ],
-  "decision_rule": "M1121 may only audit the M1120 row15 wrong-history-safe first replay failure and route the next repair design. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, or continue to family-intersection replay.",
-  "next_blocker": "m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.md",
+    "decision": "failed_wrong_history_retention_failure_audit_route_to_row15_unsafe_margin_retention_design",
+    "result_class": "wrong_history_safe_terminal_margin_crossing_despite_anchor_coverage",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "anchor_rows_total": 707,
+    "row15_anchor_rows": 170,
+    "row15_anchor_surfaces": 5,
+    "row15_step_min": 0,
+    "row15_step_max": 33,
+    "m1118_seed111800_target_base_only_trajectory_mse": 0.0000014984544804974576,
+    "target_base_only_trajectory_mse_threshold": 0.0001,
+    "normal_history_collapse": false,
+    "anchor_coverage_miss": false,
+    "action_anchor_threshold_failure": false,
+    "metric_artifact": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "admitted_next": "row15_unsafe_margin_retention_design_only",
+    "next_milestone": "m1122-v4-public-base-row15-unsafe-margin-retention-design"
+  },
+  "decision": "failed_wrong_history_retention_failure_audit_route_to_row15_unsafe_margin_retention_design",
+  "decision_rule": "M1121 may only audit the M1120 row15 wrong-history-safe first replay failure and route the next repair design. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, or continue to family-intersection replay. Because row15 was covered by the M1115 trajectory anchor but still crossed zero terminal margin, the next step is row15 unsafe-margin retention design.",
+  "next_blocker": "m1122-v4-public-base-row15-unsafe-margin-retention-design"
 }
