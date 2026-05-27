@@ -108,6 +108,25 @@
   "baseline_artifacts": [
     "docs/m1070-v4-public-base-medium-ppo-proof-washout-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1071-v4-public-base-medium-ppo-repair-projection-design.md",
+    "decision": "medium_ppo_repair_projection_design_route_to_failed_row_corpus_export",
+    "result_class": "medium_ppo_repair_projection_design_completed",
+    "failure_types": [
+      "none"
+    ],
+    "base_checkpoint": "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+    "proposal_checkpoint": "runs/ppo_m1069_expanded_gate_medium_seed61069/checkpoint.pt",
+    "requires_failed_row_corpus_export": true,
+    "ppo_used": false,
+    "training_started": false,
+    "actor_inputs_changed": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export"
+  },
+  "decision": "medium_ppo_repair_projection_design_route_to_failed_row_corpus_export",
   "decision_rule": "M1071 may only design a repair/projection probe. It cannot run PPO, train actor, promote, or use private holdout.",
-  "next_blocker": "m1071-v4-public-base-medium-ppo-repair-projection-design"
+  "next_blocker": "m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export"
 }

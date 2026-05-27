@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1071-v4-public-base-medium-ppo-repair-projection-design
+m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -128,11 +128,14 @@ PPO proposal. M1070 completed that audit and classified the failure as coupled
 proof washout: exact active-set trust region violation plus wrong-history
 branches becoming marginally safe on old public replay, M1061
 family-intersection, and source-diverse continuity surfaces. M1070 routes to
-projection design before any new PPO.
+projection design before any new PPO. M1071 completed that design and decided
+that the next step is not an optimizer yet: first export a source-labeled
+failed-row projection corpus covering old public, M1061 family-intersection,
+and source-diverse failed rows.
 
 ```text
 decision:
-  medium_ppo_proof_washout_audit_route_to_repair_projection_design
+  medium_ppo_repair_projection_design_route_to_failed_row_corpus_export
 ```
 
 M1068 design:
@@ -279,6 +282,20 @@ family_intersection_failed: true
 source_diverse_failed: true
 decision: route to post-PPO repair/projection design
 next: m1071-v4-public-base-medium-ppo-repair-projection-design
+```
+
+M1071 result:
+
+```text
+design: projection-first repair
+base_checkpoint: runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt
+proposal_checkpoint: runs/ppo_m1069_expanded_gate_medium_seed61069/checkpoint.pt
+requires_failed_row_corpus_export: true
+ppo_used: false
+training_started: false
+promoted: false
+private_holdout_used: false
+next: m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export
 ```
 
 M1058 result:
