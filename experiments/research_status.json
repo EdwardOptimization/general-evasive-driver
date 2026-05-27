@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1096,
+    "completed": 1097,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1087-staged-training-discipline-harness-rule",
+    "task_id": "m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1087-staged-training-discipline-harness-rule.md"
+    "command_log": "docs/m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke.md"
   },
   "next_task": {
-    "id": "m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke",
+    "id": "m1089-v4-public-base-source-balanced-relocation-run-design",
     "status": "pending",
-    "priority": 10830,
-    "kind": "infrastructure",
-    "hypothesis": "Run source-balanced boundary accounting over existing M1083 artifacts without new mining",
-    "command": "see experiments/manifests/m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke.json",
-    "success_artifact": "docs/m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke.md",
-    "notes": "Pending: existing-artifact smoke only; no PPO no actor training no promotion no private holdout no full new mining run"
+    "priority": 10840,
+    "kind": "gate",
+    "hypothesis": "Design relocation-time source-balanced boundary evaluation after M1088 showed the existing candidate budget is ready but old accepted export is six-pair limited",
+    "command": "see experiments/manifests/m1089-v4-public-base-source-balanced-relocation-run-design.json",
+    "success_artifact": "docs/m1089-v4-public-base-source-balanced-relocation-run-design.md",
+    "notes": "Pending: design only; no PPO no actor training no promotion no private holdout no threshold weakening"
   },
-  "updated_at_utc": "20260528T000000Z"
+  "updated_at_utc": "20260527T164734Z"
 }

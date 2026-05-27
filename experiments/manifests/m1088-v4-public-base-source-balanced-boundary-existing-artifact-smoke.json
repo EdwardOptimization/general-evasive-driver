@@ -4,7 +4,7 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -146,6 +146,57 @@
     "docs/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.md",
     "docs/training-stage-discipline.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke.md",
+    "decision": "source_balanced_existing_artifact_smoke_export_limited_route_to_relocation_run_design",
+    "result_class": "source_budget_ready_but_existing_boundary_export_limited",
+    "failure_types": [
+      "scenario_sampling_failure"
+    ],
+    "source_budget": {
+      "candidate_wrong_history_rows": 7257,
+      "eligible_physical_pairs": 371,
+      "eligible_left_steps": 28,
+      "eligible_checkpoints": 4,
+      "eligible_targets": 3,
+      "eligible_source_obstacle_buckets": 1,
+      "max_candidate_pair_rows": 32,
+      "max_candidate_pair_fraction": 0.004409535620779937,
+      "source_budget_ready": true,
+      "decision": "source_budget_ready"
+    },
+    "candidate_selection_summary": {
+      "candidate_rows": 7257,
+      "selected_rows": 512,
+      "selected_physical_pairs": 370,
+      "selected_left_steps": 28,
+      "selected_targets": 3,
+      "max_selected_rows_per_physical_pair": 3,
+      "max_selected_pair_fraction": 0.005859375,
+      "decision": "source_balanced_candidates_ready"
+    },
+    "balanced_export": {
+      "balanced_exportable_rows": 102,
+      "accepted_wrong_rows": 102,
+      "accepted_wrong_physical_pairs": 6,
+      "accepted_wrong_left_steps": 5,
+      "accepted_wrong_checkpoints": 4,
+      "accepted_wrong_targets": 2,
+      "accepted_wrong_normal_margin_buckets": 4,
+      "accepted_wrong_success_drop_fraction": 1.0,
+      "max_rows_per_physical_pair_fraction": 0.19607843137254902,
+      "decision": "reject_duplicate_dominated_boundary_surface",
+      "passed": false
+    },
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "full_new_mining_run": false,
+    "next_milestone": "m1089-v4-public-base-source-balanced-relocation-run-design"
+  },
+  "decision": "source_balanced_existing_artifact_smoke_export_limited_route_to_relocation_run_design",
   "decision_rule": "M1088 may only run source-balanced accounting over existing M1083 artifacts. It cannot train, run PPO, promote, use private holdout, run new mining, or weaken thresholds.",
-  "next_blocker": "m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke"
+  "next_blocker": "m1089-v4-public-base-source-balanced-relocation-run-design"
 }

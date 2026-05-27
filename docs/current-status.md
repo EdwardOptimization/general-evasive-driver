@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke
+m1089-v4-public-base-source-balanced-relocation-run-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -182,11 +182,14 @@ marking, artifact writing, and an existing-artifact smoke CLI with 20 focused
 tests passing. M1087 added a process-v4 staged training discipline: future
 manifests must declare `training_stage`, and any `autodrift.train_ppo` command
 must be in `guarded_rl` stage with pre/posttrain, exact/proof, and rollback or
-repair admission evidence. The existing-artifact smoke is preserved as M1088.
+repair admission evidence. M1088 ran the existing-artifact smoke and found that
+the pre-boundary source budget is ready, but the old M1083 accepted boundary
+export remains limited to six physical pairs. The next step is M1089:
+relocation-time source-balanced run design.
 
 ```text
 decision:
-  staged_training_discipline_harness_rule_admit_m1088_existing_artifact_smoke
+  source_balanced_existing_artifact_smoke_export_limited_route_to_relocation_run_design
 ```
 
 M1068 design:
@@ -641,6 +644,27 @@ ppo_used: false
 promoted: false
 private_holdout_used: false
 next: m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke
+```
+
+M1088 result:
+
+```text
+result_class: source_budget_ready_but_existing_boundary_export_limited
+source_budget_ready: true
+candidate_wrong_history_rows: 7257
+eligible_physical_pairs: 371
+selected_candidates: 512
+selected_physical_pairs: 370
+balanced_exportable_rows: 102
+accepted_wrong_physical_pairs: 6 / 10 required
+accepted_wrong_success_drop_fraction: 1.0
+decision: source_balanced_existing_artifact_smoke_export_limited_route_to_relocation_run_design
+training_started: false
+ppo_used: false
+full_new_mining_run: false
+promoted: false
+private_holdout_used: false
+next: m1089-v4-public-base-source-balanced-relocation-run-design
 ```
 
 M1058 result:
