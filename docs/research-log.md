@@ -15673,3 +15673,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1057 designs compact objective/replay corpus conversion for the refreshed post-short-promotion surface. It uses `runs/m1056_margin_bucket_width_0005/accepted_wrong_history_rows.csv`, converts separate compact corpora for short-PPO family checkpoints `61049/61050/61051`, caps rows at two per physical pair, requires at least `20` rows, `10` physical pairs, and `2` targets, and requires objective sanity plus cross-family replay sanity before any future PPO. No conversion, training, PPO, promotion, private holdout, or actor-input change occurs in M1057.
 - decision: `post_short_promotion_compact_corpus_conversion_design_admit_m1058_conversion`
 - next: `m1058-v4-public-base-post-short-promotion-compact-corpus-conversion`
+
+## 20260527T044810Z - m1058-v4-public-base-post-short-promotion-compact-corpus-conversion
+
+- status: `completed`
+- kind: `objective_sanity`
+- artifact: `docs/m1058-v4-public-base-post-short-promotion-compact-corpus-conversion.md`
+- result: M1058 converts the M1056 accepted rows into three compact corpora. Each corpus has `27` rows, `15` physical pairs, `3` targets, and objective sanity passes for all three optimization seeds. Cross-family replay sanity passes for `short61050 -> short61049` and `short61051 -> short61049`, but fails for `short61049 -> short61050`: candidate success drops fall from `27` to `24` while normal success and margin retention pass. The failed rows are near-zero wrong-history successes, so this is a replay proof-retention failure after objective conversion, not corpus sparsity or objective failure.
+- decision: `post_short_promotion_compact_corpus_conversion_replay_failure_route_to_audit`
+- next: `m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit`

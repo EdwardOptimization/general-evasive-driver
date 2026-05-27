@@ -1,0 +1,107 @@
+{
+  "id": "m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1058-v4-public-base-post-short-promotion-compact-corpus-conversion.md",
+      "runs/m1058_post_short_promotion_compact_conversion_summary/summary.json",
+      "runs/m1058_short61049_replay_sanity_seed10570/boundary_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1058-v4-public-base-post-short-promotion-compact-corpus-conversion.json"
+    ],
+    "parent_objective": [
+      "audit why objective-passing compact corpus loses three cross-family replay success drops"
+    ],
+    "derived_from": [
+      "m1058-v4-public-base-post-short-promotion-compact-corpus-conversion"
+    ],
+    "blocked_by": [
+      "M1058 short61049 corpus loses three success-drop rows when replayed with short61050"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "integrating the M1058 compact corpus as a gate without replay failure audit"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit.md",
+  "public_gates": [
+    "M1059 must not train or run PPO",
+    "M1059 must not promote",
+    "M1059 must inspect failed replay rows",
+    "M1059 must classify current-base-only versus family-wide corpus mismatch",
+    "M1059 must decide the next route before another conversion attempt"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not accept M1058 corpus as a gate without replay repair"
+  ],
+  "workflow_synthesis": {
+    "branch": "post_short_promotion_surface_refresh",
+    "evidence_axis": "G_surface: conversion replay failure audit",
+    "evidence_increment": "audits the M1058 objective-pass replay-fail mismatch before conversion repair",
+    "claim_scope": "failure audit only; no training, no PPO, no promotion",
+    "stop_condition": [
+      "stop if failed rows indicate family-wide proof mismatch",
+      "stop if row filtering would remove source diversity below thresholds",
+      "stop if next conversion criteria are ambiguous"
+    ],
+    "fallback_plan": [
+      "if failure is near-zero wrong-margin artifact, route to replay-calibrated row filter design",
+      "if failure is family mismatch, route to family-intersection corpus design",
+      "if source diversity collapses, route to retargeted mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1058 objective conversion passes but cross-family replay sanity fails",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M1058 replay failure is likely caused by near-zero wrong-history margins in a few compact rows, and should be audited before any row filter or family-intersection conversion is attempted.",
+  "success_criteria": [
+    "audit artifact exists",
+    "failed rows are listed",
+    "failure type is explicit",
+    "next route is explicit",
+    "no training PPO promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "failed rows are not inspected",
+    "next route is ambiguous",
+    "training or PPO starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "write_audit",
+      "command": "write docs/m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1058-v4-public-base-post-short-promotion-compact-corpus-conversion.md"
+  ],
+  "decision_rule": "M1059 must classify the conversion replay failure and route to a repair design; it cannot train, run PPO, promote, or use private holdout.",
+  "next_blocker": "m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit"
+}

@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M1058 objective conversion passes for three compact corpora but one cross-family replay sanity gate loses three success-drop rows",
+  "failure_criteria": [
+    "compact corpus is too small",
+    "objective sanity fails",
+    "replay sanity fails",
+    "actor training or PPO starts",
+    "private holdout is used"
+  ],
+  "failure_types": [
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train actor",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not skip replay sanity"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260527T044953Z",
+  "hypothesis": "The refreshed post-short-promotion surface can be converted into compact source-capped corpora whose objective and replay sanity pass for the short-PPO family.",
+  "lineage": {
+    "blocked_by": [
+      "M1056 admits conversion after diagnosing M1055 margin-bucket failure as coarse bucket artifact"
+    ],
+    "derived_from": [
+      "m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design"
+    ],
+    "invalidates": [
+      "using refreshed surface for PPO before compact corpus objective and replay sanity"
+    ],
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m1056_margin_bucket_width_0005/accepted_wrong_history_rows.csv",
+      "docs/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.md"
+    ],
+    "parent_objective": [
+      "convert refreshed current-base surface into compact objective/replay corpora"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1058-v4-public-base-post-short-promotion-compact-corpus-conversion",
+  "next_blocker": "m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "post_short_promotion_compact_corpus_conversion_replay_failure_route_to_audit",
+  "public_gates": [
+    "M1058 must not train actor or run PPO",
+    "M1058 must build compact source-capped corpora for all three short-PPO family checkpoints",
+    "M1058 must run objective sanity for all three corpora",
+    "M1058 must run cross-family replay sanity",
+    "M1058 must not promote a checkpoint",
+    "M1058 must preserve actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1058_post_short_promotion_compact_conversion_summary/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "post_short_promotion_compact_corpus_conversion_replay_failure_route_to_audit",
+    "milestone": "m1058-v4-public-base-post-short-promotion-compact-corpus-conversion",
+    "reason": "M1058 objective conversion passes for three compact corpora but one cross-family replay sanity gate loses three success-drop rows",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "objective_sanity",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "three objective summaries exist",
+    "three replay sanity summaries exist",
+    "all compact corpora have >= 20 rows",
+    "all compact corpora have >= 10 physical pairs",
+    "all compact corpora have >= 2 targets",
+    "all objective sanity gates pass",
+    "all replay sanity gates pass",
+    "no actor training PPO promotion or private holdout occurs"
+  ],
+  "type": "objective_sanity"
+}

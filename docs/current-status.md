@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1058-v4-public-base-post-short-promotion-compact-corpus-conversion
+m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -94,11 +94,25 @@ that is a coarse bucket-edge artifact or true margin-diversity sparsity. M1056
 found that `0.005m` and `0.0025m` diagnostic bucket widths both pass, so the
 next step is compact objective/replay corpus conversion. M1057 designed that
 conversion using the M1056 `0.005m` accepted rows and cross-family replay
-sanity.
+sanity. M1058 objective conversion succeeded for all three short-PPO family
+checkpoints, but one cross-family replay sanity gate failed by losing three
+success-drop rows, so the corpus is not gate-ready yet.
 
 ```text
 decision:
-  post_short_promotion_compact_corpus_conversion_design_admit_m1058_conversion
+  post_short_promotion_compact_corpus_conversion_replay_failure_route_to_audit
+```
+
+M1058 result:
+
+```text
+objective_pass_count: 3 / 3
+compact rows per corpus: 27
+physical pairs per corpus: 15
+targets per corpus: 3
+replay_pass_count: 2 / 3
+failed replay: short61049_to_61050
+success_drop_count: 27 -> 24
 ```
 
 M1055 result:

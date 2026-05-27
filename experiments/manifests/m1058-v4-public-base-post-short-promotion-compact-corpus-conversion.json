@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "proof_washout"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -127,6 +127,33 @@
   "baseline_artifacts": [
     "docs/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.md"
   ],
-  "decision_rule": "M1058 may only convert and sanity-check the refreshed proof surface. Passing routes to gate integration or synthesis; failing routes to conversion audit.",
-  "next_blocker": "m1058-v4-public-base-post-short-promotion-compact-corpus-conversion"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1058-v4-public-base-post-short-promotion-compact-corpus-conversion.md",
+    "summary_json": "runs/m1058_post_short_promotion_compact_conversion_summary/summary.json",
+    "decision": "post_short_promotion_compact_corpus_conversion_replay_failure_route_to_audit",
+    "result_class": "post_short_promotion_compact_corpus_conversion_replay_failure",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "objective_count": 3,
+    "objective_pass_count": 3,
+    "replay_count": 3,
+    "replay_pass_count": 2,
+    "failed_replay_gates": [
+      "short61049_to_61050"
+    ],
+    "failed_success_drop_delta": -3,
+    "compact_corpus_rows": 27,
+    "compact_corpus_physical_pairs": 15,
+    "compact_corpus_targets": 3,
+    "training_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "promoted": false,
+    "next_milestone": "m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit"
+  },
+  "decision": "post_short_promotion_compact_corpus_conversion_replay_failure_route_to_audit",
+  "decision_rule": "M1058 objective conversion passes but one cross-family replay sanity gate loses three success-drop rows. It routes to conversion replay failure audit before any gate integration or PPO.",
+  "next_blocker": "m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit"
 }

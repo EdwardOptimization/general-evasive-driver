@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1066,
+    "completed": 1067,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design",
+    "task_id": "m1058-v4-public-base-post-short-promotion-compact-corpus-conversion",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.md"
+    "command_log": "docs/m1058-v4-public-base-post-short-promotion-compact-corpus-conversion.md"
   },
   "next_task": {
-    "id": "m1058-v4-public-base-post-short-promotion-compact-corpus-conversion",
+    "id": "m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit",
     "status": "pending",
-    "priority": 10530,
-    "kind": "objective_sanity",
-    "hypothesis": "Convert the refreshed post-short-promotion surface into compact objective/replay corpora",
-    "command": "see experiments/manifests/m1058-v4-public-base-post-short-promotion-compact-corpus-conversion.json",
-    "success_artifact": "docs/m1058-v4-public-base-post-short-promotion-compact-corpus-conversion.md",
-    "notes": "Pending: objective/replay sanity only; no PPO no private holdout"
+    "priority": 10540,
+    "kind": "gate",
+    "hypothesis": "Audit why the M1058 objective-passing compact corpus loses three cross-family replay success drops",
+    "command": "see experiments/manifests/m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit.json",
+    "success_artifact": "docs/m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit.md",
+    "notes": "Pending: audit only; no PPO no private holdout"
   },
-  "updated_at_utc": "20260527T044048Z"
+  "updated_at_utc": "20260527T044810Z"
 }
