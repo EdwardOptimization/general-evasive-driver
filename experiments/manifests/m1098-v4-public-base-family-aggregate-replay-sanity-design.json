@@ -1,0 +1,165 @@
+{
+  "id": "m1098-v4-public-base-family-aggregate-replay-sanity-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1097-v4-public-base-family-aggregate-conversion-implementation.md",
+      "runs/m1097_family_aggregate_boundary_conversion/summary.json",
+      "runs/m1097_family_aggregate_boundary_conversion/replay_plan.json",
+      "runs/m1097_family_aggregate_boundary_conversion/family_aggregate_boundary_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1097-v4-public-base-family-aggregate-conversion-implementation.json"
+    ],
+    "parent_objective": [
+      "design replay sanity for the family-aggregate raw-retained export before objective optimization"
+    ],
+    "derived_from": [
+      "m1097-v4-public-base-family-aggregate-conversion-implementation"
+    ],
+    "blocked_by": [
+      "M1097 exported replay-ready rows but intentionally did not run replay or objective optimization"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running objective optimization before family-aggregate replay sanity",
+      "promoting the export as proof without replay",
+      "ignoring duplicate geometry groups during replay analysis"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1098-v4-public-base-family-aggregate-replay-sanity-design.md",
+  "public_gates": [
+    "M1098 must design only",
+    "M1098 must not train",
+    "M1098 must not run PPO",
+    "M1098 must not run replay",
+    "M1098 must not run objective optimization",
+    "M1098 must not mine rows",
+    "M1098 must not promote",
+    "M1098 must not use private holdout",
+    "M1098 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken M1097 aggregate thresholds",
+    "do not skip duplicate geometry failure analysis"
+  ],
+  "workflow_synthesis": {
+    "branch": "family_aggregate_boundary_conversion",
+    "evidence_axis": "G_conversion: family-aggregate replay sanity design",
+    "evidence_increment": "designs replay sanity for exported family-aggregate rows before any objective optimization",
+    "claim_scope": "design only; no replay, no objective run, no training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if source-policy-on-source-rows replay gates cannot be specified",
+      "stop if cross-family replay reporting cannot preserve row/source/duplicate metadata",
+      "stop if duplicate geometry failure analysis is ambiguous"
+    ],
+    "fallback_plan": [
+      "if design is clear, route to replay sanity implementation/run",
+      "if existing replay tools cannot preserve metadata, route to an adapter implementation",
+      "if duplicate geometry invalidates the export, route back to conversion design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1097 writes export-only family-aggregate conversion artifacts and replay_plan.json",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "design replay sanity without running replay or PPO",
+    "admission_evidence": [
+      "M1097 export passes aggregate thresholds",
+      "M1097 replay_plan.json blocks objective optimization until replay sanity is defined"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not run replay in this design milestone",
+      "do not run objective optimization",
+      "do not promote from a design"
+    ],
+    "allowed_updates": [
+      "write replay sanity design documentation",
+      "pre-register implementation/run if design is clear",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "source-policy replay gates are explicit",
+      "cross-family replay report metrics are explicit",
+      "duplicate geometry failure audit is explicit",
+      "implementation/run manifest is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1098 is replay-sanity design for matched-current rows and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1098 designs replay over existing M1097 rows and adds no new temporal task.",
+    "negative_result_policy": "If replay sanity cannot be designed, route to adapter design or conversion repair rather than objective optimization.",
+    "allowed_claims": [
+      "replay sanity design for a level2 source-balanced proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A source-aware replay sanity design can test the M1097 family-aggregate export before objective optimization while preserving source labels and duplicate geometry metadata.",
+  "success_criteria": [
+    "replay sanity design artifact exists",
+    "source-policy-on-source-rows gates are explicit",
+    "cross-family replay report metrics are explicit",
+    "duplicate geometry failure analysis is explicit",
+    "no training, PPO, replay, objective optimization, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "source-policy replay gates are ambiguous",
+    "cross-family replay report is missing",
+    "duplicate geometry audit is missing",
+    "training, PPO, replay, objective optimization, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m1098-v4-public-base-family-aggregate-replay-sanity-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1098-v4-public-base-family-aggregate-replay-sanity-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1097-v4-public-base-family-aggregate-conversion-implementation.md",
+    "runs/m1097_family_aggregate_boundary_conversion/replay_plan.json"
+  ],
+  "decision_rule": "M1098 may only design replay sanity. It cannot train, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, change actor inputs, or weaken thresholds.",
+  "next_blocker": "m1098-v4-public-base-family-aggregate-replay-sanity-design"
+}

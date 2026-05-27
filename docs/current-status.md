@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1097-v4-public-base-family-aggregate-conversion-implementation
+m1098-v4-public-base-family-aggregate-replay-sanity-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -222,11 +222,16 @@ source checkpoint labels/paths, duplicate geometry groups, and a replay plan;
 do not write a mixed-source objective NPZ because the existing objective path
 intentionally avoids hidden-state space mixing. The next step is M1097:
 implement and run the export-only conversion without replay or objective
-optimization.
+optimization. M1097 passes the export gate with `146` rows, `18` physical
+pairs, `9` left steps, `4` checkpoints, `3` targets, success-drop fraction
+`1.0`, and max pair fraction `0.136986`. It writes `replay_plan.json` and keeps
+`replay_started=false`, `objective_optimization_started=false`, and
+`mixed_source_objective_npz_written=false`. The next step is M1098: design
+source-aware replay sanity before any objective optimization.
 
 ```text
 decision:
-  family_aggregate_conversion_design_admit_export_implementation
+  family_aggregate_conversion_export_pass
 ```
 
 M1068 design:

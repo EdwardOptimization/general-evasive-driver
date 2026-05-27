@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1105,
+    "completed": 1106,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1096-v4-public-base-family-aggregate-conversion-design",
+    "task_id": "m1097-v4-public-base-family-aggregate-conversion-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1096-v4-public-base-family-aggregate-conversion-design.md"
+    "command_log": "docs/m1097-v4-public-base-family-aggregate-conversion-implementation.md"
   },
   "next_task": {
-    "id": "m1097-v4-public-base-family-aggregate-conversion-implementation",
+    "id": "m1098-v4-public-base-family-aggregate-replay-sanity-design",
     "status": "pending",
-    "priority": 10920,
-    "kind": "infrastructure",
-    "hypothesis": "Implement and run export-only family-aggregate raw-retained conversion while preserving source metadata, duplicate geometry accounting, and replay plan artifacts",
-    "command": "see experiments/manifests/m1097-v4-public-base-family-aggregate-conversion-implementation.json",
-    "success_artifact": "docs/m1097-v4-public-base-family-aggregate-conversion-implementation.md",
-    "notes": "Pending: export implementation only; no PPO no training no replay no objective optimization no mining no promotion no private holdout"
+    "priority": 10930,
+    "kind": "gate",
+    "hypothesis": "Design source-aware replay sanity for the M1097 family-aggregate export before objective optimization",
+    "command": "see experiments/manifests/m1098-v4-public-base-family-aggregate-replay-sanity-design.json",
+    "success_artifact": "docs/m1098-v4-public-base-family-aggregate-replay-sanity-design.md",
+    "notes": "Pending: design only; no PPO no training no replay no objective optimization no mining no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T191122Z"
+  "updated_at_utc": "20260527T191747Z"
 }

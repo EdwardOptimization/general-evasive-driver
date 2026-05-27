@@ -15770,3 +15770,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked shortcut: do not silently mix source checkpoint hidden states into one objective corpus
 - decision: `family_aggregate_conversion_design_admit_export_implementation`
 - next: `m1097-v4-public-base-family-aggregate-conversion-implementation`
+
+## 20260527T191747Z - m1097-v4-public-base-family-aggregate-conversion-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1097-v4-public-base-family-aggregate-conversion-implementation.md`
+- result: M1097 implements and runs export-only family-aggregate conversion. The export passes aggregate thresholds with `146` rows, `18` physical pairs, `9` left steps, `4` checkpoints, `3` targets, `4` normal-margin buckets, success-drop fraction `1.0`, and max pair fraction `0.136986`. It writes source policy metadata, `75` duplicate geometry groups, source summaries, and `replay_plan.json`.
+- safety: no training, PPO, replay, objective optimization, mixed-source objective NPZ, mining, promotion, private holdout, or actor input change
+- decision: `family_aggregate_conversion_export_pass`
+- next: `m1098-v4-public-base-family-aggregate-replay-sanity-design`

@@ -183,6 +183,46 @@
     "docs/m1096-v4-public-base-family-aggregate-conversion-design.md",
     "runs/m1092_source_balanced_coverage_expansion_seed109200/balanced_accepted_wrong_history_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1097-v4-public-base-family-aggregate-conversion-implementation.md",
+    "decision": "family_aggregate_conversion_export_pass",
+    "result_class": "family_aggregate_raw_retained_export_pass",
+    "failure_types": [
+      "none"
+    ],
+    "run_dir": "runs/m1097_family_aggregate_boundary_conversion",
+    "aggregate_summary": {
+      "rows": 146,
+      "physical_pairs": 18,
+      "left_steps": 9,
+      "checkpoints": 4,
+      "targets": 3,
+      "normal_margin_buckets": 4,
+      "success_drop_fraction": 1.0,
+      "max_rows_per_physical_pair_fraction": 0.136986301369863,
+      "threshold_pass": true
+    },
+    "duplicate_geometry_groups": 75,
+    "duplicate_geometry_multi_source_groups": 0,
+    "source_rows": {
+      "proof_current": 39,
+      "short61049": 29,
+      "short61050": 24,
+      "short61051": 54
+    },
+    "training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "mixed_source_objective_npz_written": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1098-v4-public-base-family-aggregate-replay-sanity-design"
+  },
+  "decision": "family_aggregate_conversion_export_pass",
   "decision_rule": "M1097 may only implement and run export-only conversion. It cannot train, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or weaken M1092 thresholds.",
-  "next_blocker": "m1097-v4-public-base-family-aggregate-conversion-implementation"
+  "next_blocker": "m1098-v4-public-base-family-aggregate-replay-sanity-design"
 }
