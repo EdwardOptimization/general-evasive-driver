@@ -66,7 +66,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1045 promotes the M1044 raw PPO checkpoint as public-gate base",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "continue",
     "synthesis_artifact": "docs/m1046-v4-public-base-guarded-ppo-post-promotion-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -110,6 +110,37 @@
   "baseline_artifacts": [
     "docs/m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1046-v4-public-base-guarded-ppo-post-promotion-synthesis.md",
+    "supported_claims": [
+      "one guarded PPO smoke proposal can pass exact proof source-diverse fresh OOD and behavior public gates",
+      "combined active-set PPO retention avoided the historical row15 and row16 failures",
+      "the M1044 raw checkpoint is a valid public-gate base successor"
+    ],
+    "falsified_claims": [
+      "guarded PPO from this lineage must always wash out M267/M264 row15",
+      "PPO must be avoided entirely after active-set repair",
+      "one successful PPO smoke proves multi-seed or long-run PPO stability"
+    ],
+    "failure_taxonomy_summary": {
+      "branch_failures": [
+        "none"
+      ],
+      "historical_constraints": [
+        "proof_washout:m267_m264_row15",
+        "proof_washout:m183_m170_row16"
+      ],
+      "residual_risk": "moderate_public_gate_overfit_and_seed_fragility_risk"
+    },
+    "synthesis_decision": "continue",
+    "branch": "combined_active_set_guarded_ppo_readiness",
+    "next_milestone": "m1047-v4-public-base-guarded-ppo-fresh-seed-repeat",
+    "training_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false
+  },
+  "decision": "guarded_ppo_post_promotion_synthesis_continue_to_fresh_seed_repeat",
   "decision_rule": "M1046 must decide whether the next route is fresh-seed PPO repeat, longer PPO escalation, proof-surface refresh, or stop/audit.",
-  "next_blocker": "m1046-v4-public-base-guarded-ppo-post-promotion-synthesis"
+  "next_blocker": "m1047-v4-public-base-guarded-ppo-fresh-seed-repeat"
 }

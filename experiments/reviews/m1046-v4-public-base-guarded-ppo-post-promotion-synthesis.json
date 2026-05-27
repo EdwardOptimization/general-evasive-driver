@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1046 synthesizes M1043-M1045 and routes to fresh-seed guarded PPO repeat before longer PPO escalation or multi-seed claims",
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "next route is missing",
+    "PPO starts",
+    "private holdout is used",
+    "long-run PPO stability is claimed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not claim multi-seed PPO repeatability",
+    "do not claim long-run PPO stability",
+    "do not claim paper-level generalization"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T024202Z",
+  "hypothesis": "Guarded PPO post-promotion work should be synthesized before repeat PPO, longer PPO, or additional objective updates.",
+  "lineage": {
+    "blocked_by": [
+      "the M1044 raw PPO checkpoint has been promoted as public-gate base and the next post-promotion route is not yet synthesized"
+    ],
+    "derived_from": [
+      "m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit"
+    ],
+    "invalidates": [
+      "running another PPO immediately after promotion without synthesis"
+    ],
+    "parent_checkpoint": [
+      "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt",
+      "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit.md",
+      "runs/m1044_v4_public_base_combined_active_set_guarded_ppo_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "synthesize the guarded PPO smoke promotion branch before repeat PPO or escalation"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1046-v4-public-base-guarded-ppo-post-promotion-synthesis",
+  "next_blocker": "m1047-v4-public-base-guarded-ppo-fresh-seed-repeat",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "guarded_ppo_post_promotion_synthesis_continue_to_fresh_seed_repeat",
+  "public_gates": [
+    "M1046 must synthesize M1043-M1045",
+    "M1046 must not train",
+    "M1046 must not run PPO",
+    "M1046 must not use private holdout",
+    "M1046 must decide the next PPO route"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1046-v4-public-base-guarded-ppo-post-promotion-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "guarded_ppo_post_promotion_synthesis_continue_to_fresh_seed_repeat",
+    "milestone": "m1046-v4-public-base-guarded-ppo-post-promotion-synthesis",
+    "reason": "M1046 synthesizes M1043-M1045 and routes to fresh-seed guarded PPO repeat before longer PPO escalation or multi-seed claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "synthesis artifact exists",
+    "supported and falsified claims are explicit",
+    "public gate overfit risk is updated",
+    "next PPO route is explicit",
+    "no training or PPO occurs"
+  ],
+  "type": "gate"
+}

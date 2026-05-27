@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1054,
+    "completed": 1055,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit",
+    "task_id": "m1046-v4-public-base-guarded-ppo-post-promotion-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit.md"
+    "command_log": "docs/m1046-v4-public-base-guarded-ppo-post-promotion-synthesis.md"
   },
   "next_task": {
-    "id": "m1046-v4-public-base-guarded-ppo-post-promotion-synthesis",
+    "id": "m1047-v4-public-base-guarded-ppo-fresh-seed-repeat",
     "status": "pending",
-    "priority": 10410,
-    "kind": "gate",
-    "hypothesis": "Synthesize the guarded PPO smoke promotion branch before repeat PPO or longer PPO escalation",
-    "command": "see experiments/manifests/m1046-v4-public-base-guarded-ppo-post-promotion-synthesis.json",
-    "success_artifact": "docs/m1046-v4-public-base-guarded-ppo-post-promotion-synthesis.md",
-    "notes": "Pending: process synthesis only; no PPO no private holdout no long-run claim"
+    "priority": 10420,
+    "kind": "driver_candidate",
+    "hypothesis": "Run two fresh-seed guarded PPO smoke repeats from the M1045 public-gate base and gate each without promotion",
+    "command": "see experiments/manifests/m1047-v4-public-base-guarded-ppo-fresh-seed-repeat.json",
+    "success_artifact": "docs/m1047-v4-public-base-guarded-ppo-fresh-seed-repeat.md",
+    "notes": "Pending: two 1024-step PPO proposals only; no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T023146Z"
+  "updated_at_utc": "20260527T023429Z"
 }

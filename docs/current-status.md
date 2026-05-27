@@ -77,16 +77,15 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1046-v4-public-base-guarded-ppo-post-promotion-synthesis
+m1047-v4-public-base-guarded-ppo-fresh-seed-repeat
 ```
 
-M1045 promoted the M1044 raw guarded PPO checkpoint as the current public-gate
-base. M1046 must synthesize the post-promotion route before any repeat PPO,
-longer PPO, proof-surface refresh, or additional objective update.
+M1046 synthesized the guarded PPO smoke promotion branch and routed to a
+two-seed fresh PPO repeat before any longer PPO escalation or multi-seed claim.
 
 ```text
 decision:
-  combined_active_set_guarded_ppo_promote_public_gate_base
+  guarded_ppo_post_promotion_synthesis_continue_to_fresh_seed_repeat
 ```
 
 Current public-gate base:
@@ -150,10 +149,20 @@ promoted: false
 private_holdout_used: false
 ```
 
-M1046 is process synthesis only. It must not run PPO, use private holdout, or
-claim multi-seed/long-run PPO stability. It should decide whether the next
-route is fresh-seed PPO repeat, short PPO escalation, proof-surface refresh, or
-overfit-risk audit.
+M1047 constraints:
+
+```text
+base checkpoint: current public-gate base
+seeds: 61045, 61046
+total_steps per seed: 1024
+must preserve P0 actor inputs
+must gate M997, M297/M270, and combined active-set exact checks
+must gate six public replay surfaces and source-diverse diagnostics
+must gate fresh public, moderate-OOD, and behavior seeds
+must retain M267/M264 row15 wrong-history failure
+must retain M183/M170 row16 normal success
+must not promote or use private holdout
+```
 
 ### Historical Trace
 

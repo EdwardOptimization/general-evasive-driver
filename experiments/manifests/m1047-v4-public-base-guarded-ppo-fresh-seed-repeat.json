@@ -1,0 +1,136 @@
+{
+  "id": "m1047-v4-public-base-guarded-ppo-fresh-seed-repeat",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1046-v4-public-base-guarded-ppo-post-promotion-synthesis.md",
+      "runs/m1044_v4_public_base_combined_active_set_guarded_ppo_smoke/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m1044_combined_active_set_guarded_smoke.json",
+      "experiments/manifests/m1046-v4-public-base-guarded-ppo-post-promotion-synthesis.json"
+    ],
+    "parent_objective": [
+      "run fresh-seed guarded PPO smoke repeats from the M1045 public-gate base and gate each without promotion"
+    ],
+    "derived_from": [
+      "m1046-v4-public-base-guarded-ppo-post-promotion-synthesis"
+    ],
+    "blocked_by": [
+      "M1044 is a single PPO seed and does not prove seed-stable PPO continuation"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "escalating to longer PPO before fresh-seed smoke repeat"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1047-v4-public-base-guarded-ppo-fresh-seed-repeat.md",
+  "public_gates": [
+    "M1047 must run only two smoke-scale PPO repeats",
+    "M1047 must not promote",
+    "M1047 must not use private holdout",
+    "M1047 must preserve the P0 actor-input contract",
+    "M1047 must gate each raw PPO checkpoint against exact and combined active-set checks",
+    "M1047 must gate each raw PPO checkpoint against proof replay, source-diverse diagnostics, fresh generalization, and behavior ablations"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run medium or long PPO",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote from M1047",
+    "do not skip combined active-set checks",
+    "do not skip proof replay gates",
+    "do not accept aggregate eval if row15 or row16 proof washes out"
+  ],
+  "workflow_synthesis": {
+    "branch": "combined_active_set_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo: fresh-seed guarded PPO repeat",
+    "evidence_increment": "tests whether the guarded PPO smoke recipe is seed-stable on two fresh PPO seeds from the current public-gate base",
+    "claim_scope": "fresh-seed smoke repeat diagnostic only; no promotion, no private holdout, no long-run claim",
+    "stop_condition": [
+      "stop if either raw PPO fails or training metrics are non-finite",
+      "stop if actor-input contract changes",
+      "stop if exact or combined active-set retention regresses",
+      "stop if proof replay gates fail",
+      "stop if fresh generalization or behavior ablations regress"
+    ],
+    "fallback_plan": [
+      "if both seeds pass, route to short PPO escalation design",
+      "if one seed fails proof but training is finite, route to seed-fragility audit or exact repair/projection",
+      "if training is unstable, route to PPO recipe audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1046 routes to fresh-seed guarded PPO repeat before escalation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Two fresh 1024-step guarded PPO proposals from the M1045 public-gate base can run and pass exact, proof, source-diverse, fresh generalization, and behavior gates without promotion.",
+  "success_criteria": [
+    "seed 61045 raw PPO run completes",
+    "seed 61046 raw PPO run completes",
+    "both summary artifacts exist",
+    "both exact contract summaries are written",
+    "both proof replay summaries are written",
+    "both behavior comparisons are written",
+    "aggregate repeat summary is written",
+    "route decision is explicit",
+    "no promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "a PPO run crashes",
+    "actor inputs change",
+    "exact or combined active-set gates are skipped",
+    "proof replay gates are skipped",
+    "fresh generalization or behavior gates are skipped",
+    "checkpoint is promoted",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "run_seed_61045",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.combined_active_set_guarded_ppo_smoke --base-checkpoint runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt --config configs/ppo_m1047_guarded_repeat_seed61045.json --run-dir runs/m1047_guarded_ppo_repeat_seed61045 --ppo-run-dir runs/ppo_m1047_guarded_repeat_seed61045 --device auto"
+    },
+    {
+      "name": "run_seed_61046",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.combined_active_set_guarded_ppo_smoke --base-checkpoint runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt --config configs/ppo_m1047_guarded_repeat_seed61046.json --run-dir runs/m1047_guarded_ppo_repeat_seed61046 --ppo-run-dir runs/ppo_m1047_guarded_repeat_seed61046 --device auto"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "configs/ppo_m1047_guarded_repeat_seed61045.json",
+      "type": "json"
+    },
+    {
+      "path": "configs/ppo_m1047_guarded_repeat_seed61046.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1047_guarded_ppo_repeat_seed61045/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1047_guarded_ppo_repeat_seed61046/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1047-v4-public-base-guarded-ppo-fresh-seed-repeat.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1046-v4-public-base-guarded-ppo-post-promotion-synthesis.md"
+  ],
+  "decision_rule": "M1047 may only run two smoke PPO proposals and gates. It must not promote, use private holdout, run longer PPO, or claim final driver improvement.",
+  "next_blocker": "m1047-v4-public-base-guarded-ppo-fresh-seed-repeat"
+}

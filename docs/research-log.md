@@ -15562,3 +15562,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1045 audits M1044 evidence and promotes `runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt` as the current public-gate base. The promotion is based on finite 1024-step PPO training, unchanged actor inputs, exact M997/M297/M270/combined-active-set pass, six public replay passes, source-diverse diagnostic pass, fresh/OOD pass, behavior pass, row15 wrong-history failure retention, and row16 normal success retention. The scope remains public-gate only: no private holdout, multi-seed PPO repeatability, long-run PPO stability, paper-level, or real-vehicle claim.
 - decision: `combined_active_set_guarded_ppo_promote_public_gate_base`
 - next: `m1046-v4-public-base-guarded-ppo-post-promotion-synthesis`
+
+## 20260527T023429Z - m1046-v4-public-base-guarded-ppo-post-promotion-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1046-v4-public-base-guarded-ppo-post-promotion-synthesis.md`
+- result: M1046 synthesizes M1043-M1045. It records that M1044 is the first guarded PPO smoke proposal in this lineage to pass exact/proof/source-diverse/fresh/OOD/behavior public gates while retaining M267/M264 row15 wrong-history failure and M183/M170 row16 normal success. The synthesis explicitly rejects any multi-seed or long-run PPO claim from a single seed and routes to a two-seed 1024-step guarded PPO repeat before longer PPO escalation.
+- decision: `guarded_ppo_post_promotion_synthesis_continue_to_fresh_seed_repeat`
+- next: `m1047-v4-public-base-guarded-ppo-fresh-seed-repeat`
