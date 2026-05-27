@@ -15934,3 +15934,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: the actor update preserved normal aggregate behavior but made replay-calibrated wrong-history branches too safe; next step is failure audit, not PPO or another actor update.
 - decision: `materialized_actor_update_full_public_gate_reject_proof_washout`
 - next: `m1113-v4-public-base-materialized-actor-update-proof-washout-audit`
+
+## 20260527T203538Z - m1113-v4-public-base-materialized-actor-update-proof-washout-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1113-v4-public-base-materialized-actor-update-proof-washout-audit.md`
+- result: M1113 audits existing M1112 replay artifacts. Across failed old-public, family-intersection, and source-diverse gates there are `47` lost success-drop events, with `0` normal-lost events and `47` wrong-history-safe events.
+- interpretation: M1112 is not a broad normal-driving collapse or contract artifact. The actor update makes wrong-history rollouts safe while preserving normal success and aggregate behavior, so the missing constraint is closed-loop rejected-history trajectory retention.
+- decision: `materialized_actor_update_proof_washout_audit_route_to_failed_wrong_history_retention_design`
+- next: `m1114-v4-public-base-materialized-failed-wrong-history-retention-design`

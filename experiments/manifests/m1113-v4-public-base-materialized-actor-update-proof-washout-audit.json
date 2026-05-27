@@ -154,6 +154,33 @@
     "docs/m1112-v4-public-base-materialized-actor-update-full-public-gate.md",
     "runs/m1112_materialized_actor_update_full_public_gate/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1113-v4-public-base-materialized-actor-update-proof-washout-audit.md",
+    "decision": "materialized_actor_update_proof_washout_audit_route_to_failed_wrong_history_retention_design",
+    "result_class": "proof_washout_due_to_wrong_history_branch_becoming_safe",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "lost_success_drop_events": 47,
+    "normal_lost_events": 0,
+    "wrong_history_safe_events": 47,
+    "old_public_lost_success_drop_events": 8,
+    "family_intersection_lost_success_drop_events": 28,
+    "source_diverse_lost_success_drop_events": 11,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "corpus_build_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "admitted_next": "failed_wrong_history_retention_design_only",
+    "next_milestone": "m1114-v4-public-base-materialized-failed-wrong-history-retention-design"
+  },
+  "decision": "materialized_actor_update_proof_washout_audit_route_to_failed_wrong_history_retention_design",
   "decision_rule": "M1113 may only audit existing M1112 failure artifacts and route the next repair design. It cannot train actor weights, run PPO, run replay, build corpus, mine rows, promote, use private holdout, change actor inputs, or try backup candidates.",
-  "next_blocker": "m1113-v4-public-base-materialized-actor-update-proof-washout-audit"
+  "next_blocker": "m1114-v4-public-base-materialized-failed-wrong-history-retention-design"
 }

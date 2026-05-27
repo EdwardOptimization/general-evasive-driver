@@ -1,0 +1,164 @@
+{
+  "id": "m1114-v4-public-base-materialized-failed-wrong-history-retention-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/m1110_materialized_actor_coupling_anchor100_s10_lr5e5_seed110901/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1113-v4-public-base-materialized-actor-update-proof-washout-audit.md",
+      "runs/m1112_materialized_actor_update_full_public_gate/summary.json",
+      "runs/m1112_materialized_actor_update_full_public_gate/full_gates/m267_m264_replay/boundary_replay_rows.csv",
+      "runs/m1112_materialized_actor_update_full_public_gate/family_intersection_public_gate/replay_gate_summary.csv",
+      "runs/m1112_materialized_actor_update_full_public_gate/source_diverse_protected_diagnostic/replay_gate_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1113-v4-public-base-materialized-actor-update-proof-washout-audit.json"
+    ],
+    "parent_objective": [
+      "design failed wrong-history retention before another actor update"
+    ],
+    "derived_from": [
+      "m1113-v4-public-base-materialized-actor-update-proof-washout-audit"
+    ],
+    "blocked_by": [
+      "M1113 finds wrong-history branches became safe while normal branches stayed successful"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "retrying M1110 backup candidates without retention design",
+      "longer materialized actor update without rejected-history trajectory retention",
+      "PPO from the failed exact-improving candidate"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1114-v4-public-base-materialized-failed-wrong-history-retention-design.md",
+  "public_gates": [
+    "M1114 must design only",
+    "M1114 must not train actor weights",
+    "M1114 must not run PPO",
+    "M1114 must not run replay",
+    "M1114 must not build or export corpus",
+    "M1114 must not mine rows",
+    "M1114 must not promote",
+    "M1114 must not use private holdout",
+    "M1114 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not build or export corpus",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken replay gates",
+    "do not try backup M1110 candidates"
+  ],
+  "workflow_synthesis": {
+    "branch": "materialized_objective_corpus_sanity",
+    "evidence_axis": "G_design: failed wrong-history retention design",
+    "evidence_increment": "turns M1113 proof-washout audit into a concrete rejected-history trajectory retention design",
+    "claim_scope": "design only; no training, replay, corpus export, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if failed-row selection cannot be made deterministic",
+      "stop if retention target would also protect unsafe normal-history actions",
+      "stop if design cannot preserve actor-input and parameter-surface contracts"
+    ],
+    "fallback_plan": [
+      "if trajectory retention is infeasible from existing artifacts, route to failed-row export tooling design",
+      "if failed rows are too broad, route to source-family weighted retention design",
+      "if target conflicts with M1107 objective, route to lexicographic objective design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1113 routes to failed wrong-history retention design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design rejected-history retention before any further action-grounding update",
+    "admission_evidence": [
+      "M1113 classifies all lost success-drop events as wrong-history-safe with zero normal_lost events"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not export corpus in design milestone",
+      "do not promote from failed gate"
+    ],
+    "allowed_updates": [
+      "design documentation",
+      "pre-register next implementation manifest if design is complete",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "failed-row selection rule is explicit",
+      "retention artifact schema is explicit",
+      "post-retention gates are explicit",
+      "fallback route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1114 designs retention for replay-calibrated wrong-history proof and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1114 is design-only and adds no new temporal task.",
+    "negative_result_policy": "Keep M1112 as proof_washout evidence and design retention before any new update.",
+    "allowed_claims": [
+      "retention design for a level2 proof-washout failure",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A failed wrong-history trajectory-retention design can address the M1112 proof washout more directly than increasing the M1107 exact objective weight.",
+  "success_criteria": [
+    "design artifact exists",
+    "failed-row selection rule is explicit",
+    "trajectory or replay-retention target is explicit",
+    "post-update exact/replay/behavior gates are explicit",
+    "next route is explicit",
+    "no actor training, PPO, replay, corpus export, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "failed-row selection is ambiguous",
+    "retention target is ambiguous",
+    "post-update gates are ambiguous",
+    "actor training, PPO, replay, corpus export, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_failed_wrong_history_retention_design",
+      "command": "write docs/m1114-v4-public-base-materialized-failed-wrong-history-retention-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1114-v4-public-base-materialized-failed-wrong-history-retention-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1113-v4-public-base-materialized-actor-update-proof-washout-audit.md",
+    "runs/m1112_materialized_actor_update_full_public_gate/summary.json"
+  ],
+  "decision_rule": "M1114 may only design failed wrong-history retention. It cannot train actor weights, run PPO, run replay, build/export corpus, mine rows, promote, use private holdout, change actor inputs, weaken gates, or retry backup candidates.",
+  "next_blocker": "m1114-v4-public-base-materialized-failed-wrong-history-retention-design"
+}

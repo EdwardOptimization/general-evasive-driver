@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1121,
+    "completed": 1122,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1112-v4-public-base-materialized-actor-update-full-public-gate",
+    "task_id": "m1113-v4-public-base-materialized-actor-update-proof-washout-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1112-v4-public-base-materialized-actor-update-full-public-gate.md"
+    "command_log": "docs/m1113-v4-public-base-materialized-actor-update-proof-washout-audit.md"
   },
   "next_task": {
-    "id": "m1113-v4-public-base-materialized-actor-update-proof-washout-audit",
+    "id": "m1114-v4-public-base-materialized-failed-wrong-history-retention-design",
     "status": "pending",
-    "priority": 11080,
+    "priority": 11090,
     "kind": "gate",
-    "hypothesis": "Audit why the exact-improving materialized actor update washed out replay proof surfaces",
-    "command": "see experiments/manifests/m1113-v4-public-base-materialized-actor-update-proof-washout-audit.json",
-    "success_artifact": "docs/m1113-v4-public-base-materialized-actor-update-proof-washout-audit.md",
-    "notes": "Pending: audit existing M1112 artifacts only; no training no PPO no replay no mining no promotion no private holdout no backup-candidate retry"
+    "hypothesis": "Design failed wrong-history retention before another materialized actor update",
+    "command": "see experiments/manifests/m1114-v4-public-base-materialized-failed-wrong-history-retention-design.json",
+    "success_artifact": "docs/m1114-v4-public-base-materialized-failed-wrong-history-retention-design.md",
+    "notes": "Pending: design only; no training no PPO no replay no corpus export no mining no promotion no private holdout no backup-candidate retry"
   },
-  "updated_at_utc": "20260527T203116Z"
+  "updated_at_utc": "20260527T203538Z"
 }

@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1113-v4-public-base-materialized-actor-update-proof-washout-audit
+m1114-v4-public-base-materialized-failed-wrong-history-retention-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -313,11 +313,15 @@ replay passes `0/3`. Fresh/OOD and behavior gates pass, so the failure is a
 proof-surface washout: wrong-history branches became too safe while aggregate
 behavior stayed intact. The next step is M1113: audit existing failure artifacts
 before any new update, replay, PPO, promotion, private holdout, or backup
-candidate retry.
+candidate retry. M1113 completes that audit: across failed gates there are `47`
+lost success-drop events, `0` normal-lost events, and `47` wrong-history-safe
+events. The missing constraint is therefore closed-loop rejected-history
+trajectory retention, not normal-history repair. The next step is M1114: design
+failed wrong-history retention before any new actor update.
 
 ```text
 decision:
-  materialized_actor_update_full_public_gate_reject_proof_washout
+  materialized_actor_update_proof_washout_audit_route_to_failed_wrong_history_retention_design
 ```
 
 M1068 design:
