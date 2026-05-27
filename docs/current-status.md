@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1064-v4-public-base-family-intersection-public-gate-implementation
+m1065-v4-public-base-family-intersection-stack-integration
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -105,11 +105,13 @@ surface-refresh step or moving toward medium PPO. M1062 synthesized M1054-M1061,
 closed the `post_short_promotion_surface_refresh` branch, and routed to
 first-class public gate integration for the M1061 family-intersection corpus.
 M1063 designed that gate integration and admitted a reusable wrapper
-implementation before medium PPO.
+implementation before medium PPO. M1064 implemented that wrapper and validated
+that the current public-gate base passes all three M1061 source-to-candidate
+replay gates.
 
 ```text
 decision:
-  post_short_promotion_family_gate_integration_design_admit_m1064_wrapper
+  family_intersection_public_gate_implementation_pass_route_to_stack_integration
 ```
 
 M1061 result:
@@ -145,6 +147,21 @@ future_candidate_gate: 3 source-to-candidate replay gates
 source corpora: short61049, short61050, short61051
 decision: implement reusable wrapper before medium PPO
 next: m1064-v4-public-base-family-intersection-public-gate-implementation
+```
+
+M1064 result:
+
+```text
+result_class: family_intersection_public_gate_pass
+replay_gate_count: 3
+replay_gates_passed: 3
+failed_replay_gates: []
+actor_inputs_changed: false
+training_started: false
+ppo_used: false
+promoted: false
+private_holdout_used: false
+next: m1065-v4-public-base-family-intersection-stack-integration
 ```
 
 M1058 result:

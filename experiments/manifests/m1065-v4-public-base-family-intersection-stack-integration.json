@@ -1,0 +1,102 @@
+{
+  "id": "m1065-v4-public-base-family-intersection-stack-integration",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1064_family_intersection_public_gate_current_base/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1064-v4-public-base-family-intersection-public-gate-implementation.json"
+    ],
+    "parent_objective": [
+      "integrate M1064 family-intersection public gate into guarded PPO/full public gate stack"
+    ],
+    "derived_from": [
+      "m1064-v4-public-base-family-intersection-public-gate-implementation"
+    ],
+    "blocked_by": [
+      "M1064 validates the wrapper but future PPO candidates still need the expanded gate stack"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "medium PPO design that does not include M1061 family-intersection proof retention"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1065-v4-public-base-family-intersection-stack-integration.md",
+  "public_gates": [
+    "M1065 must not run PPO",
+    "M1065 must not train actor",
+    "M1065 must not promote",
+    "M1065 must not use private holdout",
+    "M1065 must integrate family_intersection_public_gate into the public proof tier",
+    "M1065 must validate the expanded stack without PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train actor",
+    "do not promote",
+    "do not use private holdout",
+    "do not make medium-PPO claims from this integration milestone"
+  ],
+  "workflow_synthesis": {
+    "branch": "post_short_promotion_family_gate_integration",
+    "evidence_axis": "G_gate: refreshed family-intersection public proof gate",
+    "evidence_increment": "integrates the M1064 wrapper into the guarded PPO/full public gate stack and validates current-base pass without PPO",
+    "claim_scope": "gate-stack integration only; no PPO, no actor training, no promotion, no medium-run claim",
+    "stop_condition": [
+      "stop if expanded gate stack fails on current public-gate base",
+      "stop if integration requires unsafe broad refactor",
+      "stop if actor-input contract changes"
+    ],
+    "fallback_plan": [
+      "if pass, route to pre-medium-PPO readiness synthesis",
+      "if current base fails, route to family gate integration audit",
+      "if implementation is too invasive, keep wrapper external and require manifest-level gate commands"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1064 wrapper passes current-base validation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M1064 family-intersection public gate can be integrated into the guarded PPO/full public gate stack and the current public-gate base can pass the expanded no-PPO preflight.",
+  "success_criteria": [
+    "expanded gate stack invokes family_intersection_public_gate",
+    "current public-gate base passes the expanded stack without PPO",
+    "M1061 family-intersection failures would classify as proof_washout",
+    "no PPO actor training promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "expanded stack omits M1061 family-intersection gate",
+    "current public-gate base fails the expanded stack",
+    "PPO or actor training starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "integrate_and_validate_stack",
+      "command": "integrate family_intersection_public_gate into the no-PPO public proof tier and validate current-base pass"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1065-v4-public-base-family-intersection-stack-integration.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1064_family_intersection_public_gate_current_base/summary.json"
+  ],
+  "decision_rule": "M1065 may only integrate and validate the expanded public proof gate stack. It cannot run PPO, train actor, promote, or use private holdout.",
+  "next_blocker": "m1065-v4-public-base-family-intersection-stack-integration"
+}
