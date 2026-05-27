@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260527T233212Z
+- Generated at UTC: 20260527T233917Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M1153 may only implement promoted unsafe-margin projection tooling and focused tests. It cannot train actor weights, run PPO, run full replay/projection evaluation, mine rows, promote, use private holdout, change actor inputs, or hardcode only the old M1120 row15 pair.
+- Promotion decision: row15_promoted_unsafe_margin_projection_runner_implemented_route_to_projection_run
+- Decision reason: M1153 implements the promoted failed-row unsafe-margin projection runner with focused tests and routes to a no-training projection run
 
 ## Hypothesis
 
@@ -69,8 +69,19 @@ A promoted unsafe-margin projection runner can be implemented by reusing interpo
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation
+- type: infrastructure
+- checkpoint: src/autodrift/row15_promoted_unsafe_margin_projection_probe.py
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_unsafe_margin_projection_runner_implemented_route_to_projection_run
+- reason: M1153 implements the promoted failed-row unsafe-margin projection runner with focused tests and routes to a no-training projection run
 
 ## Next Blocker
 
-m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation
+m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run

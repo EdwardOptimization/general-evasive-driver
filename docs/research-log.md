@@ -16423,3 +16423,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - tooling decision: implement a new promoted unsafe-margin projection runner instead of forcing M1149 through the old single-row M1123 probe.
 - guardrail: no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurred.
 - next: `m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation`
+
+## 20260528T031700Z - m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation.md`
+- implementation: added `src/autodrift/row15_promoted_unsafe_margin_projection_probe.py`.
+- tests: added `tests/test_row15_promoted_unsafe_margin_projection_probe.py`.
+- covered behavior: failed-row CSV validation, surface grouping, alpha pass classification, result-class mapping, and M1149 ten-surface first-replay default scope.
+- validation: compileall passed, runner `--help` smoke passed, and focused pytest result was `5 passed`.
+- guardrail: no projection replay, actor training, PPO, mining, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_unsafe_margin_projection_runner_implemented_route_to_projection_run`
+- next: `m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run`

@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation
+m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -375,10 +375,29 @@ exact rule:
 
 M1152 also found that the old M1123 `row15_unsafe_margin_projection_probe`
 should not be reused directly because it hardcodes the old single-row cliff and
-requires M1115 anchor NPZs. The next milestone is M1153, an infrastructure-only
-runner implementation for promoted failed-row unsafe-margin projection. It must
-not train, run PPO, run the full projection/replay experiment, mine new rows,
-promote, use private holdout, or change actor inputs.
+requires M1115 anchor NPZs.
+
+M1153 implemented the promoted projection runner:
+
+```text
+runner:
+  src/autodrift/row15_promoted_unsafe_margin_projection_probe.py
+
+tests:
+  tests/test_row15_promoted_unsafe_margin_projection_probe.py
+
+focused pytest:
+  5 passed
+```
+
+The runner consumes arbitrary failed-row CSVs, groups by surface, applies the
+M1152 unsafe-margin rule, evaluates exact M1144 objective, and only then allows
+selected-alpha M1149 first replay. M1153 did not run the projection experiment.
+
+The next milestone is M1154: run the no-training projection and selected-alpha
+M1149 first replay only. It must not train, run PPO, mine rows, promote, use
+private holdout, run M1061 family replay, run behavior gates, or change actor
+inputs.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

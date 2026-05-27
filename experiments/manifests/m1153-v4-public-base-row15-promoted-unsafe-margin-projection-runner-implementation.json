@@ -154,6 +154,31 @@
   "baseline_artifacts": [
     "docs/m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design.md"
   ],
-  "decision_rule": "M1153 may only implement promoted unsafe-margin projection tooling and focused tests. It cannot train actor weights, run PPO, run full replay/projection evaluation, mine rows, promote, use private holdout, change actor inputs, or hardcode only the old M1120 row15 pair.",
-  "next_blocker": "m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation.md",
+    "decision": "row15_promoted_unsafe_margin_projection_runner_implemented_route_to_projection_run",
+    "result_class": "promoted_unsafe_margin_projection_runner_implemented",
+    "failure_types": [
+      "none"
+    ],
+    "runner_module": "src/autodrift/row15_promoted_unsafe_margin_projection_probe.py",
+    "test_file": "tests/test_row15_promoted_unsafe_margin_projection_probe.py",
+    "focused_tests_passed": 5,
+    "help_smoke_passed": true,
+    "compileall_passed": true,
+    "runner_hardcodes_only_old_m1120_row15": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "full_projection_replay_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "admitted_next": "no_training_projection_run",
+    "next_milestone": "m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run"
+  },
+  "decision": "row15_promoted_unsafe_margin_projection_runner_implemented_route_to_projection_run",
+  "decision_rule": "M1153 may only implement promoted unsafe-margin projection tooling and focused tests. It cannot train actor weights, run PPO, run full replay/projection evaluation, mine rows, promote, use private holdout, change actor inputs, or hardcode only the old M1120 row15 pair. The runner is implemented and M1154 may run the no-training projection probe.",
+  "next_blocker": "m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run"
 }

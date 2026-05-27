@@ -1,0 +1,169 @@
+{
+  "id": "m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "repair",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+      "runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation.md",
+      "runs/m1149_row15_promoted_actor_update_first_replay/lost_success_drop_rows.csv",
+      "runs/m1144_row15_promoted_objective_corpus/boundary_outcome_corpus.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation.json"
+    ],
+    "parent_objective": [
+      "run the no-training promoted unsafe-margin projection probe"
+    ],
+    "derived_from": [
+      "m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation"
+    ],
+    "blocked_by": [
+      "M1153 implements the promoted unsafe-margin projection runner"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "actor training before projection run",
+      "PPO from m1147_114602",
+      "family-intersection replay before projection result",
+      "promotion of any M1154 candidate"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run.md",
+  "public_gates": [
+    "M1154 may run only no-training interpolation/projection and selected-alpha M1149 first replay",
+    "M1154 must not train actor weights",
+    "M1154 must not run PPO",
+    "M1154 must not mine new rows",
+    "M1154 must not promote",
+    "M1154 must not use private holdout",
+    "M1154 must preserve actor inputs",
+    "M1154 must not run M1061 family-intersection replay or behavior gates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not mine new rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not run M1061 family-intersection replay",
+    "do not run fresh/OOD or behavior gates",
+    "do not weaken M1149 first-replay thresholds",
+    "do not try another alpha after selected-alpha first replay failure inside this milestone"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_unsafe_margin_projection",
+    "evidence_axis": "G_projection: no-training unsafe-margin projection",
+    "evidence_increment": "tests whether a nonzero interpolation alpha can improve exact M1144 objective while preserving M1149 failed-row unsafe margins and selected-alpha first replay",
+    "claim_scope": "projection proof gate only; no PPO, promotion, private holdout, behavior claim, or driver capability claim",
+    "stop_condition": [
+      "stop if no nonzero alpha passes exact and failed-row unsafe-margin screens",
+      "stop if selected alpha fails M1149 first replay",
+      "stop if actor inputs or allowed parameter surface change"
+    ],
+    "fallback_plan": [
+      "if no candidate passes, route to terminal-margin objective design",
+      "if selected first replay fails, route to row-level failure audit",
+      "if first replay passes, design family/behavior diagnostics rather than promotion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1153 implements the runner",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run no-training projection and M1149 first replay only",
+    "admission_evidence": [
+      "M1152 defined exact objective and failed-row unsafe-margin acceptance",
+      "M1153 implemented the promoted projection runner and focused tests"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run PPO",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "projection/replay artifacts",
+      "result documentation",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "result class is explicit",
+      "selected alpha or no-candidate status is explicit",
+      "failed-row unsafe-margin pass/fail is explicit",
+      "first-replay pass/fail is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1154 tests proof retention for existing wrong-history rows and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1154 replays existing M1149 proof rows only and adds no new temporal task distribution.",
+    "negative_result_policy": "If projection fails, record no-candidate or first-replay failure before any new objective or training.",
+    "allowed_claims": [
+      "projection proof-retention result for level2 candidate",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A small nonzero alpha along the M1147 direction can retain the exact M1144 objective improvement while restoring M1149 failed-row wrong-history unsafe margins and selected-alpha first replay.",
+  "success_criteria": [
+    "summary artifact exists",
+    "candidate alpha grid is evaluated",
+    "failed-row unsafe-margin screen is evaluated for all 76 M1149 failed rows",
+    "selected alpha is nonzero if a candidate exists",
+    "selected alpha improves exact M1144 objective",
+    "selected alpha preserves M1149 failed-row unsafe margins",
+    "selected alpha either passes M1149 first replay or routes to failure audit",
+    "no actor training, PPO, mining, promotion, private holdout, actor-input change, family-intersection replay, fresh/OOD, or behavior gate occurs"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "candidate alpha grid is not evaluated",
+    "failed-row unsafe-margin screen is missing",
+    "result class is ambiguous",
+    "actor training, PPO, mining, promotion, private holdout, actor-input change, family-intersection replay, fresh/OOD, or behavior gate starts"
+  ],
+  "commands": [
+    {
+      "name": "run_projection",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.row15_promoted_unsafe_margin_projection_probe --base-checkpoint runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt --target-checkpoint runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt --snippet-npz runs/m1144_row15_promoted_objective_corpus/boundary_outcome_corpus.npz --failed-rows-csv runs/m1149_row15_promoted_actor_update_first_replay/lost_success_drop_rows.csv --env-config configs/m121_human_view_zero_obstacle_relvel.json --alphas 0.0,0.005,0.01,0.02,0.03,0.04,0.05,0.075,0.1,0.125,0.15,0.2,0.25,0.3,0.4,0.5,0.75,1.0 --max-continuation-steps 60 --logprob-margin 0.05 --device cpu --run-dir runs/m1154_row15_promoted_unsafe_margin_projection_probe"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation.md"
+  ],
+  "decision_rule": "M1154 may only run no-training projection and selected-alpha M1149 first replay. It cannot train actor weights, run PPO, mine rows, promote, use private holdout, change actor inputs, run M1061 family-intersection replay, run fresh/OOD, run behavior gates, weaken thresholds, or try another alpha after selected first-replay failure inside this milestone.",
+  "next_blocker": "m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run"
+}

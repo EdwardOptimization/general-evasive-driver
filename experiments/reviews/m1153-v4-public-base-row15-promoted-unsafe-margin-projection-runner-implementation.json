@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1153 may only implement promoted unsafe-margin projection tooling and focused tests. It cannot train actor weights, run PPO, run full replay/projection evaluation, mine rows, promote, use private holdout, change actor inputs, or hardcode only the old M1120 row15 pair.",
+  "decision_reason": "M1153 implements the promoted failed-row unsafe-margin projection runner with focused tests and routes to a no-training projection run",
   "failure_criteria": [
     "runner implementation is missing",
     "tests are missing or fail",
@@ -20,7 +20,7 @@
     "do not hardcode only the old M1120 row15 pair"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260527T233212Z",
+  "generated_at_utc": "20260527T233917Z",
   "hypothesis": "A promoted unsafe-margin projection runner can be implemented by reusing interpolation, exact objective evaluation, and boundary replay helpers while replacing the old hardcoded row15 surfaces with M1149 failed-row and first-replay inputs.",
   "lineage": {
     "blocked_by": [
@@ -53,9 +53,9 @@
     "supersedes": []
   },
   "milestone": "m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation",
-  "next_blocker": "m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation",
+  "next_blocker": "m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "row15_promoted_unsafe_margin_projection_runner_implemented_route_to_projection_run",
   "public_gates": [
     "M1153 may implement tooling and focused tests only",
     "M1153 must not train actor weights",
@@ -66,7 +66,20 @@
     "M1153 must not use private holdout",
     "M1153 must preserve actor inputs"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "src/autodrift/row15_promoted_unsafe_margin_projection_probe.py",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_unsafe_margin_projection_runner_implemented_route_to_projection_run",
+    "milestone": "m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation",
+    "reason": "M1153 implements the promoted failed-row unsafe-margin projection runner with focused tests and routes to a no-training projection run",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "runner implementation exists",
     "focused tests cover alpha parsing, failed-row grouping, result classification, and guardrail metadata",
