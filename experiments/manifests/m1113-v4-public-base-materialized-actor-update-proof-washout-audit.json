@@ -1,0 +1,159 @@
+{
+  "id": "m1113-v4-public-base-materialized-actor-update-proof-washout-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/m1110_materialized_actor_coupling_anchor100_s10_lr5e5_seed110901/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1112-v4-public-base-materialized-actor-update-full-public-gate.md",
+      "runs/m1112_materialized_actor_update_full_public_gate/summary.json",
+      "runs/m1112_materialized_actor_update_full_public_gate/proof_replay_summary.csv",
+      "runs/m1112_materialized_actor_update_full_public_gate/family_intersection_public_gate/replay_gate_summary.csv",
+      "runs/m1112_materialized_actor_update_full_public_gate/source_diverse_protected_diagnostic/replay_gate_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1112-v4-public-base-materialized-actor-update-full-public-gate.json"
+    ],
+    "parent_objective": [
+      "audit why exact-improving materialized actor update washed out replay proof surfaces"
+    ],
+    "derived_from": [
+      "m1112-v4-public-base-materialized-actor-update-full-public-gate"
+    ],
+    "blocked_by": [
+      "M1112 rejects m1110_110901 as proof_washout"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "continuing actor updates without proof-washout audit",
+      "PPO from m1110_110901",
+      "promotion of m1110_110901"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1113-v4-public-base-materialized-actor-update-proof-washout-audit.md",
+  "public_gates": [
+    "M1113 must audit existing M1112 artifacts only",
+    "M1113 must not train actor weights",
+    "M1113 must not run PPO",
+    "M1113 must not run replay",
+    "M1113 must not build corpus or mine rows",
+    "M1113 must not promote",
+    "M1113 must not use private holdout",
+    "M1113 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not build corpus",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not try backup M1110 candidates without audit"
+  ],
+  "workflow_synthesis": {
+    "branch": "materialized_objective_corpus_sanity",
+    "evidence_axis": "G_failure: materialized actor update proof washout audit",
+    "evidence_increment": "classifies the M1112 failed proof tiers and selects the next repair branch",
+    "claim_scope": "failure audit only; no training, replay, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if failed rows show wrong-history branch became safe",
+      "stop if failure is concentrated enough to require targeted trajectory retention",
+      "stop if failure is broad enough to require objective redesign"
+    ],
+    "fallback_plan": [
+      "if wrong-history branch became safe, route to rejected-history trajectory retention design",
+      "if normal branch failed, route to normal-margin retention design",
+      "if failure is mixed, route to row-level failed-surface export"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1112 full public gate rejects candidate as proof_washout",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit proof washout before any further update",
+    "admission_evidence": [
+      "M1112 exact M1107 recheck passes",
+      "M1112 expanded full public gate fails proof/family/source replay surfaces"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not promote from failed gate"
+    ],
+    "allowed_updates": [
+      "audit documentation",
+      "next design manifest if audit is clear",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "failed tier classification is explicit",
+      "row-level failure mode is explicit",
+      "next repair branch is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1113 audits failed replay-calibrated wrong-history proof and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1113 reads existing M1112 replay artifacts only and adds no new temporal task.",
+    "negative_result_policy": "Record M1112 as proof_washout and route to a repair design rather than weakening gates or trying backup candidates.",
+    "allowed_claims": [
+      "proof-washout audit for a level2 exact/contract candidate",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "M1112 failed because the actor update made wrong-history replay branches safer while preserving normal behavior.",
+  "success_criteria": [
+    "audit artifact exists",
+    "failed proof tiers are summarized",
+    "normal-success versus wrong-history-success mode is classified",
+    "next repair branch is explicit",
+    "no actor training, PPO, replay, corpus build, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "failure mode remains ambiguous",
+    "next route is ambiguous",
+    "actor training, PPO, replay, corpus build, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_proof_washout_audit",
+      "command": "write docs/m1113-v4-public-base-materialized-actor-update-proof-washout-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1113-v4-public-base-materialized-actor-update-proof-washout-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1112-v4-public-base-materialized-actor-update-full-public-gate.md",
+    "runs/m1112_materialized_actor_update_full_public_gate/summary.json"
+  ],
+  "decision_rule": "M1113 may only audit existing M1112 failure artifacts and route the next repair design. It cannot train actor weights, run PPO, run replay, build corpus, mine rows, promote, use private holdout, change actor inputs, or try backup candidates.",
+  "next_blocker": "m1113-v4-public-base-materialized-actor-update-proof-washout-audit"
+}

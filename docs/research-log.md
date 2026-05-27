@@ -15923,3 +15923,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrails: M1112 must not train, run PPO, promote, use private holdout, change actor inputs, skip old public/family/source/fresh/behavior gates, or switch to a different candidate after seeing a failure.
 - decision: `materialized_actor_update_full_public_gate_design_admit_run`
 - next: `m1112-v4-public-base-materialized-actor-update-full-public-gate`
+
+## 20260527T203116Z - m1112-v4-public-base-materialized-actor-update-full-public-gate
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1112-v4-public-base-materialized-actor-update-full-public-gate.md`
+- result: M1112 reruns exact M1107 and the expanded full public gate for `m1110_110901`. Exact M1107 remains improved (`0.674349` vs base `0.679117`) and the contract gate passes, but the full public gate rejects the candidate as `proof_washout`.
+- failed tiers: old public replay passes only `3/6` surfaces (`m183_m168`, `m223_m219`, `m267_m264` fail), M1061 family-intersection passes `0/3`, and source-diverse replay passes `0/3`. Fresh/OOD and behavior gates pass.
+- interpretation: the actor update preserved normal aggregate behavior but made replay-calibrated wrong-history branches too safe; next step is failure audit, not PPO or another actor update.
+- decision: `materialized_actor_update_full_public_gate_reject_proof_washout`
+- next: `m1113-v4-public-base-materialized-actor-update-proof-washout-audit`

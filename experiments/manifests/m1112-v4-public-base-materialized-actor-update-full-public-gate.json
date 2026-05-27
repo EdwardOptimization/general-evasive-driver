@@ -174,6 +174,45 @@
     "docs/m1111-v4-public-base-materialized-actor-update-full-public-gate-design.md",
     "runs/m1110_materialized_actor_update_exact_eval/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1112-v4-public-base-materialized-actor-update-full-public-gate.md",
+    "m1107_exact_summary_json": "runs/m1112_materialized_actor_update_m1107_exact_eval/summary.json",
+    "full_public_summary_json": "runs/m1112_materialized_actor_update_full_public_gate/summary.json",
+    "decision": "materialized_actor_update_full_public_gate_reject_proof_washout",
+    "result_class": "candidate_b_combined_active_set_full_public_gate_public_replay_washout",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "m1107_exact_pass": true,
+    "m1107_base_loss": 0.6791173219680786,
+    "m1107_candidate_loss": 0.6743494868278503,
+    "actor_inputs_changed": false,
+    "allowed_surface_contract_pass": true,
+    "exact_pass": true,
+    "proof_pass": false,
+    "family_intersection_pass": false,
+    "source_diverse_pass": false,
+    "generalization_pass": true,
+    "behavior_pass": true,
+    "failed_proof_surfaces": [
+      "m183_m168",
+      "m223_m219",
+      "m267_m264"
+    ],
+    "proof_replay_gates_passed": 3,
+    "proof_replay_surface_count": 6,
+    "family_intersection_replay_gates_passed": 0,
+    "source_diverse_replay_gates_passed": 0,
+    "ppo_used": false,
+    "training_started": false,
+    "actor_training_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "admitted_next": "proof_washout_audit_only",
+    "next_milestone": "m1113-v4-public-base-materialized-actor-update-proof-washout-audit"
+  },
+  "decision": "materialized_actor_update_full_public_gate_reject_proof_washout",
   "decision_rule": "M1112 may only run exact M1107 recheck and expanded full public gate for the pre-selected M1110 candidate. It cannot train actor weights, run PPO, promote, use private holdout, or switch candidates after gate failure.",
-  "next_blocker": "m1112-v4-public-base-materialized-actor-update-full-public-gate"
+  "next_blocker": "m1113-v4-public-base-materialized-actor-update-proof-washout-audit"
 }

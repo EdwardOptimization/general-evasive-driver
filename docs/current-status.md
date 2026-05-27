@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1112-v4-public-base-materialized-actor-update-full-public-gate
+m1113-v4-public-base-materialized-actor-update-proof-washout-audit
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -306,11 +306,18 @@ public gate for primary candidate `m1110_110901`. M1111 completes that design
 and requires an exact M1107 recheck plus the expanded full public gate wrapper
 before any closed-loop claim. Candidate switching after failure is blocked. The
 next step is M1112: run that exact recheck and full public gate for
-`m1110_110901` only.
+`m1110_110901` only. M1112 rejects the candidate. Exact M1107 remains improved
+and the actor-input/allowed-surface contract passes, but old public replay
+passes only `3/6`, M1061 family-intersection passes `0/3`, and source-diverse
+replay passes `0/3`. Fresh/OOD and behavior gates pass, so the failure is a
+proof-surface washout: wrong-history branches became too safe while aggregate
+behavior stayed intact. The next step is M1113: audit existing failure artifacts
+before any new update, replay, PPO, promotion, private holdout, or backup
+candidate retry.
 
 ```text
 decision:
-  materialized_actor_update_full_public_gate_design_admit_run
+  materialized_actor_update_full_public_gate_reject_proof_washout
 ```
 
 M1068 design:

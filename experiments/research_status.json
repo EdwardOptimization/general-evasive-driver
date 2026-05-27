@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1120,
+    "completed": 1121,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1111-v4-public-base-materialized-actor-update-full-public-gate-design",
+    "task_id": "m1112-v4-public-base-materialized-actor-update-full-public-gate",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1111-v4-public-base-materialized-actor-update-full-public-gate-design.md"
+    "command_log": "docs/m1112-v4-public-base-materialized-actor-update-full-public-gate.md"
   },
   "next_task": {
-    "id": "m1112-v4-public-base-materialized-actor-update-full-public-gate",
+    "id": "m1113-v4-public-base-materialized-actor-update-proof-washout-audit",
     "status": "pending",
-    "priority": 11070,
+    "priority": 11080,
     "kind": "gate",
-    "hypothesis": "Run exact M1107 recheck and expanded full public gate for the M1110 primary candidate",
-    "command": "see experiments/manifests/m1112-v4-public-base-materialized-actor-update-full-public-gate.json",
-    "success_artifact": "docs/m1112-v4-public-base-materialized-actor-update-full-public-gate.md",
-    "notes": "Pending: evaluate m1110_110901 with exact M1107 and full public gate; no training no PPO no promotion no private holdout no candidate switching"
+    "hypothesis": "Audit why the exact-improving materialized actor update washed out replay proof surfaces",
+    "command": "see experiments/manifests/m1113-v4-public-base-materialized-actor-update-proof-washout-audit.json",
+    "success_artifact": "docs/m1113-v4-public-base-materialized-actor-update-proof-washout-audit.md",
+    "notes": "Pending: audit existing M1112 artifacts only; no training no PPO no replay no mining no promotion no private holdout no backup-candidate retry"
   },
-  "updated_at_utc": "20260527T202353Z"
+  "updated_at_utc": "20260527T203116Z"
 }
