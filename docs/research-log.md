@@ -16053,3 +16053,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, family-intersection replay, full public gate, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_unsafe_margin_projection_first_replay_candidate_route_to_family_replay_design`
 - next: `m1124-v4-public-base-row15-projection-family-replay-design`
+
+## 20260527T213757Z - m1124-v4-public-base-row15-projection-family-replay-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1124-v4-public-base-row15-projection-family-replay-design.md`
+- result: M1124 designs M1061 family-intersection replay for alpha `0.15` using the existing `autodrift.family_intersection_public_gate` wrapper. It specifies the three short-PPO family source policies and corpora and keeps the M1063/M1064 thresholds unchanged.
+- guardrail: no actor training, PPO, replay, full public gate, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_projection_family_replay_design_admit_m1125`
+- next: `m1125-v4-public-base-row15-projection-family-replay`

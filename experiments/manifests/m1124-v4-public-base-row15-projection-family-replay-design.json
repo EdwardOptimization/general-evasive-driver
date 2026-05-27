@@ -2,7 +2,7 @@
   "id": "m1124-v4-public-base-row15-projection-family-replay-design",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "repair",
   "failure_types": [
     "none"
   ],
@@ -157,6 +157,29 @@
   "baseline_artifacts": [
     "docs/m1123-v4-public-base-row15-unsafe-margin-projection-probe.md"
   ],
-  "decision_rule": "M1124 may only design the M1061 family-intersection replay for alpha_0_15. It cannot train actor weights, run PPO, run replay, run full public gate, run fresh/OOD or behavior gates, promote, use private holdout, change actor inputs, or weaken thresholds.",
-  "next_blocker": "m1124-v4-public-base-row15-projection-family-replay-design"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1124-v4-public-base-row15-projection-family-replay-design.md",
+    "decision": "row15_projection_family_replay_design_admit_m1125",
+    "result_class": "row15_projection_family_replay_design",
+    "failure_types": [
+      "none"
+    ],
+    "candidate_checkpoint": "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "family_replay_gate_count": 3,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "full_public_gate_started": false,
+    "fresh_ood_started": false,
+    "behavior_gate_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "admitted_next": "family_intersection_replay_only",
+    "next_milestone": "m1125-v4-public-base-row15-projection-family-replay"
+  },
+  "decision": "row15_projection_family_replay_design_admit_m1125",
+  "decision_rule": "M1124 may only design the M1061 family-intersection replay for alpha_0_15. It cannot train actor weights, run PPO, run replay, run full public gate, run fresh/OOD or behavior gates, promote, use private holdout, change actor inputs, or weaken thresholds. M1125 may run only the existing M1061 family-intersection public gate wrapper.",
+  "next_blocker": "m1125-v4-public-base-row15-projection-family-replay"
 }

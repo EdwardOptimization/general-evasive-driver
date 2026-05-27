@@ -1,0 +1,161 @@
+{
+  "id": "m1125-v4-public-base-row15-projection-family-replay",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1124-v4-public-base-row15-projection-family-replay-design.md",
+      "runs/m1061_short61049_boundary_outcome_corpus_seed10570/boundary_outcome_corpus.csv",
+      "runs/m1061_short61050_boundary_outcome_corpus_seed10570/boundary_outcome_corpus.csv",
+      "runs/m1061_short61051_boundary_outcome_corpus_seed10570/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1124-v4-public-base-row15-projection-family-replay-design.json"
+    ],
+    "parent_objective": [
+      "run M1061 family-intersection public gate for alpha_0_15"
+    ],
+    "derived_from": [
+      "m1124-v4-public-base-row15-projection-family-replay-design"
+    ],
+    "blocked_by": [
+      "alpha_0_15 has not yet passed M1061 family-intersection replay"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "full public gate before family-intersection replay",
+      "fresh/OOD before family-intersection replay",
+      "PPO from alpha_0_15",
+      "promotion of alpha_0_15"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1125-v4-public-base-row15-projection-family-replay.md",
+  "public_gates": [
+    "M1125 may run only the M1061 family-intersection public gate for alpha_0_15",
+    "M1125 must not train actor weights",
+    "M1125 must not run PPO",
+    "M1125 must not run full public gate",
+    "M1125 must not run fresh/OOD or behavior gates",
+    "M1125 must not promote",
+    "M1125 must not use private holdout",
+    "M1125 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run full public gate",
+    "do not run fresh/OOD or behavior gates",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken family-intersection thresholds"
+  ],
+  "workflow_synthesis": {
+    "branch": "failed_wrong_history_retention_repair",
+    "evidence_axis": "G_family: row15 projection family-intersection replay",
+    "evidence_increment": "tests whether alpha_0_15 preserves M1061 family-intersection proof rows after target-base first replay pass",
+    "claim_scope": "family-intersection replay only; no full public gate, PPO, promotion, private holdout, or driver capability claim",
+    "stop_condition": [
+      "stop if any source-to-candidate family replay fails",
+      "stop if actor inputs change",
+      "stop after family result before full public gate design"
+    ],
+    "fallback_plan": [
+      "if family replay fails, route to family-replay failure audit",
+      "if family replay passes, route to expanded full public gate design",
+      "do not promote from family replay alone"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1124 admits M1061 family replay",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run family-intersection replay for alpha_0_15",
+    "admission_evidence": [
+      "M1123 selected alpha_0_15 and passed six-surface first replay",
+      "M1124 pre-registered the M1061 family replay command"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run full public gate",
+      "do not promote from family replay"
+    ],
+    "allowed_updates": [
+      "family replay artifacts",
+      "docs, queue, status, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "family_intersection result class is explicit",
+      "failed source rows are explicit if any",
+      "next route is full public gate design or failure audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1125 evaluates wrong-history replay retention and cannot claim anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1125 replays existing M1061 family-intersection rows only and adds no new task distribution.",
+    "negative_result_policy": "If family replay fails, classify normal-lost versus wrong-history-safe before any repair.",
+    "allowed_claims": [
+      "family-intersection proof retention for a level2 first-replay candidate",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "Alpha_0_15 preserves the M1061 family-intersection proof rows after passing row15 unsafe-margin and target-base first replay.",
+  "success_criteria": [
+    "family_intersection_public_gate summary exists",
+    "result_class == family_intersection_public_gate_pass",
+    "overall_pass == true",
+    "replay_gate_count == 3",
+    "replay_gates_passed == 3",
+    "actor_inputs_changed == false",
+    "no actor training, PPO, full public gate, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "family_intersection_public_gate summary is missing",
+    "any source-to-candidate replay gate fails",
+    "actor_inputs_changed == true",
+    "actor training, PPO, full public gate, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "run_family_intersection_replay",
+      "command": "python -m autodrift.family_intersection_public_gate with short61049/short61050/short61051 sources and candidate alpha_0_15"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1125_row15_projection_family_replay/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1125-v4-public-base-row15-projection-family-replay.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1124-v4-public-base-row15-projection-family-replay-design.md"
+  ],
+  "decision_rule": "M1125 may only run M1061 family-intersection replay for alpha_0_15. It cannot train actor weights, run PPO, run full public gate, run fresh/OOD or behavior gates, promote, use private holdout, change actor inputs, or weaken thresholds.",
+  "next_blocker": "m1125-v4-public-base-row15-projection-family-replay"
+}

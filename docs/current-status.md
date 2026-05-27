@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1124-v4-public-base-row15-projection-family-replay-design
+m1125-v4-public-base-row15-projection-family-replay
 ```
 
 M1115 completed the failed wrong-history retention export. It reproduced the
@@ -124,6 +124,12 @@ It improves exact M1107 by `-0.000417471`, keeps target-base trajectory MSE at
 same six-surface first replay that rejected full M1118. This is a first-replay
 candidate only. M1124 should design M1061 family-intersection replay before any
 full public gate, fresh/OOD, behavior gate, PPO, promotion, or private holdout.
+M1124 completed that design using the existing
+`autodrift.family_intersection_public_gate` wrapper with short61049,
+short61050, and short61051 source corpora/checkpoints under unchanged
+thresholds. M1125 should run only that family-intersection replay for
+`alpha_0_15`; full public gate, fresh/OOD, behavior gates, PPO, promotion, and
+private holdout remain blocked.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

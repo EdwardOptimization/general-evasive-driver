@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M1124 designs M1061 family-intersection public gate for alpha_0_15 with existing short61049 short61050 short61051 sources and unchanged replay thresholds before any full gate PPO or promotion",
+  "failure_criteria": [
+    "design artifact is missing",
+    "family replay command is ambiguous",
+    "thresholds are weakened",
+    "next route is ambiguous",
+    "actor training, PPO, replay, full public gate, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run full public gate",
+    "do not run fresh/OOD or behavior gates",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken family-intersection thresholds"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260527T213911Z",
+  "hypothesis": "The alpha_0_15 first-replay candidate should next face the M1061 family-intersection public gate before any full public gate or promotion consideration.",
+  "lineage": {
+    "blocked_by": [
+      "M1123 passed only row15 unsafe-margin and target-base first replay"
+    ],
+    "derived_from": [
+      "m1123-v4-public-base-row15-unsafe-margin-projection-probe"
+    ],
+    "invalidates": [
+      "full public gate before family-intersection replay",
+      "fresh/OOD before family-intersection replay",
+      "PPO from alpha_0_15",
+      "promotion of alpha_0_15"
+    ],
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1123-v4-public-base-row15-unsafe-margin-projection-probe.json"
+    ],
+    "parent_dataset": [
+      "docs/m1123-v4-public-base-row15-unsafe-margin-projection-probe.md",
+      "runs/m1123_row15_unsafe_margin_projection_probe/summary.json",
+      "runs/m1123_row15_unsafe_margin_projection_probe/first_replay_summary.csv",
+      "runs/m1061_short61049_boundary_outcome_corpus_seed10570/boundary_outcome_corpus.csv",
+      "runs/m1061_short61050_boundary_outcome_corpus_seed10570/boundary_outcome_corpus.csv",
+      "runs/m1061_short61051_boundary_outcome_corpus_seed10570/boundary_outcome_corpus.csv"
+    ],
+    "parent_objective": [
+      "design family-intersection replay for the M1123 alpha_0_15 first-replay candidate"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1124-v4-public-base-row15-projection-family-replay-design",
+  "next_blocker": "m1125-v4-public-base-row15-projection-family-replay",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "row15_projection_family_replay_design_admit_m1125",
+  "public_gates": [
+    "M1124 must be design-only",
+    "M1124 must not train actor weights",
+    "M1124 must not run PPO",
+    "M1124 must not run replay",
+    "M1124 must not run full public gate",
+    "M1124 must not run fresh/OOD or behavior gates",
+    "M1124 must not promote",
+    "M1124 must not use private holdout",
+    "M1124 must preserve actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1124-v4-public-base-row15-projection-family-replay-design.md",
+    "clearance_margin_mean": "",
+    "decision": "row15_projection_family_replay_design_admit_m1125",
+    "milestone": "m1124-v4-public-base-row15-projection-family-replay-design",
+    "reason": "M1124 designs M1061 family-intersection public gate for alpha_0_15 with existing short61049 short61050 short61051 sources and unchanged replay thresholds before any full gate PPO or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design artifact exists",
+    "all three M1061 source policies and corpora are specified",
+    "family replay thresholds match M1063/M1064",
+    "next run scope blocks full public gate, fresh/OOD, behavior, PPO, promotion, and private holdout",
+    "no actor training, PPO, replay, full public gate, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change occurs"
+  ],
+  "type": "gate"
+}

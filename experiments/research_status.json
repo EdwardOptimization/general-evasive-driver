@@ -1,30 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1132,
+    "completed": 1133,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1123-v4-public-base-row15-unsafe-margin-projection-probe",
+    "task_id": "m1124-v4-public-base-row15-projection-family-replay-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1123-v4-public-base-row15-unsafe-margin-projection-probe.md",
-    "summary": "runs/m1123_row15_unsafe_margin_projection_probe/summary.json",
-    "result_class": "row15_unsafe_margin_projection_first_replay_candidate",
-    "decision": "row15_unsafe_margin_projection_first_replay_candidate_route_to_family_replay_design"
+    "command_log": "docs/m1124-v4-public-base-row15-projection-family-replay-design.md",
+    "result_class": "row15_projection_family_replay_design",
+    "decision": "row15_projection_family_replay_design_admit_m1125"
   },
   "next_task": {
-    "id": "m1124-v4-public-base-row15-projection-family-replay-design",
+    "id": "m1125-v4-public-base-row15-projection-family-replay",
     "status": "pending",
-    "priority": 11190,
+    "priority": 11200,
     "kind": "gate",
-    "hypothesis": "The alpha_0_15 first-replay candidate should next face the M1061 family-intersection public gate before any full public gate or promotion consideration",
-    "command": "see experiments/manifests/m1124-v4-public-base-row15-projection-family-replay-design.json",
-    "success_artifact": "docs/m1124-v4-public-base-row15-projection-family-replay-design.md",
-    "notes": "Pending: design only; no replay no PPO no full public gate no promotion no private holdout"
+    "hypothesis": "Alpha_0_15 preserves the M1061 family-intersection proof rows after passing row15 unsafe-margin and target-base first replay",
+    "command": "see experiments/manifests/m1125-v4-public-base-row15-projection-family-replay.json",
+    "success_artifact": "docs/m1125-v4-public-base-row15-projection-family-replay.md",
+    "notes": "Pending: run family-intersection replay only; no PPO no full public gate no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T213431Z"
+  "updated_at_utc": "20260527T213757Z"
 }
