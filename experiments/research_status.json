@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1147,
+    "completed": 1148,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1138-v4-public-base-row15-promoted-intersection-selector-design",
+    "task_id": "m1139-v4-public-base-row15-promoted-intersection-selector",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1138-v4-public-base-row15-promoted-intersection-selector-design.md",
-    "result_class": "row15_promoted_intersection_selector_design_complete",
-    "decision": "row15_promoted_intersection_selector_design_admit_m1139_run"
+    "command_log": "docs/m1139-v4-public-base-row15-promoted-intersection-selector.md",
+    "result_class": "family_aggregate_intersection_selector_pass",
+    "decision": "row15_promoted_intersection_selector_pass_route_to_target_materialization_design"
   },
   "next_task": {
-    "id": "m1139-v4-public-base-row15-promoted-intersection-selector",
+    "id": "m1140-v4-public-base-row15-promoted-target-materialization-design",
     "status": "pending",
-    "priority": 11340,
-    "kind": "infrastructure",
-    "hypothesis": "The M1137 all-policy intersection can be exported into a deterministic family-intersection surface with at least 100 rows and 12 physical pairs",
-    "command": "see experiments/manifests/m1139-v4-public-base-row15-promoted-intersection-selector.json",
-    "success_artifact": "docs/m1139-v4-public-base-row15-promoted-intersection-selector.md",
-    "notes": "Pending: selector run only; no replay objective optimization training PPO promotion private holdout or actor-input change"
+    "priority": 11350,
+    "kind": "gate",
+    "hypothesis": "The M1139 all-policy intersection can be materialized under the current public-gate base row15_current so later objective rows use one target-policy hidden-state/action/margin space",
+    "command": "see experiments/manifests/m1140-v4-public-base-row15-promoted-target-materialization-design.json",
+    "success_artifact": "docs/m1140-v4-public-base-row15-promoted-target-materialization-design.md",
+    "notes": "Pending: design only; no replay objective optimization training PPO promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260527T235800Z"
+  "updated_at_utc": "20260528T000700Z"
 }

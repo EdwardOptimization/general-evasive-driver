@@ -16234,3 +16234,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no selector run, replay, objective optimization, actor training, PPO, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_intersection_selector_design_admit_m1139_run`
 - next: `m1139-v4-public-base-row15-promoted-intersection-selector`
+
+## 20260528T000700Z - m1139-v4-public-base-row15-promoted-intersection-selector
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1139-v4-public-base-row15-promoted-intersection-selector.md`
+- result: M1139 runs the pre-registered family-intersection selector and keeps `148` of `172` family rows.
+- diversity gate: kept rows cover `13` physical pairs, `5` source labels, `2` targets, and `6` left steps; max physical-pair fraction is `0.135135` and max source-label fraction is `0.283784`.
+- source distribution: previous base `5` rows, row15 current `28`, short61049 `41`, short61050 `32`, and short61051 `42`.
+- target distribution: future braking deceleration `78` rows and future yaw response `70` rows; lateral-accel rows do not survive the all-policy intersection.
+- guardrail: no replay, objective optimization, actor training, PPO, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_intersection_selector_pass_route_to_target_materialization_design`
+- next: `m1140-v4-public-base-row15-promoted-target-materialization-design`

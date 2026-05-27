@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1139-v4-public-base-row15-promoted-intersection-selector
+m1140-v4-public-base-row15-promoted-target-materialization-design
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -123,9 +123,9 @@ audit. It does not prove PPO readiness, medium/long training stability,
 private-holdout generalization, paper-level evidence, real-vehicle transfer, or
 level3 anticipatory self-identification.
 
-M1138 completed deterministic family-intersection selector design for the M1136
-cross-family replay rows. It will keep only rows that pass under all five
-expected policies:
+M1139 completed the deterministic family-intersection selector for the M1136
+cross-family replay rows. It kept rows that pass under all five expected
+policies:
 
 ```text
 row15_current
@@ -135,9 +135,26 @@ short61050
 short61051
 ```
 
-M1139 should run only the pre-registered selector. It must not run replay,
-optimize an objective, train actor weights, run PPO, promote, use private
-holdout, change actor inputs, or weaken thresholds after seeing the result.
+Selector result:
+
+```text
+family_rows: 172
+kept_rows: 148
+dropped_rows: 24
+physical_pairs: 13
+source_labels: 5
+targets: 2
+left_steps: 6
+max_physical_pair_fraction: 0.135135
+max_source_label_fraction: 0.283784
+decision: row15_promoted_intersection_selector_pass_route_to_target_materialization_design
+```
+
+M1140 should design current public-gate base target-policy materialization for
+these rows. It must not run replay, optimize an objective, train actor weights,
+run PPO, promote, use private holdout, change actor inputs, or write an
+objective NPZ. The next objective corpus must use one target-policy
+hidden-state/action/margin space rather than mixing source-policy rows.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

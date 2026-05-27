@@ -166,6 +166,42 @@
     "docs/m1138-v4-public-base-row15-promoted-intersection-selector-design.md",
     "runs/m1136_row15_promoted_family_aggregate_replay_sanity/cross_family_replay_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1139-v4-public-base-row15-promoted-intersection-selector.md",
+    "decision": "row15_promoted_intersection_selector_pass_route_to_target_materialization_design",
+    "result_class": "family_aggregate_intersection_selector_pass",
+    "failure_types": [
+      "none"
+    ],
+    "run_dir": "runs/m1139_row15_promoted_intersection_selector",
+    "family_rows": 172,
+    "replay_rows": 860,
+    "kept_rows": 148,
+    "dropped_rows": 24,
+    "physical_pairs": 13,
+    "source_labels": 5,
+    "targets": 2,
+    "left_steps": 6,
+    "max_physical_pair_fraction": 0.13513513513513514,
+    "max_source_label_fraction": 0.28378378378378377,
+    "diversity_gate_pass": true,
+    "family_intersection_rows_csv": "runs/m1139_row15_promoted_intersection_selector/family_intersection_rows.csv",
+    "dropped_cross_family_rows_csv": "runs/m1139_row15_promoted_intersection_selector/dropped_cross_family_rows.csv",
+    "policy_pass_matrix_csv": "runs/m1139_row15_promoted_intersection_selector/policy_pass_matrix.csv",
+    "source_summary_csv": "runs/m1139_row15_promoted_intersection_selector/source_summary.csv",
+    "target_summary_csv": "runs/m1139_row15_promoted_intersection_selector/target_summary.csv",
+    "training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1140-v4-public-base-row15-promoted-target-materialization-design"
+  },
+  "decision": "row15_promoted_intersection_selector_pass_route_to_target_materialization_design",
   "decision_rule": "M1139 may only run the pre-registered family-intersection selector. It cannot train actor weights, run PPO, run replay, optimize objectives, promote, use private holdout, change actor inputs, or weaken thresholds after seeing selector result.",
-  "next_blocker": "m1139-v4-public-base-row15-promoted-intersection-selector"
+  "next_blocker": "m1140-v4-public-base-row15-promoted-target-materialization-design"
 }

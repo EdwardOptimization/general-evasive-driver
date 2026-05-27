@@ -1,0 +1,167 @@
+{
+  "id": "m1140-v4-public-base-row15-promoted-target-materialization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1139-v4-public-base-row15-promoted-intersection-selector.md",
+      "runs/m1139_row15_promoted_intersection_selector/family_intersection_rows.csv",
+      "runs/m1136_row15_promoted_family_aggregate_replay_sanity/cross_family_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1139-v4-public-base-row15-promoted-intersection-selector.json"
+    ],
+    "parent_objective": [
+      "design current public-gate base target-policy materialization for M1139 all-policy intersection rows"
+    ],
+    "derived_from": [
+      "m1139-v4-public-base-row15-promoted-intersection-selector"
+    ],
+    "blocked_by": [
+      "M1139 selector passes, but direct objective conversion would mix source-policy rows with target-policy objective fields"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "feeding M1139 family_intersection_rows.csv directly into an objective corpus",
+      "mixing source-policy hidden-state spaces in one objective corpus",
+      "using source-row margins when optimizing row15_current target policy"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1140-v4-public-base-row15-promoted-target-materialization-design.md",
+  "public_gates": [
+    "M1140 must design only",
+    "M1140 must not train actor weights",
+    "M1140 must not run PPO",
+    "M1140 must not run replay",
+    "M1140 must not run objective optimization",
+    "M1140 must not mine rows",
+    "M1140 must not promote",
+    "M1140 must not use private holdout",
+    "M1140 must preserve actor inputs",
+    "M1140 must select exactly one target policy for materialization"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not write objective NPZ",
+    "do not weaken M1139 selector thresholds after seeing the result",
+    "do not materialize multiple target policies into one objective row file"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_base_surface_refresh",
+    "evidence_axis": "G_materialization: target-policy materialization design",
+    "evidence_increment": "designs how the M1139 all-policy intersection becomes objective-ready rows under the current public-gate base without source hidden-state mixing",
+    "claim_scope": "design only; no replay, objective optimization, training, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if row15_current replay rows cannot be joined deterministically",
+      "stop if source metadata cannot be preserved separately from target-policy objective fields",
+      "stop if materialized rows would not satisfy boundary-outcome required columns"
+    ],
+    "fallback_plan": [
+      "if current-base materialization is not defensible, route to source-specific corpora design",
+      "if required columns are missing, repair M1136/M1139 artifacts before objective conversion",
+      "if target policy selection is ambiguous, design a per-target materialization matrix first"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1139 selector passes and blocks direct objective conversion",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "design target-policy materialization without replay, training, PPO, or objective optimization",
+    "admission_evidence": [
+      "M1139 selector keeps 148 all-policy pass rows",
+      "M1139 diversity gate passes with 13 physical pairs, 5 source labels, 2 targets, and 6 left steps",
+      "existing target-policy materializer supports one checkpoint corpus per run"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not run replay",
+      "do not run objective optimization",
+      "do not promote from materialization design"
+    ],
+    "allowed_updates": [
+      "write target-policy materialization design documentation",
+      "pre-register materialization run if the design is clear",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "target policy selection is explicit",
+      "source vs target field semantics are explicit",
+      "row count and diversity thresholds are explicit",
+      "output artifacts and fail-closed behavior are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1140 designs conversion for matched-current proof rows and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1140 reads M1139/M1136 artifacts only and adds no new temporal task.",
+    "negative_result_policy": "If materialization is not defensible, route to source-specific corpora design rather than weakening hidden-state-space separation.",
+    "allowed_claims": [
+      "target-policy materialization design for a level2 replay-calibrated proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The M1139 all-policy intersection can be materialized under the current public-gate base row15_current so later objective rows use one target-policy hidden-state/action/margin space.",
+  "success_criteria": [
+    "design artifact exists",
+    "target policy label is explicit",
+    "target policy checkpoint path is explicit",
+    "source metadata preservation is explicit",
+    "target-policy objective field mapping is explicit",
+    "row count and diversity validation thresholds are explicit",
+    "fail-closed behavior is explicit",
+    "no training, PPO, replay, objective optimization, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "target policy selection is ambiguous",
+    "source and target fields are conflated",
+    "required boundary-outcome columns are not mapped",
+    "training, PPO, replay, objective optimization, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m1140-v4-public-base-row15-promoted-target-materialization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1140-v4-public-base-row15-promoted-target-materialization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1139-v4-public-base-row15-promoted-intersection-selector.md",
+    "runs/m1139_row15_promoted_intersection_selector/family_intersection_rows.csv"
+  ],
+  "decision_rule": "M1140 may only design target-policy materialization. It cannot train, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1140-v4-public-base-row15-promoted-target-materialization-design"
+}
