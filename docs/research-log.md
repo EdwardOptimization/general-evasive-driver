@@ -15646,3 +15646,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1054 designs a no-training current-base source-diverse protected/preference surface refresh for the newly promoted 4096-step public-gate base. It adapts the M266/M267 pattern to the short-PPO family checkpoints `61049/61050/61051`, requires matched-current mining, outcome gating, boundary relocation with tighter low-margin windows, and a robustness gate with at least `80` accepted wrong-history rows, `10` physical pairs, `5` left steps, `3` checkpoints, and `2` targets. It blocks PPO, promotion, private holdout, and actor-input changes.
 - decision: `post_short_promotion_surface_refresh_design_admit_m1055_refresh`
 - next: `m1055-v4-public-base-post-short-promotion-surface-refresh`
+
+## 20260527T042333Z - m1055-v4-public-base-post-short-promotion-surface-refresh
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1055-v4-public-base-post-short-promotion-surface-refresh.md`
+- result: M1055 runs the current-base surface refresh for the short-PPO promoted family. Matched-current mining finds `926` accepted pairs across `97` physical pairs; the outcome gate exports `5556` rows; boundary relocation finds `315` accepted wrong-history rows and `315` success drops. Robustness rejects direct conversion only because accepted normal margins occupy `1` bucket under the pre-registered `0.01m` bucket width. Other source-diversity gates pass: `15` physical pairs, `7` left steps, `3` checkpoints, `3` targets, success-drop fraction `1.0`, max pair fraction `0.190476`, and `0` control rows.
+- decision: `post_short_promotion_surface_refresh_margin_bucket_sparse_route_to_bucket_audit`
+- next: `m1056-v4-public-base-post-short-promotion-margin-bucket-audit`

@@ -1,0 +1,119 @@
+{
+  "id": "m1056-v4-public-base-post-short-promotion-margin-bucket-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1055_post_short_promotion_boundary_surface_seed105400/boundary_relocation_rows.csv",
+      "runs/m1055_post_short_promotion_boundary_robustness_seed105400/summary.json",
+      "docs/m1055-v4-public-base-post-short-promotion-surface-refresh.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1055-v4-public-base-post-short-promotion-surface-refresh.json"
+    ],
+    "parent_objective": [
+      "audit whether M1055 margin-bucket failure is a coarse bucket-edge artifact or a real sampling limitation"
+    ],
+    "derived_from": [
+      "m1055-v4-public-base-post-short-promotion-surface-refresh"
+    ],
+    "blocked_by": [
+      "M1055 produced 315 accepted wrong-history rows but only one 0.01m normal-margin bucket"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "converting M1055 surface directly without diagnosing margin-bucket sparsity"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.md",
+  "public_gates": [
+    "M1056 must not mine new rows",
+    "M1056 must not train or run PPO",
+    "M1056 must not use private holdout",
+    "M1056 must audit M1055 accepted-row margin distribution",
+    "M1056 must run pre-registered diagnostic bucket widths without changing M1055 acceptance rows",
+    "M1056 must decide between corpus conversion with revised bucket rule and retargeted mining"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not promote",
+    "do not use private holdout",
+    "do not mine new rows",
+    "do not silently loosen the M1055 primary robustness gate"
+  ],
+  "workflow_synthesis": {
+    "branch": "post_short_promotion_surface_refresh",
+    "evidence_axis": "G_surface: margin bucket sparsity audit",
+    "evidence_increment": "diagnoses whether M1055 failed due coarse bucket edge or real margin diversity sparsity",
+    "claim_scope": "diagnostic audit only; no new mining, no training, no PPO, no promotion",
+    "stop_condition": [
+      "stop if accepted rows remain single-bucket under narrower diagnostic widths",
+      "stop if margin distribution is dominated by one source or physical pair",
+      "stop if audit cannot justify a revised bucket rule"
+    ],
+    "fallback_plan": [
+      "if coarse bucket artifact, route to compact corpus conversion design with explicit bucket-width rule",
+      "if true sparsity, route to retargeted surface mining design",
+      "if source concentration appears, route to public-overfit/source-dominance audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1055 rejects direct conversion only because normal-margin bucket count is one",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M1055's single 0.01m margin bucket may be a coarse bucket-edge artifact because accepted rows span 0.00048-0.00998m; a diagnostic audit can determine whether conversion or retargeting is the right next route.",
+  "success_criteria": [
+    "diagnostic margin-band table exists",
+    "robustness reruns for bucket widths 0.005 and 0.0025 are recorded",
+    "source/physical-pair dominance under each diagnostic bucket is recorded",
+    "next route is explicit",
+    "no new mining training or PPO occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "new mining starts",
+    "training or PPO starts",
+    "private holdout is used",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "bucket_width_0005",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m1055_post_short_promotion_boundary_surface_seed105400/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.005 --min-accepted-wrong-rows 80 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 3 --min-targets 2 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m1056_margin_bucket_width_0005"
+    },
+    {
+      "name": "bucket_width_00025",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m1055_post_short_promotion_boundary_surface_seed105400/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.0025 --min-accepted-wrong-rows 80 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 3 --min-targets 2 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m1056_margin_bucket_width_00025"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m1056_margin_bucket_width_0005/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1056_margin_bucket_width_00025/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1055-v4-public-base-post-short-promotion-surface-refresh.md"
+  ],
+  "decision_rule": "M1056 must classify M1055 as coarse bucket artifact, true sparsity, or source concentration before conversion or retargeting.",
+  "next_blocker": "m1056-v4-public-base-post-short-promotion-margin-bucket-audit"
+}

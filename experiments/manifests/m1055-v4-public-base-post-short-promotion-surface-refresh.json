@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -140,6 +140,58 @@
   "baseline_artifacts": [
     "docs/m1054-v4-public-base-post-short-promotion-surface-refresh-design.md"
   ],
-  "decision_rule": "M1055 may only mine and robustness-gate a public current-base surface. Passing routes to compact corpus conversion; failing routes to sparse/overfit/self-ID audit.",
-  "next_blocker": "m1055-v4-public-base-post-short-promotion-surface-refresh"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1055-v4-public-base-post-short-promotion-surface-refresh.md",
+    "decision": "post_short_promotion_surface_refresh_margin_bucket_sparse_route_to_bucket_audit",
+    "result_class": "post_short_promotion_surface_refresh_margin_bucket_sparse",
+    "failure_types": [
+      "scenario_sampling_failure"
+    ],
+    "matched_current": {
+      "candidate_pair_count": 312405,
+      "accepted_pair_count": 926,
+      "accepted_physical_pair_count": 97,
+      "accepted_left_step_count": 25,
+      "ambiguity_surface_found": true
+    },
+    "outcome_gate": {
+      "input_pair_count": 926,
+      "outcome_row_count": 5556,
+      "outcome_summary_rows": 54
+    },
+    "boundary_surface": {
+      "row_count": 18375,
+      "accepted_wrong_history_rows": 315,
+      "accepted_wrong_history_pairs": 47,
+      "accepted_reset_rows": 1387,
+      "accepted_zero_current_rows": 1180,
+      "wrong_history_success_drop_count": 315,
+      "surface_found": true
+    },
+    "robustness": {
+      "passed": false,
+      "decision": "reject_boundary_bucket_tuned_surface",
+      "accepted_wrong_rows": 315,
+      "accepted_wrong_physical_pairs": 15,
+      "accepted_wrong_left_steps": 7,
+      "accepted_wrong_checkpoints": 3,
+      "accepted_wrong_targets": 3,
+      "accepted_wrong_normal_margin_buckets": 1,
+      "accepted_wrong_success_drop_fraction": 1.0,
+      "max_rows_per_physical_pair_fraction": 0.19047619047619047,
+      "control_accepted_wrong_rows": 0,
+      "accepted_wrong_normal_margin_min": 0.0004777225350571,
+      "accepted_wrong_normal_margin_mean": 0.003014931951949238,
+      "accepted_wrong_normal_margin_max": 0.0099828306591382
+    },
+    "training_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "promoted": false,
+    "next_milestone": "m1056-v4-public-base-post-short-promotion-margin-bucket-audit"
+  },
+  "decision": "post_short_promotion_surface_refresh_margin_bucket_sparse_route_to_bucket_audit",
+  "decision_rule": "M1055 finds a strong wrong-history boundary surface but rejects direct conversion because accepted normal margins occupy only one 0.01m bucket. It routes to margin-bucket audit rather than PPO or threshold loosening.",
+  "next_blocker": "m1056-v4-public-base-post-short-promotion-margin-bucket-audit"
 }

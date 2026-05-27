@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1063,
+    "completed": 1064,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1054-v4-public-base-post-short-promotion-surface-refresh-design",
+    "task_id": "m1055-v4-public-base-post-short-promotion-surface-refresh",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1054-v4-public-base-post-short-promotion-surface-refresh-design.md"
+    "command_log": "docs/m1055-v4-public-base-post-short-promotion-surface-refresh.md"
   },
   "next_task": {
-    "id": "m1055-v4-public-base-post-short-promotion-surface-refresh",
+    "id": "m1056-v4-public-base-post-short-promotion-margin-bucket-audit",
     "status": "pending",
-    "priority": 10500,
+    "priority": 10510,
     "kind": "gate",
-    "hypothesis": "Mine and robustness-gate a source-diverse current-base wrong-history boundary surface after short-PPO promotion",
-    "command": "see experiments/manifests/m1055-v4-public-base-post-short-promotion-surface-refresh.json",
-    "success_artifact": "docs/m1055-v4-public-base-post-short-promotion-surface-refresh.md",
-    "notes": "Pending: public surface refresh only; no PPO no private holdout"
+    "hypothesis": "Audit whether the M1055 margin-bucket failure is a coarse bucket-edge artifact or real sparsity",
+    "command": "see experiments/manifests/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.json",
+    "success_artifact": "docs/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.md",
+    "notes": "Pending: diagnostic only; no new mining no PPO no private holdout"
   },
-  "updated_at_utc": "20260527T040831Z"
+  "updated_at_utc": "20260527T042333Z"
 }

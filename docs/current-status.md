@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1055-v4-public-base-post-short-promotion-surface-refresh
+m1056-v4-public-base-post-short-promotion-margin-bucket-audit
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -87,12 +87,28 @@ wrong-history failure and row16 normal-history success. M1051 synthesized this
 branch, and M1052 promoted the M1049 seed `61049` checkpoint as the current
 public-gate base. M1053 synthesized the post-promotion route and selected
 current-base source-diverse surface refresh before any medium PPO design.
-M1054 designed that refresh; M1055 should mine and robustness-gate the
-current-base wrong-history boundary surface without training or PPO.
+M1054 designed that refresh, and M1055 mined a strong current-base
+wrong-history boundary surface. M1055 did not pass robustness because all
+accepted normal margins fell into one `0.01m` bucket. M1056 should audit whether
+that is a coarse bucket-edge artifact or true margin-diversity sparsity.
 
 ```text
 decision:
-  post_short_promotion_surface_refresh_design_admit_m1055_refresh
+  post_short_promotion_surface_refresh_margin_bucket_sparse_route_to_bucket_audit
+```
+
+M1055 result:
+
+```text
+accepted_wrong_history_rows: 315
+accepted_wrong_physical_pairs: 15
+accepted_wrong_left_steps: 7
+accepted_wrong_checkpoints: 3
+accepted_wrong_targets: 3
+accepted_wrong_success_drop_fraction: 1.0
+accepted_wrong_normal_margin_buckets: 1
+robustness_passed: false
+failure: margin_bucket_sparse
 ```
 
 Current public-gate base:
