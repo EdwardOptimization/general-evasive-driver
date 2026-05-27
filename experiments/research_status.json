@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1078,
+    "completed": 1079,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1069-v4-public-base-expanded-gate-medium-ppo-smoke",
+    "task_id": "m1070-v4-public-base-medium-ppo-proof-washout-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1069-v4-public-base-expanded-gate-medium-ppo-smoke.md"
+    "command_log": "docs/m1070-v4-public-base-medium-ppo-proof-washout-audit.md"
   },
   "next_task": {
-    "id": "m1070-v4-public-base-medium-ppo-proof-washout-audit",
+    "id": "m1071-v4-public-base-medium-ppo-repair-projection-design",
     "status": "pending",
-    "priority": 10650,
+    "priority": 10660,
     "kind": "gate",
-    "hypothesis": "Audit the M1069 medium PPO proof washout before any new PPO proposal",
-    "command": "see experiments/manifests/m1070-v4-public-base-medium-ppo-proof-washout-audit.json",
-    "success_artifact": "docs/m1070-v4-public-base-medium-ppo-proof-washout-audit.md",
-    "notes": "Pending: no PPO no actor training no promotion no private holdout"
+    "hypothesis": "Design post-PPO repair/projection for M1069 medium PPO proof washout",
+    "command": "see experiments/manifests/m1071-v4-public-base-medium-ppo-repair-projection-design.json",
+    "success_artifact": "docs/m1071-v4-public-base-medium-ppo-repair-projection-design.md",
+    "notes": "Pending: design only; no PPO no actor training no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T080048Z"
+  "updated_at_utc": "20260527T080421Z"
 }

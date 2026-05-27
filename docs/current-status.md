@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1070-v4-public-base-medium-ppo-proof-washout-audit
+m1071-v4-public-base-medium-ppo-repair-projection-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -124,11 +124,15 @@ gate regresses. M1069 ran that single 8192-step proposal. PPO completed and
 fresh/OOD plus behavior gates passed, but exact, old public replay,
 family-intersection, and source-diverse proof gates failed. The checkpoint is
 therefore rejected as `proof_washout`; the next step is an audit before any new
-PPO proposal.
+PPO proposal. M1070 completed that audit and classified the failure as coupled
+proof washout: exact active-set trust region violation plus wrong-history
+branches becoming marginally safe on old public replay, M1061
+family-intersection, and source-diverse continuity surfaces. M1070 routes to
+projection design before any new PPO.
 
 ```text
 decision:
-  expanded_gate_medium_ppo_reject_proof_washout_route_to_audit
+  medium_ppo_proof_washout_audit_route_to_repair_projection_design
 ```
 
 M1068 design:
@@ -259,6 +263,22 @@ source_diverse: 1 / 3 passed
 promoted: false
 private_holdout_used: false
 next: m1070-v4-public-base-medium-ppo-proof-washout-audit
+```
+
+M1070 result:
+
+```text
+classification: coupled proof_washout
+training_instability: false
+actor_contract_violation: false
+broad_generalization_regression: false
+behavior_regression: false
+exact_active_set_failed: true
+old_public_replay_failed: true
+family_intersection_failed: true
+source_diverse_failed: true
+decision: route to post-PPO repair/projection design
+next: m1071-v4-public-base-medium-ppo-repair-projection-design
 ```
 
 M1058 result:

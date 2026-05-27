@@ -1,0 +1,113 @@
+{
+  "id": "m1071-v4-public-base-medium-ppo-repair-projection-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1069_expanded_gate_medium_seed61069/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1070-v4-public-base-medium-ppo-proof-washout-audit.md",
+      "runs/m1069_expanded_gate_medium_ppo_seed61069/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m1069_expanded_gate_medium_seed61069.json",
+      "experiments/manifests/m1070-v4-public-base-medium-ppo-proof-washout-audit.json"
+    ],
+    "parent_objective": [
+      "design an exact post-PPO repair/projection path for the M1069 medium-ramp proof washout"
+    ],
+    "derived_from": [
+      "m1070-v4-public-base-medium-ppo-proof-washout-audit"
+    ],
+    "blocked_by": [
+      "M1070 classified M1069 as coupled exact/public/family/source proof washout while broad gates passed"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running another medium PPO before designing exact proof projection",
+      "repairing only old row15/row16 while ignoring M1061 family-intersection failures"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1071-v4-public-base-medium-ppo-repair-projection-design.md",
+  "public_gates": [
+    "M1071 must not run PPO",
+    "M1071 must not train actor",
+    "M1071 must not promote",
+    "M1071 must not use private holdout",
+    "M1071 must design a projection/repair path that includes exact active-set, old public replay, M1061 family-intersection, and source-diverse failed rows",
+    "M1071 must define acceptance order before any projection probe"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train actor",
+    "do not promote M1069",
+    "do not use private holdout",
+    "do not weaken proof gates",
+    "do not design a repair that ignores family-intersection failed rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "expanded_gate_medium_ppo_readiness",
+    "evidence_axis": "G_control: exact post-PPO projection design",
+    "evidence_increment": "turns the M1069 proof-washout audit into a concrete projection/probe plan before any further PPO",
+    "claim_scope": "repair/projection design only; no training, no promotion, no repaired checkpoint claim",
+    "stop_condition": [
+      "stop if the design cannot include exact active-set and M1061 failed rows",
+      "stop if acceptance criteria would rely on private holdout",
+      "stop if the design would accept a candidate before exact proof gates"
+    ],
+    "fallback_plan": [
+      "if a projection design is accepted, route to a no-PPO projection probe from M1069 raw toward M1049 base",
+      "if projection design is not coherent, route to guarded PPO recipe redesign",
+      "if failed rows need a new corpus, route to failed-row corpus export before projection"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1070 recommends projection-first repair instead of another medium PPO run",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A post-PPO repair/projection design can convert the M1069 raw proposal into a testable candidate by making exact and family-intersection proof retention first-class acceptance constraints.",
+  "success_criteria": [
+    "design artifact exists",
+    "design names base and raw proposal checkpoints",
+    "design includes exact active-set constraints",
+    "design includes old public replay failed rows",
+    "design includes M1061 family-intersection failed rows",
+    "design includes source-diverse failed rows",
+    "design defines acceptance order and rollback conditions",
+    "no PPO actor training promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "design omits M1061 family-intersection failed rows",
+    "design omits exact active-set constraints",
+    "design accepts a repaired checkpoint before proof gates",
+    "PPO or actor training starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "write_repair_projection_design",
+      "command": "write docs/m1071-v4-public-base-medium-ppo-repair-projection-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1071-v4-public-base-medium-ppo-repair-projection-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1070-v4-public-base-medium-ppo-proof-washout-audit.md"
+  ],
+  "decision_rule": "M1071 may only design a repair/projection probe. It cannot run PPO, train actor, promote, or use private holdout.",
+  "next_blocker": "m1071-v4-public-base-medium-ppo-repair-projection-design"
+}

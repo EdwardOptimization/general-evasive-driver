@@ -111,6 +111,28 @@
   "baseline_artifacts": [
     "runs/m1069_expanded_gate_medium_ppo_seed61069/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1070-v4-public-base-medium-ppo-proof-washout-audit.md",
+    "decision": "medium_ppo_proof_washout_audit_route_to_repair_projection_design",
+    "result_class": "medium_ppo_proof_washout_audit_completed",
+    "failure_types": [
+      "none"
+    ],
+    "base_checkpoint": "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+    "raw_checkpoint": "runs/ppo_m1069_expanded_gate_medium_seed61069/checkpoint.pt",
+    "m1069_failure_type": "proof_washout",
+    "training_instability": false,
+    "actor_contract_violation": false,
+    "broad_generalization_regression": false,
+    "behavior_regression": false,
+    "exact_active_set_failed": true,
+    "old_public_replay_failed": true,
+    "family_intersection_failed": true,
+    "source_diverse_failed": true,
+    "next_milestone": "m1071-v4-public-base-medium-ppo-repair-projection-design"
+  },
+  "decision": "medium_ppo_proof_washout_audit_route_to_repair_projection_design",
   "decision_rule": "M1070 may only audit the M1069 proof washout and route to the next repair/design milestone. It cannot run PPO, train actor, promote, or use private holdout.",
-  "next_blocker": "m1070-v4-public-base-medium-ppo-proof-washout-audit"
+  "next_blocker": "m1071-v4-public-base-medium-ppo-repair-projection-design"
 }
