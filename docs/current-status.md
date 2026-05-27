@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1105-v4-public-base-materialized-objective-corpus-design
+m1106-v4-public-base-family-aggregate-conversion-synthesis
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -269,10 +269,17 @@ that proof-current materializer. M1104 implements and runs it. The materialized
 physical pairs, `4` source labels, `3` targets, and `9` left steps. No objective
 NPZ is written. The next step is M1105: design the single-checkpoint
 boundary-outcome corpus/objective sanity run using these materialized rows.
+M1105 completes that design. It explicitly separates raw proof rows (`133`) from
+the deduplicated objective corpus input expected from the existing corpus
+builder (`68` unique boundary rows). The objective corpus threshold is therefore
+`>= 60` unique rows with `>= 10` physical pairs and `3` targets, plus action
+reconstruction and objective-sanity gates. The workflow synthesis cadence has
+fired, so the next step is M1106: synthesize M1096-M1105 and open the next
+branch before running corpus build or objective sanity.
 
 ```text
 decision:
-  target_policy_materialization_pass_route_to_objective_corpus_design
+  materialized_objective_corpus_design_route_to_branch_synthesis
 ```
 
 M1068 design:

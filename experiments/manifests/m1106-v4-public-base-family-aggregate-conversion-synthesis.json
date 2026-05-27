@@ -1,0 +1,181 @@
+{
+  "id": "m1106-v4-public-base-family-aggregate-conversion-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1096-v4-public-base-family-aggregate-conversion-design.md",
+      "docs/m1097-v4-public-base-family-aggregate-conversion-implementation.md",
+      "docs/m1098-v4-public-base-family-aggregate-replay-sanity-design.md",
+      "docs/m1099-v4-public-base-family-aggregate-replay-sanity-implementation.md",
+      "docs/m1100-v4-public-base-family-aggregate-cross-family-replay-audit.md",
+      "docs/m1101-v4-public-base-family-aggregate-intersection-selector-design.md",
+      "docs/m1102-v4-public-base-family-aggregate-intersection-selector-implementation.md",
+      "docs/m1103-v4-public-base-family-intersection-target-policy-materialization-design.md",
+      "docs/m1104-v4-public-base-family-intersection-target-policy-materialization-implementation.md",
+      "docs/m1105-v4-public-base-materialized-objective-corpus-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1105-v4-public-base-materialized-objective-corpus-design.json"
+    ],
+    "parent_objective": [
+      "synthesize family_aggregate_boundary_conversion branch before objective corpus run"
+    ],
+    "derived_from": [
+      "m1096-v4-public-base-family-aggregate-conversion-design",
+      "m1105-v4-public-base-materialized-objective-corpus-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached before M1106 objective run"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "continuing family_aggregate_boundary_conversion without synthesis",
+      "running objective corpus before branch synthesis",
+      "treating conversion artifacts as driver improvement evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1106-v4-public-base-family-aggregate-conversion-synthesis.md",
+  "public_gates": [
+    "M1106 must synthesize branch evidence",
+    "M1106 must not train actor weights",
+    "M1106 must not run PPO",
+    "M1106 must not run replay",
+    "M1106 must not run corpus build or objective sanity",
+    "M1106 must not mine rows",
+    "M1106 must not promote",
+    "M1106 must not use private holdout",
+    "M1106 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run corpus build",
+    "do not run objective sanity",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "family_aggregate_boundary_conversion",
+    "evidence_axis": "G_conversion: branch synthesis",
+    "evidence_increment": "synthesizes M1096-M1105 before opening objective corpus sanity branch",
+    "claim_scope": "process synthesis only; no corpus build, objective run, actor training, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if branch evidence does not support objective corpus sanity",
+      "stop if hidden-state-space separation remains unresolved",
+      "stop if conversion artifacts are being overclaimed as driver progress"
+    ],
+    "fallback_plan": [
+      "if conversion is incomplete, route to artifact repair",
+      "if objective corpus is premature, route to source-specific corpus design",
+      "if synthesis supports the route, open materialized_objective_corpus_sanity"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "branch cadence reached after M1105 design",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1106-v4-public-base-family-aggregate-conversion-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize conversion branch before any corpus or objective run",
+    "admission_evidence": [
+      "M1096-M1105 complete family-aggregate conversion through materialized objective corpus design",
+      "validator requires synthesis before continuing the branch"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not run PPO",
+      "do not run objective sanity"
+    ],
+    "allowed_updates": [
+      "synthesis document",
+      "pre-register next branch if synthesis supports it",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "supported and unsupported claims are explicit",
+      "failure taxonomy is summarized",
+      "overfit risk is explicit",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1106 synthesizes matched-current proof conversion work and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1106 synthesizes existing M1096-M1105 artifacts and adds no new temporal task.",
+    "negative_result_policy": "Unsupported self-ID claims remain unsupported; route only to objective sanity, not driver promotion.",
+    "allowed_claims": [
+      "branch-level conversion readiness for a level2 replay-calibrated proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "M1096-M1105 have completed enough conversion evidence to close family_aggregate_boundary_conversion and open a narrower materialized_objective_corpus_sanity branch.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "evidence summary is explicit",
+    "supported claims are explicit",
+    "falsified or unsupported claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "no actor training, PPO, replay, corpus build, objective sanity, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "supported and unsupported claims are conflated",
+    "next branch decision is ambiguous",
+    "actor training, PPO, replay, corpus build, objective sanity, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_synthesis",
+      "command": "write docs/m1106-v4-public-base-family-aggregate-conversion-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1106-v4-public-base-family-aggregate-conversion-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1105-v4-public-base-materialized-objective-corpus-design.md",
+    "runs/m1104_target_policy_materialization/proof_current_boundary_rows.csv"
+  ],
+  "decision_rule": "M1106 may only synthesize the family_aggregate_boundary_conversion branch. It cannot train actor weights, run PPO, run replay, run corpus build, run objective sanity, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1106-v4-public-base-family-aggregate-conversion-synthesis"
+}

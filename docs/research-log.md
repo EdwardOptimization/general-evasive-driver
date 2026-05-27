@@ -15852,3 +15852,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - safety: no replay, actor training, PPO, objective optimization, objective NPZ, mining, promotion, private holdout, or actor input change
 - decision: `target_policy_materialization_pass_route_to_objective_corpus_design`
 - next: `m1105-v4-public-base-materialized-objective-corpus-design`
+
+## 20260527T195814Z - m1105-v4-public-base-materialized-objective-corpus-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1105-v4-public-base-materialized-objective-corpus-design.md`
+- result: M1105 designs the single-checkpoint `proof_current` boundary-outcome corpus/objective sanity run. It records that M1104 has `133` raw materialized proof rows, while the existing corpus builder deduplicates by `boundary_geometry_key` and is expected to select `68` unique boundary rows. The objective corpus gate is set for auxiliary objective sanity only: `corpus_rows >= 60`, `physical_pairs >= 10`, `targets == 3`, all success-drop rows, and action reconstruction error max `<= 0.005`.
+- interpretation: the M1104 raw proof surface remains the proof artifact; the deduplicated corpus is an auxiliary learnability check and cannot support promotion or driver-improvement claims
+- decision: `materialized_objective_corpus_design_route_to_branch_synthesis`
+- next: `m1106-v4-public-base-family-aggregate-conversion-synthesis`

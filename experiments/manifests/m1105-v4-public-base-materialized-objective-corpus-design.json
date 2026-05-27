@@ -156,6 +156,35 @@
     "docs/m1104-v4-public-base-family-intersection-target-policy-materialization-implementation.md",
     "runs/m1104_target_policy_materialization/proof_current_boundary_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1105-v4-public-base-materialized-objective-corpus-design.md",
+    "decision": "materialized_objective_corpus_design_admit_objective_sanity_run",
+    "result_class": "materialized_objective_corpus_contract_defined",
+    "failure_types": [
+      "none"
+    ],
+    "target_policy_label": "proof_current",
+    "raw_materialized_rows": 133,
+    "expected_deduplicated_rows": 68,
+    "minimum_corpus_rows": 60,
+    "minimum_physical_pairs": 10,
+    "required_targets": 3,
+    "max_action_reconstruction_error": 0.005,
+    "mean_action_reconstruction_error": 0.001,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "corpus_build_started": false,
+    "objective_sanity_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1106-v4-public-base-family-aggregate-conversion-synthesis"
+  },
+  "decision": "materialized_objective_corpus_design_route_to_branch_synthesis",
   "decision_rule": "M1105 may only design the materialized corpus/objective sanity run. It cannot train actor weights, run PPO, run replay, run corpus build, run objective sanity, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1105-v4-public-base-materialized-objective-corpus-design"
+  "next_blocker": "m1106-v4-public-base-family-aggregate-conversion-synthesis"
 }
