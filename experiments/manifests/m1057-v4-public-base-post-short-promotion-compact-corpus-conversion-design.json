@@ -1,0 +1,110 @@
+{
+  "id": "m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1055_post_short_promotion_boundary_robustness_seed105400/accepted_wrong_history_rows.csv",
+      "runs/m1056_margin_bucket_audit/summary.json",
+      "docs/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.json"
+    ],
+    "parent_objective": [
+      "design compact replay/objective corpus conversion for the refreshed post-short-promotion surface"
+    ],
+    "derived_from": [
+      "m1056-v4-public-base-post-short-promotion-margin-bucket-audit"
+    ],
+    "blocked_by": [
+      "M1056 confirms M1055 surface is robust under 0.005m diagnostic bucket width and should be converted before medium PPO"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "using the refreshed surface in PPO before compact corpus conversion and replay sanity"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.md",
+  "public_gates": [
+    "M1057 must design only",
+    "M1057 must not train or run PPO",
+    "M1057 must not promote",
+    "M1057 must preserve actor inputs",
+    "M1057 must specify compact corpus selection from M1055 accepted rows",
+    "M1057 must specify objective sanity and replay sanity before any further PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not skip replay sanity"
+  ],
+  "workflow_synthesis": {
+    "branch": "post_short_promotion_surface_refresh",
+    "evidence_axis": "G_surface: compact corpus conversion design",
+    "evidence_increment": "designs conversion of M1055 refreshed rows into replay/objective corpora after M1056 bucket audit",
+    "claim_scope": "design only; no conversion run, no training, no PPO, no promotion",
+    "stop_condition": [
+      "stop if corpus caps would make the surface duplicate-dominated",
+      "stop if objective sanity and replay sanity are not both specified",
+      "stop if conversion would route directly to PPO"
+    ],
+    "fallback_plan": [
+      "if design is clear, route to compact corpus conversion implementation",
+      "if caps make the corpus too small, route to retargeted surface mining",
+      "if replay sanity cannot be defined, route to proof-surface audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1056 classifies M1055 as coarse bucket artifact and admits conversion design",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M1055 accepted rows can be converted into compact source-capped objective/replay corpora for the short-PPO current family before any further PPO.",
+  "success_criteria": [
+    "conversion design artifact exists",
+    "source row path is explicit",
+    "compact corpus caps are explicit",
+    "objective sanity commands are explicit",
+    "replay sanity commands are explicit",
+    "no training or PPO occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "compact corpus caps are ambiguous",
+    "objective or replay sanity is missing",
+    "PPO starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.md"
+  ],
+  "decision_rule": "M1057 must design compact corpus conversion and cannot train, run PPO, promote, or use private holdout.",
+  "next_blocker": "m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design"
+}

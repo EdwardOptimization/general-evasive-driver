@@ -15655,3 +15655,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1055 runs the current-base surface refresh for the short-PPO promoted family. Matched-current mining finds `926` accepted pairs across `97` physical pairs; the outcome gate exports `5556` rows; boundary relocation finds `315` accepted wrong-history rows and `315` success drops. Robustness rejects direct conversion only because accepted normal margins occupy `1` bucket under the pre-registered `0.01m` bucket width. Other source-diversity gates pass: `15` physical pairs, `7` left steps, `3` checkpoints, `3` targets, success-drop fraction `1.0`, max pair fraction `0.190476`, and `0` control rows.
 - decision: `post_short_promotion_surface_refresh_margin_bucket_sparse_route_to_bucket_audit`
 - next: `m1056-v4-public-base-post-short-promotion-margin-bucket-audit`
+
+## 20260527T043322Z - m1056-v4-public-base-post-short-promotion-margin-bucket-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.md`
+- result: M1056 audits the M1055 margin-bucket failure without new mining, training, PPO, private holdout, or promotion. The original `0.01m` bucket width fails with `1` bucket, but `0.005m` passes with `2` buckets and `0.0025m` passes with `4` buckets while all other source-diversity gates remain unchanged. Accepted rows span `0.000478m` to `0.009983m`, with rows distributed across sub-bands. M1056 classifies M1055 as a coarse bucket artifact rather than true surface sparsity.
+- decision: `post_short_promotion_margin_bucket_audit_route_to_compact_corpus_conversion_design`
+- next: `m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design`

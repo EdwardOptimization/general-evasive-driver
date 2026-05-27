@@ -114,6 +114,42 @@
   "baseline_artifacts": [
     "docs/m1055-v4-public-base-post-short-promotion-surface-refresh.md"
   ],
-  "decision_rule": "M1056 must classify M1055 as coarse bucket artifact, true sparsity, or source concentration before conversion or retargeting.",
-  "next_blocker": "m1056-v4-public-base-post-short-promotion-margin-bucket-audit"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.md",
+    "summary_json": "runs/m1056_margin_bucket_audit/summary.json",
+    "decision": "post_short_promotion_margin_bucket_audit_route_to_compact_corpus_conversion_design",
+    "result_class": "post_short_promotion_margin_bucket_audit_coarse_bucket_artifact",
+    "failure_types": [
+      "none"
+    ],
+    "bucket_widths": [
+      {
+        "margin_bucket_width": 0.01,
+        "passed": false,
+        "margin_buckets": 1
+      },
+      {
+        "margin_bucket_width": 0.005,
+        "passed": true,
+        "margin_buckets": 2
+      },
+      {
+        "margin_bucket_width": 0.0025,
+        "passed": true,
+        "margin_buckets": 4
+      }
+    ],
+    "accepted_wrong_rows": 315,
+    "accepted_wrong_physical_pairs": 15,
+    "accepted_wrong_targets": 3,
+    "training_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "promoted": false,
+    "next_milestone": "m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design"
+  },
+  "decision": "post_short_promotion_margin_bucket_audit_route_to_compact_corpus_conversion_design",
+  "decision_rule": "M1056 classifies M1055's single 0.01m bucket failure as a coarse bucket artifact because 0.005m and 0.0025m diagnostics pass without new mining. It routes to compact corpus conversion design.",
+  "next_blocker": "m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design"
 }

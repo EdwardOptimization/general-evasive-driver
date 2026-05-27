@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1064,
+    "completed": 1065,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1055-v4-public-base-post-short-promotion-surface-refresh",
+    "task_id": "m1056-v4-public-base-post-short-promotion-margin-bucket-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1055-v4-public-base-post-short-promotion-surface-refresh.md"
+    "command_log": "docs/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.md"
   },
   "next_task": {
-    "id": "m1056-v4-public-base-post-short-promotion-margin-bucket-audit",
+    "id": "m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design",
     "status": "pending",
-    "priority": 10510,
+    "priority": 10520,
     "kind": "gate",
-    "hypothesis": "Audit whether the M1055 margin-bucket failure is a coarse bucket-edge artifact or real sparsity",
-    "command": "see experiments/manifests/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.json",
-    "success_artifact": "docs/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.md",
-    "notes": "Pending: diagnostic only; no new mining no PPO no private holdout"
+    "hypothesis": "Design compact objective/replay corpus conversion for the refreshed post-short-promotion surface",
+    "command": "see experiments/manifests/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.json",
+    "success_artifact": "docs/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.md",
+    "notes": "Pending: design only; no PPO no private holdout"
   },
-  "updated_at_utc": "20260527T042333Z"
+  "updated_at_utc": "20260527T043322Z"
 }

@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1056-v4-public-base-post-short-promotion-margin-bucket-audit
+m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -90,11 +90,13 @@ current-base source-diverse surface refresh before any medium PPO design.
 M1054 designed that refresh, and M1055 mined a strong current-base
 wrong-history boundary surface. M1055 did not pass robustness because all
 accepted normal margins fell into one `0.01m` bucket. M1056 should audit whether
-that is a coarse bucket-edge artifact or true margin-diversity sparsity.
+that is a coarse bucket-edge artifact or true margin-diversity sparsity. M1056
+found that `0.005m` and `0.0025m` diagnostic bucket widths both pass, so the
+next step is compact objective/replay corpus conversion design.
 
 ```text
 decision:
-  post_short_promotion_surface_refresh_margin_bucket_sparse_route_to_bucket_audit
+  post_short_promotion_margin_bucket_audit_route_to_compact_corpus_conversion_design
 ```
 
 M1055 result:
@@ -109,6 +111,15 @@ accepted_wrong_success_drop_fraction: 1.0
 accepted_wrong_normal_margin_buckets: 1
 robustness_passed: false
 failure: margin_bucket_sparse
+```
+
+M1056 result:
+
+```text
+bucket_width 0.0100: failed, margin_buckets 1
+bucket_width 0.0050: passed, margin_buckets 2
+bucket_width 0.0025: passed, margin_buckets 4
+classification: coarse_bucket_artifact
 ```
 
 Current public-gate base:
