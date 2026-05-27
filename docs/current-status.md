@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1108-v4-public-base-materialized-objective-result-audit
+m1109-v4-public-base-materialized-guarded-actor-update-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -286,11 +286,15 @@ M1107 passes: `68` corpus rows, `14` physical pairs, `3` targets, zero action
 reconstruction error, and `objective_pass=true` across three optimization seeds
 with mean validation pairwise accuracy `0.944444`. This is still only auxiliary
 objective evidence. The next step is M1108: audit whether a guarded actor-update
-design is admissible and define required post-update gates.
+design is admissible and define required post-update gates. M1108 completes the
+audit. M1107 is strong enough to admit guarded actor-update design only; direct
+actor update, PPO, promotion, and driver-improvement claims remain blocked. The
+next step is M1109: design an actor-coupling-only update with exact, replay, and
+behavior gates before any implementation.
 
 ```text
 decision:
-  materialized_objective_corpus_pass_route_to_result_audit
+  materialized_objective_result_audit_admit_guarded_actor_update_design
 ```
 
 M1068 design:

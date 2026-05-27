@@ -156,6 +156,36 @@
     "docs/m1107-v4-public-base-materialized-objective-corpus-run.md",
     "runs/m1107_materialized_objective_corpus/objective_summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1108-v4-public-base-materialized-objective-result-audit.md",
+    "decision": "materialized_objective_result_audit_admit_guarded_actor_update_design",
+    "result_class": "objective_pass_admits_design_not_update",
+    "failure_types": [
+      "none"
+    ],
+    "corpus_rows": 68,
+    "physical_pairs": 14,
+    "targets": 3,
+    "objective_pass": true,
+    "seed_pass_count": 3,
+    "min_val_combined_loss_improvement": 1.762006402015686,
+    "min_val_delta_loss_improvement": 2.8520150184631348,
+    "mean_val_pairwise_accuracy_after": 0.9444444179534912,
+    "admitted_next": "guarded_actor_update_design_only",
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "corpus_build_started": false,
+    "objective_sanity_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1109-v4-public-base-materialized-guarded-actor-update-design"
+  },
+  "decision": "materialized_objective_result_audit_admit_guarded_actor_update_design",
   "decision_rule": "M1108 may only audit M1107 objective sanity. It cannot train actor weights, run PPO, run replay, run corpus build, run objective sanity, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1108-v4-public-base-materialized-objective-result-audit"
+  "next_blocker": "m1109-v4-public-base-materialized-guarded-actor-update-design"
 }

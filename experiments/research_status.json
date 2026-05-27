@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1116,
+    "completed": 1117,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1107-v4-public-base-materialized-objective-corpus-run",
+    "task_id": "m1108-v4-public-base-materialized-objective-result-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1107-v4-public-base-materialized-objective-corpus-run.md"
+    "command_log": "docs/m1108-v4-public-base-materialized-objective-result-audit.md"
   },
   "next_task": {
-    "id": "m1108-v4-public-base-materialized-objective-result-audit",
+    "id": "m1109-v4-public-base-materialized-guarded-actor-update-design",
     "status": "pending",
-    "priority": 11030,
+    "priority": 11040,
     "kind": "gate",
-    "hypothesis": "Audit M1107 objective pass before any guarded actor update design",
-    "command": "see experiments/manifests/m1108-v4-public-base-materialized-objective-result-audit.json",
-    "success_artifact": "docs/m1108-v4-public-base-materialized-objective-result-audit.md",
-    "notes": "Pending: audit only; no actor training no PPO no replay no corpus build no objective sanity no mining no promotion no private holdout"
+    "hypothesis": "Design a tightly guarded actor_coupling-only update and post-update gates",
+    "command": "see experiments/manifests/m1109-v4-public-base-materialized-guarded-actor-update-design.json",
+    "success_artifact": "docs/m1109-v4-public-base-materialized-guarded-actor-update-design.md",
+    "notes": "Pending: design only; no actor training no PPO no replay no corpus build no objective sanity no mining no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T200707Z"
+  "updated_at_utc": "20260527T201144Z"
 }
