@@ -1,0 +1,2 @@
+step,update,num_envs,curriculum_stage,rollout_return_mean,reward_mean,episode_count,episode_length_mean,termination_rate,response_prediction_loss_mean,outcome_intervention_loss_mean,rejected_history_preference_loss_mean,rejected_history_preference_aux_coef,baseline_action_anchor_loss_mean,snippet_action_anchor_loss_mean,trajectory_action_anchor_loss_mean
+1024,1,8,base,58.69101328914743,0.972459614276886,13,60.84615384615385,0.3076923076923077,0.049736956134438515,0.6757518450419108,1.0158357123533885,0.03,1.1519666551033463e-06,1.772747921143421e-08,1.1398937497612376e-06

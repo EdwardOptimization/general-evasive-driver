@@ -1,0 +1,112 @@
+{
+  "id": "m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit",
+  "type": "gate",
+  "gate_tier": "promotion",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt",
+      "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1044-v4-public-base-combined-active-set-guarded-ppo-smoke.md",
+      "runs/m1044_v4_public_base_combined_active_set_guarded_ppo_smoke/summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m1044_combined_active_set_guarded_smoke.json",
+      "experiments/manifests/m1044-v4-public-base-combined-active-set-guarded-ppo-smoke.json"
+    ],
+    "parent_objective": [
+      "audit whether the M1044 raw PPO checkpoint should replace the combined active-set base as the current public-gate base"
+    ],
+    "derived_from": [
+      "m1044-v4-public-base-combined-active-set-guarded-ppo-smoke"
+    ],
+    "blocked_by": [
+      "M1044 classifies the raw PPO checkpoint as a public-gate raw candidate but does not promote"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "using the M1044 raw PPO checkpoint as the public base before explicit promotion audit"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit.md",
+  "public_gates": [
+    "M1045 must audit M1044 evidence",
+    "M1045 must decide promote or reject for public-gate base status",
+    "M1045 must not train or run PPO",
+    "M1045 must not use private holdout",
+    "M1045 must preserve actor input contract",
+    "M1045 must scope any promotion to public-gate base status only"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote without updating current status and scoreboard lineage",
+    "do not claim multi-seed PPO repeatability",
+    "do not claim long-run PPO stability",
+    "do not claim paper-level generalization"
+  ],
+  "workflow_synthesis": {
+    "branch": "combined_active_set_guarded_ppo_readiness",
+    "evidence_axis": "G_promotion: guarded PPO raw candidate promotion audit",
+    "evidence_increment": "decides whether the M1044 raw PPO candidate becomes the current public-gate base after smoke PPO and full public gates",
+    "claim_scope": "public-base promotion audit only; no PPO, no private holdout, no long-run claim",
+    "stop_condition": [
+      "stop if M1044 evidence is incomplete",
+      "stop if lineage or actor contract is ambiguous",
+      "stop if current-status update would overclaim long-run PPO or paper-level evidence"
+    ],
+    "fallback_plan": [
+      "if evidence is accepted, promote the M1044 raw PPO checkpoint as public-gate base and route to post-promotion synthesis",
+      "if evidence is incomplete, reject promotion and route to the missing audit tier",
+      "if overfit risk is too high, require fresh PPO seed repeat before promotion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1044 classifies the raw PPO checkpoint as a guarded PPO raw candidate",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M1044 raw PPO checkpoint should replace the combined active-set base as the current public-gate base if M1044 evidence is complete and promotion remains scoped to public-gate status.",
+  "success_criteria": [
+    "promotion audit artifact exists",
+    "M1044 evidence is summarized",
+    "promotion decision is explicit",
+    "current-status and scoreboard lineage are updated if promoted",
+    "PPO, private holdout, multi-seed, long-run, and paper-level claims remain blocked"
+  ],
+  "failure_criteria": [
+    "promotion decision is missing",
+    "promotion occurs without current-status update",
+    "private holdout is used",
+    "PPO starts",
+    "long-run PPO stability is claimed",
+    "paper-level generalization is claimed"
+  ],
+  "commands": [
+    {
+      "name": "promotion_audit",
+      "command": "write docs/m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt",
+    "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1044_v4_public_base_combined_active_set_guarded_ppo_smoke/summary.json",
+    "docs/m1044-v4-public-base-combined-active-set-guarded-ppo-smoke.md"
+  ],
+  "decision_rule": "M1045 must explicitly promote or reject the M1044 raw PPO checkpoint as the public-gate base; promotion is public-gate status only.",
+  "next_blocker": "m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit"
+}

@@ -64,6 +64,10 @@ def _parse_seeds(text: str) -> tuple[int, ...]:
     return tuple(int(item.strip()) for item in str(text).split(",") if item.strip())
 
 
+def _parse_prefixes(text: str) -> tuple[str, ...]:
+    return tuple(item.strip() for item in str(text).split(",") if item.strip())
+
+
 def changed_parameters_allowed(names: list[str], *, allowed_prefixes: tuple[str, ...] = ALLOWED_CHANGED_PREFIXES) -> bool:
     return all(any(name.startswith(prefix) for prefix in allowed_prefixes) for name in names)
 
@@ -162,6 +166,7 @@ def full_public_exact_contract_rows(
     preference_margin: float,
     lambda_pref: float,
     lambda_anchor: float,
+    allowed_changed_prefixes: tuple[str, ...] = ALLOWED_CHANGED_PREFIXES,
 ) -> list[dict[str, Any]]:
     resolved_device = resolve_device(device)
     base_model, _ = load_actor_critic_checkpoint(base_checkpoint, device=str(resolved_device))
@@ -170,7 +175,9 @@ def full_public_exact_contract_rows(
     candidate_state = clone_state_dict(candidate_model)
     changed = changed_parameter_names(base_state, candidate_state)
     actor_inputs_changed = _actor_inputs_changed(base_checkpoint, candidate_checkpoint)
-    allowed_surface_contract_pass = bool(changed and changed_parameters_allowed(changed))
+    allowed_surface_contract_pass = bool(
+        changed and changed_parameters_allowed(changed, allowed_prefixes=allowed_changed_prefixes)
+    )
 
     corpus = load_corpus(temporal_corpus)
     tensors = tensors_from_corpus(corpus, resolved_device)
@@ -254,7 +261,7 @@ def full_public_exact_contract_rows(
         {
             "checkpoint": str(candidate_checkpoint),
             "actor_inputs_changed": bool(actor_inputs_changed),
-            "allowed_changed_prefixes": ";".join(ALLOWED_CHANGED_PREFIXES),
+            "allowed_changed_prefixes": ";".join(allowed_changed_prefixes),
             "allowed_surface_contract_pass": bool(allowed_surface_contract_pass),
             "changed_parameter_count": int(len(changed)),
             "changed_parameter_names": ";".join(changed),
@@ -322,6 +329,7 @@ def run_combined_active_set_full_public_gate(
     preference_margin: float,
     lambda_pref: float,
     lambda_anchor: float,
+    allowed_changed_prefixes: tuple[str, ...] = ALLOWED_CHANGED_PREFIXES,
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     candidate = DirectionTargetCandidate(alpha=0.15, checkpoint=candidate_checkpoint)
@@ -337,6 +345,7 @@ def run_combined_active_set_full_public_gate(
         preference_margin=preference_margin,
         lambda_pref=lambda_pref,
         lambda_anchor=lambda_anchor,
+        allowed_changed_prefixes=allowed_changed_prefixes,
     )
     exact_pass = all(bool(row["full_exact_contract_gate_pass"]) for row in exact_rows)
     actor_inputs_changed = any(bool(row["actor_inputs_changed"]) for row in exact_rows)
@@ -516,6 +525,7 @@ def main() -> None:
     parser.add_argument("--preference-margin", type=float, default=0.05)
     parser.add_argument("--lambda-pref", type=float, default=1.0)
     parser.add_argument("--lambda-anchor", type=float, default=0.25)
+    parser.add_argument("--allowed-changed-prefixes", type=_parse_prefixes, default=ALLOWED_CHANGED_PREFIXES)
     args = parser.parse_args()
     summary = run_combined_active_set_full_public_gate(
         base_checkpoint=args.base_checkpoint,
@@ -540,6 +550,7 @@ def main() -> None:
         preference_margin=args.preference_margin,
         lambda_pref=args.lambda_pref,
         lambda_anchor=args.lambda_anchor,
+        allowed_changed_prefixes=args.allowed_changed_prefixes,
     )
     print(f"result_class={summary['result_class']}")
     print(f"exact_pass={summary['exact_pass']}")

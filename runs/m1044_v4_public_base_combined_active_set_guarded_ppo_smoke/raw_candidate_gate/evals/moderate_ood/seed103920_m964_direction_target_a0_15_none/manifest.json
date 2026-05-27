@@ -1,0 +1,12 @@
+{
+  "checkpoint": "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt",
+  "checkpoint_ablation": "none",
+  "device": "auto",
+  "distribution": "moderate_ood",
+  "env_config": "configs/eval_m574_moderate_ood_l3.json",
+  "episodes": 128,
+  "label": "m964_direction_target_a0_15",
+  "policy": "checkpoint",
+  "run_type": "evaluate",
+  "seed": 103920
+}

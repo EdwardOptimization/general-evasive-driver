@@ -74,16 +74,17 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1044-v4-public-base-combined-active-set-guarded-ppo-smoke
+m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit
 ```
 
-M1043 designed the guarded PPO readiness protocol from the new public-gate
-base. M1044 may run exactly one 1024-step smoke PPO proposal and then gate it
-without promotion.
+M1044 ran exactly one 1024-step guarded PPO proposal from the current
+public-gate base. The raw checkpoint passed exact, proof, source-diverse,
+fresh/OOD, and behavior gates without promotion. M1045 must decide whether the
+raw PPO checkpoint becomes the next public-gate base.
 
 ```text
 decision:
-  combined_active_set_guarded_ppo_readiness_design_admit_m1044_smoke
+  combined_active_set_guarded_ppo_raw_candidate_route_to_promotion_audit
 ```
 
 Current public-gate base:
@@ -133,16 +134,22 @@ behavior seeds: 9505, 9506, 103930, 103931
 M1044 constraints:
 
 ```text
-run only one smoke-scale PPO proposal
-total_steps: 1024
-base checkpoint: current public-gate base
-combined anchor: runs/m1037_candidate_b_combined_active_set_anchor_export/combined_active_set_anchor_row16x4.npz
-must preserve P0 actor inputs
-must gate M997, M297/M270, and combined active-set exact checks
-must gate six public replay surfaces and source-diverse diagnostics
-must gate fresh public, moderate-OOD, and behavior seeds
-must not promote or use private holdout
+result_class: combined_active_set_guarded_ppo_raw_candidate
+raw checkpoint: runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt
+ppo_returncode: 0
+training_metrics_finite: true
+actor_inputs_changed: false
+exact_pass: true
+proof_pass: true
+source_diverse_pass: true
+generalization_pass: true
+behavior_pass: true
+promoted: false
+private_holdout_used: false
 ```
+
+M1045 is a promotion audit only. It must not run PPO, use private holdout, or
+claim multi-seed/long-run PPO stability.
 
 ### Historical Trace
 

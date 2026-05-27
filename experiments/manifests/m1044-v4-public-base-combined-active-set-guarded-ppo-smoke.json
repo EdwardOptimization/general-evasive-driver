@@ -144,6 +144,34 @@
   "baseline_artifacts": [
     "docs/m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1044-v4-public-base-combined-active-set-guarded-ppo-smoke.md",
+    "summary_json": "runs/m1044_v4_public_base_combined_active_set_guarded_ppo_smoke/summary.json",
+    "decision": "combined_active_set_guarded_ppo_raw_candidate_route_to_promotion_audit",
+    "result_class": "combined_active_set_guarded_ppo_raw_candidate",
+    "failure_types": [
+      "none"
+    ],
+    "base_checkpoint": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt",
+    "raw_checkpoint": "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt",
+    "ppo_returncode": 0,
+    "training_metrics_finite": true,
+    "exact_pass": true,
+    "proof_pass": true,
+    "source_diverse_pass": true,
+    "generalization_pass": true,
+    "behavior_pass": true,
+    "actor_inputs_changed": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "m267_m264_success_drop_count": 17,
+    "m183_m170_success_drop_count": 17,
+    "m267_m264_row15_wrong_history_margin": -0.0008474990660061188,
+    "m183_m170_row16_normal_margin": 0.00046677724203703086,
+    "next_milestone": "m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit"
+  },
+  "decision": "combined_active_set_guarded_ppo_raw_candidate_route_to_promotion_audit",
   "decision_rule": "M1044 may only run one smoke PPO proposal and gates. It must not promote, use private holdout, run longer PPO, or claim final driver improvement.",
-  "next_blocker": "m1044-v4-public-base-combined-active-set-guarded-ppo-smoke"
+  "next_blocker": "m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit"
 }

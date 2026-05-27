@@ -15543,3 +15543,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1043 designs the first post-promotion PPO readiness protocol from the combined active-set public-gate base. It admits exactly one 1024-step smoke PPO proposal using the M1041 base checkpoint, the M1037 `row16x4` combined anchor, M997/M297/M270 exact gates, all six public replay surfaces, source-diverse diagnostics, fresh public/OOD checks, and behavior seeds. It requires row15 wrong-history failure and row16 normal-history success to remain hard rollback checks. M1043 itself runs no PPO, training, private holdout, or promotion.
 - decision: `combined_active_set_guarded_ppo_readiness_design_admit_m1044_smoke`
 - next: `m1044-v4-public-base-combined-active-set-guarded-ppo-smoke`
+
+## 20260527T021806Z - m1044-v4-public-base-combined-active-set-guarded-ppo-smoke
+
+- status: `completed`
+- kind: `driver_candidate`
+- artifact: `runs/m1044_v4_public_base_combined_active_set_guarded_ppo_smoke/summary.json`
+- doc: `docs/m1044-v4-public-base-combined-active-set-guarded-ppo-smoke.md`
+- result: M1044 runs one 1024-step guarded PPO proposal from the combined active-set public-gate base. PPO returns `0`, training metrics are finite, actor inputs remain unchanged, and the raw checkpoint passes exact M997/M297/M270/combined-active-set checks, all six public replay surfaces, three source-diverse diagnostics, fresh public seeds `103900/103901`, moderate-OOD seed `103920`, and behavior seeds `9505/9506/103930/103931`. M267/M264 row15 keeps wrong-history failure with margin `-0.000847`, and M183/M170 row16 keeps normal success with margin `0.000467`. No promotion or private holdout occurs.
+- decision: `combined_active_set_guarded_ppo_raw_candidate_route_to_promotion_audit`
+- next: `m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit`

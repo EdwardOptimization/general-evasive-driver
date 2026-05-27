@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1052,
+    "completed": 1053,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design",
+    "task_id": "m1044-v4-public-base-combined-active-set-guarded-ppo-smoke",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design.md"
+    "command_log": "runs/m1044_v4_public_base_combined_active_set_guarded_ppo_smoke/summary.json"
   },
   "next_task": {
-    "id": "m1044-v4-public-base-combined-active-set-guarded-ppo-smoke",
+    "id": "m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit",
     "status": "pending",
-    "priority": 10390,
-    "kind": "driver_candidate",
-    "hypothesis": "Run one smoke-scale guarded PPO proposal from the combined active-set public-gate base and gate it without promotion",
-    "command": "see experiments/manifests/m1044-v4-public-base-combined-active-set-guarded-ppo-smoke.json",
-    "success_artifact": "runs/m1044_v4_public_base_combined_active_set_guarded_ppo_smoke/summary.json",
-    "notes": "Pending: one 1024-step PPO proposal only; no promotion no private holdout"
+    "priority": 10400,
+    "kind": "gate",
+    "hypothesis": "Audit whether the M1044 guarded PPO raw candidate should replace the combined active-set base as the current public-gate base",
+    "command": "see experiments/manifests/m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit.json",
+    "success_artifact": "docs/m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit.md",
+    "notes": "Pending: promotion audit only; no PPO no private holdout no long-run claim"
   },
-  "updated_at_utc": "20260527T015306Z"
+  "updated_at_utc": "20260527T021806Z"
 }
