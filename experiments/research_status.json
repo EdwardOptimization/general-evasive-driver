@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1153,
+    "completed": 1154,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1144-v4-public-base-row15-promoted-objective-corpus-run",
+    "task_id": "m1145-v4-public-base-row15-promoted-objective-result-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1144-v4-public-base-row15-promoted-objective-corpus-run.md",
-    "result_class": "materialized_objective_corpus_pass",
-    "decision": "row15_promoted_objective_corpus_pass_route_to_result_audit"
+    "command_log": "docs/m1145-v4-public-base-row15-promoted-objective-result-audit.md",
+    "result_class": "objective_result_audit_admits_guarded_update_design",
+    "decision": "row15_promoted_objective_result_audit_admit_guarded_actor_update_design"
   },
   "next_task": {
-    "id": "m1145-v4-public-base-row15-promoted-objective-result-audit",
+    "id": "m1146-v4-public-base-row15-promoted-guarded-actor-update-design",
     "status": "pending",
-    "priority": 11400,
+    "priority": 11410,
     "kind": "gate",
-    "hypothesis": "The M1144 objective pass is strong enough to admit a guarded actor-update design, but not an actor update or PPO",
-    "command": "see experiments/manifests/m1145-v4-public-base-row15-promoted-objective-result-audit.json",
-    "success_artifact": "docs/m1145-v4-public-base-row15-promoted-objective-result-audit.md",
-    "notes": "Pending: audit only; no actor training PPO replay objective optimization promotion private holdout or actor-input change"
+    "hypothesis": "A tightly guarded actor-update design can be specified from the M1144 materialized objective corpus without weakening proof behavior or promotion discipline",
+    "command": "see experiments/manifests/m1146-v4-public-base-row15-promoted-guarded-actor-update-design.json",
+    "success_artifact": "docs/m1146-v4-public-base-row15-promoted-guarded-actor-update-design.md",
+    "notes": "Pending: design only; no actor training PPO replay corpus build objective sanity promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T005000Z"
+  "updated_at_utc": "20260528T005800Z"
 }

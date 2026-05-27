@@ -16313,3 +16313,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_objective_corpus_pass_route_to_result_audit`
 - next: `m1145-v4-public-base-row15-promoted-objective-result-audit`
+
+## 20260528T005800Z - m1145-v4-public-base-row15-promoted-objective-result-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1145-v4-public-base-row15-promoted-objective-result-audit.md`
+- audit result: M1144 objective sanity is strong enough to admit a guarded actor-update design, but not an actor update or PPO.
+- evidence: `76` corpus rows, `13` physical pairs, objective pass `true`, seed pass count `3`, min validation combined-loss improvement `2.906849`, min validation delta-loss improvement `3.633356`, and mean validation pairwise accuracy after `1.0`.
+- limitations: only `2` targets survive, lateral-accel rows are absent, rows are public proof-surface artifacts, and no closed-loop post-update replay has been run.
+- required next gates: exact M1144 objective no-regression/improvement, low-drift allowed parameter scope, unchanged `log_std`, action-anchor and snippet-action-anchor retention, allowed-parameter audit before replay, first replay gates before full public gate, behavior retention before PPO, and no promotion from actor update alone.
+- guardrail: no actor training, PPO, replay, objective optimization, corpus build, mining, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_objective_result_audit_admit_guarded_actor_update_design`
+- next: `m1146-v4-public-base-row15-promoted-guarded-actor-update-design`

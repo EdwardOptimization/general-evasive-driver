@@ -1,0 +1,164 @@
+{
+  "id": "m1146-v4-public-base-row15-promoted-guarded-actor-update-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1145-v4-public-base-row15-promoted-objective-result-audit.md",
+      "runs/m1144_row15_promoted_objective_corpus/boundary_outcome_corpus.npz",
+      "runs/m1144_row15_promoted_objective_corpus/objective_summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1145-v4-public-base-row15-promoted-objective-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a tightly guarded actor update from the M1144 row15_current objective corpus"
+    ],
+    "derived_from": [
+      "m1145-v4-public-base-row15-promoted-objective-result-audit"
+    ],
+    "blocked_by": [
+      "M1145 admits design only after objective sanity pass"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "direct actor update without design",
+      "PPO continuation from objective sanity",
+      "promotion from objective sanity or actor update alone"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1146-v4-public-base-row15-promoted-guarded-actor-update-design.md",
+  "public_gates": [
+    "M1146 must design only",
+    "M1146 must not train actor weights",
+    "M1146 must not run PPO",
+    "M1146 must not run replay",
+    "M1146 must not run corpus build or objective sanity",
+    "M1146 must not mine rows",
+    "M1146 must not promote",
+    "M1146 must not use private holdout",
+    "M1146 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run corpus build",
+    "do not run objective sanity",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken post-update gates"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_target_materialization",
+    "evidence_axis": "G_objective: guarded actor update design",
+    "evidence_increment": "turns objective pass into a guarded design contract before any actor update",
+    "claim_scope": "design only; no actor training, PPO, replay, promotion, or private holdout",
+    "stop_condition": [
+      "stop if exact objective and replay gates cannot be specified",
+      "stop if allowed train scope is ambiguous",
+      "stop if behavior retention is not part of the design"
+    ],
+    "fallback_plan": [
+      "if actor update gates are incomplete, route to gate implementation first",
+      "if actor update objective is ambiguous, route to no-update evaluator design",
+      "if corpus imbalance is too concerning, route to corpus weighting design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1145 admits guarded actor update design only",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design actor update contract before any actor training",
+    "admission_evidence": [
+      "M1144 objective pass is true",
+      "M1145 admits design only"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters in this milestone",
+      "do not run PPO",
+      "do not promote from design"
+    ],
+    "allowed_updates": [
+      "design documentation",
+      "pre-register actor update implementation if design is complete",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "actor update command is explicit",
+      "train scope is explicit",
+      "retention anchors are explicit",
+      "post-update exact/replay/behavior gates are explicit",
+      "reject and fallback routes are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1146 designs an actor update from matched-current objective rows and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1146 uses M1144 corpus only and adds no new temporal task.",
+    "negative_result_policy": "If guarded update design is incomplete, keep actor update blocked and route to gate or objective design repair.",
+    "allowed_claims": [
+      "guarded actor-update design for a level2 replay-calibrated objective",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A tightly guarded actor-update design can be specified from the M1144 materialized objective corpus without weakening proof, behavior, or promotion discipline.",
+  "success_criteria": [
+    "design artifact exists",
+    "actor update command is explicit",
+    "train scope is actor_coupling only",
+    "retention anchors are explicit",
+    "post-update exact objective gate is explicit",
+    "post-update replay gates are explicit",
+    "post-update behavior gates are explicit",
+    "no actor training, PPO, replay, corpus build, objective sanity, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "train scope is ambiguous",
+    "post-update gates are ambiguous",
+    "design admits promotion or PPO directly",
+    "actor training, PPO, replay, corpus build, objective sanity, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m1146-v4-public-base-row15-promoted-guarded-actor-update-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1146-v4-public-base-row15-promoted-guarded-actor-update-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1145-v4-public-base-row15-promoted-objective-result-audit.md",
+    "runs/m1144_row15_promoted_objective_corpus/boundary_outcome_corpus.npz"
+  ],
+  "decision_rule": "M1146 may only design a guarded actor update. It cannot train actor weights, run PPO, run replay, run corpus build, run objective sanity, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1146-v4-public-base-row15-promoted-guarded-actor-update-design"
+}

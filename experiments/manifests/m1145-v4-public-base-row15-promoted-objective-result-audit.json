@@ -157,6 +157,39 @@
     "docs/m1144-v4-public-base-row15-promoted-objective-corpus-run.md",
     "runs/m1144_row15_promoted_objective_corpus/objective_summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1145-v4-public-base-row15-promoted-objective-result-audit.md",
+    "decision": "row15_promoted_objective_result_audit_admit_guarded_actor_update_design",
+    "result_class": "objective_result_audit_admits_guarded_update_design",
+    "failure_types": [
+      "none"
+    ],
+    "corpus_rows": 76,
+    "physical_pairs": 13,
+    "targets": 2,
+    "objective_pass": true,
+    "seed_pass_count": 3,
+    "min_val_combined_loss_improvement": 2.9068493843078613,
+    "min_val_delta_loss_improvement": 3.6333563327789307,
+    "mean_val_pairwise_accuracy_after": 1.0,
+    "admitted_next": "guarded_actor_update_design",
+    "direct_actor_update_admitted": false,
+    "ppo_admitted": false,
+    "promotion_admitted": false,
+    "private_holdout_used": false,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "corpus_build_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1146-v4-public-base-row15-promoted-guarded-actor-update-design"
+  },
+  "decision": "row15_promoted_objective_result_audit_admit_guarded_actor_update_design",
   "decision_rule": "M1145 may only audit the M1144 objective result. It cannot train actor weights, run PPO, run replay, run objective optimization, build a corpus, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1145-v4-public-base-row15-promoted-objective-result-audit"
+  "next_blocker": "m1146-v4-public-base-row15-promoted-guarded-actor-update-design"
 }

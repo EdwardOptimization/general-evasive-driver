@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1145-v4-public-base-row15-promoted-objective-result-audit
+m1146-v4-public-base-row15-promoted-guarded-actor-update-design
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -231,9 +231,21 @@ min_val_combined_loss_improvement: 2.906849
 mean_val_pairwise_accuracy_after: 1.0
 ```
 
-This supports objective learnability only; it does not prove actor improvement
-or PPO readiness. M1145 should audit whether the objective result is strong
-enough to admit a guarded actor-update design and what gates would be required.
+M1145 audited the result as strong enough to admit a guarded actor-update
+design only:
+
+```text
+admitted_next: guarded_actor_update_design
+direct_actor_update_admitted: false
+ppo_admitted: false
+promotion_admitted: false
+```
+
+Required next gates include exact M1144 objective no-regression/improvement,
+low-drift allowed parameter scope, unchanged `log_std`, action-anchor and
+snippet-action-anchor retention, allowed-parameter audit before replay, first
+replay gates before full public gate, behavior retention before PPO, and no
+promotion from actor update alone.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,
