@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1058,
+    "completed": 1059,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1049-v4-public-base-guarded-ppo-short-escalation-smoke",
+    "task_id": "m1050-v4-public-base-guarded-ppo-short-escalation-repeat",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1049-v4-public-base-guarded-ppo-short-escalation-smoke.md"
+    "command_log": "docs/m1050-v4-public-base-guarded-ppo-short-escalation-repeat.md"
   },
   "next_task": {
-    "id": "m1050-v4-public-base-guarded-ppo-short-escalation-repeat",
+    "id": "m1051-v4-public-base-guarded-ppo-short-escalation-synthesis",
     "status": "pending",
-    "priority": 10450,
-    "kind": "driver_candidate",
-    "hypothesis": "Run two fresh 4096-step guarded PPO repeats from the current public-gate base and gate each without promotion",
-    "command": "see experiments/manifests/m1050-v4-public-base-guarded-ppo-short-escalation-repeat.json",
-    "success_artifact": "docs/m1050-v4-public-base-guarded-ppo-short-escalation-repeat.md",
-    "notes": "Pending: two short 4096-step PPO repeats; no promotion no private holdout"
+    "priority": 10460,
+    "kind": "gate",
+    "hypothesis": "Synthesize the 4096-step guarded PPO short-escalation branch before promotion, surface refresh, or medium PPO design",
+    "command": "see experiments/manifests/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.json",
+    "success_artifact": "docs/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.md",
+    "notes": "Pending: synthesis only; no PPO no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T031046Z"
+  "updated_at_utc": "20260527T034415Z"
 }

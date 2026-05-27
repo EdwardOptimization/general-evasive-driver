@@ -77,18 +77,19 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1050-v4-public-base-guarded-ppo-short-escalation-repeat
+m1051-v4-public-base-guarded-ppo-short-escalation-synthesis
 ```
 
-M1049 ran one 4096-step guarded PPO proposal from the current public-gate base.
-The raw checkpoint passed exact, proof, source-diverse, fresh/OOD, and behavior
-gates while retaining row15 wrong-history failure and row16 normal-history
-success. M1050 should repeat the same 4096-step recipe on two fresh PPO seeds
-before any promotion or medium PPO.
+M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
+the current public-gate base. Each raw checkpoint passed exact, proof,
+source-diverse, fresh/OOD, and behavior gates while retaining row15
+wrong-history failure and row16 normal-history success. M1051 should synthesize
+this short-escalation evidence before any promotion audit, surface refresh, or
+medium PPO design.
 
 ```text
 decision:
-  guarded_ppo_short_escalation_raw_candidate_route_to_fresh_seed_repeat
+  guarded_ppo_short_escalation_repeat_pass_route_to_synthesis
 ```
 
 Current public-gate base:
@@ -212,6 +213,23 @@ source_diverse_pass: true
 generalization_pass: true
 behavior_pass: true
 actor_inputs_changed: false
+promoted: false
+private_holdout_used: false
+```
+
+M1050 result:
+
+```text
+seeds: 61050, 61051
+total_steps per seed: 4096
+raw_candidate_pass_count: 2 / 2
+training_metrics_finite_count: 2 / 2
+actor_inputs_changed_count: 0 / 2
+exact_pass_count: 2 / 2
+proof_pass_count: 2 / 2
+source_diverse_pass_count: 2 / 2
+generalization_pass_count: 2 / 2
+behavior_pass_count: 2 / 2
 promoted: false
 private_holdout_used: false
 ```

@@ -15600,3 +15600,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1049 runs one 4096-step guarded PPO proposal from the M1045 public-gate base with seed `61049`. PPO returns `0`, training metrics are finite, actor inputs remain unchanged, and the raw checkpoint passes exact M997/M297/M270/combined-active-set checks, all six public replay surfaces, source-diverse diagnostics, fresh public seeds `103900/103901`, moderate-OOD seed `103920`, and behavior seeds `9505/9506/103930/103931`. Row15 keeps wrong-history failure with margin `-0.000567`, and row16 keeps normal success with margin `0.000621`. No promotion or private holdout occurs.
 - decision: `guarded_ppo_short_escalation_raw_candidate_route_to_fresh_seed_repeat`
 - next: `m1050-v4-public-base-guarded-ppo-short-escalation-repeat`
+
+## 20260527T034415Z - m1050-v4-public-base-guarded-ppo-short-escalation-repeat
+
+- status: `completed`
+- kind: `driver_candidate`
+- artifact: `runs/m1050_guarded_ppo_short_escalation_repeat_summary.json`
+- doc: `docs/m1050-v4-public-base-guarded-ppo-short-escalation-repeat.md`
+- result: M1050 runs two fresh 4096-step guarded PPO repeats from the M1045 public-gate base with seeds `61050` and `61051`. Both runs complete with finite metrics, unchanged actor inputs, exact M997/M297/M270/combined-active-set pass, all six public replay surfaces pass, source-diverse diagnostics pass, fresh/OOD pass, and behavior pass. Both retain M267/M264 row15 wrong-history failure and M183/M170 row16 normal success. No promotion or private holdout occurs.
+- decision: `guarded_ppo_short_escalation_repeat_pass_route_to_synthesis`
+- next: `m1051-v4-public-base-guarded-ppo-short-escalation-synthesis`
