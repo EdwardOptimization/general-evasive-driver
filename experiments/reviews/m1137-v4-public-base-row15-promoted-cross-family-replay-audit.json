@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1137 audits cross-family failures and finds 148 all-policy-pass rows across 13 physical pairs 6 left steps and 2 targets so family-intersection selector is the next route",
+  "failure_criteria": [
+    "audit artifact is missing",
+    "cross-family failures are ignored",
+    "direct mixed-family objective optimization is admitted",
+    "training, PPO, replay, objective optimization, promotion, private holdout, or actor-input change starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not claim cross-family rows are objective-ready without audit"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T223358Z",
+  "hypothesis": "M1136 source-policy replay validates the aggregate export, but cross-family failures require an audit before objective conversion.",
+  "lineage": {
+    "blocked_by": [
+      "cross-family replay report has not been audited"
+    ],
+    "derived_from": [
+      "m1136-v4-public-base-row15-promoted-replay-sanity"
+    ],
+    "invalidates": [
+      "direct mixed-family objective optimization after M1136",
+      "ignoring duplicate geometry failures"
+    ],
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1136-v4-public-base-row15-promoted-replay-sanity.json"
+    ],
+    "parent_dataset": [
+      "runs/m1136_row15_promoted_family_aggregate_replay_sanity/cross_family_policy_summary.csv",
+      "runs/m1136_row15_promoted_family_aggregate_replay_sanity/failed_duplicate_geometry_groups.csv",
+      "docs/m1136-v4-public-base-row15-promoted-replay-sanity.md"
+    ],
+    "parent_objective": [
+      "audit cross-family replay report after source-policy replay sanity pass"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1137-v4-public-base-row15-promoted-cross-family-replay-audit",
+  "next_blocker": "m1138-v4-public-base-row15-promoted-intersection-selector-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "row15_promoted_cross_family_audit_route_to_intersection_selector_design",
+  "public_gates": [
+    "M1137 must audit existing M1136 artifacts only",
+    "M1137 must choose family-intersection, source-specific, or target-base materialization route",
+    "M1137 must not train actor weights",
+    "M1137 must not run PPO",
+    "M1137 must not run replay",
+    "M1137 must not run objective optimization",
+    "M1137 must not promote",
+    "M1137 must not use private holdout",
+    "M1137 must preserve actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1137-v4-public-base-row15-promoted-cross-family-replay-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_cross_family_audit_route_to_intersection_selector_design",
+    "milestone": "m1137-v4-public-base-row15-promoted-cross-family-replay-audit",
+    "reason": "M1137 audits cross-family failures and finds 148 all-policy-pass rows across 13 physical pairs 6 left steps and 2 targets so family-intersection selector is the next route",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit artifact exists",
+    "source-policy source-row pass is summarized",
+    "cross-family failure scope is summarized",
+    "failed duplicate geometry groups are summarized",
+    "next conversion/objective route is explicit",
+    "no training, PPO, replay, objective optimization, promotion, private holdout, or actor-input change occurs"
+  ],
+  "type": "gate"
+}

@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1137-v4-public-base-row15-promoted-cross-family-replay-audit
+m1138-v4-public-base-row15-promoted-intersection-selector-design
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -123,17 +123,21 @@ audit. It does not prove PPO readiness, medium/long training stability,
 private-holdout generalization, paper-level evidence, real-vehicle transfer, or
 level3 anticipatory self-identification.
 
-M1136 completed source-aware replay sanity for the M1134 aggregate rows:
+M1137 completed cross-family replay audit for the M1136 artifacts. Direct
+mixed-family objective optimization remains blocked because there are `34`
+failed duplicate geometry groups, but the all-policy intersection is broad:
 
 ```text
-runs/m1134_row15_promoted_family_aggregate_conversion/family_aggregate_boundary_rows.csv
+all_policy_pass_rows: 148
+physical_pairs: 13
+left_steps: 6
+targets: 2
+max_pair_fraction: 0.135135
 ```
 
-The source-policy gate passes for all `172` rows, but the cross-family report
-has `34` failed duplicate geometry groups. M1137 should audit this report and
-choose family-intersection, source-specific objective, or target-base
-materialization route. It must not run replay, optimize an objective, train
-actor weights, run PPO, promote, use private holdout, or change actor inputs.
+M1138 should design a deterministic family-intersection selector for these
+all-policy-pass rows. It must not run selector, replay, objective optimization,
+actor training, PPO, promotion, private holdout, or actor-input changes.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

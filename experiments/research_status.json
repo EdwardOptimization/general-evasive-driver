@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1145,
+    "completed": 1146,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1136-v4-public-base-row15-promoted-replay-sanity",
+    "task_id": "m1137-v4-public-base-row15-promoted-cross-family-replay-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1136-v4-public-base-row15-promoted-replay-sanity.md",
-    "result_class": "family_aggregate_replay_sanity_source_gate_pass",
-    "decision": "row15_promoted_replay_sanity_source_gate_pass_route_to_cross_family_audit"
+    "command_log": "docs/m1137-v4-public-base-row15-promoted-cross-family-replay-audit.md",
+    "result_class": "row15_promoted_cross_family_audit_intersection_ready",
+    "decision": "row15_promoted_cross_family_audit_route_to_intersection_selector_design"
   },
   "next_task": {
-    "id": "m1137-v4-public-base-row15-promoted-cross-family-replay-audit",
+    "id": "m1138-v4-public-base-row15-promoted-intersection-selector-design",
     "status": "pending",
-    "priority": 11320,
+    "priority": 11330,
     "kind": "gate",
-    "hypothesis": "M1136 source-policy replay validates the aggregate export, but cross-family failures require an audit before objective conversion",
-    "command": "see experiments/manifests/m1137-v4-public-base-row15-promoted-cross-family-replay-audit.json",
-    "success_artifact": "docs/m1137-v4-public-base-row15-promoted-cross-family-replay-audit.md",
-    "notes": "Pending: audit-only cross-family route selection; no replay objective optimization training PPO promotion private holdout or actor-input change"
+    "hypothesis": "The M1137 all-policy intersection is broad enough to admit a deterministic family-intersection selector before objective conversion",
+    "command": "see experiments/manifests/m1138-v4-public-base-row15-promoted-intersection-selector-design.json",
+    "success_artifact": "docs/m1138-v4-public-base-row15-promoted-intersection-selector-design.md",
+    "notes": "Pending: design-only family-intersection selector; no selector replay objective optimization training PPO promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260527T234000Z"
+  "updated_at_utc": "20260527T235000Z"
 }

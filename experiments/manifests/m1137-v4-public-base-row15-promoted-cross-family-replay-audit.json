@@ -152,6 +152,39 @@
     "docs/m1136-v4-public-base-row15-promoted-replay-sanity.md",
     "runs/m1136_row15_promoted_family_aggregate_replay_sanity/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1137-v4-public-base-row15-promoted-cross-family-replay-audit.md",
+    "decision": "row15_promoted_cross_family_audit_route_to_intersection_selector_design",
+    "result_class": "row15_promoted_cross_family_audit_intersection_ready",
+    "failure_types": [
+      "none"
+    ],
+    "source_policy_gate_pass": true,
+    "source_row_count": 172,
+    "cross_family_replay_rows": 860,
+    "cross_family_summary_rows": 65,
+    "failed_duplicate_geometry_groups": 34,
+    "all_policy_pass_rows": 148,
+    "all_policy_physical_pairs": 13,
+    "all_policy_left_steps": 6,
+    "all_policy_targets": 2,
+    "all_policy_max_pair_fraction": 0.13513513513513514,
+    "recommended_route": "family_intersection_replay_calibrated_rows",
+    "direct_mixed_family_objective_admitted": false,
+    "source_specific_objective_required_now": false,
+    "target_base_materialization_required_now": false,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1138-v4-public-base-row15-promoted-intersection-selector-design"
+  },
+  "decision": "row15_promoted_cross_family_audit_route_to_intersection_selector_design",
   "decision_rule": "M1137 may only audit existing M1136 cross-family replay artifacts and choose the next route. It cannot train actor weights, run PPO, run replay, optimize objectives, promote, use private holdout, change actor inputs, or admit direct mixed-family objective optimization.",
-  "next_blocker": "m1137-v4-public-base-row15-promoted-cross-family-replay-audit"
+  "next_blocker": "m1138-v4-public-base-row15-promoted-intersection-selector-design"
 }

@@ -16209,3 +16209,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no objective optimization, actor training, PPO, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_replay_sanity_source_gate_pass_route_to_cross_family_audit`
 - next: `m1137-v4-public-base-row15-promoted-cross-family-replay-audit`
+
+## 20260527T235000Z - m1137-v4-public-base-row15-promoted-cross-family-replay-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1137-v4-public-base-row15-promoted-cross-family-replay-audit.md`
+- source gate recap: M1136 validates the aggregate export as source-policy proof surface with `172/172` normal successes and `0` wrong-history successes.
+- cross-family audit: direct mixed-family objective remains blocked because there are `34` failed duplicate geometry groups.
+- all-policy intersection: `148` rows pass under all five policies, covering `13` physical pairs, `6` left steps, `2` targets, and max pair fraction `0.135135`.
+- route: the intersection is broad enough to design a family-intersection selector. Source-specific objective and target-base materialization are not required yet.
+- guardrail: no replay, objective optimization, actor training, PPO, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_cross_family_audit_route_to_intersection_selector_design`
+- next: `m1138-v4-public-base-row15-promoted-intersection-selector-design`
