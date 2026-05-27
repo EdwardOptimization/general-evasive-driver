@@ -15820,3 +15820,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - diversity gate: kept rows must have at least `80` rows, `10` physical pairs, `4` source labels, `3` targets, and `8` left steps, with max physical-pair fraction `<= 0.20` and max source-label fraction `<= 0.45`
 - decision: `family_aggregate_intersection_selector_design_admit_implementation`
 - next: `m1102-v4-public-base-family-aggregate-intersection-selector-implementation`
+
+## 20260527T194531Z - m1102-v4-public-base-family-aggregate-intersection-selector-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1102-v4-public-base-family-aggregate-intersection-selector-implementation.md`
+- result: M1102 implements and runs the selector over existing M1097/M1099 artifacts only. It keeps `133` of `146` rows, drops the `13` cross-family failure rows, and passes the diversity gate with `14` physical pairs, `4` source labels, `3` targets, `9` left steps, max physical-pair fraction `0.150376`, and max source-label fraction `0.368421`.
+- validation: focused selector tests `6 passed`; compileall passed; research validation passed
+- interpretation: the selector artifact is ready, but direct objective conversion remains blocked because selected rows still carry source checkpoint labels and source-row metrics
+- decision: `family_aggregate_intersection_selector_pass_route_to_target_policy_materialization_design`
+- next: `m1103-v4-public-base-family-intersection-target-policy-materialization-design`

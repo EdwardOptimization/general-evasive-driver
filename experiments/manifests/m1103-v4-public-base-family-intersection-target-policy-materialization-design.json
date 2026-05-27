@@ -1,0 +1,167 @@
+{
+  "id": "m1103-v4-public-base-family-intersection-target-policy-materialization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1102-v4-public-base-family-aggregate-intersection-selector-implementation.md",
+      "runs/m1102_family_aggregate_intersection_selector/family_intersection_rows.csv",
+      "runs/m1099_family_aggregate_replay_sanity/cross_family_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1102-v4-public-base-family-aggregate-intersection-selector-implementation.json"
+    ],
+    "parent_objective": [
+      "design target-policy materialization before objective-ready boundary row conversion"
+    ],
+    "derived_from": [
+      "m1102-v4-public-base-family-aggregate-intersection-selector-implementation"
+    ],
+    "blocked_by": [
+      "M1102 selector passes, but direct objective conversion would mix source-policy labels and source-row metrics"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "feeding family_intersection_rows.csv directly into boundary_outcome_corpus_objective",
+      "mixing hidden-state spaces across source policies in one objective corpus",
+      "using source-row margins when optimizing a different target policy"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1103-v4-public-base-family-intersection-target-policy-materialization-design.md",
+  "public_gates": [
+    "M1103 must design only",
+    "M1103 must not train",
+    "M1103 must not run PPO",
+    "M1103 must not run replay",
+    "M1103 must not run objective optimization",
+    "M1103 must not mine rows",
+    "M1103 must not promote",
+    "M1103 must not use private holdout",
+    "M1103 must preserve actor inputs",
+    "materialization design must preserve source metadata while emitting single-target-policy objective-ready rows"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not write a mixed-source objective NPZ",
+    "do not reuse source-row margins for a different target policy"
+  ],
+  "workflow_synthesis": {
+    "branch": "family_aggregate_boundary_conversion",
+    "evidence_axis": "G_conversion: target-policy materialization design",
+    "evidence_increment": "designs how all-policy intersection rows become single-target-policy objective-ready rows without hidden-state mixing",
+    "claim_scope": "design only; no replay, objective run, training, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if target-policy replay metrics cannot be joined deterministically",
+      "stop if source metadata cannot be preserved separately from target-policy objective fields",
+      "stop if materialized rows would not satisfy boundary-outcome required columns"
+    ],
+    "fallback_plan": [
+      "if target-policy materialization is not possible, route to source-specific corpora design",
+      "if required columns are missing, extend M1102/M1099 artifacts before objective conversion",
+      "if target policy selection is ambiguous, design per-target materialization matrix first"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1102 selector passes and blocks direct objective conversion",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "design materialization contract without replay, training, PPO, or objective optimization",
+    "admission_evidence": [
+      "M1102 selector keeps 133 all-policy pass rows",
+      "existing boundary outcome objective builds exactly one checkpoint corpus per run"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not run replay",
+      "do not run objective optimization",
+      "do not promote from materialization design"
+    ],
+    "allowed_updates": [
+      "write materialization design documentation",
+      "pre-register materialization implementation if design is clear",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "target policy selection is explicit",
+      "source vs target field semantics are explicit",
+      "required boundary-outcome columns are mapped",
+      "output artifacts and fail-closed behavior are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1103 designs conversion for matched-current replay rows and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1103 reads M1102/M1099 artifacts only and adds no new temporal task.",
+    "negative_result_policy": "If objective-ready materialization is not defensible, route to source-specific corpora design rather than weakening hidden-state-space separation.",
+    "allowed_claims": [
+      "materialization design for a level2 replay-calibrated proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A target-policy materialization contract can convert M1102 all-policy intersection rows into objective-ready rows for one checkpoint without mixing source hidden-state spaces.",
+  "success_criteria": [
+    "design artifact exists",
+    "target policy selection is explicit",
+    "source metadata preservation is explicit",
+    "target-policy objective field mapping is explicit",
+    "required boundary-outcome columns are covered",
+    "fail-closed behavior is explicit",
+    "no training, PPO, replay, objective optimization, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "target policy selection is ambiguous",
+    "source and target fields are conflated",
+    "required boundary-outcome columns are not mapped",
+    "training, PPO, replay, objective optimization, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m1103-v4-public-base-family-intersection-target-policy-materialization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1103-v4-public-base-family-intersection-target-policy-materialization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1102-v4-public-base-family-aggregate-intersection-selector-implementation.md",
+    "runs/m1102_family_aggregate_intersection_selector/family_intersection_rows.csv"
+  ],
+  "decision_rule": "M1103 may only design target-policy materialization. It cannot train, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1103-v4-public-base-family-intersection-target-policy-materialization-design"
+}

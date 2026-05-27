@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1102-v4-public-base-family-aggregate-intersection-selector-implementation
+m1103-v4-public-base-family-intersection-target-policy-materialization-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -251,11 +251,18 @@ wrong-history failure under all four family policies, preserve source and
 duplicate-geometry metadata, and fail closed unless it keeps at least `80`
 rows, `10` physical pairs, `4` source labels, `3` targets, and `8` left steps.
 The next step is M1102: implement and run the selector over existing M1097/M1099
-artifacts only.
+artifacts only. M1102 implements and runs that selector. It keeps `133` of
+`146` rows and drops the `13` cross-family failure rows. The diversity gate
+passes with `14` physical pairs, `4` source labels, `3` targets, `9` left
+steps, max physical-pair fraction `0.150376`, and max source-label fraction
+`0.368421`. Direct objective conversion is still blocked because the kept rows
+retain source checkpoint labels and source-row metrics. The next step is M1103:
+design target-policy materialization so objective-ready rows use one target
+policy's replay-calibrated margins and hidden-state space.
 
 ```text
 decision:
-  family_aggregate_intersection_selector_design_admit_implementation
+  family_aggregate_intersection_selector_pass_route_to_target_policy_materialization_design
 ```
 
 M1068 design:

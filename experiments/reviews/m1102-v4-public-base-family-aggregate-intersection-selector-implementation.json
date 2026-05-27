@@ -1,0 +1,102 @@
+{
+  "decision_reason": "M1102 selector keeps 133 of 146 rows and passes diversity gate with 14 physical pairs 4 source labels 3 targets 9 left steps max pair fraction 0.150376 and max source fraction 0.368421",
+  "failure_criteria": [
+    "selector implementation is missing",
+    "selector calls replay",
+    "selector output loses source or duplicate metadata",
+    "diversity gate result is missing",
+    "training, PPO, replay, objective optimization, mining, promotion, or private holdout starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken selector thresholds",
+    "do not write mixed-source objective NPZ"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260527T194623Z",
+  "hypothesis": "The deterministic selector can produce a broad all-policy-intersection row set from M1099 artifacts while preserving source and duplicate metadata.",
+  "lineage": {
+    "blocked_by": [
+      "M1101 defines the selector contract and blocks objective conversion until selector artifacts pass diversity gates"
+    ],
+    "derived_from": [
+      "m1101-v4-public-base-family-aggregate-intersection-selector-design"
+    ],
+    "invalidates": [
+      "direct objective conversion from all 146 M1097 rows",
+      "selector implementation that calls replay again",
+      "selector implementation that drops source or duplicate metadata"
+    ],
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1101-v4-public-base-family-aggregate-intersection-selector-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1101-v4-public-base-family-aggregate-intersection-selector-design.md",
+      "runs/m1097_family_aggregate_boundary_conversion/family_aggregate_boundary_rows.csv",
+      "runs/m1099_family_aggregate_replay_sanity/cross_family_replay_rows.csv"
+    ],
+    "parent_objective": [
+      "implement and run the deterministic family-intersection selector over existing M1099 replay artifacts"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1102-v4-public-base-family-aggregate-intersection-selector-implementation",
+  "next_blocker": "m1103-v4-public-base-family-intersection-target-policy-materialization-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "family_aggregate_intersection_selector_pass_route_to_target_policy_materialization_design",
+  "public_gates": [
+    "M1102 may implement and run selector only over existing artifacts",
+    "M1102 must not train",
+    "M1102 must not run PPO",
+    "M1102 must not run replay",
+    "M1102 must not run objective optimization",
+    "M1102 must not mine rows",
+    "M1102 must not promote",
+    "M1102 must not use private holdout",
+    "M1102 must preserve actor inputs",
+    "selector output must pass diversity gates before objective conversion is admitted"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1102_family_aggregate_intersection_selector/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "family_aggregate_intersection_selector_pass_route_to_target_policy_materialization_design",
+    "milestone": "m1102-v4-public-base-family-aggregate-intersection-selector-implementation",
+    "reason": "M1102 selector keeps 133 of 146 rows and passes diversity gate with 14 physical pairs 4 source labels 3 targets 9 left steps max pair fraction 0.150376 and max source fraction 0.368421",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "selector implementation exists",
+    "focused tests pass",
+    "family_intersection_rows.csv exists",
+    "dropped_cross_family_rows.csv exists",
+    "policy_pass_matrix.csv exists",
+    "source_summary.csv exists",
+    "target_summary.csv exists",
+    "summary.json exists",
+    "diversity gate result is explicit",
+    "no training, PPO, replay, objective optimization, mining, promotion, or private holdout occurs"
+  ],
+  "type": "infrastructure"
+}
