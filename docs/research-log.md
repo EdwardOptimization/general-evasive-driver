@@ -16395,3 +16395,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_first_replay_failure_audit_route_to_branch_synthesis`
 - next: `m1151-v4-public-base-row15-promoted-target-materialization-synthesis`
+
+## 20260528T024600Z - m1151-v4-public-base-row15-promoted-target-materialization-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1151-v4-public-base-row15-promoted-target-materialization-synthesis.md`
+- evidence summary: M1142 materialized `148` row15-current success-drop rows, M1144 built a `76`-row exact objective corpus, M1147 improved exact M1144 loss by `-0.008292`, and M1149 rejected first replay with `76` wrong-history-safe lost success-drop events.
+- supported claims: promoted-base materialized rows and exact objective signal are real; first replay is necessary because exact objective improvement alone is insufficient.
+- falsified claims: direct M1144 actor-update continuation is replay-safe; objective coverage alone preserves wrong-history unsafe outcomes.
+- failure taxonomy: `proof_washout`, specifically wrong-history-safe terminal-margin crossing with no normal-history collapse and no actor-contract violation.
+- public-gate overfit risk: next work must remain proof repair only and must not claim promotion, PPO readiness, paper-level generalization, or level3 self-identification.
+- decision: close `row15_promoted_target_materialization` and open `row15_promoted_unsafe_margin_projection`.
+- guardrail: no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurred.
+- next: `m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design`

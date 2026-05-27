@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1151-v4-public-base-row15-promoted-target-materialization-synthesis
+m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -333,9 +333,34 @@ preference loss can improve while low-weight near-boundary braking rows lose
 wrong-history terminal-margin negativity. M267 remains a separate old-public
 retention row outside the M1144 corpus.
 
-The next milestone is M1151 branch synthesis. It should close
-`row15_promoted_target_materialization` and open a new unsafe-margin projection
-branch before any further actor update, replay escalation, PPO, or promotion.
+M1151 synthesized the branch and closed
+`row15_promoted_target_materialization`.
+
+Supported claim:
+
+```text
+The promoted-base materialized surface and exact objective signal are real, and
+M1147 shows a small actor-coupling update can improve exact M1144 loss under
+the allowed parameter contract.
+```
+
+Falsified claim:
+
+```text
+Direct M1144 exact-objective actor-update continuation is replay-safe.
+```
+
+The opened branch is:
+
+```text
+row15_promoted_unsafe_margin_projection
+```
+
+The next milestone is M1152, design-only. It should define a no-training
+interpolation/projection probe along the M1147 direction with exact M1144
+objective screening and explicit M1149 failed-row wrong-history unsafe-margin
+retention. It must not train, run PPO, run replay, mine new rows, promote, use
+private holdout, or change actor inputs.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

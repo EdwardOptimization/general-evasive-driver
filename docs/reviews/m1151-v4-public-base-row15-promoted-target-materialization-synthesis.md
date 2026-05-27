@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260527T232338Z
+- Generated at UTC: 20260527T232722Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1151 may only synthesize the row15_promoted_target_materialization branch and choose the next branch. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, or change actor inputs.
+- Promotion decision: row15_promoted_target_materialization_synthesis_open_unsafe_margin_projection
+- Decision reason: M1151 closes row15_promoted_target_materialization and opens row15_promoted_unsafe_margin_projection; direct actor-update continuation is blocked until unsafe-margin projection or terminal-margin objectives repair M1149 proof washout
 
 ## Hypothesis
 
@@ -72,8 +72,19 @@ The row15-promoted target-materialization branch should close because it found a
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1151-v4-public-base-row15-promoted-target-materialization-synthesis
+- type: gate
+- checkpoint: docs/m1151-v4-public-base-row15-promoted-target-materialization-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_target_materialization_synthesis_open_unsafe_margin_projection
+- reason: M1151 closes row15_promoted_target_materialization and opens row15_promoted_unsafe_margin_projection; direct actor-update continuation is blocked until unsafe-margin projection or terminal-margin objectives repair M1149 proof washout
 
 ## Next Blocker
 
-m1151-v4-public-base-row15-promoted-target-materialization-synthesis
+m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design

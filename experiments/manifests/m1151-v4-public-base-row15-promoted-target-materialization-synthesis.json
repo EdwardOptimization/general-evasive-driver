@@ -81,7 +81,16 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1150 completed the M1149 failure audit and the branch cadence fired",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1151-v4-public-base-row15-promoted-target-materialization-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
   "synthesis_artifact": "docs/m1151-v4-public-base-row15-promoted-target-materialization-synthesis.md",
   "synthesis_questions": [
@@ -174,6 +183,35 @@
     "docs/m1150-v4-public-base-row15-promoted-first-replay-failure-audit.md",
     "runs/m1150_row15_promoted_first_replay_failure_audit/summary.json"
   ],
-  "decision_rule": "M1151 may only synthesize the row15_promoted_target_materialization branch and choose the next branch. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1151-v4-public-base-row15-promoted-target-materialization-synthesis"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1151-v4-public-base-row15-promoted-target-materialization-synthesis.md",
+    "decision": "row15_promoted_target_materialization_synthesis_open_unsafe_margin_projection",
+    "result_class": "branch_synthesis_promote_to_next_branch",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "closed_branch": "row15_promoted_target_materialization",
+    "opened_branch": "row15_promoted_unsafe_margin_projection",
+    "current_public_gate_base": "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "materialized_rows": 148,
+    "objective_corpus_rows": 76,
+    "m1147_exact_delta": -0.008292,
+    "m1149_lost_success_drop_events": 76,
+    "m1149_normal_lost_events": 0,
+    "m1150_objective_coverage_miss_for_materialized_failures": false,
+    "direct_actor_update_continuation_blocked": true,
+    "unsafe_margin_projection_branch_opened": true,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design"
+  },
+  "decision": "row15_promoted_target_materialization_synthesis_open_unsafe_margin_projection",
+  "decision_rule": "M1151 may only synthesize the row15_promoted_target_materialization branch and choose the next branch. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, or change actor inputs. Because direct actor-update continuation was falsified by M1149/M1150 proof washout, the next branch is row15_promoted_unsafe_margin_projection.",
+  "next_blocker": "m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design"
 }

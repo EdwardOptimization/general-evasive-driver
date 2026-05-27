@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1159,
+    "completed": 1160,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1150-v4-public-base-row15-promoted-first-replay-failure-audit",
+    "task_id": "m1151-v4-public-base-row15-promoted-target-materialization-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1150-v4-public-base-row15-promoted-first-replay-failure-audit.md",
-    "result_class": "wrong_history_safe_terminal_margin_crossing_objective_form_insufficient",
-    "decision": "row15_promoted_first_replay_failure_audit_route_to_branch_synthesis"
+    "command_log": "docs/m1151-v4-public-base-row15-promoted-target-materialization-synthesis.md",
+    "result_class": "branch_synthesis_promote_to_next_branch",
+    "decision": "row15_promoted_target_materialization_synthesis_open_unsafe_margin_projection"
   },
   "next_task": {
-    "id": "m1151-v4-public-base-row15-promoted-target-materialization-synthesis",
+    "id": "m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design",
     "status": "pending",
-    "priority": 11460,
+    "priority": 11470,
     "kind": "gate",
-    "hypothesis": "The row15-promoted target-materialization branch should close before unsafe-margin projection because direct actor-update continuation was falsified by first-replay proof washout",
-    "command": "see experiments/manifests/m1151-v4-public-base-row15-promoted-target-materialization-synthesis.json",
-    "success_artifact": "docs/m1151-v4-public-base-row15-promoted-target-materialization-synthesis.md",
-    "notes": "Pending: synthesize M1142-M1150 only; no actor training PPO replay mining promotion private holdout or actor-input change"
+    "hypothesis": "A no-training interpolation along the M1147 direction may admit a small nonzero alpha that improves exact M1144 objective while preserving wrong-history unsafe terminal margins",
+    "command": "see experiments/manifests/m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design.json",
+    "success_artifact": "docs/m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design.md",
+    "notes": "Pending: design unsafe-margin projection only; no actor training PPO replay mining promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T023200Z"
+  "updated_at_utc": "20260528T024600Z"
 }
