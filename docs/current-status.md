@@ -75,22 +75,19 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design
+m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate
 ```
 
-M1038 implemented and ran the no-PPO combined active-set repair/projection
-probe. It used the M1037 `row16x4` combined anchor and selected a first-replay
-candidate without PPO, promotion, private holdout, or actor-input changes.
+M1039 completed the full public gate design for the M1038 first-replay
+candidate. It does not run gates, train, run PPO, use private holdout, change
+actor inputs, or promote.
 
 ```text
-result_class:
-  candidate_b_combined_active_set_projection_first_replay_candidate
-
 decision:
-  candidate_b_combined_active_set_projection_first_replay_candidate_route_to_full_public_gate_design
+  candidate_b_combined_active_set_full_public_gate_design_admit_m1040_gate
 ```
 
-Selected candidate:
+M1040 candidate:
 
 ```text
 source: base_row16x4_s40
@@ -99,68 +96,44 @@ checkpoint:
   runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt
 ```
 
-M1038 gate summary:
+Baseline:
 
 ```text
-temporal_exact_pass_count: 34
-temporal_and_exact_pass_count: 34
-eligible_candidate_count: 31
-first_replay_attempted_candidate_count: 27
-
-M267/M264 first replay: pass
-M267/M264 row15 retained: true
-M183/M170 first replay: pass
+runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt
 ```
 
-Selected temporal/exact metrics:
+Important M1040 contract:
 
 ```text
-candidate_action_l2_mean: 0.002198
-candidate_action_l2_max: 0.002520
-M297 delta vs base: -0.000020
-M270 delta vs base: -0.000001
-combined_anchor_total_loss: 0.000006485
-combined_anchor_m267_loss: 0.000028552
-combined_anchor_m183_row16_loss: 0.000000968
+allowed changed parameter prefixes:
+  actor_mean.
+  response_context_fusion.0.
+
+still forbidden:
+  actor input config changes
+  response/context encoder changes
+  GRU/recurrent changes
+  critic changes
+  log_std changes
 ```
 
-Key row checks:
+M1040 must run:
 
 ```text
-M267/M264 row15:
-  normal_success: true
-  wrong_history_success: false
-  normal_margin: 0.005303
-  wrong_history_margin: -0.001181
-
-M183/M170 row16:
-  normal_success: true
-  wrong_history_success: false
-  normal_margin: 0.000163
-  wrong_history_margin: -0.006258
+Tier 0: P0 contract, allowed trainable-surface contract, M997, M297/M270
+Tier 1: six public replay surfaces
+Tier 2: source-diverse public diagnostics
+Tier 3: fresh public and moderate-OOD evaluation
+Tier 4: behavior/ablation seeds
 ```
 
-The current blocker is M1039: design the full public proof/generalization/
-behavior gate for the selected checkpoint before any promotion decision.
-
-```text
-M1039 must include:
-  six-surface public replay
-  fresh public randomized evaluation
-  moderate-OOD evaluation
-  behavior seeds
-  exact proof retention
-  no private holdout
-  no promotion in design
-```
-
-M1038 is a first-replay candidate only. It is not yet a full public-gate base
-and is not promoted.
+M1040 is a full public gate only. Passing it should route to a separate
+promotion audit; M1040 itself must not promote.
 
 ### Historical Trace
 
-The branch trace below is retained for context; the live blocker is the M1039
-full public gate design above.
+The branch trace below is retained for context; the live blocker is the M1040
+full public gate above.
 
 M927 ran the no-training residual-direction feasibility sweep and found no
 alpha/mix candidate. M928 audits this as a residual-bridge trust-region

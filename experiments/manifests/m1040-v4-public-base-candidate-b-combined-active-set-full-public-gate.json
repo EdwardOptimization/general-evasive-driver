@@ -1,0 +1,127 @@
+{
+  "id": "m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate",
+  "type": "gate",
+  "gate_tier": "promotion",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+      "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design.md",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design.json"
+    ],
+    "parent_objective": [
+      "run full public proof/generalization/behavior gate for M1038 selected checkpoint"
+    ],
+    "derived_from": [
+      "m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design"
+    ],
+    "blocked_by": [
+      "M1038 candidate passed first replay but not full public proof/generalization/behavior gates"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "promoting M1038 selected checkpoint before full public gate",
+      "claiming broad driver improvement from first-replay-only evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate.md",
+  "public_gates": [
+    "M1040 must run no PPO",
+    "M1040 must not promote",
+    "M1040 must not use private holdout",
+    "M1040 must preserve P0 actor inputs",
+    "M1040 must use allowed trainable-surface contract for actor_mean and response_context_fusion.0 only",
+    "M1040 must evaluate six public replay surfaces",
+    "M1040 must evaluate fresh public and moderate-OOD scenarios",
+    "M1040 must evaluate behavior seeds"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not skip old replay surfaces",
+    "do not skip M297/M270 exact checks",
+    "do not skip fresh public or OOD evaluation",
+    "do not claim paper-level evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "candidate_b_combined_active_set_repair",
+    "evidence_axis": "G_ppo: full public gate for combined active-set candidate",
+    "evidence_increment": "evaluates whether the M1038 first-replay candidate is a full public-gate candidate without promotion",
+    "claim_scope": "full public gate only; no promotion, no private holdout, no paper-level claim",
+    "stop_condition": [
+      "stop at first failing tier if exact contract, proof replay, generalization, or behavior regresses",
+      "stop if actor inputs change",
+      "stop if selected checkpoint is missing"
+    ],
+    "fallback_plan": [
+      "if full gate passes, route to a separate promotion audit",
+      "if proof replay fails, route to surface-specific failure audit",
+      "if fresh/OOD or behavior fails, route to the matching regression audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1039 admits full public gate implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M1038 selected checkpoint can pass a full public proof/generalization/behavior gate against Candidate B while preserving P0 actor inputs and without PPO, promotion, or private holdout.",
+  "success_criteria": [
+    "summary json exists",
+    "actor inputs unchanged",
+    "allowed trainable-surface contract passes",
+    "M997 exact retention passes",
+    "M297/M270 exact no-regression passes",
+    "six public replay surfaces pass",
+    "source-diverse diagnostics pass",
+    "fresh public and moderate-OOD checks pass",
+    "behavior seeds pass",
+    "promotion remains blocked"
+  ],
+  "failure_criteria": [
+    "selected checkpoint cannot be loaded",
+    "actor inputs change",
+    "changed parameter names are outside allowed prefixes",
+    "exact retention fails",
+    "any public replay surface fails",
+    "fresh public or OOD regresses",
+    "behavior seed retention fails",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "full_public_gate",
+      "command": "implement/run combined active-set full public gate; write runs/m1040_candidate_b_combined_active_set_full_public_gate/summary.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1040_candidate_b_combined_active_set_full_public_gate/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design.md"
+  ],
+  "decision_rule": "M1040 should classify the selected checkpoint by the first failing full-gate tier and should route a pass to a separate promotion audit without promoting.",
+  "next_blocker": "m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate"
+}

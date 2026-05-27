@@ -15497,3 +15497,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1038 runs a no-PPO exact repair/projection probe with the M1037 `row16x4` combined anchor. Three exact repair endpoints pass M297/M270; temporal projection then finds `34` temporal/exact-safe candidates and `31` first-replay-eligible candidates. The selected candidate is `m1031_base_row16x4_s40_a0_15` at alpha `0.15`, with M997 action L2 mean `0.002198`, M297 delta `-0.000020`, M270 delta `-0.000001`, M267/M264 first replay pass with row15 retained, and M183/M170 first replay pass with row16 normal success retained. No PPO, promotion, private holdout, or actor-input change occurs.
 - decision: `candidate_b_combined_active_set_projection_first_replay_candidate_route_to_full_public_gate_design`
 - next: `m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design`
+
+## 20260527T005804Z - m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design.md`
+- result: M1039 designs the full public proof/generalization/behavior gate for the M1038 selected checkpoint. It blocks direct promotion and private holdout, names Candidate B as the baseline, requires M997 plus M297/M270 exact retention, six public replay surfaces, source-diverse diagnostics, fresh public and moderate-OOD evaluation, and behavior/ablation seeds. It also updates the contract for this branch: allowed changed parameter prefixes are `actor_mean.` and `response_context_fusion.0.` only; actor inputs, response/context encoders, GRU, critic, and `log_std` remain forbidden.
+- decision: `candidate_b_combined_active_set_full_public_gate_design_admit_m1040_gate`
+- next: `m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate`
