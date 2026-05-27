@@ -15628,3 +15628,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1052 audits the three 4096-step guarded PPO candidates from M1049/M1050 and promotes `runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt` as the current public-gate base. The selection favors the best balanced hard-row slack and largest moderate-OOD margin improvement while all three candidates pass exact, proof, source-diverse, fresh/OOD, and behavior public gates. The promotion scope remains public-gate only: no private holdout, medium/long PPO, paper-level, or real-vehicle claim.
 - decision: `guarded_ppo_short_escalation_promote_public_gate_base`
 - next: `m1053-v4-public-base-guarded-ppo-short-promotion-synthesis`
+
+## 20260527T040525Z - m1053-v4-public-base-guarded-ppo-short-promotion-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1053-v4-public-base-guarded-ppo-short-promotion-synthesis.md`
+- result: M1053 synthesizes the state after M1052 promoted the 4096-step guarded PPO checkpoint as the current public-gate base. It records that the short-PPO promotion is valid only as public-gate evidence and does not support private-holdout, medium/long PPO, paper-level, or real-vehicle claims. Because the promotion used known public proof surfaces and active-set anchors, M1053 routes next to current-base source-diverse protected/preference surface refresh design before medium PPO.
+- decision: `guarded_ppo_short_promotion_synthesis_route_to_surface_refresh_design`
+- next: `m1054-v4-public-base-post-short-promotion-surface-refresh-design`

@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1053-v4-public-base-guarded-ppo-short-promotion-synthesis
+m1054-v4-public-base-post-short-promotion-surface-refresh-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -85,12 +85,12 @@ the current public-gate base. Each raw checkpoint passed exact, proof,
 source-diverse, fresh/OOD, and behavior gates while retaining row15
 wrong-history failure and row16 normal-history success. M1051 synthesized this
 branch, and M1052 promoted the M1049 seed `61049` checkpoint as the current
-public-gate base. M1053 should synthesize the post-promotion route before any
-surface refresh or medium PPO design.
+public-gate base. M1053 synthesized the post-promotion route and selected
+current-base source-diverse surface refresh before any medium PPO design.
 
 ```text
 decision:
-  guarded_ppo_short_escalation_promote_public_gate_base
+  guarded_ppo_short_promotion_synthesis_route_to_surface_refresh_design
 ```
 
 Current public-gate base:

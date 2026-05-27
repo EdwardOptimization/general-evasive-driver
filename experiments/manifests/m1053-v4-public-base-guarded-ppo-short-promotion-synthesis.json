@@ -110,6 +110,39 @@
   "baseline_artifacts": [
     "docs/m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit.md"
   ],
-  "decision_rule": "M1053 must decide the post-promotion route and cannot train, run PPO, or use private holdout.",
-  "next_blocker": "m1053-v4-public-base-guarded-ppo-short-promotion-synthesis"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1053-v4-public-base-guarded-ppo-short-promotion-synthesis.md",
+    "supported_claims": [
+      "the project now has a public-gate base that includes successful 4096-step guarded PPO continuation",
+      "combined active-set retention preserved row15 and row16 proof constraints through short PPO escalation",
+      "three independent 4096-step public-gate passes justify a public-gate base promotion with limited scope"
+    ],
+    "falsified_claims": [
+      "PPO continuation from this lineage necessarily fails at 4096 steps",
+      "the 1024-step guarded PPO success was only a one-off smoke artifact",
+      "a public-base promotion requires private holdout evidence"
+    ],
+    "failure_taxonomy_summary": {
+      "branch_failures": [
+        "none"
+      ],
+      "historical_constraints": [
+        "proof_washout:m267_m264_row15",
+        "proof_washout:m183_m170_row16",
+        "metric_artifact:sampled_aux_vs_exact_full_corpus",
+        "public_gate_overfit_risk"
+      ],
+      "residual_risk": "moderate_public_gate_overfit_risk_before_medium_ppo"
+    },
+    "synthesis_decision": "continue",
+    "branch": "combined_active_set_guarded_ppo_readiness",
+    "next_milestone": "m1054-v4-public-base-post-short-promotion-surface-refresh-design",
+    "training_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false
+  },
+  "decision": "guarded_ppo_short_promotion_synthesis_route_to_surface_refresh_design",
+  "decision_rule": "M1053 routes the newly promoted short-PPO public-gate base to current-base surface refresh before medium PPO or holdout planning.",
+  "next_blocker": "m1054-v4-public-base-post-short-promotion-surface-refresh-design"
 }

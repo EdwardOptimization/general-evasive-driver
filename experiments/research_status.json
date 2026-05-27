@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1061,
+    "completed": 1062,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit",
+    "task_id": "m1053-v4-public-base-guarded-ppo-short-promotion-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit.md"
+    "command_log": "docs/m1053-v4-public-base-guarded-ppo-short-promotion-synthesis.md"
   },
   "next_task": {
-    "id": "m1053-v4-public-base-guarded-ppo-short-promotion-synthesis",
+    "id": "m1054-v4-public-base-post-short-promotion-surface-refresh-design",
     "status": "pending",
-    "priority": 10480,
+    "priority": 10490,
     "kind": "gate",
-    "hypothesis": "Synthesize after short-PPO public-base promotion before source refresh, medium PPO, or holdout policy change",
-    "command": "see experiments/manifests/m1053-v4-public-base-guarded-ppo-short-promotion-synthesis.json",
-    "success_artifact": "docs/m1053-v4-public-base-guarded-ppo-short-promotion-synthesis.md",
-    "notes": "Pending: synthesis only; no PPO no private holdout"
+    "hypothesis": "Design current-base source-diverse protected/preference surface refresh before medium PPO",
+    "command": "see experiments/manifests/m1054-v4-public-base-post-short-promotion-surface-refresh-design.json",
+    "success_artifact": "docs/m1054-v4-public-base-post-short-promotion-surface-refresh-design.md",
+    "notes": "Pending: design only; no PPO no private holdout"
   },
-  "updated_at_utc": "20260527T040303Z"
+  "updated_at_utc": "20260527T040525Z"
 }
