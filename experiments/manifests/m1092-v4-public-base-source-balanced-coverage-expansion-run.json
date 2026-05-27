@@ -193,6 +193,56 @@
     "docs/m1091-v4-public-base-source-balanced-boundary-relocation-run.md",
     "runs/m1091_source_balanced_boundary_relocation_seed109100/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1092-v4-public-base-source-balanced-coverage-expansion-run.md",
+    "decision": "source_balanced_coverage_expansion_pass_route_to_compact_conversion_design",
+    "result_class": "source_balanced_coverage_expansion_pass",
+    "failure_types": [
+      "none"
+    ],
+    "run_dir": "runs/m1092_source_balanced_coverage_expansion_seed109200",
+    "receipt": "runs/m1092_manifest_receipt/run_receipt.json",
+    "elapsed_seconds": 2067.950935409055,
+    "source_budget": {
+      "source_budget_ready": true,
+      "candidate_wrong_history_rows": 7257,
+      "eligible_physical_pairs": 371,
+      "eligible_left_steps": 28,
+      "eligible_checkpoints": 4,
+      "eligible_targets": 3,
+      "max_candidate_pair_fraction": 0.004409535620779937
+    },
+    "candidate_selection_summary": {
+      "decision": "source_balanced_candidates_ready",
+      "selected_rows": 1024,
+      "selected_physical_pairs": 371,
+      "selected_left_steps": 28,
+      "selected_targets": 3,
+      "max_selected_rows_per_physical_pair": 5,
+      "max_selected_pair_fraction": 0.0048828125
+    },
+    "balanced_summary": {
+      "decision": "source_balanced_boundary_export_pass",
+      "passed": true,
+      "accepted_wrong_rows": 146,
+      "accepted_wrong_physical_pairs": 18,
+      "accepted_wrong_left_steps": 9,
+      "accepted_wrong_checkpoints": 4,
+      "accepted_wrong_targets": 3,
+      "accepted_wrong_normal_margin_buckets": 4,
+      "accepted_wrong_success_drop_fraction": 1.0,
+      "max_rows_per_physical_pair_fraction": 0.136986301369863,
+      "control_accepted_wrong_rows": 0
+    },
+    "relocation_replay_started": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1093-v4-public-base-source-balanced-compact-corpus-conversion-design"
+  },
+  "decision": "source_balanced_coverage_expansion_pass_route_to_compact_conversion_design",
   "decision_rule": "M1092 may only expand source-balanced candidate coverage before replay. It cannot train, run PPO, promote, use private holdout, or weaken thresholds. It routes by unchanged source-diverse wrong-history robustness gates.",
-  "next_blocker": "m1092-v4-public-base-source-balanced-coverage-expansion-run"
+  "next_blocker": "m1093-v4-public-base-source-balanced-compact-corpus-conversion-design"
 }

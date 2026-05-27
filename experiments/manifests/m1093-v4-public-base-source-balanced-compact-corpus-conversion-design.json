@@ -1,0 +1,159 @@
+{
+  "id": "m1093-v4-public-base-source-balanced-compact-corpus-conversion-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1092_source_balanced_coverage_expansion_seed109200/balanced_accepted_wrong_history_rows.csv",
+      "runs/m1092_source_balanced_coverage_expansion_seed109200/summary.json",
+      "docs/m1092-v4-public-base-source-balanced-coverage-expansion-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1092-v4-public-base-source-balanced-coverage-expansion-run.json"
+    ],
+    "parent_objective": [
+      "design compact objective/replay corpus conversion for the passed M1092 source-balanced boundary surface"
+    ],
+    "derived_from": [
+      "m1092-v4-public-base-source-balanced-coverage-expansion-run"
+    ],
+    "blocked_by": [
+      "M1092 produced a passing source-balanced wrong-history boundary export and must be converted before any future PPO"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "routing directly from M1092 proof surface to PPO",
+      "using the full 146-row surface without source-capped compact conversion",
+      "claiming promotion or private-holdout evidence from M1092"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1093-v4-public-base-source-balanced-compact-corpus-conversion-design.md",
+  "public_gates": [
+    "M1093 must design only",
+    "M1093 must not train",
+    "M1093 must not run PPO",
+    "M1093 must not promote",
+    "M1093 must not use private holdout",
+    "M1093 must preserve actor inputs",
+    "M1093 must specify compact corpus caps and replay sanity before conversion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not skip replay sanity",
+    "do not treat M1092 as a driver capability promotion"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_balanced_boundary_tooling",
+    "evidence_axis": "G_surface: compact corpus conversion design",
+    "evidence_increment": "designs conversion of the passed M1092 source-balanced surface into compact objective/replay corpora",
+    "claim_scope": "design only; no conversion run, no training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if compact caps would reduce the surface below minimum rows or physical pairs",
+      "stop if objective sanity and replay sanity are not both specified",
+      "stop if design routes directly to PPO"
+    ],
+    "fallback_plan": [
+      "if design is clear, route to compact corpus conversion run",
+      "if caps make the surface too small, route to compact-cap audit",
+      "if replay sanity cannot be defined, route to proof-surface audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1092 passes the source-balanced boundary export gate",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "design compact corpus conversion without training or PPO",
+    "admission_evidence": [
+      "M1092 passed all source-balanced wrong-history robustness gates",
+      "M1092 balanced export has 146 accepted rows, 18 physical pairs, 9 left steps, 4 checkpoints, and 3 targets",
+      "previous compact-conversion branches require objective sanity and replay sanity before PPO"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not promote from a proof-surface design",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "write conversion design documentation",
+      "pre-register the conversion run",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "compact conversion manifest is pre-registered",
+      "objective sanity and replay sanity are specified",
+      "no guarded_rl stage is admitted by M1093"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1093 is design-only. It inherits M1092's level2 proof-surface scope and cannot upgrade to anticipatory self-identification without new temporal task evidence.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1093 does not run scenarios. Future conversion/replay sanity still uses M1092 matched-current rows, not a pre-emergency warm-up window.",
+    "negative_result_policy": "If compact conversion would collapse below source-diversity or replay-sanity thresholds, route to compact-cap audit rather than weakening the M1092 proof gate.",
+    "allowed_claims": [
+      "compact conversion design for a passed level2 proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The M1092 source-balanced accepted rows can be converted into compact source-capped objective/replay corpora before any future PPO.",
+  "success_criteria": [
+    "conversion design artifact exists",
+    "source row path is explicit",
+    "compact corpus caps are explicit",
+    "objective sanity commands are explicit",
+    "replay sanity commands are explicit",
+    "no training, PPO, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "compact corpus caps are ambiguous",
+    "objective or replay sanity is missing",
+    "PPO starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m1093-v4-public-base-source-balanced-compact-corpus-conversion-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1093-v4-public-base-source-balanced-compact-corpus-conversion-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1092-v4-public-base-source-balanced-coverage-expansion-run.md",
+    "runs/m1092_source_balanced_coverage_expansion_seed109200/summary.json"
+  ],
+  "decision_rule": "M1093 designs compact objective/replay conversion for the M1092 accepted rows and admits a conversion run only if objective and replay sanity are specified. It cannot train, run PPO, promote, or use private holdout.",
+  "next_blocker": "m1093-v4-public-base-source-balanced-compact-corpus-conversion-design"
+}

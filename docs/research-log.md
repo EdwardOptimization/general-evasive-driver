@@ -15720,3 +15720,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - classification: `scenario_sampling_failure` as a near-threshold row-count shortfall, not duplicate domination or success-drop loss
 - decision: `source_balanced_relocation_row_count_shortfall_route_to_coverage_expansion`
 - next: `m1092-v4-public-base-source-balanced-coverage-expansion-run`
+
+## 20260527T184431Z - m1092-v4-public-base-source-balanced-coverage-expansion-run
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1092-v4-public-base-source-balanced-coverage-expansion-run.md`
+- result: M1092 expands source-balanced selected candidates from `512` to `1024` and raises the checkpoint-target cap from `64` to `128`. The run completes in `2067.951s`. Source budget remains ready with `371` eligible physical pairs, and selected candidates cover `371` physical pairs with max selected pair fraction `0.004883`. The balanced export passes all robustness gates: `146` accepted wrong-history rows, `18` physical pairs, `9` left steps, `4` checkpoints, `3` targets, `4` normal-margin buckets, success-drop fraction `1.0`, max pair fraction `0.136986`, and `0` control rows.
+- supported: M1091's failure was a candidate-coverage shortfall, not duplicate dominance or success-drop loss
+- decision: `source_balanced_coverage_expansion_pass_route_to_compact_conversion_design`
+- next: `m1093-v4-public-base-source-balanced-compact-corpus-conversion-design`

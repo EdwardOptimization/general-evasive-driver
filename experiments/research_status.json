@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1100,
+    "completed": 1101,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1091-v4-public-base-source-balanced-boundary-relocation-run",
+    "task_id": "m1092-v4-public-base-source-balanced-coverage-expansion-run",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1091-v4-public-base-source-balanced-boundary-relocation-run.md"
+    "command_log": "docs/m1092-v4-public-base-source-balanced-coverage-expansion-run.md"
   },
   "next_task": {
-    "id": "m1092-v4-public-base-source-balanced-coverage-expansion-run",
+    "id": "m1093-v4-public-base-source-balanced-compact-corpus-conversion-design",
     "status": "pending",
-    "priority": 10870,
+    "priority": 10880,
     "kind": "gate",
-    "hypothesis": "Increase selected source-balanced candidate coverage to recover M1091's four-row accepted surface shortfall",
-    "command": "see experiments/manifests/m1092-v4-public-base-source-balanced-coverage-expansion-run.json",
-    "success_artifact": "docs/m1092-v4-public-base-source-balanced-coverage-expansion-run.md",
-    "notes": "Pending: expand selected candidates from 512 to 1024 under unchanged thresholds; no PPO no training no promotion no private holdout"
+    "hypothesis": "Design compact objective/replay corpus conversion for the passed M1092 source-balanced boundary surface",
+    "command": "see experiments/manifests/m1093-v4-public-base-source-balanced-compact-corpus-conversion-design.json",
+    "success_artifact": "docs/m1093-v4-public-base-source-balanced-compact-corpus-conversion-design.md",
+    "notes": "Pending: design compact conversion before objective/replay run; no PPO no training no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T180526Z"
+  "updated_at_utc": "20260527T184431Z"
 }

@@ -1,0 +1,101 @@
+{
+  "decision_reason": "M1092 expanded source-balanced coverage passes with 146 accepted rows 18 physical pairs success-drop fraction 1.0 and no dominance/control failures; no PPO training promotion or private holdout",
+  "failure_criteria": [
+    "accepted wrong-history rows remain below 80",
+    "expanded coverage reintroduces duplicate domination",
+    "success_drop_fraction < 1.0",
+    "source budget or selected-candidate diversity fails before replay",
+    "training, PPO, promotion, private holdout, or threshold weakening occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not lower accepted-row, physical-pair, left-step, checkpoint, target, bucket, success-drop, dominance, or control thresholds",
+    "do not convert M1091's 76-row failed export into a corpus",
+    "do not claim level3 anticipatory self-identification"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260527T184547Z",
+  "hypothesis": "Increasing selected source-balanced candidate coverage from 512 to 1024 and raising checkpoint-target caps will recover the four missing accepted wrong-history rows without reintroducing source dominance.",
+  "lineage": {
+    "blocked_by": [
+      "M1091 fixed source diversity but missed the accepted wrong-history row threshold by four rows: 76 / 80"
+    ],
+    "derived_from": [
+      "m1091-v4-public-base-source-balanced-boundary-relocation-run"
+    ],
+    "invalidates": [
+      "weakening the 80-row robustness threshold",
+      "calling M1091 a passed proof surface",
+      "returning to source-unaware relocation"
+    ],
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1091-v4-public-base-source-balanced-boundary-relocation-run.json"
+    ],
+    "parent_dataset": [
+      "runs/m1083_proof_hardened_retarget_outcome_seed108200/outcome_interventions.csv",
+      "runs/m1091_source_balanced_boundary_relocation_seed109100/summary.json",
+      "docs/m1091-v4-public-base-source-balanced-boundary-relocation-run.md"
+    ],
+    "parent_objective": [
+      "increase selected source-balanced candidate coverage before replay while preserving robustness thresholds"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1092-v4-public-base-source-balanced-coverage-expansion-run",
+  "next_blocker": "m1093-v4-public-base-source-balanced-compact-corpus-conversion-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_balanced_coverage_expansion_pass_route_to_compact_conversion_design",
+  "public_gates": [
+    "M1092 must not train",
+    "M1092 must not run PPO",
+    "M1092 must not promote",
+    "M1092 must not use private holdout",
+    "M1092 must preserve actor inputs",
+    "M1092 must preserve all M1091 robustness thresholds",
+    "M1092 may only increase pre-replay source-balanced candidate coverage"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1092_source_balanced_coverage_expansion_seed109200/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "source_balanced_coverage_expansion_pass_route_to_compact_conversion_design",
+    "milestone": "m1092-v4-public-base-source-balanced-coverage-expansion-run",
+    "reason": "M1092 expanded source-balanced coverage passes with 146 accepted rows 18 physical pairs success-drop fraction 1.0 and no dominance/control failures; no PPO training promotion or private holdout",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "source-balanced relocation run completes",
+    "relocation_replay_started is true",
+    "source_budget_ready is true",
+    "candidate_selection_summary decision is source_balanced_candidates_ready",
+    "balanced_accepted_wrong_history_rows.csv exists",
+    "accepted wrong-history rows >= 80",
+    "accepted wrong-history physical pairs >= 10",
+    "accepted wrong-history left steps >= 5",
+    "accepted wrong-history checkpoints >= 3",
+    "accepted wrong-history targets >= 2",
+    "accepted wrong-history normal margin buckets >= 2 at width 0.005",
+    "accepted wrong-history success_drop_fraction == 1.0",
+    "max rows per physical pair fraction <= 0.25",
+    "control accepted wrong-history rows == 0",
+    "no training, PPO, promotion, private holdout, or threshold weakening occurs"
+  ],
+  "type": "gate"
+}
