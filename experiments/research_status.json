@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1059,
+    "completed": 1060,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1050-v4-public-base-guarded-ppo-short-escalation-repeat",
+    "task_id": "m1051-v4-public-base-guarded-ppo-short-escalation-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1050-v4-public-base-guarded-ppo-short-escalation-repeat.md"
+    "command_log": "docs/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.md"
   },
   "next_task": {
-    "id": "m1051-v4-public-base-guarded-ppo-short-escalation-synthesis",
+    "id": "m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit",
     "status": "pending",
-    "priority": 10460,
+    "priority": 10470,
     "kind": "gate",
-    "hypothesis": "Synthesize the 4096-step guarded PPO short-escalation branch before promotion, surface refresh, or medium PPO design",
-    "command": "see experiments/manifests/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.json",
-    "success_artifact": "docs/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.md",
-    "notes": "Pending: synthesis only; no PPO no promotion no private holdout"
+    "hypothesis": "Audit whether one of the 4096-step guarded PPO candidates should become the next public-gate base",
+    "command": "see experiments/manifests/m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit.json",
+    "success_artifact": "docs/m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit.md",
+    "notes": "Pending: promotion audit only; no PPO no private holdout"
   },
-  "updated_at_utc": "20260527T034415Z"
+  "updated_at_utc": "20260527T035412Z"
 }

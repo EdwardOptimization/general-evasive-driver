@@ -118,6 +118,39 @@
   "baseline_artifacts": [
     "docs/m1050-v4-public-base-guarded-ppo-short-escalation-repeat.md"
   ],
-  "decision_rule": "M1051 must decide the next route after three 4096-step public-gate PPO passes; it cannot train, promote, or use private holdout.",
-  "next_blocker": "m1051-v4-public-base-guarded-ppo-short-escalation-synthesis"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.md",
+    "supported_claims": [
+      "the combined active-set guarded PPO recipe can survive 4096-step short proposals",
+      "4096-step guarded PPO public-gate pass is repeatable across three PPO seeds",
+      "row15 wrong-history failure and row16 normal-history success can be retained through short PPO escalation"
+    ],
+    "falsified_claims": [
+      "PPO beyond 1024 steps necessarily washes out row15 or row16",
+      "the M1044 1024-step PPO pass was only a single-seed accident",
+      "guarded PPO must be abandoned before short-horizon escalation"
+    ],
+    "failure_taxonomy_summary": {
+      "branch_failures": [
+        "none"
+      ],
+      "historical_constraints": [
+        "proof_washout:m267_m264_row15",
+        "proof_washout:m183_m170_row16",
+        "metric_artifact:sampled_aux_vs_exact_full_corpus"
+      ],
+      "residual_risk": "moderate_public_gate_overfit_risk"
+    },
+    "synthesis_decision": "continue",
+    "branch": "combined_active_set_guarded_ppo_readiness",
+    "next_milestone": "m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit",
+    "training_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "promoted": false
+  },
+  "decision": "guarded_ppo_short_escalation_synthesis_route_to_promotion_audit",
+  "decision_rule": "M1051 synthesizes the three 4096-step public-gate PPO passes and routes to a separate promotion audit; it cannot train, promote, or use private holdout.",
+  "next_blocker": "m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit"
 }

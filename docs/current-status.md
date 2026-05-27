@@ -77,19 +77,19 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1051-v4-public-base-guarded-ppo-short-escalation-synthesis
+m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,
 source-diverse, fresh/OOD, and behavior gates while retaining row15
-wrong-history failure and row16 normal-history success. M1051 should synthesize
-this short-escalation evidence before any promotion audit, surface refresh, or
-medium PPO design.
+wrong-history failure and row16 normal-history success. M1051 synthesized this
+branch and routed to a separate public-gate promotion audit before any surface
+refresh or medium PPO design.
 
 ```text
 decision:
-  guarded_ppo_short_escalation_repeat_pass_route_to_synthesis
+  guarded_ppo_short_escalation_synthesis_route_to_promotion_audit
 ```
 
 Current public-gate base:
@@ -232,6 +232,14 @@ generalization_pass_count: 2 / 2
 behavior_pass_count: 2 / 2
 promoted: false
 private_holdout_used: false
+```
+
+M1052 candidate set:
+
+```text
+runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt
+runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt
+runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt
 ```
 
 ### Historical Trace

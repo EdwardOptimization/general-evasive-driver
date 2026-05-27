@@ -15610,3 +15610,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1050 runs two fresh 4096-step guarded PPO repeats from the M1045 public-gate base with seeds `61050` and `61051`. Both runs complete with finite metrics, unchanged actor inputs, exact M997/M297/M270/combined-active-set pass, all six public replay surfaces pass, source-diverse diagnostics pass, fresh/OOD pass, and behavior pass. Both retain M267/M264 row15 wrong-history failure and M183/M170 row16 normal success. No promotion or private holdout occurs.
 - decision: `guarded_ppo_short_escalation_repeat_pass_route_to_synthesis`
 - next: `m1051-v4-public-base-guarded-ppo-short-escalation-synthesis`
+
+## 20260527T035412Z - m1051-v4-public-base-guarded-ppo-short-escalation-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.md`
+- result: M1051 synthesizes M1047-M1050. The branch now has two 1024-step fresh-seed smoke passes and three 4096-step short-PPO public-gate passes. It supports the claim that the combined active-set guarded PPO recipe can survive and repeat at 4096 steps while retaining row15 wrong-history failure and row16 normal success. It does not support private-holdout, medium/long PPO, paper-level, or real-vehicle claims. The next route is a separate public-gate promotion audit over the three 4096-step candidate checkpoints.
+- decision: `guarded_ppo_short_escalation_synthesis_route_to_promotion_audit`
+- next: `m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit`

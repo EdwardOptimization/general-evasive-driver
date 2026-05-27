@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1051 synthesizes M1047-M1050 and routes the three 4096-step public-gate PPO passes to a separate promotion audit without training or private holdout",
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "supported or falsified claims are missing",
+    "next route is missing",
+    "PPO starts",
+    "private holdout is used",
+    "promotion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote",
+    "do not claim medium or long PPO stability",
+    "do not claim paper-level generalization"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T040215Z",
+  "hypothesis": "The 4096-step guarded PPO short-escalation branch should be synthesized before any checkpoint promotion, surface refresh, or medium PPO design.",
+  "lineage": {
+    "blocked_by": [
+      "M1049 and M1050 passed three 4096-step public-gate PPO proposals, but the branch has not yet synthesized the evidence or selected the next route"
+    ],
+    "derived_from": [
+      "m1050-v4-public-base-guarded-ppo-short-escalation-repeat"
+    ],
+    "invalidates": [
+      "promoting or lengthening PPO immediately after short-repeat pass without synthesis"
+    ],
+    "parent_checkpoint": [
+      "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m1049_guarded_short_escalation_seed61049.json",
+      "configs/ppo_m1050_guarded_short_repeat_seed61050.json",
+      "configs/ppo_m1050_guarded_short_repeat_seed61051.json"
+    ],
+    "parent_dataset": [
+      "docs/m1049-v4-public-base-guarded-ppo-short-escalation-smoke.md",
+      "docs/m1050-v4-public-base-guarded-ppo-short-escalation-repeat.md",
+      "runs/m1050_guarded_ppo_short_escalation_repeat_summary.json"
+    ],
+    "parent_objective": [
+      "synthesize 4096-step guarded PPO short-escalation evidence before promotion, surface refresh, or medium PPO"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1051-v4-public-base-guarded-ppo-short-escalation-synthesis",
+  "next_blocker": "m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "guarded_ppo_short_escalation_synthesis_route_to_promotion_audit",
+  "public_gates": [
+    "M1051 must synthesize M1047-M1050",
+    "M1051 must not train",
+    "M1051 must not run PPO",
+    "M1051 must not use private holdout",
+    "M1051 must decide whether the next route is promotion audit, public surface refresh, medium PPO design, or stop/audit"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "guarded_ppo_short_escalation_synthesis_route_to_promotion_audit",
+    "milestone": "m1051-v4-public-base-guarded-ppo-short-escalation-synthesis",
+    "reason": "M1051 synthesizes M1047-M1050 and routes the three 4096-step public-gate PPO passes to a separate promotion audit without training or private holdout",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "synthesis artifact exists",
+    "supported and falsified claims are explicit",
+    "failure taxonomy is summarized",
+    "public gate overfit risk is updated",
+    "next route is explicit",
+    "no training or PPO occurs"
+  ],
+  "type": "gate"
+}

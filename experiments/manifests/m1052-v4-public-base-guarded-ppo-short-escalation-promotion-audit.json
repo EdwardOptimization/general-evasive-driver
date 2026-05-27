@@ -1,0 +1,112 @@
+{
+  "id": "m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit",
+  "type": "gate",
+  "gate_tier": "promotion",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.md",
+      "runs/m1050_guarded_ppo_short_escalation_repeat_summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.json"
+    ],
+    "parent_objective": [
+      "audit whether a 4096-step guarded PPO raw candidate should become the next public-gate base"
+    ],
+    "derived_from": [
+      "m1051-v4-public-base-guarded-ppo-short-escalation-synthesis"
+    ],
+    "blocked_by": [
+      "M1049/M1050 produced three short-PPO candidates but none has been separately audited for public-base promotion"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "promoting a 4096-step candidate directly from the run milestone without a promotion audit"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit.md",
+  "public_gates": [
+    "M1052 must not train",
+    "M1052 must not run PPO",
+    "M1052 must not use private holdout",
+    "M1052 must select or reject among the three 4096-step raw candidates using explicit public-gate evidence",
+    "M1052 must keep promotion scope public-gate only",
+    "M1052 must require exact/proof/source-diverse/fresh/OOD/behavior evidence and row15/row16 retention"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not claim medium or long PPO stability",
+    "do not claim paper-level generalization",
+    "do not select solely by aggregate return"
+  ],
+  "workflow_synthesis": {
+    "branch": "combined_active_set_guarded_ppo_readiness",
+    "evidence_axis": "G_promotion: short-PPO public-base audit",
+    "evidence_increment": "decides whether one 4096-step guarded PPO candidate becomes the next public-gate base after synthesis",
+    "claim_scope": "public-gate promotion audit only; no training, no private holdout, no paper-level claim",
+    "stop_condition": [
+      "stop if candidate selection criteria are ambiguous",
+      "stop if no candidate has adequate row15/row16 slack",
+      "stop if promotion would imply private-holdout or medium/long PPO claims"
+    ],
+    "fallback_plan": [
+      "if a candidate is promotable, update current public-gate base and route to post-promotion synthesis",
+      "if candidates are tied or too close to boundary, route to selection audit or source refresh",
+      "if public overfit risk dominates, route to source-diverse surface refresh before promotion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1051 routes the short-escalation branch to promotion audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "One of the three 4096-step guarded PPO candidates can be selected as the next public-gate base using explicit public-gate, row15/row16, and exact-retention evidence.",
+  "success_criteria": [
+    "promotion audit artifact exists",
+    "candidate set is explicit",
+    "selection criteria are explicit",
+    "selected checkpoint or rejection is explicit",
+    "scope limits are explicit",
+    "no training or PPO occurs",
+    "private holdout is not used"
+  ],
+  "failure_criteria": [
+    "promotion audit artifact is missing",
+    "candidate selection is ambiguous",
+    "training or PPO starts",
+    "private holdout is used",
+    "promotion scope exceeds public-gate evidence"
+  ],
+  "commands": [
+    {
+      "name": "write_promotion_audit",
+      "command": "write docs/m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.md"
+  ],
+  "decision_rule": "M1052 must either promote one 4096-step candidate as public-gate base or reject promotion with a next route. It cannot train, run PPO, or use private holdout.",
+  "next_blocker": "m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit"
+}
