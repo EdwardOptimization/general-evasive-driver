@@ -1,0 +1,116 @@
+{
+  "id": "m1070-v4-public-base-medium-ppo-proof-washout-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1069_expanded_gate_medium_seed61069/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1069_expanded_gate_medium_ppo_seed61069/summary.json",
+      "runs/m1069_expanded_gate_medium_ppo_seed61069/exact_contract_summary.csv",
+      "runs/m1069_expanded_gate_medium_ppo_seed61069/proof_replay_summary.csv",
+      "runs/m1069_expanded_gate_medium_ppo_seed61069/family_intersection_summary.json",
+      "runs/m1069_expanded_gate_medium_ppo_seed61069/source_diverse_summary.json"
+    ],
+    "parent_config": [
+      "configs/ppo_m1069_expanded_gate_medium_seed61069.json",
+      "experiments/manifests/m1069-v4-public-base-expanded-gate-medium-ppo-smoke.json"
+    ],
+    "parent_objective": [
+      "audit the first expanded-gate 8192-step PPO proof washout before changing the PPO recipe"
+    ],
+    "derived_from": [
+      "m1069-v4-public-base-expanded-gate-medium-ppo-smoke"
+    ],
+    "blocked_by": [
+      "M1069 completed PPO but failed exact, public replay, family-intersection, and source-diverse proof gates while fresh/OOD and behavior gates passed"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "continuing to 8192-step fresh-seed repeats without localizing the M1069 proof washout",
+      "promoting the M1069 checkpoint from fresh/OOD or behavior retention alone"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1070-v4-public-base-medium-ppo-proof-washout-audit.md",
+  "public_gates": [
+    "M1070 must not run PPO",
+    "M1070 must not train actor",
+    "M1070 must not promote",
+    "M1070 must not use private holdout",
+    "M1070 must localize M1069 exact active-set, old public replay, family-intersection, and source-diverse failures",
+    "M1070 must recommend audit/repair/projection next step before any new PPO proposal"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run another PPO proposal",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote M1069",
+    "do not tune from broad fresh/OOD success while proof gates fail",
+    "do not weaken M1061 family-intersection gate"
+  ],
+  "workflow_synthesis": {
+    "branch": "expanded_gate_medium_ppo_readiness",
+    "evidence_axis": "G_failure: medium PPO proof-washout localization",
+    "evidence_increment": "classifies the first 8192-step medium-ramp PPO failure and chooses whether to repair/projection, redesign anchors, or stop the medium PPO branch",
+    "claim_scope": "failure audit only; no training, no promotion, no new driver performance claim",
+    "stop_condition": [
+      "stop if M1069 artifacts are insufficient to localize the failure",
+      "stop if exact and replay failures point to incompatible fixes",
+      "stop if audit would require private holdout"
+    ],
+    "fallback_plan": [
+      "if exact active-set is the primary blocker, route to exact repair/projection design",
+      "if family-intersection rows are the primary blocker, route to family-intersection active-set repair design",
+      "if source-diverse continuity rows are the primary blocker, route to source-diverse anchor refresh",
+      "if failures are broad and coupled, route to guarded PPO recipe redesign before more PPO"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1069 rejects the first expanded-gate medium PPO checkpoint as proof_washout",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M1069 medium PPO failure can be localized from existing artifacts without another training run, and the next repair path can be selected before any further PPO.",
+  "success_criteria": [
+    "audit artifact exists",
+    "audit reports exact active-set failure details",
+    "audit reports old public replay failed surfaces and failed rows",
+    "audit reports M1061 family-intersection failed sources and failed rows",
+    "audit reports source-diverse failed surfaces and failed rows",
+    "audit distinguishes broad generalization/behavior retention from proof washout",
+    "audit selects the next blocker without running PPO or using private holdout"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "audit omits family-intersection failure",
+    "audit omits exact active-set failure",
+    "audit recommends another PPO repeat without proof-washout localization",
+    "PPO or actor training starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "write_m1069_proof_washout_audit",
+      "command": "write docs/m1070-v4-public-base-medium-ppo-proof-washout-audit.md from M1069 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1070-v4-public-base-medium-ppo-proof-washout-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1069_expanded_gate_medium_ppo_seed61069/summary.json"
+  ],
+  "decision_rule": "M1070 may only audit the M1069 proof washout and route to the next repair/design milestone. It cannot run PPO, train actor, promote, or use private holdout.",
+  "next_blocker": "m1070-v4-public-base-medium-ppo-proof-washout-audit"
+}

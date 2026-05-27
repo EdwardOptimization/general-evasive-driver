@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1069-v4-public-base-expanded-gate-medium-ppo-smoke
+m1070-v4-public-base-medium-ppo-proof-washout-audit
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -120,11 +120,15 @@ public replay, M1061 family-intersection, source-diverse, fresh/OOD, and
 behavior gate stack. M1068 did not train, run PPO, promote, or use private
 holdout. The next step is to run exactly one M1069 medium-ramp PPO proposal and
 reject it as `proof_washout` if any exact, replay, or family-intersection proof
-gate regresses.
+gate regresses. M1069 ran that single 8192-step proposal. PPO completed and
+fresh/OOD plus behavior gates passed, but exact, old public replay,
+family-intersection, and source-diverse proof gates failed. The checkpoint is
+therefore rejected as `proof_washout`; the next step is an audit before any new
+PPO proposal.
 
 ```text
 decision:
-  expanded_gate_medium_ppo_design_admit_m1069_single_seed_smoke
+  expanded_gate_medium_ppo_reject_proof_washout_route_to_audit
 ```
 
 M1068 design:
@@ -234,6 +238,27 @@ ppo_used: false
 promoted: false
 private_holdout_used: false
 next: m1069-v4-public-base-expanded-gate-medium-ppo-smoke
+```
+
+M1069 result:
+
+```text
+result_class: combined_active_set_guarded_ppo_exact_retention_regression
+ppo_returncode: 0
+training_metrics_finite: true
+actor_inputs_changed: false
+exact_pass: false
+public_replay_pass: false
+family_intersection_pass: false
+source_diverse_pass: false
+generalization_pass: true
+behavior_pass: true
+old_public_replay: 3 / 6 passed
+family_intersection: 0 / 3 passed
+source_diverse: 1 / 3 passed
+promoted: false
+private_holdout_used: false
+next: m1070-v4-public-base-medium-ppo-proof-washout-audit
 ```
 
 M1058 result:

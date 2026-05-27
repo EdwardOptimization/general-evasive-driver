@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "proof_washout"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -138,5 +138,39 @@
     "docs/m1068-v4-public-base-expanded-gate-medium-ppo-design.md"
   ],
   "decision_rule": "M1069 may only run one 8192-step PPO proposal and gate its raw checkpoint. It cannot promote, use private holdout, or claim repeatability.",
-  "next_blocker": "m1069-v4-public-base-expanded-gate-medium-ppo-smoke"
+  "next_blocker": "m1070-v4-public-base-medium-ppo-proof-washout-audit",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1069-v4-public-base-expanded-gate-medium-ppo-smoke.md",
+    "summary_json": "runs/m1069_expanded_gate_medium_ppo_seed61069/summary.json",
+    "decision": "expanded_gate_medium_ppo_reject_proof_washout_route_to_audit",
+    "result_class": "combined_active_set_guarded_ppo_exact_retention_regression",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "base_checkpoint": "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+    "raw_checkpoint": "runs/ppo_m1069_expanded_gate_medium_seed61069/checkpoint.pt",
+    "total_steps": 8192,
+    "seed": 61069,
+    "ppo_returncode": 0,
+    "training_metrics_finite": true,
+    "actor_inputs_changed": false,
+    "exact_pass": false,
+    "proof_pass": false,
+    "public_replay_pass": false,
+    "family_intersection_pass": false,
+    "source_diverse_pass": false,
+    "generalization_pass": true,
+    "behavior_pass": true,
+    "old_public_replay_passed": 3,
+    "old_public_replay_total": 6,
+    "family_intersection_replay_passed": 0,
+    "family_intersection_replay_total": 3,
+    "source_diverse_replay_passed": 1,
+    "source_diverse_replay_total": 3,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1070-v4-public-base-medium-ppo-proof-washout-audit"
+  },
+  "decision": "expanded_gate_medium_ppo_reject_proof_washout_route_to_audit"
 }
