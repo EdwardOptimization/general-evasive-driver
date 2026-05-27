@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1135 designs source-aware replay sanity for M1134 aggregate rows with source-policy source-row gates cross-family report and duplicate geometry audit before objective conversion",
+  "failure_criteria": [
+    "design artifact is missing",
+    "replay source-policy map is ambiguous",
+    "duplicate geometry handling is missing",
+    "training, PPO, objective optimization, replay, promotion, private holdout, or actor-input change starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run objective optimization",
+    "do not run replay in the design milestone",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not skip duplicate-geometry failure reporting"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T222823Z",
+  "hypothesis": "M1134 source-preserving aggregate rows should be replay-sanity checked before any objective conversion or training.",
+  "lineage": {
+    "blocked_by": [
+      "family aggregate rows have not been replay-sanity checked"
+    ],
+    "derived_from": [
+      "m1134-v4-public-base-row15-promoted-family-aggregate-conversion"
+    ],
+    "invalidates": [
+      "objective conversion before source-aware replay sanity",
+      "training on aggregate rows before replay sanity"
+    ],
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1134-v4-public-base-row15-promoted-family-aggregate-conversion.json"
+    ],
+    "parent_dataset": [
+      "runs/m1134_row15_promoted_family_aggregate_conversion/family_aggregate_boundary_rows.csv",
+      "runs/m1134_row15_promoted_family_aggregate_conversion/replay_plan.json",
+      "docs/m1134-v4-public-base-row15-promoted-family-aggregate-conversion.md"
+    ],
+    "parent_objective": [
+      "design source-aware replay sanity for the M1134 family aggregate rows before objective conversion"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1135-v4-public-base-row15-promoted-replay-sanity-design",
+  "next_blocker": "m1136-v4-public-base-row15-promoted-replay-sanity",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "row15_promoted_replay_sanity_design_admit_m1136_run",
+  "public_gates": [
+    "M1135 must design replay sanity only",
+    "M1135 must not train actor weights",
+    "M1135 must not run PPO",
+    "M1135 must not run objective optimization",
+    "M1135 must not run replay",
+    "M1135 must not promote",
+    "M1135 must not use private holdout",
+    "M1135 must preserve actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1135-v4-public-base-row15-promoted-replay-sanity-design.md",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_replay_sanity_design_admit_m1136_run",
+    "milestone": "m1135-v4-public-base-row15-promoted-replay-sanity-design",
+    "reason": "M1135 designs source-aware replay sanity for M1134 aggregate rows with source-policy source-row gates cross-family report and duplicate geometry audit before objective conversion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design artifact exists",
+    "replay command is explicit",
+    "source-policy source-row gate is explicit",
+    "cross-family report is explicit",
+    "duplicate geometry audit is explicit",
+    "no training, PPO, objective optimization, replay, promotion, private holdout, or actor-input change occurs"
+  ],
+  "type": "gate"
+}

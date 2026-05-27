@@ -151,6 +151,31 @@
     "docs/m1134-v4-public-base-row15-promoted-family-aggregate-conversion.md",
     "runs/m1134_row15_promoted_family_aggregate_conversion/family_aggregate_boundary_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1135-v4-public-base-row15-promoted-replay-sanity-design.md",
+    "decision": "row15_promoted_replay_sanity_design_admit_m1136_run",
+    "result_class": "row15_promoted_replay_sanity_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "family_rows_csv": "runs/m1134_row15_promoted_family_aggregate_conversion/family_aggregate_boundary_rows.csv",
+    "replay_tool": "autodrift.family_aggregate_replay_sanity",
+    "source_row_count_required": 172,
+    "min_physical_pairs": 12,
+    "min_checkpoints": 4,
+    "min_targets": 2,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1136-v4-public-base-row15-promoted-replay-sanity"
+  },
+  "decision": "row15_promoted_replay_sanity_design_admit_m1136_run",
   "decision_rule": "M1135 may only design source-aware replay sanity. It cannot train actor weights, run PPO, optimize objectives, run replay, promote, use private holdout, change actor inputs, or skip duplicate-geometry failure reporting.",
-  "next_blocker": "m1135-v4-public-base-row15-promoted-replay-sanity-design"
+  "next_blocker": "m1136-v4-public-base-row15-promoted-replay-sanity"
 }

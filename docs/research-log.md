@@ -16185,3 +16185,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, objective optimization, actor training, PPO, promotion, private holdout, actor-input change, or mixed hidden-state objective NPZ occurred.
 - decision: `row15_promoted_family_aggregate_conversion_pass_route_to_replay_sanity_design`
 - next: `m1135-v4-public-base-row15-promoted-replay-sanity-design`
+
+## 20260527T233000Z - m1135-v4-public-base-row15-promoted-replay-sanity-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1135-v4-public-base-row15-promoted-replay-sanity-design.md`
+- result: M1135 designs source-aware replay sanity for the M1134 family aggregate rows using `autodrift.family_aggregate_replay_sanity`.
+- required source gate: source-row count `172`, normal-history success count `172`, wrong-history success count `0`, success-drop count `172`, physical pairs at least `12`, checkpoints at least `4`, and targets at least `2`.
+- required reports: source-policy gate summary, cross-family replay rows, cross-family policy summary, duplicate-geometry replay summary, and failed duplicate geometry groups.
+- guardrail: no replay, objective optimization, actor training, PPO, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_replay_sanity_design_admit_m1136_run`
+- next: `m1136-v4-public-base-row15-promoted-replay-sanity`

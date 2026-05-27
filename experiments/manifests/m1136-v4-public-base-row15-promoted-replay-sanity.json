@@ -1,0 +1,170 @@
+{
+  "id": "m1136-v4-public-base-row15-promoted-replay-sanity",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1134_row15_promoted_family_aggregate_conversion/family_aggregate_boundary_rows.csv",
+      "docs/m1135-v4-public-base-row15-promoted-replay-sanity-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1135-v4-public-base-row15-promoted-replay-sanity-design.json"
+    ],
+    "parent_objective": [
+      "run source-aware replay sanity for M1134 aggregate rows"
+    ],
+    "derived_from": [
+      "m1135-v4-public-base-row15-promoted-replay-sanity-design"
+    ],
+    "blocked_by": [
+      "source-aware replay sanity has not been run"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "objective conversion before replay sanity",
+      "training on aggregate rows before replay sanity"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1136-v4-public-base-row15-promoted-replay-sanity.md",
+  "public_gates": [
+    "M1136 may run only the M1135 pre-registered replay sanity command",
+    "M1136 must not train actor weights",
+    "M1136 must not run PPO",
+    "M1136 must not run objective optimization",
+    "M1136 must not promote",
+    "M1136 must not use private holdout",
+    "M1136 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run objective optimization",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not skip cross-family report",
+    "do not skip duplicate-geometry failure report"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_base_surface_refresh",
+    "evidence_axis": "G_replay: source-aware replay sanity run",
+    "evidence_increment": "runs source-policy and cross-family replay sanity for the M1134 aggregate rows",
+    "claim_scope": "replay sanity only; no objective optimization, training, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if source-policy source-row gate fails",
+      "stop after pass before cross-family audit or materialization design"
+    ],
+    "fallback_plan": [
+      "if source gate passes, route to cross-family replay audit",
+      "if source gate fails, route to replay failure audit",
+      "if metadata artifact appears, route to conversion/replay wrapper repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1135 admits replay sanity run",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run source-aware replay sanity for family aggregate rows",
+    "admission_evidence": [
+      "M1135 pre-registers replay command and gates",
+      "M1134 conversion pass"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run PPO",
+      "do not run objective optimization"
+    ],
+    "allowed_updates": [
+      "replay sanity artifacts",
+      "milestone document",
+      "queue, status, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "source gate pass/fail is explicit",
+      "cross-family report is explicit",
+      "duplicate geometry report is explicit",
+      "next audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1136 replays matched-current proof rows and cannot upgrade self-ID claim level.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1136 uses continuation replay of matched-current proof rows and adds no pre-emergency warm-up evidence.",
+    "negative_result_policy": "If replay sanity fails, classify source-policy failure, cross-family failure, duplicate-geometry failure, or metadata artifact before conversion.",
+    "allowed_claims": [
+      "source-aware replay sanity evidence",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "M1134 aggregate rows reproduce source-policy normal-history success and wrong-history failure under replay.",
+  "success_criteria": [
+    "source_policy_source_rows_replay.csv exists",
+    "source_policy_gate_summary.csv exists",
+    "cross_family_replay_rows.csv exists",
+    "cross_family_policy_summary.csv exists",
+    "duplicate_geometry_replay_summary.csv exists",
+    "failed_duplicate_geometry_groups.csv exists",
+    "summary.json exists",
+    "source_row_count == 172",
+    "normal_success_count == 172",
+    "wrong_history_success_count == 0",
+    "success_drop_count == 172",
+    "physical_pairs >= 12",
+    "checkpoints >= 4",
+    "targets >= 2",
+    "no actor training, PPO, objective optimization, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "source-policy source-row gate fails",
+    "cross-family report is missing",
+    "duplicate geometry report is missing",
+    "actor training, PPO, objective optimization, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "family_aggregate_replay_sanity",
+      "command": "see docs/m1135-v4-public-base-row15-promoted-replay-sanity-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1136_row15_promoted_family_aggregate_replay_sanity/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1136_row15_promoted_family_aggregate_replay_sanity/source_policy_gate_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1136-v4-public-base-row15-promoted-replay-sanity.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1135-v4-public-base-row15-promoted-replay-sanity-design.md",
+    "runs/m1134_row15_promoted_family_aggregate_conversion/family_aggregate_boundary_rows.csv"
+  ],
+  "decision_rule": "M1136 may only run the pre-registered source-aware replay sanity command. It cannot train actor weights, run PPO, optimize objectives, promote, use private holdout, change actor inputs, skip cross-family report, or skip duplicate-geometry failure report.",
+  "next_blocker": "m1136-v4-public-base-row15-promoted-replay-sanity"
+}

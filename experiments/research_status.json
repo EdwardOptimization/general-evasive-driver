@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1143,
+    "completed": 1144,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1134-v4-public-base-row15-promoted-family-aggregate-conversion",
+    "task_id": "m1135-v4-public-base-row15-promoted-replay-sanity-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1134-v4-public-base-row15-promoted-family-aggregate-conversion.md",
-    "result_class": "family_aggregate_conversion_export_pass",
-    "decision": "row15_promoted_family_aggregate_conversion_pass_route_to_replay_sanity_design"
+    "command_log": "docs/m1135-v4-public-base-row15-promoted-replay-sanity-design.md",
+    "result_class": "row15_promoted_replay_sanity_design_complete",
+    "decision": "row15_promoted_replay_sanity_design_admit_m1136_run"
   },
   "next_task": {
-    "id": "m1135-v4-public-base-row15-promoted-replay-sanity-design",
+    "id": "m1136-v4-public-base-row15-promoted-replay-sanity",
     "status": "pending",
-    "priority": 11300,
+    "priority": 11310,
     "kind": "gate",
-    "hypothesis": "M1134 source-preserving aggregate rows should be replay-sanity checked before any objective conversion or training",
-    "command": "see experiments/manifests/m1135-v4-public-base-row15-promoted-replay-sanity-design.json",
-    "success_artifact": "docs/m1135-v4-public-base-row15-promoted-replay-sanity-design.md",
-    "notes": "Pending: replay sanity design only; no replay objective optimization training PPO promotion private holdout or actor-input change"
+    "hypothesis": "M1134 aggregate rows reproduce source-policy normal-history success and wrong-history failure under replay",
+    "command": "see experiments/manifests/m1136-v4-public-base-row15-promoted-replay-sanity.json",
+    "success_artifact": "docs/m1136-v4-public-base-row15-promoted-replay-sanity.md",
+    "notes": "Pending: source-aware replay sanity only; no objective optimization training PPO promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260527T232300Z"
+  "updated_at_utc": "20260527T233000Z"
 }
