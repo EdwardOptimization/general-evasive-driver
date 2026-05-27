@@ -15710,3 +15710,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - validation: `48 passed` for focused research/relocation tests; `make research-validate` passed with `process_v5_from_priority=10850`
 - decision: `source_balanced_relocation_runner_implementation_admit_m1091_run`
 - next: `m1091-v4-public-base-source-balanced-boundary-relocation-run`
+
+## 20260527T180526Z - m1091-v4-public-base-source-balanced-boundary-relocation-run
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1091-v4-public-base-source-balanced-boundary-relocation-run.md`
+- result: M1091 runs the first full source-balanced boundary relocation replay using the M1090 runner. Source budget and selected candidate diversity pass: `371` eligible physical pairs and `370` selected physical pairs. Relocation replay starts and completes. The balanced export fails only the accepted-row threshold: `accepted_wrong_rows=76` versus `80` required. All other robustness gates pass: `18` physical pairs, `9` left steps, `4` checkpoints, `3` targets, `4` normal-margin buckets, success-drop fraction `1.0`, max pair fraction `0.157895`, and `0` control rows.
+- classification: `scenario_sampling_failure` as a near-threshold row-count shortfall, not duplicate domination or success-drop loss
+- decision: `source_balanced_relocation_row_count_shortfall_route_to_coverage_expansion`
+- next: `m1092-v4-public-base-source-balanced-coverage-expansion-run`

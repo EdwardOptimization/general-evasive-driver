@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1099,
+    "completed": 1100,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1090-v4-public-base-source-balanced-relocation-runner-implementation",
+    "task_id": "m1091-v4-public-base-source-balanced-boundary-relocation-run",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1090-v4-public-base-source-balanced-relocation-runner-implementation.md"
+    "command_log": "docs/m1091-v4-public-base-source-balanced-boundary-relocation-run.md"
   },
   "next_task": {
-    "id": "m1091-v4-public-base-source-balanced-boundary-relocation-run",
+    "id": "m1092-v4-public-base-source-balanced-coverage-expansion-run",
     "status": "pending",
-    "priority": 10860,
+    "priority": 10870,
     "kind": "gate",
-    "hypothesis": "Run source-balanced selected candidates through boundary relocation replay under unchanged robustness thresholds",
-    "command": "see experiments/manifests/m1091-v4-public-base-source-balanced-boundary-relocation-run.json",
-    "success_artifact": "docs/m1091-v4-public-base-source-balanced-boundary-relocation-run.md",
-    "notes": "Pending: first full source-balanced relocation replay; no PPO no training no promotion no private holdout"
+    "hypothesis": "Increase selected source-balanced candidate coverage to recover M1091's four-row accepted surface shortfall",
+    "command": "see experiments/manifests/m1092-v4-public-base-source-balanced-coverage-expansion-run.json",
+    "success_artifact": "docs/m1092-v4-public-base-source-balanced-coverage-expansion-run.md",
+    "notes": "Pending: expand selected candidates from 512 to 1024 under unchanged thresholds; no PPO no training no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T174214Z"
+  "updated_at_utc": "20260527T180526Z"
 }

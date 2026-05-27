@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1091-v4-public-base-source-balanced-boundary-relocation-run
+m1092-v4-public-base-source-balanced-coverage-expansion-run
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -191,11 +191,15 @@ into relocation replay; the next step is M1090 runner implementation before
 any new surface run. M1090 implemented the full source-balanced relocation
 runner and process-v5 self-identification evidence discipline; the next step is
 M1091, the first full source-balanced boundary relocation replay under
-unchanged robustness thresholds.
+unchanged robustness thresholds. M1091 completed that replay. It fixed the
+source-diversity failure but missed the accepted-row threshold by four rows:
+`accepted_wrong_rows=76` versus `80` required. All other robustness gates
+passed, so the next step is a coverage expansion run rather than threshold
+weakening.
 
 ```text
 decision:
-  source_balanced_relocation_runner_implementation_admit_m1091_run
+  source_balanced_relocation_row_count_shortfall_route_to_coverage_expansion
 ```
 
 M1068 design:
@@ -701,6 +705,31 @@ promoted: false
 private_holdout_used: false
 expensive_relocation_run_started: false
 next: m1091-v4-public-base-source-balanced-boundary-relocation-run
+```
+
+M1091 result:
+
+```text
+result_class: source_balanced_relocation_near_row_count_shortfall
+run_dir: runs/m1091_source_balanced_boundary_relocation_seed109100
+source_budget_ready: true
+selected_rows: 512
+selected_physical_pairs: 370
+relocation_replay_started: true
+accepted_wrong_rows: 76 / 80 required
+accepted_wrong_physical_pairs: 18 / 10 required
+accepted_wrong_left_steps: 9 / 5 required
+accepted_wrong_checkpoints: 4 / 3 required
+accepted_wrong_targets: 3 / 2 required
+accepted_wrong_normal_margin_buckets: 4 / 2 required
+accepted_wrong_success_drop_fraction: 1.0
+max_rows_per_physical_pair_fraction: 0.1578947368
+control_accepted_wrong_rows: 0
+training_started: false
+ppo_used: false
+promoted: false
+private_holdout_used: false
+next: m1092-v4-public-base-source-balanced-coverage-expansion-run
 ```
 
 M1058 result:

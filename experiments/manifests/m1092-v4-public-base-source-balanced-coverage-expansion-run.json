@@ -1,0 +1,198 @@
+{
+  "id": "m1092-v4-public-base-source-balanced-coverage-expansion-run",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1083_proof_hardened_retarget_outcome_seed108200/outcome_interventions.csv",
+      "runs/m1091_source_balanced_boundary_relocation_seed109100/summary.json",
+      "docs/m1091-v4-public-base-source-balanced-boundary-relocation-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1091-v4-public-base-source-balanced-boundary-relocation-run.json"
+    ],
+    "parent_objective": [
+      "increase selected source-balanced candidate coverage before replay while preserving robustness thresholds"
+    ],
+    "derived_from": [
+      "m1091-v4-public-base-source-balanced-boundary-relocation-run"
+    ],
+    "blocked_by": [
+      "M1091 fixed source diversity but missed the accepted wrong-history row threshold by four rows: 76 / 80"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "weakening the 80-row robustness threshold",
+      "calling M1091 a passed proof surface",
+      "returning to source-unaware relocation"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1092-v4-public-base-source-balanced-coverage-expansion-run.md",
+  "public_gates": [
+    "M1092 must not train",
+    "M1092 must not run PPO",
+    "M1092 must not promote",
+    "M1092 must not use private holdout",
+    "M1092 must preserve actor inputs",
+    "M1092 must preserve all M1091 robustness thresholds",
+    "M1092 may only increase pre-replay source-balanced candidate coverage"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not lower accepted-row, physical-pair, left-step, checkpoint, target, bucket, success-drop, dominance, or control thresholds",
+    "do not convert M1091's 76-row failed export into a corpus",
+    "do not claim level3 anticipatory self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_balanced_boundary_tooling",
+    "evidence_axis": "G_surface: source-balanced coverage expansion",
+    "evidence_increment": "tests whether M1091's 76/80 row-count shortfall is only a candidate coverage issue",
+    "claim_scope": "public proof surface only; no training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if expanded coverage still has accepted_wrong_rows < 80",
+      "stop if expanded coverage reintroduces physical-pair dominance",
+      "stop if success_drop_fraction falls below 1.0",
+      "stop if the run would require threshold weakening"
+    ],
+    "fallback_plan": [
+      "if pass, route to compact corpus conversion design",
+      "if row-count remains below 80 but diversity holds, synthesize before another quota expansion",
+      "if pair dominance returns, route to selector cap audit",
+      "if current-frame substitution dominates history interventions, route to self-ID task-window design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1091 missed only the 80 accepted-row threshold while all source-diversity gates passed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run proof-surface evaluation with expanded source-balanced candidate coverage",
+    "admission_evidence": [
+      "M1091 source budget and selected-candidate diversity passed",
+      "M1091 accepted wrong-history rows were 76 / 80 with all other robustness gates passing",
+      "M1089 allows candidate-selection quotas to increase coverage before replay while preserving robustness thresholds"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not promote from a proof-surface run",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "write M1092 run artifacts",
+      "write milestone documentation",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "if source-balanced boundary export passes, design compact corpus conversion",
+      "if it fails, classify row-count, dominance, success-drop, or current-frame substitution failure before another run",
+      "no guarded_rl stage is admitted by M1092"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1092 is still a matched-current proof-surface run with current ego response available. It can support source-balanced level2 wrong-history evidence if gates pass, but it cannot prove anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1092 keeps delay_steps=10 and continuation_steps=60 from M1091. It does not add a separate pre-emergency warm-up window.",
+    "negative_result_policy": "If expanded coverage still fails, classify whether the failure is row-count scarcity, dominance, success-drop loss, or current-frame substitution and route to synthesis before another quota tweak.",
+    "allowed_claims": [
+      "source-balanced level2 wrong-history proof-surface evidence if robustness gates pass",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "Increasing selected source-balanced candidate coverage from 512 to 1024 and raising checkpoint-target caps will recover the four missing accepted wrong-history rows without reintroducing source dominance.",
+  "success_criteria": [
+    "source-balanced relocation run completes",
+    "relocation_replay_started is true",
+    "source_budget_ready is true",
+    "candidate_selection_summary decision is source_balanced_candidates_ready",
+    "balanced_accepted_wrong_history_rows.csv exists",
+    "accepted wrong-history rows >= 80",
+    "accepted wrong-history physical pairs >= 10",
+    "accepted wrong-history left steps >= 5",
+    "accepted wrong-history checkpoints >= 3",
+    "accepted wrong-history targets >= 2",
+    "accepted wrong-history normal margin buckets >= 2 at width 0.005",
+    "accepted wrong-history success_drop_fraction == 1.0",
+    "max rows per physical pair fraction <= 0.25",
+    "control accepted wrong-history rows == 0",
+    "no training, PPO, promotion, private holdout, or threshold weakening occurs"
+  ],
+  "failure_criteria": [
+    "accepted wrong-history rows remain below 80",
+    "expanded coverage reintroduces duplicate domination",
+    "success_drop_fraction < 1.0",
+    "source budget or selected-candidate diversity fails before replay",
+    "training, PPO, promotion, private holdout, or threshold weakening occurs"
+  ],
+  "commands": [
+    {
+      "name": "source_balanced_coverage_expansion",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_balanced_boundary_relocation_surface --checkpoint-policy proof_current=runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --checkpoint-policy short61049=runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --checkpoint-policy short61050=runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt --checkpoint-policy short61051=runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m1083_proof_hardened_retarget_outcome_seed108200/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-candidates 1024 --max-candidates-per-physical-pair 8 --max-candidates-per-checkpoint-target 128 --max-accepted-rows-per-physical-pair 20 --target-min-physical-pairs 10 --target-min-left-steps 5 --target-min-targets 2 --max-rows-per-pair-fraction 0.25 --min-eligible-physical-pairs 10 --max-candidate-pair-fraction 0.25 --source-obstacle-distance-bucket-width 5.0 --source-obstacle-lateral-bucket-width 1.0 --target-normal-margins 0.0005,0.001,0.0025,0.005,0.01,0.02,0.04 --body-longitudinal-offsets=-2.0,-1.0,0.0,1.0,2.0 --body-lateral-offsets=-0.4,0.0,0.4 --half-width-inflations 0 --min-half-width 0.3 --max-half-width 2.5 --min-normal-margin 0.0 --max-normal-margin 0.04 --min-margin-gap 0.04 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --control-checkpoint-label none --device cpu --run-dir runs/m1092_source_balanced_coverage_expansion_seed109200"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1092_source_balanced_coverage_expansion_seed109200/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1092_source_balanced_coverage_expansion_seed109200/source_budget_summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1092_source_balanced_coverage_expansion_seed109200/balanced_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1092_source_balanced_coverage_expansion_seed109200/boundary_relocation_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1092_source_balanced_coverage_expansion_seed109200/balanced_accepted_wrong_history_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1092_source_balanced_coverage_expansion_seed109200/robustness_gates.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1092_source_balanced_coverage_expansion_seed109200/surface_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1092-v4-public-base-source-balanced-coverage-expansion-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1091-v4-public-base-source-balanced-boundary-relocation-run.md",
+    "runs/m1091_source_balanced_boundary_relocation_seed109100/summary.json"
+  ],
+  "decision_rule": "M1092 may only expand source-balanced candidate coverage before replay. It cannot train, run PPO, promote, use private holdout, or weaken thresholds. It routes by unchanged source-diverse wrong-history robustness gates.",
+  "next_blocker": "m1092-v4-public-base-source-balanced-coverage-expansion-run"
+}

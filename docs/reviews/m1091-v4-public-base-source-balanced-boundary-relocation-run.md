@@ -1,0 +1,98 @@
+# m1091-v4-public-base-source-balanced-boundary-relocation-run Research Review
+
+## Summary
+
+- Generated at UTC: 20260527T180656Z
+- Type: gate
+- Gate tier: proof
+- Promotion decision: source_balanced_relocation_row_count_shortfall_route_to_coverage_expansion
+- Decision reason: M1091 source-balanced replay fixes diversity but misses accepted row threshold with 76 of 80 rows while all other robustness gates pass; no PPO training promotion or private holdout
+
+## Hypothesis
+
+Routing source-balanced selected candidates into boundary relocation replay will produce a robust source-diverse wrong-history boundary export under unchanged thresholds.
+
+## Lineage
+
+- parent_checkpoint: runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt, runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt, runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt, runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt
+- parent_dataset: runs/m1083_proof_hardened_retarget_outcome_seed108200/outcome_interventions.csv, docs/m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke.md, docs/m1089-v4-public-base-source-balanced-relocation-run-design.md, docs/m1090-v4-public-base-source-balanced-relocation-runner-implementation.md
+- parent_config: experiments/manifests/m1089-v4-public-base-source-balanced-relocation-run-design.json, experiments/manifests/m1090-v4-public-base-source-balanced-relocation-runner-implementation.json
+- parent_objective: run source-balanced selected candidates through boundary relocation replay under unchanged robustness thresholds
+- derived_from: m1090-v4-public-base-source-balanced-relocation-runner-implementation
+- blocked_by: M1088 showed source budget is ready but old boundary export remains six-pair limited, M1090 implements the runner needed before a full source-balanced relocation replay
+- supersedes: None
+- invalidates: post-filtering the M1083 six-pair boundary artifact, rerunning the source-unaware wrong_history_boundary_relocation_surface path, weakening robustness thresholds to pass a duplicate-dominated surface
+
+## Success Criteria
+
+- source-balanced relocation run completes
+- relocation_replay_started is true
+- source_budget_ready is true
+- candidate_selection_summary decision is source_balanced_candidates_ready
+- balanced_accepted_wrong_history_rows.csv exists
+- accepted wrong-history rows >= 80
+- accepted wrong-history physical pairs >= 10
+- accepted wrong-history left steps >= 5
+- accepted wrong-history checkpoints >= 3
+- accepted wrong-history targets >= 2
+- accepted wrong-history normal margin buckets >= 2 at width 0.005
+- accepted wrong-history success_drop_fraction == 1.0
+- max rows per physical pair fraction <= 0.25
+- control accepted wrong-history rows == 0
+- no training, PPO, promotion, private holdout, or threshold weakening occurs
+
+## Failure Criteria
+
+- source budget fails before replay
+- balanced candidate selection is source-limited
+- replay does not start when source budget is ready
+- balanced export remains sparse or duplicate-dominated
+- success_drop_fraction < 1.0
+- training, PPO, promotion, private holdout, or threshold weakening occurs
+
+## Evidence Gates
+
+- M1091 must not train
+- M1091 must not run PPO
+- M1091 must not promote
+- M1091 must not use private holdout
+- M1091 must preserve actor inputs
+- M1091 must preserve source-diversity robustness thresholds
+- M1091 must replay only source-balanced selected candidates
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run PPO
+- do not promote
+- do not use private holdout
+- do not weaken accepted-row, physical-pair, left-step, checkpoint, target, bucket, success-drop, dominance, or control thresholds
+- do not convert old six-pair accepted rows into a corpus
+- do not claim level3 anticipatory self-identification from this proof-surface run
+
+## Failure Taxonomy
+
+- scenario_sampling_failure
+
+## Scoreboard
+
+- milestone: m1091-v4-public-base-source-balanced-boundary-relocation-run
+- type: gate
+- checkpoint: runs/m1091_source_balanced_boundary_relocation_seed109100/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: source_balanced_relocation_row_count_shortfall_route_to_coverage_expansion
+- reason: M1091 source-balanced replay fixes diversity but misses accepted row threshold with 76 of 80 rows while all other robustness gates pass; no PPO training promotion or private holdout
+
+## Next Blocker
+
+m1092-v4-public-base-source-balanced-coverage-expansion-run
