@@ -119,6 +119,37 @@
   "baseline_artifacts": [
     "docs/m1085-v4-public-base-source-balanced-boundary-tooling-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.md",
+    "decision": "source_balanced_boundary_tooling_implementation_admit_existing_artifact_smoke",
+    "result_class": "source_balanced_boundary_tooling_implementation",
+    "failure_types": [
+      "none"
+    ],
+    "implemented_artifacts": [
+      "src/autodrift/source_balanced_boundary_relocation_surface.py",
+      "tests/test_source_balanced_boundary_relocation_surface.py"
+    ],
+    "implemented_helpers": [
+      "physical_pair_key",
+      "source_obstacle_bucket",
+      "build_source_budget",
+      "select_source_balanced_candidates",
+      "mark_balanced_export_rows",
+      "write_source_balance_artifacts",
+      "run_source_balanced_boundary_artifact_smoke"
+    ],
+    "focused_tests": "20 passed",
+    "preserved_thresholds": true,
+    "training_started": false,
+    "ppo_used": false,
+    "full_new_mining_run": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1087-v4-public-base-source-balanced-boundary-existing-artifact-smoke"
+  },
+  "decision": "source_balanced_boundary_tooling_implementation_admit_existing_artifact_smoke",
   "decision_rule": "M1086 may only implement and test source-balanced boundary tooling. It cannot train, run PPO, promote, use private holdout, weaken thresholds, or claim driver progress.",
-  "next_blocker": "m1086-v4-public-base-source-balanced-boundary-tooling-implementation"
+  "next_blocker": "m1087-v4-public-base-source-balanced-boundary-existing-artifact-smoke"
 }

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1094,
+    "completed": 1095,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1085-v4-public-base-source-balanced-boundary-tooling-design",
+    "task_id": "m1086-v4-public-base-source-balanced-boundary-tooling-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1085-v4-public-base-source-balanced-boundary-tooling-design.md"
+    "command_log": "docs/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.md"
   },
   "next_task": {
-    "id": "m1086-v4-public-base-source-balanced-boundary-tooling-implementation",
+    "id": "m1087-v4-public-base-source-balanced-boundary-existing-artifact-smoke",
     "status": "pending",
-    "priority": 10810,
+    "priority": 10820,
     "kind": "infrastructure",
-    "hypothesis": "Implement source-balanced boundary export/tooling after M1085 design",
-    "command": "see experiments/manifests/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.json",
-    "success_artifact": "docs/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.md",
-    "notes": "Pending: infrastructure/tooling only; no PPO no actor training no promotion no private holdout and no full new mining run"
+    "hypothesis": "Run source-balanced boundary accounting over existing M1083 artifacts without new mining",
+    "command": "see experiments/manifests/m1087-v4-public-base-source-balanced-boundary-existing-artifact-smoke.json",
+    "success_artifact": "docs/m1087-v4-public-base-source-balanced-boundary-existing-artifact-smoke.md",
+    "notes": "Pending: existing-artifact smoke only; no PPO no actor training no promotion no private holdout no full new mining run"
   },
-  "updated_at_utc": "20260527T143500Z"
+  "updated_at_utc": "20260527T154533Z"
 }

@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1086-v4-public-base-source-balanced-boundary-tooling-implementation
+m1087-v4-public-base-source-balanced-boundary-existing-artifact-smoke
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -176,11 +176,15 @@ M1080-M1083 before another retarget. M1084 closed
 source-balanced boundary export tooling. It rejects post-filtering M1083's
 six-pair accepted set and preserves the existing robustness thresholds. The
 next step is M1086: implement and test that tooling without PPO, actor
-training, promotion, private holdout, or a full new mining run.
+training, promotion, private holdout, or a full new mining run. M1086
+implemented source-budget, source-balanced candidate selection, balanced export
+marking, artifact writing, and an existing-artifact smoke CLI with 20 focused
+tests passing. The next step is M1087: run the new accounting on existing M1083
+CSVs only.
 
 ```text
 decision:
-  source_balanced_boundary_tooling_design_admit_m1086_implementation
+  source_balanced_boundary_tooling_implementation_admit_existing_artifact_smoke
 ```
 
 M1068 design:
@@ -608,6 +612,20 @@ mining_started: false
 promoted: false
 private_holdout_used: false
 next: m1086-v4-public-base-source-balanced-boundary-tooling-implementation
+```
+
+M1086 result:
+
+```text
+result_class: source_balanced_boundary_tooling_implementation
+implemented: source-budget report; physical-pair round-robin candidate selection; balanced export marking; artifact writer; existing-artifact smoke CLI
+focused_tests: 20 passed
+training_started: false
+ppo_used: false
+full_new_mining_run: false
+promoted: false
+private_holdout_used: false
+next: m1087-v4-public-base-source-balanced-boundary-existing-artifact-smoke
 ```
 
 M1058 result:
