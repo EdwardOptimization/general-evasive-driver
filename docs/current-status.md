@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1095-v4-public-base-source-balanced-boundary-tooling-synthesis
+m1096-v4-public-base-family-aggregate-conversion-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -211,12 +211,16 @@ M1092 surface with `146` rows, `18` physical pairs, `9` left steps, `4`
 checkpoints, `3` targets, success-drop fraction `1.0`, and max pair fraction
 `0.136986`. M1094 therefore recommends a new family-aggregate raw-retained
 conversion design with replay sanity before objective optimization. The branch
-has reached the workflow synthesis cadence, so the next step is M1095:
-synthesize M1085-M1094 before opening the conversion branch.
+has reached the workflow synthesis cadence. M1095 synthesizes M1085-M1094,
+closes `source_balanced_boundary_tooling`, and opens
+`family_aggregate_boundary_conversion`. The next step is M1096: design the
+family-aggregate raw-retained conversion contract, including source-policy
+metadata, duplicate-geometry semantics, replay sanity before objective
+optimization, and hidden-state/source-policy handling.
 
 ```text
 decision:
-  source_balanced_compactability_recommend_family_aggregate_conversion_design
+  source_balanced_tooling_synthesis_promote_to_family_aggregate_conversion
 ```
 
 M1068 design:

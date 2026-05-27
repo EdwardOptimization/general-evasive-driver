@@ -15750,3 +15750,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - recommendation: use `family_aggregate` / `raw_retained`, but only through a new conversion path with replay sanity before objective optimization
 - decision: `source_balanced_compactability_recommend_family_aggregate_conversion_design`
 - next: `m1095-v4-public-base-source-balanced-boundary-tooling-synthesis`
+
+## 20260527T190651Z - m1095-v4-public-base-source-balanced-boundary-tooling-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1095-v4-public-base-source-balanced-boundary-tooling-synthesis.md`
+- result: M1095 synthesizes M1085-M1094. The branch moved from M1083's six-physical-pair bottleneck to M1092's passing source-balanced surface. It also showed that direct M1058-style per-checkpoint conversion is sparse and that compact-dedup family aggregate has only `75` rows against the `80` threshold. The only audited conversion route that preserves the full M1092 surface is raw-retained family aggregate with source metadata and replay sanity.
+- synthesis: closes `source_balanced_boundary_tooling` and opens `family_aggregate_boundary_conversion`
+- decision: `source_balanced_tooling_synthesis_promote_to_family_aggregate_conversion`
+- next: `m1096-v4-public-base-family-aggregate-conversion-design`

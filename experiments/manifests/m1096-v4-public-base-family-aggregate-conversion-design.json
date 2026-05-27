@@ -1,0 +1,164 @@
+{
+  "id": "m1096-v4-public-base-family-aggregate-conversion-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1095-v4-public-base-source-balanced-boundary-tooling-synthesis.md",
+      "docs/m1094-v4-public-base-source-balanced-compactability-audit.md",
+      "runs/m1092_source_balanced_coverage_expansion_seed109200/balanced_accepted_wrong_history_rows.csv",
+      "runs/m1094_source_balanced_compactability_audit/recommended_conversion_mode.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1095-v4-public-base-source-balanced-boundary-tooling-synthesis.json"
+    ],
+    "parent_objective": [
+      "design a family-aggregate raw-retained conversion contract for the M1092 source-balanced surface"
+    ],
+    "derived_from": [
+      "m1095-v4-public-base-source-balanced-boundary-tooling-synthesis"
+    ],
+    "blocked_by": [
+      "M1094 recommends family-aggregate raw-retained conversion because per-checkpoint and compact-dedup aggregate conversion are sparse"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "using boundary_outcome_corpus_objective unchanged on M1092 as a per-checkpoint corpus",
+      "dropping duplicate raw-retained checkpoint rows without documenting the source-policy contract",
+      "running objective optimization before replay sanity"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1096-v4-public-base-family-aggregate-conversion-design.md",
+  "public_gates": [
+    "M1096 must design only",
+    "M1096 must not train",
+    "M1096 must not run PPO",
+    "M1096 must not run replay",
+    "M1096 must not mine rows",
+    "M1096 must not promote",
+    "M1096 must not use private holdout",
+    "M1096 must preserve actor inputs",
+    "M1096 must state how source-policy metadata and hidden-state spaces are handled"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken M1092 source-balanced thresholds",
+    "do not silently mix source checkpoint hidden states without a contract"
+  ],
+  "workflow_synthesis": {
+    "branch": "family_aggregate_boundary_conversion",
+    "evidence_axis": "G_conversion: family-aggregate raw-retained conversion design",
+    "evidence_increment": "designs the conversion contract selected by M1094/M1095 before implementation or replay",
+    "claim_scope": "design only; no conversion run, no replay, no training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if raw-retained duplicates cannot be represented without hiding source-policy labels",
+      "stop if replay sanity cannot be specified before objective optimization",
+      "stop if hidden-state/source-policy mixing cannot be handled or avoided"
+    ],
+    "fallback_plan": [
+      "if the contract is clear, route to implementation of a family-aggregate conversion/audit tool",
+      "if replay sanity is the first missing piece, route to replay-sanity design",
+      "if hidden-state mixing is unsafe, route to source-specific replay gates without aggregate objective optimization"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1095 opens family_aggregate_boundary_conversion after M1094 compactability audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "design family-aggregate conversion without training or PPO",
+    "admission_evidence": [
+      "M1094 recommends family_aggregate/raw_retained as the only audited route preserving the M1092 surface",
+      "M1095 closes source_balanced_boundary_tooling and opens family_aggregate_boundary_conversion"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not promote from a design",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "write conversion design documentation",
+      "pre-register implementation if design is clear",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "family-aggregate source metadata contract is explicit",
+      "duplicate geometry semantics are explicit",
+      "replay sanity is specified before objective optimization",
+      "hidden-state/source-policy mixing is handled or avoided"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1096 is design-only. It inherits the matched-current wrong-history proof-surface scope and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1096 does not run scenarios or add a pre-emergency warm-up window. It only designs conversion for existing M1092 rows.",
+    "negative_result_policy": "If a family-aggregate conversion contract is unsafe, route to source-specific replay gating or new surface mining rather than weakening source-diversity or compactability criteria.",
+    "allowed_claims": [
+      "conversion design for a level2 source-balanced proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A family-aggregate raw-retained conversion contract can preserve the M1092 source-balanced surface while making source-policy metadata, duplicate geometry, replay sanity, and hidden-state handling explicit.",
+  "success_criteria": [
+    "conversion design artifact exists",
+    "source-policy metadata contract is explicit",
+    "raw-retained duplicate geometry semantics are explicit",
+    "replay sanity requirements are explicit and precede objective optimization",
+    "hidden-state/source-policy mixing is handled or explicitly avoided",
+    "no training, PPO, replay, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "source-policy or duplicate-geometry contract is ambiguous",
+    "replay sanity is missing",
+    "hidden-state/source-policy mixing is ignored",
+    "training, PPO, replay, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m1096-v4-public-base-family-aggregate-conversion-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1096-v4-public-base-family-aggregate-conversion-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1095-v4-public-base-source-balanced-boundary-tooling-synthesis.md",
+    "runs/m1094_source_balanced_compactability_audit/recommended_conversion_mode.json"
+  ],
+  "decision_rule": "M1096 may only design the family-aggregate raw-retained conversion contract. It cannot train, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, or weaken M1092 thresholds.",
+  "next_blocker": "m1096-v4-public-base-family-aggregate-conversion-design"
+}

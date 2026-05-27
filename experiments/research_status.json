@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1103,
+    "completed": 1104,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1094-v4-public-base-source-balanced-compactability-audit",
+    "task_id": "m1095-v4-public-base-source-balanced-boundary-tooling-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1094-v4-public-base-source-balanced-compactability-audit.md"
+    "command_log": "docs/m1095-v4-public-base-source-balanced-boundary-tooling-synthesis.md"
   },
   "next_task": {
-    "id": "m1095-v4-public-base-source-balanced-boundary-tooling-synthesis",
+    "id": "m1096-v4-public-base-family-aggregate-conversion-design",
     "status": "pending",
-    "priority": 10900,
+    "priority": 10910,
     "kind": "gate",
-    "hypothesis": "Synthesize M1085-M1094 and decide whether to close source_balanced_boundary_tooling and open a family-aggregate conversion branch",
-    "command": "see experiments/manifests/m1095-v4-public-base-source-balanced-boundary-tooling-synthesis.json",
-    "success_artifact": "docs/m1095-v4-public-base-source-balanced-boundary-tooling-synthesis.md",
-    "notes": "Pending: synthesis only; no PPO no training no replay no mining no promotion no private holdout"
+    "hypothesis": "Design a family-aggregate raw-retained conversion contract that preserves source-policy metadata, duplicate geometry semantics, replay sanity, and hidden-state handling",
+    "command": "see experiments/manifests/m1096-v4-public-base-family-aggregate-conversion-design.json",
+    "success_artifact": "docs/m1096-v4-public-base-family-aggregate-conversion-design.md",
+    "notes": "Pending: design only; no PPO no training no replay no mining no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T185835Z"
+  "updated_at_utc": "20260527T190651Z"
 }
