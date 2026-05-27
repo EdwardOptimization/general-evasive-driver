@@ -5,6 +5,7 @@ from __future__ import annotations
 
 PROCESS_V2_ENFORCE_FROM_PRIORITY = 2220
 PROCESS_V3_SYNTHESIS_ENFORCE_FROM_PRIORITY = 6850
+PROCESS_V4_TRAINING_STAGE_ENFORCE_FROM_PRIORITY = 10820
 
 SCOREBOARD_FIELDS = [
     "milestone",
@@ -99,3 +100,22 @@ PROCESS_V3_SYNTHESIS_QUESTIONS = [
     "public_gate_overfit_risk",
     "next_branch_decision",
 ]
+
+PROCESS_V4_TRAINING_STAGE_FIELDS = [
+    "stage",
+    "stage_objective",
+    "admission_evidence",
+    "blocked_shortcuts",
+    "allowed_updates",
+    "next_stage_criteria",
+]
+
+PROCESS_V4_TRAINING_STAGES = {
+    "process",
+    "infrastructure",
+    "evaluation_only",
+    "behavior_pretrain",
+    "capability_pretrain",
+    "action_grounding_posttrain",
+    "guarded_rl",
+}

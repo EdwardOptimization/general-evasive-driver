@@ -1,0 +1,181 @@
+{
+  "id": "m1087-staged-training-discipline-harness-rule",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "public ChatGPT share 6a170ef6-5248-83ea-a394-9b4f1492999d message 188",
+      "docs/current-status.md",
+      "docs/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.json"
+    ],
+    "parent_objective": [
+      "turn the pretrain-posttrain-RL staged training concept into a durable repo document and harness validation rule"
+    ],
+    "derived_from": [
+      "m1086-v4-public-base-source-balanced-boundary-tooling-implementation",
+      "user instruction to落成 repo 文档或 harness 规则"
+    ],
+    "blocked_by": [
+      "staged training discipline existed only as discussion, not as a repo-enforced manifest rule"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running train_ppo in future manifests without declaring guarded_rl stage",
+      "treating PPO as the primary early training method instead of proposal generation after pretrain/posttrain evidence",
+      "leaving the pretrain-posttrain-RL rule as chat-only guidance"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1087-staged-training-discipline-harness-rule.md",
+  "public_gates": [
+    "M1087 must not train",
+    "M1087 must not run PPO",
+    "M1087 must not promote",
+    "M1087 must not use private holdout",
+    "M1087 must add a durable training-stage discipline document",
+    "M1087 must add validator-enforced manifest fields for future milestones",
+    "M1087 must keep the previously planned existing-artifact smoke as the next milestone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not weaken existing proof or robustness gates",
+    "do not leave the staged-training rule as documentation only"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_balanced_boundary_tooling",
+    "evidence_axis": "G_process: staged training discipline",
+    "evidence_increment": "adds a process-v4 manifest rule requiring every future milestone to declare pretrain/posttrain/RL stage discipline",
+    "claim_scope": "process and harness rule only; no driver training, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if the rule is only a prose note and not validated",
+      "stop if it blocks infrastructure/evaluation milestones from proceeding",
+      "stop if it allows train_ppo outside guarded_rl stage"
+    ],
+    "fallback_plan": [
+      "if validator rule is too strict, narrow it to manifest declaration plus train_ppo guard",
+      "if current pending smoke cannot satisfy the new schema, update it with infrastructure-stage metadata",
+      "if tests fail, repair validator semantics before continuing research"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "user requested durable staged training concept after ChatGPT share review",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "make pretrain-posttrain-guarded-RL discipline a durable repo and harness rule",
+    "admission_evidence": [
+      "recent project history shows naked PPO can wash out proof before posttrain/proof gates stabilize",
+      "M1044-M1050 style guarded PPO only became reasonable after action-grounding posttrain, exact gates, and rollback rows",
+      "user explicitly requested a repo document or harness rule rather than chat-only guidance"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO before behavior/capability pretrain and action-grounding posttrain evidence are named",
+      "do not accept PPO without exact/proof gates and rollback or repair protection",
+      "do not treat success rate alone as staged-training admission"
+    ],
+    "allowed_updates": [
+      "process documentation",
+      "research schema constants",
+      "research validation logic",
+      "validator unit tests",
+      "manifest/status/queue bookkeeping"
+    ],
+    "next_stage_criteria": [
+      "future manifests at priority 10820 or later declare training_stage metadata",
+      "future train_ppo commands are only valid under guarded_rl stage",
+      "guarded_rl manifests cite pre/posttrain capability evidence, exact/proof gates, and rollback or repair protection"
+    ]
+  },
+  "hypothesis": "Making pretrain-posttrain-guarded-RL discipline a validator-enforced manifest rule will prevent future milestones from treating PPO as an early primary optimizer or skipping action-grounding/proof-retention admission.",
+  "success_criteria": [
+    "docs/training-stage-discipline.md exists",
+    "M1087 milestone artifact exists",
+    "research schema defines process-v4 training-stage fields and allowed stages",
+    "research validator enforces training_stage for future manifests",
+    "research validator rejects train_ppo outside guarded_rl stage",
+    "research validator tests cover the new rule",
+    "previously planned existing-artifact smoke is preserved as M1088",
+    "no training, PPO, promotion, private holdout, or full new mining run occurs"
+  ],
+  "failure_criteria": [
+    "training-stage discipline remains documentation-only",
+    "future manifests can run train_ppo without guarded_rl stage",
+    "M1088 smoke plan is lost",
+    "training, PPO, promotion, private holdout, or new mining starts"
+  ],
+  "commands": [
+    {
+      "name": "write_training_stage_doc",
+      "command": "write docs/training-stage-discipline.md and docs/m1087-staged-training-discipline-harness-rule.md"
+    },
+    {
+      "name": "update_harness_validator",
+      "command": "edit src/autodrift/research_schema.py src/autodrift/research_validate.py tests/test_research_validate.py"
+    },
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_research_validate.py tests/test_research_manifest.py tests/test_research_cycle.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/training-stage-discipline.md",
+      "type": "md"
+    },
+    {
+      "path": "docs/m1087-staged-training-discipline-harness-rule.md",
+      "type": "md"
+    },
+    {
+      "path": "src/autodrift/research_schema.py",
+      "type": "py"
+    },
+    {
+      "path": "src/autodrift/research_validate.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_research_validate.py",
+      "type": "py"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.md"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1087-staged-training-discipline-harness-rule.md",
+    "decision": "staged_training_discipline_harness_rule_admit_m1088_existing_artifact_smoke",
+    "result_class": "process_v4_training_stage_rule",
+    "failure_types": [
+      "none"
+    ],
+    "enforce_from_priority": 10820,
+    "added_doc": "docs/training-stage-discipline.md",
+    "added_validator_rule": "training_stage required for future manifests; train_ppo requires guarded_rl",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke"
+  },
+  "decision": "staged_training_discipline_harness_rule_admit_m1088_existing_artifact_smoke",
+  "decision_rule": "M1087 may only add durable staged-training documentation and harness validation. It cannot train, run PPO, promote, use private holdout, weaken gates, or drop the existing-artifact smoke plan.",
+  "next_blocker": "m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke"
+}

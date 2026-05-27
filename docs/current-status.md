@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1087-v4-public-base-source-balanced-boundary-existing-artifact-smoke
+m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -179,12 +179,14 @@ next step is M1086: implement and test that tooling without PPO, actor
 training, promotion, private holdout, or a full new mining run. M1086
 implemented source-budget, source-balanced candidate selection, balanced export
 marking, artifact writing, and an existing-artifact smoke CLI with 20 focused
-tests passing. The next step is M1087: run the new accounting on existing M1083
-CSVs only.
+tests passing. M1087 added a process-v4 staged training discipline: future
+manifests must declare `training_stage`, and any `autodrift.train_ppo` command
+must be in `guarded_rl` stage with pre/posttrain, exact/proof, and rollback or
+repair admission evidence. The existing-artifact smoke is preserved as M1088.
 
 ```text
 decision:
-  source_balanced_boundary_tooling_implementation_admit_existing_artifact_smoke
+  staged_training_discipline_harness_rule_admit_m1088_existing_artifact_smoke
 ```
 
 M1068 design:
@@ -625,7 +627,20 @@ ppo_used: false
 full_new_mining_run: false
 promoted: false
 private_holdout_used: false
-next: m1087-v4-public-base-source-balanced-boundary-existing-artifact-smoke
+next: m1087-staged-training-discipline-harness-rule
+```
+
+M1087 result:
+
+```text
+result_class: process_v4_training_stage_rule
+added_doc: docs/training-stage-discipline.md
+validator_rule: training_stage required from priority 10820; train_ppo requires guarded_rl
+training_started: false
+ppo_used: false
+promoted: false
+private_holdout_used: false
+next: m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke
 ```
 
 M1058 result:

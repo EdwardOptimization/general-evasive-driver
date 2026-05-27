@@ -105,6 +105,30 @@ def _process_v3_synthesis_manifest(task_id, artifact="docs/m690-synthesis.md", d
     return manifest
 
 
+def _process_v4_manifest(task_id, artifact="docs/m1087.md", stage="infrastructure"):
+    manifest = _process_v3_manifest(task_id, artifact=artifact)
+    manifest["commands"] = [{"name": "process_update", "command": "true"}]
+    manifest["training_stage"] = {
+        "stage": stage,
+        "stage_objective": "keep this milestone within the staged training discipline",
+        "admission_evidence": [
+            "pretrain/posttrain/RL discipline is documented",
+            "no guarded RL is admitted by this infrastructure milestone",
+        ],
+        "blocked_shortcuts": [
+            "do not run PPO before pretrain, posttrain, exact proof gates, and rollback protections are named",
+        ],
+        "allowed_updates": [
+            "process documentation",
+            "harness validation",
+        ],
+        "next_stage_criteria": [
+            "future guarded_rl manifests must cite pre/posttrain capability evidence, exact/proof gates, and rollback protections",
+        ],
+    }
+    return manifest
+
+
 def test_normalize_next_task_supports_string_and_object():
     assert normalize_next_task("m90") == "m90"
     assert normalize_next_task({"id": "m91"}) == "m91"
@@ -792,3 +816,140 @@ def test_process_v3_synthesis_decision_requires_all_synthesis_questions(tmp_path
     issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
 
     assert any("synthesis_questions missing" in issue.message for issue in issues)
+
+
+def test_process_v4_requires_training_stage_from_m1087(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m1087",
+                "priority": 10820,
+                "status": "pending",
+                "kind": "gate",
+                "hypothesis": "enforce staged training discipline",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0}, "next_task": "m1087"}),
+        encoding="utf-8",
+    )
+    (manifest_dir / "m1087.json").write_text(json.dumps(_process_v3_manifest("m1087")), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("process-v4 manifest missing fields" in issue.message for issue in issues)
+
+
+def test_process_v4_accepts_training_stage_manifest(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m1087",
+                "priority": 10820,
+                "status": "pending",
+                "kind": "infrastructure",
+                "hypothesis": "enforce staged training discipline",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0}, "next_task": "m1087"}),
+        encoding="utf-8",
+    )
+    (manifest_dir / "m1087.json").write_text(json.dumps(_process_v4_manifest("m1087")), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert issues == []
+
+
+def test_process_v4_rejects_train_ppo_outside_guarded_rl(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m1087",
+                "priority": 10820,
+                "status": "pending",
+                "kind": "driver_candidate",
+                "hypothesis": "bad PPO shortcut",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0}, "next_task": "m1087"}),
+        encoding="utf-8",
+    )
+    manifest = _process_v4_manifest("m1087", stage="action_grounding_posttrain")
+    manifest["commands"] = [{"name": "bad_ppo", "command": "PYTHONPATH=src python -m autodrift.train_ppo"}]
+    (manifest_dir / "m1087.json").write_text(json.dumps(manifest), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("must use training_stage.stage='guarded_rl'" in issue.message for issue in issues)
+
+
+def test_process_v4_guarded_rl_requires_admission_evidence(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m1087",
+                "priority": 10820,
+                "status": "pending",
+                "kind": "driver_candidate",
+                "hypothesis": "guarded PPO missing evidence",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0}, "next_task": "m1087"}),
+        encoding="utf-8",
+    )
+    manifest = _process_v4_manifest("m1087", stage="guarded_rl")
+    manifest["commands"] = [{"name": "ppo", "command": "PYTHONPATH=src python -m autodrift.train_ppo"}]
+    manifest["training_stage"]["admission_evidence"] = ["basic behavior exists"]
+    (manifest_dir / "m1087.json").write_text(json.dumps(manifest), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("guarded_rl stage must cite" in issue.message for issue in issues)

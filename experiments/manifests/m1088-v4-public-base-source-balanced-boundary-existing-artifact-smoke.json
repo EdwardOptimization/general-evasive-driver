@@ -1,0 +1,151 @@
+{
+  "id": "m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1083_proof_hardened_retarget_outcome_seed108200/outcome_interventions.csv",
+      "runs/m1083_proof_hardened_retarget_boundary_surface_seed108200/boundary_relocation_rows.csv",
+      "docs/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.md",
+      "docs/training-stage-discipline.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1087-staged-training-discipline-harness-rule.json"
+    ],
+    "parent_objective": [
+      "run source-balanced boundary accounting over existing M1083 artifacts without new mining"
+    ],
+    "derived_from": [
+      "m1086-v4-public-base-source-balanced-boundary-tooling-implementation",
+      "m1087-staged-training-discipline-harness-rule"
+    ],
+    "blocked_by": [
+      "M1086 implemented tooling but has not yet measured existing M1083 artifacts through the new source-budget path"
+    ],
+    "supersedes": [
+      "m1087-v4-public-base-source-balanced-boundary-existing-artifact-smoke"
+    ],
+    "invalidates": [
+      "claiming the new tooling fixes M1083 without running it on existing artifacts",
+      "rerunning full matched-current or boundary relocation mining before a cheap artifact smoke"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke.md",
+  "public_gates": [
+    "M1088 must not train",
+    "M1088 must not run PPO",
+    "M1088 must not promote",
+    "M1088 must not use private holdout",
+    "M1088 must not run a full new mining pipeline",
+    "M1088 must use existing M1083 CSV artifacts only",
+    "M1088 must preserve existing robustness thresholds"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not rerun matched-current mining",
+    "do not rerun boundary relocation",
+    "do not lower robustness thresholds"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_balanced_boundary_tooling",
+    "evidence_axis": "G_tooling: existing-artifact source-balance smoke",
+    "evidence_increment": "applies M1086 source-budget and balanced export tooling to existing M1083 artifacts before any new surface run",
+    "claim_scope": "infrastructure smoke only; no driver training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if source budget shows existing M1083 artifacts are intrinsically below ten eligible physical pairs",
+      "stop if balanced export cannot be evaluated from existing artifacts",
+      "stop if smoke would require rerunning mining"
+    ],
+    "fallback_plan": [
+      "if source budget is adequate but balanced export fails, route to source-balanced relocation run design",
+      "if source budget is inadequate, route to sampler expansion design",
+      "if tooling fails, route to implementation repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1086 implemented source-balanced boundary tooling and M1087 added staged-training discipline",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "run source-balanced accounting over existing artifacts without entering training or PPO",
+    "admission_evidence": [
+      "M1086 implemented source-budget and balanced export tooling",
+      "M1087 staged-training rule keeps this as infrastructure, not guarded RL",
+      "existing M1083 CSVs are sufficient for a cheap accounting smoke before any new mining"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not train actor or residual parameters",
+      "do not rerun matched-current mining or boundary relocation",
+      "do not claim driver improvement from an infrastructure smoke"
+    ],
+    "allowed_updates": [
+      "write source-budget and balanced-export diagnostics from existing CSVs",
+      "write milestone documentation",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "if source budget is adequate but balanced export fails, design a source-balanced relocation run",
+      "if source budget is inadequate, design sampler/source expansion",
+      "no guarded_rl stage is admitted by M1088"
+    ]
+  },
+  "hypothesis": "The new source-balanced boundary tooling can cheaply classify whether the existing M1083 artifacts contain enough pre-boundary source diversity and whether post-export balance remains impossible without a new relocation run.",
+  "success_criteria": [
+    "source-balanced artifact smoke runs on existing M1083 CSVs",
+    "source_budget_summary.json exists",
+    "balanced_accepted_wrong_history_rows.csv exists",
+    "summary distinguishes budget-limited from export-limited failure",
+    "no training, PPO, promotion, private holdout, or full new mining run occurs"
+  ],
+  "failure_criteria": [
+    "artifact smoke cannot read existing M1083 CSVs",
+    "tooling requires full mining to run",
+    "training, PPO, promotion, or private holdout starts",
+    "robustness thresholds are weakened"
+  ],
+  "commands": [
+    {
+      "name": "existing_artifact_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_balanced_boundary_relocation_surface --candidate-csv runs/m1083_proof_hardened_retarget_outcome_seed108200/outcome_interventions.csv --boundary-rows-csv runs/m1083_proof_hardened_retarget_boundary_surface_seed108200/boundary_relocation_rows.csv --max-candidates 512 --max-candidates-per-physical-pair 8 --max-candidates-per-checkpoint-target 64 --max-accepted-rows-per-physical-pair 20 --target-min-physical-pairs 10 --target-min-left-steps 5 --target-min-targets 2 --max-rows-per-pair-fraction 0.25 --min-eligible-physical-pairs 10 --max-candidate-pair-fraction 0.25 --source-obstacle-distance-bucket-width 5.0 --source-obstacle-lateral-bucket-width 1.0 --margin-bucket-width 0.005 --control-checkpoint-label none --run-dir runs/m1088_source_balanced_boundary_existing_artifact_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1088_source_balanced_boundary_existing_artifact_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1088_source_balanced_boundary_existing_artifact_smoke/source_budget_summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1088_source_balanced_boundary_existing_artifact_smoke/balanced_accepted_wrong_history_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.md",
+    "docs/training-stage-discipline.md"
+  ],
+  "decision_rule": "M1088 may only run source-balanced accounting over existing M1083 artifacts. It cannot train, run PPO, promote, use private holdout, run new mining, or weaken thresholds.",
+  "next_blocker": "m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke"
+}

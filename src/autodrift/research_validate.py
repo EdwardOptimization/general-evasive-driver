@@ -26,6 +26,9 @@ from autodrift.research_schema import (
     PROCESS_V3_SYNTHESIS_ENFORCE_FROM_PRIORITY,
     PROCESS_V3_SYNTHESIS_FIELDS,
     PROCESS_V3_SYNTHESIS_QUESTIONS,
+    PROCESS_V4_TRAINING_STAGE_ENFORCE_FROM_PRIORITY,
+    PROCESS_V4_TRAINING_STAGE_FIELDS,
+    PROCESS_V4_TRAINING_STAGES,
     SCOREBOARD_FIELDS,
 )
 
@@ -57,6 +60,9 @@ PROCESS_V2_REQUIRED_FIELDS = (
 PROCESS_V3_REQUIRED_FIELDS = (
     "workflow_synthesis",
 )
+PROCESS_V4_REQUIRED_FIELDS = (
+    "training_stage",
+)
 
 
 @dataclass(frozen=True)
@@ -75,6 +81,10 @@ def _is_process_v2(task: ResearchTask, process_v2_from_priority: int) -> bool:
 
 def _is_process_v3(task: ResearchTask, process_v3_from_priority: int) -> bool:
     return int(task.priority) >= int(process_v3_from_priority)
+
+
+def _is_process_v4(task: ResearchTask, process_v4_from_priority: int) -> bool:
+    return int(task.priority) >= int(process_v4_from_priority)
 
 
 def _manifest_path(manifest_dir: Path, task_id: str) -> Path:
@@ -171,6 +181,7 @@ def _validate_manifest(
     manifest: dict[str, Any],
     process_v2: bool = False,
     process_v3: bool = False,
+    process_v4: bool = False,
 ) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     missing = [field for field in MANIFEST_REQUIRED_FIELDS if field not in manifest]
@@ -195,6 +206,8 @@ def _validate_manifest(
         issues.extend(_validate_process_v2_manifest(task, manifest))
     if process_v3:
         issues.extend(_validate_process_v3_manifest(task, manifest))
+    if process_v4:
+        issues.extend(_validate_process_v4_manifest(task, manifest))
     return issues
 
 
@@ -439,6 +452,87 @@ def _validate_process_v3_branch_cadence(records: list[tuple[ResearchTask, dict[s
     return issues
 
 
+def _manifest_command_text(manifest: dict[str, Any]) -> str:
+    commands = manifest.get("commands", [])
+    if not isinstance(commands, list):
+        return ""
+    parts: list[str] = []
+    for command in commands:
+        if isinstance(command, dict):
+            parts.append(str(command.get("command", "")))
+        elif isinstance(command, str):
+            parts.append(command)
+    return "\n".join(parts).lower()
+
+
+def _validate_process_v4_manifest(task: ResearchTask, manifest: dict[str, Any]) -> list[ValidationIssue]:
+    issues: list[ValidationIssue] = []
+    missing = [field for field in PROCESS_V4_REQUIRED_FIELDS if field not in manifest]
+    if missing:
+        issues.append(ValidationIssue("error", f"{task.id}: process-v4 manifest missing fields {missing}"))
+        return issues
+
+    training_stage = manifest.get("training_stage")
+    if not isinstance(training_stage, dict):
+        return [ValidationIssue("error", f"{task.id}: training_stage must be an object")]
+
+    missing_stage = [field for field in PROCESS_V4_TRAINING_STAGE_FIELDS if field not in training_stage]
+    if missing_stage:
+        issues.append(ValidationIssue("error", f"{task.id}: training_stage missing fields {missing_stage}"))
+        return issues
+
+    stage = training_stage.get("stage")
+    if stage not in PROCESS_V4_TRAINING_STAGES:
+        issues.append(
+            ValidationIssue(
+                "error",
+                f"{task.id}: training_stage.stage must be one of {sorted(PROCESS_V4_TRAINING_STAGES)}",
+            )
+        )
+
+    if not _non_empty_text(training_stage.get("stage_objective")):
+        issues.append(ValidationIssue("error", f"{task.id}: training_stage.stage_objective must be non-empty text"))
+
+    for field in ("admission_evidence", "blocked_shortcuts", "allowed_updates", "next_stage_criteria"):
+        value = training_stage.get(field)
+        if not _non_empty_list(value) or not all(_non_empty_text(item) for item in value):
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{task.id}: training_stage.{field} must be a non-empty list of non-empty text",
+                )
+            )
+
+    command_text = _manifest_command_text(manifest)
+    runs_train_ppo = "autodrift.train_ppo" in command_text
+    if runs_train_ppo and stage != "guarded_rl":
+        issues.append(
+            ValidationIssue(
+                "error",
+                f"{task.id}: manifests that run train_ppo must use training_stage.stage='guarded_rl'",
+            )
+        )
+
+    if stage == "guarded_rl":
+        evidence_text = " ".join(str(item).lower() for item in training_stage.get("admission_evidence", []))
+        has_pre_or_post = any(
+            token in evidence_text
+            for token in ("pretrain", "posttrain", "action-grounding", "action grounding", "capability")
+        )
+        has_proof = any(token in evidence_text for token in ("proof", "exact", "public gate"))
+        has_rollback = any(token in evidence_text for token in ("rollback", "retention", "repair", "projection"))
+        if not (has_pre_or_post and has_proof and has_rollback):
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{task.id}: guarded_rl stage must cite pre/posttrain capability evidence, "
+                    "exact/proof gates, and rollback or repair protection in admission_evidence",
+                )
+            )
+
+    return issues
+
+
 def _validate_metric_extractors(task: ResearchTask, manifest: dict[str, Any]) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     extractors = manifest.get("metric_extractors", [])
@@ -527,6 +621,7 @@ def validate_research_state(
     enforce_from_priority: int = ENFORCE_FROM_PRIORITY,
     process_v2_from_priority: int = PROCESS_V2_ENFORCE_FROM_PRIORITY,
     process_v3_from_priority: int = PROCESS_V3_SYNTHESIS_ENFORCE_FROM_PRIORITY,
+    process_v4_from_priority: int = PROCESS_V4_TRAINING_STAGE_ENFORCE_FROM_PRIORITY,
 ) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     tasks = load_queue(queue_path)
@@ -586,7 +681,8 @@ def validate_research_state(
         manifest = read_json(path)
         process_v2 = _is_process_v2(task, process_v2_from_priority)
         process_v3 = _is_process_v3(task, process_v3_from_priority)
-        issues.extend(_validate_manifest(task, manifest, process_v2=process_v2, process_v3=process_v3))
+        process_v4 = _is_process_v4(task, process_v4_from_priority)
+        issues.extend(_validate_manifest(task, manifest, process_v2=process_v2, process_v3=process_v3, process_v4=process_v4))
         if process_v3:
             process_v3_records.append((task, manifest))
         if task.status == "completed":
@@ -633,6 +729,11 @@ def main() -> None:
         type=int,
         default=PROCESS_V3_SYNTHESIS_ENFORCE_FROM_PRIORITY,
     )
+    parser.add_argument(
+        "--process-v4-from-priority",
+        type=int,
+        default=PROCESS_V4_TRAINING_STAGE_ENFORCE_FROM_PRIORITY,
+    )
     args = parser.parse_args()
 
     issues = validate_research_state(
@@ -644,6 +745,7 @@ def main() -> None:
         enforce_from_priority=args.enforce_from_priority,
         process_v2_from_priority=args.process_v2_from_priority,
         process_v3_from_priority=args.process_v3_from_priority,
+        process_v4_from_priority=args.process_v4_from_priority,
     )
     for issue in issues:
         print(f"{issue.severity}: {issue.message}")
@@ -654,7 +756,8 @@ def main() -> None:
         "research validation passed "
         f"(enforce_from_priority={args.enforce_from_priority}, enforced_tasks={enforced_count}, "
         f"process_v2_from_priority={args.process_v2_from_priority}, "
-        f"process_v3_from_priority={args.process_v3_from_priority})"
+        f"process_v3_from_priority={args.process_v3_from_priority}, "
+        f"process_v4_from_priority={args.process_v4_from_priority})"
     )
 
 

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1095,
+    "completed": 1096,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1086-v4-public-base-source-balanced-boundary-tooling-implementation",
+    "task_id": "m1087-staged-training-discipline-harness-rule",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.md"
+    "command_log": "docs/m1087-staged-training-discipline-harness-rule.md"
   },
   "next_task": {
-    "id": "m1087-v4-public-base-source-balanced-boundary-existing-artifact-smoke",
+    "id": "m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke",
     "status": "pending",
-    "priority": 10820,
+    "priority": 10830,
     "kind": "infrastructure",
     "hypothesis": "Run source-balanced boundary accounting over existing M1083 artifacts without new mining",
-    "command": "see experiments/manifests/m1087-v4-public-base-source-balanced-boundary-existing-artifact-smoke.json",
-    "success_artifact": "docs/m1087-v4-public-base-source-balanced-boundary-existing-artifact-smoke.md",
+    "command": "see experiments/manifests/m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke.json",
+    "success_artifact": "docs/m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke.md",
     "notes": "Pending: existing-artifact smoke only; no PPO no actor training no promotion no private holdout no full new mining run"
   },
-  "updated_at_utc": "20260527T154533Z"
+  "updated_at_utc": "20260528T000000Z"
 }
