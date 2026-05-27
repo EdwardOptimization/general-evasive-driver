@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1071,
+    "completed": 1072,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1062-v4-public-base-post-short-promotion-surface-refresh-synthesis",
+    "task_id": "m1063-v4-public-base-family-intersection-gate-integration-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1062-v4-public-base-post-short-promotion-surface-refresh-synthesis.md"
+    "command_log": "docs/m1063-v4-public-base-family-intersection-gate-integration-design.md"
   },
   "next_task": {
-    "id": "m1063-v4-public-base-family-intersection-gate-integration-design",
+    "id": "m1064-v4-public-base-family-intersection-public-gate-implementation",
     "status": "pending",
-    "priority": 10580,
-    "kind": "gate",
-    "hypothesis": "Design first-class public gate integration for the M1061 family-intersection corpus before medium PPO",
-    "command": "see experiments/manifests/m1063-v4-public-base-family-intersection-gate-integration-design.json",
-    "success_artifact": "docs/m1063-v4-public-base-family-intersection-gate-integration-design.md",
-    "notes": "Pending: gate integration design only; no PPO no actor training no promotion no private holdout"
+    "priority": 10590,
+    "kind": "infrastructure",
+    "hypothesis": "Implement a reusable public proof gate wrapper for the M1061 family-intersection corpus",
+    "command": "see experiments/manifests/m1064-v4-public-base-family-intersection-public-gate-implementation.json",
+    "success_artifact": "docs/m1064-v4-public-base-family-intersection-public-gate-implementation.md",
+    "notes": "Pending: wrapper implementation and current-base validation only; no PPO no actor training no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T060050Z"
+  "updated_at_utc": "20260527T061058Z"
 }

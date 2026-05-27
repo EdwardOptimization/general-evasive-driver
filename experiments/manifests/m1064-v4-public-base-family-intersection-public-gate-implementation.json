@@ -1,0 +1,115 @@
+{
+  "id": "m1064-v4-public-base-family-intersection-public-gate-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1061_short61049_boundary_outcome_corpus_seed10570/boundary_outcome_corpus.csv",
+      "runs/m1061_short61050_boundary_outcome_corpus_seed10570/boundary_outcome_corpus.csv",
+      "runs/m1061_short61051_boundary_outcome_corpus_seed10570/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1063-v4-public-base-family-intersection-gate-integration-design.json"
+    ],
+    "parent_objective": [
+      "implement reusable M1061 family-intersection public proof gate wrapper"
+    ],
+    "derived_from": [
+      "m1063-v4-public-base-family-intersection-gate-integration-design"
+    ],
+    "blocked_by": [
+      "M1063 requires a first-class public proof gate wrapper before medium PPO"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "manual ad hoc M1061 replay commands as the only way to check refreshed family proof retention"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1064-v4-public-base-family-intersection-public-gate-implementation.md",
+  "public_gates": [
+    "M1064 must not run PPO",
+    "M1064 must not train actor",
+    "M1064 must not promote",
+    "M1064 must not use private holdout",
+    "M1064 must implement a reusable family-intersection public gate wrapper",
+    "M1064 must run the wrapper on the current base as a no-PPO validation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train actor",
+    "do not promote",
+    "do not use private holdout",
+    "do not weaken M1061 success-drop retention thresholds"
+  ],
+  "workflow_synthesis": {
+    "branch": "post_short_promotion_family_gate_integration",
+    "evidence_axis": "G_gate: refreshed family-intersection public proof gate",
+    "evidence_increment": "implements the reusable M1061 family-intersection public proof gate wrapper and validates it on the current public-gate base",
+    "claim_scope": "infrastructure and proof-gate validation only; no PPO, no actor training, no promotion, no medium-run claim",
+    "stop_condition": [
+      "stop if wrapper validation fails on the current public-gate base",
+      "stop if existing corpus labels cannot be represented cleanly",
+      "stop if actor-input contract changes"
+    ],
+    "fallback_plan": [
+      "if validation passes, route to guarded PPO stack integration design or implementation",
+      "if validation fails, route to M1061 artifact repair or gate threshold audit",
+      "if wrapper scope is too broad, split into parser and runner milestones"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1063 admits wrapper implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A reusable wrapper around boundary_outcome_replay_gate can express the M1061 family-intersection proof gate and validate the current public-gate base without PPO.",
+  "success_criteria": [
+    "src/autodrift/family_intersection_public_gate.py exists",
+    "tests/test_family_intersection_public_gate.py exists",
+    "wrapper validates source policy and source corpus label consistency",
+    "wrapper runs source-to-candidate replay gates for short61049 short61050 and short61051 corpora",
+    "current public-gate base passes the wrapper validation",
+    "no PPO actor training promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "wrapper is missing",
+    "wrapper cannot run on M1061 corpora",
+    "current public-gate base fails the wrapper validation",
+    "PPO or actor training starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "implement_and_validate_wrapper",
+      "command": "implement src/autodrift/family_intersection_public_gate.py and run it on M1061 corpora against the current public-gate base"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/family_intersection_public_gate.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_family_intersection_public_gate.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1064-v4-public-base-family-intersection-public-gate-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1063-v4-public-base-family-intersection-gate-integration-design.md"
+  ],
+  "decision_rule": "M1064 may only implement and validate the family-intersection public proof gate wrapper. It cannot run PPO, train actor, promote, or use private holdout.",
+  "next_blocker": "m1064-v4-public-base-family-intersection-public-gate-implementation"
+}
