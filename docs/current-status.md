@@ -78,8 +78,18 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1115-v4-public-base-materialized-failed-wrong-history-retention-export
+m1116-v4-public-base-failed-wrong-history-retention-actor-update-design
 ```
+
+M1115 completed the failed wrong-history retention export. It reproduced the
+M1113 failure registry with `47` lost success-drop events, `0` normal-lost
+events, and `47` wrong-history-safe events. It split these into `19`
+target-base rows and `28` family-source rows, exported a `707`-row target-base
+rejected-history trajectory anchor, and wrote a `4664`-row combined anchor.
+Short-family hidden states were not included in the training anchor. M1116 is a
+design-only next step: specify the bounded actor-update probe that combines the
+M1107 exact objective with M1115 target-base rejected-history retention before
+any optimizer, replay, PPO, promotion, or private holdout.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

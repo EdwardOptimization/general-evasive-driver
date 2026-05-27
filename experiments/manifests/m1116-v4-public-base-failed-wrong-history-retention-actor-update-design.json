@@ -1,0 +1,161 @@
+{
+  "id": "m1116-v4-public-base-failed-wrong-history-retention-actor-update-design",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1115_materialized_failed_wrong_history_retention_export/summary.json",
+      "runs/m1115_materialized_failed_wrong_history_retention_export/failed_wrong_history_events.csv",
+      "runs/m1115_materialized_failed_wrong_history_retention_export/target_base_failed_rows.csv",
+      "runs/m1115_materialized_failed_wrong_history_retention_export/family_source_failed_rows.csv",
+      "runs/m1115_materialized_failed_wrong_history_retention_export/combined_target_base_rejected_anchor.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1115-v4-public-base-materialized-failed-wrong-history-retention-export.json"
+    ],
+    "parent_objective": [
+      "design a bounded actor update that combines M1107 exact objective with M1115 target-base rejected-history trajectory retention"
+    ],
+    "derived_from": [
+      "m1115-v4-public-base-materialized-failed-wrong-history-retention-export"
+    ],
+    "blocked_by": [
+      "M1112 proof washout made wrong-history branches safe",
+      "M1115 exported target-base retention anchors but did not train"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "actor update without target-base failed wrong-history retention",
+      "direct training from short-family hidden states",
+      "PPO before rejected-history retention gate design"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1116-v4-public-base-failed-wrong-history-retention-actor-update-design.md",
+  "public_gates": [
+    "M1116 may design an actor-update probe using M1115 target-base retention artifacts",
+    "M1116 must not train actor weights",
+    "M1116 must not run PPO",
+    "M1116 must not run replay",
+    "M1116 must not promote",
+    "M1116 must not use private holdout",
+    "M1116 must keep short-family rows replay-only unless target-policy materialization is explicitly designed",
+    "M1116 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken replay gates",
+    "do not use short-family hidden states as training anchors",
+    "do not rerun M1110 backup candidates"
+  ],
+  "workflow_synthesis": {
+    "branch": "materialized_objective_corpus_sanity",
+    "evidence_axis": "G_objective: rejected-history trajectory retention design",
+    "evidence_increment": "uses the M1115 materialized failed-row anchor to design the next bounded actor-update probe without running it",
+    "claim_scope": "design only; no training, replay, PPO, promotion, private holdout, or driver capability claim",
+    "stop_condition": [
+      "stop if M1115 artifact counts are missing or invalid",
+      "stop if the design requires short-family hidden-state anchors",
+      "stop if exact objective and failed-row trajectory retention cannot both be gated before replay"
+    ],
+    "fallback_plan": [
+      "if target-base retention is insufficient, design family-source target-policy materialization",
+      "if retention conflicts with M1107 exact objective, route to conflict audit before training",
+      "if branch cadence fires after M1116, synthesize before another narrow milestone"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1115 export passes and admits a retention-aware actor-update design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design a no-run actor-update recipe before any optimizer step",
+    "admission_evidence": [
+      "M1115 registry count and split pass",
+      "M1115 target-base and combined anchors load"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "design document",
+      "manifest, queue, status, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "exact M1107 no-regression gate is specified",
+      "target-base failed-row trajectory-anchor loss no-regression gate is specified",
+      "allowed parameter surface is specified",
+      "old public, source-diverse, family-intersection, and behavior gates are ordered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1116 can only design preservation of replay-calibrated wrong-history sensitivity; it cannot prove anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1116 uses M1115 trajectory anchors from existing failed rows and designs no new task.",
+    "negative_result_policy": "If retention-aware actor update design is not coherent, route to conflict audit or target-policy materialization rather than training.",
+    "allowed_claims": [
+      "design readiness for level2 proof-retention repair",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A bounded actor-update probe can be designed that uses M1115 target-base rejected-history trajectory retention together with M1107 exact objective before any replay or PPO.",
+  "success_criteria": [
+    "M1115 artifacts are cited and load requirements are included",
+    "actor update train scope is restricted",
+    "exact M1107 objective no-regression is a pre-replay gate",
+    "target-base failed-row trajectory-anchor loss no-regression is a pre-replay gate",
+    "short-family rows remain replay diagnostics unless materialized",
+    "old public, source-diverse, family-intersection, and behavior gate order is specified",
+    "no actor training, PPO, replay, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design uses short-family hidden states directly as training anchors",
+    "design admits training before M1115 anchor sanity",
+    "design lacks exact objective or trajectory-anchor no-regression gates",
+    "design weakens replay gates or allows promotion",
+    "actor training, PPO, replay, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_retention_actor_update_design",
+      "command": "write docs/m1116-v4-public-base-failed-wrong-history-retention-actor-update-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1116-v4-public-base-failed-wrong-history-retention-actor-update-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1115_materialized_failed_wrong_history_retention_export/summary.json"
+  ],
+  "decision_rule": "M1116 is design-only. It may specify the next bounded actor-update probe but cannot train actor weights, run PPO, run replay, promote, use private holdout, change actor inputs, weaken gates, or use short-family hidden states as training anchors.",
+  "next_blocker": "m1116-v4-public-base-failed-wrong-history-retention-actor-update-design"
+}

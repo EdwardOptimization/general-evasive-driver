@@ -15954,3 +15954,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: short61049/short61050/short61051 hidden states must not be used directly as training anchors; family-source failed rows remain replay diagnostics until target-policy materialization is designed.
 - decision: `materialized_failed_wrong_history_retention_design_admit_export`
 - next: `m1115-v4-public-base-materialized-failed-wrong-history-retention-export`
+
+## 20260527T205327Z - m1115-v4-public-base-materialized-failed-wrong-history-retention-export
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1115-v4-public-base-materialized-failed-wrong-history-retention-export.md`
+- result: M1115 exports the failed wrong-history retention artifacts. The registry reproduces `47` failed events with `0` normal-lost events and `47` wrong-history-safe events. The split is `19` target-base rows and `28` family-source rows.
+- anchor artifacts: target-base rejected-history trajectory anchor has `707` rows. Combined active-set plus target-base rejected-history anchor has `4664` rows, source namespace `2000000..2000018`, and family weight totals `1.0`, `4.0`, and `4.0`.
+- guardrail: short-family rows are not included in the training anchor; they remain replay diagnostics until target-policy materialization is designed.
+- decision: `materialized_failed_wrong_history_retention_export_pass_route_to_actor_update_design`
+- next: `m1116-v4-public-base-failed-wrong-history-retention-actor-update-design`
