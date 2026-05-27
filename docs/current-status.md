@@ -42,25 +42,24 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt
+runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt
 ```
 
-Status: M1023 promoted Candidate B as the current public-gate base after M1019
-full public replay gates and M1022 promotion/generalization gates passed. This
-is a public-gate base promotion only; PPO, private holdout, paper-level
-generalization, and real-vehicle claims remain blocked.
+Status: M1041 promoted the M1038 combined active-set candidate as the current
+public-gate base after M1040 exact/proof/source-diverse/fresh/OOD/behavior
+tiers passed. This is a public-gate base promotion only; PPO, private holdout,
+paper-level generalization, and real-vehicle claims remain blocked.
 
 Previous public-gate base:
 
 ```text
-runs/m974_exact_repair_from_base_s40_seed5974/candidate_checkpoint.pt
+runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt
 ```
 
-Status: M977 promoted the M974 base-start exact-repaired candidate after M974
-exact/first-replay gates and M976 full public proof/generalization/behavior
-gates passed. M1023 supersedes it with Candidate B. M964 alpha `1.0` remains
-the older public-base lineage point, and M399 alpha `0.05` remains an earlier
-lineage point.
+Status: M1023 promoted Candidate B as the current public-gate base after M1019
+full public replay gates and M1022 promotion/generalization gates passed. M1041
+supersedes it with the combined active-set candidate. M974, M964 alpha `1.0`,
+and M399 alpha `0.05` remain older lineage points.
 
 Latest active diagnostic BC checkpoint:
 
@@ -75,28 +74,25 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit
+m1042-v4-public-base-combined-active-set-post-promotion-synthesis
 ```
 
-M1040 completed the full public proof/generalization/behavior gate for the
-M1038 selected combined active-set candidate. It does not train, run PPO, use
-private holdout, change actor inputs, or promote.
+M1041 promoted the M1038 selected combined active-set candidate as the current
+public-gate base. M1042 must synthesize the post-promotion route before any PPO
+continuation or additional objective update.
 
 ```text
 decision:
-  candidate_b_combined_active_set_full_public_gate_candidate_route_to_promotion_audit
+  candidate_b_combined_active_set_promote_public_gate_base
 ```
 
-M1040 candidate:
+Current public-gate base:
 
 ```text
-source: base_row16x4_s40
-alpha: 0.15
-checkpoint:
-  runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt
+runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt
 ```
 
-Baseline:
+Previous public-gate base:
 
 ```text
 runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt
@@ -134,9 +130,10 @@ moderate-OOD seed: 103920
 behavior seeds: 9505, 9506, 103930, 103931
 ```
 
-M1041 must decide whether this candidate should replace Candidate B as the
-current public-gate base. M1041 is a promotion audit only; it must not run PPO,
-use private holdout, or claim paper-level generalization.
+M1042 is process synthesis only. It must not run PPO, use private holdout, or
+claim paper-level generalization. It should decide whether the next branch is
+guarded PPO readiness, public proof-surface refresh, or additional public
+generalization.
 
 ### Historical Trace
 

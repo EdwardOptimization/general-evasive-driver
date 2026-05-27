@@ -15516,3 +15516,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1040 runs the full public gate for the M1038 selected checkpoint. The candidate passes exact contract checks, M997 temporal retention, M297/M270 exact no-regression, all six public replay surfaces, three source-diverse protected replay diagnostics, fresh public seeds `103900/103901`, moderate-OOD seed `103920`, and behavior seeds `9505/9506/103930/103931`. Actor inputs remain unchanged; only `actor_mean.` and `response_context_fusion.0.` parameters changed. No training, PPO, private holdout, or promotion occurs.
 - decision: `candidate_b_combined_active_set_full_public_gate_candidate_route_to_promotion_audit`
 - next: `m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit`
+
+## 20260527T013321Z - m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit.md`
+- result: M1041 audits M1038 and M1040 evidence and promotes the M1038 selected checkpoint `m1031_base_row16x4_s40_a0_15.pt` as the current public-gate base. The promotion is based on M1040 exact/proof/source-diverse/fresh/OOD/behavior pass, unchanged actor inputs, and limited trainable-surface changes. It remains public-gate scope only: no PPO, private holdout, paper-level, or real-vehicle claim.
+- decision: `candidate_b_combined_active_set_promote_public_gate_base`
+- next: `m1042-v4-public-base-combined-active-set-post-promotion-synthesis`

@@ -1,0 +1,114 @@
+{
+  "id": "m1042-v4-public-base-combined-active-set-post-promotion-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt",
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit.md",
+      "runs/m1040_candidate_b_combined_active_set_full_public_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize the combined active-set promotion branch before PPO or further post-promotion work"
+    ],
+    "derived_from": [
+      "m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit"
+    ],
+    "blocked_by": [
+      "the combined active-set candidate has been promoted as public-gate base and the next post-promotion route is not yet synthesized"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running PPO immediately after promotion without post-promotion readiness synthesis"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1042-v4-public-base-combined-active-set-post-promotion-synthesis.md",
+  "public_gates": [
+    "M1042 must synthesize M1036-M1041",
+    "M1042 must not train",
+    "M1042 must not run PPO",
+    "M1042 must not use private holdout",
+    "M1042 must decide the next post-promotion route"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not claim paper-level generalization",
+    "do not skip post-promotion readiness analysis"
+  ],
+  "workflow_synthesis": {
+    "branch": "candidate_b_combined_active_set_repair",
+    "evidence_axis": "G_promotion: synthesize combined active-set post-promotion route",
+    "evidence_increment": "synthesizes M1036-M1041 and selects the next route from the new public-gate base",
+    "claim_scope": "process synthesis only; no training, no PPO, no private holdout",
+    "stop_condition": [
+      "stop if promotion evidence suggests overfit risk needs fresh surface refresh",
+      "stop if PPO readiness cannot be specified with rollback criteria",
+      "stop before any post-promotion PPO without synthesis"
+    ],
+    "fallback_plan": [
+      "route to guarded PPO readiness design if promotion evidence is stable",
+      "route to post-promotion proof surface refresh if overfit risk dominates",
+      "route to additional public generalization if fresh scenario coverage is insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1041 promotes the combined active-set candidate as the public-gate base",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m1042-v4-public-base-combined-active-set-post-promotion-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "Combined active-set post-promotion work should be synthesized before PPO continuation or additional objective updates.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "supported and falsified claims are explicit",
+    "public gate overfit risk is updated",
+    "next post-promotion route is explicit",
+    "no training or PPO occurs"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "next route is missing",
+    "PPO starts",
+    "private holdout is used",
+    "paper-level generalization is claimed"
+  ],
+  "commands": [
+    {
+      "name": "write_synthesis",
+      "command": "write docs/m1042-v4-public-base-combined-active-set-post-promotion-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1042-v4-public-base-combined-active-set-post-promotion-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit.md"
+  ],
+  "decision_rule": "M1042 must decide whether the next route is guarded PPO readiness, surface refresh, or more public generalization.",
+  "next_blocker": "m1042-v4-public-base-combined-active-set-post-promotion-synthesis"
+}

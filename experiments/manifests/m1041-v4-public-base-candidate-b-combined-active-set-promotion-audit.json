@@ -2,7 +2,7 @@
   "id": "m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit",
   "type": "gate",
   "gate_tier": "promotion",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -104,6 +104,26 @@
     "runs/m1040_candidate_b_combined_active_set_full_public_gate/summary.json",
     "docs/m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit.md",
+    "decision": "candidate_b_combined_active_set_promote_public_gate_base",
+    "promotion_decision": "promote",
+    "new_public_gate_base": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt",
+    "previous_public_gate_base": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "evidence": [
+      "M1038 first-replay candidate pass",
+      "M1040 full public exact/proof/source-diverse/generalization/behavior pass",
+      "actor input contract unchanged",
+      "no training, PPO, private holdout, or paper-level claims"
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "paper_level_claim": false,
+    "next_milestone": "m1042-v4-public-base-combined-active-set-post-promotion-synthesis"
+  },
+  "decision": "candidate_b_combined_active_set_promote_public_gate_base",
   "decision_rule": "M1041 must explicitly promote or reject the M1038 selected checkpoint as the public-gate base; promotion is public-gate status only.",
-  "next_blocker": "m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit"
+  "next_blocker": "m1042-v4-public-base-combined-active-set-post-promotion-synthesis"
 }
