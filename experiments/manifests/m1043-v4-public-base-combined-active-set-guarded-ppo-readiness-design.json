@@ -103,6 +103,21 @@
   "baseline_artifacts": [
     "docs/m1042-v4-public-base-combined-active-set-post-promotion-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design.md",
+    "decision": "combined_active_set_guarded_ppo_readiness_design_admit_m1044_smoke",
+    "ppo_config_to_create": "configs/ppo_m1044_combined_active_set_guarded_smoke.json",
+    "ppo_run_dir": "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044",
+    "gate_run_dir": "runs/m1044_v4_public_base_combined_active_set_guarded_ppo_smoke",
+    "base_checkpoint": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt",
+    "combined_anchor_npz": "runs/m1037_candidate_b_combined_active_set_anchor_export/combined_active_set_anchor_row16x4.npz",
+    "training_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1044-v4-public-base-combined-active-set-guarded-ppo-smoke"
+  },
+  "decision": "combined_active_set_guarded_ppo_readiness_design_admit_m1044_smoke",
   "decision_rule": "M1043 must admit or reject exactly one smoke-scale guarded PPO proposal milestone; no PPO is run in M1043.",
-  "next_blocker": "m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design"
+  "next_blocker": "m1044-v4-public-base-combined-active-set-guarded-ppo-smoke"
 }

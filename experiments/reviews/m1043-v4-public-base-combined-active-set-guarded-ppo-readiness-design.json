@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M1043 designs one guarded PPO smoke proposal from the new public-gate base with exact combined active-set public replay fresh OOD and behavior gates before any promotion",
+  "failure_criteria": [
+    "design artifact is missing",
+    "PPO starts",
+    "actor inputs change",
+    "rollback criteria are ambiguous",
+    "private holdout is used"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not claim PPO readiness without exact and replay rollback criteria",
+    "do not claim paper-level generalization"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T020223Z",
+  "hypothesis": "A guarded PPO readiness protocol can be specified for the new public-gate base using exact full-corpus gates, combined active-set retention, replay rollback, and behavior/generalization non-regression before any PPO run.",
+  "lineage": {
+    "blocked_by": [
+      "new public-gate base has been promoted but PPO readiness protocol is not yet specified"
+    ],
+    "derived_from": [
+      "m1042-v4-public-base-combined-active-set-post-promotion-synthesis"
+    ],
+    "invalidates": [
+      "running PPO directly from the new public-gate base without readiness gates"
+    ],
+    "parent_checkpoint": [
+      "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1042-v4-public-base-combined-active-set-post-promotion-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1042-v4-public-base-combined-active-set-post-promotion-synthesis.md",
+      "runs/m1040_candidate_b_combined_active_set_full_public_gate/summary.json"
+    ],
+    "parent_objective": [
+      "design guarded PPO readiness from the combined active-set public-gate base"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design",
+  "next_blocker": "m1044-v4-public-base-combined-active-set-guarded-ppo-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "combined_active_set_guarded_ppo_readiness_design_admit_m1044_smoke",
+  "public_gates": [
+    "M1043 must design only; no PPO run",
+    "M1043 must preserve P0 actor input contract",
+    "M1043 must require exact M997, M297/M270, and combined active-set checks",
+    "M1043 must require six public replay surfaces before any future promotion",
+    "M1043 must define rollback conditions for row15 and row16 regressions",
+    "M1043 must keep private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design.md",
+    "clearance_margin_mean": "",
+    "decision": "combined_active_set_guarded_ppo_readiness_design_admit_m1044_smoke",
+    "milestone": "m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design",
+    "reason": "M1043 designs one guarded PPO smoke proposal from the new public-gate base with exact combined active-set public replay fresh OOD and behavior gates before any promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "readiness design artifact exists",
+    "base checkpoint is fixed to the M1041 public-gate base",
+    "P0 actor-input contract is explicit",
+    "exact gates and replay gates are ordered",
+    "row15 and row16 rollback criteria are explicit",
+    "future smoke PPO command and stop conditions are specified",
+    "no training or PPO occurs"
+  ],
+  "type": "gate"
+}

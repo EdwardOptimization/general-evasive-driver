@@ -74,16 +74,16 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design
+m1044-v4-public-base-combined-active-set-guarded-ppo-smoke
 ```
 
-M1042 synthesized the combined active-set repair/promotion branch and opened
-the guarded PPO readiness branch from the new public-gate base. M1043 must
-design the next PPO readiness protocol before any PPO proposal is run.
+M1043 designed the guarded PPO readiness protocol from the new public-gate
+base. M1044 may run exactly one 1024-step smoke PPO proposal and then gate it
+without promotion.
 
 ```text
 decision:
-  combined_active_set_post_promotion_synthesis_promote_to_guarded_ppo_readiness
+  combined_active_set_guarded_ppo_readiness_design_admit_m1044_smoke
 ```
 
 Current public-gate base:
@@ -130,10 +130,19 @@ moderate-OOD seed: 103920
 behavior seeds: 9505, 9506, 103930, 103931
 ```
 
-M1043 is design only. It must not run PPO, train, use private holdout, or claim
-paper-level generalization. It should specify exact full-corpus gates,
-combined-active-set rollback criteria, public replay/fresh/OOD/behavior gates,
-and the stop rules for exactly one later smoke-scale PPO proposal.
+M1044 constraints:
+
+```text
+run only one smoke-scale PPO proposal
+total_steps: 1024
+base checkpoint: current public-gate base
+combined anchor: runs/m1037_candidate_b_combined_active_set_anchor_export/combined_active_set_anchor_row16x4.npz
+must preserve P0 actor inputs
+must gate M997, M297/M270, and combined active-set exact checks
+must gate six public replay surfaces and source-diverse diagnostics
+must gate fresh public, moderate-OOD, and behavior seeds
+must not promote or use private holdout
+```
 
 ### Historical Trace
 

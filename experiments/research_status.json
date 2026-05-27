@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1051,
+    "completed": 1052,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1042-v4-public-base-combined-active-set-post-promotion-synthesis",
+    "task_id": "m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1042-v4-public-base-combined-active-set-post-promotion-synthesis.md"
+    "command_log": "docs/m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design.md"
   },
   "next_task": {
-    "id": "m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design",
+    "id": "m1044-v4-public-base-combined-active-set-guarded-ppo-smoke",
     "status": "pending",
-    "priority": 10380,
-    "kind": "gate",
-    "hypothesis": "Design guarded PPO readiness from the combined active-set public-gate base before any PPO proposal",
-    "command": "see experiments/manifests/m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design.json",
-    "success_artifact": "docs/m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design.md",
-    "notes": "Pending: design only; no PPO no training no private holdout"
+    "priority": 10390,
+    "kind": "driver_candidate",
+    "hypothesis": "Run one smoke-scale guarded PPO proposal from the combined active-set public-gate base and gate it without promotion",
+    "command": "see experiments/manifests/m1044-v4-public-base-combined-active-set-guarded-ppo-smoke.json",
+    "success_artifact": "runs/m1044_v4_public_base_combined_active_set_guarded_ppo_smoke/summary.json",
+    "notes": "Pending: one 1024-step PPO proposal only; no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T014326Z"
+  "updated_at_utc": "20260527T015306Z"
 }

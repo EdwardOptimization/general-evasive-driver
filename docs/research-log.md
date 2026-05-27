@@ -15534,3 +15534,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1042 synthesizes M1036-M1041. It records that the combined active-set branch solved the paired M267/M264 row15 wrong-history retention and M183/M170 row16 normal-margin active-set blockers, promoted the M1038 selected checkpoint as a public-gate base, and kept first replay, full public gate, and promotion audit separate. Residual public-gate overfit risk is moderate because the candidate was engineered against known public surfaces, but it is reduced by six replay surfaces, three source-diverse diagnostics, fresh/OOD checks, and behavior/ablation retention.
 - decision: `combined_active_set_post_promotion_synthesis_promote_to_guarded_ppo_readiness`
 - next: `m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design`
+
+## 20260527T015306Z - m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design.md`
+- result: M1043 designs the first post-promotion PPO readiness protocol from the combined active-set public-gate base. It admits exactly one 1024-step smoke PPO proposal using the M1041 base checkpoint, the M1037 `row16x4` combined anchor, M997/M297/M270 exact gates, all six public replay surfaces, source-diverse diagnostics, fresh public/OOD checks, and behavior seeds. It requires row15 wrong-history failure and row16 normal-history success to remain hard rollback checks. M1043 itself runs no PPO, training, private holdout, or promotion.
+- decision: `combined_active_set_guarded_ppo_readiness_design_admit_m1044_smoke`
+- next: `m1044-v4-public-base-combined-active-set-guarded-ppo-smoke`
