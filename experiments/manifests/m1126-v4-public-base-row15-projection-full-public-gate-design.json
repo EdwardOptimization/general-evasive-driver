@@ -1,0 +1,153 @@
+{
+  "id": "m1126-v4-public-base-row15-projection-full-public-gate-design",
+  "type": "gate",
+  "gate_tier": "promotion",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1125-v4-public-base-row15-projection-family-replay.md",
+      "runs/m1123_row15_unsafe_margin_projection_probe/summary.json",
+      "runs/m1125_row15_projection_family_replay/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1125-v4-public-base-row15-projection-family-replay.json"
+    ],
+    "parent_objective": [
+      "design expanded full public gate for alpha_0_15 after family replay pass"
+    ],
+    "derived_from": [
+      "m1125-v4-public-base-row15-projection-family-replay"
+    ],
+    "blocked_by": [
+      "alpha_0_15 has not yet passed expanded full public gate"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "promotion before full public gate",
+      "PPO from alpha_0_15 before full public gate",
+      "private holdout before public promotion decision"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1126-v4-public-base-row15-projection-full-public-gate-design.md",
+  "public_gates": [
+    "M1126 must be design-only",
+    "M1126 must not train actor weights",
+    "M1126 must not run PPO",
+    "M1126 must not run replay or evaluation",
+    "M1126 must not promote",
+    "M1126 must not use private holdout",
+    "M1126 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay or evaluation",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not skip exact proof or behavior gates in the full public design"
+  ],
+  "workflow_synthesis": {
+    "branch": "failed_wrong_history_retention_repair",
+    "evidence_axis": "G_design: expanded full public gate for alpha_0_15",
+    "evidence_increment": "turns row15 first replay plus family replay pass into a pre-registered full public gate design",
+    "claim_scope": "design only; no replay, PPO, promotion, private holdout, or driver capability claim",
+    "stop_condition": [
+      "stop if full gate design omits any proof tier previously required for public-gate candidates",
+      "stop if design would use private holdout",
+      "stop if design would promote without a separate audit"
+    ],
+    "fallback_plan": [
+      "if design is accepted, run full public gate for alpha_0_15",
+      "if required artifacts are missing, route to artifact audit",
+      "if later full gate fails, route to failure audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1125 family replay passes",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design expanded full public gate before any promotion decision",
+    "admission_evidence": [
+      "M1123 row15 projection first replay passes",
+      "M1125 family-intersection replay passes"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay in the design milestone",
+      "do not promote before full public gate and promotion audit"
+    ],
+    "allowed_updates": [
+      "design documentation",
+      "next run manifest if design is accepted",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "full gate tiers are explicit",
+      "pass/fail thresholds are explicit",
+      "promotion remains blocked pending separate audit",
+      "failure route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1126 designs public proof and behavior evaluation and cannot claim anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1126 adds no new temporal evidence; it designs expanded public evaluation for alpha_0_15.",
+    "negative_result_policy": "If the full public gate later fails, classify the failed tier before any repair.",
+    "allowed_claims": [
+      "full public gate design for a level2 proof-retention candidate",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "After passing row15 unsafe-margin first replay and M1061 family replay, alpha_0_15 is ready for a pre-registered expanded full public gate design but not yet promotion.",
+  "success_criteria": [
+    "design artifact exists",
+    "full public gate tiers include exact proof, old-public replay, family-intersection replay, source-diverse diagnostics, fresh/OOD, and behavior gates",
+    "private holdout remains unused",
+    "promotion is deferred to a separate audit",
+    "no actor training, PPO, replay, evaluation, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "full public gate tiers are incomplete",
+    "promotion or private holdout is admitted directly",
+    "actor training, PPO, replay, evaluation, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_row15_projection_full_public_gate_design",
+      "command": "write docs/m1126-v4-public-base-row15-projection-full-public-gate-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1126-v4-public-base-row15-projection-full-public-gate-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1125-v4-public-base-row15-projection-family-replay.md"
+  ],
+  "decision_rule": "M1126 may only design the expanded full public gate for alpha_0_15. It cannot train actor weights, run PPO, run replay or evaluation, promote, use private holdout, change actor inputs, or skip required proof/generalization/behavior tiers.",
+  "next_blocker": "m1126-v4-public-base-row15-projection-full-public-gate-design"
+}

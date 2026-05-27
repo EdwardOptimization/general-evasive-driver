@@ -2,7 +2,7 @@
   "id": "m1125-v4-public-base-row15-projection-family-replay",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "repair",
   "failure_types": [
     "none"
   ],
@@ -156,6 +156,31 @@
   "baseline_artifacts": [
     "docs/m1124-v4-public-base-row15-projection-family-replay-design.md"
   ],
-  "decision_rule": "M1125 may only run M1061 family-intersection replay for alpha_0_15. It cannot train actor weights, run PPO, run full public gate, run fresh/OOD or behavior gates, promote, use private holdout, change actor inputs, or weaken thresholds.",
-  "next_blocker": "m1125-v4-public-base-row15-projection-family-replay"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1125-v4-public-base-row15-projection-family-replay.md",
+    "summary": "runs/m1125_row15_projection_family_replay/summary.json",
+    "decision": "row15_projection_family_replay_pass_route_to_full_public_gate_design",
+    "result_class": "family_intersection_public_gate_pass",
+    "failure_types": [
+      "none"
+    ],
+    "overall_pass": true,
+    "replay_gate_count": 3,
+    "replay_gates_passed": 3,
+    "failed_replay_gates": [],
+    "actor_inputs_changed": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "full_public_gate_started": false,
+    "fresh_ood_started": false,
+    "behavior_gate_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "admitted_next": "full_public_gate_design_only",
+    "next_milestone": "m1126-v4-public-base-row15-projection-full-public-gate-design"
+  },
+  "decision": "row15_projection_family_replay_pass_route_to_full_public_gate_design",
+  "decision_rule": "M1125 may only run M1061 family-intersection replay for alpha_0_15. It cannot train actor weights, run PPO, run full public gate, run fresh/OOD or behavior gates, promote, use private holdout, change actor inputs, or weaken thresholds. Because the family gate passes, the next step is expanded full public gate design only.",
+  "next_blocker": "m1126-v4-public-base-row15-projection-full-public-gate-design"
 }

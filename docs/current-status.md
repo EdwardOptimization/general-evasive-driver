@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1125-v4-public-base-row15-projection-family-replay
+m1126-v4-public-base-row15-projection-full-public-gate-design
 ```
 
 M1115 completed the failed wrong-history retention export. It reproduced the
@@ -129,7 +129,11 @@ M1124 completed that design using the existing
 short61050, and short61051 source corpora/checkpoints under unchanged
 thresholds. M1125 should run only that family-intersection replay for
 `alpha_0_15`; full public gate, fresh/OOD, behavior gates, PPO, promotion, and
-private holdout remain blocked.
+private holdout remain blocked. M1125 completed that replay and passed:
+`family_intersection_public_gate_pass`, `3/3` replay gates passed, all
+success drops retained (`25/25`, `27/27`, `27/27`), and actor inputs unchanged.
+The candidate is still not promotable. M1126 should design the expanded full
+public gate for `alpha_0_15` before any promotion, PPO, or private holdout.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

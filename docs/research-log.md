@@ -16063,3 +16063,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, replay, full public gate, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_projection_family_replay_design_admit_m1125`
 - next: `m1125-v4-public-base-row15-projection-family-replay`
+
+## 20260527T214129Z - m1125-v4-public-base-row15-projection-family-replay
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1125-v4-public-base-row15-projection-family-replay.md`
+- result: M1125 runs the M1061 family-intersection public gate for alpha `0.15`. The gate passes with `replay_gate_count=3`, `replay_gates_passed=3`, `overall_pass=true`, and `actor_inputs_changed=false`.
+- replay details: short61049 retains `25/25` success drops, short61050 retains `27/27`, and short61051 retains `27/27`. Normal success delta is `0.0` on every source-to-candidate replay.
+- guardrail: no actor training, PPO, full public gate, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_projection_family_replay_pass_route_to_full_public_gate_design`
+- next: `m1126-v4-public-base-row15-projection-full-public-gate-design`
