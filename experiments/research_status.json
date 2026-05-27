@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1125,
+    "completed": 1126,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1116-v4-public-base-failed-wrong-history-retention-actor-update-design",
+    "task_id": "m1117-v4-public-base-materialized-objective-branch-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1116-v4-public-base-failed-wrong-history-retention-actor-update-design.md"
+    "command_log": "docs/m1117-v4-public-base-materialized-objective-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m1117-v4-public-base-materialized-objective-branch-synthesis",
+    "id": "m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe",
     "status": "pending",
-    "priority": 11120,
-    "kind": "gate",
-    "hypothesis": "Synthesize M1107-M1116 before opening failed wrong-history retention repair",
-    "command": "see experiments/manifests/m1117-v4-public-base-materialized-objective-branch-synthesis.json",
-    "success_artifact": "docs/m1117-v4-public-base-materialized-objective-branch-synthesis.md",
-    "notes": "Pending: process synthesis only; no actor training no PPO no replay no objective optimization no promotion no private holdout"
+    "priority": 11130,
+    "kind": "driver_candidate",
+    "hypothesis": "A lower-lr actor-coupling update with M1115 trajectory retention can preserve exact objective movement before replay",
+    "command": "see experiments/manifests/m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe.json",
+    "success_artifact": "docs/m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe.md",
+    "notes": "Pending: run exactly three actor_coupling seeds; no PPO no replay no promotion no private holdout no short-family hidden-state training anchors"
   },
-  "updated_at_utc": "20260527T210038Z"
+  "updated_at_utc": "20260527T210352Z"
 }

@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1117-v4-public-base-materialized-objective-branch-synthesis
+m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe
 ```
 
 M1115 completed the failed wrong-history retention export. It reproduced the
@@ -90,8 +90,11 @@ Short-family hidden states were not included in the training anchor. M1116 then
 designed a bounded actor-coupling probe that combines the M1107 exact objective
 with M1115 combined trajectory retention and a target-base-only trajectory gate.
 Because the `materialized_objective_corpus_sanity` branch reached its
-10-milestone cadence after M1116, M1117 must synthesize M1107-M1116 before any
-optimizer, replay, PPO, promotion, or private holdout.
+10-milestone cadence after M1116, M1117 synthesized M1107-M1116 and opened the
+new `failed_wrong_history_retention_repair` branch. M1118 is the next executable
+step: run exactly three lower-lr `actor_coupling` seeds with M1107 exact
+objective and M1115 trajectory retention. M1118 must not run replay, PPO,
+promotion, or private holdout.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

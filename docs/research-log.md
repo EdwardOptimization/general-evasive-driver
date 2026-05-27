@@ -15976,3 +15976,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - process constraint: the `materialized_objective_corpus_sanity` branch reaches its 10-milestone cadence after M1116, so the next step is synthesis before any implementation run.
 - decision: `failed_wrong_history_retention_actor_update_design_route_to_branch_synthesis`
 - next: `m1117-v4-public-base-materialized-objective-branch-synthesis`
+
+## 20260527T210352Z - m1117-v4-public-base-materialized-objective-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1117-v4-public-base-materialized-objective-branch-synthesis.md`
+- result: M1117 synthesizes M1107-M1116. The branch supports objective/corpus validity, exact-objective actor-coupling movement, the M1112 proof-washout diagnosis, and the M1115 target-base rejected-history anchor. It does not support driver improvement, PPO readiness, promotion, private-holdout generalization, or level3 self-ID claims.
+- failure taxonomy: M1112 is classified as `proof_washout` plus `objective_overfit`, not behavior regression, contract violation, training instability, or holdout contamination.
+- decision: close `materialized_objective_corpus_sanity` and open `failed_wrong_history_retention_repair`.
+- next: `m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe`

@@ -172,6 +172,34 @@
     "docs/m1116-v4-public-base-failed-wrong-history-retention-actor-update-design.md",
     "runs/m1115_materialized_failed_wrong_history_retention_export/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1117-v4-public-base-materialized-objective-branch-synthesis.md",
+    "decision": "materialized_objective_branch_synthesis_open_failed_wrong_history_retention_repair",
+    "result_class": "branch_synthesis_promote_to_next_branch",
+    "failure_types": [
+      "none"
+    ],
+    "closed_branch": "materialized_objective_corpus_sanity",
+    "opened_branch": "failed_wrong_history_retention_repair",
+    "m1107_objective_rows": 68,
+    "m1112_lost_success_drop_events": 47,
+    "m1115_target_base_failed_events": 19,
+    "m1115_family_source_failed_events": 28,
+    "m1115_target_anchor_rows": 707,
+    "m1115_combined_anchor_rows": 4664,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe"
+  },
+  "decision": "materialized_objective_branch_synthesis_open_failed_wrong_history_retention_repair",
   "decision_rule": "M1117 may only synthesize the materialized_objective_corpus_sanity branch. It cannot train actor weights, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1117-v4-public-base-materialized-objective-branch-synthesis"
+  "next_blocker": "m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe"
 }
