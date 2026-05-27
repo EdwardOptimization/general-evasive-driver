@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1111-v4-public-base-materialized-actor-update-full-public-gate-design
+m1112-v4-public-base-materialized-actor-update-full-public-gate
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -302,11 +302,15 @@ best `m1110_110901=0.674349`), keep action/snippet anchor MSE below `0.0001`,
 and change only `actor_mean.` plus `response_context_fusion.0.` tensors with
 `log_std` unchanged. This admits full public gate design only; no replay, PPO,
 promotion, or private holdout has run. The next step is M1111: design the full
-public gate for primary candidate `m1110_110901`.
+public gate for primary candidate `m1110_110901`. M1111 completes that design
+and requires an exact M1107 recheck plus the expanded full public gate wrapper
+before any closed-loop claim. Candidate switching after failure is blocked. The
+next step is M1112: run that exact recheck and full public gate for
+`m1110_110901` only.
 
 ```text
 decision:
-  materialized_guarded_actor_update_exact_candidate_route_to_full_public_gate_design
+  materialized_actor_update_full_public_gate_design_admit_run
 ```
 
 M1068 design:

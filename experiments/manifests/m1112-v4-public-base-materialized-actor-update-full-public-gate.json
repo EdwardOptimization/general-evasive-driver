@@ -1,0 +1,179 @@
+{
+  "id": "m1112-v4-public-base-materialized-actor-update-full-public-gate",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/m1110_materialized_actor_coupling_anchor100_s10_lr5e5_seed110901/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1111-v4-public-base-materialized-actor-update-full-public-gate-design.md",
+      "runs/m1107_materialized_objective_corpus/boundary_outcome_corpus.npz",
+      "runs/m1110_materialized_actor_update_exact_eval/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1111-v4-public-base-materialized-actor-update-full-public-gate-design.json"
+    ],
+    "parent_objective": [
+      "run exact M1107 recheck and expanded full public gate for the M1110 primary candidate"
+    ],
+    "derived_from": [
+      "m1111-v4-public-base-materialized-actor-update-full-public-gate-design"
+    ],
+    "blocked_by": [
+      "M1111 design required before replay/full public gate"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "promotion before full public gate",
+      "PPO continuation before full public gate",
+      "candidate switching after failed gate without audit"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1112-v4-public-base-materialized-actor-update-full-public-gate.md",
+  "public_gates": [
+    "M1112 must not train actor weights",
+    "M1112 must not run PPO",
+    "M1112 must not promote",
+    "M1112 must not use private holdout",
+    "M1112 must preserve actor inputs",
+    "M1112 must rerun exact M1107 objective for selected candidate",
+    "M1112 must run expanded full public gate for selected candidate",
+    "M1112 must not switch candidate after failure"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not skip exact M1107 check",
+    "do not skip old public replay or family-intersection gates",
+    "do not switch candidate after seeing gate outcome"
+  ],
+  "workflow_synthesis": {
+    "branch": "materialized_objective_corpus_sanity",
+    "evidence_axis": "G_gate: materialized actor update full public gate",
+    "evidence_increment": "tests whether the M1110 exact/contract candidate survives expanded public proof/generalization/behavior gates",
+    "claim_scope": "full public-gate diagnostic only; no promotion, private holdout, PPO, or driver capability claim",
+    "stop_condition": [
+      "stop if exact M1107 recheck fails",
+      "stop if actor-input or allowed-surface contract fails",
+      "stop if any proof/generalization/behavior gate fails"
+    ],
+    "fallback_plan": [
+      "if exact M1107 fails, audit candidate materialization and exact evaluator",
+      "if proof replay fails, audit failed rows before any new update",
+      "if generalization or behavior fails, route to regression audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1111 admits full public gate run",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "evaluate the action-grounding posttrain candidate without additional training",
+    "admission_evidence": [
+      "M1110 exact and parameter-scope gates pass",
+      "M1111 pre-registers gate order and primary candidate"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run PPO",
+      "do not promote from gate run"
+    ],
+    "allowed_updates": [
+      "exact M1107 evaluation artifacts",
+      "expanded full public gate artifacts",
+      "milestone documentation",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "result class is explicit",
+      "failing tier is explicit if any",
+      "next audit or synthesis route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1112 evaluates replay-calibrated wrong-history proof and behavior but still cannot upgrade to level3 anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1112 runs replay and behavior gates already present in the public harness; it adds no new anticipatory temporal task.",
+    "negative_result_policy": "If any gate fails, classify the failing tier and route to audit rather than PPO or promotion.",
+    "allowed_claims": [
+      "full public-gate diagnostic for a level2 exact/contract candidate",
+      "no level3 anticipatory self-identification claim",
+      "no promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The M1110 primary candidate can retain exact, proof, source-diverse, fresh/OOD, and behavior gates without PPO or private holdout.",
+  "success_criteria": [
+    "exact M1107 recheck completes",
+    "expanded full public gate completes",
+    "summary artifacts exist",
+    "actor inputs are unchanged",
+    "allowed changed-parameter surface passes",
+    "exact gate passes",
+    "old public replay gates pass",
+    "M1061 family-intersection gate passes",
+    "source-diverse gate passes",
+    "fresh/OOD gates pass",
+    "behavior gates pass",
+    "no training, PPO, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "exact M1107 recheck fails",
+    "expanded full public gate crashes",
+    "summary artifact is missing",
+    "actor inputs change",
+    "allowed changed-parameter surface fails",
+    "any exact/proof/family/source/generalization/behavior gate fails",
+    "training, PPO, promotion, or private holdout occurs"
+  ],
+  "commands": [
+    {
+      "name": "run_m1107_exact_recheck",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_eval --snippet-npz runs/m1107_materialized_objective_corpus/boundary_outcome_corpus.npz --checkpoint-policy proof_current=runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --checkpoint-policy m1110_110901=runs/m1110_materialized_actor_coupling_anchor100_s10_lr5e5_seed110901/optimized_checkpoint.pt --device cpu --exact --baseline-policy proof_current --logprob-margin 0.05 --run-dir runs/m1112_materialized_actor_update_m1107_exact_eval"
+    },
+    {
+      "name": "run_full_public_gate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.candidate_b_combined_active_set_full_public_gate --base-checkpoint runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --candidate-checkpoint runs/m1110_materialized_actor_coupling_anchor100_s10_lr5e5_seed110901/optimized_checkpoint.pt --run-dir runs/m1112_materialized_actor_update_full_public_gate --device auto"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1112_materialized_actor_update_m1107_exact_eval/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1112_materialized_actor_update_full_public_gate/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1112-v4-public-base-materialized-actor-update-full-public-gate.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1111-v4-public-base-materialized-actor-update-full-public-gate-design.md",
+    "runs/m1110_materialized_actor_update_exact_eval/summary.json"
+  ],
+  "decision_rule": "M1112 may only run exact M1107 recheck and expanded full public gate for the pre-selected M1110 candidate. It cannot train actor weights, run PPO, promote, use private holdout, or switch candidates after gate failure.",
+  "next_blocker": "m1112-v4-public-base-materialized-actor-update-full-public-gate"
+}

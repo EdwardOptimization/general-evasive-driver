@@ -15913,3 +15913,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - parameter audit: each candidate changes only `response_context_fusion.0.weight`, `response_context_fusion.0.bias`, `actor_mean.weight`, and `actor_mean.bias`; `log_std` is unchanged and no disallowed tensors changed.
 - decision: `materialized_guarded_actor_update_exact_candidate_route_to_full_public_gate_design`
 - next: `m1111-v4-public-base-materialized-actor-update-full-public-gate-design`
+
+## 20260527T202353Z - m1111-v4-public-base-materialized-actor-update-full-public-gate-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1111-v4-public-base-materialized-actor-update-full-public-gate-design.md`
+- result: M1111 selects `m1110_110901` as the primary candidate because it has the lowest exact M1107 loss among M1110 candidates. The design requires an exact M1107 recheck and the expanded full public gate wrapper before any closed-loop claim.
+- guardrails: M1112 must not train, run PPO, promote, use private holdout, change actor inputs, skip old public/family/source/fresh/behavior gates, or switch to a different candidate after seeing a failure.
+- decision: `materialized_actor_update_full_public_gate_design_admit_run`
+- next: `m1112-v4-public-base-materialized-actor-update-full-public-gate`

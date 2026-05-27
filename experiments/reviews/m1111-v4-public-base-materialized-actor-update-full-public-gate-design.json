@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M1111 selects m1110_110901 as primary exact-pass candidate and designs M1107 exact recheck plus expanded full public gate before any PPO promotion or candidate switching",
+  "failure_criteria": [
+    "design artifact is missing",
+    "primary candidate is ambiguous",
+    "gate command is ambiguous",
+    "proof or behavior tiers are omitted",
+    "actor training, PPO, replay, corpus build, mining, promotion, or private holdout starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not build corpus",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not skip old public replay or family-intersection gates"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T202854Z",
+  "hypothesis": "The M1110 primary exact/contract candidate should be evaluated by the existing expanded full public gate stack before any replay-based claim, PPO, or promotion.",
+  "lineage": {
+    "blocked_by": [
+      "M1110 admits full public gate design only; no replay has run"
+    ],
+    "derived_from": [
+      "m1110-v4-public-base-materialized-guarded-actor-update-probe"
+    ],
+    "invalidates": [
+      "promotion from exact objective improvement",
+      "PPO continuation before full public gate",
+      "replay without pre-registered gate order"
+    ],
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/m1110_materialized_actor_coupling_anchor100_s10_lr5e5_seed110901/optimized_checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1110-v4-public-base-materialized-guarded-actor-update-probe.json"
+    ],
+    "parent_dataset": [
+      "docs/m1110-v4-public-base-materialized-guarded-actor-update-probe.md",
+      "runs/m1110_materialized_actor_update_exact_eval/summary.json",
+      "runs/m1107_materialized_objective_corpus/boundary_outcome_corpus.npz"
+    ],
+    "parent_objective": [
+      "design a full public proof/generalization/behavior gate for the exact-pass materialized actor-update candidate"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1111-v4-public-base-materialized-actor-update-full-public-gate-design",
+  "next_blocker": "m1112-v4-public-base-materialized-actor-update-full-public-gate",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "materialized_actor_update_full_public_gate_design_admit_run",
+  "public_gates": [
+    "M1111 must design only",
+    "M1111 must not train actor weights",
+    "M1111 must not run PPO",
+    "M1111 must not run replay",
+    "M1111 must not build corpus or mine rows",
+    "M1111 must not promote",
+    "M1111 must not use private holdout",
+    "M1111 must preserve actor inputs",
+    "M1111 must require exact, old public replay, family-intersection, source-diverse, fresh/OOD, and behavior gates for M1112"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1111-v4-public-base-materialized-actor-update-full-public-gate-design.md",
+    "clearance_margin_mean": "",
+    "decision": "materialized_actor_update_full_public_gate_design_admit_run",
+    "milestone": "m1111-v4-public-base-materialized-actor-update-full-public-gate-design",
+    "reason": "M1111 selects m1110_110901 as primary exact-pass candidate and designs M1107 exact recheck plus expanded full public gate before any PPO promotion or candidate switching",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design artifact exists",
+    "primary candidate checkpoint is explicit",
+    "full public gate command is explicit",
+    "exact, replay, family-intersection, source-diverse, fresh/OOD, and behavior pass criteria are explicit",
+    "no actor training, PPO, replay, corpus build, mining, promotion, or private holdout occurs"
+  ],
+  "type": "gate"
+}
