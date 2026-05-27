@@ -1,0 +1,132 @@
+{
+  "id": "m1058-v4-public-base-post-short-promotion-compact-corpus-conversion",
+  "type": "objective_sanity",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1056_margin_bucket_width_0005/accepted_wrong_history_rows.csv",
+      "docs/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.json"
+    ],
+    "parent_objective": [
+      "convert refreshed current-base surface into compact objective/replay corpora"
+    ],
+    "derived_from": [
+      "m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design"
+    ],
+    "blocked_by": [
+      "M1056 admits conversion after diagnosing M1055 margin-bucket failure as coarse bucket artifact"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "using refreshed surface for PPO before compact corpus objective and replay sanity"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1058-v4-public-base-post-short-promotion-compact-corpus-conversion.md",
+  "public_gates": [
+    "M1058 must not train actor or run PPO",
+    "M1058 must build compact source-capped corpora for all three short-PPO family checkpoints",
+    "M1058 must run objective sanity for all three corpora",
+    "M1058 must run cross-family replay sanity",
+    "M1058 must not promote a checkpoint",
+    "M1058 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train actor",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not skip replay sanity"
+  ],
+  "workflow_synthesis": {
+    "branch": "post_short_promotion_surface_refresh",
+    "evidence_axis": "G_surface: compact corpus objective/replay conversion",
+    "evidence_increment": "converts M1055/M1056 refreshed surface into compact objective and replay corpora",
+    "claim_scope": "proof corpus conversion only; no actor update, no PPO, no promotion",
+    "stop_condition": [
+      "stop if compact corpus is too small",
+      "stop if objective sanity fails",
+      "stop if replay sanity fails",
+      "stop if actor input contract changes"
+    ],
+    "fallback_plan": [
+      "if pass, route to gate integration or post-conversion synthesis",
+      "if corpus sparse, route to retargeted surface mining",
+      "if replay fails, route to conversion failure audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1057 admits compact corpus conversion",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The refreshed post-short-promotion surface can be converted into compact source-capped corpora whose objective and replay sanity pass for the short-PPO family.",
+  "success_criteria": [
+    "three objective summaries exist",
+    "three replay sanity summaries exist",
+    "all compact corpora have >= 20 rows",
+    "all compact corpora have >= 10 physical pairs",
+    "all compact corpora have >= 2 targets",
+    "all objective sanity gates pass",
+    "all replay sanity gates pass",
+    "no actor training PPO promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "compact corpus is too small",
+    "objective sanity fails",
+    "replay sanity fails",
+    "actor training or PPO starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "short61049_objective",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_corpus_objective --checkpoint-policy short61049=runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --boundary-rows-csv runs/m1056_margin_bucket_width_0005/accepted_wrong_history_rows.csv --delay-steps 10 --device cpu --max-rows-per-physical-pair 2 --optimization-seeds 10570,10571,10572 --steps 180 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-dim 96 --run-dir runs/m1058_short61049_boundary_outcome_corpus_seed10570"
+    },
+    {
+      "name": "short61050_objective",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_corpus_objective --checkpoint-policy short61050=runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --boundary-rows-csv runs/m1056_margin_bucket_width_0005/accepted_wrong_history_rows.csv --delay-steps 10 --device cpu --max-rows-per-physical-pair 2 --optimization-seeds 10570,10571,10572 --steps 180 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-dim 96 --run-dir runs/m1058_short61050_boundary_outcome_corpus_seed10570"
+    },
+    {
+      "name": "short61051_objective",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_outcome_corpus_objective --checkpoint-policy short61051=runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --boundary-rows-csv runs/m1056_margin_bucket_width_0005/accepted_wrong_history_rows.csv --delay-steps 10 --device cpu --max-rows-per-physical-pair 2 --optimization-seeds 10570,10571,10572 --steps 180 --batch-size 64 --learning-rate 0.0003 --weight-decay 0.001 --hidden-dim 96 --run-dir runs/m1058_short61051_boundary_outcome_corpus_seed10570"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1058-v4-public-base-post-short-promotion-compact-corpus-conversion.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m1058_short61049_boundary_outcome_corpus_seed10570/objective_summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1058_short61050_boundary_outcome_corpus_seed10570/objective_summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1058_short61051_boundary_outcome_corpus_seed10570/objective_summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.md"
+  ],
+  "decision_rule": "M1058 may only convert and sanity-check the refreshed proof surface. Passing routes to gate integration or synthesis; failing routes to conversion audit.",
+  "next_blocker": "m1058-v4-public-base-post-short-promotion-compact-corpus-conversion"
+}

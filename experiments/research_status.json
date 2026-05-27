@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1065,
+    "completed": 1066,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1056-v4-public-base-post-short-promotion-margin-bucket-audit",
+    "task_id": "m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.md"
+    "command_log": "docs/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.md"
   },
   "next_task": {
-    "id": "m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design",
+    "id": "m1058-v4-public-base-post-short-promotion-compact-corpus-conversion",
     "status": "pending",
-    "priority": 10520,
-    "kind": "gate",
-    "hypothesis": "Design compact objective/replay corpus conversion for the refreshed post-short-promotion surface",
-    "command": "see experiments/manifests/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.json",
-    "success_artifact": "docs/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.md",
-    "notes": "Pending: design only; no PPO no private holdout"
+    "priority": 10530,
+    "kind": "objective_sanity",
+    "hypothesis": "Convert the refreshed post-short-promotion surface into compact objective/replay corpora",
+    "command": "see experiments/manifests/m1058-v4-public-base-post-short-promotion-compact-corpus-conversion.json",
+    "success_artifact": "docs/m1058-v4-public-base-post-short-promotion-compact-corpus-conversion.md",
+    "notes": "Pending: objective/replay sanity only; no PPO no private holdout"
   },
-  "updated_at_utc": "20260527T043322Z"
+  "updated_at_utc": "20260527T044048Z"
 }

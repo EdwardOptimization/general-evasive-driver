@@ -15664,3 +15664,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1056 audits the M1055 margin-bucket failure without new mining, training, PPO, private holdout, or promotion. The original `0.01m` bucket width fails with `1` bucket, but `0.005m` passes with `2` buckets and `0.0025m` passes with `4` buckets while all other source-diversity gates remain unchanged. Accepted rows span `0.000478m` to `0.009983m`, with rows distributed across sub-bands. M1056 classifies M1055 as a coarse bucket artifact rather than true surface sparsity.
 - decision: `post_short_promotion_margin_bucket_audit_route_to_compact_corpus_conversion_design`
 - next: `m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design`
+
+## 20260527T044048Z - m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.md`
+- result: M1057 designs compact objective/replay corpus conversion for the refreshed post-short-promotion surface. It uses `runs/m1056_margin_bucket_width_0005/accepted_wrong_history_rows.csv`, converts separate compact corpora for short-PPO family checkpoints `61049/61050/61051`, caps rows at two per physical pair, requires at least `20` rows, `10` physical pairs, and `2` targets, and requires objective sanity plus cross-family replay sanity before any future PPO. No conversion, training, PPO, promotion, private holdout, or actor-input change occurs in M1057.
+- decision: `post_short_promotion_compact_corpus_conversion_design_admit_m1058_conversion`
+- next: `m1058-v4-public-base-post-short-promotion-compact-corpus-conversion`

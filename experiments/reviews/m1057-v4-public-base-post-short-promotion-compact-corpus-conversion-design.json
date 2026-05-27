@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M1057 designs compact objective/replay corpus conversion for the refreshed post-short-promotion surface before any PPO",
+  "failure_criteria": [
+    "design artifact is missing",
+    "compact corpus caps are ambiguous",
+    "objective or replay sanity is missing",
+    "PPO starts",
+    "private holdout is used"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not skip replay sanity"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T044426Z",
+  "hypothesis": "The M1055 accepted rows can be converted into compact source-capped objective/replay corpora for the short-PPO current family before any further PPO.",
+  "lineage": {
+    "blocked_by": [
+      "M1056 confirms M1055 surface is robust under 0.005m diagnostic bucket width and should be converted before medium PPO"
+    ],
+    "derived_from": [
+      "m1056-v4-public-base-post-short-promotion-margin-bucket-audit"
+    ],
+    "invalidates": [
+      "using the refreshed surface in PPO before compact corpus conversion and replay sanity"
+    ],
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m1055_post_short_promotion_boundary_robustness_seed105400/accepted_wrong_history_rows.csv",
+      "runs/m1056_margin_bucket_audit/summary.json",
+      "docs/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.md"
+    ],
+    "parent_objective": [
+      "design compact replay/objective corpus conversion for the refreshed post-short-promotion surface"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design",
+  "next_blocker": "m1058-v4-public-base-post-short-promotion-compact-corpus-conversion",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "post_short_promotion_compact_corpus_conversion_design_admit_m1058_conversion",
+  "public_gates": [
+    "M1057 must design only",
+    "M1057 must not train or run PPO",
+    "M1057 must not promote",
+    "M1057 must preserve actor inputs",
+    "M1057 must specify compact corpus selection from M1055 accepted rows",
+    "M1057 must specify objective sanity and replay sanity before any further PPO"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.md",
+    "clearance_margin_mean": "",
+    "decision": "post_short_promotion_compact_corpus_conversion_design_admit_m1058_conversion",
+    "milestone": "m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design",
+    "reason": "M1057 designs compact objective/replay corpus conversion for the refreshed post-short-promotion surface before any PPO",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "conversion design artifact exists",
+    "source row path is explicit",
+    "compact corpus caps are explicit",
+    "objective sanity commands are explicit",
+    "replay sanity commands are explicit",
+    "no training or PPO occurs"
+  ],
+  "type": "gate"
+}

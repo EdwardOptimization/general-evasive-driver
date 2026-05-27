@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design
+m1058-v4-public-base-post-short-promotion-compact-corpus-conversion
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -92,11 +92,13 @@ wrong-history boundary surface. M1055 did not pass robustness because all
 accepted normal margins fell into one `0.01m` bucket. M1056 should audit whether
 that is a coarse bucket-edge artifact or true margin-diversity sparsity. M1056
 found that `0.005m` and `0.0025m` diagnostic bucket widths both pass, so the
-next step is compact objective/replay corpus conversion design.
+next step is compact objective/replay corpus conversion. M1057 designed that
+conversion using the M1056 `0.005m` accepted rows and cross-family replay
+sanity.
 
 ```text
 decision:
-  post_short_promotion_margin_bucket_audit_route_to_compact_corpus_conversion_design
+  post_short_promotion_compact_corpus_conversion_design_admit_m1058_conversion
 ```
 
 M1055 result:

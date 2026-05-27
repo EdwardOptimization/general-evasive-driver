@@ -105,6 +105,31 @@
   "baseline_artifacts": [
     "docs/m1056-v4-public-base-post-short-promotion-margin-bucket-audit.md"
   ],
-  "decision_rule": "M1057 must design compact corpus conversion and cannot train, run PPO, promote, or use private holdout.",
-  "next_blocker": "m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1057-v4-public-base-post-short-promotion-compact-corpus-conversion-design.md",
+    "decision": "post_short_promotion_compact_corpus_conversion_design_admit_m1058_conversion",
+    "result_class": "post_short_promotion_compact_corpus_conversion_design",
+    "failure_types": [
+      "none"
+    ],
+    "source_rows": "runs/m1056_margin_bucket_width_0005/accepted_wrong_history_rows.csv",
+    "family_checkpoints": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "max_rows_per_physical_pair": 2,
+    "min_compact_rows": 20,
+    "min_physical_pairs": 10,
+    "min_targets": 2,
+    "training_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "promoted": false,
+    "next_milestone": "m1058-v4-public-base-post-short-promotion-compact-corpus-conversion"
+  },
+  "decision": "post_short_promotion_compact_corpus_conversion_design_admit_m1058_conversion",
+  "decision_rule": "M1057 designs compact objective/replay conversion for the M1056 accepted rows and admits M1058 implementation; it cannot train, run PPO, promote, or use private holdout.",
+  "next_blocker": "m1058-v4-public-base-post-short-promotion-compact-corpus-conversion"
 }
