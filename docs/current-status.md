@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1155-v4-public-base-row15-promoted-projection-family-behavior-design
+m1156-v4-public-base-row15-promoted-projection-family-behavior-run
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -420,9 +420,20 @@ very close to zero on the promoted materialized surface, and the checkpoint has
 not passed M1061 family-intersection replay, behavior diagnostics, full public
 gate, private holdout, or PPO stability.
 
-The next milestone is M1155, design-only: specify family-intersection replay
-and behavior diagnostics for `alpha_0_05` before any replay run, PPO, or
-promotion.
+M1155 designed the next diagnostic run for `alpha_0_05`:
+
+```text
+1. M1144 exact recheck against row15_current.
+2. Expanded public diagnostic wrapper if exact remains improved.
+```
+
+The wrapper includes allowed-surface contract, M297/M270 exact, old-public
+proof replay, M1061 family-intersection replay, source-diverse diagnostics,
+fresh/OOD eval, and behavior seeds `9505`, `9506`, `103930`, and `103931`.
+
+The next milestone is M1156: run only those diagnostics. It must not train, run
+PPO, mine rows, promote, use private holdout, or change actor inputs. A pass is
+not promotion; it only admits a later synthesis or promotion-audit design.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

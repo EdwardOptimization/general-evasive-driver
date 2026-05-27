@@ -16453,3 +16453,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, mining, M1061 family replay, full public gate, fresh/OOD, behavior eval, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_unsafe_margin_projection_first_replay_candidate_route_to_family_behavior_design`
 - next: `m1155-v4-public-base-row15-promoted-projection-family-behavior-design`
+
+## 20260528T034300Z - m1155-v4-public-base-row15-promoted-projection-family-behavior-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1155-v4-public-base-row15-promoted-projection-family-behavior-design.md`
+- result: M1155 designs the next public diagnostics for `alpha_0_05`.
+- candidate checkpoint: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`.
+- diagnostic stack: M1144 exact recheck first; then the expanded public diagnostic wrapper if exact remains improved.
+- expanded wrapper scope: allowed-surface contract, M297/M270 exact, old-public proof replay, M1061 family-intersection replay, source-diverse diagnostics, fresh/OOD eval, and behavior seeds `9505`, `9506`, `103930`, `103931`.
+- guardrail: no replay, behavior eval, actor training, PPO, mining, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_projection_family_behavior_design_admit_diagnostic_run`
+- next: `m1156-v4-public-base-row15-promoted-projection-family-behavior-run`

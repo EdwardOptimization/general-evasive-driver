@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1163,
+    "completed": 1164,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run",
+    "task_id": "m1155-v4-public-base-row15-promoted-projection-family-behavior-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run.md",
-    "result_class": "row15_promoted_unsafe_margin_projection_first_replay_candidate",
-    "decision": "row15_promoted_unsafe_margin_projection_first_replay_candidate_route_to_family_behavior_design"
+    "command_log": "docs/m1155-v4-public-base-row15-promoted-projection-family-behavior-design.md",
+    "result_class": "family_behavior_diagnostic_design_complete",
+    "decision": "row15_promoted_projection_family_behavior_design_admit_diagnostic_run"
   },
   "next_task": {
-    "id": "m1155-v4-public-base-row15-promoted-projection-family-behavior-design",
+    "id": "m1156-v4-public-base-row15-promoted-projection-family-behavior-run",
     "status": "pending",
-    "priority": 11500,
+    "priority": 11510,
     "kind": "gate",
-    "hypothesis": "The M1154 alpha_0_05 first-replay candidate should next be tested on family-intersection replay and behavior diagnostics before any promotion PPO or private holdout",
-    "command": "see experiments/manifests/m1155-v4-public-base-row15-promoted-projection-family-behavior-design.json",
-    "success_artifact": "docs/m1155-v4-public-base-row15-promoted-projection-family-behavior-design.md",
-    "notes": "Pending: design family/behavior diagnostics only; no actor training PPO replay behavior eval mining promotion private holdout or actor-input change"
+    "hypothesis": "The M1154 alpha_0_05 candidate preserves M1144 exact objective and passes expanded public proof family generalization and behavior diagnostics",
+    "command": "see experiments/manifests/m1156-v4-public-base-row15-promoted-projection-family-behavior-run.json",
+    "success_artifact": "docs/m1156-v4-public-base-row15-promoted-projection-family-behavior-run.md",
+    "notes": "Pending: run M1144 exact recheck and expanded public diagnostic only; no actor training PPO mining promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T032900Z"
+  "updated_at_utc": "20260528T034300Z"
 }

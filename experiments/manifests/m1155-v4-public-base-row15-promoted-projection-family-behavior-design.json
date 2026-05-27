@@ -159,6 +159,32 @@
     "docs/m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run.md",
     "runs/m1154_row15_promoted_unsafe_margin_projection_probe/summary.json"
   ],
-  "decision_rule": "M1155 may only design family-intersection and behavior diagnostics for alpha_0_05. It cannot train actor weights, run PPO, run replay, run behavior eval, mine rows, promote, use private holdout, change actor inputs, skip family-intersection replay, or treat M1154 first replay as promotion evidence.",
-  "next_blocker": "m1155-v4-public-base-row15-promoted-projection-family-behavior-design"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1155-v4-public-base-row15-promoted-projection-family-behavior-design.md",
+    "decision": "row15_promoted_projection_family_behavior_design_admit_diagnostic_run",
+    "result_class": "family_behavior_diagnostic_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "candidate_checkpoint": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "m1144_exact_recheck_required": true,
+    "expanded_public_diagnostic_required": true,
+    "family_intersection_scope_explicit": true,
+    "behavior_scope_explicit": true,
+    "promotion_blocked": true,
+    "private_holdout_used": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "behavior_eval_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "actor_inputs_changed": false,
+    "admitted_next": "expanded_public_diagnostic_run_only",
+    "next_milestone": "m1156-v4-public-base-row15-promoted-projection-family-behavior-run"
+  },
+  "decision": "row15_promoted_projection_family_behavior_design_admit_diagnostic_run",
+  "decision_rule": "M1155 may only design family-intersection and behavior diagnostics for alpha_0_05. It cannot train actor weights, run PPO, run replay, run behavior eval, mine rows, promote, use private holdout, change actor inputs, skip family-intersection replay, or treat M1154 first replay as promotion evidence. M1156 may run M1144 exact recheck and expanded public diagnostics only.",
+  "next_blocker": "m1156-v4-public-base-row15-promoted-projection-family-behavior-run"
 }

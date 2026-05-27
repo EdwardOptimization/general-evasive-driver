@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260527T234335Z
+- Generated at UTC: 20260527T234710Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M1155 may only design family-intersection and behavior diagnostics for alpha_0_05. It cannot train actor weights, run PPO, run replay, run behavior eval, mine rows, promote, use private holdout, change actor inputs, skip family-intersection replay, or treat M1154 first replay as promotion evidence.
+- Promotion decision: row15_promoted_projection_family_behavior_design_admit_diagnostic_run
+- Decision reason: M1155 designs M1144 exact recheck plus expanded public diagnostic wrapper for alpha_0_05 while keeping promotion PPO and private holdout blocked
 
 ## Hypothesis
 
@@ -75,8 +75,19 @@ The M1154 alpha_0_05 first-replay candidate should next be tested on family-inte
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1155-v4-public-base-row15-promoted-projection-family-behavior-design
+- type: gate
+- checkpoint: docs/m1155-v4-public-base-row15-promoted-projection-family-behavior-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_projection_family_behavior_design_admit_diagnostic_run
+- reason: M1155 designs M1144 exact recheck plus expanded public diagnostic wrapper for alpha_0_05 while keeping promotion PPO and private holdout blocked
 
 ## Next Blocker
 
-m1155-v4-public-base-row15-promoted-projection-family-behavior-design
+m1156-v4-public-base-row15-promoted-projection-family-behavior-run
