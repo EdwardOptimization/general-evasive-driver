@@ -1,0 +1,107 @@
+{
+  "id": "m1080-v4-public-base-proof-hardened-surface-refresh-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1079-v4-public-base-contract-clean-post-promotion-synthesis.md",
+      "docs/m1078-v4-public-base-contract-clean-projection-promotion-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1079-v4-public-base-contract-clean-post-promotion-synthesis.json"
+    ],
+    "parent_objective": [
+      "design a current-base source-diverse protected/preference surface refresh before any new medium PPO proposal"
+    ],
+    "derived_from": [
+      "m1079-v4-public-base-contract-clean-post-promotion-synthesis"
+    ],
+    "blocked_by": [
+      "M1079 opened proof_hardened_base_surface_refresh and blocked direct medium PPO until refresh design"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running medium PPO directly from the M1078 public-gate base",
+      "reusing only M1072/M1073 active rows as if they were fresh current-base evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1080-v4-public-base-proof-hardened-surface-refresh-design.md",
+  "public_gates": [
+    "M1080 must not train",
+    "M1080 must not run PPO",
+    "M1080 must not use private holdout",
+    "M1080 must not mine rows; design only",
+    "M1080 must define acceptance criteria for a current-base source-diverse refresh"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not weaken actor-input or changed-parameter contracts"
+  ],
+  "workflow_synthesis": {
+    "branch": "proof_hardened_base_surface_refresh",
+    "evidence_axis": "G_surface: current-base protected/preference refresh design",
+    "evidence_increment": "pre-registers the fresh surface-mining criteria for the M1078 promoted base",
+    "claim_scope": "design only; no mining, no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if design cannot avoid optimizing only fixed public rows",
+      "stop if acceptance criteria omit source diversity",
+      "stop if design would permit medium PPO before refresh"
+    ],
+    "fallback_plan": [
+      "if design is accepted, run the current-base surface refresh in M1081",
+      "if design is too narrow, route to surface diversity audit",
+      "if tooling is missing, route to infrastructure implementation before mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1079 selected proof_hardened_base_surface_refresh",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The promoted M1078 public-gate base needs a fresh source-diverse protected/preference surface before any new medium PPO proposal.",
+  "success_criteria": [
+    "design artifact exists",
+    "current base checkpoint is explicit",
+    "mining axes are explicit",
+    "source-diversity thresholds are explicit",
+    "objective/replay conversion plan is explicit",
+    "no training, PPO, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "current base checkpoint is ambiguous",
+    "source-diversity thresholds are missing",
+    "training, PPO, or mining starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "write_surface_refresh_design",
+      "command": "write docs/m1080-v4-public-base-proof-hardened-surface-refresh-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1080-v4-public-base-proof-hardened-surface-refresh-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1079-v4-public-base-contract-clean-post-promotion-synthesis.md"
+  ],
+  "decision_rule": "M1080 may only design the current-base surface refresh. It cannot train, run PPO, mine rows, promote, or use private holdout.",
+  "next_blocker": "m1080-v4-public-base-proof-hardened-surface-refresh-design"
+}

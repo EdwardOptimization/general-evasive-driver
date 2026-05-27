@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1079-v4-public-base-contract-clean-post-promotion-synthesis
+m1080-v4-public-base-proof-hardened-surface-refresh-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -154,11 +154,15 @@ so M1077 synthesized M1068-M1076, closed
 `expanded_gate_medium_ppo_readiness`, and opened
 `contract_clean_projection_promotion`. M1078 promoted the M1076 candidate as
 the current public-gate base, scoped strictly to proof-base hardening. The next
-step is M1079: post-promotion synthesis and next-branch selection.
+step is M1079: post-promotion synthesis and next-branch selection. M1079 closed
+`contract_clean_projection_promotion` and opened
+`proof_hardened_base_surface_refresh`. The next step is M1080: design a fresh
+current-base source-diverse protected/preference surface refresh before any new
+medium PPO.
 
 ```text
 decision:
-  contract_clean_projection_promote_public_gate_base
+  contract_clean_post_promotion_synthesis_promote_to_surface_refresh
 ```
 
 M1068 design:
@@ -454,6 +458,23 @@ ppo_used: false
 promoted: true
 private_holdout_used: false
 next: m1079-v4-public-base-contract-clean-post-promotion-synthesis
+```
+
+M1079 result:
+
+```text
+result_class: contract_clean_post_promotion_synthesis_promote_to_next_branch
+synthesis_decision: promote_to_next_branch
+closed_branch: contract_clean_projection_promotion
+opened_branch: proof_hardened_base_surface_refresh
+current_public_gate_base: runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt
+supported: M1078 promoted a proof-hardened public-gate base; future public-gate work should use that base
+falsified: M1078 proves medium-PPO performance improvement or private-holdout evidence
+ppo_used: false
+training_started: false
+promoted: false
+private_holdout_used: false
+next: m1080-v4-public-base-proof-hardened-surface-refresh-design
 ```
 
 M1058 result:

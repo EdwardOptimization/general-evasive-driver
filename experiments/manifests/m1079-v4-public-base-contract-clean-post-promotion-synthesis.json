@@ -123,6 +123,35 @@
   "baseline_artifacts": [
     "docs/m1078-v4-public-base-contract-clean-projection-promotion-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1079-v4-public-base-contract-clean-post-promotion-synthesis.md",
+    "decision": "contract_clean_post_promotion_synthesis_promote_to_surface_refresh",
+    "result_class": "contract_clean_post_promotion_synthesis_promote_to_next_branch",
+    "failure_types": [
+      "none"
+    ],
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "contract_clean_projection_promotion",
+    "opened_branch": "proof_hardened_base_surface_refresh",
+    "current_public_gate_base": "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+    "supported_claims": [
+      "M1078 promoted a contract-clean proof-hardened public-gate base",
+      "future public-gate work should use the M1078 base",
+      "current-base source-diverse surface refresh should precede any new medium PPO"
+    ],
+    "falsified_claims": [
+      "M1078 proves medium-PPO performance improvement",
+      "M1078 proves long-run PPO stability",
+      "M1078 proves private-holdout or paper-level generalization"
+    ],
+    "ppo_used": false,
+    "training_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1080-v4-public-base-proof-hardened-surface-refresh-design"
+  },
+  "decision": "contract_clean_post_promotion_synthesis_promote_to_surface_refresh",
   "decision_rule": "M1079 may only synthesize the promotion and choose the next branch. It cannot train, run PPO, promote, or use private holdout.",
-  "next_blocker": "m1079-v4-public-base-contract-clean-post-promotion-synthesis"
+  "next_blocker": "m1080-v4-public-base-proof-hardened-surface-refresh-design"
 }

@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M1079 closes contract-clean projection promotion and opens proof-hardened base surface refresh before any new medium PPO",
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "training or PPO starts",
+    "checkpoint is promoted",
+    "private holdout is used",
+    "next branch skips public-overfit mitigation"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not claim medium-PPO performance improvement",
+    "do not skip post-promotion branch selection"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T110803Z",
+  "hypothesis": "After M1078 promotion, the next branch should refresh current-base source-diverse protected/preference surfaces before another medium PPO proposal.",
+  "lineage": {
+    "blocked_by": [
+      "M1078 promoted a new public-gate base and the next branch has not been selected"
+    ],
+    "derived_from": [
+      "m1078-v4-public-base-contract-clean-projection-promotion-audit"
+    ],
+    "invalidates": [
+      "running medium PPO from the new base before post-promotion synthesis",
+      "claiming private-holdout or medium-PPO performance evidence from the promotion"
+    ],
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1078-v4-public-base-contract-clean-projection-promotion-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1078-v4-public-base-contract-clean-projection-promotion-audit.md",
+      "docs/m1077-v4-public-base-medium-ppo-readiness-synthesis.md",
+      "runs/m1076_medium_ppo_contract_clean_full_public_gate/summary.json"
+    ],
+    "parent_objective": [
+      "synthesize the contract-clean projection promotion and route the next research branch"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1079-v4-public-base-contract-clean-post-promotion-synthesis",
+  "next_blocker": "m1080-v4-public-base-proof-hardened-surface-refresh-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "contract_clean_post_promotion_synthesis_promote_to_surface_refresh",
+  "public_gates": [
+    "M1079 must synthesize the contract_clean_projection_promotion branch",
+    "M1079 must not train",
+    "M1079 must not run PPO",
+    "M1079 must not promote",
+    "M1079 must not use private holdout",
+    "M1079 must choose the next branch after the new public-gate base"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1079-v4-public-base-contract-clean-post-promotion-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "contract_clean_post_promotion_synthesis_promote_to_surface_refresh",
+    "milestone": "m1079-v4-public-base-contract-clean-post-promotion-synthesis",
+    "reason": "M1079 closes contract-clean projection promotion and opens proof-hardened base surface refresh before any new medium PPO",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "synthesis artifact exists",
+    "promotion evidence is summarized",
+    "supported and falsified claims are explicit",
+    "public-gate overfit risk is discussed",
+    "next branch decision is explicit",
+    "no training, PPO, promotion, or private holdout occurs"
+  ],
+  "type": "gate"
+}
