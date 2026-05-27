@@ -71,6 +71,7 @@
       "stop if it would bypass first replay before further escalation"
     ],
     "fallback_plan": [
+      "if existing projection tooling is too hardcoded, implement a promoted-surface projection runner first",
       "if no nonzero interpolation alpha can satisfy unsafe-margin retention, route to terminal-margin objective design",
       "if an alpha passes failed-row unsafe screens but first replay fails, route to row-level audit",
       "if first replay passes, design family/behavior checks rather than promotion"
@@ -102,6 +103,7 @@
       "candidate alpha grid is explicit",
       "unsafe-margin acceptance rule is explicit",
       "exact M1144 objective acceptance rule is explicit",
+      "runner implementation scope is explicit",
       "first-replay escalation rule is explicit"
     ]
   },
@@ -130,7 +132,7 @@
     "unsafe-margin sign rule requires every M1149 failed wrong-history row to remain unsuccessful with terminal margin below zero",
     "normal-success retention requires every M1149 failed normal-history row to remain successful",
     "exact M1144 objective acceptance requires non-regression and prefers improvement",
-    "M1153 run scope is limited to no-training interpolation/projection plus first replay only",
+    "M1153 implementation scope is limited to promoted unsafe-margin projection runner and focused tests only",
     "no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurs"
   ],
   "failure_criteria": [
@@ -138,7 +140,7 @@
     "alpha grid is ambiguous",
     "unsafe-margin rule is ambiguous",
     "exact objective rule is ambiguous",
-    "run scope admits PPO, actor training, promotion, private holdout, or actor-input change"
+    "implementation or run scope admits PPO, actor training, promotion, private holdout, or actor-input change"
   ],
   "commands": [
     {
@@ -160,6 +162,50 @@
     "docs/m1151-v4-public-base-row15-promoted-target-materialization-synthesis.md",
     "runs/m1150_row15_promoted_first_replay_failure_audit/summary.json"
   ],
-  "decision_rule": "M1152 may only design a no-training unsafe-margin projection probe. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, weaken M1149 thresholds, or accept any alpha that makes a failed wrong-history row safe.",
-  "next_blocker": "m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design.md",
+    "decision": "row15_promoted_unsafe_margin_projection_design_admit_runner_implementation",
+    "result_class": "unsafe_margin_projection_design_requires_promoted_runner",
+    "failure_types": [
+      "none"
+    ],
+    "existing_row15_projection_tool_reused_directly": false,
+    "new_runner_required": true,
+    "alpha_grid": [
+      0.0,
+      0.005,
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.075,
+      0.1,
+      0.125,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.4,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "unsafe_margin_rule": "normal_success true, normal_margin >= 0, wrong_history_success false, wrong_history_margin < 0 for every M1149 failed row",
+    "exact_objective_rule": "selected nonzero alpha must improve exact M1144 objective versus alpha 0",
+    "first_replay_scope": "M1149 ten-surface first replay only after failed-row unsafe screening",
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "admitted_next": "promoted_projection_runner_implementation",
+    "next_milestone": "m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation"
+  },
+  "decision": "row15_promoted_unsafe_margin_projection_design_admit_runner_implementation",
+  "decision_rule": "M1152 may only design a no-training unsafe-margin projection probe and identify whether a new runner is needed. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, weaken M1149 thresholds, or accept any alpha that makes a failed wrong-history row safe. Because the existing M1123 runner is hardcoded to the old row15 cliff, M1153 should implement a promoted failed-row projection runner before any projection run.",
+  "next_blocker": "m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation"
 }

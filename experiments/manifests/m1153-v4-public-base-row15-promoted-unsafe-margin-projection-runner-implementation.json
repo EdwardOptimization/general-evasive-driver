@@ -1,0 +1,159 @@
+{
+  "id": "m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+      "runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design.md",
+      "runs/m1149_row15_promoted_actor_update_first_replay/lost_success_drop_rows.csv",
+      "runs/m1144_row15_promoted_objective_corpus/boundary_outcome_corpus.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design.json"
+    ],
+    "parent_objective": [
+      "implement the promoted unsafe-margin projection runner needed before the no-training projection run"
+    ],
+    "derived_from": [
+      "m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design"
+    ],
+    "blocked_by": [
+      "M1152 finds the old M1123 projection tool is hardcoded for a single row15 cliff and cannot directly serve M1149 failed rows"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "using M1123 row15-only projection probe directly for M1149",
+      "projection run before promoted-runner implementation",
+      "PPO from m1147_114602",
+      "promotion of m1147_114602"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation.md",
+  "public_gates": [
+    "M1153 may implement tooling and focused tests only",
+    "M1153 must not train actor weights",
+    "M1153 must not run PPO",
+    "M1153 must not run full replay or projection evaluation",
+    "M1153 must not mine new rows",
+    "M1153 must not promote",
+    "M1153 must not use private holdout",
+    "M1153 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run full replay or projection evaluation",
+    "do not mine new rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not hardcode only the old M1120 row15 pair"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_unsafe_margin_projection",
+    "evidence_axis": "G_tooling: promoted unsafe-margin projection runner",
+    "evidence_increment": "adds reusable runner support for exact objective, failed-row unsafe screening, and M1149 first-replay selection without running the projection",
+    "claim_scope": "tooling only; no projection result, replay result, training, PPO, promotion, private holdout, or driver capability claim",
+    "stop_condition": [
+      "stop if the runner cannot consume arbitrary failed-row CSVs",
+      "stop if the runner would hardcode old M1120 row15 semantics",
+      "stop if tests cannot cover alpha interpolation, failed-row grouping, and decision classification"
+    ],
+    "fallback_plan": [
+      "if generic runner is too large, implement a minimal M1149-specific runner with explicit manifest constraints",
+      "if replay grouping is ambiguous, add a read-only grouping audit before implementation",
+      "if implementation succeeds, route to M1154 no-training projection run"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1152 admits runner implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement runner support without executing the projection experiment",
+    "admission_evidence": [
+      "M1152 design specifies promoted failed-row unsafe-margin projection",
+      "existing row15_unsafe_margin_projection_probe is hardcoded for M1120",
+      "M1149 failed rows already contain replay-compatible required columns"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run projection replay",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "runner source code",
+      "focused tests",
+      "docs, status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "runner CLI exists",
+      "runner can parse alpha grid",
+      "runner can group failed rows by surface",
+      "runner decision classes match M1152",
+      "focused tests pass"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1153 only implements tooling and cannot add self-identification evidence.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1153 adds no new temporal task and no projection result.",
+    "negative_result_policy": "If tooling cannot support failed-row unsafe-margin screening, record implementation blocker before any projection run.",
+    "allowed_claims": [
+      "tooling readiness for level2 proof-retention repair",
+      "no projection result or self-identification upgrade",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A promoted unsafe-margin projection runner can be implemented by reusing interpolation, exact objective evaluation, and boundary replay helpers while replacing the old hardcoded row15 surfaces with M1149 failed-row and first-replay inputs.",
+  "success_criteria": [
+    "runner implementation exists",
+    "focused tests cover alpha parsing, failed-row grouping, result classification, and guardrail metadata",
+    "runner help/smoke works without executing full projection replay",
+    "no actor training, PPO, full replay/projection evaluation, mining, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "runner implementation is missing",
+    "tests are missing or fail",
+    "runner hardcodes only old M1120 row15 semantics",
+    "runner scope accidentally runs projection replay, PPO, training, mining, promotion, or private holdout"
+  ],
+  "commands": [
+    {
+      "name": "implement_runner",
+      "command": "add row15_promoted_unsafe_margin_projection_probe runner and focused tests"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design.md"
+  ],
+  "decision_rule": "M1153 may only implement promoted unsafe-margin projection tooling and focused tests. It cannot train actor weights, run PPO, run full replay/projection evaluation, mine rows, promote, use private holdout, change actor inputs, or hardcode only the old M1120 row15 pair.",
+  "next_blocker": "m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation"
+}

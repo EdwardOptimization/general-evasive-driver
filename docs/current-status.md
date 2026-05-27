@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design
+m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -356,11 +356,29 @@ The opened branch is:
 row15_promoted_unsafe_margin_projection
 ```
 
-The next milestone is M1152, design-only. It should define a no-training
-interpolation/projection probe along the M1147 direction with exact M1144
-objective screening and explicit M1149 failed-row wrong-history unsafe-margin
-retention. It must not train, run PPO, run replay, mine new rows, promote, use
-private holdout, or change actor inputs.
+M1152 designed the unsafe-margin projection:
+
+```text
+alpha_grid:
+  0.0, 0.005, 0.01, 0.02, 0.03, 0.04, 0.05, 0.075,
+  0.1, 0.125, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.75, 1.0
+
+failed-row unsafe rule:
+  normal_success == true
+  normal_margin >= 0
+  wrong_history_success == false
+  wrong_history_margin < 0
+
+exact rule:
+  selected nonzero alpha must improve exact M1144 objective
+```
+
+M1152 also found that the old M1123 `row15_unsafe_margin_projection_probe`
+should not be reused directly because it hardcodes the old single-row cliff and
+requires M1115 anchor NPZs. The next milestone is M1153, an infrastructure-only
+runner implementation for promoted failed-row unsafe-margin projection. It must
+not train, run PPO, run the full projection/replay experiment, mine new rows,
+promote, use private holdout, or change actor inputs.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

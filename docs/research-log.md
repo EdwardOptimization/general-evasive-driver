@@ -16409,3 +16409,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: close `row15_promoted_target_materialization` and open `row15_promoted_unsafe_margin_projection`.
 - guardrail: no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurred.
 - next: `m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design`
+
+## 20260528T030100Z - m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design.md`
+- result: M1152 designs a no-training unsafe-margin projection along the M1147 direction but finds the old M1123 projection probe is too hardcoded for direct reuse.
+- alpha grid: `0.0`, `0.005`, `0.01`, `0.02`, `0.03`, `0.04`, `0.05`, `0.075`, `0.1`, `0.125`, `0.15`, `0.2`, `0.25`, `0.3`, `0.4`, `0.5`, `0.75`, `1.0`.
+- unsafe-margin rule: every M1149 failed row must keep `normal_success=true`, `normal_margin>=0`, `wrong_history_success=false`, and `wrong_history_margin<0`.
+- exact objective rule: selected nonzero alpha must improve exact M1144 objective versus alpha `0.0`.
+- first-replay rule: selected alpha may run only the M1149 ten-surface first replay stack before any family/behavior/full-public escalation.
+- tooling decision: implement a new promoted unsafe-margin projection runner instead of forcing M1149 through the old single-row M1123 probe.
+- guardrail: no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurred.
+- next: `m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation`

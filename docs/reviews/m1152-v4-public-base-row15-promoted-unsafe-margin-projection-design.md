@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260527T232722Z
+- Generated at UTC: 20260527T233212Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: repair
-- Decision reason: M1152 may only design a no-training unsafe-margin projection probe. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, weaken M1149 thresholds, or accept any alpha that makes a failed wrong-history row safe.
+- Promotion decision: row15_promoted_unsafe_margin_projection_design_admit_runner_implementation
+- Decision reason: M1152 designs failed-row unsafe-margin projection with exact M1144 and M1149 first-replay gates but routes to runner implementation because the old M1123 projection probe is hardcoded for a single row15 cliff
 
 ## Hypothesis
 
@@ -30,7 +30,7 @@ A no-training interpolation along the M1147 exact-objective direction may admit 
 - unsafe-margin sign rule requires every M1149 failed wrong-history row to remain unsuccessful with terminal margin below zero
 - normal-success retention requires every M1149 failed normal-history row to remain successful
 - exact M1144 objective acceptance requires non-regression and prefers improvement
-- M1153 run scope is limited to no-training interpolation/projection plus first replay only
+- M1153 implementation scope is limited to promoted unsafe-margin projection runner and focused tests only
 - no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurs
 
 ## Failure Criteria
@@ -39,7 +39,7 @@ A no-training interpolation along the M1147 exact-objective direction may admit 
 - alpha grid is ambiguous
 - unsafe-margin rule is ambiguous
 - exact objective rule is ambiguous
-- run scope admits PPO, actor training, promotion, private holdout, or actor-input change
+- implementation or run scope admits PPO, actor training, promotion, private holdout, or actor-input change
 
 ## Evidence Gates
 
@@ -74,8 +74,19 @@ A no-training interpolation along the M1147 exact-objective direction may admit 
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design
+- type: gate
+- checkpoint: docs/m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_unsafe_margin_projection_design_admit_runner_implementation
+- reason: M1152 designs failed-row unsafe-margin projection with exact M1144 and M1149 first-replay gates but routes to runner implementation because the old M1123 projection probe is hardcoded for a single row15 cliff
 
 ## Next Blocker
 
-m1152-v4-public-base-row15-promoted-unsafe-margin-projection-design
+m1153-v4-public-base-row15-promoted-unsafe-margin-projection-runner-implementation
