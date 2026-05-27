@@ -1,0 +1,107 @@
+{
+  "id": "m1048-v4-public-base-guarded-ppo-short-escalation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1047-v4-public-base-guarded-ppo-fresh-seed-repeat.md",
+      "runs/m1047_guarded_ppo_fresh_seed_repeat_summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1047-v4-public-base-guarded-ppo-fresh-seed-repeat.json"
+    ],
+    "parent_objective": [
+      "design the next short PPO escalation after 2/2 fresh-seed smoke repeats pass"
+    ],
+    "derived_from": [
+      "m1047-v4-public-base-guarded-ppo-fresh-seed-repeat"
+    ],
+    "blocked_by": [
+      "M1047 passed two fresh-seed smoke repeats but longer PPO escalation is not yet specified"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "jumping directly to medium or long PPO without a short escalation design"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1048-v4-public-base-guarded-ppo-short-escalation-design.md",
+  "public_gates": [
+    "M1048 must design only; no PPO run",
+    "M1048 must preserve P0 actor input contract",
+    "M1048 must choose short PPO step count and seed count",
+    "M1048 must define exact proof source-diverse fresh OOD behavior gates",
+    "M1048 must define rollback conditions for row15 and row16 regressions",
+    "M1048 must keep private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not claim long-run PPO stability",
+    "do not claim paper-level generalization"
+  ],
+  "workflow_synthesis": {
+    "branch": "combined_active_set_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo: short PPO escalation design",
+    "evidence_increment": "designs the first PPO escalation beyond 1024-step smoke after 2/2 fresh-seed smoke repeats pass",
+    "claim_scope": "design only; no training, no PPO proposal, no promotion",
+    "stop_condition": [
+      "stop if escalation gates are weaker than M1047",
+      "stop if row15 or row16 rollback criteria are ambiguous",
+      "stop if the design would use private holdout for repair"
+    ],
+    "fallback_plan": [
+      "if escalation is too risky, route to proof-surface refresh",
+      "if design is clear, admit one short PPO escalation milestone",
+      "if public overfit risk dominates, route to public surface refresh before PPO"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1047 passes 2/2 fresh-seed guarded PPO smoke repeats",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A short PPO escalation can be designed after M1047, but it must keep the same exact/proof/source-diverse/fresh/OOD/behavior gate stack and explicit row15/row16 rollback criteria.",
+  "success_criteria": [
+    "short escalation design artifact exists",
+    "step count and seed count are explicit",
+    "base checkpoint is explicit",
+    "gate stack is explicit",
+    "row15 and row16 rollback criteria are explicit",
+    "no training or PPO occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "PPO starts",
+    "actor inputs change",
+    "rollback criteria are ambiguous",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m1048-v4-public-base-guarded-ppo-short-escalation-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1048-v4-public-base-guarded-ppo-short-escalation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1047-v4-public-base-guarded-ppo-fresh-seed-repeat.md"
+  ],
+  "decision_rule": "M1048 must admit or reject a short PPO escalation milestone; no PPO is run in M1048.",
+  "next_blocker": "m1048-v4-public-base-guarded-ppo-short-escalation-design"
+}

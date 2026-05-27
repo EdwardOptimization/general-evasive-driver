@@ -131,6 +131,30 @@
   "baseline_artifacts": [
     "docs/m1046-v4-public-base-guarded-ppo-post-promotion-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1047-v4-public-base-guarded-ppo-fresh-seed-repeat.md",
+    "summary_json": "runs/m1047_guarded_ppo_fresh_seed_repeat_summary.json",
+    "summary_csv": "runs/m1047_guarded_ppo_fresh_seed_repeat_summary.csv",
+    "decision": "guarded_ppo_fresh_seed_repeat_pass_route_to_short_escalation_design",
+    "result_class": "guarded_ppo_fresh_seed_repeat_pass",
+    "failure_types": [
+      "none"
+    ],
+    "base_checkpoint": "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt",
+    "seed_count": 2,
+    "raw_candidate_pass_count": 2,
+    "exact_pass_count": 2,
+    "proof_pass_count": 2,
+    "source_diverse_pass_count": 2,
+    "generalization_pass_count": 2,
+    "behavior_pass_count": 2,
+    "actor_inputs_changed_count": 0,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1048-v4-public-base-guarded-ppo-short-escalation-design"
+  },
+  "decision": "guarded_ppo_fresh_seed_repeat_pass_route_to_short_escalation_design",
   "decision_rule": "M1047 may only run two smoke PPO proposals and gates. It must not promote, use private holdout, run longer PPO, or claim final driver improvement.",
-  "next_blocker": "m1047-v4-public-base-guarded-ppo-fresh-seed-repeat"
+  "next_blocker": "m1048-v4-public-base-guarded-ppo-short-escalation-design"
 }

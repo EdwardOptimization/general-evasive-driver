@@ -1,0 +1,4 @@
+distribution,seed,base_success_rate,candidate_success_rate,success_delta,base_termination_rate,candidate_termination_rate,termination_delta,base_margin_mean,candidate_margin_mean,margin_mean_delta,base_collision_rate,candidate_collision_rate,collision_rate_delta,generalization_pass
+fresh_public,103900,0.8671875,0.8671875,0.0,0.1328125,0.1328125,0.0,1.800584597848406,1.8007006014297215,0.0001160035813154714,0.1328125,0.1328125,0.0,True
+fresh_public,103901,0.87109375,0.87109375,0.0,0.12890625,0.12890625,0.0,1.8014555412601259,1.8015714643406915,0.0001159230805656275,0.12890625,0.12890625,0.0,True
+moderate_ood,103920,0.640625,0.640625,0.0,0.359375,0.359375,0.0,1.052552275311679,1.0526789424988472,0.0001266671871682501,0.359375,0.359375,0.0,True

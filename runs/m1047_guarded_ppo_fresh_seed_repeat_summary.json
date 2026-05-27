@@ -1,0 +1,26 @@
+{
+  "run_type": "guarded_ppo_fresh_seed_repeat",
+  "base_checkpoint": "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt",
+  "seed_count": 2,
+  "seeds": [
+    61045,
+    61046
+  ],
+  "raw_candidate_pass_count": 2,
+  "ppo_returncode_zero_count": 2,
+  "training_metrics_finite_count": 2,
+  "exact_pass_count": 2,
+  "proof_pass_count": 2,
+  "source_diverse_pass_count": 2,
+  "generalization_pass_count": 2,
+  "behavior_pass_count": 2,
+  "actor_inputs_changed_count": 0,
+  "promoted": false,
+  "private_holdout_used": false,
+  "result_class": "guarded_ppo_fresh_seed_repeat_pass",
+  "failure_types": [
+    "none"
+  ],
+  "next_blocker": "guarded_ppo_short_escalation_design",
+  "summary_csv": "runs/m1047_guarded_ppo_fresh_seed_repeat_summary.csv"
+}

@@ -77,15 +77,17 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1047-v4-public-base-guarded-ppo-fresh-seed-repeat
+m1048-v4-public-base-guarded-ppo-short-escalation-design
 ```
 
-M1046 synthesized the guarded PPO smoke promotion branch and routed to a
-two-seed fresh PPO repeat before any longer PPO escalation or multi-seed claim.
+M1047 ran two fresh 1024-step guarded PPO repeats from the current public-gate
+base. Both passed exact, proof, source-diverse, fresh/OOD, and behavior gates
+without promotion. M1048 must design the first short PPO escalation before any
+longer PPO is run.
 
 ```text
 decision:
-  guarded_ppo_post_promotion_synthesis_continue_to_fresh_seed_repeat
+  guarded_ppo_fresh_seed_repeat_pass_route_to_short_escalation_design
 ```
 
 Current public-gate base:
@@ -149,20 +151,27 @@ promoted: false
 private_holdout_used: false
 ```
 
-M1047 constraints:
+M1047 result:
 
 ```text
 base checkpoint: current public-gate base
 seeds: 61045, 61046
 total_steps per seed: 1024
-must preserve P0 actor inputs
-must gate M997, M297/M270, and combined active-set exact checks
-must gate six public replay surfaces and source-diverse diagnostics
-must gate fresh public, moderate-OOD, and behavior seeds
-must retain M267/M264 row15 wrong-history failure
-must retain M183/M170 row16 normal success
-must not promote or use private holdout
+raw_candidate_pass_count: 2 / 2
+training_metrics_finite_count: 2 / 2
+actor_inputs_changed_count: 0 / 2
+exact_pass_count: 2 / 2
+proof_pass_count: 2 / 2
+source_diverse_pass_count: 2 / 2
+generalization_pass_count: 2 / 2
+behavior_pass_count: 2 / 2
+promoted: false
+private_holdout_used: false
 ```
+
+M1048 is design only. It should choose a short PPO escalation step count, seed
+count, gate stack, and row15/row16 rollback rules. It must not run PPO or use
+private holdout.
 
 ### Historical Trace
 

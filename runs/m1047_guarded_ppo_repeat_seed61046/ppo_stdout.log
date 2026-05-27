@@ -1,0 +1,12 @@
+/home/quyaonan/miniforge3/bin/python -m autodrift.train_ppo --config configs/ppo_m1047_guarded_repeat_seed61046.json --init-checkpoint runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt --run-dir runs/ppo_m1047_guarded_repeat_seed61046 --device auto
+
+loaded_init_checkpoint=runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt load_mode=strict
+loaded_baseline_action_anchor=runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt load_mode=strict
+loaded_rejected_history_preference=runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz rows=17
+loaded_snippet_action_anchor=runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt snapshot=runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz load_mode=strict preferred_only=True
+loaded_trajectory_action_anchor=runs/m1037_candidate_b_combined_active_set_anchor_export/combined_active_set_anchor_row16x4.npz rows=3957
+training_device=cuda num_envs=8 curriculum_stage=base
+step=1024 update=1 stage=base rollout_return_mean=65.30 reward_mean=1.007 episode_count=11
+run_dir=runs/ppo_m1047_guarded_repeat_seed61046
+saved=runs/ppo_m1047_guarded_repeat_seed61046/checkpoint.pt
+eval_summary={'return_mean': 74.46137993861505, 'steps_mean': 66.8, 'termination_rate': 0.0, 'lateral_rmse_mean': 0.9691977565006274, 'beta_abs_error_mean': 0.20230197786496057}

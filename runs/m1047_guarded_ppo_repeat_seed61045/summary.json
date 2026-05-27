@@ -1,0 +1,225 @@
+{
+  "actor_inputs_changed": false,
+  "base_checkpoint": "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt",
+  "behavior_comparison_csv": "runs/m1047_guarded_ppo_repeat_seed61045/behavior_comparison.csv",
+  "behavior_pass": true,
+  "behavior_summary_csv": "runs/m1047_guarded_ppo_repeat_seed61045/behavior_summary.csv",
+  "checkpoint_promoted": false,
+  "config_path": "configs/ppo_m1047_guarded_repeat_seed61045.json",
+  "eval_summary_json": "runs/ppo_m1047_guarded_repeat_seed61045/eval_summary.json",
+  "exact_contract_summary_csv": "runs/m1047_guarded_ppo_repeat_seed61045/exact_contract_summary.csv",
+  "exact_pass": true,
+  "failure_types": [
+    "none"
+  ],
+  "fresh_randomized_eval_summary_csv": "runs/m1047_guarded_ppo_repeat_seed61045/fresh_randomized_eval_summary.csv",
+  "gate_summary": {
+    "actor_inputs_changed": false,
+    "allowed_surface_contract_pass": true,
+    "baseline_checkpoint": "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt",
+    "behavior_comparison_csv": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/behavior_comparison.csv",
+    "behavior_env_config": "configs/m121_human_view_zero_obstacle_relvel.json",
+    "behavior_episodes": 80,
+    "behavior_pass": true,
+    "behavior_seed_count": 4,
+    "behavior_seeds": [
+      9505,
+      9506,
+      103930,
+      103931
+    ],
+    "behavior_summary_csv": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/behavior_summary.csv",
+    "candidate_checkpoint": "runs/ppo_m1047_guarded_repeat_seed61045/checkpoint.pt",
+    "candidate_label": "m964_direction_target_a0_15",
+    "checkpoint_promoted": false,
+    "combined_anchor_npz": "runs/m1037_candidate_b_combined_active_set_anchor_export/combined_active_set_anchor_row16x4.npz",
+    "exact_contract_summary_csv": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/exact_contract_summary.csv",
+    "exact_pass": true,
+    "failed_behavior_seeds": [],
+    "failed_generalization_rows": [],
+    "failed_proof_surfaces": [],
+    "failure_types": [
+      "none"
+    ],
+    "fresh_env_config": "configs/m121_human_view_zero_obstacle_relvel.json",
+    "fresh_episodes": 256,
+    "fresh_generalization_comparison_count": 2,
+    "fresh_randomized_eval_summary_csv": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/fresh_randomized_eval_summary.csv",
+    "fresh_seeds": [
+      103900,
+      103901
+    ],
+    "generalization_comparison_csv": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/generalization_comparison.csv",
+    "generalization_pass": true,
+    "max_continuation_steps": 60,
+    "next_blocker": "candidate_b_combined_active_set_promotion_audit",
+    "old_key_9944_status": "diagnostic_only",
+    "old_key_neighborhood_summary": {
+      "actor_inputs_changed": false,
+      "cases": 40,
+      "checkpoint_policies": [
+        {
+          "name": "m399_base",
+          "path": "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt"
+        },
+        {
+          "name": "m964_direction_target_a0_15",
+          "path": "runs/ppo_m1047_guarded_repeat_seed61045/checkpoint.pt"
+        }
+      ],
+      "compact_corpus_csv": "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv",
+      "device": "cuda",
+      "guard_results_csv": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/old_key_neighborhood_diagnostic/guard_results.csv",
+      "policies": 2,
+      "policy_summary": [
+        {
+          "accepted_cases": 35,
+          "cases": 40,
+          "found_cases": 40,
+          "margin_gap_delta_mean": -0.0005102786291431613,
+          "margin_gap_delta_min": -0.0051526775308112505,
+          "margin_gap_mean": 0.007954118294849117,
+          "margin_gap_min": 0.0007225183775749766,
+          "normal_success_cases": 38,
+          "policy": "m399_base",
+          "policy_pass": false
+        },
+        {
+          "accepted_cases": 34,
+          "cases": 40,
+          "found_cases": 40,
+          "margin_gap_delta_mean": -0.000830223396030376,
+          "margin_gap_delta_min": -0.007604012325323345,
+          "margin_gap_mean": 0.007634173527961902,
+          "margin_gap_min": 0.0006479399145573606,
+          "normal_success_cases": 38,
+          "policy": "m964_direction_target_a0_15",
+          "policy_pass": false
+        }
+      ],
+      "policy_summary_csv": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/old_key_neighborhood_diagnostic/policy_summary.csv",
+      "ppo_or_actor_update_run": false,
+      "reference_manifest": "runs/m341_old_key_neighborhood_block_a_seed9860/manifest.json",
+      "run_type": "old_key_neighborhood_targeted_replay"
+    },
+    "ood_env_config": "configs/eval_m574_moderate_ood_l3.json",
+    "ood_episodes": 128,
+    "ood_eval_summary_csv": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/ood_eval_summary.csv",
+    "ood_generalization_comparison_count": 1,
+    "ood_seeds": [
+      103920
+    ],
+    "optimizer_started": false,
+    "outcome_npz": "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+    "ppo_used": false,
+    "preference_npz": "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+    "private_holdout_used": false,
+    "promoted": false,
+    "proof_pass": true,
+    "proof_replay_gates_passed": 6,
+    "proof_replay_summary_csv": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/proof_replay_summary.csv",
+    "proof_replay_surface_count": 6,
+    "reset_zero_all_ordering_retained": true,
+    "result_class": "candidate_b_combined_active_set_full_public_gate_candidate",
+    "route_decision_csv": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/route_decision.csv",
+    "run_type": "candidate_b_combined_active_set_full_public_gate",
+    "source_diverse_pass": true,
+    "source_diverse_protected_summary": {
+      "actor_inputs_changed": false,
+      "checkpoint_policies": [
+        {
+          "label": "m399_base",
+          "path": "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt"
+        },
+        {
+          "label": "m964_direction_target_a0_15",
+          "path": "runs/ppo_m1047_guarded_repeat_seed61045/checkpoint.pt"
+        }
+      ],
+      "diagnostic_count": 0,
+      "diagnostic_summary_csv": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/source_diverse_protected_diagnostic/diagnostic_summary.csv",
+      "diagnostics": [],
+      "env_config": "configs/m121_human_view_zero_obstacle_relvel.json",
+      "failed_replay_gates": [],
+      "failure_types": [
+        "none"
+      ],
+      "max_continuation_steps": 60,
+      "max_rows": 0,
+      "overall_pass": true,
+      "replay_gate_count": 3,
+      "replay_gate_summary_csv": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/source_diverse_protected_diagnostic/replay_gate_summary.csv",
+      "replay_gates": [
+        {
+          "baseline_policy": "m399_base",
+          "baseline_success_drop_count": 17,
+          "candidate_policy": "m964_direction_target_a0_15",
+          "candidate_success_drop_count": 17,
+          "corpus_csv": "runs/m320_m316_repaired_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+          "gate_pass": true,
+          "label": "current_m333_surface",
+          "margin_gap_mean_delta": 0.00010570225087970508,
+          "normal_margin_mean_delta": 8.695623581793117e-05,
+          "rows": 17,
+          "run_dir": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/source_diverse_protected_diagnostic/replay_gates/current_m333_surface"
+        },
+        {
+          "baseline_policy": "m399_base",
+          "baseline_success_drop_count": 17,
+          "candidate_policy": "m964_direction_target_a0_15",
+          "candidate_success_drop_count": 17,
+          "corpus_csv": "runs/m320_m316_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+          "gate_pass": true,
+          "label": "m317_continuity_surface",
+          "margin_gap_mean_delta": 0.00010570863050625608,
+          "normal_margin_mean_delta": 8.697734299414808e-05,
+          "rows": 17,
+          "run_dir": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/source_diverse_protected_diagnostic/replay_gates/m317_continuity_surface"
+        },
+        {
+          "baseline_policy": "m399_base",
+          "baseline_success_drop_count": 17,
+          "candidate_policy": "m964_direction_target_a0_15",
+          "candidate_success_drop_count": 17,
+          "corpus_csv": "runs/m320_m314_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+          "gate_pass": true,
+          "label": "m314_continuity_surface",
+          "margin_gap_mean_delta": 0.00010570817458998433,
+          "normal_margin_mean_delta": 8.697652502377608e-05,
+          "rows": 17,
+          "run_dir": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/source_diverse_protected_diagnostic/replay_gates/m314_continuity_surface"
+        }
+      ],
+      "replay_gates_failed": 0,
+      "replay_gates_passed": 3,
+      "run_type": "source_diverse_protected_gate"
+    },
+    "source_diverse_summary_json": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/source_diverse_summary.json",
+    "summary_json": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/summary.json",
+    "temporal_base_summary": "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json",
+    "temporal_corpus": "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz",
+    "training_started": false
+  },
+  "generalization_pass": true,
+  "next_blocker": "combined_active_set_guarded_ppo_promotion_audit",
+  "ood_eval_summary_csv": "runs/m1047_guarded_ppo_repeat_seed61045/ood_eval_summary.csv",
+  "ppo_log": "runs/m1047_guarded_ppo_repeat_seed61045/ppo_stdout.log",
+  "ppo_returncode": 0,
+  "ppo_run_dir": "runs/ppo_m1047_guarded_repeat_seed61045",
+  "ppo_used": true,
+  "private_holdout_used": false,
+  "promoted": false,
+  "proof_pass": true,
+  "proof_replay_summary_csv": "runs/m1047_guarded_ppo_repeat_seed61045/proof_replay_summary.csv",
+  "raw_checkpoint": "runs/ppo_m1047_guarded_repeat_seed61045/checkpoint.pt",
+  "raw_checkpoint_exists": true,
+  "result_class": "combined_active_set_guarded_ppo_raw_candidate",
+  "route_decision_csv": "runs/m1047_guarded_ppo_repeat_seed61045/route_decision.csv",
+  "run_type": "combined_active_set_guarded_ppo_smoke",
+  "source_diverse_pass": true,
+  "source_diverse_summary_json": "runs/m1047_guarded_ppo_repeat_seed61045/source_diverse_summary.json",
+  "summary_json": "runs/m1047_guarded_ppo_repeat_seed61045/summary.json",
+  "train_metrics_csv": "runs/ppo_m1047_guarded_repeat_seed61045/train_metrics.csv",
+  "training_metrics_finite": true,
+  "training_started": true
+}

@@ -1,0 +1,12 @@
+{
+  "checkpoint": "runs/ppo_m1047_guarded_repeat_seed61045/checkpoint.pt",
+  "checkpoint_ablation": "zero_all_response",
+  "device": "auto",
+  "distribution": "behavior",
+  "env_config": "configs/m121_human_view_zero_obstacle_relvel.json",
+  "episodes": 80,
+  "label": "m964_direction_target_a0_15",
+  "policy": "checkpoint",
+  "run_type": "evaluate",
+  "seed": 103930
+}

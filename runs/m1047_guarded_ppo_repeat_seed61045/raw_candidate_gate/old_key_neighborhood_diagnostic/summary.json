@@ -1,0 +1,48 @@
+{
+  "actor_inputs_changed": false,
+  "cases": 40,
+  "checkpoint_policies": [
+    {
+      "name": "m399_base",
+      "path": "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt"
+    },
+    {
+      "name": "m964_direction_target_a0_15",
+      "path": "runs/ppo_m1047_guarded_repeat_seed61045/checkpoint.pt"
+    }
+  ],
+  "compact_corpus_csv": "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv",
+  "device": "cuda",
+  "guard_results_csv": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/old_key_neighborhood_diagnostic/guard_results.csv",
+  "policies": 2,
+  "policy_summary": [
+    {
+      "accepted_cases": 35,
+      "cases": 40,
+      "found_cases": 40,
+      "margin_gap_delta_mean": -0.0005102786291431613,
+      "margin_gap_delta_min": -0.0051526775308112505,
+      "margin_gap_mean": 0.007954118294849117,
+      "margin_gap_min": 0.0007225183775749766,
+      "normal_success_cases": 38,
+      "policy": "m399_base",
+      "policy_pass": false
+    },
+    {
+      "accepted_cases": 34,
+      "cases": 40,
+      "found_cases": 40,
+      "margin_gap_delta_mean": -0.000830223396030376,
+      "margin_gap_delta_min": -0.007604012325323345,
+      "margin_gap_mean": 0.007634173527961902,
+      "margin_gap_min": 0.0006479399145573606,
+      "normal_success_cases": 38,
+      "policy": "m964_direction_target_a0_15",
+      "policy_pass": false
+    }
+  ],
+  "policy_summary_csv": "runs/m1047_guarded_ppo_repeat_seed61045/raw_candidate_gate/old_key_neighborhood_diagnostic/policy_summary.csv",
+  "ppo_or_actor_update_run": false,
+  "reference_manifest": "runs/m341_old_key_neighborhood_block_a_seed9860/manifest.json",
+  "run_type": "old_key_neighborhood_targeted_replay"
+}

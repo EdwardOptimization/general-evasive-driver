@@ -15571,3 +15571,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1046 synthesizes M1043-M1045. It records that M1044 is the first guarded PPO smoke proposal in this lineage to pass exact/proof/source-diverse/fresh/OOD/behavior public gates while retaining M267/M264 row15 wrong-history failure and M183/M170 row16 normal success. The synthesis explicitly rejects any multi-seed or long-run PPO claim from a single seed and routes to a two-seed 1024-step guarded PPO repeat before longer PPO escalation.
 - decision: `guarded_ppo_post_promotion_synthesis_continue_to_fresh_seed_repeat`
 - next: `m1047-v4-public-base-guarded-ppo-fresh-seed-repeat`
+
+## 20260527T025317Z - m1047-v4-public-base-guarded-ppo-fresh-seed-repeat
+
+- status: `completed`
+- kind: `driver_candidate`
+- artifact: `runs/m1047_guarded_ppo_fresh_seed_repeat_summary.json`
+- doc: `docs/m1047-v4-public-base-guarded-ppo-fresh-seed-repeat.md`
+- result: M1047 runs two fresh 1024-step guarded PPO repeats from the M1045 public-gate base using seeds `61045` and `61046`. Both runs complete with finite metrics, unchanged actor inputs, exact M997/M297/M270/combined-active-set pass, all six public replay surfaces pass, source-diverse diagnostics pass, fresh/OOD pass, and behavior pass. Both retain M267/M264 row15 wrong-history failure and M183/M170 row16 normal success. No promotion or private holdout occurs.
+- decision: `guarded_ppo_fresh_seed_repeat_pass_route_to_short_escalation_design`
+- next: `m1048-v4-public-base-guarded-ppo-short-escalation-design`
