@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1091,
+    "completed": 1092,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1082-v4-public-base-proof-hardened-surface-retarget-design",
+    "task_id": "m1083-v4-public-base-proof-hardened-surface-retarget-refresh",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1082-v4-public-base-proof-hardened-surface-retarget-design.md"
+    "command_log": "docs/m1083-v4-public-base-proof-hardened-surface-retarget-refresh.md"
   },
   "next_task": {
-    "id": "m1083-v4-public-base-proof-hardened-surface-retarget-refresh",
+    "id": "m1084-v4-public-base-proof-hardened-surface-refresh-synthesis",
     "status": "pending",
-    "priority": 10780,
+    "priority": 10790,
     "kind": "gate",
-    "hypothesis": "Run the retargeted current-base surface refresh without weakening robustness thresholds",
-    "command": "see experiments/manifests/m1083-v4-public-base-proof-hardened-surface-retarget-refresh.json",
-    "success_artifact": "docs/m1083-v4-public-base-proof-hardened-surface-retarget-refresh.md",
-    "notes": "Pending: retargeted surface refresh only; no PPO no actor training no promotion no private holdout"
+    "hypothesis": "Synthesize M1080-M1083 after retargeting fixed success-drop quality but still failed source diversity",
+    "command": "see experiments/manifests/m1084-v4-public-base-proof-hardened-surface-refresh-synthesis.json",
+    "success_artifact": "docs/m1084-v4-public-base-proof-hardened-surface-refresh-synthesis.md",
+    "notes": "Pending: branch synthesis only; no PPO no actor training no mining no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T122602Z"
+  "updated_at_utc": "20260527T135254Z"
 }

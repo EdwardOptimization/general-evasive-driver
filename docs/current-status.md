@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1083-v4-public-base-proof-hardened-surface-retarget-refresh
+m1084-v4-public-base-proof-hardened-surface-refresh-synthesis
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -166,11 +166,15 @@ physical-pair diversity, success-drop fraction, and single-pair dominance. The
 next step is M1082: design a retargeted refresh without weakening thresholds.
 M1082 completed that design by increasing source coverage, tightening
 near-boundary success-drop pressure, and keeping the robustness thresholds
-unchanged. The next step is M1083: run the retargeted refresh.
+unchanged. M1083 ran the retargeted refresh. It fixed success-drop fraction to
+`1.0` and found 626 accepted wrong-history rows, but the primary robustness
+gate still failed because rows concentrated into only six physical pairs and
+one pair held 30.7% of accepted rows. The next step is M1084: synthesize
+M1080-M1083 before another retarget.
 
 ```text
 decision:
-  proof_hardened_surface_retarget_design_admit_m1083_refresh
+  proof_hardened_surface_retarget_duplicate_dominated_route_to_synthesis
 ```
 
 M1068 design:
@@ -546,6 +550,26 @@ mining_started: false
 promoted: false
 private_holdout_used: false
 next: m1083-v4-public-base-proof-hardened-surface-retarget-refresh
+```
+
+M1083 result:
+
+```text
+result_class: proof_hardened_surface_retarget_duplicate_dominated
+matched_current_accepted_pairs: 7257
+matched_current_physical_pairs: 371
+boundary_accepted_wrong_history_rows: 626
+boundary_wrong_history_success_drop_count: 626
+primary_w005_passed: false
+primary_w005_decision: reject_duplicate_dominated_boundary_surface
+primary_w005_physical_pairs: 6
+primary_w005_success_drop_fraction: 1.0
+primary_w005_max_rows_per_physical_pair_fraction: 0.3067092652
+training_started: false
+ppo_used: false
+promoted: false
+private_holdout_used: false
+next: m1084-v4-public-base-proof-hardened-surface-refresh-synthesis
 ```
 
 M1058 result:

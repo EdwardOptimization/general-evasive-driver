@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -104,7 +104,7 @@
     },
     {
       "name": "boundary_surface",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy proof_current=runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --checkpoint-policy short61049=runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --checkpoint-policy short61050=runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt --checkpoint-policy short61051=runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m1083_proof_hardened_retarget_outcome_seed108200/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.0 --min-base-margin-gap 0.005 --target-normal-margins 0.0005,0.001,0.0025,0.005,0.01,0.02,0.04 --body-longitudinal-offsets -2.0,-1.0,0.0,1.0,2.0 --body-lateral-offsets -0.4,0.0,0.4 --half-width-inflations 0 --min-normal-margin 0.0 --max-normal-margin 0.04 --min-margin-gap 0.04 --min-accepted-wrong-rows 40 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m1083_proof_hardened_retarget_boundary_surface_seed108200"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy proof_current=runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --checkpoint-policy short61049=runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --checkpoint-policy short61050=runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt --checkpoint-policy short61051=runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m1083_proof_hardened_retarget_outcome_seed108200/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.0 --min-base-margin-gap 0.005 --target-normal-margins 0.0005,0.001,0.0025,0.005,0.01,0.02,0.04 --body-longitudinal-offsets=-2.0,-1.0,0.0,1.0,2.0 --body-lateral-offsets=-0.4,0.0,0.4 --half-width-inflations 0 --min-normal-margin 0.0 --max-normal-margin 0.04 --min-margin-gap 0.04 --min-accepted-wrong-rows 40 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m1083_proof_hardened_retarget_boundary_surface_seed108200"
     },
     {
       "name": "robustness_w005",
@@ -139,6 +139,58 @@
   "baseline_artifacts": [
     "docs/m1082-v4-public-base-proof-hardened-surface-retarget-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1083-v4-public-base-proof-hardened-surface-retarget-refresh.md",
+    "decision": "proof_hardened_surface_retarget_duplicate_dominated_route_to_synthesis",
+    "result_class": "proof_hardened_surface_retarget_duplicate_dominated",
+    "failure_types": [
+      "scenario_sampling_failure"
+    ],
+    "matched_current": {
+      "candidate_pair_count": 1584399,
+      "accepted_pair_count": 7257,
+      "accepted_physical_pair_count": 371,
+      "accepted_left_step_count": 28,
+      "accepted_source_obstacle_bucket_count": 27,
+      "ambiguity_surface_found": true
+    },
+    "outcome_gate": {
+      "input_pair_count": 7257,
+      "outcome_row_count": 43542,
+      "outcome_summary_rows": 72
+    },
+    "boundary_surface": {
+      "candidate_count": 425,
+      "row_count": 122700,
+      "accepted_wrong_history_rows": 626,
+      "accepted_wrong_history_pairs": 71,
+      "accepted_reset_rows": 977,
+      "accepted_zero_current_rows": 862,
+      "wrong_history_success_drop_count": 626,
+      "surface_found": true
+    },
+    "robustness_primary_w005": {
+      "passed": false,
+      "decision": "reject_duplicate_dominated_boundary_surface",
+      "accepted_wrong_rows": 626,
+      "accepted_wrong_physical_pairs": 6,
+      "accepted_wrong_left_steps": 5,
+      "accepted_wrong_checkpoints": 4,
+      "accepted_wrong_targets": 2,
+      "accepted_wrong_normal_margin_buckets": 4,
+      "accepted_wrong_success_drop_fraction": 1.0,
+      "max_rows_per_physical_pair_fraction": 0.30670926517571884,
+      "control_accepted_wrong_rows": 0
+    },
+    "command_fix": "negative body offset lists must use argparse-safe --option=value syntax",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1084-v4-public-base-proof-hardened-surface-refresh-synthesis"
+  },
+  "decision": "proof_hardened_surface_retarget_duplicate_dominated_route_to_synthesis",
   "decision_rule": "M1083 runs the retargeted refresh and routes by the primary 0.005 robustness gate. It cannot train, run PPO, promote, use private holdout, or weaken thresholds.",
-  "next_blocker": "m1083-v4-public-base-proof-hardened-surface-retarget-refresh"
+  "next_blocker": "m1084-v4-public-base-proof-hardened-surface-refresh-synthesis"
 }

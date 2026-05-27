@@ -1,0 +1,134 @@
+{
+  "id": "m1084-v4-public-base-proof-hardened-surface-refresh-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1080-v4-public-base-proof-hardened-surface-refresh-design.md",
+      "docs/m1081-v4-public-base-proof-hardened-surface-refresh.md",
+      "docs/m1082-v4-public-base-proof-hardened-surface-retarget-design.md",
+      "docs/m1083-v4-public-base-proof-hardened-surface-retarget-refresh.md",
+      "runs/m1083_proof_hardened_retarget_boundary_robustness_w005_seed108200/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1083-v4-public-base-proof-hardened-surface-retarget-refresh.json"
+    ],
+    "parent_objective": [
+      "synthesize the proof_hardened_base_surface_refresh branch after M1083 fixed success-drop quality but failed source diversity"
+    ],
+    "derived_from": [
+      "m1083-v4-public-base-proof-hardened-surface-retarget-refresh"
+    ],
+    "blocked_by": [
+      "M1083 primary robustness still failed on physical-pair diversity and pair dominance after success-drop fraction reached 1.0"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running another ad hoc retarget without branch synthesis",
+      "converting M1083 surface directly despite source-diversity failure",
+      "weakening physical-pair thresholds"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1084-v4-public-base-proof-hardened-surface-refresh-synthesis.md",
+  "public_gates": [
+    "M1084 must synthesize M1080-M1083",
+    "M1084 must not train",
+    "M1084 must not run PPO",
+    "M1084 must not mine rows",
+    "M1084 must not promote",
+    "M1084 must not use private holdout",
+    "M1084 must decide the next branch after the source-diversity bottleneck"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not weaken source-diversity thresholds",
+    "do not claim M1083 is convertible"
+  ],
+  "workflow_synthesis": {
+    "branch": "proof_hardened_base_surface_refresh",
+    "evidence_axis": "G_synthesis: surface refresh source-diversity bottleneck",
+    "evidence_increment": "summarizes M1080-M1083 and decides whether to pivot to source-balanced boundary tooling",
+    "claim_scope": "synthesis only; no mining, no training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if M1083 evidence is insufficient",
+      "stop if next branch would weaken robustness thresholds",
+      "stop if next branch ignores physical-pair concentration"
+    ],
+    "fallback_plan": [
+      "if evidence supports tooling, promote_to_next_branch for source-balanced boundary export/tooling design",
+      "if evidence is incomplete, route to audit missing artifacts",
+      "if no path remains, stop surface refresh and pivot to a different proof axis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1083 retarget fixed success-drop fraction but failed physical-pair diversity",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1084-v4-public-base-proof-hardened-surface-refresh-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1084-v4-public-base-proof-hardened-surface-refresh-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "hypothesis": "M1080-M1083 evidence supports closing proof_hardened_base_surface_refresh and opening a source-balanced boundary tooling branch instead of running another retarget.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "M1080-M1083 evidence is summarized",
+    "supported and falsified claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is discussed",
+    "next branch decision is explicit",
+    "no training, PPO, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "synthesis questions are unanswered",
+    "training, PPO, or mining starts",
+    "checkpoint is promoted",
+    "private holdout is used",
+    "next branch weakens robustness thresholds"
+  ],
+  "commands": [
+    {
+      "name": "write_synthesis",
+      "command": "write docs/m1084-v4-public-base-proof-hardened-surface-refresh-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1084-v4-public-base-proof-hardened-surface-refresh-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1083-v4-public-base-proof-hardened-surface-retarget-refresh.md"
+  ],
+  "decision_rule": "M1084 may only synthesize M1080-M1083 and choose the next branch. It cannot train, run PPO, mine rows, promote, use private holdout, or weaken thresholds.",
+  "next_blocker": "m1084-v4-public-base-proof-hardened-surface-refresh-synthesis"
+}
