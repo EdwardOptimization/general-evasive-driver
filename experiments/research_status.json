@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1140,
+    "completed": 1141,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1131-v4-public-base-row15-promoted-surface-refresh-design",
+    "task_id": "m1132-v4-public-base-row15-promoted-surface-refresh",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1131-v4-public-base-row15-promoted-surface-refresh-design.md",
-    "result_class": "row15_promoted_surface_refresh_design_complete",
-    "decision": "row15_promoted_surface_refresh_design_admit_m1132_refresh"
+    "command_log": "docs/m1132-v4-public-base-row15-promoted-surface-refresh.md",
+    "result_class": "row15_promoted_surface_refresh_pass",
+    "decision": "row15_promoted_surface_refresh_pass_route_to_compact_conversion_design"
   },
   "next_task": {
-    "id": "m1132-v4-public-base-row15-promoted-surface-refresh",
+    "id": "m1133-v4-public-base-row15-promoted-compact-conversion-design",
     "status": "pending",
-    "priority": 11270,
+    "priority": 11280,
     "kind": "gate",
-    "hypothesis": "The promoted alpha_0_15 public-gate base still exposes a fresh source-diverse wrong-history boundary surface suitable for later conversion",
-    "command": "see experiments/manifests/m1132-v4-public-base-row15-promoted-surface-refresh.json",
-    "success_artifact": "docs/m1132-v4-public-base-row15-promoted-surface-refresh.md",
-    "notes": "Pending: run pre-registered source-diverse promoted-base surface refresh; no actor training PPO objective optimization promotion private holdout or actor-input change"
+    "hypothesis": "The M1132 172-row promoted-base source-balanced surface can be converted into a compact source-preserving objective/replay corpus before any future training",
+    "command": "see experiments/manifests/m1133-v4-public-base-row15-promoted-compact-conversion-design.json",
+    "success_artifact": "docs/m1133-v4-public-base-row15-promoted-compact-conversion-design.md",
+    "notes": "Pending: design-only compact conversion; no objective optimization replay training PPO promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260527T225000Z"
+  "updated_at_utc": "20260527T230500Z"
 }

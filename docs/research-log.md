@@ -16148,3 +16148,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no mining, replay, actor training, PPO, objective optimization, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_surface_refresh_design_admit_m1132_refresh`
 - next: `m1132-v4-public-base-row15-promoted-surface-refresh`
+
+## 20260527T230500Z - m1132-v4-public-base-row15-promoted-surface-refresh
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1132-v4-public-base-row15-promoted-surface-refresh.md`
+- matched-current result: `3103` accepted pairs, `190` physical pairs, `26` left steps, and `3` targets from `471690` candidate pairs.
+- outcome result: `18618` outcome rows from the `3103` matched pairs.
+- source-balanced result: source budget ready with `190` eligible physical pairs, `26` left steps, `5` checkpoints, and `3` targets; candidate selection keeps `1024` rows across all `190` physical pairs.
+- accepted surface: `172` accepted wrong-history rows, `15` physical pairs, `6` left steps, `5` checkpoints, `3` targets, `3` normal-margin buckets, success-drop fraction `1.0`, max physical-pair fraction `0.116279`, and `0` control rows.
+- guardrail: no actor training, PPO, objective optimization, promotion, private holdout, or actor-input change occurred; thresholds were not weakened after seeing the result.
+- decision: `row15_promoted_surface_refresh_pass_route_to_compact_conversion_design`
+- next: `m1133-v4-public-base-row15-promoted-compact-conversion-design`

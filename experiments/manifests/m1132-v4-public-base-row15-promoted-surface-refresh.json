@@ -177,6 +177,43 @@
   "baseline_artifacts": [
     "docs/m1131-v4-public-base-row15-promoted-surface-refresh-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1132-v4-public-base-row15-promoted-surface-refresh.md",
+    "matched_current_summary": "runs/m1132_row15_promoted_matched_current_seed113200/summary.json",
+    "outcome_summary": "runs/m1132_row15_promoted_outcome_seed113200/summary.json",
+    "source_balanced_summary": "runs/m1132_row15_promoted_source_balanced_surface_seed113200/summary.json",
+    "decision": "row15_promoted_surface_refresh_pass_route_to_compact_conversion_design",
+    "result_class": "row15_promoted_surface_refresh_pass",
+    "failure_types": [
+      "none"
+    ],
+    "accepted_pair_count": 3103,
+    "accepted_physical_pair_count": 190,
+    "outcome_row_count": 18618,
+    "source_budget_ready": true,
+    "selected_rows": 1024,
+    "selected_physical_pairs": 190,
+    "accepted_wrong_rows": 172,
+    "accepted_wrong_physical_pairs": 15,
+    "accepted_wrong_left_steps": 6,
+    "accepted_wrong_checkpoints": 5,
+    "accepted_wrong_targets": 3,
+    "accepted_wrong_normal_margin_buckets": 3,
+    "accepted_wrong_success_drop_fraction": 1.0,
+    "max_rows_per_physical_pair_fraction": 0.11627906976744186,
+    "control_accepted_wrong_rows": 0,
+    "balanced_accepted_wrong_history_rows_csv": "runs/m1132_row15_promoted_source_balanced_surface_seed113200/balanced_accepted_wrong_history_rows.csv",
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "objective_optimization_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1133-v4-public-base-row15-promoted-compact-conversion-design"
+  },
+  "decision": "row15_promoted_surface_refresh_pass_route_to_compact_conversion_design",
   "decision_rule": "M1132 may only run the pre-registered source-diverse promoted-base surface refresh. It cannot train actor weights, run PPO, optimize objectives, promote, use private holdout, change actor inputs, or weaken thresholds after seeing the result.",
-  "next_blocker": "m1132-v4-public-base-row15-promoted-surface-refresh"
+  "next_blocker": "m1133-v4-public-base-row15-promoted-compact-conversion-design"
 }

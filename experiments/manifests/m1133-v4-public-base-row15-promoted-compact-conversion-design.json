@@ -1,0 +1,156 @@
+{
+  "id": "m1133-v4-public-base-row15-promoted-compact-conversion-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1132_row15_promoted_source_balanced_surface_seed113200/balanced_accepted_wrong_history_rows.csv",
+      "docs/m1132-v4-public-base-row15-promoted-surface-refresh.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1132-v4-public-base-row15-promoted-surface-refresh.json"
+    ],
+    "parent_objective": [
+      "design compact conversion for the M1132 promoted-base source-balanced surface"
+    ],
+    "derived_from": [
+      "m1132-v4-public-base-row15-promoted-surface-refresh"
+    ],
+    "blocked_by": [
+      "M1132 surface has not yet been converted into compact objective/replay-ready artifacts"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "training directly on the full 172-row surface without compact conversion and replay sanity",
+      "running PPO before objective/replay conversion sanity"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1133-v4-public-base-row15-promoted-compact-conversion-design.md",
+  "public_gates": [
+    "M1133 must design conversion only",
+    "M1133 must preserve M1132 source diversity and accepted wrong-history semantics",
+    "M1133 must not train actor weights",
+    "M1133 must not run PPO",
+    "M1133 must not run objective optimization",
+    "M1133 must not run replay",
+    "M1133 must not promote",
+    "M1133 must not use private holdout",
+    "M1133 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run objective optimization",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not discard source metadata",
+    "do not weaken diversity thresholds after seeing conversion sparsity"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_base_surface_refresh",
+    "evidence_axis": "G_conversion: compact objective/replay corpus design",
+    "evidence_increment": "pre-registers compact conversion from the M1132 source-balanced surface before objective or replay sanity",
+    "claim_scope": "design only; no conversion run, replay, objective optimization, training, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if conversion design would discard source metadata",
+      "stop if compact thresholds cannot preserve diversity",
+      "stop if design would allow training before replay sanity"
+    ],
+    "fallback_plan": [
+      "if design is accepted, run compact conversion in M1134",
+      "if conversion looks too sparse, route to compactability audit",
+      "if tooling is missing, route to implementation before conversion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1132 surface refresh pass",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design compact conversion for promoted-base surface",
+    "admission_evidence": [
+      "M1132 source-balanced surface passes",
+      "M1132 exports balanced accepted wrong-history rows"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not run objective optimization"
+    ],
+    "allowed_updates": [
+      "design document",
+      "pre-register conversion run if design supports it",
+      "queue, status, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "input surface path is explicit",
+      "compact thresholds are explicit",
+      "objective and replay sanity gates are explicit",
+      "next conversion run is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1133 designs conversion for matched-current proof rows and cannot upgrade self-ID claim level.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1133 is design-only and adds no new self-ID intervention.",
+    "negative_result_policy": "If compact conversion is too sparse, record compactability failure and route to audit rather than weakening source caps.",
+    "allowed_claims": [
+      "compact conversion design readiness",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The M1132 172-row promoted-base source-balanced surface can be converted into a compact source-preserving objective/replay corpus before any future training.",
+  "success_criteria": [
+    "design artifact exists",
+    "M1132 input surface path is explicit",
+    "compact diversity thresholds are explicit",
+    "objective sanity and replay sanity gates are explicit",
+    "no training, PPO, objective optimization, replay, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "source metadata preservation is ambiguous",
+    "compact thresholds are missing",
+    "training, PPO, objective optimization, replay, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_compact_conversion_design",
+      "command": "write docs/m1133-v4-public-base-row15-promoted-compact-conversion-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1133-v4-public-base-row15-promoted-compact-conversion-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1132-v4-public-base-row15-promoted-surface-refresh.md",
+    "runs/m1132_row15_promoted_source_balanced_surface_seed113200/summary.json"
+  ],
+  "decision_rule": "M1133 may only design compact conversion. It cannot train actor weights, run PPO, optimize objectives, run replay, promote, use private holdout, change actor inputs, discard source metadata, or weaken diversity thresholds.",
+  "next_blocker": "m1133-v4-public-base-row15-promoted-compact-conversion-design"
+}

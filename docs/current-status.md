@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1132-v4-public-base-row15-promoted-surface-refresh
+m1133-v4-public-base-row15-promoted-compact-conversion-design
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -123,13 +123,19 @@ audit. It does not prove PPO readiness, medium/long training stability,
 private-holdout generalization, paper-level evidence, real-vehicle transfer, or
 level3 anticipatory self-identification.
 
-M1131 completed the promoted-base surface refresh design. M1132 should run the
-pre-registered matched-current, matched-history outcome, and source-balanced
-boundary relocation pipeline for alpha `0.15`. The refresh family is
-`row15_current`, `previous_m1078_base`, `short61049`, `short61050`, and
-`short61051`. M1132 must not train actor weights, run PPO, optimize objectives,
-promote, use private holdout, change actor inputs, or weaken thresholds after
-seeing the result.
+M1132 completed the promoted-base surface refresh and passed the source-balanced
+boundary export gate: `172` accepted wrong-history rows, `15` physical pairs,
+`6` left steps, `5` checkpoints, `3` targets, `3` normal-margin buckets,
+success-drop fraction `1.0`, max physical-pair fraction `0.116279`, and `0`
+control rows. M1133 should design compact source-preserving conversion from:
+
+```text
+runs/m1132_row15_promoted_source_balanced_surface_seed113200/balanced_accepted_wrong_history_rows.csv
+```
+
+M1133 must not train actor weights, run PPO, run objective optimization, run
+replay, promote, use private holdout, change actor inputs, discard source
+metadata, or weaken diversity thresholds.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,
