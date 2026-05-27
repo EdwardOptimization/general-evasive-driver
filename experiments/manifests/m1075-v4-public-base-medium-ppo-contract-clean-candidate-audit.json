@@ -1,0 +1,110 @@
+{
+  "id": "m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_line_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate.md",
+      "runs/m1074_medium_ppo_repair_projection_full_public_gate/summary.json",
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/projection_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate.json"
+    ],
+    "parent_objective": [
+      "audit contract-clean projection alternatives after M1074 fails only allowed-surface contract"
+    ],
+    "derived_from": [
+      "m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate"
+    ],
+    "blocked_by": [
+      "M1074 closed-loop gates passed but the selected candidate changed disallowed parameter groups"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "treating M1074 as proof washout",
+      "promoting the contract-artifact candidate",
+      "rerunning PPO before auditing contract-clean alternatives already produced by M1073"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit.md",
+  "public_gates": [
+    "M1075 must not run PPO",
+    "M1075 must not train actor",
+    "M1075 must not promote",
+    "M1075 must not use private holdout",
+    "M1075 must identify whether M1073 has an exact-pass contract-clean candidate worth full public gate"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train actor",
+    "do not promote",
+    "do not use private holdout",
+    "do not weaken allowed-surface contract",
+    "do not ignore M1074 proof gate passes"
+  ],
+  "workflow_synthesis": {
+    "branch": "expanded_gate_medium_ppo_readiness",
+    "evidence_axis": "G_contract: contract-clean candidate selection",
+    "evidence_increment": "separates M1074 contract artifact from proof washout and selects a cleaner M1073 candidate for full public gate",
+    "claim_scope": "audit/selection only; no training, no promotion, no full-gate pass claim",
+    "stop_condition": [
+      "stop if no exact-pass contract-clean M1073 candidate exists",
+      "stop if selected candidate would require weakening allowed prefixes",
+      "stop if audit would use private holdout"
+    ],
+    "fallback_plan": [
+      "if contract-clean candidate exists, route it to full public gate",
+      "if no clean candidate exists, route to projection selector redesign",
+      "if exact/proof tradeoff is unclear, route to projection candidate matrix audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1074 failed only allowed-surface contract while closed-loop gates passed",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "M1073 produced at least one exact-pass contract-clean candidate that should be evaluated by the expanded full public gate before redesigning projection.",
+  "success_criteria": [
+    "audit artifact exists",
+    "audit identifies selected candidate or explains why none exists",
+    "audit checks changed_parameter_names against allowed prefixes",
+    "audit checks exact eligibility",
+    "audit routes to full public gate or selector redesign",
+    "no PPO actor training promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "audit omits changed parameter contract",
+    "audit recommends weakening allowed prefixes",
+    "PPO or actor training starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "write_contract_clean_candidate_audit",
+      "command": "write docs/m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit.md from M1073/M1074 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate.md"
+  ],
+  "decision_rule": "M1075 may only audit M1073 contract-clean alternatives and route the next gate. It cannot run PPO, train actor, promote, or use private holdout.",
+  "next_blocker": "m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit"
+}

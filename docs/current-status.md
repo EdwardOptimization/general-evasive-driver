@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate
+m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -134,12 +134,19 @@ failed-row projection corpus covering old public, M1061 family-intersection,
 and source-diverse failed rows. M1072 completed that export: 22 source-labeled
 rows across eight surfaces were written into a loadable current-family conflict
 NPZ. M1073 then ran a no-PPO repair/projection probe using that corpus and
-selected `m1031_line_row16x4_s40_a1` as a first-replay-safe candidate. The next
-step is the expanded full public gate; M1073 alone is not enough to promote.
+selected `m1031_line_row16x4_s40_a1` as a first-replay-safe candidate. M1074
+ran the expanded full public gate for that candidate. Closed-loop proof, M1061
+family-intersection, source-diverse, fresh/OOD, and behavior gates all passed,
+but the selected candidate failed the allowed-surface contract because it
+changed parameter groups outside `actor_mean.` and
+`response_context_fusion.0.`. The candidate is rejected as a contract artifact,
+not proof washout. The next step is M1075: audit M1073 projection metrics for
+an exact-pass contract-clean alternative before any new PPO or selector
+redesign.
 
 ```text
 decision:
-  medium_ppo_failed_row_projection_first_replay_candidate_route_to_full_public_gate
+  medium_ppo_projection_full_gate_contract_artifact_route_to_contract_clean_candidate_audit
 ```
 
 M1068 design:
@@ -335,6 +342,25 @@ ppo_used: false
 promoted: false
 private_holdout_used: false
 next: m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate
+```
+
+M1074 result:
+
+```text
+result_class: candidate_b_combined_active_set_full_public_gate_contract_artifact
+candidate_checkpoint: runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_line_row16x4_s40_a1.pt
+actor_inputs_changed: false
+allowed_surface_contract_pass: false
+exact_pass: false
+proof_pass: true
+family_intersection_pass: true
+source_diverse_pass: true
+generalization_pass: true
+behavior_pass: true
+ppo_used: false
+promoted: false
+private_holdout_used: false
+next: m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit
 ```
 
 M1058 result:

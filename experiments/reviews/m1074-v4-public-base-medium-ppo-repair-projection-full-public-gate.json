@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1074 selected candidate passes closed-loop proof family-intersection source-diverse fresh/OOD and behavior gates but fails allowed-surface contract so it is rejected",
+  "failure_criteria": [
+    "full public gate crashes",
+    "summary artifact is missing",
+    "actor inputs change",
+    "any exact/proof/family/source/generalization/behavior gate fails",
+    "checkpoint is promoted",
+    "private holdout is used"
+  ],
+  "failure_types": [
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not change actor inputs",
+    "do not promote from M1074",
+    "do not use private holdout",
+    "do not skip M1061 family-intersection gate",
+    "do not skip source-diverse or behavior gates"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260527T093841Z",
+  "hypothesis": "The M1073 repaired projection candidate can pass the expanded full public gate after restoring first-replay proof constraints.",
+  "lineage": {
+    "blocked_by": [
+      "M1073 found only a first-replay candidate; expanded full public gates have not yet been run"
+    ],
+    "derived_from": [
+      "m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe"
+    ],
+    "invalidates": [
+      "promoting the M1073 first-replay candidate before expanded full public gate",
+      "claiming the M1069 proof washout is repaired without M1061 family-intersection and source-diverse gates"
+    ],
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_line_row16x4_s40_a1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe.json"
+    ],
+    "parent_dataset": [
+      "docs/m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe.md",
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/summary.json",
+      "runs/m1072_medium_ppo_failed_row_projection_corpus/current_family_conflict_corpus.npz"
+    ],
+    "parent_objective": [
+      "run the expanded full public gate for the M1073 no-PPO projection candidate"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate",
+  "next_blocker": "m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "medium_ppo_projection_full_gate_contract_artifact_route_to_contract_clean_candidate_audit",
+  "public_gates": [
+    "M1074 must not run PPO",
+    "M1074 must not promote",
+    "M1074 must not use private holdout",
+    "M1074 must preserve the P0 actor-input contract",
+    "M1074 must run exact, old public replay, M1061 family-intersection, source-diverse, fresh/OOD, and behavior gates"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1074_medium_ppo_repair_projection_full_public_gate/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "medium_ppo_projection_full_gate_contract_artifact_route_to_contract_clean_candidate_audit",
+    "milestone": "m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate",
+    "reason": "M1074 selected candidate passes closed-loop proof family-intersection source-diverse fresh/OOD and behavior gates but fails allowed-surface contract so it is rejected",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "full public gate completes",
+    "summary artifact exists",
+    "actor inputs are unchanged",
+    "exact gate passes",
+    "all old public replay gates pass",
+    "M1061 family-intersection gate passes",
+    "source-diverse gate passes",
+    "fresh/OOD gates pass",
+    "behavior gates pass",
+    "no promotion or private holdout occurs"
+  ],
+  "type": "gate"
+}

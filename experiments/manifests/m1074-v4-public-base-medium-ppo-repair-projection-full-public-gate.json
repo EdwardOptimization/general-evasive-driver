@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "contract_violation"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -116,6 +116,31 @@
   "baseline_artifacts": [
     "docs/m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate.md",
+    "summary_json": "runs/m1074_medium_ppo_repair_projection_full_public_gate/summary.json",
+    "decision": "medium_ppo_projection_full_gate_contract_artifact_route_to_contract_clean_candidate_audit",
+    "result_class": "candidate_b_combined_active_set_full_public_gate_contract_artifact",
+    "failure_types": [
+      "contract_violation"
+    ],
+    "base_checkpoint": "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+    "candidate_checkpoint": "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_line_row16x4_s40_a1.pt",
+    "exact_pass": false,
+    "allowed_surface_contract_pass": false,
+    "actor_inputs_changed": false,
+    "proof_pass": true,
+    "family_intersection_pass": true,
+    "source_diverse_pass": true,
+    "generalization_pass": true,
+    "behavior_pass": true,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit"
+  },
+  "decision": "medium_ppo_projection_full_gate_contract_artifact_route_to_contract_clean_candidate_audit",
   "decision_rule": "M1074 may only run the expanded full public gate and route from that result. It cannot promote, run PPO, or use private holdout.",
-  "next_blocker": "m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate"
+  "next_blocker": "m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit"
 }
