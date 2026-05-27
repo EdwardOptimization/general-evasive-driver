@@ -1,0 +1,145 @@
+{
+  "id": "m1055-v4-public-base-post-short-promotion-surface-refresh",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1054-v4-public-base-post-short-promotion-surface-refresh-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1054-v4-public-base-post-short-promotion-surface-refresh-design.json"
+    ],
+    "parent_objective": [
+      "mine and robustness-gate a source-diverse current-base wrong-history boundary surface after short-PPO promotion"
+    ],
+    "derived_from": [
+      "m1054-v4-public-base-post-short-promotion-surface-refresh-design"
+    ],
+    "blocked_by": [
+      "current public-gate base was promoted from known public surfaces; refreshed source-diverse current-base surface is needed before medium PPO"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running medium PPO before current-base surface refresh"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1055-v4-public-base-post-short-promotion-surface-refresh.md",
+  "public_gates": [
+    "M1055 must not train or run PPO",
+    "M1055 must preserve actor inputs",
+    "M1055 must mine matched-current ambiguity for the three 4096-step family checkpoints",
+    "M1055 must run outcome, boundary relocation, and source-diverse robustness stages",
+    "M1055 must classify sparse or duplicate-dominated surfaces instead of loosening thresholds",
+    "M1055 must not promote a checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not loosen source-diversity thresholds after seeing failure",
+    "do not route to medium PPO directly from M1055"
+  ],
+  "workflow_synthesis": {
+    "branch": "post_short_promotion_surface_refresh",
+    "evidence_axis": "G_surface: current-base source-diverse proof refresh",
+    "evidence_increment": "runs current-base source-diverse surface refresh for the short-PPO promoted family",
+    "claim_scope": "public proof surface refresh only; no training, no PPO, no promotion",
+    "stop_condition": [
+      "stop if accepted wrong-history rows are below threshold",
+      "stop if surface is duplicate-dominated",
+      "stop if wrong-history outcome sensitivity is absent",
+      "stop if actor input contract changes"
+    ],
+    "fallback_plan": [
+      "if pass, route to compact corpus/objective conversion design",
+      "if sparse, route to sampling retarget design",
+      "if duplicate-dominated, route to public-overfit audit",
+      "if wrong-history-insensitive, route to self-ID proof audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1054 admits current-base surface refresh",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The newly promoted 4096-step public-gate base family still exposes a source-diverse wrong-history outcome boundary surface suitable for conversion into replay/objective corpora.",
+  "success_criteria": [
+    "matched-current summary exists",
+    "outcome summary exists",
+    "boundary relocation summary exists",
+    "robustness summary exists",
+    "accepted wrong-history rows >= 80",
+    "physical pairs >= 10",
+    "left steps >= 5",
+    "checkpoints >= 3",
+    "targets >= 2",
+    "success_drop_fraction == 1.0",
+    "no training or PPO occurs"
+  ],
+  "failure_criteria": [
+    "surface is sparse",
+    "surface is duplicate-dominated",
+    "wrong-history outcome sensitivity is absent",
+    "actor inputs change",
+    "training or PPO starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "matched_current",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_current_response_ambiguity --checkpoint-policy short61049=runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --checkpoint-policy short61050=runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt --checkpoint-policy short61051=runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --probe-seeds 105400,105401,105402,105403 --episodes 40 --horizon-steps 15 --sample-stride 3 --max-samples 1200 --nearest-k 12 --max-visible-quantile 0.05 --min-target-z-delta 1.0 --max-pairs-per-target 320 --max-pairs-per-physical-pair 1 --max-pairs-per-left-step 20 --max-pairs-per-source-obstacle-bucket 40 --obstacle-distance-bucket-width 5.0 --obstacle-lateral-bucket-width 1.0 --min-accepted-pairs 60 --device cpu --run-dir runs/m1055_post_short_promotion_matched_current_seed105400"
+    },
+    {
+      "name": "outcome_gate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_outcome_gate --checkpoint-policy short61049=runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --checkpoint-policy short61050=runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt --checkpoint-policy short61051=runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --pairs-csv runs/m1055_post_short_promotion_matched_current_seed105400/matched_pairs.csv --delay-steps 10 --max-continuation-steps 60 --min-margin-gap 0.02 --max-pairs-per-checkpoint-target 0 --pair-label-mode matching --device cpu --run-dir runs/m1055_post_short_promotion_outcome_seed105400"
+    },
+    {
+      "name": "boundary_surface",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy short61049=runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --checkpoint-policy short61050=runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt --checkpoint-policy short61051=runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m1055_post_short_promotion_outcome_seed105400/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.0 --target-normal-margins 0.0005,0.001,0.0025,0.005,0.01,0.02,0.05,0.10,0.15,0.20 --half-width-inflations 0 --min-normal-margin 0.0 --max-normal-margin 0.20 --min-margin-gap 0.02 --min-accepted-wrong-rows 40 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m1055_post_short_promotion_boundary_surface_seed105400"
+    },
+    {
+      "name": "robustness",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m1055_post_short_promotion_boundary_surface_seed105400/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 80 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 3 --min-targets 2 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m1055_post_short_promotion_boundary_robustness_seed105400"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1055-v4-public-base-post-short-promotion-surface-refresh.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m1055_post_short_promotion_matched_current_seed105400/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1055_post_short_promotion_outcome_seed105400/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1055_post_short_promotion_boundary_surface_seed105400/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1055_post_short_promotion_boundary_robustness_seed105400/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1054-v4-public-base-post-short-promotion-surface-refresh-design.md"
+  ],
+  "decision_rule": "M1055 may only mine and robustness-gate a public current-base surface. Passing routes to compact corpus conversion; failing routes to sparse/overfit/self-ID audit.",
+  "next_blocker": "m1055-v4-public-base-post-short-promotion-surface-refresh"
+}

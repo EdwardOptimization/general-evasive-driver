@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M1054 designs current-base source-diverse wrong-history boundary refresh for the short-PPO promoted family before medium PPO",
+  "failure_criteria": [
+    "design artifact is missing",
+    "source criteria are ambiguous",
+    "PPO starts",
+    "private holdout is used",
+    "actor inputs change"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not claim medium or long PPO stability"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T041718Z",
+  "hypothesis": "After short-PPO public-base promotion, the next step should design a current-base source-diverse protected/preference surface refresh before medium PPO.",
+  "lineage": {
+    "blocked_by": [
+      "M1052 promoted a new public-gate base using known public surfaces; the current-base surface must be refreshed before medium PPO"
+    ],
+    "derived_from": [
+      "m1053-v4-public-base-guarded-ppo-short-promotion-synthesis"
+    ],
+    "invalidates": [
+      "running medium PPO immediately after public-gate promotion without current-base surface refresh"
+    ],
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1053-v4-public-base-guarded-ppo-short-promotion-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1053-v4-public-base-guarded-ppo-short-promotion-synthesis.md",
+      "docs/m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit.md"
+    ],
+    "parent_objective": [
+      "design source-diverse protected/preference surface refresh for the newly promoted 4096-step public-gate base"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1054-v4-public-base-post-short-promotion-surface-refresh-design",
+  "next_blocker": "m1055-v4-public-base-post-short-promotion-surface-refresh",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "post_short_promotion_surface_refresh_design_admit_m1055_refresh",
+  "public_gates": [
+    "M1054 must design only",
+    "M1054 must not train",
+    "M1054 must not run PPO",
+    "M1054 must not use private holdout",
+    "M1054 must preserve the P0 actor-input contract",
+    "M1054 must specify source-diverse protected/preference refresh criteria",
+    "M1054 must specify compact corpus and stale-singleton handling rules"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1054-v4-public-base-post-short-promotion-surface-refresh-design.md",
+    "clearance_margin_mean": "",
+    "decision": "post_short_promotion_surface_refresh_design_admit_m1055_refresh",
+    "milestone": "m1054-v4-public-base-post-short-promotion-surface-refresh-design",
+    "reason": "M1054 designs current-base source-diverse wrong-history boundary refresh for the short-PPO promoted family before medium PPO",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "surface refresh design artifact exists",
+    "base checkpoint is explicit",
+    "source diversity criteria are explicit",
+    "compact corpus criteria are explicit",
+    "stale singleton handling is explicit",
+    "no training or PPO occurs"
+  ],
+  "type": "gate"
+}

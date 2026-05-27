@@ -15637,3 +15637,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1053 synthesizes the state after M1052 promoted the 4096-step guarded PPO checkpoint as the current public-gate base. It records that the short-PPO promotion is valid only as public-gate evidence and does not support private-holdout, medium/long PPO, paper-level, or real-vehicle claims. Because the promotion used known public proof surfaces and active-set anchors, M1053 routes next to current-base source-diverse protected/preference surface refresh design before medium PPO.
 - decision: `guarded_ppo_short_promotion_synthesis_route_to_surface_refresh_design`
 - next: `m1054-v4-public-base-post-short-promotion-surface-refresh-design`
+
+## 20260527T040831Z - m1054-v4-public-base-post-short-promotion-surface-refresh-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1054-v4-public-base-post-short-promotion-surface-refresh-design.md`
+- result: M1054 designs a no-training current-base source-diverse protected/preference surface refresh for the newly promoted 4096-step public-gate base. It adapts the M266/M267 pattern to the short-PPO family checkpoints `61049/61050/61051`, requires matched-current mining, outcome gating, boundary relocation with tighter low-margin windows, and a robustness gate with at least `80` accepted wrong-history rows, `10` physical pairs, `5` left steps, `3` checkpoints, and `2` targets. It blocks PPO, promotion, private holdout, and actor-input changes.
+- decision: `post_short_promotion_surface_refresh_design_admit_m1055_refresh`
+- next: `m1055-v4-public-base-post-short-promotion-surface-refresh`

@@ -103,6 +103,31 @@
   "baseline_artifacts": [
     "docs/m1053-v4-public-base-guarded-ppo-short-promotion-synthesis.md"
   ],
-  "decision_rule": "M1054 must design current-base surface refresh criteria and cannot train, run PPO, promote, or use private holdout.",
-  "next_blocker": "m1054-v4-public-base-post-short-promotion-surface-refresh-design"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1054-v4-public-base-post-short-promotion-surface-refresh-design.md",
+    "decision": "post_short_promotion_surface_refresh_design_admit_m1055_refresh",
+    "result_class": "post_short_promotion_surface_refresh_design",
+    "failure_types": [
+      "none"
+    ],
+    "base_checkpoint": "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+    "family_checkpoints": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "accepted_wrong_history_rows_threshold": 80,
+    "min_physical_pairs": 10,
+    "min_left_steps": 5,
+    "min_checkpoints": 3,
+    "min_targets": 2,
+    "training_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1055-v4-public-base-post-short-promotion-surface-refresh"
+  },
+  "decision": "post_short_promotion_surface_refresh_design_admit_m1055_refresh",
+  "decision_rule": "M1054 designs the post-short-promotion current-base surface refresh and admits M1055 implementation; it cannot mine, train, run PPO, promote, or use private holdout.",
+  "next_blocker": "m1055-v4-public-base-post-short-promotion-surface-refresh"
 }

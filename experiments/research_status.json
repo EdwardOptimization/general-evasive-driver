@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1062,
+    "completed": 1063,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1053-v4-public-base-guarded-ppo-short-promotion-synthesis",
+    "task_id": "m1054-v4-public-base-post-short-promotion-surface-refresh-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1053-v4-public-base-guarded-ppo-short-promotion-synthesis.md"
+    "command_log": "docs/m1054-v4-public-base-post-short-promotion-surface-refresh-design.md"
   },
   "next_task": {
-    "id": "m1054-v4-public-base-post-short-promotion-surface-refresh-design",
+    "id": "m1055-v4-public-base-post-short-promotion-surface-refresh",
     "status": "pending",
-    "priority": 10490,
+    "priority": 10500,
     "kind": "gate",
-    "hypothesis": "Design current-base source-diverse protected/preference surface refresh before medium PPO",
-    "command": "see experiments/manifests/m1054-v4-public-base-post-short-promotion-surface-refresh-design.json",
-    "success_artifact": "docs/m1054-v4-public-base-post-short-promotion-surface-refresh-design.md",
-    "notes": "Pending: design only; no PPO no private holdout"
+    "hypothesis": "Mine and robustness-gate a source-diverse current-base wrong-history boundary surface after short-PPO promotion",
+    "command": "see experiments/manifests/m1055-v4-public-base-post-short-promotion-surface-refresh.json",
+    "success_artifact": "docs/m1055-v4-public-base-post-short-promotion-surface-refresh.md",
+    "notes": "Pending: public surface refresh only; no PPO no private holdout"
   },
-  "updated_at_utc": "20260527T040525Z"
+  "updated_at_utc": "20260527T040831Z"
 }
