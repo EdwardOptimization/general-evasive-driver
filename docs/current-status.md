@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1109-v4-public-base-materialized-guarded-actor-update-design
+m1110-v4-public-base-materialized-guarded-actor-update-probe
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -290,11 +290,17 @@ design is admissible and define required post-update gates. M1108 completes the
 audit. M1107 is strong enough to admit guarded actor-update design only; direct
 actor update, PPO, promotion, and driver-improvement claims remain blocked. The
 next step is M1109: design an actor-coupling-only update with exact, replay, and
-behavior gates before any implementation.
+behavior gates before any implementation. M1109 completes that design. The next
+probe is allowed to train only `actor_coupling` with frozen `log_std`, use both
+rollout action anchors and snippet action anchors, include rejected hidden
+states, audit changed parameter prefixes, and pass exact M1107 objective gates
+before any replay. PPO, promotion, private holdout, mining, corpus rebuild, and
+actor-input changes remain blocked. The next step is M1110: run three
+low-drift actor-coupling candidates and classify them before any replay.
 
 ```text
 decision:
-  materialized_objective_result_audit_admit_guarded_actor_update_design
+  materialized_guarded_actor_update_design_admit_probe
 ```
 
 M1068 design:

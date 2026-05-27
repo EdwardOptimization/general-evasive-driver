@@ -15893,3 +15893,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - required next gates: train scope must be `actor_coupling` only; retention anchors, allowed-parameter audit, exact objective improvement, replay gates, and behavior gates must be specified before any implementation
 - decision: `materialized_objective_result_audit_admit_guarded_actor_update_design`
 - next: `m1109-v4-public-base-materialized-guarded-actor-update-design`
+
+## 20260527T201627Z - m1109-v4-public-base-materialized-guarded-actor-update-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1109-v4-public-base-materialized-guarded-actor-update-design.md`
+- result: M1109 designs the next bounded actor-update probe. The allowed surface is `actor_coupling` only with frozen `log_std`; the update must use both rollout action anchors and snippet action anchors, include rejected hidden states, and restart every seed from the current public-gate base.
+- required gates: exact M1107 objective no-regression/improvement, allowed changed prefixes `actor_mean.` and `response_context_fusion.0.`, low anchor MSE, unchanged actor inputs, and no replay until exact/contract gates pass
+- decision: `materialized_guarded_actor_update_design_admit_probe`
+- next: `m1110-v4-public-base-materialized-guarded-actor-update-probe`

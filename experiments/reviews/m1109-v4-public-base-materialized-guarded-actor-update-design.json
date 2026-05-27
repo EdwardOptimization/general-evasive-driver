@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M1109 designs a bounded actor_coupling-only update probe with frozen log_std exact objective parameter-scope action-anchor and snippet-anchor gates before any replay PPO promotion or private holdout",
+  "failure_criteria": [
+    "design artifact is missing",
+    "train scope is ambiguous",
+    "post-update gates are ambiguous",
+    "design admits promotion or PPO directly",
+    "actor training, PPO, replay, corpus build, objective sanity, mining, promotion, or private holdout starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run corpus build",
+    "do not run objective sanity",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken post-update gates"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T201943Z",
+  "hypothesis": "A tightly guarded actor-update design can be specified from the M1107 materialized objective corpus without weakening proof, behavior, or promotion discipline.",
+  "lineage": {
+    "blocked_by": [
+      "M1108 admits design only after objective sanity pass"
+    ],
+    "derived_from": [
+      "m1108-v4-public-base-materialized-objective-result-audit"
+    ],
+    "invalidates": [
+      "direct actor update without design",
+      "PPO continuation from objective sanity",
+      "promotion from objective sanity or actor update alone"
+    ],
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1108-v4-public-base-materialized-objective-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1108-v4-public-base-materialized-objective-result-audit.md",
+      "runs/m1107_materialized_objective_corpus/boundary_outcome_corpus.npz",
+      "runs/m1107_materialized_objective_corpus/objective_summary.json"
+    ],
+    "parent_objective": [
+      "design a tightly guarded actor update from the materialized objective corpus"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1109-v4-public-base-materialized-guarded-actor-update-design",
+  "next_blocker": "m1110-v4-public-base-materialized-guarded-actor-update-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "materialized_guarded_actor_update_design_admit_probe",
+  "public_gates": [
+    "M1109 must design only",
+    "M1109 must not train actor weights",
+    "M1109 must not run PPO",
+    "M1109 must not run replay",
+    "M1109 must not run corpus build or objective sanity",
+    "M1109 must not mine rows",
+    "M1109 must not promote",
+    "M1109 must not use private holdout",
+    "M1109 must preserve actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1109-v4-public-base-materialized-guarded-actor-update-design.md",
+    "clearance_margin_mean": "",
+    "decision": "materialized_guarded_actor_update_design_admit_probe",
+    "milestone": "m1109-v4-public-base-materialized-guarded-actor-update-design",
+    "reason": "M1109 designs a bounded actor_coupling-only update probe with frozen log_std exact objective parameter-scope action-anchor and snippet-anchor gates before any replay PPO promotion or private holdout",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design artifact exists",
+    "actor update command is explicit",
+    "train scope is actor_coupling only",
+    "retention anchors are explicit",
+    "post-update exact objective gate is explicit",
+    "post-update replay gates are explicit",
+    "post-update behavior gates are explicit",
+    "no actor training, PPO, replay, corpus build, objective sanity, mining, promotion, or private holdout occurs"
+  ],
+  "type": "gate"
+}

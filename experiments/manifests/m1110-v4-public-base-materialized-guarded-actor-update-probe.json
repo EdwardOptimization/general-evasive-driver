@@ -1,0 +1,196 @@
+{
+  "id": "m1110-v4-public-base-materialized-guarded-actor-update-probe",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1109-v4-public-base-materialized-guarded-actor-update-design.md",
+      "runs/m1107_materialized_objective_corpus/boundary_outcome_corpus.npz",
+      "runs/m1107_materialized_objective_corpus/objective_summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1109-v4-public-base-materialized-guarded-actor-update-design.json"
+    ],
+    "parent_objective": [
+      "run actor_coupling-only low-drift action-grounding update from the materialized objective corpus"
+    ],
+    "derived_from": [
+      "m1109-v4-public-base-materialized-guarded-actor-update-design"
+    ],
+    "blocked_by": [
+      "M1109 admits a bounded actor update probe only after design"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "PPO continuation before exact/contract gates",
+      "replay before exact/contract gates",
+      "promotion from actor update alone"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1110-v4-public-base-materialized-guarded-actor-update-probe.md",
+  "public_gates": [
+    "M1110 may run outcome_intervention_optimize only",
+    "M1110 must use train_scope actor_coupling",
+    "M1110 must keep log_std frozen",
+    "M1110 must audit changed parameter prefixes",
+    "M1110 must run exact M1107 objective evaluation",
+    "M1110 must not run PPO",
+    "M1110 must not run replay before exact and contract gates",
+    "M1110 must not build corpus or mine rows",
+    "M1110 must not promote",
+    "M1110 must not use private holdout",
+    "M1110 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not run replay before exact and contract gates",
+    "do not train outside actor_coupling",
+    "do not train log_std",
+    "do not build corpus",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not claim driver improvement from actor update alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "materialized_objective_corpus_sanity",
+    "evidence_axis": "G_action: materialized objective actor update probe",
+    "evidence_increment": "tests whether the materialized objective can move the allowed action surface under exact and contract gates",
+    "claim_scope": "actor-update probe only; no PPO, replay promotion, private holdout, or driver capability claim",
+    "stop_condition": [
+      "stop if no candidate improves exact objective without anchor regression",
+      "stop if any candidate changes forbidden parameter groups",
+      "stop if optimizer artifacts are invalid"
+    ],
+    "fallback_plan": [
+      "if exact objective does not improve, route to recipe audit",
+      "if anchors regress, route to anchor-weight or trajectory-anchor design",
+      "if forbidden parameters change, route to parameter-scope tooling repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1109 admits bounded actor update probe",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "action_grounding_posttrain",
+    "stage_objective": "connect materialized history/objective signal to a small allowed action-surface update",
+    "admission_evidence": [
+      "M1107 objective sanity passes",
+      "M1108 audit admits design only",
+      "M1109 design specifies exact, anchor, and parameter-scope gates"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not run PPO",
+      "do not run replay before exact and contract gates",
+      "do not promote from actor update"
+    ],
+    "allowed_updates": [
+      "actor_coupling-only optimizer artifacts",
+      "exact objective evaluation artifacts",
+      "parameter-scope audit",
+      "milestone documentation",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "positive/negative result class is explicit",
+      "exact objective pass/fail is explicit",
+      "anchor drift pass/fail is explicit",
+      "parameter-scope pass/fail is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1110 probes matched-current objective rows and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1110 uses the M1107 corpus only and adds no new temporal task.",
+    "negative_result_policy": "If exact/anchor/contract gates fail, record the negative result and route to recipe audit rather than replay or PPO.",
+    "allowed_claims": [
+      "actor-update probe for a level2 replay-calibrated objective",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A bounded actor_coupling-only update can improve the exact M1107 materialized objective while preserving action anchors and the allowed parameter surface.",
+  "success_criteria": [
+    "all optimizer attempts are documented",
+    "exact M1107 objective evaluation is documented",
+    "parameter-scope audit is documented",
+    "result class is explicit",
+    "no PPO, premature replay, corpus build, mining, promotion, or private holdout occurs",
+    "actor inputs remain unchanged"
+  ],
+  "failure_criteria": [
+    "optimizer command fails without classification",
+    "exact evaluation is missing",
+    "parameter-scope audit is missing",
+    "train scope is not actor_coupling",
+    "log_std is trained",
+    "PPO, premature replay, corpus build, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "run_actor_update_seed110900",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --snippet-npz runs/m1107_materialized_objective_corpus/boundary_outcome_corpus.npz --device cpu --steps 10 --batch-size 64 --learning-rate 0.00005 --logprob-margin 0.05 --seed 110900 --train-scope actor_coupling --grad-clip-norm 0.5 --log-interval 2 --eval-batch-size 68 --eval-batches 1 --eval-seed 37 --action-anchor-checkpoint runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 100.0 --action-anchor-episodes 30 --action-anchor-seed 110900 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --snippet-action-anchor-checkpoint runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --snippet-action-anchor-coef 100.0 --snippet-action-anchor-batch-size 68 --run-dir runs/m1110_materialized_actor_coupling_anchor100_s10_lr5e5_seed110900"
+    },
+    {
+      "name": "run_actor_update_seed110901",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --snippet-npz runs/m1107_materialized_objective_corpus/boundary_outcome_corpus.npz --device cpu --steps 10 --batch-size 64 --learning-rate 0.00005 --logprob-margin 0.05 --seed 110901 --train-scope actor_coupling --grad-clip-norm 0.5 --log-interval 2 --eval-batch-size 68 --eval-batches 1 --eval-seed 37 --action-anchor-checkpoint runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 100.0 --action-anchor-episodes 30 --action-anchor-seed 110901 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --snippet-action-anchor-checkpoint runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --snippet-action-anchor-coef 100.0 --snippet-action-anchor-batch-size 68 --run-dir runs/m1110_materialized_actor_coupling_anchor100_s10_lr5e5_seed110901"
+    },
+    {
+      "name": "run_actor_update_seed110902",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_optimize --init-checkpoint runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --snippet-npz runs/m1107_materialized_objective_corpus/boundary_outcome_corpus.npz --device cpu --steps 10 --batch-size 64 --learning-rate 0.00005 --logprob-margin 0.05 --seed 110902 --train-scope actor_coupling --grad-clip-norm 0.5 --log-interval 2 --eval-batch-size 68 --eval-batches 1 --eval-seed 37 --action-anchor-checkpoint runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --action-anchor-env-config configs/m121_human_view_zero_obstacle_relvel.json --action-anchor-coef 100.0 --action-anchor-episodes 30 --action-anchor-seed 110902 --action-anchor-horizon-steps 15 --action-anchor-sample-stride 3 --action-anchor-max-samples 800 --action-anchor-batch-size 256 --snippet-action-anchor-checkpoint runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --snippet-action-anchor-coef 100.0 --snippet-action-anchor-batch-size 68 --run-dir runs/m1110_materialized_actor_coupling_anchor100_s10_lr5e5_seed110902"
+    },
+    {
+      "name": "run_exact_m1107_eval",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.outcome_intervention_eval --snippet-npz runs/m1107_materialized_objective_corpus/boundary_outcome_corpus.npz --checkpoint-policy proof_current=runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --checkpoint-policy m1110_110900=runs/m1110_materialized_actor_coupling_anchor100_s10_lr5e5_seed110900/optimized_checkpoint.pt --checkpoint-policy m1110_110901=runs/m1110_materialized_actor_coupling_anchor100_s10_lr5e5_seed110901/optimized_checkpoint.pt --checkpoint-policy m1110_110902=runs/m1110_materialized_actor_coupling_anchor100_s10_lr5e5_seed110902/optimized_checkpoint.pt --device cpu --exact --baseline-policy proof_current --logprob-margin 0.05 --run-dir runs/m1110_materialized_actor_update_exact_eval"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1110_materialized_actor_coupling_anchor100_s10_lr5e5_seed110900/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1110_materialized_actor_coupling_anchor100_s10_lr5e5_seed110901/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1110_materialized_actor_coupling_anchor100_s10_lr5e5_seed110902/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1110_materialized_actor_update_exact_eval/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1110-v4-public-base-materialized-guarded-actor-update-probe.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1109-v4-public-base-materialized-guarded-actor-update-design.md",
+    "runs/m1107_materialized_objective_corpus/boundary_outcome_corpus.npz"
+  ],
+  "decision_rule": "M1110 may run bounded actor_coupling-only outcome_intervention_optimize candidates and exact objective evaluation. It cannot run PPO, premature replay, corpus build, mining, promotion, private holdout, or actor-input changes.",
+  "next_blocker": "m1110-v4-public-base-materialized-guarded-actor-update-probe"
+}

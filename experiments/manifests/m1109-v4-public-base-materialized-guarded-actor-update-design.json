@@ -159,6 +159,28 @@
     "docs/m1108-v4-public-base-materialized-objective-result-audit.md",
     "runs/m1107_materialized_objective_corpus/boundary_outcome_corpus.npz"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1109-v4-public-base-materialized-guarded-actor-update-design.md",
+    "decision": "materialized_guarded_actor_update_design_admit_probe",
+    "result_class": "guarded_actor_update_design_admits_exact_probe",
+    "failure_types": [
+      "none"
+    ],
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "corpus_build_started": false,
+    "objective_sanity_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "admitted_next": "bounded_actor_coupling_update_probe",
+    "next_milestone": "m1110-v4-public-base-materialized-guarded-actor-update-probe"
+  },
+  "decision": "materialized_guarded_actor_update_design_admit_probe",
   "decision_rule": "M1109 may only design a guarded actor update. It cannot train actor weights, run PPO, run replay, run corpus build, run objective sanity, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1109-v4-public-base-materialized-guarded-actor-update-design"
+  "next_blocker": "m1110-v4-public-base-materialized-guarded-actor-update-probe"
 }
