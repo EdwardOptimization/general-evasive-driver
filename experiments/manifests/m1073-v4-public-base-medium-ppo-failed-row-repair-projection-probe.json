@@ -115,6 +115,32 @@
   "baseline_artifacts": [
     "docs/m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe.md",
+    "summary_json": "runs/m1073_medium_ppo_failed_row_repair_projection_probe/summary.json",
+    "decision": "medium_ppo_failed_row_projection_first_replay_candidate_route_to_full_public_gate",
+    "result_class": "candidate_b_combined_active_set_projection_first_replay_candidate",
+    "failure_types": [
+      "none"
+    ],
+    "base_checkpoint": "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+    "raw_checkpoint": "runs/ppo_m1069_expanded_gate_medium_seed61069/checkpoint.pt",
+    "selected_checkpoint": "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_line_row16x4_s40_a1.pt",
+    "selected_candidate_label": "m1031_line_row16x4_s40_a1",
+    "temporal_exact_pass_count": 30,
+    "temporal_and_exact_pass_count": 30,
+    "eligible_candidate_count": 30,
+    "m267_m264_first_replay_pass": true,
+    "m183_m170_first_replay_pass": true,
+    "m267_m264_row15_retained": true,
+    "actor_inputs_changed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate"
+  },
+  "decision": "medium_ppo_failed_row_projection_first_replay_candidate_route_to_full_public_gate",
   "decision_rule": "M1073 may only run a no-PPO projection probe and route from its exact/first-replay result. It cannot promote, run PPO, or use private holdout.",
-  "next_blocker": "m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe"
+  "next_blocker": "m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate"
 }

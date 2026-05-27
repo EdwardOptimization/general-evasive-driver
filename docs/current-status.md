@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe
+m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -133,11 +133,13 @@ that the next step is not an optimizer yet: first export a source-labeled
 failed-row projection corpus covering old public, M1061 family-intersection,
 and source-diverse failed rows. M1072 completed that export: 22 source-labeled
 rows across eight surfaces were written into a loadable current-family conflict
-NPZ. The next step is a no-PPO repair/projection probe using that corpus.
+NPZ. M1073 then ran a no-PPO repair/projection probe using that corpus and
+selected `m1031_line_row16x4_s40_a1` as a first-replay-safe candidate. The next
+step is the expanded full public gate; M1073 alone is not enough to promote.
 
 ```text
 decision:
-  medium_ppo_failed_row_projection_corpus_pass_route_to_projection_probe
+  medium_ppo_failed_row_projection_first_replay_candidate_route_to_full_public_gate
 ```
 
 M1068 design:
@@ -316,6 +318,23 @@ ppo_used: false
 promoted: false
 private_holdout_used: false
 next: m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe
+```
+
+M1073 result:
+
+```text
+result_class: candidate_b_combined_active_set_projection_first_replay_candidate
+selected_candidate_label: m1031_line_row16x4_s40_a1
+selected_checkpoint: runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_line_row16x4_s40_a1.pt
+temporal_exact_pass_count: 30
+temporal_and_exact_pass_count: 30
+m267_m264_first_replay_pass: true
+m183_m170_first_replay_pass: true
+m267_m264_row15_retained: true
+ppo_used: false
+promoted: false
+private_holdout_used: false
+next: m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate
 ```
 
 M1058 result:

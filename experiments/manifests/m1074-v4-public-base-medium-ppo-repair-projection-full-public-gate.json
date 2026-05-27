@@ -1,0 +1,121 @@
+{
+  "id": "m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_line_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe.md",
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/summary.json",
+      "runs/m1072_medium_ppo_failed_row_projection_corpus/current_family_conflict_corpus.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe.json"
+    ],
+    "parent_objective": [
+      "run the expanded full public gate for the M1073 no-PPO projection candidate"
+    ],
+    "derived_from": [
+      "m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe"
+    ],
+    "blocked_by": [
+      "M1073 found only a first-replay candidate; expanded full public gates have not yet been run"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "promoting the M1073 first-replay candidate before expanded full public gate",
+      "claiming the M1069 proof washout is repaired without M1061 family-intersection and source-diverse gates"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate.md",
+  "public_gates": [
+    "M1074 must not run PPO",
+    "M1074 must not promote",
+    "M1074 must not use private holdout",
+    "M1074 must preserve the P0 actor-input contract",
+    "M1074 must run exact, old public replay, M1061 family-intersection, source-diverse, fresh/OOD, and behavior gates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not change actor inputs",
+    "do not promote from M1074",
+    "do not use private holdout",
+    "do not skip M1061 family-intersection gate",
+    "do not skip source-diverse or behavior gates"
+  ],
+  "workflow_synthesis": {
+    "branch": "expanded_gate_medium_ppo_readiness",
+    "evidence_axis": "G_gate: expanded full public gate for repaired projection candidate",
+    "evidence_increment": "tests whether the M1073 first-replay candidate survives the full expanded gate stack",
+    "claim_scope": "full public-gate diagnostic only; no promotion, no private holdout, no paper-level claim",
+    "stop_condition": [
+      "stop if actor-input contract changes",
+      "stop if exact gate fails",
+      "stop if old public replay gate fails",
+      "stop if M1061 family-intersection gate fails",
+      "stop if source-diverse, fresh/OOD, or behavior gate fails"
+    ],
+    "fallback_plan": [
+      "if all gates pass, route to separate promotion audit",
+      "if exact fails, route to projection exact failure audit",
+      "if family-intersection fails, route to failed-row corpus/objective audit",
+      "if source-diverse or behavior fails, route to corresponding regression audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1073 selected a first-replay-safe projection candidate",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M1073 repaired projection candidate can pass the expanded full public gate after restoring first-replay proof constraints.",
+  "success_criteria": [
+    "full public gate completes",
+    "summary artifact exists",
+    "actor inputs are unchanged",
+    "exact gate passes",
+    "all old public replay gates pass",
+    "M1061 family-intersection gate passes",
+    "source-diverse gate passes",
+    "fresh/OOD gates pass",
+    "behavior gates pass",
+    "no promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "full public gate crashes",
+    "summary artifact is missing",
+    "actor inputs change",
+    "any exact/proof/family/source/generalization/behavior gate fails",
+    "checkpoint is promoted",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "run_full_public_gate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.candidate_b_combined_active_set_full_public_gate --base-checkpoint runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --candidate-checkpoint runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_line_row16x4_s40_a1.pt --run-dir runs/m1074_medium_ppo_repair_projection_full_public_gate --device auto"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1074_medium_ppo_repair_projection_full_public_gate/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe.md"
+  ],
+  "decision_rule": "M1074 may only run the expanded full public gate and route from that result. It cannot promote, run PPO, or use private holdout.",
+  "next_blocker": "m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate"
+}
