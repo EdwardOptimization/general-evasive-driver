@@ -75,85 +75,92 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1038-v4-public-base-candidate-b-combined-active-set-repair-projection-probe
+m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design
 ```
 
-M1037 implemented and ran the no-update combined active-set anchor export. It
-does not run repair, PPO, promotion, private holdout, first replay, or
-actor-input changes.
+M1038 implemented and ran the no-PPO combined active-set repair/projection
+probe. It used the M1037 `row16x4` combined anchor and selected a first-replay
+candidate without PPO, promotion, private holdout, or actor-input changes.
 
 ```text
 result_class:
-  candidate_b_combined_active_set_anchor_export_pass
+  candidate_b_combined_active_set_projection_first_replay_candidate
 
 decision:
-  candidate_b_combined_active_set_anchor_export_pass_route_to_repair_projection_probe
+  candidate_b_combined_active_set_projection_first_replay_candidate_route_to_full_public_gate_design
 ```
 
-M1037 combines:
+Selected candidate:
 
 ```text
-M293 rejected-history trajectory anchor:
-  rows: 3900
-
-M1034 M183/M170 row16 normal anchor:
-  rows: 57
-
-combined rows:
-  3957
+source: base_row16x4_s40
+alpha: 0.15
+checkpoint:
+  runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt
 ```
 
-Source namespacing and family-weight checks pass:
+M1038 gate summary:
 
 ```text
-M293 source range: 0..300064
-M1034 source range after offset: 1000000..1000000
-source_collision: false
-all_variants_loadable: true
-all_family_weights_match: true
-all_row_counts_match: true
+temporal_exact_pass_count: 34
+temporal_and_exact_pass_count: 34
+eligible_candidate_count: 31
+first_replay_attempted_candidate_count: 27
+
+M267/M264 first replay: pass
+M267/M264 row15 retained: true
+M183/M170 first replay: pass
 ```
 
-Exported variants:
+Selected temporal/exact metrics:
 
 ```text
-balanced:
-  M293 total 1.0
-  M1034 row16 total 1.0
-
-row16x4:
-  M293 total 1.0
-  M1034 row16 total 4.0
-
-row16x8:
-  M293 total 1.0
-  M1034 row16 total 8.0
+candidate_action_l2_mean: 0.002198
+candidate_action_l2_max: 0.002520
+M297 delta vs base: -0.000020
+M270 delta vs base: -0.000001
+combined_anchor_total_loss: 0.000006485
+combined_anchor_m267_loss: 0.000028552
+combined_anchor_m183_row16_loss: 0.000000968
 ```
 
-Primary next anchor:
+Key row checks:
 
 ```text
-runs/m1037_candidate_b_combined_active_set_anchor_export/combined_active_set_anchor_row16x4.npz
+M267/M264 row15:
+  normal_success: true
+  wrong_history_success: false
+  normal_margin: 0.005303
+  wrong_history_margin: -0.001181
+
+M183/M170 row16:
+  normal_success: true
+  wrong_history_success: false
+  normal_margin: 0.000163
+  wrong_history_margin: -0.006258
 ```
 
-The current blocker is M1038: run a no-PPO exact repair/projection probe with
-the `row16x4` combined anchor. Gate order:
+The current blocker is M1039: design the full public proof/generalization/
+behavior gate for the selected checkpoint before any promotion decision.
 
 ```text
-P0 actor inputs unchanged
-M297/M270 exact no-regression
-combined active-set anchor sanity
-M997 temporal exact retention before replay
-M267/M264 first replay row15 retained
-M183/M170 first replay row16 retained
+M1039 must include:
+  six-surface public replay
+  fresh public randomized evaluation
+  moderate-OOD evaluation
+  behavior seeds
+  exact proof retention
+  no private holdout
+  no promotion in design
 ```
 
-No PPO, promotion, private holdout, or actor-input change is allowed in M1038.
+M1038 is a first-replay candidate only. It is not yet a full public-gate base
+and is not promoted.
 
 ### Historical Trace
 
-The branch trace below is retained for context; the live blocker is the M1038
-combined active-set repair/projection probe above.
+The branch trace below is retained for context; the live blocker is the M1039
+full public gate design above.
 
 M927 ran the no-training residual-direction feasibility sweep and found no
 alpha/mix candidate. M928 audits this as a residual-bridge trust-region

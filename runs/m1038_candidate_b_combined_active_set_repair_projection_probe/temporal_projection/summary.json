@@ -1,0 +1,70 @@
+{
+  "actor_input_change_count": 0,
+  "alphas": [
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.6,
+    0.75,
+    1.0
+  ],
+  "base_checkpoint": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+  "candidate_checkpoints_csv": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/candidate_checkpoints.csv",
+  "candidate_count": 39,
+  "checkpoint_promoted": false,
+  "eligible_candidate_count": 31,
+  "env_config": "configs/m121_human_view_zero_obstacle_relvel.json",
+  "failure_types": [
+    "none"
+  ],
+  "first_replay_attempted": true,
+  "first_replay_attempted_candidate_count": 27,
+  "first_replay_pass_candidate_found": true,
+  "first_replay_summary_csv": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/first_replay_summary.csv",
+  "m183_m170_first_replay_pass": true,
+  "m267_m264_first_replay_pass": true,
+  "m267_m264_row15_retained": true,
+  "max_continuation_steps": 60,
+  "next_blocker": "candidate_b_temporal_safe_projection_full_public_gate_design",
+  "optimizer_started": false,
+  "outcome_npz": "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz",
+  "ppo_used": false,
+  "preference_npz": "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+  "private_holdout_used": false,
+  "projection_metrics_csv": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/projection_metrics.csv",
+  "promoted": false,
+  "repair_candidates": [
+    {
+      "checkpoint": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/exact_repair/raw_row16x4_s40/candidate_checkpoint.pt",
+      "label": "raw_row16x4_s40"
+    },
+    {
+      "checkpoint": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/exact_repair/base_row16x4_s40/candidate_checkpoint.pt",
+      "label": "base_row16x4_s40"
+    },
+    {
+      "checkpoint": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/exact_repair/line_row16x4_s40/candidate_checkpoint.pt",
+      "label": "line_row16x4_s40"
+    }
+  ],
+  "result_class": "candidate_b_temporal_safe_projection_first_replay_candidate",
+  "route_decision_csv": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/route_decision.csv",
+  "run_type": "candidate_b_temporal_safe_projection_probe",
+  "selected_alpha": 0.15,
+  "selected_candidate_label": "m1031_base_row16x4_s40_a0_15",
+  "selected_checkpoint": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt",
+  "selected_source_label": "base_row16x4_s40",
+  "summary_json": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/summary.json",
+  "temporal_and_exact_pass_count": 34,
+  "temporal_base_summary": "runs/m1000_v4_public_base_temporal_sequence_objective_evaluator/summary.json",
+  "temporal_corpus": "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz",
+  "temporal_exact_pass_count": 34,
+  "training_started": false
+}

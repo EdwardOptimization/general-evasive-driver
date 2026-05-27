@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1046,
+    "completed": 1047,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1037-v4-public-base-candidate-b-combined-active-set-anchor-export",
+    "task_id": "m1038-v4-public-base-candidate-b-combined-active-set-repair-projection-probe",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m1037_candidate_b_combined_active_set_anchor_export/summary.json"
+    "command_log": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/summary.json"
   },
   "next_task": {
-    "id": "m1038-v4-public-base-candidate-b-combined-active-set-repair-projection-probe",
+    "id": "m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design",
     "status": "pending",
-    "priority": 10330,
-    "kind": "driver_candidate",
-    "hypothesis": "Run no-PPO exact repair/projection using the M1037 row16x4 combined active-set anchor and gate temporal retention before first replay",
-    "command": "see experiments/manifests/m1038-v4-public-base-candidate-b-combined-active-set-repair-projection-probe.json",
-    "success_artifact": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/summary.json",
-    "notes": "Pending: no PPO no promotion no private holdout; stop at first failing gate"
+    "priority": 10340,
+    "kind": "gate",
+    "hypothesis": "Design full public proof/generalization/behavior gate for the M1038 first-replay candidate before any promotion decision",
+    "command": "see experiments/manifests/m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design.json",
+    "success_artifact": "docs/m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design.md",
+    "notes": "Pending: design only no PPO no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T000353Z"
+  "updated_at_utc": "20260527T004201Z"
 }

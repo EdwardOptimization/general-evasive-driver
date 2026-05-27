@@ -15487,3 +15487,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1037 implements and runs the no-update combined active-set anchor export. It creates `balanced`, `row16x4`, and `row16x8` combined anchors, each with `3957` rows from M293 `3900` rejected-history rows plus M1034 `57` row16 normal rows. All variants load with `load_trajectory_action_anchor`, source namespacing moves M1034 to `1000000`, family-normalized weight sums match expected totals, and no repair, PPO, promotion, private holdout, or actor-input change occurs.
 - decision: `candidate_b_combined_active_set_anchor_export_pass_route_to_repair_projection_probe`
 - next: `m1038-v4-public-base-candidate-b-combined-active-set-repair-projection-probe`
+
+## 20260527T004201Z - m1038-v4-public-base-candidate-b-combined-active-set-repair-projection-probe
+
+- status: `completed`
+- kind: `driver_candidate`
+- artifact: `runs/m1038_candidate_b_combined_active_set_repair_projection_probe/summary.json`
+- doc: `docs/m1038-v4-public-base-candidate-b-combined-active-set-repair-projection-probe.md`
+- result: M1038 runs a no-PPO exact repair/projection probe with the M1037 `row16x4` combined anchor. Three exact repair endpoints pass M297/M270; temporal projection then finds `34` temporal/exact-safe candidates and `31` first-replay-eligible candidates. The selected candidate is `m1031_base_row16x4_s40_a0_15` at alpha `0.15`, with M997 action L2 mean `0.002198`, M297 delta `-0.000020`, M270 delta `-0.000001`, M267/M264 first replay pass with row15 retained, and M183/M170 first replay pass with row16 normal success retained. No PPO, promotion, private holdout, or actor-input change occurs.
+- decision: `candidate_b_combined_active_set_projection_first_replay_candidate_route_to_full_public_gate_design`
+- next: `m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design`

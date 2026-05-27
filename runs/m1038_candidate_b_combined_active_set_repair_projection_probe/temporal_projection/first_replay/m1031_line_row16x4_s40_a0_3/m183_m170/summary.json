@@ -1,0 +1,44 @@
+{
+  "baseline_normal_success_rate": 1.0,
+  "baseline_policy": "candidate_b_base",
+  "baseline_success_drop_count": 17,
+  "baseline_wrong_history_success_rate": 0.0,
+  "candidate_normal_success_rate": 0.17647058823529413,
+  "candidate_policy": "m1031_line_row16x4_s40_a0_3",
+  "candidate_success_drop_count": 3,
+  "candidate_wrong_history_success_rate": 0.0,
+  "checkpoints": [
+    {
+      "label": "candidate_b_base",
+      "path": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt"
+    },
+    {
+      "label": "m1031_line_row16x4_s40_a0_3",
+      "path": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_line_row16x4_s40_a0_3.pt"
+    }
+  ],
+  "comparison_summary_csv": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/first_replay/m1031_line_row16x4_s40_a0_3/m183_m170/comparison_summary.csv",
+  "corpus_csv": "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+  "device": "cuda",
+  "env_config": "configs/m121_human_view_zero_obstacle_relvel.json",
+  "gate_pass": false,
+  "margin_gap_mean_delta": 4.571019713651807e-05,
+  "max_continuation_steps": 60,
+  "max_margin_gap_regression": 0.001,
+  "max_normal_margin_regression": 0.005,
+  "max_normal_success_drop": 0.0,
+  "max_rows": 0,
+  "max_success_drop_count_regression": 0,
+  "normal_margin_mean_delta": -0.0021157222588507377,
+  "normal_margin_retention_pass": true,
+  "normal_success_delta": -0.8235294117647058,
+  "normal_success_retention_pass": false,
+  "policy_summary_csv": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/first_replay/m1031_line_row16x4_s40_a0_3/m183_m170/policy_summary.csv",
+  "replay_rows_csv": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/first_replay/m1031_line_row16x4_s40_a0_3/m183_m170/boundary_replay_rows.csv",
+  "rows": 17,
+  "run_type": "boundary_outcome_replay_gate",
+  "success_drop_count_delta": -14,
+  "success_drop_count_retention_pass": false,
+  "wrong_history_gap_retention_pass": true,
+  "wrong_history_success_delta": 0.0
+}

@@ -118,5 +118,29 @@
     "docs/m1037-v4-public-base-candidate-b-combined-active-set-anchor-export.md"
   ],
   "decision_rule": "M1038 should route by the first failing gate: temporal regression, exact/objective regression, row15 proof washout, row16 proof washout, or first-replay candidate.",
-  "next_blocker": "m1038-v4-public-base-candidate-b-combined-active-set-repair-projection-probe"
+  "next_blocker": "m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design",
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/summary.json",
+    "doc": "docs/m1038-v4-public-base-candidate-b-combined-active-set-repair-projection-probe.md",
+    "decision": "candidate_b_combined_active_set_projection_first_replay_candidate_route_to_full_public_gate_design",
+    "result_class": "candidate_b_combined_active_set_projection_first_replay_candidate",
+    "failure_types": [
+      "none"
+    ],
+    "selected_checkpoint": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt",
+    "selected_source_label": "base_row16x4_s40",
+    "selected_alpha": 0.15,
+    "temporal_exact_pass_count": 34,
+    "temporal_and_exact_pass_count": 34,
+    "eligible_candidate_count": 31,
+    "first_replay_attempted_candidate_count": 27,
+    "m267_m264_first_replay_pass": true,
+    "m267_m264_row15_retained": true,
+    "m183_m170_first_replay_pass": true,
+    "actor_inputs_changed": false,
+    "ppo_used": false,
+    "checkpoint_promoted": false,
+    "next_blocker": "m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design"
+  }
 }
