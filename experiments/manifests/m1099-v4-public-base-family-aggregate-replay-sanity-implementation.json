@@ -181,6 +181,44 @@
     "docs/m1098-v4-public-base-family-aggregate-replay-sanity-design.md",
     "runs/m1097_family_aggregate_boundary_conversion/family_aggregate_boundary_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1099-v4-public-base-family-aggregate-replay-sanity-implementation.md",
+    "decision": "family_aggregate_replay_sanity_source_gate_pass_route_to_cross_family_audit",
+    "result_class": "family_aggregate_replay_sanity_source_gate_pass_cross_family_report_failures",
+    "failure_types": [
+      "none"
+    ],
+    "run_dir": "runs/m1099_family_aggregate_replay_sanity",
+    "family_rows": 146,
+    "replay_rows": 584,
+    "source_policy_replay_rows": 146,
+    "aggregate_source_gate": {
+      "gate_pass": true,
+      "source_row_count": 146,
+      "source_replay_row_count": 146,
+      "normal_success_count": 146,
+      "wrong_history_success_count": 0,
+      "success_drop_count": 146,
+      "physical_pairs": 18,
+      "checkpoints": 4,
+      "targets": 3
+    },
+    "source_policy_gate_pass_count": 4,
+    "source_policy_gate_total": 4,
+    "cross_family_summary_rows": 40,
+    "duplicate_geometry_summary_rows": 300,
+    "failed_duplicate_geometry_groups": 14,
+    "training_started": false,
+    "ppo_used": false,
+    "objective_optimization_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1100-v4-public-base-family-aggregate-cross-family-replay-audit"
+  },
+  "decision": "family_aggregate_replay_sanity_source_gate_pass_route_to_cross_family_audit",
   "decision_rule": "M1099 may implement and run replay sanity only. It cannot train, run PPO, run objective optimization, mine rows, promote, use private holdout, change actor inputs, or weaken thresholds.",
-  "next_blocker": "m1099-v4-public-base-family-aggregate-replay-sanity-implementation"
+  "next_blocker": "m1100-v4-public-base-family-aggregate-cross-family-replay-audit"
 }

@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1099-v4-public-base-family-aggregate-replay-sanity-implementation
+m1100-v4-public-base-family-aggregate-cross-family-replay-audit
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -232,11 +232,18 @@ that design. It will use a wrapper around the existing boundary replay
 function, map `row_id = family_row_id`, preserve source and duplicate geometry
 metadata, require source-policy source-row gates, and write cross-family replay
 reports before any objective optimization. The next step is M1099: implement
-and run that replay sanity wrapper.
+and run that replay sanity wrapper. M1099 passes the source-policy source-row
+gate for all `146` rows across the four source labels: normal success `146`,
+wrong-history success `0`, and success-drop count `146`. Cross-family replay
+writes `584` replay rows and `40` summary rows, but reports `14` failed
+duplicate geometry groups. These are cross-family report failures, not
+source-policy gate failures. The next step is M1100: audit those cross-family
+failures before choosing family-intersection, source-specific, or target-base
+objective routing.
 
 ```text
 decision:
-  family_aggregate_replay_sanity_design_admit_wrapper_run
+  family_aggregate_replay_sanity_source_gate_pass_route_to_cross_family_audit
 ```
 
 M1068 design:

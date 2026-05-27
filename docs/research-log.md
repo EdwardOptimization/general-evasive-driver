@@ -15790,3 +15790,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - safety: design-only; no replay, PPO, training, objective optimization, mining, promotion, private holdout, or actor input change
 - decision: `family_aggregate_replay_sanity_design_admit_wrapper_run`
 - next: `m1099-v4-public-base-family-aggregate-replay-sanity-implementation`
+
+## 20260527T192938Z - m1099-v4-public-base-family-aggregate-replay-sanity-implementation
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1099-v4-public-base-family-aggregate-replay-sanity-implementation.md`
+- result: M1099 implements and runs source-aware replay sanity. Source-policy source-row replay passes for all sources and all `146` rows: normal success `146`, wrong-history success `0`, success-drop count `146`, physical pairs `18`, checkpoints `4`, and targets `3`. Cross-family replay writes `584` rows and `40` summary rows, with `14` failed duplicate geometry groups in the report.
+- interpretation: the family aggregate export is valid as source-policy proof, but cross-family failures must be audited before objective optimization
+- decision: `family_aggregate_replay_sanity_source_gate_pass_route_to_cross_family_audit`
+- next: `m1100-v4-public-base-family-aggregate-cross-family-replay-audit`

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1107,
+    "completed": 1108,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1098-v4-public-base-family-aggregate-replay-sanity-design",
+    "task_id": "m1099-v4-public-base-family-aggregate-replay-sanity-implementation",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1098-v4-public-base-family-aggregate-replay-sanity-design.md"
+    "command_log": "docs/m1099-v4-public-base-family-aggregate-replay-sanity-implementation.md"
   },
   "next_task": {
-    "id": "m1099-v4-public-base-family-aggregate-replay-sanity-implementation",
+    "id": "m1100-v4-public-base-family-aggregate-cross-family-replay-audit",
     "status": "pending",
-    "priority": 10940,
+    "priority": 10950,
     "kind": "gate",
-    "hypothesis": "Implement and run source-aware replay sanity for the M1097 family-aggregate export before objective optimization",
-    "command": "see experiments/manifests/m1099-v4-public-base-family-aggregate-replay-sanity-implementation.json",
-    "success_artifact": "docs/m1099-v4-public-base-family-aggregate-replay-sanity-implementation.md",
-    "notes": "Pending: replay sanity only; no PPO no training no objective optimization no mining no promotion no private holdout"
+    "hypothesis": "Audit M1099 cross-family replay failures and choose the next family-intersection, source-specific, or target-base objective route",
+    "command": "see experiments/manifests/m1100-v4-public-base-family-aggregate-cross-family-replay-audit.json",
+    "success_artifact": "docs/m1100-v4-public-base-family-aggregate-cross-family-replay-audit.md",
+    "notes": "Pending: audit only; no PPO no training no replay no objective optimization no mining no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T192158Z"
+  "updated_at_utc": "20260527T192938Z"
 }

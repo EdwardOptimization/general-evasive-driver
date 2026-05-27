@@ -1,0 +1,165 @@
+{
+  "id": "m1100-v4-public-base-family-aggregate-cross-family-replay-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1099-v4-public-base-family-aggregate-replay-sanity-implementation.md",
+      "runs/m1099_family_aggregate_replay_sanity/summary.json",
+      "runs/m1099_family_aggregate_replay_sanity/cross_family_policy_summary.csv",
+      "runs/m1099_family_aggregate_replay_sanity/failed_duplicate_geometry_groups.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1099-v4-public-base-family-aggregate-replay-sanity-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M1099 cross-family replay report and choose the next conversion/objective route"
+    ],
+    "derived_from": [
+      "m1099-v4-public-base-family-aggregate-replay-sanity-implementation"
+    ],
+    "blocked_by": [
+      "M1099 source-policy source-row gate passes, but cross-family replay has report failures that must be audited before objective optimization"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "going directly from source-policy replay pass to aggregate objective optimization",
+      "treating cross-family report failures as source-policy gate failures",
+      "ignoring duplicate geometry failure groups"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1100-v4-public-base-family-aggregate-cross-family-replay-audit.md",
+  "public_gates": [
+    "M1100 must audit only",
+    "M1100 must not train",
+    "M1100 must not run PPO",
+    "M1100 must not run replay",
+    "M1100 must not run objective optimization",
+    "M1100 must not mine rows",
+    "M1100 must not promote",
+    "M1100 must not use private holdout",
+    "M1100 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not ignore cross-family failed rows",
+    "do not claim aggregate objective readiness from source-policy source-row pass alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "family_aggregate_boundary_conversion",
+    "evidence_axis": "G_conversion: cross-family replay report audit",
+    "evidence_increment": "audits M1099 cross-family failures and selects family-intersection/source-specific/target-base objective route",
+    "claim_scope": "audit only; no replay, no objective run, no training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if cross-family failures are too large for aggregate objective route",
+      "stop if failed duplicate geometry groups show export artifact problems",
+      "stop if no objective route is defensible without new replay filtering"
+    ],
+    "fallback_plan": [
+      "if failures are source-specific, route to source-specific objective corpora",
+      "if family-intersection rows remain enough, route to family-intersection selector design",
+      "if target-base hidden states are required, route to target-base row rebuild design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1099 source-policy source-row gate passes but cross-family report has failures",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "audit replay results without replay, training, PPO, or objective optimization",
+    "admission_evidence": [
+      "M1099 source-policy source-row gate passes",
+      "M1099 cross-family report has failed duplicate geometry groups requiring route selection"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not run replay",
+      "do not run objective optimization",
+      "do not promote from audit"
+    ],
+    "allowed_updates": [
+      "write audit documentation",
+      "pre-register next route if audit is clear",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "cross-family failure classes are explicit",
+      "duplicate geometry failure summary is interpreted",
+      "next objective/conversion route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1100 audits matched-current replay results and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1100 reads M1099 replay artifacts only and adds no new temporal task.",
+    "negative_result_policy": "If cross-family failures block aggregate objective readiness, route to family-intersection or source-specific objective design rather than weakening gates.",
+    "allowed_claims": [
+      "cross-family replay audit for a level2 source-balanced proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The M1099 cross-family replay report can identify whether the next safe route is family-intersection replay filtering, source-specific objective corpora, or target-base rebuilt hidden-state rows.",
+  "success_criteria": [
+    "audit artifact exists",
+    "cross-family failures are summarized",
+    "duplicate geometry failures are summarized",
+    "source-policy gate pass is separated from cross-family report failures",
+    "next route is explicit",
+    "no training, PPO, replay, objective optimization, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "cross-family failures are ignored",
+    "source-policy and cross-family failures are conflated",
+    "next route is ambiguous",
+    "training, PPO, replay, objective optimization, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_audit",
+      "command": "write docs/m1100-v4-public-base-family-aggregate-cross-family-replay-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1100-v4-public-base-family-aggregate-cross-family-replay-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1099-v4-public-base-family-aggregate-replay-sanity-implementation.md",
+    "runs/m1099_family_aggregate_replay_sanity/summary.json"
+  ],
+  "decision_rule": "M1100 may only audit M1099 replay artifacts and choose the next route. It cannot train, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1100-v4-public-base-family-aggregate-cross-family-replay-audit"
+}
