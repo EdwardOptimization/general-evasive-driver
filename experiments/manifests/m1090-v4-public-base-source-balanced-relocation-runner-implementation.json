@@ -91,14 +91,35 @@
     "allowed_updates": [
       "source-balanced relocation runner code",
       "focused tests",
+      "self-identification evidence discipline documentation",
+      "research harness validation rules",
       "milestone documentation",
       "status, queue, scoreboard, and review artifacts"
     ],
     "next_stage_criteria": [
       "focused tests prove selected candidates reach relocation runner",
       "artifact smoke path remains intact",
+      "future manifests declare self-identification claim level and evidence discipline",
       "research validation passes",
       "M1091 run manifest is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1090 is infrastructure and does not claim self-identification. Future relocation or driver milestones must still separate current-frame reactive adaptation from history-encoded necessity.",
+    "history_necessity_tests": [
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history",
+      "normal vs wrong-matched-history"
+    ],
+    "temporal_evidence_window": "M1090 does not run scenarios. Future runs must state whether the task provides only current-frame evidence or a pre-emergency/warm-up command-response evidence window.",
+    "negative_result_policy": "If history interventions do not change margins or actions, classify the result as current-frame reactive adaptation or task-design insufficiency rather than self-identification proof.",
+    "allowed_claims": [
+      "source-balanced relocation infrastructure",
+      "process-v5 self-identification evidence discipline enforcement",
+      "no driver capability or self-identification claim"
     ]
   },
   "hypothesis": "A tested source-balanced relocation runner can route M1086-selected candidates into boundary relocation replay while preserving artifact-smoke behavior and current robustness thresholds.",
@@ -108,6 +129,7 @@
     "source-budget failure fails closed before replay",
     "raw and balanced artifacts are written",
     "existing artifact-smoke path still works",
+    "self-identification evidence discipline is documented and validator-enforced for M1090+ manifests",
     "focused tests pass",
     "research validation passes",
     "no training, PPO, promotion, private holdout, expensive M1091 run, or threshold weakening occurs"
@@ -127,6 +149,10 @@
     {
       "name": "focused_tests",
       "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_source_balanced_boundary_relocation_surface.py tests/test_wrong_history_boundary_relocation_surface.py tests/test_boundary_wrong_history_surface_robustness.py"
+    },
+    {
+      "name": "process_v5_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_research_validate.py"
     }
   ],
   "required_artifacts": [
@@ -136,6 +162,22 @@
     },
     {
       "path": "tests/test_source_balanced_boundary_relocation_surface.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/self-identification-evidence-discipline.md",
+      "type": "md"
+    },
+    {
+      "path": "src/autodrift/research_schema.py",
+      "type": "py"
+    },
+    {
+      "path": "src/autodrift/research_validate.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_research_validate.py",
       "type": "py"
     },
     {
@@ -149,6 +191,31 @@
   "baseline_artifacts": [
     "docs/m1089-v4-public-base-source-balanced-relocation-run-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1090-v4-public-base-source-balanced-relocation-runner-implementation.md",
+    "decision": "source_balanced_relocation_runner_implementation_admit_m1091_run",
+    "result_class": "source_balanced_relocation_runner_implementation",
+    "failure_types": [
+      "none"
+    ],
+    "implemented": [
+      "full source-balanced relocation runner",
+      "fail-closed source-budget and candidate-selection gates before replay",
+      "selected-candidate snapshot collection and boundary relocation replay",
+      "raw plus balanced export artifact writer with surface summary",
+      "process-v5 self-identification evidence discipline validation"
+    ],
+    "focused_tests": "48 passed",
+    "research_validation": "passed",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "expensive_relocation_run_started": false,
+    "next_milestone": "m1091-v4-public-base-source-balanced-boundary-relocation-run"
+  },
+  "decision": "source_balanced_relocation_runner_implementation_admit_m1091_run",
   "decision_rule": "M1090 may only implement and test the source-balanced relocation runner. It cannot train, run PPO, promote, use private holdout, run the expensive relocation experiment, or weaken thresholds.",
-  "next_blocker": "m1090-v4-public-base-source-balanced-relocation-runner-implementation"
+  "next_blocker": "m1091-v4-public-base-source-balanced-boundary-relocation-run"
 }

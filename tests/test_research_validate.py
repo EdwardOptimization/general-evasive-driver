@@ -129,6 +129,23 @@ def _process_v4_manifest(task_id, artifact="docs/m1087.md", stage="infrastructur
     return manifest
 
 
+def _process_v5_manifest(task_id, artifact="docs/m1090.md", stage="infrastructure"):
+    manifest = _process_v4_manifest(task_id, artifact=artifact, stage=stage)
+    manifest["self_id_evidence_discipline"] = {
+        "claim_level": "not_applicable",
+        "current_frame_substitution_risk": "infrastructure milestone; no self-identification claim",
+        "history_necessity_tests": [
+            "normal vs reset/zero/delayed/wrong history gates remain required before self-ID claims",
+        ],
+        "temporal_evidence_window": "not applicable for this infrastructure milestone",
+        "negative_result_policy": "record negative self-ID evidence instead of weakening gates",
+        "allowed_claims": [
+            "process or infrastructure claim only",
+        ],
+    }
+    return manifest
+
+
 def test_normalize_next_task_supports_string_and_object():
     assert normalize_next_task("m90") == "m90"
     assert normalize_next_task({"id": "m91"}) == "m91"
@@ -953,3 +970,104 @@ def test_process_v4_guarded_rl_requires_admission_evidence(tmp_path):
     issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
 
     assert any("guarded_rl stage must cite" in issue.message for issue in issues)
+
+
+def test_process_v5_requires_self_id_evidence_discipline_from_m1090(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m1090",
+                "priority": 10850,
+                "status": "pending",
+                "kind": "infrastructure",
+                "hypothesis": "enforce self-ID evidence discipline",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0}, "next_task": "m1090"}),
+        encoding="utf-8",
+    )
+    (manifest_dir / "m1090.json").write_text(json.dumps(_process_v4_manifest("m1090")), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("process-v5 manifest missing fields" in issue.message for issue in issues)
+
+
+def test_process_v5_accepts_self_id_evidence_discipline(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m1090",
+                "priority": 10850,
+                "status": "pending",
+                "kind": "infrastructure",
+                "hypothesis": "enforce self-ID evidence discipline",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0}, "next_task": "m1090"}),
+        encoding="utf-8",
+    )
+    (manifest_dir / "m1090.json").write_text(json.dumps(_process_v5_manifest("m1090")), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert issues == []
+
+
+def test_process_v5_rejects_unknown_self_id_claim_level(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m1090",
+                "priority": 10850,
+                "status": "pending",
+                "kind": "infrastructure",
+                "hypothesis": "bad self-ID claim",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps({"counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0}, "next_task": "m1090"}),
+        encoding="utf-8",
+    )
+    manifest = _process_v5_manifest("m1090")
+    manifest["self_id_evidence_discipline"]["claim_level"] = "driver_like_self_id_without_evidence"
+    (manifest_dir / "m1090.json").write_text(json.dumps(manifest), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("claim_level must be one of" in issue.message for issue in issues)

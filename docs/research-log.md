@@ -15700,3 +15700,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1060 designs a deterministic family-intersection compact corpus selector. The selector must start from `runs/m1056_margin_bucket_width_0005/accepted_wrong_history_rows.csv`, replay/filter rows against the short-PPO family `short61049/short61050/short61051`, keep only rows with normal success and wrong-history failure under every family policy, cap rows at two per physical pair, and preserve at least `20` rows, `10` physical pairs, and `2` targets before objective/replay sanity. It blocks PPO, actor training, promotion, private holdout, and actor-input changes.
 - decision: `post_short_promotion_family_intersection_design_admit_m1061_selector`
 - next: `m1061-v4-public-base-post-short-promotion-family-intersection-corpus`
+
+## 20260527T174214Z - m1090-v4-public-base-source-balanced-relocation-runner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1090-v4-public-base-source-balanced-relocation-runner-implementation.md`
+- result: M1090 implements a full source-balanced boundary relocation runner. The runner builds source budget, selects source-balanced candidates before replay, fails closed before replay when source budget or selected-candidate diversity is insufficient, collects snapshots for selected candidates, calls boundary relocation replay, and writes raw plus balanced artifacts including `surface_summary.csv`. M1090 also adds process-v5 self-identification evidence discipline: manifests from priority `10850` must declare claim level, current-frame substitution risk, history-necessity tests, temporal evidence window, negative-result policy, and allowed claims.
+- validation: `48 passed` for focused research/relocation tests; `make research-validate` passed with `process_v5_from_priority=10850`
+- decision: `source_balanced_relocation_runner_implementation_admit_m1091_run`
+- next: `m1091-v4-public-base-source-balanced-boundary-relocation-run`

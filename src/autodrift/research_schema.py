@@ -6,6 +6,7 @@ from __future__ import annotations
 PROCESS_V2_ENFORCE_FROM_PRIORITY = 2220
 PROCESS_V3_SYNTHESIS_ENFORCE_FROM_PRIORITY = 6850
 PROCESS_V4_TRAINING_STAGE_ENFORCE_FROM_PRIORITY = 10820
+PROCESS_V5_SELF_ID_DISCIPLINE_ENFORCE_FROM_PRIORITY = 10850
 
 SCOREBOARD_FIELDS = [
     "milestone",
@@ -118,4 +119,21 @@ PROCESS_V4_TRAINING_STAGES = {
     "capability_pretrain",
     "action_grounding_posttrain",
     "guarded_rl",
+}
+
+PROCESS_V5_SELF_ID_DISCIPLINE_FIELDS = [
+    "claim_level",
+    "current_frame_substitution_risk",
+    "history_necessity_tests",
+    "temporal_evidence_window",
+    "negative_result_policy",
+    "allowed_claims",
+]
+
+PROCESS_V5_SELF_ID_CLAIM_LEVELS = {
+    "not_applicable",
+    "level0_no_adaptation",
+    "level1_closed_loop_reactive",
+    "level2_history_encoded_reactive",
+    "level3_anticipatory_self_identification",
 }

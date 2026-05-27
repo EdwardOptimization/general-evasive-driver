@@ -29,6 +29,9 @@ from autodrift.research_schema import (
     PROCESS_V4_TRAINING_STAGE_ENFORCE_FROM_PRIORITY,
     PROCESS_V4_TRAINING_STAGE_FIELDS,
     PROCESS_V4_TRAINING_STAGES,
+    PROCESS_V5_SELF_ID_CLAIM_LEVELS,
+    PROCESS_V5_SELF_ID_DISCIPLINE_ENFORCE_FROM_PRIORITY,
+    PROCESS_V5_SELF_ID_DISCIPLINE_FIELDS,
     SCOREBOARD_FIELDS,
 )
 
@@ -63,6 +66,9 @@ PROCESS_V3_REQUIRED_FIELDS = (
 PROCESS_V4_REQUIRED_FIELDS = (
     "training_stage",
 )
+PROCESS_V5_REQUIRED_FIELDS = (
+    "self_id_evidence_discipline",
+)
 
 
 @dataclass(frozen=True)
@@ -85,6 +91,10 @@ def _is_process_v3(task: ResearchTask, process_v3_from_priority: int) -> bool:
 
 def _is_process_v4(task: ResearchTask, process_v4_from_priority: int) -> bool:
     return int(task.priority) >= int(process_v4_from_priority)
+
+
+def _is_process_v5(task: ResearchTask, process_v5_from_priority: int) -> bool:
+    return int(task.priority) >= int(process_v5_from_priority)
 
 
 def _manifest_path(manifest_dir: Path, task_id: str) -> Path:
@@ -182,6 +192,7 @@ def _validate_manifest(
     process_v2: bool = False,
     process_v3: bool = False,
     process_v4: bool = False,
+    process_v5: bool = False,
 ) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     missing = [field for field in MANIFEST_REQUIRED_FIELDS if field not in manifest]
@@ -208,6 +219,8 @@ def _validate_manifest(
         issues.extend(_validate_process_v3_manifest(task, manifest))
     if process_v4:
         issues.extend(_validate_process_v4_manifest(task, manifest))
+    if process_v5:
+        issues.extend(_validate_process_v5_manifest(task, manifest))
     return issues
 
 
@@ -533,6 +546,59 @@ def _validate_process_v4_manifest(task: ResearchTask, manifest: dict[str, Any]) 
     return issues
 
 
+def _validate_process_v5_manifest(task: ResearchTask, manifest: dict[str, Any]) -> list[ValidationIssue]:
+    issues: list[ValidationIssue] = []
+    missing = [field for field in PROCESS_V5_REQUIRED_FIELDS if field not in manifest]
+    if missing:
+        issues.append(ValidationIssue("error", f"{task.id}: process-v5 manifest missing fields {missing}"))
+        return issues
+
+    discipline = manifest.get("self_id_evidence_discipline")
+    if not isinstance(discipline, dict):
+        return [ValidationIssue("error", f"{task.id}: self_id_evidence_discipline must be an object")]
+
+    missing_discipline = [field for field in PROCESS_V5_SELF_ID_DISCIPLINE_FIELDS if field not in discipline]
+    if missing_discipline:
+        issues.append(
+            ValidationIssue(
+                "error",
+                f"{task.id}: self_id_evidence_discipline missing fields {missing_discipline}",
+            )
+        )
+        return issues
+
+    claim_level = discipline.get("claim_level")
+    if claim_level not in PROCESS_V5_SELF_ID_CLAIM_LEVELS:
+        issues.append(
+            ValidationIssue(
+                "error",
+                f"{task.id}: self_id_evidence_discipline.claim_level must be one of "
+                f"{sorted(PROCESS_V5_SELF_ID_CLAIM_LEVELS)}",
+            )
+        )
+
+    for field in ("current_frame_substitution_risk", "temporal_evidence_window", "negative_result_policy"):
+        if not _non_empty_text(discipline.get(field)):
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{task.id}: self_id_evidence_discipline.{field} must be non-empty text",
+                )
+            )
+
+    for field in ("history_necessity_tests", "allowed_claims"):
+        value = discipline.get(field)
+        if not _non_empty_list(value) or not all(_non_empty_text(item) for item in value):
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{task.id}: self_id_evidence_discipline.{field} must be a non-empty list of non-empty text",
+                )
+            )
+
+    return issues
+
+
 def _validate_metric_extractors(task: ResearchTask, manifest: dict[str, Any]) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     extractors = manifest.get("metric_extractors", [])
@@ -622,6 +688,7 @@ def validate_research_state(
     process_v2_from_priority: int = PROCESS_V2_ENFORCE_FROM_PRIORITY,
     process_v3_from_priority: int = PROCESS_V3_SYNTHESIS_ENFORCE_FROM_PRIORITY,
     process_v4_from_priority: int = PROCESS_V4_TRAINING_STAGE_ENFORCE_FROM_PRIORITY,
+    process_v5_from_priority: int = PROCESS_V5_SELF_ID_DISCIPLINE_ENFORCE_FROM_PRIORITY,
 ) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     tasks = load_queue(queue_path)
@@ -682,7 +749,17 @@ def validate_research_state(
         process_v2 = _is_process_v2(task, process_v2_from_priority)
         process_v3 = _is_process_v3(task, process_v3_from_priority)
         process_v4 = _is_process_v4(task, process_v4_from_priority)
-        issues.extend(_validate_manifest(task, manifest, process_v2=process_v2, process_v3=process_v3, process_v4=process_v4))
+        process_v5 = _is_process_v5(task, process_v5_from_priority)
+        issues.extend(
+            _validate_manifest(
+                task,
+                manifest,
+                process_v2=process_v2,
+                process_v3=process_v3,
+                process_v4=process_v4,
+                process_v5=process_v5,
+            )
+        )
         if process_v3:
             process_v3_records.append((task, manifest))
         if task.status == "completed":
@@ -734,6 +811,11 @@ def main() -> None:
         type=int,
         default=PROCESS_V4_TRAINING_STAGE_ENFORCE_FROM_PRIORITY,
     )
+    parser.add_argument(
+        "--process-v5-from-priority",
+        type=int,
+        default=PROCESS_V5_SELF_ID_DISCIPLINE_ENFORCE_FROM_PRIORITY,
+    )
     args = parser.parse_args()
 
     issues = validate_research_state(
@@ -746,6 +828,7 @@ def main() -> None:
         process_v2_from_priority=args.process_v2_from_priority,
         process_v3_from_priority=args.process_v3_from_priority,
         process_v4_from_priority=args.process_v4_from_priority,
+        process_v5_from_priority=args.process_v5_from_priority,
     )
     for issue in issues:
         print(f"{issue.severity}: {issue.message}")
@@ -757,7 +840,8 @@ def main() -> None:
         f"(enforce_from_priority={args.enforce_from_priority}, enforced_tasks={enforced_count}, "
         f"process_v2_from_priority={args.process_v2_from_priority}, "
         f"process_v3_from_priority={args.process_v3_from_priority}, "
-        f"process_v4_from_priority={args.process_v4_from_priority})"
+        f"process_v4_from_priority={args.process_v4_from_priority}, "
+        f"process_v5_from_priority={args.process_v5_from_priority})"
     )
 
 

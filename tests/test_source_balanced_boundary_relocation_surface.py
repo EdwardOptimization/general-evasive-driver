@@ -2,6 +2,8 @@ from pathlib import Path
 
 import pandas as pd
 
+import autodrift.source_balanced_boundary_relocation_surface as source_balanced
+from autodrift.hidden_envelope_multiseed_gate import CheckpointSpec
 from autodrift.source_balanced_boundary_relocation_surface import (
     SourceBalanceQuotas,
     build_source_budget,
@@ -325,3 +327,177 @@ def test_existing_artifact_smoke_reads_csv_without_mining(tmp_path: Path):
     assert summary["source_budget"]["source_budget_ready"]
     assert summary["balanced_summary"]["passed"]
     assert (tmp_path / "run" / "summary.json").exists()
+
+
+def test_full_relocation_fails_closed_before_replay_when_source_budget_is_insufficient(
+    tmp_path: Path,
+    monkeypatch,
+):
+    outcome_csv = tmp_path / "outcome.csv"
+    pd.DataFrame(
+        [
+            _candidate(
+                left_seed=1,
+                left_step=10,
+                right_seed=2,
+                right_step=20,
+                margin_gap=0.5,
+                first_action_distance=0.2,
+                checkpoint_label="proof",
+            )
+            for _ in range(4)
+        ]
+    ).to_csv(outcome_csv, index=False)
+
+    def _unexpected_replay(*_args, **_kwargs):
+        raise AssertionError("source-budget failure should not enter relocation replay")
+
+    monkeypatch.setattr(source_balanced, "load_env_config", _unexpected_replay)
+    monkeypatch.setattr(source_balanced, "load_actor_critic_checkpoint", _unexpected_replay)
+    monkeypatch.setattr(source_balanced, "build_boundary_relocation_rows", _unexpected_replay)
+
+    summary = source_balanced.run_source_balanced_boundary_relocation_surface(
+        checkpoint_specs=(CheckpointSpec(label="proof", path=tmp_path / "proof.pt"),),
+        env_config_path=tmp_path / "env.json",
+        outcome_csv=outcome_csv,
+        run_dir=tmp_path / "run",
+        quotas=SourceBalanceQuotas(max_candidates=4, target_min_physical_pairs=10),
+        delay_steps=10,
+        max_continuation_steps=60,
+        target_normal_margins=(0.005,),
+        half_width_inflations=(0.0,),
+        body_longitudinals=None,
+        body_laterals=None,
+        body_longitudinal_offsets=None,
+        body_lateral_offsets=None,
+        min_half_width=0.3,
+        max_half_width=2.5,
+        min_normal_margin=0.0,
+        max_normal_margin=0.04,
+        min_margin_gap=0.04,
+        report_variants=("wrong_matched_history",),
+        device="cpu",
+        min_eligible_physical_pairs=10,
+        margin_bucket_width=0.001,
+        control_checkpoint_label="control",
+    )
+
+    assert summary["decision"] == "source_budget_not_ready"
+    assert summary["relocation_replay_started"] is False
+    assert summary["full_new_mining_run"] is False
+    assert (tmp_path / "run" / "source_budget_summary.json").exists()
+    assert (tmp_path / "run" / "boundary_relocation_rows.csv").exists()
+
+
+def test_full_relocation_passes_source_balanced_candidates_to_replay(tmp_path: Path, monkeypatch):
+    outcome_csv = tmp_path / "outcome.csv"
+    rows = []
+    for duplicate in range(6):
+        rows.append(
+            _candidate(
+                left_seed=1,
+                left_step=10,
+                right_seed=2,
+                right_step=20,
+                margin_gap=1.0 - duplicate * 0.01,
+                first_action_distance=0.5,
+                checkpoint_label="proof",
+                target="brake",
+            )
+        )
+    for pair_index in range(1, 5):
+        rows.append(
+            _candidate(
+                left_seed=100 + pair_index,
+                left_step=10 + pair_index,
+                right_seed=200 + pair_index,
+                right_step=20 + pair_index,
+                margin_gap=0.2,
+                first_action_distance=0.2,
+                checkpoint_label="proof",
+                target="yaw" if pair_index % 2 else "brake",
+            )
+        )
+    pd.DataFrame(rows).to_csv(outcome_csv, index=False)
+
+    class _DummyModel:
+        def eval(self):
+            return None
+
+    captured: dict[str, object] = {}
+
+    monkeypatch.setattr(source_balanced, "resolve_device", lambda device: device)
+    monkeypatch.setattr(source_balanced, "load_env_config", lambda _path: object())
+    monkeypatch.setattr(source_balanced, "load_actor_critic_checkpoint", lambda _path, device: (_DummyModel(), {}))
+    monkeypatch.setattr(source_balanced, "response_feature_dim_for_model", lambda _model: 0)
+    monkeypatch.setattr(source_balanced, "collect_requested_source_balanced_snapshots", lambda **_kwargs: {})
+
+    def _fake_build_boundary_relocation_rows(*, candidate_rows, **_kwargs):
+        captured["physical_pairs"] = list(candidate_rows["physical_pair_key"])
+        captured["left_seeds"] = list(candidate_rows["left_seed"])
+        rows = []
+        for candidate_id, row in candidate_rows.reset_index(drop=True).iterrows():
+            boundary = _boundary_row(
+                accepted=True,
+                success_drop=True,
+                left_seed=int(row["left_seed"]),
+                left_step=int(row["left_step"]),
+                right_seed=int(row["right_seed"]),
+                right_step=int(row["right_step"]),
+                normal_margin=0.002,
+                checkpoint_label=str(row["checkpoint_label"]),
+                target=str(row["target"]),
+            )
+            boundary.update(
+                {
+                    "candidate_id": int(candidate_id),
+                    "source_pair_id": int(row.get("pair_id", candidate_id)),
+                    "normal_near_boundary": True,
+                    "base_wrong_margin_gap": float(row["margin_gap"]),
+                    "base_wrong_first_action_distance": float(row["first_action_distance"]),
+                }
+            )
+            rows.append(boundary)
+        return rows
+
+    monkeypatch.setattr(source_balanced, "build_boundary_relocation_rows", _fake_build_boundary_relocation_rows)
+
+    summary = source_balanced.run_source_balanced_boundary_relocation_surface(
+        checkpoint_specs=(CheckpointSpec(label="proof", path=tmp_path / "proof.pt"),),
+        env_config_path=tmp_path / "env.json",
+        outcome_csv=outcome_csv,
+        run_dir=tmp_path / "run",
+        quotas=SourceBalanceQuotas(
+            max_candidates=5,
+            max_candidates_per_physical_pair=1,
+            target_min_physical_pairs=5,
+            target_min_left_steps=5,
+            target_min_targets=2,
+        ),
+        delay_steps=10,
+        max_continuation_steps=60,
+        target_normal_margins=(0.005,),
+        half_width_inflations=(0.0,),
+        body_longitudinals=None,
+        body_laterals=None,
+        body_longitudinal_offsets=None,
+        body_lateral_offsets=None,
+        min_half_width=0.3,
+        max_half_width=2.5,
+        min_normal_margin=0.0,
+        max_normal_margin=0.04,
+        min_margin_gap=0.04,
+        report_variants=("wrong_matched_history",),
+        device="cpu",
+        min_eligible_physical_pairs=5,
+        max_candidate_pair_fraction=1.0,
+        margin_bucket_width=0.001,
+        control_checkpoint_label="control",
+    )
+
+    assert summary["relocation_replay_started"] is True
+    assert summary["candidate_selection_summary"]["selected_rows"] == 5
+    assert len(set(captured["physical_pairs"])) == 5
+    assert captured["left_seeds"].count(1) == 1
+    assert (tmp_path / "run" / "balanced_candidate_rows.csv").exists()
+    assert (tmp_path / "run" / "surface_summary.csv").exists()

@@ -18,6 +18,20 @@ from autodrift.boundary_wrong_history_surface_robustness import (
     decision_from_gates,
     summarize_surface,
 )
+from autodrift.checkpoints import load_actor_critic_checkpoint
+from autodrift.evaluate import load_env_config
+from autodrift.hidden_envelope_multiseed_gate import CheckpointSpec, parse_checkpoint_spec
+from autodrift.hidden_envelope_probe import response_feature_dim_for_model
+from autodrift.matched_history_intervention_gate import requested_snapshot_steps
+from autodrift.train_ppo import resolve_device
+from autodrift.wrong_history_boundary_relocation_surface import (
+    DEFAULT_REPORT_VARIANTS,
+    DEFAULT_TARGET_NORMAL_MARGINS,
+    build_boundary_relocation_rows,
+    parse_float_list,
+    parse_variants,
+    summarize_boundary_relocation_rows,
+)
 
 
 DEFAULT_ROBUSTNESS_THRESHOLDS = {
@@ -440,14 +454,18 @@ def write_source_balance_artifacts(
     marked_boundary_rows: pd.DataFrame,
     balanced_summary: dict[str, Any],
     robustness_gates: list[dict[str, Any]],
+    surface_summary_rows: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     balanced = marked_boundary_rows[marked_boundary_rows["balanced_exportable"].map(_bool_value)].copy()
-    rejected = marked_boundary_rows[
-        (marked_boundary_rows["variant"].astype(str) == "wrong_matched_history")
-        & marked_boundary_rows["accepted"].map(_bool_value)
-        & ~marked_boundary_rows["balanced_exportable"].map(_bool_value)
-    ].copy()
+    if {"variant", "accepted", "balanced_exportable"}.issubset(marked_boundary_rows.columns):
+        rejected = marked_boundary_rows[
+            (marked_boundary_rows["variant"].astype(str) == "wrong_matched_history")
+            & marked_boundary_rows["accepted"].map(_bool_value)
+            & ~marked_boundary_rows["balanced_exportable"].map(_bool_value)
+        ].copy()
+    else:
+        rejected = marked_boundary_rows.head(0).copy()
     write_json(run_dir / "source_budget_summary.json", source_budget_summary)
     write_csv_rows(run_dir / "source_budget_rows.csv", source_budget_rows)
     write_csv_rows(run_dir / "balanced_candidate_rows.csv", selected_candidates.to_dict("records"))
@@ -456,6 +474,8 @@ def write_source_balance_artifacts(
     write_csv_rows(run_dir / "balanced_accepted_wrong_history_rows.csv", balanced.to_dict("records"))
     write_csv_rows(run_dir / "balance_rejection_rows.csv", rejected.to_dict("records"))
     write_csv_rows(run_dir / "robustness_gates.csv", robustness_gates)
+    if surface_summary_rows is not None:
+        write_csv_rows(run_dir / "surface_summary.csv", surface_summary_rows)
     summary = {
         "run_type": "source_balanced_boundary_relocation_surface",
         "source_budget": source_budget_summary,
@@ -468,6 +488,7 @@ def write_source_balance_artifacts(
         "balanced_accepted_wrong_history_rows_csv": run_dir / "balanced_accepted_wrong_history_rows.csv",
         "balance_rejection_rows_csv": run_dir / "balance_rejection_rows.csv",
         "robustness_gates_csv": run_dir / "robustness_gates.csv",
+        "surface_summary_csv": run_dir / "surface_summary.csv" if surface_summary_rows is not None else None,
         "decision": balanced_summary.get("decision", ""),
         "passed": bool(balanced_summary.get("passed", False)),
         "training_started": False,
@@ -477,6 +498,22 @@ def write_source_balance_artifacts(
     }
     write_json(run_dir / "summary.json", summary)
     return summary
+
+
+def _empty_balanced_summary(
+    *,
+    decision: str,
+    margin_bucket_width: float,
+    control_checkpoint_label: str,
+) -> tuple[pd.DataFrame, dict[str, Any], list[dict[str, Any]]]:
+    marked, summary, gates = mark_balanced_export_rows(
+        pd.DataFrame(),
+        quotas=SourceBalanceQuotas(max_candidates=0),
+        margin_bucket_width=margin_bucket_width,
+        control_checkpoint_label=control_checkpoint_label,
+    )
+    summary = {**summary, "decision": decision, "passed": False}
+    return marked, summary, gates
 
 
 def run_source_balanced_boundary_artifact_smoke(
@@ -537,12 +574,179 @@ def run_source_balanced_boundary_artifact_smoke(
     return summary
 
 
+def run_source_balanced_boundary_relocation_surface(
+    *,
+    checkpoint_specs: tuple[CheckpointSpec, ...],
+    env_config_path: Path,
+    outcome_csv: Path,
+    run_dir: Path,
+    quotas: SourceBalanceQuotas,
+    delay_steps: int,
+    max_continuation_steps: int,
+    target_normal_margins: tuple[float, ...],
+    half_width_inflations: tuple[float, ...],
+    body_longitudinals: tuple[float, ...] | None,
+    body_laterals: tuple[float, ...] | None,
+    body_longitudinal_offsets: tuple[float, ...] | None,
+    body_lateral_offsets: tuple[float, ...] | None,
+    min_half_width: float,
+    max_half_width: float,
+    min_normal_margin: float,
+    max_normal_margin: float,
+    min_margin_gap: float,
+    report_variants: tuple[str, ...],
+    device: str,
+    distance_bucket_width: float = 5.0,
+    lateral_bucket_width: float = 1.0,
+    min_eligible_physical_pairs: int = 10,
+    max_candidate_pair_fraction: float = 0.25,
+    margin_bucket_width: float = 0.005,
+    control_checkpoint_label: str = "none",
+) -> dict[str, Any]:
+    """Run relocation replay from source-balanced selected candidates."""
+
+    run_dir.mkdir(parents=True, exist_ok=True)
+    outcome_frame = pd.read_csv(outcome_csv)
+    source_budget_summary, source_budget_rows = build_source_budget(
+        outcome_frame,
+        distance_bucket_width=distance_bucket_width,
+        lateral_bucket_width=lateral_bucket_width,
+        min_eligible_physical_pairs=min_eligible_physical_pairs,
+        max_candidate_pair_fraction=max_candidate_pair_fraction,
+    )
+    selected_candidates, rejected_candidates, candidate_selection_summary = select_source_balanced_candidates(
+        outcome_frame,
+        quotas=quotas,
+        distance_bucket_width=distance_bucket_width,
+        lateral_bucket_width=lateral_bucket_width,
+    )
+
+    all_rows: list[dict[str, Any]] = []
+    relocation_replay_started = False
+    fail_closed_decision = ""
+    if not bool(source_budget_summary.get("source_budget_ready", False)):
+        fail_closed_decision = "source_budget_not_ready"
+    elif candidate_selection_summary.get("decision") != "source_balanced_candidates_ready":
+        fail_closed_decision = "source_balanced_candidates_not_ready"
+    else:
+        resolved_device = resolve_device(device)
+        env_config = load_env_config(env_config_path)
+        for checkpoint_spec in checkpoint_specs:
+            checkpoint_candidates = selected_candidates[
+                selected_candidates["checkpoint_label"].astype(str) == checkpoint_spec.label
+            ]
+            if checkpoint_candidates.empty:
+                continue
+            relocation_replay_started = True
+            model, _ = load_actor_critic_checkpoint(checkpoint_spec.path, device=str(resolved_device))
+            model.eval()
+            response_dim = response_feature_dim_for_model(model)
+            snapshots = collect_requested_source_balanced_snapshots(
+                model=model,
+                env_config=env_config,
+                candidate_rows=checkpoint_candidates,
+                delay_steps=delay_steps,
+                device=resolved_device,
+            )
+            all_rows.extend(
+                build_boundary_relocation_rows(
+                    candidate_rows=checkpoint_candidates,
+                    snapshots=snapshots,
+                    model=model,
+                    env_config=env_config,
+                    response_dim=response_dim,
+                    delay_steps=delay_steps,
+                    max_continuation_steps=max_continuation_steps,
+                    target_normal_margins=target_normal_margins,
+                    half_width_inflations=half_width_inflations,
+                    body_longitudinals=body_longitudinals,
+                    body_laterals=body_laterals,
+                    body_longitudinal_offsets=body_longitudinal_offsets,
+                    body_lateral_offsets=body_lateral_offsets,
+                    min_half_width=min_half_width,
+                    max_half_width=max_half_width,
+                    min_normal_margin=min_normal_margin,
+                    max_normal_margin=max_normal_margin,
+                    min_margin_gap=min_margin_gap,
+                    report_variants=report_variants,
+                    device=resolved_device,
+                )
+            )
+
+    if fail_closed_decision:
+        marked_boundary_rows, balanced_summary, robustness_gates = _empty_balanced_summary(
+            decision=fail_closed_decision,
+            margin_bucket_width=margin_bucket_width,
+            control_checkpoint_label=control_checkpoint_label,
+        )
+        surface_summary_rows = summarize_boundary_relocation_rows([], min_accepted_wrong_rows=80)
+    else:
+        boundary_frame = pd.DataFrame(all_rows)
+        marked_boundary_rows, balanced_summary, robustness_gates = mark_balanced_export_rows(
+            boundary_frame,
+            quotas=quotas,
+            margin_bucket_width=margin_bucket_width,
+            control_checkpoint_label=control_checkpoint_label,
+        )
+        surface_summary_rows = summarize_boundary_relocation_rows(
+            all_rows,
+            min_accepted_wrong_rows=int(DEFAULT_ROBUSTNESS_THRESHOLDS["min_accepted_wrong_rows"]),
+        )
+
+    summary = write_source_balance_artifacts(
+        run_dir=run_dir,
+        source_budget_summary=source_budget_summary,
+        source_budget_rows=source_budget_rows,
+        selected_candidates=selected_candidates,
+        rejected_candidates=rejected_candidates,
+        marked_boundary_rows=marked_boundary_rows,
+        balanced_summary=balanced_summary,
+        robustness_gates=robustness_gates,
+        surface_summary_rows=surface_summary_rows,
+    )
+    summary.update(
+        {
+            "checkpoint_policies": [{"label": spec.label, "path": spec.path} for spec in checkpoint_specs],
+            "env_config": env_config_path,
+            "outcome_csv": outcome_csv,
+            "candidate_selection_summary": candidate_selection_summary,
+            "relocation_replay_started": bool(relocation_replay_started),
+            "full_new_mining_run": False,
+        }
+    )
+    write_json(run_dir / "summary.json", summary)
+    return summary
+
+
+def collect_requested_source_balanced_snapshots(
+    *,
+    model: Any,
+    env_config: Any,
+    candidate_rows: pd.DataFrame,
+    delay_steps: int,
+    device: Any,
+) -> dict[tuple[int, int], Any]:
+    from autodrift.matched_history_outcome_gate import collect_requested_outcome_snapshots
+
+    return collect_requested_outcome_snapshots(
+        model=model,
+        env_config=env_config,
+        requests=requested_snapshot_steps(candidate_rows, delay_steps=delay_steps),
+        device=device,
+    )
+
+
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Run source-balanced boundary accounting over existing CSV artifacts only."
+        description="Run source-balanced boundary relocation or account over existing CSV artifacts."
     )
-    parser.add_argument("--candidate-csv", type=Path, required=True)
-    parser.add_argument("--boundary-rows-csv", type=Path, required=True)
+    parser.add_argument("--checkpoint-policy", action="append", type=parse_checkpoint_spec, default=[])
+    parser.add_argument("--env-config", type=Path, default=None)
+    parser.add_argument("--outcome-csv", type=Path, default=None)
+    parser.add_argument("--candidate-csv", type=Path, default=None)
+    parser.add_argument("--boundary-rows-csv", type=Path, default=None)
+    parser.add_argument("--delay-steps", type=int, default=10)
+    parser.add_argument("--max-continuation-steps", type=int, default=60)
     parser.add_argument("--max-candidates", type=int, default=512)
     parser.add_argument("--max-candidates-per-physical-pair", type=int, default=8)
     parser.add_argument("--max-candidates-per-checkpoint-target", type=int, default=64)
@@ -555,8 +759,21 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("--max-candidate-pair-fraction", type=float, default=0.25)
     parser.add_argument("--source-obstacle-distance-bucket-width", type=float, default=5.0)
     parser.add_argument("--source-obstacle-lateral-bucket-width", type=float, default=1.0)
+    parser.add_argument("--target-normal-margins", type=parse_float_list, default=DEFAULT_TARGET_NORMAL_MARGINS)
+    parser.add_argument("--half-width-inflations", type=parse_float_list, default=(0.0,))
+    parser.add_argument("--body-longitudinals", type=parse_float_list, default=None)
+    parser.add_argument("--body-laterals", type=parse_float_list, default=None)
+    parser.add_argument("--body-longitudinal-offsets", type=parse_float_list, default=None)
+    parser.add_argument("--body-lateral-offsets", type=parse_float_list, default=None)
+    parser.add_argument("--min-half-width", type=float, default=0.3)
+    parser.add_argument("--max-half-width", type=float, default=2.5)
+    parser.add_argument("--min-normal-margin", type=float, default=0.0)
+    parser.add_argument("--max-normal-margin", type=float, default=0.20)
+    parser.add_argument("--min-margin-gap", type=float, default=0.02)
+    parser.add_argument("--report-variants", type=parse_variants, default=DEFAULT_REPORT_VARIANTS)
     parser.add_argument("--margin-bucket-width", type=float, default=0.005)
     parser.add_argument("--control-checkpoint-label", type=str, default="none")
+    parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
     parser.add_argument("--run-dir", type=Path, default=None)
     return parser.parse_args()
 
@@ -574,18 +791,54 @@ def main() -> None:
         target_min_targets=args.target_min_targets,
         max_rows_per_pair_fraction=args.max_rows_per_pair_fraction,
     )
-    summary = run_source_balanced_boundary_artifact_smoke(
-        candidate_csv=args.candidate_csv,
-        boundary_rows_csv=args.boundary_rows_csv,
-        run_dir=run_dir,
-        quotas=quotas,
-        distance_bucket_width=args.source_obstacle_distance_bucket_width,
-        lateral_bucket_width=args.source_obstacle_lateral_bucket_width,
-        min_eligible_physical_pairs=args.min_eligible_physical_pairs,
-        max_candidate_pair_fraction=args.max_candidate_pair_fraction,
-        margin_bucket_width=args.margin_bucket_width,
-        control_checkpoint_label=args.control_checkpoint_label,
-    )
+    if args.boundary_rows_csv is not None:
+        if args.candidate_csv is None:
+            raise SystemExit("--candidate-csv is required when --boundary-rows-csv is provided")
+        summary = run_source_balanced_boundary_artifact_smoke(
+            candidate_csv=args.candidate_csv,
+            boundary_rows_csv=args.boundary_rows_csv,
+            run_dir=run_dir,
+            quotas=quotas,
+            distance_bucket_width=args.source_obstacle_distance_bucket_width,
+            lateral_bucket_width=args.source_obstacle_lateral_bucket_width,
+            min_eligible_physical_pairs=args.min_eligible_physical_pairs,
+            max_candidate_pair_fraction=args.max_candidate_pair_fraction,
+            margin_bucket_width=args.margin_bucket_width,
+            control_checkpoint_label=args.control_checkpoint_label,
+        )
+    else:
+        if not args.checkpoint_policy or args.env_config is None or args.outcome_csv is None:
+            raise SystemExit(
+                "full relocation mode requires --checkpoint-policy, --env-config, and --outcome-csv"
+            )
+        summary = run_source_balanced_boundary_relocation_surface(
+            checkpoint_specs=tuple(args.checkpoint_policy),
+            env_config_path=args.env_config,
+            outcome_csv=args.outcome_csv,
+            run_dir=run_dir,
+            quotas=quotas,
+            delay_steps=args.delay_steps,
+            max_continuation_steps=args.max_continuation_steps,
+            target_normal_margins=args.target_normal_margins,
+            half_width_inflations=args.half_width_inflations,
+            body_longitudinals=args.body_longitudinals,
+            body_laterals=args.body_laterals,
+            body_longitudinal_offsets=args.body_longitudinal_offsets,
+            body_lateral_offsets=args.body_lateral_offsets,
+            min_half_width=args.min_half_width,
+            max_half_width=args.max_half_width,
+            min_normal_margin=args.min_normal_margin,
+            max_normal_margin=args.max_normal_margin,
+            min_margin_gap=args.min_margin_gap,
+            report_variants=args.report_variants,
+            device=args.device,
+            distance_bucket_width=args.source_obstacle_distance_bucket_width,
+            lateral_bucket_width=args.source_obstacle_lateral_bucket_width,
+            min_eligible_physical_pairs=args.min_eligible_physical_pairs,
+            max_candidate_pair_fraction=args.max_candidate_pair_fraction,
+            margin_bucket_width=args.margin_bucket_width,
+            control_checkpoint_label=args.control_checkpoint_label,
+        )
     for key, value in summary.items():
         print(f"{key}: {value}")
     print(f"run_dir={run_dir}")

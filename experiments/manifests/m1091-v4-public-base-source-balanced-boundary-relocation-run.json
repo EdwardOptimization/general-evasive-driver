@@ -1,0 +1,203 @@
+{
+  "id": "m1091-v4-public-base-source-balanced-boundary-relocation-run",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1083_proof_hardened_retarget_outcome_seed108200/outcome_interventions.csv",
+      "docs/m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke.md",
+      "docs/m1089-v4-public-base-source-balanced-relocation-run-design.md",
+      "docs/m1090-v4-public-base-source-balanced-relocation-runner-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1089-v4-public-base-source-balanced-relocation-run-design.json",
+      "experiments/manifests/m1090-v4-public-base-source-balanced-relocation-runner-implementation.json"
+    ],
+    "parent_objective": [
+      "run source-balanced selected candidates through boundary relocation replay under unchanged robustness thresholds"
+    ],
+    "derived_from": [
+      "m1090-v4-public-base-source-balanced-relocation-runner-implementation"
+    ],
+    "blocked_by": [
+      "M1088 showed source budget is ready but old boundary export remains six-pair limited",
+      "M1090 implements the runner needed before a full source-balanced relocation replay"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "post-filtering the M1083 six-pair boundary artifact",
+      "rerunning the source-unaware wrong_history_boundary_relocation_surface path",
+      "weakening robustness thresholds to pass a duplicate-dominated surface"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1091-v4-public-base-source-balanced-boundary-relocation-run.md",
+  "public_gates": [
+    "M1091 must not train",
+    "M1091 must not run PPO",
+    "M1091 must not promote",
+    "M1091 must not use private holdout",
+    "M1091 must preserve actor inputs",
+    "M1091 must preserve source-diversity robustness thresholds",
+    "M1091 must replay only source-balanced selected candidates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not weaken accepted-row, physical-pair, left-step, checkpoint, target, bucket, success-drop, dominance, or control thresholds",
+    "do not convert old six-pair accepted rows into a corpus",
+    "do not claim level3 anticipatory self-identification from this proof-surface run"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_balanced_boundary_tooling",
+    "evidence_axis": "G_surface: source-balanced boundary relocation proof surface",
+    "evidence_increment": "runs the M1090 full source-balanced relocation path to test whether balanced candidates produce a robust wrong-history boundary export",
+    "claim_scope": "public proof surface only; no training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if source budget or selected candidate diversity fails before replay",
+      "stop if balanced accepted rows remain duplicate-dominated",
+      "stop if success-drop fraction falls below 1.0",
+      "stop if the run would require threshold weakening"
+    ],
+    "fallback_plan": [
+      "if pass, route to compact corpus conversion design",
+      "if source budget fails before replay, route to source mining or candidate-selector audit",
+      "if replay runs but export remains duplicate-dominated, synthesize the source-balanced tooling branch before another retarget",
+      "if current-frame substitution dominates history interventions, route to self-ID task-window design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1090 implements relocation-time source-balanced replay",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run proof-surface evaluation without training or PPO",
+    "admission_evidence": [
+      "M1088 showed the pre-boundary candidate pool has enough source diversity",
+      "M1089 designed relocation-time source-balanced replay",
+      "M1090 implemented and tested the source-balanced relocation runner"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not promote from a proof-surface run",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "write M1091 run artifacts",
+      "write milestone documentation",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "if source-balanced boundary export passes, design compact corpus conversion",
+      "if it fails, classify whether the failure is source budget, duplicate domination, success-drop loss, or current-frame substitution",
+      "no guarded_rl stage is admitted by M1091"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1091 still evaluates a human-view policy with current ego response available. Passing would support a source-balanced wrong-history proof surface, not anticipatory self-identification; null intervention effects may mean current-frame evidence dominates.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1091 replays from matched-current snapshots with delay_steps=10 and continuation_steps=60. It does not add a separate pre-emergency warm-up window, so level3 anticipatory claims remain forbidden.",
+    "negative_result_policy": "If balanced rows fail or history interventions do not change margins/actions, record whether the failure is source diversity, success-drop, or current-frame substitution and route to synthesis or task-window design instead of weakening thresholds.",
+    "allowed_claims": [
+      "source-balanced level2 wrong-history proof-surface evidence if robustness gates pass",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "Routing source-balanced selected candidates into boundary relocation replay will produce a robust source-diverse wrong-history boundary export under unchanged thresholds.",
+  "success_criteria": [
+    "source-balanced relocation run completes",
+    "relocation_replay_started is true",
+    "source_budget_ready is true",
+    "candidate_selection_summary decision is source_balanced_candidates_ready",
+    "balanced_accepted_wrong_history_rows.csv exists",
+    "accepted wrong-history rows >= 80",
+    "accepted wrong-history physical pairs >= 10",
+    "accepted wrong-history left steps >= 5",
+    "accepted wrong-history checkpoints >= 3",
+    "accepted wrong-history targets >= 2",
+    "accepted wrong-history normal margin buckets >= 2 at width 0.005",
+    "accepted wrong-history success_drop_fraction == 1.0",
+    "max rows per physical pair fraction <= 0.25",
+    "control accepted wrong-history rows == 0",
+    "no training, PPO, promotion, private holdout, or threshold weakening occurs"
+  ],
+  "failure_criteria": [
+    "source budget fails before replay",
+    "balanced candidate selection is source-limited",
+    "replay does not start when source budget is ready",
+    "balanced export remains sparse or duplicate-dominated",
+    "success_drop_fraction < 1.0",
+    "training, PPO, promotion, private holdout, or threshold weakening occurs"
+  ],
+  "commands": [
+    {
+      "name": "source_balanced_boundary_relocation",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_balanced_boundary_relocation_surface --checkpoint-policy proof_current=runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --checkpoint-policy short61049=runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --checkpoint-policy short61050=runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt --checkpoint-policy short61051=runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m1083_proof_hardened_retarget_outcome_seed108200/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-candidates 512 --max-candidates-per-physical-pair 8 --max-candidates-per-checkpoint-target 64 --max-accepted-rows-per-physical-pair 20 --target-min-physical-pairs 10 --target-min-left-steps 5 --target-min-targets 2 --max-rows-per-pair-fraction 0.25 --min-eligible-physical-pairs 10 --max-candidate-pair-fraction 0.25 --source-obstacle-distance-bucket-width 5.0 --source-obstacle-lateral-bucket-width 1.0 --target-normal-margins 0.0005,0.001,0.0025,0.005,0.01,0.02,0.04 --body-longitudinal-offsets=-2.0,-1.0,0.0,1.0,2.0 --body-lateral-offsets=-0.4,0.0,0.4 --half-width-inflations 0 --min-half-width 0.3 --max-half-width 2.5 --min-normal-margin 0.0 --max-normal-margin 0.04 --min-margin-gap 0.04 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --control-checkpoint-label none --device cpu --run-dir runs/m1091_source_balanced_boundary_relocation_seed109100"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1091_source_balanced_boundary_relocation_seed109100/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1091_source_balanced_boundary_relocation_seed109100/source_budget_summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1091_source_balanced_boundary_relocation_seed109100/balanced_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1091_source_balanced_boundary_relocation_seed109100/boundary_relocation_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1091_source_balanced_boundary_relocation_seed109100/balanced_accepted_wrong_history_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1091_source_balanced_boundary_relocation_seed109100/robustness_gates.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1091_source_balanced_boundary_relocation_seed109100/surface_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1091-v4-public-base-source-balanced-boundary-relocation-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke.md",
+    "docs/m1089-v4-public-base-source-balanced-relocation-run-design.md",
+    "docs/m1090-v4-public-base-source-balanced-relocation-runner-implementation.md"
+  ],
+  "decision_rule": "M1091 may only run source-balanced boundary relocation evaluation. It cannot train, run PPO, promote, use private holdout, or weaken thresholds. It routes by unchanged source-diverse wrong-history robustness gates.",
+  "next_blocker": "m1091-v4-public-base-source-balanced-boundary-relocation-run"
+}

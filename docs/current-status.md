@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1090-v4-public-base-source-balanced-relocation-runner-implementation
+m1091-v4-public-base-source-balanced-boundary-relocation-run
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -188,11 +188,14 @@ export remains limited to six physical pairs. The next step is M1089:
 relocation-time source-balanced run design. M1089 completed that design and
 found that existing code cannot yet feed source-balanced selected candidates
 into relocation replay; the next step is M1090 runner implementation before
-any new surface run.
+any new surface run. M1090 implemented the full source-balanced relocation
+runner and process-v5 self-identification evidence discipline; the next step is
+M1091, the first full source-balanced boundary relocation replay under
+unchanged robustness thresholds.
 
 ```text
 decision:
-  source_balanced_relocation_design_route_to_runner_implementation
+  source_balanced_relocation_runner_implementation_admit_m1091_run
 ```
 
 M1068 design:
@@ -683,6 +686,21 @@ ppo_used: false
 promoted: false
 private_holdout_used: false
 next: m1090-v4-public-base-source-balanced-relocation-runner-implementation
+```
+
+M1090 result:
+
+```text
+result_class: source_balanced_relocation_runner_implementation
+implemented: full source-balanced relocation runner; fail-closed source-budget and candidate-selection gates before replay; selected-candidate snapshot collection and boundary relocation replay; process-v5 self-ID evidence discipline
+focused_tests: 48 passed
+research_validation: passed
+training_started: false
+ppo_used: false
+promoted: false
+private_holdout_used: false
+expensive_relocation_run_started: false
+next: m1091-v4-public-base-source-balanced-boundary-relocation-run
 ```
 
 M1058 result:

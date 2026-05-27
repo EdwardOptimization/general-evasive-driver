@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M1090 implements full source-balanced relocation runner plus process-v5 self-ID evidence discipline with 48 focused tests passing; no PPO training promotion private holdout or expensive run",
+  "failure_criteria": [
+    "implementation only post-filters old boundary rows",
+    "implementation reruns source-unaware relocation",
+    "source budget failure can still replay",
+    "artifact-smoke path breaks",
+    "training, PPO, promotion, private holdout, or expensive relocation run starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not weaken robustness thresholds",
+    "do not implement a post-filter-only path",
+    "do not use old six-pair accepted rows as a corpus"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260527T174322Z",
+  "hypothesis": "A tested source-balanced relocation runner can route M1086-selected candidates into boundary relocation replay while preserving artifact-smoke behavior and current robustness thresholds.",
+  "lineage": {
+    "blocked_by": [
+      "M1089 found existing code can either rerun source-unaware relocation or existing-artifact smoke, but cannot route balanced candidates into relocation replay"
+    ],
+    "derived_from": [
+      "m1089-v4-public-base-source-balanced-relocation-run-design"
+    ],
+    "invalidates": [
+      "running old wrong_history_boundary_relocation_surface as the next source-balanced run",
+      "calling the existing-artifact smoke a full relocation run",
+      "using M1083 six-pair accepted rows as corpus input"
+    ],
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1089-v4-public-base-source-balanced-relocation-run-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1089-v4-public-base-source-balanced-relocation-run-design.md",
+      "docs/m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke.md",
+      "src/autodrift/source_balanced_boundary_relocation_surface.py",
+      "src/autodrift/wrong_history_boundary_relocation_surface.py"
+    ],
+    "parent_objective": [
+      "implement a full source-balanced boundary relocation runner before running another surface refresh"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1090-v4-public-base-source-balanced-relocation-runner-implementation",
+  "next_blocker": "m1091-v4-public-base-source-balanced-boundary-relocation-run",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_balanced_relocation_runner_implementation_admit_m1091_run",
+  "public_gates": [
+    "M1090 must not train",
+    "M1090 must not run PPO",
+    "M1090 must not promote",
+    "M1090 must not use private holdout",
+    "M1090 must preserve existing robustness thresholds",
+    "M1090 must keep the existing artifact-smoke path working",
+    "M1090 must not run the expensive M1091 relocation experiment"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1090-v4-public-base-source-balanced-relocation-runner-implementation.md",
+    "clearance_margin_mean": "",
+    "decision": "source_balanced_relocation_runner_implementation_admit_m1091_run",
+    "milestone": "m1090-v4-public-base-source-balanced-relocation-runner-implementation",
+    "reason": "M1090 implements full source-balanced relocation runner plus process-v5 self-ID evidence discipline with 48 focused tests passing; no PPO training promotion private holdout or expensive run",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "source-balanced full-run implementation exists",
+    "selected candidates are passed into relocation replay instead of global top-K",
+    "source-budget failure fails closed before replay",
+    "raw and balanced artifacts are written",
+    "existing artifact-smoke path still works",
+    "self-identification evidence discipline is documented and validator-enforced for M1090+ manifests",
+    "focused tests pass",
+    "research validation passes",
+    "no training, PPO, promotion, private holdout, expensive M1091 run, or threshold weakening occurs"
+  ],
+  "type": "infrastructure"
+}
