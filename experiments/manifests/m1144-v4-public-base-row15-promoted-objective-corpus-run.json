@@ -153,8 +153,16 @@
   ],
   "required_artifacts": [
     {
-      "path": "runs/m1144_row15_promoted_objective_corpus/summary.json",
+      "path": "runs/m1144_row15_promoted_objective_corpus/corpus_summary.json",
       "type": "json"
+    },
+    {
+      "path": "runs/m1144_row15_promoted_objective_corpus/objective_summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1144_row15_promoted_objective_corpus/boundary_outcome_corpus.npz",
+      "type": "npz"
     },
     {
       "path": "docs/m1144-v4-public-base-row15-promoted-objective-corpus-run.md",
@@ -168,6 +176,45 @@
     "docs/m1143-v4-public-base-row15-promoted-objective-corpus-design.md",
     "runs/m1142_row15_promoted_target_materialization/row15_current_boundary_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1144-v4-public-base-row15-promoted-objective-corpus-run.md",
+    "decision": "row15_promoted_objective_corpus_pass_route_to_result_audit",
+    "result_class": "materialized_objective_corpus_pass",
+    "failure_types": [
+      "none"
+    ],
+    "run_dir": "runs/m1144_row15_promoted_objective_corpus",
+    "target_policy_label": "row15_current",
+    "corpus_rows": 76,
+    "physical_pairs": 13,
+    "targets": 2,
+    "success_drop_rows": 76,
+    "selected_source_rows": 76,
+    "action_reconstruction_error_max": 0.0,
+    "action_reconstruction_error_mean": 0.0,
+    "objective_pass": true,
+    "seed_pass_count": 3,
+    "mean_val_combined_loss_improvement": 3.2110307216644287,
+    "min_val_combined_loss_improvement": 2.9068493843078613,
+    "mean_val_delta_loss_improvement": 4.05410623550415,
+    "min_val_delta_loss_improvement": 3.6333563327789307,
+    "mean_val_pairwise_accuracy_after": 1.0,
+    "min_val_pairwise_accuracy_after": 1.0,
+    "corpus_npz": "runs/m1144_row15_promoted_objective_corpus/boundary_outcome_corpus.npz",
+    "corpus_summary_json": "runs/m1144_row15_promoted_objective_corpus/corpus_summary.json",
+    "objective_summary_json": "runs/m1144_row15_promoted_objective_corpus/objective_summary.json",
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1145-v4-public-base-row15-promoted-objective-result-audit"
+  },
+  "decision": "row15_promoted_objective_corpus_pass_route_to_result_audit",
   "decision_rule": "M1144 may only build the row15_current corpus and run objective sanity. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1144-v4-public-base-row15-promoted-objective-corpus-run"
+  "next_blocker": "m1145-v4-public-base-row15-promoted-objective-result-audit"
 }

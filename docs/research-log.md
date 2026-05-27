@@ -16301,3 +16301,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no corpus build, objective sanity, replay, actor training, PPO, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_objective_corpus_design_admit_objective_sanity_run`
 - next: `m1144-v4-public-base-row15-promoted-objective-corpus-run`
+
+## 20260528T005000Z - m1144-v4-public-base-row15-promoted-objective-corpus-run
+
+- status: `completed`
+- kind: `objective_sanity`
+- artifact: `docs/m1144-v4-public-base-row15-promoted-objective-corpus-run.md`
+- corpus result: `76` rows, `13` physical pairs, `2` targets, `76` success-drop rows, and `76` selected source rows.
+- reconstruction gate: max action reconstruction error `0.0`, mean action reconstruction error `0.0`.
+- objective result: objective pass `true`, seed pass count `3`, mean validation combined-loss improvement `3.211031`, min validation combined-loss improvement `2.906849`, mean validation delta-loss improvement `4.054106`, min validation delta-loss improvement `3.633356`, and mean validation pairwise accuracy after `1.0`.
+- guardrail: no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_objective_corpus_pass_route_to_result_audit`
+- next: `m1145-v4-public-base-row15-promoted-objective-result-audit`

@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1152,
+    "completed": 1153,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1143-v4-public-base-row15-promoted-objective-corpus-design",
+    "task_id": "m1144-v4-public-base-row15-promoted-objective-corpus-run",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1143-v4-public-base-row15-promoted-objective-corpus-design.md",
-    "result_class": "materialized_objective_corpus_contract_defined",
-    "decision": "row15_promoted_objective_corpus_design_admit_objective_sanity_run"
+    "command_log": "docs/m1144-v4-public-base-row15-promoted-objective-corpus-run.md",
+    "result_class": "materialized_objective_corpus_pass",
+    "decision": "row15_promoted_objective_corpus_pass_route_to_result_audit"
   },
   "next_task": {
-    "id": "m1144-v4-public-base-row15-promoted-objective-corpus-run",
+    "id": "m1145-v4-public-base-row15-promoted-objective-result-audit",
     "status": "pending",
-    "priority": 11390,
-    "kind": "objective_sanity",
-    "hypothesis": "The M1142 row15_current materialized rows can produce a valid single-checkpoint boundary-outcome corpus and learnable auxiliary objective",
-    "command": "see experiments/manifests/m1144-v4-public-base-row15-promoted-objective-corpus-run.json",
-    "success_artifact": "docs/m1144-v4-public-base-row15-promoted-objective-corpus-run.md",
-    "notes": "Pending: corpus/objective sanity only; no actor training PPO replay promotion private holdout or actor-input change"
+    "priority": 11400,
+    "kind": "gate",
+    "hypothesis": "The M1144 objective pass is strong enough to admit a guarded actor-update design, but not an actor update or PPO",
+    "command": "see experiments/manifests/m1145-v4-public-base-row15-promoted-objective-result-audit.json",
+    "success_artifact": "docs/m1145-v4-public-base-row15-promoted-objective-result-audit.md",
+    "notes": "Pending: audit only; no actor training PPO replay objective optimization promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T004100Z"
+  "updated_at_utc": "20260528T005000Z"
 }

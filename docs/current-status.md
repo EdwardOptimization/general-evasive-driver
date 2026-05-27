@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1144-v4-public-base-row15-promoted-objective-corpus-run
+m1145-v4-public-base-row15-promoted-objective-result-audit
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -214,11 +214,26 @@ left_steps: 6
 source_labels: 5
 ```
 
-M1144 should build the row15-current corpus and run objective sanity only, using
-seeds `114400`, `114401`, and `114402`. It must not replay, train actor weights,
-run PPO, promote, use private holdout, or change actor inputs. Passing M1144
-would support objective learnability only; it would not prove actor improvement
-or PPO readiness.
+M1144 built the row15-current corpus and ran objective sanity:
+
+```text
+corpus_rows: 76
+physical_pairs: 13
+targets: 2
+success_drop_rows: 76
+selected_source_rows: 76
+action_reconstruction_error_max: 0.0
+action_reconstruction_error_mean: 0.0
+objective_pass: true
+seed_pass_count: 3
+mean_val_combined_loss_improvement: 3.211031
+min_val_combined_loss_improvement: 2.906849
+mean_val_pairwise_accuracy_after: 1.0
+```
+
+This supports objective learnability only; it does not prove actor improvement
+or PPO readiness. M1145 should audit whether the objective result is strong
+enough to admit a guarded actor-update design and what gates would be required.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

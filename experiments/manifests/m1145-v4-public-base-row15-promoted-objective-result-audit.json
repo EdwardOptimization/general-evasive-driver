@@ -1,0 +1,162 @@
+{
+  "id": "m1145-v4-public-base-row15-promoted-objective-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1144-v4-public-base-row15-promoted-objective-corpus-run.md",
+      "runs/m1144_row15_promoted_objective_corpus/boundary_outcome_corpus.npz",
+      "runs/m1144_row15_promoted_objective_corpus/corpus_summary.json",
+      "runs/m1144_row15_promoted_objective_corpus/objective_summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1144-v4-public-base-row15-promoted-objective-corpus-run.json"
+    ],
+    "parent_objective": [
+      "audit objective-corpus result before any guarded actor-update design"
+    ],
+    "derived_from": [
+      "m1144-v4-public-base-row15-promoted-objective-corpus-run"
+    ],
+    "blocked_by": [
+      "M1144 objective sanity passed, but actor-update readiness has not been audited"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running actor update directly from objective sanity",
+      "claiming driver improvement from auxiliary objective pass",
+      "claiming PPO readiness from objective sanity"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1145-v4-public-base-row15-promoted-objective-result-audit.md",
+  "public_gates": [
+    "M1145 must audit only",
+    "M1145 must not train actor weights",
+    "M1145 must not run PPO",
+    "M1145 must not run replay",
+    "M1145 must not run objective optimization",
+    "M1145 must not build a corpus",
+    "M1145 must not mine rows",
+    "M1145 must not promote",
+    "M1145 must not use private holdout",
+    "M1145 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not build a corpus",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not overclaim objective sanity as closed-loop improvement"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_target_materialization",
+    "evidence_axis": "G_audit: objective result audit",
+    "evidence_increment": "audits whether M1144 objective pass can admit guarded actor-update design",
+    "claim_scope": "audit only; no actor training, PPO, replay, objective optimization, promotion, or private holdout",
+    "stop_condition": [
+      "stop if objective result is marginal",
+      "stop if corpus limitations block actor-update design",
+      "stop if required post-update gates cannot be specified"
+    ],
+    "fallback_plan": [
+      "if objective result is strong, admit guarded actor-update design",
+      "if objective result is weak, route to objective audit/repair",
+      "if corpus is too narrow, route to broader surface refresh"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1144 objective sanity passes",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "capability_pretrain",
+    "stage_objective": "audit auxiliary objective result before actor update design",
+    "admission_evidence": [
+      "M1144 corpus gates pass",
+      "M1144 objective sanity passes across three seeds"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not run PPO",
+      "do not promote from objective sanity"
+    ],
+    "allowed_updates": [
+      "audit document",
+      "pre-register guarded actor-update design if audit supports it",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "objective strength is explicit",
+      "limitations are explicit",
+      "required guarded-update gates are explicit",
+      "next design or repair route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1145 audits matched-current objective rows and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1145 audits M1144 artifacts only and adds no new temporal task.",
+    "negative_result_policy": "If objective result is not strong enough, record it and do not proceed to actor update design.",
+    "allowed_claims": [
+      "objective-result audit for a level2 replay-calibrated proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The M1144 objective pass is strong enough to admit a guarded actor-update design, but not an actor update or PPO.",
+  "success_criteria": [
+    "audit artifact exists",
+    "objective result strength is summarized",
+    "corpus limitations are summarized",
+    "supported and unsupported claims are explicit",
+    "required guarded-update gates are explicit",
+    "no actor training, PPO, replay, objective optimization, corpus build, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "objective sanity is conflated with promotion",
+    "guarded-update gates are not specified",
+    "actor training, PPO, replay, objective optimization, corpus build, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_audit",
+      "command": "write docs/m1145-v4-public-base-row15-promoted-objective-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1145-v4-public-base-row15-promoted-objective-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1144-v4-public-base-row15-promoted-objective-corpus-run.md",
+    "runs/m1144_row15_promoted_objective_corpus/objective_summary.json"
+  ],
+  "decision_rule": "M1145 may only audit the M1144 objective result. It cannot train actor weights, run PPO, run replay, run objective optimization, build a corpus, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1145-v4-public-base-row15-promoted-objective-result-audit"
+}
