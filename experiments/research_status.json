@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1155,
+    "completed": 1156,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1146-v4-public-base-row15-promoted-guarded-actor-update-design",
+    "task_id": "m1147-v4-public-base-row15-promoted-guarded-actor-update-probe",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1146-v4-public-base-row15-promoted-guarded-actor-update-design.md",
-    "result_class": "guarded_actor_update_design_admits_exact_probe",
-    "decision": "row15_promoted_guarded_actor_update_design_admit_probe"
+    "command_log": "docs/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.md",
+    "result_class": "row15_promoted_guarded_actor_update_exact_candidate",
+    "decision": "row15_promoted_guarded_actor_update_exact_candidate_route_to_first_replay_design"
   },
   "next_task": {
-    "id": "m1147-v4-public-base-row15-promoted-guarded-actor-update-probe",
+    "id": "m1148-v4-public-base-row15-promoted-actor-update-first-replay-design",
     "status": "pending",
-    "priority": 11420,
-    "kind": "driver_candidate",
-    "hypothesis": "At least one low-drift actor_coupling candidate can improve or retain the exact M1144 objective while preserving anchors allowed parameter scope and actor-input contract",
-    "command": "see experiments/manifests/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.json",
-    "success_artifact": "docs/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.md",
-    "notes": "Pending: actor_coupling probe only; no PPO replay corpus build objective sanity promotion private holdout or actor-input change"
+    "priority": 11430,
+    "kind": "gate",
+    "hypothesis": "A first replay gate can be designed for m1147_114602 that checks old public M1061 family row15-promoted source-diverse and behavior-retention surfaces before any full public gate",
+    "command": "see experiments/manifests/m1148-v4-public-base-row15-promoted-actor-update-first-replay-design.json",
+    "success_artifact": "docs/m1148-v4-public-base-row15-promoted-actor-update-first-replay-design.md",
+    "notes": "Pending: design only; no actor training PPO replay corpus build objective sanity promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T010800Z"
+  "updated_at_utc": "20260528T011900Z"
 }

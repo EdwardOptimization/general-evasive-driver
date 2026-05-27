@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1147-v4-public-base-row15-promoted-guarded-actor-update-probe
+m1148-v4-public-base-row15-promoted-actor-update-first-replay-design
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -257,9 +257,24 @@ action_anchor_coef: 100.0
 snippet_action_anchor_coef: 100.0
 ```
 
-M1147 should run only these pre-registered actor-coupling probes and pre-replay
-exact/anchor/parameter gates. It must not run PPO, replay, corpus build,
-objective sanity, promotion, private holdout, or actor-input changes.
+M1147 ran the pre-registered actor-coupling probes and pre-replay gates:
+
+```text
+base exact M1144 loss: 0.417700
+m1147_114600 exact loss: 0.409554
+m1147_114601 exact loss: 0.409563
+m1147_114602 exact loss: 0.409408
+best candidate: m1147_114602
+best exact delta: -0.008292
+max action-anchor MSE: 0.000008367
+max snippet-action-anchor MSE: 0.000019765
+changed tensors: actor_mean.* and response_context_fusion.0.* only
+log_std changed: false
+```
+
+This is still pre-replay evidence. M1148 should design first replay gates for
+`m1147_114602` before any replay run, full public gate, PPO, promotion, private
+holdout, or actor-input change.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

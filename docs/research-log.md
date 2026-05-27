@@ -16339,3 +16339,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, replay, corpus build, objective sanity, mining, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_guarded_actor_update_design_admit_probe`
 - next: `m1147-v4-public-base-row15-promoted-guarded-actor-update-probe`
+
+## 20260528T011900Z - m1147-v4-public-base-row15-promoted-guarded-actor-update-probe
+
+- status: `completed`
+- kind: `driver_candidate`
+- artifact: `docs/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.md`
+- optimizer result: all three actor-coupling candidates improve sampled M1144 loss with improvements `0.006883`, `0.006880`, and `0.007009`.
+- exact M1144 result: base loss `0.417700`; candidates `m1147_114600`, `m1147_114601`, and `m1147_114602` get `0.409554`, `0.409563`, and `0.409408`; best exact delta is `-0.008292`.
+- anchor result: max action-anchor MSE `0.000008367` and max snippet-action-anchor MSE `0.000019765`, both below `0.0001`.
+- parameter audit: each candidate changes only `actor_mean.*` and `response_context_fusion.0.*`; `log_std` is unchanged and there are zero disallowed changed tensors.
+- primary candidate: `runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt`.
+- guardrail: no PPO, replay, corpus build, objective sanity, mining, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_guarded_actor_update_exact_candidate_route_to_first_replay_design`
+- next: `m1148-v4-public-base-row15-promoted-actor-update-first-replay-design`

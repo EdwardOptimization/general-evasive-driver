@@ -170,6 +170,48 @@
     "docs/m1146-v4-public-base-row15-promoted-guarded-actor-update-design.md",
     "runs/m1144_row15_promoted_objective_corpus/boundary_outcome_corpus.npz"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.md",
+    "summary_json": "runs/m1147_row15_promoted_actor_update_exact_eval/summary.json",
+    "decision": "row15_promoted_guarded_actor_update_exact_candidate_route_to_first_replay_design",
+    "result_class": "row15_promoted_guarded_actor_update_exact_candidate",
+    "failure_types": [
+      "none"
+    ],
+    "base_exact_loss": 0.41770005226135254,
+    "best_candidate": "m1147_114602",
+    "best_candidate_checkpoint": "runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt",
+    "best_candidate_exact_loss": 0.4094075560569763,
+    "best_candidate_exact_loss_delta": -0.00829249620437622,
+    "candidate_count": 3,
+    "exact_improving_candidates": 3,
+    "parameter_scope_passed_candidates": 3,
+    "anchor_passed_candidates": 3,
+    "changed_parameter_count": 4,
+    "changed_parameter_names": [
+      "actor_mean.bias",
+      "actor_mean.weight",
+      "response_context_fusion.0.bias",
+      "response_context_fusion.0.weight"
+    ],
+    "disallowed_changed_parameter_count": 0,
+    "log_std_changed": false,
+    "max_abs_delta": 0.0004955735057592392,
+    "max_action_anchor_mse": 0.000008366836482309736,
+    "max_snippet_action_anchor_mse": 0.000019764538592426106,
+    "ppo_used": false,
+    "replay_started": false,
+    "corpus_build_started": false,
+    "objective_sanity_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "admitted_next": "first_replay_gate_design_only",
+    "next_milestone": "m1148-v4-public-base-row15-promoted-actor-update-first-replay-design"
+  },
+  "decision": "row15_promoted_guarded_actor_update_exact_candidate_route_to_first_replay_design",
   "decision_rule": "M1147 may only run the M1146 pre-registered actor_coupling probes and pre-replay gates. It cannot run PPO, replay, corpus build, objective sanity, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1147-v4-public-base-row15-promoted-guarded-actor-update-probe"
+  "next_blocker": "m1148-v4-public-base-row15-promoted-actor-update-first-replay-design"
 }

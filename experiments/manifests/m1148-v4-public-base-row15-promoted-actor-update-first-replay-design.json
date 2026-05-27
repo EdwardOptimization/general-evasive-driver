@@ -1,0 +1,163 @@
+{
+  "id": "m1148-v4-public-base-row15-promoted-actor-update-first-replay-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.md",
+      "runs/m1147_row15_promoted_actor_update_exact_eval/summary.json",
+      "runs/m1147_row15_promoted_actor_update_parameter_audit/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.json"
+    ],
+    "parent_objective": [
+      "design first replay gates for the M1147 primary exact/contract candidate"
+    ],
+    "derived_from": [
+      "m1147-v4-public-base-row15-promoted-guarded-actor-update-probe"
+    ],
+    "blocked_by": [
+      "M1147 admits replay design only after exact objective, anchor, and parameter-scope gates pass"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "full public gate before first replay",
+      "promotion from actor update alone",
+      "PPO continuation from a pre-replay actor update"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1148-v4-public-base-row15-promoted-actor-update-first-replay-design.md",
+  "public_gates": [
+    "M1148 must design only",
+    "M1148 must not train actor weights",
+    "M1148 must not run PPO",
+    "M1148 must not run replay",
+    "M1148 must not run corpus build or objective sanity",
+    "M1148 must not mine rows",
+    "M1148 must not promote",
+    "M1148 must not use private holdout",
+    "M1148 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run corpus build",
+    "do not run objective sanity",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not skip first replay and jump directly to full public gate"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_target_materialization",
+    "evidence_axis": "G_replay: first replay design after exact candidate",
+    "evidence_increment": "pre-registers first closed-loop replay gates for the M1147 primary candidate before full public gate",
+    "claim_scope": "design only; no replay, actor training, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if first replay surfaces cannot cover old public and row15-promoted proof rows",
+      "stop if behavior retention is omitted",
+      "stop if result would be interpreted as promotion"
+    ],
+    "fallback_plan": [
+      "if first replay design is incomplete, route to replay-gate inventory audit",
+      "if candidate lacks required artifacts, route back to M1147 audit",
+      "if replay tools are missing, route to tooling implementation before running replay"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1147 admits first replay design only",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "design first replay gates before any closed-loop replay run",
+    "admission_evidence": [
+      "M1147 exact objective improves for all three candidates",
+      "M1147 anchor and parameter-scope gates pass",
+      "m1147_114602 is the lowest exact-loss candidate"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay in the design milestone",
+      "do not promote from first replay"
+    ],
+    "allowed_updates": [
+      "first replay design documentation",
+      "pre-register replay run if design is clear",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "candidate checkpoint is explicit",
+      "first replay surfaces are explicit",
+      "success-drop retention thresholds are explicit",
+      "next full-gate or failure-audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1148 designs replay for matched-current objective update rows and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1148 adds no new temporal task.",
+    "negative_result_policy": "If replay design cannot preserve proof rows, keep replay blocked and route to gate inventory repair.",
+    "allowed_claims": [
+      "first replay design for a level2 replay-calibrated actor-update candidate",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A first replay gate can be designed for m1147_114602 that checks old public, M1061 family, row15-promoted, source-diverse, and behavior-retention surfaces before any full public gate.",
+  "success_criteria": [
+    "design artifact exists",
+    "primary candidate checkpoint is explicit",
+    "first replay surfaces are explicit",
+    "success-drop thresholds are explicit",
+    "behavior retention checks are explicit",
+    "no actor training, PPO, replay, corpus build, objective sanity, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "candidate checkpoint is ambiguous",
+    "first replay surfaces are incomplete",
+    "thresholds are ambiguous",
+    "actor training, PPO, replay, corpus build, objective sanity, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m1148-v4-public-base-row15-promoted-actor-update-first-replay-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1148-v4-public-base-row15-promoted-actor-update-first-replay-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.md",
+    "runs/m1147_row15_promoted_actor_update_exact_eval/summary.json"
+  ],
+  "decision_rule": "M1148 may only design first replay gates. It cannot train actor weights, run PPO, run replay, run corpus build, run objective sanity, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1148-v4-public-base-row15-promoted-actor-update-first-replay-design"
+}
