@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1066-v4-public-base-pre-medium-ppo-readiness-synthesis
+m1067-v4-public-base-expanded-gate-medium-ppo-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -108,11 +108,13 @@ M1063 designed that gate integration and admitted a reusable wrapper
 implementation before medium PPO. M1064 implemented that wrapper and validated
 that the current public-gate base passes all three M1061 source-to-candidate
 replay gates. M1065 integrated the wrapper into the full public gate stack and
-validated the new proof tier on the current base without PPO.
+validated the new proof tier on the current base without PPO. M1066 synthesized
+the short-PPO promotion, refreshed proof surface, and expanded proof stack, and
+admitted a conservative medium PPO design milestone.
 
 ```text
 decision:
-  family_intersection_stack_integration_pass_route_to_pre_medium_readiness_synthesis
+  pre_medium_ppo_readiness_synthesis_admit_expanded_gate_medium_ppo_design
 ```
 
 M1061 result:
@@ -175,6 +177,17 @@ current_base_preflight: passed
 replay_gate_count: 3
 replay_gates_passed: 3
 next: m1066-v4-public-base-pre-medium-ppo-readiness-synthesis
+```
+
+M1066 result:
+
+```text
+closed_branch: post_short_promotion_family_gate_integration
+opened_branch: expanded_gate_medium_ppo_readiness
+medium_ppo_design_admitted: true
+medium_ppo_run_started: false
+required_next_scope: design only, no PPO, no private holdout
+next: m1067-v4-public-base-expanded-gate-medium-ppo-design
 ```
 
 M1058 result:

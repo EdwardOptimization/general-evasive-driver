@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1074,
+    "completed": 1075,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1065-v4-public-base-family-intersection-stack-integration",
+    "task_id": "m1066-v4-public-base-pre-medium-ppo-readiness-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1065-v4-public-base-family-intersection-stack-integration.md"
+    "command_log": "docs/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.md"
   },
   "next_task": {
-    "id": "m1066-v4-public-base-pre-medium-ppo-readiness-synthesis",
+    "id": "m1067-v4-public-base-expanded-gate-medium-ppo-design",
     "status": "pending",
-    "priority": 10610,
+    "priority": 10620,
     "kind": "gate",
-    "hypothesis": "Synthesize readiness for conservative medium PPO design after expanded public proof gate integration",
-    "command": "see experiments/manifests/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.json",
-    "success_artifact": "docs/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.md",
-    "notes": "Pending: process synthesis only; no PPO no actor training no promotion no private holdout"
+    "hypothesis": "Design conservative medium PPO escalation under expanded public proof gates",
+    "command": "see experiments/manifests/m1067-v4-public-base-expanded-gate-medium-ppo-design.json",
+    "success_artifact": "docs/m1067-v4-public-base-expanded-gate-medium-ppo-design.md",
+    "notes": "Pending: design only; no PPO no actor training no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T064704Z"
+  "updated_at_utc": "20260527T065117Z"
 }

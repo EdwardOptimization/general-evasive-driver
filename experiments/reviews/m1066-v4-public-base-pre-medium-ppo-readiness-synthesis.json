@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M1066 synthesizes short-PPO promotion refreshed proof surface and expanded gate integration and admits conservative medium PPO design without training",
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "synthesis omits M1061 or M1065 evidence",
+    "PPO or actor training starts",
+    "private holdout is used"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train actor",
+    "do not promote",
+    "do not use private holdout",
+    "do not treat public proof gates as private paper evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T065315Z",
+  "hypothesis": "The project has enough proof-refresh and gate-integration evidence to design a conservative medium PPO escalation, but the readiness decision must be synthesized before any PPO run.",
+  "lineage": {
+    "blocked_by": [
+      "medium PPO must not start until post-short-promotion proof refresh and gate integration are synthesized"
+    ],
+    "derived_from": [
+      "m1049-v4-public-base-guarded-ppo-short-escalation-smoke",
+      "m1050-v4-public-base-guarded-ppo-short-escalation-repeat",
+      "m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit",
+      "m1061-v4-public-base-post-short-promotion-family-intersection-corpus",
+      "m1065-v4-public-base-family-intersection-stack-integration"
+    ],
+    "invalidates": [
+      "starting medium PPO directly from short-PPO public-gate base without readiness synthesis"
+    ],
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1065-v4-public-base-family-intersection-stack-integration.json"
+    ],
+    "parent_dataset": [
+      "runs/m1065_expanded_stack_family_intersection_preflight/summary.json"
+    ],
+    "parent_objective": [
+      "synthesize readiness for medium PPO after short-PPO promotion refreshed surface and expanded proof gate integration"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1066-v4-public-base-pre-medium-ppo-readiness-synthesis",
+  "next_blocker": "m1066-v4-public-base-pre-medium-ppo-readiness-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pre_medium_ppo_readiness_synthesis_admit_expanded_gate_medium_ppo_design",
+  "public_gates": [
+    "M1066 must not run PPO",
+    "M1066 must not train actor",
+    "M1066 must not promote",
+    "M1066 must not use private holdout",
+    "M1066 must synthesize whether the expanded public gate stack is sufficient to admit medium PPO design"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "pre_medium_ppo_readiness_synthesis_admit_expanded_gate_medium_ppo_design",
+    "milestone": "m1066-v4-public-base-pre-medium-ppo-readiness-synthesis",
+    "reason": "M1066 synthesizes short-PPO promotion refreshed proof surface and expanded gate integration and admits conservative medium PPO design without training",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "synthesis artifact exists",
+    "synthesis covers evidence summary supported claims falsified claims failure taxonomy public overfit risk and next branch decision",
+    "no PPO actor training promotion or private holdout occurs",
+    "research_status and research_queue route to the chosen next blocker"
+  ],
+  "type": "gate"
+}

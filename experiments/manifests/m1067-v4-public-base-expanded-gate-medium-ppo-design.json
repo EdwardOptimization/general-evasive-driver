@@ -1,0 +1,104 @@
+{
+  "id": "m1067-v4-public-base-expanded-gate-medium-ppo-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.md",
+      "runs/m1065_expanded_stack_family_intersection_preflight/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.json"
+    ],
+    "parent_objective": [
+      "design conservative medium PPO escalation under expanded public proof gates"
+    ],
+    "derived_from": [
+      "m1066-v4-public-base-pre-medium-ppo-readiness-synthesis"
+    ],
+    "blocked_by": [
+      "M1066 admits medium PPO design but not a PPO run"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running medium PPO without pre-registered expanded gates and rollback rules"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1067-v4-public-base-expanded-gate-medium-ppo-design.md",
+  "public_gates": [
+    "M1067 must not run PPO",
+    "M1067 must not train actor",
+    "M1067 must not promote",
+    "M1067 must not use private holdout",
+    "M1067 must design medium PPO with expanded exact proof family-intersection source-diverse fresh/OOD and behavior gates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train actor",
+    "do not promote",
+    "do not use private holdout",
+    "do not relax M1061 family-intersection gate for medium PPO"
+  ],
+  "workflow_synthesis": {
+    "branch": "expanded_gate_medium_ppo_readiness",
+    "evidence_axis": "G_training: medium PPO under expanded proof gates",
+    "evidence_increment": "designs the first conservative medium PPO escalation after proof surface refresh and gate integration",
+    "claim_scope": "PPO design only; no PPO, no actor training, no promotion, no medium-run claim",
+    "stop_condition": [
+      "stop if medium PPO design cannot include expanded proof gates",
+      "stop if rollback conditions are underspecified",
+      "stop if design would use private holdout"
+    ],
+    "fallback_plan": [
+      "if design is accepted, route to a single-seed medium PPO run with no promotion",
+      "if gate cost is too high, route to runtime audit before training",
+      "if rollback rules are unclear, route to proof gate threshold audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1066 admits conservative medium PPO design",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A conservative medium PPO escalation can be safely pre-registered using the expanded public gate stack before any training run.",
+  "success_criteria": [
+    "design artifact exists",
+    "design names base checkpoint config step count seed and run directories",
+    "design names exact public replay M1061 family-intersection source-diverse fresh/OOD and behavior gates",
+    "design states rollback conditions and promotion is blocked",
+    "no PPO actor training promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "design omits M1061 family-intersection gate",
+    "design omits rollback rules",
+    "PPO or actor training starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "write_medium_ppo_design",
+      "command": "write docs/m1067-v4-public-base-expanded-gate-medium-ppo-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1067-v4-public-base-expanded-gate-medium-ppo-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.md"
+  ],
+  "decision_rule": "M1067 may only design the conservative medium PPO escalation. It cannot run PPO, train actor, promote, or use private holdout.",
+  "next_blocker": "m1067-v4-public-base-expanded-gate-medium-ppo-design"
+}
