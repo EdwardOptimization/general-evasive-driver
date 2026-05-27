@@ -15525,3 +15525,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1041 audits M1038 and M1040 evidence and promotes the M1038 selected checkpoint `m1031_base_row16x4_s40_a0_15.pt` as the current public-gate base. The promotion is based on M1040 exact/proof/source-diverse/fresh/OOD/behavior pass, unchanged actor inputs, and limited trainable-surface changes. It remains public-gate scope only: no PPO, private holdout, paper-level, or real-vehicle claim.
 - decision: `candidate_b_combined_active_set_promote_public_gate_base`
 - next: `m1042-v4-public-base-combined-active-set-post-promotion-synthesis`
+
+## 20260527T014326Z - m1042-v4-public-base-combined-active-set-post-promotion-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1042-v4-public-base-combined-active-set-post-promotion-synthesis.md`
+- result: M1042 synthesizes M1036-M1041. It records that the combined active-set branch solved the paired M267/M264 row15 wrong-history retention and M183/M170 row16 normal-margin active-set blockers, promoted the M1038 selected checkpoint as a public-gate base, and kept first replay, full public gate, and promotion audit separate. Residual public-gate overfit risk is moderate because the candidate was engineered against known public surfaces, but it is reduced by six replay surfaces, three source-diverse diagnostics, fresh/OOD checks, and behavior/ablation retention.
+- decision: `combined_active_set_post_promotion_synthesis_promote_to_guarded_ppo_readiness`
+- next: `m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design`

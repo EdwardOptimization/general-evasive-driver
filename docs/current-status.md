@@ -74,16 +74,16 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1042-v4-public-base-combined-active-set-post-promotion-synthesis
+m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design
 ```
 
-M1041 promoted the M1038 selected combined active-set candidate as the current
-public-gate base. M1042 must synthesize the post-promotion route before any PPO
-continuation or additional objective update.
+M1042 synthesized the combined active-set repair/promotion branch and opened
+the guarded PPO readiness branch from the new public-gate base. M1043 must
+design the next PPO readiness protocol before any PPO proposal is run.
 
 ```text
 decision:
-  candidate_b_combined_active_set_promote_public_gate_base
+  combined_active_set_post_promotion_synthesis_promote_to_guarded_ppo_readiness
 ```
 
 Current public-gate base:
@@ -130,10 +130,10 @@ moderate-OOD seed: 103920
 behavior seeds: 9505, 9506, 103930, 103931
 ```
 
-M1042 is process synthesis only. It must not run PPO, use private holdout, or
-claim paper-level generalization. It should decide whether the next branch is
-guarded PPO readiness, public proof-surface refresh, or additional public
-generalization.
+M1043 is design only. It must not run PPO, train, use private holdout, or claim
+paper-level generalization. It should specify exact full-corpus gates,
+combined-active-set rollback criteria, public replay/fresh/OOD/behavior gates,
+and the stop rules for exactly one later smoke-scale PPO proposal.
 
 ### Historical Trace
 

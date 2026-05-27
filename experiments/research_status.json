@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1050,
+    "completed": 1051,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit",
+    "task_id": "m1042-v4-public-base-combined-active-set-post-promotion-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit.md"
+    "command_log": "docs/m1042-v4-public-base-combined-active-set-post-promotion-synthesis.md"
   },
   "next_task": {
-    "id": "m1042-v4-public-base-combined-active-set-post-promotion-synthesis",
+    "id": "m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design",
     "status": "pending",
-    "priority": 10370,
+    "priority": 10380,
     "kind": "gate",
-    "hypothesis": "Synthesize the combined active-set promotion branch before PPO continuation or additional post-promotion work",
-    "command": "see experiments/manifests/m1042-v4-public-base-combined-active-set-post-promotion-synthesis.json",
-    "success_artifact": "docs/m1042-v4-public-base-combined-active-set-post-promotion-synthesis.md",
-    "notes": "Pending: process synthesis only; no PPO no private holdout no paper-level claim"
+    "hypothesis": "Design guarded PPO readiness from the combined active-set public-gate base before any PPO proposal",
+    "command": "see experiments/manifests/m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design.json",
+    "success_artifact": "docs/m1043-v4-public-base-combined-active-set-guarded-ppo-readiness-design.md",
+    "notes": "Pending: design only; no PPO no training no private holdout"
   },
-  "updated_at_utc": "20260527T013321Z"
+  "updated_at_utc": "20260527T014326Z"
 }
