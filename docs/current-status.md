@@ -42,28 +42,29 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt
+runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt
 ```
 
-Status: M1078 promoted the M1076 contract-clean projection checkpoint as the
-current public-gate base after M1076 passed exact, old public replay, M1061
+Status: M1129 promoted the M1123 alpha `0.15` row15 projection checkpoint as
+the current public-gate base after M1127 passed exact, old public replay, M1061
 family-intersection, source-diverse, fresh/OOD, and behavior gates. This is a
 proof-hardening public-gate promotion only; it is not a medium-PPO performance
 claim. Private holdout, medium/long PPO stability, paper-level generalization,
-and real-vehicle claims remain blocked.
+real-vehicle claims, and level3 anticipatory self-identification claims remain
+blocked.
 
 Previous public-gate base:
 
 ```text
-runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt
+runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt
 ```
 
-Status: M1052 promoted the M1049 4096-step guarded PPO checkpoint as the
-previous public-gate base after M1049/M1050 produced three 4096-step
-public-gate passes and M1051 synthesized the evidence. M1078 supersedes it with
-the M1076 contract-clean projection candidate. M1044, M1038 combined
-active-set, Candidate B, M974, M964 alpha `1.0`, and M399 alpha `0.05` remain
-older lineage points.
+Status: M1078 promoted the M1076 contract-clean projection checkpoint as the
+previous public-gate base after M1076 passed exact, old public replay, M1061
+family-intersection, source-diverse, fresh/OOD, and behavior gates. M1129
+supersedes it with the M1123 alpha `0.15` row15 projection candidate. M1052
+M1049, M1044, M1038 combined active-set, Candidate B, M974, M964 alpha `1.0`,
+and M399 alpha `0.05` remain older lineage points.
 
 Latest active diagnostic BC checkpoint:
 
@@ -78,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1129-v4-public-base-row15-projection-promotion-audit
+m1130-v4-public-base-row15-projection-post-promotion-synthesis
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -122,10 +123,12 @@ audit. It does not prove PPO readiness, medium/long training stability,
 private-holdout generalization, paper-level evidence, real-vehicle transfer, or
 level3 anticipatory self-identification.
 
-M1129 should audit whether `alpha_0_15` becomes the current public-gate base.
-The audit may only use existing M1127/M1128 evidence and must keep the claim
-scoped to public proof-base hardening. It must not train actor weights, run PPO,
-run replay, mine rows, use private holdout, or change actor inputs.
+M1129 completed the promotion audit and promoted `alpha_0_15` as the current
+public-gate base, scoped strictly to public proof-base hardening. M1130 should
+synthesize the post-promotion state and choose the next branch before any PPO,
+replay, mining, private holdout, or new promotion. The most likely next branch
+is a current-base source-diverse protected/preference surface refresh before any
+new PPO proposal.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

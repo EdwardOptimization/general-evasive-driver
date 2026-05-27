@@ -16110,3 +16110,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, replay, objective optimization, mining, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_projection_branch_synthesis_route_to_promotion_audit`
 - next: `m1129-v4-public-base-row15-projection-promotion-audit`
+
+## 20260527T223200Z - m1129-v4-public-base-row15-projection-promotion-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1129-v4-public-base-row15-projection-promotion-audit.md`
+- result: M1129 promotes alpha `0.15` as the current public-gate base after M1127 passed exact, proof, family-intersection, source-diverse, generalization, and behavior tiers.
+- new public-gate base: `runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt`
+- previous public-gate base: `runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt`
+- scope: promotion is strictly public proof-base hardening and row15 unsafe-margin repair. It is not a medium-PPO performance, long-run PPO stability, private-holdout, paper-level, real-vehicle, or level3 anticipatory self-ID claim.
+- guardrail: no actor training, PPO, replay, objective optimization, mining, private holdout, or actor-input change occurred.
+- decision: `row15_projection_promote_public_gate_base`
+- next: `m1130-v4-public-base-row15-projection-post-promotion-synthesis`

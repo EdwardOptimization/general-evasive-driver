@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1137,
+    "completed": 1138,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1128-v4-public-base-row15-projection-branch-synthesis",
+    "task_id": "m1129-v4-public-base-row15-projection-promotion-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1128-v4-public-base-row15-projection-branch-synthesis.md",
-    "result_class": "branch_synthesis_promote_to_next_branch",
-    "decision": "row15_projection_branch_synthesis_route_to_promotion_audit"
+    "command_log": "docs/m1129-v4-public-base-row15-projection-promotion-audit.md",
+    "result_class": "row15_projection_promoted_public_gate_base",
+    "decision": "row15_projection_promote_public_gate_base"
   },
   "next_task": {
-    "id": "m1129-v4-public-base-row15-projection-promotion-audit",
+    "id": "m1130-v4-public-base-row15-projection-post-promotion-synthesis",
     "status": "pending",
-    "priority": 11240,
+    "priority": 11250,
     "kind": "gate",
-    "hypothesis": "Alpha_0_15 has enough public evidence to be promoted as the current public-gate base for proof-base hardening, with no PPO or private-holdout claim",
-    "command": "see experiments/manifests/m1129-v4-public-base-row15-projection-promotion-audit.json",
-    "success_artifact": "docs/m1129-v4-public-base-row15-projection-promotion-audit.md",
-    "notes": "Pending: promotion audit from existing M1127/M1128 evidence only; no training replay PPO private holdout or actor-input change"
+    "hypothesis": "After M1129 promotion, the next branch should refresh current-base source-diverse protected/preference surfaces before another PPO proposal",
+    "command": "see experiments/manifests/m1130-v4-public-base-row15-projection-post-promotion-synthesis.json",
+    "success_artifact": "docs/m1130-v4-public-base-row15-projection-post-promotion-synthesis.md",
+    "notes": "Pending: post-promotion synthesis only; no training replay PPO mining promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260527T222400Z"
+  "updated_at_utc": "20260527T223200Z"
 }
