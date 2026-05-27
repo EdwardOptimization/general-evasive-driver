@@ -160,6 +160,31 @@
     "docs/m1097-v4-public-base-family-aggregate-conversion-implementation.md",
     "runs/m1097_family_aggregate_boundary_conversion/replay_plan.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1098-v4-public-base-family-aggregate-replay-sanity-design.md",
+    "decision": "family_aggregate_replay_sanity_design_admit_wrapper_run",
+    "result_class": "family_aggregate_replay_sanity_design",
+    "failure_types": [
+      "none"
+    ],
+    "wrapper_required": true,
+    "row_id_mapping": "row_id = family_row_id",
+    "source_policy_source_rows_gate_required": true,
+    "aggregate_source_gate_required": true,
+    "cross_family_report_required": true,
+    "duplicate_geometry_failure_audit_required": true,
+    "training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1099-v4-public-base-family-aggregate-replay-sanity-implementation"
+  },
+  "decision": "family_aggregate_replay_sanity_design_admit_wrapper_run",
   "decision_rule": "M1098 may only design replay sanity. It cannot train, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, change actor inputs, or weaken thresholds.",
-  "next_blocker": "m1098-v4-public-base-family-aggregate-replay-sanity-design"
+  "next_blocker": "m1099-v4-public-base-family-aggregate-replay-sanity-implementation"
 }

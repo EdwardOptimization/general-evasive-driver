@@ -1,0 +1,97 @@
+{
+  "decision_reason": "M1098 designs a source-aware replay wrapper with row_id equals family_row_id source-policy source-row gates cross-family report and duplicate geometry failure audit before objective optimization",
+  "failure_criteria": [
+    "design artifact is missing",
+    "source-policy replay gates are ambiguous",
+    "cross-family replay report is missing",
+    "duplicate geometry audit is missing",
+    "training, PPO, replay, objective optimization, mining, promotion, or private holdout starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken M1097 aggregate thresholds",
+    "do not skip duplicate geometry failure analysis"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T192251Z",
+  "hypothesis": "A source-aware replay sanity design can test the M1097 family-aggregate export before objective optimization while preserving source labels and duplicate geometry metadata.",
+  "lineage": {
+    "blocked_by": [
+      "M1097 exported replay-ready rows but intentionally did not run replay or objective optimization"
+    ],
+    "derived_from": [
+      "m1097-v4-public-base-family-aggregate-conversion-implementation"
+    ],
+    "invalidates": [
+      "running objective optimization before family-aggregate replay sanity",
+      "promoting the export as proof without replay",
+      "ignoring duplicate geometry groups during replay analysis"
+    ],
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1097-v4-public-base-family-aggregate-conversion-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1097-v4-public-base-family-aggregate-conversion-implementation.md",
+      "runs/m1097_family_aggregate_boundary_conversion/summary.json",
+      "runs/m1097_family_aggregate_boundary_conversion/replay_plan.json",
+      "runs/m1097_family_aggregate_boundary_conversion/family_aggregate_boundary_rows.csv"
+    ],
+    "parent_objective": [
+      "design replay sanity for the family-aggregate raw-retained export before objective optimization"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1098-v4-public-base-family-aggregate-replay-sanity-design",
+  "next_blocker": "m1099-v4-public-base-family-aggregate-replay-sanity-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "family_aggregate_replay_sanity_design_admit_wrapper_run",
+  "public_gates": [
+    "M1098 must design only",
+    "M1098 must not train",
+    "M1098 must not run PPO",
+    "M1098 must not run replay",
+    "M1098 must not run objective optimization",
+    "M1098 must not mine rows",
+    "M1098 must not promote",
+    "M1098 must not use private holdout",
+    "M1098 must preserve actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1098-v4-public-base-family-aggregate-replay-sanity-design.md",
+    "clearance_margin_mean": "",
+    "decision": "family_aggregate_replay_sanity_design_admit_wrapper_run",
+    "milestone": "m1098-v4-public-base-family-aggregate-replay-sanity-design",
+    "reason": "M1098 designs a source-aware replay wrapper with row_id equals family_row_id source-policy source-row gates cross-family report and duplicate geometry failure audit before objective optimization",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "replay sanity design artifact exists",
+    "source-policy-on-source-rows gates are explicit",
+    "cross-family replay report metrics are explicit",
+    "duplicate geometry failure analysis is explicit",
+    "no training, PPO, replay, objective optimization, mining, promotion, or private holdout occurs"
+  ],
+  "type": "gate"
+}

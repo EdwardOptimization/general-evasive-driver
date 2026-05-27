@@ -15780,3 +15780,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - safety: no training, PPO, replay, objective optimization, mixed-source objective NPZ, mining, promotion, private holdout, or actor input change
 - decision: `family_aggregate_conversion_export_pass`
 - next: `m1098-v4-public-base-family-aggregate-replay-sanity-design`
+
+## 20260527T192158Z - m1098-v4-public-base-family-aggregate-replay-sanity-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1098-v4-public-base-family-aggregate-replay-sanity-design.md`
+- result: M1098 designs source-aware replay sanity for the M1097 export. The wrapper should map `row_id = family_row_id`, call the existing boundary replay function, and join source/duplicate metadata back onto replay rows. It pre-registers source-policy source-row gates, an aggregate source gate, cross-family replay reports, and duplicate geometry failure summaries before any objective optimization.
+- safety: design-only; no replay, PPO, training, objective optimization, mining, promotion, private holdout, or actor input change
+- decision: `family_aggregate_replay_sanity_design_admit_wrapper_run`
+- next: `m1099-v4-public-base-family-aggregate-replay-sanity-implementation`

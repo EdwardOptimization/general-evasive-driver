@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1098-v4-public-base-family-aggregate-replay-sanity-design
+m1099-v4-public-base-family-aggregate-replay-sanity-implementation
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -227,11 +227,16 @@ pairs, `9` left steps, `4` checkpoints, `3` targets, success-drop fraction
 `1.0`, and max pair fraction `0.136986`. It writes `replay_plan.json` and keeps
 `replay_started=false`, `objective_optimization_started=false`, and
 `mixed_source_objective_npz_written=false`. The next step is M1098: design
-source-aware replay sanity before any objective optimization.
+source-aware replay sanity before any objective optimization. M1098 completes
+that design. It will use a wrapper around the existing boundary replay
+function, map `row_id = family_row_id`, preserve source and duplicate geometry
+metadata, require source-policy source-row gates, and write cross-family replay
+reports before any objective optimization. The next step is M1099: implement
+and run that replay sanity wrapper.
 
 ```text
 decision:
-  family_aggregate_conversion_export_pass
+  family_aggregate_replay_sanity_design_admit_wrapper_run
 ```
 
 M1068 design:
