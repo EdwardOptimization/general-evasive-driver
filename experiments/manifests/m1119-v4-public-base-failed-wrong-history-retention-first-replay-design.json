@@ -147,6 +147,35 @@
   "baseline_artifacts": [
     "runs/m1118_failed_wrong_history_retention_actor_update_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1119-v4-public-base-failed-wrong-history-retention-first-replay-design.md",
+    "decision": "failed_wrong_history_retention_first_replay_design_admit_target_base_first_replay",
+    "result_class": "first_replay_design_admit_run",
+    "failure_types": [
+      "none"
+    ],
+    "candidate_checkpoint": "runs/m1118_failed_wrong_history_retention_actor_update_seed111800/optimized_checkpoint.pt",
+    "old_public_surfaces": [
+      "m183_m168",
+      "m223_m219",
+      "m267_m264"
+    ],
+    "source_diverse_surfaces": [
+      "current_m333_surface",
+      "m314_continuity_surface",
+      "m317_continuity_surface"
+    ],
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1120-v4-public-base-failed-wrong-history-retention-first-replay-run"
+  },
+  "decision": "failed_wrong_history_retention_first_replay_design_admit_target_base_first_replay",
   "decision_rule": "M1119 may only design first replay gates for M1118. It cannot run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or treat M1118 as driver improvement.",
-  "next_blocker": "m1119-v4-public-base-failed-wrong-history-retention-first-replay-design"
+  "next_blocker": "m1120-v4-public-base-failed-wrong-history-retention-first-replay-run"
 }

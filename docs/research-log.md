@@ -15997,3 +15997,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, PPO, promotion, private holdout, actor-input change, or short-family hidden-state training anchor was used.
 - decision: `failed_wrong_history_retention_actor_update_exact_candidate_route_to_first_replay_design`
 - next: `m1119-v4-public-base-failed-wrong-history-retention-first-replay-design`
+
+## 20260527T211349Z - m1119-v4-public-base-failed-wrong-history-retention-first-replay-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1119-v4-public-base-failed-wrong-history-retention-first-replay-design.md`
+- result: M1119 designs strict target-base first replay for the M1118 best candidate. It includes old-public surfaces `m183_m168`, `m223_m219`, `m267_m264` and source-diverse surfaces `current_m333_surface`, `m314_continuity_surface`, `m317_continuity_surface`.
+- thresholds: `max_normal_success_drop=0.0`, `max_normal_margin_regression=0.005`, `max_margin_gap_regression=0.001`, `max_success_drop_count_regression=0`, `max_continuation_steps=60`.
+- guardrail: family-intersection replay, full replay, fresh/OOD, behavior gates, PPO, promotion, and private holdout remain blocked until target-base first replay result is known.
+- decision: `failed_wrong_history_retention_first_replay_design_admit_target_base_first_replay`
+- next: `m1120-v4-public-base-failed-wrong-history-retention-first-replay-run`

@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1119-v4-public-base-failed-wrong-history-retention-first-replay-design
+m1120-v4-public-base-failed-wrong-history-retention-first-replay-run
 ```
 
 M1115 completed the failed wrong-history retention export. It reproduced the
@@ -96,7 +96,9 @@ step and has now run exactly three lower-lr `actor_coupling` seeds with M1107
 exact objective and M1115 trajectory retention. All three pass pre-replay exact,
 anchor, and parameter-scope gates; best seed is `111800`. M1119 must design the
 first replay gate for this candidate before any replay, PPO, promotion, or
-private holdout.
+private holdout. M1119 completed that design. M1120 should run only the six
+target-base old-public/source-diverse first replay surfaces, with no family
+replay, full replay, PPO, promotion, or private holdout.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

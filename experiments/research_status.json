@@ -1,28 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1127,
+    "completed": 1128,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe",
+    "task_id": "m1119-v4-public-base-failed-wrong-history-retention-first-replay-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m1118_failed_wrong_history_retention_actor_update_probe",
-    "command_log": "docs/m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe.md"
+    "command_log": "docs/m1119-v4-public-base-failed-wrong-history-retention-first-replay-design.md"
   },
   "next_task": {
-    "id": "m1119-v4-public-base-failed-wrong-history-retention-first-replay-design",
+    "id": "m1120-v4-public-base-failed-wrong-history-retention-first-replay-run",
     "status": "pending",
-    "priority": 11140,
+    "priority": 11150,
     "kind": "gate",
-    "hypothesis": "Design first replay gates for the M1118 best pre-replay candidate",
-    "command": "see experiments/manifests/m1119-v4-public-base-failed-wrong-history-retention-first-replay-design.json",
-    "success_artifact": "docs/m1119-v4-public-base-failed-wrong-history-retention-first-replay-design.md",
-    "notes": "Pending: design only; no replay no actor training no PPO no promotion no private holdout"
+    "hypothesis": "The M1118 best candidate preserves target-base old-public and source-diverse replay surfaces",
+    "command": "see experiments/manifests/m1120-v4-public-base-failed-wrong-history-retention-first-replay-run.json",
+    "success_artifact": "docs/m1120-v4-public-base-failed-wrong-history-retention-first-replay-run.md",
+    "notes": "Pending: run target-base first replay only; no actor training no PPO no promotion no private holdout no family replay"
   },
-  "updated_at_utc": "20260527T210842Z"
+  "updated_at_utc": "20260527T211349Z"
 }
