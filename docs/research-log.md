@@ -15986,3 +15986,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - failure taxonomy: M1112 is classified as `proof_washout` plus `objective_overfit`, not behavior regression, contract violation, training instability, or holdout contamination.
 - decision: close `materialized_objective_corpus_sanity` and open `failed_wrong_history_retention_repair`.
 - next: `m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe`
+
+## 20260527T210842Z - m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe
+
+- status: `completed`
+- kind: `driver_candidate`
+- artifact: `docs/m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe.md`
+- result: M1118 runs exactly three retention-aware actor-coupling seeds. All three pass exact M1107 no-regression/improvement, action-anchor, snippet-anchor, combined trajectory-anchor, target-base-only trajectory-anchor, and parameter-scope pre-replay gates.
+- best candidate: seed `111800`, checkpoint `runs/m1118_failed_wrong_history_retention_actor_update_seed111800/optimized_checkpoint.pt`, exact loss improvement `0.003012359`, target-base-only trajectory-anchor MSE `0.000001498`.
+- guardrail: no replay, PPO, promotion, private holdout, actor-input change, or short-family hidden-state training anchor was used.
+- decision: `failed_wrong_history_retention_actor_update_exact_candidate_route_to_first_replay_design`
+- next: `m1119-v4-public-base-failed-wrong-history-retention-first-replay-design`

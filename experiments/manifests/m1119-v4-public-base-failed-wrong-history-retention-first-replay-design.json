@@ -1,0 +1,152 @@
+{
+  "id": "m1119-v4-public-base-failed-wrong-history-retention-first-replay-design",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1118_failed_wrong_history_retention_actor_update_seed111800/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1118_failed_wrong_history_retention_actor_update_probe/summary.json",
+      "docs/m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe.json"
+    ],
+    "parent_objective": [
+      "design first replay gates for the M1118 best pre-replay candidate"
+    ],
+    "derived_from": [
+      "m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe"
+    ],
+    "blocked_by": [
+      "M1118 passed only pre-replay exact and anchor gates"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running full replay without first-replay design",
+      "promoting M1118 without replay",
+      "running PPO before M1118 replay gates"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1119-v4-public-base-failed-wrong-history-retention-first-replay-design.md",
+  "public_gates": [
+    "M1119 may design first replay gates for the M1118 best candidate",
+    "M1119 must not run replay",
+    "M1119 must not train actor weights",
+    "M1119 must not run PPO",
+    "M1119 must not promote",
+    "M1119 must not use private holdout",
+    "M1119 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run replay",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not skip old public or source-diverse first replay",
+    "do not treat M1118 pre-replay pass as driver improvement"
+  ],
+  "workflow_synthesis": {
+    "branch": "failed_wrong_history_retention_repair",
+    "evidence_axis": "G_replay: first replay design",
+    "evidence_increment": "designs old-public and source-diverse first replay gates for the M1118 candidate",
+    "claim_scope": "replay design only; no replay, training, PPO, promotion, private holdout, or driver capability claim",
+    "stop_condition": [
+      "stop if the M1118 best candidate artifact is missing",
+      "stop if first replay order skips M1112 failed target-base surfaces",
+      "stop if family-source rows are treated as training anchors"
+    ],
+    "fallback_plan": [
+      "if old-public replay design is insufficient, route to proof-gate wrapper audit",
+      "if family-source rows require materialization, design that before training from them",
+      "if design is coherent, run first replay in the next milestone"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1118 produces a pre-replay candidate",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "design closed-loop proof replay gates for the M1118 candidate",
+    "admission_evidence": [
+      "M1118 best candidate passes exact and anchor pre-replay gates"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run PPO",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "design document",
+      "manifest, queue, status, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "old public first replay surfaces are specified",
+      "source-diverse first replay surfaces are specified",
+      "family-intersection replay handling is specified",
+      "behavior gates are ordered after proof replay"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1119 designs replay checks for wrong-history proof and cannot prove anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1119 adds no new task and only designs replay evaluation.",
+    "negative_result_policy": "If replay design shows missing coverage, route to gate-design repair rather than running replay.",
+    "allowed_claims": [
+      "first replay design readiness for level2 proof-retention candidate",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The M1118 best pre-replay candidate can be evaluated with a first replay gate that targets the exact old-public and source-diverse surfaces that failed in M1112 before any full replay or promotion.",
+  "success_criteria": [
+    "old public first replay surfaces are listed",
+    "source-diverse first replay surfaces are listed",
+    "family-intersection rows remain mandatory diagnostics but not training anchors",
+    "candidate checkpoint and base checkpoint are fixed",
+    "no replay, actor training, PPO, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "design skips M1112 failed target-base surfaces",
+    "design allows replay promotion directly",
+    "design uses short-family hidden states as training anchors",
+    "replay, actor training, PPO, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_first_replay_design",
+      "command": "write docs/m1119-v4-public-base-failed-wrong-history-retention-first-replay-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1119-v4-public-base-failed-wrong-history-retention-first-replay-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+    "runs/m1118_failed_wrong_history_retention_actor_update_seed111800/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1118_failed_wrong_history_retention_actor_update_probe/summary.json"
+  ],
+  "decision_rule": "M1119 may only design first replay gates for M1118. It cannot run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or treat M1118 as driver improvement.",
+  "next_blocker": "m1119-v4-public-base-failed-wrong-history-retention-first-replay-design"
+}

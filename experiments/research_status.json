@@ -1,27 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1126,
+    "completed": 1127,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1117-v4-public-base-materialized-objective-branch-synthesis",
+    "task_id": "m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1117-v4-public-base-materialized-objective-branch-synthesis.md"
+    "run_dir": "runs/m1118_failed_wrong_history_retention_actor_update_probe",
+    "command_log": "docs/m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe.md"
   },
   "next_task": {
-    "id": "m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe",
+    "id": "m1119-v4-public-base-failed-wrong-history-retention-first-replay-design",
     "status": "pending",
-    "priority": 11130,
-    "kind": "driver_candidate",
-    "hypothesis": "A lower-lr actor-coupling update with M1115 trajectory retention can preserve exact objective movement before replay",
-    "command": "see experiments/manifests/m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe.json",
-    "success_artifact": "docs/m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe.md",
-    "notes": "Pending: run exactly three actor_coupling seeds; no PPO no replay no promotion no private holdout no short-family hidden-state training anchors"
+    "priority": 11140,
+    "kind": "gate",
+    "hypothesis": "Design first replay gates for the M1118 best pre-replay candidate",
+    "command": "see experiments/manifests/m1119-v4-public-base-failed-wrong-history-retention-first-replay-design.json",
+    "success_artifact": "docs/m1119-v4-public-base-failed-wrong-history-retention-first-replay-design.md",
+    "notes": "Pending: design only; no replay no actor training no PPO no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T210352Z"
+  "updated_at_utc": "20260527T210842Z"
 }

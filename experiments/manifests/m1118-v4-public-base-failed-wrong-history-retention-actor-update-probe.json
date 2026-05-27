@@ -162,6 +162,31 @@
     "runs/m1107_materialized_objective_corpus/boundary_outcome_corpus.npz",
     "runs/m1115_materialized_failed_wrong_history_retention_export/combined_target_base_rejected_anchor.npz"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe.md",
+    "summary": "runs/m1118_failed_wrong_history_retention_actor_update_probe/summary.json",
+    "decision": "failed_wrong_history_retention_actor_update_exact_candidate_route_to_first_replay_design",
+    "result_class": "failed_wrong_history_retention_actor_update_exact_candidate",
+    "failure_types": [
+      "none"
+    ],
+    "candidate_count": 3,
+    "pre_replay_pass_count": 3,
+    "best_seed": 111800,
+    "best_checkpoint": "runs/m1118_failed_wrong_history_retention_actor_update_seed111800/optimized_checkpoint.pt",
+    "best_loss_mean_improvement": 0.003012359142303467,
+    "best_target_base_only_trajectory_anchor_mse": 0.0000014984544804974576,
+    "training_started": true,
+    "actor_training_started": true,
+    "ppo_used": false,
+    "replay_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1119-v4-public-base-failed-wrong-history-retention-first-replay-design"
+  },
+  "decision": "failed_wrong_history_retention_actor_update_exact_candidate_route_to_first_replay_design",
   "decision_rule": "M1118 may only run the bounded retention-aware actor-coupling probe and pre-replay exact or anchor audits. It cannot run PPO, replay, promotion, private holdout, actor-input changes, extra seed search, or short-family hidden-state training anchors.",
-  "next_blocker": "m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe"
+  "next_blocker": "m1119-v4-public-base-failed-wrong-history-retention-first-replay-design"
 }
