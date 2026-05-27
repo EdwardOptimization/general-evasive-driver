@@ -42,24 +42,27 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
+runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt
+```
+
+Status: M1045 promoted the M1044 raw guarded PPO checkpoint as the current
+public-gate base after finite 1024-step PPO training and full public
+exact/proof/source-diverse/fresh/OOD/behavior gates passed. This is a
+public-gate base promotion only; private holdout, multi-seed PPO repeatability,
+long-run PPO stability, paper-level generalization, and real-vehicle claims
+remain blocked.
+
+Previous public-gate base:
+
+```text
 runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt
 ```
 
 Status: M1041 promoted the M1038 combined active-set candidate as the current
 public-gate base after M1040 exact/proof/source-diverse/fresh/OOD/behavior
-tiers passed. This is a public-gate base promotion only; PPO, private holdout,
-paper-level generalization, and real-vehicle claims remain blocked.
-
-Previous public-gate base:
-
-```text
-runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt
-```
-
-Status: M1023 promoted Candidate B as the current public-gate base after M1019
-full public replay gates and M1022 promotion/generalization gates passed. M1041
-supersedes it with the combined active-set candidate. M974, M964 alpha `1.0`,
-and M399 alpha `0.05` remain older lineage points.
+tiers passed. M1045 supersedes it with the M1044 guarded PPO raw candidate.
+Candidate B, M974, M964 alpha `1.0`, and M399 alpha `0.05` remain older lineage
+points.
 
 Latest active diagnostic BC checkpoint:
 
@@ -74,29 +77,28 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit
+m1046-v4-public-base-guarded-ppo-post-promotion-synthesis
 ```
 
-M1044 ran exactly one 1024-step guarded PPO proposal from the current
-public-gate base. The raw checkpoint passed exact, proof, source-diverse,
-fresh/OOD, and behavior gates without promotion. M1045 must decide whether the
-raw PPO checkpoint becomes the next public-gate base.
+M1045 promoted the M1044 raw guarded PPO checkpoint as the current public-gate
+base. M1046 must synthesize the post-promotion route before any repeat PPO,
+longer PPO, proof-surface refresh, or additional objective update.
 
 ```text
 decision:
-  combined_active_set_guarded_ppo_raw_candidate_route_to_promotion_audit
+  combined_active_set_guarded_ppo_promote_public_gate_base
 ```
 
 Current public-gate base:
 
 ```text
-runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt
+runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt
 ```
 
 Previous public-gate base:
 
 ```text
-runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt
+runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt
 ```
 
 Important M1040 contract:
@@ -148,8 +150,10 @@ promoted: false
 private_holdout_used: false
 ```
 
-M1045 is a promotion audit only. It must not run PPO, use private holdout, or
-claim multi-seed/long-run PPO stability.
+M1046 is process synthesis only. It must not run PPO, use private holdout, or
+claim multi-seed/long-run PPO stability. It should decide whether the next
+route is fresh-seed PPO repeat, short PPO escalation, proof-surface refresh, or
+overfit-risk audit.
 
 ### Historical Trace
 

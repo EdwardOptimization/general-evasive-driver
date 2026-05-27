@@ -15553,3 +15553,12 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1044 runs one 1024-step guarded PPO proposal from the combined active-set public-gate base. PPO returns `0`, training metrics are finite, actor inputs remain unchanged, and the raw checkpoint passes exact M997/M297/M270/combined-active-set checks, all six public replay surfaces, three source-diverse diagnostics, fresh public seeds `103900/103901`, moderate-OOD seed `103920`, and behavior seeds `9505/9506/103930/103931`. M267/M264 row15 keeps wrong-history failure with margin `-0.000847`, and M183/M170 row16 keeps normal success with margin `0.000467`. No promotion or private holdout occurs.
 - decision: `combined_active_set_guarded_ppo_raw_candidate_route_to_promotion_audit`
 - next: `m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit`
+
+## 20260527T023146Z - m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit.md`
+- result: M1045 audits M1044 evidence and promotes `runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt` as the current public-gate base. The promotion is based on finite 1024-step PPO training, unchanged actor inputs, exact M997/M297/M270/combined-active-set pass, six public replay passes, source-diverse diagnostic pass, fresh/OOD pass, behavior pass, row15 wrong-history failure retention, and row16 normal success retention. The scope remains public-gate only: no private holdout, multi-seed PPO repeatability, long-run PPO stability, paper-level, or real-vehicle claim.
+- decision: `combined_active_set_guarded_ppo_promote_public_gate_base`
+- next: `m1046-v4-public-base-guarded-ppo-post-promotion-synthesis`

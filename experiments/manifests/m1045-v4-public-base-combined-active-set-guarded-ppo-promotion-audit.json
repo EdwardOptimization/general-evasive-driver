@@ -2,7 +2,7 @@
   "id": "m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit",
   "type": "gate",
   "gate_tier": "promotion",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -107,6 +107,28 @@
     "runs/m1044_v4_public_base_combined_active_set_guarded_ppo_smoke/summary.json",
     "docs/m1044-v4-public-base-combined-active-set-guarded-ppo-smoke.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit.md",
+    "decision": "combined_active_set_guarded_ppo_promote_public_gate_base",
+    "promotion_decision": "promote",
+    "new_public_gate_base": "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt",
+    "previous_public_gate_base": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt",
+    "evidence": [
+      "M1044 PPO run completed with finite metrics",
+      "M1044 exact/proof/source-diverse/generalization/behavior gates all pass",
+      "M267/M264 row15 wrong-history failure retained",
+      "M183/M170 row16 normal-history success retained",
+      "actor input contract unchanged",
+      "no private holdout, long-run, or paper-level claims"
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "paper_level_claim": false,
+    "next_milestone": "m1046-v4-public-base-guarded-ppo-post-promotion-synthesis"
+  },
+  "decision": "combined_active_set_guarded_ppo_promote_public_gate_base",
   "decision_rule": "M1045 must explicitly promote or reject the M1044 raw PPO checkpoint as the public-gate base; promotion is public-gate status only.",
-  "next_blocker": "m1045-v4-public-base-combined-active-set-guarded-ppo-promotion-audit"
+  "next_blocker": "m1046-v4-public-base-guarded-ppo-post-promotion-synthesis"
 }
