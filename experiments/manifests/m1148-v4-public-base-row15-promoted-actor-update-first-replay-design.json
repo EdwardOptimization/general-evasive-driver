@@ -158,6 +158,39 @@
     "docs/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.md",
     "runs/m1147_row15_promoted_actor_update_exact_eval/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1148-v4-public-base-row15-promoted-actor-update-first-replay-design.md",
+    "decision": "row15_promoted_first_replay_design_admit_m1149",
+    "result_class": "first_replay_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "candidate_label": "m1147_114602",
+    "candidate_checkpoint": "runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt",
+    "base_label": "row15_current",
+    "base_checkpoint": "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "old_public_surface_count": 6,
+    "source_diverse_surface_count": 3,
+    "row15_promoted_surface_count": 1,
+    "max_continuation_steps": 60,
+    "max_normal_success_drop": 0.0,
+    "max_normal_margin_regression": 0.005,
+    "max_margin_gap_regression": 0.001,
+    "max_success_drop_count_regression": 0,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "corpus_build_started": false,
+    "objective_sanity_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1149-v4-public-base-row15-promoted-actor-update-first-replay-run"
+  },
+  "decision": "row15_promoted_first_replay_design_admit_m1149",
   "decision_rule": "M1148 may only design first replay gates. It cannot train actor weights, run PPO, run replay, run corpus build, run objective sanity, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1148-v4-public-base-row15-promoted-actor-update-first-replay-design"
+  "next_blocker": "m1149-v4-public-base-row15-promoted-actor-update-first-replay-run"
 }

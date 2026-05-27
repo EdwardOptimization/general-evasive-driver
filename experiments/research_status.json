@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1156,
+    "completed": 1157,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1147-v4-public-base-row15-promoted-guarded-actor-update-probe",
+    "task_id": "m1148-v4-public-base-row15-promoted-actor-update-first-replay-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.md",
-    "result_class": "row15_promoted_guarded_actor_update_exact_candidate",
-    "decision": "row15_promoted_guarded_actor_update_exact_candidate_route_to_first_replay_design"
+    "command_log": "docs/m1148-v4-public-base-row15-promoted-actor-update-first-replay-design.md",
+    "result_class": "first_replay_design_complete",
+    "decision": "row15_promoted_first_replay_design_admit_m1149"
   },
   "next_task": {
-    "id": "m1148-v4-public-base-row15-promoted-actor-update-first-replay-design",
+    "id": "m1149-v4-public-base-row15-promoted-actor-update-first-replay-run",
     "status": "pending",
-    "priority": 11430,
+    "priority": 11440,
     "kind": "gate",
-    "hypothesis": "A first replay gate can be designed for m1147_114602 that checks old public M1061 family row15-promoted source-diverse and behavior-retention surfaces before any full public gate",
-    "command": "see experiments/manifests/m1148-v4-public-base-row15-promoted-actor-update-first-replay-design.json",
-    "success_artifact": "docs/m1148-v4-public-base-row15-promoted-actor-update-first-replay-design.md",
-    "notes": "Pending: design only; no actor training PPO replay corpus build objective sanity promotion private holdout or actor-input change"
+    "hypothesis": "The M1147 best candidate preserves old-public source-diverse and row15-promoted materialized replay surfaces",
+    "command": "see experiments/manifests/m1149-v4-public-base-row15-promoted-actor-update-first-replay-run.json",
+    "success_artifact": "docs/m1149-v4-public-base-row15-promoted-actor-update-first-replay-run.md",
+    "notes": "Pending: first replay only; no actor training PPO family replay behavior full gate promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T011900Z"
+  "updated_at_utc": "20260528T012900Z"
 }

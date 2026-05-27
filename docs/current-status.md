@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1148-v4-public-base-row15-promoted-actor-update-first-replay-design
+m1149-v4-public-base-row15-promoted-actor-update-first-replay-run
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -272,9 +272,22 @@ changed tensors: actor_mean.* and response_context_fusion.0.* only
 log_std changed: false
 ```
 
-This is still pre-replay evidence. M1148 should design first replay gates for
-`m1147_114602` before any replay run, full public gate, PPO, promotion, private
-holdout, or actor-input change.
+M1148 designed first replay for `m1147_114602`:
+
+```text
+old-public surfaces: 6
+source-diverse surfaces: 3
+row15-promoted materialized surfaces: 1
+max_continuation_steps: 60
+max_normal_success_drop: 0.0
+max_normal_margin_regression: 0.005
+max_margin_gap_regression: 0.001
+max_success_drop_count_regression: 0
+```
+
+M1149 should run first replay only. It must not run M1061 family replay,
+behavior eval, full public gate, PPO, promotion, private holdout, or actor-input
+change. If any surface fails, the next step is a row-level failure audit.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

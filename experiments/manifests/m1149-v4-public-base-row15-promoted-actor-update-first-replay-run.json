@@ -1,0 +1,170 @@
+{
+  "id": "m1149-v4-public-base-row15-promoted-actor-update-first-replay-run",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1148-v4-public-base-row15-promoted-actor-update-first-replay-design.md",
+      "runs/m183_m168_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv",
+      "runs/m193_m189_boundary_outcome_corpus_seed9630/boundary_outcome_corpus.csv",
+      "runs/m212_m204_boundary_outcome_corpus_seed10040/boundary_outcome_corpus.csv",
+      "runs/m223_m219_boundary_outcome_corpus_seed10060/boundary_outcome_corpus.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv",
+      "runs/m320_m316_repaired_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m314_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m320_m316_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "runs/m1142_row15_promoted_target_materialization/row15_current_boundary_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1148-v4-public-base-row15-promoted-actor-update-first-replay-design.json"
+    ],
+    "parent_objective": [
+      "run old-public, source-diverse, and row15-promoted materialized first replay gates for M1147 best candidate"
+    ],
+    "derived_from": [
+      "m1148-v4-public-base-row15-promoted-actor-update-first-replay-design"
+    ],
+    "blocked_by": [
+      "M1147 passed only pre-replay exact, anchor, and parameter-scope gates"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "promotion before replay",
+      "PPO before replay",
+      "full public gate before first replay result"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1149-v4-public-base-row15-promoted-actor-update-first-replay-run.md",
+  "public_gates": [
+    "M1149 may run only old-public, source-diverse, and row15-promoted first replay",
+    "M1149 must not train actor weights",
+    "M1149 must not run PPO",
+    "M1149 must not promote",
+    "M1149 must not use private holdout",
+    "M1149 must not run M1061 family-intersection replay",
+    "M1149 must not run fresh/OOD or behavior gates",
+    "M1149 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not run M1061 family-intersection replay",
+    "do not run fresh/OOD or behavior gates",
+    "do not weaken replay thresholds"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_target_materialization",
+    "evidence_axis": "G_replay: first closed-loop replay",
+    "evidence_increment": "tests whether M1147 best candidate preserves old public, source-diverse, and row15-promoted proof rows",
+    "claim_scope": "first replay only; no family-intersection replay, PPO, promotion, private holdout, or driver capability claim",
+    "stop_condition": [
+      "stop if any old-public surface fails",
+      "stop if any source-diverse surface fails",
+      "stop if row15-promoted materialized replay fails"
+    ],
+    "fallback_plan": [
+      "if first replay fails, audit row-level normal-lost vs wrong-history-safe",
+      "if first replay passes, design family-intersection and behavior diagnostics",
+      "do not promote from first replay alone"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1148 admits first replay",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run first closed-loop proof replay for M1147 best candidate",
+    "admission_evidence": [
+      "M1147 best candidate passes exact and anchor pre-replay gates",
+      "M1148 specifies strict first replay surfaces"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run PPO",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "replay artifacts",
+      "aggregate first replay summary",
+      "docs, queue, status, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "old public first replay pass or failure class is explicit",
+      "source-diverse first replay pass or failure class is explicit",
+      "row15-promoted replay pass or failure class is explicit",
+      "next route is family/behavior design or first-replay failure audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1149 tests closed-loop wrong-history proof rows but cannot prove anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1149 replays existing proof rows and adds no new task distribution.",
+    "negative_result_policy": "If first replay fails, classify row-level failure before any new training.",
+    "allowed_claims": [
+      "first replay evidence for level2 proof-retention candidate",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The M1147 best candidate preserves old-public, source-diverse, and row15-promoted materialized replay surfaces.",
+  "success_criteria": [
+    "all six old-public first replay surfaces pass",
+    "all three source-diverse first replay surfaces pass",
+    "row15-promoted materialized replay passes",
+    "aggregate summary is written",
+    "failure class is none for every surface",
+    "no actor training, PPO, promotion, private holdout, actor-input change, M1061 family replay, fresh/OOD, or behavior gate occurs"
+  ],
+  "failure_criteria": [
+    "any old-public first replay surface fails",
+    "any source-diverse first replay surface fails",
+    "row15-promoted materialized replay fails",
+    "aggregate summary is missing",
+    "actor training, PPO, promotion, private holdout, actor-input change, M1061 family replay, fresh/OOD, or behavior gate starts"
+  ],
+  "commands": [
+    {
+      "name": "run_first_replay",
+      "command": "run autodrift.boundary_outcome_replay_gate for six old-public surfaces, three source-diverse surfaces, and row15_promoted_materialized"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1149_row15_promoted_actor_update_first_replay/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1149-v4-public-base-row15-promoted-actor-update-first-replay-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "runs/m1147_row15_promoted_actor_coupling_anchor100_s10_lr5e5_seed114602/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1148-v4-public-base-row15-promoted-actor-update-first-replay-design.md"
+  ],
+  "decision_rule": "M1149 may only run first replay for M1147. It cannot train actor weights, run PPO, promote, use private holdout, change actor inputs, run M1061 family replay, run fresh/OOD, or run behavior gates.",
+  "next_blocker": "m1149-v4-public-base-row15-promoted-actor-update-first-replay-run"
+}

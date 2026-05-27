@@ -16353,3 +16353,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no PPO, replay, corpus build, objective sanity, mining, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_guarded_actor_update_exact_candidate_route_to_first_replay_design`
 - next: `m1148-v4-public-base-row15-promoted-actor-update-first-replay-design`
+
+## 20260528T012900Z - m1148-v4-public-base-row15-promoted-actor-update-first-replay-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1148-v4-public-base-row15-promoted-actor-update-first-replay-design.md`
+- result: M1148 designs first replay for `m1147_114602` before any family replay, behavior gate, full public gate, PPO, promotion, or private holdout.
+- replay scope: six old-public replay surfaces, three source-diverse replay surfaces, and one row15-promoted materialized replay surface from M1142.
+- thresholds: max continuation steps `60`, max normal success drop `0.0`, max normal margin regression `0.005`, max margin gap regression `0.001`, and max success-drop count regression `0`.
+- stop rule: if any surface fails, route to row-level failure audit; if all pass, route to family-intersection and behavior diagnostic design rather than promotion.
+- guardrail: no replay, actor training, PPO, corpus build, objective sanity, mining, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_first_replay_design_admit_m1149`
+- next: `m1149-v4-public-base-row15-promoted-actor-update-first-replay-run`
