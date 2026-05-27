@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1102,
+    "completed": 1103,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1093-v4-public-base-source-balanced-compact-corpus-conversion-design",
+    "task_id": "m1094-v4-public-base-source-balanced-compactability-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1093-v4-public-base-source-balanced-compact-corpus-conversion-design.md"
+    "command_log": "docs/m1094-v4-public-base-source-balanced-compactability-audit.md"
   },
   "next_task": {
-    "id": "m1094-v4-public-base-source-balanced-compactability-audit",
+    "id": "m1095-v4-public-base-source-balanced-boundary-tooling-synthesis",
     "status": "pending",
-    "priority": 10890,
-    "kind": "infrastructure",
-    "hypothesis": "Audit compactability modes for the passed M1092 source-balanced surface before objective/replay conversion",
-    "command": "see experiments/manifests/m1094-v4-public-base-source-balanced-compactability-audit.json",
-    "success_artifact": "docs/m1094-v4-public-base-source-balanced-compactability-audit.md",
-    "notes": "Pending: implement and run compactability audit; no PPO no training no promotion no private holdout"
+    "priority": 10900,
+    "kind": "gate",
+    "hypothesis": "Synthesize M1085-M1094 and decide whether to close source_balanced_boundary_tooling and open a family-aggregate conversion branch",
+    "command": "see experiments/manifests/m1095-v4-public-base-source-balanced-boundary-tooling-synthesis.json",
+    "success_artifact": "docs/m1095-v4-public-base-source-balanced-boundary-tooling-synthesis.md",
+    "notes": "Pending: synthesis only; no PPO no training no replay no mining no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T184931Z"
+  "updated_at_utc": "20260527T185835Z"
 }

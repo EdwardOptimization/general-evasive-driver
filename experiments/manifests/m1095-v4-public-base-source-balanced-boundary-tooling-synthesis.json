@@ -1,0 +1,188 @@
+{
+  "id": "m1095-v4-public-base-source-balanced-boundary-tooling-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1085-v4-public-base-source-balanced-boundary-tooling-design.md",
+      "docs/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.md",
+      "docs/m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke.md",
+      "docs/m1089-v4-public-base-source-balanced-relocation-run-design.md",
+      "docs/m1090-v4-public-base-source-balanced-relocation-runner-implementation.md",
+      "docs/m1091-v4-public-base-source-balanced-boundary-relocation-run.md",
+      "docs/m1092-v4-public-base-source-balanced-coverage-expansion-run.md",
+      "docs/m1093-v4-public-base-source-balanced-compact-corpus-conversion-design.md",
+      "docs/m1094-v4-public-base-source-balanced-compactability-audit.md",
+      "runs/m1094_source_balanced_compactability_audit/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1094-v4-public-base-source-balanced-compactability-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize the source_balanced_boundary_tooling branch after M1094 recommends family-aggregate raw-retained conversion design"
+    ],
+    "derived_from": [
+      "m1085-v4-public-base-source-balanced-boundary-tooling-design",
+      "m1094-v4-public-base-source-balanced-compactability-audit"
+    ],
+    "blocked_by": [
+      "M1094 shows direct per-checkpoint compact conversion is sparse and only raw-retained family aggregate preserves the full M1092 source-balanced surface"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "continuing source_balanced_boundary_tooling with another narrow conversion milestone before synthesis",
+      "using M1058-style per-checkpoint conversion on the M1092 surface",
+      "claiming driver performance, promotion, private-holdout evidence, or level3 self-identification from the source-balanced tooling branch"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1095-v4-public-base-source-balanced-boundary-tooling-synthesis.md",
+  "public_gates": [
+    "M1095 must synthesize M1085-M1094",
+    "M1095 must not train",
+    "M1095 must not run PPO",
+    "M1095 must not run replay",
+    "M1095 must not mine rows",
+    "M1095 must not promote",
+    "M1095 must not use private holdout",
+    "M1095 must decide the next branch after source-balanced compactability"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not weaken source-diversity or compactability thresholds",
+    "do not treat raw-retained aggregate rows as an existing objective-conversion pass"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_balanced_boundary_tooling",
+    "evidence_axis": "G_synthesis: source-balanced boundary tooling and compactability",
+    "evidence_increment": "summarizes M1085-M1094 and decides whether to close source-balanced tooling and open a family-aggregate conversion branch",
+    "claim_scope": "synthesis only; no training, no PPO, no replay, no mining, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if M1085-M1094 evidence does not support a defensible conversion branch",
+      "stop if next branch would hide per-checkpoint sparsity",
+      "stop if next branch would weaken source-diversity or compactability thresholds"
+    ],
+    "fallback_plan": [
+      "if evidence supports conversion, promote_to_next_branch for family-aggregate raw-retained conversion design",
+      "if evidence is incomplete, route to an audit of missing compactability artifacts",
+      "if no conversion contract is defensible, stop the branch and route to new surface mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1094 completes the compactability audit at the source-balanced branch cadence boundary",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1095-v4-public-base-source-balanced-boundary-tooling-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1095-v4-public-base-source-balanced-boundary-tooling-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "synthesize source-balanced tooling evidence without training or PPO",
+    "admission_evidence": [
+      "M1092 passed aggregate source-balanced robustness gates",
+      "M1094 recommends family-aggregate raw-retained conversion design because per-checkpoint compact conversion is sparse"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not promote from synthesis",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "write synthesis documentation",
+      "pre-register the next branch if synthesis supports it",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers all required questions",
+      "closed and opened branch names are explicit",
+      "next branch is pre-registered only if it does not weaken compactability or source-diversity thresholds"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1095 is synthesis-only. It inherits the matched-current wrong-history proof-surface scope and cannot distinguish current-frame reactivity from anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1095 does not run scenarios. It summarizes M1085-M1094 evidence and adds no pre-emergency warm-up or hidden-change temporal window.",
+    "negative_result_policy": "If synthesis finds no defensible conversion contract, stop the branch or route to new surface mining rather than weakening compactability or source-diversity criteria.",
+    "allowed_claims": [
+      "process synthesis for a level2 source-balanced proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "M1085-M1094 evidence supports closing source_balanced_boundary_tooling and opening a family-aggregate raw-retained conversion branch instead of continuing narrow tooling milestones.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "M1085-M1094 evidence is summarized",
+    "supported and falsified claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is discussed",
+    "next branch decision is explicit",
+    "no training, PPO, replay, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "synthesis questions are unanswered",
+    "training, PPO, replay, or mining starts",
+    "checkpoint is promoted",
+    "private holdout is used",
+    "next branch hides per-checkpoint sparsity or weakens source-diversity thresholds"
+  ],
+  "commands": [
+    {
+      "name": "write_synthesis",
+      "command": "write docs/m1095-v4-public-base-source-balanced-boundary-tooling-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1095-v4-public-base-source-balanced-boundary-tooling-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1094-v4-public-base-source-balanced-compactability-audit.md",
+    "runs/m1094_source_balanced_compactability_audit/summary.json"
+  ],
+  "decision_rule": "M1095 may only synthesize M1085-M1094 and choose the next branch. It cannot train, run PPO, run replay, mine rows, promote, use private holdout, or weaken thresholds.",
+  "next_blocker": "m1095-v4-public-base-source-balanced-boundary-tooling-synthesis"
+}

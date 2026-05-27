@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1094-v4-public-base-source-balanced-compactability-audit
+m1095-v4-public-base-source-balanced-boundary-tooling-synthesis
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -200,12 +200,23 @@ source-balanced boundary export passed all robustness gates with `146`
 accepted wrong-history rows. The next step is compact objective/replay corpus
 conversion design before any future PPO. M1093 found that direct per-checkpoint
 conversion would be sparse even though the aggregate M1092 surface is robust,
-so the next step is a compactability audit before selecting the conversion
-contract.
+so the next step was a compactability audit before selecting the conversion
+contract. M1094 implemented and ran that audit. It confirmed per-checkpoint
+compact conversion remains sparse: at `min_margin_gap=0.0` with no cap,
+`proof_current` has only `16` rows and `4` physical pairs, `short61049` has
+`17` rows and `8` pairs, `short61050` has `13` rows and `8` pairs, and only
+`short61051` passes the compact threshold. Family aggregate compact-dedup is
+also row-limited at `75` rows. The raw-retained family aggregate preserves the
+M1092 surface with `146` rows, `18` physical pairs, `9` left steps, `4`
+checkpoints, `3` targets, success-drop fraction `1.0`, and max pair fraction
+`0.136986`. M1094 therefore recommends a new family-aggregate raw-retained
+conversion design with replay sanity before objective optimization. The branch
+has reached the workflow synthesis cadence, so the next step is M1095:
+synthesize M1085-M1094 before opening the conversion branch.
 
 ```text
 decision:
-  source_balanced_compact_conversion_design_route_to_compactability_audit
+  source_balanced_compactability_recommend_family_aggregate_conversion_design
 ```
 
 M1068 design:

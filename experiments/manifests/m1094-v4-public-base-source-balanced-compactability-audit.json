@@ -168,6 +168,76 @@
     "docs/m1093-v4-public-base-source-balanced-compact-corpus-conversion-design.md",
     "runs/m1092_source_balanced_coverage_expansion_seed109200/balanced_accepted_wrong_history_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1094-v4-public-base-source-balanced-compactability-audit.md",
+    "decision": "source_balanced_compactability_recommend_family_aggregate_conversion_design",
+    "result_class": "source_balanced_compactability_family_aggregate_raw_retained",
+    "failure_types": [
+      "none"
+    ],
+    "run_dir": "runs/m1094_source_balanced_compactability_audit",
+    "input_rows": 146,
+    "accepted_wrong_rows": 146,
+    "checkpoint_labels": [
+      "proof_current",
+      "short61049",
+      "short61050",
+      "short61051"
+    ],
+    "per_checkpoint_best_no_cap": {
+      "proof_current": {
+        "rows": 16,
+        "physical_pairs": 4,
+        "targets": 2
+      },
+      "short61049": {
+        "rows": 17,
+        "physical_pairs": 8,
+        "targets": 2
+      },
+      "short61050": {
+        "rows": 13,
+        "physical_pairs": 8,
+        "targets": 3
+      },
+      "short61051": {
+        "rows": 29,
+        "physical_pairs": 13,
+        "targets": 3
+      }
+    },
+    "aggregate_compact_dedup_no_cap": {
+      "rows": 75,
+      "physical_pairs": 18,
+      "checkpoints": 4,
+      "targets": 3,
+      "threshold_pass": false
+    },
+    "aggregate_raw_retained_no_cap": {
+      "rows": 146,
+      "physical_pairs": 18,
+      "left_steps": 9,
+      "checkpoints": 4,
+      "targets": 3,
+      "normal_margin_buckets": 4,
+      "success_drop_fraction": 1.0,
+      "max_rows_per_physical_pair_fraction": 0.136986301369863,
+      "threshold_pass": true
+    },
+    "recommended_mode": "family_aggregate",
+    "recommended_selection_kind": "raw_retained",
+    "ready_for_existing_conversion_path": false,
+    "requires_new_conversion_path": true,
+    "requires_replay_before_objective_conversion": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1095-v4-public-base-source-balanced-boundary-tooling-synthesis"
+  },
+  "decision": "source_balanced_compactability_recommend_family_aggregate_conversion_design",
   "decision_rule": "M1094 may only implement and run compactability audit tooling. It cannot train, run PPO, promote, or use private holdout.",
-  "next_blocker": "m1094-v4-public-base-source-balanced-compactability-audit"
+  "next_blocker": "m1095-v4-public-base-source-balanced-boundary-tooling-synthesis"
 }

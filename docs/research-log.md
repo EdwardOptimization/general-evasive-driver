@@ -15740,3 +15740,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - classification: `scenario_sampling_failure` for per-checkpoint compactability, not aggregate proof-surface failure
 - decision: `source_balanced_compact_conversion_design_route_to_compactability_audit`
 - next: `m1094-v4-public-base-source-balanced-compactability-audit`
+
+## 20260527T185835Z - m1094-v4-public-base-source-balanced-compactability-audit
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1094-v4-public-base-source-balanced-compactability-audit.md`
+- result: M1094 implements and runs the source-balanced compactability audit over the M1092 accepted rows. Per-checkpoint compact-dedup conversion remains sparse: no-cap counts are `proof_current: 16 rows / 4 pairs`, `short61049: 17 / 8`, `short61050: 13 / 8`, and `short61051: 29 / 13`. Family aggregate compact-dedup is also row-limited at `75` rows. The raw-retained family aggregate preserves the passed surface with `146` rows, `18` physical pairs, `9` left steps, `4` checkpoints, `3` targets, success-drop fraction `1.0`, and max pair fraction `0.136986`.
+- recommendation: use `family_aggregate` / `raw_retained`, but only through a new conversion path with replay sanity before objective optimization
+- decision: `source_balanced_compactability_recommend_family_aggregate_conversion_design`
+- next: `m1095-v4-public-base-source-balanced-boundary-tooling-synthesis`
