@@ -160,6 +160,37 @@
     "docs/m1099-v4-public-base-family-aggregate-replay-sanity-implementation.md",
     "runs/m1099_family_aggregate_replay_sanity/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1100-v4-public-base-family-aggregate-cross-family-replay-audit.md",
+    "decision": "family_aggregate_cross_family_audit_route_to_intersection_selector_design",
+    "result_class": "cross_family_audit_family_intersection_available",
+    "failure_types": [
+      "none"
+    ],
+    "source_policy_gate_pass": true,
+    "source_policy_rows": 146,
+    "source_policy_success_drop_count": 146,
+    "cross_family_replay_rows": 584,
+    "cross_family_failed_replay_rows": 23,
+    "family_rows_with_any_cross_family_failure": 13,
+    "all_policy_intersection_rows": 133,
+    "all_policy_intersection_physical_pairs": 14,
+    "all_policy_intersection_source_labels": 4,
+    "all_policy_intersection_targets": 3,
+    "all_policy_intersection_left_steps": 9,
+    "failed_duplicate_geometry_groups": 14,
+    "training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1101-v4-public-base-family-aggregate-intersection-selector-design"
+  },
+  "decision": "family_aggregate_cross_family_audit_route_to_intersection_selector_design",
   "decision_rule": "M1100 may only audit M1099 replay artifacts and choose the next route. It cannot train, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1100-v4-public-base-family-aggregate-cross-family-replay-audit"
+  "next_blocker": "m1101-v4-public-base-family-aggregate-intersection-selector-design"
 }

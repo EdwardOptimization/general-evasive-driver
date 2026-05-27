@@ -1,0 +1,168 @@
+{
+  "id": "m1101-v4-public-base-family-aggregate-intersection-selector-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1100-v4-public-base-family-aggregate-cross-family-replay-audit.md",
+      "runs/m1099_family_aggregate_replay_sanity/cross_family_replay_rows.csv",
+      "runs/m1099_family_aggregate_replay_sanity/cross_family_policy_summary.csv",
+      "runs/m1099_family_aggregate_replay_sanity/failed_duplicate_geometry_groups.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1100-v4-public-base-family-aggregate-cross-family-replay-audit.json"
+    ],
+    "parent_objective": [
+      "design a deterministic family-intersection selector over M1099 replay-calibrated rows"
+    ],
+    "derived_from": [
+      "m1100-v4-public-base-family-aggregate-cross-family-replay-audit"
+    ],
+    "blocked_by": [
+      "M1100 chooses family-intersection replay-calibrated rows as the next safe route before objective optimization"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "direct mixed-source objective optimization over all 146 family rows",
+      "source-specific objective corpora as the first route while a broad all-policy intersection exists",
+      "target-base hidden-state row rebuild before selector sparsity is proven"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1101-v4-public-base-family-aggregate-intersection-selector-design.md",
+  "public_gates": [
+    "M1101 must design only",
+    "M1101 must not train",
+    "M1101 must not run PPO",
+    "M1101 must not run replay",
+    "M1101 must not run objective optimization",
+    "M1101 must not mine rows",
+    "M1101 must not promote",
+    "M1101 must not use private holdout",
+    "M1101 must preserve actor inputs",
+    "selector design must fail closed if all-policy intersection diversity becomes sparse"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not include rows that fail all-policy normal-success and wrong-history-failure replay",
+    "do not discard source or duplicate geometry metadata"
+  ],
+  "workflow_synthesis": {
+    "branch": "family_aggregate_boundary_conversion",
+    "evidence_axis": "G_conversion: family-intersection selector design",
+    "evidence_increment": "turns M1100 cross-family audit into a deterministic selector contract before implementation",
+    "claim_scope": "design only; no replay, no objective run, no training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if selector thresholds would be weaker than M1092/M1097 aggregate robustness thresholds",
+      "stop if row/source/duplicate metadata cannot be preserved",
+      "stop if selector cannot separate source-policy proof pass from cross-family pass"
+    ],
+    "fallback_plan": [
+      "if all-policy intersection thresholds are not defensible, route to source-specific objective corpora design",
+      "if source-specific corpora are sparse, route to target-base row rebuild design",
+      "if metadata preservation is missing, repair M1099 artifacts before selector implementation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1100 selects family-intersection replay-calibrated rows as the next route",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "design selector contract without replay, training, PPO, or objective optimization",
+    "admission_evidence": [
+      "M1100 finds 133 all-policy intersection rows across 14 physical pairs",
+      "M1100 blocks direct mixed-source objective optimization over all 146 rows"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not run replay",
+      "do not run objective optimization",
+      "do not promote from selector design"
+    ],
+    "allowed_updates": [
+      "write selector design documentation",
+      "pre-register selector implementation if the design is clear",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "selector input artifacts are explicit",
+      "row keep/drop rule is explicit",
+      "diversity thresholds are explicit",
+      "output artifacts and fail-closed behavior are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1101 designs a selector over matched-current replay rows and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1101 reads M1099 replay artifacts only and adds no new temporal task.",
+    "negative_result_policy": "If the all-policy intersection becomes sparse under the selector contract, route to source-specific objective corpora rather than weakening thresholds.",
+    "allowed_claims": [
+      "selector design for a level2 source-balanced proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A deterministic family-intersection selector can safely convert M1099 cross-family replay results into a replay-calibrated row set before objective optimization.",
+  "success_criteria": [
+    "design artifact exists",
+    "selector keep/drop rule is explicit",
+    "input and output artifacts are explicit",
+    "minimum diversity thresholds are explicit",
+    "source and duplicate metadata preservation is explicit",
+    "fail-closed behavior is explicit",
+    "no training, PPO, replay, objective optimization, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "selector keep/drop rule is ambiguous",
+    "diversity thresholds are missing",
+    "source or duplicate metadata can be lost",
+    "training, PPO, replay, objective optimization, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m1101-v4-public-base-family-aggregate-intersection-selector-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1101-v4-public-base-family-aggregate-intersection-selector-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1100-v4-public-base-family-aggregate-cross-family-replay-audit.md",
+    "runs/m1099_family_aggregate_replay_sanity/cross_family_replay_rows.csv"
+  ],
+  "decision_rule": "M1101 may only design the family-intersection selector. It cannot train, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1101-v4-public-base-family-aggregate-intersection-selector-design"
+}

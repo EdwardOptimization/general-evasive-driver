@@ -15800,3 +15800,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: the family aggregate export is valid as source-policy proof, but cross-family failures must be audited before objective optimization
 - decision: `family_aggregate_replay_sanity_source_gate_pass_route_to_cross_family_audit`
 - next: `m1100-v4-public-base-family-aggregate-cross-family-replay-audit`
+
+## 20260527T193435Z - m1100-v4-public-base-family-aggregate-cross-family-replay-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1100-v4-public-base-family-aggregate-cross-family-replay-audit.md`
+- result: M1100 audits existing M1099 replay artifacts without replay or training. Source-policy proof remains valid: `146` source rows, `146` normal successes, `0` wrong-history successes, and `146` success drops. Cross-family replay has `23` failed replay rows across `13` family rows, but the all-policy intersection remains broad with `133` rows, `14` physical pairs, `4` source labels, `3` targets, and `9` left steps.
+- interpretation: direct mixed-source objective optimization over all `146` rows is not defensible, but source-specific corpora and target-base rebuild are premature because the all-policy intersection is not sparse
+- decision: `family_aggregate_cross_family_audit_route_to_intersection_selector_design`
+- next: `m1101-v4-public-base-family-aggregate-intersection-selector-design`

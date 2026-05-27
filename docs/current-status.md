@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1100-v4-public-base-family-aggregate-cross-family-replay-audit
+m1101-v4-public-base-family-aggregate-intersection-selector-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -239,11 +239,17 @@ writes `584` replay rows and `40` summary rows, but reports `14` failed
 duplicate geometry groups. These are cross-family report failures, not
 source-policy gate failures. The next step is M1100: audit those cross-family
 failures before choosing family-intersection, source-specific, or target-base
-objective routing.
+objective routing. M1100 completes that audit. Source-policy proof remains
+valid, but direct mixed-source objective optimization is not defensible because
+13 family rows fail under at least one non-source policy. The all-policy
+intersection remains broad enough: `133` rows, `14` physical pairs, `4` source
+labels, `3` targets, and `9` left steps. M1100 therefore routes to M1101:
+design a deterministic family-intersection selector over the M1099
+replay-calibrated rows before any objective optimization.
 
 ```text
 decision:
-  family_aggregate_replay_sanity_source_gate_pass_route_to_cross_family_audit
+  family_aggregate_cross_family_audit_route_to_intersection_selector_design
 ```
 
 M1068 design:
