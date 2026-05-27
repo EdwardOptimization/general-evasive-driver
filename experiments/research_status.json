@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1149,
+    "completed": 1150,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1140-v4-public-base-row15-promoted-target-materialization-design",
+    "task_id": "m1141-v4-public-base-row15-promoted-surface-refresh-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1140-v4-public-base-row15-promoted-target-materialization-design.md",
-    "result_class": "target_policy_materialization_design_complete",
-    "decision": "row15_promoted_target_materialization_design_route_to_branch_synthesis"
+    "command_log": "docs/m1141-v4-public-base-row15-promoted-surface-refresh-synthesis.md",
+    "result_class": "branch_synthesis_promote_to_next_branch",
+    "decision": "row15_promoted_surface_refresh_synthesis_open_target_materialization"
   },
   "next_task": {
-    "id": "m1141-v4-public-base-row15-promoted-surface-refresh-synthesis",
+    "id": "m1142-v4-public-base-row15-promoted-target-materialization",
     "status": "pending",
-    "priority": 11360,
-    "kind": "gate",
-    "hypothesis": "M1131-M1140 have produced a broad enough row15-current promoted-base proof surface to close the refresh branch and open target materialization implementation",
-    "command": "see experiments/manifests/m1141-v4-public-base-row15-promoted-surface-refresh-synthesis.json",
-    "success_artifact": "docs/m1141-v4-public-base-row15-promoted-surface-refresh-synthesis.md",
-    "notes": "Pending: synthesis only; no replay objective optimization training PPO promotion private holdout or actor-input change"
+    "priority": 11370,
+    "kind": "infrastructure",
+    "hypothesis": "The existing materializer can emit row15_current objective-ready boundary rows for all 148 M1139 all-policy intersection rows without replay or objective optimization",
+    "command": "see experiments/manifests/m1142-v4-public-base-row15-promoted-target-materialization.json",
+    "success_artifact": "docs/m1142-v4-public-base-row15-promoted-target-materialization.md",
+    "notes": "Pending: materializer only; no replay objective optimization training PPO promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T001500Z"
+  "updated_at_utc": "20260528T002400Z"
 }

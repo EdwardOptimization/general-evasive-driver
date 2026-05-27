@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1141-v4-public-base-row15-promoted-surface-refresh-synthesis
+m1142-v4-public-base-row15-promoted-target-materialization
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -166,12 +166,22 @@ max_physical_pair_fraction: 0.25
 max_source_label_fraction: 0.45
 ```
 
-The next objective corpus must use one target-policy hidden-state/action/margin
-space rather than mixing source-policy rows. Because M1131-M1140 reached the
-10-milestone synthesis cadence for `row15_promoted_base_surface_refresh`, M1141
-should synthesize the branch before any materialization implementation,
-objective optimization, replay, training, PPO, promotion, private holdout, or
-actor-input change.
+M1141 synthesized the `row15_promoted_base_surface_refresh` branch. Supported
+claim:
+
+```text
+source-policy surface:
+  172 rows, 15 physical pairs, 5 checkpoints, 3 targets
+all-policy materialization surface:
+  148 rows, 13 physical pairs, 5 source labels, 2 targets
+```
+
+Direct mixed-family objective conversion remains blocked. The branch is now
+closed and the next branch is `row15_promoted_target_materialization`.
+
+M1142 should run only the existing `row15_current` materializer. It must not run
+replay, optimize an objective, train actor weights, run PPO, promote, use
+private holdout, change actor inputs, or write an objective NPZ.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

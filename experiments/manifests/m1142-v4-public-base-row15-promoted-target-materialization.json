@@ -1,0 +1,185 @@
+{
+  "id": "m1142-v4-public-base-row15-promoted-target-materialization",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1140-v4-public-base-row15-promoted-target-materialization-design.md",
+      "docs/m1141-v4-public-base-row15-promoted-surface-refresh-synthesis.md",
+      "runs/m1139_row15_promoted_intersection_selector/family_intersection_rows.csv",
+      "runs/m1136_row15_promoted_family_aggregate_replay_sanity/cross_family_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1141-v4-public-base-row15-promoted-surface-refresh-synthesis.json"
+    ],
+    "parent_objective": [
+      "run row15_current target-policy materialization without replay or objective optimization"
+    ],
+    "derived_from": [
+      "m1141-v4-public-base-row15-promoted-surface-refresh-synthesis"
+    ],
+    "blocked_by": [
+      "M1141 closes surface refresh and admits materialization implementation"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "mixed-source objective NPZ from M1139 family_intersection_rows.csv",
+      "using source-row margins for row15_current objective rows",
+      "running objective sanity before materialized rows validate"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1142-v4-public-base-row15-promoted-target-materialization.md",
+  "public_gates": [
+    "M1142 may run the existing materializer only",
+    "M1142 must target row15_current only",
+    "M1142 must not train actor weights",
+    "M1142 must not run PPO",
+    "M1142 must not run replay",
+    "M1142 must not run objective optimization",
+    "M1142 must not mine rows",
+    "M1142 must not promote",
+    "M1142 must not use private holdout",
+    "M1142 must preserve actor inputs",
+    "M1142 must not write objective NPZ"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not write mixed-source objective NPZ",
+    "do not materialize multiple target policies into one file"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_target_materialization",
+    "evidence_axis": "G_materialization: current-base materialized proof rows",
+    "evidence_increment": "runs row15_current materializer for the M1139 all-policy intersection after branch synthesis",
+    "claim_scope": "materialized-row artifact only; no replay, objective optimization, training, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if materialized rows fail boundary row validation",
+      "stop if row15_current replay rows are missing",
+      "stop if diversity gate fails"
+    ],
+    "fallback_plan": [
+      "if materialization fails, route to artifact repair or source-specific corpora design",
+      "if row15_current rows are too sparse, route to broader current-base surface refresh",
+      "if output validates, route to objective corpus sanity design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1141 opens row15_promoted_target_materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run materializer without replay, training, PPO, or objective optimization",
+    "admission_evidence": [
+      "M1139 selector keeps 148 all-policy pass rows",
+      "M1140 defines row15_current materialization mapping",
+      "M1141 closes the surface refresh branch and admits materialization"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not run replay",
+      "do not run objective optimization",
+      "do not promote from materialized rows"
+    ],
+    "allowed_updates": [
+      "materialized row artifacts",
+      "milestone documentation",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "row15_current materialized row count is explicit",
+      "boundary row validation is explicit",
+      "diversity gate pass/fail is explicit",
+      "next objective-corpus route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1142 materializes matched-current replay rows and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1142 reads M1139/M1136 artifacts only and adds no new temporal task.",
+    "negative_result_policy": "If materialization fails, classify as metric_artifact or scenario_sampling_failure and route to artifact repair or source-specific corpora design.",
+    "allowed_claims": [
+      "materialized row artifact for a level2 replay-calibrated proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The existing materializer can emit row15_current objective-ready boundary rows for all 148 M1139 all-policy intersection rows without replay or objective optimization.",
+  "success_criteria": [
+    "row15_current_boundary_rows.csv exists",
+    "row15_current_source_summary.csv exists",
+    "row15_current_target_summary.csv exists",
+    "row15_current_materialization_summary.json exists",
+    "materialized rows pass boundary row validation",
+    "rows == 148",
+    "normal_success_count == 148",
+    "wrong_history_success_count == 0",
+    "success_drop_count == 148",
+    "finite objective rows == 148",
+    "physical_pairs >= 12",
+    "source_labels >= 4",
+    "targets >= 2",
+    "left_steps >= 6",
+    "max_physical_pair_fraction <= 0.25",
+    "max_source_label_fraction <= 0.45",
+    "no training, PPO, replay, objective optimization, mining, promotion, private holdout, or objective NPZ occurs"
+  ],
+  "failure_criteria": [
+    "row15_current replay rows cannot be joined",
+    "source and target fields are conflated",
+    "boundary row validation is missing",
+    "diversity gate fails",
+    "training, PPO, replay, objective optimization, mining, promotion, private holdout, or objective NPZ starts"
+  ],
+  "commands": [
+    {
+      "name": "run_materializer",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.family_intersection_target_policy_materialization --family-intersection-rows-csv runs/m1139_row15_promoted_intersection_selector/family_intersection_rows.csv --cross-family-replay-rows-csv runs/m1136_row15_promoted_family_aggregate_replay_sanity/cross_family_replay_rows.csv --target-policy-label row15_current --run-dir runs/m1142_row15_promoted_target_materialization --expected-rows 148 --min-physical-pairs 12 --min-source-labels 4 --min-targets 2 --min-left-steps 6 --max-physical-pair-fraction 0.25 --max-source-label-fraction 0.45"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1142_row15_promoted_target_materialization/row15_current_materialization_summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1142_row15_promoted_target_materialization/row15_current_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1142-v4-public-base-row15-promoted-target-materialization.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1141-v4-public-base-row15-promoted-surface-refresh-synthesis.md",
+    "runs/m1139_row15_promoted_intersection_selector/family_intersection_rows.csv"
+  ],
+  "decision_rule": "M1142 may only run row15_current materialization. It cannot train, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, change actor inputs, or write objective NPZ.",
+  "next_blocker": "m1142-v4-public-base-row15-promoted-target-materialization"
+}

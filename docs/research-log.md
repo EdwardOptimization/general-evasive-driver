@@ -16261,3 +16261,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, objective optimization, actor training, PPO, promotion, private holdout, objective NPZ, or actor-input change occurred.
 - decision: `row15_promoted_target_materialization_design_route_to_branch_synthesis`
 - next: `m1141-v4-public-base-row15-promoted-surface-refresh-synthesis`
+
+## 20260528T002400Z - m1141-v4-public-base-row15-promoted-surface-refresh-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1141-v4-public-base-row15-promoted-surface-refresh-synthesis.md`
+- evidence summary: M1131-M1140 refreshed the promoted alpha `0.15` public-gate base with a source-policy surface of `172` rows and an all-policy materialization surface of `148` rows.
+- supported claim: the all-policy surface is broad enough for current-base target-policy materialization under `row15_current`.
+- unsupported claim: direct mixed-family objective conversion remains blocked by M1136 cross-family incompatibility; PPO readiness, driver improvement, private-holdout generalization, paper-level evidence, and level3 anticipatory self-ID remain unproven.
+- failure taxonomy: no milestone failure; the important negative evidence is the cross-family replay incompatibility that forces single target-policy materialization.
+- public-gate overfit risk: all rows are public and lateral-accel rows do not survive the all-policy intersection, so this is objective-development evidence rather than paper-level holdout evidence.
+- guardrail: no replay, objective optimization, actor training, PPO, promotion, private holdout, objective NPZ, or actor-input change occurred.
+- decision: `row15_promoted_surface_refresh_synthesis_open_target_materialization`
+- next: `m1142-v4-public-base-row15-promoted-target-materialization`
