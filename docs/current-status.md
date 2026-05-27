@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1080-v4-public-base-proof-hardened-surface-refresh-design
+m1081-v4-public-base-proof-hardened-surface-refresh
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -158,11 +158,13 @@ step is M1079: post-promotion synthesis and next-branch selection. M1079 closed
 `contract_clean_projection_promotion` and opened
 `proof_hardened_base_surface_refresh`. The next step is M1080: design a fresh
 current-base source-diverse protected/preference surface refresh before any new
-medium PPO.
+medium PPO. M1080 completed that design with a four-checkpoint family and a
+primary `0.005` margin-bucket robustness gate. The next step is M1081: run the
+pre-registered surface refresh.
 
 ```text
 decision:
-  contract_clean_post_promotion_synthesis_promote_to_surface_refresh
+  proof_hardened_surface_refresh_design_admit_m1081_refresh
 ```
 
 M1068 design:
@@ -475,6 +477,27 @@ training_started: false
 promoted: false
 private_holdout_used: false
 next: m1080-v4-public-base-proof-hardened-surface-refresh-design
+```
+
+M1080 result:
+
+```text
+result_class: proof_hardened_surface_refresh_design_complete
+current_public_gate_base: runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt
+refresh_family: proof_current short61049 short61050 short61051
+primary_margin_bucket_width: 0.005
+diagnostic_margin_bucket_widths: 0.01 0.0025
+min_accepted_wrong_rows: 80
+min_physical_pairs: 10
+min_left_steps: 5
+min_checkpoints: 3
+min_targets: 2
+training_started: false
+ppo_used: false
+mining_started: false
+promoted: false
+private_holdout_used: false
+next: m1081-v4-public-base-proof-hardened-surface-refresh
 ```
 
 M1058 result:

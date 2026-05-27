@@ -102,6 +102,39 @@
   "baseline_artifacts": [
     "docs/m1079-v4-public-base-contract-clean-post-promotion-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1080-v4-public-base-proof-hardened-surface-refresh-design.md",
+    "decision": "proof_hardened_surface_refresh_design_admit_m1081_refresh",
+    "result_class": "proof_hardened_surface_refresh_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "current_public_gate_base": "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+    "refresh_family": [
+      "proof_current",
+      "short61049",
+      "short61050",
+      "short61051"
+    ],
+    "primary_margin_bucket_width": 0.005,
+    "diagnostic_margin_bucket_widths": [
+      0.01,
+      0.0025
+    ],
+    "min_accepted_wrong_rows": 80,
+    "min_physical_pairs": 10,
+    "min_left_steps": 5,
+    "min_checkpoints": 3,
+    "min_targets": 2,
+    "training_started": false,
+    "ppo_used": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1081-v4-public-base-proof-hardened-surface-refresh"
+  },
+  "decision": "proof_hardened_surface_refresh_design_admit_m1081_refresh",
   "decision_rule": "M1080 may only design the current-base surface refresh. It cannot train, run PPO, mine rows, promote, or use private holdout.",
-  "next_blocker": "m1080-v4-public-base-proof-hardened-surface-refresh-design"
+  "next_blocker": "m1081-v4-public-base-proof-hardened-surface-refresh"
 }

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1088,
+    "completed": 1089,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1079-v4-public-base-contract-clean-post-promotion-synthesis",
+    "task_id": "m1080-v4-public-base-proof-hardened-surface-refresh-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1079-v4-public-base-contract-clean-post-promotion-synthesis.md"
+    "command_log": "docs/m1080-v4-public-base-proof-hardened-surface-refresh-design.md"
   },
   "next_task": {
-    "id": "m1080-v4-public-base-proof-hardened-surface-refresh-design",
+    "id": "m1081-v4-public-base-proof-hardened-surface-refresh",
     "status": "pending",
-    "priority": 10750,
+    "priority": 10760,
     "kind": "gate",
-    "hypothesis": "Design a fresh current-base source-diverse protected/preference surface refresh before any new medium PPO proposal",
-    "command": "see experiments/manifests/m1080-v4-public-base-proof-hardened-surface-refresh-design.json",
-    "success_artifact": "docs/m1080-v4-public-base-proof-hardened-surface-refresh-design.md",
-    "notes": "Pending: design only; no PPO no actor training no mining no promotion no private holdout"
+    "hypothesis": "Mine and robustness-gate a fresh source-diverse wrong-history boundary surface for the M1078 proof-hardened public-gate base",
+    "command": "see experiments/manifests/m1081-v4-public-base-proof-hardened-surface-refresh.json",
+    "success_artifact": "docs/m1081-v4-public-base-proof-hardened-surface-refresh.md",
+    "notes": "Pending: surface refresh only; no PPO no actor training no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T110646Z"
+  "updated_at_utc": "20260527T112740Z"
 }

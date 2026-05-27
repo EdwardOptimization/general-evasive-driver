@@ -1,0 +1,159 @@
+{
+  "id": "m1081-v4-public-base-proof-hardened-surface-refresh",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1080-v4-public-base-proof-hardened-surface-refresh-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1080-v4-public-base-proof-hardened-surface-refresh-design.json"
+    ],
+    "parent_objective": [
+      "mine and robustness-gate a source-diverse current-base wrong-history boundary surface for the M1078 proof-hardened base"
+    ],
+    "derived_from": [
+      "m1080-v4-public-base-proof-hardened-surface-refresh-design"
+    ],
+    "blocked_by": [
+      "current public-gate base was promoted from public proof repairs; refreshed source-diverse current-base surface is needed before another medium PPO"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running medium PPO before current-base surface refresh",
+      "using only M1072/M1073 rows as current-base evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1081-v4-public-base-proof-hardened-surface-refresh.md",
+  "public_gates": [
+    "M1081 must not train or run PPO",
+    "M1081 must preserve actor inputs",
+    "M1081 must mine matched-current ambiguity for the four-checkpoint family",
+    "M1081 must run outcome, boundary relocation, and three robustness bucket stages",
+    "M1081 must use 0.005 as the primary margin-bucket acceptance gate",
+    "M1081 must not promote a checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not loosen source-diversity thresholds after seeing failure",
+    "do not route to medium PPO directly from M1081"
+  ],
+  "workflow_synthesis": {
+    "branch": "proof_hardened_base_surface_refresh",
+    "evidence_axis": "G_surface: current-base source-diverse proof refresh",
+    "evidence_increment": "runs the M1080 pre-registered current-base surface refresh for the M1078 promoted base",
+    "claim_scope": "public proof surface refresh only; no training, no PPO, no promotion",
+    "stop_condition": [
+      "stop if accepted wrong-history rows are below threshold",
+      "stop if primary 0.005 margin-bucket gate fails",
+      "stop if surface is duplicate-dominated",
+      "stop if wrong-history outcome sensitivity is absent",
+      "stop if actor input contract changes"
+    ],
+    "fallback_plan": [
+      "if pass, route to compact corpus/objective conversion design",
+      "if sparse, route to sampling retarget design",
+      "if bucket-sensitive, route to bucket audit",
+      "if duplicate-dominated, route to public-overfit audit",
+      "if wrong-history-insensitive, route to self-ID proof audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1080 admits current-base surface refresh",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M1078 proof-hardened public-gate base family still exposes a fresh source-diverse wrong-history outcome boundary surface suitable for conversion into replay/objective corpora.",
+  "success_criteria": [
+    "matched-current summary exists",
+    "outcome summary exists",
+    "boundary relocation summary exists",
+    "0.005 robustness summary exists and passes",
+    "accepted wrong-history rows >= 80",
+    "physical pairs >= 10",
+    "left steps >= 5",
+    "checkpoints >= 3",
+    "targets >= 2",
+    "margin_buckets >= 2 at width 0.005",
+    "success_drop_fraction == 1.0",
+    "no training or PPO occurs"
+  ],
+  "failure_criteria": [
+    "surface is sparse",
+    "surface is duplicate-dominated",
+    "primary margin-bucket gate fails",
+    "wrong-history outcome sensitivity is absent",
+    "actor inputs change",
+    "training or PPO starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "matched_current",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_current_response_ambiguity --checkpoint-policy proof_current=runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --checkpoint-policy short61049=runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --checkpoint-policy short61050=runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt --checkpoint-policy short61051=runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --probe-seeds 108100,108101,108102,108103 --episodes 40 --horizon-steps 15 --sample-stride 3 --max-samples 1400 --nearest-k 12 --max-visible-quantile 0.05 --min-target-z-delta 1.0 --max-pairs-per-target 360 --max-pairs-per-physical-pair 1 --max-pairs-per-left-step 20 --max-pairs-per-source-obstacle-bucket 40 --obstacle-distance-bucket-width 5.0 --obstacle-lateral-bucket-width 1.0 --min-accepted-pairs 80 --device cpu --run-dir runs/m1081_proof_hardened_matched_current_seed108100"
+    },
+    {
+      "name": "outcome_gate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_outcome_gate --checkpoint-policy proof_current=runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --checkpoint-policy short61049=runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --checkpoint-policy short61050=runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt --checkpoint-policy short61051=runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --pairs-csv runs/m1081_proof_hardened_matched_current_seed108100/matched_pairs.csv --delay-steps 10 --max-continuation-steps 60 --min-margin-gap 0.02 --max-pairs-per-checkpoint-target 0 --pair-label-mode matching --device cpu --run-dir runs/m1081_proof_hardened_outcome_seed108100"
+    },
+    {
+      "name": "boundary_surface",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.wrong_history_boundary_relocation_surface --checkpoint-policy proof_current=runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --checkpoint-policy short61049=runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --checkpoint-policy short61050=runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt --checkpoint-policy short61051=runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m1081_proof_hardened_outcome_seed108100/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-pairs-per-checkpoint-target 0 --min-base-action-distance 0.0 --target-normal-margins 0.0005,0.001,0.0025,0.005,0.01,0.02,0.05,0.10,0.15,0.20 --half-width-inflations 0 --min-normal-margin 0.0 --max-normal-margin 0.20 --min-margin-gap 0.02 --min-accepted-wrong-rows 40 --report-variants wrong_matched_history,reset_hidden,zero_current_response,zero_action_history,delayed_history --device cpu --run-dir runs/m1081_proof_hardened_boundary_surface_seed108100"
+    },
+    {
+      "name": "robustness_w010",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m1081_proof_hardened_boundary_surface_seed108100/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.01 --min-accepted-wrong-rows 80 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 3 --min-targets 2 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m1081_proof_hardened_boundary_robustness_w010_seed108100"
+    },
+    {
+      "name": "robustness_w005",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m1081_proof_hardened_boundary_surface_seed108100/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.005 --min-accepted-wrong-rows 80 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 3 --min-targets 2 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m1081_proof_hardened_boundary_robustness_w005_seed108100"
+    },
+    {
+      "name": "robustness_w0025",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.boundary_wrong_history_surface_robustness --boundary-rows-csv runs/m1081_proof_hardened_boundary_surface_seed108100/boundary_relocation_rows.csv --control-checkpoint-label none --margin-bucket-width 0.0025 --min-accepted-wrong-rows 80 --min-physical-pairs 10 --min-left-steps 5 --min-checkpoints 3 --min-targets 2 --min-margin-buckets 2 --min-success-drop-fraction 1.0 --max-rows-per-pair-fraction 0.25 --max-control-accepted-rows 0 --run-dir runs/m1081_proof_hardened_boundary_robustness_w0025_seed108100"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1081-v4-public-base-proof-hardened-surface-refresh.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m1081_proof_hardened_matched_current_seed108100/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1081_proof_hardened_outcome_seed108100/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1081_proof_hardened_boundary_surface_seed108100/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1081_proof_hardened_boundary_robustness_w005_seed108100/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1080-v4-public-base-proof-hardened-surface-refresh-design.md"
+  ],
+  "decision_rule": "M1081 runs the pre-registered refresh and routes by the primary 0.005 robustness gate. It cannot train, run PPO, promote, or use private holdout.",
+  "next_blocker": "m1081-v4-public-base-proof-hardened-surface-refresh"
+}
