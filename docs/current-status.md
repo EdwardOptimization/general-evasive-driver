@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1084-v4-public-base-proof-hardened-surface-refresh-synthesis
+m1085-v4-public-base-source-balanced-boundary-tooling-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -170,11 +170,14 @@ unchanged. M1083 ran the retargeted refresh. It fixed success-drop fraction to
 `1.0` and found 626 accepted wrong-history rows, but the primary robustness
 gate still failed because rows concentrated into only six physical pairs and
 one pair held 30.7% of accepted rows. The next step is M1084: synthesize
-M1080-M1083 before another retarget.
+M1080-M1083 before another retarget. M1084 closed
+`proof_hardened_base_surface_refresh` and opened
+`source_balanced_boundary_tooling`. The next step is M1085: design
+source-balanced boundary export/tooling without weakening robustness thresholds.
 
 ```text
 decision:
-  proof_hardened_surface_retarget_duplicate_dominated_route_to_synthesis
+  proof_hardened_surface_refresh_synthesis_promote_to_source_balanced_tooling
 ```
 
 M1068 design:
@@ -570,6 +573,23 @@ ppo_used: false
 promoted: false
 private_holdout_used: false
 next: m1084-v4-public-base-proof-hardened-surface-refresh-synthesis
+```
+
+M1084 result:
+
+```text
+result_class: proof_hardened_surface_refresh_synthesis_promote_to_next_branch
+synthesis_decision: promote_to_next_branch
+closed_branch: proof_hardened_base_surface_refresh
+opened_branch: source_balanced_boundary_tooling
+supported: wrong-history sensitivity still exists; M1083 fixed success-drop quality; remaining blocker is source diversity after boundary relocation
+falsified: increased matched-current coverage alone fixes robustness; M1083 is directly convertible; physical-pair thresholds should be weakened
+training_started: false
+ppo_used: false
+mining_started: false
+promoted: false
+private_holdout_used: false
+next: m1085-v4-public-base-source-balanced-boundary-tooling-design
 ```
 
 M1058 result:

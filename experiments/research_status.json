@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1092,
+    "completed": 1093,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1083-v4-public-base-proof-hardened-surface-retarget-refresh",
+    "task_id": "m1084-v4-public-base-proof-hardened-surface-refresh-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1083-v4-public-base-proof-hardened-surface-retarget-refresh.md"
+    "command_log": "docs/m1084-v4-public-base-proof-hardened-surface-refresh-synthesis.md"
   },
   "next_task": {
-    "id": "m1084-v4-public-base-proof-hardened-surface-refresh-synthesis",
+    "id": "m1085-v4-public-base-source-balanced-boundary-tooling-design",
     "status": "pending",
-    "priority": 10790,
+    "priority": 10800,
     "kind": "gate",
-    "hypothesis": "Synthesize M1080-M1083 after retargeting fixed success-drop quality but still failed source diversity",
-    "command": "see experiments/manifests/m1084-v4-public-base-proof-hardened-surface-refresh-synthesis.json",
-    "success_artifact": "docs/m1084-v4-public-base-proof-hardened-surface-refresh-synthesis.md",
-    "notes": "Pending: branch synthesis only; no PPO no actor training no mining no promotion no private holdout"
+    "hypothesis": "Design source-balanced boundary export/tooling after M1083 fixed success-drop quality but failed physical-pair diversity",
+    "command": "see experiments/manifests/m1085-v4-public-base-source-balanced-boundary-tooling-design.json",
+    "success_artifact": "docs/m1085-v4-public-base-source-balanced-boundary-tooling-design.md",
+    "notes": "Pending: design only; no PPO no actor training no mining no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T135254Z"
+  "updated_at_utc": "20260527T142057Z"
 }
