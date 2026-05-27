@@ -2,7 +2,7 @@
   "id": "m1123-v4-public-base-row15-unsafe-margin-projection-probe",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "repair",
   "failure_types": [
     "none"
   ],
@@ -167,6 +167,37 @@
   "baseline_artifacts": [
     "docs/m1122-v4-public-base-row15-unsafe-margin-retention-design.md"
   ],
-  "decision_rule": "M1123 may only run a no-training interpolation/projection probe and the registered selected-alpha first replay. It cannot train actor weights, run PPO, run family-intersection replay, run full public gate, run fresh/OOD or behavior gates, promote, use private holdout, change actor inputs, weaken gates, select alpha 0.0, or retry after selected first replay failure without a new manifest.",
-  "next_blocker": "m1123-v4-public-base-row15-unsafe-margin-projection-probe"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1123-v4-public-base-row15-unsafe-margin-projection-probe.md",
+    "summary": "runs/m1123_row15_unsafe_margin_projection_probe/summary.json",
+    "decision": "row15_unsafe_margin_projection_first_replay_candidate_route_to_family_replay_design",
+    "result_class": "row15_unsafe_margin_projection_first_replay_candidate",
+    "failure_types": [
+      "none"
+    ],
+    "candidate_count": 11,
+    "projection_candidate_pass_count": 3,
+    "selected_alpha": 0.15,
+    "selected_checkpoint": "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "exact_m1107_delta_vs_base": -0.00041747093200683594,
+    "target_base_trajectory_mse": 0.00000003361681422120455,
+    "combined_trajectory_mse": 0.000005033988600189332,
+    "first_replay_pass": true,
+    "first_replay_surface_count": 6,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "family_intersection_replay_started": false,
+    "full_public_gate_started": false,
+    "fresh_ood_started": false,
+    "behavior_gate_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "admitted_next": "family_replay_design_only",
+    "next_milestone": "m1124-v4-public-base-row15-projection-family-replay-design"
+  },
+  "decision": "row15_unsafe_margin_projection_first_replay_candidate_route_to_family_replay_design",
+  "decision_rule": "M1123 may only run a no-training interpolation/projection probe and the registered selected-alpha first replay. It cannot train actor weights, run PPO, run family-intersection replay, run full public gate, run fresh/OOD or behavior gates, promote, use private holdout, change actor inputs, weaken gates, select alpha 0.0, or retry after selected first replay failure without a new manifest. Because alpha 0.15 passes row15 unsafe-margin and six-surface first replay, the next step is family-intersection replay design only.",
+  "next_blocker": "m1124-v4-public-base-row15-projection-family-replay-design"
 }

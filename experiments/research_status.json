@@ -1,29 +1,30 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1131,
+    "completed": 1132,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1122-v4-public-base-row15-unsafe-margin-retention-design",
+    "task_id": "m1123-v4-public-base-row15-unsafe-margin-projection-probe",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1122-v4-public-base-row15-unsafe-margin-retention-design.md",
-    "result_class": "row15_unsafe_margin_projection_design",
-    "decision": "row15_unsafe_margin_retention_design_admit_projection_probe"
+    "command_log": "docs/m1123-v4-public-base-row15-unsafe-margin-projection-probe.md",
+    "summary": "runs/m1123_row15_unsafe_margin_projection_probe/summary.json",
+    "result_class": "row15_unsafe_margin_projection_first_replay_candidate",
+    "decision": "row15_unsafe_margin_projection_first_replay_candidate_route_to_family_replay_design"
   },
   "next_task": {
-    "id": "m1123-v4-public-base-row15-unsafe-margin-projection-probe",
+    "id": "m1124-v4-public-base-row15-projection-family-replay-design",
     "status": "pending",
-    "priority": 11180,
+    "priority": 11190,
     "kind": "gate",
-    "hypothesis": "A smaller nonzero interpolation of the M1118 direction can preserve row15 wrong-history unsafe terminal margin while retaining exact M1107 objective improvement",
-    "command": "see experiments/manifests/m1123-v4-public-base-row15-unsafe-margin-projection-probe.json",
-    "success_artifact": "docs/m1123-v4-public-base-row15-unsafe-margin-projection-probe.md",
-    "notes": "Pending: no-training interpolation projection; may run row15 unsafe-margin replay and selected first replay only; no PPO no promotion no private holdout"
+    "hypothesis": "The alpha_0_15 first-replay candidate should next face the M1061 family-intersection public gate before any full public gate or promotion consideration",
+    "command": "see experiments/manifests/m1124-v4-public-base-row15-projection-family-replay-design.json",
+    "success_artifact": "docs/m1124-v4-public-base-row15-projection-family-replay-design.md",
+    "notes": "Pending: design only; no replay no PPO no full public gate no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T212757Z"
+  "updated_at_utc": "20260527T213431Z"
 }

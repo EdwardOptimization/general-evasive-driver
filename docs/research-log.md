@@ -16041,3 +16041,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_unsafe_margin_retention_design_admit_projection_probe`
 - next: `m1123-v4-public-base-row15-unsafe-margin-projection-probe`
+
+## 20260527T213431Z - m1123-v4-public-base-row15-unsafe-margin-projection-probe
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1123-v4-public-base-row15-unsafe-margin-projection-probe.md`
+- result: M1123 runs the no-training interpolation probe from the current public base toward M1118 seed `111800`. It evaluates 11 alphas and selects alpha `0.15`, checkpoint `runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt`.
+- metrics: selected alpha has exact M1107 delta `-0.000417471`, target-base trajectory MSE `0.0000000336`, combined trajectory MSE `0.0000050340`, no actor-input change, and only allowed actor-coupling parameter changes.
+- proof result: all five row15 unsafe-margin variants pass, and the unchanged six-surface first replay passes with all success drops retained (`m183_m168` 16/16, all other surfaces 17/17).
+- guardrail: no actor training, PPO, family-intersection replay, full public gate, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_unsafe_margin_projection_first_replay_candidate_route_to_family_replay_design`
+- next: `m1124-v4-public-base-row15-projection-family-replay-design`

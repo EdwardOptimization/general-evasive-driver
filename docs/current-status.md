@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1123-v4-public-base-row15-unsafe-margin-projection-probe
+m1124-v4-public-base-row15-projection-family-replay-design
 ```
 
 M1115 completed the failed wrong-history retention export. It reproduced the
@@ -116,7 +116,14 @@ row15 wrong-history terminal margins stay below
 `min(-0.00025, 0.5 * base_wrong_history_margin)` before running the unchanged
 six-surface first replay for the selected alpha. M1123 should run only this
 projection probe; family replay, full public gate, fresh/OOD, behavior gates,
-PPO, promotion, and private holdout remain blocked.
+PPO, promotion, and private holdout remain blocked. M1123 completed the
+projection probe and selected nonzero alpha `0.15`:
+`runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt`.
+It improves exact M1107 by `-0.000417471`, keeps target-base trajectory MSE at
+`0.0000000336`, preserves all five row15 unsafe-margin variants, and passes the
+same six-surface first replay that rejected full M1118. This is a first-replay
+candidate only. M1124 should design M1061 family-intersection replay before any
+full public gate, fresh/OOD, behavior gate, PPO, promotion, or private holdout.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,
