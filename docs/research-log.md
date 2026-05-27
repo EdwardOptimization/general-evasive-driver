@@ -15730,3 +15730,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - supported: M1091's failure was a candidate-coverage shortfall, not duplicate dominance or success-drop loss
 - decision: `source_balanced_coverage_expansion_pass_route_to_compact_conversion_design`
 - next: `m1093-v4-public-base-source-balanced-compact-corpus-conversion-design`
+
+## 20260527T184931Z - m1093-v4-public-base-source-balanced-compact-corpus-conversion-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1093-v4-public-base-source-balanced-compact-corpus-conversion-design.md`
+- result: M1093 designs the conversion path for the passed M1092 source-balanced proof surface and finds that direct M1058-style per-checkpoint conversion is not ready. With `max_rows_per_physical_pair=2`, compactability is `proof_current: 8 rows / 4 pairs`, `short61049: 13 / 8`, `short61050: 10 / 8`, and `short61051: 20 / 13`. Even without a physical-pair cap, `proof_current` only has `16 rows / 4 pairs`. The aggregate surface remains valid, but per-checkpoint compact corpora are sparse.
+- classification: `scenario_sampling_failure` for per-checkpoint compactability, not aggregate proof-surface failure
+- decision: `source_balanced_compact_conversion_design_route_to_compactability_audit`
+- next: `m1094-v4-public-base-source-balanced-compactability-audit`

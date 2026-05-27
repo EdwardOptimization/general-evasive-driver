@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -154,6 +154,54 @@
     "docs/m1092-v4-public-base-source-balanced-coverage-expansion-run.md",
     "runs/m1092_source_balanced_coverage_expansion_seed109200/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1093-v4-public-base-source-balanced-compact-corpus-conversion-design.md",
+    "decision": "source_balanced_compact_conversion_design_route_to_compactability_audit",
+    "result_class": "source_balanced_compact_conversion_per_checkpoint_sparsity",
+    "failure_types": [
+      "scenario_sampling_failure"
+    ],
+    "source_rows": "runs/m1092_source_balanced_coverage_expansion_seed109200/balanced_accepted_wrong_history_rows.csv",
+    "aggregate_surface": {
+      "accepted_wrong_rows": 146,
+      "physical_pairs": 18,
+      "left_steps": 9,
+      "checkpoints": 4,
+      "targets": 3,
+      "success_drop_fraction": 1.0,
+      "max_rows_per_physical_pair_fraction": 0.136986301369863
+    },
+    "per_checkpoint_compactability_max_pair_cap_2": {
+      "proof_current": {
+        "rows": 8,
+        "physical_pairs": 4,
+        "targets": 2
+      },
+      "short61049": {
+        "rows": 13,
+        "physical_pairs": 8,
+        "targets": 2
+      },
+      "short61050": {
+        "rows": 10,
+        "physical_pairs": 8,
+        "targets": 3
+      },
+      "short61051": {
+        "rows": 20,
+        "physical_pairs": 13,
+        "targets": 3
+      }
+    },
+    "direct_conversion_admitted": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1094-v4-public-base-source-balanced-compactability-audit"
+  },
+  "decision": "source_balanced_compact_conversion_design_route_to_compactability_audit",
   "decision_rule": "M1093 designs compact objective/replay conversion for the M1092 accepted rows and admits a conversion run only if objective and replay sanity are specified. It cannot train, run PPO, promote, or use private holdout.",
-  "next_blocker": "m1093-v4-public-base-source-balanced-compact-corpus-conversion-design"
+  "next_blocker": "m1094-v4-public-base-source-balanced-compactability-audit"
 }

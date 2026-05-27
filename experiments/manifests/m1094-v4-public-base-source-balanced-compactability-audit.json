@@ -1,0 +1,173 @@
+{
+  "id": "m1094-v4-public-base-source-balanced-compactability-audit",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1092_source_balanced_coverage_expansion_seed109200/balanced_accepted_wrong_history_rows.csv",
+      "docs/m1093-v4-public-base-source-balanced-compact-corpus-conversion-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1093-v4-public-base-source-balanced-compact-corpus-conversion-design.json"
+    ],
+    "parent_objective": [
+      "audit compactability modes before converting the M1092 source-balanced surface"
+    ],
+    "derived_from": [
+      "m1093-v4-public-base-source-balanced-compact-corpus-conversion-design"
+    ],
+    "blocked_by": [
+      "M1093 found direct per-checkpoint compact conversion is sparse for proof_current and short61050"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "direct objective conversion without compactability audit",
+      "lowering per-checkpoint source-diversity requirements without documenting the claim scope"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1094-v4-public-base-source-balanced-compactability-audit.md",
+  "public_gates": [
+    "M1094 must not train",
+    "M1094 must not run PPO",
+    "M1094 must not promote",
+    "M1094 must not use private holdout",
+    "M1094 must preserve actor inputs",
+    "M1094 must audit compactability modes before conversion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not select a conversion mode without reporting compactability metrics"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_balanced_boundary_tooling",
+    "evidence_axis": "G_surface: compactability audit",
+    "evidence_increment": "implements and runs a compactability audit over M1092 accepted rows before objective/replay conversion",
+    "claim_scope": "infrastructure/audit only; no conversion objective run, no training, no PPO, no promotion",
+    "stop_condition": [
+      "stop if no conversion mode preserves enough rows and physical-pair diversity",
+      "stop if audit cannot distinguish per-checkpoint from aggregate/family-intersection modes",
+      "stop if conversion mode selection would require changing actor inputs"
+    ],
+    "fallback_plan": [
+      "if one mode is clear, route to compact conversion run design",
+      "if all modes are sparse, synthesize source-balanced boundary tooling branch",
+      "if audit tooling is insufficient, repair the audit before conversion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1093 routes direct conversion to compactability audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement and run compactability audit without training or PPO",
+    "admission_evidence": [
+      "M1092 passes aggregate source-balanced proof surface",
+      "M1093 identifies per-checkpoint compact sparsity before objective conversion"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not promote from an audit",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "compactability audit code",
+      "focused tests",
+      "audit artifacts",
+      "milestone documentation",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "audit outputs per-checkpoint and aggregate compactability tables",
+      "recommended conversion mode is explicit",
+      "future conversion run is pre-registered only after audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1094 is compactability infrastructure. It cannot upgrade the M1092 proof surface beyond level2 because no new temporal evidence window or anticipatory task is introduced.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1094 reads M1092 accepted rows only. It does not run new scenarios or add pre-emergency warm-up evidence.",
+    "negative_result_policy": "If compactability is sparse in all modes, route to branch synthesis or new surface design rather than weakening the M1092 proof-surface standards.",
+    "allowed_claims": [
+      "compactability audit for a passed level2 proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A compactability audit can identify a defensible conversion mode for the passed M1092 source-balanced boundary surface before objective/replay conversion.",
+  "success_criteria": [
+    "compactability audit implementation exists",
+    "per-checkpoint compactability CSV exists",
+    "aggregate compactability CSV exists",
+    "recommended conversion mode JSON exists",
+    "summary JSON exists",
+    "focused tests pass",
+    "research validation passes",
+    "no training, PPO, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "audit cannot read M1092 accepted rows",
+    "audit omits per-checkpoint or aggregate compactability",
+    "recommended conversion mode is missing",
+    "training, PPO, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "implement_and_run_audit",
+      "command": "edit src/autodrift/source_balanced_compactability_audit.py and tests, then run the audit over runs/m1092_source_balanced_coverage_expansion_seed109200/balanced_accepted_wrong_history_rows.csv"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/source_balanced_compactability_audit.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_source_balanced_compactability_audit.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m1094_source_balanced_compactability_audit/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1094_source_balanced_compactability_audit/recommended_conversion_mode.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1094-v4-public-base-source-balanced-compactability-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1093-v4-public-base-source-balanced-compact-corpus-conversion-design.md",
+    "runs/m1092_source_balanced_coverage_expansion_seed109200/balanced_accepted_wrong_history_rows.csv"
+  ],
+  "decision_rule": "M1094 may only implement and run compactability audit tooling. It cannot train, run PPO, promote, or use private holdout.",
+  "next_blocker": "m1094-v4-public-base-source-balanced-compactability-audit"
+}

@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1093-v4-public-base-source-balanced-compact-corpus-conversion-design
+m1094-v4-public-base-source-balanced-compactability-audit
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -198,11 +198,14 @@ passed, so the next step is a coverage expansion run rather than threshold
 weakening. M1092 expanded selected candidates from `512` to `1024`, and the
 source-balanced boundary export passed all robustness gates with `146`
 accepted wrong-history rows. The next step is compact objective/replay corpus
-conversion design before any future PPO.
+conversion design before any future PPO. M1093 found that direct per-checkpoint
+conversion would be sparse even though the aggregate M1092 surface is robust,
+so the next step is a compactability audit before selecting the conversion
+contract.
 
 ```text
 decision:
-  source_balanced_coverage_expansion_pass_route_to_compact_conversion_design
+  source_balanced_compact_conversion_design_route_to_compactability_audit
 ```
 
 M1068 design:
@@ -758,6 +761,26 @@ ppo_used: false
 promoted: false
 private_holdout_used: false
 next: m1093-v4-public-base-source-balanced-compact-corpus-conversion-design
+```
+
+M1093 result:
+
+```text
+result_class: source_balanced_compact_conversion_per_checkpoint_sparsity
+source_rows: runs/m1092_source_balanced_coverage_expansion_seed109200/balanced_accepted_wrong_history_rows.csv
+aggregate_accepted_wrong_rows: 146
+aggregate_physical_pairs: 18
+cap2 compactability:
+  proof_current: 8 rows / 4 physical pairs / 2 targets
+  short61049: 13 rows / 8 physical pairs / 2 targets
+  short61050: 10 rows / 8 physical pairs / 3 targets
+  short61051: 20 rows / 13 physical pairs / 3 targets
+direct_conversion_admitted: false
+training_started: false
+ppo_used: false
+promoted: false
+private_holdout_used: false
+next: m1094-v4-public-base-source-balanced-compactability-audit
 ```
 
 M1058 result:
