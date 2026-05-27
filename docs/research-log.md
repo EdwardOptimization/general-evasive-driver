@@ -15965,3 +15965,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: short-family rows are not included in the training anchor; they remain replay diagnostics until target-policy materialization is designed.
 - decision: `materialized_failed_wrong_history_retention_export_pass_route_to_actor_update_design`
 - next: `m1116-v4-public-base-failed-wrong-history-retention-actor-update-design`
+
+## 20260527T210038Z - m1116-v4-public-base-failed-wrong-history-retention-actor-update-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1116-v4-public-base-failed-wrong-history-retention-actor-update-design.md`
+- result: M1116 designs the next bounded actor-coupling probe: restart every seed from the current public-gate base, keep `log_std` frozen, allow only `actor_mean.` and `response_context_fusion.0.` changes, combine the M1107 exact objective with M1115 combined rejected-history trajectory retention, and require target-base-only trajectory-anchor MSE before replay.
+- recipe: if admitted after synthesis, run seeds `111800`, `111801`, `111802` for `10` steps at learning rate `0.000025`, with `trajectory_action_anchor_coef=250.0`.
+- process constraint: the `materialized_objective_corpus_sanity` branch reaches its 10-milestone cadence after M1116, so the next step is synthesis before any implementation run.
+- decision: `failed_wrong_history_retention_actor_update_design_route_to_branch_synthesis`
+- next: `m1117-v4-public-base-materialized-objective-branch-synthesis`

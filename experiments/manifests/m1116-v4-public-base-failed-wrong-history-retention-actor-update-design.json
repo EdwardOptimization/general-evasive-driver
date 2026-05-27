@@ -156,6 +156,31 @@
   "baseline_artifacts": [
     "runs/m1115_materialized_failed_wrong_history_retention_export/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1116-v4-public-base-failed-wrong-history-retention-actor-update-design.md",
+    "decision": "failed_wrong_history_retention_actor_update_design_route_to_branch_synthesis",
+    "result_class": "design_admit_synthesis_before_probe",
+    "failure_types": [
+      "none"
+    ],
+    "candidate_seeds": [
+      111800,
+      111801,
+      111802
+    ],
+    "trajectory_action_anchor_snapshot_npz": "runs/m1115_materialized_failed_wrong_history_retention_export/combined_target_base_rejected_anchor.npz",
+    "trajectory_action_anchor_coef": 250.0,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1117-v4-public-base-materialized-objective-branch-synthesis"
+  },
+  "decision": "failed_wrong_history_retention_actor_update_design_route_to_branch_synthesis",
   "decision_rule": "M1116 is design-only. It may specify the next bounded actor-update probe but cannot train actor weights, run PPO, run replay, promote, use private holdout, change actor inputs, weaken gates, or use short-family hidden states as training anchors.",
-  "next_blocker": "m1116-v4-public-base-failed-wrong-history-retention-actor-update-design"
+  "next_blocker": "m1117-v4-public-base-materialized-objective-branch-synthesis"
 }

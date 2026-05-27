@@ -1,28 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1124,
+    "completed": 1125,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1115-v4-public-base-materialized-failed-wrong-history-retention-export",
+    "task_id": "m1116-v4-public-base-failed-wrong-history-retention-actor-update-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m1115_materialized_failed_wrong_history_retention_export",
-    "command_log": "docs/m1115-v4-public-base-materialized-failed-wrong-history-retention-export.md"
+    "command_log": "docs/m1116-v4-public-base-failed-wrong-history-retention-actor-update-design.md"
   },
   "next_task": {
-    "id": "m1116-v4-public-base-failed-wrong-history-retention-actor-update-design",
+    "id": "m1117-v4-public-base-materialized-objective-branch-synthesis",
     "status": "pending",
-    "priority": 11110,
+    "priority": 11120,
     "kind": "gate",
-    "hypothesis": "Design a bounded actor update using M1115 target-base rejected-history trajectory retention plus exact M1107 gate",
-    "command": "see experiments/manifests/m1116-v4-public-base-failed-wrong-history-retention-actor-update-design.json",
-    "success_artifact": "docs/m1116-v4-public-base-failed-wrong-history-retention-actor-update-design.md",
-    "notes": "Pending: design only; no actor training no PPO no replay no promotion no private holdout no short-family hidden-state anchors"
+    "hypothesis": "Synthesize M1107-M1116 before opening failed wrong-history retention repair",
+    "command": "see experiments/manifests/m1117-v4-public-base-materialized-objective-branch-synthesis.json",
+    "success_artifact": "docs/m1117-v4-public-base-materialized-objective-branch-synthesis.md",
+    "notes": "Pending: process synthesis only; no actor training no PPO no replay no objective optimization no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T205327Z"
+  "updated_at_utc": "20260527T210038Z"
 }
