@@ -162,6 +162,36 @@
     "docs/m1139-v4-public-base-row15-promoted-intersection-selector.md",
     "runs/m1139_row15_promoted_intersection_selector/family_intersection_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1140-v4-public-base-row15-promoted-target-materialization-design.md",
+    "decision": "row15_promoted_target_materialization_design_route_to_branch_synthesis",
+    "result_class": "target_policy_materialization_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "target_policy_label": "row15_current",
+    "target_policy_checkpoint": "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "expected_rows": 148,
+    "minimum_physical_pairs": 12,
+    "minimum_source_labels": 4,
+    "minimum_targets": 2,
+    "minimum_left_steps": 6,
+    "max_physical_pair_fraction": 0.25,
+    "max_source_label_fraction": 0.45,
+    "synthesis_cadence_reached": true,
+    "training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "objective_npz_written": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1141-v4-public-base-row15-promoted-surface-refresh-synthesis"
+  },
+  "decision": "row15_promoted_target_materialization_design_route_to_branch_synthesis",
   "decision_rule": "M1140 may only design target-policy materialization. It cannot train, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1140-v4-public-base-row15-promoted-target-materialization-design"
+  "next_blocker": "m1141-v4-public-base-row15-promoted-surface-refresh-synthesis"
 }

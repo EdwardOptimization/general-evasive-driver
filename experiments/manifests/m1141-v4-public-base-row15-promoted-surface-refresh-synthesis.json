@@ -1,0 +1,179 @@
+{
+  "id": "m1141-v4-public-base-row15-promoted-surface-refresh-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1131-v4-public-base-row15-promoted-surface-refresh-design.md",
+      "docs/m1132-v4-public-base-row15-promoted-surface-refresh.md",
+      "docs/m1133-v4-public-base-row15-promoted-compact-conversion-design.md",
+      "docs/m1134-v4-public-base-row15-promoted-family-aggregate-conversion.md",
+      "docs/m1135-v4-public-base-row15-promoted-replay-sanity-design.md",
+      "docs/m1136-v4-public-base-row15-promoted-replay-sanity.md",
+      "docs/m1137-v4-public-base-row15-promoted-cross-family-replay-audit.md",
+      "docs/m1138-v4-public-base-row15-promoted-intersection-selector-design.md",
+      "docs/m1139-v4-public-base-row15-promoted-intersection-selector.md",
+      "docs/m1140-v4-public-base-row15-promoted-target-materialization-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1140-v4-public-base-row15-promoted-target-materialization-design.json"
+    ],
+    "parent_objective": [
+      "synthesize row15 promoted-base surface refresh branch before target materialization implementation"
+    ],
+    "derived_from": [
+      "m1131-v4-public-base-row15-promoted-surface-refresh-design",
+      "m1140-v4-public-base-row15-promoted-target-materialization-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1140"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "continuing row15_promoted_base_surface_refresh without synthesis",
+      "running target materialization implementation before branch-level evidence review",
+      "overclaiming M1131-M1140 as PPO readiness or driver improvement evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1141-v4-public-base-row15-promoted-surface-refresh-synthesis.md",
+  "public_gates": [
+    "M1141 must synthesize M1131-M1140 branch evidence",
+    "M1141 must not train actor weights",
+    "M1141 must not run PPO",
+    "M1141 must not run replay",
+    "M1141 must not run objective optimization",
+    "M1141 must not mine rows",
+    "M1141 must not promote",
+    "M1141 must not use private holdout",
+    "M1141 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not start target materialization implementation before synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_base_surface_refresh",
+    "evidence_axis": "G_branch: promoted-base surface refresh synthesis",
+    "evidence_increment": "synthesizes M1131-M1140 before deciding whether to continue into target materialization implementation",
+    "claim_scope": "process synthesis only; no replay, objective optimization, training, PPO, promotion, private holdout, or driver capability claim",
+    "stop_condition": [
+      "stop if M1139 intersection is too sparse for a useful current-base objective corpus",
+      "stop if M1140 materialization design would mix source-policy and target-policy semantics",
+      "stop if public-gate overfit risk requires a broader refresh before objective conversion"
+    ],
+    "fallback_plan": [
+      "if synthesis supports continuation, open target materialization implementation",
+      "if surface is too narrow, route to a broader current-base surface refresh",
+      "if hidden-state-space mixing remains unresolved, route to source-specific corpus design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1140 reaches the 10-milestone cadence for row15_promoted_base_surface_refresh",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1141-v4-public-base-row15-promoted-surface-refresh-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize current-base surface refresh branch before any materialization implementation",
+    "admission_evidence": [
+      "M1131-M1140 completed 10 non-synthesis milestones on row15_promoted_base_surface_refresh",
+      "M1139 selected 148 all-policy-pass rows",
+      "M1140 defined current-base target materialization design"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "synthesis document",
+      "pre-register next branch if synthesis supports it",
+      "update status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "supported and unsupported claims are explicit",
+      "failure taxonomy is summarized",
+      "public proof overfit risk is explicit",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1141 synthesizes matched-current proof surface work and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1141 synthesizes existing M1131-M1140 artifacts and adds no new temporal task.",
+    "negative_result_policy": "Unsupported self-ID claims remain unsupported; route only to target materialization implementation if evidence supports it.",
+    "allowed_claims": [
+      "branch-level readiness for level2 proof-surface materialization",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "M1131-M1140 have produced a broad enough row15-current promoted-base proof surface to close the refresh branch and open target materialization implementation.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "evidence summary is explicit",
+    "supported claims are explicit",
+    "falsified or unsupported claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "no actor training, PPO, replay, objective optimization, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "supported and unsupported claims are conflated",
+    "next branch decision is ambiguous",
+    "actor training, PPO, replay, objective optimization, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_synthesis",
+      "command": "write docs/m1141-v4-public-base-row15-promoted-surface-refresh-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1141-v4-public-base-row15-promoted-surface-refresh-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1139-v4-public-base-row15-promoted-intersection-selector.md",
+    "docs/m1140-v4-public-base-row15-promoted-target-materialization-design.md"
+  ],
+  "decision_rule": "M1141 may only synthesize the row15_promoted_base_surface_refresh branch. It cannot train actor weights, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1141-v4-public-base-row15-promoted-surface-refresh-synthesis"
+}

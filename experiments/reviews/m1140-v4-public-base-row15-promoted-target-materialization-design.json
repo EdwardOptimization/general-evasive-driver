@@ -1,0 +1,98 @@
+{
+  "decision_reason": "M1140 designs row15_current target-policy materialization for 148 M1139 intersection rows and routes to synthesis before implementation because cadence fired",
+  "failure_criteria": [
+    "design artifact is missing",
+    "target policy selection is ambiguous",
+    "source and target fields are conflated",
+    "required boundary-outcome columns are not mapped",
+    "training, PPO, replay, objective optimization, mining, promotion, or private holdout starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not write objective NPZ",
+    "do not weaken M1139 selector thresholds after seeing the result",
+    "do not materialize multiple target policies into one objective row file"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T224458Z",
+  "hypothesis": "The M1139 all-policy intersection can be materialized under the current public-gate base row15_current so later objective rows use one target-policy hidden-state/action/margin space.",
+  "lineage": {
+    "blocked_by": [
+      "M1139 selector passes, but direct objective conversion would mix source-policy rows with target-policy objective fields"
+    ],
+    "derived_from": [
+      "m1139-v4-public-base-row15-promoted-intersection-selector"
+    ],
+    "invalidates": [
+      "feeding M1139 family_intersection_rows.csv directly into an objective corpus",
+      "mixing source-policy hidden-state spaces in one objective corpus",
+      "using source-row margins when optimizing row15_current target policy"
+    ],
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1139-v4-public-base-row15-promoted-intersection-selector.json"
+    ],
+    "parent_dataset": [
+      "docs/m1139-v4-public-base-row15-promoted-intersection-selector.md",
+      "runs/m1139_row15_promoted_intersection_selector/family_intersection_rows.csv",
+      "runs/m1136_row15_promoted_family_aggregate_replay_sanity/cross_family_replay_rows.csv"
+    ],
+    "parent_objective": [
+      "design current public-gate base target-policy materialization for M1139 all-policy intersection rows"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1140-v4-public-base-row15-promoted-target-materialization-design",
+  "next_blocker": "m1141-v4-public-base-row15-promoted-surface-refresh-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "row15_promoted_target_materialization_design_route_to_branch_synthesis",
+  "public_gates": [
+    "M1140 must design only",
+    "M1140 must not train actor weights",
+    "M1140 must not run PPO",
+    "M1140 must not run replay",
+    "M1140 must not run objective optimization",
+    "M1140 must not mine rows",
+    "M1140 must not promote",
+    "M1140 must not use private holdout",
+    "M1140 must preserve actor inputs",
+    "M1140 must select exactly one target policy for materialization"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1140-v4-public-base-row15-promoted-target-materialization-design.md",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_target_materialization_design_route_to_branch_synthesis",
+    "milestone": "m1140-v4-public-base-row15-promoted-target-materialization-design",
+    "reason": "M1140 designs row15_current target-policy materialization for 148 M1139 intersection rows and routes to synthesis before implementation because cadence fired",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design artifact exists",
+    "target policy label is explicit",
+    "target policy checkpoint path is explicit",
+    "source metadata preservation is explicit",
+    "target-policy objective field mapping is explicit",
+    "row count and diversity validation thresholds are explicit",
+    "fail-closed behavior is explicit",
+    "no training, PPO, replay, objective optimization, mining, promotion, or private holdout occurs"
+  ],
+  "type": "gate"
+}

@@ -16247,3 +16247,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, objective optimization, actor training, PPO, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_intersection_selector_pass_route_to_target_materialization_design`
 - next: `m1140-v4-public-base-row15-promoted-target-materialization-design`
+
+## 20260528T001500Z - m1140-v4-public-base-row15-promoted-target-materialization-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1140-v4-public-base-row15-promoted-target-materialization-design.md`
+- result: M1140 designs single target-policy materialization for the M1139 all-policy intersection under `row15_current`.
+- target policy: `row15_current`, checkpoint `runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt`.
+- validation thresholds: `148` rows, at least `12` physical pairs, `4` source labels, `2` targets, `6` left steps, max physical-pair fraction `0.25`, and max source-label fraction `0.45`.
+- output contract: materialized rows should use row15-current replay margins/actions while preserving source metadata under diagnostic fields; no objective NPZ should be written during materialization.
+- cadence: M1131-M1140 reaches the 10-milestone synthesis cadence for `row15_promoted_base_surface_refresh`, so implementation is routed through a synthesis milestone first.
+- guardrail: no replay, objective optimization, actor training, PPO, promotion, private holdout, objective NPZ, or actor-input change occurred.
+- decision: `row15_promoted_target_materialization_design_route_to_branch_synthesis`
+- next: `m1141-v4-public-base-row15-promoted-surface-refresh-synthesis`
