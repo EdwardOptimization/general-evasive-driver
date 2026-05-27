@@ -1,0 +1,139 @@
+{
+  "id": "m1077-v4-public-base-medium-ppo-readiness-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1068-v4-public-base-expanded-gate-medium-ppo-design.md",
+      "docs/m1069-v4-public-base-expanded-gate-medium-ppo-smoke.md",
+      "docs/m1070-v4-public-base-medium-ppo-proof-washout-audit.md",
+      "docs/m1071-v4-public-base-medium-ppo-repair-projection-design.md",
+      "docs/m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export.md",
+      "docs/m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe.md",
+      "docs/m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate.md",
+      "docs/m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit.md",
+      "docs/m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1068-v4-public-base-expanded-gate-medium-ppo-design.json",
+      "experiments/manifests/m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate.json"
+    ],
+    "parent_objective": [
+      "synthesize expanded-gate medium PPO readiness evidence before opening a promotion-audit branch"
+    ],
+    "derived_from": [
+      "m1068-v4-public-base-expanded-gate-medium-ppo-design",
+      "m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence triggered after M1076; validator blocks another narrow milestone in expanded_gate_medium_ppo_readiness"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "opening a promotion audit before synthesizing M1068-M1076",
+      "treating M1069 medium PPO as solved because M1076 projection passed",
+      "claiming performance gain from a proof-hardening projection"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1077-v4-public-base-medium-ppo-readiness-synthesis.md",
+  "public_gates": [
+    "M1077 must synthesize the expanded_gate_medium_ppo_readiness branch",
+    "M1077 must not train",
+    "M1077 must not run PPO",
+    "M1077 must not promote",
+    "M1077 must not use private holdout",
+    "M1077 must explicitly decide whether to continue, pivot, stop, or promote_to_next_branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not claim medium-PPO performance improvement",
+    "do not open another narrow milestone before this synthesis is complete"
+  ],
+  "workflow_synthesis": {
+    "branch": "expanded_gate_medium_ppo_readiness",
+    "evidence_axis": "G_synthesis: medium-PPO washout repair and proof-hardening readiness",
+    "evidence_increment": "summarizes M1068-M1076 and decides whether to open a separate contract-clean projection promotion branch",
+    "claim_scope": "synthesis only; no promotion, no training, no private holdout, no paper-level or medium-PPO stability claim",
+    "stop_condition": [
+      "stop if M1069 washout repair evidence is insufficient",
+      "stop if M1076 evidence is insufficient for a promotion audit",
+      "stop if public-gate overfit risk requires fresh surface refresh before promotion"
+    ],
+    "fallback_plan": [
+      "if M1076 evidence is sufficient, promote_to_next_branch for a public-gate promotion audit",
+      "if evidence is insufficient, pivot to projection selector redesign or fresh surface refresh",
+      "if M1069 washout remains the dominant blocker, stop medium PPO escalation until post-promotion synthesis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "branch cadence exceeded after M1076 full gate pass",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1077-v4-public-base-medium-ppo-readiness-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1077-v4-public-base-medium-ppo-readiness-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "hypothesis": "M1068-M1076 evidence supports closing expanded_gate_medium_ppo_readiness and opening a separate contract-clean projection public-base promotion audit branch.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "evidence summary covers M1068-M1076",
+    "supported and falsified claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is discussed",
+    "next branch decision is explicit",
+    "no training, PPO, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "synthesis questions are unanswered",
+    "training or PPO starts",
+    "checkpoint is promoted",
+    "private holdout is used",
+    "medium-PPO performance improvement is claimed from M1076"
+  ],
+  "commands": [
+    {
+      "name": "write_synthesis",
+      "command": "write docs/m1077-v4-public-base-medium-ppo-readiness-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1077-v4-public-base-medium-ppo-readiness-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate.md"
+  ],
+  "decision_rule": "M1077 may only synthesize M1068-M1076 and choose the next branch. It cannot train, run PPO, promote, or use private holdout.",
+  "next_blocker": "m1077-v4-public-base-medium-ppo-readiness-synthesis"
+}

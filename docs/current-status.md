@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate
+m1077-v4-public-base-medium-ppo-readiness-synthesis
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -144,12 +144,17 @@ not proof washout. M1075 audited the M1073 projection metrics and found 13
 exact-pass contract-clean candidates. It selected
 `m1031_base_row16x4_s40_a1`, which changes only `actor_mean.` and
 `response_context_fusion.0.` parameters and improves exact M297/M270 versus
-base. The next step is M1076: run the expanded full public gate for that
-contract-clean candidate before any new PPO or selector redesign.
+base. M1076 ran the expanded full public gate for that contract-clean
+candidate. Exact, allowed-surface contract, old public replay,
+family-intersection, source-diverse, fresh/OOD, and behavior gates all passed.
+The candidate is best described as proof-base hardening rather than
+medium-PPO performance improvement. The workflow synthesis cadence has fired,
+so the next step is M1077: synthesize M1068-M1076 before opening a separate
+promotion-audit branch.
 
 ```text
 decision:
-  medium_ppo_contract_clean_candidate_audit_route_to_full_public_gate
+  medium_ppo_contract_clean_full_public_gate_pass_route_to_readiness_synthesis
 ```
 
 M1068 design:
@@ -386,6 +391,32 @@ actor_training_started: false
 promoted: false
 private_holdout_used: false
 next: m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate
+```
+
+M1076 result:
+
+```text
+result_class: candidate_b_combined_active_set_full_public_gate_candidate
+candidate_checkpoint: runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt
+actor_inputs_changed: false
+allowed_surface_contract_pass: true
+exact_pass: true
+proof_pass: true
+family_intersection_pass: true
+source_diverse_pass: true
+generalization_pass: true
+behavior_pass: true
+proof_replay_gates_passed: 6 / 6
+family_intersection_replay_gates_passed: 3 / 3
+source_diverse_replay_gates_passed: 3 / 3
+fresh_success_delta_min: 0.0
+ood_success_delta: 0.0
+behavior_success_delta_min: 0.0
+ppo_used: false
+actor_training_started: false
+promoted: false
+private_holdout_used: false
+next: m1077-v4-public-base-medium-ppo-readiness-synthesis
 ```
 
 M1058 result:

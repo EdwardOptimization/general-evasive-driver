@@ -124,6 +124,39 @@
   "baseline_artifacts": [
     "docs/m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate.md",
+    "summary_json": "runs/m1076_medium_ppo_contract_clean_full_public_gate/summary.json",
+    "decision": "medium_ppo_contract_clean_full_public_gate_pass_route_to_readiness_synthesis",
+    "result_class": "candidate_b_combined_active_set_full_public_gate_candidate",
+    "failure_types": [
+      "none"
+    ],
+    "base_checkpoint": "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+    "candidate_checkpoint": "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+    "actor_inputs_changed": false,
+    "allowed_surface_contract_pass": true,
+    "exact_pass": true,
+    "proof_pass": true,
+    "family_intersection_pass": true,
+    "source_diverse_pass": true,
+    "generalization_pass": true,
+    "behavior_pass": true,
+    "proof_replay_gates_passed": 6,
+    "proof_replay_surface_count": 6,
+    "family_intersection_replay_gates_passed": 3,
+    "source_diverse_replay_gates_passed": 3,
+    "fresh_success_delta_min": 0.0,
+    "ood_success_delta": 0.0,
+    "behavior_success_delta_min": 0.0,
+    "ppo_used": false,
+    "actor_training_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1077-v4-public-base-medium-ppo-readiness-synthesis"
+  },
+  "decision": "medium_ppo_contract_clean_full_public_gate_pass_route_to_readiness_synthesis",
   "decision_rule": "M1076 may only run the expanded full public gate and route from that result. It cannot run PPO, train actor, promote, or use private holdout.",
-  "next_blocker": "m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate"
+  "next_blocker": "m1077-v4-public-base-medium-ppo-readiness-synthesis"
 }
