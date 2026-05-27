@@ -2,7 +2,7 @@
   "id": "m1126-v4-public-base-row15-projection-full-public-gate-design",
   "type": "gate",
   "gate_tier": "promotion",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "repair",
   "failure_types": [
     "none"
   ],
@@ -148,6 +148,27 @@
   "baseline_artifacts": [
     "docs/m1125-v4-public-base-row15-projection-family-replay.md"
   ],
-  "decision_rule": "M1126 may only design the expanded full public gate for alpha_0_15. It cannot train actor weights, run PPO, run replay or evaluation, promote, use private holdout, change actor inputs, or skip required proof/generalization/behavior tiers.",
-  "next_blocker": "m1126-v4-public-base-row15-projection-full-public-gate-design"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1126-v4-public-base-row15-projection-full-public-gate-design.md",
+    "decision": "row15_projection_full_public_gate_design_admit_m1127",
+    "result_class": "row15_projection_full_public_gate_design",
+    "failure_types": [
+      "none"
+    ],
+    "candidate_checkpoint": "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "requires_m1107_exact_recheck": true,
+    "requires_expanded_full_public_gate": true,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_or_evaluation_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "admitted_next": "expanded_full_public_gate_only",
+    "next_milestone": "m1127-v4-public-base-row15-projection-full-public-gate"
+  },
+  "decision": "row15_projection_full_public_gate_design_admit_m1127",
+  "decision_rule": "M1126 may only design the expanded full public gate for alpha_0_15. It cannot train actor weights, run PPO, run replay or evaluation, promote, use private holdout, change actor inputs, or skip required proof/generalization/behavior tiers. M1127 must run M1107 exact recheck before the expanded full public gate and must not promote.",
+  "next_blocker": "m1127-v4-public-base-row15-projection-full-public-gate"
 }

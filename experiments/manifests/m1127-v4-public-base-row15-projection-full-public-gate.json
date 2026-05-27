@@ -1,0 +1,167 @@
+{
+  "id": "m1127-v4-public-base-row15-projection-full-public-gate",
+  "type": "gate",
+  "gate_tier": "promotion",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1126-v4-public-base-row15-projection-full-public-gate-design.md",
+      "runs/m1123_row15_unsafe_margin_projection_probe/summary.json",
+      "runs/m1125_row15_projection_family_replay/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1126-v4-public-base-row15-projection-full-public-gate-design.json"
+    ],
+    "parent_objective": [
+      "run M1107 exact recheck and expanded full public gate for alpha_0_15"
+    ],
+    "derived_from": [
+      "m1126-v4-public-base-row15-projection-full-public-gate-design"
+    ],
+    "blocked_by": [
+      "alpha_0_15 has not yet passed expanded full public gate"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "promotion before full public gate result",
+      "PPO from alpha_0_15 before full public gate result",
+      "private holdout before public gate result"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1127-v4-public-base-row15-projection-full-public-gate.md",
+  "public_gates": [
+    "M1127 must run M1107 exact recheck first",
+    "M1127 may run the expanded full public gate for alpha_0_15",
+    "M1127 must not train actor weights",
+    "M1127 must not run PPO",
+    "M1127 must not promote",
+    "M1127 must not use private holdout",
+    "M1127 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not skip M1107 exact recheck",
+    "do not skip any expanded full public gate tier",
+    "do not switch candidates after seeing gate failure"
+  ],
+  "workflow_synthesis": {
+    "branch": "failed_wrong_history_retention_repair",
+    "evidence_axis": "G_full_public: alpha_0_15 expanded public gate",
+    "evidence_increment": "tests whether the row15 projected candidate passes the full public proof generalization and behavior stack",
+    "claim_scope": "full public gate only; no PPO, promotion, private holdout, paper-level generalization, or driver capability claim",
+    "stop_condition": [
+      "stop if M1107 exact recheck fails",
+      "stop if any full public gate tier fails",
+      "stop after full gate pass before promotion audit"
+    ],
+    "fallback_plan": [
+      "if M1107 exact fails, route to exact-regression audit",
+      "if proof/family/source/fresh/behavior fails, route to tier-specific audit",
+      "if full gate passes, route to promotion audit or branch synthesis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1126 admits expanded full public gate",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run M1107 exact recheck and expanded full public gate",
+    "admission_evidence": [
+      "M1123 row15 unsafe-margin and first replay pass",
+      "M1125 family-intersection replay passes",
+      "M1126 pre-registers the full public gate"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not promote from full gate without a separate audit"
+    ],
+    "allowed_updates": [
+      "exact and full gate artifacts",
+      "docs, queue, status, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "M1107 exact result is explicit",
+      "full public gate result is explicit",
+      "failed tier is explicit if any",
+      "next route is audit or promotion-audit design"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1127 evaluates public proof and behavior retention and cannot claim anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1127 reuses public proof/generalization/behavior gates and adds no new self-ID intervention.",
+    "negative_result_policy": "If any tier fails, classify the tier before any repair or backup candidate.",
+    "allowed_claims": [
+      "full public gate result for a level2 proof-retention candidate",
+      "no level3 anticipatory self-identification claim",
+      "no promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "Alpha_0_15 passes M1107 exact recheck and the expanded full public gate after passing row15 unsafe-margin and family-intersection replay.",
+  "success_criteria": [
+    "M1107 exact recheck summary exists and passes",
+    "expanded full public gate summary exists",
+    "result_class == candidate_b_combined_active_set_full_public_gate_candidate",
+    "exact_pass proof_pass family_intersection_pass source_diverse_pass generalization_pass behavior_pass are all true",
+    "actor_inputs_changed == false",
+    "no actor training, PPO, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "M1107 exact recheck fails",
+    "expanded full public gate summary is missing",
+    "any full public gate tier fails",
+    "actor_inputs_changed == true",
+    "actor training, PPO, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "run_m1107_exact_recheck",
+      "command": "python -m autodrift.outcome_intervention_eval for proof_current and alpha_0_15 with --exact"
+    },
+    {
+      "name": "run_expanded_full_public_gate",
+      "command": "python -m autodrift.candidate_b_combined_active_set_full_public_gate for alpha_0_15"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1127_row15_projection_m1107_exact_eval/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1127_row15_projection_full_public_gate/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1127-v4-public-base-row15-projection-full-public-gate.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1126-v4-public-base-row15-projection-full-public-gate-design.md"
+  ],
+  "decision_rule": "M1127 may only run M1107 exact recheck and expanded full public gate for alpha_0_15. It cannot train actor weights, run PPO, promote, use private holdout, change actor inputs, skip gate tiers, or switch candidates after seeing failure.",
+  "next_blocker": "m1127-v4-public-base-row15-projection-full-public-gate"
+}

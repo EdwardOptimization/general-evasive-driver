@@ -1,0 +1,86 @@
+# m1126-v4-public-base-row15-projection-full-public-gate-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260527T214609Z
+- Type: gate
+- Gate tier: promotion
+- Promotion decision: row15_projection_full_public_gate_design_admit_m1127
+- Decision reason: M1126 designs M1107 exact recheck plus expanded full public gate for alpha_0_15 with exact proof old-public family source-diverse fresh OOD and behavior tiers before any promotion PPO or private holdout
+
+## Hypothesis
+
+After passing row15 unsafe-margin first replay and M1061 family replay, alpha_0_15 is ready for a pre-registered expanded full public gate design but not yet promotion.
+
+## Lineage
+
+- parent_checkpoint: runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt
+- parent_dataset: docs/m1125-v4-public-base-row15-projection-family-replay.md, runs/m1123_row15_unsafe_margin_projection_probe/summary.json, runs/m1125_row15_projection_family_replay/summary.json
+- parent_config: experiments/manifests/m1125-v4-public-base-row15-projection-family-replay.json
+- parent_objective: design expanded full public gate for alpha_0_15 after family replay pass
+- derived_from: m1125-v4-public-base-row15-projection-family-replay
+- blocked_by: alpha_0_15 has not yet passed expanded full public gate
+- supersedes: None
+- invalidates: promotion before full public gate, PPO from alpha_0_15 before full public gate, private holdout before public promotion decision
+
+## Success Criteria
+
+- design artifact exists
+- full public gate tiers include exact proof, old-public replay, family-intersection replay, source-diverse diagnostics, fresh/OOD, and behavior gates
+- private holdout remains unused
+- promotion is deferred to a separate audit
+- no actor training, PPO, replay, evaluation, promotion, private holdout, or actor-input change occurs
+
+## Failure Criteria
+
+- design artifact is missing
+- full public gate tiers are incomplete
+- promotion or private holdout is admitted directly
+- actor training, PPO, replay, evaluation, promotion, private holdout, or actor-input change starts
+
+## Evidence Gates
+
+- M1126 must be design-only
+- M1126 must not train actor weights
+- M1126 must not run PPO
+- M1126 must not run replay or evaluation
+- M1126 must not promote
+- M1126 must not use private holdout
+- M1126 must preserve actor inputs
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train actor weights
+- do not run PPO
+- do not run replay or evaluation
+- do not promote
+- do not use private holdout
+- do not change actor inputs
+- do not skip exact proof or behavior gates in the full public design
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m1126-v4-public-base-row15-projection-full-public-gate-design
+- type: gate
+- checkpoint: docs/m1126-v4-public-base-row15-projection-full-public-gate-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_projection_full_public_gate_design_admit_m1127
+- reason: M1126 designs M1107 exact recheck plus expanded full public gate for alpha_0_15 with exact proof old-public family source-diverse fresh OOD and behavior tiers before any promotion PPO or private holdout
+
+## Next Blocker
+
+m1127-v4-public-base-row15-projection-full-public-gate

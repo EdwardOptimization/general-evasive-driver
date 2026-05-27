@@ -16074,3 +16074,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, full public gate, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_projection_family_replay_pass_route_to_full_public_gate_design`
 - next: `m1126-v4-public-base-row15-projection-full-public-gate-design`
+
+## 20260527T214507Z - m1126-v4-public-base-row15-projection-full-public-gate-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1126-v4-public-base-row15-projection-full-public-gate-design.md`
+- result: M1126 designs the expanded full public gate for alpha `0.15`. M1127 must first rerun exact M1107, then run `autodrift.candidate_b_combined_active_set_full_public_gate` with exact/contract, old public replay, M1061 family-intersection, source-diverse, fresh/OOD, and behavior tiers.
+- guardrail: no actor training, PPO, replay/evaluation, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_projection_full_public_gate_design_admit_m1127`
+- next: `m1127-v4-public-base-row15-projection-full-public-gate`

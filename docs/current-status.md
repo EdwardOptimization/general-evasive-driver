@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1126-v4-public-base-row15-projection-full-public-gate-design
+m1127-v4-public-base-row15-projection-full-public-gate
 ```
 
 M1115 completed the failed wrong-history retention export. It reproduced the
@@ -134,6 +134,10 @@ private holdout remain blocked. M1125 completed that replay and passed:
 success drops retained (`25/25`, `27/27`, `27/27`), and actor inputs unchanged.
 The candidate is still not promotable. M1126 should design the expanded full
 public gate for `alpha_0_15` before any promotion, PPO, or private holdout.
+M1126 completed that design: M1127 must rerun exact M1107 first, then run the
+expanded full public gate wrapper with exact/contract, old public replay, M1061
+family-intersection, source-diverse, fresh/OOD, and behavior tiers. M1127 still
+must not promote, run PPO, or use private holdout.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,
