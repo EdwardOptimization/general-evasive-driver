@@ -77,17 +77,18 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1048-v4-public-base-guarded-ppo-short-escalation-design
+m1049-v4-public-base-guarded-ppo-short-escalation-smoke
 ```
 
-M1047 ran two fresh 1024-step guarded PPO repeats from the current public-gate
-base. Both passed exact, proof, source-diverse, fresh/OOD, and behavior gates
-without promotion. M1048 must design the first short PPO escalation before any
-longer PPO is run.
+M1048 designed the first bounded PPO escalation after M1047 passed two fresh
+1024-step guarded PPO repeats. M1049 should run exactly one 4096-step guarded
+PPO proposal from the current public-gate base, gate it with the full
+M1044/M1047 exact/proof/source-diverse/fresh/OOD/behavior stack, and keep
+promotion and private holdout blocked.
 
 ```text
 decision:
-  guarded_ppo_fresh_seed_repeat_pass_route_to_short_escalation_design
+  guarded_ppo_short_escalation_design_admit_m1049_short_smoke
 ```
 
 Current public-gate base:
@@ -172,6 +173,31 @@ private_holdout_used: false
 M1048 is design only. It should choose a short PPO escalation step count, seed
 count, gate stack, and row15/row16 rollback rules. It must not run PPO or use
 private holdout.
+
+M1048 result:
+
+```text
+short_escalation_total_steps: 4096
+short_escalation_seed_count: 1
+seed: 61049
+promotion: blocked
+private_holdout: blocked
+next: m1049-v4-public-base-guarded-ppo-short-escalation-smoke
+```
+
+M1049 rollback rows:
+
+```text
+M267/M264 row15:
+  wrong_history_success must remain false
+  wrong_history_margin must remain < 0
+  success_drop_count must remain 17 / 17
+
+M183/M170 row16:
+  normal_success must remain true
+  normal_margin must remain > 0
+  success_drop_count must remain 17 / 17
+```
 
 ### Historical Trace
 

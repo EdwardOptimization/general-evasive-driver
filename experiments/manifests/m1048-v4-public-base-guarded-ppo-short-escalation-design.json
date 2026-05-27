@@ -102,6 +102,22 @@
   "baseline_artifacts": [
     "docs/m1047-v4-public-base-guarded-ppo-fresh-seed-repeat.md"
   ],
-  "decision_rule": "M1048 must admit or reject a short PPO escalation milestone; no PPO is run in M1048.",
-  "next_blocker": "m1048-v4-public-base-guarded-ppo-short-escalation-design"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1048-v4-public-base-guarded-ppo-short-escalation-design.md",
+    "decision": "guarded_ppo_short_escalation_design_admit_m1049_short_smoke",
+    "result_class": "guarded_ppo_short_escalation_design",
+    "failure_types": [
+      "none"
+    ],
+    "short_escalation_total_steps": 4096,
+    "short_escalation_seed_count": 1,
+    "short_escalation_seed": 61049,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1049-v4-public-base-guarded-ppo-short-escalation-smoke"
+  },
+  "decision": "guarded_ppo_short_escalation_design_admit_m1049_short_smoke",
+  "decision_rule": "M1048 admits one 4096-step single-seed guarded PPO short-escalation milestone with the M1044/M1047 gate stack. It does not run PPO, promote, or use private holdout.",
+  "next_blocker": "m1049-v4-public-base-guarded-ppo-short-escalation-smoke"
 }
