@@ -1,0 +1,129 @@
+{
+  "id": "m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit.md",
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/projection_metrics.csv",
+      "runs/m1074_medium_ppo_repair_projection_full_public_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit.json"
+    ],
+    "parent_objective": [
+      "run expanded full public gate for the M1075-selected exact-pass contract-clean projection candidate"
+    ],
+    "derived_from": [
+      "m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit"
+    ],
+    "blocked_by": [
+      "M1075 selected a contract-clean candidate that has not yet run expanded full public gates"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "claiming M1075-selected candidate is full-gate safe before M1076",
+      "promoting the contract-clean candidate without full public gate",
+      "rerunning PPO before testing the existing contract-clean candidate"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate.md",
+  "public_gates": [
+    "M1076 must not run PPO",
+    "M1076 must not train actor",
+    "M1076 must not promote",
+    "M1076 must not use private holdout",
+    "M1076 must preserve P0 actor-input contract",
+    "M1076 must preserve allowed changed-parameter surface",
+    "M1076 must run exact, old public replay, M1061 family-intersection, source-diverse, fresh/OOD, and behavior gates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train actor",
+    "do not change actor inputs",
+    "do not weaken allowed changed-parameter prefixes",
+    "do not promote",
+    "do not use private holdout",
+    "do not skip M1061 family-intersection gate",
+    "do not skip source-diverse or behavior gates"
+  ],
+  "workflow_synthesis": {
+    "branch": "expanded_gate_medium_ppo_readiness",
+    "evidence_axis": "G_gate: expanded full public gate for contract-clean repaired projection candidate",
+    "evidence_increment": "tests whether the M1075-selected contract-clean projection candidate survives the expanded gate stack",
+    "claim_scope": "full public-gate diagnostic only; no promotion, no private holdout, no medium-PPO stability claim",
+    "stop_condition": [
+      "stop if actor-input contract changes",
+      "stop if allowed changed-parameter surface fails",
+      "stop if exact gate fails",
+      "stop if old public replay gate fails",
+      "stop if M1061 family-intersection gate fails",
+      "stop if source-diverse, fresh/OOD, or behavior gate fails"
+    ],
+    "fallback_plan": [
+      "if all gates pass, route to separate medium-PPO repair synthesis or promotion audit",
+      "if exact or parameter-surface contract fails, route to projection selector redesign",
+      "if proof replay fails, route to failed-row corpus expansion",
+      "if source-diverse or behavior fails, route to corresponding regression audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1075 selected an exact-pass contract-clean candidate after M1074 contract artifact",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M1075-selected contract-clean projection candidate can pass the expanded full public gate without broad parameter movement.",
+  "success_criteria": [
+    "full public gate completes",
+    "summary artifact exists",
+    "actor inputs are unchanged",
+    "allowed changed-parameter surface passes",
+    "exact gate passes",
+    "all old public replay gates pass",
+    "M1061 family-intersection gate passes",
+    "source-diverse gate passes",
+    "fresh/OOD gates pass",
+    "behavior gates pass",
+    "no promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "full public gate crashes",
+    "summary artifact is missing",
+    "actor inputs change",
+    "allowed changed-parameter surface fails",
+    "any exact/proof/family/source/generalization/behavior gate fails",
+    "checkpoint is promoted",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "run_full_public_gate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.candidate_b_combined_active_set_full_public_gate --base-checkpoint runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --candidate-checkpoint runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --run-dir runs/m1076_medium_ppo_contract_clean_full_public_gate --device auto"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1076_medium_ppo_contract_clean_full_public_gate/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit.md"
+  ],
+  "decision_rule": "M1076 may only run the expanded full public gate and route from that result. It cannot run PPO, train actor, promote, or use private holdout.",
+  "next_blocker": "m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate"
+}

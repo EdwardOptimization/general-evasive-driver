@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1083,
+    "completed": 1084,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate",
+    "task_id": "m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate.md"
+    "command_log": "docs/m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit.md"
   },
   "next_task": {
-    "id": "m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit",
+    "id": "m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate",
     "status": "pending",
-    "priority": 10700,
+    "priority": 10710,
     "kind": "gate",
-    "hypothesis": "Audit whether M1073 already produced an exact-pass contract-clean projection candidate after M1074 failed only the allowed-surface contract",
-    "command": "see experiments/manifests/m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit.json",
-    "success_artifact": "docs/m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit.md",
-    "notes": "Pending: process audit only; no PPO no actor training no promotion no private holdout"
+    "hypothesis": "Run expanded full public gate for the M1075-selected exact-pass contract-clean projection candidate",
+    "command": "see experiments/manifests/m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate.json",
+    "success_artifact": "docs/m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate.md",
+    "notes": "Pending: full public gate only; no PPO no actor training no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T093134Z"
+  "updated_at_utc": "20260527T094000Z"
 }

@@ -105,6 +105,37 @@
   "baseline_artifacts": [
     "docs/m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit.md",
+    "decision": "medium_ppo_contract_clean_candidate_audit_route_to_full_public_gate",
+    "result_class": "medium_ppo_contract_clean_candidate_audit_pass",
+    "failure_types": [
+      "none"
+    ],
+    "projection_rows": 39,
+    "exact_pass_contract_clean_rows": 13,
+    "selected_candidate_label": "m1031_base_row16x4_s40_a1",
+    "selected_checkpoint": "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+    "changed_parameter_count": 4,
+    "changed_parameter_names": [
+      "actor_mean.bias",
+      "actor_mean.weight",
+      "response_context_fusion.0.bias",
+      "response_context_fusion.0.weight"
+    ],
+    "exact_gate_pass": true,
+    "exact_m297_delta_vs_base": -0.0000852346420288086,
+    "exact_m270_delta_vs_base": -0.00006854534149169922,
+    "eligible_for_first_replay": true,
+    "movement_retained_pass": true,
+    "ppo_used": false,
+    "actor_training_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate"
+  },
+  "decision": "medium_ppo_contract_clean_candidate_audit_route_to_full_public_gate",
   "decision_rule": "M1075 may only audit M1073 contract-clean alternatives and route the next gate. It cannot run PPO, train actor, promote, or use private holdout.",
-  "next_blocker": "m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit"
+  "next_blocker": "m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate"
 }

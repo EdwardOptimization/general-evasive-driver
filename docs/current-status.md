@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit
+m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -140,13 +140,16 @@ family-intersection, source-diverse, fresh/OOD, and behavior gates all passed,
 but the selected candidate failed the allowed-surface contract because it
 changed parameter groups outside `actor_mean.` and
 `response_context_fusion.0.`. The candidate is rejected as a contract artifact,
-not proof washout. The next step is M1075: audit M1073 projection metrics for
-an exact-pass contract-clean alternative before any new PPO or selector
-redesign.
+not proof washout. M1075 audited the M1073 projection metrics and found 13
+exact-pass contract-clean candidates. It selected
+`m1031_base_row16x4_s40_a1`, which changes only `actor_mean.` and
+`response_context_fusion.0.` parameters and improves exact M297/M270 versus
+base. The next step is M1076: run the expanded full public gate for that
+contract-clean candidate before any new PPO or selector redesign.
 
 ```text
 decision:
-  medium_ppo_projection_full_gate_contract_artifact_route_to_contract_clean_candidate_audit
+  medium_ppo_contract_clean_candidate_audit_route_to_full_public_gate
 ```
 
 M1068 design:
@@ -361,6 +364,28 @@ ppo_used: false
 promoted: false
 private_holdout_used: false
 next: m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit
+```
+
+M1075 result:
+
+```text
+result_class: medium_ppo_contract_clean_candidate_audit_pass
+projection_rows: 39
+exact_pass_contract_clean_rows: 13
+selected_candidate_label: m1031_base_row16x4_s40_a1
+selected_checkpoint: runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt
+changed_parameter_count: 4
+changed_parameter_names: actor_mean.bias actor_mean.weight response_context_fusion.0.bias response_context_fusion.0.weight
+exact_gate_pass: true
+exact_m297_delta_vs_base: -0.0000852346420288086
+exact_m270_delta_vs_base: -0.00006854534149169922
+eligible_for_first_replay: true
+movement_retained_pass: true
+ppo_used: false
+actor_training_started: false
+promoted: false
+private_holdout_used: false
+next: m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate
 ```
 
 M1058 result:
