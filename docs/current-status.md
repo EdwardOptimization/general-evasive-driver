@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1082-v4-public-base-proof-hardened-surface-retarget-design
+m1083-v4-public-base-proof-hardened-surface-retarget-refresh
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -164,10 +164,13 @@ pre-registered surface refresh. M1081 found a non-sparse wrong-history surface
 but rejected direct conversion because the primary robustness gate failed on
 physical-pair diversity, success-drop fraction, and single-pair dominance. The
 next step is M1082: design a retargeted refresh without weakening thresholds.
+M1082 completed that design by increasing source coverage, tightening
+near-boundary success-drop pressure, and keeping the robustness thresholds
+unchanged. The next step is M1083: run the retargeted refresh.
 
 ```text
 decision:
-  proof_hardened_surface_refresh_duplicate_dominated_route_to_retarget_design
+  proof_hardened_surface_retarget_design_admit_m1083_refresh
 ```
 
 M1068 design:
@@ -521,6 +524,28 @@ ppo_used: false
 promoted: false
 private_holdout_used: false
 next: m1082-v4-public-base-proof-hardened-surface-retarget-design
+```
+
+M1082 result:
+
+```text
+result_class: proof_hardened_surface_retarget_design_complete
+retarget_probe_seed_count: 8
+retarget_episodes: 60
+retarget_max_samples: 2200
+retarget_max_pairs_per_left_step: 12
+retarget_max_pairs_per_source_obstacle_bucket: 25
+retarget_min_base_margin_gap: 0.005
+retarget_min_margin_gap: 0.04
+retarget_max_normal_margin: 0.04
+primary_margin_bucket_width: 0.005
+robustness_thresholds_weakened: false
+training_started: false
+ppo_used: false
+mining_started: false
+promoted: false
+private_holdout_used: false
+next: m1083-v4-public-base-proof-hardened-surface-retarget-refresh
 ```
 
 M1058 result:

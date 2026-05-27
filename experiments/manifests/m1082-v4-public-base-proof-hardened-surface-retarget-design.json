@@ -104,6 +104,32 @@
   "baseline_artifacts": [
     "docs/m1081-v4-public-base-proof-hardened-surface-refresh.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1082-v4-public-base-proof-hardened-surface-retarget-design.md",
+    "decision": "proof_hardened_surface_retarget_design_admit_m1083_refresh",
+    "result_class": "proof_hardened_surface_retarget_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "retarget_probe_seed_count": 8,
+    "retarget_episodes": 60,
+    "retarget_max_samples": 2200,
+    "retarget_max_pairs_per_left_step": 12,
+    "retarget_max_pairs_per_source_obstacle_bucket": 25,
+    "retarget_min_base_margin_gap": 0.005,
+    "retarget_min_margin_gap": 0.04,
+    "retarget_max_normal_margin": 0.04,
+    "primary_margin_bucket_width": 0.005,
+    "robustness_thresholds_weakened": false,
+    "training_started": false,
+    "ppo_used": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1083-v4-public-base-proof-hardened-surface-retarget-refresh"
+  },
+  "decision": "proof_hardened_surface_retarget_design_admit_m1083_refresh",
   "decision_rule": "M1082 may only design a retargeted refresh. It cannot train, run PPO, mine rows, promote, use private holdout, or weaken M1081 acceptance thresholds.",
-  "next_blocker": "m1082-v4-public-base-proof-hardened-surface-retarget-design"
+  "next_blocker": "m1083-v4-public-base-proof-hardened-surface-retarget-refresh"
 }
