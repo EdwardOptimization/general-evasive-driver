@@ -16326,3 +16326,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, replay, objective optimization, corpus build, mining, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_objective_result_audit_admit_guarded_actor_update_design`
 - next: `m1146-v4-public-base-row15-promoted-guarded-actor-update-design`
+
+## 20260528T010800Z - m1146-v4-public-base-row15-promoted-guarded-actor-update-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1146-v4-public-base-row15-promoted-guarded-actor-update-design.md`
+- result: M1146 designs three low-drift actor-coupling candidates from alpha `0.15` using the M1144 snippet NPZ.
+- recipe: seeds `114600`, `114601`, `114602`; `10` steps; learning rate `0.00005`; batch size `64`; train scope `actor_coupling`; `train_log_std=false`; action-anchor coefficient `100`; snippet-action-anchor coefficient `100`.
+- allowed update surface: `actor_mean.` and `response_context_fusion.0.` only; `log_std`, encoders, GRU, critic, and actor-input contract must not change.
+- pre-replay gates: exact M1144 objective no-regression/improvement, action-anchor MSE <= `0.0001`, snippet-anchor MSE <= `0.0001`, allowed parameter diff, actor inputs unchanged, no PPO, no replay, no promotion.
+- guardrail: no actor training, PPO, replay, corpus build, objective sanity, mining, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_guarded_actor_update_design_admit_probe`
+- next: `m1147-v4-public-base-row15-promoted-guarded-actor-update-probe`

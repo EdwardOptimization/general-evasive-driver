@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1146-v4-public-base-row15-promoted-guarded-actor-update-design
+m1147-v4-public-base-row15-promoted-guarded-actor-update-probe
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -241,11 +241,25 @@ ppo_admitted: false
 promotion_admitted: false
 ```
 
-Required next gates include exact M1144 objective no-regression/improvement,
-low-drift allowed parameter scope, unchanged `log_std`, action-anchor and
-snippet-action-anchor retention, allowed-parameter audit before replay, first
-replay gates before full public gate, behavior retention before PPO, and no
-promotion from actor update alone.
+M1146 designed the guarded actor-update probe:
+
+```text
+init checkpoint:
+  runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt
+snippet npz:
+  runs/m1144_row15_promoted_objective_corpus/boundary_outcome_corpus.npz
+seeds: 114600, 114601, 114602
+steps: 10
+learning_rate: 0.00005
+train_scope: actor_coupling
+train_log_std: false
+action_anchor_coef: 100.0
+snippet_action_anchor_coef: 100.0
+```
+
+M1147 should run only these pre-registered actor-coupling probes and pre-replay
+exact/anchor/parameter gates. It must not run PPO, replay, corpus build,
+objective sanity, promotion, private holdout, or actor-input changes.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

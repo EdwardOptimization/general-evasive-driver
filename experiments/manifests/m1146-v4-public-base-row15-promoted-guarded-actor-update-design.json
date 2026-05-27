@@ -159,6 +159,41 @@
     "docs/m1145-v4-public-base-row15-promoted-objective-result-audit.md",
     "runs/m1144_row15_promoted_objective_corpus/boundary_outcome_corpus.npz"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1146-v4-public-base-row15-promoted-guarded-actor-update-design.md",
+    "decision": "row15_promoted_guarded_actor_update_design_admit_probe",
+    "result_class": "guarded_actor_update_design_admits_exact_probe",
+    "failure_types": [
+      "none"
+    ],
+    "init_checkpoint": "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "snippet_npz": "runs/m1144_row15_promoted_objective_corpus/boundary_outcome_corpus.npz",
+    "seeds": [
+      114600,
+      114601,
+      114602
+    ],
+    "steps": 10,
+    "learning_rate": 0.00005,
+    "batch_size": 64,
+    "train_scope": "actor_coupling",
+    "train_log_std": false,
+    "action_anchor_coef": 100.0,
+    "snippet_action_anchor_coef": 100.0,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "corpus_build_started": false,
+    "objective_sanity_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1147-v4-public-base-row15-promoted-guarded-actor-update-probe"
+  },
+  "decision": "row15_promoted_guarded_actor_update_design_admit_probe",
   "decision_rule": "M1146 may only design a guarded actor update. It cannot train actor weights, run PPO, run replay, run corpus build, run objective sanity, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1146-v4-public-base-row15-promoted-guarded-actor-update-design"
+  "next_blocker": "m1147-v4-public-base-row15-promoted-guarded-actor-update-probe"
 }

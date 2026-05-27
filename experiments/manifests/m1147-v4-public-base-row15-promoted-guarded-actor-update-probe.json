@@ -1,0 +1,175 @@
+{
+  "id": "m1147-v4-public-base-row15-promoted-guarded-actor-update-probe",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1146-v4-public-base-row15-promoted-guarded-actor-update-design.md",
+      "runs/m1144_row15_promoted_objective_corpus/boundary_outcome_corpus.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1146-v4-public-base-row15-promoted-guarded-actor-update-design.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_objective": [
+      "run bounded actor_coupling update probe with action and snippet anchors"
+    ],
+    "derived_from": [
+      "m1146-v4-public-base-row15-promoted-guarded-actor-update-design"
+    ],
+    "blocked_by": [
+      "M1146 must define guarded update contract before any actor training"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "unguarded actor update",
+      "PPO continuation from M1144 objective sanity",
+      "promotion from actor update alone"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.md",
+  "public_gates": [
+    "M1147 may run only the M1146 pre-registered actor_coupling probes",
+    "M1147 must not run PPO",
+    "M1147 must not run replay",
+    "M1147 must not run corpus build or objective sanity",
+    "M1147 must not mine rows",
+    "M1147 must not promote",
+    "M1147 must not use private holdout",
+    "M1147 must preserve actor inputs",
+    "M1147 must reject any candidate changing forbidden parameters"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not run replay",
+    "do not run corpus build",
+    "do not run objective sanity",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not chain candidates from each other",
+    "do not weaken anchor or parameter-scope gates after seeing candidates"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_target_materialization",
+    "evidence_axis": "G_update: guarded actor-coupling probe",
+    "evidence_increment": "tests whether M1144 objective can move allowed actor-coupling parameters while preserving anchors and contract",
+    "claim_scope": "driver-candidate pre-replay probe only; no replay, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if no exact candidate passes",
+      "stop if any candidate changes forbidden parameters",
+      "stop if anchors regress beyond threshold"
+    ],
+    "fallback_plan": [
+      "if exact candidate passes, route to first replay gate design",
+      "if no candidate passes, route to recipe audit",
+      "if contract artifact occurs, route to optimizer parameter-scope repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1146 admits bounded actor-coupling update probe",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "capability_pretrain",
+    "stage_objective": "run bounded actor-coupling update probe before replay",
+    "admission_evidence": [
+      "M1144 objective sanity passes",
+      "M1145 admits guarded actor-update design only",
+      "M1146 pre-registers command and gates"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not run PPO",
+      "do not run replay before exact and contract gates",
+      "do not promote from actor update"
+    ],
+    "allowed_updates": [
+      "candidate checkpoints",
+      "optimizer summaries",
+      "parameter-diff summaries",
+      "milestone documentation",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "candidate exact objective status is explicit",
+      "anchor MSE status is explicit",
+      "parameter-scope status is explicit",
+      "next replay-design or audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1147 updates from matched-current objective rows and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1147 uses M1144 corpus only and adds no new temporal task.",
+    "negative_result_policy": "If candidates fail exact or anchor gates, record the result and do not proceed to replay.",
+    "allowed_claims": [
+      "guarded actor-coupling update pre-replay candidate status",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "At least one low-drift actor_coupling candidate can improve or retain the exact M1144 objective while preserving anchors, allowed parameter scope, and actor-input contract.",
+  "success_criteria": [
+    "all three candidate commands complete or failures are classified",
+    "candidate summaries exist",
+    "actor-input contract unchanged",
+    "optimizer metadata confirms train_scope=actor_coupling and train_log_std=false",
+    "changed parameters are limited to actor_mean. and response_context_fusion.0.",
+    "at least one candidate has exact M1144 objective loss <= base exact loss",
+    "at least one candidate has loss_mean_improvement > 0.0",
+    "after_action_anchor_mse <= 0.0001",
+    "after_snippet_action_anchor_mse <= 0.0001",
+    "no PPO, replay, corpus build, objective sanity, mining, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "all candidates fail exact objective or anchor gates",
+    "any candidate changes forbidden parameters",
+    "actor-input contract changes",
+    "PPO, replay, corpus build, objective sanity, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "run_seed_114600",
+      "command": "run M1146 command template with SEED=114600"
+    },
+    {
+      "name": "run_seed_114601",
+      "command": "run M1146 command template with SEED=114601"
+    },
+    {
+      "name": "run_seed_114602",
+      "command": "run M1146 command template with SEED=114602"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1146-v4-public-base-row15-promoted-guarded-actor-update-design.md",
+    "runs/m1144_row15_promoted_objective_corpus/boundary_outcome_corpus.npz"
+  ],
+  "decision_rule": "M1147 may only run the M1146 pre-registered actor_coupling probes and pre-replay gates. It cannot run PPO, replay, corpus build, objective sanity, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1147-v4-public-base-row15-promoted-guarded-actor-update-probe"
+}

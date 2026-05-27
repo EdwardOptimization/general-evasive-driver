@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1154,
+    "completed": 1155,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1145-v4-public-base-row15-promoted-objective-result-audit",
+    "task_id": "m1146-v4-public-base-row15-promoted-guarded-actor-update-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1145-v4-public-base-row15-promoted-objective-result-audit.md",
-    "result_class": "objective_result_audit_admits_guarded_update_design",
-    "decision": "row15_promoted_objective_result_audit_admit_guarded_actor_update_design"
+    "command_log": "docs/m1146-v4-public-base-row15-promoted-guarded-actor-update-design.md",
+    "result_class": "guarded_actor_update_design_admits_exact_probe",
+    "decision": "row15_promoted_guarded_actor_update_design_admit_probe"
   },
   "next_task": {
-    "id": "m1146-v4-public-base-row15-promoted-guarded-actor-update-design",
+    "id": "m1147-v4-public-base-row15-promoted-guarded-actor-update-probe",
     "status": "pending",
-    "priority": 11410,
-    "kind": "gate",
-    "hypothesis": "A tightly guarded actor-update design can be specified from the M1144 materialized objective corpus without weakening proof behavior or promotion discipline",
-    "command": "see experiments/manifests/m1146-v4-public-base-row15-promoted-guarded-actor-update-design.json",
-    "success_artifact": "docs/m1146-v4-public-base-row15-promoted-guarded-actor-update-design.md",
-    "notes": "Pending: design only; no actor training PPO replay corpus build objective sanity promotion private holdout or actor-input change"
+    "priority": 11420,
+    "kind": "driver_candidate",
+    "hypothesis": "At least one low-drift actor_coupling candidate can improve or retain the exact M1144 objective while preserving anchors allowed parameter scope and actor-input contract",
+    "command": "see experiments/manifests/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.json",
+    "success_artifact": "docs/m1147-v4-public-base-row15-promoted-guarded-actor-update-probe.md",
+    "notes": "Pending: actor_coupling probe only; no PPO replay corpus build objective sanity promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T005800Z"
+  "updated_at_utc": "20260528T010800Z"
 }
