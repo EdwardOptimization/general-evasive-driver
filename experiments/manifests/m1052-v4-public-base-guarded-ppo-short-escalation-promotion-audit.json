@@ -2,7 +2,7 @@
   "id": "m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit",
   "type": "gate",
   "gate_tier": "promotion",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -107,6 +107,29 @@
   "baseline_artifacts": [
     "docs/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.md"
   ],
-  "decision_rule": "M1052 must either promote one 4096-step candidate as public-gate base or reject promotion with a next route. It cannot train, run PPO, or use private holdout.",
-  "next_blocker": "m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit.md",
+    "decision": "guarded_ppo_short_escalation_promote_public_gate_base",
+    "result_class": "guarded_ppo_short_escalation_promoted_public_gate_base",
+    "failure_types": [
+      "none"
+    ],
+    "selected_checkpoint": "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+    "candidate_checkpoints": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "selection_reason": "selected seed61049 for best balanced hard-row slack and largest moderate-OOD margin improvement while passing every public gate",
+    "promoted": true,
+    "private_holdout_used": false,
+    "training_started": false,
+    "ppo_used": false,
+    "scope": "public_gate_base_only",
+    "next_milestone": "m1053-v4-public-base-guarded-ppo-short-promotion-synthesis"
+  },
+  "decision": "guarded_ppo_short_escalation_promote_public_gate_base",
+  "decision_rule": "M1052 promotes seed61049 as public-gate base from the three 4096-step candidates; it does not train, run PPO, or use private holdout.",
+  "next_blocker": "m1053-v4-public-base-guarded-ppo-short-promotion-synthesis"
 }

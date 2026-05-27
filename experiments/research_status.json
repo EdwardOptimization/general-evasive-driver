@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1060,
+    "completed": 1061,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1051-v4-public-base-guarded-ppo-short-escalation-synthesis",
+    "task_id": "m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.md"
+    "command_log": "docs/m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit.md"
   },
   "next_task": {
-    "id": "m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit",
+    "id": "m1053-v4-public-base-guarded-ppo-short-promotion-synthesis",
     "status": "pending",
-    "priority": 10470,
+    "priority": 10480,
     "kind": "gate",
-    "hypothesis": "Audit whether one of the 4096-step guarded PPO candidates should become the next public-gate base",
-    "command": "see experiments/manifests/m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit.json",
-    "success_artifact": "docs/m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit.md",
-    "notes": "Pending: promotion audit only; no PPO no private holdout"
+    "hypothesis": "Synthesize after short-PPO public-base promotion before source refresh, medium PPO, or holdout policy change",
+    "command": "see experiments/manifests/m1053-v4-public-base-guarded-ppo-short-promotion-synthesis.json",
+    "success_artifact": "docs/m1053-v4-public-base-guarded-ppo-short-promotion-synthesis.md",
+    "notes": "Pending: synthesis only; no PPO no private holdout"
   },
-  "updated_at_utc": "20260527T035412Z"
+  "updated_at_utc": "20260527T040303Z"
 }

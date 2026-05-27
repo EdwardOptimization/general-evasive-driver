@@ -42,27 +42,27 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
+runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt
+```
+
+Status: M1052 promoted the M1049 4096-step guarded PPO checkpoint as the
+current public-gate base after M1049/M1050 produced three 4096-step public-gate
+passes and M1051 synthesized the evidence. This is a public-gate base
+promotion only; private holdout, medium/long PPO stability, paper-level
+generalization, and real-vehicle claims remain blocked.
+
+Previous public-gate base:
+
+```text
 runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt
 ```
 
 Status: M1045 promoted the M1044 raw guarded PPO checkpoint as the current
 public-gate base after finite 1024-step PPO training and full public
-exact/proof/source-diverse/fresh/OOD/behavior gates passed. This is a
-public-gate base promotion only; private holdout, multi-seed PPO repeatability,
-long-run PPO stability, paper-level generalization, and real-vehicle claims
-remain blocked.
-
-Previous public-gate base:
-
-```text
-runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt
-```
-
-Status: M1041 promoted the M1038 combined active-set candidate as the current
-public-gate base after M1040 exact/proof/source-diverse/fresh/OOD/behavior
-tiers passed. M1045 supersedes it with the M1044 guarded PPO raw candidate.
-Candidate B, M974, M964 alpha `1.0`, and M399 alpha `0.05` remain older lineage
-points.
+exact/proof/source-diverse/fresh/OOD/behavior gates passed. M1052 supersedes it
+with the M1049 4096-step guarded PPO candidate. The M1038 combined active-set
+candidate, Candidate B, M974, M964 alpha `1.0`, and M399 alpha `0.05` remain
+older lineage points.
 
 Latest active diagnostic BC checkpoint:
 
@@ -77,31 +77,32 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit
+m1053-v4-public-base-guarded-ppo-short-promotion-synthesis
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,
 source-diverse, fresh/OOD, and behavior gates while retaining row15
 wrong-history failure and row16 normal-history success. M1051 synthesized this
-branch and routed to a separate public-gate promotion audit before any surface
-refresh or medium PPO design.
+branch, and M1052 promoted the M1049 seed `61049` checkpoint as the current
+public-gate base. M1053 should synthesize the post-promotion route before any
+surface refresh or medium PPO design.
 
 ```text
 decision:
-  guarded_ppo_short_escalation_synthesis_route_to_promotion_audit
+  guarded_ppo_short_escalation_promote_public_gate_base
 ```
 
 Current public-gate base:
 
 ```text
-runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt
+runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt
 ```
 
 Previous public-gate base:
 
 ```text
-runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt
+runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt
 ```
 
 Important M1040 contract:
@@ -240,6 +241,12 @@ M1052 candidate set:
 runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt
 runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt
 runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt
+```
+
+M1052 promoted:
+
+```text
+runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt
 ```
 
 ### Historical Trace

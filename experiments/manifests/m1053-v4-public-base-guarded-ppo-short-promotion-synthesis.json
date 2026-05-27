@@ -1,0 +1,115 @@
+{
+  "id": "m1053-v4-public-base-guarded-ppo-short-promotion-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit.md",
+      "docs/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize route after promoting the 4096-step guarded PPO candidate as current public-gate base"
+    ],
+    "derived_from": [
+      "m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit"
+    ],
+    "blocked_by": [
+      "the 4096-step candidate has been promoted as public-gate base and the next route must be synthesized before refresh or medium PPO"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running medium PPO immediately after promotion without synthesis"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1053-v4-public-base-guarded-ppo-short-promotion-synthesis.md",
+  "public_gates": [
+    "M1053 must synthesize the short-PPO public-base promotion",
+    "M1053 must not train",
+    "M1053 must not run PPO",
+    "M1053 must not use private holdout",
+    "M1053 must decide whether the next route is source refresh, medium PPO design, private-holdout policy design, or stop/audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not claim medium or long PPO stability",
+    "do not claim paper-level generalization"
+  ],
+  "workflow_synthesis": {
+    "branch": "combined_active_set_guarded_ppo_readiness",
+    "evidence_axis": "G_ppo: post short-PPO promotion synthesis",
+    "evidence_increment": "synthesizes the public-gate base promotion after three 4096-step PPO passes",
+    "claim_scope": "process synthesis only; no training, no PPO, no private holdout",
+    "stop_condition": [
+      "stop if public overfit risk requires source refresh before more PPO",
+      "stop if medium PPO criteria are not explicit",
+      "stop if promotion scope leaks into private-holdout or paper-level claims"
+    ],
+    "fallback_plan": [
+      "route to source-diverse protected/preference surface refresh if public overfit risk dominates",
+      "route to medium PPO design only if refresh and promotion scope are sufficient",
+      "route to private-holdout policy design if paper-evidence planning becomes the blocker"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1052 promotes the 4096-step guarded PPO candidate as public-gate base",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m1053-v4-public-base-guarded-ppo-short-promotion-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "hypothesis": "The project should synthesize after short-PPO public-base promotion before any source refresh, medium PPO, or holdout policy change.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "supported and falsified claims are explicit",
+    "public gate overfit risk is updated",
+    "next route is explicit",
+    "no training or PPO occurs"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "next route is missing",
+    "PPO starts",
+    "private holdout is used",
+    "promotion scope is overstated"
+  ],
+  "commands": [
+    {
+      "name": "write_synthesis",
+      "command": "write docs/m1053-v4-public-base-guarded-ppo-short-promotion-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1053-v4-public-base-guarded-ppo-short-promotion-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit.md"
+  ],
+  "decision_rule": "M1053 must decide the post-promotion route and cannot train, run PPO, or use private holdout.",
+  "next_blocker": "m1053-v4-public-base-guarded-ppo-short-promotion-synthesis"
+}

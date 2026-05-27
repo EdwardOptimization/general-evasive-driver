@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1052 promotes seed61049 4096-step guarded PPO checkpoint as current public-gate base after three short-PPO public-gate passes; scope remains public-gate only",
+  "failure_criteria": [
+    "promotion audit artifact is missing",
+    "candidate selection is ambiguous",
+    "training or PPO starts",
+    "private holdout is used",
+    "promotion scope exceeds public-gate evidence"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not claim medium or long PPO stability",
+    "do not claim paper-level generalization",
+    "do not select solely by aggregate return"
+  ],
+  "gate_tier": "promotion",
+  "generated_at_utc": "20260527T040451Z",
+  "hypothesis": "One of the three 4096-step guarded PPO candidates can be selected as the next public-gate base using explicit public-gate, row15/row16, and exact-retention evidence.",
+  "lineage": {
+    "blocked_by": [
+      "M1049/M1050 produced three short-PPO candidates but none has been separately audited for public-base promotion"
+    ],
+    "derived_from": [
+      "m1051-v4-public-base-guarded-ppo-short-escalation-synthesis"
+    ],
+    "invalidates": [
+      "promoting a 4096-step candidate directly from the run milestone without a promotion audit"
+    ],
+    "parent_checkpoint": [
+      "runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt",
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1051-v4-public-base-guarded-ppo-short-escalation-synthesis.md",
+      "runs/m1050_guarded_ppo_short_escalation_repeat_summary.json"
+    ],
+    "parent_objective": [
+      "audit whether a 4096-step guarded PPO raw candidate should become the next public-gate base"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit",
+  "next_blocker": "m1053-v4-public-base-guarded-ppo-short-promotion-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "guarded_ppo_short_escalation_promote_public_gate_base",
+  "public_gates": [
+    "M1052 must not train",
+    "M1052 must not run PPO",
+    "M1052 must not use private holdout",
+    "M1052 must select or reject among the three 4096-step raw candidates using explicit public-gate evidence",
+    "M1052 must keep promotion scope public-gate only",
+    "M1052 must require exact/proof/source-diverse/fresh/OOD/behavior evidence and row15/row16 retention"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+    "clearance_margin_mean": "",
+    "decision": "guarded_ppo_short_escalation_promote_public_gate_base",
+    "milestone": "m1052-v4-public-base-guarded-ppo-short-escalation-promotion-audit",
+    "reason": "M1052 promotes seed61049 4096-step guarded PPO checkpoint as current public-gate base after three short-PPO public-gate passes; scope remains public-gate only",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "driver_candidate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "promotion audit artifact exists",
+    "candidate set is explicit",
+    "selection criteria are explicit",
+    "selected checkpoint or rejection is explicit",
+    "scope limits are explicit",
+    "no training or PPO occurs",
+    "private holdout is not used"
+  ],
+  "type": "gate"
+}
