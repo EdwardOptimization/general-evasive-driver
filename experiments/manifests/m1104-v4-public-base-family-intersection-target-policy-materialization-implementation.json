@@ -176,6 +176,41 @@
     "docs/m1103-v4-public-base-family-intersection-target-policy-materialization-design.md",
     "runs/m1102_family_aggregate_intersection_selector/family_intersection_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1104-v4-public-base-family-intersection-target-policy-materialization-implementation.md",
+    "decision": "target_policy_materialization_pass_route_to_objective_corpus_design",
+    "result_class": "target_policy_materialization_pass",
+    "failure_types": [
+      "none"
+    ],
+    "run_dir": "runs/m1104_target_policy_materialization",
+    "target_policy_label": "proof_current",
+    "rows": 133,
+    "expected_rows": 133,
+    "normal_success_count": 133,
+    "wrong_history_success_count": 0,
+    "success_drop_count": 133,
+    "finite_objective_rows": 133,
+    "diversity_gate_pass": true,
+    "physical_pairs": 14,
+    "source_labels": 4,
+    "targets": 3,
+    "left_steps": 9,
+    "max_physical_pair_fraction": 0.15037593984962405,
+    "max_source_label_fraction": 0.3684210526315789,
+    "training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "objective_npz_written": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1105-v4-public-base-materialized-objective-corpus-design"
+  },
+  "decision": "target_policy_materialization_pass_route_to_objective_corpus_design",
   "decision_rule": "M1104 may only implement and run proof_current materialization. It cannot train, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, change actor inputs, or write objective NPZ.",
-  "next_blocker": "m1104-v4-public-base-family-intersection-target-policy-materialization-implementation"
+  "next_blocker": "m1105-v4-public-base-materialized-objective-corpus-design"
 }

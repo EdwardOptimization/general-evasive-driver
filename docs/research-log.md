@@ -15841,3 +15841,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked shortcut: do not feed `family_intersection_rows.csv` directly into `boundary_outcome_corpus_objective`, because that would mix source checkpoint labels and source-row metrics
 - decision: `target_policy_materialization_design_admit_implementation`
 - next: `m1104-v4-public-base-family-intersection-target-policy-materialization-implementation`
+
+## 20260527T195414Z - m1104-v4-public-base-family-intersection-target-policy-materialization-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1104-v4-public-base-family-intersection-target-policy-materialization-implementation.md`
+- result: M1104 implements and runs `proof_current` materialization over existing M1102/M1099 artifacts. It writes `proof_current_boundary_rows.csv`, source/target summaries, and summary JSON. The materialized rows pass: `133` rows, `133` normal successes, `0` wrong-history successes, `133` success drops, `133` finite objective rows, `14` physical pairs, `4` source labels, `3` targets, and `9` left steps.
+- validation: focused materialization tests `5 passed`; compileall passed; research validation passed
+- safety: no replay, actor training, PPO, objective optimization, objective NPZ, mining, promotion, private holdout, or actor input change
+- decision: `target_policy_materialization_pass_route_to_objective_corpus_design`
+- next: `m1105-v4-public-base-materialized-objective-corpus-design`

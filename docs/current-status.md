@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1104-v4-public-base-family-intersection-target-policy-materialization-implementation
+m1105-v4-public-base-materialized-objective-corpus-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -263,11 +263,16 @@ design. The first target is `proof_current`; materialized rows should use
 `proof_current` replay margins/actions for objective fields while preserving
 source metadata under diagnostic fields. The materializer must not replay, train,
 optimize, or write an objective NPZ. The next step is M1104: implement and run
-that proof-current materializer.
+that proof-current materializer. M1104 implements and runs it. The materialized
+`proof_current` rows pass validation with `133` rows, `133` normal successes,
+`0` wrong-history successes, `133` success drops, finite objective margins, `14`
+physical pairs, `4` source labels, `3` targets, and `9` left steps. No objective
+NPZ is written. The next step is M1105: design the single-checkpoint
+boundary-outcome corpus/objective sanity run using these materialized rows.
 
 ```text
 decision:
-  target_policy_materialization_design_admit_implementation
+  target_policy_materialization_pass_route_to_objective_corpus_design
 ```
 
 M1068 design:
