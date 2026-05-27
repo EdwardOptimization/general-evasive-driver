@@ -1,0 +1,167 @@
+{
+  "id": "m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1156-v4-public-base-row15-promoted-projection-family-behavior-run.md",
+      "runs/m1156_row15_promoted_projection_m1144_exact_eval/summary.json",
+      "runs/m1156_row15_promoted_projection_expanded_public_diagnostic/summary.json",
+      "runs/m1156_row15_promoted_projection_expanded_public_diagnostic/proof_replay_summary.csv",
+      "runs/m1156_row15_promoted_projection_expanded_public_diagnostic/family_intersection_public_gate/replay_gate_summary.csv",
+      "runs/m1156_row15_promoted_projection_expanded_public_diagnostic/source_diverse_protected_diagnostic/replay_gate_summary.csv",
+      "runs/m1156_row15_promoted_projection_expanded_public_diagnostic/generalization_comparison.csv",
+      "runs/m1156_row15_promoted_projection_expanded_public_diagnostic/behavior_comparison.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1156-v4-public-base-row15-promoted-projection-family-behavior-run.json"
+    ],
+    "parent_objective": [
+      "audit whether M1156's diagnostic pass admits a formal promotion audit, requires additional margin-slack diagnostics, or should remain a branch-local repair"
+    ],
+    "derived_from": [
+      "m1156-v4-public-base-row15-promoted-projection-family-behavior-run"
+    ],
+    "blocked_by": [
+      "M1156 passes expanded public diagnostics but the M1154 selected alpha is near the wrong-history unsafe-margin boundary"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "direct promotion from M1156 without result audit",
+      "PPO from alpha_0_05 before promotion/audit decision",
+      "private holdout before promotion/audit decision"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit.md",
+  "public_gates": [
+    "M1157 must audit existing M1154 and M1156 artifacts only",
+    "M1157 must not train actor weights",
+    "M1157 must not run PPO",
+    "M1157 must not run replay",
+    "M1157 must not mine new rows",
+    "M1157 must not promote",
+    "M1157 must not use private holdout",
+    "M1157 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not mine new rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not treat expanded diagnostic pass as automatic promotion",
+    "do not ignore the near-zero row15-promoted wrong-history margin"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_unsafe_margin_projection",
+    "evidence_axis": "G_audit: post-projection diagnostic result interpretation",
+    "evidence_increment": "classifies the M1156 all-pass diagnostic result before any promotion audit, PPO, private holdout, or further repair",
+    "claim_scope": "process audit only; no training, replay, PPO, promotion, private holdout, or driver capability claim",
+    "stop_condition": [
+      "stop if M1156 artifacts do not support the all-pass summary",
+      "stop if near-boundary margins make direct promotion-audit design unsafe",
+      "stop if a missing diagnostic tier must be added before promotion audit"
+    ],
+    "fallback_plan": [
+      "if M1156 is internally inconsistent, route to result-artifact audit",
+      "if near-boundary margins are not acceptable, design margin-slack diagnostics or a terminal-margin objective",
+      "if M1156 supports the candidate, route to a separate promotion-audit design rather than direct promotion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1156 expanded public diagnostic passed while M1154 still has near-zero wrong-history margin on row15-promoted materialized rows",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M1156 evidence and decide the next admissible route for alpha_0_05",
+    "admission_evidence": [
+      "M1156 M1144 exact delta remains -0.000378400",
+      "M1156 expanded wrapper has exact, proof, family-intersection, source-diverse, generalization, and behavior passes",
+      "M1154 selected row15-promoted materialized wrong-history margin max is -0.000000497"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not promote directly from M1156",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "audit documentation",
+      "next design manifest if audit is clear",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "M1156 diagnostic tiers are summarized",
+      "near-zero unsafe-margin risk is explicitly classified",
+      "promotion-audit readiness versus additional diagnostic need is explicit",
+      "next blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1157 audits existing level2 public diagnostics and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1157 reads existing M1154 and M1156 artifacts only and adds no new temporal task distribution.",
+    "negative_result_policy": "If M1156 evidence is insufficient for promotion-audit design, record the missing evidence and route to the smallest diagnostic or repair.",
+    "allowed_claims": [
+      "result audit for a level2 public proof-retention candidate",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "M1156's all-pass public diagnostic result is sufficient to admit a separate promotion-audit design for alpha_0_05, but not sufficient for direct promotion because the selected projection remains near the wrong-history unsafe-margin boundary.",
+  "success_criteria": [
+    "audit artifact exists",
+    "M1156 exact, proof, family, generalization, and behavior evidence is summarized",
+    "near-zero margin risk is explicitly addressed",
+    "next route is explicit",
+    "no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "M1156 evidence remains ambiguous",
+    "near-zero margin risk is ignored",
+    "next route is ambiguous",
+    "actor training, PPO, replay, mining, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "audit_m1156_result",
+      "command": "inspect M1154 and M1156 artifacts; write docs/m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run.md",
+    "docs/m1156-v4-public-base-row15-promoted-projection-family-behavior-run.md",
+    "runs/m1156_row15_promoted_projection_expanded_public_diagnostic/summary.json"
+  ],
+  "decision_rule": "M1157 may only audit existing M1154 and M1156 artifacts. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, or treat M1156 as automatic promotion. If the evidence is internally consistent and no missing public diagnostic is identified, route to a separate promotion-audit design.",
+  "next_blocker": "m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit"
+}

@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1164,
+    "completed": 1165,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1155-v4-public-base-row15-promoted-projection-family-behavior-design",
+    "task_id": "m1156-v4-public-base-row15-promoted-projection-family-behavior-run",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1155-v4-public-base-row15-promoted-projection-family-behavior-design.md",
-    "result_class": "family_behavior_diagnostic_design_complete",
-    "decision": "row15_promoted_projection_family_behavior_design_admit_diagnostic_run"
+    "command_log": "docs/m1156-v4-public-base-row15-promoted-projection-family-behavior-run.md",
+    "result_class": "candidate_b_combined_active_set_full_public_gate_candidate",
+    "decision": "row15_promoted_projection_expanded_diagnostic_pass_route_to_result_audit"
   },
   "next_task": {
-    "id": "m1156-v4-public-base-row15-promoted-projection-family-behavior-run",
+    "id": "m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit",
     "status": "pending",
-    "priority": 11510,
+    "priority": 11520,
     "kind": "gate",
-    "hypothesis": "The M1154 alpha_0_05 candidate preserves M1144 exact objective and passes expanded public proof family generalization and behavior diagnostics",
-    "command": "see experiments/manifests/m1156-v4-public-base-row15-promoted-projection-family-behavior-run.json",
-    "success_artifact": "docs/m1156-v4-public-base-row15-promoted-projection-family-behavior-run.md",
-    "notes": "Pending: run M1144 exact recheck and expanded public diagnostic only; no actor training PPO mining promotion private holdout or actor-input change"
+    "hypothesis": "M1156's all-pass public diagnostic result is sufficient to admit a separate promotion-audit design for alpha_0_05 but not direct promotion because the selected projection remains near the wrong-history unsafe-margin boundary",
+    "command": "see experiments/manifests/m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit.json",
+    "success_artifact": "docs/m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit.md",
+    "notes": "Pending: audit existing M1154 and M1156 artifacts only; no actor training PPO replay mining promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T034300Z"
+  "updated_at_utc": "20260527T235439Z"
 }

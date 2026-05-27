@@ -16466,3 +16466,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, behavior eval, actor training, PPO, mining, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_projection_family_behavior_design_admit_diagnostic_run`
 - next: `m1156-v4-public-base-row15-promoted-projection-family-behavior-run`
+
+## 20260527T235500Z - m1156-v4-public-base-row15-promoted-projection-family-behavior-run
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1156-v4-public-base-row15-promoted-projection-family-behavior-run.md`
+- result: M1156 passes the M1144 exact recheck and expanded public diagnostic wrapper for `alpha_0_05`.
+- candidate checkpoint: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`.
+- M1144 exact: base loss `0.417700052`, candidate loss `0.417321652`, delta `-0.000378400`.
+- expanded diagnostic: `exact_pass`, `proof_pass`, `family_intersection_pass`, `source_diverse_pass`, `generalization_pass`, and `behavior_pass` are all true.
+- old-public replay: six of six proof surfaces retain all baseline success drops.
+- family-intersection replay: `25/25`, `27/27`, and `27/27` success drops retained.
+- source-diverse replay: three of three protected surfaces retain `17/17` success drops.
+- generalization: fresh seeds `103900` and `103901`, plus moderate-OOD seed `103920`, all keep success delta `0.0`.
+- behavior: seeds `9505`, `9506`, `103930`, and `103931` keep base success and reset/zero-all ordering.
+- guardrail: no actor training, PPO, mining, promotion, private holdout, or actor-input change occurred.
+- caveat: M1154 still showed row15-promoted materialized wrong-history margin max `-0.000000497`, so this is not direct promotion.
+- decision: `row15_promoted_projection_expanded_diagnostic_pass_route_to_result_audit`
+- next: `m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit`

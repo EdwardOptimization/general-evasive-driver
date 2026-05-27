@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1156-v4-public-base-row15-promoted-projection-family-behavior-run
+m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -434,6 +434,49 @@ fresh/OOD eval, and behavior seeds `9505`, `9506`, `103930`, and `103931`.
 The next milestone is M1156: run only those diagnostics. It must not train, run
 PPO, mine rows, promote, use private holdout, or change actor inputs. A pass is
 not promotion; it only admits a later synthesis or promotion-audit design.
+
+M1156 ran those diagnostics and passed:
+
+```text
+candidate:
+  runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+
+M1144 exact recheck:
+  row15_current loss: 0.417700052
+  alpha_0_05 loss:   0.417321652
+  delta:             -0.000378400
+
+expanded public diagnostic:
+  exact_pass: true
+  proof_pass: true
+  family_intersection_pass: true
+  source_diverse_pass: true
+  generalization_pass: true
+  behavior_pass: true
+  actor_inputs_changed: false
+  ppo_used: false
+  promoted: false
+  private_holdout_used: false
+```
+
+Old-public replay retained all success drops across six surfaces; M1061
+family-intersection replay retained `25/25`, `27/27`, and `27/27` success
+drops; source-diverse replay retained `17/17` on all three protected surfaces.
+Fresh randomized public eval and moderate-OOD eval kept success deltas at
+`0.0`; behavior seeds `9505`, `9506`, `103930`, and `103931` retained baseline
+success and reset/zero-all ordering.
+
+This is still diagnostic, not promotion. The M1154 selected alpha remains near
+the wrong-history unsafe-margin boundary:
+
+```text
+row15_promoted_materialized wrong_history_margin_max: -0.000000497
+```
+
+M1157 should audit the M1156 result and decide whether `alpha_0_05` is ready
+for a separate promotion-audit design or needs additional margin-slack
+diagnostics. M1157 must not train, run PPO, run replay, mine rows, promote, use
+private holdout, or change actor inputs.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1156 may only run M1144 exact recheck and expanded public diagnostics. It cannot train actor weights, run PPO, mine rows, promote, use private holdout, change actor inputs, run expanded wrapper after exact failure, or treat diagnostic pass as promotion.",
+  "decision_reason": "M1156 alpha_0_05 keeps M1144 exact delta -0.000378 and passes exact proof old-public replay family-intersection source-diverse fresh/OOD and behavior diagnostics with no training PPO promotion private holdout or actor-input change",
   "failure_criteria": [
     "M1144 exact recheck fails",
     "expanded wrapper summary is missing after exact pass",
@@ -21,7 +21,7 @@
     "do not treat diagnostic pass as promotion"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260527T234710Z",
+  "generated_at_utc": "20260527T235809Z",
   "hypothesis": "The M1154 alpha_0_05 candidate preserves M1144 exact objective and passes expanded public proof, family-intersection, generalization, and behavior diagnostics.",
   "lineage": {
     "blocked_by": [
@@ -51,9 +51,9 @@
     "supersedes": []
   },
   "milestone": "m1156-v4-public-base-row15-promoted-projection-family-behavior-run",
-  "next_blocker": "m1156-v4-public-base-row15-promoted-projection-family-behavior-run",
+  "next_blocker": "m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "row15_promoted_projection_expanded_diagnostic_pass_route_to_result_audit",
   "public_gates": [
     "M1156 may run M1144 exact recheck and expanded public diagnostic wrapper only",
     "M1156 must not train actor weights",
@@ -63,7 +63,20 @@
     "M1156 must not use private holdout",
     "M1156 must preserve actor inputs"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m1156_row15_promoted_projection_expanded_public_diagnostic/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_projection_expanded_diagnostic_pass_route_to_result_audit",
+    "milestone": "m1156-v4-public-base-row15-promoted-projection-family-behavior-run",
+    "reason": "M1156 alpha_0_05 keeps M1144 exact delta -0.000378 and passes exact proof old-public replay family-intersection source-diverse fresh/OOD and behavior diagnostics with no training PPO promotion private holdout or actor-input change",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "M1144 exact recheck summary exists",
     "expanded public diagnostic summary exists",

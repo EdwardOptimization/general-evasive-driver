@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260527T234710Z
+- Generated at UTC: 20260527T235809Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M1156 may only run M1144 exact recheck and expanded public diagnostics. It cannot train actor weights, run PPO, mine rows, promote, use private holdout, change actor inputs, run expanded wrapper after exact failure, or treat diagnostic pass as promotion.
+- Promotion decision: row15_promoted_projection_expanded_diagnostic_pass_route_to_result_audit
+- Decision reason: M1156 alpha_0_05 keeps M1144 exact delta -0.000378 and passes exact proof old-public replay family-intersection source-diverse fresh/OOD and behavior diagnostics with no training PPO promotion private holdout or actor-input change
 
 ## Hypothesis
 
@@ -73,8 +73,19 @@ The M1154 alpha_0_05 candidate preserves M1144 exact objective and passes expand
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1156-v4-public-base-row15-promoted-projection-family-behavior-run
+- type: gate
+- checkpoint: runs/m1156_row15_promoted_projection_expanded_public_diagnostic/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_projection_expanded_diagnostic_pass_route_to_result_audit
+- reason: M1156 alpha_0_05 keeps M1144 exact delta -0.000378 and passes exact proof old-public replay family-intersection source-diverse fresh/OOD and behavior diagnostics with no training PPO promotion private holdout or actor-input change
 
 ## Next Blocker
 
-m1156-v4-public-base-row15-promoted-projection-family-behavior-run
+m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit

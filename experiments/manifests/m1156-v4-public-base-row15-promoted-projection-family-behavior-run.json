@@ -167,6 +167,45 @@
     "docs/m1155-v4-public-base-row15-promoted-projection-family-behavior-design.md",
     "runs/m1154_row15_promoted_unsafe_margin_projection_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1156-v4-public-base-row15-promoted-projection-family-behavior-run.md",
+    "m1144_exact_summary": "runs/m1156_row15_promoted_projection_m1144_exact_eval/summary.json",
+    "expanded_summary": "runs/m1156_row15_promoted_projection_expanded_public_diagnostic/summary.json",
+    "decision": "row15_promoted_projection_expanded_diagnostic_pass_route_to_result_audit",
+    "result_class": "candidate_b_combined_active_set_full_public_gate_candidate",
+    "failure_types": [
+      "none"
+    ],
+    "m1144_base_exact_loss": 0.417700052,
+    "m1144_candidate_exact_loss": 0.417321652,
+    "m1144_exact_delta": -0.0003784,
+    "actor_inputs_changed": false,
+    "allowed_surface_contract_pass": true,
+    "exact_pass": true,
+    "proof_pass": true,
+    "family_intersection_pass": true,
+    "source_diverse_pass": true,
+    "generalization_pass": true,
+    "behavior_pass": true,
+    "old_public_replay_gates_passed": 6,
+    "old_public_replay_surface_count": 6,
+    "family_intersection_replay_gates_passed": 3,
+    "family_intersection_replay_surface_count": 3,
+    "source_diverse_replay_gates_passed": 3,
+    "source_diverse_replay_surface_count": 3,
+    "fresh_success_delta_max_abs": 0.0,
+    "ood_success_delta_max_abs": 0.0,
+    "behavior_success_delta_max_abs": 0.0,
+    "reset_zero_all_ordering_retained": true,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "admitted_next": "diagnostic_result_audit_or_promotion_audit_design",
+    "next_milestone": "m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit"
+  },
   "decision_rule": "M1156 may only run M1144 exact recheck and expanded public diagnostics. It cannot train actor weights, run PPO, mine rows, promote, use private holdout, change actor inputs, run expanded wrapper after exact failure, or treat diagnostic pass as promotion.",
-  "next_blocker": "m1156-v4-public-base-row15-promoted-projection-family-behavior-run"
+  "next_blocker": "m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit"
 }
