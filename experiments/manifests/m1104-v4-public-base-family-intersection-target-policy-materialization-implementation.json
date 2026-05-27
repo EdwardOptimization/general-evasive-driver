@@ -1,0 +1,181 @@
+{
+  "id": "m1104-v4-public-base-family-intersection-target-policy-materialization-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1103-v4-public-base-family-intersection-target-policy-materialization-design.md",
+      "runs/m1102_family_aggregate_intersection_selector/family_intersection_rows.csv",
+      "runs/m1099_family_aggregate_replay_sanity/cross_family_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1103-v4-public-base-family-intersection-target-policy-materialization-design.json"
+    ],
+    "parent_objective": [
+      "implement and run proof_current target-policy materialization without objective conversion"
+    ],
+    "derived_from": [
+      "m1103-v4-public-base-family-intersection-target-policy-materialization-design"
+    ],
+    "blocked_by": [
+      "M1103 defines materialization contract and blocks objective corpus construction until materialized rows validate"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "mixed-source objective NPZ from family_intersection_rows.csv",
+      "using source-row margins for proof_current objective rows",
+      "running objective sanity before materialized rows validate"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1104-v4-public-base-family-intersection-target-policy-materialization-implementation.md",
+  "public_gates": [
+    "M1104 may implement and run materializer only",
+    "M1104 must target proof_current only",
+    "M1104 must not train",
+    "M1104 must not run PPO",
+    "M1104 must not run replay",
+    "M1104 must not run objective optimization",
+    "M1104 must not mine rows",
+    "M1104 must not promote",
+    "M1104 must not use private holdout",
+    "M1104 must preserve actor inputs",
+    "M1104 must not write objective NPZ"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not write mixed-source objective NPZ",
+    "do not materialize multiple target policies into one file"
+  ],
+  "workflow_synthesis": {
+    "branch": "family_aggregate_boundary_conversion",
+    "evidence_axis": "G_conversion: target-policy materialization implementation",
+    "evidence_increment": "implements proof_current materialized objective-ready rows before corpus build",
+    "claim_scope": "infrastructure/proof preprocessing only; no replay, objective run, training, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if materialized rows fail boundary row validation",
+      "stop if proof_current replay rows are missing",
+      "stop if diversity gate fails"
+    ],
+    "fallback_plan": [
+      "if target materialization fails, route to source-specific corpora design",
+      "if replay rows are missing, repair M1099 artifacts",
+      "if diversity gate fails, do not weaken thresholds"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1103 admits proof_current materializer implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run materializer without replay, training, PPO, or objective optimization",
+    "admission_evidence": [
+      "M1103 defines target-policy field mapping",
+      "M1102 selector keeps 133 all-policy pass rows"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor or residual parameters",
+      "do not run replay",
+      "do not run objective optimization",
+      "do not promote from materialized rows"
+    ],
+    "allowed_updates": [
+      "materializer code",
+      "focused tests",
+      "materialized row artifacts",
+      "milestone documentation",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "proof_current materialized row count is explicit",
+      "boundary row validation is explicit",
+      "diversity gate pass/fail is explicit",
+      "next objective-corpus route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1104 materializes matched-current replay rows and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1104 reads M1102/M1099 artifacts only and adds no new temporal task.",
+    "negative_result_policy": "If materialization fails, classify as metric_artifact or scenario_sampling_failure and route to source-specific corpora or artifact repair.",
+    "allowed_claims": [
+      "materialized row artifact for a level2 replay-calibrated proof surface",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The materializer can emit proof_current objective-ready boundary rows for all 133 M1102 all-policy intersection rows without replay or objective optimization.",
+  "success_criteria": [
+    "materializer implementation exists",
+    "focused tests pass",
+    "proof_current_boundary_rows.csv exists",
+    "proof_current_source_summary.csv exists",
+    "proof_current_target_summary.csv exists",
+    "proof_current_materialization_summary.json exists",
+    "materialized rows pass boundary row validation",
+    "diversity gate result is explicit",
+    "no training, PPO, replay, objective optimization, mining, promotion, private holdout, or objective NPZ occurs"
+  ],
+  "failure_criteria": [
+    "materializer implementation is missing",
+    "proof_current replay rows cannot be joined",
+    "source and target fields are conflated",
+    "boundary row validation is missing",
+    "training, PPO, replay, objective optimization, mining, promotion, private holdout, or objective NPZ starts"
+  ],
+  "commands": [
+    {
+      "name": "implement_and_run_materializer",
+      "command": "edit src/autodrift/family_intersection_target_policy_materialization.py and tests, then run materializer for proof_current"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/family_intersection_target_policy_materialization.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_family_intersection_target_policy_materialization.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m1104_target_policy_materialization/proof_current_materialization_summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1104-v4-public-base-family-intersection-target-policy-materialization-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1103-v4-public-base-family-intersection-target-policy-materialization-design.md",
+    "runs/m1102_family_aggregate_intersection_selector/family_intersection_rows.csv"
+  ],
+  "decision_rule": "M1104 may only implement and run proof_current materialization. It cannot train, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, change actor inputs, or write objective NPZ.",
+  "next_blocker": "m1104-v4-public-base-family-intersection-target-policy-materialization-implementation"
+}

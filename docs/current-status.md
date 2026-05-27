@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1103-v4-public-base-family-intersection-target-policy-materialization-design
+m1104-v4-public-base-family-intersection-target-policy-materialization-implementation
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -258,11 +258,16 @@ steps, max physical-pair fraction `0.150376`, and max source-label fraction
 `0.368421`. Direct objective conversion is still blocked because the kept rows
 retain source checkpoint labels and source-row metrics. The next step is M1103:
 design target-policy materialization so objective-ready rows use one target
-policy's replay-calibrated margins and hidden-state space.
+policy's replay-calibrated margins and hidden-state space. M1103 completes that
+design. The first target is `proof_current`; materialized rows should use
+`proof_current` replay margins/actions for objective fields while preserving
+source metadata under diagnostic fields. The materializer must not replay, train,
+optimize, or write an objective NPZ. The next step is M1104: implement and run
+that proof-current materializer.
 
 ```text
 decision:
-  family_aggregate_intersection_selector_pass_route_to_target_policy_materialization_design
+  target_policy_materialization_design_admit_implementation
 ```
 
 M1068 design:

@@ -15831,3 +15831,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: the selector artifact is ready, but direct objective conversion remains blocked because selected rows still carry source checkpoint labels and source-row metrics
 - decision: `family_aggregate_intersection_selector_pass_route_to_target_policy_materialization_design`
 - next: `m1103-v4-public-base-family-intersection-target-policy-materialization-design`
+
+## 20260527T194903Z - m1103-v4-public-base-family-intersection-target-policy-materialization-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1103-v4-public-base-family-intersection-target-policy-materialization-design.md`
+- result: M1103 designs target-policy materialization for the M1102 intersection rows. The first target is `proof_current`. Objective fields must use `proof_current` replay rows from M1099: `checkpoint_label`, margins, success flags, success-drop flag, and first actions. Source checkpoint labels, source paths, duplicate geometry, and original source metrics are preserved as provenance/diagnostic fields, not objective labels.
+- blocked shortcut: do not feed `family_intersection_rows.csv` directly into `boundary_outcome_corpus_objective`, because that would mix source checkpoint labels and source-row metrics
+- decision: `target_policy_materialization_design_admit_implementation`
+- next: `m1104-v4-public-base-family-intersection-target-policy-materialization-implementation`
