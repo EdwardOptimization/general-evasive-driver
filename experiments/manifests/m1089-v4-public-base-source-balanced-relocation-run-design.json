@@ -134,6 +134,26 @@
     "docs/m1088-v4-public-base-source-balanced-boundary-existing-artifact-smoke.md",
     "runs/m1088_source_balanced_boundary_existing_artifact_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1089-v4-public-base-source-balanced-relocation-run-design.md",
+    "decision": "source_balanced_relocation_design_route_to_runner_implementation",
+    "result_class": "source_balanced_relocation_runner_required",
+    "failure_types": [
+      "none"
+    ],
+    "code_audit": {
+      "existing_artifact_smoke_only": true,
+      "wrong_history_relocation_is_not_source_balanced": true,
+      "implementation_needed_before_run": true
+    },
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1090-v4-public-base-source-balanced-relocation-runner-implementation"
+  },
+  "decision": "source_balanced_relocation_design_route_to_runner_implementation",
   "decision_rule": "M1089 may only design the relocation-time source-balanced proof-surface path. It cannot train, run PPO, promote, use private holdout, convert old six-pair rows, or weaken thresholds.",
-  "next_blocker": "m1089-v4-public-base-source-balanced-relocation-run-design"
+  "next_blocker": "m1090-v4-public-base-source-balanced-relocation-runner-implementation"
 }

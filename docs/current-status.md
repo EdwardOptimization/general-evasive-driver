@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1089-v4-public-base-source-balanced-relocation-run-design
+m1090-v4-public-base-source-balanced-relocation-runner-implementation
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -185,11 +185,14 @@ must be in `guarded_rl` stage with pre/posttrain, exact/proof, and rollback or
 repair admission evidence. M1088 ran the existing-artifact smoke and found that
 the pre-boundary source budget is ready, but the old M1083 accepted boundary
 export remains limited to six physical pairs. The next step is M1089:
-relocation-time source-balanced run design.
+relocation-time source-balanced run design. M1089 completed that design and
+found that existing code cannot yet feed source-balanced selected candidates
+into relocation replay; the next step is M1090 runner implementation before
+any new surface run.
 
 ```text
 decision:
-  source_balanced_existing_artifact_smoke_export_limited_route_to_relocation_run_design
+  source_balanced_relocation_design_route_to_runner_implementation
 ```
 
 M1068 design:
@@ -665,6 +668,21 @@ full_new_mining_run: false
 promoted: false
 private_holdout_used: false
 next: m1089-v4-public-base-source-balanced-relocation-run-design
+```
+
+M1089 result:
+
+```text
+result_class: source_balanced_relocation_runner_required
+existing_artifact_smoke_only: true
+wrong_history_relocation_is_not_source_balanced: true
+implementation_needed_before_run: true
+decision: source_balanced_relocation_design_route_to_runner_implementation
+training_started: false
+ppo_used: false
+promoted: false
+private_holdout_used: false
+next: m1090-v4-public-base-source-balanced-relocation-runner-implementation
 ```
 
 M1058 result:
