@@ -134,6 +134,34 @@
   "baseline_artifacts": [
     "docs/m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1077-v4-public-base-medium-ppo-readiness-synthesis.md",
+    "decision": "medium_ppo_readiness_synthesis_promote_to_contract_clean_projection_promotion",
+    "result_class": "medium_ppo_readiness_synthesis_promote_to_next_branch",
+    "failure_types": [
+      "none"
+    ],
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "expanded_gate_medium_ppo_readiness",
+    "opened_branch": "contract_clean_projection_promotion",
+    "supported_claims": [
+      "expanded proof stack catches M1069 self-ID proof washout that broad gates miss",
+      "failed-row projection can repair the washout into a contract-clean full-gate candidate",
+      "M1076 is public-gate proof hardening but not a medium-PPO performance claim"
+    ],
+    "falsified_claims": [
+      "current 8192-step PPO recipe can be repeated or lengthened directly",
+      "broad fresh/OOD and behavior gates are sufficient for self-ID evidence",
+      "M1074 line candidate is contract clean"
+    ],
+    "ppo_used": false,
+    "training_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1078-v4-public-base-contract-clean-projection-promotion-audit"
+  },
+  "decision": "medium_ppo_readiness_synthesis_promote_to_contract_clean_projection_promotion",
   "decision_rule": "M1077 may only synthesize M1068-M1076 and choose the next branch. It cannot train, run PPO, promote, or use private holdout.",
-  "next_blocker": "m1077-v4-public-base-medium-ppo-readiness-synthesis"
+  "next_blocker": "m1078-v4-public-base-contract-clean-projection-promotion-audit"
 }

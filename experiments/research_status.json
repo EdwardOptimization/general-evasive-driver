@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1085,
+    "completed": 1086,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate",
+    "task_id": "m1077-v4-public-base-medium-ppo-readiness-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate.md"
+    "command_log": "docs/m1077-v4-public-base-medium-ppo-readiness-synthesis.md"
   },
   "next_task": {
-    "id": "m1077-v4-public-base-medium-ppo-readiness-synthesis",
+    "id": "m1078-v4-public-base-contract-clean-projection-promotion-audit",
     "status": "pending",
-    "priority": 10720,
+    "priority": 10730,
     "kind": "gate",
-    "hypothesis": "Synthesize M1068-M1076 expanded-gate medium PPO readiness evidence before opening a separate promotion-audit branch",
-    "command": "see experiments/manifests/m1077-v4-public-base-medium-ppo-readiness-synthesis.json",
-    "success_artifact": "docs/m1077-v4-public-base-medium-ppo-readiness-synthesis.md",
-    "notes": "Pending: branch synthesis only; no PPO no actor training no promotion no private holdout"
+    "hypothesis": "Audit whether the M1076 contract-clean projection checkpoint should become the next public-gate base as proof hardening",
+    "command": "see experiments/manifests/m1078-v4-public-base-contract-clean-projection-promotion-audit.json",
+    "success_artifact": "docs/m1078-v4-public-base-contract-clean-projection-promotion-audit.md",
+    "notes": "Pending: public-gate promotion audit only; no PPO no actor training no private holdout no medium-PPO performance claim"
   },
-  "updated_at_utc": "20260527T101827Z"
+  "updated_at_utc": "20260527T105342Z"
 }

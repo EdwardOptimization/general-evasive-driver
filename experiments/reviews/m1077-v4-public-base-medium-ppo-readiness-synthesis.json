@@ -1,0 +1,98 @@
+{
+  "decision_reason": "M1077 synthesizes M1068-M1076 and opens a separate contract-clean projection promotion branch while rejecting any medium-PPO performance claim",
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "synthesis questions are unanswered",
+    "training or PPO starts",
+    "checkpoint is promoted",
+    "private holdout is used",
+    "medium-PPO performance improvement is claimed from M1076"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not claim medium-PPO performance improvement",
+    "do not open another narrow milestone before this synthesis is complete"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T105617Z",
+  "hypothesis": "M1068-M1076 evidence supports closing expanded_gate_medium_ppo_readiness and opening a separate contract-clean projection public-base promotion audit branch.",
+  "lineage": {
+    "blocked_by": [
+      "workflow synthesis cadence triggered after M1076; validator blocks another narrow milestone in expanded_gate_medium_ppo_readiness"
+    ],
+    "derived_from": [
+      "m1068-v4-public-base-expanded-gate-medium-ppo-design",
+      "m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate"
+    ],
+    "invalidates": [
+      "opening a promotion audit before synthesizing M1068-M1076",
+      "treating M1069 medium PPO as solved because M1076 projection passed",
+      "claiming performance gain from a proof-hardening projection"
+    ],
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1068-v4-public-base-expanded-gate-medium-ppo-design.json",
+      "experiments/manifests/m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate.json"
+    ],
+    "parent_dataset": [
+      "docs/m1068-v4-public-base-expanded-gate-medium-ppo-design.md",
+      "docs/m1069-v4-public-base-expanded-gate-medium-ppo-smoke.md",
+      "docs/m1070-v4-public-base-medium-ppo-proof-washout-audit.md",
+      "docs/m1071-v4-public-base-medium-ppo-repair-projection-design.md",
+      "docs/m1072-v4-public-base-medium-ppo-failed-row-projection-corpus-export.md",
+      "docs/m1073-v4-public-base-medium-ppo-failed-row-repair-projection-probe.md",
+      "docs/m1074-v4-public-base-medium-ppo-repair-projection-full-public-gate.md",
+      "docs/m1075-v4-public-base-medium-ppo-contract-clean-candidate-audit.md",
+      "docs/m1076-v4-public-base-medium-ppo-contract-clean-full-public-gate.md"
+    ],
+    "parent_objective": [
+      "synthesize expanded-gate medium PPO readiness evidence before opening a promotion-audit branch"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1077-v4-public-base-medium-ppo-readiness-synthesis",
+  "next_blocker": "m1078-v4-public-base-contract-clean-projection-promotion-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "medium_ppo_readiness_synthesis_promote_to_contract_clean_projection_promotion",
+  "public_gates": [
+    "M1077 must synthesize the expanded_gate_medium_ppo_readiness branch",
+    "M1077 must not train",
+    "M1077 must not run PPO",
+    "M1077 must not promote",
+    "M1077 must not use private holdout",
+    "M1077 must explicitly decide whether to continue, pivot, stop, or promote_to_next_branch"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1077-v4-public-base-medium-ppo-readiness-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "medium_ppo_readiness_synthesis_promote_to_contract_clean_projection_promotion",
+    "milestone": "m1077-v4-public-base-medium-ppo-readiness-synthesis",
+    "reason": "M1077 synthesizes M1068-M1076 and opens a separate contract-clean projection promotion branch while rejecting any medium-PPO performance claim",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "synthesis artifact exists",
+    "evidence summary covers M1068-M1076",
+    "supported and falsified claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is discussed",
+    "next branch decision is explicit",
+    "no training, PPO, promotion, or private holdout occurs"
+  ],
+  "type": "gate"
+}

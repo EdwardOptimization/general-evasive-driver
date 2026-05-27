@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1077-v4-public-base-medium-ppo-readiness-synthesis
+m1078-v4-public-base-contract-clean-projection-promotion-audit
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -149,12 +149,14 @@ candidate. Exact, allowed-surface contract, old public replay,
 family-intersection, source-diverse, fresh/OOD, and behavior gates all passed.
 The candidate is best described as proof-base hardening rather than
 medium-PPO performance improvement. The workflow synthesis cadence has fired,
-so the next step is M1077: synthesize M1068-M1076 before opening a separate
-promotion-audit branch.
+so M1077 synthesized M1068-M1076, closed
+`expanded_gate_medium_ppo_readiness`, and opened
+`contract_clean_projection_promotion`. The next step is M1078: a scoped
+public-gate promotion audit for the M1076 candidate.
 
 ```text
 decision:
-  medium_ppo_contract_clean_full_public_gate_pass_route_to_readiness_synthesis
+  medium_ppo_readiness_synthesis_promote_to_contract_clean_projection_promotion
 ```
 
 M1068 design:
@@ -417,6 +419,22 @@ actor_training_started: false
 promoted: false
 private_holdout_used: false
 next: m1077-v4-public-base-medium-ppo-readiness-synthesis
+```
+
+M1077 result:
+
+```text
+result_class: medium_ppo_readiness_synthesis_promote_to_next_branch
+synthesis_decision: promote_to_next_branch
+closed_branch: expanded_gate_medium_ppo_readiness
+opened_branch: contract_clean_projection_promotion
+supported: expanded proof stack catches PPO self-ID proof washout; failed-row projection can produce a contract-clean full-gate candidate
+falsified: current 8192-step PPO recipe can be repeated directly; broad gates alone are sufficient; M1076 proves medium-PPO performance lift
+ppo_used: false
+training_started: false
+promoted: false
+private_holdout_used: false
+next: m1078-v4-public-base-contract-clean-projection-promotion-audit
 ```
 
 M1058 result:
