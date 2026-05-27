@@ -102,6 +102,39 @@
   "baseline_artifacts": [
     "docs/m1058-v4-public-base-post-short-promotion-compact-corpus-conversion.md"
   ],
-  "decision_rule": "M1059 must classify the conversion replay failure and route to a repair design; it cannot train, run PPO, promote, or use private holdout.",
-  "next_blocker": "m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit.md",
+    "decision": "post_short_promotion_conversion_replay_failure_route_to_family_intersection_design",
+    "result_class": "post_short_promotion_conversion_replay_failure_audit",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "failure_subtype": "family_intersection_replay_filter_missing",
+    "failed_rows": [
+      {
+        "row_id": 0,
+        "physical_pair_key": "105426:15:105438:42",
+        "wrong_history_margin": 0.00008620155149818842
+      },
+      {
+        "row_id": 1,
+        "physical_pair_key": "105426:15:105438:39",
+        "wrong_history_margin": 0.00025854693214055757
+      },
+      {
+        "row_id": 21,
+        "physical_pair_key": "105422:3:105441:3",
+        "wrong_history_margin": 0.00011421543272183143
+      }
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "promoted": false,
+    "next_milestone": "m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design"
+  },
+  "decision": "post_short_promotion_conversion_replay_failure_route_to_family_intersection_design",
+  "decision_rule": "M1059 audits the M1058 replay failure as missing family-intersection replay filtering and routes to a family-intersection corpus design before any gate integration or PPO.",
+  "next_blocker": "m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design"
 }

@@ -1,0 +1,107 @@
+{
+  "id": "m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit.md",
+      "runs/m1058_short61049_replay_sanity_seed10570/boundary_replay_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit.json"
+    ],
+    "parent_objective": [
+      "design family-intersection replay-calibrated compact corpus conversion after M1058 replay failure"
+    ],
+    "derived_from": [
+      "m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit"
+    ],
+    "blocked_by": [
+      "M1058 compact corpus conversion loses three success-drop rows under short61050 candidate replay"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "using current-checkpoint-only compact rows as a family-wide gate"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design.md",
+  "public_gates": [
+    "M1060 must design only",
+    "M1060 must not train or run PPO",
+    "M1060 must preserve actor inputs",
+    "M1060 must require family-intersection replay filtering before compact conversion",
+    "M1060 must specify minimum rows physical pairs and targets after filtering"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not promote",
+    "do not use private holdout",
+    "do not accept current-base-only rows as family-wide proof rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "post_short_promotion_surface_refresh",
+    "evidence_axis": "G_surface: family-intersection corpus design",
+    "evidence_increment": "designs replay-calibrated family-intersection filtering after M1058 replay failure",
+    "claim_scope": "design only; no filtering run, no training, no PPO, no promotion",
+    "stop_condition": [
+      "stop if family-intersection criteria would remove source diversity below thresholds",
+      "stop if wrong-history margin floor is arbitrary or unregistered",
+      "stop if design would skip replay sanity"
+    ],
+    "fallback_plan": [
+      "if design is clear, route to family-intersection corpus implementation",
+      "if family-intersection is sparse, route to retargeted mining",
+      "if failed rows indicate model-family inconsistency, route to source-family split audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1059 routes replay failure to family-intersection design",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A replay-calibrated family-intersection selector can remove near-zero wrong-history positive rows while preserving enough source diversity for compact corpus conversion.",
+  "success_criteria": [
+    "design artifact exists",
+    "family-intersection policy set is explicit",
+    "row filter criteria are explicit",
+    "minimum corpus diversity thresholds are explicit",
+    "objective and replay sanity requirements are explicit",
+    "no training or PPO occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "family-intersection criteria are ambiguous",
+    "PPO starts",
+    "private holdout is used",
+    "actor inputs change"
+  ],
+  "commands": [
+    {
+      "name": "write_design",
+      "command": "write docs/m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit.md"
+  ],
+  "decision_rule": "M1060 must design family-intersection compact corpus filtering and cannot train, run PPO, promote, or use private holdout.",
+  "next_blocker": "m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design"
+}

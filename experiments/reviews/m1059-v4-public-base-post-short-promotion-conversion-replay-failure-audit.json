@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M1059 audits M1058 replay failure as missing family-intersection replay filtering with three near-zero wrong-history successes",
+  "failure_criteria": [
+    "audit artifact is missing",
+    "failed rows are not inspected",
+    "next route is ambiguous",
+    "training or PPO starts",
+    "private holdout is used"
+  ],
+  "failure_types": [
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not accept M1058 corpus as a gate without replay repair"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T045206Z",
+  "hypothesis": "The M1058 replay failure is likely caused by near-zero wrong-history margins in a few compact rows, and should be audited before any row filter or family-intersection conversion is attempted.",
+  "lineage": {
+    "blocked_by": [
+      "M1058 short61049 corpus loses three success-drop rows when replayed with short61050"
+    ],
+    "derived_from": [
+      "m1058-v4-public-base-post-short-promotion-compact-corpus-conversion"
+    ],
+    "invalidates": [
+      "integrating the M1058 compact corpus as a gate without replay failure audit"
+    ],
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1058-v4-public-base-post-short-promotion-compact-corpus-conversion.json"
+    ],
+    "parent_dataset": [
+      "docs/m1058-v4-public-base-post-short-promotion-compact-corpus-conversion.md",
+      "runs/m1058_post_short_promotion_compact_conversion_summary/summary.json",
+      "runs/m1058_short61049_replay_sanity_seed10570/boundary_replay_rows.csv"
+    ],
+    "parent_objective": [
+      "audit why objective-passing compact corpus loses three cross-family replay success drops"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit",
+  "next_blocker": "m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "post_short_promotion_conversion_replay_failure_route_to_family_intersection_design",
+  "public_gates": [
+    "M1059 must not train or run PPO",
+    "M1059 must not promote",
+    "M1059 must inspect failed replay rows",
+    "M1059 must classify current-base-only versus family-wide corpus mismatch",
+    "M1059 must decide the next route before another conversion attempt"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "post_short_promotion_conversion_replay_failure_route_to_family_intersection_design",
+    "milestone": "m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit",
+    "reason": "M1059 audits M1058 replay failure as missing family-intersection replay filtering with three near-zero wrong-history successes",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "audit artifact exists",
+    "failed rows are listed",
+    "failure type is explicit",
+    "next route is explicit",
+    "no training PPO promotion or private holdout occurs"
+  ],
+  "type": "gate"
+}

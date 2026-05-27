@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1059-v4-public-base-post-short-promotion-conversion-replay-failure-audit
+m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -96,11 +96,12 @@ next step is compact objective/replay corpus conversion. M1057 designed that
 conversion using the M1056 `0.005m` accepted rows and cross-family replay
 sanity. M1058 objective conversion succeeded for all three short-PPO family
 checkpoints, but one cross-family replay sanity gate failed by losing three
-success-drop rows, so the corpus is not gate-ready yet.
+success-drop rows. M1059 audited this as a missing family-intersection
+replay-calibration filter, so the corpus is not gate-ready yet.
 
 ```text
 decision:
-  post_short_promotion_compact_corpus_conversion_replay_failure_route_to_audit
+  post_short_promotion_conversion_replay_failure_route_to_family_intersection_design
 ```
 
 M1058 result:
@@ -113,6 +114,14 @@ targets per corpus: 3
 replay_pass_count: 2 / 3
 failed replay: short61049_to_61050
 success_drop_count: 27 -> 24
+```
+
+M1059 failed rows:
+
+```text
+row 0 wrong_history_margin: +0.000086
+row 1 wrong_history_margin: +0.000259
+row 21 wrong_history_margin: +0.000114
 ```
 
 M1055 result:
