@@ -74,17 +74,17 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1061 resolves the family-intersection corpus blocker after eight branch milestones",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1062-v4-public-base-post-short-promotion-surface-refresh-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
-  "synthesis_artifact": "docs/m1062-v4-public-base-post-short-promotion-surface-refresh-synthesis.md",
-  "synthesis_questions": [
-    "evidence_summary",
-    "supported_claims",
-    "falsified_claims",
-    "failure_taxonomy_summary",
-    "public_gate_overfit_risk",
-    "next_branch_decision"
-  ],
   "hypothesis": "M1054-M1061 now contain enough refreshed family-intersection proof evidence to close the surface-refresh branch and route to public-gate integration before any medium PPO escalation.",
   "success_criteria": [
     "synthesis artifact exists",

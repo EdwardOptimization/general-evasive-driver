@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1070,
+    "completed": 1071,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1061-v4-public-base-post-short-promotion-family-intersection-corpus",
+    "task_id": "m1062-v4-public-base-post-short-promotion-surface-refresh-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1061-v4-public-base-post-short-promotion-family-intersection-corpus.md"
+    "command_log": "docs/m1062-v4-public-base-post-short-promotion-surface-refresh-synthesis.md"
   },
   "next_task": {
-    "id": "m1062-v4-public-base-post-short-promotion-surface-refresh-synthesis",
+    "id": "m1063-v4-public-base-family-intersection-gate-integration-design",
     "status": "pending",
-    "priority": 10570,
+    "priority": 10580,
     "kind": "gate",
-    "hypothesis": "Synthesize M1054-M1061 post-short-promotion surface refresh evidence before adding another narrow step or medium PPO",
-    "command": "see experiments/manifests/m1062-v4-public-base-post-short-promotion-surface-refresh-synthesis.json",
-    "success_artifact": "docs/m1062-v4-public-base-post-short-promotion-surface-refresh-synthesis.md",
-    "notes": "Pending: process synthesis only; no PPO no actor training no promotion no private holdout"
+    "hypothesis": "Design first-class public gate integration for the M1061 family-intersection corpus before medium PPO",
+    "command": "see experiments/manifests/m1063-v4-public-base-family-intersection-gate-integration-design.json",
+    "success_artifact": "docs/m1063-v4-public-base-family-intersection-gate-integration-design.md",
+    "notes": "Pending: gate integration design only; no PPO no actor training no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T054438Z"
+  "updated_at_utc": "20260527T060050Z"
 }

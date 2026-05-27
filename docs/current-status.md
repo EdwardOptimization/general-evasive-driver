@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1062-v4-public-base-post-short-promotion-surface-refresh-synthesis
+m1063-v4-public-base-family-intersection-gate-integration-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -101,11 +101,13 @@ replay-calibration filter. M1060 designed a deterministic family-intersection
 selector. M1061 implemented that selector, filtered the surface to all-family
 success-drop rows, and passed objective plus six cross-family replay sanity
 gates. The next step is to synthesize M1054-M1061 before adding another narrow
-surface-refresh step or moving toward medium PPO.
+surface-refresh step or moving toward medium PPO. M1062 synthesized M1054-M1061,
+closed the `post_short_promotion_surface_refresh` branch, and routed to
+first-class public gate integration for the M1061 family-intersection corpus.
 
 ```text
 decision:
-  post_short_promotion_family_intersection_corpus_pass_route_to_synthesis
+  post_short_promotion_surface_refresh_synthesis_promote_to_family_gate_integration
 ```
 
 M1061 result:
@@ -122,6 +124,15 @@ training_started: false
 ppo_used: false
 promoted: false
 private_holdout_used: false
+```
+
+M1062 result:
+
+```text
+closed_branch: post_short_promotion_surface_refresh
+opened_branch: post_short_promotion_family_gate_integration
+next: m1063-v4-public-base-family-intersection-gate-integration-design
+scope: gate integration design only before medium PPO
 ```
 
 M1058 result:
