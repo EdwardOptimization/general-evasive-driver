@@ -42,26 +42,27 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt
+runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt
 ```
 
-Status: M1052 promoted the M1049 4096-step guarded PPO checkpoint as the
-current public-gate base after M1049/M1050 produced three 4096-step public-gate
-passes and M1051 synthesized the evidence. This is a public-gate base
-promotion only; private holdout, medium/long PPO stability, paper-level
-generalization, and real-vehicle claims remain blocked.
+Status: M1078 promoted the M1076 contract-clean projection checkpoint as the
+current public-gate base after M1076 passed exact, old public replay, M1061
+family-intersection, source-diverse, fresh/OOD, and behavior gates. This is a
+proof-hardening public-gate promotion only; it is not a medium-PPO performance
+claim. Private holdout, medium/long PPO stability, paper-level generalization,
+and real-vehicle claims remain blocked.
 
 Previous public-gate base:
 
 ```text
-runs/ppo_m1044_combined_active_set_guarded_smoke_seed61044/checkpoint.pt
+runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt
 ```
 
-Status: M1045 promoted the M1044 raw guarded PPO checkpoint as the current
-public-gate base after finite 1024-step PPO training and full public
-exact/proof/source-diverse/fresh/OOD/behavior gates passed. M1052 supersedes it
-with the M1049 4096-step guarded PPO candidate. The M1038 combined active-set
-candidate, Candidate B, M974, M964 alpha `1.0`, and M399 alpha `0.05` remain
+Status: M1052 promoted the M1049 4096-step guarded PPO checkpoint as the
+previous public-gate base after M1049/M1050 produced three 4096-step
+public-gate passes and M1051 synthesized the evidence. M1078 supersedes it with
+the M1076 contract-clean projection candidate. M1044, M1038 combined
+active-set, Candidate B, M974, M964 alpha `1.0`, and M399 alpha `0.05` remain
 older lineage points.
 
 Latest active diagnostic BC checkpoint:
@@ -77,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1078-v4-public-base-contract-clean-projection-promotion-audit
+m1079-v4-public-base-contract-clean-post-promotion-synthesis
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -151,12 +152,13 @@ The candidate is best described as proof-base hardening rather than
 medium-PPO performance improvement. The workflow synthesis cadence has fired,
 so M1077 synthesized M1068-M1076, closed
 `expanded_gate_medium_ppo_readiness`, and opened
-`contract_clean_projection_promotion`. The next step is M1078: a scoped
-public-gate promotion audit for the M1076 candidate.
+`contract_clean_projection_promotion`. M1078 promoted the M1076 candidate as
+the current public-gate base, scoped strictly to proof-base hardening. The next
+step is M1079: post-promotion synthesis and next-branch selection.
 
 ```text
 decision:
-  medium_ppo_readiness_synthesis_promote_to_contract_clean_projection_promotion
+  contract_clean_projection_promote_public_gate_base
 ```
 
 M1068 design:
@@ -435,6 +437,23 @@ training_started: false
 promoted: false
 private_holdout_used: false
 next: m1078-v4-public-base-contract-clean-projection-promotion-audit
+```
+
+M1078 result:
+
+```text
+result_class: contract_clean_projection_promoted_public_gate_base
+new_public_gate_base: runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt
+previous_public_gate_base: runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt
+scope: public_gate_base_only proof_hardening
+medium_ppo_performance_claim: false
+long_run_ppo_stability_claim: false
+paper_level_generalization_claim: false
+training_started: false
+ppo_used: false
+promoted: true
+private_holdout_used: false
+next: m1079-v4-public-base-contract-clean-post-promotion-synthesis
 ```
 
 M1058 result:
