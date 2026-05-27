@@ -1,0 +1,107 @@
+{
+  "id": "m1067-v4-public-base-family-gate-propagation-audit",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.md",
+      "runs/m1065_expanded_stack_family_intersection_preflight/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.json"
+    ],
+    "parent_objective": [
+      "audit and fix propagation of family_intersection_pass from the full public gate into the guarded PPO wrapper"
+    ],
+    "derived_from": [
+      "m1066-v4-public-base-pre-medium-ppo-readiness-synthesis"
+    ],
+    "blocked_by": [
+      "Medium PPO design must wait until the guarded PPO wrapper itself blocks M1061 family-intersection proof washout"
+    ],
+    "supersedes": [
+      "m1067-v4-public-base-expanded-gate-medium-ppo-design"
+    ],
+    "invalidates": [
+      "treating M1065 stack integration as complete if combined_active_set_guarded_ppo_smoke ignores family_intersection_pass"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1067-v4-public-base-family-gate-propagation-audit.md",
+  "public_gates": [
+    "M1067 must not run PPO",
+    "M1067 must not train actor",
+    "M1067 must not promote",
+    "M1067 must not use private holdout",
+    "M1067 must ensure family_intersection_pass affects guarded PPO result_class",
+    "M1067 must classify family-intersection failure as proof_washout"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train actor",
+    "do not promote",
+    "do not use private holdout",
+    "do not proceed to medium PPO design while family_intersection_pass is not propagated"
+  ],
+  "workflow_synthesis": {
+    "branch": "expanded_gate_medium_ppo_readiness",
+    "evidence_axis": "G_gate: guarded PPO wrapper proof propagation",
+    "evidence_increment": "fixes the result propagation gap so M1061 family-intersection failures block future guarded PPO candidates",
+    "claim_scope": "infrastructure/proof propagation only; no PPO, no actor training, no promotion, no medium-run claim",
+    "stop_condition": [
+      "stop if family_intersection_pass cannot be propagated without broad refactor",
+      "stop if propagation tests fail",
+      "stop if actor-input contract changes"
+    ],
+    "fallback_plan": [
+      "if propagation passes, route back to conservative medium PPO design",
+      "if propagation fails, route to stack integration audit",
+      "if full gate API becomes too broad, keep family gate as a manifest-level hard gate"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1067 pre-design audit discovered family gate pass was not used by the guarded PPO wrapper classifier",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "Propagating family_intersection_pass into combined_active_set_guarded_ppo_smoke will make future guarded PPO candidates fail as proof_washout when the refreshed M1061 proof surface regresses.",
+  "success_criteria": [
+    "combined_active_set_guarded_ppo_smoke exposes family_intersection_pass",
+    "combined_active_set_guarded_ppo_smoke includes family_intersection_pass in proof_pass",
+    "family_intersection_pass false classifies as public replay washout / proof_washout",
+    "focused tests pass",
+    "no PPO actor training promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "family_intersection_pass is still ignored by guarded PPO classification",
+    "focused tests fail",
+    "PPO or actor training starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "fix_and_test_propagation",
+      "command": "patch combined_active_set_guarded_ppo_smoke family_intersection_pass propagation and run focused tests"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1067-v4-public-base-family-gate-propagation-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.md",
+    "runs/m1065_expanded_stack_family_intersection_preflight/summary.json"
+  ],
+  "decision_rule": "M1067 may only fix and validate family gate propagation. It cannot run PPO, train actor, promote, or use private holdout.",
+  "next_blocker": "m1067-v4-public-base-family-gate-propagation-audit"
+}

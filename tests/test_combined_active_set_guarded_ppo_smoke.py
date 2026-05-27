@@ -14,6 +14,7 @@ def test_classify_combined_active_set_guarded_ppo_orders_failures() -> None:
             training_metrics_finite=True,
             exact_pass=True,
             proof_pass=True,
+            family_intersection_pass=True,
             source_diverse_pass=True,
             generalization_pass=True,
             behavior_pass=True,
@@ -29,6 +30,7 @@ def test_classify_combined_active_set_guarded_ppo_orders_failures() -> None:
             training_metrics_finite=False,
             exact_pass=False,
             proof_pass=False,
+            family_intersection_pass=False,
             source_diverse_pass=False,
             generalization_pass=False,
             behavior_pass=False,
@@ -44,6 +46,7 @@ def test_classify_combined_active_set_guarded_ppo_orders_failures() -> None:
             training_metrics_finite=True,
             exact_pass=False,
             proof_pass=True,
+            family_intersection_pass=True,
             source_diverse_pass=True,
             generalization_pass=True,
             behavior_pass=True,
@@ -59,6 +62,7 @@ def test_classify_combined_active_set_guarded_ppo_orders_failures() -> None:
             training_metrics_finite=True,
             exact_pass=True,
             proof_pass=True,
+            family_intersection_pass=True,
             source_diverse_pass=False,
             generalization_pass=True,
             behavior_pass=True,
@@ -66,6 +70,22 @@ def test_classify_combined_active_set_guarded_ppo_orders_failures() -> None:
             private_holdout_used=False,
         )
         == "combined_active_set_guarded_ppo_source_diagnostic_failed"
+    )
+    assert (
+        classify_combined_active_set_guarded_ppo(
+            actor_inputs_changed=False,
+            ppo_returncode=0,
+            training_metrics_finite=True,
+            exact_pass=True,
+            proof_pass=True,
+            family_intersection_pass=False,
+            source_diverse_pass=True,
+            generalization_pass=True,
+            behavior_pass=True,
+            promoted=False,
+            private_holdout_used=False,
+        )
+        == "combined_active_set_guarded_ppo_public_replay_washout"
     )
 
 

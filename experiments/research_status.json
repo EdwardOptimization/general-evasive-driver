@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1075,
+    "completed": 1076,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1066-v4-public-base-pre-medium-ppo-readiness-synthesis",
+    "task_id": "m1067-v4-public-base-family-gate-propagation-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.md"
+    "command_log": "docs/m1067-v4-public-base-family-gate-propagation-audit.md"
   },
   "next_task": {
-    "id": "m1067-v4-public-base-expanded-gate-medium-ppo-design",
+    "id": "m1068-v4-public-base-expanded-gate-medium-ppo-design",
     "status": "pending",
-    "priority": 10620,
+    "priority": 10630,
     "kind": "gate",
     "hypothesis": "Design conservative medium PPO escalation under expanded public proof gates",
-    "command": "see experiments/manifests/m1067-v4-public-base-expanded-gate-medium-ppo-design.json",
-    "success_artifact": "docs/m1067-v4-public-base-expanded-gate-medium-ppo-design.md",
+    "command": "see experiments/manifests/m1068-v4-public-base-expanded-gate-medium-ppo-design.json",
+    "success_artifact": "docs/m1068-v4-public-base-expanded-gate-medium-ppo-design.md",
     "notes": "Pending: design only; no PPO no actor training no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T065117Z"
+  "updated_at_utc": "20260527T065857Z"
 }

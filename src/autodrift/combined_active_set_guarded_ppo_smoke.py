@@ -55,6 +55,7 @@ def classify_combined_active_set_guarded_ppo(
     training_metrics_finite: bool,
     exact_pass: bool,
     proof_pass: bool,
+    family_intersection_pass: bool = True,
     source_diverse_pass: bool,
     generalization_pass: bool,
     behavior_pass: bool,
@@ -67,7 +68,7 @@ def classify_combined_active_set_guarded_ppo(
         return "combined_active_set_guarded_ppo_training_instability"
     if not bool(exact_pass):
         return "combined_active_set_guarded_ppo_exact_retention_regression"
-    if not bool(proof_pass):
+    if not bool(proof_pass) or not bool(family_intersection_pass):
         return "combined_active_set_guarded_ppo_public_replay_washout"
     if not bool(source_diverse_pass):
         return "combined_active_set_guarded_ppo_source_diagnostic_failed"
@@ -134,6 +135,7 @@ def _route_decision_row(summary: dict[str, Any]) -> dict[str, Any]:
         "training_metrics_finite": bool(summary["training_metrics_finite"]),
         "exact_pass": bool(summary["exact_pass"]),
         "proof_pass": bool(summary["proof_pass"]),
+        "family_intersection_pass": bool(summary["family_intersection_pass"]),
         "source_diverse_pass": bool(summary["source_diverse_pass"]),
         "generalization_pass": bool(summary["generalization_pass"]),
         "behavior_pass": bool(summary["behavior_pass"]),
@@ -181,6 +183,8 @@ def run_combined_active_set_guarded_ppo_smoke(
     actor_inputs_changed = False
     exact_pass = False
     proof_pass = False
+    public_replay_pass = False
+    family_intersection_pass = False
     source_diverse_pass = False
     generalization_pass = False
     behavior_pass = False
@@ -213,6 +217,7 @@ def run_combined_active_set_guarded_ppo_smoke(
         )
         _copy_if_exists(Path(gate_summary["exact_contract_summary_csv"]), run_dir / "exact_contract_summary.csv")
         _copy_if_exists(Path(gate_summary["proof_replay_summary_csv"]), run_dir / "proof_replay_summary.csv")
+        _copy_if_exists(Path(gate_summary["family_intersection_summary_json"]), run_dir / "family_intersection_summary.json")
         _copy_if_exists(Path(gate_summary["source_diverse_summary_json"]), run_dir / "source_diverse_summary.json")
         _copy_if_exists(Path(gate_summary["fresh_randomized_eval_summary_csv"]), run_dir / "fresh_randomized_eval_summary.csv")
         _copy_if_exists(Path(gate_summary["ood_eval_summary_csv"]), run_dir / "ood_eval_summary.csv")
@@ -220,7 +225,9 @@ def run_combined_active_set_guarded_ppo_smoke(
         _copy_if_exists(Path(gate_summary["behavior_summary_csv"]), run_dir / "behavior_summary.csv")
         _copy_if_exists(Path(gate_summary["behavior_comparison_csv"]), run_dir / "behavior_comparison.csv")
         exact_pass = bool(gate_summary.get("exact_pass", False))
-        proof_pass = bool(gate_summary.get("proof_pass", False))
+        public_replay_pass = bool(gate_summary.get("proof_pass", False))
+        family_intersection_pass = bool(gate_summary.get("family_intersection_pass", False))
+        proof_pass = bool(public_replay_pass and family_intersection_pass)
         source_diverse_pass = bool(gate_summary.get("source_diverse_pass", False))
         generalization_pass = bool(gate_summary.get("generalization_pass", False))
         behavior_pass = bool(gate_summary.get("behavior_pass", False))
@@ -231,6 +238,7 @@ def run_combined_active_set_guarded_ppo_smoke(
         training_metrics_finite=training_metrics_finite,
         exact_pass=exact_pass,
         proof_pass=proof_pass,
+        family_intersection_pass=family_intersection_pass,
         source_diverse_pass=source_diverse_pass,
         generalization_pass=generalization_pass,
         behavior_pass=behavior_pass,
@@ -252,6 +260,8 @@ def run_combined_active_set_guarded_ppo_smoke(
         "gate_summary": gate_summary,
         "exact_pass": bool(exact_pass),
         "proof_pass": bool(proof_pass),
+        "public_replay_pass": bool(public_replay_pass),
+        "family_intersection_pass": bool(family_intersection_pass),
         "source_diverse_pass": bool(source_diverse_pass),
         "generalization_pass": bool(generalization_pass),
         "behavior_pass": bool(behavior_pass),
@@ -266,6 +276,7 @@ def run_combined_active_set_guarded_ppo_smoke(
         "next_blocker": next_blocker_for_combined_active_set_guarded_ppo(result_class),
         "exact_contract_summary_csv": run_dir / "exact_contract_summary.csv",
         "proof_replay_summary_csv": run_dir / "proof_replay_summary.csv",
+        "family_intersection_summary_json": run_dir / "family_intersection_summary.json",
         "source_diverse_summary_json": run_dir / "source_diverse_summary.json",
         "fresh_randomized_eval_summary_csv": run_dir / "fresh_randomized_eval_summary.csv",
         "ood_eval_summary_csv": run_dir / "ood_eval_summary.csv",
@@ -317,6 +328,7 @@ def main() -> None:
     print(f"ppo_returncode={summary['ppo_returncode']}")
     print(f"exact_pass={summary['exact_pass']}")
     print(f"proof_pass={summary['proof_pass']}")
+    print(f"family_intersection_pass={summary['family_intersection_pass']}")
     print(f"source_diverse_pass={summary['source_diverse_pass']}")
     print(f"generalization_pass={summary['generalization_pass']}")
     print(f"behavior_pass={summary['behavior_pass']}")

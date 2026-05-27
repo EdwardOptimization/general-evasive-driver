@@ -1,5 +1,5 @@
 {
-  "id": "m1067-v4-public-base-expanded-gate-medium-ppo-design",
+  "id": "m1068-v4-public-base-expanded-gate-medium-ppo-design",
   "type": "gate",
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
@@ -12,32 +12,34 @@
     ],
     "parent_dataset": [
       "docs/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.md",
-      "runs/m1065_expanded_stack_family_intersection_preflight/summary.json"
+      "docs/m1067-v4-public-base-family-gate-propagation-audit.md"
     ],
     "parent_config": [
-      "experiments/manifests/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.json"
+      "experiments/manifests/m1067-v4-public-base-family-gate-propagation-audit.json"
     ],
     "parent_objective": [
       "design conservative medium PPO escalation under expanded public proof gates"
     ],
     "derived_from": [
-      "m1066-v4-public-base-pre-medium-ppo-readiness-synthesis"
+      "m1067-v4-public-base-family-gate-propagation-audit"
     ],
     "blocked_by": [
-      "M1066 admits medium PPO design but not a PPO run"
+      "M1067 fixes family gate propagation and reopens medium PPO design"
     ],
-    "supersedes": [],
+    "supersedes": [
+      "m1067-v4-public-base-expanded-gate-medium-ppo-design"
+    ],
     "invalidates": [
       "running medium PPO without pre-registered expanded gates and rollback rules"
     ]
   },
-  "review_artifact": "docs/reviews/m1067-v4-public-base-expanded-gate-medium-ppo-design.md",
+  "review_artifact": "docs/reviews/m1068-v4-public-base-expanded-gate-medium-ppo-design.md",
   "public_gates": [
-    "M1067 must not run PPO",
-    "M1067 must not train actor",
-    "M1067 must not promote",
-    "M1067 must not use private holdout",
-    "M1067 must design medium PPO with expanded exact proof family-intersection source-diverse fresh/OOD and behavior gates"
+    "M1068 must not run PPO",
+    "M1068 must not train actor",
+    "M1068 must not promote",
+    "M1068 must not use private holdout",
+    "M1068 must design medium PPO with expanded exact proof family-intersection source-diverse fresh/OOD and behavior gates"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -50,7 +52,7 @@
   "workflow_synthesis": {
     "branch": "expanded_gate_medium_ppo_readiness",
     "evidence_axis": "G_training: medium PPO under expanded proof gates",
-    "evidence_increment": "designs the first conservative medium PPO escalation after proof surface refresh and gate integration",
+    "evidence_increment": "designs the first conservative medium PPO escalation after proof surface refresh gate integration and propagation fix",
     "claim_scope": "PPO design only; no PPO, no actor training, no promotion, no medium-run claim",
     "stop_condition": [
       "stop if medium PPO design cannot include expanded proof gates",
@@ -63,7 +65,7 @@
       "if rollback rules are unclear, route to proof gate threshold audit"
     ],
     "synthesis_cadence": 10,
-    "synthesis_trigger": "M1066 admits conservative medium PPO design",
+    "synthesis_trigger": "M1067 restores family gate propagation after M1066 admits conservative medium PPO design",
     "synthesis_decision": "not_applicable"
   },
   "hypothesis": "A conservative medium PPO escalation can be safely pre-registered using the expanded public gate stack before any training run.",
@@ -84,12 +86,12 @@
   "commands": [
     {
       "name": "write_medium_ppo_design",
-      "command": "write docs/m1067-v4-public-base-expanded-gate-medium-ppo-design.md"
+      "command": "write docs/m1068-v4-public-base-expanded-gate-medium-ppo-design.md"
     }
   ],
   "required_artifacts": [
     {
-      "path": "docs/m1067-v4-public-base-expanded-gate-medium-ppo-design.md",
+      "path": "docs/m1068-v4-public-base-expanded-gate-medium-ppo-design.md",
       "type": "md"
     }
   ],
@@ -97,8 +99,9 @@
     "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
   ],
   "baseline_artifacts": [
-    "docs/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.md"
+    "docs/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.md",
+    "docs/m1067-v4-public-base-family-gate-propagation-audit.md"
   ],
-  "decision_rule": "M1067 may only design the conservative medium PPO escalation. It cannot run PPO, train actor, promote, or use private holdout.",
-  "next_blocker": "m1067-v4-public-base-expanded-gate-medium-ppo-design"
+  "decision_rule": "M1068 may only design the conservative medium PPO escalation. It cannot run PPO, train actor, promote, or use private holdout.",
+  "next_blocker": "m1068-v4-public-base-expanded-gate-medium-ppo-design"
 }

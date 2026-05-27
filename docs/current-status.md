@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1067-v4-public-base-expanded-gate-medium-ppo-design
+m1068-v4-public-base-expanded-gate-medium-ppo-design
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -110,11 +110,15 @@ that the current public-gate base passes all three M1061 source-to-candidate
 replay gates. M1065 integrated the wrapper into the full public gate stack and
 validated the new proof tier on the current base without PPO. M1066 synthesized
 the short-PPO promotion, refreshed proof surface, and expanded proof stack, and
-admitted a conservative medium PPO design milestone.
+admitted a conservative medium PPO design milestone. A pre-design audit then
+found that `combined_active_set_guarded_ppo_smoke` needed to propagate
+`family_intersection_pass` from the full public gate into its own proof
+classification before medium PPO design can proceed. M1067 fixed that
+propagation gap.
 
 ```text
 decision:
-  pre_medium_ppo_readiness_synthesis_admit_expanded_gate_medium_ppo_design
+  family_gate_propagation_audit_pass_route_to_medium_ppo_design
 ```
 
 M1061 result:
@@ -186,8 +190,18 @@ closed_branch: post_short_promotion_family_gate_integration
 opened_branch: expanded_gate_medium_ppo_readiness
 medium_ppo_design_admitted: true
 medium_ppo_run_started: false
-required_next_scope: design only, no PPO, no private holdout
-next: m1067-v4-public-base-expanded-gate-medium-ppo-design
+required_next_scope: propagation audit/fix before design
+next: m1067-v4-public-base-family-gate-propagation-audit
+```
+
+M1067 result:
+
+```text
+fixed: combined_active_set_guarded_ppo_smoke now consumes family_intersection_pass
+proof_pass: public_replay_pass && family_intersection_pass
+family gate failure route: public_replay_washout / proof_washout
+focused_tests: 12 passed
+next: m1068-v4-public-base-expanded-gate-medium-ppo-design
 ```
 
 M1058 result:
