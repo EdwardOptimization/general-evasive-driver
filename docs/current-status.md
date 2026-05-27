@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1122-v4-public-base-row15-unsafe-margin-retention-design
+m1123-v4-public-base-row15-unsafe-margin-projection-probe
 ```
 
 M1115 completed the failed wrong-history retention export. It reproduced the
@@ -109,7 +109,14 @@ kept target-base-only trajectory-anchor MSE low (`0.000001498` versus `0.0001`
 threshold). The remaining failure is therefore wrong-history terminal margin
 crossing despite action-anchor coverage. M1122 should design a row15
 unsafe-margin or terminal-margin retention objective before any new update,
-replay escalation, PPO, promotion, or private holdout.
+replay escalation, PPO, promotion, or private holdout. M1122 completed that
+design as a no-training projection probe: interpolate between the current public
+base and M1118 seed `111800`, require a nonzero alpha, and accept it only if
+row15 wrong-history terminal margins stay below
+`min(-0.00025, 0.5 * base_wrong_history_margin)` before running the unchanged
+six-surface first replay for the selected alpha. M1123 should run only this
+projection probe; family replay, full public gate, fresh/OOD, behavior gates,
+PPO, promotion, and private holdout remain blocked.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

@@ -1,0 +1,172 @@
+{
+  "id": "m1123-v4-public-base-row15-unsafe-margin-projection-probe",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/m1118_failed_wrong_history_retention_actor_update_seed111800/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1122-v4-public-base-row15-unsafe-margin-retention-design.md",
+      "runs/m1107_materialized_objective_corpus/boundary_outcome_corpus.npz",
+      "runs/m1115_materialized_failed_wrong_history_retention_export/target_base_rejected_trajectory_anchor.npz",
+      "runs/m1115_materialized_failed_wrong_history_retention_export/combined_target_base_rejected_anchor.npz",
+      "runs/m1120_failed_wrong_history_retention_first_replay/lost_success_drop_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1122-v4-public-base-row15-unsafe-margin-retention-design.json"
+    ],
+    "parent_objective": [
+      "test whether a nonzero interpolation of the M1118 update direction preserves row15 wrong-history unsafe terminal margin"
+    ],
+    "derived_from": [
+      "m1122-v4-public-base-row15-unsafe-margin-retention-design"
+    ],
+    "blocked_by": [
+      "M1122 admits only a no-training row15 unsafe-margin projection probe"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "direct M1118 family-intersection replay",
+      "direct M1118 full public gate",
+      "PPO from m1118_seed111800",
+      "promotion of any M1123 candidate"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1123-v4-public-base-row15-unsafe-margin-projection-probe.md",
+  "public_gates": [
+    "M1123 may create interpolation checkpoints between base and M1118 seed111800",
+    "M1123 may evaluate exact M1107 and row15 unsafe-margin replay",
+    "M1123 may run the six-surface M1120 first replay only for the selected nonzero alpha",
+    "M1123 must not train actor weights",
+    "M1123 must not run PPO",
+    "M1123 must not run family-intersection replay",
+    "M1123 must not run full public gate",
+    "M1123 must not run fresh/OOD or behavior gates",
+    "M1123 must not promote",
+    "M1123 must not use private holdout",
+    "M1123 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run family-intersection replay",
+    "do not run full public gate",
+    "do not run fresh/OOD or behavior gates",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken replay thresholds",
+    "do not select alpha 0.0",
+    "do not retry additional alphas after selected first replay failure without a new manifest"
+  ],
+  "workflow_synthesis": {
+    "branch": "failed_wrong_history_retention_repair",
+    "evidence_axis": "G_projection: row15 unsafe-margin trust region",
+    "evidence_increment": "tests whether the M1118 useful update direction has a nonzero alpha that preserves row15 wrong-history unsafe terminal margin and first replay",
+    "claim_scope": "no-training projection and first replay only; no family-intersection replay, full public gate, PPO, promotion, private holdout, or driver capability claim",
+    "stop_condition": [
+      "stop if no nonzero alpha passes row15 unsafe-margin",
+      "stop if selected alpha fails six-surface first replay",
+      "stop if any candidate violates actor-input or parameter-scope contract"
+    ],
+    "fallback_plan": [
+      "if no alpha passes, route to objective redesign or terminal-margin target export",
+      "if selected alpha passes row15 but fails first replay, route to failure audit",
+      "if selected alpha passes first replay, route to family-intersection replay design only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1122 admits projection probe",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "evaluate no-training interpolation candidates against exact and row15 unsafe-margin gates",
+    "admission_evidence": [
+      "M1122 defines the unsafe-margin projection acceptance rule",
+      "M1118 changed only contract-clean actor-coupling tensors"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run family-intersection replay",
+      "do not promote from projection"
+    ],
+    "allowed_updates": [
+      "projection checkpoints",
+      "exact and replay artifacts",
+      "docs, queue, status, scoreboard, and review artifacts",
+      "minimal projection/audit tooling if existing tooling cannot express the registered probe"
+    ],
+    "next_stage_criteria": [
+      "nonzero alpha selected or no-candidate result is explicit",
+      "row15 unsafe-margin gate result is explicit",
+      "six-surface first replay result is explicit if a nonzero alpha is selected",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1123 evaluates wrong-history proof retention and cannot claim anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1123 reuses existing target-base row15 surfaces and adds no new task distribution.",
+    "negative_result_policy": "If no nonzero alpha passes row15 unsafe-margin, reject the M1118 direction rather than weakening margin thresholds.",
+    "allowed_claims": [
+      "row15 unsafe-margin trust-region evidence for a level2 proof-retention candidate",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A smaller nonzero interpolation of the M1118 direction can preserve row15 wrong-history unsafe terminal margin while retaining exact M1107 objective improvement.",
+  "success_criteria": [
+    "interpolation candidates are generated for the registered alpha set",
+    "selected alpha is nonzero",
+    "selected alpha passes contract and exact gates",
+    "selected alpha passes row15 unsafe-margin gate for all five row15 variants",
+    "selected alpha passes the six-surface M1120 first replay if selected",
+    "no actor training, PPO, family-intersection replay, full public gate, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "no nonzero alpha passes row15 unsafe-margin",
+    "selected alpha fails six-surface first replay",
+    "any candidate violates actor contract",
+    "actor training, PPO, family-intersection replay, full public gate, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "run_row15_unsafe_margin_projection_probe",
+      "command": "create interpolation checkpoints for alphas 0.0,0.05,0.1,0.15,0.2,0.25,0.3,0.4,0.5,0.75,1.0; evaluate exact M1107, target-base trajectory MSE, row15 unsafe-margin replay, and selected-alpha first replay"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1123_row15_unsafe_margin_projection_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1123-v4-public-base-row15-unsafe-margin-projection-probe.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+    "runs/m1118_failed_wrong_history_retention_actor_update_seed111800/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1122-v4-public-base-row15-unsafe-margin-retention-design.md"
+  ],
+  "decision_rule": "M1123 may only run a no-training interpolation/projection probe and the registered selected-alpha first replay. It cannot train actor weights, run PPO, run family-intersection replay, run full public gate, run fresh/OOD or behavior gates, promote, use private holdout, change actor inputs, weaken gates, select alpha 0.0, or retry after selected first replay failure without a new manifest.",
+  "next_blocker": "m1123-v4-public-base-row15-unsafe-margin-projection-probe"
+}

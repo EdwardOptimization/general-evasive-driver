@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1130,
+    "completed": 1131,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit",
+    "task_id": "m1122-v4-public-base-row15-unsafe-margin-retention-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.md",
-    "result_class": "wrong_history_safe_terminal_margin_crossing_despite_anchor_coverage",
-    "decision": "failed_wrong_history_retention_failure_audit_route_to_row15_unsafe_margin_retention_design"
+    "command_log": "docs/m1122-v4-public-base-row15-unsafe-margin-retention-design.md",
+    "result_class": "row15_unsafe_margin_projection_design",
+    "decision": "row15_unsafe_margin_retention_design_admit_projection_probe"
   },
   "next_task": {
-    "id": "m1122-v4-public-base-row15-unsafe-margin-retention-design",
+    "id": "m1123-v4-public-base-row15-unsafe-margin-projection-probe",
     "status": "pending",
-    "priority": 11170,
+    "priority": 11180,
     "kind": "gate",
-    "hypothesis": "A row15-specific unsafe-margin or terminal-margin retention objective can target the remaining wrong-history-safe failure more directly than generic trajectory-action anchor pressure",
-    "command": "see experiments/manifests/m1122-v4-public-base-row15-unsafe-margin-retention-design.json",
-    "success_artifact": "docs/m1122-v4-public-base-row15-unsafe-margin-retention-design.md",
-    "notes": "Pending: design only; no actor training no PPO no replay no promotion no private holdout"
+    "hypothesis": "A smaller nonzero interpolation of the M1118 direction can preserve row15 wrong-history unsafe terminal margin while retaining exact M1107 objective improvement",
+    "command": "see experiments/manifests/m1123-v4-public-base-row15-unsafe-margin-projection-probe.json",
+    "success_artifact": "docs/m1123-v4-public-base-row15-unsafe-margin-projection-probe.md",
+    "notes": "Pending: no-training interpolation projection; may run row15 unsafe-margin replay and selected first replay only; no PPO no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T212412Z"
+  "updated_at_utc": "20260527T212757Z"
 }

@@ -2,7 +2,7 @@
   "id": "m1122-v4-public-base-row15-unsafe-margin-retention-design",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "repair",
   "failure_types": [
     "none"
   ],
@@ -154,6 +154,40 @@
   "baseline_artifacts": [
     "docs/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.md"
   ],
-  "decision_rule": "M1122 may only design a row15 unsafe-margin retention repair. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, weaken gates, or rely on generic action MSE alone.",
-  "next_blocker": "m1122-v4-public-base-row15-unsafe-margin-retention-design"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1122-v4-public-base-row15-unsafe-margin-retention-design.md",
+    "decision": "row15_unsafe_margin_retention_design_admit_projection_probe",
+    "result_class": "row15_unsafe_margin_projection_design",
+    "failure_types": [
+      "none"
+    ],
+    "candidate_alphas": [
+      0.0,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.4,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "unsafe_margin_threshold_rule": "min(-0.00025, 0.5 * base_wrong_history_margin)",
+    "selected_alpha_must_be_nonzero": true,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "admitted_next": "row15_unsafe_margin_projection_probe",
+    "next_milestone": "m1123-v4-public-base-row15-unsafe-margin-projection-probe"
+  },
+  "decision": "row15_unsafe_margin_retention_design_admit_projection_probe",
+  "decision_rule": "M1122 may only design a row15 unsafe-margin retention repair. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, weaken gates, or rely on generic action MSE alone. M1123 may run a no-training interpolation/projection probe and first replay only under the registered unsafe-margin rule.",
+  "next_blocker": "m1123-v4-public-base-row15-unsafe-margin-projection-probe"
 }

@@ -16030,3 +16030,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurred.
 - decision: `failed_wrong_history_retention_failure_audit_route_to_row15_unsafe_margin_retention_design`
 - next: `m1122-v4-public-base-row15-unsafe-margin-retention-design`
+
+## 20260527T212757Z - m1122-v4-public-base-row15-unsafe-margin-retention-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1122-v4-public-base-row15-unsafe-margin-retention-design.md`
+- result: M1122 designs a no-training row15 unsafe-margin projection probe. It uses interpolation between the current public base and M1118 seed `111800`, but accepts only a nonzero alpha that preserves exact M1107 improvement and keeps all row15 wrong-history terminal margins below a registered unsafe-margin threshold.
+- design rule: `unsafe_margin_threshold = min(-0.00025, 0.5 * base_wrong_history_margin)`, followed by the unchanged six-surface first replay gate for the selected alpha only.
+- guardrail: no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_unsafe_margin_retention_design_admit_projection_probe`
+- next: `m1123-v4-public-base-row15-unsafe-margin-projection-probe`
