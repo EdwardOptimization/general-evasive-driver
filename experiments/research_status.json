@@ -1,27 +1,30 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1128,
+    "completed": 1129,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1119-v4-public-base-failed-wrong-history-retention-first-replay-design",
+    "task_id": "m1120-v4-public-base-failed-wrong-history-retention-first-replay-run",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1119-v4-public-base-failed-wrong-history-retention-first-replay-design.md"
+    "command_log": "docs/m1120-v4-public-base-failed-wrong-history-retention-first-replay-run.md",
+    "summary": "runs/m1120_failed_wrong_history_retention_first_replay/summary.json",
+    "result_class": "failed_wrong_history_retention_first_replay_failed_wrong_history_safe",
+    "decision": "failed_wrong_history_retention_first_replay_reject_wrong_history_safe_route_to_audit"
   },
   "next_task": {
-    "id": "m1120-v4-public-base-failed-wrong-history-retention-first-replay-run",
+    "id": "m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit",
     "status": "pending",
-    "priority": 11150,
+    "priority": 11160,
     "kind": "gate",
-    "hypothesis": "The M1118 best candidate preserves target-base old-public and source-diverse replay surfaces",
-    "command": "see experiments/manifests/m1120-v4-public-base-failed-wrong-history-retention-first-replay-run.json",
-    "success_artifact": "docs/m1120-v4-public-base-failed-wrong-history-retention-first-replay-run.md",
-    "notes": "Pending: run target-base first replay only; no actor training no PPO no promotion no private holdout no family replay"
+    "hypothesis": "The remaining M1120 row15 wrong-history-safe failure is a terminal-margin or unsafe-margin retention gap rather than normal-history collapse",
+    "command": "see experiments/manifests/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.json",
+    "success_artifact": "docs/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.md",
+    "notes": "Pending: audit existing M1115/M1120 artifacts only; no actor training no PPO no replay no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T211349Z"
+  "updated_at_utc": "20260527T211907Z"
 }

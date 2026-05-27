@@ -16008,3 +16008,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: family-intersection replay, full replay, fresh/OOD, behavior gates, PPO, promotion, and private holdout remain blocked until target-base first replay result is known.
 - decision: `failed_wrong_history_retention_first_replay_design_admit_target_base_first_replay`
 - next: `m1120-v4-public-base-failed-wrong-history-retention-first-replay-run`
+
+## 20260527T211907Z - m1120-v4-public-base-failed-wrong-history-retention-first-replay-run
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1120-v4-public-base-failed-wrong-history-retention-first-replay-run.md`
+- result: M1120 runs the six target-base old-public/source-diverse first replay surfaces for M1118 seed `111800`. Two surfaces pass and four fail: `m183_m168` and `m223_m219` retain all success drops, while `m267_m264`, `current_m333_surface`, `m314_continuity_surface`, and `m317_continuity_surface` each lose one success-drop row.
+- failure mode: all four lost rows are row `15` on physical pair `9530:21:9550:21`, target `future_braking_deceleration`. There are `0` normal-lost events and `4` wrong-history-safe events, so the remaining failure is narrow proof washout rather than normal-history collapse.
+- guardrail: no actor training, PPO, family-intersection replay, full public gate, fresh/OOD, behavior gate, promotion, private holdout, or actor-input change occurred.
+- decision: `failed_wrong_history_retention_first_replay_reject_wrong_history_safe_route_to_audit`
+- next: `m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit`

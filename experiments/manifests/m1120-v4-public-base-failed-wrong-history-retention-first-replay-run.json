@@ -2,9 +2,9 @@
   "id": "m1120-v4-public-base-failed-wrong-history-retention-first-replay-run",
   "type": "gate",
   "gate_tier": "proof",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "repair",
   "failure_types": [
-    "none"
+    "proof_washout"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -156,6 +156,38 @@
   "baseline_artifacts": [
     "docs/m1119-v4-public-base-failed-wrong-history-retention-first-replay-design.md"
   ],
-  "decision_rule": "M1120 may only run target-base first replay for M1118. It cannot train actor weights, run PPO, promote, use private holdout, change actor inputs, run family-intersection replay, run fresh/OOD, or run behavior gates.",
-  "next_blocker": "m1120-v4-public-base-failed-wrong-history-retention-first-replay-run"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1120-v4-public-base-failed-wrong-history-retention-first-replay-run.md",
+    "summary": "runs/m1120_failed_wrong_history_retention_first_replay/summary.json",
+    "decision": "failed_wrong_history_retention_first_replay_reject_wrong_history_safe_route_to_audit",
+    "result_class": "failed_wrong_history_retention_first_replay_failed_wrong_history_safe",
+    "failure_types": [
+      "proof_washout"
+    ],
+    "surface_count": 6,
+    "passed_surface_count": 2,
+    "failed_surface_count": 4,
+    "old_public_first_replay_pass": false,
+    "source_diverse_first_replay_pass": false,
+    "target_base_first_replay_pass": false,
+    "lost_success_drop_events": 4,
+    "normal_lost_events": 0,
+    "wrong_history_safe_events": 4,
+    "failed_physical_pair_key": "9530:21:9550:21",
+    "failed_row_id": 15,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "family_intersection_replay_started": false,
+    "fresh_ood_started": false,
+    "behavior_gate_started": false,
+    "admitted_next": "first_replay_failure_audit_only",
+    "next_milestone": "m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit"
+  },
+  "decision": "failed_wrong_history_retention_first_replay_reject_wrong_history_safe_route_to_audit",
+  "decision_rule": "M1120 may only run target-base first replay for M1118. It cannot train actor weights, run PPO, promote, use private holdout, change actor inputs, run family-intersection replay, run fresh/OOD, or run behavior gates. Because one old-public surface and three source-diverse surfaces failed through wrong-history-safe row 15, the next step is a failure audit rather than replay escalation.",
+  "next_blocker": "m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit"
 }

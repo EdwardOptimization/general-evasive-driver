@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1120-v4-public-base-failed-wrong-history-retention-first-replay-run
+m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit
 ```
 
 M1115 completed the failed wrong-history retention export. It reproduced the
@@ -94,11 +94,15 @@ Because the `materialized_objective_corpus_sanity` branch reached its
 new `failed_wrong_history_retention_repair` branch. M1118 is the next executable
 step and has now run exactly three lower-lr `actor_coupling` seeds with M1107
 exact objective and M1115 trajectory retention. All three pass pre-replay exact,
-anchor, and parameter-scope gates; best seed is `111800`. M1119 must design the
-first replay gate for this candidate before any replay, PPO, promotion, or
-private holdout. M1119 completed that design. M1120 should run only the six
-target-base old-public/source-diverse first replay surfaces, with no family
-replay, full replay, PPO, promotion, or private holdout.
+anchor, and parameter-scope gates; best seed is `111800`. M1119 designed the
+first replay gate for this candidate. M1120 then ran only the six target-base
+old-public/source-diverse first replay surfaces. It passed `m183_m168` and
+`m223_m219`, but failed `m267_m264`, `current_m333_surface`,
+`m314_continuity_surface`, and `m317_continuity_surface`. All four failures are
+the same row `15` physical pair `9530:21:9550:21`: `0` normal-lost events and
+`4` wrong-history-safe events. This rejects the M1118 candidate for first replay
+and routes to M1121 row15 failure audit before any family replay, full replay,
+PPO, promotion, or private holdout.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

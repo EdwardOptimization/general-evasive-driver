@@ -1,0 +1,163 @@
+{
+  "id": "m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+      "runs/m1118_failed_wrong_history_retention_actor_update_seed111800/optimized_checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1120_failed_wrong_history_retention_first_replay/summary.json",
+      "runs/m1120_failed_wrong_history_retention_first_replay/first_replay_summary.csv",
+      "runs/m1120_failed_wrong_history_retention_first_replay/lost_success_drop_rows.csv",
+      "runs/m1115_materialized_failed_wrong_history_retention_export/target_base_rejected_trajectory_anchor.csv",
+      "runs/m1115_materialized_failed_wrong_history_retention_export/combined_target_base_rejected_anchor.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1120-v4-public-base-failed-wrong-history-retention-first-replay-run.json"
+    ],
+    "parent_objective": [
+      "audit why the M1118 retention-aware candidate still makes row15 wrong-history rollouts safe"
+    ],
+    "derived_from": [
+      "m1120-v4-public-base-failed-wrong-history-retention-first-replay-run"
+    ],
+    "blocked_by": [
+      "M1120 rejects m1118_seed111800 first replay through wrong-history-safe row15"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "family-intersection replay before row15 audit",
+      "full public gate before row15 audit",
+      "PPO from m1118_seed111800",
+      "promotion of m1118_seed111800"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.md",
+  "public_gates": [
+    "M1121 must audit existing M1115 and M1120 artifacts only",
+    "M1121 must not train actor weights",
+    "M1121 must not run PPO",
+    "M1121 must not run replay",
+    "M1121 must not mine new rows",
+    "M1121 must not promote",
+    "M1121 must not use private holdout",
+    "M1121 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not mine new rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not continue to family-intersection replay before audit",
+    "do not weaken replay thresholds"
+  ],
+  "workflow_synthesis": {
+    "branch": "failed_wrong_history_retention_repair",
+    "evidence_axis": "G_audit: row15 wrong-history-safe failure",
+    "evidence_increment": "classifies the single physical-pair row15 failure left after M1115/M1118 trajectory retention",
+    "claim_scope": "failure audit only; no training, replay, PPO, promotion, private holdout, or driver capability claim",
+    "stop_condition": [
+      "stop if row15 was absent from the M1115 target-base retention anchor",
+      "stop if row15 was present but target-base anchor MSE failed to protect terminal margin",
+      "stop if the row15 failure requires a new terminal-margin or unsafe-margin retention objective"
+    ],
+    "fallback_plan": [
+      "if row15 was not anchored, design targeted anchor export",
+      "if row15 was anchored but terminal margin crossed zero, design row15 terminal-margin or wrong-history unsafe-margin retention",
+      "if failure is metric artifact, repair the audit/gate before any update"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1120 first replay failed on row15 wrong-history-safe events",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M1120 first-replay failure before any further update or replay escalation",
+    "admission_evidence": [
+      "M1120 target-base first replay has 4 lost success-drop events",
+      "all M1120 failures are wrong-history-safe events on row15 and physical pair 9530:21:9550:21",
+      "M1120 has zero normal-lost events"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not promote from failed first replay"
+    ],
+    "allowed_updates": [
+      "audit documentation",
+      "next design manifest if audit is clear",
+      "status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "row15 target-anchor coverage is explicit",
+      "row15 action/trajectory versus terminal-margin relation is explicit",
+      "next repair route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1121 audits replay-calibrated wrong-history proof and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1121 reads existing M1115 and M1120 artifacts only and adds no new temporal task.",
+    "negative_result_policy": "Record M1120 as proof_washout and classify the row15 mechanism before any new update.",
+    "allowed_claims": [
+      "failure audit for a level2 retention-aware candidate",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "M1120 failed because row15's wrong-history terminal margin crosses zero despite low trajectory-action-anchor MSE, so the next repair must target terminal or unsafe-margin retention rather than more generic action anchoring.",
+  "success_criteria": [
+    "audit artifact exists",
+    "row15 anchor coverage in M1115 is classified",
+    "row15 target-base trajectory MSE versus terminal-margin crossing is classified",
+    "next repair route is explicit",
+    "no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "row15 coverage remains ambiguous",
+    "next route is ambiguous",
+    "actor training, PPO, replay, mining, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "audit_row15_failure",
+      "command": "inspect M1115 target-base anchor rows and M1120 lost_success_drop_rows.csv; write docs/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+    "runs/m1118_failed_wrong_history_retention_actor_update_seed111800/optimized_checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1120-v4-public-base-failed-wrong-history-retention-first-replay-run.md",
+    "runs/m1120_failed_wrong_history_retention_first_replay/summary.json",
+    "runs/m1120_failed_wrong_history_retention_first_replay/lost_success_drop_rows.csv"
+  ],
+  "decision_rule": "M1121 may only audit the M1120 row15 wrong-history-safe first replay failure and route the next repair design. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, or continue to family-intersection replay.",
+  "next_blocker": "m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit"
+}
