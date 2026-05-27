@@ -1,0 +1,124 @@
+{
+  "id": "m1086-v4-public-base-source-balanced-boundary-tooling-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1085-v4-public-base-source-balanced-boundary-tooling-design.md",
+      "runs/m1083_proof_hardened_retarget_boundary_surface_seed108200/boundary_relocation_rows.csv",
+      "runs/m1083_proof_hardened_retarget_boundary_robustness_w005_seed108200/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1085-v4-public-base-source-balanced-boundary-tooling-design.json"
+    ],
+    "parent_objective": [
+      "implement source-balanced boundary export/tooling without weakening robustness thresholds"
+    ],
+    "derived_from": [
+      "m1085-v4-public-base-source-balanced-boundary-tooling-design"
+    ],
+    "blocked_by": [
+      "M1083 has valid success-drop rows but post-export robustness is duplicate/source dominated"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "post-filtering M1083's six accepted robustness physical pairs as if it were source-diverse",
+      "running another full retarget before source-budget tooling exists",
+      "weakening robustness thresholds"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.md",
+  "public_gates": [
+    "M1086 must not train",
+    "M1086 must not run PPO",
+    "M1086 must not promote",
+    "M1086 must not use private holdout",
+    "M1086 must preserve existing robustness thresholds",
+    "M1086 must include unit tests for source-budget and balanced-selection helpers",
+    "M1086 may run only synthetic/tooling smoke, not a full new research mining run"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not lower min physical pairs or max pair dominance thresholds",
+    "do not mark rows source-diverse by changing the robustness physical-pair key",
+    "do not use balanced tooling output as a promoted driver result"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_balanced_boundary_tooling",
+    "evidence_axis": "G_tooling: source-balanced boundary export implementation",
+    "evidence_increment": "implements the source-budget and source-balanced export helpers required before another full surface refresh",
+    "claim_scope": "infrastructure only; no driver training, no PPO, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if implementation weakens robustness thresholds",
+      "stop if implementation redefines physical-pair diversity instead of preserving robustness keys",
+      "stop if tests cannot show source-balanced selection differs from global top-K",
+      "stop if implementation requires a full new mining run to validate basic tooling"
+    ],
+    "fallback_plan": [
+      "if helpers pass tests, route to a small source-budget smoke over existing M1083 artifacts",
+      "if existing relocation cannot be reused safely, split out a narrower helper-only milestone",
+      "if eligible diversity is absent in existing artifacts, route to sampler expansion design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1085 admitted source-balanced boundary tooling implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "A tested source-budget and source-balanced export layer can prevent boundary relocation output from being dominated by a few physical pairs without weakening the downstream robustness gate.",
+  "success_criteria": [
+    "source-balanced boundary tooling module or equivalent helpers are implemented",
+    "tests cover source budget, balanced candidate selection, dominance caps, and fail-closed classification",
+    "raw and balanced export artifact schema is documented",
+    "existing robustness thresholds and physical-pair key semantics remain unchanged",
+    "no training, PPO, promotion, private holdout, or full new research mining run occurs"
+  ],
+  "failure_criteria": [
+    "implementation weakens robustness thresholds",
+    "implementation only post-filters a six-pair accepted set",
+    "implementation redefines physical-pair diversity",
+    "tests are missing for the new selection/budget semantics",
+    "training, PPO, promotion, private holdout, or a full new mining run starts"
+  ],
+  "commands": [
+    {
+      "name": "implement_source_balanced_boundary_tooling",
+      "command": "edit src/autodrift/source_balanced_boundary_relocation_surface.py and tests"
+    },
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_source_balanced_boundary_relocation_surface.py tests/test_wrong_history_boundary_relocation_surface.py tests/test_boundary_wrong_history_surface_robustness.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/source_balanced_boundary_relocation_surface.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_source_balanced_boundary_relocation_surface.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1085-v4-public-base-source-balanced-boundary-tooling-design.md"
+  ],
+  "decision_rule": "M1086 may only implement and test source-balanced boundary tooling. It cannot train, run PPO, promote, use private holdout, weaken thresholds, or claim driver progress.",
+  "next_blocker": "m1086-v4-public-base-source-balanced-boundary-tooling-implementation"
+}

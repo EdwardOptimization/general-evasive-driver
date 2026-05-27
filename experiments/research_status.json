@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1093,
+    "completed": 1094,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1084-v4-public-base-proof-hardened-surface-refresh-synthesis",
+    "task_id": "m1085-v4-public-base-source-balanced-boundary-tooling-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1084-v4-public-base-proof-hardened-surface-refresh-synthesis.md"
+    "command_log": "docs/m1085-v4-public-base-source-balanced-boundary-tooling-design.md"
   },
   "next_task": {
-    "id": "m1085-v4-public-base-source-balanced-boundary-tooling-design",
+    "id": "m1086-v4-public-base-source-balanced-boundary-tooling-implementation",
     "status": "pending",
-    "priority": 10800,
-    "kind": "gate",
-    "hypothesis": "Design source-balanced boundary export/tooling after M1083 fixed success-drop quality but failed physical-pair diversity",
-    "command": "see experiments/manifests/m1085-v4-public-base-source-balanced-boundary-tooling-design.json",
-    "success_artifact": "docs/m1085-v4-public-base-source-balanced-boundary-tooling-design.md",
-    "notes": "Pending: design only; no PPO no actor training no mining no promotion no private holdout"
+    "priority": 10810,
+    "kind": "infrastructure",
+    "hypothesis": "Implement source-balanced boundary export/tooling after M1085 design",
+    "command": "see experiments/manifests/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.json",
+    "success_artifact": "docs/m1086-v4-public-base-source-balanced-boundary-tooling-implementation.md",
+    "notes": "Pending: infrastructure/tooling only; no PPO no actor training no promotion no private holdout and no full new mining run"
   },
-  "updated_at_utc": "20260527T142057Z"
+  "updated_at_utc": "20260527T143500Z"
 }

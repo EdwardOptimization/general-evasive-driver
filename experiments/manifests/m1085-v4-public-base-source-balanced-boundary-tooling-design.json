@@ -106,6 +106,35 @@
   "baseline_artifacts": [
     "docs/m1084-v4-public-base-proof-hardened-surface-refresh-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1085-v4-public-base-source-balanced-boundary-tooling-design.md",
+    "decision": "source_balanced_boundary_tooling_design_admit_m1086_implementation",
+    "result_class": "source_balanced_boundary_tooling_design",
+    "failure_types": [
+      "none"
+    ],
+    "designed_tooling": [
+      "pre-boundary source budget report",
+      "source-balanced candidate selection before relocation",
+      "relocation-time physical-pair budget accounting",
+      "raw plus balanced accepted-row export artifacts",
+      "fail-closed robustness classification"
+    ],
+    "preserved_thresholds": true,
+    "rejected_routes": [
+      "post-filtering the six-physical-pair M1083 accepted set",
+      "weakening physical-pair or dominance thresholds",
+      "another sampling-only retarget before source-balanced export tooling"
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1086-v4-public-base-source-balanced-boundary-tooling-implementation"
+  },
+  "decision": "source_balanced_boundary_tooling_design_admit_m1086_implementation",
   "decision_rule": "M1085 may only design source-balanced boundary tooling. It cannot train, run PPO, mine rows, promote, use private holdout, or weaken robustness thresholds.",
-  "next_blocker": "m1085-v4-public-base-source-balanced-boundary-tooling-design"
+  "next_blocker": "m1086-v4-public-base-source-balanced-boundary-tooling-implementation"
 }

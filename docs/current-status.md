@@ -78,7 +78,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1085-v4-public-base-source-balanced-boundary-tooling-design
+m1086-v4-public-base-source-balanced-boundary-tooling-implementation
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -172,12 +172,15 @@ gate still failed because rows concentrated into only six physical pairs and
 one pair held 30.7% of accepted rows. The next step is M1084: synthesize
 M1080-M1083 before another retarget. M1084 closed
 `proof_hardened_base_surface_refresh` and opened
-`source_balanced_boundary_tooling`. The next step is M1085: design
-source-balanced boundary export/tooling without weakening robustness thresholds.
+`source_balanced_boundary_tooling`. M1085 designed source-budget and
+source-balanced boundary export tooling. It rejects post-filtering M1083's
+six-pair accepted set and preserves the existing robustness thresholds. The
+next step is M1086: implement and test that tooling without PPO, actor
+training, promotion, private holdout, or a full new mining run.
 
 ```text
 decision:
-  proof_hardened_surface_refresh_synthesis_promote_to_source_balanced_tooling
+  source_balanced_boundary_tooling_design_admit_m1086_implementation
 ```
 
 M1068 design:
@@ -590,6 +593,21 @@ mining_started: false
 promoted: false
 private_holdout_used: false
 next: m1085-v4-public-base-source-balanced-boundary-tooling-design
+```
+
+M1085 result:
+
+```text
+result_class: source_balanced_boundary_tooling_design
+designed: pre-boundary source budget report; source-balanced candidate selection; relocation-time physical-pair budget accounting; raw plus balanced accepted-row exports; fail-closed robustness classification
+preserved_thresholds: true
+rejected: post-filtering M1083's six accepted physical pairs; weakening physical-pair or dominance thresholds; another sampling-only retarget before source-balanced export tooling
+training_started: false
+ppo_used: false
+mining_started: false
+promoted: false
+private_holdout_used: false
+next: m1086-v4-public-base-source-balanced-boundary-tooling-implementation
 ```
 
 M1058 result:
