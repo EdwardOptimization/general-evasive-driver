@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1061 selects 79 strict family-intersection rows and passes objective sanity plus six cross-family replay gates for the short-PPO family without PPO or promotion",
+  "failure_criteria": [
+    "selector is missing",
+    "family-intersection rows are sparse",
+    "objective sanity fails",
+    "replay sanity fails",
+    "PPO or actor training starts",
+    "private holdout is used"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train actor",
+    "do not promote",
+    "do not use private holdout",
+    "do not accept rows that fail under any family policy"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260527T054700Z",
+  "hypothesis": "Family-intersection replay filtering can remove near-zero wrong-history positive rows while preserving enough compact source diversity for objective and replay sanity.",
+  "lineage": {
+    "blocked_by": [
+      "M1058 compact corpus failed cross-family replay because current-base rows were not family-intersection filtered"
+    ],
+    "derived_from": [
+      "m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design"
+    ],
+    "invalidates": [
+      "using current-base-only compact corpus as family-wide proof gate"
+    ],
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt",
+      "runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design.md",
+      "runs/m1056_margin_bucket_width_0005/accepted_wrong_history_rows.csv"
+    ],
+    "parent_objective": [
+      "implement and run family-intersection replay-calibrated compact corpus selector"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1061-v4-public-base-post-short-promotion-family-intersection-corpus",
+  "next_blocker": "m1061-v4-public-base-post-short-promotion-family-intersection-corpus",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "post_short_promotion_family_intersection_corpus_pass_route_to_synthesis",
+  "public_gates": [
+    "M1061 must not run PPO",
+    "M1061 must not train actor",
+    "M1061 must preserve actor inputs",
+    "M1061 must implement deterministic family-intersection row selection",
+    "M1061 must require selected rows to pass success-drop under all short-PPO family policies",
+    "M1061 must run objective and replay sanity if compact selection is sufficient"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1061_family_intersection_summary/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "post_short_promotion_family_intersection_corpus_pass_route_to_synthesis",
+    "milestone": "m1061-v4-public-base-post-short-promotion-family-intersection-corpus",
+    "reason": "M1061 selects 79 strict family-intersection rows and passes objective sanity plus six cross-family replay gates for the short-PPO family without PPO or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "objective_sanity",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "selector tool and tests exist",
+    "family-intersection compact corpus exists",
+    "selected rows >= 20",
+    "physical pairs >= 10",
+    "targets >= 2",
+    "all selected rows pass success-drop under all family policies",
+    "objective sanity passes",
+    "replay sanity passes",
+    "no PPO actor training promotion or private holdout occurs"
+  ],
+  "type": "objective_sanity"
+}

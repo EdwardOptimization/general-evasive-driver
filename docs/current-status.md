@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1061-v4-public-base-post-short-promotion-family-intersection-corpus
+m1062-v4-public-base-post-short-promotion-surface-refresh-synthesis
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -98,12 +98,30 @@ sanity. M1058 objective conversion succeeded for all three short-PPO family
 checkpoints, but one cross-family replay sanity gate failed by losing three
 success-drop rows. M1059 audited this as a missing family-intersection
 replay-calibration filter. M1060 designed a deterministic family-intersection
-selector; M1061 should implement and run it before this refreshed surface can
-become a gate.
+selector. M1061 implemented that selector, filtered the surface to all-family
+success-drop rows, and passed objective plus six cross-family replay sanity
+gates. The next step is to synthesize M1054-M1061 before adding another narrow
+surface-refresh step or moving toward medium PPO.
 
 ```text
 decision:
-  post_short_promotion_family_intersection_design_admit_m1061_selector
+  post_short_promotion_family_intersection_corpus_pass_route_to_synthesis
+```
+
+M1061 result:
+
+```text
+family_intersection_candidates: 305
+selected rows: 79
+selected physical pairs: 15
+selected targets: 3
+objective_pass_count: 3 / 3
+objective rows: 25, 27, 27
+cross-family replay gates: 6 / 6
+training_started: false
+ppo_used: false
+promoted: false
+private_holdout_used: false
 ```
 
 M1058 result:

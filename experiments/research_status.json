@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1069,
+    "completed": 1070,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design",
+    "task_id": "m1061-v4-public-base-post-short-promotion-family-intersection-corpus",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1060-v4-public-base-post-short-promotion-family-intersection-corpus-design.md"
+    "command_log": "docs/m1061-v4-public-base-post-short-promotion-family-intersection-corpus.md"
   },
   "next_task": {
-    "id": "m1061-v4-public-base-post-short-promotion-family-intersection-corpus",
+    "id": "m1062-v4-public-base-post-short-promotion-surface-refresh-synthesis",
     "status": "pending",
-    "priority": 10560,
-    "kind": "objective_sanity",
-    "hypothesis": "Implement and run family-intersection replay-calibrated compact corpus filtering after M1058 replay failure",
-    "command": "see experiments/manifests/m1061-v4-public-base-post-short-promotion-family-intersection-corpus.json",
-    "success_artifact": "docs/m1061-v4-public-base-post-short-promotion-family-intersection-corpus.md",
-    "notes": "Pending: selector implementation and proof sanity only; no PPO no private holdout"
+    "priority": 10570,
+    "kind": "gate",
+    "hypothesis": "Synthesize M1054-M1061 post-short-promotion surface refresh evidence before adding another narrow step or medium PPO",
+    "command": "see experiments/manifests/m1062-v4-public-base-post-short-promotion-surface-refresh-synthesis.json",
+    "success_artifact": "docs/m1062-v4-public-base-post-short-promotion-surface-refresh-synthesis.md",
+    "notes": "Pending: process synthesis only; no PPO no actor training no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T045254Z"
+  "updated_at_utc": "20260527T054438Z"
 }
