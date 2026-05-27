@@ -1,0 +1,217 @@
+{
+  "id": "m1128-v4-public-base-row15-projection-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe.md",
+      "docs/m1119-v4-public-base-failed-wrong-history-retention-first-replay-design.md",
+      "docs/m1120-v4-public-base-failed-wrong-history-retention-first-replay-run.md",
+      "docs/m1121-v4-public-base-failed-wrong-history-retention-first-replay-failure-audit.md",
+      "docs/m1122-v4-public-base-row15-unsafe-margin-retention-design.md",
+      "docs/m1123-v4-public-base-row15-unsafe-margin-projection-probe.md",
+      "docs/m1124-v4-public-base-row15-projection-family-replay-design.md",
+      "docs/m1125-v4-public-base-row15-projection-family-replay.md",
+      "docs/m1126-v4-public-base-row15-projection-full-public-gate-design.md",
+      "docs/m1127-v4-public-base-row15-projection-full-public-gate.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1127-v4-public-base-row15-projection-full-public-gate.json"
+    ],
+    "parent_objective": [
+      "synthesize failed_wrong_history_retention_repair after alpha_0_15 passes the expanded full public gate"
+    ],
+    "derived_from": [
+      "m1118-v4-public-base-failed-wrong-history-retention-actor-update-probe",
+      "m1127-v4-public-base-row15-projection-full-public-gate"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1127"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "promoting alpha_0_15 before branch synthesis",
+      "running PPO from alpha_0_15 before branch synthesis",
+      "using private holdout before branch synthesis"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1128-v4-public-base-row15-projection-branch-synthesis.md",
+  "public_gates": [
+    "M1128 must synthesize M1118-M1127 branch evidence",
+    "M1128 must decide whether alpha_0_15 should route to promotion audit, further proof refresh, or stop",
+    "M1128 must not train actor weights",
+    "M1128 must not run PPO",
+    "M1128 must not run replay",
+    "M1128 must not run objective optimization",
+    "M1128 must not mine rows",
+    "M1128 must not promote",
+    "M1128 must not use private holdout",
+    "M1128 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not skip evidence synthesis after the 10-milestone cadence"
+  ],
+  "workflow_synthesis": {
+    "branch": "failed_wrong_history_retention_repair",
+    "evidence_axis": "G_branch: failed wrong-history retention repair synthesis",
+    "evidence_increment": "synthesizes M1118-M1127 after alpha_0_15 passes exact, replay, family, source-diverse, generalization, and behavior public gates",
+    "claim_scope": "process synthesis only; no training, replay, PPO, promotion, private holdout, or driver capability claim",
+    "stop_condition": [
+      "stop if the branch evidence does not support routing alpha_0_15 to promotion audit",
+      "stop if public gate overfit risk requires fresh surface refresh before promotion",
+      "stop if unsupported self-ID or driver-capability claims are being mixed with proof-hardening evidence"
+    ],
+    "fallback_plan": [
+      "if synthesis supports promotion readiness, route to a separate promotion audit",
+      "if proof coverage is too narrow, route to source-diverse proof refresh",
+      "if alpha_0_15 is only a local repair, stop the branch and keep it diagnostic-only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1127 reaches the 10-milestone cadence for failed_wrong_history_retention_repair",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1128-v4-public-base-row15-projection-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize the failed wrong-history retention repair branch before promotion audit or PPO",
+    "admission_evidence": [
+      "M1118-M1127 completed 10 milestones on failed_wrong_history_retention_repair",
+      "M1127 alpha_0_15 passes the expanded full public gate",
+      "M1127 itself forbids promotion"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "synthesis document",
+      "pre-register next branch if synthesis supports it",
+      "update status, queue, scoreboard, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "supported and unsupported claims are explicit",
+      "failure taxonomy is summarized",
+      "public proof overfit risk is explicit",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1128 synthesizes public proof-retention and behavior evidence and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1128 synthesizes existing M1118-M1127 artifacts and adds no new task.",
+    "negative_result_policy": "Unsupported self-ID claims remain unsupported; any next branch must preserve the weakest supported claim level.",
+    "allowed_claims": [
+      "branch-level proof-retention repair readiness",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "M1118-M1127 have completed enough evidence to close failed_wrong_history_retention_repair and decide whether alpha_0_15 should route to promotion audit or another proof-refresh branch.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "evidence summary is explicit",
+    "supported claims are explicit",
+    "falsified or unsupported claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "no actor training, PPO, replay, objective optimization, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "supported and unsupported claims are conflated",
+    "next branch decision is ambiguous",
+    "actor training, PPO, replay, objective optimization, mining, promotion, or private holdout starts"
+  ],
+  "commands": [
+    {
+      "name": "write_synthesis",
+      "command": "write docs/m1128-v4-public-base-row15-projection-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1128-v4-public-base-row15-projection-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1127-v4-public-base-row15-projection-full-public-gate.md",
+    "runs/m1127_row15_projection_full_public_gate/summary.json"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1128-v4-public-base-row15-projection-branch-synthesis.md",
+    "decision": "row15_projection_branch_synthesis_route_to_promotion_audit",
+    "result_class": "branch_synthesis_promote_to_next_branch",
+    "failure_types": [
+      "none"
+    ],
+    "closed_branch": "failed_wrong_history_retention_repair",
+    "opened_branch": "row15_projection_promotion_audit",
+    "m1120_failed_surfaces": 4,
+    "m1120_normal_lost_events": 0,
+    "m1120_wrong_history_safe_events": 4,
+    "m1121_row15_anchor_rows": 170,
+    "m1123_selected_alpha": 0.15,
+    "m1123_exact_m1107_delta_vs_base": -0.00041747093200683594,
+    "m1125_family_replay_passed": 3,
+    "m1125_family_replay_total": 3,
+    "m1127_exact_pass": true,
+    "m1127_proof_pass": true,
+    "m1127_family_intersection_pass": true,
+    "m1127_source_diverse_pass": true,
+    "m1127_generalization_pass": true,
+    "m1127_behavior_pass": true,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1129-v4-public-base-row15-projection-promotion-audit"
+  },
+  "decision": "row15_projection_branch_synthesis_route_to_promotion_audit",
+  "decision_rule": "M1128 may only synthesize M1118-M1127 and choose the next branch. It cannot train actor weights, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1129-v4-public-base-row15-projection-promotion-audit"
+}

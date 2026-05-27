@@ -1,0 +1,162 @@
+{
+  "id": "m1129-v4-public-base-row15-projection-promotion-audit",
+  "type": "gate",
+  "gate_tier": "promotion",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1127-v4-public-base-row15-projection-full-public-gate.md",
+      "docs/m1128-v4-public-base-row15-projection-branch-synthesis.md",
+      "runs/m1127_row15_projection_full_public_gate/summary.json",
+      "runs/m1127_row15_projection_m1107_exact_eval/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1128-v4-public-base-row15-projection-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "audit whether alpha_0_15 should become the current public-gate base as proof-base hardening"
+    ],
+    "derived_from": [
+      "m1127-v4-public-base-row15-projection-full-public-gate",
+      "m1128-v4-public-base-row15-projection-branch-synthesis"
+    ],
+    "blocked_by": [
+      "promotion requires a separate audit after branch synthesis"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "starting PPO from alpha_0_15 before promotion decision",
+      "claiming private-holdout or paper-level evidence from public gates"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1129-v4-public-base-row15-projection-promotion-audit.md",
+  "public_gates": [
+    "M1129 must audit M1127 exact, proof, family, source-diverse, generalization, and behavior gate evidence",
+    "M1129 must decide whether alpha_0_15 is promotable only as public proof-base hardening",
+    "M1129 may update current-status public-gate base only if the audit promotes",
+    "M1129 must not train actor weights",
+    "M1129 must not run PPO",
+    "M1129 must not run replay",
+    "M1129 must not run objective optimization",
+    "M1129 must not mine rows",
+    "M1129 must not use private holdout",
+    "M1129 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not promote beyond public proof-base hardening scope",
+    "do not claim medium-PPO performance improvement or paper-level generalization"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_projection_promotion_audit",
+    "evidence_axis": "G_promotion: public proof-base hardening audit",
+    "evidence_increment": "audits whether the alpha_0_15 full-public-gate pass should replace the current public-gate base",
+    "claim_scope": "promotion audit only; possible public proof-base hardening claim, no training, replay, PPO, private holdout, paper-level, or real-vehicle claim",
+    "stop_condition": [
+      "stop if M1127 evidence is insufficient for promotion",
+      "stop if promotion scope cannot be kept to public proof-base hardening",
+      "stop if current-status lineage would become ambiguous"
+    ],
+    "fallback_plan": [
+      "if promotable, update public-gate base and route to post-promotion synthesis",
+      "if not promotable, keep alpha_0_15 diagnostic and route to proof-refresh audit",
+      "if evidence is ambiguous, route to promotion-blocker audit without new experiments"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1128 opens row15_projection_promotion_audit after branch synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "decide public proof-base hardening promotion from existing M1127 evidence",
+    "admission_evidence": [
+      "M1127 full public gate passes every tier",
+      "M1128 synthesis routes to promotion audit",
+      "M1127 itself did not promote"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "promotion audit document",
+      "current-status public-gate base if promotion is accepted",
+      "queue, status, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "promotion decision is explicit",
+      "claim scope is explicit",
+      "superseded base is explicit if promoted",
+      "next branch is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1129 audits public proof-retention evidence and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1129 uses existing M1127 artifacts and adds no new self-ID intervention.",
+    "negative_result_policy": "If promotion is rejected, classify the promotion blocker without launching a repair in the same milestone.",
+    "allowed_claims": [
+      "public proof-base hardening promotion readiness",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "Alpha_0_15 has enough public evidence to be promoted as the current public-gate base for proof-base hardening, with no PPO or private-holdout claim.",
+  "success_criteria": [
+    "promotion audit artifact exists",
+    "M1127 exact, proof, family, source-diverse, generalization, and behavior evidence is summarized",
+    "promotion decision is explicit",
+    "claim scope is limited to public proof-base hardening if promoted",
+    "no actor training, PPO, replay, objective optimization, mining, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "promotion audit artifact is missing",
+    "promotion scope is ambiguous",
+    "public and private evidence are conflated",
+    "actor training, PPO, replay, objective optimization, mining, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_promotion_audit",
+      "command": "write docs/m1129-v4-public-base-row15-projection-promotion-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1129-v4-public-base-row15-projection-promotion-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1127-v4-public-base-row15-projection-full-public-gate.md",
+    "docs/m1128-v4-public-base-row15-projection-branch-synthesis.md"
+  ],
+  "decision_rule": "M1129 may only audit promotion from existing M1127/M1128 evidence. It cannot train actor weights, run PPO, run replay, run objective optimization, mine rows, use private holdout, change actor inputs, or claim beyond public proof-base hardening.",
+  "next_blocker": "m1129-v4-public-base-row15-projection-promotion-audit"
+}

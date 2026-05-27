@@ -16084,3 +16084,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, replay/evaluation, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_projection_full_public_gate_design_admit_m1127`
 - next: `m1127-v4-public-base-row15-projection-full-public-gate`
+
+## 20260527T221500Z - m1127-v4-public-base-row15-projection-full-public-gate
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1127-v4-public-base-row15-projection-full-public-gate.md`
+- result: M1127 reruns exact M1107 and the expanded full public gate for alpha `0.15`. Exact M1107 improves from `0.679117322` to `0.678699851` (`delta=-0.000417471`). The expanded wrapper returns `candidate_b_combined_active_set_full_public_gate_candidate`.
+- proof result: exact/contract, old public replay, M1061 family-intersection, source-diverse protected diagnostic, fresh/OOD, and behavior tiers all pass. Old public replay retains all success drops (`16/16`, `17/17`, `14/14`, `17/17`, `17/17`, `17/17`); family replay retains `25/25`, `27/27`, and `27/27`; source-diverse replay retains `17/17` on all three surfaces.
+- generalization/behavior: fresh seeds `103900` and `103901` and moderate-OOD seed `103920` keep success deltas at `0.0`; behavior seeds `9505`, `9506`, `103930`, and `103931` retain baseline success.
+- guardrail: no actor training, PPO, promotion, private holdout, or actor-input change occurred.
+- process: the `failed_wrong_history_retention_repair` branch reaches its 10-milestone cadence after M1127, so the next step is synthesis before promotion audit or PPO.
+- decision: `row15_projection_full_public_gate_pass_route_to_branch_synthesis`
+- next: `m1128-v4-public-base-row15-projection-branch-synthesis`
+
+## 20260527T222400Z - m1128-v4-public-base-row15-projection-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1128-v4-public-base-row15-projection-branch-synthesis.md`
+- evidence summary: M1118 found exact-improving retention-aware actor updates, but M1120 rejected the best seed because row15 wrong-history branches became safe on four replay surfaces with zero normal-history loss. M1121 showed row15 was covered by 170 target-base anchor rows, so generic trajectory-action retention was insufficient.
+- repair summary: M1123 selected no-training alpha `0.15`, which improved exact M1107 by `-0.000417471`, preserved row15 unsafe margins, and passed six-surface first replay. M1125 passed family replay, and M1127 passed the expanded full public gate.
+- supported claim: alpha `0.15` is ready for a separate public proof-base hardening promotion audit.
+- unsupported claims: no PPO readiness, performance improvement, private-holdout generalization, paper-level evidence, real-vehicle claim, or level3 anticipatory self-identification claim.
+- guardrail: no actor training, PPO, replay, objective optimization, mining, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_projection_branch_synthesis_route_to_promotion_audit`
+- next: `m1129-v4-public-base-row15-projection-promotion-audit`

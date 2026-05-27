@@ -78,66 +78,54 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1127-v4-public-base-row15-projection-full-public-gate
+m1129-v4-public-base-row15-projection-promotion-audit
 ```
 
-M1115 completed the failed wrong-history retention export. It reproduced the
-M1113 failure registry with `47` lost success-drop events, `0` normal-lost
-events, and `47` wrong-history-safe events. It split these into `19`
-target-base rows and `28` family-source rows, exported a `707`-row target-base
-rejected-history trajectory anchor, and wrote a `4664`-row combined anchor.
-Short-family hidden states were not included in the training anchor. M1116 then
-designed a bounded actor-coupling probe that combines the M1107 exact objective
-with M1115 combined trajectory retention and a target-base-only trajectory gate.
-Because the `materialized_objective_corpus_sanity` branch reached its
-10-milestone cadence after M1116, M1117 synthesized M1107-M1116 and opened the
-new `failed_wrong_history_retention_repair` branch. M1118 is the next executable
-step and has now run exactly three lower-lr `actor_coupling` seeds with M1107
-exact objective and M1115 trajectory retention. All three pass pre-replay exact,
-anchor, and parameter-scope gates; best seed is `111800`. M1119 designed the
-first replay gate for this candidate. M1120 then ran only the six target-base
-old-public/source-diverse first replay surfaces. It passed `m183_m168` and
-`m223_m219`, but failed `m267_m264`, `current_m333_surface`,
-`m314_continuity_surface`, and `m317_continuity_surface`. All four failures are
-the same row `15` physical pair `9530:21:9550:21`: `0` normal-lost events and
-`4` wrong-history-safe events. This rejects the M1118 candidate for first replay
-and routes to M1121 row15 failure audit before any family replay, full replay,
-PPO, promotion, or private holdout. M1121 completed that audit. Row `15` was
-not missing from the M1115 target-base trajectory anchor: it had `170` anchor
-rows across five surfaces and full step range `0..33`. M1118 seed `111800` also
-kept target-base-only trajectory-anchor MSE low (`0.000001498` versus `0.0001`
-threshold). The remaining failure is therefore wrong-history terminal margin
-crossing despite action-anchor coverage. M1122 should design a row15
-unsafe-margin or terminal-margin retention objective before any new update,
-replay escalation, PPO, promotion, or private holdout. M1122 completed that
-design as a no-training projection probe: interpolate between the current public
-base and M1118 seed `111800`, require a nonzero alpha, and accept it only if
-row15 wrong-history terminal margins stay below
-`min(-0.00025, 0.5 * base_wrong_history_margin)` before running the unchanged
-six-surface first replay for the selected alpha. M1123 should run only this
-projection probe; family replay, full public gate, fresh/OOD, behavior gates,
-PPO, promotion, and private holdout remain blocked. M1123 completed the
-projection probe and selected nonzero alpha `0.15`:
-`runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt`.
-It improves exact M1107 by `-0.000417471`, keeps target-base trajectory MSE at
-`0.0000000336`, preserves all five row15 unsafe-margin variants, and passes the
-same six-surface first replay that rejected full M1118. This is a first-replay
-candidate only. M1124 should design M1061 family-intersection replay before any
-full public gate, fresh/OOD, behavior gate, PPO, promotion, or private holdout.
-M1124 completed that design using the existing
-`autodrift.family_intersection_public_gate` wrapper with short61049,
-short61050, and short61051 source corpora/checkpoints under unchanged
-thresholds. M1125 should run only that family-intersection replay for
-`alpha_0_15`; full public gate, fresh/OOD, behavior gates, PPO, promotion, and
-private holdout remain blocked. M1125 completed that replay and passed:
-`family_intersection_public_gate_pass`, `3/3` replay gates passed, all
-success drops retained (`25/25`, `27/27`, `27/27`), and actor inputs unchanged.
-The candidate is still not promotable. M1126 should design the expanded full
-public gate for `alpha_0_15` before any promotion, PPO, or private holdout.
-M1126 completed that design: M1127 must rerun exact M1107 first, then run the
-expanded full public gate wrapper with exact/contract, old public replay, M1061
-family-intersection, source-diverse, fresh/OOD, and behavior tiers. M1127 still
-must not promote, run PPO, or use private holdout.
+M1127 completed the expanded full public gate for the row15 projection
+candidate:
+
+```text
+candidate:
+  runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt
+
+M1107 exact:
+  proof_current loss: 0.679117322
+  alpha_0_15 loss:   0.678699851
+  delta:             -0.000417471
+
+expanded full public gate:
+  exact_pass: true
+  proof_pass: true
+  family_intersection_pass: true
+  source_diverse_pass: true
+  generalization_pass: true
+  behavior_pass: true
+  actor_inputs_changed: false
+  ppo_used: false
+  promoted: false
+  private_holdout_used: false
+```
+
+Old public replay retained all success drops across six surfaces; M1061
+family-intersection replay retained `25/25`, `27/27`, and `27/27` success
+drops; source-diverse replay retained `17/17` on all three protected surfaces.
+Fresh randomized public eval and moderate-OOD eval kept success deltas at `0.0`;
+behavior seeds `9505`, `9506`, `103930`, and `103931` retained baseline
+success. This is a positive public proof-hardening result, not a PPO,
+promotion, private-holdout, paper-level, or real-vehicle claim.
+
+M1128 completed the branch synthesis. It closes
+`failed_wrong_history_retention_repair` and opens
+`row15_projection_promotion_audit`. The supported claim is narrow:
+`alpha_0_15` is ready for a separate public proof-base hardening promotion
+audit. It does not prove PPO readiness, medium/long training stability,
+private-holdout generalization, paper-level evidence, real-vehicle transfer, or
+level3 anticipatory self-identification.
+
+M1129 should audit whether `alpha_0_15` becomes the current public-gate base.
+The audit may only use existing M1127/M1128 evidence and must keep the claim
+scoped to public proof-base hardening. It must not train actor weights, run PPO,
+run replay, mine rows, use private holdout, or change actor inputs.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,
