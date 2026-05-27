@@ -16222,3 +16222,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, objective optimization, actor training, PPO, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_cross_family_audit_route_to_intersection_selector_design`
 - next: `m1138-v4-public-base-row15-promoted-intersection-selector-design`
+
+## 20260527T235800Z - m1138-v4-public-base-row15-promoted-intersection-selector-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1138-v4-public-base-row15-promoted-intersection-selector-design.md`
+- result: M1138 designs a deterministic family-intersection selector over `runs/m1136_row15_promoted_family_aggregate_replay_sanity/cross_family_replay_rows.csv`.
+- keep rule: a row is kept only if all five expected policies preserve normal-history success, wrong-history failure, success drop, and finite margins.
+- thresholds: at least `100` rows, `12` physical pairs, `4` source labels, `2` targets, `6` left steps, max physical-pair fraction `0.25`, and max source-label fraction `0.45`.
+- guardrail: no selector run, replay, objective optimization, actor training, PPO, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_intersection_selector_design_admit_m1139_run`
+- next: `m1139-v4-public-base-row15-promoted-intersection-selector`

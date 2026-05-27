@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1138 designs deterministic family-intersection selector over M1136 replay rows with thresholds rows>=100 physical_pairs>=12 source_labels>=4 targets>=2 left_steps>=6",
+  "failure_criteria": [
+    "design artifact is missing",
+    "selector thresholds are missing",
+    "direct mixed-family objective is admitted",
+    "selector, replay, objective optimization, training, PPO, promotion, private holdout, or actor-input change starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not run selector in the design milestone",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not admit direct mixed-family objective optimization"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T223632Z",
+  "hypothesis": "The M1137 all-policy intersection is broad enough to admit a deterministic family-intersection selector before objective conversion.",
+  "lineage": {
+    "blocked_by": [
+      "all-policy intersection rows have not been selected into a compact replay-calibrated surface"
+    ],
+    "derived_from": [
+      "m1137-v4-public-base-row15-promoted-cross-family-replay-audit"
+    ],
+    "invalidates": [
+      "direct mixed-family objective optimization",
+      "source-specific objective fallback before trying broad all-policy intersection"
+    ],
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1137-v4-public-base-row15-promoted-cross-family-replay-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m1136_row15_promoted_family_aggregate_replay_sanity/cross_family_replay_rows.csv",
+      "docs/m1137-v4-public-base-row15-promoted-cross-family-replay-audit.md"
+    ],
+    "parent_objective": [
+      "design deterministic family-intersection selector for all-policy-pass rows"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1138-v4-public-base-row15-promoted-intersection-selector-design",
+  "next_blocker": "m1139-v4-public-base-row15-promoted-intersection-selector",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "row15_promoted_intersection_selector_design_admit_m1139_run",
+  "public_gates": [
+    "M1138 must design intersection selector only",
+    "M1138 must not run selector",
+    "M1138 must not train actor weights",
+    "M1138 must not run PPO",
+    "M1138 must not run replay",
+    "M1138 must not run objective optimization",
+    "M1138 must not promote",
+    "M1138 must not use private holdout",
+    "M1138 must preserve actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1138-v4-public-base-row15-promoted-intersection-selector-design.md",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_intersection_selector_design_admit_m1139_run",
+    "milestone": "m1138-v4-public-base-row15-promoted-intersection-selector-design",
+    "reason": "M1138 designs deterministic family-intersection selector over M1136 replay rows with thresholds rows>=100 physical_pairs>=12 source_labels>=4 targets>=2 left_steps>=6",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design artifact exists",
+    "selector command is explicit",
+    "thresholds are explicit",
+    "source metadata preservation is explicit",
+    "no selector run, replay, objective optimization, training, PPO, promotion, private holdout, or actor-input change occurs"
+  ],
+  "type": "gate"
+}

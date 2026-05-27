@@ -1,0 +1,171 @@
+{
+  "id": "m1139-v4-public-base-row15-promoted-intersection-selector",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1134_row15_promoted_family_aggregate_conversion/family_aggregate_boundary_rows.csv",
+      "runs/m1136_row15_promoted_family_aggregate_replay_sanity/cross_family_replay_rows.csv",
+      "docs/m1138-v4-public-base-row15-promoted-intersection-selector-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1138-v4-public-base-row15-promoted-intersection-selector-design.json"
+    ],
+    "parent_objective": [
+      "run deterministic family-intersection selector for all-policy-pass rows"
+    ],
+    "derived_from": [
+      "m1138-v4-public-base-row15-promoted-intersection-selector-design"
+    ],
+    "blocked_by": [
+      "all-policy intersection rows have not been exported"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "direct mixed-family objective optimization",
+      "target-policy materialization before selector result"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1139-v4-public-base-row15-promoted-intersection-selector.md",
+  "public_gates": [
+    "M1139 may run only the M1138 pre-registered selector command",
+    "M1139 must not train actor weights",
+    "M1139 must not run PPO",
+    "M1139 must not run replay",
+    "M1139 must not run objective optimization",
+    "M1139 must not promote",
+    "M1139 must not use private holdout",
+    "M1139 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken thresholds after seeing selector result"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_base_surface_refresh",
+    "evidence_axis": "G_selector: family-intersection selector run",
+    "evidence_increment": "exports all-policy-pass rows from M1136 cross-family replay artifacts",
+    "claim_scope": "selector/export only; no replay, objective optimization, training, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if selector diversity gate fails",
+      "stop after selector pass before target-base materialization design"
+    ],
+    "fallback_plan": [
+      "if selector passes, route to target-policy materialization design",
+      "if selector is too sparse, route to source-specific objective design",
+      "if metadata fails, route to replay artifact repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1138 admits selector run",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "run all-policy family-intersection selector",
+    "admission_evidence": [
+      "M1138 pre-registers selector command and thresholds",
+      "M1137 all-policy audit found 148 pass rows"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not run objective optimization"
+    ],
+    "allowed_updates": [
+      "selector artifacts",
+      "milestone document",
+      "queue, status, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "selector pass/fail is explicit",
+      "selected row diversity is explicit",
+      "dropped-row classification is explicit",
+      "next materialization or fallback route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1139 selects matched-current proof rows and cannot upgrade self-ID claim level.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1139 is selector-only and adds no pre-emergency warm-up evidence.",
+    "negative_result_policy": "If selector fails, record intersection sparsity before choosing source-specific objective fallback.",
+    "allowed_claims": [
+      "family-intersection selector evidence",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The M1137 all-policy intersection can be exported into a deterministic family-intersection surface with at least 100 rows and 12 physical pairs.",
+  "success_criteria": [
+    "family_intersection_rows.csv exists",
+    "dropped_cross_family_rows.csv exists",
+    "policy_pass_matrix.csv exists",
+    "source_summary.csv exists",
+    "target_summary.csv exists",
+    "summary.json exists",
+    "family_intersection_rows >= 100",
+    "physical_pairs >= 12",
+    "source_labels >= 4",
+    "targets >= 2",
+    "left_steps >= 6",
+    "max_physical_pair_fraction <= 0.25",
+    "max_source_label_fraction <= 0.45",
+    "no replay, objective optimization, training, PPO, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "selector artifact is missing",
+    "diversity gate fails",
+    "expected policy is missing",
+    "replay, objective optimization, training, PPO, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "family_intersection_selector",
+      "command": "see docs/m1138-v4-public-base-row15-promoted-intersection-selector-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1139_row15_promoted_intersection_selector/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1139_row15_promoted_intersection_selector/family_intersection_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1139-v4-public-base-row15-promoted-intersection-selector.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1138-v4-public-base-row15-promoted-intersection-selector-design.md",
+    "runs/m1136_row15_promoted_family_aggregate_replay_sanity/cross_family_replay_rows.csv"
+  ],
+  "decision_rule": "M1139 may only run the pre-registered family-intersection selector. It cannot train actor weights, run PPO, run replay, optimize objectives, promote, use private holdout, change actor inputs, or weaken thresholds after seeing selector result.",
+  "next_blocker": "m1139-v4-public-base-row15-promoted-intersection-selector"
+}

@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1146,
+    "completed": 1147,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1137-v4-public-base-row15-promoted-cross-family-replay-audit",
+    "task_id": "m1138-v4-public-base-row15-promoted-intersection-selector-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1137-v4-public-base-row15-promoted-cross-family-replay-audit.md",
-    "result_class": "row15_promoted_cross_family_audit_intersection_ready",
-    "decision": "row15_promoted_cross_family_audit_route_to_intersection_selector_design"
+    "command_log": "docs/m1138-v4-public-base-row15-promoted-intersection-selector-design.md",
+    "result_class": "row15_promoted_intersection_selector_design_complete",
+    "decision": "row15_promoted_intersection_selector_design_admit_m1139_run"
   },
   "next_task": {
-    "id": "m1138-v4-public-base-row15-promoted-intersection-selector-design",
+    "id": "m1139-v4-public-base-row15-promoted-intersection-selector",
     "status": "pending",
-    "priority": 11330,
-    "kind": "gate",
-    "hypothesis": "The M1137 all-policy intersection is broad enough to admit a deterministic family-intersection selector before objective conversion",
-    "command": "see experiments/manifests/m1138-v4-public-base-row15-promoted-intersection-selector-design.json",
-    "success_artifact": "docs/m1138-v4-public-base-row15-promoted-intersection-selector-design.md",
-    "notes": "Pending: design-only family-intersection selector; no selector replay objective optimization training PPO promotion private holdout or actor-input change"
+    "priority": 11340,
+    "kind": "infrastructure",
+    "hypothesis": "The M1137 all-policy intersection can be exported into a deterministic family-intersection surface with at least 100 rows and 12 physical pairs",
+    "command": "see experiments/manifests/m1139-v4-public-base-row15-promoted-intersection-selector.json",
+    "success_artifact": "docs/m1139-v4-public-base-row15-promoted-intersection-selector.md",
+    "notes": "Pending: selector run only; no replay objective optimization training PPO promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260527T235000Z"
+  "updated_at_utc": "20260527T235800Z"
 }
