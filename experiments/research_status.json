@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1151,
+    "completed": 1152,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1142-v4-public-base-row15-promoted-target-materialization",
+    "task_id": "m1143-v4-public-base-row15-promoted-objective-corpus-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1142-v4-public-base-row15-promoted-target-materialization.md",
-    "result_class": "target_policy_materialization_pass",
-    "decision": "row15_promoted_target_materialization_pass_route_to_objective_corpus_design"
+    "command_log": "docs/m1143-v4-public-base-row15-promoted-objective-corpus-design.md",
+    "result_class": "materialized_objective_corpus_contract_defined",
+    "decision": "row15_promoted_objective_corpus_design_admit_objective_sanity_run"
   },
   "next_task": {
-    "id": "m1143-v4-public-base-row15-promoted-objective-corpus-design",
+    "id": "m1144-v4-public-base-row15-promoted-objective-corpus-run",
     "status": "pending",
-    "priority": 11380,
-    "kind": "gate",
-    "hypothesis": "A single-checkpoint boundary-outcome corpus/objective sanity run can be pre-registered for the M1142 row15_current materialized rows without violating hidden-state-space separation",
-    "command": "see experiments/manifests/m1143-v4-public-base-row15-promoted-objective-corpus-design.json",
-    "success_artifact": "docs/m1143-v4-public-base-row15-promoted-objective-corpus-design.md",
-    "notes": "Pending: design only; no corpus build objective sanity training PPO promotion private holdout or actor-input change"
+    "priority": 11390,
+    "kind": "objective_sanity",
+    "hypothesis": "The M1142 row15_current materialized rows can produce a valid single-checkpoint boundary-outcome corpus and learnable auxiliary objective",
+    "command": "see experiments/manifests/m1144-v4-public-base-row15-promoted-objective-corpus-run.json",
+    "success_artifact": "docs/m1144-v4-public-base-row15-promoted-objective-corpus-run.md",
+    "notes": "Pending: corpus/objective sanity only; no actor training PPO replay promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T003200Z"
+  "updated_at_utc": "20260528T004100Z"
 }

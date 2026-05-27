@@ -1,0 +1,95 @@
+{
+  "decision_reason": "M1143 designs row15_current objective sanity with 76 expected deduplicated rows minimum corpus rows 70 and no corpus build or training",
+  "failure_criteria": [
+    "design artifact is missing",
+    "corpus command is ambiguous",
+    "objective sanity pass/fail thresholds are missing",
+    "objective sanity is conflated with promotion",
+    "actor training, PPO, replay, corpus build, objective sanity, mining, promotion, or private holdout starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run corpus build",
+    "do not run objective sanity",
+    "do not mine rows",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not conflate objective sanity with promotion"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T225312Z",
+  "hypothesis": "A single-checkpoint boundary-outcome corpus/objective sanity run can be pre-registered for the M1142 row15_current materialized rows without violating hidden-state-space separation.",
+  "lineage": {
+    "blocked_by": [
+      "M1142 materialized row15_current rows are ready, but corpus/objective sanity must be pre-registered before writing NPZ"
+    ],
+    "derived_from": [
+      "m1142-v4-public-base-row15-promoted-target-materialization"
+    ],
+    "invalidates": [
+      "running objective sanity without pre-registered corpus thresholds",
+      "using any checkpoint other than row15_current for the first M1142 corpus",
+      "promoting from corpus/objective sanity"
+    ],
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1142-v4-public-base-row15-promoted-target-materialization.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_dataset": [
+      "docs/m1142-v4-public-base-row15-promoted-target-materialization.md",
+      "runs/m1142_row15_promoted_target_materialization/row15_current_boundary_rows.csv",
+      "runs/m1142_row15_promoted_target_materialization/row15_current_materialization_summary.json"
+    ],
+    "parent_objective": [
+      "design boundary-outcome corpus and objective sanity run from row15_current materialized rows"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1143-v4-public-base-row15-promoted-objective-corpus-design",
+  "next_blocker": "m1144-v4-public-base-row15-promoted-objective-corpus-run",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "row15_promoted_objective_corpus_design_admit_objective_sanity_run",
+  "public_gates": [
+    "M1143 must design only",
+    "M1143 must not train actor weights",
+    "M1143 must not run PPO",
+    "M1143 must not run replay",
+    "M1143 must not run corpus build or objective sanity",
+    "M1143 must not mine rows",
+    "M1143 must not promote",
+    "M1143 must not use private holdout",
+    "M1143 must preserve actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1143-v4-public-base-row15-promoted-objective-corpus-design.md",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_objective_corpus_design_admit_objective_sanity_run",
+    "milestone": "m1143-v4-public-base-row15-promoted-objective-corpus-design",
+    "reason": "M1143 designs row15_current objective sanity with 76 expected deduplicated rows minimum corpus rows 70 and no corpus build or training",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design artifact exists",
+    "corpus command is explicit",
+    "objective sanity command is explicit",
+    "corpus thresholds are explicit",
+    "action reconstruction and objective pass/fail interpretation are explicit",
+    "no actor training, PPO, replay, corpus build, objective sanity, mining, promotion, or private holdout occurs"
+  ],
+  "type": "gate"
+}

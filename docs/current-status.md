@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1143-v4-public-base-row15-promoted-objective-corpus-design
+m1144-v4-public-base-row15-promoted-objective-corpus-run
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -202,9 +202,23 @@ Output:
 runs/m1142_row15_promoted_target_materialization/row15_current_boundary_rows.csv
 ```
 
-M1143 should design the corpus/objective sanity run over these materialized
-rows. It must not build the corpus, run objective sanity, replay, train actor
-weights, run PPO, promote, use private holdout, or change actor inputs.
+M1143 designed the corpus/objective sanity run over these materialized rows.
+Read-only pre-audit:
+
+```text
+raw materialized rows: 148
+unique boundary geometry rows: 76
+physical_pairs: 13
+targets: 2
+left_steps: 6
+source_labels: 5
+```
+
+M1144 should build the row15-current corpus and run objective sanity only, using
+seeds `114400`, `114401`, and `114402`. It must not replay, train actor weights,
+run PPO, promote, use private holdout, or change actor inputs. Passing M1144
+would support objective learnability only; it would not prove actor improvement
+or PPO readiness.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

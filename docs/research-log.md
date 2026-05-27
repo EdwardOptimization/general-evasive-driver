@@ -16288,3 +16288,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, objective optimization, actor training, PPO, promotion, private holdout, objective NPZ, or actor-input change occurred.
 - decision: `row15_promoted_target_materialization_pass_route_to_objective_corpus_design`
 - next: `m1143-v4-public-base-row15-promoted-objective-corpus-design`
+
+## 20260528T004100Z - m1143-v4-public-base-row15-promoted-objective-corpus-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1143-v4-public-base-row15-promoted-objective-corpus-design.md`
+- result: M1143 designs a single-checkpoint row15-current boundary-outcome corpus and objective-sanity run for the M1142 materialized rows.
+- read-only pre-audit: raw rows `148`, unique boundary geometry rows `76`, `13` physical pairs, `2` targets, `6` left steps, and `5` source labels.
+- corpus gates: minimum `70` corpus rows, at least `12` physical pairs, exactly `2` targets, all selected rows success drops, selected source rows at least `70`, action reconstruction max error at most `0.005`, and mean at most `0.001`.
+- objective gates: require objective pass across seeds `114400`, `114401`, and `114402`, positive validation-loss improvements, and mean validation pairwise accuracy after at least `0.60`.
+- guardrail: no corpus build, objective sanity, replay, actor training, PPO, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_objective_corpus_design_admit_objective_sanity_run`
+- next: `m1144-v4-public-base-row15-promoted-objective-corpus-run`

@@ -157,6 +157,35 @@
     "docs/m1142-v4-public-base-row15-promoted-target-materialization.md",
     "runs/m1142_row15_promoted_target_materialization/row15_current_boundary_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1143-v4-public-base-row15-promoted-objective-corpus-design.md",
+    "decision": "row15_promoted_objective_corpus_design_admit_objective_sanity_run",
+    "result_class": "materialized_objective_corpus_contract_defined",
+    "failure_types": [
+      "none"
+    ],
+    "target_policy_label": "row15_current",
+    "raw_materialized_rows": 148,
+    "expected_deduplicated_rows": 76,
+    "minimum_corpus_rows": 70,
+    "minimum_physical_pairs": 12,
+    "required_targets": 2,
+    "max_action_reconstruction_error": 0.005,
+    "mean_action_reconstruction_error": 0.001,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "corpus_build_started": false,
+    "objective_sanity_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1144-v4-public-base-row15-promoted-objective-corpus-run"
+  },
+  "decision": "row15_promoted_objective_corpus_design_admit_objective_sanity_run",
   "decision_rule": "M1143 may only design the materialized corpus/objective sanity run. It cannot train actor weights, run PPO, run replay, run corpus build, run objective sanity, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1143-v4-public-base-row15-promoted-objective-corpus-design"
+  "next_blocker": "m1144-v4-public-base-row15-promoted-objective-corpus-run"
 }
