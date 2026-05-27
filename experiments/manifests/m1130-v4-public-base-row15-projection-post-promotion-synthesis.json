@@ -74,7 +74,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1129 promoted alpha_0_15 as the current public-gate base",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "promote_to_next_branch",
     "synthesis_artifact": "docs/m1130-v4-public-base-row15-projection-post-promotion-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -161,6 +161,36 @@
   "baseline_artifacts": [
     "docs/m1129-v4-public-base-row15-projection-promotion-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1130-v4-public-base-row15-projection-post-promotion-synthesis.md",
+    "decision": "row15_projection_post_promotion_synthesis_open_surface_refresh",
+    "result_class": "post_promotion_synthesis_promote_to_next_branch",
+    "failure_types": [
+      "none"
+    ],
+    "closed_branch": "row15_projection_promotion_audit",
+    "opened_branch": "row15_promoted_base_surface_refresh",
+    "current_public_gate_base": "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "previous_public_gate_base": "runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt",
+    "supported_claim_scope": "public_gate_base_proof_hardening",
+    "medium_ppo_performance_claim": false,
+    "long_run_ppo_stability_claim": false,
+    "private_holdout_claim": false,
+    "paper_level_generalization_claim": false,
+    "level3_self_identification_claim": false,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1131-v4-public-base-row15-promoted-surface-refresh-design"
+  },
+  "decision": "row15_projection_post_promotion_synthesis_open_surface_refresh",
   "decision_rule": "M1130 may only synthesize the post-promotion state and choose the next branch. It cannot train actor weights, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or change actor inputs.",
-  "next_blocker": "m1130-v4-public-base-row15-projection-post-promotion-synthesis"
+  "next_blocker": "m1131-v4-public-base-row15-promoted-surface-refresh-design"
 }

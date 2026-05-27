@@ -16123,3 +16123,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, replay, objective optimization, mining, private holdout, or actor-input change occurred.
 - decision: `row15_projection_promote_public_gate_base`
 - next: `m1130-v4-public-base-row15-projection-post-promotion-synthesis`
+
+## 20260527T224000Z - m1130-v4-public-base-row15-projection-post-promotion-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1130-v4-public-base-row15-projection-post-promotion-synthesis.md`
+- evidence summary: M1129 promoted `runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt` as the current public-gate base and scoped the promotion to public proof-base hardening only.
+- supported claim: future public-gate work should use alpha `0.15` as the current base.
+- unsupported claims: no medium/long PPO stability, performance improvement, private-holdout generalization, paper-level evidence, real-vehicle transfer, or level3 anticipatory self-ID claim.
+- public-gate overfit risk: alpha `0.15` was selected through public proof repair, so direct PPO is still blocked until a current-base source-diverse protected/preference surface refresh is designed and run.
+- guardrail: no actor training, PPO, replay, objective optimization, mining, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_projection_post_promotion_synthesis_open_surface_refresh`
+- next: `m1131-v4-public-base-row15-promoted-surface-refresh-design`

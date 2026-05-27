@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1138,
+    "completed": 1139,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1129-v4-public-base-row15-projection-promotion-audit",
+    "task_id": "m1130-v4-public-base-row15-projection-post-promotion-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1129-v4-public-base-row15-projection-promotion-audit.md",
-    "result_class": "row15_projection_promoted_public_gate_base",
-    "decision": "row15_projection_promote_public_gate_base"
+    "command_log": "docs/m1130-v4-public-base-row15-projection-post-promotion-synthesis.md",
+    "result_class": "post_promotion_synthesis_promote_to_next_branch",
+    "decision": "row15_projection_post_promotion_synthesis_open_surface_refresh"
   },
   "next_task": {
-    "id": "m1130-v4-public-base-row15-projection-post-promotion-synthesis",
+    "id": "m1131-v4-public-base-row15-promoted-surface-refresh-design",
     "status": "pending",
-    "priority": 11250,
+    "priority": 11260,
     "kind": "gate",
-    "hypothesis": "After M1129 promotion, the next branch should refresh current-base source-diverse protected/preference surfaces before another PPO proposal",
-    "command": "see experiments/manifests/m1130-v4-public-base-row15-projection-post-promotion-synthesis.json",
-    "success_artifact": "docs/m1130-v4-public-base-row15-projection-post-promotion-synthesis.md",
-    "notes": "Pending: post-promotion synthesis only; no training replay PPO mining promotion private holdout or actor-input change"
+    "hypothesis": "The promoted M1129 alpha_0_15 public-gate base needs a fresh source-diverse protected/preference surface before any new PPO proposal",
+    "command": "see experiments/manifests/m1131-v4-public-base-row15-promoted-surface-refresh-design.json",
+    "success_artifact": "docs/m1131-v4-public-base-row15-promoted-surface-refresh-design.md",
+    "notes": "Pending: design-only current-base surface refresh; no mining replay training PPO promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260527T223200Z"
+  "updated_at_utc": "20260527T224000Z"
 }

@@ -1,0 +1,151 @@
+{
+  "id": "m1131-v4-public-base-row15-promoted-surface-refresh-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1130-v4-public-base-row15-projection-post-promotion-synthesis.md",
+      "docs/m1129-v4-public-base-row15-projection-promotion-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1130-v4-public-base-row15-projection-post-promotion-synthesis.json"
+    ],
+    "parent_objective": [
+      "design a current-base source-diverse protected/preference surface refresh before any new PPO proposal"
+    ],
+    "derived_from": [
+      "m1130-v4-public-base-row15-projection-post-promotion-synthesis"
+    ],
+    "blocked_by": [
+      "M1130 opened row15_promoted_base_surface_refresh and blocked direct PPO until refresh design"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running PPO directly from the M1129 public-gate base",
+      "reusing only M1120/M1123/M1127 active rows as if they were fresh current-base evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1131-v4-public-base-row15-promoted-surface-refresh-design.md",
+  "public_gates": [
+    "M1131 must not train actor weights",
+    "M1131 must not run PPO",
+    "M1131 must not use private holdout",
+    "M1131 must not mine rows; design only",
+    "M1131 must define acceptance criteria for a current-base source-diverse refresh"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not mine rows",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not weaken actor-input or changed-parameter contracts"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_base_surface_refresh",
+    "evidence_axis": "G_surface: current-base protected/preference refresh design",
+    "evidence_increment": "pre-registers fresh surface-mining criteria for the M1129 promoted alpha_0_15 base",
+    "claim_scope": "design only; no mining, no replay, no training, no promotion, no private holdout",
+    "stop_condition": [
+      "stop if design cannot avoid optimizing only fixed public rows",
+      "stop if acceptance criteria omit source diversity",
+      "stop if design would permit PPO before refresh"
+    ],
+    "fallback_plan": [
+      "if design is accepted, run the current-base surface refresh in M1132",
+      "if design is too narrow, route to surface diversity audit",
+      "if tooling is missing, route to infrastructure implementation before mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1130 selected row15_promoted_base_surface_refresh",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design current-base source-diverse protected/preference surface refresh",
+    "admission_evidence": [
+      "M1129 promoted alpha_0_15 as current public-gate base",
+      "M1130 selected current-base surface refresh before PPO"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not mine rows in design milestone",
+      "do not run replay"
+    ],
+    "allowed_updates": [
+      "design document",
+      "pre-register M1132 if design supports it",
+      "queue, status, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "current base checkpoint is explicit",
+      "refresh family is explicit",
+      "source-diversity thresholds are explicit",
+      "next run milestone is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1131 designs a surface refresh and cannot upgrade self-ID claim level.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1131 is design-only and adds no new self-ID intervention.",
+    "negative_result_policy": "If refresh design cannot avoid public-row overfit, route to tooling or diversity audit rather than mining.",
+    "allowed_claims": [
+      "surface refresh design readiness",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The promoted M1129 alpha_0_15 public-gate base needs a fresh source-diverse protected/preference surface before any new PPO proposal.",
+  "success_criteria": [
+    "design artifact exists",
+    "current base checkpoint is explicit",
+    "mining axes are explicit",
+    "source-diversity thresholds are explicit",
+    "objective/replay conversion plan is explicit",
+    "no training, PPO, replay, mining, promotion, or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "current base checkpoint is ambiguous",
+    "source-diversity thresholds are missing",
+    "training, PPO, replay, or mining starts",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "write_surface_refresh_design",
+      "command": "write docs/m1131-v4-public-base-row15-promoted-surface-refresh-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1131-v4-public-base-row15-promoted-surface-refresh-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1130-v4-public-base-row15-projection-post-promotion-synthesis.md"
+  ],
+  "decision_rule": "M1131 may only design the current-base surface refresh. It cannot train actor weights, run PPO, mine rows, run replay, promote, or use private holdout.",
+  "next_blocker": "m1131-v4-public-base-row15-promoted-surface-refresh-design"
+}
