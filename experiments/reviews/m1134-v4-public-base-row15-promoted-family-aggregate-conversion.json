@@ -1,0 +1,99 @@
+{
+  "decision_reason": "M1134 exports 172 source-preserving family aggregate rows with 15 physical pairs 6 left steps 5 checkpoints 3 targets and no mixed source objective NPZ",
+  "failure_criteria": [
+    "conversion artifact is missing",
+    "source policy map is incomplete",
+    "diversity thresholds fail",
+    "mixed hidden-state objective NPZ is written",
+    "actor training, PPO, objective optimization, replay, promotion, private holdout, or actor-input change starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run objective optimization",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not discard source metadata",
+    "do not write mixed hidden-state objective NPZ"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260527T222559Z",
+  "hypothesis": "The M1132 172-row promoted-base surface can be exported into a source-preserving family aggregate replay/audit corpus without losing diversity.",
+  "lineage": {
+    "blocked_by": [
+      "M1132 surface has not been converted into source-preserving aggregate replay/audit rows"
+    ],
+    "derived_from": [
+      "m1133-v4-public-base-row15-promoted-compact-conversion-design"
+    ],
+    "invalidates": [
+      "training directly on M1132 rows without conversion",
+      "dropping source metadata before replay sanity"
+    ],
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1133-v4-public-base-row15-promoted-compact-conversion-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m1132_row15_promoted_source_balanced_surface_seed113200/balanced_accepted_wrong_history_rows.csv",
+      "docs/m1133-v4-public-base-row15-promoted-compact-conversion-design.md"
+    ],
+    "parent_objective": [
+      "run export-only family-aggregate conversion for the M1132 promoted-base surface"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1134-v4-public-base-row15-promoted-family-aggregate-conversion",
+  "next_blocker": "m1135-v4-public-base-row15-promoted-replay-sanity-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "row15_promoted_family_aggregate_conversion_pass_route_to_replay_sanity_design",
+  "public_gates": [
+    "M1134 may run only the M1133 pre-registered export conversion command",
+    "M1134 must not train actor weights",
+    "M1134 must not run PPO",
+    "M1134 must not run objective optimization",
+    "M1134 must not run replay",
+    "M1134 must not promote",
+    "M1134 must not use private holdout",
+    "M1134 must preserve actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1134_row15_promoted_family_aggregate_conversion/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_family_aggregate_conversion_pass_route_to_replay_sanity_design",
+    "milestone": "m1134-v4-public-base-row15-promoted-family-aggregate-conversion",
+    "reason": "M1134 exports 172 source-preserving family aggregate rows with 15 physical pairs 6 left steps 5 checkpoints 3 targets and no mixed source objective NPZ",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "family_aggregate_boundary_rows.csv exists",
+    "source_policy_map.json exists",
+    "source_summary.csv exists",
+    "duplicate_geometry_summary.csv exists",
+    "replay_plan.json exists",
+    "summary.json exists",
+    "rows >= 100",
+    "physical_pairs >= 12",
+    "left_steps >= 6",
+    "checkpoints >= 4",
+    "targets >= 2",
+    "normal_margin_buckets >= 2",
+    "success_drop_fraction == 1.0",
+    "max_rows_per_physical_pair_fraction <= 0.25",
+    "no actor training, PPO, objective optimization, replay, promotion, private holdout, or actor-input change occurs"
+  ],
+  "type": "infrastructure"
+}

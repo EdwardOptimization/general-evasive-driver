@@ -16173,3 +16173,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no conversion run, replay, objective optimization, actor training, PPO, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_compact_conversion_design_admit_m1134_export`
 - next: `m1134-v4-public-base-row15-promoted-family-aggregate-conversion`
+
+## 20260527T232300Z - m1134-v4-public-base-row15-promoted-family-aggregate-conversion
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1134-v4-public-base-row15-promoted-family-aggregate-conversion.md`
+- result: M1134 runs the export-only family aggregate conversion and passes with `172` rows, `15` physical pairs, `6` left steps, `5` checkpoints, `3` targets, `3` normal-margin buckets, success-drop fraction `1.0`, and max physical-pair fraction `0.116279`.
+- source distribution: previous base `7` rows, row15 current `28`, short61049 `51`, short61050 `37`, short61051 `49`.
+- outputs: `family_aggregate_boundary_rows.csv`, `source_policy_map.json`, `source_summary.csv`, `duplicate_geometry_summary.csv`, `replay_plan.json`, and `summary.json`.
+- guardrail: no replay, objective optimization, actor training, PPO, promotion, private holdout, actor-input change, or mixed hidden-state objective NPZ occurred.
+- decision: `row15_promoted_family_aggregate_conversion_pass_route_to_replay_sanity_design`
+- next: `m1135-v4-public-base-row15-promoted-replay-sanity-design`

@@ -169,6 +169,43 @@
     "docs/m1133-v4-public-base-row15-promoted-compact-conversion-design.md",
     "runs/m1132_row15_promoted_source_balanced_surface_seed113200/balanced_accepted_wrong_history_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1134-v4-public-base-row15-promoted-family-aggregate-conversion.md",
+    "summary": "runs/m1134_row15_promoted_family_aggregate_conversion/summary.json",
+    "decision": "row15_promoted_family_aggregate_conversion_pass_route_to_replay_sanity_design",
+    "result_class": "family_aggregate_conversion_export_pass",
+    "failure_types": [
+      "none"
+    ],
+    "family_aggregate_boundary_rows_csv": "runs/m1134_row15_promoted_family_aggregate_conversion/family_aggregate_boundary_rows.csv",
+    "source_policy_map_json": "runs/m1134_row15_promoted_family_aggregate_conversion/source_policy_map.json",
+    "source_summary_csv": "runs/m1134_row15_promoted_family_aggregate_conversion/source_summary.csv",
+    "duplicate_geometry_summary_csv": "runs/m1134_row15_promoted_family_aggregate_conversion/duplicate_geometry_summary.csv",
+    "replay_plan_json": "runs/m1134_row15_promoted_family_aggregate_conversion/replay_plan.json",
+    "rows": 172,
+    "physical_pairs": 15,
+    "left_steps": 6,
+    "checkpoints": 5,
+    "targets": 3,
+    "normal_margin_buckets": 3,
+    "success_drop_fraction": 1.0,
+    "max_rows_per_physical_pair_fraction": 0.11627906976744186,
+    "duplicate_geometry_groups": 92,
+    "duplicate_geometry_multi_source_groups": 0,
+    "mixed_source_objective_npz_written": false,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1135-v4-public-base-row15-promoted-replay-sanity-design"
+  },
+  "decision": "row15_promoted_family_aggregate_conversion_pass_route_to_replay_sanity_design",
   "decision_rule": "M1134 may only run export-only family aggregate conversion. It cannot train actor weights, run PPO, optimize objectives, run replay, promote, use private holdout, change actor inputs, discard source metadata, or write a mixed hidden-state objective NPZ.",
-  "next_blocker": "m1134-v4-public-base-row15-promoted-family-aggregate-conversion"
+  "next_blocker": "m1135-v4-public-base-row15-promoted-replay-sanity-design"
 }

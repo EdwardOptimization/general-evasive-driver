@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1134-v4-public-base-row15-promoted-family-aggregate-conversion
+m1135-v4-public-base-row15-promoted-replay-sanity-design
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -123,16 +123,19 @@ audit. It does not prove PPO readiness, medium/long training stability,
 private-holdout generalization, paper-level evidence, real-vehicle transfer, or
 level3 anticipatory self-identification.
 
-M1133 completed compact conversion design for the M1132 promoted-base surface:
+M1134 completed export-only family aggregate conversion for the M1132
+promoted-base surface:
 
 ```text
-runs/m1132_row15_promoted_source_balanced_surface_seed113200/balanced_accepted_wrong_history_rows.csv
+runs/m1134_row15_promoted_family_aggregate_conversion/family_aggregate_boundary_rows.csv
 ```
 
-M1134 should run only export-only family aggregate conversion into replay/audit
-artifacts. It must preserve source metadata and must not run replay, optimize an
-objective, train actor weights, run PPO, promote, use private holdout, change
-actor inputs, or write a mixed hidden-state objective NPZ.
+The export has `172` rows, `15` physical pairs, `6` left steps, `5`
+checkpoints, `3` targets, and no mixed hidden-state objective NPZ. M1135 should
+design source-aware replay sanity before any objective conversion or training.
+M1135 must not run replay, optimize an objective, train actor weights, run PPO,
+promote, use private holdout, change actor inputs, or skip duplicate-geometry
+failure reporting.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,
