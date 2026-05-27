@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M1065 integrates the M1061 family-intersection gate into the full public gate stack and current base passes no-PPO proof-tier preflight",
+  "failure_criteria": [
+    "expanded stack omits M1061 family-intersection gate",
+    "current public-gate base fails the expanded stack",
+    "PPO or actor training starts",
+    "private holdout is used"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train actor",
+    "do not promote",
+    "do not use private holdout",
+    "do not make medium-PPO claims from this integration milestone"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260527T064856Z",
+  "hypothesis": "The M1064 family-intersection public gate can be integrated into the guarded PPO/full public gate stack and the current public-gate base can pass the expanded no-PPO preflight.",
+  "lineage": {
+    "blocked_by": [
+      "M1064 validates the wrapper but future PPO candidates still need the expanded gate stack"
+    ],
+    "derived_from": [
+      "m1064-v4-public-base-family-intersection-public-gate-implementation"
+    ],
+    "invalidates": [
+      "medium PPO design that does not include M1061 family-intersection proof retention"
+    ],
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1064-v4-public-base-family-intersection-public-gate-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m1064_family_intersection_public_gate_current_base/summary.json"
+    ],
+    "parent_objective": [
+      "integrate M1064 family-intersection public gate into guarded PPO/full public gate stack"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1065-v4-public-base-family-intersection-stack-integration",
+  "next_blocker": "m1065-v4-public-base-family-intersection-stack-integration",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "family_intersection_stack_integration_pass_route_to_pre_medium_readiness_synthesis",
+  "public_gates": [
+    "M1065 must not run PPO",
+    "M1065 must not train actor",
+    "M1065 must not promote",
+    "M1065 must not use private holdout",
+    "M1065 must integrate family_intersection_public_gate into the public proof tier",
+    "M1065 must validate the expanded stack without PPO"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1065_expanded_stack_family_intersection_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "family_intersection_stack_integration_pass_route_to_pre_medium_readiness_synthesis",
+    "milestone": "m1065-v4-public-base-family-intersection-stack-integration",
+    "reason": "M1065 integrates the M1061 family-intersection gate into the full public gate stack and current base passes no-PPO proof-tier preflight",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "expanded gate stack invokes family_intersection_public_gate",
+    "current public-gate base passes the expanded stack without PPO",
+    "M1061 family-intersection failures would classify as proof_washout",
+    "no PPO actor training promotion or private holdout occurs"
+  ],
+  "type": "infrastructure"
+}

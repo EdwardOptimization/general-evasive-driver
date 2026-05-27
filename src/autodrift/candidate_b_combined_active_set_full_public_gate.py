@@ -23,6 +23,11 @@ from autodrift.capability_step_temporal_sequence_update_probe import (
 )
 from autodrift.checkpoints import load_actor_critic_checkpoint
 from autodrift.exact_post_ppo_repair import ExactRepairConfig, exact_loss_summary, load_repair_corpora
+from autodrift.family_intersection_public_gate import (
+    SourceCorpusSpec,
+    run_family_intersection_public_gate,
+)
+from autodrift.hidden_envelope_multiseed_gate import CheckpointSpec
 from autodrift.public_base_controlled_fusion_candidate_replay_gate import DEFAULT_ENV_CONFIG
 from autodrift.public_base_direction_target_actor_fit_promotion_generalization_gate import (
     DEFAULT_OOD_ENV_CONFIG,
@@ -58,6 +63,34 @@ DEFAULT_FRESH_SEEDS = (103900, 103901)
 DEFAULT_OOD_SEEDS = (103920,)
 DEFAULT_BEHAVIOR_SEEDS = (9505, 9506, 103930, 103931)
 ALLOWED_CHANGED_PREFIXES = ("actor_mean.", "response_context_fusion.0.")
+DEFAULT_FAMILY_INTERSECTION_SOURCE_POLICIES = (
+    CheckpointSpec(
+        label="short61049",
+        path=Path("runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"),
+    ),
+    CheckpointSpec(
+        label="short61050",
+        path=Path("runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt"),
+    ),
+    CheckpointSpec(
+        label="short61051",
+        path=Path("runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt"),
+    ),
+)
+DEFAULT_FAMILY_INTERSECTION_SOURCE_CORPORA = (
+    SourceCorpusSpec(
+        label="short61049",
+        corpus_csv=Path("runs/m1061_short61049_boundary_outcome_corpus_seed10570/boundary_outcome_corpus.csv"),
+    ),
+    SourceCorpusSpec(
+        label="short61050",
+        corpus_csv=Path("runs/m1061_short61050_boundary_outcome_corpus_seed10570/boundary_outcome_corpus.csv"),
+    ),
+    SourceCorpusSpec(
+        label="short61051",
+        corpus_csv=Path("runs/m1061_short61051_boundary_outcome_corpus_seed10570/boundary_outcome_corpus.csv"),
+    ),
+)
 
 
 def _parse_seeds(text: str) -> tuple[int, ...]:
@@ -66,6 +99,18 @@ def _parse_seeds(text: str) -> tuple[int, ...]:
 
 def _parse_prefixes(text: str) -> tuple[str, ...]:
     return tuple(item.strip() for item in str(text).split(",") if item.strip())
+
+
+def _parse_source_policies(text: str) -> tuple[CheckpointSpec, ...]:
+    from autodrift.hidden_envelope_multiseed_gate import parse_checkpoint_spec
+
+    return tuple(parse_checkpoint_spec(item.strip()) for item in str(text).split(",") if item.strip())
+
+
+def _parse_source_corpora(text: str) -> tuple[SourceCorpusSpec, ...]:
+    from autodrift.family_intersection_public_gate import parse_source_corpus_spec
+
+    return tuple(parse_source_corpus_spec(item.strip()) for item in str(text).split(",") if item.strip())
 
 
 def changed_parameters_allowed(names: list[str], *, allowed_prefixes: tuple[str, ...] = ALLOWED_CHANGED_PREFIXES) -> bool:
@@ -78,6 +123,7 @@ def classify_full_public_gate(
     allowed_surface_contract_pass: bool,
     exact_pass: bool,
     proof_pass: bool,
+    family_intersection_pass: bool = True,
     source_diverse_pass: bool,
     generalization_pass: bool,
     behavior_pass: bool,
@@ -91,7 +137,7 @@ def classify_full_public_gate(
         return "candidate_b_combined_active_set_full_public_gate_contract_artifact"
     if not bool(exact_pass):
         return "candidate_b_combined_active_set_full_public_gate_exact_failed"
-    if not bool(proof_pass):
+    if not bool(proof_pass) or not bool(family_intersection_pass):
         return "candidate_b_combined_active_set_full_public_gate_public_replay_washout"
     if not bool(source_diverse_pass):
         return "candidate_b_combined_active_set_full_public_gate_source_diagnostic_failed"
@@ -294,6 +340,7 @@ def _route_decision_row(summary: dict[str, Any]) -> dict[str, Any]:
         "result_class": str(summary["result_class"]),
         "exact_pass": bool(summary["exact_pass"]),
         "proof_pass": bool(summary["proof_pass"]),
+        "family_intersection_pass": bool(summary["family_intersection_pass"]),
         "source_diverse_pass": bool(summary["source_diverse_pass"]),
         "generalization_pass": bool(summary["generalization_pass"]),
         "behavior_pass": bool(summary["behavior_pass"]),
@@ -330,6 +377,9 @@ def run_combined_active_set_full_public_gate(
     lambda_pref: float,
     lambda_anchor: float,
     allowed_changed_prefixes: tuple[str, ...] = ALLOWED_CHANGED_PREFIXES,
+    family_intersection_source_policies: tuple[CheckpointSpec, ...] = DEFAULT_FAMILY_INTERSECTION_SOURCE_POLICIES,
+    family_intersection_source_corpora: tuple[SourceCorpusSpec, ...] = DEFAULT_FAMILY_INTERSECTION_SOURCE_CORPORA,
+    enable_family_intersection_gate: bool = True,
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     candidate = DirectionTargetCandidate(alpha=0.15, checkpoint=candidate_checkpoint)
@@ -369,6 +419,24 @@ def run_combined_active_set_full_public_gate(
         max_continuation_steps=max_continuation_steps,
     )
     source_diverse_pass = bool(source_diverse_summary.get("overall_pass", False))
+    family_intersection_summary: dict[str, Any] = {"status": "disabled"}
+    family_intersection_pass = True
+    if enable_family_intersection_gate:
+        family_intersection_summary = run_family_intersection_public_gate(
+            source_policies=family_intersection_source_policies,
+            source_corpora=family_intersection_source_corpora,
+            candidate_policy=CheckpointSpec(label=candidate.label, path=candidate_checkpoint),
+            env_config_path=fresh_env_config,
+            max_rows=0,
+            max_continuation_steps=max_continuation_steps,
+            max_normal_success_drop=0.0,
+            max_normal_margin_regression=0.005,
+            max_margin_gap_regression=0.001,
+            max_success_drop_count_regression=0,
+            device=device,
+            run_dir=run_dir / "family_intersection_public_gate",
+        )
+        family_intersection_pass = bool(family_intersection_summary.get("overall_pass", False))
     old_key_summary = _run_old_key_diagnostic(
         base_checkpoint=base_checkpoint,
         candidate=candidate,
@@ -411,6 +479,7 @@ def run_combined_active_set_full_public_gate(
         allowed_surface_contract_pass=allowed_surface_contract_pass,
         exact_pass=exact_pass,
         proof_pass=proof_pass,
+        family_intersection_pass=family_intersection_pass,
         source_diverse_pass=source_diverse_pass,
         generalization_pass=generalization_pass,
         behavior_pass=behavior_pass,
@@ -443,6 +512,9 @@ def run_combined_active_set_full_public_gate(
         "proof_replay_gates_passed": int(sum(1 for row in proof_rows if bool(row.get("gate_pass", False)))),
         "proof_pass": bool(proof_pass),
         "failed_proof_surfaces": [row["surface"] for row in proof_rows if not bool(row["gate_pass"])],
+        "family_intersection_gate_enabled": bool(enable_family_intersection_gate),
+        "family_intersection_pass": bool(family_intersection_pass),
+        "family_intersection_summary": family_intersection_summary,
         "source_diverse_pass": bool(source_diverse_pass),
         "source_diverse_protected_summary": source_diverse_summary,
         "old_key_9944_status": "diagnostic_only",
@@ -479,6 +551,7 @@ def run_combined_active_set_full_public_gate(
         "next_blocker": next_blocker_for_full_public_gate(result_class),
         "exact_contract_summary_csv": run_dir / "exact_contract_summary.csv",
         "proof_replay_summary_csv": run_dir / "proof_replay_summary.csv",
+        "family_intersection_summary_json": run_dir / "family_intersection_summary.json",
         "source_diverse_summary_json": run_dir / "source_diverse_summary.json",
         "fresh_randomized_eval_summary_csv": run_dir / "fresh_randomized_eval_summary.csv",
         "ood_eval_summary_csv": run_dir / "ood_eval_summary.csv",
@@ -490,6 +563,7 @@ def run_combined_active_set_full_public_gate(
     }
     write_csv_rows(run_dir / "exact_contract_summary.csv", exact_rows)
     write_csv_rows(run_dir / "proof_replay_summary.csv", proof_rows)
+    write_json(run_dir / "family_intersection_summary.json", family_intersection_summary)
     write_json(run_dir / "source_diverse_summary.json", source_diverse_summary)
     write_csv_rows(run_dir / "fresh_randomized_eval_summary.csv", fresh_rows)
     write_csv_rows(run_dir / "ood_eval_summary.csv", ood_rows)
@@ -526,6 +600,9 @@ def main() -> None:
     parser.add_argument("--lambda-pref", type=float, default=1.0)
     parser.add_argument("--lambda-anchor", type=float, default=0.25)
     parser.add_argument("--allowed-changed-prefixes", type=_parse_prefixes, default=ALLOWED_CHANGED_PREFIXES)
+    parser.add_argument("--family-intersection-source-policies", type=_parse_source_policies, default=DEFAULT_FAMILY_INTERSECTION_SOURCE_POLICIES)
+    parser.add_argument("--family-intersection-source-corpora", type=_parse_source_corpora, default=DEFAULT_FAMILY_INTERSECTION_SOURCE_CORPORA)
+    parser.add_argument("--disable-family-intersection-gate", action="store_true")
     args = parser.parse_args()
     summary = run_combined_active_set_full_public_gate(
         base_checkpoint=args.base_checkpoint,
@@ -551,10 +628,14 @@ def main() -> None:
         lambda_pref=args.lambda_pref,
         lambda_anchor=args.lambda_anchor,
         allowed_changed_prefixes=args.allowed_changed_prefixes,
+        family_intersection_source_policies=args.family_intersection_source_policies,
+        family_intersection_source_corpora=args.family_intersection_source_corpora,
+        enable_family_intersection_gate=not bool(args.disable_family_intersection_gate),
     )
     print(f"result_class={summary['result_class']}")
     print(f"exact_pass={summary['exact_pass']}")
     print(f"proof_pass={summary['proof_pass']}")
+    print(f"family_intersection_pass={summary['family_intersection_pass']}")
     print(f"source_diverse_pass={summary['source_diverse_pass']}")
     print(f"generalization_pass={summary['generalization_pass']}")
     print(f"behavior_pass={summary['behavior_pass']}")

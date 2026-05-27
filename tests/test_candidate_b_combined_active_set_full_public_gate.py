@@ -1,4 +1,6 @@
 from autodrift.candidate_b_combined_active_set_full_public_gate import (
+    DEFAULT_FAMILY_INTERSECTION_SOURCE_CORPORA,
+    DEFAULT_FAMILY_INTERSECTION_SOURCE_POLICIES,
     changed_parameters_allowed,
     classify_full_public_gate,
     failure_types_for_full_public_gate,
@@ -56,6 +58,23 @@ def test_classify_full_public_gate_orders_failures() -> None:
             allowed_surface_contract_pass=True,
             exact_pass=True,
             proof_pass=False,
+            family_intersection_pass=True,
+            source_diverse_pass=True,
+            generalization_pass=True,
+            behavior_pass=True,
+            training_started=False,
+            ppo_used=False,
+            promoted=False,
+        )
+        == "candidate_b_combined_active_set_full_public_gate_public_replay_washout"
+    )
+    assert (
+        classify_full_public_gate(
+            actor_inputs_changed=False,
+            allowed_surface_contract_pass=True,
+            exact_pass=True,
+            proof_pass=True,
+            family_intersection_pass=False,
             source_diverse_pass=True,
             generalization_pass=True,
             behavior_pass=True,
@@ -82,3 +101,11 @@ def test_failure_types_and_next_blocker_for_full_public_gate() -> None:
         next_blocker_for_full_public_gate("candidate_b_combined_active_set_full_public_gate_behavior_regression")
         == "candidate_b_combined_active_set_behavior_regression_audit"
     )
+
+
+def test_family_intersection_defaults_are_source_aligned() -> None:
+    policy_labels = {spec.label for spec in DEFAULT_FAMILY_INTERSECTION_SOURCE_POLICIES}
+    corpus_labels = {spec.label for spec in DEFAULT_FAMILY_INTERSECTION_SOURCE_CORPORA}
+
+    assert policy_labels == {"short61049", "short61050", "short61051"}
+    assert corpus_labels == policy_labels
