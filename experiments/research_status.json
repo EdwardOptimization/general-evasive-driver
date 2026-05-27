@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1141,
+    "completed": 1142,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1132-v4-public-base-row15-promoted-surface-refresh",
+    "task_id": "m1133-v4-public-base-row15-promoted-compact-conversion-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1132-v4-public-base-row15-promoted-surface-refresh.md",
-    "result_class": "row15_promoted_surface_refresh_pass",
-    "decision": "row15_promoted_surface_refresh_pass_route_to_compact_conversion_design"
+    "command_log": "docs/m1133-v4-public-base-row15-promoted-compact-conversion-design.md",
+    "result_class": "row15_promoted_compact_conversion_design_complete",
+    "decision": "row15_promoted_compact_conversion_design_admit_m1134_export"
   },
   "next_task": {
-    "id": "m1133-v4-public-base-row15-promoted-compact-conversion-design",
+    "id": "m1134-v4-public-base-row15-promoted-family-aggregate-conversion",
     "status": "pending",
-    "priority": 11280,
-    "kind": "gate",
-    "hypothesis": "The M1132 172-row promoted-base source-balanced surface can be converted into a compact source-preserving objective/replay corpus before any future training",
-    "command": "see experiments/manifests/m1133-v4-public-base-row15-promoted-compact-conversion-design.json",
-    "success_artifact": "docs/m1133-v4-public-base-row15-promoted-compact-conversion-design.md",
-    "notes": "Pending: design-only compact conversion; no objective optimization replay training PPO promotion private holdout or actor-input change"
+    "priority": 11290,
+    "kind": "infrastructure",
+    "hypothesis": "The M1132 172-row promoted-base surface can be exported into a source-preserving family aggregate replay/audit corpus without losing diversity",
+    "command": "see experiments/manifests/m1134-v4-public-base-row15-promoted-family-aggregate-conversion.json",
+    "success_artifact": "docs/m1134-v4-public-base-row15-promoted-family-aggregate-conversion.md",
+    "notes": "Pending: export-only conversion; no replay objective optimization training PPO promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260527T230500Z"
+  "updated_at_utc": "20260527T231500Z"
 }

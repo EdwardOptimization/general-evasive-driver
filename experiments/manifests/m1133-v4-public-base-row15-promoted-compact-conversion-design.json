@@ -151,6 +151,34 @@
     "docs/m1132-v4-public-base-row15-promoted-surface-refresh.md",
     "runs/m1132_row15_promoted_source_balanced_surface_seed113200/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1133-v4-public-base-row15-promoted-compact-conversion-design.md",
+    "decision": "row15_promoted_compact_conversion_design_admit_m1134_export",
+    "result_class": "row15_promoted_compact_conversion_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "input_surface": "runs/m1132_row15_promoted_source_balanced_surface_seed113200/balanced_accepted_wrong_history_rows.csv",
+    "conversion_tool": "autodrift.family_aggregate_boundary_conversion",
+    "source_family": "row15_promoted_family",
+    "min_rows": 100,
+    "min_physical_pairs": 12,
+    "min_left_steps": 6,
+    "min_checkpoints": 4,
+    "min_targets": 2,
+    "min_margin_buckets": 2,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1134-v4-public-base-row15-promoted-family-aggregate-conversion"
+  },
+  "decision": "row15_promoted_compact_conversion_design_admit_m1134_export",
   "decision_rule": "M1133 may only design compact conversion. It cannot train actor weights, run PPO, optimize objectives, run replay, promote, use private holdout, change actor inputs, discard source metadata, or weaken diversity thresholds.",
-  "next_blocker": "m1133-v4-public-base-row15-promoted-compact-conversion-design"
+  "next_blocker": "m1134-v4-public-base-row15-promoted-family-aggregate-conversion"
 }

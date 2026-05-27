@@ -1,0 +1,174 @@
+{
+  "id": "m1134-v4-public-base-row15-promoted-family-aggregate-conversion",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1132_row15_promoted_source_balanced_surface_seed113200/balanced_accepted_wrong_history_rows.csv",
+      "docs/m1133-v4-public-base-row15-promoted-compact-conversion-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1133-v4-public-base-row15-promoted-compact-conversion-design.json"
+    ],
+    "parent_objective": [
+      "run export-only family-aggregate conversion for the M1132 promoted-base surface"
+    ],
+    "derived_from": [
+      "m1133-v4-public-base-row15-promoted-compact-conversion-design"
+    ],
+    "blocked_by": [
+      "M1132 surface has not been converted into source-preserving aggregate replay/audit rows"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "training directly on M1132 rows without conversion",
+      "dropping source metadata before replay sanity"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1134-v4-public-base-row15-promoted-family-aggregate-conversion.md",
+  "public_gates": [
+    "M1134 may run only the M1133 pre-registered export conversion command",
+    "M1134 must not train actor weights",
+    "M1134 must not run PPO",
+    "M1134 must not run objective optimization",
+    "M1134 must not run replay",
+    "M1134 must not promote",
+    "M1134 must not use private holdout",
+    "M1134 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run objective optimization",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not discard source metadata",
+    "do not write mixed hidden-state objective NPZ"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_base_surface_refresh",
+    "evidence_axis": "G_conversion: family aggregate conversion run",
+    "evidence_increment": "exports source-preserving family aggregate rows from the M1132 surface",
+    "claim_scope": "conversion/export only; no replay, objective optimization, training, PPO, promotion, or private holdout",
+    "stop_condition": [
+      "stop if conversion drops source metadata",
+      "stop if diversity thresholds fail",
+      "stop after conversion pass before replay sanity"
+    ],
+    "fallback_plan": [
+      "if conversion passes, route to source-aware replay sanity design",
+      "if conversion is sparse, route to compactability audit",
+      "if source map fails, route to source metadata repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1133 admits export-only conversion",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "run export-only source-preserving family aggregate conversion",
+    "admission_evidence": [
+      "M1133 pre-registers conversion command and thresholds",
+      "M1132 surface passes source-balanced refresh"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not run objective optimization"
+    ],
+    "allowed_updates": [
+      "conversion artifacts",
+      "milestone document",
+      "queue, status, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "conversion pass/fail is explicit",
+      "source metadata preservation is explicit",
+      "replay plan exists",
+      "next replay-sanity route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1134 converts matched-current proof rows and cannot upgrade self-ID claim level.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1134 is conversion-only and adds no new self-ID intervention.",
+    "negative_result_policy": "If conversion fails, record source map or diversity failure before changing tooling.",
+    "allowed_claims": [
+      "source-preserving conversion artifact readiness",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The M1132 172-row promoted-base surface can be exported into a source-preserving family aggregate replay/audit corpus without losing diversity.",
+  "success_criteria": [
+    "family_aggregate_boundary_rows.csv exists",
+    "source_policy_map.json exists",
+    "source_summary.csv exists",
+    "duplicate_geometry_summary.csv exists",
+    "replay_plan.json exists",
+    "summary.json exists",
+    "rows >= 100",
+    "physical_pairs >= 12",
+    "left_steps >= 6",
+    "checkpoints >= 4",
+    "targets >= 2",
+    "normal_margin_buckets >= 2",
+    "success_drop_fraction == 1.0",
+    "max_rows_per_physical_pair_fraction <= 0.25",
+    "no actor training, PPO, objective optimization, replay, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "conversion artifact is missing",
+    "source policy map is incomplete",
+    "diversity thresholds fail",
+    "mixed hidden-state objective NPZ is written",
+    "actor training, PPO, objective optimization, replay, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "family_aggregate_conversion",
+      "command": "see docs/m1133-v4-public-base-row15-promoted-compact-conversion-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1134_row15_promoted_family_aggregate_conversion/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1134_row15_promoted_family_aggregate_conversion/family_aggregate_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1134-v4-public-base-row15-promoted-family-aggregate-conversion.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1133-v4-public-base-row15-promoted-compact-conversion-design.md",
+    "runs/m1132_row15_promoted_source_balanced_surface_seed113200/balanced_accepted_wrong_history_rows.csv"
+  ],
+  "decision_rule": "M1134 may only run export-only family aggregate conversion. It cannot train actor weights, run PPO, optimize objectives, run replay, promote, use private holdout, change actor inputs, discard source metadata, or write a mixed hidden-state objective NPZ.",
+  "next_blocker": "m1134-v4-public-base-row15-promoted-family-aggregate-conversion"
+}

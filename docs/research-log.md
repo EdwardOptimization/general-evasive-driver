@@ -16161,3 +16161,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, objective optimization, promotion, private holdout, or actor-input change occurred; thresholds were not weakened after seeing the result.
 - decision: `row15_promoted_surface_refresh_pass_route_to_compact_conversion_design`
 - next: `m1133-v4-public-base-row15-promoted-compact-conversion-design`
+
+## 20260527T231500Z - m1133-v4-public-base-row15-promoted-compact-conversion-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1133-v4-public-base-row15-promoted-compact-conversion-design.md`
+- result: M1133 designs an export-only family-aggregate conversion from `runs/m1132_row15_promoted_source_balanced_surface_seed113200/balanced_accepted_wrong_history_rows.csv`.
+- conversion guard: preserve source labels, source checkpoint paths, family metadata, physical-pair keys, duplicate geometry groups, margins, first actions, and success-drop semantics; do not write a mixed hidden-state objective NPZ.
+- thresholds: at least `100` rows, `12` physical pairs, `6` left steps, `4` checkpoints, `2` targets, `2` normal-margin buckets, success-drop fraction `1.0`, and max physical-pair fraction `0.25`.
+- guardrail: no conversion run, replay, objective optimization, actor training, PPO, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_compact_conversion_design_admit_m1134_export`
+- next: `m1134-v4-public-base-row15-promoted-family-aggregate-conversion`

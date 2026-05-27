@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1133 designs export-only source-preserving family aggregate conversion from M1132 balanced rows before replay objective optimization training PPO promotion or private holdout",
+  "failure_criteria": [
+    "design artifact is missing",
+    "source metadata preservation is ambiguous",
+    "compact thresholds are missing",
+    "training, PPO, objective optimization, replay, promotion, private holdout, or actor-input change starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run objective optimization",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not discard source metadata",
+    "do not weaken diversity thresholds after seeing conversion sparsity"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T222311Z",
+  "hypothesis": "The M1132 172-row promoted-base source-balanced surface can be converted into a compact source-preserving objective/replay corpus before any future training.",
+  "lineage": {
+    "blocked_by": [
+      "M1132 surface has not yet been converted into compact objective/replay-ready artifacts"
+    ],
+    "derived_from": [
+      "m1132-v4-public-base-row15-promoted-surface-refresh"
+    ],
+    "invalidates": [
+      "training directly on the full 172-row surface without compact conversion and replay sanity",
+      "running PPO before objective/replay conversion sanity"
+    ],
+    "parent_checkpoint": [
+      "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1132-v4-public-base-row15-promoted-surface-refresh.json"
+    ],
+    "parent_dataset": [
+      "runs/m1132_row15_promoted_source_balanced_surface_seed113200/balanced_accepted_wrong_history_rows.csv",
+      "docs/m1132-v4-public-base-row15-promoted-surface-refresh.md"
+    ],
+    "parent_objective": [
+      "design compact conversion for the M1132 promoted-base source-balanced surface"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1133-v4-public-base-row15-promoted-compact-conversion-design",
+  "next_blocker": "m1134-v4-public-base-row15-promoted-family-aggregate-conversion",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "row15_promoted_compact_conversion_design_admit_m1134_export",
+  "public_gates": [
+    "M1133 must design conversion only",
+    "M1133 must preserve M1132 source diversity and accepted wrong-history semantics",
+    "M1133 must not train actor weights",
+    "M1133 must not run PPO",
+    "M1133 must not run objective optimization",
+    "M1133 must not run replay",
+    "M1133 must not promote",
+    "M1133 must not use private holdout",
+    "M1133 must preserve actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1133-v4-public-base-row15-promoted-compact-conversion-design.md",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_compact_conversion_design_admit_m1134_export",
+    "milestone": "m1133-v4-public-base-row15-promoted-compact-conversion-design",
+    "reason": "M1133 designs export-only source-preserving family aggregate conversion from M1132 balanced rows before replay objective optimization training PPO promotion or private holdout",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design artifact exists",
+    "M1132 input surface path is explicit",
+    "compact diversity thresholds are explicit",
+    "objective sanity and replay sanity gates are explicit",
+    "no training, PPO, objective optimization, replay, promotion, private holdout, or actor-input change occurs"
+  ],
+  "type": "gate"
+}
