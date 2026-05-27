@@ -1,0 +1,109 @@
+{
+  "id": "m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit",
+  "type": "gate",
+  "gate_tier": "promotion",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+      "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1040_candidate_b_combined_active_set_full_public_gate/summary.json",
+      "docs/m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate.json"
+    ],
+    "parent_objective": [
+      "audit whether the M1038 combined active-set candidate should replace Candidate B as the current public-gate base"
+    ],
+    "derived_from": [
+      "m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate"
+    ],
+    "blocked_by": [
+      "M1040 classifies the M1038 selected checkpoint as a full public-gate candidate but does not promote"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "using the M1038 selected checkpoint as the public base before explicit promotion audit"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit.md",
+  "public_gates": [
+    "M1041 must audit M1038 and M1040 evidence",
+    "M1041 must decide promote or reject for public-gate base status",
+    "M1041 must not train or run PPO",
+    "M1041 must not use private holdout",
+    "M1041 must preserve actor input contract",
+    "M1041 must scope any promotion to public-gate base status only"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote without updating current status and scoreboard lineage",
+    "do not claim paper-level generalization",
+    "do not claim long-run PPO stability"
+  ],
+  "workflow_synthesis": {
+    "branch": "candidate_b_combined_active_set_repair",
+    "evidence_axis": "G_promotion: combined active-set public-base promotion audit",
+    "evidence_increment": "decides whether the M1038 full public-gate candidate becomes the current public-gate base after M1040",
+    "claim_scope": "public-base promotion audit only; no PPO, no private holdout, no paper-level claim",
+    "stop_condition": [
+      "stop if M1040 evidence is incomplete",
+      "stop if lineage or actor contract is ambiguous",
+      "stop if current-status update would overclaim private or paper-level evidence"
+    ],
+    "fallback_plan": [
+      "if evidence is accepted, promote the M1038 selected checkpoint as public-gate base and route to post-promotion synthesis",
+      "if evidence is incomplete, reject promotion and route to the missing audit tier",
+      "if overfit risk is too high, require fresh surface refresh before promotion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1040 classifies the M1038 selected checkpoint as a full public-gate candidate",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "The M1038 selected checkpoint should replace Candidate B as the current public-gate base if M1040 evidence is complete and promotion remains scoped to public-gate status.",
+  "success_criteria": [
+    "promotion audit artifact exists",
+    "M1038 and M1040 evidence are summarized",
+    "promotion decision is explicit",
+    "current-status and scoreboard lineage are updated if promoted",
+    "PPO, private holdout, and paper-level claims remain blocked"
+  ],
+  "failure_criteria": [
+    "promotion decision is missing",
+    "promotion occurs without current-status update",
+    "private holdout is used",
+    "PPO starts",
+    "paper-level generalization is claimed"
+  ],
+  "commands": [
+    {
+      "name": "promotion_audit",
+      "command": "write docs/m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1040_candidate_b_combined_active_set_full_public_gate/summary.json",
+    "docs/m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate.md"
+  ],
+  "decision_rule": "M1041 must explicitly promote or reject the M1038 selected checkpoint as the public-gate base; promotion is public-gate status only.",
+  "next_blocker": "m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit"
+}

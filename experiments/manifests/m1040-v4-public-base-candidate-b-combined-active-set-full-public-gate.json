@@ -122,6 +122,40 @@
   "baseline_artifacts": [
     "docs/m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1040_candidate_b_combined_active_set_full_public_gate/summary.json",
+    "doc": "docs/m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate.md",
+    "decision": "candidate_b_combined_active_set_full_public_gate_candidate_route_to_promotion_audit",
+    "result_class": "candidate_b_combined_active_set_full_public_gate_candidate",
+    "failure_types": [
+      "none"
+    ],
+    "exact_pass": true,
+    "proof_pass": true,
+    "source_diverse_pass": true,
+    "generalization_pass": true,
+    "behavior_pass": true,
+    "actor_inputs_changed": false,
+    "allowed_surface_contract_pass": true,
+    "proof_replay_gates_passed": 6,
+    "proof_replay_surface_count": 6,
+    "source_diverse_replay_gates_passed": 3,
+    "source_diverse_replay_gate_count": 3,
+    "fresh_public_seed_count": 2,
+    "moderate_ood_seed_count": 1,
+    "behavior_seed_count": 4,
+    "reset_zero_all_ordering_retained": true,
+    "training_started": false,
+    "ppo_used": false,
+    "checkpoint_promoted": false,
+    "private_holdout_used": false,
+    "paper_level_claim": false,
+    "selected_checkpoint": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt",
+    "baseline_checkpoint": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+    "next_blocker": "m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit"
+  },
+  "decision": "candidate_b_combined_active_set_full_public_gate_candidate_route_to_promotion_audit",
   "decision_rule": "M1040 should classify the selected checkpoint by the first failing full-gate tier and should route a pass to a separate promotion audit without promoting.",
-  "next_blocker": "m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate"
+  "next_blocker": "m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit"
 }

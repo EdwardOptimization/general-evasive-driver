@@ -1,0 +1,48 @@
+{
+  "actor_inputs_changed": false,
+  "cases": 40,
+  "checkpoint_policies": [
+    {
+      "name": "m399_base",
+      "path": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt"
+    },
+    {
+      "name": "m964_direction_target_a0_15",
+      "path": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt"
+    }
+  ],
+  "compact_corpus_csv": "runs/m341_old_key_neighborhood_mining/old_key_neighborhood_compact_corpus.csv",
+  "device": "cuda",
+  "guard_results_csv": "runs/m1040_candidate_b_combined_active_set_full_public_gate/old_key_neighborhood_diagnostic/guard_results.csv",
+  "policies": 2,
+  "policy_summary": [
+    {
+      "accepted_cases": 39,
+      "cases": 40,
+      "found_cases": 40,
+      "margin_gap_delta_mean": -9.29238811335984e-05,
+      "margin_gap_delta_min": -0.0023845408758540014,
+      "margin_gap_mean": 0.00837147304285868,
+      "margin_gap_min": 0.0007952192010751702,
+      "normal_success_cases": 39,
+      "policy": "m399_base",
+      "policy_pass": false
+    },
+    {
+      "accepted_cases": 34,
+      "cases": 40,
+      "found_cases": 40,
+      "margin_gap_delta_mean": -0.00019276686984933544,
+      "margin_gap_delta_min": -0.0035132453606367513,
+      "margin_gap_mean": 0.008271630054142942,
+      "margin_gap_min": 0.0007914208268844369,
+      "normal_success_cases": 35,
+      "policy": "m964_direction_target_a0_15",
+      "policy_pass": false
+    }
+  ],
+  "policy_summary_csv": "runs/m1040_candidate_b_combined_active_set_full_public_gate/old_key_neighborhood_diagnostic/policy_summary.csv",
+  "ppo_or_actor_update_run": false,
+  "reference_manifest": "runs/m341_old_key_neighborhood_block_a_seed9860/manifest.json",
+  "run_type": "old_key_neighborhood_targeted_replay"
+}

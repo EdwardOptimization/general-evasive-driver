@@ -1,0 +1,12 @@
+{
+  "checkpoint": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+  "checkpoint_ablation": "none",
+  "device": "auto",
+  "distribution": "fresh_public",
+  "env_config": "configs/m121_human_view_zero_obstacle_relvel.json",
+  "episodes": 256,
+  "label": "m399_base",
+  "policy": "checkpoint",
+  "run_type": "evaluate",
+  "seed": 103901
+}

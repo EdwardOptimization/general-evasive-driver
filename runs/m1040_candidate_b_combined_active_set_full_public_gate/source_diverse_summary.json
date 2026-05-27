@@ -1,0 +1,70 @@
+{
+  "actor_inputs_changed": false,
+  "checkpoint_policies": [
+    {
+      "label": "m399_base",
+      "path": "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt"
+    },
+    {
+      "label": "m964_direction_target_a0_15",
+      "path": "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt"
+    }
+  ],
+  "diagnostic_count": 0,
+  "diagnostic_summary_csv": "runs/m1040_candidate_b_combined_active_set_full_public_gate/source_diverse_protected_diagnostic/diagnostic_summary.csv",
+  "diagnostics": [],
+  "env_config": "configs/m121_human_view_zero_obstacle_relvel.json",
+  "failed_replay_gates": [],
+  "failure_types": [
+    "none"
+  ],
+  "max_continuation_steps": 60,
+  "max_rows": 0,
+  "overall_pass": true,
+  "replay_gate_count": 3,
+  "replay_gate_summary_csv": "runs/m1040_candidate_b_combined_active_set_full_public_gate/source_diverse_protected_diagnostic/replay_gate_summary.csv",
+  "replay_gates": [
+    {
+      "baseline_policy": "m399_base",
+      "baseline_success_drop_count": 17,
+      "candidate_policy": "m964_direction_target_a0_15",
+      "candidate_success_drop_count": 17,
+      "corpus_csv": "runs/m320_m316_repaired_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "gate_pass": true,
+      "label": "current_m333_surface",
+      "margin_gap_mean_delta": 2.6496938953035967e-05,
+      "normal_margin_mean_delta": -0.000998456198497412,
+      "rows": 17,
+      "run_dir": "runs/m1040_candidate_b_combined_active_set_full_public_gate/source_diverse_protected_diagnostic/replay_gates/current_m333_surface"
+    },
+    {
+      "baseline_policy": "m399_base",
+      "baseline_success_drop_count": 17,
+      "candidate_policy": "m964_direction_target_a0_15",
+      "candidate_success_drop_count": 17,
+      "corpus_csv": "runs/m320_m316_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "gate_pass": true,
+      "label": "m317_continuity_surface",
+      "margin_gap_mean_delta": 2.6499666107356046e-05,
+      "normal_margin_mean_delta": -0.0009984128571847942,
+      "rows": 17,
+      "run_dir": "runs/m1040_candidate_b_combined_active_set_full_public_gate/source_diverse_protected_diagnostic/replay_gates/m317_continuity_surface"
+    },
+    {
+      "baseline_policy": "m399_base",
+      "baseline_success_drop_count": 17,
+      "candidate_policy": "m964_direction_target_a0_15",
+      "candidate_success_drop_count": 17,
+      "corpus_csv": "runs/m320_m314_boundary_outcome_corpus_seed10080/boundary_outcome_corpus.csv",
+      "gate_pass": true,
+      "label": "m314_continuity_surface",
+      "margin_gap_mean_delta": 2.6500006299034692e-05,
+      "normal_margin_mean_delta": -0.0009984128094564894,
+      "rows": 17,
+      "run_dir": "runs/m1040_candidate_b_combined_active_set_full_public_gate/source_diverse_protected_diagnostic/replay_gates/m314_continuity_surface"
+    }
+  ],
+  "replay_gates_failed": 0,
+  "replay_gates_passed": 3,
+  "run_type": "source_diverse_protected_gate"
+}

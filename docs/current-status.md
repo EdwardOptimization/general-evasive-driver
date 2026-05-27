@@ -75,16 +75,16 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate
+m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit
 ```
 
-M1039 completed the full public gate design for the M1038 first-replay
-candidate. It does not run gates, train, run PPO, use private holdout, change
-actor inputs, or promote.
+M1040 completed the full public proof/generalization/behavior gate for the
+M1038 selected combined active-set candidate. It does not train, run PPO, use
+private holdout, change actor inputs, or promote.
 
 ```text
 decision:
-  candidate_b_combined_active_set_full_public_gate_design_admit_m1040_gate
+  candidate_b_combined_active_set_full_public_gate_candidate_route_to_promotion_audit
 ```
 
 M1040 candidate:
@@ -117,18 +117,26 @@ still forbidden:
   log_std changes
 ```
 
-M1040 must run:
+M1040 result:
 
 ```text
-Tier 0: P0 contract, allowed trainable-surface contract, M997, M297/M270
-Tier 1: six public replay surfaces
-Tier 2: source-diverse public diagnostics
-Tier 3: fresh public and moderate-OOD evaluation
-Tier 4: behavior/ablation seeds
+result_class: candidate_b_combined_active_set_full_public_gate_candidate
+exact_pass: true
+proof_pass: true
+source_diverse_pass: true
+generalization_pass: true
+behavior_pass: true
+actor_inputs_changed: false
+proof replay surfaces: 6 / 6
+source-diverse replay diagnostics: 3 / 3
+fresh public seeds: 103900, 103901
+moderate-OOD seed: 103920
+behavior seeds: 9505, 9506, 103930, 103931
 ```
 
-M1040 is a full public gate only. Passing it should route to a separate
-promotion audit; M1040 itself must not promote.
+M1041 must decide whether this candidate should replace Candidate B as the
+current public-gate base. M1041 is a promotion audit only; it must not run PPO,
+use private holdout, or claim paper-level generalization.
 
 ### Historical Trace
 

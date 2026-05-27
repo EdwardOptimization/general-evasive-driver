@@ -1,0 +1,99 @@
+{
+  "decision_reason": "M1040 passes exact proof source-diverse fresh public moderate-OOD and behavior tiers for the M1038 selected checkpoint with actor inputs unchanged and no PPO private holdout or promotion",
+  "failure_criteria": [
+    "selected checkpoint cannot be loaded",
+    "actor inputs change",
+    "changed parameter names are outside allowed prefixes",
+    "exact retention fails",
+    "any public replay surface fails",
+    "fresh public or OOD regresses",
+    "behavior seed retention fails",
+    "promotion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not skip old replay surfaces",
+    "do not skip M297/M270 exact checks",
+    "do not skip fresh public or OOD evaluation",
+    "do not claim paper-level evidence"
+  ],
+  "gate_tier": "promotion",
+  "generated_at_utc": "20260527T013204Z",
+  "hypothesis": "The M1038 selected checkpoint can pass a full public proof/generalization/behavior gate against Candidate B while preserving P0 actor inputs and without PPO, promotion, or private holdout.",
+  "lineage": {
+    "blocked_by": [
+      "M1038 candidate passed first replay but not full public proof/generalization/behavior gates"
+    ],
+    "derived_from": [
+      "m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design"
+    ],
+    "invalidates": [
+      "promoting M1038 selected checkpoint before full public gate",
+      "claiming broad driver improvement from first-replay-only evidence"
+    ],
+    "parent_checkpoint": [
+      "runs/m1016_v4_public_base_m1013_exact_candidate_preflight/checkpoints/m1013_lam0030_a050.pt",
+      "runs/m1038_candidate_b_combined_active_set_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a0_15.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1039-v4-public-base-candidate-b-combined-active-set-full-public-gate-design.md",
+      "runs/m997_v4_public_base_temporal_sequence_corpus_export/temporal_sequence_corpus.npz",
+      "runs/m297_current_family_rejected_preference_objective/rejected_history_preference_corpus.npz",
+      "runs/m270_source_balanced_multi_surface_anchor/outcome_intervention_snippets.npz"
+    ],
+    "parent_objective": [
+      "run full public proof/generalization/behavior gate for M1038 selected checkpoint"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate",
+  "next_blocker": "m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "candidate_b_combined_active_set_full_public_gate_candidate_route_to_promotion_audit",
+  "public_gates": [
+    "M1040 must run no PPO",
+    "M1040 must not promote",
+    "M1040 must not use private holdout",
+    "M1040 must preserve P0 actor inputs",
+    "M1040 must use allowed trainable-surface contract for actor_mean and response_context_fusion.0 only",
+    "M1040 must evaluate six public replay surfaces",
+    "M1040 must evaluate fresh public and moderate-OOD scenarios",
+    "M1040 must evaluate behavior seeds"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1040_candidate_b_combined_active_set_full_public_gate/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "candidate_b_combined_active_set_full_public_gate_candidate_route_to_promotion_audit",
+    "milestone": "m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate",
+    "reason": "M1040 passes exact proof source-diverse fresh public moderate-OOD and behavior tiers for the M1038 selected checkpoint with actor inputs unchanged and no PPO private holdout or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary json exists",
+    "actor inputs unchanged",
+    "allowed trainable-surface contract passes",
+    "M997 exact retention passes",
+    "M297/M270 exact no-regression passes",
+    "six public replay surfaces pass",
+    "source-diverse diagnostics pass",
+    "fresh public and moderate-OOD checks pass",
+    "behavior seeds pass",
+    "promotion remains blocked"
+  ],
+  "type": "gate"
+}

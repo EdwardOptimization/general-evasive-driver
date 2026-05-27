@@ -15506,3 +15506,13 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M1039 designs the full public proof/generalization/behavior gate for the M1038 selected checkpoint. It blocks direct promotion and private holdout, names Candidate B as the baseline, requires M997 plus M297/M270 exact retention, six public replay surfaces, source-diverse diagnostics, fresh public and moderate-OOD evaluation, and behavior/ablation seeds. It also updates the contract for this branch: allowed changed parameter prefixes are `actor_mean.` and `response_context_fusion.0.` only; actor inputs, response/context encoders, GRU, critic, and `log_std` remain forbidden.
 - decision: `candidate_b_combined_active_set_full_public_gate_design_admit_m1040_gate`
 - next: `m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate`
+
+## 20260527T011836Z - m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate
+
+- status: `completed`
+- kind: `gate`
+- artifact: `runs/m1040_candidate_b_combined_active_set_full_public_gate/summary.json`
+- doc: `docs/m1040-v4-public-base-candidate-b-combined-active-set-full-public-gate.md`
+- result: M1040 runs the full public gate for the M1038 selected checkpoint. The candidate passes exact contract checks, M997 temporal retention, M297/M270 exact no-regression, all six public replay surfaces, three source-diverse protected replay diagnostics, fresh public seeds `103900/103901`, moderate-OOD seed `103920`, and behavior seeds `9505/9506/103930/103931`. Actor inputs remain unchanged; only `actor_mean.` and `response_context_fusion.0.` parameters changed. No training, PPO, private holdout, or promotion occurs.
+- decision: `candidate_b_combined_active_set_full_public_gate_candidate_route_to_promotion_audit`
+- next: `m1041-v4-public-base-candidate-b-combined-active-set-promotion-audit`
