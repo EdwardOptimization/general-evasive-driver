@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1068 designs one 8192-step single-seed guarded PPO medium-ramp proposal under expanded public gates and blocks promotion private holdout and any medium stability claim",
+  "failure_criteria": [
+    "design artifact is missing",
+    "design omits M1061 family-intersection gate",
+    "design omits rollback rules",
+    "PPO or actor training starts",
+    "private holdout is used"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train actor",
+    "do not promote",
+    "do not use private holdout",
+    "do not relax M1061 family-intersection gate for medium PPO"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260527T074442Z",
+  "hypothesis": "A conservative medium PPO escalation can be safely pre-registered using the expanded public gate stack before any training run.",
+  "lineage": {
+    "blocked_by": [
+      "M1067 fixes family gate propagation and reopens medium PPO design"
+    ],
+    "derived_from": [
+      "m1067-v4-public-base-family-gate-propagation-audit"
+    ],
+    "invalidates": [
+      "running medium PPO without pre-registered expanded gates and rollback rules"
+    ],
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1067-v4-public-base-family-gate-propagation-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.md",
+      "docs/m1067-v4-public-base-family-gate-propagation-audit.md"
+    ],
+    "parent_objective": [
+      "design conservative medium PPO escalation under expanded public proof gates"
+    ],
+    "supersedes": [
+      "m1067-v4-public-base-expanded-gate-medium-ppo-design"
+    ]
+  },
+  "milestone": "m1068-v4-public-base-expanded-gate-medium-ppo-design",
+  "next_blocker": "m1069-v4-public-base-expanded-gate-medium-ppo-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "expanded_gate_medium_ppo_design_admit_m1069_single_seed_smoke",
+  "public_gates": [
+    "M1068 must not run PPO",
+    "M1068 must not train actor",
+    "M1068 must not promote",
+    "M1068 must not use private holdout",
+    "M1068 must design medium PPO with expanded exact proof family-intersection source-diverse fresh/OOD and behavior gates"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1068-v4-public-base-expanded-gate-medium-ppo-design.md",
+    "clearance_margin_mean": "",
+    "decision": "expanded_gate_medium_ppo_design_admit_m1069_single_seed_smoke",
+    "milestone": "m1068-v4-public-base-expanded-gate-medium-ppo-design",
+    "reason": "M1068 designs one 8192-step single-seed guarded PPO medium-ramp proposal under expanded public gates and blocks promotion private holdout and any medium stability claim",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "design artifact exists",
+    "design names base checkpoint config step count seed and run directories",
+    "design names exact public replay M1061 family-intersection source-diverse fresh/OOD and behavior gates",
+    "design states rollback conditions and promotion is blocked",
+    "no PPO actor training promotion or private holdout occurs"
+  ],
+  "type": "gate"
+}

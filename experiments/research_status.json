@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1076,
+    "completed": 1077,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1067-v4-public-base-family-gate-propagation-audit",
+    "task_id": "m1068-v4-public-base-expanded-gate-medium-ppo-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1067-v4-public-base-family-gate-propagation-audit.md"
+    "command_log": "docs/m1068-v4-public-base-expanded-gate-medium-ppo-design.md"
   },
   "next_task": {
-    "id": "m1068-v4-public-base-expanded-gate-medium-ppo-design",
+    "id": "m1069-v4-public-base-expanded-gate-medium-ppo-smoke",
     "status": "pending",
-    "priority": 10630,
-    "kind": "gate",
-    "hypothesis": "Design conservative medium PPO escalation under expanded public proof gates",
-    "command": "see experiments/manifests/m1068-v4-public-base-expanded-gate-medium-ppo-design.json",
-    "success_artifact": "docs/m1068-v4-public-base-expanded-gate-medium-ppo-design.md",
-    "notes": "Pending: design only; no PPO no actor training no promotion no private holdout"
+    "priority": 10640,
+    "kind": "driver_candidate",
+    "hypothesis": "Run one 8192-step guarded PPO proposal under expanded public proof gates",
+    "command": "see experiments/manifests/m1069-v4-public-base-expanded-gate-medium-ppo-smoke.json",
+    "success_artifact": "docs/m1069-v4-public-base-expanded-gate-medium-ppo-smoke.md",
+    "notes": "Pending: one 8192-step PPO proposal only; no promotion no private holdout"
   },
-  "updated_at_utc": "20260527T065857Z"
+  "updated_at_utc": "20260527T073531Z"
 }

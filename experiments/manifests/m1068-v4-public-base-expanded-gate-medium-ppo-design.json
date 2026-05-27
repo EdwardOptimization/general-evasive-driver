@@ -91,6 +91,10 @@
   ],
   "required_artifacts": [
     {
+      "path": "configs/ppo_m1069_expanded_gate_medium_seed61069.json",
+      "type": "json"
+    },
+    {
       "path": "docs/m1068-v4-public-base-expanded-gate-medium-ppo-design.md",
       "type": "md"
     }
@@ -102,6 +106,26 @@
     "docs/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.md",
     "docs/m1067-v4-public-base-family-gate-propagation-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1068-v4-public-base-expanded-gate-medium-ppo-design.md",
+    "config": "configs/ppo_m1069_expanded_gate_medium_seed61069.json",
+    "decision": "expanded_gate_medium_ppo_design_admit_m1069_single_seed_smoke",
+    "result_class": "expanded_gate_medium_ppo_design_admit",
+    "failure_types": [
+      "none"
+    ],
+    "base_checkpoint": "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt",
+    "total_steps": 8192,
+    "seed": 61069,
+    "ppo_used": false,
+    "training_started": false,
+    "actor_inputs_changed": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1069-v4-public-base-expanded-gate-medium-ppo-smoke"
+  },
+  "decision": "expanded_gate_medium_ppo_design_admit_m1069_single_seed_smoke",
   "decision_rule": "M1068 may only design the conservative medium PPO escalation. It cannot run PPO, train actor, promote, or use private holdout.",
-  "next_blocker": "m1068-v4-public-base-expanded-gate-medium-ppo-design"
+  "next_blocker": "m1069-v4-public-base-expanded-gate-medium-ppo-smoke"
 }

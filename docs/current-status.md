@@ -77,7 +77,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1068-v4-public-base-expanded-gate-medium-ppo-design
+m1069-v4-public-base-expanded-gate-medium-ppo-smoke
 ```
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
@@ -114,11 +114,29 @@ admitted a conservative medium PPO design milestone. A pre-design audit then
 found that `combined_active_set_guarded_ppo_smoke` needed to propagate
 `family_intersection_pass` from the full public gate into its own proof
 classification before medium PPO design can proceed. M1067 fixed that
-propagation gap.
+propagation gap. M1068 then designed one conservative 8192-step medium-ramp PPO
+proposal from the current M1049 public-gate base under the expanded exact,
+public replay, M1061 family-intersection, source-diverse, fresh/OOD, and
+behavior gate stack. M1068 did not train, run PPO, promote, or use private
+holdout. The next step is to run exactly one M1069 medium-ramp PPO proposal and
+reject it as `proof_washout` if any exact, replay, or family-intersection proof
+gate regresses.
 
 ```text
 decision:
-  family_gate_propagation_audit_pass_route_to_medium_ppo_design
+  expanded_gate_medium_ppo_design_admit_m1069_single_seed_smoke
+```
+
+M1068 design:
+
+```text
+base_checkpoint: runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt
+config: configs/ppo_m1069_expanded_gate_medium_seed61069.json
+total_steps: 8192
+seed: 61069
+promotion: blocked
+private_holdout: blocked
+next: m1069-v4-public-base-expanded-gate-medium-ppo-smoke
 ```
 
 M1061 result:
@@ -202,6 +220,20 @@ proof_pass: public_replay_pass && family_intersection_pass
 family gate failure route: public_replay_washout / proof_washout
 focused_tests: 12 passed
 next: m1068-v4-public-base-expanded-gate-medium-ppo-design
+```
+
+M1068 result:
+
+```text
+designed_config: configs/ppo_m1069_expanded_gate_medium_seed61069.json
+base_checkpoint: runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt
+total_steps: 8192
+seed: 61069
+training_started: false
+ppo_used: false
+promoted: false
+private_holdout_used: false
+next: m1069-v4-public-base-expanded-gate-medium-ppo-smoke
 ```
 
 M1058 result:

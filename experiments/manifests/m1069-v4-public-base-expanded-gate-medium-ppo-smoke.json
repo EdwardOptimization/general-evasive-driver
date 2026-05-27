@@ -1,0 +1,142 @@
+{
+  "id": "m1069-v4-public-base-expanded-gate-medium-ppo-smoke",
+  "type": "driver_candidate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1066-v4-public-base-pre-medium-ppo-readiness-synthesis.md",
+      "docs/m1067-v4-public-base-family-gate-propagation-audit.md",
+      "docs/m1068-v4-public-base-expanded-gate-medium-ppo-design.md"
+    ],
+    "parent_config": [
+      "configs/ppo_m1069_expanded_gate_medium_seed61069.json",
+      "experiments/manifests/m1068-v4-public-base-expanded-gate-medium-ppo-design.json"
+    ],
+    "parent_objective": [
+      "run one 8192-step guarded PPO proposal from the current public-gate base and gate it with the expanded public proof stack"
+    ],
+    "derived_from": [
+      "m1068-v4-public-base-expanded-gate-medium-ppo-design"
+    ],
+    "blocked_by": [
+      "M1068 admits a single conservative medium-ramp PPO proposal after family-intersection gate propagation is fixed"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "claiming medium PPO safety without an expanded-gate 8192-step proposal"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1069-v4-public-base-expanded-gate-medium-ppo-smoke.md",
+  "public_gates": [
+    "M1069 must run exactly one 8192-step guarded PPO proposal",
+    "M1069 must not promote",
+    "M1069 must not use private holdout",
+    "M1069 must preserve the P0 actor-input contract",
+    "M1069 must gate the raw PPO checkpoint against exact M997/M297/M270 and combined active-set checks",
+    "M1069 must gate the raw PPO checkpoint against six old public proof replay surfaces",
+    "M1069 must gate the raw PPO checkpoint against the M1061 family-intersection public proof gate",
+    "M1069 must gate source-diverse diagnostics, fresh public seeds, moderate-OOD seed, and behavior ablations",
+    "M1069 must fail on M267/M264 row15 wrong-history success, M183/M170 row16 normal-history failure, or any M1061 source-to-candidate family-intersection success-drop loss"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run multiple medium seeds",
+    "do not run 16k or long PPO",
+    "do not change actor inputs",
+    "do not use private holdout",
+    "do not promote from M1069",
+    "do not skip exact or combined active-set checks",
+    "do not skip proof replay gates",
+    "do not relax the M1061 family-intersection gate",
+    "do not accept aggregate eval if row15 row16 or family-intersection proof washes out",
+    "do not change loss coefficients while testing this medium-ramp escalation"
+  ],
+  "workflow_synthesis": {
+    "branch": "expanded_gate_medium_ppo_readiness",
+    "evidence_axis": "G_training: 8192-step medium-ramp PPO proposal",
+    "evidence_increment": "tests whether the current public-gate base can survive one doubled-step PPO proposal under exact public proof replay family-intersection source-diverse fresh/OOD and behavior gates",
+    "claim_scope": "single-seed medium-ramp diagnostic only; no promotion, no private holdout, no repeatability claim, no medium/long stability claim",
+    "stop_condition": [
+      "stop if PPO crashes or metrics are non-finite",
+      "stop if actor-input contract changes",
+      "stop if exact or combined active-set retention regresses",
+      "stop if any old public proof replay surface fails",
+      "stop if M1061 family-intersection public proof gate fails",
+      "stop if row15 wrong-history failure or row16 normal-history success flips",
+      "stop if fresh/OOD/behavior gates regress"
+    ],
+    "fallback_plan": [
+      "if all gates pass, route to an 8192-step fresh-seed repeat before any promotion",
+      "if exact or proof gates fail, route to localized medium PPO proof-washout audit before recipe changes",
+      "if family-intersection gate fails, route to family-intersection active-set audit",
+      "if training is unstable, route to PPO recipe audit",
+      "if fresh/OOD/behavior regresses while proof holds, route to generalization or behavior regression audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1068 admits the first medium-ramp PPO proposal after expanded family-intersection proof gate integration and propagation fix",
+    "synthesis_decision": "not_applicable"
+  },
+  "hypothesis": "One 8192-step guarded PPO proposal from the M1052 public-gate base can complete with finite metrics and preserve exact, proof, family-intersection, source-diverse, fresh/OOD, and behavior gates without promotion.",
+  "success_criteria": [
+    "config configs/ppo_m1069_expanded_gate_medium_seed61069.json exists",
+    "PPO run completes and writes runs/ppo_m1069_expanded_gate_medium_seed61069/checkpoint.pt",
+    "training metrics are finite",
+    "actor inputs are unchanged",
+    "exact and combined active-set gates pass",
+    "all six old public replay surfaces pass",
+    "M1061 family-intersection gate passes",
+    "source-diverse diagnostics pass",
+    "fresh public and moderate-OOD gates pass",
+    "behavior ablation gates pass",
+    "row15 row16 and M1061 family-intersection rollback checks pass",
+    "no promotion or private holdout occurs"
+  ],
+  "failure_criteria": [
+    "PPO run crashes or checkpoint is missing",
+    "training metrics are non-finite",
+    "actor inputs change",
+    "exact or combined active-set gate fails",
+    "a public replay surface fails",
+    "M1061 family-intersection gate fails",
+    "row15 wrong-history branch becomes successful",
+    "row16 normal-history branch becomes unsuccessful",
+    "fresh/OOD or behavior gate regresses",
+    "checkpoint is promoted",
+    "private holdout is used"
+  ],
+  "commands": [
+    {
+      "name": "run_medium_seed_61069",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.combined_active_set_guarded_ppo_smoke --base-checkpoint runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --config configs/ppo_m1069_expanded_gate_medium_seed61069.json --run-dir runs/m1069_expanded_gate_medium_ppo_seed61069 --ppo-run-dir runs/ppo_m1069_expanded_gate_medium_seed61069 --device auto"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "configs/ppo_m1069_expanded_gate_medium_seed61069.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1069_expanded_gate_medium_ppo_seed61069/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1069-v4-public-base-expanded-gate-medium-ppo-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1068-v4-public-base-expanded-gate-medium-ppo-design.md"
+  ],
+  "decision_rule": "M1069 may only run one 8192-step PPO proposal and gate its raw checkpoint. It cannot promote, use private holdout, or claim repeatability.",
+  "next_blocker": "m1069-v4-public-base-expanded-gate-medium-ppo-smoke"
+}
