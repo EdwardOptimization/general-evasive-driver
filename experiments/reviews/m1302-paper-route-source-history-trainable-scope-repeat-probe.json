@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M1302 fusion_head repeat is mixed: 3/5 offsets pass but mean eval fractions 0.2335 are below 0.25; no forbidden mutation and no PPO or promotion",
+  "failure_criteria": [
+    "run artifacts are missing",
+    "repeat metrics are missing",
+    "parameter-group deltas are missing",
+    "forbidden parameters mutate",
+    "PPO starts",
+    "private holdout is used",
+    "checkpoint is promoted",
+    "actor input contract changes",
+    "thresholds are relaxed after seeing results"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not train scopes beyond fusion_head",
+    "do not treat repeat success as closed-loop proof",
+    "do not overclaim self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T151736Z",
+  "hypothesis": "The M1299 fusion_head signal remains positive across multiple deterministic pair-disjoint split offsets.",
+  "lineage": {
+    "blocked_by": [
+      "M1301 designs split-repeat robustness but no repeat artifacts exist"
+    ],
+    "derived_from": [
+      "m1301-paper-route-source-history-trainable-scope-repeat-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1301-paper-route-source-history-trainable-scope-repeat-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1301-paper-route-source-history-trainable-scope-repeat-design.md",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_frame_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_intervention_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/wrong_history_pair_rows.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_observations.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_action_sequences.csv",
+      "runs/m1299_source_history_trainable_scope_probe/summary.json"
+    ],
+    "parent_objective": [
+      "implement bounded fusion_head split-repeat source-history diagnostic"
+    ],
+    "supersedes": [
+      "single split M1299 result as robustness evidence"
+    ]
+  },
+  "milestone": "m1302-paper-route-source-history-trainable-scope-repeat-probe",
+  "next_blocker": "m1303-paper-route-source-history-trainable-scope-repeat-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_history_trainable_scope_repeat_mixed_route_to_result_audit",
+  "public_gates": [
+    "M1302 must preserve actor input contract",
+    "M1302 must not run PPO",
+    "M1302 must not use private holdout",
+    "M1302 must not promote",
+    "M1302 must run multiple pair-disjoint split offsets",
+    "M1302 must report repeat pass counts",
+    "M1302 must report parameter-group deltas"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "source_history_trainable_scope_repeat_mixed_route_to_result_audit",
+    "milestone": "m1302-paper-route-source-history-trainable-scope-repeat-probe",
+    "reason": "M1302 fusion_head repeat is mixed: 3/5 offsets pass but mean eval fractions 0.2335 are below 0.25; no forbidden mutation and no PPO or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json exists",
+    "focused tests pass",
+    "repeat summaries and offset pass counts are reported",
+    "parameter-group deltas are reported",
+    "forbidden parameter mutation flag is false",
+    "result class is repeat strong, mixed, negative, or contract artifact",
+    "no PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "infrastructure"
+}

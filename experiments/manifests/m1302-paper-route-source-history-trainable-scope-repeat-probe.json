@@ -166,6 +166,35 @@
     "docs/m1301-paper-route-source-history-trainable-scope-repeat-design.md",
     "runs/m1299_source_history_trainable_scope_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json",
+    "doc": "docs/m1302-paper-route-source-history-trainable-scope-repeat-probe.md",
+    "decision": "source_history_trainable_scope_repeat_mixed_route_to_result_audit",
+    "result_class": "source_history_trainable_scope_repeat_mixed",
+    "scope": "fusion_head",
+    "offset_count": 5,
+    "offset_pass_count": 3,
+    "required_pass_count": 3,
+    "mean_eval_both_directional_fraction": 0.233531746,
+    "mean_eval_group_all_rows_both_positive_fraction": 0.233531746,
+    "mean_full_both_positive_count": 38.0,
+    "mean_full_group_all_rows_both_positive_count": 19.0,
+    "best_split_offset": 3,
+    "best_eval_both_directional_fraction": 0.2857142857,
+    "best_eval_group_all_rows_both_positive_fraction": 0.2857142857,
+    "forbidden_parameter_mutation_detected": false,
+    "labels_enter_actor_input": false,
+    "objective_update_started": true,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.json"
+  },
+  "decision": "source_history_trainable_scope_repeat_mixed_route_to_result_audit",
   "decision_rule": "M1302 passes as diagnostic infrastructure if it reports split-repeat results without forbidden mutations and routes to audit.",
-  "next_blocker": "m1302-paper-route-source-history-trainable-scope-repeat-probe"
+  "next_blocker": "m1303-paper-route-source-history-trainable-scope-repeat-result-audit"
 }

@@ -1,0 +1,158 @@
+{
+  "id": "m1303-paper-route-source-history-trainable-scope-repeat-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/checkpoints/offset_0_fusion_head_candidate.pt",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/checkpoints/offset_1_fusion_head_candidate.pt",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/checkpoints/offset_3_fusion_head_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1302-paper-route-source-history-trainable-scope-repeat-probe.md",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/repeat_summaries.csv",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/scope_summaries.csv",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/parameter_group_delta.csv",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/directional_rows.csv",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/group_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1302-paper-route-source-history-trainable-scope-repeat-probe.json"
+    ],
+    "parent_objective": [
+      "audit mixed split-repeat trainable-scope result before another repair step"
+    ],
+    "derived_from": [
+      "m1302-paper-route-source-history-trainable-scope-repeat-probe"
+    ],
+    "blocked_by": [
+      "M1302 is repeat mixed: 3/5 offsets pass but mean eval fractions are below 0.25"
+    ],
+    "supersedes": [
+      "direct proof-retention or PPO design from split-sensitive repeat result"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.md",
+  "public_gates": [
+    "M1303 must audit M1302 mixed repeat result",
+    "M1303 must not run PPO",
+    "M1303 must not use private holdout",
+    "M1303 must not promote",
+    "M1303 must identify why failed offsets matter",
+    "M1303 must choose objective-tune, failed-offset audit, corpus refresh, or sequence-target routing"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat 3/5 offset passes as robust",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_trainable_scope_escalation",
+    "evidence_axis": "S_trainable_scope_repeat_result_audit",
+    "evidence_increment": "audits split-sensitive fusion_head repeat result and chooses next routing",
+    "claim_scope": "result audit only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if audit treats repeat mixed as robust",
+      "stop if audit starts PPO directly",
+      "stop if audit omits failed-offset analysis"
+    ],
+    "fallback_plan": [
+      "if failed offsets show source imbalance, route to failed-offset/corpus audit",
+      "if objective seems underpowered, route to objective-tune design",
+      "if repeat signal is too weak, route to corpus refresh or sequence preference design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "sixth milestone in trainable-scope escalation branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "trainable-scope repeat result audit",
+    "admission_evidence": [
+      "M1302 result_class=source_history_trainable_scope_repeat_mixed",
+      "M1302 offset_pass_count=3/5",
+      "M1302 mean eval fractions=0.233531746",
+      "M1302 forbidden_parameter_mutation_detected=false"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1303 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "mixed repeat result is interpreted",
+      "failed offsets are acknowledged",
+      "PPO remains blocked",
+      "next routing is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1303 audits fixed-current repeat diagnostics and does not evaluate closed-loop history necessity.",
+    "history_necessity_tests": [
+      "audit repeated correct-history versus wrong-history directional metrics",
+      "audit pair-disjoint split variants"
+    ],
+    "temporal_evidence_window": "M1302 split-repeat fixed-current source-history diagnostics.",
+    "negative_result_policy": "Mixed repeat result keeps PPO blocked and requires explicit next routing.",
+    "allowed_claims": [
+      "trainable-scope split-repeat result audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "M1302 can be audited as a split-sensitive mixed trainable-scope result that should route to failed-offset/corpus/objective analysis rather than PPO.",
+  "success_criteria": [
+    "docs/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.md exists",
+    "audit records M1302 mixed result",
+    "audit records 3/5 offset passes and mean eval miss",
+    "audit records no forbidden mutation",
+    "audit keeps PPO and promotion blocked",
+    "next routing is explicit",
+    "no PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1302 as robust",
+    "audit starts PPO directly",
+    "audit omits failed offsets",
+    "private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1302-paper-route-source-history-trainable-scope-repeat-probe.md",
+    "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json"
+  ],
+  "decision_rule": "M1303 passes if it audits M1302 as mixed split-sensitive evidence while keeping PPO and promotion blocked.",
+  "next_blocker": "m1303-paper-route-source-history-trainable-scope-repeat-result-audit"
+}

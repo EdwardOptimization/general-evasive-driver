@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1301-paper-route-source-history-trainable-scope-repeat-design
+m1302-paper-route-source-history-trainable-scope-repeat-probe
 ```
 
 Current next task:
 
 ```text
-m1302-paper-route-source-history-trainable-scope-repeat-probe
+m1303-paper-route-source-history-trainable-scope-repeat-result-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -126,8 +126,12 @@ because the eval thresholds are met exactly at `0.25` on a small public split.
 The active blocker is M1301: design repeat/split robustness for the `fusion_head`
 signal. M1301 completed that design: repeat `fusion_head` across five
 deterministic pair-disjoint split offsets and require at least `3/5` offset
-passes plus clean mutation guards. The active blocker is M1302: implement and run
-that split-repeat probe. PPO and promotion remain blocked.
+passes plus clean mutation guards. M1302 implemented and ran the repeat. The
+result is mixed: `3/5` offsets pass, but mean eval row/group fractions are
+`0.2335317460`, below the `0.25` repeat-strong threshold. The active blocker is
+M1303: audit the split-sensitive mixed result and choose failed-offset,
+objective-tuning, corpus-refresh, or sequence-target routing. PPO and promotion
+remain blocked.
 
 ## Actor Contract
 

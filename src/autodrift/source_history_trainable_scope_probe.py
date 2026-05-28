@@ -54,19 +54,26 @@ SCOPE_ALLOWED_GROUPS = {
 }
 
 
-def _stable_eval_pair(pair_id: int, eval_mod: int = 5) -> bool:
-    return ((int(pair_id) * 2654435761) % int(eval_mod)) == 0
+def _stable_pair_bucket(pair_id: int, split_mod: int = 5) -> int:
+    return int((int(pair_id) * 2654435761) % int(split_mod))
 
 
-def _split_rows(meta_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def _stable_eval_pair(pair_id: int, split_mod: int = 5, split_offset: int = 0) -> bool:
+    return _stable_pair_bucket(pair_id, split_mod=split_mod) == int(split_offset)
+
+
+def _split_rows(meta_rows: list[dict[str, Any]], *, split_mod: int = 5, split_offset: int = 0) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for index, row in enumerate(meta_rows):
         pair_id = int(row["pair_id"])
-        split = "eval" if _stable_eval_pair(pair_id) else "train"
+        split = "eval" if _stable_eval_pair(pair_id, split_mod=split_mod, split_offset=split_offset) else "train"
         rows.append(
             {
                 "row_index": int(index),
                 "split": split,
+                "split_mod": int(split_mod),
+                "split_offset": int(split_offset),
+                "pair_bucket": int(_stable_pair_bucket(pair_id, split_mod=split_mod)),
                 "pair_id": pair_id,
                 "probe_template": str(row["probe_template"]),
                 "history_intervention_id": int(row["history_intervention_id"]),
@@ -164,6 +171,7 @@ def _parameter_group_delta(
 def _parameter_group_rows(
     *,
     scope: str,
+    split_offset: int,
     allowed_groups: set[str],
     deltas: dict[str, dict[str, Any]],
 ) -> list[dict[str, Any]]:
@@ -174,6 +182,7 @@ def _parameter_group_rows(
         rows.append(
             {
                 "scope": scope,
+                "split_offset": int(split_offset),
                 "parameter_group": group,
                 "allowed_to_change": allowed,
                 "changed": bool(data["changed"]),
@@ -215,6 +224,7 @@ def _eval_scope_split(
     batch: SourceHistoryBatch,
     meta_rows: list[dict[str, Any]],
     scope: str,
+    split_offset: int,
     split: str,
     target_margin: float,
 ) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]]]:
@@ -241,8 +251,12 @@ def _eval_scope_split(
     rows = _directional_rows(meta_rows=meta_rows, evaluation=evaluation, init_name=scope)
     for row in rows:
         row["split"] = split
+        row["split_offset"] = int(split_offset)
     group_summary = _summarize_group_rows(rows)
-    group_rows = [{**row, "scope": scope, "split": split} for row in group_summary.pop("group_rows")]
+    group_rows = [
+        {**row, "scope": scope, "split": split, "split_offset": int(split_offset)}
+        for row in group_summary.pop("group_rows")
+    ]
     return {**_row_summary(rows), **group_summary}, rows, group_rows
 
 
@@ -265,6 +279,65 @@ def _classify_scope(summary: dict[str, Any]) -> str:
     return "trainable_scope_directional_negative"
 
 
+def _offset_pass(summary: dict[str, Any]) -> bool:
+    return bool(
+        not bool(summary["forbidden_parameter_mutation_detected"])
+        and float(summary["eval_group_all_rows_both_positive_fraction"]) >= 0.25
+        and float(summary["eval_both_directional_fraction"]) >= 0.25
+        and int(summary["full_group_all_rows_both_positive_count"]) > 15
+        and int(summary["full_both_positive_count"]) > 30
+    )
+
+
+def _repeat_summaries(scope_summaries: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    by_scope: dict[str, list[dict[str, Any]]] = {}
+    for row in scope_summaries:
+        by_scope.setdefault(str(row["scope"]), []).append(row)
+    repeat_rows: list[dict[str, Any]] = []
+    for scope, rows in sorted(by_scope.items()):
+        offset_count = len(rows)
+        pass_count = sum(_offset_pass(row) for row in rows)
+        any_forbidden = any(bool(row["forbidden_parameter_mutation_detected"]) for row in rows)
+        eval_both = [_finite_float(row["eval_both_directional_fraction"]) for row in rows]
+        eval_group = [_finite_float(row["eval_group_all_rows_both_positive_fraction"]) for row in rows]
+        full_both = [_finite_float(row["full_both_positive_count"]) for row in rows]
+        full_group = [_finite_float(row["full_group_all_rows_both_positive_count"]) for row in rows]
+        required_pass_count = min(3, int(offset_count))
+        repeat_strong = bool(
+            not any_forbidden
+            and pass_count >= required_pass_count
+            and float(np.mean(eval_both)) >= 0.25
+            and float(np.mean(eval_group)) >= 0.25
+            and float(np.mean(full_both)) > 30.0
+            and float(np.mean(full_group)) > 15.0
+        )
+        if any_forbidden:
+            repeat_class = "trainable_scope_repeat_contract_artifact"
+        elif repeat_strong:
+            repeat_class = "trainable_scope_repeat_strong"
+        elif pass_count > 0:
+            repeat_class = "trainable_scope_repeat_mixed"
+        else:
+            repeat_class = "trainable_scope_repeat_negative"
+        repeat_rows.append(
+            {
+                "scope": scope,
+                "offset_count": int(offset_count),
+                "offset_pass_count": int(pass_count),
+                "required_pass_count": int(required_pass_count),
+                "mean_eval_both_directional_fraction": float(np.mean(eval_both)) if eval_both else 0.0,
+                "mean_eval_group_all_rows_both_positive_fraction": float(np.mean(eval_group)) if eval_group else 0.0,
+                "mean_full_both_positive_count": float(np.mean(full_both)) if full_both else 0.0,
+                "mean_full_group_all_rows_both_positive_count": float(np.mean(full_group)) if full_group else 0.0,
+                "min_eval_both_directional_fraction": float(np.min(eval_both)) if eval_both else 0.0,
+                "min_eval_group_all_rows_both_positive_fraction": float(np.min(eval_group)) if eval_group else 0.0,
+                "forbidden_parameter_mutation_detected": bool(any_forbidden),
+                "repeat_class": repeat_class,
+            }
+        )
+    return repeat_rows
+
+
 def _train_scope(
     *,
     model: ActorCritic,
@@ -278,6 +351,7 @@ def _train_scope(
     eval_meta_rows: list[dict[str, Any]],
     run_dir: Path,
     scope: str,
+    split_offset: int,
     steps: int,
     lr: float,
     target_margin: float,
@@ -313,6 +387,7 @@ def _train_scope(
         trace_rows.append(
             {
                 "scope": scope,
+                "split_offset": int(split_offset),
                 "step": int(step + 1),
                 "loss": float(loss.detach().cpu().item()),
                 "correct_loss": float(eval_row.correct_loss.detach().cpu().item()),
@@ -329,6 +404,7 @@ def _train_scope(
         batch=full_batch,
         meta_rows=full_meta_rows,
         scope=scope,
+        split_offset=split_offset,
         split="full",
         target_margin=target_margin,
     )
@@ -337,6 +413,7 @@ def _train_scope(
         batch=train_batch,
         meta_rows=train_meta_rows,
         scope=scope,
+        split_offset=split_offset,
         split="train",
         target_margin=target_margin,
     )
@@ -345,14 +422,20 @@ def _train_scope(
         batch=eval_batch,
         meta_rows=eval_meta_rows,
         scope=scope,
+        split_offset=split_offset,
         split="eval",
         target_margin=target_margin,
     )
     state_after = _clone_state_dict(model)
     deltas = _parameter_group_delta(base_state, state_after)
-    parameter_rows = _parameter_group_rows(scope=scope, allowed_groups=allowed_groups, deltas=deltas)
+    parameter_rows = _parameter_group_rows(
+        scope=scope,
+        split_offset=split_offset,
+        allowed_groups=allowed_groups,
+        deltas=deltas,
+    )
     forbidden_mutation = any(bool(row["forbidden_mutation"]) for row in parameter_rows)
-    checkpoint_path = run_dir / "checkpoints" / f"{scope}_candidate.pt"
+    checkpoint_path = run_dir / "checkpoints" / f"offset_{int(split_offset)}_{scope}_candidate.pt"
     _save_checkpoint(
         checkpoint_data=checkpoint_data,
         model=model,
@@ -360,6 +443,7 @@ def _train_scope(
         metadata={
             "source_history_trainable_scope_probe": {
                 "scope": scope,
+                "split_offset": int(split_offset),
                 "run_dir": str(run_dir),
                 "steps": int(steps),
                 "lr": float(lr),
@@ -370,6 +454,7 @@ def _train_scope(
     )
     scope_summary = {
         "scope": scope,
+        "split_offset": int(split_offset),
         "checkpoint": str(checkpoint_path),
         "steps": int(steps),
         "lr": float(lr),
@@ -390,21 +475,21 @@ def _train_scope(
         scope_summary[f"{group}_l2"] = float(row["l2"])
         scope_summary[f"{group}_changed"] = bool(row["changed"])
     scope_summary["scope_class"] = _classify_scope(scope_summary)
-    write_json(run_dir / f"{scope}_summary.json", scope_summary)
+    write_json(run_dir / f"offset_{int(split_offset)}_{scope}_summary.json", scope_summary)
     rows = full_rows + train_rows + eval_rows
     group_rows = full_group_rows + train_group_rows + eval_group_rows
     return scope_summary, rows, group_rows, parameter_rows, trace_rows
 
 
-def classify_probe(scope_summaries: list[dict[str, Any]]) -> tuple[str, str]:
-    classes = {str(row["scope_class"]) for row in scope_summaries}
-    if "trainable_scope_contract_artifact" in classes:
-        return "source_history_trainable_scope_contract_artifact", "repair mutation guard before rerun"
-    if "trainable_scope_directional_strong" in classes:
-        return "source_history_trainable_scope_strong", "route to result audit and proof-retention design"
-    if "trainable_scope_directional_mixed" in classes:
-        return "source_history_trainable_scope_mixed", "route to result audit and scope/corpus decision"
-    return "source_history_trainable_scope_negative", "route to corpus refresh or sequence preference design"
+def classify_probe(repeat_summaries: list[dict[str, Any]]) -> tuple[str, str]:
+    classes = {str(row["repeat_class"]) for row in repeat_summaries}
+    if "trainable_scope_repeat_contract_artifact" in classes:
+        return "source_history_trainable_scope_repeat_contract_artifact", "repair mutation guard before rerun"
+    if "trainable_scope_repeat_strong" in classes:
+        return "source_history_trainable_scope_repeat_strong", "route to result audit and proof-retention design"
+    if "trainable_scope_repeat_mixed" in classes:
+        return "source_history_trainable_scope_repeat_mixed", "route to result audit and scope/corpus decision"
+    return "source_history_trainable_scope_repeat_negative", "route to corpus refresh or sequence preference design"
 
 
 def run_trainable_scope_probe(
@@ -421,6 +506,8 @@ def run_trainable_scope_probe(
     lambda_group_balance: float = 0.5,
     lambda_anchor: float = 0.001,
     scopes: Iterable[str] = DEFAULT_SCOPES,
+    split_mod: int = 5,
+    split_offsets: Iterable[int] = (0,),
 ) -> dict[str, Any]:
     checkpoint_path = Path(checkpoint_path)
     history_run_dir = Path(history_run_dir)
@@ -430,9 +517,16 @@ def run_trainable_scope_probe(
     resolved_device = resolve_device(device)
 
     scope_names = [str(scope) for scope in scopes]
+    offset_values = [int(offset) for offset in split_offsets]
     unknown_scopes = [scope for scope in scope_names if scope not in SCOPE_ALLOWED_GROUPS]
     if unknown_scopes:
         raise ValueError(f"unknown trainable scopes: {unknown_scopes}")
+    if int(split_mod) < 2:
+        raise ValueError("split_mod must be at least 2")
+    if not offset_values:
+        raise ValueError("at least one split offset is required")
+    if any(offset < 0 or offset >= int(split_mod) for offset in offset_values):
+        raise ValueError("split offsets must satisfy 0 <= offset < split_mod")
 
     base_model, base_checkpoint = load_actor_critic_checkpoint(checkpoint_path, device=str(resolved_device))
     contract_ok, contract_reason = _checkpoint_contract(base_model, base_checkpoint)
@@ -447,65 +541,81 @@ def run_trainable_scope_probe(
         device=resolved_device,
     )
     full_meta_rows = _source_history_meta_rows(history_run_dir)
-    split_rows = _split_rows(full_meta_rows)
-    train_indices = _indices_for_split(split_rows, "train")
-    eval_indices = _indices_for_split(split_rows, "eval")
-    if not train_indices or not eval_indices:
-        raise ValueError("trainable-scope probe requires non-empty train and eval splits")
-    train_batch = _slice_batch(full_batch, train_indices)
-    eval_batch = _slice_batch(full_batch, eval_indices)
-    train_meta_rows = _slice_meta(full_meta_rows, train_indices)
-    eval_meta_rows = _slice_meta(full_meta_rows, eval_indices)
-    pair_split: dict[int, str] = {int(row["pair_id"]): str(row["split"]) for row in split_rows}
-    train_pairs = sorted(pair_id for pair_id, split in pair_split.items() if split == "train")
-    eval_pairs = sorted(pair_id for pair_id, split in pair_split.items() if split == "eval")
-    if set(train_pairs) & set(eval_pairs):
-        raise ValueError("pair split is not disjoint")
 
     scope_summaries: list[dict[str, Any]] = []
+    all_split_rows: list[dict[str, Any]] = []
     all_rows: list[dict[str, Any]] = []
     all_group_rows: list[dict[str, Any]] = []
     all_parameter_rows: list[dict[str, Any]] = []
     all_trace_rows: list[dict[str, Any]] = []
-    for scope in scope_names:
-        model, checkpoint_data = load_actor_critic_checkpoint(checkpoint_path, device=str(resolved_device))
-        contract_ok, contract_reason = _checkpoint_contract(model, checkpoint_data)
-        if not contract_ok:
-            raise ValueError(f"{scope} checkpoint contract violation: {contract_reason}")
-        model.eval()
-        scope_summary, rows, group_rows, parameter_rows, trace_rows = _train_scope(
-            model=model,
-            checkpoint_data=checkpoint_data,
-            base_state=base_state,
-            train_batch=train_batch,
-            train_meta_rows=train_meta_rows,
-            full_batch=full_batch,
-            full_meta_rows=full_meta_rows,
-            eval_batch=eval_batch,
-            eval_meta_rows=eval_meta_rows,
-            run_dir=run_dir,
-            scope=scope,
-            steps=steps,
-            lr=lr,
-            target_margin=target_margin,
-            lambda_group_floor=lambda_group_floor,
-            lambda_group_balance=lambda_group_balance,
-            lambda_anchor=lambda_anchor,
+    split_pair_counts: list[dict[str, Any]] = []
+    for split_offset in offset_values:
+        split_rows = _split_rows(full_meta_rows, split_mod=int(split_mod), split_offset=int(split_offset))
+        train_indices = _indices_for_split(split_rows, "train")
+        eval_indices = _indices_for_split(split_rows, "eval")
+        if not train_indices or not eval_indices:
+            raise ValueError(f"split offset {split_offset} produced an empty train or eval split")
+        train_batch = _slice_batch(full_batch, train_indices)
+        eval_batch = _slice_batch(full_batch, eval_indices)
+        train_meta_rows = _slice_meta(full_meta_rows, train_indices)
+        eval_meta_rows = _slice_meta(full_meta_rows, eval_indices)
+        pair_split: dict[int, str] = {int(row["pair_id"]): str(row["split"]) for row in split_rows}
+        train_pairs = sorted(pair_id for pair_id, split in pair_split.items() if split == "train")
+        eval_pairs = sorted(pair_id for pair_id, split in pair_split.items() if split == "eval")
+        if set(train_pairs) & set(eval_pairs):
+            raise ValueError(f"pair split is not disjoint for split offset {split_offset}")
+        split_pair_counts.append(
+            {
+                "split_offset": int(split_offset),
+                "train_row_count": int(len(train_indices)),
+                "eval_row_count": int(len(eval_indices)),
+                "train_pair_count": int(len(train_pairs)),
+                "eval_pair_count": int(len(eval_pairs)),
+            }
         )
-        scope_summaries.append(scope_summary)
-        all_rows.extend(rows)
-        all_group_rows.extend(group_rows)
-        all_parameter_rows.extend(parameter_rows)
-        all_trace_rows.extend(trace_rows)
+        all_split_rows.extend(split_rows)
+        for scope in scope_names:
+            model, checkpoint_data = load_actor_critic_checkpoint(checkpoint_path, device=str(resolved_device))
+            contract_ok, contract_reason = _checkpoint_contract(model, checkpoint_data)
+            if not contract_ok:
+                raise ValueError(f"{scope} checkpoint contract violation: {contract_reason}")
+            model.eval()
+            scope_summary, rows, group_rows, parameter_rows, trace_rows = _train_scope(
+                model=model,
+                checkpoint_data=checkpoint_data,
+                base_state=base_state,
+                train_batch=train_batch,
+                train_meta_rows=train_meta_rows,
+                full_batch=full_batch,
+                full_meta_rows=full_meta_rows,
+                eval_batch=eval_batch,
+                eval_meta_rows=eval_meta_rows,
+                run_dir=run_dir,
+                scope=scope,
+                split_offset=int(split_offset),
+                steps=steps,
+                lr=lr,
+                target_margin=target_margin,
+                lambda_group_floor=lambda_group_floor,
+                lambda_group_balance=lambda_group_balance,
+                lambda_anchor=lambda_anchor,
+            )
+            scope_summaries.append(scope_summary)
+            all_rows.extend(rows)
+            all_group_rows.extend(group_rows)
+            all_parameter_rows.extend(parameter_rows)
+            all_trace_rows.extend(trace_rows)
 
+    repeat_summaries = _repeat_summaries(scope_summaries)
     write_csv_rows(run_dir / "scope_summaries.csv", scope_summaries)
-    write_csv_rows(run_dir / "split_rows.csv", split_rows)
+    write_csv_rows(run_dir / "repeat_summaries.csv", repeat_summaries)
+    write_csv_rows(run_dir / "split_rows.csv", all_split_rows)
     write_csv_rows(run_dir / "directional_rows.csv", all_rows)
     write_csv_rows(run_dir / "group_rows.csv", all_group_rows)
     write_csv_rows(run_dir / "parameter_group_delta.csv", all_parameter_rows)
     write_csv_rows(run_dir / "train_trace.csv", all_trace_rows)
-    result_class, recommended_next_step = classify_probe(scope_summaries)
-    best = sorted(
+    result_class, recommended_next_step = classify_probe(repeat_summaries)
+    best_scope_row = sorted(
         scope_summaries,
         key=lambda row: (
             -float(row["eval_group_all_rows_both_positive_fraction"]),
@@ -514,7 +624,18 @@ def run_trainable_scope_probe(
             -float(row["full_both_positive_count"]),
         ),
     )[0]
+    best_repeat = sorted(
+        repeat_summaries,
+        key=lambda row: (
+            -int(row["offset_pass_count"]),
+            -float(row["mean_eval_group_all_rows_both_positive_fraction"]),
+            -float(row["mean_eval_both_directional_fraction"]),
+            -float(row["mean_full_group_all_rows_both_positive_count"]),
+        ),
+    )[0]
     any_forbidden = any(bool(row["forbidden_parameter_mutation_detected"]) for row in scope_summaries)
+    total_train_rows = int(sum(int(row["train_row_count"]) for row in split_pair_counts))
+    total_eval_rows = int(sum(int(row["eval_row_count"]) for row in split_pair_counts))
     summary = {
         "run_type": "source_history_trainable_scope_probe",
         "checkpoint": str(checkpoint_path),
@@ -527,21 +648,44 @@ def run_trainable_scope_probe(
         "lambda_group_balance": float(lambda_group_balance),
         "lambda_anchor": float(lambda_anchor),
         "scope_count": int(len(scope_summaries)),
+        "base_scope_count": int(len(scope_names)),
+        "offset_count": int(len(offset_values)),
+        "split_mod": int(split_mod),
+        "split_offsets": "|".join(str(offset) for offset in offset_values),
         "scopes": "|".join(scope_names),
-        "train_row_count": int(len(train_indices)),
-        "eval_row_count": int(len(eval_indices)),
+        "train_row_count": int(split_pair_counts[0]["train_row_count"]),
+        "eval_row_count": int(split_pair_counts[0]["eval_row_count"]),
+        "total_train_row_count": total_train_rows,
+        "total_eval_row_count": total_eval_rows,
         "full_row_count": int(len(full_meta_rows)),
-        "train_pair_count": int(len(train_pairs)),
-        "eval_pair_count": int(len(eval_pairs)),
+        "train_pair_count": int(split_pair_counts[0]["train_pair_count"]),
+        "eval_pair_count": int(split_pair_counts[0]["eval_pair_count"]),
         "pair_split_disjoint": True,
-        "best_scope": str(best["scope"]),
-        "best_scope_class": str(best["scope_class"]),
+        "best_scope": str(best_scope_row["scope"]),
+        "best_scope_class": str(best_scope_row["scope_class"]),
+        "best_split_offset": int(best_scope_row["split_offset"]),
         "best_eval_group_all_rows_both_positive_fraction": float(
-            best["eval_group_all_rows_both_positive_fraction"]
+            best_scope_row["eval_group_all_rows_both_positive_fraction"]
         ),
-        "best_eval_both_directional_fraction": float(best["eval_both_directional_fraction"]),
-        "best_full_group_all_rows_both_positive_count": int(best["full_group_all_rows_both_positive_count"]),
-        "best_full_both_positive_count": int(best["full_both_positive_count"]),
+        "best_eval_both_directional_fraction": float(best_scope_row["eval_both_directional_fraction"]),
+        "best_full_group_all_rows_both_positive_count": int(
+            best_scope_row["full_group_all_rows_both_positive_count"]
+        ),
+        "best_full_both_positive_count": int(best_scope_row["full_both_positive_count"]),
+        "best_repeat_scope": str(best_repeat["scope"]),
+        "best_repeat_class": str(best_repeat["repeat_class"]),
+        "best_repeat_offset_pass_count": int(best_repeat["offset_pass_count"]),
+        "best_repeat_required_pass_count": int(best_repeat["required_pass_count"]),
+        "best_repeat_mean_eval_group_all_rows_both_positive_fraction": float(
+            best_repeat["mean_eval_group_all_rows_both_positive_fraction"]
+        ),
+        "best_repeat_mean_eval_both_directional_fraction": float(
+            best_repeat["mean_eval_both_directional_fraction"]
+        ),
+        "best_repeat_mean_full_group_all_rows_both_positive_count": float(
+            best_repeat["mean_full_group_all_rows_both_positive_count"]
+        ),
+        "best_repeat_mean_full_both_positive_count": float(best_repeat["mean_full_both_positive_count"]),
         "forbidden_parameter_mutation_detected": bool(any_forbidden),
         "result_class": result_class,
         "recommended_next_step": recommended_next_step,
@@ -554,6 +698,7 @@ def run_trainable_scope_probe(
         "accepted_thresholds_relaxed": False,
         "high_fidelity_validation_claimed": False,
         "scope_summaries_csv": run_dir / "scope_summaries.csv",
+        "repeat_summaries_csv": run_dir / "repeat_summaries.csv",
         "split_rows_csv": run_dir / "split_rows.csv",
         "directional_rows_csv": run_dir / "directional_rows.csv",
         "group_rows_csv": run_dir / "group_rows.csv",
@@ -578,8 +723,11 @@ def main() -> None:
     parser.add_argument("--lambda-group-balance", type=float, default=0.5)
     parser.add_argument("--lambda-anchor", type=float, default=0.001)
     parser.add_argument("--scopes", type=str, default=",".join(DEFAULT_SCOPES))
+    parser.add_argument("--split-mod", type=int, default=5)
+    parser.add_argument("--split-offsets", type=str, default="0")
     args = parser.parse_args()
     scopes = [scope.strip() for scope in str(args.scopes).split(",") if scope.strip()]
+    split_offsets = [int(offset.strip()) for offset in str(args.split_offsets).split(",") if offset.strip()]
     summary = run_trainable_scope_probe(
         checkpoint_path=args.checkpoint,
         history_run_dir=args.history_run_dir,
@@ -593,6 +741,8 @@ def main() -> None:
         lambda_group_balance=args.lambda_group_balance,
         lambda_anchor=args.lambda_anchor,
         scopes=scopes,
+        split_mod=args.split_mod,
+        split_offsets=split_offsets,
     )
     for key, value in summary.items():
         print(f"{key}: {value}")

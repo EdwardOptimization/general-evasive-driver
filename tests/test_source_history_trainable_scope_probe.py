@@ -127,9 +127,12 @@ def test_run_trainable_scope_probe_writes_split_and_parameter_artifacts(tmp_path
         steps=2,
         lr=1e-3,
         scopes=("fusion_head",),
+        split_offsets=(0, 1),
     )
 
-    assert summary["scope_count"] == 1
+    assert summary["base_scope_count"] == 1
+    assert summary["offset_count"] == 2
+    assert summary["scope_count"] == 2
     assert summary["train_row_count"] > 0
     assert summary["eval_row_count"] > 0
     assert summary["pair_split_disjoint"] is True
@@ -138,9 +141,11 @@ def test_run_trainable_scope_probe_writes_split_and_parameter_artifacts(tmp_path
     assert summary["private_holdout_used"] is False
     assert (run_dir / "summary.json").exists()
     assert (run_dir / "scope_summaries.csv").exists()
+    assert (run_dir / "repeat_summaries.csv").exists()
     assert (run_dir / "split_rows.csv").exists()
     assert (run_dir / "directional_rows.csv").exists()
     assert (run_dir / "group_rows.csv").exists()
     assert (run_dir / "parameter_group_delta.csv").exists()
     assert (run_dir / "train_trace.csv").exists()
-    assert (run_dir / "checkpoints" / "fusion_head_candidate.pt").exists()
+    assert (run_dir / "checkpoints" / "offset_0_fusion_head_candidate.pt").exists()
+    assert (run_dir / "checkpoints" / "offset_1_fusion_head_candidate.pt").exists()

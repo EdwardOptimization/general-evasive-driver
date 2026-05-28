@@ -18880,3 +18880,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1302-paper-route-source-history-trainable-scope-repeat-probe.json`.
 - next: `m1302-paper-route-source-history-trainable-scope-repeat-probe`
+
+## 20260528T151534Z - m1302-paper-route-source-history-trainable-scope-repeat-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1302_source_history_trainable_scope_repeat_probe/summary.json`
+- implementation: extended `src/autodrift/source_history_trainable_scope_probe.py` with `--split-offsets`, repeat summaries, and per-offset artifacts.
+- validation: `PYTHONPATH=src python -m pytest -q tests/test_source_history_trainable_scope_probe.py` passed with `1 passed`.
+- result class: `source_history_trainable_scope_repeat_mixed`.
+- repeat summary: `offset_pass_count=3/5`, `required_pass_count=3`.
+- mean eval metrics: `mean_eval_both_directional_fraction=0.2335317460`, `mean_eval_group_all_rows_both_positive_fraction=0.2335317460`, below the `0.25` repeat-strong threshold.
+- mean full metrics: `mean_full_both_positive_count=38.0`, `mean_full_group_all_rows_both_positive_count=19.0`.
+- best offset: `3`, with eval row/group fractions `0.2857142857`.
+- failed offsets: `2` and `4`.
+- mutation guard: no forbidden parameter mutation across offsets.
+- interpretation: fusion_head signal is real but split-sensitive; no PPO or promotion.
+- follow-up manifest: `experiments/manifests/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.json`.
+- decision: `source_history_trainable_scope_repeat_mixed_route_to_result_audit`
+- next: `m1303-paper-route-source-history-trainable-scope-repeat-result-audit`
