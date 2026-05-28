@@ -1,0 +1,184 @@
+{
+  "id": "m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.md",
+      "runs/m1375_promoted_base_source_rich_public_wave/reset_only_rows.csv",
+      "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.json",
+      "configs/m991_capability_step_fault_source_wave.json"
+    ],
+    "parent_objective": [
+      "expand source-row coverage to test whether M1377 temporal-positive seed-thin result reaches source-diverse seed coverage"
+    ],
+    "derived_from": [
+      "m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit"
+    ],
+    "blocked_by": [
+      "M1377 passes temporal row and fault-pair thresholds but misses accepted-seed threshold"
+    ],
+    "supersedes": [
+      "exporting a temporal corpus from seed-thin M1377 evidence",
+      "changing temporal-positive thresholds after results",
+      "claiming cross-fault self-ID from temporal positives"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe.md",
+  "public_gates": [
+    "M1379 must run no-training expanded sequence intervention probe on M1375 reset-only rows",
+    "M1379 must keep actor inputs and checkpoint parameters unchanged",
+    "M1379 must separate temporal accepted rows from cross-fault accepted rows",
+    "M1379 must keep private holdout unused",
+    "M1379 must not export training corpus or run objective updates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not mutate the candidate checkpoint",
+    "do not call temporal-history positives cross-fault self-identification",
+    "do not export an objective corpus without a separate design/audit",
+    "do not claim true high-fidelity per-wheel physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_promoted_base_source_rich_comparison_readiness",
+    "evidence_axis": "G_source_rich_temporal_sequence_expansion",
+    "evidence_increment": "expands M1377 sequence source-row coverage to test accepted-seed diversity before corpus export or branch synthesis",
+    "claim_scope": "public no-training expanded sequence intervention probe only; no corpus export, training, PPO, promotion, private holdout, high-fidelity, L0/L1/L2/L3, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if sequence artifacts are missing or malformed",
+      "stop if checkpoint or actor parameters change",
+      "stop if private holdout is used",
+      "stop if temporal positives are mislabeled as cross-fault self-identification"
+    ],
+    "fallback_plan": [
+      "if expanded temporal thresholds pass, route to result audit before corpus export design",
+      "if seed threshold still misses, route to branch synthesis or source-selection redesign",
+      "if temporal positives collapse, route to intervention redesign audit",
+      "if cross-fault sequence positives appear, audit separately before any claim"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1378 admits expanded sequence probe after M1377 seed-thin temporal result",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "expanded source-rich temporal sequence intervention probe",
+    "admission_evidence": [
+      "M1377 accepted_temporal_sequence_rows is 180",
+      "M1377 unique_temporal_accepted_fault_pairs is 8",
+      "M1377 unique_temporal_accepted_seeds is 9 below threshold 12",
+      "M1378 routes to expanded source-row coverage before corpus export"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "expanded sequence intervention probe artifacts",
+      "M1379 milestone document",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "expanded sequence probe artifacts exist",
+      "accepted temporal and cross-fault rows are separated",
+      "checkpoint and actor contract are unchanged",
+      "result is classified by pre-registered expanded thresholds"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1379 tests temporal history dependence but cannot alone prove level3 anticipatory self-identification.",
+    "history_necessity_tests": [
+      "reset_then_warm and delayed capability variants test temporal continuity",
+      "cross-fault variants are tracked separately from temporal variants",
+      "positive temporal rows must not be described as cross-fault belief proof"
+    ],
+    "temporal_evidence_window": "Expanded source-row sample from M1375 reset-only rows with history lengths 4, 8, and 12.",
+    "negative_result_policy": "If expanded sequence positives remain seed-thin or collapse, record the result and route to audit instead of threshold relaxation.",
+    "allowed_claims": [
+      "source-rich public expanded sequence intervention artifact and metric result",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level, L0/L1/L2/L3, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Expanding source-row coverage can resolve the M1377 accepted-seed diversity miss while preserving temporal-history positives.",
+  "success_criteria": [
+    "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json exists",
+    "selected_source_rows > 0",
+    "intervention_rows > 0",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "accepted_temporal_sequence_rows and accepted_cross_fault_sequence_rows are reported separately",
+    "variant and history-length summaries exist"
+  ],
+  "failure_criteria": [
+    "summary or core sequence CSV artifacts are missing",
+    "selected_source_rows or intervention_rows is zero",
+    "actor parameters or actor inputs change",
+    "training, PPO, promotion, private holdout, corpus export, or objective update occurs",
+    "temporal positives are reported as cross-fault self-identification"
+  ],
+  "commands": [
+    {
+      "name": "expanded_sequence_intervention_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_step_sequence_intervention_probe --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m991_capability_step_fault_source_wave.json --source-rows runs/m1375_promoted_base_source_rich_public_wave/reset_only_rows.csv --max-source-rows 768 --per-fault-pair-cap 96 --history-lengths 4,8,12 --max-continuation-steps 48 --min-margin-gap 0.012 --min-sequence-action-l2 0.025 --device auto --run-dir runs/m1379_promoted_base_source_rich_sequence_expanded_probe"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/selected_source_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/sequence_intervention_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/accepted_sequence_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/variant_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/history_length_summary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1375_promoted_base_source_rich_public_wave/reset_only_rows.csv",
+    "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/summary.json",
+    "configs/m991_capability_step_fault_source_wave.json"
+  ],
+  "decision_rule": "M1379 passes structurally if it produces clean no-training expanded sequence intervention artifacts with unchanged actor/checkpoint contract and separates temporal from cross-fault accepted rows.",
+  "next_blocker": "m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe"
+}

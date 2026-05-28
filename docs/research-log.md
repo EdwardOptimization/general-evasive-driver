@@ -20269,3 +20269,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: temporal-history evidence is positive but seed-thin; cross-fault self-identification remains unsupported.
 - follow-up manifest: `experiments/manifests/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.json`.
 - next: `m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit`
+
+## 20260528T231000Z - m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.md`
+- decision: `promoted_base_source_rich_sequence_probe_audit_admit_expanded_probe`
+- audited artifact: `runs/m1377_promoted_base_source_rich_sequence_intervention_probe/summary.json`
+- audit conclusion: M1377 is temporal-history positive by row and fault-pair coverage, but seed-thin before corpus export.
+- threshold audit: row threshold passes (`180 >= 100`), fault-pair threshold passes (`8 >= 6`), seed threshold misses (`9 < 12`).
+- cross-fault audit: `accepted_cross_fault_sequence_rows=0`; cross-fault self-identification remains unsupported.
+- next route: expanded no-training sequence probe with `--max-source-rows 768`, `--per-fault-pair-cap 96`, same history lengths `4,8,12`, and run dir `runs/m1379_promoted_base_source_rich_sequence_expanded_probe`.
+- guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, finite-window-vs-GRU claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe.json`.
+- next: `m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe`

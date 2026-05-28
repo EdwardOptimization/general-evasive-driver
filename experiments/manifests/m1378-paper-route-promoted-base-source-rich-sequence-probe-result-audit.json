@@ -2,7 +2,7 @@
   "id": "m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -150,6 +150,33 @@
     "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/summary.json",
     "docs/m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.md",
+    "decision": "promoted_base_source_rich_sequence_probe_audit_admit_expanded_probe",
+    "m1377_result_class": "sequence_temporal_history_positive",
+    "m1377_accepted_temporal_sequence_rows": 180,
+    "m1377_accepted_cross_fault_sequence_rows": 0,
+    "m1377_unique_temporal_accepted_fault_pairs": 8,
+    "m1377_unique_temporal_accepted_seeds": 9,
+    "row_threshold_passed": true,
+    "fault_pair_threshold_passed": true,
+    "seed_threshold_passed": false,
+    "interpretation": "temporal-history positive diagnostic result but seed-thin before corpus export",
+    "next_manifest": "experiments/manifests/m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe.json",
+    "planned_run_dir": "runs/m1379_promoted_base_source_rich_sequence_expanded_probe",
+    "planned_source_rows": "runs/m1375_promoted_base_source_rich_public_wave/reset_only_rows.csv",
+    "planned_max_source_rows": 768,
+    "planned_per_fault_pair_cap": 96,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "high_fidelity_claim_made": false
+  },
+  "decision": "promoted_base_source_rich_sequence_probe_audit_admit_expanded_probe",
   "decision_rule": "M1378 passes if it audits M1377 without overclaiming temporal-positive seed-thin evidence and chooses the next route before any training, PPO, promotion, private holdout, or corpus export.",
-  "next_blocker": "m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit"
+  "next_blocker": "m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe"
 }

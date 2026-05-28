@@ -16,17 +16,17 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe
+m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit
 ```
 
 Current next task:
 
 ```text
-m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit
+m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe
 ```
 
-M1377 ran the no-training source-rich sequence intervention probe on M1375
-reset-only rows. The current public-gate base remains M1362 alpha `0.1`:
+M1378 audits M1377 as temporal-history positive but seed-thin before corpus
+export. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
@@ -106,9 +106,14 @@ promoted: false
 M1377 is temporal-history positive by row count and fault-pair diversity, but
 seed-thin against the pre-registered accepted-seed threshold (`9 < 12`).
 Cross-fault self-identification remains unsupported because all cross-fault and
-action-response mismatch sequence variants have zero accepted rows. M1378 should
-audit whether to expand sequence source coverage, design a temporal corpus,
-redesign cross-fault interventions, or synthesize before L0/L1/L2/L3 comparison.
+action-response mismatch sequence variants have zero accepted rows.
+
+M1378 routes to M1379, an expanded no-training sequence probe with
+`--max-source-rows 768`, `--per-fault-pair-cap 96`, the same history lengths
+`4,8,12`, and run dir
+`runs/m1379_promoted_base_source_rich_sequence_expanded_probe`. M1379 must not
+export a corpus, train, run PPO, promote, use private holdout, change actor
+inputs, or claim cross-fault self-identification from temporal positives.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true

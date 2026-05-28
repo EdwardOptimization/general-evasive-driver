@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1387,
+    "completed": 1388,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/summary.json",
+    "command_log": "docs/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1377_promoted_base_source_rich_sequence_intervention_probe",
+    "run_dir": "docs/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.md",
     "status": "completed",
-    "task_id": "m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe"
+    "task_id": "m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.json",
-    "hypothesis": "M1377 can be audited as temporal-history positive but seed-thin with cross-fault self-ID still unsupported",
-    "id": "m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit",
+    "command": "see experiments/manifests/m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe.json",
+    "hypothesis": "Expanding source-row coverage can resolve the M1377 accepted-seed diversity miss while preserving temporal-history positives",
+    "id": "m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe",
     "kind": "gate",
-    "notes": "Pending: audit M1377 temporal-positive seed-thin sequence probe; decide expansion corpus design cross-fault redesign or synthesis without training",
-    "priority": 13730,
+    "notes": "Pending: run no-training expanded sequence probe with 768 source rows and per-fault-pair cap 96; no corpus export training PPO or private holdout",
+    "priority": 13740,
     "status": "pending",
-    "success_artifact": "docs/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.md"
+    "success_artifact": "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json"
   },
-  "updated_at_utc": "20260528T230000Z"
+  "updated_at_utc": "20260528T231000Z"
 }
