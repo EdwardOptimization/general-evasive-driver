@@ -19879,3 +19879,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1355-paper-route-materialized-source-history-replay-aware-retention-probe.json`.
 - next: `m1355-paper-route-materialized-source-history-replay-aware-retention-probe`
+
+## 20260528T200151Z - m1355-paper-route-materialized-source-history-replay-aware-retention-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1355_materialized_source_history_replay_aware_retention_probe/summary.json`
+- document: `docs/m1355-paper-route-materialized-source-history-replay-aware-retention-probe.md`
+- decision: `materialized_source_history_replay_aware_retention_m267_proof_washout_route_to_branch_synthesis`
+- failure taxonomy: `proof_washout`
+- checkpoint out: `runs/m1355_materialized_source_history_replay_aware_retention_probe/checkpoints/raw_replay_aware_retention_update.pt`
+- retention surface: `29` fragile rows and `1409` trajectory rows, with row16 present.
+- exact metrics: combined loss delta `-4.6874377849`, group-min joint margin delta `+5.2968078983`, eval-fold delta `+4.8873970864`, beating the M1352 alpha `0.005` diagnostic lift.
+- M267/M264 replay: failed despite normal success retention; normal success delta `0.0`, normal margin delta `+0.0010805264`, margin-gap delta `-0.0004139157`, success-drop count delta `-5`.
+- failed rows: wrong-history branches become successful on M267/M264 rows `6`, `10`, `13`, `15`, and `16`.
+- M183/M170 replay: skipped by pre-registered order because M267/M264 failed first.
+- interpretation: normal-branch retention is insufficient; the next objective must protect correct-history success and wrong-history rejected/failure behavior asymmetrically.
+- guardrail: no PPO, promotion, private holdout, full replay, threshold relaxation, actor-input expansion, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.json`.
+- next: `m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis`

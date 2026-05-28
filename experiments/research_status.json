@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1364,
+    "completed": 1365,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md",
+    "command_log": "docs/m1355-paper-route-materialized-source-history-replay-aware-retention-probe.md",
     "returncode": 0,
-    "run_dir": "docs/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md",
+    "run_dir": "runs/m1355_materialized_source_history_replay_aware_retention_probe/summary.json",
     "status": "completed",
-    "task_id": "m1354-paper-route-materialized-source-history-replay-aware-retention-design"
+    "task_id": "m1355-paper-route-materialized-source-history-replay-aware-retention-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1355-paper-route-materialized-source-history-replay-aware-retention-probe.json",
-    "hypothesis": "Run one no-PPO replay-aware retained update and two-surface replay preflight before branch synthesis",
-    "id": "m1355-paper-route-materialized-source-history-replay-aware-retention-probe",
-    "kind": "infrastructure",
-    "notes": "Pending: one retained actor update with exact metrics and limited replay; no PPO, promotion, private holdout, full replay, or actor-input change",
-    "priority": 13500,
+    "command": "see experiments/manifests/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.json",
+    "hypothesis": "Synthesize M1346-M1355 before any more local tuning",
+    "id": "m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis",
+    "kind": "gate",
+    "notes": "Pending: branch synthesis after M1355 proof washout; no training, PPO, promotion, private holdout, or actor update",
+    "priority": 13510,
     "status": "pending",
-    "success_artifact": "runs/m1355_materialized_source_history_replay_aware_retention_probe/summary.json"
+    "success_artifact": "docs/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.md"
   },
-  "updated_at_utc": "20260528T195257Z"
+  "updated_at_utc": "20260528T200151Z"
 }

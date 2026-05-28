@@ -16,14 +16,26 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1354-paper-route-materialized-source-history-replay-aware-retention-design
+m1355-paper-route-materialized-source-history-replay-aware-retention-probe
 ```
 
 Current next task:
 
 ```text
-m1355-paper-route-materialized-source-history-replay-aware-retention-probe
+m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis
 ```
+
+M1355 ran the replay-aware retained no-PPO update. It is a negative
+`proof_washout` result. The retained update strongly improves exact
+source-history metrics (`combined_loss_delta=-4.6874377849`,
+`group_min_delta=+5.2968078983`, eval-fold delta `+4.8873970864`) and keeps the
+normal M267/M264 branch successful (`normal_success_delta=0.0`,
+`normal_margin_delta=+0.0010805264`). The gate still fails because
+wrong-history branches become successful on five rows: M267/M264 success-drop
+count drops from `17` to `12`, with rows `6`, `10`, `13`, `15`, and `16`
+turning wrong-history safe. M183/M170 was skipped by the pre-registered order.
+The active conclusion is that normal-branch retention alone is insufficient;
+the branch needs synthesis before any more local tuning.
 
 M1354 designs the replay-aware retention update. The key active set is M183/M170
 rows `1, 4, 12, 14, 16`, which first fail at `alpha=0.01`; the expanded

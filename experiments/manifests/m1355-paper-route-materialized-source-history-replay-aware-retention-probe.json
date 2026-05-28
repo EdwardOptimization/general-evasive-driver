@@ -168,6 +168,45 @@
     "docs/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md",
     "runs/m1352_materialized_source_history_interpolation_preflight/alpha_summary.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1355_materialized_source_history_replay_aware_retention_probe/summary.json",
+    "document": "docs/m1355-paper-route-materialized-source-history-replay-aware-retention-probe.md",
+    "decision": "materialized_source_history_replay_aware_retention_m267_proof_washout_route_to_branch_synthesis",
+    "result_class": "materialized_source_history_replay_aware_retention_m267_proof_washout",
+    "failure_type": "proof_washout",
+    "checkpoint_out": "runs/m1355_materialized_source_history_replay_aware_retention_probe/checkpoints/raw_replay_aware_retention_update.pt",
+    "retention_fragile_rows": 29,
+    "retention_trajectory_rows": 1409,
+    "combined_loss_delta": -4.687437784894445,
+    "full_group_min_joint_margin_delta": 5.296807898338451,
+    "eval_fold_group_min_joint_margin_delta": 4.887397086442406,
+    "beat_alpha005_exact_lift": true,
+    "m267_m264_gate_pass": false,
+    "m267_m264_normal_success_delta": 0.0,
+    "m267_m264_normal_margin_mean_delta": 0.0010805263572023693,
+    "m267_m264_margin_gap_mean_delta": -0.0004139157124472513,
+    "m267_m264_success_drop_count_delta": -5,
+    "m183_m170_ran": false,
+    "wrong_history_safe_row_ids": [
+      6,
+      10,
+      13,
+      15,
+      16
+    ],
+    "forbidden_parameter_mutation_detected": false,
+    "log_std_l2": 0.0,
+    "training_started": true,
+    "objective_update_started": true,
+    "actor_update_used": true,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "next_manifest": "experiments/manifests/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.json"
+  },
   "decision_rule": "M1355 may run exactly one no-PPO retained update and limited replay preflight; it cannot promote and must route to branch synthesis after result.",
-  "next_blocker": "m1355-paper-route-materialized-source-history-replay-aware-retention-probe"
+  "next_blocker": "m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis"
 }

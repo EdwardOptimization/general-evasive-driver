@@ -1,0 +1,187 @@
+{
+  "id": "m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt",
+      "runs/m1352_materialized_source_history_interpolation_preflight/checkpoints/alpha_0_005.pt",
+      "runs/m1355_materialized_source_history_replay_aware_retention_probe/checkpoints/raw_replay_aware_retention_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1346-paper-route-materialized-source-history-pair-group-update-implementation.md",
+      "docs/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md",
+      "docs/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.md",
+      "docs/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.md",
+      "docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md",
+      "docs/m1351-paper-route-materialized-source-history-interpolation-preflight-design.md",
+      "docs/m1352-paper-route-materialized-source-history-interpolation-preflight.md",
+      "docs/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.md",
+      "docs/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md",
+      "docs/m1355-paper-route-materialized-source-history-replay-aware-retention-probe.md",
+      "runs/m1355_materialized_source_history_replay_aware_retention_probe/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1355-paper-route-materialized-source-history-replay-aware-retention-probe.json"
+    ],
+    "parent_objective": [
+      "synthesize bounded pair-group update branch after raw update, interpolation, and replay-aware retention results"
+    ],
+    "derived_from": [
+      "m1346-paper-route-materialized-source-history-pair-group-update-implementation",
+      "m1355-paper-route-materialized-source-history-replay-aware-retention-probe"
+    ],
+    "blocked_by": [
+      "M1355 reaches branch cadence and shows normal-branch retention fails by making wrong-history rows successful"
+    ],
+    "supersedes": [
+      "more local tuning of retention coefficient without synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.md",
+  "public_gates": [
+    "M1356 must synthesize M1346-M1355",
+    "M1356 must not train",
+    "M1356 must not run PPO",
+    "M1356 must not update actor weights",
+    "M1356 must not use private holdout",
+    "M1356 must not promote",
+    "M1356 must choose continue, pivot, stop, or promote_to_next_branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor weights",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not tune M1355 locally before synthesis",
+    "do not claim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_pair_group_update_implementation",
+    "evidence_axis": "S_branch_synthesis",
+    "evidence_increment": "synthesizes M1346-M1355 and decides whether to pivot to bidirectional active-set branch retention",
+    "claim_scope": "branch synthesis only; no promotion, private-holdout, PPO, actor-update, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats fixed source metrics as driver evidence",
+      "stop if synthesis continues local coefficient tuning without branch decision",
+      "stop if synthesis omits wrong-history success-drop washout",
+      "stop if actor inputs change"
+    ],
+    "fallback_plan": [
+      "if bidirectional active-set evidence is actionable, pivot to a new branch",
+      "if replay-active source objective is not actionable, stop this branch",
+      "if tooling gaps dominate, route to active-set trajectory export design",
+      "if evidence is ambiguous, require a process audit rather than another update"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1346-M1355 reaches the branch cadence boundary",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "materialized source-history pair-group update branch synthesis",
+    "admission_evidence": [
+      "M1346 fixed objective update improves exact metrics but fails replay",
+      "M1352 interpolation finds only alpha 0.005 passes both preflight surfaces",
+      "M1355 retention update improves exact metrics but fails M267/M264 by wrong-history success-drop washout"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not update checkpoint weights",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1356 synthesis document",
+      "status, queue, scoreboard, research log, and review",
+      "one next-branch manifest if synthesis admits it"
+    ],
+    "next_stage_criteria": [
+      "supported and falsified claims are documented",
+      "failure taxonomy is documented",
+      "public-gate overfit risk is assessed",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1356 synthesizes public proof surfaces and must not convert replay diagnostics into strong self-identification.",
+    "history_necessity_tests": [
+      "summarize M267/M264 and M183/M170 normal-vs-wrong-history retention outcomes"
+    ],
+    "temporal_evidence_window": "M1346-M1355 branch, synthesis only.",
+    "negative_result_policy": "Wrong-history success-drop washout must remain explicit and guide the next branch decision.",
+    "allowed_claims": [
+      "materialized source-history pair-group update branch synthesis",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1346-M1355 branch evidence is sufficient to decide whether to pivot from normal-branch retention to bidirectional active-set branch retention.",
+  "success_criteria": [
+    "docs/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.md exists",
+    "synthesis summarizes M1346-M1355 evidence",
+    "synthesis lists supported claims",
+    "synthesis lists falsified claims",
+    "synthesis classifies failure taxonomy",
+    "synthesis assesses public-gate overfit risk",
+    "synthesis chooses next branch decision",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, checkpoint mutation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis omits M1355 wrong-history success-drop washout",
+    "synthesis starts implementation or PPO directly",
+    "synthesis overclaims self-identification",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, checkpoint mutation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.md from M1346-M1355 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1355-paper-route-materialized-source-history-replay-aware-retention-probe.md",
+    "runs/m1355_materialized_source_history_replay_aware_retention_probe/summary.json"
+  ],
+  "decision_rule": "M1356 passes as a synthesis milestone if it summarizes M1346-M1355 evidence and selects a branch decision before any further implementation, PPO, private holdout, promotion, or actor-input expansion.",
+  "next_blocker": "m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis"
+}
