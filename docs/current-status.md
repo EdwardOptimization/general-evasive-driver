@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1304-paper-route-source-history-repeat-failed-offset-audit
+m1305-paper-route-source-history-concentration-aware-refresh-design
 ```
 
 Current next task:
 
 ```text
-m1305-paper-route-source-history-concentration-aware-refresh-design
+m1306-paper-route-source-history-concentration-refresh-plan
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -141,7 +141,10 @@ groups concentrate in `left_brake_probe` (`60.9%`) and
 `single_wheel_grip_collapse->single_wheel_grip_collapse` (`56.5%`), while the
 top failed pair id accounts for only `8.7%`. The active blocker is M1305:
 design a concentration-aware source-history refresh that handles source-family
-and probe-template balance before another objective run or PPO. PPO and
+and probe-template balance before another objective run or PPO. M1305 completed
+that design and admitted M1306 as a no-training plan builder: create
+pair-disjoint balanced folds and capped group-level weights, with no
+pair-id-specific weighting, before any weighted trainable-scope repeat. PPO and
 promotion remain blocked.
 
 ## Actor Contract

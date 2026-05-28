@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M1305 designs a no-training concentration-aware refresh: build pair-disjoint balanced folds and capped group weights before any weighted repeat or PPO",
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores M1304 concentration evidence",
+    "design targets a single pair ID only",
+    "design starts training or PPO",
+    "private holdout is used",
+    "checkpoint is promoted",
+    "actor input contract changes",
+    "thresholds are relaxed after seeing results"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train in the design milestone",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not tune only to one public failed-offset row",
+    "do not overclaim self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T153726Z",
+  "hypothesis": "A concentration-aware refresh design can address M1304 source-family/probe-template concentration without overfitting to one pair ID or admitting PPO prematurely.",
+  "lineage": {
+    "blocked_by": [
+      "M1304 found failed-offset concentration by probe template and single-wheel grip-collapse source family"
+    ],
+    "derived_from": [
+      "m1304-paper-route-source-history-repeat-failed-offset-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1304-paper-route-source-history-repeat-failed-offset-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1304-paper-route-source-history-repeat-failed-offset-audit.md",
+      "runs/m1304_source_history_repeat_failed_offset_audit/summary.json",
+      "runs/m1304_source_history_repeat_failed_offset_audit/offset_summary.csv",
+      "runs/m1304_source_history_repeat_failed_offset_audit/failed_eval_groups.csv",
+      "runs/m1304_source_history_repeat_failed_offset_audit/composition_summary.csv"
+    ],
+    "parent_objective": [
+      "design concentration-aware source-history corpus/objective refresh"
+    ],
+    "supersedes": [
+      "blind objective tuning from M1302 failed offsets"
+    ]
+  },
+  "milestone": "m1305-paper-route-source-history-concentration-aware-refresh-design",
+  "next_blocker": "m1306-paper-route-source-history-concentration-refresh-plan",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_history_concentration_aware_refresh_design_admit_plan_builder",
+  "public_gates": [
+    "M1305 must preserve actor input contract",
+    "M1305 must not run PPO",
+    "M1305 must not train",
+    "M1305 must not use private holdout",
+    "M1305 must not promote",
+    "M1305 must specify how concentration by source family and probe template is handled",
+    "M1305 must define pass/fail criteria for the next bounded implementation"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1305-paper-route-source-history-concentration-aware-refresh-design.md",
+    "clearance_margin_mean": "",
+    "decision": "source_history_concentration_aware_refresh_design_admit_plan_builder",
+    "milestone": "m1305-paper-route-source-history-concentration-aware-refresh-design",
+    "reason": "M1305 designs a no-training concentration-aware refresh: build pair-disjoint balanced folds and capped group weights before any weighted repeat or PPO",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1305-paper-route-source-history-concentration-aware-refresh-design.md exists",
+    "design records M1304 concentration evidence",
+    "design specifies source-family and probe-template balancing or weighting",
+    "design specifies repeat pass/fail criteria",
+    "design keeps PPO and promotion blocked",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

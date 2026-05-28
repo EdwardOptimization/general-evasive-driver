@@ -18940,3 +18940,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1305-paper-route-source-history-concentration-aware-refresh-design.json`.
 - decision: `source_history_failed_offset_audit_concentrated_route_to_refresh_design`
 - next: `m1305-paper-route-source-history-concentration-aware-refresh-design`
+
+## 20260528T153517Z - m1305-paper-route-source-history-concentration-aware-refresh-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1305-paper-route-source-history-concentration-aware-refresh-design.md`
+- decision: `source_history_concentration_aware_refresh_design_admit_plan_builder`
+- input evidence: M1304 found failed eval groups concentrate by `left_brake_probe` (`0.6086956522`) and `single_wheel_grip_collapse->single_wheel_grip_collapse` (`0.5652173913`), while top pair share is only `0.0869565217`.
+- design choice: do not train immediately; first build a no-training concentration-aware refresh plan.
+- planned split refresh: deterministic pair-disjoint folds balanced by `source_family_pair`, `source_fault_pair`, `probe_template`, and margin bucket.
+- planned weight refresh: capped group-level weights using source-family/probe-template inverse frequency, failed-combo boost, and near-boundary boost.
+- forbidden: pair-id-specific weights, offset-only repair, private holdout use, actor input changes, threshold relaxation, PPO, and promotion.
+- follow-up manifest: `experiments/manifests/m1306-paper-route-source-history-concentration-refresh-plan.json`.
+- next: `m1306-paper-route-source-history-concentration-refresh-plan`

@@ -1,0 +1,170 @@
+{
+  "id": "m1306-paper-route-source-history-concentration-refresh-plan",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1305-paper-route-source-history-concentration-aware-refresh-design.md",
+      "runs/m1304_source_history_repeat_failed_offset_audit/summary.json",
+      "runs/m1304_source_history_repeat_failed_offset_audit/eval_group_rows.csv",
+      "runs/m1304_source_history_repeat_failed_offset_audit/composition_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1305-paper-route-source-history-concentration-aware-refresh-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training concentration-aware split and weight plan"
+    ],
+    "derived_from": [
+      "m1305-paper-route-source-history-concentration-aware-refresh-design"
+    ],
+    "blocked_by": [
+      "M1305 requires a no-training plan builder before any weighted update"
+    ],
+    "supersedes": [
+      "direct weighted trainable-scope repeat without plan audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1306-paper-route-source-history-concentration-refresh-plan.md",
+  "public_gates": [
+    "M1306 must preserve actor input contract",
+    "M1306 must not run PPO",
+    "M1306 must not train",
+    "M1306 must not use private holdout",
+    "M1306 must not promote",
+    "M1306 must output balanced split rows",
+    "M1306 must output group weight rows",
+    "M1306 must prove no pair_id-specific weights are used"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not use pair_id-specific weights",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_trainable_scope_escalation",
+    "evidence_axis": "S_concentration_refresh_plan",
+    "evidence_increment": "builds a no-training balanced split and weight plan for the M1304 concentration failure",
+    "claim_scope": "diagnostic infrastructure only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if plan uses pair-specific weights",
+      "stop if folds are not pair-disjoint",
+      "stop if implementation starts training or PPO"
+    ],
+    "fallback_plan": [
+      "if the plan is admissible, route to bounded weighted repeat design or implementation",
+      "if the corpus cannot be balanced, route to source corpus expansion",
+      "if public-row overfit risk is too high, route to branch synthesis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "ninth milestone in trainable-scope escalation branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "no-training concentration-aware refresh plan",
+    "admission_evidence": [
+      "M1305 designs split and weight refresh before training",
+      "M1304 failure concentration is source-family/probe-template, not pair singleton",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "plan-builder implementation",
+      "focused tests",
+      "M1306 run artifacts",
+      "M1306 result doc",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "balanced split rows exist",
+      "group weight rows exist",
+      "fold composition summary exists",
+      "plan admissibility is classified",
+      "PPO remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1306 builds a fixed-current diagnostic plan only; it does not evaluate closed-loop history necessity.",
+    "history_necessity_tests": [
+      "preserve correct-history versus wrong-history diagnostic rows",
+      "preserve pair-disjoint fold evaluation"
+    ],
+    "temporal_evidence_window": "M1304 fixed-current source-history eval group rows.",
+    "negative_result_policy": "If the plan cannot be balanced without pair-specific weights, keep PPO blocked and route to corpus expansion or branch synthesis.",
+    "allowed_claims": [
+      "concentration-aware refresh plan infrastructure",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A no-training plan builder can produce pair-disjoint balanced folds and capped group weights that address M1304 source-family/probe-template concentration without pair-specific overfit.",
+  "success_criteria": [
+    "runs/m1306_source_history_concentration_refresh_plan/summary.json exists",
+    "balanced_split_rows.csv exists",
+    "group_weight_rows.csv exists",
+    "fold_composition_summary.csv exists",
+    "pair-disjoint folds are preserved",
+    "no pair_id-specific weights are used",
+    "max group weight is <= 2.0",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "balanced split rows are missing",
+    "group weight rows are missing",
+    "folds are not pair-disjoint",
+    "pair_id-specific weights are used",
+    "training or PPO starts",
+    "private holdout is used",
+    "checkpoint is promoted",
+    "actor input contract changes"
+  ],
+  "commands": [
+    {
+      "name": "run_plan",
+      "command": "PYTHONPATH=src python -m autodrift.source_history_concentration_refresh_plan --failed-offset-run-dir runs/m1304_source_history_repeat_failed_offset_audit --run-dir runs/m1306_source_history_concentration_refresh_plan"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1306_source_history_concentration_refresh_plan/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1306-paper-route-source-history-concentration-refresh-plan.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1305-paper-route-source-history-concentration-aware-refresh-design.md",
+    "runs/m1304_source_history_repeat_failed_offset_audit/summary.json",
+    "runs/m1304_source_history_repeat_failed_offset_audit/eval_group_rows.csv"
+  ],
+  "decision_rule": "M1306 passes if it creates an admissible pair-disjoint concentration-aware split and capped group-weight plan without training, PPO, promotion, private holdout use, threshold relaxation, pair-specific weights, or actor-input expansion.",
+  "next_blocker": "m1306-paper-route-source-history-concentration-refresh-plan"
+}

@@ -155,6 +155,27 @@
     "runs/m1304_source_history_repeat_failed_offset_audit/summary.json",
     "runs/m1304_source_history_repeat_failed_offset_audit/composition_summary.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1305-paper-route-source-history-concentration-aware-refresh-design.md",
+    "decision": "source_history_concentration_aware_refresh_design_admit_plan_builder",
+    "m1304_result_class": "source_history_failed_offset_audit_concentrated",
+    "top_failed_probe_template": "left_brake_probe",
+    "top_failed_probe_template_share": 0.6086956522,
+    "top_failed_source_family_pair": "single_wheel_grip_collapse->single_wheel_grip_collapse",
+    "top_failed_source_family_pair_share": 0.5652173913,
+    "plan_builder_required_before_training": true,
+    "pair_specific_weights_allowed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1306-paper-route-source-history-concentration-refresh-plan.json"
+  },
+  "decision": "source_history_concentration_aware_refresh_design_admit_plan_builder",
   "decision_rule": "M1305 passes if it designs a concentration-aware source-history refresh without training, PPO, promotion, private holdout use, threshold relaxation, or actor-input expansion.",
-  "next_blocker": "m1305-paper-route-source-history-concentration-aware-refresh-design"
+  "next_blocker": "m1306-paper-route-source-history-concentration-refresh-plan"
 }
