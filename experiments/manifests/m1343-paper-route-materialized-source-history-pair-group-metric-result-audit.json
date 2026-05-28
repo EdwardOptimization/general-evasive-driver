@@ -152,6 +152,31 @@
     "docs/m1342-paper-route-materialized-source-history-pair-group-metric-evaluator.md",
     "runs/m1342_materialized_source_history_pair_group_metrics/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.md",
+    "decision": "materialized_source_history_pair_group_metric_audit_route_to_bounded_update_design",
+    "failure_type": "objective_overfit",
+    "diagnosis": "pair_group_directional_conflict",
+    "row_count": 1376,
+    "group_count": 688,
+    "valid_two_condition_group_count": 688,
+    "group_all_rows_both_directional_count": 0,
+    "group_one_sided_conflict_count": 684,
+    "group_both_negative_count": 4,
+    "selected_route": "bounded_pair_group_objective_update_design",
+    "projection_repair_selected": false,
+    "branch_synthesis_selected": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_update_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1344-paper-route-materialized-source-history-pair-group-update-design.json"
+  },
   "decision_rule": "M1343 passes as a process audit if it summarizes M1342 group evidence and selects one safe next route before any objective update, PPO, private holdout, promotion, or actor-input expansion.",
-  "next_blocker": "m1343-paper-route-materialized-source-history-pair-group-metric-result-audit"
+  "next_blocker": "m1344-paper-route-materialized-source-history-pair-group-update-design"
 }

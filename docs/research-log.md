@@ -19664,3 +19664,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no checkpoint load, training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.json`.
 - next: `m1343-paper-route-materialized-source-history-pair-group-metric-result-audit`
+
+## 20260528T185929Z - m1343-paper-route-materialized-source-history-pair-group-metric-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.md`
+- decision: `materialized_source_history_pair_group_metric_audit_route_to_bounded_update_design`
+- failure taxonomy: `objective_overfit`
+- diagnosis: `pair_group_directional_conflict`
+- evidence accepted: M1342 has `1376` rows, `688` valid two-condition groups, `684` one-sided conflict groups, `4` both-negative groups, and `0` fully solved groups.
+- route not selected: projection repair, because the conflict is exact and group-structured enough that objective design is the next useful variable.
+- route not selected yet: branch synthesis, because one final bounded update design can define stop conditions before cadence pressure forces synthesis.
+- selected route: bounded no-PPO pair-group objective-update design.
+- M1344 requirements: specify trainable scopes, freeze `log_std`, forbid PPO/private holdout/promotion/pair-specific weights, require exact before/after M1339 and M1342 metrics, require group-min improvement and one-sided conflict reduction, and state whether synthesis must occur before implementation.
+- guardrail: no training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1344-paper-route-materialized-source-history-pair-group-update-design.json`.
+- next: `m1344-paper-route-materialized-source-history-pair-group-update-design`

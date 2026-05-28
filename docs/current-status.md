@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1342-paper-route-materialized-source-history-pair-group-metric-evaluator
+m1343-paper-route-materialized-source-history-pair-group-metric-result-audit
 ```
 
 Current next task:
 
 ```text
-m1343-paper-route-materialized-source-history-pair-group-metric-result-audit
+m1344-paper-route-materialized-source-history-pair-group-update-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -376,7 +376,13 @@ one-sided conflict fraction is `0.9941860465`, and the mean group-min joint
 margin is `-6.8026667906`. The active blocker is M1343: audit these group
 metrics and choose between bounded pair-group objective-update design,
 source-current projection repair, or branch synthesis. Objective updates, PPO,
-and promotion remain blocked.
+and promotion remain blocked. M1343 completed that audit and selected a bounded
+no-PPO pair-group update design as the next route. Projection repair is not
+selected because the conflict is exact and group-structured; branch synthesis is
+not selected yet because one final design step is useful before cadence
+pressure. The active blocker is M1344: design the bounded pair-group update
+protocol and explicitly decide whether cadence requires synthesis before
+implementation. Objective updates, PPO, and promotion remain blocked.
 
 ## Actor Contract
 
