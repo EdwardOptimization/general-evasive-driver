@@ -153,6 +153,30 @@
     "runs/m1323_source_repair_corpus_expansion_plan/summary.json",
     "runs/m1323_source_repair_corpus_expansion_plan/requires_source_generator_update.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1325-paper-route-source-repair-topup-generation-design.md",
+    "decision": "source_repair_topup_generation_design_admit_no_policy_smoke",
+    "designed_profile": "source_topup_v1",
+    "target_undercovered_families": [
+      "halfshaft_torque_loss",
+      "load_cg_perturbation",
+      "single_wheel_brake_pull",
+      "tire_blowout_like"
+    ],
+    "global_friction_policy": "separate_diagnostic_or_explicit_blocker",
+    "preferred_m1326_target_accepted_pairs": 240,
+    "admissible_gap_min_accepted_pairs_exclusive": 216,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1326-paper-route-source-repair-topup-generation-smoke.json"
+  },
+  "decision": "source_repair_topup_generation_design_admit_no_policy_smoke",
   "decision_rule": "M1325 passes if it designs a bounded top-up source-generation route for undercovered M1323 families without training, PPO, promotion, private holdout use, threshold relaxation, hidden gap handling, or actor-input expansion.",
-  "next_blocker": "m1325-paper-route-source-repair-topup-generation-design"
+  "next_blocker": "m1326-paper-route-source-repair-topup-generation-smoke"
 }

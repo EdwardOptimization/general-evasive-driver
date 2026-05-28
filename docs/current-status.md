@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1324-paper-route-source-repair-corpus-plan-result-audit
+m1325-paper-route-source-repair-topup-generation-design
 ```
 
 Current next task:
 
 ```text
-m1325-paper-route-source-repair-topup-generation-design
+m1326-paper-route-source-repair-topup-generation-smoke
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -256,7 +256,11 @@ M1323 fixes the largest M1315 diversity and fold-balance defects; the falsified
 claim is that the source corpus fully meets the M1314 `240/480` target. Global
 friction remains an explicit absent blocker. The active blocker is M1325:
 design a bounded no-policy top-up source-generation pass for undercovered
-families before materialization, PPO, objective tuning, or promotion.
+families before materialization, PPO, objective tuning, or promotion. M1325
+completed that design and admits M1326: implement `source_topup_v1` fault,
+scenario, and action profiles; target halfshaft, load/CG, brake asymmetry, and
+tire-blowout-like undercoverage; keep global friction separate as a diagnostic
+or explicit blocker; and run one strict no-policy source-generation smoke.
 
 ## Actor Contract
 

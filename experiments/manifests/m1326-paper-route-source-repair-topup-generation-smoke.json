@@ -1,0 +1,168 @@
+{
+  "id": "m1326-paper-route-source-repair-topup-generation-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1325-paper-route-source-repair-topup-generation-design.md",
+      "runs/m1323_source_repair_corpus_expansion_plan/summary.json",
+      "runs/m1322_source_repair_corpus_export/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1325-paper-route-source-repair-topup-generation-design.json"
+    ],
+    "parent_objective": [
+      "implement source_topup_v1 and run one no-policy top-up source-generation smoke"
+    ],
+    "derived_from": [
+      "m1325-paper-route-source-repair-topup-generation-design"
+    ],
+    "blocked_by": [
+      "M1325 admits one bounded top-up generation smoke before source-history materialization"
+    ],
+    "supersedes": [
+      "direct materialization of the under-target M1323 corpus"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1326-paper-route-source-repair-topup-generation-smoke.md",
+  "public_gates": [
+    "M1326 must not train",
+    "M1326 must not run PPO",
+    "M1326 must not use private holdout",
+    "M1326 must not promote",
+    "M1326 must preserve actor input contract",
+    "M1326 must use strict source acceptance thresholds",
+    "M1326 must report global friction separately"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax accepted thresholds",
+    "do not fabricate global friction coverage",
+    "do not hide undercovered family gaps",
+    "do not claim high-fidelity tire blowout or load-transfer physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_repair_topup_generation",
+    "evidence_axis": "S_source_repair_topup_smoke",
+    "evidence_increment": "implements and tests source_topup_v1 as a no-policy source-generation smoke",
+    "claim_scope": "source-generation infrastructure only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if code changes actor inputs",
+      "stop if accepted thresholds are relaxed",
+      "stop if global friction is hidden or mislabeled",
+      "stop if no accepted-pair improvement over M1323 is produced and no blocker is reported"
+    ],
+    "fallback_plan": [
+      "if target is met, route to corpus export and plan refresh",
+      "if positive but under target, route to result audit before another top-up",
+      "if source miner mismatch remains, route global friction to a separate envelope-source branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1325 admits one bounded no-policy top-up generation smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "no-policy source repair top-up generation smoke",
+    "admission_evidence": [
+      "M1325 designs source_topup_v1",
+      "M1323 remains at 216 source pairs versus 240 target",
+      "undercovered families are known",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not relax thresholds"
+    ],
+    "allowed_updates": [
+      "source_topup_v1 source-generation code",
+      "focused tests",
+      "M1326 run artifacts",
+      "M1326 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "summary reports accepted pairs and family counts",
+      "global friction blocker or diagnostic status is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1326 generates source rows and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "produce source rows for later command-response history materialization"
+    ],
+    "temporal_evidence_window": "M1325 design and M1326 source smoke only.",
+    "negative_result_policy": "If top-up fails or global friction remains unsupported, report the gap rather than relaxing thresholds.",
+    "allowed_claims": [
+      "source top-up generation smoke result",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The source_topup_v1 profile can improve M1323 undercovered active-family source coverage under strict no-policy source-mining thresholds.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m1326_source_repair_topup_generation_smoke/summary.json exists",
+    "accepted_separable_pairs >= 240 or accepted_separable_pairs > 216 with explicit gap report",
+    "at least two M1323 undercovered active families improve or a blocker is reported",
+    "global friction is reported separately as accepted, diagnostic-only, missing, or source-miner mismatch",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "run artifacts are missing",
+    "accepted_separable_pairs <= 216 without clear blocker",
+    "global friction is hidden or mislabeled",
+    "strict source thresholds are relaxed",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_four_wheel_fault_source_shape.py"
+    },
+    {
+      "name": "run_topup_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.four_wheel_fault_source_shape --fault-profile source_topup_v1 --scenario-profile source_topup_v1 --action-profile source_topup_v1 --sequence-length 9 --max-rollouts 180000 --run-dir runs/m1326_source_repair_topup_generation_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1326_source_repair_topup_generation_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1326-paper-route-source-repair-topup-generation-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1325-paper-route-source-repair-topup-generation-design.md",
+    "runs/m1323_source_repair_corpus_expansion_plan/summary.json"
+  ],
+  "decision_rule": "M1326 passes as infrastructure if source_topup_v1 runs under strict source-mining thresholds and reports either target-met coverage or explicit gap diagnostics without training, PPO, promotion, private holdout use, threshold relaxation, or actor-input expansion.",
+  "next_blocker": "m1326-paper-route-source-repair-topup-generation-smoke"
+}

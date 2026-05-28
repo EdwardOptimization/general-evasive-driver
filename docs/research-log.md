@@ -19310,3 +19310,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1325-paper-route-source-repair-topup-generation-design.json`.
 - next: `m1325-paper-route-source-repair-topup-generation-design`
+
+## 20260528T172408Z - m1325-paper-route-source-repair-topup-generation-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1325-paper-route-source-repair-topup-generation-design.md`
+- decision: `source_repair_topup_generation_design_admit_no_policy_smoke`
+- designed profile: `source_topup_v1`
+- target families: halfshaft torque loss `22/30`, load/CG perturbation `6/30`, single-wheel brake pull `10/30`, and tire-blowout-like proxy `23/30`.
+- global friction policy: keep `global_friction_step` separate as a diagnostic or explicit blocker; do not relabel split-mu or blowout rows as global friction.
+- implementation scope for M1326: add `source_topup_v1` fault, scenario, and action profiles in `four_wheel_fault_source_shape.py`, extend focused tests, and run one strict no-policy source-generation smoke.
+- preferred M1326 target: `accepted_separable_pairs >= 240`, `accepted_fault_family_pairs >= 7`, at least two undercovered active families reach `30` accepted rows, and global friction reported separately.
+- admissible gap result: accepted pairs improve above `216` and at least two undercovered active families improve, with strict thresholds and explicit blockers preserved.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1326-paper-route-source-repair-topup-generation-smoke.json`.
+- next: `m1326-paper-route-source-repair-topup-generation-smoke`

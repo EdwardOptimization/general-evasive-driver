@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1334,
+    "completed": 1335,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1324-paper-route-source-repair-corpus-plan-result-audit.md",
+    "command_log": "docs/m1325-paper-route-source-repair-topup-generation-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1324-paper-route-source-repair-corpus-plan-result-audit.md",
+    "run_dir": "docs/m1325-paper-route-source-repair-topup-generation-design.md",
     "status": "completed",
-    "task_id": "m1324-paper-route-source-repair-corpus-plan-result-audit"
+    "task_id": "m1325-paper-route-source-repair-topup-generation-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1325-paper-route-source-repair-topup-generation-design.json",
-    "hypothesis": "Design targeted top-up source generation for M1323 undercovered source families while keeping global friction separate",
-    "id": "m1325-paper-route-source-repair-topup-generation-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded no-policy top-up generation before materialization, PPO, or promotion",
-    "priority": 13200,
+    "command": "see experiments/manifests/m1326-paper-route-source-repair-topup-generation-smoke.json",
+    "hypothesis": "Implement source_topup_v1 and run one strict no-policy source-generation smoke for undercovered source families",
+    "id": "m1326-paper-route-source-repair-topup-generation-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: source-generation smoke only; PPO and promotion remain blocked",
+    "priority": 13210,
     "status": "pending",
-    "success_artifact": "docs/m1325-paper-route-source-repair-topup-generation-design.md"
+    "success_artifact": "runs/m1326_source_repair_topup_generation_smoke/summary.json"
   },
-  "updated_at_utc": "20260528T171826Z"
+  "updated_at_utc": "20260528T172408Z"
 }
