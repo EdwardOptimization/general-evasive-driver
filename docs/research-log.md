@@ -18238,3 +18238,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1265-paper-route-fidelity-fault-source-design.json`.
 - decision: `richer_fault_capability_source_synthesis_pivot_to_fidelity_source_design`
 - next: `m1265-paper-route-fidelity-fault-source-design`
+
+## 20260528T120950Z - m1265-paper-route-fidelity-fault-source-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1265-paper-route-fidelity-fault-source-design.md`
+- design decision: `fidelity_fault_source_design_admit_four_wheel_fault_dynamics_pilot`
+- opened branch: `paper_route_fidelity_fault_source_design`
+- diagnosis: current `SingleTrackDriftModel` is front/rear aggregate with scalar `mu`, scalar brake/drive authority, and no left-right force channel, so it cannot represent single-wheel grip collapse, split-mu, stuck-caliper brake pull, halfshaft asymmetry, or fault-induced yaw moment from left-right force imbalance.
+- design: start with a source-only in-repo four-wheel fault dynamics pilot before external simulator integration or training.
+- guardrail: the pilot keeps action contract as steer/throttle/brake and does not add per-wheel controls, fault labels, tire forces, slip, or search outputs to actor inputs.
+- next implementation: `src/autodrift/four_wheel_dynamics.py`, `tests/test_four_wheel_dynamics.py`, and `docs/m1266-paper-route-four-wheel-fault-dynamics-pilot.md`.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, self-ID claim, high-fidelity result claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1266-paper-route-four-wheel-fault-dynamics-pilot.json`.
+- decision: `fidelity_fault_source_design_admit_four_wheel_fault_dynamics_pilot`
+- next: `m1266-paper-route-four-wheel-fault-dynamics-pilot`

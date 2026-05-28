@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1274,
+    "completed": 1275,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1264-paper-route-richer-fault-capability-source-synthesis.md",
+    "command_log": "docs/m1265-paper-route-fidelity-fault-source-design.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1264-paper-route-richer-fault-capability-source-synthesis"
+    "task_id": "m1265-paper-route-fidelity-fault-source-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1265-paper-route-fidelity-fault-source-design.json",
-    "hypothesis": "Design the next source-fidelity branch after current proxy-fault source mining remains zero-accepted",
-    "id": "m1265-paper-route-fidelity-fault-source-design",
-    "kind": "gate",
-    "notes": "Pending: define bounded in-repo four-wheel/fault pilot versus external high-fidelity simulator validation route",
-    "priority": 12600,
+    "command": "see experiments/manifests/m1266-paper-route-four-wheel-fault-dynamics-pilot.json",
+    "hypothesis": "A compact source-only four-wheel model can express finite signed yaw-moment differences under left-right/per-wheel faults",
+    "id": "m1266-paper-route-four-wheel-fault-dynamics-pilot",
+    "kind": "infrastructure",
+    "notes": "Pending: implement four-wheel dynamics primitives and focused tests; no env integration, training, PPO, promotion, or actor-input expansion",
+    "priority": 12610,
     "status": "pending",
-    "success_artifact": "docs/m1265-paper-route-fidelity-fault-source-design.md"
+    "success_artifact": "docs/m1266-paper-route-four-wheel-fault-dynamics-pilot.md"
   },
-  "updated_at_utc": "20260528T120508Z"
+  "updated_at_utc": "20260528T120950Z"
 }

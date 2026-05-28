@@ -1,0 +1,158 @@
+{
+  "id": "m1266-paper-route-four-wheel-fault-dynamics-pilot",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [],
+    "parent_dataset": [
+      "docs/m1265-paper-route-fidelity-fault-source-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1265-paper-route-fidelity-fault-source-design.json"
+    ],
+    "parent_objective": [
+      "implement a bounded source-only four-wheel fault dynamics pilot"
+    ],
+    "derived_from": [
+      "m1265-paper-route-fidelity-fault-source-design"
+    ],
+    "blocked_by": [
+      "M1265 admits a source-only four-wheel/fault dynamics pilot"
+    ],
+    "supersedes": [
+      "another current single-track proxy-fault source repair"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1266-paper-route-four-wheel-fault-dynamics-pilot.md",
+  "public_gates": [
+    "M1266 must preserve actor input contract",
+    "M1266 must not train controllers",
+    "M1266 must not run PPO",
+    "M1266 must not use private holdout",
+    "M1266 must not promote",
+    "M1266 must not integrate new privileged observations into actor inputs",
+    "M1266 must not claim high-fidelity simulator or real-vehicle validity"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add per-wheel or fault labels to actor inputs",
+    "do not lower capability-separable thresholds",
+    "do not replace the main Gym env without a separate design",
+    "do not claim source-positive rows from model-unit tests"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fidelity_fault_source_design",
+    "evidence_axis": "S_four_wheel_fault_model_pilot",
+    "evidence_increment": "implements and tests source-only four-wheel fault dynamics primitives needed for later source mining",
+    "claim_scope": "infrastructure/model primitive only; no training, promotion, private-holdout, paper-level, source-positive, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if model outputs non-finite states or forces under bounded faults",
+      "stop if asymmetric faults cannot produce signed yaw-moment differences",
+      "stop if implementation requires actor input expansion"
+    ],
+    "fallback_plan": [
+      "if in-repo four-wheel pilot is unstable, write model-limit audit and consider external-engine scout",
+      "if tests pass, next milestone can design source-collector integration"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1265 admits source-only four-wheel fault dynamics pilot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "four-wheel fault dynamics pilot",
+    "admission_evidence": [
+      "M1265 identifies left-right/per-wheel force asymmetry as the next source-fidelity variable"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "src/autodrift/four_wheel_dynamics.py",
+      "tests/test_four_wheel_dynamics.py",
+      "docs/m1266-paper-route-four-wheel-fault-dynamics-pilot.md",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "nominal model finite/stable smoke passes",
+      "split-mu and brake-pull signed yaw-moment tests pass",
+      "single-wheel grip collapse force-capacity test passes",
+      "fidelity limits are documented"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1266 implements source dynamics primitives and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If model primitives cannot express signed asymmetric-fault response, record model-limit evidence and do not force source mining.",
+    "allowed_claims": [
+      "source-only four-wheel fault dynamics primitive test result",
+      "no source-positive, recurrent-belief, strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A compact source-only four-wheel model can express finite signed yaw-moment differences under left-right/per-wheel faults, enabling a later source-collector integration branch.",
+  "success_criteria": [
+    "src/autodrift/four_wheel_dynamics.py exists",
+    "tests/test_four_wheel_dynamics.py exists",
+    "docs/m1266-paper-route-four-wheel-fault-dynamics-pilot.md exists",
+    "nominal finite rollout test passes",
+    "left-right split-mu signed yaw-moment test passes",
+    "single-wheel brake-pull signed yaw-moment test passes",
+    "single-wheel grip-collapse capacity test passes",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "model or tests are missing",
+    "bounded faults produce non-finite state or force outputs",
+    "asymmetric faults cannot produce signed yaw-moment differences",
+    "actor input contract is expanded",
+    "training, PPO, private holdout, promotion, or threshold relaxation occurs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_four_wheel_dynamics.py"
+    },
+    {
+      "name": "compile",
+      "command": "python -m compileall -q src tests"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/four_wheel_dynamics.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_four_wheel_dynamics.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1266-paper-route-four-wheel-fault-dynamics-pilot.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint"
+  ],
+  "baseline_artifacts": [
+    "docs/m1265-paper-route-fidelity-fault-source-design.md"
+  ],
+  "decision_rule": "M1266 passes as infrastructure if the four-wheel fault primitives are finite, deterministic, and express signed asymmetric-fault yaw response without changing actor inputs.",
+  "next_blocker": "m1266-paper-route-four-wheel-fault-dynamics-pilot"
+}

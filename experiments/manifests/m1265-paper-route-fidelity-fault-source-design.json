@@ -140,6 +140,22 @@
   "baseline_artifacts": [
     "docs/m1264-paper-route-richer-fault-capability-source-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1265-paper-route-fidelity-fault-source-design.md",
+    "decision": "fidelity_fault_source_design_admit_four_wheel_fault_dynamics_pilot",
+    "opened_branch": "paper_route_fidelity_fault_source_design",
+    "next_manifest": "experiments/manifests/m1266-paper-route-four-wheel-fault-dynamics-pilot.json",
+    "minimum_fidelity_variable": "source-only four-wheel left-right/per-wheel fault dynamics",
+    "external_simulator_integration_deferred": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "threshold_relaxation_allowed": false
+  },
+  "decision": "fidelity_fault_source_design_admit_four_wheel_fault_dynamics_pilot",
   "decision_rule": "M1265 passes if it defines the next fidelity-source branch with bounded implementation/scout criteria and no training or threshold relaxation.",
-  "next_blocker": "m1265-paper-route-fidelity-fault-source-design"
+  "next_blocker": "m1266-paper-route-four-wheel-fault-dynamics-pilot"
 }
