@@ -115,7 +115,35 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1254-paper-route-capability-separable-event-timing-source-design
+m1255-paper-route-capability-separable-event-timing-source-smoke
+```
+
+M1254 completed capability-separable event-timing source design:
+
+```text
+artifact: docs/m1254-paper-route-capability-separable-event-timing-source-design.md
+decision: event_timing_source_design_admit_bounded_smoke
+source_variable: event_timing_source_state
+```
+
+M1254 conclusion:
+
+```text
+M1255 should test denser nearby source timing around the M1250-M1252 near-miss:
+min_step=18, snapshot_stride=2, max_snapshots_per_scenario=8, obstacle
+longitudinal window [4.0, 24.0], while keeping accepted-source thresholds
+unchanged.
+```
+
+Next task:
+
+```text
+artifact: runs/m1255_capability_separable_event_timing_source_smoke/summary.json
+manifest: experiments/manifests/m1255-paper-route-capability-separable-event-timing-source-smoke.json
+goal: implement source timing CLI overrides and run bounded no-training
+      event-timing source smoke
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         threshold relaxation, self-identification or paper-level claims
 ```
 
 M1253 completed capability-separable trajectory proposal source-variable audit:

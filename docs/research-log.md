@@ -18065,3 +18065,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1254-paper-route-capability-separable-event-timing-source-design.json`.
 - decision: `trajectory_proposal_source_near_miss_stop_same_budget_pivot_to_event_timing_source_design`
 - next: `m1254-paper-route-capability-separable-event-timing-source-design`
+
+## 20260528T110551Z - m1254-paper-route-capability-separable-event-timing-source-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1254-paper-route-capability-separable-event-timing-source-design.md`
+- design: opens event-timing/source-state source mining after M1253 stops same-source trajectory proposal budget expansion.
+- selected variables: source `min_step=18`, `snapshot_stride=2`, `max_snapshots_per_scenario=8`, obstacle longitudinal window `[4.0, 24.0]`, and relocation target margin band `[0.002, 0.06]`.
+- acceptance policy: own-branch best margins must remain nonnegative, `min_cross_regret_margin` remains `0.02`, and `min_best_action_l2` remains `0.12`.
+- guardrail: timing/proposal/source labels remain outside deployable actor inputs; no training, PPO, promotion, private holdout, threshold relaxation, self-ID claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1255-paper-route-capability-separable-event-timing-source-smoke.json`.
+- decision: `event_timing_source_design_admit_bounded_smoke`
+- next: `m1255-paper-route-capability-separable-event-timing-source-smoke`

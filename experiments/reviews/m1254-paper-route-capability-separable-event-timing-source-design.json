@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M1254 designs no-training event-timing/source-state source mining and admits bounded M1255 smoke",
+  "failure_criteria": [
+    "design is missing",
+    "design feeds timing/proposal labels or oracle outcomes into actor inputs",
+    "design lacks acceptance gates",
+    "training, PPO, private holdout, promotion, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, timing labels, proposal labels, oracle outcomes, or search outputs to actor inputs",
+    "do not lower accepted source thresholds",
+    "do not claim self-identification from source design"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T110726Z",
+  "hypothesis": "Changing source-state/event timing can determine whether the trajectory proposal near-miss is a timing artifact rather than an action proposal limitation.",
+  "lineage": {
+    "blocked_by": [
+      "M1253 stops same trajectory proposal budget and selects source-state/event timing as the next variable"
+    ],
+    "derived_from": [
+      "m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit.md",
+      "runs/m1252_capability_separable_proposal_margin_restoration_smoke/summary.json",
+      "runs/m1252_capability_separable_proposal_margin_restoration_smoke/matched_capability_pairs.csv"
+    ],
+    "parent_objective": [
+      "design event-timing/source-state source mining after trajectory proposal near-miss remains zero-accepted"
+    ],
+    "supersedes": [
+      "another proposal-budget expansion on the same source states"
+    ]
+  },
+  "milestone": "m1254-paper-route-capability-separable-event-timing-source-design",
+  "next_blocker": "m1255-paper-route-capability-separable-event-timing-source-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "event_timing_source_design_admit_bounded_smoke",
+  "public_gates": [
+    "M1254 must preserve actor input contract",
+    "M1254 must not train controllers",
+    "M1254 must not run PPO",
+    "M1254 must not use private holdout",
+    "M1254 must not promote",
+    "M1254 must define a no-training event-timing/source-state source protocol"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1254-paper-route-capability-separable-event-timing-source-design.md",
+    "clearance_margin_mean": "",
+    "decision": "event_timing_source_design_admit_bounded_smoke",
+    "milestone": "m1254-paper-route-capability-separable-event-timing-source-design",
+    "reason": "M1254 designs no-training event-timing/source-state source mining and admits bounded M1255 smoke",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1254-paper-route-capability-separable-event-timing-source-design.md exists",
+    "design names source-state/timing variables",
+    "design names acceptance metrics and thresholds",
+    "design names runtime bounds",
+    "design names no-leak actor contract guardrails",
+    "M1255 bounded no-training smoke manifest exists",
+    "no training, PPO, promotion, private holdout, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}
