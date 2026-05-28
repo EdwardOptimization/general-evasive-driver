@@ -147,6 +147,25 @@
     "docs/m1275-paper-route-fidelity-fault-source-synthesis.md",
     "runs/m1273_four_wheel_source_corpus_export/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1276-paper-route-four-wheel-source-intervention-materialization-design.md",
+    "decision": "four_wheel_source_intervention_materialization_design_admit_implementation",
+    "primary_subset": "near_boundary_or_high_regret",
+    "primary_source_pairs": 38,
+    "primary_intervention_rows_expected": 76,
+    "secondary_subset": "family_balanced",
+    "secondary_source_pairs": 63,
+    "secondary_intervention_rows_expected": 126,
+    "observation_dim": 72,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1277-paper-route-four-wheel-source-intervention-materialization.json"
+  },
+  "decision": "four_wheel_source_intervention_materialization_design_admit_implementation",
   "decision_rule": "M1276 passes if it designs source-to-intervention materialization and the next bounded implementation without training or actor-input expansion.",
-  "next_blocker": "m1276-paper-route-four-wheel-source-intervention-materialization-design"
+  "next_blocker": "m1277-paper-route-four-wheel-source-intervention-materialization"
 }

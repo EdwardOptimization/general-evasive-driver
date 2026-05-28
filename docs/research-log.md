@@ -18416,3 +18416,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1276-paper-route-four-wheel-source-intervention-materialization-design.json`.
 - decision: `fidelity_fault_source_synthesis_promote_to_source_intervention_materialization`
 - next: `m1276-paper-route-four-wheel-source-intervention-materialization-design`
+
+## 20260528T125945Z - m1276-paper-route-four-wheel-source-intervention-materialization-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1276-paper-route-four-wheel-source-intervention-materialization-design.md`
+- branch: `paper_route_four_wheel_source_intervention_materialization`
+- design decision: `four_wheel_source_intervention_materialization_design_admit_implementation`
+- objective: convert M1273 source rows into explicit preferred/rejected counterfactual artifacts under the same visible source state and clean 72-value human-view observation.
+- primary subset: `near_boundary OR high_regret` with `38` source pairs and `76` expected branch-conditioned intervention rows.
+- secondary subset: `family_balanced` with `63` source pairs and `126` expected branch-conditioned intervention rows.
+- schema: `intervention_rows.csv`, `intervention_observations.csv`, `intervention_action_sequences.csv`, `source_pair_rows.csv`, and `summary.json`.
+- guardrail: fault labels and branch labels may exist as artifact metadata but must not enter `intervention_observations.csv`; no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1277-paper-route-four-wheel-source-intervention-materialization.json`.
+- decision: `four_wheel_source_intervention_materialization_design_admit_implementation`
+- next: `m1277-paper-route-four-wheel-source-intervention-materialization`

@@ -1,0 +1,169 @@
+{
+  "id": "m1277-paper-route-four-wheel-source-intervention-materialization",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_dataset": [
+      "docs/m1276-paper-route-four-wheel-source-intervention-materialization-design.md",
+      "runs/m1271_four_wheel_source_viability_calibration_smoke/action_rollouts.csv",
+      "runs/m1273_four_wheel_source_corpus_export/near_boundary_source_rows.csv",
+      "runs/m1273_four_wheel_source_corpus_export/high_regret_source_rows.csv",
+      "runs/m1273_four_wheel_source_corpus_export/family_balanced_source_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1276-paper-route-four-wheel-source-intervention-materialization-design.json"
+    ],
+    "parent_objective": [
+      "materialize preferred/rejected four-wheel source intervention artifacts"
+    ],
+    "derived_from": [
+      "m1276-paper-route-four-wheel-source-intervention-materialization-design"
+    ],
+    "blocked_by": [
+      "M1276 admits one bounded no-training source intervention materialization implementation"
+    ],
+    "supersedes": [
+      "direct actor/Gym integration from M1273 source corpus"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1277-paper-route-four-wheel-source-intervention-materialization.md",
+  "public_gates": [
+    "M1277 must preserve actor input contract",
+    "M1277 must not train controllers",
+    "M1277 must not run PPO",
+    "M1277 must not use private holdout",
+    "M1277 must not promote",
+    "M1277 must materialize preferred/rejected source artifacts",
+    "M1277 must keep actor observations free of fault/per-wheel/source labels"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add per-wheel/fault labels to actor observations",
+    "do not lower accepted-source thresholds",
+    "do not count intervention artifacts as driver performance",
+    "do not claim self-identification from source materialization",
+    "do not claim high-fidelity validation from the compact pilot"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_four_wheel_source_intervention_materialization",
+    "evidence_axis": "S_intervention_materialization_implementation",
+    "evidence_increment": "implements no-training preferred/rejected source intervention artifacts from the M1273 corpus",
+    "claim_scope": "source-intervention infrastructure only; no training, promotion, private-holdout, paper-level, recurrent-belief, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if observations leak fault/per-wheel/source labels",
+      "stop if preferred-success or margin-gap checks fail",
+      "stop if implementation requires actor/Gym integration"
+    ],
+    "fallback_plan": [
+      "if materialization passes, audit subset quality before intervention/replay use",
+      "if materialization fails, repair the corpus/schema before actor work"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1276 admits no-training source-intervention materialization implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "four-wheel source intervention materialization",
+    "admission_evidence": [
+      "M1276 defines preferred/rejected intervention schema",
+      "M1273 near_boundary OR high_regret source pairs=38",
+      "M1273 family_balanced source pairs=63"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "source intervention materialization implementation",
+      "focused tests",
+      "M1277 run artifacts",
+      "M1277 result doc",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "intervention artifacts exist",
+      "observation guardrail checks pass",
+      "preferred/rejected outcome checks pass",
+      "result routes to audit before actor integration"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1277 materializes source artifacts and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until materialized artifacts are audited and connected to a policy/intervention gate"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If materialization fails, route to schema/corpus repair rather than actor training.",
+    "allowed_claims": [
+      "four-wheel source intervention materialization result",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The M1273 source corpus can be converted into no-training preferred/rejected intervention artifacts with clean 72-value actor-view observations.",
+  "success_criteria": [
+    "runs/m1277_four_wheel_source_intervention_materialization/summary.json exists",
+    "intervention_rows.csv exists",
+    "intervention_observations.csv exists",
+    "intervention_action_sequences.csv exists",
+    "source_pair_rows.csv exists",
+    "near_high_union source pair count equals 38",
+    "near_high_union intervention row count equals 76",
+    "family_balanced source pair count equals 63",
+    "family_balanced intervention row count equals 126",
+    "all observations have 72 finite values",
+    "all preferred rows are successful with nonnegative preferred margin and margin_gap >= 0.02",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "observation artifact includes fault/per-wheel/source labels",
+    "preferred outcome checks fail",
+    "intervention counts do not match expected corpus subsets",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_four_wheel_source_intervention_materialization.py"
+    },
+    {
+      "name": "materialize",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.four_wheel_source_intervention_materialization --source-run-dir runs/m1271_four_wheel_source_viability_calibration_smoke --corpus-run-dir runs/m1273_four_wheel_source_corpus_export --run-dir runs/m1277_four_wheel_source_intervention_materialization"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1277_four_wheel_source_intervention_materialization/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1277-paper-route-four-wheel-source-intervention-materialization.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint"
+  ],
+  "baseline_artifacts": [
+    "docs/m1276-paper-route-four-wheel-source-intervention-materialization-design.md",
+    "runs/m1273_four_wheel_source_corpus_export/summary.json"
+  ],
+  "decision_rule": "M1277 passes as infrastructure if it materializes preferred/rejected source artifacts with clean observations and expected subset counts without training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion.",
+  "next_blocker": "m1277-paper-route-four-wheel-source-intervention-materialization"
+}

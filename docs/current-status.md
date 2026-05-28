@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1275-paper-route-fidelity-fault-source-synthesis
+m1276-paper-route-four-wheel-source-intervention-materialization-design
 ```
 
 Current next task:
 
 ```text
-m1276-paper-route-four-wheel-source-intervention-materialization-design
+m1277-paper-route-four-wheel-source-intervention-materialization
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -33,10 +33,12 @@ accepted rows, `19` near-boundary rows, `32` high-regret rows, `63`
 family-balanced rows, and one inactive halfshaft family. M1275 synthesized
 M1265-M1274 and closed the fidelity source-construction branch as
 source-positive corpus infrastructure. The new active branch is
-`paper_route_four_wheel_source_intervention_materialization`. This is still not
-driver performance. The active blocker is to design preferred/rejected
-counterfactual source artifacts from the M1273 corpus without leaking fault or
-per-wheel metadata into actor observations.
+`paper_route_four_wheel_source_intervention_materialization`. M1276 designed the
+preferred/rejected artifact schema. This is still not driver performance. The
+active blocker is to implement M1277: materialize near-boundary/high-regret and
+family-balanced source rows into intervention rows, clean 72-value observations,
+and preferred/rejected action sequences without leaking fault or per-wheel
+metadata into actor observations.
 
 ## Actor Contract
 

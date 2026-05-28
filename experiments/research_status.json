@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1285,
+    "completed": 1286,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1275-paper-route-fidelity-fault-source-synthesis.md",
+    "command_log": "docs/m1276-paper-route-four-wheel-source-intervention-materialization-design.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1275-paper-route-fidelity-fault-source-synthesis"
+    "task_id": "m1276-paper-route-four-wheel-source-intervention-materialization-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1276-paper-route-four-wheel-source-intervention-materialization-design.json",
-    "hypothesis": "Design no-training source-to-intervention materialization artifacts from M1273 corpus",
-    "id": "m1276-paper-route-four-wheel-source-intervention-materialization-design",
-    "kind": "gate",
-    "notes": "Pending: define preferred/rejected branch-action-outcome artifact schema without actor input leakage",
-    "priority": 12710,
+    "command": "see experiments/manifests/m1277-paper-route-four-wheel-source-intervention-materialization.json",
+    "hypothesis": "Materialize no-training preferred/rejected source intervention artifacts with clean observations",
+    "id": "m1277-paper-route-four-wheel-source-intervention-materialization",
+    "kind": "infrastructure",
+    "notes": "Pending: implement intervention rows observations action sequences and source pair artifacts from near_high_union and family_balanced subsets",
+    "priority": 12720,
     "status": "pending",
-    "success_artifact": "docs/m1276-paper-route-four-wheel-source-intervention-materialization-design.md"
+    "success_artifact": "runs/m1277_four_wheel_source_intervention_materialization/summary.json"
   },
-  "updated_at_utc": "20260528T125612Z"
+  "updated_at_utc": "20260528T125945Z"
 }
