@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1372,
+    "completed": 1373,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1362_bidirectional_active_set_interpolation_preflight/summary.json",
+    "command_log": "docs/m1363-paper-route-bidirectional-interpolation-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1362_bidirectional_active_set_interpolation_preflight",
+    "run_dir": "docs/m1363-paper-route-bidirectional-interpolation-result-audit.md",
     "status": "completed",
-    "task_id": "m1362-paper-route-bidirectional-active-set-interpolation-preflight"
+    "task_id": "m1363-paper-route-bidirectional-interpolation-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1363-paper-route-bidirectional-interpolation-result-audit.json",
-    "hypothesis": "Audit M1362 alpha 0.1 before any broader public replay or promotion route",
-    "id": "m1363-paper-route-bidirectional-interpolation-result-audit",
+    "command": "see experiments/manifests/m1364-paper-route-bidirectional-broader-public-replay-design.json",
+    "hypothesis": "Design broader public replay escalation for M1362 alpha 0.1 before PPO private holdout or promotion",
+    "id": "m1364-paper-route-bidirectional-broader-public-replay-design",
     "kind": "gate",
-    "notes": "Pending: process audit for selected alpha 0.1; no training PPO replay promotion private holdout or actor input change",
-    "priority": 13580,
+    "notes": "Pending: design six-surface public replay plus protected-key and behavior ordering; no training replay PPO promotion private holdout or actor input change",
+    "priority": 13590,
     "status": "pending",
-    "success_artifact": "docs/m1363-paper-route-bidirectional-interpolation-result-audit.md"
+    "success_artifact": "docs/m1364-paper-route-bidirectional-broader-public-replay-design.md"
   },
-  "updated_at_utc": "20260528T203845Z"
+  "updated_at_utc": "20260528T204330Z"
 }

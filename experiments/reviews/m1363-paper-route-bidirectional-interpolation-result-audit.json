@@ -1,0 +1,95 @@
+{
+  "decision_reason": "M1363 routes M1362 alpha 0.1 to broader public replay design because two-surface preflight is not enough for promotion",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits selected alpha or replay results",
+    "audit treats M1362 as promotion",
+    "audit routes directly to private holdout or PPO",
+    "training, PPO, replay, private holdout, promotion, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not update actor weights",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T203839Z",
+  "hypothesis": "M1362 alpha 0.1 is a useful replay-preflight candidate but needs an audit before broader public replay or any promotion route.",
+  "lineage": {
+    "blocked_by": [
+      "M1362 found a passing alpha but only on exact metrics plus two public replay preflight surfaces"
+    ],
+    "derived_from": [
+      "m1362-paper-route-bidirectional-active-set-interpolation-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1360_bidirectional_active_set_probe/checkpoints/raw_bidirectional_active_set_update.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1362-paper-route-bidirectional-active-set-interpolation-preflight.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_dataset": [
+      "docs/m1362-paper-route-bidirectional-active-set-interpolation-preflight.md",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/summary.json",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/alpha_summary.csv"
+    ],
+    "parent_objective": [
+      "audit M1362 selected alpha before any broader replay or promotion route"
+    ],
+    "supersedes": [
+      "direct promotion of M1362 alpha 0.1",
+      "direct PPO after M1362",
+      "direct private holdout after M1362"
+    ]
+  },
+  "milestone": "m1363-paper-route-bidirectional-interpolation-result-audit",
+  "next_blocker": "m1364-paper-route-bidirectional-broader-public-replay-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bidirectional_interpolation_audit_route_to_broader_public_replay_design",
+  "public_gates": [
+    "M1363 must not train",
+    "M1363 must not run PPO",
+    "M1363 must not run replay",
+    "M1363 must not update actor weights",
+    "M1363 must not use private holdout",
+    "M1363 must not promote",
+    "M1363 must decide the next gate for alpha 0.1 without overclaiming"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1363-paper-route-bidirectional-interpolation-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "bidirectional_interpolation_audit_route_to_broader_public_replay_design",
+    "milestone": "m1363-paper-route-bidirectional-interpolation-result-audit",
+    "reason": "M1363 routes M1362 alpha 0.1 to broader public replay design because two-surface preflight is not enough for promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1363-paper-route-bidirectional-interpolation-result-audit.md exists",
+    "audit records M1362 selected alpha and exact metrics",
+    "audit records M1362 M267/M264 and M183/M170 outcomes",
+    "audit states that M1362 is not promotion",
+    "audit routes to a specific next public gate",
+    "no training, PPO, replay, promotion, private holdout, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

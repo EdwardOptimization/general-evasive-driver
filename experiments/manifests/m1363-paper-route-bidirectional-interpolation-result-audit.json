@@ -155,6 +155,35 @@
     "runs/m1362_bidirectional_active_set_interpolation_preflight/summary.json",
     "runs/m1362_bidirectional_active_set_interpolation_preflight/alpha_summary.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1363-paper-route-bidirectional-interpolation-result-audit.md",
+    "decision": "bidirectional_interpolation_audit_route_to_broader_public_replay_design",
+    "failure_type": "none",
+    "selected_alpha": 0.1,
+    "selected_checkpoint": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "supported_claim": "two-surface replay-preflight candidate with meaningful exact source-history lift",
+    "missing_gates": [
+      "M183/M168 replay",
+      "M193/M189 replay",
+      "M212/M204 replay",
+      "M223/M219 replay",
+      "protected key diagnostics",
+      "behavior seeds 9505 and 9506",
+      "private holdout",
+      "fresh scenario distribution"
+    ],
+    "route": "broader_public_replay_design",
+    "training_started": false,
+    "actor_update_used": false,
+    "replay_run_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "next_manifest": "experiments/manifests/m1364-paper-route-bidirectional-broader-public-replay-design.json"
+  },
   "decision_rule": "M1363 passes as an audit only if it routes M1362 alpha 0.1 without training, replay, PPO, private holdout, promotion, threshold relaxation, or actor-input changes.",
-  "next_blocker": "m1363-paper-route-bidirectional-interpolation-result-audit"
+  "next_blocker": "m1364-paper-route-bidirectional-broader-public-replay-design"
 }

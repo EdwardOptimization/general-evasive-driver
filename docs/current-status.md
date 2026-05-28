@@ -16,14 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1362-paper-route-bidirectional-active-set-interpolation-preflight
+m1363-paper-route-bidirectional-interpolation-result-audit
 ```
 
 Current next task:
 
 ```text
-m1363-paper-route-bidirectional-interpolation-result-audit
+m1364-paper-route-bidirectional-broader-public-replay-design
 ```
+
+M1363 audits the M1362 alpha `0.1` candidate as useful but not promotable. It
+has meaningful exact source-history lift and passes M267/M264 plus M183/M170,
+but it has not run M183/M168, M193/M189, M212/M204, M223/M219, protected-key
+diagnostics, behavior seeds, private holdout, or fresh scenario distributions.
+The next task is to design a broader public replay escalation before any PPO,
+private holdout, or promotion route.
 
 M1362 ran the interpolation preflight from M1154 to raw M1360 and selected
 `alpha=0.1`. All `10/10` alpha candidates were exact-admitted; M267/M264 passed
