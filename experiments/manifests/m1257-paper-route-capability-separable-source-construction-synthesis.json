@@ -79,7 +79,16 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1241-M1256 exceeds the branch synthesis cadence and M1256 stops same timing variants",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1257-paper-route-capability-separable-source-construction-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
   "synthesis_artifact": "docs/m1257-paper-route-capability-separable-source-construction-synthesis.md",
   "synthesis_questions": [
@@ -162,6 +171,27 @@
     "docs/m1256-paper-route-capability-separable-event-timing-source-result-audit.md",
     "runs/m1255_capability_separable_event_timing_source_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1257-paper-route-capability-separable-source-construction-synthesis.md",
+    "decision": "capability_separable_source_construction_synthesis_promote_to_richer_fault_source_branch",
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "paper_route_capability_separable_source_construction",
+    "opened_branch": "paper_route_richer_fault_capability_source",
+    "failure_type": "scenario_sampling_failure",
+    "subtype": "capability_separable_source_family_gap",
+    "source_positive_rows_found": false,
+    "accepted_separable_pairs_max": 0,
+    "same_local_source_variants_allowed": false,
+    "threshold_relaxation_allowed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1258-paper-route-richer-fault-capability-source-design.json"
+  },
+  "decision": "capability_separable_source_construction_synthesis_promote_to_richer_fault_source_branch",
   "decision_rule": "M1257 passes if it writes a synthesis answering all required questions and chooses a next branch without training or threshold relaxation.",
-  "next_blocker": "m1257-paper-route-capability-separable-source-construction-synthesis"
+  "next_blocker": "m1258-paper-route-richer-fault-capability-source-design"
 }

@@ -115,7 +115,37 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1257-paper-route-capability-separable-source-construction-synthesis
+m1258-paper-route-richer-fault-capability-source-design
+```
+
+M1257 completed capability-separable source-construction synthesis:
+
+```text
+artifact: docs/m1257-paper-route-capability-separable-source-construction-synthesis.md
+decision: capability_separable_source_construction_synthesis_promote_to_richer_fault_source_branch
+synthesis_decision: promote_to_next_branch
+closed_branch: paper_route_capability_separable_source_construction
+opened_branch: paper_route_richer_fault_capability_source
+```
+
+M1257 conclusion:
+
+```text
+M1241-M1256 repeatedly produced zero accepted capability-separable rows under
+the current source family. The local branch is now classified as a
+capability_separable_source_family_gap. Continue by changing source family /
+fault richness, not by more timing, proposal-budget, or relocation tweaks.
+```
+
+Next task:
+
+```text
+artifact: docs/m1258-paper-route-richer-fault-capability-source-design.md
+manifest: experiments/manifests/m1258-paper-route-richer-fault-capability-source-design.json
+goal: design a richer proxy-fault/source-family branch using the existing v4
+      config while preserving high-fidelity claim boundaries
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         threshold relaxation, self-identification or paper-level claims
 ```
 
 M1256 completed event-timing source result audit:

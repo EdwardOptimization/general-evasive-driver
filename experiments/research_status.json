@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1266,
+    "completed": 1267,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1256-paper-route-capability-separable-event-timing-source-result-audit.md",
+    "command_log": "docs/m1257-paper-route-capability-separable-source-construction-synthesis.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1256-paper-route-capability-separable-event-timing-source-result-audit"
+    "task_id": "m1257-paper-route-capability-separable-source-construction-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1257-paper-route-capability-separable-source-construction-synthesis.json",
-    "hypothesis": "Synthesize M1241-M1256 capability-separable source-construction evidence and choose the next branch",
-    "id": "m1257-paper-route-capability-separable-source-construction-synthesis",
+    "command": "see experiments/manifests/m1258-paper-route-richer-fault-capability-source-design.json",
+    "hypothesis": "Design richer-fault capability source branch using v4 proxy-fault config while preserving high-fidelity claim boundaries",
+    "id": "m1258-paper-route-richer-fault-capability-source-design",
     "kind": "gate",
-    "notes": "Pending: answer branch synthesis questions and choose continue, pivot, stop, or promote_to_next_branch before another source run",
-    "priority": 12520,
+    "notes": "Pending: design a new source-family evidence variable; no run until proxy/high-fidelity boundaries and runtime bounds are pre-registered",
+    "priority": 12530,
     "status": "pending",
-    "success_artifact": "docs/m1257-paper-route-capability-separable-source-construction-synthesis.md"
+    "success_artifact": "docs/m1258-paper-route-richer-fault-capability-source-design.md"
   },
-  "updated_at_utc": "20260528T112011Z"
+  "updated_at_utc": "20260528T112430Z"
 }

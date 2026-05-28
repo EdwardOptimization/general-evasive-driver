@@ -1,0 +1,148 @@
+{
+  "id": "m1258-paper-route-richer-fault-capability-source-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1257-paper-route-capability-separable-source-construction-synthesis.md",
+      "docs/m1256-paper-route-capability-separable-event-timing-source-result-audit.md",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1257-paper-route-capability-separable-source-construction-synthesis.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "design a richer fault/source-family capability-separable source branch after M1257 closes the local source-construction branch"
+    ],
+    "derived_from": [
+      "m1257-paper-route-capability-separable-source-construction-synthesis"
+    ],
+    "blocked_by": [
+      "M1257 identifies capability_separable_source_family_gap in the current source branch"
+    ],
+    "supersedes": [
+      "another local timing/proposal/relocation source tweak"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1258-paper-route-richer-fault-capability-source-design.md",
+  "public_gates": [
+    "M1258 must preserve actor input contract",
+    "M1258 must not train controllers",
+    "M1258 must not run PPO",
+    "M1258 must not use private holdout",
+    "M1258 must not promote",
+    "M1258 must keep proxy fault claims separate from true four-wheel/high-fidelity fault claims",
+    "M1258 must pre-register any later run with unchanged capability-separable thresholds"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, fault labels, oracle outcomes, or search outputs to actor inputs",
+    "do not lower min_cross_regret_margin",
+    "do not accept negative own-branch margins",
+    "do not claim current single-track proxies are true single-wheel or per-wheel faults"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_richer_fault_capability_source",
+    "evidence_axis": "S_richer_fault_source_design",
+    "evidence_increment": "designs a new source-family evidence variable after M1257 closes the local source-construction branch",
+    "claim_scope": "design only; no training, promotion, private-holdout, paper-level, recurrent-belief, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if the proposed run only changes timing/proposal budget without changing source family",
+      "stop if proxy fault labels would be overstated as true physical per-wheel faults"
+    ],
+    "fallback_plan": [
+      "if current v4 source config can be reused safely, pre-register one bounded no-training smoke",
+      "if the constructor cannot safely consume the richer config, pre-register an implementation-only compatibility milestone",
+      "if proxy fidelity is insufficient for the claim, route to high-fidelity simulator selection/design instead of mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1257 opens paper_route_richer_fault_capability_source",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "richer-fault capability-source design",
+    "admission_evidence": [
+      "M1257 closes the local source-construction branch",
+      "existing v4 source config contains richer proxy fault families and explicit high-fidelity claim boundaries"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1258 design document",
+      "one bounded next-run manifest if design admits it",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "design identifies exact source config and runtime bounds",
+      "design states proxy/high-fidelity claim boundary",
+      "design admits or rejects one bounded no-training smoke"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1258 designs a source branch and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If richer proxy fault design is insufficient, record it as a source-family/fidelity blocker rather than weakening thresholds.",
+    "allowed_claims": [
+      "richer fault source design",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, true high-fidelity fault, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A richer fault/source-family branch using the existing v4 proxy-fault configuration is the next clean evidence variable after local source construction failed.",
+  "success_criteria": [
+    "docs/m1258-paper-route-richer-fault-capability-source-design.md exists",
+    "design cites M1257 synthesis",
+    "design identifies whether the existing v4 config can be used for a bounded smoke",
+    "design preserves capability-separable thresholds",
+    "design preserves proxy/high-fidelity claim boundaries",
+    "no training, PPO, promotion, private holdout, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design is missing",
+    "design repeats a local timing/proposal/relocation tweak as the main change",
+    "design blurs current-model proxy faults with true per-wheel/high-fidelity faults",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1258-paper-route-richer-fault-capability-source-design.md from M1257 synthesis and v4 source config"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1258-paper-route-richer-fault-capability-source-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1257-paper-route-capability-separable-source-construction-synthesis.md",
+    "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+  ],
+  "decision_rule": "M1258 passes if it writes a richer-fault source design with clear proxy/high-fidelity boundaries and admits or rejects one bounded no-training smoke.",
+  "next_blocker": "m1258-paper-route-richer-fault-capability-source-design"
+}

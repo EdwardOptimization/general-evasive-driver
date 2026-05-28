@@ -18110,3 +18110,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1257-paper-route-capability-separable-source-construction-synthesis.json`.
 - decision: `event_timing_source_negative_stop_same_timing_variants_route_to_branch_synthesis`
 - next: `m1257-paper-route-capability-separable-source-construction-synthesis`
+
+## 20260528T112430Z - m1257-paper-route-capability-separable-source-construction-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1257-paper-route-capability-separable-source-construction-synthesis.md`
+- synthesis decision: `promote_to_next_branch`
+- closed branch: `paper_route_capability_separable_source_construction`
+- opened branch: `paper_route_richer_fault_capability_source`
+- evidence summary: M1242, M1244, M1246, M1247, M1250, M1252, and M1255 all produced `accepted_separable_pairs=0` while improving diagnostics from low-regret lattice rows to near-positive trajectory-proposal rows and finally viable/action-equivalent versus action-divergent/nonviable timing rows.
+- classification: `capability_separable_source_family_gap` under `scenario_sampling_failure`.
+- overfit risk: high if the same local source family continues with more timing/proposal/relocation tweaks; the synthesis closes that branch instead.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, self-ID claim, high-fidelity physical fault claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1258-paper-route-richer-fault-capability-source-design.json`.
+- decision: `capability_separable_source_construction_synthesis_promote_to_richer_fault_source_branch`
+- next: `m1258-paper-route-richer-fault-capability-source-design`
