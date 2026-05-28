@@ -18770,3 +18770,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1296-paper-route-source-history-pair-group-objective-result-audit.json`.
 - decision: `source_history_pair_group_objective_mixed_route_to_result_audit`
 - next: `m1296-paper-route-source-history-pair-group-objective-result-audit`
+
+## 20260528T144424Z - m1296-paper-route-source-history-pair-group-objective-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1296-paper-route-source-history-pair-group-objective-result-audit.md`
+- audited result: M1295 is valid infrastructure but `source_history_pair_group_objective_mixed`.
+- M1295 best row metrics: `best_both_directional_fraction=0.1973684211`, `best_both_positive_count=30`, `best_mutually_exclusive_fraction=0.6710526316`.
+- M1295 best group metrics: `best_group_all_rows_both_positive_count=15`, `best_group_all_rows_both_positive_fraction=0.1973684211`.
+- strong gate: not passed; both row and group fractions remain below `0.25`.
+- supported claim: actor_mean-only pair-group objective can move the source-history directional surface slightly.
+- falsified claim: pair-group actor_mean-only objective solves source-history directional repair or admits PPO.
+- public-gate overfit risk: `moderate_to_high` because the same fixed 152-row source-history surface has been optimized repeatedly.
+- guardrail: no PPO, training, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1297-paper-route-source-history-objective-only-update-synthesis.json`.
+- decision: `source_history_pair_group_objective_result_audit_route_to_branch_synthesis`
+- next: `m1297-paper-route-source-history-objective-only-update-synthesis`

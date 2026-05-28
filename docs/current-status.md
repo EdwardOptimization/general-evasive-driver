@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1295-paper-route-source-history-pair-group-objective-probe
+m1296-paper-route-source-history-pair-group-objective-result-audit
 ```
 
 Current next task:
 
 ```text
-m1296-paper-route-source-history-pair-group-objective-result-audit
+m1297-paper-route-source-history-objective-only-update-synthesis
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -106,9 +106,10 @@ M1295 implemented and ran the bounded actor_mean-only pair-group objective
 probe. The result is mixed: best candidate reaches `15/76` all-rows-both-positive
 groups versus M1292's `14/76`, with `best_both_directional_fraction=0.1973684211`
 and `best_mutually_exclusive_fraction=0.6710526316`. This is a small directional
-improvement but below the strong gate. The active blocker is M1296: audit the
-mixed result and route to branch synthesis by cadence. PPO and promotion remain
-blocked.
+improvement but below the strong gate. M1296 audited this as valid but mixed
+non-promotable evidence. The active blocker is M1297: synthesize the
+`paper_route_source_history_objective_only_update` branch before any more narrow
+actor_mean-only objective work. PPO and promotion remain blocked.
 
 ## Actor Contract
 

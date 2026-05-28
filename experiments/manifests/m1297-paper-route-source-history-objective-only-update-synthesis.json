@@ -1,0 +1,192 @@
+{
+  "id": "m1297-paper-route-source-history-objective-only-update-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt",
+      "runs/m1295_source_history_pair_group_objective_probe/checkpoints/base_init_pair_group_candidate.pt",
+      "runs/m1295_source_history_pair_group_objective_probe/checkpoints/m1288_init_pair_group_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1287-paper-route-source-history-objective-only-update-design.md",
+      "docs/m1288-paper-route-source-history-objective-only-update-implementation.md",
+      "docs/m1289-paper-route-source-history-objective-only-update-result-audit.md",
+      "docs/m1290-paper-route-source-history-directional-conflict-audit.md",
+      "docs/m1291-paper-route-source-history-directional-repair-design.md",
+      "docs/m1292-paper-route-source-history-actor-mean-directional-feasibility-probe.md",
+      "docs/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.md",
+      "docs/m1294-paper-route-source-history-pair-group-objective-design.md",
+      "docs/m1295-paper-route-source-history-pair-group-objective-probe.md",
+      "docs/m1296-paper-route-source-history-pair-group-objective-result-audit.md",
+      "runs/m1288_source_history_objective_only_update/summary.json",
+      "runs/m1290_source_history_directional_conflict_audit/summary.json",
+      "runs/m1292_source_history_actor_mean_directional_feasibility_probe/summary.json",
+      "runs/m1295_source_history_pair_group_objective_probe/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1296-paper-route-source-history-pair-group-objective-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize the source-history objective-only update branch after M1287-M1296"
+    ],
+    "derived_from": [
+      "m1287-paper-route-source-history-objective-only-update-design",
+      "m1296-paper-route-source-history-pair-group-objective-result-audit"
+    ],
+    "blocked_by": [
+      "M1296 routes to synthesis after the tenth milestone in the objective-only update branch"
+    ],
+    "supersedes": [
+      "another narrow actor_mean-only objective before synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1297-paper-route-source-history-objective-only-update-synthesis.md",
+  "public_gates": [
+    "M1297 must synthesize M1287-M1296",
+    "M1297 must not run PPO",
+    "M1297 must not train a controller",
+    "M1297 must not use private holdout",
+    "M1297 must not promote",
+    "M1297 must decide continue, pivot, stop, or promote_to_next_branch",
+    "M1297 must explicitly decide whether actor_mean-only objective work is exhausted"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not start another actor_mean-only objective before synthesis",
+    "do not treat M1295 small improvement as solved",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_objective_only_update",
+    "evidence_axis": "S_branch_synthesis",
+    "evidence_increment": "synthesizes M1287-M1296 objective-only update evidence and chooses the next branch decision",
+    "claim_scope": "branch synthesis only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats M1295 mixed result as solved",
+      "stop if synthesis starts PPO directly",
+      "stop if synthesis opens another actor_mean-only objective without a new evidence variable"
+    ],
+    "fallback_plan": [
+      "if actor_mean-only signal is enough, continue only with a new guarded proof-retention design",
+      "if actor_mean-only is underpowered, pivot to trainable-scope escalation or source-history corpus refresh",
+      "if source-history evidence is too weak, stop this path and archive the branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1287-M1296 reaches ten milestones in the source-history objective-only update branch",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m1297-paper-route-source-history-objective-only-update-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1297-paper-route-source-history-objective-only-update-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-history objective-only update branch synthesis",
+    "admission_evidence": [
+      "M1288 exact objective improved but directional gate remained weak",
+      "M1290 classified M1288 as magnitude compression with 152/152 mutually exclusive rows",
+      "M1292 actor_mean directional feasibility was mixed with 28/152 both-positive rows",
+      "M1295 pair-group objective was mixed with 15/76 all-rows-both-positive groups",
+      "branch cadence reached"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1297 synthesis document",
+      "status, queue, scoreboard, research log, and review",
+      "one next-branch manifest if synthesis admits it"
+    ],
+    "next_stage_criteria": [
+      "supported and falsified claims are documented",
+      "failure taxonomy is documented",
+      "public-gate overfit risk is assessed",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1297 synthesizes fixed-current source-history action diagnostics; it must not convert them into closed-loop history necessity proof.",
+    "history_necessity_tests": [
+      "summarize correct-history versus wrong-history directional evidence",
+      "preserve distinction between action-level source-history gate and closed-loop self-ID proof"
+    ],
+    "temporal_evidence_window": "M1287-M1296 branch, synthesis only.",
+    "negative_result_policy": "Mixed actor_mean-only results must remain negative evidence unless synthesis identifies a new evidence variable.",
+    "allowed_claims": [
+      "source-history objective-only update branch synthesis",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1287-M1296 actor_mean-only objective branch can be synthesized into an explicit pivot/continue/stop decision before any further narrow implementation.",
+  "success_criteria": [
+    "docs/m1297-paper-route-source-history-objective-only-update-synthesis.md exists",
+    "synthesis summarizes M1287-M1296 evidence",
+    "synthesis lists supported claims",
+    "synthesis lists falsified claims",
+    "synthesis classifies failure taxonomy",
+    "synthesis assesses public-gate overfit risk",
+    "synthesis chooses the next branch decision",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis omits M1290/M1292/M1295 mixed evidence",
+    "synthesis starts PPO directly",
+    "synthesis continues same narrow actor_mean branch without decision",
+    "synthesis overclaims self-identification",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1297-paper-route-source-history-objective-only-update-synthesis.md from M1287-M1296 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1297-paper-route-source-history-objective-only-update-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1296-paper-route-source-history-pair-group-objective-result-audit.md",
+    "runs/m1295_source_history_pair_group_objective_probe/summary.json"
+  ],
+  "decision_rule": "M1297 passes if it synthesizes M1287-M1296 evidence and chooses a next branch decision without training or overclaiming.",
+  "next_blocker": "m1297-paper-route-source-history-objective-only-update-synthesis"
+}

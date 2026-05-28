@@ -151,6 +151,29 @@
     "docs/m1295-paper-route-source-history-pair-group-objective-probe.md",
     "runs/m1295_source_history_pair_group_objective_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1296-paper-route-source-history-pair-group-objective-result-audit.md",
+    "decision": "source_history_pair_group_objective_result_audit_route_to_branch_synthesis",
+    "result_class": "pair_group_objective_mixed_audited",
+    "m1295_best_both_directional_fraction": 0.1973684211,
+    "m1295_best_both_positive_count": 30,
+    "m1295_best_mutually_exclusive_fraction": 0.6710526316,
+    "m1295_best_group_all_rows_both_positive_count": 15,
+    "m1295_best_group_all_rows_both_positive_fraction": 0.1973684211,
+    "strong_gate_passed": false,
+    "branch_synthesis_required": true,
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1297-paper-route-source-history-objective-only-update-synthesis.json"
+  },
+  "decision": "source_history_pair_group_objective_result_audit_route_to_branch_synthesis",
   "decision_rule": "M1296 passes if it audits M1295 as mixed and routes to branch synthesis without PPO.",
-  "next_blocker": "m1296-paper-route-source-history-pair-group-objective-result-audit"
+  "next_blocker": "m1297-paper-route-source-history-objective-only-update-synthesis"
 }
