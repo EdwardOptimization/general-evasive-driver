@@ -20408,3 +20408,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: corrected profile runtime is ready for one-seed fixed-budget train/eval smoke; this is not performance or profile-ranking evidence.
 - follow-up manifest: `experiments/manifests/m1386-paper-route-history-profile-one-seed-fixed-budget-smoke.json`.
 - next: `m1386-paper-route-history-profile-one-seed-fixed-budget-smoke`
+
+## 20260529T003000Z - m1386-paper-route-history-profile-one-seed-fixed-budget-smoke
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `infrastructure`
+- artifact: `runs/m1386_history_profile_fixed_budget_smoke/summary.json`
+- decision: `history_profile_one_seed_smoke_pass_route_to_result_audit`
+- command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.corrected_profile_pilot --config-dir configs/paper_route_corrected_profiles --config-glob 'm1207_*.json' --run-dir runs/m1386_history_profile_fixed_budget_smoke --training-seed-base 138600 --seed-offsets 0 --eval-seed-base 138700 --eval-episodes 32 --device cpu`
+- result class: `corrected_profile_pilot_completed`
+- completion: `8 / 8` profile seed runs complete, `failed_seed_runs=0`, `all_eval_metrics_finite=true`.
+- guardrail: `private_holdout_used=false`, `promoted=false`, `profile_specific_tuning=false`, `profile_superiority_claimed=false`, `self_identification_claimed=false`, `paper_level_claimed=false`, `actor_input_contract_changed=false`.
+- one-seed profile trend: `L0_current_masked=0.625`, `L1_one_step=0.500`, `L2_window_13=0.21875`, `L2_window_13_current_tiled=0.21875`, `L2_window_25=0.21875`, `L2_window_25_current_tiled=0.21875`, `L3_online_gru=0.625`, `L3_reset_control_corrected=0.625` success.
+- interpretation: M1386 is a clean plumbing pass only; L2/current-tiled and L3/reset parity must be audited before 3-seed scaling.
+- follow-up manifest: `experiments/manifests/m1387-paper-route-history-profile-one-seed-smoke-result-audit.json`.
+- next: `m1387-paper-route-history-profile-one-seed-smoke-result-audit`

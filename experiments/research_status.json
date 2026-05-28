@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1395,
+    "completed": 1396,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1385_history_profile_corrected_runtime_smoke/summary.json",
+    "command_log": "runs/m1386_history_profile_fixed_budget_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "runs/m1385_history_profile_corrected_runtime_smoke",
+    "run_dir": "runs/m1386_history_profile_fixed_budget_smoke",
     "status": "completed",
-    "task_id": "m1385-paper-route-history-profile-corrected-runtime-smoke"
+    "task_id": "m1386-paper-route-history-profile-one-seed-fixed-budget-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1386-paper-route-history-profile-one-seed-fixed-budget-smoke.json",
-    "hypothesis": "All eight corrected history-profile configs can complete one fixed-budget train/eval seed with finite metrics under the current codebase.",
-    "id": "m1386-paper-route-history-profile-one-seed-fixed-budget-smoke",
+    "command": "see experiments/manifests/m1387-paper-route-history-profile-one-seed-smoke-result-audit.json",
+    "hypothesis": "M1386 can be audited as a clean one-seed plumbing pass while preserving claim boundaries before deciding whether to scale to 3 seeds.",
+    "id": "m1387-paper-route-history-profile-one-seed-smoke-result-audit",
     "kind": "gate",
-    "notes": "Pending: run one fixed-budget training/eval seed per corrected profile as plumbing smoke only",
-    "priority": 13810,
+    "notes": "Pending: audit one-seed profile smoke before any 3-seed public pilot or stronger diagnostic route",
+    "priority": 13820,
     "status": "pending",
-    "success_artifact": "runs/m1386_history_profile_fixed_budget_smoke/summary.json"
+    "success_artifact": "docs/m1387-paper-route-history-profile-one-seed-smoke-result-audit.md"
   },
-  "updated_at_utc": "20260529T002000Z"
+  "updated_at_utc": "20260529T003000Z"
 }

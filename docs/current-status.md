@@ -16,17 +16,17 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1385-paper-route-history-profile-corrected-runtime-smoke
+m1386-paper-route-history-profile-one-seed-fixed-budget-smoke
 ```
 
 Current next task:
 
 ```text
-m1386-paper-route-history-profile-one-seed-fixed-budget-smoke
+m1387-paper-route-history-profile-one-seed-smoke-result-audit
 ```
 
-M1385 passed the corrected-profile runtime smoke. The current public-gate base
-remains M1362 alpha `0.1`:
+M1386 completed the one-seed fixed-budget history-profile smoke. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
@@ -245,9 +245,39 @@ ppo_used: false
 promoted: false
 ```
 
-M1386 may now run one fixed-budget train/eval seed per corrected profile as a
-plumbing smoke only. It must not claim architecture ranking, paper-level
-evidence, private-holdout evidence, or self-identification.
+M1386 ran one fixed-budget train/eval seed per corrected profile as a plumbing
+smoke only. It does not support architecture ranking, paper-level evidence,
+private-holdout evidence, or self-identification.
+
+M1386 result:
+
+```text
+result_class: corrected_profile_pilot_completed
+profile_count: 8
+total_seed_runs: 8
+completed_seed_runs: 8
+failed_seed_runs: 0
+all_eval_metrics_finite: true
+training_seed_base: 138600
+eval_seed_base: 138700
+eval_episodes: 32
+```
+
+One-seed success rates:
+
+```text
+L0_current_masked: 0.625
+L1_one_step: 0.500
+L2_window_13: 0.21875
+L2_window_13_current_tiled: 0.21875
+L2_window_25: 0.21875
+L2_window_25_current_tiled: 0.21875
+L3_online_gru: 0.625
+L3_reset_control_corrected: 0.625
+```
+
+This is a plumbing pass, not architecture evidence. M1387 should audit
+L2/current-tiled parity and L3/reset parity before any 3-seed public pilot.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true

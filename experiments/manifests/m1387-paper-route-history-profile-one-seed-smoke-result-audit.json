@@ -1,0 +1,155 @@
+{
+  "id": "m1387-paper-route-history-profile-one-seed-smoke-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "docs/m1386-paper-route-history-profile-one-seed-fixed-budget-smoke.md",
+      "runs/m1386_history_profile_fixed_budget_smoke/summary.json",
+      "runs/m1386_history_profile_fixed_budget_smoke/profile_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1386-paper-route-history-profile-one-seed-fixed-budget-smoke.json"
+    ],
+    "parent_objective": [
+      "audit one-seed fixed-budget profile smoke before deciding whether to run a 3-seed public pilot"
+    ],
+    "derived_from": [
+      "m1386-paper-route-history-profile-one-seed-fixed-budget-smoke"
+    ],
+    "blocked_by": [
+      "M1386 passes plumbing but one-seed profile trends are not architecture-ranking evidence"
+    ],
+    "supersedes": [
+      "scaling directly to 3-seed public pilot without result audit",
+      "claiming profile ranking from one seed"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1387-paper-route-history-profile-one-seed-smoke-result-audit.md",
+  "public_gates": [
+    "M1387 must audit M1386 as plumbing evidence first",
+    "M1387 must classify L2-vs-current-tiled and L3-vs-reset signals",
+    "M1387 must decide whether 3-seed public pilot, stronger diagnostic, repair, or branch stop is next",
+    "M1387 must not train, run PPO, run new evaluation, promote, use private holdout, export corpus, or claim profile ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new evaluation",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim architecture ranking from one seed",
+    "do not claim recurrent-belief advantage",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_profile_comparison_protocol",
+    "evidence_axis": "G_one_seed_profile_smoke_result_audit",
+    "evidence_increment": "audits one-seed fixed-budget profile smoke before scaling to a 3-seed public pilot",
+    "claim_scope": "result audit only; no training, new evaluation, PPO, promotion, private holdout, high-fidelity, profile-ranking, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if one-seed profile trends are overclaimed",
+      "stop if current-tiled parity is ignored",
+      "stop if L3 online-vs-reset parity is ignored",
+      "stop if 3-seed pilot is admitted without a cost/evidence argument"
+    ],
+    "fallback_plan": [
+      "if plumbing pass is enough, route to 3-seed public pilot design",
+      "if current-frame substitution dominates, route to stronger history-necessity diagnostic",
+      "if profile behavior is too weak, route to task/curriculum design",
+      "if branch value is low, route to synthesis or stop"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "one-seed fixed-budget profile smoke audit",
+    "admission_evidence": [
+      "M1386 completed all eight profile seed runs with finite metrics",
+      "M1386 one-seed trends show L2/current-tiled parity and L3/reset parity",
+      "M1386 did not use private holdout, promotion, profile tuning, or actor-input changes"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run new evaluation",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1387 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "plumbing pass is classified",
+      "one-seed profile trend limitations are classified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1387 must treat L0 strength and L2/current-tiled parity as active current-frame substitution risk.",
+    "history_necessity_tests": [
+      "audit L2_window_13_vs_current_tiled",
+      "audit L2_window_25_vs_current_tiled",
+      "audit L3_online_vs_corrected_reset"
+    ],
+    "temporal_evidence_window": "One public training seed and 32 public eval seeds per profile.",
+    "negative_result_policy": "If one-seed signals are negative or inconclusive, record them and choose route explicitly instead of weakening claim standards.",
+    "allowed_claims": [
+      "one-seed profile smoke audit and next route",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, paper-result, or architecture-ranking claim"
+    ]
+  },
+  "hypothesis": "M1386 can be audited as a clean one-seed plumbing pass while preserving claim boundaries before deciding whether to scale to 3 seeds.",
+  "success_criteria": [
+    "docs/m1387-paper-route-history-profile-one-seed-smoke-result-audit.md exists",
+    "audit summarizes M1386 completion and finite metric status",
+    "audit classifies L2/current-tiled and L3/reset one-seed signals",
+    "audit chooses next route without training, PPO, promotion, private holdout, corpus export, actor-input expansion, or profile-ranking claim"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit overclaims one-seed results as architecture ranking",
+    "audit ignores current-tiled or reset-control parity",
+    "audit routes directly to private holdout, promotion, or paper-level claim"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1387-paper-route-history-profile-one-seed-smoke-result-audit.md from M1386 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1387-paper-route-history-profile-one-seed-smoke-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "docs/m1386-paper-route-history-profile-one-seed-fixed-budget-smoke.md",
+    "runs/m1386_history_profile_fixed_budget_smoke/summary.json",
+    "runs/m1386_history_profile_fixed_budget_smoke/profile_aggregate.csv"
+  ],
+  "decision_rule": "M1387 passes if it audits M1386 and chooses the next route before any new training, PPO, promotion, private holdout, corpus export, or profile-ranking claim.",
+  "next_blocker": "m1387-paper-route-history-profile-one-seed-smoke-result-audit"
+}
