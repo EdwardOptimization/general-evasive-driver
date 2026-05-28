@@ -19824,3 +19824,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, replay run, full replay, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1352-paper-route-materialized-source-history-interpolation-preflight.json`.
 - next: `m1352-paper-route-materialized-source-history-interpolation-preflight`
+
+## 20260528T194331Z - m1352-paper-route-materialized-source-history-interpolation-preflight
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `proof`
+- artifact: `runs/m1352_materialized_source_history_interpolation_preflight/summary.json`
+- document: `docs/m1352-paper-route-materialized-source-history-interpolation-preflight.md`
+- decision: `materialized_source_history_interpolation_preflight_pass_route_to_replay_result_audit`
+- result class: `materialized_source_history_interpolation_preflight_pass`
+- selected checkpoint: `runs/m1352_materialized_source_history_interpolation_preflight/checkpoints/alpha_0_005.pt`
+- selected alpha: `0.005`
+- exact candidates: `6/6`
+- M267/M264 replay: ran `6` alphas and passed `3`; alphas `0.005`, `0.01`, and `0.02` passed.
+- M183/M170 replay: ran `3` alphas and passed `1`; only alpha `0.005` passed.
+- selected exact deltas: combined loss `-0.0317072824`, group-min joint margin `+0.0322478571`, eval-fold-4 group-min joint margin `+0.0299366837`.
+- selected replay deltas: M267/M264 normal success `0.0`, success-drop count `0`, normal margin `-0.0007221984`; M183/M170 normal success `0.0`, success-drop count `0`, normal margin `-0.0008439129`.
+- interpretation: raw M1346 overshot a very small replay-safe trust region; a nonzero usable alpha exists, but it is too small for promotion or driver-performance claims.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.json`.
+- next: `m1353-paper-route-materialized-source-history-interpolation-replay-result-audit`

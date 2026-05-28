@@ -1,0 +1,155 @@
+{
+  "id": "m1353-paper-route-materialized-source-history-interpolation-replay-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt",
+      "runs/m1352_materialized_source_history_interpolation_preflight/checkpoints/alpha_0_005.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1352_materialized_source_history_interpolation_preflight/summary.json",
+      "runs/m1352_materialized_source_history_interpolation_preflight/alpha_summary.csv",
+      "docs/m1352-paper-route-materialized-source-history-interpolation-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1352-paper-route-materialized-source-history-interpolation-preflight.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_objective": [
+      "audit the tiny replay-safe interpolation region before full replay or objective redesign"
+    ],
+    "derived_from": [
+      "m1352-paper-route-materialized-source-history-interpolation-preflight"
+    ],
+    "blocked_by": [
+      "M1352 found only alpha 0.005 passes both preflight replay surfaces and the exact lift is weak"
+    ],
+    "supersedes": [
+      "direct full public replay after a tiny preflight pass",
+      "direct replay-aware objective redesign before auditing the small passing alpha"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.md",
+  "public_gates": [
+    "M1353 must not train",
+    "M1353 must not run PPO",
+    "M1353 must not use private holdout",
+    "M1353 must not promote",
+    "M1353 must preserve actor input contract",
+    "M1353 must classify whether the alpha 0.005 result routes to repeat/full replay design or replay-aware retention redesign"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not run full replay",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_pair_group_update_implementation",
+    "evidence_axis": "S_materialized_source_history_interpolation_replay_result_audit",
+    "evidence_increment": "decides whether a tiny alpha that passes two replay preflight surfaces is evidence worth escalating or merely a trust-region diagnostic",
+    "claim_scope": "process audit only; no promotion, private-holdout, PPO, full replay, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if the audit treats alpha 0.005 as promoted",
+      "stop if the audit routes directly to PPO",
+      "stop if the audit ignores the weak exact lift and zero both-directional-count caveat",
+      "stop if actor inputs change"
+    ],
+    "fallback_plan": [
+      "if alpha 0.005 has enough merit, route to repeat or full-public-replay design with no promotion",
+      "if alpha 0.005 is too weak, route to replay-aware retention or terminal-margin-aware objective design",
+      "if evidence is ambiguous, route to a one-seed repeat preflight before full replay",
+      "if audit finds stale public surfaces, route to source-diverse replay surface refresh"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1352 produced one tiny passing alpha after M1346 raw proof washout",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit interpolation preflight result and route next branch step",
+    "admission_evidence": [
+      "M1352 selected alpha 0.005 as the only alpha passing exact, M267/M264, and M183/M170 preflight",
+      "larger alphas fail replay retention despite monotone exact metric improvement"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1353 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "audit names the selected route",
+      "audit records the narrow trust-region caveat",
+      "promotion and PPO remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1353 audits public replay proof retention and cannot claim anticipatory self-identification.",
+    "history_necessity_tests": [
+      "M1352 M267/M264 and M183/M170 replay compare normal versus wrong-history outcome retention for interpolated candidates"
+    ],
+    "temporal_evidence_window": "M1352 exact source-history metrics and two public replay preflight surfaces.",
+    "negative_result_policy": "If the tiny alpha is judged too weak, record that exact metric improvement alone is insufficient and route to replay-aware retention design.",
+    "allowed_claims": [
+      "interpolation preflight audit and route decision",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "M1352's tiny passing alpha should be treated as a trust-region diagnostic unless the audit shows it justifies a controlled replay escalation.",
+  "success_criteria": [
+    "docs/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.md exists",
+    "audit records selected alpha 0.005 and larger-alpha failure pattern",
+    "audit decides between replay escalation and replay-aware retention redesign",
+    "audit blocks promotion, PPO, private holdout, full replay execution, and actor-input expansion"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits the selected alpha or replay failure pattern",
+    "audit routes directly to PPO or promotion",
+    "training, PPO, private holdout, promotion, threshold relaxation, full replay execution, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1352_materialized_source_history_interpolation_preflight/checkpoints/alpha_0_005.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1352-paper-route-materialized-source-history-interpolation-preflight.md",
+    "runs/m1352_materialized_source_history_interpolation_preflight/summary.json",
+    "runs/m1352_materialized_source_history_interpolation_preflight/alpha_summary.csv"
+  ],
+  "decision_rule": "M1353 passes only if it classifies the M1352 result without promotion/PPO/private holdout and creates one bounded next manifest.",
+  "next_blocker": "m1353-paper-route-materialized-source-history-interpolation-replay-result-audit"
+}

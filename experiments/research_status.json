@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1361,
+    "completed": 1362,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1351-paper-route-materialized-source-history-interpolation-preflight-design.md",
+    "command_log": "docs/m1352-paper-route-materialized-source-history-interpolation-preflight.md",
     "returncode": 0,
-    "run_dir": "docs/m1351-paper-route-materialized-source-history-interpolation-preflight-design.md",
+    "run_dir": "runs/m1352_materialized_source_history_interpolation_preflight/summary.json",
     "status": "completed",
-    "task_id": "m1351-paper-route-materialized-source-history-interpolation-preflight-design"
+    "task_id": "m1352-paper-route-materialized-source-history-interpolation-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1352-paper-route-materialized-source-history-interpolation-preflight.json",
-    "hypothesis": "Run exact plus replay interpolation preflight for M1154 to M1346 direction",
-    "id": "m1352-paper-route-materialized-source-history-interpolation-preflight",
+    "command": "see experiments/manifests/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.json",
+    "hypothesis": "Audit whether M1352 alpha 0.005 is worth replay escalation or should route to replay-aware retention redesign",
+    "id": "m1353-paper-route-materialized-source-history-interpolation-replay-result-audit",
     "kind": "gate",
-    "notes": "Pending: create alpha checkpoints, run exact metrics, then M267/M264 and conditional M183/M170; no training, PPO, private holdout, promotion, full replay, or actor-input change",
-    "priority": 13470,
+    "notes": "Pending: classify narrow preflight pass; no training, PPO, promotion, private holdout, full replay, or actor-input change",
+    "priority": 13480,
     "status": "pending",
-    "success_artifact": "runs/m1352_materialized_source_history_interpolation_preflight/summary.json"
+    "success_artifact": "docs/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.md"
   },
-  "updated_at_utc": "20260528T193431Z"
+  "updated_at_utc": "20260528T194331Z"
 }

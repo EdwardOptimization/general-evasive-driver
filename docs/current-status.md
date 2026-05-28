@@ -16,22 +16,50 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1351-paper-route-materialized-source-history-interpolation-preflight-design
+m1352-paper-route-materialized-source-history-interpolation-preflight
 ```
 
 Current next task:
 
 ```text
-m1352-paper-route-materialized-source-history-interpolation-preflight
+m1353-paper-route-materialized-source-history-interpolation-replay-result-audit
 ```
 
-M1351 designed the trust-region interpolation preflight. M1352 should create
-small-alpha checkpoints along the M1154 to raw M1346 direction for alphas
-`0.005, 0.01, 0.02, 0.05, 0.1, 0.2`, verify allowed mutation scope and actor
-input contract, run exact M1339/M1342-style metrics first, then run M267/M264
-only for exact-admitted alphas and M183/M170 only for alphas that pass
-M267/M264. Full replay, PPO, promotion, private holdout, and actor-input changes
-remain blocked.
+M1352 ran the trust-region interpolation preflight over the M1154 to raw M1346
+direction. All six alphas were exact-admitted and preserved the actor input
+contract, but replay retention was tight. M267/M264 passed only for
+`alpha <= 0.02`; M183/M170 passed only at `alpha=0.005`. The selected limited
+preflight checkpoint is
+`runs/m1352_materialized_source_history_interpolation_preflight/checkpoints/alpha_0_005.pt`.
+This is not a promoted base. The supported claim is narrow: raw M1346 was
+replay-negative because it overshot a very small replay-safe trust region, not
+because the direction is invalid at infinitesimal scale. M1353 must audit
+whether this tiny alpha is worth carrying to a repeat/full-public-replay design
+or whether the branch should pivot to replay-aware retention terms.
+
+M1352 exact deltas at the selected alpha:
+
+```text
+combined_loss_delta_vs_base: -0.0317072824
+group_min_joint_margin_delta_vs_base: +0.0322478571
+eval_fold_4_group_min_joint_margin_delta_vs_base: +0.0299366837
+group_all_rows_both_directional_count: 0
+group_both_negative_count: 4
+```
+
+M1352 replay deltas at the selected alpha:
+
+```text
+M267/M264: normal_success_delta=0.0, success_drop_delta=0,
+           normal_margin_delta=-0.0007221984,
+           margin_gap_delta=-0.0001055148
+M183/M170: normal_success_delta=0.0, success_drop_delta=0,
+           normal_margin_delta=-0.0008439129,
+           margin_gap_delta=-0.0000756685
+```
+
+Full replay, PPO, promotion, private holdout, and actor-input changes remain
+blocked.
 
 M1350 classified the M1349 failure as `proof_washout` with subtype
 `current_family_normal_branch_collision`. The raw M1346 direction is rejected as
