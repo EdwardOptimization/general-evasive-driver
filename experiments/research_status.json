@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1279,
+    "completed": 1281,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1269-paper-route-four-wheel-fault-source-shape-result-audit.md",
+    "command_log": "docs/m1271-paper-route-four-wheel-source-viability-calibration-smoke.md",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m1271_four_wheel_source_viability_calibration_smoke",
     "status": "completed",
-    "task_id": "m1269-paper-route-four-wheel-fault-source-shape-result-audit"
+    "task_id": "m1271-paper-route-four-wheel-source-viability-calibration-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1270-paper-route-four-wheel-source-viability-calibration-design.json",
-    "hypothesis": "Design a bounded viability calibration to preserve four-wheel high-regret signal while restoring own-branch viability",
-    "id": "m1270-paper-route-four-wheel-source-viability-calibration-design",
+    "command": "see experiments/manifests/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.json",
+    "hypothesis": "Audit whether M1271 source-positive rows are diverse and boundary-useful before actor/history integration",
+    "id": "m1272-paper-route-four-wheel-source-viability-calibration-result-audit",
     "kind": "gate",
-    "notes": "Pending: define scenario/action/horizon/actuator axes for one bounded viability calibration smoke",
-    "priority": 12650,
+    "notes": "Pending: audit source diversity boundary usefulness halfshaft inactivity and next source step before actor integration",
+    "priority": 12670,
     "status": "pending",
-    "success_artifact": "docs/m1270-paper-route-four-wheel-source-viability-calibration-design.md"
+    "success_artifact": "docs/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.md"
   },
-  "updated_at_utc": "20260528T122817Z"
+  "updated_at_utc": "20260528T124107Z"
 }

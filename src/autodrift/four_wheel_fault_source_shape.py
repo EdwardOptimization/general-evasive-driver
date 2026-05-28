@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 from dataclasses import dataclass
 import math
 from pathlib import Path
@@ -207,36 +208,72 @@ def build_fault_pairs(faults: list[FourWheelFaultCase]) -> list[tuple[FourWheelF
     ]
 
 
-def build_scenarios() -> list[FourWheelScenario]:
+def _build_grid_scenarios(
+    *,
+    seed_base: int,
+    speeds: tuple[float, ...],
+    obstacle_xs: tuple[float, ...],
+    obstacle_ys: tuple[float, ...],
+    obstacle_half_widths: tuple[float, ...],
+) -> list[FourWheelScenario]:
     scenarios: list[FourWheelScenario] = []
     index = 0
-    for speed in (16.0, 18.0, 20.0):
-        for obstacle_x in (8.0, 10.0, 12.0):
-            for obstacle_y in (-0.35, 0.0, 0.35):
-                state = FourWheelState(
-                    x=0.0,
-                    y=0.0,
-                    psi=0.0,
-                    vx=float(speed),
-                    vy=0.0,
-                    yaw_rate=0.0,
-                    steer=0.0,
-                    drive_force=0.0,
-                    brake_force=6000.0,
-                )
-                scenarios.append(
-                    FourWheelScenario(
-                        scenario_id=f"fw_seed{126800 + index}",
-                        seed=126800 + index,
-                        state=state,
-                        obstacle_body_x=float(obstacle_x),
-                        obstacle_body_y=float(obstacle_y),
-                        obstacle_half_width=0.85,
-                        previous_action=(0.0, -1.0, 1.0),
+    for speed in speeds:
+        for obstacle_x in obstacle_xs:
+            for obstacle_y in obstacle_ys:
+                for obstacle_half_width in obstacle_half_widths:
+                    state = FourWheelState(
+                        x=0.0,
+                        y=0.0,
+                        psi=0.0,
+                        vx=float(speed),
+                        vy=0.0,
+                        yaw_rate=0.0,
+                        steer=0.0,
+                        drive_force=0.0,
+                        brake_force=6000.0,
                     )
-                )
-                index += 1
+                    scenarios.append(
+                        FourWheelScenario(
+                            scenario_id=f"fw_seed{seed_base + index}",
+                            seed=seed_base + index,
+                            state=state,
+                            obstacle_body_x=float(obstacle_x),
+                            obstacle_body_y=float(obstacle_y),
+                            obstacle_half_width=float(obstacle_half_width),
+                            previous_action=(0.0, -1.0, 1.0),
+                        )
+                    )
+                    index += 1
     return scenarios
+
+
+def build_scenarios() -> list[FourWheelScenario]:
+    return _build_grid_scenarios(
+        seed_base=126800,
+        speeds=(16.0, 18.0, 20.0),
+        obstacle_xs=(8.0, 10.0, 12.0),
+        obstacle_ys=(-0.35, 0.0, 0.35),
+        obstacle_half_widths=(0.85,),
+    )
+
+
+def build_viability_calibration_scenarios() -> list[FourWheelScenario]:
+    return _build_grid_scenarios(
+        seed_base=127100,
+        speeds=(14.0, 15.0, 16.0),
+        obstacle_xs=(12.0, 13.0, 14.0, 15.0, 16.0),
+        obstacle_ys=(-0.25, 0.0, 0.25),
+        obstacle_half_widths=(0.55, 0.65, 0.75, 0.85),
+    )
+
+
+def build_scenarios_for_profile(profile: str) -> list[FourWheelScenario]:
+    if profile == "m1268_default":
+        return build_scenarios()
+    if profile == "viability_calibration":
+        return build_viability_calibration_scenarios()
+    raise ValueError(f"unsupported scenario_profile {profile!r}")
 
 
 def build_action_lattice(*, sequence_length: int) -> list[dict[str, Any]]:
@@ -520,12 +557,13 @@ def run_four_wheel_source_shape_smoke(
     dt: float = 0.02,
     min_best_action_l2: float = 0.12,
     min_cross_regret_margin: float = 0.02,
+    scenario_profile: str = "m1268_default",
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     params = FourWheelVehicleParams()
     faults = build_fault_cases()
     fault_pairs = build_fault_pairs(faults)
-    scenarios = build_scenarios()
+    scenarios = build_scenarios_for_profile(str(scenario_profile))
     candidates = build_action_lattice(sequence_length=sequence_length)
 
     lattice_rows: list[dict[str, Any]] = []
@@ -601,8 +639,13 @@ def run_four_wheel_source_shape_smoke(
 
     unique_fault_family_pairs = {str(row.get("fault_family_pair", "")) for row in pair_rows}
     accepted_fault_family_pairs = {str(row.get("fault_family_pair", "")) for row in accepted_rows}
+    terminal_reasons = Counter(str(row.get("terminal_reason", "")) for row in rollout_rows)
+    success_terminal_reasons = Counter(
+        str(row.get("terminal_reason", "")) for row in rollout_rows if bool(row.get("success", False))
+    )
     summary = {
         "run_type": "four_wheel_fault_source_shape_smoke",
+        "scenario_profile": str(scenario_profile),
         "sequence_length": int(sequence_length),
         "dt": float(dt),
         "min_best_action_l2": float(min_best_action_l2),
@@ -621,6 +664,8 @@ def run_four_wheel_source_shape_smoke(
         "all_four_rollouts_collision_count": int(all_four_collision_count),
         "unique_fault_family_pairs": int(len(unique_fault_family_pairs)),
         "accepted_fault_family_pairs": int(len(accepted_fault_family_pairs)),
+        "terminal_reason_counts": dict(sorted(terminal_reasons.items())),
+        "success_terminal_reason_counts": dict(sorted(success_terminal_reasons.items())),
         "labels_enter_actor_input": False,
         "training_started": False,
         "ppo_used": False,
@@ -650,6 +695,11 @@ def run_four_wheel_source_shape_smoke(
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run no-policy four-wheel fault source-shape smoke.")
     parser.add_argument("--run-dir", type=Path, default=None)
+    parser.add_argument(
+        "--scenario-profile",
+        choices=("m1268_default", "viability_calibration"),
+        default="m1268_default",
+    )
     parser.add_argument("--sequence-length", type=int, default=72)
     parser.add_argument("--dt", type=float, default=0.02)
     parser.add_argument("--min-best-action-l2", type=float, default=0.12)
@@ -662,6 +712,7 @@ def main() -> None:
         dt=args.dt,
         min_best_action_l2=args.min_best_action_l2,
         min_cross_regret_margin=args.min_cross_regret_margin,
+        scenario_profile=args.scenario_profile,
     )
     for key, value in summary.items():
         print(f"{key}: {value}")

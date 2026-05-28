@@ -1,0 +1,215 @@
+{
+  "id": "m1271-paper-route-four-wheel-source-viability-calibration-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_dataset": [
+      "docs/m1270-paper-route-four-wheel-source-viability-calibration-design.md",
+      "runs/m1268_four_wheel_fault_source_shape_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1270-paper-route-four-wheel-source-viability-calibration-design.json"
+    ],
+    "parent_objective": [
+      "run bounded four-wheel source viability calibration smoke"
+    ],
+    "derived_from": [
+      "m1270-paper-route-four-wheel-source-viability-calibration-design"
+    ],
+    "blocked_by": [
+      "M1270 admits one bounded viability calibration smoke after M1268 collision dominance"
+    ],
+    "supersedes": [
+      "another uncalibrated m1268_default source-shape rerun"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1271-paper-route-four-wheel-source-viability-calibration-smoke.md",
+  "public_gates": [
+    "M1271 must preserve actor input contract",
+    "M1271 must not train controllers",
+    "M1271 must not run PPO",
+    "M1271 must not use private holdout",
+    "M1271 must not promote",
+    "M1271 must use scenario_profile=viability_calibration",
+    "M1271 must preserve strict accepted-source thresholds",
+    "M1271 must preserve obstacle_completed or safe_stop success semantics",
+    "M1271 must report accepted rows, collision dominance, and source diversity"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add per-wheel/fault labels to actor inputs",
+    "do not lower accepted-source thresholds",
+    "do not count horizon-only rows as success",
+    "do not claim high-fidelity validation from the compact pilot",
+    "do not use policy success as a substitute for strict source acceptance"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fidelity_fault_source_design",
+    "evidence_axis": "S_four_wheel_source_viability_calibration_smoke",
+    "evidence_increment": "tests whether a calibrated four-wheel source grid restores own-branch viability while preserving high-regret action divergence",
+    "claim_scope": "source-smoke infrastructure only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if observation mapping leaks per-wheel/fault metadata",
+      "stop if accepted thresholds are relaxed",
+      "stop if horizon-only rows are counted as success",
+      "stop for result audit before actor/history integration"
+    ],
+    "fallback_plan": [
+      "if accepted rows are zero, audit whether action support or model fidelity remains limiting",
+      "if accepted rows exist, audit source diversity and boundary suitability before any actor integration"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1270 admits one bounded calibrated source-smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "four-wheel source viability calibration smoke",
+    "admission_evidence": [
+      "M1268 accepted_separable_pairs=0",
+      "M1268 top min_cross_regret=0.1793146044",
+      "M1268 own_branch_viability_fail_count=103",
+      "M1270 scratch calibration found accepted rows without threshold relaxation"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "scenario_profile plumbing for source-smoke only",
+      "focused tests",
+      "M1271 run artifacts",
+      "M1271 result doc",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "run summary exists",
+      "scenario_profile is viability_calibration",
+      "strict accepted rows are reported",
+      "collision-dominance diagnostics are reported",
+      "actor-input guardrails are reported"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1271 tests source shape only and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases are audited"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If source-positive rows remain zero, write a source-smoke audit before any actor/Gym integration.",
+    "allowed_claims": [
+      "four-wheel source viability calibration smoke result",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The calibrated four-wheel source grid can restore own-branch viability while preserving strict high-regret action divergence under unchanged source thresholds.",
+  "success_criteria": [
+    "runs/m1271_four_wheel_source_viability_calibration_smoke/summary.json exists",
+    "scenario_summary.csv exists",
+    "snapshot_candidates.csv exists",
+    "action_lattice.csv exists",
+    "action_rollouts.csv exists",
+    "matched_capability_pairs.csv exists",
+    "accepted_separable_pairs.csv exists",
+    "scenario_profile == viability_calibration",
+    "collision-dominance diagnostics are reported",
+    "actor_input_contract_changed == false",
+    "labels_enter_actor_input == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "private_holdout_used == false",
+    "accepted_thresholds_relaxed == false"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "scenario_profile is not viability_calibration",
+    "observation mapping includes per-wheel/fault metadata",
+    "accepted thresholds are lowered",
+    "horizon-only rows are counted as success",
+    "training or PPO starts",
+    "promotion occurs",
+    "high-fidelity validation is claimed"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_four_wheel_fault_source_shape.py tests/test_four_wheel_dynamics.py"
+    },
+    {
+      "name": "smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.four_wheel_fault_source_shape --scenario-profile viability_calibration --run-dir runs/m1271_four_wheel_source_viability_calibration_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1271_four_wheel_source_viability_calibration_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1271-paper-route-four-wheel-source-viability-calibration-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint"
+  ],
+  "baseline_artifacts": [
+    "docs/m1270-paper-route-four-wheel-source-viability-calibration-design.md",
+    "runs/m1268_four_wheel_fault_source_shape_smoke/summary.json"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1271_four_wheel_source_viability_calibration_smoke/summary.json",
+    "doc": "docs/m1271-paper-route-four-wheel-source-viability-calibration-smoke.md",
+    "decision": "four_wheel_source_viability_calibration_smoke_source_positive_route_to_result_audit",
+    "scenario_profile": "viability_calibration",
+    "sequence_length": 72,
+    "scenario_count": 180,
+    "fault_pair_count": 4,
+    "matched_pair_count": 720,
+    "action_lattice_rows": 11,
+    "action_rollouts": 15840,
+    "accepted_separable_pairs": 108,
+    "rejected_pairs": 612,
+    "best_actions_diverged_pairs": 216,
+    "low_regret_pairs": 561,
+    "own_branch_viability_fail_count": 108,
+    "all_four_rollouts_collision_count": 91,
+    "unique_fault_family_pairs": 4,
+    "accepted_fault_family_pairs": 3,
+    "terminal_collision_count": 9006,
+    "terminal_obstacle_completed_count": 3950,
+    "terminal_horizon_count": 2884,
+    "terminal_safe_stop_count": 0,
+    "result_class": "capability_separable_signal",
+    "source_positive": true,
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.json"
+  },
+  "decision": "four_wheel_source_viability_calibration_smoke_source_positive_route_to_result_audit",
+  "decision_rule": "M1271 passes as infrastructure if it emits calibrated source-smoke artifacts with strict thresholds and guardrails, regardless of whether source-positive rows are found.",
+  "next_blocker": "m1272-paper-route-four-wheel-source-viability-calibration-result-audit"
+}

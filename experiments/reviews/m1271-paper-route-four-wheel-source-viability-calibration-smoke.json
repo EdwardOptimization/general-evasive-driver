@@ -1,0 +1,103 @@
+{
+  "decision_reason": "M1271 calibrated no-policy source smoke produces 108 strict accepted rows across three fault families while preserving no-training no-PPO and actor-input guardrails",
+  "failure_criteria": [
+    "run artifacts are missing",
+    "scenario_profile is not viability_calibration",
+    "observation mapping includes per-wheel/fault metadata",
+    "accepted thresholds are lowered",
+    "horizon-only rows are counted as success",
+    "training or PPO starts",
+    "promotion occurs",
+    "high-fidelity validation is claimed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add per-wheel/fault labels to actor inputs",
+    "do not lower accepted-source thresholds",
+    "do not count horizon-only rows as success",
+    "do not claim high-fidelity validation from the compact pilot",
+    "do not use policy success as a substitute for strict source acceptance"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T124221Z",
+  "hypothesis": "The calibrated four-wheel source grid can restore own-branch viability while preserving strict high-regret action divergence under unchanged source thresholds.",
+  "lineage": {
+    "blocked_by": [
+      "M1270 admits one bounded viability calibration smoke after M1268 collision dominance"
+    ],
+    "derived_from": [
+      "m1270-paper-route-four-wheel-source-viability-calibration-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1270-paper-route-four-wheel-source-viability-calibration-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1270-paper-route-four-wheel-source-viability-calibration-design.md",
+      "runs/m1268_four_wheel_fault_source_shape_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "run bounded four-wheel source viability calibration smoke"
+    ],
+    "supersedes": [
+      "another uncalibrated m1268_default source-shape rerun"
+    ]
+  },
+  "milestone": "m1271-paper-route-four-wheel-source-viability-calibration-smoke",
+  "next_blocker": "m1272-paper-route-four-wheel-source-viability-calibration-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "four_wheel_source_viability_calibration_smoke_source_positive_route_to_result_audit",
+  "public_gates": [
+    "M1271 must preserve actor input contract",
+    "M1271 must not train controllers",
+    "M1271 must not run PPO",
+    "M1271 must not use private holdout",
+    "M1271 must not promote",
+    "M1271 must use scenario_profile=viability_calibration",
+    "M1271 must preserve strict accepted-source thresholds",
+    "M1271 must preserve obstacle_completed or safe_stop success semantics",
+    "M1271 must report accepted rows, collision dominance, and source diversity"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1271_four_wheel_source_viability_calibration_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "four_wheel_source_viability_calibration_smoke_source_positive_route_to_result_audit",
+    "milestone": "m1271-paper-route-four-wheel-source-viability-calibration-smoke",
+    "reason": "M1271 calibrated no-policy source smoke produces 108 strict accepted rows across three fault families while preserving no-training no-PPO and actor-input guardrails",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1271_four_wheel_source_viability_calibration_smoke/summary.json exists",
+    "scenario_summary.csv exists",
+    "snapshot_candidates.csv exists",
+    "action_lattice.csv exists",
+    "action_rollouts.csv exists",
+    "matched_capability_pairs.csv exists",
+    "accepted_separable_pairs.csv exists",
+    "scenario_profile == viability_calibration",
+    "collision-dominance diagnostics are reported",
+    "actor_input_contract_changed == false",
+    "labels_enter_actor_input == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "private_holdout_used == false",
+    "accepted_thresholds_relaxed == false"
+  ],
+  "type": "infrastructure"
+}

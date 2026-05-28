@@ -18317,3 +18317,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1270-paper-route-four-wheel-source-viability-calibration-design.json`.
 - decision: `four_wheel_source_shape_audit_admit_viability_calibration_design`
 - next: `m1270-paper-route-four-wheel-source-viability-calibration-design`
+
+## 20260528T124107Z - m1270-paper-route-four-wheel-source-viability-calibration-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1270-paper-route-four-wheel-source-viability-calibration-design.md`
+- design decision: `four_wheel_source_viability_calibration_design_admit_smoke`
+- blocker: M1268 produced high regret but was collision dominated with `own_branch_viability_fail_count=103` and `all_four_rollouts_collision_count=103`.
+- calibration evidence: a bounded scratch sweep over speed `14..16`, obstacle distance `12..16`, lateral offset `-0.25/0/0.25`, and half-width `0.55..0.85` found `108` strict accepted rows from `720` matched pairs without threshold relaxation.
+- design: add a source-only `viability_calibration` scenario profile while preserving `m1268_default`, strict success semantics, and accepted-source thresholds.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, horizon-only success, threshold relaxation, source-positive claim, high-fidelity claim, or self-ID claim occurred in M1270.
+- follow-up manifest: `experiments/manifests/m1271-paper-route-four-wheel-source-viability-calibration-smoke.json`.
+- decision: `four_wheel_source_viability_calibration_design_admit_smoke`
+- next: `m1271-paper-route-four-wheel-source-viability-calibration-smoke`
+
+## 20260528T124107Z - m1271-paper-route-four-wheel-source-viability-calibration-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1271_four_wheel_source_viability_calibration_smoke/summary.json`
+- implementation: added `scenario_profile=viability_calibration` to `src/autodrift/four_wheel_fault_source_shape.py` with focused tests preserving the original M1268 default profile.
+- validation: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_four_wheel_fault_source_shape.py tests/test_four_wheel_dynamics.py` passed with `10 passed`.
+- result: `scenario_count=180`, `matched_pair_count=720`, `action_rollouts=15840`, `accepted_separable_pairs=108`, `best_actions_diverged_pairs=216`, `low_regret_pairs=561`, `own_branch_viability_fail_count=108`, and `all_four_rollouts_collision_count=91`.
+- source diversity: accepted rows span `3` fault-family pairs: `single_wheel_brake_pull` `59`, `left_right_split_mu` `28`, and `single_wheel_grip_collapse` `21`; `halfshaft_torque_loss` remains inactive in this lattice.
+- terminal semantics: successful rollouts are `obstacle_completed` only; horizon-only rows remain non-success.
+- interpretation: the four-wheel source branch is now strict source-positive, but this is not driver performance and must be audited for source diversity and boundary usefulness before actor/Gym integration.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.json`.
+- decision: `four_wheel_source_viability_calibration_smoke_source_positive_route_to_result_audit`
+- next: `m1272-paper-route-four-wheel-source-viability-calibration-result-audit`

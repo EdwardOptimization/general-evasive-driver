@@ -143,6 +143,25 @@
     "docs/m1269-paper-route-four-wheel-fault-source-shape-result-audit.md",
     "runs/m1268_four_wheel_fault_source_shape_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1270-paper-route-four-wheel-source-viability-calibration-design.md",
+    "decision": "four_wheel_source_viability_calibration_design_admit_smoke",
+    "next_manifest": "experiments/manifests/m1271-paper-route-four-wheel-source-viability-calibration-smoke.json",
+    "scratch_matched_pairs": 720,
+    "scratch_accepted_separable_pairs": 108,
+    "scratch_own_branch_viable_pairs": 612,
+    "scratch_best_actions_diverged_pairs": 216,
+    "scratch_high_regret_pairs": 159,
+    "thresholds_relaxed": false,
+    "horizon_only_success_allowed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false
+  },
+  "decision": "four_wheel_source_viability_calibration_design_admit_smoke",
   "decision_rule": "M1270 passes if it designs one bounded four-wheel viability calibration smoke with strict thresholds and no actor-input expansion.",
-  "next_blocker": "m1270-paper-route-four-wheel-source-viability-calibration-design"
+  "next_blocker": "m1271-paper-route-four-wheel-source-viability-calibration-smoke"
 }

@@ -7,6 +7,8 @@ from autodrift.four_wheel_fault_source_shape import (
     build_action_lattice,
     build_human_view_observation,
     build_scenarios,
+    build_scenarios_for_profile,
+    build_viability_calibration_scenarios,
     obstacle_margin,
 )
 
@@ -78,3 +80,15 @@ def test_build_scenarios_uses_established_brake_state():
     assert scenarios
     assert all(scenario.state.brake_force > 0.0 for scenario in scenarios)
     assert {scenario.obstacle_body_y for scenario in scenarios} == {-0.35, 0.0, 0.35}
+
+
+def test_viability_calibration_profile_expands_distance_and_width_axes():
+    scenarios = build_viability_calibration_scenarios()
+
+    assert len(scenarios) == 180
+    assert {scenario.state.vx for scenario in scenarios} == {14.0, 15.0, 16.0}
+    assert {scenario.obstacle_body_x for scenario in scenarios} == {12.0, 13.0, 14.0, 15.0, 16.0}
+    assert {scenario.obstacle_body_y for scenario in scenarios} == {-0.25, 0.0, 0.25}
+    assert {scenario.obstacle_half_width for scenario in scenarios} == {0.55, 0.65, 0.75, 0.85}
+    assert all(scenario.state.brake_force > 0.0 for scenario in scenarios)
+    assert build_scenarios_for_profile("viability_calibration") == scenarios

@@ -1,0 +1,153 @@
+{
+  "id": "m1272-paper-route-four-wheel-source-viability-calibration-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_dataset": [
+      "docs/m1271-paper-route-four-wheel-source-viability-calibration-smoke.md",
+      "runs/m1271_four_wheel_source_viability_calibration_smoke/summary.json",
+      "runs/m1271_four_wheel_source_viability_calibration_smoke/accepted_separable_pairs.csv",
+      "runs/m1271_four_wheel_source_viability_calibration_smoke/matched_capability_pairs.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1271-paper-route-four-wheel-source-viability-calibration-smoke.json"
+    ],
+    "parent_objective": [
+      "audit calibrated four-wheel source-positive rows before actor/history integration"
+    ],
+    "derived_from": [
+      "m1271-paper-route-four-wheel-source-viability-calibration-smoke"
+    ],
+    "blocked_by": [
+      "M1271 produced accepted source rows, but source diversity and boundary usefulness must be audited before training or integration"
+    ],
+    "supersedes": [
+      "direct Gym/actor integration from M1271 source-positive rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.md",
+  "public_gates": [
+    "M1272 must preserve actor input contract",
+    "M1272 must not train controllers",
+    "M1272 must not run PPO",
+    "M1272 must not use private holdout",
+    "M1272 must not promote",
+    "M1272 must audit source diversity and boundary usefulness",
+    "M1272 must decide the next source step before actor/Gym integration"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add per-wheel/fault labels to actor inputs",
+    "do not lower accepted-source thresholds",
+    "do not count horizon-only rows as success",
+    "do not claim high-fidelity validation from the compact pilot",
+    "do not treat source-positive rows as driver performance"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fidelity_fault_source_design",
+    "evidence_axis": "S_four_wheel_source_viability_calibration_result_audit",
+    "evidence_increment": "audits whether M1271 source-positive rows are diverse and boundary-useful enough for the next source step",
+    "claim_scope": "result audit only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if accepted rows are source-collapsed",
+      "stop if accepted rows are too easy for boundary/history tests",
+      "stop if actor/Gym integration would require per-wheel/fault input expansion"
+    ],
+    "fallback_plan": [
+      "if rows are diverse and boundary-useful, admit bounded corpus export or intervention design",
+      "if rows are source-collapsed, admit filtering or source-diversity mining",
+      "if rows are too easy, admit boundary retargeting around accepted rows",
+      "if halfshaft remains inactive, isolate or drop it from the next source corpus"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1271 produced strict source-positive rows that require audit before integration",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "four-wheel source viability calibration result audit",
+    "admission_evidence": [
+      "M1271 accepted_separable_pairs=108",
+      "M1271 accepted_fault_family_pairs=3",
+      "M1271 source_positive=true",
+      "M1271 did not train, run PPO, promote, or expand actor inputs"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1272 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest if audit admits it"
+    ],
+    "next_stage_criteria": [
+      "audit classifies source diversity",
+      "audit classifies boundary usefulness",
+      "audit decides whether to export corpus, filter boundary rows, retarget, or synthesize"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1272 audits source rows only and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until M1272 decides that source rows are suitable"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If M1271 rows are not boundary-useful, route to source filtering/retargeting rather than weakening self-ID criteria.",
+    "allowed_claims": [
+      "four-wheel source viability result audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The M1271 source-positive rows can be audited for source diversity and boundary usefulness before any actor/history integration.",
+  "success_criteria": [
+    "docs/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.md exists",
+    "audit cites M1271 accepted rows and source-diversity evidence",
+    "audit classifies halfshaft inactivity",
+    "audit decides whether to export corpus, filter boundary rows, retarget, or synthesize",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores source diversity",
+    "audit treats source-positive rows as driver performance",
+    "audit skips directly to actor/Gym integration",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint"
+  ],
+  "baseline_artifacts": [
+    "docs/m1271-paper-route-four-wheel-source-viability-calibration-smoke.md",
+    "runs/m1271_four_wheel_source_viability_calibration_smoke/summary.json"
+  ],
+  "decision_rule": "M1272 passes if it audits M1271 source-positive rows and selects the next source step without training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion.",
+  "next_blocker": "m1272-paper-route-four-wheel-source-viability-calibration-result-audit"
+}

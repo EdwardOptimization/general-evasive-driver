@@ -11,6 +11,27 @@ remain the detailed experiment log.
 - Core direction: closed-loop RL driver for handling-limit emergency avoidance,
   with drift as one possible maneuver rather than the project identity.
 
+## Current Research Blocker
+
+Latest completed milestone:
+
+```text
+m1271-paper-route-four-wheel-source-viability-calibration-smoke
+```
+
+Current next task:
+
+```text
+m1272-paper-route-four-wheel-source-viability-calibration-result-audit
+```
+
+M1271 is a no-policy/no-training source-smoke result. It produced `108` strict
+accepted four-wheel capability-separable source rows from `720` matched pairs
+under `scenario_profile=viability_calibration`, spanning three fault-family
+pairs. This is source-positive evidence, not driver performance. The active
+blocker is to audit source diversity, boundary usefulness, and halfshaft
+inactivity before any actor/Gym integration.
+
 ## Actor Contract
 
 Mainline actor:
