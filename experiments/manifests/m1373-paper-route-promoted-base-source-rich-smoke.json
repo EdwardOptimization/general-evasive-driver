@@ -1,0 +1,179 @@
+{
+  "id": "m1373-paper-route-promoted-base-source-rich-smoke",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1372-paper-route-promoted-base-source-rich-generalization-design.md",
+      "configs/m990_capability_step_fault_scenarios.json",
+      "docs/m990-v4-public-base-capability-step-fault-smoke.md",
+      "docs/m998-v4-public-base-capability-step-fault-generation-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1372-paper-route-promoted-base-source-rich-generalization-design.json",
+      "configs/m990_capability_step_fault_scenarios.json"
+    ],
+    "parent_objective": [
+      "run a no-training promoted-base source-rich public smoke through the capability-step cross-fault harness"
+    ],
+    "derived_from": [
+      "m1372-paper-route-promoted-base-source-rich-generalization-design"
+    ],
+    "blocked_by": [
+      "M1372 admits a no-training source-rich smoke before larger source-rich waves or L0/L1/L2/L3 comparison refresh"
+    ],
+    "supersedes": [
+      "using source-rich configs without claim-boundary audit",
+      "using private holdout for source-rich debugging",
+      "routing directly from public-base promotion to PPO continuation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1373-paper-route-promoted-base-source-rich-smoke.md",
+  "public_gates": [
+    "M1373 must run the promoted M1362 base through the public capability-step cross-fault harness",
+    "M1373 must keep actor inputs and checkpoint parameters unchanged",
+    "M1373 must produce summary, scenario, pair, intervention, accepted, reset-only, rejected, and model-fidelity artifacts",
+    "M1373 must keep private holdout unused",
+    "M1373 must treat accepted-row sparsity as source-sampling evidence rather than a threshold-relaxation trigger"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not mutate the candidate checkpoint",
+    "do not claim true single-wheel, split-mu, halfshaft, or suspension physics from proxy configs",
+    "do not claim paper-level evidence or level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_promoted_base_source_rich_comparison_readiness",
+    "evidence_axis": "G_source_rich_public_smoke",
+    "evidence_increment": "runs the first no-training source-rich public smoke for the promoted M1362 base",
+    "claim_scope": "public source-rich smoke only; no promotion, private holdout, PPO, high-fidelity, L0/L1/L2/L3, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if source-rich artifacts are missing or malformed",
+      "stop if checkpoint or actor parameters change",
+      "stop if private holdout is used",
+      "stop if proxy faults are interpreted as true high-fidelity per-wheel physics"
+    ],
+    "fallback_plan": [
+      "if harness runs cleanly, route to source-rich result audit or larger public source-rich wave design",
+      "if harness artifacts are incomplete, route to evaluator/tooling repair",
+      "if no accepted rows are found, classify as source sampling evidence and decide whether reset/temporal variants or larger public wave are needed",
+      "if claim boundary is violated, route to claim-boundary audit before more experiments"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1372 admitted source-rich smoke as the next public evidence increment",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "promoted-base source-rich no-training smoke",
+    "admission_evidence": [
+      "M1370 promotes M1362 alpha 0.1 as the public-gate base",
+      "M1371 opens source-rich/comparison readiness",
+      "M1372 defines source-rich claim boundaries and smoke pass conditions"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "source-rich smoke run artifacts",
+      "M1373 milestone document",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "source-rich smoke artifacts exist",
+      "scenario, snapshot, and matched-pair counts are positive",
+      "checkpoint and actor contract are unchanged",
+      "source-rich metrics are interpreted without high-fidelity overclaiming"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1373 can expose reset or wrong-history sensitivity but cannot by itself prove level3 anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal, wrong-history, and reset-history source-rich interventions are recorded by the existing harness",
+      "accepted wrong-history rows and reset-only rows are interpreted separately",
+      "zero accepted wrong-history rows must be recorded as negative or sparse source-sampling evidence"
+    ],
+    "temporal_evidence_window": "M1362 promoted public base under M990 capability-step cross-fault public smoke.",
+    "negative_result_policy": "If accepted rows are sparse or zero, record the negative result and route to audit, temporal variants, or larger public source-rich wave instead of relaxing thresholds.",
+    "allowed_claims": [
+      "source-rich public smoke artifact and metric result",
+      "no promotion, private-holdout, high-fidelity, paper-level, L0/L1/L2/L3, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The promoted M1362 public-gate base can be evaluated through the public capability-step cross-fault harness without actor mutation, private holdout, or proxy-physics overclaiming.",
+  "success_criteria": [
+    "runs/m1373_promoted_base_source_rich_smoke/summary.json exists",
+    "scenario_count > 0",
+    "snapshot_count > 0",
+    "matched_pair_count > 0",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "pairing_mode == cross_fault",
+    "model_fidelity_limits.md exists",
+    "scenario and pair CSV artifacts are readable"
+  ],
+  "failure_criteria": [
+    "summary or core CSV artifacts are missing",
+    "scenario_count, snapshot_count, or matched_pair_count is zero",
+    "actor parameters or actor inputs change",
+    "training, PPO, promotion, or private holdout occurs",
+    "future-only high-fidelity faults are reported as executed physical claims"
+  ],
+  "commands": [
+    {
+      "name": "source_rich_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m990_capability_step_fault_scenarios.json --pairing-mode cross_fault --seed-start 137300 --seed-count 64 --device auto --run-dir runs/m1373_promoted_base_source_rich_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1373_promoted_base_source_rich_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1373_promoted_base_source_rich_smoke/scenario_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1373_promoted_base_source_rich_smoke/matched_cross_fault_pairs.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1373_promoted_base_source_rich_smoke/intervention_rollouts.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1373_promoted_base_source_rich_smoke/model_fidelity_limits.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1372-paper-route-promoted-base-source-rich-generalization-design.md",
+    "configs/m990_capability_step_fault_scenarios.json"
+  ],
+  "decision_rule": "M1373 passes as source-rich public smoke if it produces clean no-training cross-fault artifacts with unchanged actor/checkpoint contract and no private-holdout or high-fidelity overclaim.",
+  "next_blocker": "m1373-paper-route-promoted-base-source-rich-smoke"
+}

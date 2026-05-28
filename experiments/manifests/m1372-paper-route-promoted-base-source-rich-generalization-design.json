@@ -2,7 +2,7 @@
   "id": "m1372-paper-route-promoted-base-source-rich-generalization-design",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -149,6 +149,25 @@
     "docs/m1371-paper-route-post-public-base-promotion-synthesis.md",
     "configs/extreme_fault_distribution_v4_scenarios.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1372-paper-route-promoted-base-source-rich-generalization-design.md",
+    "decision": "promoted_base_source_rich_generalization_design_admit_smoke",
+    "current_public_gate_base": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "next_manifest": "experiments/manifests/m1373-paper-route-promoted-base-source-rich-smoke.json",
+    "planned_run_dir": "runs/m1373_promoted_base_source_rich_smoke",
+    "planned_config": "configs/m990_capability_step_fault_scenarios.json",
+    "planned_pairing_mode": "cross_fault",
+    "planned_seed_start": 137300,
+    "planned_seed_count": 64,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "high_fidelity_claim_made": false
+  },
+  "decision": "promoted_base_source_rich_generalization_design_admit_smoke",
   "decision_rule": "M1372 passes as design only if it defines a promoted-base source-rich public generalization gate while keeping private holdout, PPO, high-fidelity claims, and actor-input changes blocked.",
-  "next_blocker": "m1372-paper-route-promoted-base-source-rich-generalization-design"
+  "next_blocker": "m1373-paper-route-promoted-base-source-rich-smoke"
 }

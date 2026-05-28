@@ -16,28 +16,42 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1371-paper-route-post-public-base-promotion-synthesis
+m1372-paper-route-promoted-base-source-rich-generalization-design
 ```
 
 Current next task:
 
 ```text
-m1372-paper-route-promoted-base-source-rich-generalization-design
+m1373-paper-route-promoted-base-source-rich-smoke
 ```
 
-M1371 closes `paper_route_public_base_promotion_generalization` and opens
-`paper_route_promoted_base_source_rich_comparison_readiness`. The current
-public-gate base remains M1362 alpha `0.1`:
+M1372 designs the promoted-base source-rich public generalization gate and
+admits M1373 as a no-training source-rich smoke. The current public-gate base
+remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-The next branch should design promoted-base source-rich public generalization
-first, with explicit current-model fault versus proxy/future-only fault claim
-boundaries. L0/L1/L2/L3 fair comparison refresh and guarded PPO readiness remain
-later evidence steps and must not borrow claim strength from the public-base
-promotion.
+M1373 should run this checkpoint through the public capability-step cross-fault
+harness using `configs/m990_capability_step_fault_scenarios.json` and
+`src/autodrift/extreme_dynamics_scenario_corpus.py`, writing
+`runs/m1373_promoted_base_source_rich_smoke/summary.json`. This is a public
+source-rich smoke only: no training, PPO, promotion, private holdout, actor-input
+change, high-fidelity physical claim, paper-level claim, L0/L1/L2/L3 conclusion,
+or level3 self-identification claim.
+
+M1372 keeps the source-rich claim boundary explicit. Current single-track and
+axle-level capability faults/proxies are allowed as stress coverage, but true
+single-wheel puncture, split-mu, halfshaft, stuck-caliper, suspension, tire
+damage, and other per-wheel high-fidelity physics remain future-only until a
+higher-fidelity vehicle model exists. Accepted wrong-history row counts in M1373
+are metrics, not smoke pass requirements; zero accepted rows should be recorded
+as source-sampling evidence rather than used to relax thresholds.
+
+L0/L1/L2/L3 fair comparison refresh and guarded PPO readiness remain later
+evidence steps and must not borrow claim strength from the public-base promotion
+or from the M1373 smoke.
 
 M1370 promotes M1362 alpha `0.1` as the official public-gate base:
 

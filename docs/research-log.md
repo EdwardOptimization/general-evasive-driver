@@ -20169,3 +20169,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, replay, evaluation, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, source-rich run, high-fidelity claim, paper-level claim, finite-window-vs-GRU claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1372-paper-route-promoted-base-source-rich-generalization-design.json`.
 - next: `m1372-paper-route-promoted-base-source-rich-generalization-design`
+
+## 20260528T221000Z - m1372-paper-route-promoted-base-source-rich-generalization-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1372-paper-route-promoted-base-source-rich-generalization-design.md`
+- decision: `promoted_base_source_rich_generalization_design_admit_smoke`
+- current public-gate base: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`.
+- design decision: admit a no-training promoted-base source-rich public smoke using `src/autodrift/extreme_dynamics_scenario_corpus.py` and `configs/m990_capability_step_fault_scenarios.json`.
+- planned run: `runs/m1373_promoted_base_source_rich_smoke`, `cross_fault`, seed start `137300`, seed count `64`.
+- claim boundary: current single-track/axle-level current-model faults and proxies only; true single-wheel, split-mu, halfshaft, stuck-caliper, suspension, tire damage, and other high-fidelity per-wheel claims remain future-only.
+- gate interpretation: positive scenario/snapshot/matched-pair artifacts are required; accepted wrong-history rows are metrics, not smoke pass criteria, because prior capability-step branches showed sparse or zero cross-fault positives.
+- L0/L1/L2/L3 ordering: source-rich public smoke and later public source-rich wave should stabilize before fixed-budget fair comparison refresh; no per-profile tuning after results.
+- guardrail: no training, PPO, source-rich evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, high-fidelity claim, paper-level claim, finite-window-vs-GRU claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1373-paper-route-promoted-base-source-rich-smoke.json`.
+- next: `m1373-paper-route-promoted-base-source-rich-smoke`
