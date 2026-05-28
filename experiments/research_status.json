@@ -1,28 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1195,
+    "completed": 1196,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1185-paper-route-gate-utility-matrix-run.md",
+    "command_log": "docs/m1186-paper-route-active-gate-policy-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1185_gate_utility_matrix",
     "status": "completed",
-    "task_id": "m1185-paper-route-gate-utility-matrix-run"
+    "task_id": "m1186-paper-route-active-gate-policy-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1186-paper-route-active-gate-policy-design.json",
-    "hypothesis": "Design active gate policy from M1185 matrix",
-    "id": "m1186-paper-route-active-gate-policy-design",
+    "command": "see experiments/manifests/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.json",
+    "hypothesis": "Design fair L0/L1/L2/L3 controller comparison",
+    "id": "m1187-paper-route-l0-l1-l2-l3-controller-comparison-design",
     "kind": "gate",
-    "notes": "Pending: write active gate policy separating daily core balanced public extended-regression legacy and deprecated handling; no candidate replay gate deletion training PPO promotion private holdout or actor-input change",
-    "priority": 11810,
+    "notes": "Pending: define current one-step finite-window and GRU controller comparison under shared deployable input contract; no training replay PPO promotion private holdout or actor-input change",
+    "priority": 11820,
     "status": "pending",
-    "success_artifact": "docs/m1186-paper-route-active-gate-policy-design.md"
+    "success_artifact": "docs/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.md"
   },
-  "updated_at_utc": "20260528T053500Z"
+  "updated_at_utc": "20260528T055000Z"
 }

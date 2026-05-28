@@ -115,8 +115,35 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1186-paper-route-active-gate-policy-design
+m1187-paper-route-l0-l1-l2-l3-controller-comparison-design
 ```
+
+M1186 completed the active gate policy:
+
+```text
+artifact: docs/m1186-paper-route-active-gate-policy-design.md
+policy: docs/active-gate-policy.md
+decision: active_gate_policy_design_admit_l0_l1_l2_l3_controller_comparison_design
+```
+
+The active gate schedule is now:
+
+- Stack A: daily engineering and controller-comparison admission. It is core
+  for actor contract, broad behavior, and process validation, but it is not
+  mechanism proof.
+- Stack B: active public proof default for public-base hardening, guarded PPO
+  admission, source-rich proof conversion, and mechanism claims.
+- Stack C: extended historical regression for promotion, branch synthesis,
+  paper table freeze, and hard failure localization.
+- Legacy diagnostics: keep for provenance and compatibility, but do not use as
+  single-row global blockers unless reinstated by manifest.
+- Deprecated objectives: do not use for training or promotion without a new
+  reinstatement manifest.
+
+M1186 did not run replay, delete gates, train, run PPO, promote, use private
+holdout, or change actor inputs. The next blocker is M1187: design the fair
+L0/L1/L2/L3 controller comparison before any controller training or GRU-first
+paper claim.
 
 M1185 completed the first gate utility matrix:
 

@@ -16928,3 +16928,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no candidate replay, gate demotion, deletion, actor training, PPO, promotion, private holdout, or actor-input change occurred.
 - decision: `gate_utility_matrix_pass_route_to_active_gate_policy_design`
 - next: `m1186-paper-route-active-gate-policy-design`
+
+## 20260528T055000Z - m1186-paper-route-active-gate-policy-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1186-paper-route-active-gate-policy-design.md`
+- policy: `docs/active-gate-policy.md`
+- result: converts the M1185 gate utility matrix into an active gate scheduling policy for the paper route.
+- Stack A: daily engineering and controller-comparison admission; necessary for behavior and contract checks but insufficient for mechanism proof.
+- Stack B: active public proof default for public-base hardening, guarded PPO admission, source-rich proof conversion, and mechanism claims.
+- Stack C: extended historical regression for promotion, synthesis, paper table freeze, and failure localization rather than an unconditional blocker for every finite-window or engineering baseline.
+- legacy policy: old singletons such as the `9944` protected key remain diagnostic-only unless reinstated by a new manifest.
+- deprecated policy: sign-wrong or metric-artifact objectives must not guide training or promotion without reinstatement.
+- follow-up manifest: `experiments/manifests/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.json`.
+- guardrail: no candidate replay, gate deletion, actor training, PPO, promotion, private holdout, or actor-input change occurred.
+- decision: `active_gate_policy_design_admit_l0_l1_l2_l3_controller_comparison_design`
+- next: `m1187-paper-route-l0-l1-l2-l3-controller-comparison-design`
