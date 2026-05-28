@@ -1,0 +1,168 @@
+{
+  "id": "m1182-v4-public-base-no-residual-source-rich-adapter-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1181-v4-public-base-source-rich-route-compatibility-audit.md",
+      "src/autodrift/v4_low_margin_new_data_route.py",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1181-v4-public-base-source-rich-route-compatibility-audit.json"
+    ],
+    "parent_objective": [
+      "implement a no-residual source-rich adapter for current public-gate base"
+    ],
+    "derived_from": [
+      "m1181-v4-public-base-source-rich-route-compatibility-audit"
+    ],
+    "blocked_by": [
+      "existing source-rich tools require an incompatible residual head"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running old residual-head routes as current-base evidence",
+      "source-rich run before no-residual adapter exists"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1182-v4-public-base-no-residual-source-rich-adapter-implementation.md",
+  "public_gates": [
+    "M1182 may implement adapter tooling and focused tests only",
+    "M1182 must not run source-rich mining",
+    "M1182 must not run replay experiments beyond focused unit-level checks",
+    "M1182 must not train actor weights",
+    "M1182 must not run PPO",
+    "M1182 must not promote",
+    "M1182 must not use private holdout",
+    "M1182 must preserve actor inputs",
+    "M1182 must not convert rows into a proof corpus"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run source-rich mining",
+    "do not run full replay experiments",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert rows",
+    "do not require residual-head inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_rich_extreme_scenario_surface_refresh",
+    "evidence_axis": "G_infra: current-base no-residual source-rich adapter",
+    "evidence_increment": "adds tooling needed to generate current-base source-rich normal-boundary rows without residual-head dependency",
+    "claim_scope": "infrastructure only; no mining, replay, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if adapter requires residual-head input",
+      "stop if actor input contract changes",
+      "stop if source-rich metadata cannot be emitted",
+      "stop if implementation expands into full mining run"
+    ],
+    "fallback_plan": [
+      "if existing helpers can be reused safely, wrap them with no-residual replay",
+      "if reuse is too coupled, implement a small dedicated current-base module",
+      "if tests reveal missing metadata, route to instrumentation repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1181 admits no-residual adapter implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement current-base no-residual source-rich adapter tooling",
+    "admission_evidence": [
+      "M1181 confirms residual-head route is incompatible with current public base",
+      "existing v4 route metadata helpers can be reused conceptually",
+      "no source-rich run should happen before adapter tooling exists"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not run mining",
+      "do not run full replay",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "small source module",
+      "focused tests",
+      "docs and next manifest",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "adapter accepts checkpoint and scenario config without residual-head",
+      "adapter emits required source-rich metadata fields",
+      "focused tests pass",
+      "follow-up smoke run is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1182 is infrastructure only and adds no behavior evidence.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1182 only prepares future evidence collection.",
+    "negative_result_policy": "If adapter cannot stay small, split implementation from smoke run and document the blocker.",
+    "allowed_claims": [
+      "no-residual adapter tooling",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-level claim"
+    ]
+  },
+  "hypothesis": "A small no-residual adapter can reuse source-rich scenario conventions while evaluating the current public-gate actor directly and emitting the metadata needed for a later source-rich smoke run.",
+  "success_criteria": [
+    "source module exists",
+    "focused tests exist and pass",
+    "adapter has no residual-head CLI requirement",
+    "required source-rich metadata fields are emitted or validated",
+    "follow-up smoke run manifest exists",
+    "no mining, full replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "adapter requires residual-head input",
+    "actor input contract changes",
+    "tests are missing",
+    "implementation runs full mining or replay",
+    "mining, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "implement_no_residual_source_rich_adapter",
+      "command": "implement adapter module and focused tests"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/current_base_source_rich_adapter.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_current_base_source_rich_adapter.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1182-v4-public-base-no-residual-source-rich-adapter-implementation.md",
+      "type": "md"
+    },
+    {
+      "path": "experiments/manifests/m1183-v4-public-base-no-residual-source-rich-smoke-run.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1181-v4-public-base-source-rich-route-compatibility-audit.md"
+  ],
+  "decision_rule": "M1182 may only implement no-residual source-rich adapter tooling and focused tests. It cannot run source-rich mining, run full replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
+  "next_blocker": "m1182-v4-public-base-no-residual-source-rich-adapter-implementation"
+}

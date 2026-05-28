@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T023850Z
+- Generated at UTC: 20260528T024323Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1181 may only audit compatibility of existing source-rich route tooling and choose the next route. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.
+- Promotion decision: source_rich_route_compatibility_audit_route_to_no_residual_adapter_implementation
+- Decision reason: M1181 finds residual-head source-rich routes are incompatible with current public base and routes to no-residual adapter tooling
 
 ## Hypothesis
 
@@ -74,8 +74,19 @@ Existing source-rich v4 route tooling either can be safely reused for the curren
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1181-v4-public-base-source-rich-route-compatibility-audit
+- type: gate
+- checkpoint: docs/m1181-v4-public-base-source-rich-route-compatibility-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: source_rich_route_compatibility_audit_route_to_no_residual_adapter_implementation
+- reason: M1181 finds residual-head source-rich routes are incompatible with current public base and routes to no-residual adapter tooling
 
 ## Next Blocker
 
-m1181-v4-public-base-source-rich-route-compatibility-audit
+m1182-v4-public-base-no-residual-source-rich-adapter-implementation

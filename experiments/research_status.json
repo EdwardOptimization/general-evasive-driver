@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1189,
+    "completed": 1190,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1180-v4-public-base-source-rich-extreme-scenario-refresh-design",
+    "task_id": "m1181-v4-public-base-source-rich-route-compatibility-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md",
-    "result_class": "source_rich_extreme_scenario_refresh_design_complete",
-    "decision": "source_rich_extreme_scenario_refresh_design_admit_compatibility_audit"
+    "command_log": "docs/m1181-v4-public-base-source-rich-route-compatibility-audit.md",
+    "result_class": "residual_head_route_incompatible_with_current_public_base",
+    "decision": "source_rich_route_compatibility_audit_route_to_no_residual_adapter_implementation"
   },
   "next_task": {
-    "id": "m1181-v4-public-base-source-rich-route-compatibility-audit",
+    "id": "m1182-v4-public-base-no-residual-source-rich-adapter-implementation",
     "status": "pending",
-    "priority": 11760,
-    "kind": "gate",
-    "hypothesis": "Existing source-rich v4 route tooling either can be safely reused for the current public-gate base with identity/no-residual behavior, or the audit will identify the minimal current-base implementation needed before any run",
-    "command": "see experiments/manifests/m1181-v4-public-base-source-rich-route-compatibility-audit.json",
-    "success_artifact": "docs/m1181-v4-public-base-source-rich-route-compatibility-audit.md",
-    "notes": "Pending: audit only; no replay mining actor training PPO promotion private holdout conversion or actor-input change"
+    "priority": 11770,
+    "kind": "infrastructure",
+    "hypothesis": "A small no-residual adapter can reuse source-rich scenario conventions while evaluating the current public-gate actor directly and emitting the metadata needed for a later source-rich smoke run",
+    "command": "see experiments/manifests/m1182-v4-public-base-no-residual-source-rich-adapter-implementation.json",
+    "success_artifact": "docs/m1182-v4-public-base-no-residual-source-rich-adapter-implementation.md",
+    "notes": "Pending: implement adapter and focused tests only; no source-rich mining full replay actor training PPO promotion private holdout conversion or actor-input change"
   },
-  "updated_at_utc": "20260528T042500Z"
+  "updated_at_utc": "20260528T044000Z"
 }

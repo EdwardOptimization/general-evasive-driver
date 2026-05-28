@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1181 may only audit compatibility of existing source-rich route tooling and choose the next route. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
+  "decision_reason": "M1181 finds residual-head source-rich routes are incompatible with current public base and routes to no-residual adapter tooling",
   "failure_criteria": [
     "audit artifact is missing",
     "audit recommends running old M568+M761 route as current-base evidence",
@@ -22,7 +22,7 @@
     "do not claim old M568+M761 route results as current public-base evidence"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260528T023850Z",
+  "generated_at_utc": "20260528T024323Z",
   "hypothesis": "Existing source-rich v4 route tooling either can be safely reused for the current public-gate base with identity/no-residual behavior, or the audit will identify the minimal current-base implementation needed before any run.",
   "lineage": {
     "blocked_by": [
@@ -55,9 +55,9 @@
     "supersedes": []
   },
   "milestone": "m1181-v4-public-base-source-rich-route-compatibility-audit",
-  "next_blocker": "m1181-v4-public-base-source-rich-route-compatibility-audit",
+  "next_blocker": "m1182-v4-public-base-no-residual-source-rich-adapter-implementation",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "source_rich_route_compatibility_audit_route_to_no_residual_adapter_implementation",
   "public_gates": [
     "M1181 may inspect existing tooling and configs only",
     "M1181 must not run mining",
@@ -69,7 +69,20 @@
     "M1181 must preserve actor inputs",
     "M1181 must not convert failed rows into a proof corpus"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1181-v4-public-base-source-rich-route-compatibility-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "source_rich_route_compatibility_audit_route_to_no_residual_adapter_implementation",
+    "milestone": "m1181-v4-public-base-source-rich-route-compatibility-audit",
+    "reason": "M1181 finds residual-head source-rich routes are incompatible with current public base and routes to no-residual adapter tooling",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "audit artifact exists",
     "current-base checkpoint compatibility is assessed",

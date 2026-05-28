@@ -151,6 +151,36 @@
   "baseline_artifacts": [
     "docs/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1181-v4-public-base-source-rich-route-compatibility-audit.md",
+    "decision": "source_rich_route_compatibility_audit_route_to_no_residual_adapter_implementation",
+    "result_class": "residual_head_route_incompatible_with_current_public_base",
+    "failure_types": [
+      "lineage_invalid"
+    ],
+    "current_public_gate_base": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "old_source_rich_route": "M568 actor + M761 residual head",
+    "audited_tools_require_residual_head": true,
+    "m761_residual_head_feature_dim": 64,
+    "current_base_feature_dim": 12,
+    "m761_residual_loads_with_current_base": false,
+    "alpha_zero_workaround_valid": false,
+    "metadata_support_present": true,
+    "behavior_replay_path_reusable_without_adapter": false,
+    "recommended_route": "implement current-base no-residual source-rich adapter before any source-rich run",
+    "wrong_history_pairing_admitted": false,
+    "replay_started": false,
+    "mining_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "surface_conversion_started": false,
+    "admitted_next": "no_residual_source_rich_adapter_implementation",
+    "next_milestone": "m1182-v4-public-base-no-residual-source-rich-adapter-implementation"
+  },
   "decision_rule": "M1181 may only audit compatibility of existing source-rich route tooling and choose the next route. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
-  "next_blocker": "m1181-v4-public-base-source-rich-route-compatibility-audit"
+  "next_blocker": "m1182-v4-public-base-no-residual-source-rich-adapter-implementation"
 }

@@ -16835,3 +16835,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no mining, replay, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
 - decision: `source_rich_extreme_scenario_refresh_design_admit_compatibility_audit`
 - next: `m1181-v4-public-base-source-rich-route-compatibility-audit`
+
+## 20260528T044000Z - m1181-v4-public-base-source-rich-route-compatibility-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1181-v4-public-base-source-rich-route-compatibility-audit.md`
+- result: existing source-rich v4 route tooling is not directly compatible with the current public-gate base.
+- audited tools: `v4_extreme_hidden_dynamics_data_route`, `v4_low_margin_new_data_route`, `v4_boundary_preserving_missing_seed_pair_delta_refresh`, `v4_wrong_cross_fault_history_intervention`, and `v4_pair_delta_focused_source_balanced_mining` all require `--residual-head`.
+- compatibility check: current public-base feature dim `12`; M761 residual-head feature dim `64`; loader fails with `residual feature_dim=64 does not match actor feature_dim=12`.
+- conclusion: `alpha=0` cannot be used as a workaround because residual-head load happens before alpha can neutralize residual action.
+- metadata audit: existing v4 tooling has useful fault/fidelity/warmup/onset/boundary-axis/source-obstacle/target-obstacle metadata conventions.
+- decision route: implement a minimal current-base no-residual source-rich adapter before any source-rich run.
+- guardrail: no mining, replay, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
+- decision: `source_rich_route_compatibility_audit_route_to_no_residual_adapter_implementation`
+- next: `m1182-v4-public-base-no-residual-source-rich-adapter-implementation`
