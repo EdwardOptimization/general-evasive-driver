@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import argparse
+import copy
+import math
 from pathlib import Path
 from typing import Any
 
@@ -76,6 +78,8 @@ def _row_for_candidate(rows: list[dict[str, Any]], condition: str, candidate_id:
 
 
 def _action_from_row(row: dict[str, Any]) -> np.ndarray:
+    if "candidate_vector" in row:
+        return np.asarray(row["candidate_vector"], dtype=np.float32)
     return np.asarray(
         [row.get("candidate_steer"), row.get("candidate_throttle"), row.get("candidate_brake")],
         dtype=np.float32,
@@ -112,7 +116,8 @@ def evaluate_action_separability(
             "rejection_reason": "missing_cross_candidate_rollouts",
         }
 
-    action_l2 = float(np.linalg.norm(_action_from_row(best_a) - _action_from_row(best_b)))
+    sequence_length = max(1, int(best_a.get("sequence_length", 1)))
+    action_l2 = float(np.linalg.norm(_action_from_row(best_a) - _action_from_row(best_b)) / math.sqrt(sequence_length))
     margin_a_best_a = _margin(best_a)
     margin_a_best_b = _margin(a_using_b)
     margin_b_best_b = _margin(best_b)
@@ -204,6 +209,66 @@ def classify_capability_separable_result(
     return "no_capability_separable_signal"
 
 
+def build_short_sequence_candidates(
+    shared_base_action: np.ndarray,
+    *,
+    sequence_length: int,
+    template_set: str,
+) -> list[dict[str, Any]]:
+    """Build compact shared steer/brake pulse candidates around one base action."""
+
+    if str(template_set) != "steer_brake_pulses":
+        raise ValueError(f"unsupported sequence_template_set {template_set!r}")
+    base = np.asarray(shared_base_action, dtype=np.float32)
+    if base.shape != (3,):
+        raise ValueError(f"shared_base_action must have shape (3,), got {base.shape}")
+    length = int(sequence_length)
+    if length < 1:
+        raise ValueError("sequence_length must be positive")
+
+    steer_deltas = (-0.30, -0.15, 0.0, 0.15, 0.30)
+    brake_deltas = (-0.30, 0.0, 0.30)
+    templates = ("hold", "release", "ramp")
+    candidates: list[dict[str, Any]] = []
+    seen: set[tuple[float, ...]] = set()
+    candidate_id = 0
+    for template in templates:
+        if template == "hold":
+            scales = np.ones(length, dtype=np.float32)
+        elif template == "release":
+            scales = np.linspace(1.0, 0.0, num=length, dtype=np.float32)
+        else:
+            scales = np.linspace(0.0, 1.0, num=length, dtype=np.float32)
+        for steer_delta in steer_deltas:
+            for brake_delta in brake_deltas:
+                sequence = []
+                for scale in scales:
+                    delta = np.asarray([float(steer_delta) * float(scale), 0.0, float(brake_delta) * float(scale)])
+                    sequence.append(np.clip(base + delta, -1.0, 1.0).astype(np.float32))
+                sequence_array = np.asarray(sequence, dtype=np.float32)
+                flat = sequence_array.reshape(-1)
+                key = tuple(round(float(value), 6) for value in flat.tolist())
+                if key in seen:
+                    continue
+                seen.add(key)
+                candidates.append(
+                    {
+                        "candidate_id": candidate_id,
+                        "template": template,
+                        "steer_delta": float(steer_delta),
+                        "throttle_delta": 0.0,
+                        "brake_delta": float(brake_delta),
+                        "sequence": sequence_array,
+                        "candidate_vector": flat.astype(np.float32),
+                        "action_l2_from_shared_base": float(
+                            np.linalg.norm(flat - np.tile(base, length)) / math.sqrt(length)
+                        ),
+                    }
+                )
+                candidate_id += 1
+    return candidates
+
+
 def _group_pair_summary(pair_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     groups: dict[str, list[dict[str, Any]]] = {}
     for row in pair_rows:
@@ -253,6 +318,80 @@ def _write_model_fidelity_limits(run_dir: Path, config: dict[str, Any]) -> Path:
     return output
 
 
+def _rollout_action_sequence_override(
+    *,
+    model: torch.nn.Module,
+    snapshot: OutcomeSnapshot,
+    action_sequence: np.ndarray,
+    max_continuation_steps: int,
+    device: torch.device,
+) -> dict[str, Any]:
+    env = copy.deepcopy(snapshot.env)
+    obs = snapshot.observation.copy()
+    hidden = snapshot.hidden.detach().clone()
+    actions = np.asarray(action_sequence, dtype=np.float32)
+    if actions.ndim != 2 or actions.shape[1] != 3:
+        raise ValueError(f"action_sequence must have shape (K, 3), got {actions.shape}")
+
+    rewards: list[float] = []
+    betas: list[float] = []
+    terminated = False
+    truncated = False
+    info = dict(snapshot.info)
+
+    for action in actions:
+        if terminated or truncated:
+            break
+        _, next_hidden = deterministic_action_from_hidden(model, np.asarray(obs, dtype=np.float32), hidden, device)
+        obs, reward, terminated, truncated, info = env.step(np.clip(action, -1.0, 1.0).astype(np.float32))
+        rewards.append(float(reward))
+        betas.append(float(info.get("beta", float("nan"))))
+        hidden = next_hidden
+
+    for _ in range(max(0, int(max_continuation_steps))):
+        if terminated or truncated:
+            break
+        policy_action, next_hidden = deterministic_action_from_hidden(
+            model,
+            np.asarray(obs, dtype=np.float32),
+            hidden,
+            device,
+        )
+        obs, reward, terminated, truncated, info = env.step(policy_action)
+        rewards.append(float(reward))
+        betas.append(float(info.get("beta", float("nan"))))
+        hidden = next_hidden
+
+    beta_abs_peak = float(np.nanmax(np.abs(betas))) if betas else float("nan")
+    if bool(info.get("collision", False)):
+        reason = "collision"
+    elif bool(info.get("obstacle_completed", False)):
+        reason = "obstacle_completed"
+    elif bool(terminated):
+        reason = "terminated"
+    elif bool(truncated):
+        reason = "truncated"
+    else:
+        reason = "running"
+    return {
+        "steps": int(len(rewards)),
+        "return": float(np.sum(rewards)),
+        "terminated": bool(terminated),
+        "truncated": bool(truncated),
+        "success": not bool(terminated),
+        "collision": bool(info.get("collision", False)),
+        "terminal_reason": reason,
+        "obstacle_completed": bool(info.get("obstacle_completed", False)),
+        "min_obstacle_clearance": float(info.get("min_obstacle_clearance", float("nan"))),
+        "obstacle_collision_radius": float(info.get("obstacle_collision_radius", float("nan"))),
+        "min_clearance_margin": float(info.get("min_clearance_margin", float("nan"))),
+        "beta_abs_peak": beta_abs_peak,
+        "first_steer": float(actions[0, 0]),
+        "first_throttle": float(actions[0, 1]),
+        "first_brake": float(actions[0, 2]),
+    }
+
+
 def _evaluate_pair_lattice(
     *,
     pair_id: int,
@@ -262,27 +401,57 @@ def _evaluate_pair_lattice(
     steer_deltas: tuple[float, ...],
     throttle_deltas: tuple[float, ...],
     brake_deltas: tuple[float, ...],
+    candidate_mode: str,
+    sequence_length: int,
+    sequence_template_set: str,
     max_continuation_steps: int,
     device: torch.device,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     base_a, _ = deterministic_action_from_hidden(model, condition_a.observation, condition_a.hidden, device)
     base_b, _ = deterministic_action_from_hidden(model, condition_b.observation, condition_b.hidden, device)
     shared_base = np.clip(0.5 * (np.asarray(base_a, dtype=np.float32) + np.asarray(base_b, dtype=np.float32)), -1.0, 1.0)
-    candidates = build_action_candidates(
-        shared_base,
-        steer_deltas=steer_deltas,
-        throttle_deltas=throttle_deltas,
-        brake_deltas=brake_deltas,
-    )
+    if candidate_mode == "first_action":
+        candidates = [
+            {
+                "candidate_id": candidate.candidate_id,
+                "template": "first_action",
+                "steer_delta": candidate.steer_delta,
+                "throttle_delta": candidate.throttle_delta,
+                "brake_delta": candidate.brake_delta,
+                "sequence": candidate.action.reshape(1, 3),
+                "candidate_vector": candidate.action.reshape(-1),
+                "action_l2_from_shared_base": candidate.action_l2,
+            }
+            for candidate in build_action_candidates(
+                shared_base,
+                steer_deltas=steer_deltas,
+                throttle_deltas=throttle_deltas,
+                brake_deltas=brake_deltas,
+            )
+        ]
+    elif candidate_mode == "short_sequence":
+        candidates = build_short_sequence_candidates(
+            shared_base,
+            sequence_length=sequence_length,
+            template_set=sequence_template_set,
+        )
+    else:
+        raise ValueError(f"unknown candidate_mode {candidate_mode!r}")
     lattice_rows: list[dict[str, Any]] = []
     rollout_rows: list[dict[str, Any]] = []
     outcome_a = _as_outcome_snapshot(condition_a)
     outcome_b = _as_outcome_snapshot(condition_b)
     for candidate in candidates:
+        sequence = np.asarray(candidate["sequence"], dtype=np.float32)
+        first_action = sequence[0]
+        last_action = sequence[-1]
         lattice_rows.append(
             {
                 "pair_id": int(pair_id),
-                "candidate_id": int(candidate.candidate_id),
+                "candidate_id": int(candidate["candidate_id"]),
+                "candidate_mode": candidate_mode,
+                "sequence_length": int(sequence.shape[0]),
+                "template": str(candidate["template"]),
                 "shared_base_steer": float(shared_base[0]),
                 "shared_base_throttle": float(shared_base[1]),
                 "shared_base_brake": float(shared_base[2]),
@@ -292,32 +461,52 @@ def _evaluate_pair_lattice(
                 "base_B_steer": float(base_b[0]),
                 "base_B_throttle": float(base_b[1]),
                 "base_B_brake": float(base_b[2]),
-                "steer_delta": float(candidate.steer_delta),
-                "throttle_delta": float(candidate.throttle_delta),
-                "brake_delta": float(candidate.brake_delta),
-                "candidate_steer": float(candidate.action[0]),
-                "candidate_throttle": float(candidate.action[1]),
-                "candidate_brake": float(candidate.action[2]),
-                "action_l2_from_shared_base": float(candidate.action_l2),
+                "steer_delta": float(candidate["steer_delta"]),
+                "throttle_delta": float(candidate["throttle_delta"]),
+                "brake_delta": float(candidate["brake_delta"]),
+                "candidate_steer": float(first_action[0]),
+                "candidate_throttle": float(first_action[1]),
+                "candidate_brake": float(first_action[2]),
+                "last_steer": float(last_action[0]),
+                "last_throttle": float(last_action[1]),
+                "last_brake": float(last_action[2]),
+                "candidate_vector": candidate["candidate_vector"].tolist(),
+                "action_l2_from_shared_base": float(candidate["action_l2_from_shared_base"]),
             }
         )
         for condition, snapshot in (("A", outcome_a), ("B", outcome_b)):
-            result = _rollout_first_action_override(
-                model=model,
-                snapshot=snapshot,
-                first_action=candidate.action,
-                max_continuation_steps=max_continuation_steps,
-                device=device,
-            )
+            if candidate_mode == "first_action":
+                result = _rollout_first_action_override(
+                    model=model,
+                    snapshot=snapshot,
+                    first_action=first_action,
+                    max_continuation_steps=max_continuation_steps,
+                    device=device,
+                )
+            else:
+                result = _rollout_action_sequence_override(
+                    model=model,
+                    snapshot=snapshot,
+                    action_sequence=sequence,
+                    max_continuation_steps=max_continuation_steps,
+                    device=device,
+                )
             rollout_rows.append(
                 {
                     "pair_id": int(pair_id),
-                    "candidate_id": int(candidate.candidate_id),
+                    "candidate_id": int(candidate["candidate_id"]),
+                    "candidate_mode": candidate_mode,
+                    "sequence_length": int(sequence.shape[0]),
+                    "template": str(candidate["template"]),
                     "condition": condition,
-                    "candidate_steer": float(candidate.action[0]),
-                    "candidate_throttle": float(candidate.action[1]),
-                    "candidate_brake": float(candidate.action[2]),
-                    "action_l2_from_shared_base": float(candidate.action_l2),
+                    "candidate_steer": float(first_action[0]),
+                    "candidate_throttle": float(first_action[1]),
+                    "candidate_brake": float(first_action[2]),
+                    "last_steer": float(last_action[0]),
+                    "last_throttle": float(last_action[1]),
+                    "last_brake": float(last_action[2]),
+                    "candidate_vector": candidate["candidate_vector"].tolist(),
+                    "action_l2_from_shared_base": float(candidate["action_l2_from_shared_base"]),
                     "success": bool(result.get("success", False)),
                     "collision": bool(result.get("collision", False)),
                     "terminal_reason": str(result.get("terminal_reason", "")),
@@ -349,6 +538,9 @@ def run_capability_separable_source_constructor(
     pairing_mode: str,
     device: str,
     run_dir: Path,
+    candidate_mode: str = "first_action",
+    sequence_length: int = 1,
+    sequence_template_set: str = "steer_brake_pulses",
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     config = load_scenario_config(config_path)
@@ -470,6 +662,9 @@ def run_capability_separable_source_constructor(
             steer_deltas=steer_deltas,
             throttle_deltas=throttle_deltas,
             brake_deltas=brake_deltas,
+            candidate_mode=candidate_mode,
+            sequence_length=sequence_length,
+            sequence_template_set=sequence_template_set,
             max_continuation_steps=max_continuation_steps,
             device=resolved_device,
         )
@@ -535,6 +730,9 @@ def run_capability_separable_source_constructor(
     write_csv_rows(run_dir / "matched_capability_pairs.csv", pair_rows)
     write_csv_rows(run_dir / "action_lattice.csv", lattice_rows)
     write_csv_rows(run_dir / "action_rollouts.csv", action_rollout_rows)
+    if candidate_mode == "short_sequence":
+        write_csv_rows(run_dir / "sequence_lattice.csv", lattice_rows)
+        write_csv_rows(run_dir / "sequence_rollouts.csv", action_rollout_rows)
     write_csv_rows(run_dir / "accepted_separable_pairs.csv", accepted_rows)
     write_csv_rows(run_dir / "rejected_pairs.csv", [*rejected_rows, *unmatched_rows])
     write_csv_rows(run_dir / "fault_family_pair_summary.csv", _group_pair_summary(pair_rows))
@@ -554,6 +752,9 @@ def run_capability_separable_source_constructor(
         "steer_deltas": steer_deltas,
         "throttle_deltas": throttle_deltas,
         "brake_deltas": brake_deltas,
+        "candidate_mode": candidate_mode,
+        "sequence_length": int(sequence_length),
+        "sequence_template_set": sequence_template_set,
         "min_best_action_l2": float(min_best_action_l2),
         "min_cross_regret_margin": float(min_cross_regret_margin),
         "scenario_count": int(len(scenario_rows)),
@@ -563,6 +764,8 @@ def run_capability_separable_source_constructor(
         "unmatched_rows": int(len(unmatched_rows)),
         "action_lattice_rows": int(len(lattice_rows)),
         "action_rollouts": int(len(action_rollout_rows)),
+        "sequence_lattice_rows": int(len(lattice_rows)) if candidate_mode == "short_sequence" else 0,
+        "sequence_rollouts": int(len(action_rollout_rows)) if candidate_mode == "short_sequence" else 0,
         "accepted_separable_pairs": int(len(accepted_rows)),
         "rejected_pairs": int(len(rejected_rows)),
         "best_actions_diverged_pairs": int(best_actions_diverged_pairs),
@@ -606,6 +809,9 @@ def main() -> None:
     parser.add_argument("--steer-deltas", type=parse_float_list, default=(-0.30, -0.15, 0.0, 0.15, 0.30))
     parser.add_argument("--throttle-deltas", type=parse_float_list, default=(-0.20, 0.0, 0.20))
     parser.add_argument("--brake-deltas", type=parse_float_list, default=(-0.30, -0.15, 0.0, 0.15, 0.30))
+    parser.add_argument("--candidate-mode", choices=["first_action", "short_sequence"], default="first_action")
+    parser.add_argument("--sequence-length", type=int, default=1)
+    parser.add_argument("--sequence-template-set", choices=["steer_brake_pulses"], default="steer_brake_pulses")
     parser.add_argument("--min-best-action-l2", type=float, default=0.12)
     parser.add_argument("--min-cross-regret-margin", type=float, default=0.02)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
@@ -626,6 +832,9 @@ def main() -> None:
         brake_deltas=args.brake_deltas,
         min_best_action_l2=args.min_best_action_l2,
         min_cross_regret_margin=args.min_cross_regret_margin,
+        candidate_mode=args.candidate_mode,
+        sequence_length=args.sequence_length,
+        sequence_template_set=args.sequence_template_set,
         pairing_mode=args.pairing_mode,
         device=args.device,
         run_dir=run_dir,

@@ -17911,3 +17911,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1244-paper-route-capability-separable-short-sequence-lattice-smoke.json`.
 - decision: `low_regret_audit_select_short_sequence_lattice_smoke`
 - next: `m1244-paper-route-capability-separable-short-sequence-lattice-smoke`
+
+## 20260528T093203Z - m1244-paper-route-capability-separable-short-sequence-lattice-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json`
+- implementation: extended `src/autodrift/capability_separable_source_constructor.py` with `--candidate-mode short_sequence`, `--sequence-length`, and `--sequence-template-set steer_brake_pulses`.
+- result: infrastructure passes with `matched_pair_count=120`, `sequence_rollouts=10320`, `unique_matched_fault_family_pairs=9`, and `unique_matched_seeds=20`.
+- negative source result: `accepted_separable_pairs=0`, `best_actions_diverged_pairs=8`, `low_regret_pairs=120`, `result_class=action_divergent_low_regret`.
+- interpretation: short sequences increase action divergence but still do not produce meaningful cross-regret; next audit should focus on source-window and boundary-conditioning choices.
+- guardrail: actor parameters unchanged; no labels entered actor inputs; no training, PPO, promotion, private holdout, actor-input expansion, self-ID claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1245-paper-route-capability-separable-source-window-audit.json`.
+- decision: `short_sequence_lattice_smoke_infrastructure_pass_low_regret_route_to_source_window_audit`
+- next: `m1245-paper-route-capability-separable-source-window-audit`

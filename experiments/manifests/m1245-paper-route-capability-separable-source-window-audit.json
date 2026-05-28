@@ -1,0 +1,147 @@
+{
+  "id": "m1245-paper-route-capability-separable-source-window-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json",
+      "runs/m1244_capability_separable_short_sequence_lattice_smoke/matched_capability_pairs.csv",
+      "runs/m1244_capability_separable_short_sequence_lattice_smoke/sequence_rollouts.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1244-paper-route-capability-separable-short-sequence-lattice-smoke.json"
+    ],
+    "parent_objective": [
+      "audit whether source-window and boundary-conditioning choices explain repeated low-regret source-negative results"
+    ],
+    "derived_from": [
+      "m1244-paper-route-capability-separable-short-sequence-lattice-smoke"
+    ],
+    "blocked_by": [
+      "M1244 short-sequence lattice infrastructure passed but accepted_separable_pairs == 0"
+    ],
+    "supersedes": [
+      "more short-sequence template tuning before source-window audit"
+    ],
+    "invalidates": [
+      "assuming a short sequence lattice alone is sufficient to expose hidden-dynamics separability"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1245-paper-route-capability-separable-source-window-audit.md",
+  "public_gates": [
+    "M1245 may audit M1244 artifacts only",
+    "M1245 must not train controllers",
+    "M1245 must not run PPO",
+    "M1245 must not use private holdout",
+    "M1245 must not promote",
+    "M1245 must preserve actor input contract",
+    "M1245 must select one bounded next source-window repair or explicitly route to simulator-fidelity design"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters or oracle labels to actor inputs",
+    "do not claim self-identification from source construction",
+    "do not continue tuning sequence templates without source-window diagnosis"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_capability_separable_source_construction",
+    "evidence_axis": "S_capability_separable_source_window_audit",
+    "evidence_increment": "classifies whether low-regret negatives are caused by source-window and boundary-conditioning choices",
+    "claim_scope": "audit/process only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if audit tries to promote zero accepted separable pairs",
+      "stop if hidden labels are proposed as actor inputs",
+      "stop if next route changes multiple variables at once"
+    ],
+    "fallback_plan": [
+      "boundary-conditioned source window smoke",
+      "high action-spread source filter",
+      "simulator-fidelity design if current proxy faults cannot expose separable cases"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1244 short-sequence lattice remains source-negative",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-window low-regret audit",
+    "admission_evidence": [
+      "M1242 first-action lattice and M1244 short-sequence lattice both produced zero accepted separable pairs",
+      "M1244 increased divergence but remained low-regret"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1245 audit docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "audit determines whether source windows should be narrowed, ranked by action spread, or routed to simulator fidelity",
+      "one bounded next step is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1245 audits source-window choices and still does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If source windows are not the bottleneck, route to simulator-fidelity design or record current-model limits.",
+    "allowed_claims": [
+      "source-window audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Repeated low-regret source-negative results can be classified by auditing source-window and boundary-conditioning variables before changing simulator fidelity or training an actor.",
+  "success_criteria": [
+    "docs/m1245-paper-route-capability-separable-source-window-audit.md exists",
+    "M1244 summary metrics are quoted",
+    "best-action divergence and cross-regret distributions are inspected",
+    "source-window and boundary-conditioning hypotheses are evaluated",
+    "one bounded next step is selected",
+    "private holdout remains unused",
+    "no training, PPO, promotion, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "M1245 starts training or PPO",
+    "M1245 treats zero accepted separable pairs as source-positive",
+    "M1245 changes actor inputs",
+    "M1245 leaves the next route vague"
+  ],
+  "commands": [
+    {
+      "name": "write_source_window_audit",
+      "command": "write docs/m1245-paper-route-capability-separable-source-window-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1245-paper-route-capability-separable-source-window-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json"
+  ],
+  "decision_rule": "M1245 passes if it classifies the M1244 low-regret source shape through source-window/boundary-conditioning evidence and admits one bounded next step without training or overclaiming.",
+  "next_blocker": "m1245-paper-route-capability-separable-source-window-audit"
+}

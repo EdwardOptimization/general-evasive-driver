@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from autodrift.capability_separable_source_constructor import (
+    build_short_sequence_candidates,
     classify_capability_separable_result,
     evaluate_action_separability,
 )
@@ -88,3 +89,20 @@ def test_classify_capability_separable_result():
         )
         == "action_divergent_low_regret"
     )
+
+
+def test_build_short_sequence_candidates_uses_shared_base_and_deduplicates():
+    candidates = build_short_sequence_candidates(
+        [0.0, 0.1, 0.2],
+        sequence_length=3,
+        template_set="steer_brake_pulses",
+    )
+
+    assert candidates
+    ids = [candidate["candidate_id"] for candidate in candidates]
+    assert ids == list(range(len(ids)))
+    assert len({tuple(candidate["candidate_vector"].tolist()) for candidate in candidates}) == len(candidates)
+    for candidate in candidates:
+        assert candidate["sequence"].shape == (3, 3)
+        assert candidate["candidate_vector"].shape == (9,)
+        assert candidate["action_l2_from_shared_base"] >= 0.0

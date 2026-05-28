@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1253,
+    "completed": 1254,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1243-paper-route-capability-separable-low-regret-audit.md",
+    "command_log": "runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1244_capability_separable_short_sequence_lattice_smoke",
     "status": "completed",
-    "task_id": "m1243-paper-route-capability-separable-low-regret-audit"
+    "task_id": "m1244-paper-route-capability-separable-short-sequence-lattice-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1244-paper-route-capability-separable-short-sequence-lattice-smoke.json",
-    "hypothesis": "Run capability-separable short-sequence lattice smoke",
-    "id": "m1244-paper-route-capability-separable-short-sequence-lattice-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run bounded shared short-sequence source-construction smoke before actor self-ID tests or training",
-    "priority": 12390,
+    "command": "see experiments/manifests/m1245-paper-route-capability-separable-source-window-audit.json",
+    "hypothesis": "Audit capability-separable source-window low-regret result",
+    "id": "m1245-paper-route-capability-separable-source-window-audit",
+    "kind": "gate",
+    "notes": "Pending: audit source-window and boundary-conditioning variables before more sequence tuning simulator changes training or actor self-ID tests",
+    "priority": 12400,
     "status": "pending",
-    "success_artifact": "runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json"
+    "success_artifact": "docs/m1245-paper-route-capability-separable-source-window-audit.md"
   },
-  "updated_at_utc": "20260528T092212Z"
+  "updated_at_utc": "20260528T093203Z"
 }

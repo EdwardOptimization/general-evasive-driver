@@ -163,6 +163,29 @@
     "docs/m1243-paper-route-capability-separable-low-regret-audit.md",
     "runs/m1242_capability_separable_source_constructor_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json",
+    "decision": "short_sequence_lattice_smoke_infrastructure_pass_low_regret_route_to_source_window_audit",
+    "result_class": "action_divergent_low_regret",
+    "candidate_pair_count": 1404,
+    "matched_pair_count": 120,
+    "sequence_rollouts": 10320,
+    "accepted_separable_pairs": 0,
+    "best_actions_diverged_pairs": 8,
+    "low_regret_pairs": 120,
+    "unique_matched_fault_family_pairs": 9,
+    "unique_matched_seeds": 20,
+    "actor_parameters_changed": false,
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1245-paper-route-capability-separable-source-window-audit.json"
+  },
+  "decision": "short_sequence_lattice_smoke_infrastructure_pass_low_regret_route_to_source_window_audit",
   "decision_rule": "M1244 passes as infrastructure if the sequence constructor writes core artifacts and source-shape metrics without actor mutation, training, PPO, promotion, private holdout, or actor-input expansion. Accepted separable pairs are diagnostic only.",
-  "next_blocker": "m1244-paper-route-capability-separable-short-sequence-lattice-smoke"
+  "next_blocker": "m1245-paper-route-capability-separable-source-window-audit"
 }

@@ -115,7 +115,48 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1244-paper-route-capability-separable-short-sequence-lattice-smoke
+m1245-paper-route-capability-separable-source-window-audit
+```
+
+M1244 completed capability-separable short-sequence lattice smoke:
+
+```text
+artifact: runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json
+decision: short_sequence_lattice_smoke_infrastructure_pass_low_regret_route_to_source_window_audit
+result_class: action_divergent_low_regret
+```
+
+M1244 result:
+
+```text
+candidate_pair_count: 1404
+matched_pair_count: 120
+sequence_rollouts: 10320
+unique_matched_fault_family_pairs: 9
+unique_matched_seeds: 20
+accepted_separable_pairs: 0
+best_actions_diverged_pairs: 8
+low_regret_pairs: 120
+```
+
+M1244 conclusion:
+
+```text
+Short sequences increased best-action divergence versus M1242, but all
+divergent rows remain low-regret or nonviable. The next bottleneck is likely
+source-window/boundary conditioning rather than the one-step action object
+alone.
+```
+
+Next task:
+
+```text
+artifact: docs/m1245-paper-route-capability-separable-source-window-audit.md
+manifest: experiments/manifests/m1245-paper-route-capability-separable-source-window-audit.json
+goal: audit whether matched states are too easy / too far from boundary and
+      select one bounded source-window repair
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1243 completed capability-separable low-regret audit:
