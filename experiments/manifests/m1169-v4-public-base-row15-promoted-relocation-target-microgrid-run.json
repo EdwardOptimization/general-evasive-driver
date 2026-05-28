@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -160,6 +160,56 @@
     "docs/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.md",
     "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run.md",
+    "summary": "runs/m1169_row15_promoted_target_microgrid_seed116100/summary.json",
+    "decision": "row15_promoted_target_microgrid_recovers_old_pairs_route_to_branch_synthesis",
+    "result_class": "target_microgrid_recovers_old_pairs_only",
+    "failure_types": [
+      "scenario_sampling_failure"
+    ],
+    "source_budget_ready": true,
+    "source_candidate_wrong_history_rows": 4585,
+    "source_eligible_physical_pairs": 242,
+    "selected_rows": 240,
+    "selected_physical_pairs": 240,
+    "selected_left_steps": 27,
+    "selected_targets": 3,
+    "raw_relocation_rows": 848,
+    "accepted_wrong_history_rows": 6,
+    "accepted_wrong_physical_pairs": 2,
+    "accepted_wrong_left_steps": 2,
+    "accepted_wrong_checkpoints": 1,
+    "accepted_wrong_targets": 1,
+    "accepted_wrong_normal_margin_buckets": 1,
+    "accepted_wrong_normal_margin_min": 0.001708,
+    "accepted_wrong_normal_margin_max": 0.002483,
+    "accepted_wrong_success_drop_fraction": 1.0,
+    "max_rows_per_physical_pair_fraction": 0.666667,
+    "control_accepted_wrong_rows": 0,
+    "m1161_accepted_wrong_history_rows": 15,
+    "m1161_accepted_wrong_physical_pairs": 2,
+    "m1166_accepted_wrong_history_rows": 1,
+    "m1166_accepted_wrong_physical_pairs": 1,
+    "old_m1161_physical_pairs_recovered": true,
+    "new_physical_pairs_beyond_m1161": 0,
+    "improved_vs_m1166": true,
+    "improved_vs_m1161": false,
+    "same_shape_relocation_exhausted": true,
+    "passed": false,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "mining_started": false,
+    "outcome_rerun_started": false,
+    "surface_conversion_started": false,
+    "admitted_next": "branch_synthesis",
+    "next_milestone": "m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis"
+  },
   "decision_rule": "M1169 may only run the M1168 target-margin microgrid diagnostic and compare against M1161/M1166. It cannot rerun mining, rerun outcome gate, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert a surface, or claim full surface pass.",
-  "next_blocker": "m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run"
+  "next_blocker": "m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis"
 }

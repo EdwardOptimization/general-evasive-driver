@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1169 may only run the M1168 target-margin microgrid diagnostic and compare against M1161/M1166. It cannot rerun mining, rerun outcome gate, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert a surface, or claim full surface pass.",
+  "decision_reason": "M1169 recovers both old M1161 physical pairs with 6 accepted rows but finds no new source-diverse pairs so same-shape relocation remains exhausted",
   "failure_criteria": [
     "summary artifact is missing",
     "run exceeds M1166-scale resource budget",
@@ -7,7 +7,7 @@
     "mining, outcome rerun, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
   ],
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "forbidden_shortcuts": [
     "do not rerun mining",
@@ -21,7 +21,7 @@
     "do not claim full surface pass from the microgrid diagnostic"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260528T013956Z",
+  "generated_at_utc": "20260528T014352Z",
   "hypothesis": "Restoring fine target margins including 0.0005 will recover at least the M1161 old sensitive pair that M1166 missed; if it does not reveal new source-diverse pairs, same-shape relocation remains exhausted.",
   "lineage": {
     "blocked_by": [
@@ -51,9 +51,9 @@
     "supersedes": []
   },
   "milestone": "m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run",
-  "next_blocker": "m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run",
+  "next_blocker": "m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "row15_promoted_target_microgrid_recovers_old_pairs_route_to_branch_synthesis",
   "public_gates": [
     "M1169 may run only the M1168 microgrid command",
     "M1169 must reuse the existing M1161 outcome CSV",
@@ -69,7 +69,20 @@
     "M1169 must preserve actor inputs",
     "M1169 must not convert a surface"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m1169_row15_promoted_target_microgrid_seed116100/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_target_microgrid_recovers_old_pairs_route_to_branch_synthesis",
+    "milestone": "m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run",
+    "reason": "M1169 recovers both old M1161 physical pairs with 6 accepted rows but finds no new source-diverse pairs so same-shape relocation remains exhausted",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "summary artifact exists",
     "source_budget_ready is reported",

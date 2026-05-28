@@ -84,25 +84,27 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run
+m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis
 ```
 
-M1168 completed the target-margin microgrid design. M1169 should run a tiny
-diagnostic:
+M1169 completed the target-margin microgrid diagnostic:
 
 ```text
-input: existing M1161 outcome CSV
-max_candidates: 240
-report variant: wrong_matched_history only
-body offsets: 0.0 only
-target margins:
-  0.00025,0.0005,0.00075,0.001,0.00125,0.0015,
-  0.002,0.0025,0.003,0.004,0.005
+selected rows: 240
+selected physical pairs: 240
+raw relocation rows: 848
+accepted wrong-history rows: 6
+accepted wrong-history physical pairs: 2
+accepted wrong-history targets: 1
+accepted wrong-history normal-margin max: 0.002483
+new physical pairs beyond M1161: 0
+decision: row15_promoted_target_microgrid_recovers_old_pairs_route_to_branch_synthesis
 ```
 
-It should compare against M1161 and M1166. If it recovers only the two old
-pairs, the same-shape relocation branch should synthesize and pivot to stronger
-wrong-history construction rather than expand the same cross product.
+Fine target margins recover both old M1161 physical pairs, confirming the
+M1166 target-grid false negative. They do not reveal a broader source-diverse
+wrong-history surface. The next step is a branch synthesis for
+`row15_promoted_margin_slack_surface_refresh`, not another same-shape expansion.
 
 M1127 completed the expanded full public gate for the row15 projection
 candidate:

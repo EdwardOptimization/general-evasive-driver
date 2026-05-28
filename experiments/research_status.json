@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1177,
+    "completed": 1178,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design",
+    "task_id": "m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.md",
-    "result_class": "target_margin_microgrid_design_complete",
-    "decision": "row15_promoted_target_microgrid_design_admit_m1169_run"
+    "command_log": "runs/m1169_row15_promoted_target_microgrid_seed116100/summary.json",
+    "result_class": "target_microgrid_recovers_old_pairs_only",
+    "decision": "row15_promoted_target_microgrid_recovers_old_pairs_route_to_branch_synthesis"
   },
   "next_task": {
-    "id": "m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run",
+    "id": "m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis",
     "status": "pending",
-    "priority": 11640,
+    "priority": 11650,
     "kind": "gate",
-    "hypothesis": "Restoring fine target margins including 0.0005 can recover M1161 old sensitive rows; if no new source-diverse pairs appear, same-shape relocation remains exhausted",
-    "command": "see experiments/manifests/m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run.json",
-    "success_artifact": "docs/m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run.md",
-    "notes": "Pending: run target-margin microgrid diagnostic only; no mining outcome rerun actor training PPO promotion private holdout conversion or actor-input change"
+    "hypothesis": "The row15_promoted_margin_slack_surface_refresh branch should close and pivot because microgrid recovered only old active-set pairs",
+    "command": "see experiments/manifests/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.json",
+    "success_artifact": "docs/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md",
+    "notes": "Pending: branch synthesis only; no mining replay actor training PPO promotion private holdout conversion or actor-input change"
   },
-  "updated_at_utc": "20260528T014500Z"
+  "updated_at_utc": "20260528T015500Z"
 }

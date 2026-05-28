@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M1170 may only synthesize the M1160-M1169 branch and choose the next branch. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert failed surface rows.",
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "branch decision is ambiguous",
+    "same-shape relocation expansion is continued without evidence",
+    "next blocker is ambiguous",
+    "mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not run mining",
+    "do not run replay",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert failed surface rows",
+    "do not continue same-shape relocation expansion without a new branch decision"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T014352Z",
+  "hypothesis": "The row15_promoted_margin_slack_surface_refresh branch should close and pivot because source-diverse mining plus staged relocation did not produce a broad wrong-history surface beyond the old two active-set pairs.",
+  "lineage": {
+    "blocked_by": [
+      "M1169 confirms target-grid sensitivity but finds no new source-diverse wrong-history pairs"
+    ],
+    "derived_from": [
+      "m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run"
+    ],
+    "invalidates": [
+      "continuing same-shape relocation expansion without branch synthesis",
+      "converting M1169 rows into an objective corpus",
+      "starting PPO from the refreshed-surface branch"
+    ],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run.json"
+    ],
+    "parent_dataset": [
+      "docs/m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis.md",
+      "docs/m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run.md",
+      "docs/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.md",
+      "docs/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md",
+      "docs/m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run.md"
+    ],
+    "parent_objective": [
+      "synthesize the row15_promoted_margin_slack_surface_refresh branch after M1169 recovers only old active-set pairs"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis",
+  "next_blocker": "m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M1170 must synthesize M1160 through M1169",
+    "M1170 must close or explicitly continue the current branch",
+    "M1170 must not run mining",
+    "M1170 must not run replay",
+    "M1170 must not train actor weights",
+    "M1170 must not run PPO",
+    "M1170 must not promote",
+    "M1170 must not use private holdout",
+    "M1170 must preserve actor inputs",
+    "M1170 must not convert failed surface rows"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "synthesis artifact exists",
+    "M1160-M1169 evidence is summarized",
+    "supported claims are explicit",
+    "falsified claims are explicit",
+    "failure taxonomy is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "no mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "type": "gate"
+}

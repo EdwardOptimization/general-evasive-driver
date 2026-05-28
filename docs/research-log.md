@@ -16655,3 +16655,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no relocation replay, mining, outcome rerun, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
 - decision: `row15_promoted_target_microgrid_design_admit_m1169_run`
 - next: `m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run`
+
+## 20260528T015500Z - m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run.md`
+- result: fine target margins recover both old M1161 physical pairs but no new source-diverse wrong-history pairs.
+- source budget: ready with `4585` candidate wrong-history rows and `242` eligible physical pairs.
+- selected rows: `240` rows across `240` physical pairs, `27` left steps, and `3` targets.
+- relocation result: `848` raw rows, `6` accepted wrong-history rows, `2` physical pairs, `2` left steps, `1` checkpoint, `1` target, `1` normal-margin bucket, normal-margin range `0.001708` to `0.002483`.
+- comparison: M1166 had `1` accepted row across `1` pair; M1169 improves that by restoring the fine grid, but M1161 still had `15` rows and the same two physical pairs.
+- interpretation: target-grid false negative is confirmed, but same-shape relocation did not reveal any new source-diverse surface.
+- guardrail: no mining, outcome rerun, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
+- decision: `row15_promoted_target_microgrid_recovers_old_pairs_route_to_branch_synthesis`
+- next: `m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis`

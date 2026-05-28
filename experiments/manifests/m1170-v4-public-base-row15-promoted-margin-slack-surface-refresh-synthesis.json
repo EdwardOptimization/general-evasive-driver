@@ -1,0 +1,176 @@
+{
+  "id": "m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis.md",
+      "docs/m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run.md",
+      "docs/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.md",
+      "docs/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md",
+      "docs/m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run.json"
+    ],
+    "parent_objective": [
+      "synthesize the row15_promoted_margin_slack_surface_refresh branch after M1169 recovers only old active-set pairs"
+    ],
+    "derived_from": [
+      "m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run"
+    ],
+    "blocked_by": [
+      "M1169 confirms target-grid sensitivity but finds no new source-diverse wrong-history pairs"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "continuing same-shape relocation expansion without branch synthesis",
+      "converting M1169 rows into an objective corpus",
+      "starting PPO from the refreshed-surface branch"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md",
+  "public_gates": [
+    "M1170 must synthesize M1160 through M1169",
+    "M1170 must close or explicitly continue the current branch",
+    "M1170 must not run mining",
+    "M1170 must not run replay",
+    "M1170 must not train actor weights",
+    "M1170 must not run PPO",
+    "M1170 must not promote",
+    "M1170 must not use private holdout",
+    "M1170 must preserve actor inputs",
+    "M1170 must not convert failed surface rows"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run mining",
+    "do not run replay",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert failed surface rows",
+    "do not continue same-shape relocation expansion without a new branch decision"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_margin_slack_surface_refresh",
+    "evidence_axis": "G_branch: row15-promoted margin-slack surface refresh synthesis",
+    "evidence_increment": "synthesizes the M1160-M1169 surface-refresh branch after source-diverse surface refresh failed and microgrid recovered only old active-set pairs",
+    "claim_scope": "process synthesis only; no mining, replay, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if supported and falsified claims are not separated",
+      "stop if same-shape relocation expansion is continued without evidence",
+      "stop if next branch does not address wrong-history construction strength",
+      "stop if public-gate overfit risk is not recorded"
+    ],
+    "fallback_plan": [
+      "if evidence supports pivot, open a stronger wrong-history construction branch",
+      "if evidence is ambiguous, open an instrumented intervention audit branch",
+      "if evidence unexpectedly supports continuation, pre-register exact continuation criteria"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1160-M1169 completed ten branch milestones and M1169 route requires synthesis",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "close or pivot the row15_promoted_margin_slack_surface_refresh branch",
+    "admission_evidence": [
+      "M1161 source budget was broad but accepted surface was sparse",
+      "M1166 staged relocation did not improve over M1161",
+      "M1169 recovered only the old two M1161 physical pairs"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not rerun source mining",
+      "do not rerun relocation",
+      "do not convert failed surfaces",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "synthesis document",
+      "next branch manifest if synthesis is decisive",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "branch decision is explicit",
+      "same-shape relocation continuation is accepted or blocked explicitly",
+      "next branch blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1170 synthesizes proof-surface mining evidence and cannot upgrade to level3 self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1170 synthesizes existing M1160-M1169 artifacts only.",
+    "negative_result_policy": "Record same-shape wrong-history surface scarcity as a branch result and require stronger intervention construction before more PPO.",
+    "allowed_claims": [
+      "branch-level evidence synthesis for level2 proof-surface mining",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The row15_promoted_margin_slack_surface_refresh branch should close and pivot because source-diverse mining plus staged relocation did not produce a broad wrong-history surface beyond the old two active-set pairs.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "M1160-M1169 evidence is summarized",
+    "supported claims are explicit",
+    "falsified claims are explicit",
+    "failure taxonomy is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "no mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "branch decision is ambiguous",
+    "same-shape relocation expansion is continued without evidence",
+    "next blocker is ambiguous",
+    "mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_branch_synthesis",
+      "command": "write docs/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run.md"
+  ],
+  "decision_rule": "M1170 may only synthesize the M1160-M1169 branch and choose the next branch. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert failed surface rows.",
+  "next_blocker": "m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis"
+}

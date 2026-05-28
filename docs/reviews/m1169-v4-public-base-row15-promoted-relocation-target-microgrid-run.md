@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T013956Z
+- Generated at UTC: 20260528T014352Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M1169 may only run the M1168 target-margin microgrid diagnostic and compare against M1161/M1166. It cannot rerun mining, rerun outcome gate, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert a surface, or claim full surface pass.
+- Promotion decision: row15_promoted_target_microgrid_recovers_old_pairs_route_to_branch_synthesis
+- Decision reason: M1169 recovers both old M1161 physical pairs with 6 accepted rows but finds no new source-diverse pairs so same-shape relocation remains exhausted
 
 ## Hypothesis
 
@@ -75,12 +75,23 @@ Restoring fine target margins including 0.0005 will recover at least the M1161 o
 
 ## Failure Taxonomy
 
-- none
+- scenario_sampling_failure
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run
+- type: gate
+- checkpoint: runs/m1169_row15_promoted_target_microgrid_seed116100/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_target_microgrid_recovers_old_pairs_route_to_branch_synthesis
+- reason: M1169 recovers both old M1161 physical pairs with 6 accepted rows but finds no new source-diverse pairs so same-shape relocation remains exhausted
 
 ## Next Blocker
 
-m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run
+m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis
