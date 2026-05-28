@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1209,
+    "completed": 1210,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1199-paper-route-fair-comparison-pilot-run.md",
+    "command_log": "docs/m1200-paper-route-fair-comparison-pilot-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1199_fair_comparison_pilot",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1199-paper-route-fair-comparison-pilot-run"
+    "task_id": "m1200-paper-route-fair-comparison-pilot-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1200-paper-route-fair-comparison-pilot-result-audit.json",
-    "hypothesis": "The M1199 public pilot can be audited into a safe next-route decision without expanding its claim scope.",
-    "id": "m1200-paper-route-fair-comparison-pilot-result-audit",
+    "command": "see experiments/manifests/m1201-paper-route-profile-separability-audit.json",
+    "hypothesis": "M1199 profile families can be audited for config, observation, and action-level separability before any longer comparison.",
+    "id": "m1201-paper-route-profile-separability-audit",
     "kind": "gate",
-    "notes": "Pending: audit M1199 L2 window-equivalence and L3 reset-control parity before scaling",
-    "priority": 11950,
+    "notes": "Pending: audit L0/L1/L2/L3 profile separability without training",
+    "priority": 11960,
     "status": "pending",
-    "success_artifact": "docs/m1200-paper-route-fair-comparison-pilot-result-audit.md"
+    "success_artifact": "docs/m1201-paper-route-profile-separability-audit.md"
   },
-  "updated_at_utc": "20260528T053729Z"
+  "updated_at_utc": "20260528T053947Z"
 }

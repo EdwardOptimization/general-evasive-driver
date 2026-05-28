@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1200 audits M1199 as a valid public pilot trend but blocks direct scaling because L2 window-equivalence is inconclusive but suspicious and L3 reset parity is negative for recurrent-hidden benefit in this pilot",
+  "failure_criteria": [
+    "M1200 trains or tunes profiles",
+    "private holdout is used",
+    "M1199 is framed as paper-level evidence",
+    "hidden or oracle actor inputs are introduced",
+    "audit skips the L2 window-equivalence or L3 reset-parity issues"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not scale L2 before auditing window-equivalence",
+    "do not discard L3 before auditing reset-control parity",
+    "do not use private holdout",
+    "do not tune one profile and compare against frozen profiles",
+    "do not promote any M1199 checkpoint",
+    "do not claim recurrent-belief advantage or self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T054154Z",
+  "hypothesis": "The M1199 public pilot can be audited into a safe next-route decision without expanding its claim scope.",
+  "lineage": {
+    "blocked_by": [
+      "M1199 produced public pilot trends but also L2 window-equivalence and L3 reset-parity patterns that need audit"
+    ],
+    "derived_from": [
+      "m1199-paper-route-fair-comparison-pilot-run"
+    ],
+    "invalidates": [
+      "claiming recurrent-hidden benefit or paper-level profile ranking directly from M1199"
+    ],
+    "parent_checkpoint": [
+      "runs/m1199_fair_comparison_pilot/profile_runs"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1199-paper-route-fair-comparison-pilot-run.json",
+      "docs/m1199-paper-route-fair-comparison-pilot-run.md"
+    ],
+    "parent_dataset": [
+      "runs/m1199_fair_comparison_pilot/summary.json",
+      "runs/m1199_fair_comparison_pilot/profile_seed_rows.csv",
+      "runs/m1199_fair_comparison_pilot/eval_rows.csv",
+      "runs/m1199_fair_comparison_pilot/profile_aggregate.csv"
+    ],
+    "parent_objective": [
+      "audit the first fair public profile-comparison pilot before increasing budget or making stronger claims"
+    ],
+    "supersedes": [
+      "directly scaling the strongest M1199 public pilot profile without checking profile separation"
+    ]
+  },
+  "milestone": "m1200-paper-route-fair-comparison-pilot-result-audit",
+  "next_blocker": "m1201-paper-route-profile-separability-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "fair_comparison_pilot_audit_route_to_profile_separability_audit",
+  "public_gates": [
+    "M1200 may audit M1199 artifacts only",
+    "M1200 must not train controllers",
+    "M1200 must not run PPO",
+    "M1200 must not run candidate replay",
+    "M1200 must not promote",
+    "M1200 must not use private holdout",
+    "M1200 must not tune profiles based on M1199 results",
+    "M1200 must not claim paper-level evidence or self-identification"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1200-paper-route-fair-comparison-pilot-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "fair_comparison_pilot_audit_route_to_profile_separability_audit",
+    "milestone": "m1200-paper-route-fair-comparison-pilot-result-audit",
+    "reason": "M1200 audits M1199 as a valid public pilot trend but blocks direct scaling because L2 window-equivalence is inconclusive but suspicious and L3 reset parity is negative for recurrent-hidden benefit in this pilot",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1200-paper-route-fair-comparison-pilot-result-audit.md exists",
+    "M1199 aggregate and seed-level trends are summarized",
+    "L2 window-equivalence and L3 reset-control parity are explicitly audited",
+    "private holdout remains unused",
+    "no controller training, candidate replay, PPO, promotion, private holdout, per-profile tuning, or actor-input contract change occurs",
+    "next route is selected"
+  ],
+  "type": "gate"
+}

@@ -1,0 +1,161 @@
+{
+  "id": "m1201-paper-route-profile-separability-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1199_fair_comparison_pilot/profile_runs"
+    ],
+    "parent_dataset": [
+      "runs/m1199_fair_comparison_pilot/profile_seed_rows.csv",
+      "runs/m1199_fair_comparison_pilot/eval_rows.csv",
+      "runs/m1199_fair_comparison_pilot/profile_aggregate.csv",
+      "docs/m1200-paper-route-fair-comparison-pilot-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1200-paper-route-fair-comparison-pilot-result-audit.json"
+    ],
+    "parent_objective": [
+      "verify profile separability before longer L0/L1/L2/L3 comparison"
+    ],
+    "derived_from": [
+      "m1200-paper-route-fair-comparison-pilot-result-audit"
+    ],
+    "blocked_by": [
+      "M1200 classifies L2 window-equivalence as inconclusive but suspicious and L3 reset parity as negative for hidden benefit in M1199"
+    ],
+    "supersedes": [
+      "running a longer comparison before checking whether profiles are meaningfully separated"
+    ],
+    "invalidates": [
+      "treating M1199 L2 trend as ready for direct scaling without implementation and action-sensitivity audit"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1201-paper-route-profile-separability-audit.md",
+  "public_gates": [
+    "M1201 may run artifact and checkpoint analysis only",
+    "M1201 must not train controllers",
+    "M1201 must not run PPO",
+    "M1201 must not run candidate replay",
+    "M1201 must not promote",
+    "M1201 must not use private holdout",
+    "M1201 must not tune profiles",
+    "M1201 must not claim paper-level evidence or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not tune profiles",
+    "do not promote",
+    "do not claim profile superiority from action probes",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_profile_separability: L2 window and L3 hidden-state action sensitivity",
+    "evidence_increment": "checks whether M1199 profile families are actually separated enough to justify a longer comparison",
+    "claim_scope": "artifact/action-sensitivity audit only; no training promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if L2 profile configs or rollout observations do not differ as intended",
+      "stop if L2 trained policies are insensitive to older-history ablation",
+      "stop if L3 reset-hidden actions match online hidden actions on audited states",
+      "stop if evaluation masking is inconsistent with training masking"
+    ],
+    "fallback_plan": [
+      "route to profile implementation repair if config or masking is wrong",
+      "route to history-necessity task design if profiles are correct but insensitive",
+      "route to longer repeated pilot only if profile separability is adequate",
+      "route to metric repair if M1199 aggregation is flawed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1200 selects separability audit before any longer pilot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "profile separability audit",
+    "admission_evidence": [
+      "M1199 public pilot completed without run failures",
+      "M1200 audits that M1199 trend is not sufficient for direct scaling",
+      "L2 window-equivalence and L3 reset-parity require artifact/action-sensitivity checks"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1201 audit artifacts",
+      "M1201 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "profile config differences are verified",
+      "observation history stack differences are verified",
+      "L2 older-history ablation sensitivity is measured",
+      "L3 reset-hidden action sensitivity is measured",
+      "next route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1201 explicitly tests whether current-frame feedback is substituting for older history or recurrent hidden state, but it remains an artifact/action audit rather than a closed-loop self-ID proof.",
+    "history_necessity_tests": [
+      "older_history_ablation_action_sensitivity",
+      "same_state_reset_hidden_action_sensitivity"
+    ],
+    "temporal_evidence_window": "Use M1199 checkpoints and public eval states; do not introduce private holdout or new training distributions.",
+    "negative_result_policy": "If profiles are insensitive to older history or hidden state, route to task/profile design rather than lowering self-ID standards.",
+    "allowed_claims": [
+      "profile separability audit",
+      "action-level history sensitivity or insensitivity on public artifacts",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1199 profile families can be audited for config, observation, and action-level separability before any longer comparison.",
+  "success_criteria": [
+    "docs/m1201-paper-route-profile-separability-audit.md exists",
+    "config differences are summarized",
+    "observation history-stack differences are summarized",
+    "L2 older-history action sensitivity is measured or a tooling blocker is recorded",
+    "L3 reset-hidden action sensitivity is measured or a tooling blocker is recorded",
+    "private holdout remains unused",
+    "no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, or actor-input contract change occurs",
+    "next route is selected"
+  ],
+  "failure_criteria": [
+    "M1201 trains or tunes profiles",
+    "private holdout is used",
+    "M1201 treats action probes as paper-level evidence",
+    "hidden or oracle actor inputs are introduced",
+    "audit skips L2 or L3 separability"
+  ],
+  "commands": [
+    {
+      "name": "audit_profile_separability",
+      "command": "analyze M1199 configs, checkpoints, and public eval states without training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1201-paper-route-profile-separability-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1199_fair_comparison_pilot/profile_runs"
+  ],
+  "baseline_artifacts": [
+    "docs/m1200-paper-route-fair-comparison-pilot-result-audit.md",
+    "runs/m1199_fair_comparison_pilot/profile_seed_rows.csv",
+    "runs/m1199_fair_comparison_pilot/eval_rows.csv"
+  ],
+  "decision_rule": "M1201 passes if it audits M1199 profile separability and chooses a safe next route without training, tuning, promotion, private holdout, or claim expansion.",
+  "next_blocker": "m1201-paper-route-profile-separability-audit"
+}

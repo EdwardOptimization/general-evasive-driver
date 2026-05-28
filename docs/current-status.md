@@ -115,8 +115,27 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1200-paper-route-fair-comparison-pilot-result-audit
+m1201-paper-route-profile-separability-audit
 ```
+
+M1200 completed the M1199 result audit:
+
+```text
+artifact: docs/m1200-paper-route-fair-comparison-pilot-result-audit.md
+decision: fair_comparison_pilot_audit_route_to_profile_separability_audit
+```
+
+M1200 keeps M1199 valid as a public pilot trend but blocks direct scaling into
+a longer comparison. Two audit flags are now active:
+
+```text
+L2 window-equivalence: inconclusive_but_suspicious
+L3 reset-parity: negative_for_recurrent_hidden_benefit_in_this_pilot
+```
+
+Next step is M1201: verify config, observation-stack, and action-level profile
+separability without training, PPO, private holdout, promotion, or claim
+expansion.
 
 M1199 completed the fixed public fair comparison pilot:
 

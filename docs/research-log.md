@@ -17167,3 +17167,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1200-paper-route-fair-comparison-pilot-result-audit.json`.
 - decision: `fair_comparison_pilot_completed_route_to_result_audit`
 - next: `m1200-paper-route-fair-comparison-pilot-result-audit`
+
+## 20260528T053947Z - m1200-paper-route-fair-comparison-pilot-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1200-paper-route-fair-comparison-pilot-result-audit.md`
+- result: audits M1199 as valid public pilot trend evidence but blocks direct longer-budget scaling until profile separability is checked.
+- supported trend: under the short fixed public budget, L2 finite-window profiles are strongest; L1 improves over L0.
+- L2 audit classification: `inconclusive_but_suspicious` because L2_window_25/50/100 are nearly identical and L2_window_13 is very close despite different observation dimensions.
+- L3 audit classification: `negative_for_recurrent_hidden_benefit_in_this_pilot` because `L3_reset_control` is not worse than `L3_online_gru` and shares the same seed-fragility pattern.
+- route decision: run a no-training profile separability audit before any longer comparison, profile repair, or history-necessity task redesign.
+- guardrail: no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, actor-input change, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1201-paper-route-profile-separability-audit.json`.
+- decision: `fair_comparison_pilot_audit_route_to_profile_separability_audit`
+- next: `m1201-paper-route-profile-separability-audit`
