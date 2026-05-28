@@ -17827,3 +17827,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1239-paper-route-extreme-fault-sequence-negative-audit.json`.
 - decision: `extreme_fault_sequence_probe_no_signal_route_to_negative_audit`
 - next: `m1239-paper-route-extreme-fault-sequence-negative-audit`
+
+## 20260528T085700Z - m1239-paper-route-extreme-fault-sequence-negative-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1239-paper-route-extreme-fault-sequence-negative-audit.md`
+- result: audits M1238 as a valid no-training probe but a strong no-signal result for the current M1236 repaired source path.
+- supported: source harness compatibility, timing repair effectiveness, stable actor checksum, and correct blocking of training/self-ID claims.
+- blocked: cross-fault wrong-history proof, temporal-history sequence proof, history necessity, recurrent belief, self-identification, training readiness, promotion, and paper-level result for this source path.
+- classification: `same_source_sequence_no_signal`; M1238 had `6912` intervention rows, `0` accepted sequence rows, and `0` action-critical sequence rows.
+- overfit risk: high for continuing same-source small intervention variants because single hidden swaps and six sequence variants all produced no signal.
+- selected next route: synthesize the full `paper_route_extreme_fault_source_generation` branch before any new source mining.
+- guardrail: no training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1240-paper-route-extreme-fault-source-generation-synthesis.json`.
+- decision: `extreme_fault_sequence_negative_audit_route_to_branch_synthesis`
+- next: `m1240-paper-route-extreme-fault-source-generation-synthesis`

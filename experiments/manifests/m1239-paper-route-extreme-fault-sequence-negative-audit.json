@@ -147,6 +147,22 @@
     "runs/m1238_extreme_fault_sequence_intervention_probe/variant_summary.csv",
     "docs/m1238-paper-route-extreme-fault-sequence-intervention-probe.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1239-paper-route-extreme-fault-sequence-negative-audit.md",
+    "decision": "extreme_fault_sequence_negative_audit_route_to_branch_synthesis",
+    "classification": "same_source_sequence_no_signal",
+    "accepted_sequence_rows": 0,
+    "sequence_action_critical_rows": 0,
+    "normal_failed_rows": 2178,
+    "intervention_rows": 6912,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false
+  },
+  "decision": "extreme_fault_sequence_negative_audit_route_to_branch_synthesis",
   "decision_rule": "M1239 passes if it classifies M1238's no-signal result and selects a concrete next route without training or proof overclaim.",
-  "next_blocker": "m1239-paper-route-extreme-fault-sequence-negative-audit"
+  "next_blocker": "m1240-paper-route-extreme-fault-source-generation-synthesis"
 }

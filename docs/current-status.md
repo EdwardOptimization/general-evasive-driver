@@ -115,7 +115,35 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1239-paper-route-extreme-fault-sequence-negative-audit
+m1240-paper-route-extreme-fault-source-generation-synthesis
+```
+
+M1239 completed extreme/fault sequence negative audit:
+
+```text
+artifact: docs/m1239-paper-route-extreme-fault-sequence-negative-audit.md
+decision: extreme_fault_sequence_negative_audit_route_to_branch_synthesis
+classification: same_source_sequence_no_signal
+```
+
+M1239 conclusion:
+
+```text
+M1238 is a valid no-training probe, but the M1236 repaired source path is
+no-signal under both single hidden-state swaps and sequence-level
+command-response interventions. Continuing same-source variants now has high
+overfit risk.
+```
+
+Next task:
+
+```text
+artifact: docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md
+manifest: experiments/manifests/m1240-paper-route-extreme-fault-source-generation-synthesis.json
+goal: synthesize M1232-M1239 and choose continue, pivot, stop, or
+      promote_to_next_branch before any new experiments
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1238 completed extreme/fault sequence intervention probe:

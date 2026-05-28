@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1248,
+    "completed": 1249,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1238-paper-route-extreme-fault-sequence-intervention-probe.md",
+    "command_log": "docs/m1239-paper-route-extreme-fault-sequence-negative-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1238_extreme_fault_sequence_intervention_probe",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1238-paper-route-extreme-fault-sequence-intervention-probe"
+    "task_id": "m1239-paper-route-extreme-fault-sequence-negative-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1239-paper-route-extreme-fault-sequence-negative-audit.json",
-    "hypothesis": "Audit no-signal extreme/fault sequence intervention result",
-    "id": "m1239-paper-route-extreme-fault-sequence-negative-audit",
+    "command": "see experiments/manifests/m1240-paper-route-extreme-fault-source-generation-synthesis.json",
+    "hypothesis": "Synthesize extreme/fault source-generation branch",
+    "id": "m1240-paper-route-extreme-fault-source-generation-synthesis",
     "kind": "gate",
-    "notes": "Pending: classify M1238 no-signal result and select branch synthesis, stronger source construction, or task-family change",
-    "priority": 12340,
+    "notes": "Pending: synthesize M1232-M1239 and choose continue, pivot, stop, or promote_to_next_branch before any new experiments",
+    "priority": 12350,
     "status": "pending",
-    "success_artifact": "docs/m1239-paper-route-extreme-fault-sequence-negative-audit.md"
+    "success_artifact": "docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md"
   },
-  "updated_at_utc": "20260528T085250Z"
+  "updated_at_utc": "20260528T085700Z"
 }

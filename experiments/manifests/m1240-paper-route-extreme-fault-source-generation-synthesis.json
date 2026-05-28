@@ -1,0 +1,183 @@
+{
+  "id": "m1240-paper-route-extreme-fault-source-generation-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1232-paper-route-extreme-fault-source-generation-design.md",
+      "docs/m1233-paper-route-extreme-fault-source-smoke.md",
+      "docs/m1234-paper-route-extreme-fault-source-smoke-audit.md",
+      "docs/m1235-paper-route-extreme-fault-timing-repair-design.md",
+      "docs/m1236-paper-route-extreme-fault-timing-repair-smoke.md",
+      "docs/m1237-paper-route-extreme-fault-sequence-intervention-design.md",
+      "docs/m1238-paper-route-extreme-fault-sequence-intervention-probe.md",
+      "docs/m1239-paper-route-extreme-fault-sequence-negative-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1239-paper-route-extreme-fault-sequence-negative-audit.json",
+      "configs/m990_capability_step_fault_scenarios.json",
+      "configs/m1236_extreme_fault_timing_repair_smoke.json"
+    ],
+    "parent_objective": [
+      "synthesize the extreme/fault source-generation branch after smoke, timing repair, and sequence intervention no-signal results"
+    ],
+    "derived_from": [
+      "m1232-paper-route-extreme-fault-source-generation-design",
+      "m1233-paper-route-extreme-fault-source-smoke",
+      "m1234-paper-route-extreme-fault-source-smoke-audit",
+      "m1235-paper-route-extreme-fault-timing-repair-design",
+      "m1236-paper-route-extreme-fault-timing-repair-smoke",
+      "m1237-paper-route-extreme-fault-sequence-intervention-design",
+      "m1238-paper-route-extreme-fault-sequence-intervention-probe",
+      "m1239-paper-route-extreme-fault-sequence-negative-audit"
+    ],
+    "blocked_by": [
+      "M1238 produced no sequence signal after M1236 repaired normal survival"
+    ],
+    "supersedes": [
+      "continuing same-source intervention variants without synthesis"
+    ],
+    "invalidates": [
+      "treating the extreme/fault source branch as training-ready"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1240-paper-route-extreme-fault-source-generation-synthesis.md",
+  "public_gates": [
+    "M1240 may synthesize M1232-M1239 evidence only",
+    "M1240 must answer the required synthesis questions",
+    "M1240 must choose continue, pivot, stop, or promote_to_next_branch",
+    "M1240 must not train controllers",
+    "M1240 must not run PPO",
+    "M1240 must not run new source mining or intervention",
+    "M1240 must not use private holdout",
+    "M1240 must not promote",
+    "M1240 must not claim self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new experiments",
+    "do not use private holdout",
+    "do not promote",
+    "do not hide negative results",
+    "do not claim history necessity from no-signal evidence",
+    "do not leave the next branch vague"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_extreme_fault_source_generation",
+    "evidence_axis": "S_extreme_fault_source_generation_branch_synthesis",
+    "evidence_increment": "synthesizes the branch after source smoke, timing repair, and sequence intervention evidence",
+    "claim_scope": "process synthesis only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if synthesis upgrades no-signal rows into self-ID evidence",
+      "stop if M1238 negative evidence is omitted",
+      "stop if no next branch decision is made"
+    ],
+    "fallback_plan": [
+      "pivot to stronger source construction if same-source extreme/fault path is exhausted",
+      "continue only if a concrete non-overfit source route exists",
+      "stop the branch if current single-track proxy faults cannot support the claim"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1239 routes to synthesis after no sequence signal in M1238",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "extreme/fault source-generation branch synthesis",
+    "admission_evidence": [
+      "M1233 produced reset-only but normal-failed source shape",
+      "M1236 repaired normal survival but single hidden swaps became history-insensitive",
+      "M1238 sequence interventions produced no signal"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1240 synthesis docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "supported and blocked claims are listed",
+      "negative results are preserved",
+      "next branch is selected",
+      "next manifest is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1240 must preserve that M1238 is no-signal and cannot support history necessity.",
+    "history_necessity_tests": [
+      "synthesize cross-fault hidden swap evidence",
+      "synthesize timing repair evidence",
+      "synthesize sequence intervention evidence",
+      "choose next source route without self-ID claim expansion"
+    ],
+    "temporal_evidence_window": "Outcome-level history necessity remains blocked for this branch.",
+    "negative_result_policy": "Preserve M1238 no-signal evidence and pivot or stop rather than training.",
+    "allowed_claims": [
+      "extreme/fault branch synthesis",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The extreme/fault source-generation branch has enough evidence to synthesize supported and blocked claims and choose a non-overfit next route.",
+  "success_criteria": [
+    "docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md exists",
+    "M1232-M1239 evidence is summarized",
+    "supported claims and blocked claims are separated",
+    "M1238 no-signal evidence is preserved",
+    "public-gate overfit risk is discussed",
+    "next branch decision is selected",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "M1240 trains or tunes profiles",
+    "private holdout is used",
+    "new experiments are run",
+    "negative evidence is omitted",
+    "self-identification is claimed",
+    "next branch is left vague"
+  ],
+  "commands": [
+    {
+      "name": "synthesize_extreme_fault_source_generation",
+      "command": "synthesize M1232-M1239 extreme/fault source-generation evidence without training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "docs/m1239-paper-route-extreme-fault-sequence-negative-audit.md",
+    "runs/m1238_extreme_fault_sequence_intervention_probe/summary.json"
+  ],
+  "decision_rule": "M1240 passes if it makes a concrete next-branch decision without claim expansion.",
+  "next_blocker": "m1240-paper-route-extreme-fault-source-generation-synthesis"
+}
