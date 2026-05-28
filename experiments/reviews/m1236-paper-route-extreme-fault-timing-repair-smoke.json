@@ -1,0 +1,100 @@
+{
+  "decision_reason": "M1236 passes timing repair with normal_surviving_fraction 0.7213541667 but single hidden-swap interventions remain history_insensitive_too_mild with 0 accepted and 0 reset-only rows",
+  "failure_criteria": [
+    "checkpoint/config observation compatibility fails",
+    "no snapshots or matched pairs are produced",
+    "normal_surviving_fraction remains below 0.35",
+    "actor parameters change",
+    "hidden fault/event labels enter actor observations",
+    "model fidelity boundary is missing",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add fault labels or hidden parameters to actor inputs",
+    "do not claim reset-only rows as self-identification proof",
+    "do not claim true per-wheel or asymmetric fault physics"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T083748Z",
+  "hypothesis": "Reducing continuation horizon and widening the earlier obstacle source window will improve normal-history survivability enough to make later fault-source intervention tests interpretable.",
+  "lineage": {
+    "blocked_by": [
+      "M1233 normal-surviving fraction is only 0.171875"
+    ],
+    "derived_from": [
+      "m1235-paper-route-extreme-fault-timing-repair-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1235-paper-route-extreme-fault-timing-repair-design.json",
+      "configs/m990_capability_step_fault_scenarios.json"
+    ],
+    "parent_dataset": [
+      "runs/m1233_paper_route_extreme_fault_source_smoke/summary.json",
+      "docs/m1235-paper-route-extreme-fault-timing-repair-design.md"
+    ],
+    "parent_objective": [
+      "run bounded normal-survival-first timing repair smoke for extreme/fault source generation"
+    ],
+    "supersedes": [
+      "scaling M1233 without normal-survival repair"
+    ]
+  },
+  "milestone": "m1236-paper-route-extreme-fault-timing-repair-smoke",
+  "next_blocker": "m1237-paper-route-extreme-fault-sequence-intervention-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "extreme_fault_timing_repair_pass_route_to_sequence_intervention_design",
+  "public_gates": [
+    "M1236 must preserve actor input contract",
+    "M1236 must keep hidden fault labels as logging/pairing metadata only",
+    "M1236 must write model fidelity limits",
+    "M1236 must not train controllers",
+    "M1236 must not run PPO",
+    "M1236 must not use private holdout",
+    "M1236 must not promote",
+    "M1236 must evaluate normal-survival before accepted-row claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1236_extreme_fault_timing_repair_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "extreme_fault_timing_repair_pass_route_to_sequence_intervention_design",
+    "milestone": "m1236-paper-route-extreme-fault-timing-repair-smoke",
+    "reason": "M1236 passes timing repair with normal_surviving_fraction 0.7213541667 but single hidden-swap interventions remain history_insensitive_too_mild with 0 accepted and 0 reset-only rows",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "configs/m1236_extreme_fault_timing_repair_smoke.json exists",
+    "runs/m1236_extreme_fault_timing_repair_smoke/summary.json exists",
+    "scenario_count > 0",
+    "snapshot_count > 0",
+    "matched_pair_count > 0",
+    "matched fault-family pairs >= 10",
+    "matched seeds >= 12",
+    "normal_surviving_fraction >= 0.35",
+    "model_fidelity_limits.md exists",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "private holdout remains unused",
+    "no actor-input contract expansion occurs"
+  ],
+  "type": "gate"
+}

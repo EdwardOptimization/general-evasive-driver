@@ -115,7 +115,47 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1236-paper-route-extreme-fault-timing-repair-smoke
+m1237-paper-route-extreme-fault-sequence-intervention-design
+```
+
+M1236 completed extreme/fault timing repair smoke:
+
+```text
+artifact: docs/m1236-paper-route-extreme-fault-timing-repair-smoke.md
+run dir:  runs/m1236_extreme_fault_timing_repair_smoke
+decision: extreme_fault_timing_repair_pass_route_to_sequence_intervention_design
+```
+
+M1236 result:
+
+```text
+result_class: history_insensitive_too_mild
+scenario_count: 832
+snapshot_count: 4095
+matched_pair_count: 768
+matched fault-family pairs: 14
+matched seeds: 14
+normal_failed_rejected: 214
+history_insensitive_rejected: 554
+normal_surviving_fraction: 0.7213541667
+accepted_rows: 0
+reset_only_rows: 0
+```
+
+Conclusion: timing repair worked for normal-history survivability, improving
+from `0.171875` to `0.7213541667`, but single cross-fault hidden-state swaps
+remain behaviorally too compatible. The next step is a sequence-level
+command-response intervention design over M1236 normal-surviving rows.
+
+Next task:
+
+```text
+artifact: docs/m1237-paper-route-extreme-fault-sequence-intervention-design.md
+manifest: experiments/manifests/m1237-paper-route-extreme-fault-sequence-intervention-design.json
+goal: design sequence-level temporal/cross-fault command-response interventions
+      over M1236 normal-surviving rows
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1235 completed extreme/fault timing repair design:

@@ -171,6 +171,30 @@
     "runs/m1233_paper_route_extreme_fault_source_smoke/summary.json",
     "docs/m1235-paper-route-extreme-fault-timing-repair-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "run_dir": "runs/m1236_extreme_fault_timing_repair_smoke",
+    "summary": "runs/m1236_extreme_fault_timing_repair_smoke/summary.json",
+    "result_class": "history_insensitive_too_mild",
+    "scenario_count": 832,
+    "snapshot_count": 4095,
+    "matched_pair_count": 768,
+    "matched_fault_family_pairs": 14,
+    "matched_seeds": 14,
+    "accepted_rows": 0,
+    "reset_only_rows": 0,
+    "rejected_rows": 768,
+    "normal_failed_rejected": 214,
+    "history_insensitive_rejected": 554,
+    "normal_surviving_fraction": 0.7213541667,
+    "wrong_history_action_critical_rows": 0,
+    "reset_history_action_critical_rows": 0,
+    "actor_parameters_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "extreme_fault_timing_repair_pass_route_to_sequence_intervention_design",
   "decision_rule": "M1236 passes as a timing-repair smoke if it produces core artifacts and improves normal-surviving fraction to at least 0.35 without actor mutation, training, PPO, promotion, private holdout, or actor-input expansion.",
-  "next_blocker": "m1236-paper-route-extreme-fault-timing-repair-smoke"
+  "next_blocker": "m1237-paper-route-extreme-fault-sequence-intervention-design"
 }

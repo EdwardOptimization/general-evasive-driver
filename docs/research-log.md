@@ -17774,3 +17774,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1236-paper-route-extreme-fault-timing-repair-smoke.json`.
 - decision: `extreme_fault_timing_repair_design_admit_smoke`
 - next: `m1236-paper-route-extreme-fault-timing-repair-smoke`
+
+## 20260528T084120Z - m1236-paper-route-extreme-fault-timing-repair-smoke
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `infrastructure`
+- artifact: `docs/m1236-paper-route-extreme-fault-timing-repair-smoke.md`
+- run dir: `runs/m1236_extreme_fault_timing_repair_smoke`
+- result: timing repair passes the normal-survival gate but produces no wrong-history or reset-hidden source-positive rows.
+- config: creates `configs/m1236_extreme_fault_timing_repair_smoke.json` by keeping M990/M1233 fault families and pairing rules while changing only timing/horizon/source-window fields.
+- normal survival: `554 / 768` rows survive normal history, for `normal_surviving_fraction=0.7213541667`, up from M1233's `0.171875`.
+- coverage: `832` scenarios, `4095` snapshots, `768` matched pairs, `14` matched fault-family pairs, and `14` matched seeds.
+- source signal: `accepted_rows=0`, `reset_only_rows=0`, `wrong_history_action_critical_rows=0`, and `reset_history_action_critical_rows=0`.
+- classification: `history_insensitive_too_mild`; shorter horizon and safer source windows fixed normal viability but made single hidden-state swaps behaviorally too compatible.
+- guardrail: no training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1237-paper-route-extreme-fault-sequence-intervention-design.json`.
+- decision: `extreme_fault_timing_repair_pass_route_to_sequence_intervention_design`
+- next: `m1237-paper-route-extreme-fault-sequence-intervention-design`

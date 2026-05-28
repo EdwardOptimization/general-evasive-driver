@@ -1,0 +1,156 @@
+{
+  "id": "m1237-paper-route-extreme-fault-sequence-intervention-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1236_extreme_fault_timing_repair_smoke/summary.json",
+      "runs/m1236_extreme_fault_timing_repair_smoke/rejected_rows.csv",
+      "docs/m1236-paper-route-extreme-fault-timing-repair-smoke.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1236-paper-route-extreme-fault-timing-repair-smoke.json",
+      "configs/m1236_extreme_fault_timing_repair_smoke.json"
+    ],
+    "parent_objective": [
+      "design sequence-level temporal intervention probe over M1236 normal-surviving rows"
+    ],
+    "derived_from": [
+      "m1236-paper-route-extreme-fault-timing-repair-smoke"
+    ],
+    "blocked_by": [
+      "M1236 repairs normal survival but single cross-fault hidden swaps remain history-insensitive"
+    ],
+    "supersedes": [
+      "more single hidden-swap tuning on M1236"
+    ],
+    "invalidates": [
+      "training from M1236 because normal survival alone is not self-ID evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1237-paper-route-extreme-fault-sequence-intervention-design.md",
+  "public_gates": [
+    "M1237 may design sequence intervention only",
+    "M1237 must preserve actor input contract",
+    "M1237 must not train controllers",
+    "M1237 must not run PPO",
+    "M1237 must not use private holdout",
+    "M1237 must not promote",
+    "M1237 must distinguish cross-fault sequence evidence from temporal/reset variants",
+    "M1237 must select a bounded first implementation step"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden fault labels or hidden parameters to actor inputs",
+    "do not count normal-survival repair as self-ID evidence",
+    "do not count reset-only rows as wrong-history positives",
+    "do not claim true per-wheel or asymmetric fault physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_extreme_fault_source_generation",
+    "evidence_axis": "S_extreme_fault_sequence_intervention_design",
+    "evidence_increment": "moves from single hidden-state swaps to sequence-level command-response interventions after M1236 repaired normal survival but found no hidden-swap signal",
+    "claim_scope": "process/design only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if sequence source rows cannot be filtered from normal-surviving M1236 rows",
+      "stop if the probe would require hidden labels as actor inputs",
+      "stop if cross-fault, temporal, reset, and action-only outcomes are not separated"
+    ],
+    "fallback_plan": [
+      "if M1236 rows cannot drive the existing probe, create a small source-row adapter first",
+      "if sequence interventions produce only action-only rows, route to terminal-margin-grounded sequence target redesign",
+      "if sequence interventions are normal-failed, return to timing repair",
+      "if source-diverse sequence outcomes appear, route to corpus export and exact objective sanity"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1236 passes normal-survival repair and routes to sequence-level intervention",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "sequence intervention design",
+    "admission_evidence": [
+      "M1236 normal-surviving fraction is 0.7213541667",
+      "M1236 has 554 history-insensitive normal-surviving rows",
+      "M1236 has zero wrong-history and zero reset-hidden action-critical rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1237 design docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "source-row filtering rule is specified",
+      "sequence intervention variants are specified",
+      "bounded first probe is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1237 is sequence-intervention design and does not yet test history necessity.",
+    "history_necessity_tests": [
+      "design future delayed, cross-fault, command-response mismatch, zero-command, and reset-then-warm sequence variants",
+      "require future results to separate cross-fault sequence positives from temporal/reset/action-only positives"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked until a future source-diverse sequence outcome gate passes and is audited.",
+    "negative_result_policy": "If sequence interventions remain no-signal or action-only, record the negative and synthesize the branch rather than training.",
+    "allowed_claims": [
+      "sequence intervention probe design",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1236 normal-surviving but history-insensitive rows are better tested by sequence-level command-response interventions than by further single hidden-state swaps.",
+  "success_criteria": [
+    "docs/m1237-paper-route-extreme-fault-sequence-intervention-design.md exists",
+    "source-row filtering rule is specified",
+    "sequence intervention variants are specified",
+    "first bounded probe command is specified",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "M1237 trains or tunes profiles",
+    "private holdout is used",
+    "design depends on hidden labels as actor inputs",
+    "normal-surviving rows are treated as self-ID evidence",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "write_sequence_intervention_design",
+      "command": "write docs/m1237-paper-route-extreme-fault-sequence-intervention-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1237-paper-route-extreme-fault-sequence-intervention-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1236_extreme_fault_timing_repair_smoke/summary.json",
+    "runs/m1236_extreme_fault_timing_repair_smoke/rejected_rows.csv",
+    "docs/m1236-paper-route-extreme-fault-timing-repair-smoke.md"
+  ],
+  "decision_rule": "M1237 passes if it defines a bounded sequence-level intervention route over M1236 normal-surviving rows with actor-input guardrails and explicit result taxonomy.",
+  "next_blocker": "m1237-paper-route-extreme-fault-sequence-intervention-design"
+}

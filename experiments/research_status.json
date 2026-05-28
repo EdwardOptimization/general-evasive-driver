@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1245,
+    "completed": 1246,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1235-paper-route-extreme-fault-timing-repair-design.md",
+    "command_log": "docs/m1236-paper-route-extreme-fault-timing-repair-smoke.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1236_extreme_fault_timing_repair_smoke",
     "status": "completed",
-    "task_id": "m1235-paper-route-extreme-fault-timing-repair-design"
+    "task_id": "m1236-paper-route-extreme-fault-timing-repair-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1236-paper-route-extreme-fault-timing-repair-smoke.json",
-    "hypothesis": "Run normal-survival-first extreme/fault timing repair smoke",
-    "id": "m1236-paper-route-extreme-fault-timing-repair-smoke",
+    "command": "see experiments/manifests/m1237-paper-route-extreme-fault-sequence-intervention-design.json",
+    "hypothesis": "Design sequence intervention over normal-surviving extreme/fault rows",
+    "id": "m1237-paper-route-extreme-fault-sequence-intervention-design",
     "kind": "gate",
-    "notes": "Pending: create repaired config and run no-training smoke targeting normal_surviving_fraction >= 0.35 before accepted-row claims",
-    "priority": 12310,
+    "notes": "Pending: design sequence-level command-response interventions because timing repair fixed normal survival but single hidden swaps remain history-insensitive",
+    "priority": 12320,
     "status": "pending",
-    "success_artifact": "runs/m1236_extreme_fault_timing_repair_smoke/summary.json"
+    "success_artifact": "docs/m1237-paper-route-extreme-fault-sequence-intervention-design.md"
   },
-  "updated_at_utc": "20260528T083640Z"
+  "updated_at_utc": "20260528T084120Z"
 }
