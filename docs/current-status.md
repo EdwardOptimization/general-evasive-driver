@@ -84,27 +84,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1172-v4-public-base-wrong-history-action-divergence-artifact-audit
+m1173-v4-public-base-action-divergent-candidate-export-design
 ```
 
-M1171 opened the `stronger_wrong_history_construction` branch. The core design
-principle is to stop treating any matched-current wrong history as useful; the
-wrong history must be action-divergent and terminal-margin-sensitive.
-
-Existing M1161 outcome artifacts show why:
+M1172 audited existing M1161 outcome artifacts for action-divergent
+wrong-history rows:
 
 ```text
-wrong_matched_history first_action_distance_mean: 0.096101
-wrong_matched_history first_action_distance_p90: 0.227336
-reset_hidden first_action_distance_mean: 0.652387
-reset_hidden first_action_distance_p90: 1.007947
-wrong_matched_history margin_gap_p90: 0.002677
-zero_current_response margin_gap_p90: 0.018090
+wrong_history rows: 4585
+first_action_distance >= 0.20: 630 rows, 30 physical pairs
+margin_gap >= 0.005: 204 rows, 12 physical pairs
+combined fa>=0.15, traj>=0.06, margin_gap>=0.0025:
+  151 rows, 8 physical pairs, 6 checkpoints, 2 targets
+normal_better rows: 36 rows, 2 physical pairs
 ```
 
-M1172 should audit whether existing artifacts contain enough high-action-
-divergence wrong-history rows to support a bounded replay diagnostic, before
-new mining or PPO.
+There is enough candidate signal for an export/replay diagnostic, but not
+enough diversity for direct proof conversion. M1173 should design a filtered or
+score-balanced candidate export before bounded relocation replay or new mining.
 
 M1127 completed the expanded full public gate for the row15 projection
 candidate:

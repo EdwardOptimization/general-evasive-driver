@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T015341Z
+- Generated at UTC: 20260528T015817Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1172 may only audit existing M1161 outcome artifacts. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert rows, or claim proof from action-distance alone.
+- Promotion decision: wrong_history_action_divergence_audit_route_to_candidate_export_design
+- Decision reason: M1172 finds 151 combined action-divergent margin-sensitive rows across 8 physical pairs and 6 checkpoints but not enough diversity for direct proof conversion
 
 ## Hypothesis
 
@@ -75,8 +75,19 @@ Existing M1161 outcome artifacts may contain enough action-divergent and margin-
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1172-v4-public-base-wrong-history-action-divergence-artifact-audit
+- type: gate
+- checkpoint: docs/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: wrong_history_action_divergence_audit_route_to_candidate_export_design
+- reason: M1172 finds 151 combined action-divergent margin-sensitive rows across 8 physical pairs and 6 checkpoints but not enough diversity for direct proof conversion
 
 ## Next Blocker
 
-m1172-v4-public-base-wrong-history-action-divergence-artifact-audit
+m1173-v4-public-base-action-divergent-candidate-export-design

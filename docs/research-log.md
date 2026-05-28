@@ -16698,3 +16698,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no mining, replay, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
 - decision: `stronger_wrong_history_construction_design_admit_action_divergence_audit`
 - next: `m1172-v4-public-base-wrong-history-action-divergence-artifact-audit`
+
+## 20260528T023000Z - m1172-v4-public-base-wrong-history-action-divergence-artifact-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.md`
+- result: existing M1161 artifacts contain action-divergent wrong-history candidate signal, but not enough diversity for direct proof conversion.
+- threshold counts: `first_action_distance >= 0.20` gives `630` rows across `30` physical pairs; `margin_gap >= 0.005` gives `204` rows across `12` physical pairs.
+- combined filter: `first_action_distance >= 0.15`, `action_trajectory_distance_mean >= 0.06`, and `margin_gap >= 0.0025` gives `151` rows across `8` physical pairs, `6` checkpoints, and `2` targets, with max pair fraction `0.159`.
+- strict normal-better rows: only `36` rows across `2` physical pairs.
+- interpretation: design a filtered or score-balanced candidate export before bounded relocation replay; do not convert or train from these rows directly.
+- guardrail: no mining, replay, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
+- decision: `wrong_history_action_divergence_audit_route_to_candidate_export_design`
+- next: `m1173-v4-public-base-action-divergent-candidate-export-design`

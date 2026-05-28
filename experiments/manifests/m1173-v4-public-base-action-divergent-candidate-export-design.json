@@ -1,0 +1,155 @@
+{
+  "id": "m1173-v4-public-base-action-divergent-candidate-export-design",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.md",
+      "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.json"
+    ],
+    "parent_objective": [
+      "design an action-divergent candidate export before bounded relocation replay"
+    ],
+    "derived_from": [
+      "m1172-v4-public-base-wrong-history-action-divergence-artifact-audit"
+    ],
+    "blocked_by": [
+      "M1172 finds candidate signal exists but direct proof corpus diversity is limited"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "direct conversion from M1172 threshold rows",
+      "bounded replay from the unfiltered M1161 outcome CSV",
+      "new mining before trying an existing-artifact action-divergent export"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1173-v4-public-base-action-divergent-candidate-export-design.md",
+  "public_gates": [
+    "M1173 is design-only",
+    "M1173 must not run replay",
+    "M1173 must not run mining",
+    "M1173 must not train actor weights",
+    "M1173 must not run PPO",
+    "M1173 must not promote",
+    "M1173 must not use private holdout",
+    "M1173 must preserve actor inputs",
+    "M1173 must not convert rows"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run replay",
+    "do not run mining",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert rows",
+    "do not claim proof from candidate export alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "stronger_wrong_history_construction",
+    "evidence_axis": "G_surface: action-divergent candidate export design",
+    "evidence_increment": "designs a filtered or score-balanced candidate export from existing artifacts before bounded relocation replay",
+    "claim_scope": "design only; no replay, mining, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if export rules collapse to two old physical pairs",
+      "stop if export rules ignore action divergence",
+      "stop if export rules are equivalent to the unfiltered M1161 outcome CSV"
+    ],
+    "fallback_plan": [
+      "if export design is feasible, route to candidate export run",
+      "if export cannot preserve diversity, route to new action-divergent mining design",
+      "if tooling cannot accept filtered outcome CSVs safely, implement a small exporter first"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1172 admits candidate export design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design an action-divergent existing-artifact candidate export",
+    "admission_evidence": [
+      "M1172 finds 151 combined-filter rows across 8 physical pairs and 6 checkpoints",
+      "M1172 finds 204 margin-gap rows across 12 physical pairs",
+      "M1172 blocks direct proof conversion because diversity remains limited"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not run replay",
+      "do not rerun mining",
+      "do not convert rows"
+    ],
+    "allowed_updates": [
+      "design documentation",
+      "next export or tooling manifest",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "candidate export rule is explicit",
+      "diversity gates are explicit",
+      "next run or implementation is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1173 designs candidate export only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "normal vs action-divergent wrong-history",
+      "normal vs terminal-margin-sensitive wrong-history"
+    ],
+    "temporal_evidence_window": "M1173 does not add replay or training evidence.",
+    "negative_result_policy": "If export design cannot preserve diversity, route to new mining rather than lowering thresholds.",
+    "allowed_claims": [
+      "candidate export design for level2 proof-surface construction",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A filtered or score-balanced candidate export from existing M1161 outcome rows can preserve action divergence while avoiding the two-pair collapse that blocked same-shape relocation.",
+  "success_criteria": [
+    "design artifact exists",
+    "candidate export rule is explicit",
+    "minimum rows, physical pairs, targets, checkpoints, and max pair fraction are explicit",
+    "next export or tooling step is explicit",
+    "no replay, mining, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "candidate export rule is equivalent to unfiltered M1161",
+    "candidate export rule collapses to old two-pair surface",
+    "next route is ambiguous",
+    "replay, mining, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "design_action_divergent_export",
+      "command": "write docs/m1173-v4-public-base-action-divergent-candidate-export-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1173-v4-public-base-action-divergent-candidate-export-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.md",
+    "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
+  ],
+  "decision_rule": "M1173 is design-only. It can design an action-divergent candidate export but cannot run replay, run mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert rows, or claim proof from candidate export alone.",
+  "next_blocker": "m1173-v4-public-base-action-divergent-candidate-export-design"
+}

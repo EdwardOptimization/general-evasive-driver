@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1180,
+    "completed": 1181,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1171-v4-public-base-stronger-wrong-history-construction-design",
+    "task_id": "m1172-v4-public-base-wrong-history-action-divergence-artifact-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1171-v4-public-base-stronger-wrong-history-construction-design.md",
-    "result_class": "stronger_wrong_history_construction_design_complete",
-    "decision": "stronger_wrong_history_construction_design_admit_action_divergence_audit"
+    "command_log": "docs/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.md",
+    "result_class": "action_divergent_candidates_available_but_diversity_limited",
+    "decision": "wrong_history_action_divergence_audit_route_to_candidate_export_design"
   },
   "next_task": {
-    "id": "m1172-v4-public-base-wrong-history-action-divergence-artifact-audit",
+    "id": "m1173-v4-public-base-action-divergent-candidate-export-design",
     "status": "pending",
-    "priority": 11670,
+    "priority": 11680,
     "kind": "gate",
-    "hypothesis": "Existing M1161 outcome artifacts may contain enough action-divergent and margin-sensitive wrong-history rows to design stronger candidate replay without new mining",
-    "command": "see experiments/manifests/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.json",
-    "success_artifact": "docs/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.md",
-    "notes": "Pending: existing-artifact audit only; no mining replay actor training PPO promotion private holdout conversion or actor-input change"
+    "hypothesis": "A filtered or score-balanced candidate export from existing M1161 outcome rows can preserve action divergence while avoiding two-pair collapse",
+    "command": "see experiments/manifests/m1173-v4-public-base-action-divergent-candidate-export-design.json",
+    "success_artifact": "docs/m1173-v4-public-base-action-divergent-candidate-export-design.md",
+    "notes": "Pending: design-only candidate export; no replay mining actor training PPO promotion private holdout conversion or actor-input change"
   },
-  "updated_at_utc": "20260528T021900Z"
+  "updated_at_utc": "20260528T023000Z"
 }

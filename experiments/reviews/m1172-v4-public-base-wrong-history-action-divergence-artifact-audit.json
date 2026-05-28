@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1172 may only audit existing M1161 outcome artifacts. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert rows, or claim proof from action-distance alone.",
+  "decision_reason": "M1172 finds 151 combined action-divergent margin-sensitive rows across 8 physical pairs and 6 checkpoints but not enough diversity for direct proof conversion",
   "failure_criteria": [
     "audit artifact is missing",
     "threshold availability remains ambiguous",
@@ -22,7 +22,7 @@
     "do not claim success-drop proof from action-distance alone"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260528T015341Z",
+  "generated_at_utc": "20260528T015817Z",
   "hypothesis": "Existing M1161 outcome artifacts may contain enough action-divergent and margin-sensitive wrong-history rows to design a stronger candidate replay without new mining.",
   "lineage": {
     "blocked_by": [
@@ -53,9 +53,9 @@
     "supersedes": []
   },
   "milestone": "m1172-v4-public-base-wrong-history-action-divergence-artifact-audit",
-  "next_blocker": "m1172-v4-public-base-wrong-history-action-divergence-artifact-audit",
+  "next_blocker": "m1173-v4-public-base-action-divergent-candidate-export-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "wrong_history_action_divergence_audit_route_to_candidate_export_design",
   "public_gates": [
     "M1172 must audit existing M1161 outcome artifacts only",
     "M1172 must not run mining",
@@ -67,7 +67,20 @@
     "M1172 must preserve actor inputs",
     "M1172 must not convert rows"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "wrong_history_action_divergence_audit_route_to_candidate_export_design",
+    "milestone": "m1172-v4-public-base-wrong-history-action-divergence-artifact-audit",
+    "reason": "M1172 finds 151 combined action-divergent margin-sensitive rows across 8 physical pairs and 6 checkpoints but not enough diversity for direct proof conversion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "audit artifact exists",
     "threshold counts for first_action_distance are reported",

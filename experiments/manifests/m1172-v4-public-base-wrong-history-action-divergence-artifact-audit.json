@@ -154,6 +154,45 @@
     "docs/m1171-v4-public-base-stronger-wrong-history-construction-design.md",
     "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.md",
+    "decision": "wrong_history_action_divergence_audit_route_to_candidate_export_design",
+    "result_class": "action_divergent_candidates_available_but_diversity_limited",
+    "failure_types": [
+      "none"
+    ],
+    "wrong_history_rows": 4585,
+    "first_action_ge_0_15_count": 1220,
+    "first_action_ge_0_20_count": 630,
+    "first_action_ge_0_25_count": 304,
+    "trajectory_ge_0_06_count": 1639,
+    "trajectory_ge_0_10_count": 1076,
+    "margin_gap_ge_0_0025_count": 473,
+    "margin_gap_ge_0_005_count": 204,
+    "margin_gap_ge_0_01_count": 90,
+    "normal_better_count": 36,
+    "combo_fa20_margin0025_count": 106,
+    "combo_fa20_margin0025_physical_pairs": 6,
+    "combo_fa20_margin0025_targets": 2,
+    "combo_fa15_traj06_margin0025_count": 151,
+    "combo_fa15_traj06_margin0025_physical_pairs": 8,
+    "combo_fa15_traj06_margin0025_targets": 2,
+    "combo_fa15_traj06_margin0025_checkpoints": 6,
+    "combo_fa15_traj06_margin0025_max_pair_fraction": 0.15894,
+    "existing_artifacts_have_candidate_signal": true,
+    "existing_artifacts_ready_for_direct_proof_corpus": false,
+    "mining_started": false,
+    "replay_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "surface_conversion_started": false,
+    "admitted_next": "candidate_export_design",
+    "next_milestone": "m1173-v4-public-base-action-divergent-candidate-export-design"
+  },
   "decision_rule": "M1172 may only audit existing M1161 outcome artifacts. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert rows, or claim proof from action-distance alone.",
-  "next_blocker": "m1172-v4-public-base-wrong-history-action-divergence-artifact-audit"
+  "next_blocker": "m1173-v4-public-base-action-divergent-candidate-export-design"
 }
