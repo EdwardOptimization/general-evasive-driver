@@ -1,0 +1,161 @@
+{
+  "id": "m1163-v4-public-base-row15-promoted-relocation-expansion-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.md",
+      "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv",
+      "runs/m1161_row15_promoted_margin_slack_surface_seed116100/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.json"
+    ],
+    "parent_objective": [
+      "design a relocation-expansion diagnostic that reuses M1161 outcomes without weakening margin-slack acceptance thresholds"
+    ],
+    "derived_from": [
+      "m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit"
+    ],
+    "blocked_by": [
+      "M1162 classifies M1161 as relocation active-set collapse with wrong-history intervention scarcity"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "rerunning full mining before relocation failure audit route",
+      "weakening thresholds before relocation expansion",
+      "converting M1161 failed surface"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1163-v4-public-base-row15-promoted-relocation-expansion-design.md",
+  "public_gates": [
+    "M1163 must design the relocation-expansion diagnostic only",
+    "M1163 must reuse existing M1161 outcome rows for the next run",
+    "M1163 must preserve M1160 acceptance thresholds",
+    "M1163 must not run mining",
+    "M1163 must not run relocation",
+    "M1163 must not train actor weights",
+    "M1163 must not run PPO",
+    "M1163 must not promote",
+    "M1163 must not use private holdout",
+    "M1163 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run mining",
+    "do not run relocation",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken M1160 acceptance thresholds",
+    "do not convert the M1161 failed surface"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_margin_slack_surface_refresh",
+    "evidence_axis": "G_design: relocation-expansion diagnostic after active-set collapse",
+    "evidence_increment": "pre-registers a bounded relocation expansion that tests whether M1161 collapsed because the relocation search was too narrow",
+    "claim_scope": "design only; no relocation run, mining, replay, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if the design requires weaker acceptance thresholds",
+      "stop if it cannot reuse M1161 outcome rows",
+      "stop if it would re-mine instead of isolating relocation search width"
+    ],
+    "fallback_plan": [
+      "if relocation expansion is not meaningful, route to wrong-history mechanism audit",
+      "if design is clear, run exactly one relocation-expansion diagnostic next",
+      "if expansion still fails later, classify as wrong-history intervention scarcity rather than rerun mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1162 routes from failure audit to relocation-expansion design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design a no-training relocation-expansion diagnostic using existing M1161 outcomes",
+    "admission_evidence": [
+      "M1161 source budget and candidate selection were strong",
+      "M1161 accepted wrong-history surface collapsed after relocation",
+      "M1162 recommends expanding relocation search before weakening thresholds"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not mine another source surface",
+      "do not convert the failed surface",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "design document",
+      "next run manifest if design is clear",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "relocation expansion command is explicit",
+      "acceptance thresholds remain unchanged",
+      "resource scope is bounded",
+      "next run stop rules are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1163 designs a proof-surface diagnostic and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1163 designs a rerun over existing M1161 outcome continuations only.",
+    "negative_result_policy": "If the relocation expansion later fails, classify it as wrong-history intervention scarcity or relocation limitation before any new mining.",
+    "allowed_claims": [
+      "relocation-expansion design for level2 proof-surface mining",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A bounded relocation expansion over existing M1161 outcomes can test whether the failed margin-slack surface was caused by too narrow a relocation search rather than absent wrong-history sensitivity.",
+  "success_criteria": [
+    "design artifact exists",
+    "relocation-expansion command is explicit",
+    "M1160 acceptance thresholds are preserved",
+    "next run uses existing M1161 outcome CSV",
+    "resource bounds are explicit",
+    "no actor training, PPO, relocation run, mining, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "threshold preservation is ambiguous",
+    "next run route is ambiguous",
+    "actor training, PPO, relocation run, mining, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_relocation_expansion_design",
+      "command": "write docs/m1163-v4-public-base-row15-promoted-relocation-expansion-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1163-v4-public-base-row15-promoted-relocation-expansion-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.md",
+    "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
+  ],
+  "decision_rule": "M1163 may only design the relocation-expansion diagnostic. It cannot run mining, relocation, actor training, PPO, promotion, private holdout, actor-input changes, threshold weakening, or failed-surface conversion.",
+  "next_blocker": "m1163-v4-public-base-row15-promoted-relocation-expansion-design"
+}

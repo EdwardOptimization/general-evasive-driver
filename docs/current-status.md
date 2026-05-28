@@ -84,7 +84,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit
+m1163-v4-public-base-row15-promoted-relocation-expansion-design
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -584,6 +584,23 @@ M1161 did not invalidate the M1158 public-gate-base promotion, but it blocks
 objective conversion and PPO from this fresh surface. M1162 should audit why a
 strong source budget collapses into a sparse, duplicate-dominated, low-slack
 accepted surface after relocation.
+
+M1162 completed that audit:
+
+```text
+source_budget_shortfall: false
+source_budget_ready: true
+wrong_matched_relocated_rows: 4250
+wrong_matched_accepted_rows: 15
+wrong_matched_normal_and_variant_success_rows: 4086
+accepted_reset_rows before final wrong-history balancing: 1010
+accepted_zero_current_response_rows before final wrong-history balancing: 655
+failure: relocation active-set collapse plus wrong-history scarcity
+```
+
+The next step is M1163: design a bounded relocation-expansion diagnostic using
+the existing M1161 outcome CSV. It should expand relocation search dimensions
+without rerunning source mining or weakening M1160 acceptance thresholds.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

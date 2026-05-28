@@ -16559,3 +16559,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, promotion, private holdout, actor-input change, threshold weakening, or objective conversion occurred.
 - decision: `row15_promoted_margin_slack_surface_refresh_reject_route_to_failure_audit`
 - next: `m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit`
+
+## 20260528T010400Z - m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.md`
+- result: audits M1161 as relocation active-set collapse plus wrong-history scarcity, not source-budget failure.
+- source evidence: matched-current mining produced `4585` accepted pairs across `242` physical pairs and `27` left steps; candidate selection kept `1200` rows across all `242` physical pairs.
+- wrong-history evidence: across `4250` relocated wrong-matched-history rows, only `15` normal-success/wrong-history-failure rows were accepted.
+- accepted wrong-history rows: only row15 current/previous alpha015 yaw-response rows from two physical pairs, with normal-margin max `0.002483`.
+- contrast: reset/zero-current response produced many accepted rows before final wrong-history balancing (`1010` reset, `655` zero-current), so sensitivity exists but not as a broad wrong-matched-history surface.
+- guardrail: no mining, replay, actor training, PPO, promotion, private holdout, actor-input change, threshold weakening, or failed-surface conversion occurred.
+- decision: `row15_promoted_margin_slack_failure_audit_route_to_relocation_expansion_design`
+- next: `m1163-v4-public-base-row15-promoted-relocation-expansion-design`

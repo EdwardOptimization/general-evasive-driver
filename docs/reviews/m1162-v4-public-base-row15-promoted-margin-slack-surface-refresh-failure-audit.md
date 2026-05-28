@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T002640Z
+- Generated at UTC: 20260528T003148Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1162 may only audit the M1161 failure and route the next design. It cannot run mining, replay, actor training, PPO, promotion, private holdout, actor-input changes, threshold weakening, or failed-surface conversion.
+- Promotion decision: row15_promoted_margin_slack_failure_audit_route_to_relocation_expansion_design
+- Decision reason: M1162 audits M1161 as relocation active-set collapse and wrong-history scarcity rather than source-budget failure and routes to bounded relocation expansion design
 
 ## Hypothesis
 
@@ -73,8 +73,19 @@ M1161 failed after relocation rather than source-budget generation; the likely b
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit
+- type: gate
+- checkpoint: docs/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_margin_slack_failure_audit_route_to_relocation_expansion_design
+- reason: M1162 audits M1161 as relocation active-set collapse and wrong-history scarcity rather than source-budget failure and routes to bounded relocation expansion design
 
 ## Next Blocker
 
-m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit
+m1163-v4-public-base-row15-promoted-relocation-expansion-design
