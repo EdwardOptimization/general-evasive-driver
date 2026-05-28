@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1299,
+    "completed": 1300,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1289-paper-route-source-history-objective-only-update-result-audit.md",
+    "command_log": "docs/m1290-paper-route-source-history-directional-conflict-audit.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1290_source_history_directional_conflict_audit",
     "status": "completed",
-    "task_id": "m1289-paper-route-source-history-objective-only-update-result-audit"
+    "task_id": "m1290-paper-route-source-history-directional-conflict-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1290-paper-route-source-history-directional-conflict-audit.json",
-    "hypothesis": "A no-training directional conflict audit can explain why exact loss improves while both_directional_fraction remains zero",
-    "id": "m1290-paper-route-source-history-directional-conflict-audit",
-    "kind": "infrastructure",
-    "notes": "Pending: run directional conflict audit before more objective pressure; PPO and promotion remain blocked",
-    "priority": 12850,
+    "command": "see experiments/manifests/m1291-paper-route-source-history-directional-repair-design.json",
+    "hypothesis": "Design a no-PPO directional repair path for the M1290 magnitude-compression failure mode",
+    "id": "m1291-paper-route-source-history-directional-repair-design",
+    "kind": "gate",
+    "notes": "Pending: design row-wise directional repair; PPO and promotion remain blocked",
+    "priority": 12860,
     "status": "pending",
-    "success_artifact": "runs/m1290_source_history_directional_conflict_audit/summary.json"
+    "success_artifact": "docs/m1291-paper-route-source-history-directional-repair-design.md"
   },
-  "updated_at_utc": "20260528T141224Z"
+  "updated_at_utc": "20260528T141705Z"
 }

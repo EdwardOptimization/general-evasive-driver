@@ -1,0 +1,156 @@
+{
+  "id": "m1291-paper-route-source-history-directional-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1290-paper-route-source-history-directional-conflict-audit.md",
+      "runs/m1290_source_history_directional_conflict_audit/summary.json",
+      "runs/m1290_source_history_directional_conflict_audit/directional_conflict_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1290-paper-route-source-history-directional-conflict-audit.json"
+    ],
+    "parent_objective": [
+      "design no-PPO directional repair after M1290 classifies M1288 as magnitude compression"
+    ],
+    "derived_from": [
+      "m1290-paper-route-source-history-directional-conflict-audit"
+    ],
+    "blocked_by": [
+      "M1290 shows exact-loss improvement with after_mutually_exclusive_fraction=1.0"
+    ],
+    "supersedes": [
+      "blindly continuing actor_mean scalar-loss updates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1291-paper-route-source-history-directional-repair-design.md",
+  "public_gates": [
+    "M1291 must preserve actor input contract",
+    "M1291 must not train",
+    "M1291 must not run PPO",
+    "M1291 must not use private holdout",
+    "M1291 must not promote",
+    "M1291 must design a directional repair path that directly addresses mutually-exclusive sign rows",
+    "M1291 must specify whether implementation should use actor_mean continuation, pair-group objective, trainable-scope escalation, or corpus repair"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat scalar loss improvement as row-wise directional repair",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_objective_only_update",
+    "evidence_axis": "S_directional_repair_design",
+    "evidence_increment": "designs the next no-PPO repair path after M1290 magnitude-compression diagnosis",
+    "claim_scope": "repair design only; no training, promotion, private-holdout, PPO, paper-level, closed-loop, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if design ignores M1290 mutually-exclusive sign rows",
+      "stop if design requires actor-input expansion",
+      "stop if design starts PPO before directional relation is positive"
+    ],
+    "fallback_plan": [
+      "if actor_mean continuation is plausible, admit a crossing-aware bounded probe",
+      "if actor_mean is capacity-limited, admit trainable-scope escalation design",
+      "if row labels conflict, route to corpus relabel/refresh audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "fifth milestone in objective-only update branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-history directional repair design",
+    "admission_evidence": [
+      "M1290 result_class=source_history_directional_conflict_magnitude_compression",
+      "M1290 after_mutually_exclusive_fraction=1.0",
+      "M1290 loss_improved_fraction=1.0",
+      "PPO remains blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1291 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest if design admits implementation"
+    ],
+    "next_stage_criteria": [
+      "directional repair options are compared",
+      "chosen implementation scope is bounded",
+      "directional pass/fail gates are specified",
+      "PPO remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1291 designs a fixed-current source-history directional repair and does not evaluate closed-loop history necessity.",
+    "history_necessity_tests": [
+      "future implementation must make correct-history and wrong-history preferences both positive row-wise",
+      "future implementation must still avoid actor-input shortcut labels"
+    ],
+    "temporal_evidence_window": "M1290 directional conflict rows from M1288 before/after exact objective rows.",
+    "negative_result_policy": "If no bounded repair path can target both-directional rows, record negative evidence and keep PPO blocked.",
+    "allowed_claims": [
+      "source-history directional repair design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A no-PPO directional repair path can be designed to address the M1290 magnitude-compression failure mode without actor-input expansion.",
+  "success_criteria": [
+    "docs/m1291-paper-route-source-history-directional-repair-design.md exists",
+    "design directly references M1290 mutually-exclusive sign rows",
+    "design compares repair options",
+    "design selects a bounded next implementation or routes to corpus repair",
+    "design specifies row-wise directional pass/fail gates",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores M1290 magnitude-compression result",
+    "design starts PPO directly",
+    "design adds actor inputs",
+    "design overclaims self-identification",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1291-paper-route-source-history-directional-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1291-paper-route-source-history-directional-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1290-paper-route-source-history-directional-conflict-audit.md",
+    "runs/m1290_source_history_directional_conflict_audit/summary.json"
+  ],
+  "decision_rule": "M1291 passes if it designs a bounded no-PPO directional repair path or explicitly routes to corpus repair without overclaiming.",
+  "next_blocker": "m1291-paper-route-source-history-directional-repair-design"
+}

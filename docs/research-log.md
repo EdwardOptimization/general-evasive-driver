@@ -18662,3 +18662,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1290-paper-route-source-history-directional-conflict-audit.json`.
 - decision: `source_history_objective_update_audit_exact_loss_positive_directional_weak_admit_conflict_audit`
 - next: `m1290-paper-route-source-history-directional-conflict-audit`
+
+## 20260528T141705Z - m1290-paper-route-source-history-directional-conflict-audit
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1290_source_history_directional_conflict_audit/summary.json`
+- implementation: added `src/autodrift/source_history_directional_conflict_audit.py` and `tests/test_source_history_directional_conflict_audit.py`.
+- validation: `PYTHONPATH=src python -m pytest -q tests/test_source_history_directional_conflict_audit.py` passed with `2 passed`.
+- result class: `source_history_directional_conflict_magnitude_compression`.
+- sign quadrants before: `{both-positive: 0, correct-positive/wrong-negative: 76, correct-negative/wrong-positive: 76, both-negative: 0}`.
+- sign quadrants after: `{both-positive: 0, correct-positive/wrong-negative: 76, correct-negative/wrong-positive: 76, both-negative: 0}`.
+- directional metrics: `after_mutually_exclusive_count=152`, `after_mutually_exclusive_fraction=1.0`, `after_both_positive_count=0`, `quadrant_changed_count=6`.
+- loss metrics: `loss_improved_count=152`, `loss_improved_fraction=1.0`, `combined_loss_delta_mean=-11.4311475093`, `combined_loss_delta_p50=-13.2336899258`.
+- margin metrics: `min_abs_margin_decreased_count=152`, `min_abs_margin_decreased_fraction=1.0`, `min_abs_preference_margin_delta_mean=-11.5622198707`.
+- interpretation: M1288 is a scalar exact-loss magnitude-compression update, not a row-wise directional source-history repair.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1291-paper-route-source-history-directional-repair-design.json`.
+- decision: `source_history_directional_conflict_magnitude_compression_route_to_directional_repair_design`
+- next: `m1291-paper-route-source-history-directional-repair-design`

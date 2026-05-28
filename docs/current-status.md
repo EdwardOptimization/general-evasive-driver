@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1289-paper-route-source-history-objective-only-update-result-audit
+m1290-paper-route-source-history-directional-conflict-audit
 ```
 
 Current next task:
 
 ```text
-m1290-paper-route-source-history-directional-conflict-audit
+m1291-paper-route-source-history-directional-repair-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -89,10 +89,12 @@ not a driver-performance claim. M1289 audited the result as exact-loss-positive
 but directional-gate weak. The row-wise sign quadrants stayed mutually
 exclusive before and after M1288: `76` rows have correct-positive/wrong-negative
 and `76` rows have correct-negative/wrong-positive, with `0` rows both positive.
-The active blocker is M1290: run a no-training directional conflict audit to
-decide whether the next step should be row-wise directional objective repair,
-trainable-scope escalation, longer actor-head continuation, or source-history
-corpus refresh. PPO and promotion remain blocked.
+M1290 ran that no-training directional conflict audit and classified M1288 as
+`source_history_directional_conflict_magnitude_compression`: all `152/152` rows
+improve combined loss, but all `152/152` rows remain mutually exclusive and the
+minimum absolute preference margin decreases on all rows. The active blocker is
+M1291: design a no-PPO row-wise directional repair path before any more update
+pressure. PPO and promotion remain blocked.
 
 ## Actor Contract
 
