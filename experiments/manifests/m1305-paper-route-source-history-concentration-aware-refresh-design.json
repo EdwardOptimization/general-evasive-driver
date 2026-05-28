@@ -1,0 +1,160 @@
+{
+  "id": "m1305-paper-route-source-history-concentration-aware-refresh-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1304-paper-route-source-history-repeat-failed-offset-audit.md",
+      "runs/m1304_source_history_repeat_failed_offset_audit/summary.json",
+      "runs/m1304_source_history_repeat_failed_offset_audit/offset_summary.csv",
+      "runs/m1304_source_history_repeat_failed_offset_audit/failed_eval_groups.csv",
+      "runs/m1304_source_history_repeat_failed_offset_audit/composition_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1304-paper-route-source-history-repeat-failed-offset-audit.json"
+    ],
+    "parent_objective": [
+      "design concentration-aware source-history corpus/objective refresh"
+    ],
+    "derived_from": [
+      "m1304-paper-route-source-history-repeat-failed-offset-audit"
+    ],
+    "blocked_by": [
+      "M1304 found failed-offset concentration by probe template and single-wheel grip-collapse source family"
+    ],
+    "supersedes": [
+      "blind objective tuning from M1302 failed offsets"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1305-paper-route-source-history-concentration-aware-refresh-design.md",
+  "public_gates": [
+    "M1305 must preserve actor input contract",
+    "M1305 must not run PPO",
+    "M1305 must not train",
+    "M1305 must not use private holdout",
+    "M1305 must not promote",
+    "M1305 must specify how concentration by source family and probe template is handled",
+    "M1305 must define pass/fail criteria for the next bounded implementation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train in the design milestone",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not tune only to one public failed-offset row",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_trainable_scope_escalation",
+    "evidence_axis": "S_concentration_aware_refresh_design",
+    "evidence_increment": "designs a corpus/objective response to M1304 concentrated failed-offset evidence",
+    "claim_scope": "design only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if design only targets one pair ID",
+      "stop if design admits PPO directly",
+      "stop if design omits source-family/probe-template balance"
+    ],
+    "fallback_plan": [
+      "if concentration-aware refresh is feasible, admit bounded no-PPO implementation",
+      "if branch has too much fixed public-row overfit risk, route to synthesis",
+      "if corpus is insufficient, route to source corpus expansion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "eighth milestone in trainable-scope escalation branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "concentration-aware refresh design",
+    "admission_evidence": [
+      "M1304 result_class=source_history_failed_offset_audit_concentrated",
+      "M1304 top failed probe template share is 0.6086956522",
+      "M1304 top failed source family pair share is 0.5652173913",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1305 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "refresh strategy is specified",
+      "pass/fail criteria are specified",
+      "public-row overfit risk is addressed",
+      "PPO remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1305 designs fixed-current source-history diagnostic refresh only; it does not evaluate closed-loop history necessity.",
+    "history_necessity_tests": [
+      "design correct-history versus wrong-history directional metrics with source-family/probe-template balance",
+      "design repeat split metrics that preserve pair-disjoint evaluation"
+    ],
+    "temporal_evidence_window": "M1302/M1304 split-repeat fixed-current source-history diagnostics.",
+    "negative_result_policy": "If concentration-aware refresh still fails repeat robustness, route to branch synthesis or sequence/trajectory preference targets before PPO.",
+    "allowed_claims": [
+      "concentration-aware refresh design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A concentration-aware refresh design can address M1304 source-family/probe-template concentration without overfitting to one pair ID or admitting PPO prematurely.",
+  "success_criteria": [
+    "docs/m1305-paper-route-source-history-concentration-aware-refresh-design.md exists",
+    "design records M1304 concentration evidence",
+    "design specifies source-family and probe-template balancing or weighting",
+    "design specifies repeat pass/fail criteria",
+    "design keeps PPO and promotion blocked",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores M1304 concentration evidence",
+    "design targets a single pair ID only",
+    "design starts training or PPO",
+    "private holdout is used",
+    "checkpoint is promoted",
+    "actor input contract changes",
+    "thresholds are relaxed after seeing results"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1305-paper-route-source-history-concentration-aware-refresh-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1305-paper-route-source-history-concentration-aware-refresh-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1304-paper-route-source-history-repeat-failed-offset-audit.md",
+    "runs/m1304_source_history_repeat_failed_offset_audit/summary.json",
+    "runs/m1304_source_history_repeat_failed_offset_audit/composition_summary.csv"
+  ],
+  "decision_rule": "M1305 passes if it designs a concentration-aware source-history refresh without training, PPO, promotion, private holdout use, threshold relaxation, or actor-input expansion.",
+  "next_blocker": "m1305-paper-route-source-history-concentration-aware-refresh-design"
+}

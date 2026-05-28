@@ -4,7 +4,7 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -173,6 +173,32 @@
     "runs/m1302_source_history_trainable_scope_repeat_probe/directional_rows.csv",
     "runs/m1302_source_history_trainable_scope_repeat_probe/group_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1304_source_history_repeat_failed_offset_audit/summary.json",
+    "doc": "docs/m1304-paper-route-source-history-repeat-failed-offset-audit.md",
+    "decision": "source_history_failed_offset_audit_concentrated_route_to_refresh_design",
+    "result_class": "source_history_failed_offset_audit_concentrated",
+    "scope": "fusion_head",
+    "passing_offsets": "0|1|3",
+    "failing_offsets": "2|4",
+    "failed_eval_group_count": 23,
+    "failed_eval_group_fraction": 0.3026315789,
+    "top_failed_probe_template": "left_brake_probe",
+    "top_failed_probe_template_share": 0.6086956522,
+    "top_failed_source_family_pair": "single_wheel_grip_collapse->single_wheel_grip_collapse",
+    "top_failed_source_family_pair_share": 0.5652173913,
+    "top_failed_pair_id_share": 0.0869565217,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1305-paper-route-source-history-concentration-aware-refresh-design.json"
+  },
+  "decision": "source_history_failed_offset_audit_concentrated_route_to_refresh_design",
   "decision_rule": "M1304 passes if it classifies the M1302 failed offsets without training, PPO, promotion, private holdout use, threshold relaxation, or actor-input expansion.",
-  "next_blocker": "m1304-paper-route-source-history-repeat-failed-offset-audit"
+  "next_blocker": "m1305-paper-route-source-history-concentration-aware-refresh-design"
 }

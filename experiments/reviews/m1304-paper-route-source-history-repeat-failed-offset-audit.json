@@ -1,0 +1,102 @@
+{
+  "decision_reason": "M1304 finds failed offsets concentrate by left_brake_probe 60.9% and single-wheel grip-collapse family 56.5% while top pair share is only 8.7%; route to concentration-aware refresh design before PPO",
+  "failure_criteria": [
+    "summary artifact is missing",
+    "audit document is missing",
+    "audit cannot distinguish passing and failing offsets",
+    "audit starts training or PPO",
+    "audit uses private holdout",
+    "checkpoint is promoted",
+    "actor input contract changes",
+    "thresholds are relaxed after seeing results"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not treat split-sensitive diagnostics as closed-loop proof",
+    "do not overclaim self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T153316Z",
+  "hypothesis": "M1302 failed offsets can be explained by source pair, fault-family, probe-template, or margin-bucket composition, enabling a better next routing decision than blind objective tuning.",
+  "lineage": {
+    "blocked_by": [
+      "M1302 repeat is mixed: offsets 2 and 4 fail and mean eval fractions are below 0.25"
+    ],
+    "derived_from": [
+      "m1303-paper-route-source-history-trainable-scope-repeat-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/checkpoints/offset_0_fusion_head_candidate.pt",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/checkpoints/offset_1_fusion_head_candidate.pt",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/checkpoints/offset_2_fusion_head_candidate.pt",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/checkpoints/offset_3_fusion_head_candidate.pt",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/checkpoints/offset_4_fusion_head_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.md",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/repeat_summaries.csv",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/scope_summaries.csv",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/split_rows.csv",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/directional_rows.csv",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/group_rows.csv",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/parameter_group_delta.csv"
+    ],
+    "parent_objective": [
+      "audit failed split offsets before tuning or PPO"
+    ],
+    "supersedes": [
+      "direct objective tuning from split-sensitive repeat result"
+    ]
+  },
+  "milestone": "m1304-paper-route-source-history-repeat-failed-offset-audit",
+  "next_blocker": "m1305-paper-route-source-history-concentration-aware-refresh-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_history_failed_offset_audit_concentrated_route_to_refresh_design",
+  "public_gates": [
+    "M1304 must preserve actor input contract",
+    "M1304 must not run PPO",
+    "M1304 must not train",
+    "M1304 must not use private holdout",
+    "M1304 must not promote",
+    "M1304 must compare passing and failing offsets",
+    "M1304 must report whether failures concentrate by pair, family, template, or margin bucket"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1304_source_history_repeat_failed_offset_audit/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "source_history_failed_offset_audit_concentrated_route_to_refresh_design",
+    "milestone": "m1304-paper-route-source-history-repeat-failed-offset-audit",
+    "reason": "M1304 finds failed offsets concentrate by left_brake_probe 60.9% and single-wheel grip-collapse family 56.5% while top pair share is only 8.7%; route to concentration-aware refresh design before PPO",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1304_source_history_repeat_failed_offset_audit/summary.json exists",
+    "docs/m1304-paper-route-source-history-repeat-failed-offset-audit.md exists",
+    "audit reports passing versus failing offsets",
+    "audit reports failed eval pairs or groups",
+    "audit reports whether failures concentrate by pair, fault family, probe template, or margin bucket",
+    "audit keeps PPO and promotion blocked",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "infrastructure"
+}

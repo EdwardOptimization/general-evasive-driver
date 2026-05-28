@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1313,
+    "completed": 1314,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.md",
+    "command_log": "docs/m1304-paper-route-source-history-repeat-failed-offset-audit.md",
     "returncode": 0,
-    "run_dir": "docs/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.md",
+    "run_dir": "runs/m1304_source_history_repeat_failed_offset_audit",
     "status": "completed",
-    "task_id": "m1303-paper-route-source-history-trainable-scope-repeat-result-audit"
+    "task_id": "m1304-paper-route-source-history-repeat-failed-offset-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1304-paper-route-source-history-repeat-failed-offset-audit.json",
-    "hypothesis": "Classify M1302 failed split offsets by pair, family, template, or margin composition before objective tuning or PPO",
-    "id": "m1304-paper-route-source-history-repeat-failed-offset-audit",
-    "kind": "infrastructure",
-    "notes": "Pending: no-training failed-offset/corpus audit; PPO and promotion remain blocked",
-    "priority": 12990,
+    "command": "see experiments/manifests/m1305-paper-route-source-history-concentration-aware-refresh-design.json",
+    "hypothesis": "Design a source-family and probe-template balanced refresh from M1304 concentrated failed-offset evidence before objective rerun or PPO",
+    "id": "m1305-paper-route-source-history-concentration-aware-refresh-design",
+    "kind": "gate",
+    "notes": "Pending: design concentration-aware refresh; PPO and promotion remain blocked",
+    "priority": 13000,
     "status": "pending",
-    "success_artifact": "runs/m1304_source_history_repeat_failed_offset_audit/summary.json"
+    "success_artifact": "docs/m1305-paper-route-source-history-concentration-aware-refresh-design.md"
   },
-  "updated_at_utc": "20260528T152033Z"
+  "updated_at_utc": "20260528T153048Z"
 }

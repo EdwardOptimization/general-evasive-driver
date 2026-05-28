@@ -18918,3 +18918,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1304-paper-route-source-history-repeat-failed-offset-audit.json`.
 - decision: `source_history_trainable_scope_repeat_audit_mixed_route_to_failed_offset_audit`
 - next: `m1304-paper-route-source-history-repeat-failed-offset-audit`
+
+## 20260528T153048Z - m1304-paper-route-source-history-repeat-failed-offset-audit
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1304_source_history_repeat_failed_offset_audit/summary.json`
+- implementation: added `src/autodrift/source_history_repeat_failed_offset_audit.py` and `tests/test_source_history_repeat_failed_offset_audit.py`.
+- validation: `PYTHONPATH=src python -m pytest -q tests/test_source_history_repeat_failed_offset_audit.py` passed with `1 passed`.
+- result class: `source_history_failed_offset_audit_concentrated`.
+- passing offsets: `0|1|3`; failing offsets: `2|4`.
+- failed eval groups: `23/76`, fraction `0.3026315789`.
+- top failed probe template: `left_brake_probe`, share `0.6086956522`.
+- top failed source family pair: `single_wheel_grip_collapse->single_wheel_grip_collapse`, share `0.5652173913`.
+- top failed source fault pair: `rear_left_grip_collapse->rear_right_grip_collapse`, share `0.5652173913`.
+- top failed pair id share: `0.0869565217`, so this is not a singleton pair artifact.
+- interpretation: failed offsets are concentrated by source family/probe template, compatible with corpus/objective imbalance.
+- routing: concentration-aware corpus/objective refresh design before another objective run or PPO.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1305-paper-route-source-history-concentration-aware-refresh-design.json`.
+- decision: `source_history_failed_offset_audit_concentrated_route_to_refresh_design`
+- next: `m1305-paper-route-source-history-concentration-aware-refresh-design`

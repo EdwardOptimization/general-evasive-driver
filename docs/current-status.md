@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1303-paper-route-source-history-trainable-scope-repeat-result-audit
+m1304-paper-route-source-history-repeat-failed-offset-audit
 ```
 
 Current next task:
 
 ```text
-m1304-paper-route-source-history-repeat-failed-offset-audit
+m1305-paper-route-source-history-concentration-aware-refresh-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -135,7 +135,14 @@ that audit: the `fusion_head` signal is real but split-sensitive, with offsets
 `0`, `1`, and `3` passing and offsets `2` and `4` failing. The active blocker is
 M1304: run a no-training failed-offset/corpus audit to determine whether the
 failed offsets concentrate by source pair, fault family, probe template, or
-margin bucket before objective tuning or PPO. PPO and promotion remain blocked.
+margin bucket before objective tuning or PPO. M1304 completed that audit and
+found a concentrated failure pattern rather than a pair singleton: failed eval
+groups concentrate in `left_brake_probe` (`60.9%`) and
+`single_wheel_grip_collapse->single_wheel_grip_collapse` (`56.5%`), while the
+top failed pair id accounts for only `8.7%`. The active blocker is M1305:
+design a concentration-aware source-history refresh that handles source-family
+and probe-template balance before another objective run or PPO. PPO and
+promotion remain blocked.
 
 ## Actor Contract
 
