@@ -84,7 +84,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run
+m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -560,6 +560,30 @@ minimum normal-margin max: 0.01m
 M1161 must not train, run PPO, promote, use private holdout, change actor
 inputs, weaken thresholds after seeing results, or convert the surface into an
 objective corpus inside the same milestone.
+
+M1161 ran and rejected the surface:
+
+```text
+matched-current accepted pairs: 4585
+matched-current physical pairs: 242
+outcome rows: 27510
+source budget ready: true
+selected rows before relocation: 1200
+selected physical pairs before relocation: 242
+
+final accepted wrong-history rows: 15
+final accepted physical pairs: 2
+final accepted targets: 1
+final accepted normal-margin buckets: 1
+final normal-margin max: 0.002483
+max rows per physical pair fraction: 0.666667
+decision: reject_duplicate_dominated_boundary_surface
+```
+
+M1161 did not invalidate the M1158 public-gate-base promotion, but it blocks
+objective conversion and PPO from this fresh surface. M1162 should audit why a
+strong source budget collapses into a sparse, duplicate-dominated, low-slack
+accepted surface after relocation.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

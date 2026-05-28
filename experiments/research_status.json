@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1169,
+    "completed": 1170,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design",
+    "task_id": "m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design.md",
-    "result_class": "row15_promoted_margin_slack_surface_refresh_design_complete",
-    "decision": "row15_promoted_margin_slack_surface_refresh_design_admit_run"
+    "command_log": "docs/m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run.md",
+    "result_class": "row15_promoted_margin_slack_surface_refresh_duplicate_dominated",
+    "decision": "row15_promoted_margin_slack_surface_refresh_reject_route_to_failure_audit"
   },
   "next_task": {
-    "id": "m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run",
+    "id": "m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit",
     "status": "pending",
-    "priority": 11560,
+    "priority": 11570,
     "kind": "gate",
-    "hypothesis": "The alpha_0_05 public base has a source-diverse current-base wrong-history proof surface with at least three 0.005m normal-margin buckets and normal-margin max at least 0.01m",
-    "command": "see experiments/manifests/m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run.json",
-    "success_artifact": "docs/m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run.md",
-    "notes": "Pending: run the pre-registered three-stage surface-refresh pipeline only; no actor training PPO promotion private holdout or actor-input change"
+    "hypothesis": "M1161 failed after relocation rather than source-budget generation; the likely blocker is a relocation active-set surface collapse into duplicate low-slack wrong-history rows",
+    "command": "see experiments/manifests/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.json",
+    "success_artifact": "docs/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.md",
+    "notes": "Pending: audit M1161 failure only; no actor training PPO replay mining promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T003200Z"
+  "updated_at_utc": "20260528T004900Z"
 }

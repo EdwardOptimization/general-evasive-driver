@@ -187,6 +187,47 @@
   "baseline_artifacts": [
     "docs/m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run.md",
+    "summary": "runs/m1161_row15_promoted_margin_slack_surface_seed116100/summary.json",
+    "decision": "row15_promoted_margin_slack_surface_refresh_reject_route_to_failure_audit",
+    "result_class": "row15_promoted_margin_slack_surface_refresh_duplicate_dominated",
+    "failure_types": [
+      "scenario_sampling_failure",
+      "objective_overfit"
+    ],
+    "matched_current_accepted_pair_count": 4585,
+    "matched_current_accepted_physical_pair_count": 242,
+    "matched_current_accepted_left_step_count": 27,
+    "outcome_row_count": 27510,
+    "outcome_summary_rows": 108,
+    "source_budget_ready": true,
+    "selected_rows": 1200,
+    "selected_physical_pairs": 242,
+    "selected_left_steps": 27,
+    "selected_targets": 3,
+    "accepted_wrong_history_rows": 15,
+    "accepted_wrong_physical_pairs": 2,
+    "accepted_wrong_left_steps": 2,
+    "accepted_wrong_checkpoints": 2,
+    "accepted_wrong_targets": 1,
+    "accepted_wrong_normal_margin_buckets": 1,
+    "accepted_wrong_normal_margin_max": 0.002483,
+    "accepted_wrong_success_drop_fraction": 1.0,
+    "max_rows_per_physical_pair_fraction": 0.666667,
+    "control_accepted_wrong_rows": 0,
+    "passed": false,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "objective_conversion_started": false,
+    "admitted_next": "failure_audit",
+    "next_milestone": "m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit"
+  },
   "decision_rule": "M1161 may only run the M1160 three-stage surface-refresh pipeline and classify the result. It cannot train actor weights, run PPO, promote, use private holdout, change actor inputs, weaken thresholds after seeing results, or convert the surface to an objective corpus inside this milestone.",
-  "next_blocker": "m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run"
+  "next_blocker": "m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit"
 }

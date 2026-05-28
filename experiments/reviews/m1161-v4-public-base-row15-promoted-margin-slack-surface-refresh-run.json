@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1161 may only run the M1160 three-stage surface-refresh pipeline and classify the result. It cannot train actor weights, run PPO, promote, use private holdout, change actor inputs, weaken thresholds after seeing results, or convert the surface to an objective corpus inside this milestone.",
+  "decision_reason": "M1161 source budget is ready but final accepted wrong-history surface has only 15 rows 2 physical pairs 1 target 1 margin bucket and max margin 0.002483 so it rejects before conversion or PPO",
   "failure_criteria": [
     "any required summary artifact is missing",
     "source budget is not ready",
@@ -23,7 +23,7 @@
     "do not convert to an objective corpus inside this milestone"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260528T001224Z",
+  "generated_at_utc": "20260528T002640Z",
   "hypothesis": "The alpha_0_05 public base has a source-diverse current-base wrong-history proof surface with at least three 0.005m normal-margin buckets and normal-margin max at least 0.01m.",
   "lineage": {
     "blocked_by": [
@@ -52,9 +52,9 @@
     "supersedes": []
   },
   "milestone": "m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run",
-  "next_blocker": "m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run",
+  "next_blocker": "m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "row15_promoted_margin_slack_surface_refresh_reject_route_to_failure_audit",
   "public_gates": [
     "M1161 may run the three-stage M1160 surface-refresh pipeline only",
     "M1161 must preserve pre-registered margin-slack and diversity thresholds",
@@ -65,7 +65,20 @@
     "M1161 must not use private holdout",
     "M1161 must preserve actor inputs"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m1161_row15_promoted_margin_slack_surface_seed116100/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_margin_slack_surface_refresh_reject_route_to_failure_audit",
+    "milestone": "m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run",
+    "reason": "M1161 source budget is ready but final accepted wrong-history surface has only 15 rows 2 physical pairs 1 target 1 margin bucket and max margin 0.002483 so it rejects before conversion or PPO",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "matched current summary exists",
     "matched history outcome summary exists",

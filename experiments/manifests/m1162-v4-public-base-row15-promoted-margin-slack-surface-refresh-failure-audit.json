@@ -1,0 +1,165 @@
+{
+  "id": "m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run.md",
+      "runs/m1161_row15_promoted_margin_slack_matched_current_seed116100/summary.json",
+      "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/summary.json",
+      "runs/m1161_row15_promoted_margin_slack_surface_seed116100/summary.json",
+      "runs/m1161_row15_promoted_margin_slack_surface_seed116100/robustness_gates.csv",
+      "runs/m1161_row15_promoted_margin_slack_surface_seed116100/surface_summary.csv",
+      "runs/m1161_row15_promoted_margin_slack_surface_seed116100/balanced_accepted_wrong_history_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run.json"
+    ],
+    "parent_objective": [
+      "audit why the alpha_0_05 current-base margin-slack surface refresh failed after strong source-budget and candidate-selection stages"
+    ],
+    "derived_from": [
+      "m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run"
+    ],
+    "blocked_by": [
+      "M1161 rejects the surface because accepted wrong-history rows are sparse, duplicate-dominated, and low-slack"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "objective conversion from M1161",
+      "PPO from the failed surface",
+      "threshold weakening without failure audit"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.md",
+  "public_gates": [
+    "M1162 must audit existing M1161 artifacts only",
+    "M1162 must not run mining",
+    "M1162 must not run replay",
+    "M1162 must not train actor weights",
+    "M1162 must not run PPO",
+    "M1162 must not promote",
+    "M1162 must not use private holdout",
+    "M1162 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run mining",
+    "do not run replay",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken thresholds before classifying the failure",
+    "do not convert the failed M1161 surface"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_margin_slack_surface_refresh",
+    "evidence_axis": "G_audit: margin-slack surface refresh failure classification",
+    "evidence_increment": "separates source-budget, outcome-gate, relocation-target, wrong-history-sensitivity, and margin-slack causes behind M1161 failure",
+    "claim_scope": "failure audit only; no mining, replay, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if source budget was actually insufficient",
+      "stop if wrong-history sensitivity is absent across the current-base family",
+      "stop if relocation target choices caused artificial duplicate dominance",
+      "stop if next route would weaken thresholds without evidence"
+    ],
+    "fallback_plan": [
+      "if source budget failed, redesign source family",
+      "if outcome gate produced wrong-history candidates but relocation collapsed them, design relocation-target audit or slack-aware relocation",
+      "if wrong-history sensitivity is absent, route to mechanism audit instead of mining retries"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1161 failed with duplicate-dominated and low-slack accepted wrong-history rows",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit the M1161 surface-refresh failure before any rerun or conversion",
+    "admission_evidence": [
+      "M1161 source_budget_ready is true",
+      "M1161 selected rows remain source-diverse before relocation",
+      "M1161 final accepted wrong-history surface has only 15 rows, 2 physical pairs, 1 target, 1 margin bucket, and margin max 0.002483"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not mine another surface",
+      "do not convert the failed surface",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "audit documentation",
+      "next design manifest if audit is clear",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "failure mechanism is classified",
+      "source-budget versus relocation collapse is explicit",
+      "wrong-history sensitivity versus margin-slack shortage is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1162 audits proof-surface mining failure and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1162 reads existing M1161 artifacts only.",
+    "negative_result_policy": "Record M1161 as surface-quality failure and classify whether the next route is source-family, relocation, or mechanism audit.",
+    "allowed_claims": [
+      "failure audit for level2 proof-surface mining",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "M1161 failed after relocation rather than source-budget generation; the likely blocker is a relocation/active-set surface collapse into duplicate low-slack wrong-history rows.",
+  "success_criteria": [
+    "audit artifact exists",
+    "source-budget and candidate-selection evidence is summarized",
+    "accepted-surface failure is summarized by rows, pairs, targets, buckets, and slack",
+    "failure mechanism is classified",
+    "next route is explicit",
+    "no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "source-budget versus relocation-collapse classification remains ambiguous",
+    "next route is ambiguous",
+    "actor training, PPO, replay, mining, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "audit_m1161_failure",
+      "command": "inspect M1161 summaries and CSVs; write docs/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run.md",
+    "runs/m1161_row15_promoted_margin_slack_surface_seed116100/summary.json"
+  ],
+  "decision_rule": "M1162 may only audit the M1161 failure and route the next design. It cannot run mining, replay, actor training, PPO, promotion, private holdout, actor-input changes, threshold weakening, or failed-surface conversion.",
+  "next_blocker": "m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit"
+}

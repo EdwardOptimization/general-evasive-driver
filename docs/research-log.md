@@ -16543,3 +16543,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no mining, replay, actor training, PPO, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_margin_slack_surface_refresh_design_admit_run`
 - next: `m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run`
+
+## 20260528T004900Z - m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run.md`
+- result: rejects the M1161 margin-slack surface refresh before conversion or PPO.
+- matched-current mining: `4585` accepted pairs, `242` physical pairs, `27` left steps.
+- outcome gate: `27510` outcome rows and `108` summary rows.
+- source budget: ready, with `242` eligible physical pairs, `27` left steps, `6` checkpoints, and `3` targets.
+- candidate selection: `1200` selected rows across `242` physical pairs and `27` left steps.
+- final relocation failure: only `15` accepted wrong-history rows, `2` physical pairs, `2` left steps, `2` checkpoints, `1` target, `1` normal-margin bucket, and max normal margin `0.002483`.
+- failure class: duplicate-dominated low-slack accepted surface after relocation, not source-budget failure.
+- guardrail: no actor training, PPO, promotion, private holdout, actor-input change, threshold weakening, or objective conversion occurred.
+- decision: `row15_promoted_margin_slack_surface_refresh_reject_route_to_failure_audit`
+- next: `m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit`

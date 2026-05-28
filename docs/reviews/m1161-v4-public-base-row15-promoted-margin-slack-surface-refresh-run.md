@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T001224Z
+- Generated at UTC: 20260528T002640Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M1161 may only run the M1160 three-stage surface-refresh pipeline and classify the result. It cannot train actor weights, run PPO, promote, use private holdout, change actor inputs, weaken thresholds after seeing results, or convert the surface to an objective corpus inside this milestone.
+- Promotion decision: row15_promoted_margin_slack_surface_refresh_reject_route_to_failure_audit
+- Decision reason: M1161 source budget is ready but final accepted wrong-history surface has only 15 rows 2 physical pairs 1 target 1 margin bucket and max margin 0.002483 so it rejects before conversion or PPO
 
 ## Hypothesis
 
@@ -83,8 +83,19 @@ The alpha_0_05 public base has a source-diverse current-base wrong-history proof
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run
+- type: gate
+- checkpoint: runs/m1161_row15_promoted_margin_slack_surface_seed116100/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_margin_slack_surface_refresh_reject_route_to_failure_audit
+- reason: M1161 source budget is ready but final accepted wrong-history surface has only 15 rows 2 physical pairs 1 target 1 margin bucket and max margin 0.002483 so it rejects before conversion or PPO
 
 ## Next Blocker
 
-m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run
+m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit
