@@ -17132,3 +17132,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1198-paper-route-fair-comparison-pilot-design.json`.
 - decision: `profile_training_smoke_stage_b_pass_route_to_fair_comparison_pilot_design`
 - next: `m1198-paper-route-fair-comparison-pilot-design`
+
+## 20260528T052820Z - m1198-paper-route-fair-comparison-pilot-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `infrastructure`
+- artifact: `docs/m1198-paper-route-fair-comparison-pilot-design.md`
+- result: designs the first fixed public L0/L1/L2/L3 comparison pilot after M1197 proves all generated profiles can enter the train loop.
+- main profiles: `L0_current_masked`, `L1_one_step`, `L2_window_13`, `L2_window_25`, `L2_window_50`, `L2_window_100`, and `L3_online_gru`.
+- diagnostic control: `L3_reset_control` may be run in the same directory if cheap, but it is not part of the main ranking set.
+- fixed budget: `3` seeds per profile, `8192` training steps per seed, `128` rollout steps, `4` envs, `2` update epochs, minibatch `256`, CPU/sync vector unless a later manifest explicitly changes device.
+- fixed public eval: `64` episodes per checkpoint with shared eval seed base `119800` for every profile.
+- evidence discipline: M1196/M1197 smoke metrics are excluded as performance evidence; M1199 may claim only public pilot trend/training stability, not paper-level evidence, promotion, private-holdout result, GRU recurrent-belief advantage, or self-identification.
+- guardrail: no controller training, PPO, candidate replay, promotion, private holdout, per-profile tuning, hidden/oracle actor input, or actor-input contract change occurred.
+- follow-up manifest: `experiments/manifests/m1199-paper-route-fair-comparison-pilot-run.json`.
+- decision: `fair_comparison_pilot_design_admit_public_pilot_run`
+- next: `m1199-paper-route-fair-comparison-pilot-run`

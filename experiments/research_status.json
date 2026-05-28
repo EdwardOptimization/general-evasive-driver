@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1207,
+    "completed": 1208,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1197-paper-route-profile-training-smoke-stage-b-run.md",
+    "command_log": "docs/m1198-paper-route-fair-comparison-pilot-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1197_profile_training_smoke_stage_b",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1197-paper-route-profile-training-smoke-stage-b-run"
+    "task_id": "m1198-paper-route-fair-comparison-pilot-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1198-paper-route-fair-comparison-pilot-design.json",
-    "hypothesis": "A fair public comparison pilot can be designed for L0/L1/L2/L3 profiles without using smoke metrics as performance evidence or tuning profiles unequally.",
-    "id": "m1198-paper-route-fair-comparison-pilot-design",
+    "command": "see experiments/manifests/m1199-paper-route-fair-comparison-pilot-run.json",
+    "hypothesis": "A fixed-protocol public pilot can produce useful L0/L1/L2/L3 trend evidence without per-profile tuning or claim expansion.",
+    "id": "m1199-paper-route-fair-comparison-pilot-run",
     "kind": "gate",
-    "notes": "Pending: design fair comparison pilot before using any profile metrics as evidence",
-    "priority": 11930,
+    "notes": "Pending: run fixed public comparison pilot under M1198 protocol",
+    "priority": 11940,
     "status": "pending",
-    "success_artifact": "docs/m1198-paper-route-fair-comparison-pilot-design.md"
+    "success_artifact": "docs/m1199-paper-route-fair-comparison-pilot-run.md"
   },
-  "updated_at_utc": "20260528T052000Z"
+  "updated_at_utc": "20260528T052820Z"
 }

@@ -115,8 +115,33 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1198-paper-route-fair-comparison-pilot-design
+m1199-paper-route-fair-comparison-pilot-run
 ```
+
+M1198 completed the fair public L0/L1/L2/L3 comparison pilot design:
+
+```text
+artifact: docs/m1198-paper-route-fair-comparison-pilot-design.md
+decision: fair_comparison_pilot_design_admit_public_pilot_run
+```
+
+M1198 fixed the next public pilot protocol:
+
+```text
+main profiles: L0_current_masked, L1_one_step, L2_window_13, L2_window_25, L2_window_50, L2_window_100, L3_online_gru
+diagnostic control: L3_reset_control
+training_seeds_per_profile: 3
+total_steps_per_seed: 8192
+rollout_steps: 128
+num_envs: 4
+eval_episodes_per_checkpoint: 64
+eval_seed_base: 119800
+```
+
+The M1196/M1197 smoke metrics remain plumbing diagnostics only. They are not
+profile comparison evidence. M1199 may now run the fixed public pilot, but it
+must not promote, use private holdout, tune profile-specific hyperparameters,
+change actor inputs, or claim recurrent-belief/self-identification evidence.
 
 M1197 completed the bounded Stage B all-profile training smoke:
 
@@ -147,10 +172,7 @@ driver_performance_claimed: false
 ```
 
 The eval values in M1197 are smoke diagnostics only, not performance
-comparisons. The active blocker is now M1198: design a fair L0/L1/L2/L3
-comparison pilot before using any profile metric as evidence. M1198 must not
-train, run PPO, use private holdout, tune profiles from smoke results, or claim
-profile superiority.
+comparisons.
 
 M1196 completed the bounded Stage A profile training smoke:
 

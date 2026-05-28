@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1198 fixes the first fair public profile comparison pilot protocol with seven main profiles plus L3_reset diagnostic fixed 3-seed 8192-step budget fixed public eval seeds and explicit ban on smoke-metric performance claims promotion private holdout per-profile tuning and self-ID claims",
+  "failure_criteria": [
+    "training starts in M1198",
+    "pilot uses unequal budgets or per-profile tuning",
+    "private holdout is used",
+    "M1197 smoke metrics are used as comparison evidence",
+    "hidden or oracle actor inputs are introduced"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run training",
+    "do not reuse smoke metrics as comparison evidence",
+    "do not use private holdout",
+    "do not tune per profile from M1196 or M1197 results",
+    "do not add hidden or oracle actor inputs",
+    "do not promote any checkpoint",
+    "do not claim paper-level evidence from a design document"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T052859Z",
+  "hypothesis": "A fair public comparison pilot can be designed for L0/L1/L2/L3 profiles without using smoke metrics as performance evidence or tuning profiles unequally.",
+  "lineage": {
+    "blocked_by": [
+      "Stage B proves train-loop plumbing but not fair comparison readiness or profile superiority"
+    ],
+    "derived_from": [
+      "m1197-paper-route-profile-training-smoke-stage-b-run"
+    ],
+    "invalidates": [
+      "claiming finite-window or GRU advantage from M1197 smoke metrics"
+    ],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1197-paper-route-profile-training-smoke-stage-b-run.json"
+    ],
+    "parent_dataset": [
+      "docs/m1197-paper-route-profile-training-smoke-stage-b-run.md",
+      "runs/m1197_profile_training_smoke_stage_b/summary.json",
+      "configs/paper_route_profiles"
+    ],
+    "parent_objective": [
+      "design the first fair multi-profile comparison pilot after all generated profiles pass train-loop smoke"
+    ],
+    "supersedes": [
+      "using one-seed smoke diagnostics as a profile comparison"
+    ]
+  },
+  "milestone": "m1198-paper-route-fair-comparison-pilot-design",
+  "next_blocker": "m1199-paper-route-fair-comparison-pilot-run",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "fair_comparison_pilot_design_admit_public_pilot_run",
+  "public_gates": [
+    "M1198 may design a fair comparison pilot only",
+    "M1198 must not train controller weights",
+    "M1198 must not run PPO",
+    "M1198 must not run candidate replay",
+    "M1198 must not promote",
+    "M1198 must not use private holdout",
+    "M1198 must not add hidden or oracle actor inputs",
+    "M1198 must not claim profile superiority"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1198-paper-route-fair-comparison-pilot-design.md",
+    "clearance_margin_mean": "",
+    "decision": "fair_comparison_pilot_design_admit_public_pilot_run",
+    "milestone": "m1198-paper-route-fair-comparison-pilot-design",
+    "reason": "M1198 fixes the first fair public profile comparison pilot protocol with seven main profiles plus L3_reset diagnostic fixed 3-seed 8192-step budget fixed public eval seeds and explicit ban on smoke-metric performance claims promotion private holdout per-profile tuning and self-ID claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1198-paper-route-fair-comparison-pilot-design.md exists",
+    "profile set, seeds, training budget, eval budget, metrics, artifacts, failure rules, and claim scope are fixed",
+    "private holdout remains unused",
+    "smoke metrics are explicitly excluded as performance evidence",
+    "no controller training, candidate replay, PPO, promotion, private holdout, or actor-input contract change occurs",
+    "next run or implementation milestone is selected"
+  ],
+  "type": "gate"
+}

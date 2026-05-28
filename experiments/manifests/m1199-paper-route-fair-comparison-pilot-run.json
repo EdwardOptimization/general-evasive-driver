@@ -1,0 +1,172 @@
+{
+  "id": "m1199-paper-route-fair-comparison-pilot-run",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1198-paper-route-fair-comparison-pilot-design.md",
+      "runs/m1197_profile_training_smoke_stage_b/summary.json",
+      "configs/paper_route_profiles"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1198-paper-route-fair-comparison-pilot-design.json"
+    ],
+    "parent_objective": [
+      "run the first fair public L0/L1/L2/L3 comparison pilot with fixed seeds budgets and claim scope"
+    ],
+    "derived_from": [
+      "m1198-paper-route-fair-comparison-pilot-design"
+    ],
+    "blocked_by": [
+      "M1198 pre-registers the comparison protocol but no fair multi-seed pilot has run"
+    ],
+    "supersedes": [
+      "using M1196 or M1197 smoke metrics as comparison evidence"
+    ],
+    "invalidates": [
+      "claiming profile trends without fixed seeds budgets and eval protocol"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1199-paper-route-fair-comparison-pilot-run.md",
+  "public_gates": [
+    "M1199 may run the public fair comparison pilot only",
+    "M1199 may run PPO under the fixed M1198 profile budgets and seeds",
+    "M1199 must not promote",
+    "M1199 must not use private holdout",
+    "M1199 must not tune profiles based on results",
+    "M1199 must not run candidate replay",
+    "M1199 must not add hidden or oracle actor inputs",
+    "M1199 must not claim paper-level evidence or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change profile-specific budgets",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not run public proof replay as if this were a driver candidate",
+    "do not tune hyperparameters after seeing profile results",
+    "do not add hidden or oracle actor inputs",
+    "do not claim recurrent-belief advantage or self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_public_pilot: fair L0/L1/L2/L3 comparison trend",
+    "evidence_increment": "runs the first fixed-protocol public pilot to decide which profile families warrant deeper training and evaluation",
+    "claim_scope": "public pilot trend only; no promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if any profile cannot run the fixed protocol",
+      "stop if metrics are non-finite",
+      "stop if protocol changes after seeing a profile result",
+      "stop if runtime exceeds the public pilot resource cap"
+    ],
+    "fallback_plan": [
+      "if full pilot is too costly, report a resource failure and route to smaller L0/L1/L2_window_25/L3 pilot",
+      "if one profile fails, record failure and route to focused repair before any comparison claim",
+      "if metrics are too weak or missing, route to evaluation-metric implementation before repeating"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1198 pre-registered fair comparison controls and M1199 is the first public pilot run",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "guarded_rl",
+    "stage_objective": "public fair comparison pilot",
+    "admission_evidence": [
+      "M1196 and M1197 behavior pretrain smoke prove train-loop plumbing for generated profiles",
+      "M1185/M1186 establish active public gate policy and keep proof gates separate from this public pilot",
+      "M1198 fixes rollback protection: no promotion, no private holdout, no per-profile tuning, and repair route if any profile fails",
+      "current public base remains unchanged; M1199 checkpoints are pilot artifacts only"
+    ],
+    "blocked_shortcuts": [
+      "do not promote",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "public pilot training runs",
+      "pilot summary artifacts",
+      "M1199 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "all selected profiles run with fixed budgets",
+      "profile seed rows and aggregate rows are recorded",
+      "finite metric flags are recorded",
+      "claim scope remains public pilot only",
+      "next repeat longer-budget or repair milestone is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1199 can only support public closed-loop reactive/profile trend evidence; it does not isolate history necessity.",
+    "history_necessity_tests": [
+      "not_applicable_for_this_pilot"
+    ],
+    "temporal_evidence_window": "Profiles have different temporal inputs, but the pilot does not construct same-current or delayed-history tests.",
+    "negative_result_policy": "If L2 or L3 do not outperform L0/L1, record that as public pilot evidence and do not weaken recurrent-belief claim standards.",
+    "allowed_claims": [
+      "public pilot profile trend",
+      "closed-loop training/eval smoke with fixed public seeds",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A fixed-protocol public pilot can produce useful L0/L1/L2/L3 trend evidence without per-profile tuning or claim expansion.",
+  "success_criteria": [
+    "docs/m1199-paper-route-fair-comparison-pilot-run.md exists",
+    "runs/m1199_fair_comparison_pilot/summary.json exists",
+    "profile_seed_rows.csv exists",
+    "profile_aggregate.csv exists",
+    "all selected profile seed runs complete or failures are recorded",
+    "private holdout remains unused",
+    "no promotion or actor-input contract change occurs",
+    "claims are limited to public pilot trends"
+  ],
+  "failure_criteria": [
+    "profile-specific budgets or hyperparameters change after seeing results",
+    "private holdout is used",
+    "metrics are framed as paper-level evidence",
+    "hidden or oracle actor inputs are introduced",
+    "failed profiles are omitted from summary"
+  ],
+  "commands": [
+    {
+      "name": "run_fair_comparison_pilot",
+      "command": "run fixed public L0/L1/L2/L3 comparison pilot with equal seeds budgets and eval protocol"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1199-paper-route-fair-comparison-pilot-run.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m1199_fair_comparison_pilot/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1199_fair_comparison_pilot/profile_seed_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1199_fair_comparison_pilot/profile_aggregate.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1198-paper-route-fair-comparison-pilot-design.md",
+    "configs/paper_route_profiles"
+  ],
+  "decision_rule": "M1199 passes if the fixed public pilot runs or records failures without claim expansion or protocol drift.",
+  "next_blocker": "m1199-paper-route-fair-comparison-pilot-run"
+}
