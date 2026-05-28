@@ -18286,3 +18286,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1268-paper-route-four-wheel-fault-source-shape-smoke.json`.
 - decision: `four_wheel_fault_source_integration_design_admit_source_shape_smoke`
 - next: `m1268-paper-route-four-wheel-fault-source-shape-smoke`
+
+## 20260528T122537Z - m1268-paper-route-four-wheel-fault-source-shape-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1268_four_wheel_fault_source_shape_smoke/summary.json`
+- implementation: added `src/autodrift/four_wheel_fault_source_shape.py` and `tests/test_four_wheel_fault_source_shape.py` for a no-policy four-wheel source-shape smoke.
+- metric correction: an initial nonzero accepted result was rejected because horizon-only rows were counted as success before the obstacle was passed; final success now requires `obstacle_completed` or `safe_stop`.
+- validation: `python -m compileall -q src tests` passed; `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_four_wheel_fault_source_shape.py tests/test_four_wheel_dynamics.py` passed with `9 passed`.
+- final result: `sequence_length=72`, `scenario_count=27`, `fault_pair_count=4`, `matched_pair_count=108`, `action_rollouts=2376`, `accepted_separable_pairs=0`, `best_actions_diverged_pairs=27`, `low_regret_pairs=92`, `own_branch_viability_fail_count=103`, and `all_four_rollouts_collision_count=103`.
+- interpretation: four-wheel faults produce much stronger regret than M1259/M1262 (`top min_cross_regret=0.1793146044`), but the first no-policy source grid is collision dominated and not source-positive.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity validation claim, self-ID claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1269-paper-route-four-wheel-fault-source-shape-result-audit.json`.
+- decision: `four_wheel_fault_source_shape_smoke_infrastructure_pass_source_negative_route_to_result_audit`
+- next: `m1269-paper-route-four-wheel-fault-source-shape-result-audit`

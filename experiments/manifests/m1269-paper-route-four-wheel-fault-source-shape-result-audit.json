@@ -1,0 +1,152 @@
+{
+  "id": "m1269-paper-route-four-wheel-fault-source-shape-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_dataset": [
+      "docs/m1268-paper-route-four-wheel-fault-source-shape-smoke.md",
+      "runs/m1268_four_wheel_fault_source_shape_smoke/summary.json",
+      "runs/m1268_four_wheel_fault_source_shape_smoke/matched_capability_pairs.csv",
+      "runs/m1268_four_wheel_fault_source_shape_smoke/action_rollouts.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1268-paper-route-four-wheel-fault-source-shape-smoke.json"
+    ],
+    "parent_objective": [
+      "audit no-policy four-wheel source-shape smoke after strict accepted rows remain zero"
+    ],
+    "derived_from": [
+      "m1268-paper-route-four-wheel-fault-source-shape-smoke"
+    ],
+    "blocked_by": [
+      "M1268 produced strong regret but zero accepted rows due own-branch collision dominance"
+    ],
+    "supersedes": [
+      "another four-wheel source-shape run before auditing the collision-dominated negative"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1269-paper-route-four-wheel-fault-source-shape-result-audit.md",
+  "public_gates": [
+    "M1269 must preserve actor input contract",
+    "M1269 must not train controllers",
+    "M1269 must not run PPO",
+    "M1269 must not use private holdout",
+    "M1269 must not promote",
+    "M1269 must classify M1268 metric artifact and collision-dominated result",
+    "M1269 must choose the next source variable without threshold relaxation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add per-wheel/fault labels to actor inputs",
+    "do not lower accepted-source thresholds",
+    "do not claim high-fidelity validation",
+    "do not treat horizon-only rows as success"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fidelity_fault_source_design",
+    "evidence_axis": "S_four_wheel_fault_source_shape_audit",
+    "evidence_increment": "audits M1268 after four-wheel source smoke finds strong regret but zero accepted rows due own-branch collision dominance",
+    "claim_scope": "process/source-result audit only; no training, promotion, private-holdout, paper-level, source-positive, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if next proposal lowers accepted thresholds",
+      "stop if next proposal treats collision-dominated rows as source-positive",
+      "stop if next proposal repeats the same scenario/action grid without a new viability variable"
+    ],
+    "fallback_plan": [
+      "if M1268 is collision dominated but high-regret, design viability calibration or candidate-sequence repair",
+      "if M1268 is invalid, write metric artifact report and repair the source runner first"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1268 four-wheel source smoke is infrastructure-valid but source-negative",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "four-wheel source-shape result audit",
+    "admission_evidence": [
+      "M1268 accepted_separable_pairs=0",
+      "M1268 top min_cross_regret=0.1793146044",
+      "M1268 own_branch_viability_fail_count=103",
+      "M1268 corrected horizon-only success artifact"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1269 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest if audit admits it"
+    ],
+    "next_stage_criteria": [
+      "audit classifies M1268 result",
+      "audit chooses next source variable",
+      "audit preserves strict source thresholds and actor guardrails"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1269 audits source shape only and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "Record the collision-dominated high-regret result and metric correction before any source repair.",
+    "allowed_claims": [
+      "four-wheel fault source-shape result audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1268 should be audited as infrastructure-valid but source-negative, with the next variable targeting own-branch viability rather than regret.",
+  "success_criteria": [
+    "docs/m1269-paper-route-four-wheel-fault-source-shape-result-audit.md exists",
+    "audit records M1268 accepted count and collision-dominance diagnostics",
+    "audit records the horizon-only success metric artifact correction",
+    "audit does not lower thresholds",
+    "audit chooses the next branch decision",
+    "no training, PPO, promotion, private holdout, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit is missing",
+    "audit treats M1268 as source-positive",
+    "audit ignores collision-dominance diagnostics",
+    "audit repeats the same source grid without a new viability variable",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1269-paper-route-four-wheel-fault-source-shape-result-audit.md from M1268 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1269-paper-route-four-wheel-fault-source-shape-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint"
+  ],
+  "baseline_artifacts": [
+    "docs/m1268-paper-route-four-wheel-fault-source-shape-smoke.md",
+    "runs/m1268_four_wheel_fault_source_shape_smoke/summary.json"
+  ],
+  "decision_rule": "M1269 passes if it records M1268 as source-negative, classifies the metric artifact and collision dominance, and chooses the next source variable without training or threshold relaxation.",
+  "next_blocker": "m1269-paper-route-four-wheel-fault-source-shape-result-audit"
+}
