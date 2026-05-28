@@ -20528,3 +20528,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: `actor_parameters_changed=false`, `training_started=false`, `evaluation_started=false`, `ppo_used=false`, `promoted=false`, `private_holdout_used=false`, `training_corpus_exported=false`, `actor_input_contract_changed=false`.
 - follow-up manifest: `experiments/manifests/m1393-paper-route-warmup-latched-causal-history-task-design.json`.
 - next: `m1393-paper-route-warmup-latched-causal-history-task-design`
+
+## 20260529T014000Z - m1393-paper-route-warmup-latched-causal-history-task-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1393-paper-route-warmup-latched-causal-history-task-design.md`
+- decision: `warmup_latched_causal_history_task_design_admit_config_smoke`
+- blocker addressed: M1392 accepted self-ID rows were delayed-history-only and source-narrow (`24` rows from `1` seed), while reset/zero-current dominated broad outcome effects.
+- design: two-phase task with warmup capability evidence followed by emergency reveal, with matched or bucketed current frame at reveal.
+- controls: `normal`, `reset_hidden`, `zero_current_response`, `delayed_warmup_history`, `wrong_warmup_history_same_reveal`, `same_recent_wrong_warmup_history`, and `warmup_removed_or_shortened`.
+- thresholds: structural smoke requires `source_rows >= 512`, `matched_or_bucketed_reveal_rows >= 160`, `unique_source_seeds >= 24`, `unique_capability_pairs >= 8`, and `unique_reveal_buckets >= 8`; public diagnostic positivity requires `warmup_history_positive_rows >= 48`, `accepted_seeds >= 12`, `accepted_capability_pairs >= 6`, and `accepted_reveal_buckets >= 4`.
+- interpretation: M1393 is design only; it admits a no-training warmup-latched config/source smoke, not training or corpus export.
+- guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1394-paper-route-warmup-latched-config-smoke.json`.
+- next: `m1394-paper-route-warmup-latched-config-smoke`

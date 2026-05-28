@@ -2,7 +2,7 @@
   "id": "m1393-paper-route-warmup-latched-causal-history-task-design",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -151,6 +151,26 @@
     "runs/m1392_causal_history_candidate_outcome_probe/summary.json",
     "runs/m1392_causal_history_candidate_outcome_probe/accepted_self_id_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1393-paper-route-warmup-latched-causal-history-task-design.md",
+    "decision": "warmup_latched_causal_history_task_design_admit_config_smoke",
+    "task_design": "two_phase_warmup_then_emergency_reveal",
+    "addresses_m1392_source_narrow_signal": true,
+    "matched_or_bucketed_current_controls_defined": true,
+    "warmup_history_interventions_defined": true,
+    "source_diversity_thresholds_defined": true,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1394-paper-route-warmup-latched-config-smoke.json"
+  },
+  "decision": "warmup_latched_causal_history_task_design_admit_config_smoke",
   "decision_rule": "M1393 passes if it designs a warmup-latched causal-history task/source route before training or claim expansion.",
-  "next_blocker": "m1393-paper-route-warmup-latched-causal-history-task-design"
+  "next_blocker": "m1394-paper-route-warmup-latched-config-smoke"
 }

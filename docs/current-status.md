@@ -16,22 +16,37 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1392-paper-route-causal-history-candidate-outcome-probe
+m1393-paper-route-warmup-latched-causal-history-task-design
 ```
 
 Current next task:
 
 ```text
-m1393-paper-route-warmup-latched-causal-history-task-design
+m1394-paper-route-warmup-latched-config-smoke
 ```
 
-M1392 implemented and ran the no-training outcome probe over M1391 candidates.
-The
+M1393 designed a warmup-latched causal-history task/source route after M1392
+showed source-narrow delayed-history signal. The
 current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1393 result:
+
+```text
+decision: warmup_latched_causal_history_task_design_admit_config_smoke
+task_design: two_phase_warmup_then_emergency_reveal
+next: m1394-paper-route-warmup-latched-config-smoke
+```
+
+M1393 defines a two-phase source route: warmup capability evidence first, then
+an emergency reveal with matched or bucketed current frame. It requires controls
+for reset, zero-current response, delayed warmup history, wrong warmup history,
+same-recent wrong warmup history, and shortened/removed warmup. M1394 should
+only implement or run a no-training config/source smoke; no corpus export,
+training, private holdout, promotion, or actor-input change is admitted.
 
 M1392 result:
 

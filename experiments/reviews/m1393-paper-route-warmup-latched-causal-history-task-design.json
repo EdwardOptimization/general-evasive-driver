@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M1393 designs a two-phase warmup then emergency reveal task with matched/bucketed current controls source-diversity thresholds and no-training config smoke route",
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores M1392 source-narrow result",
+    "design omits current-frame substitution controls",
+    "design omits source-diversity thresholds",
+    "design routes directly to training or claim expansion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not claim level3 self-identification from design"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T231635Z",
+  "hypothesis": "A warmup-latched task can be designed to make pre-emergency command-response history causally relevant and less replaceable by current-frame feedback.",
+  "lineage": {
+    "blocked_by": [
+      "M1392 outcome probe is history-sparse and dominated by reset/zero-current effects"
+    ],
+    "derived_from": [
+      "m1392-paper-route-causal-history-candidate-outcome-probe"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1392-paper-route-causal-history-candidate-outcome-probe.json"
+    ],
+    "parent_dataset": [
+      "docs/m1392-paper-route-causal-history-candidate-outcome-probe.md",
+      "runs/m1392_causal_history_candidate_outcome_probe/summary.json",
+      "runs/m1392_causal_history_candidate_outcome_probe/accepted_self_id_rows.csv"
+    ],
+    "parent_objective": [
+      "design warmup-latched causal-history tasks after M1392 finds source-narrow delayed-history signal"
+    ],
+    "supersedes": [
+      "training from M1391 candidates",
+      "exporting M1392 accepted self-ID rows as a corpus",
+      "running another blind profile repeat"
+    ]
+  },
+  "milestone": "m1393-paper-route-warmup-latched-causal-history-task-design",
+  "next_blocker": "m1394-paper-route-warmup-latched-config-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "warmup_latched_causal_history_task_design_admit_config_smoke",
+  "public_gates": [
+    "M1393 must design a warmup-latched task/source route before new training or corpus export",
+    "M1393 must address M1392 source-narrow delayed-history signal",
+    "M1393 must include matched-current or bucketed-current controls and current-frame substitution controls",
+    "M1393 must not train, run PPO, promote, use private holdout, export a corpus, or change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1393-paper-route-warmup-latched-causal-history-task-design.md",
+    "clearance_margin_mean": "",
+    "decision": "warmup_latched_causal_history_task_design_admit_config_smoke",
+    "milestone": "m1393-paper-route-warmup-latched-causal-history-task-design",
+    "reason": "M1393 designs a two-phase warmup then emergency reveal task with matched/bucketed current controls source-diversity thresholds and no-training config smoke route",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1393-paper-route-warmup-latched-causal-history-task-design.md exists",
+    "design specifies warmup and emergency phases",
+    "design specifies matched/bucketed current controls and interventions",
+    "design specifies source-diversity thresholds and next implementation route",
+    "design does not route directly to training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "type": "gate"
+}

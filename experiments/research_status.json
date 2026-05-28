@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1402,
+    "completed": 1403,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1392_causal_history_candidate_outcome_probe/summary.json",
+    "command_log": "docs/m1393-paper-route-warmup-latched-causal-history-task-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1392_causal_history_candidate_outcome_probe",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1392-paper-route-causal-history-candidate-outcome-probe"
+    "task_id": "m1393-paper-route-warmup-latched-causal-history-task-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1393-paper-route-warmup-latched-causal-history-task-design.json",
-    "hypothesis": "A warmup-latched task can be designed to make pre-emergency command-response history causally relevant and less replaceable by current-frame feedback.",
-    "id": "m1393-paper-route-warmup-latched-causal-history-task-design",
-    "kind": "gate",
-    "notes": "Pending: design warmup-latched causal-history task/source route after M1392 source-narrow result",
-    "priority": 13880,
+    "command": "see experiments/manifests/m1394-paper-route-warmup-latched-config-smoke.json",
+    "hypothesis": "A no-training warmup-latched source/config smoke can materialize matched or bucketed reveal candidates with source-diversity metrics.",
+    "id": "m1394-paper-route-warmup-latched-config-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: implement or run warmup-latched no-training source/config smoke before outcome probing, corpus export, or training",
+    "priority": 13890,
     "status": "pending",
-    "success_artifact": "docs/m1393-paper-route-warmup-latched-causal-history-task-design.md"
+    "success_artifact": "runs/m1394_warmup_latched_config_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T013000Z"
+  "updated_at_utc": "20260529T014000Z"
 }

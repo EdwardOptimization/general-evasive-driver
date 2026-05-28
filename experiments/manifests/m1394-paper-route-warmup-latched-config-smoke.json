@@ -1,0 +1,149 @@
+{
+  "id": "m1394-paper-route-warmup-latched-config-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1393-paper-route-warmup-latched-causal-history-task-design.md",
+      "runs/m1392_causal_history_candidate_outcome_probe/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1393-paper-route-warmup-latched-causal-history-task-design.json"
+    ],
+    "parent_objective": [
+      "implement or run no-training warmup-latched config/source smoke"
+    ],
+    "derived_from": [
+      "m1393-paper-route-warmup-latched-causal-history-task-design"
+    ],
+    "blocked_by": [
+      "M1393 requires a structural warmup-latched source smoke before outcome probing or corpus export"
+    ],
+    "supersedes": [
+      "training from M1392 source-narrow rows",
+      "claiming self-identification from reset or zero-current controls"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1394-paper-route-warmup-latched-config-smoke.md",
+  "public_gates": [
+    "M1394 must implement or run a no-training warmup-latched source/config smoke",
+    "M1394 must report warmup/reveal structure and current-frame matching metrics",
+    "M1394 must report source-diversity metrics",
+    "M1394 must not train, run PPO, promote, use private holdout, export a corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_necessity_task_design",
+    "evidence_axis": "G_warmup_latched_config_smoke",
+    "evidence_increment": "tests whether the repository can materialize warmup-latched source candidates with matching and diversity metrics",
+    "claim_scope": "infrastructure/source smoke only; no training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if warmup/reveal phases cannot be expressed",
+      "stop if matching metrics cannot be measured",
+      "stop if source-diversity metrics are omitted",
+      "stop if implementation requires actor-input expansion"
+    ],
+    "fallback_plan": [
+      "route to simulator/task API extension if warmup reveal cannot be expressed",
+      "route to source selection redesign if matched reveal rows are too sparse",
+      "route to branch synthesis if warmup-latched route is infeasible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "warmup-latched no-training config/source smoke",
+    "admission_evidence": [
+      "M1393 designs warmup-latched causal-history source requirements",
+      "M1392 history signal is source-narrow and reset/zero-current dominated"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export a training corpus"
+    ],
+    "allowed_updates": [
+      "warmup-latched source/config implementation",
+      "summary artifacts under runs/",
+      "M1394 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "warmup/reveal candidates are materialized or infeasibility is classified",
+      "matching and source-diversity metrics are reported",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1394 must report matched/bucketed reveal metrics and cannot count current-only or zero-current-only effects as self-ID evidence.",
+    "history_necessity_tests": [
+      "warmup_reveal_source_materialization",
+      "matched_or_bucketed_current_reveal_metrics",
+      "source_diversity_summary"
+    ],
+    "temporal_evidence_window": "No-training warmup/reveal source smoke following M1393 design.",
+    "negative_result_policy": "If warmup-latched sources are too sparse or unmeasurable, record the negative and route to task/simulator redesign before training.",
+    "allowed_claims": [
+      "warmup-latched source/config smoke result",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-training warmup-latched source/config smoke can materialize matched or bucketed reveal candidates with source-diversity metrics.",
+  "success_criteria": [
+    "runs/m1394_warmup_latched_config_smoke/summary.json exists",
+    "warmup and reveal structure is reported",
+    "matching and source-diversity metrics are reported",
+    "result chooses next route without training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "smoke artifact is missing",
+    "warmup/reveal structure is not measured",
+    "matching or source-diversity metrics are not reported",
+    "result routes directly to training or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "implement or run no-training warmup-latched source/config smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1394_warmup_latched_config_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1393-paper-route-warmup-latched-causal-history-task-design.md",
+    "runs/m1392_causal_history_candidate_outcome_probe/summary.json"
+  ],
+  "decision_rule": "M1394 passes structurally if it materializes or cleanly rejects warmup-latched source candidates with matching and source-diversity metrics.",
+  "next_blocker": "m1394-paper-route-warmup-latched-config-smoke"
+}
