@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M1395 evaluates 3072 intervention rows and finds 12 warmup-history-positive rows from 1 seed with zero wrong-warmup outcome-critical rows so no corpus export or training",
+  "failure_criteria": [
+    "outcome probe artifact is missing",
+    "variant separation is missing",
+    "source or reveal-bucket diversity is not reported",
+    "result routes directly to training or claim expansion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not count reset-only rows as self-identification",
+    "do not count zero-current-response-only rows as self-identification",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T233318Z",
+  "hypothesis": "No-training outcome interventions over M1394 warmup-latched rows can determine whether pre-emergency command-response history produces source-diverse outcome-relevant gaps beyond reset or zero-current controls.",
+  "lineage": {
+    "blocked_by": [
+      "M1394 materialized warmup-latched source rows but did not test outcome-causal history dependence"
+    ],
+    "derived_from": [
+      "m1394-paper-route-warmup-latched-config-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1394-paper-route-warmup-latched-config-smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m1394-paper-route-warmup-latched-config-smoke.md",
+      "runs/m1394_warmup_latched_config_smoke/summary.json",
+      "runs/m1394_warmup_latched_config_smoke/matched_or_bucketed_rows.csv"
+    ],
+    "parent_objective": [
+      "run no-training outcome interventions on warmup-latched matched or bucketed reveal rows"
+    ],
+    "supersedes": [
+      "training directly from M1394 matched rows",
+      "claiming self-identification from warmup-latched source materialization alone"
+    ]
+  },
+  "milestone": "m1395-paper-route-warmup-latched-outcome-probe",
+  "next_blocker": "m1396-paper-route-warmup-latched-outcome-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "warmup_latched_outcome_history_sparse_route_to_result_audit",
+  "public_gates": [
+    "M1395 must run or implement no-training outcome interventions over M1394 matched/bucketed rows",
+    "M1395 must separate normal reset zero-current delayed wrong-warmup same-recent-wrong-warmup and shortened-warmup variants",
+    "M1395 must report accepted-row source diversity and reveal-bucket diversity",
+    "M1395 must not train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1395_warmup_latched_outcome_probe/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "warmup_latched_outcome_history_sparse_route_to_result_audit",
+    "milestone": "m1395-paper-route-warmup-latched-outcome-probe",
+    "reason": "M1395 evaluates 3072 intervention rows and finds 12 warmup-history-positive rows from 1 seed with zero wrong-warmup outcome-critical rows so no corpus export or training",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1395_warmup_latched_outcome_probe/summary.json exists",
+    "normal reset zero-current delayed wrong-warmup same-recent-wrong-warmup and shortened-warmup variants are reported or cleanly rejected",
+    "accepted-row source diversity and reveal-bucket diversity are reported",
+    "result chooses next route without training, PPO, promotion, private holdout, training corpus export, or actor-input expansion"
+  ],
+  "type": "infrastructure"
+}

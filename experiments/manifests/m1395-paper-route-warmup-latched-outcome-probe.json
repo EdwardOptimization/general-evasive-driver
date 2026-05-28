@@ -2,7 +2,7 @@
   "id": "m1395-paper-route-warmup-latched-outcome-probe",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -153,6 +153,40 @@
     "runs/m1394_warmup_latched_config_smoke/summary.json",
     "runs/m1394_warmup_latched_config_smoke/matched_or_bucketed_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1395_warmup_latched_outcome_probe/summary.json",
+    "result_doc": "docs/m1395-paper-route-warmup-latched-outcome-probe.md",
+    "decision": "warmup_latched_outcome_history_sparse_route_to_result_audit",
+    "result_class": "warmup_latched_outcome_history_sparse",
+    "selected_candidate_rows": 384,
+    "outcome_rows": 3072,
+    "accepted_outcome_rows": 25,
+    "warmup_history_positive_rows": 12,
+    "accepted_reset_rows": 6,
+    "accepted_zero_current_rows": 7,
+    "action_critical_rows": 1927,
+    "normal_failed_rows": 752,
+    "rejected_rows": 0,
+    "accepted_warmup_history_unique_source_seeds": 1,
+    "accepted_warmup_history_unique_capability_pairs": 3,
+    "accepted_warmup_history_unique_reveal_buckets": 3,
+    "accepted_warmup_history_unique_variants": 2,
+    "wrong_warmup_history_outcome_critical_rows": 0,
+    "same_recent_wrong_warmup_history_outcome_critical_rows": 0,
+    "delayed_warmup_history_outcome_critical_rows": 0,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "actor_parameters_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1396-paper-route-warmup-latched-outcome-result-audit.json"
+  },
+  "decision": "warmup_latched_outcome_history_sparse_route_to_result_audit",
   "decision_rule": "M1395 passes structurally if it materializes no-training outcome interventions over M1394 rows and reports accepted-row source and reveal diversity without claim expansion.",
-  "next_blocker": "m1395-paper-route-warmup-latched-outcome-probe"
+  "next_blocker": "m1396-paper-route-warmup-latched-outcome-result-audit"
 }

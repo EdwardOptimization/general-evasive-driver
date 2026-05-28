@@ -16,21 +16,47 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1394-paper-route-warmup-latched-config-smoke
+m1395-paper-route-warmup-latched-outcome-probe
 ```
 
 Current next task:
 
 ```text
-m1395-paper-route-warmup-latched-outcome-probe
+m1396-paper-route-warmup-latched-outcome-result-audit
 ```
 
-M1394 implemented and ran the no-training warmup-latched source/config smoke
-required by M1393. The current public-gate base remains M1362 alpha `0.1`:
+M1395 implemented and ran the no-training warmup-latched outcome probe over
+M1394 matched/bucketed reveal rows. The current public-gate base remains M1362
+alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1395 result:
+
+```text
+decision: warmup_latched_outcome_history_sparse_route_to_result_audit
+result_class: warmup_latched_outcome_history_sparse
+selected_candidate_rows: 384
+outcome_rows: 3072
+accepted_outcome_rows: 25
+warmup_history_positive_rows: 12
+accepted_warmup_history_unique_source_seeds: 1
+accepted_warmup_history_unique_capability_pairs: 3
+accepted_warmup_history_unique_reveal_buckets: 3
+wrong_warmup_history outcome-critical rows: 0
+same_recent_wrong_warmup_history outcome-critical rows: 0
+delayed_warmup_history outcome-critical rows: 0
+next: m1396-paper-route-warmup-latched-outcome-result-audit
+```
+
+M1395 is a runnable diagnostic but not a source-diverse positive. Its only
+warmup-history-positive rows are `warmup_removed` or `warmup_shortened_8`, all
+from seed `139421`; wrong-warmup and delayed-warmup variants have zero
+outcome-critical rows. M1396 must audit this sparse result before any new source
+expansion, corpus export, PPO, training, private holdout, promotion, or claim
+expansion.
 
 M1394 result:
 

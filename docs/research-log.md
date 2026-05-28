@@ -20562,3 +20562,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: `actor_parameters_changed=false`, `training_started=false`, `evaluation_started=false`, `ppo_used=false`, `promoted=false`, `private_holdout_used=false`, `training_corpus_exported=false`, `actor_input_contract_changed=false`.
 - follow-up manifest: `experiments/manifests/m1395-paper-route-warmup-latched-outcome-probe.json`.
 - next: `m1395-paper-route-warmup-latched-outcome-probe`
+
+## 20260529T020000Z - m1395-paper-route-warmup-latched-outcome-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1395_warmup_latched_outcome_probe/summary.json`
+- result doc: `docs/m1395-paper-route-warmup-latched-outcome-probe.md`
+- decision: `warmup_latched_outcome_history_sparse_route_to_result_audit`
+- command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.warmup_latched_outcome_probe --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m991_capability_step_fault_source_wave.json --candidate-rows runs/m1394_warmup_latched_config_smoke/matched_or_bucketed_rows.csv --max-candidate-rows 384 --per-capability-pair-cap 48 --history-length 36 --recent-window-length 4 --max-continuation-steps 48 --device cpu --run-dir runs/m1395_warmup_latched_outcome_probe`
+- result class: `warmup_latched_outcome_history_sparse`
+- counts: `selected_candidate_rows=384`, `outcome_rows=3072`, `accepted_outcome_rows=25`, `warmup_history_positive_rows=12`, `accepted_reset_rows=6`, `accepted_zero_current_rows=7`, `action_critical_rows=1927`, `normal_failed_rows=752`, `rejected_rows=0`.
+- accepted warmup-history diversity: `unique_source_seeds=1`, `unique_capability_pairs=3`, `unique_reveal_buckets=3`, `unique_variants=2`, `max_single_seed_share=1.0`.
+- variant finding: `wrong_warmup_history_same_reveal=0`, `same_recent_wrong_warmup_history=0`, `delayed_warmup_history_8=0`, and `delayed_warmup_history_16=0` outcome-critical rows; positives are only `warmup_removed=9` and `warmup_shortened_8=3`.
+- interpretation: M1395 is runnable but source-narrow and does not admit corpus export, PPO, training, promotion, private holdout, actor-input change, or claim expansion.
+- guardrail: `actor_parameters_changed=false`, `training_started=false`, `evaluation_started=false`, `ppo_used=false`, `promoted=false`, `private_holdout_used=false`, `training_corpus_exported=false`, `actor_input_contract_changed=false`.
+- follow-up manifest: `experiments/manifests/m1396-paper-route-warmup-latched-outcome-result-audit.json`.
+- next: `m1396-paper-route-warmup-latched-outcome-result-audit`

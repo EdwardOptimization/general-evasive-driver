@@ -1,0 +1,151 @@
+{
+  "id": "m1396-paper-route-warmup-latched-outcome-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1395-paper-route-warmup-latched-outcome-probe.md",
+      "runs/m1395_warmup_latched_outcome_probe/summary.json",
+      "runs/m1395_warmup_latched_outcome_probe/accepted_warmup_history_rows.csv",
+      "runs/m1395_warmup_latched_outcome_probe/variant_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1395-paper-route-warmup-latched-outcome-probe.json"
+    ],
+    "parent_objective": [
+      "audit sparse warmup-latched outcome evidence before any corpus export, training, or source expansion"
+    ],
+    "derived_from": [
+      "m1395-paper-route-warmup-latched-outcome-probe"
+    ],
+    "blocked_by": [
+      "M1395 warmup-history positives are source-narrow and wrong-warmup variants have zero outcome-critical rows"
+    ],
+    "supersedes": [
+      "exporting M1395 warmup-history-positive rows as a training corpus",
+      "running another blind warmup-latched expansion without interpreting the sparse result"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1396-paper-route-warmup-latched-outcome-result-audit.md",
+  "public_gates": [
+    "M1396 must audit M1395 before new training, corpus export, or source expansion",
+    "M1396 must classify whether seed 139421 is a useful source pocket or a singleton artifact",
+    "M1396 must decide whether to redesign warmup timing, reveal pressure, source matching, or synthesize the branch",
+    "M1396 must not train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not count seed-narrow warmup-removed rows as source-diverse self-identification",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_necessity_task_design",
+    "evidence_axis": "G_warmup_latched_outcome_result_audit",
+    "evidence_increment": "classifies the M1395 sparse warmup-latched outcome result and chooses the next route before more expansion",
+    "claim_scope": "process audit only; no training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if M1395 positives are only a singleton artifact",
+      "stop if wrong-warmup variants remain zero because current/recent state substitutes for history",
+      "stop if the branch needs synthesis before another narrow experiment"
+    ],
+    "fallback_plan": [
+      "route to warmup/reveal task redesign if the seed pocket is informative",
+      "route to stronger current-frame matching or same-current interventions if current/recent substitution remains high",
+      "route to branch synthesis if warmup-latched evidence remains sparse after audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "M1395 sparse-result audit",
+    "admission_evidence": [
+      "M1395 selected 384 candidates and evaluated 3072 intervention rows",
+      "M1395 found 12 warmup-history-positive rows but only 1 accepted seed",
+      "M1395 wrong-warmup and same-recent-wrong-warmup variants had zero outcome-critical rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export a training corpus"
+    ],
+    "allowed_updates": [
+      "M1396 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "M1395 result is classified",
+      "next route is explicit",
+      "no training or corpus export is admitted without source-diverse outcome evidence"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1396 must treat zero wrong-warmup outcomes and seed-narrow warmup-removed positives as evidence that current/recent substitution or source design may still dominate.",
+    "history_necessity_tests": [
+      "m1395_wrong_warmup_zero_outcome_rows",
+      "m1395_warmup_removed_seed_singleton",
+      "m1395_reset_zero_current_control_rows"
+    ],
+    "temporal_evidence_window": "Process audit over M1395 no-training outcome-intervention artifacts.",
+    "negative_result_policy": "If M1395 does not support source-diverse history-positive evidence, route to redesign or synthesis before training.",
+    "allowed_claims": [
+      "M1395 sparse-result audit",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A process audit can determine whether M1395 sparse warmup-history positives are a useful task-design clue or a singleton artifact, and choose the next route without training.",
+  "success_criteria": [
+    "docs/m1396-paper-route-warmup-latched-outcome-result-audit.md exists",
+    "audit classifies M1395 sparse warmup-history positives and zero wrong-warmup outcome rows",
+    "audit chooses a next route without corpus export, training, PPO, promotion, private holdout, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores M1395 source-narrow accepted rows",
+    "audit ignores zero wrong-warmup outcome rows",
+    "audit routes directly to training or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1396-paper-route-warmup-latched-outcome-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1396-paper-route-warmup-latched-outcome-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1395-paper-route-warmup-latched-outcome-probe.md",
+    "runs/m1395_warmup_latched_outcome_probe/summary.json",
+    "runs/m1395_warmup_latched_outcome_probe/accepted_warmup_history_rows.csv",
+    "runs/m1395_warmup_latched_outcome_probe/variant_summary.csv"
+  ],
+  "decision_rule": "M1396 passes if it audits M1395 and chooses a redesign or synthesis route before any training or corpus export.",
+  "next_blocker": "m1396-paper-route-warmup-latched-outcome-result-audit"
+}
