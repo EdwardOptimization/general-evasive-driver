@@ -17217,3 +17217,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1203-paper-route-profile-control-repair-implementation.json`.
 - decision: `profile_control_repair_design_admit_runtime_implementation`
 - next: `m1203-paper-route-profile-control-repair-implementation`
+
+## 20260528T055254Z - m1203-paper-route-profile-control-repair-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1203-paper-route-profile-control-repair-implementation.md`
+- source: `src/autodrift/controller_profile_runtime.py`, `src/autodrift/evaluate.py`
+- tests: `tests/test_controller_profile_runtime.py`, `tests/test_controller_profile_train_entrypoint_mask.py`, `tests/test_evaluate_reset_hidden_policy.py`
+- result: implements corrected diagnostic-control plumbing for current-tiled L2 controls and reset-hidden evaluation semantics.
+- current-tiled control: `ObservationMaskSpec.history_transform="current_tiled"` preserves observation shape while replacing older frames with frame 0.
+- reset semantics: `ActorPolicy(reset_hidden_policy="every_step_control")` resets online recurrent hidden before each action; `episode_persistent` keeps prior behavior.
+- metadata: `profile_runtime_summary` now records `history_transform`, `history_transform_enabled`, and `reset_hidden_policy`.
+- focused verification: `17 passed, 1 warning`.
+- guardrail: no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1204-paper-route-profile-control-repair-smoke-run.json`.
+- decision: `profile_control_repair_implementation_ready_for_corrected_runtime_smoke`
+- next: `m1204-paper-route-profile-control-repair-smoke-run`

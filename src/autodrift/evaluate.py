@@ -43,10 +43,17 @@ def load_env_config(path: Path) -> DriftEnvConfig:
 
 
 class ActorPolicy(Policy):
-    def __init__(self, model: ActorCritic, env_config: DriftEnvConfig, ablation: str = "none"):
+    def __init__(
+        self,
+        model: ActorCritic,
+        env_config: DriftEnvConfig,
+        ablation: str = "none",
+        reset_hidden_policy: str = "episode_persistent",
+    ):
         self.model = model
         self.env_config = env_config
         self.ablation = ablation
+        self.reset_hidden_policy = reset_hidden_policy
         self.last_sequence: np.ndarray | None = None
         self.hidden: torch.Tensor | None = None
         self._rng_seed = 0
@@ -118,7 +125,7 @@ class ActorPolicy(Policy):
         del info
         observation = self._transform_observation(observation)
         if self.model.is_online_recurrent:
-            if self.ablation == "reset_recurrent_state":
+            if self.ablation == "reset_recurrent_state" or self.reset_hidden_policy == "every_step_control":
                 self.hidden = None
             action, _, _, self.hidden = self.model.act_recurrent(
                 observation,
@@ -305,6 +312,12 @@ def evaluate_policy(
             raise ValueError("--checkpoint is required when --policy checkpoint is used")
         model, checkpoint_data = load_actor_critic_checkpoint(checkpoint_path, device=device)
         metadata_env = checkpoint_data.get("metadata", {}).get("env")
+        controller_profile_runtime = checkpoint_data.get("metadata", {}).get("controller_profile_runtime", {})
+        reset_hidden_policy = (
+            str(controller_profile_runtime.get("reset_hidden_policy", "episode_persistent"))
+            if isinstance(controller_profile_runtime, dict)
+            else "episode_persistent"
+        )
         if env_config is None and isinstance(metadata_env, dict):
             resolved_env_config = build_env_config(metadata_env)
     env = AutoDriftEnv(resolved_env_config)
@@ -313,7 +326,12 @@ def evaluate_policy(
         target_obs_dim = int(env.observation_space.shape[0])
         if model.obs_dim != target_obs_dim:
             model, _ = load_actor_critic_checkpoint(checkpoint_path, device=device, obs_dim=target_obs_dim)
-        actor_policy = ActorPolicy(model, resolved_env_config, ablation=checkpoint_ablation)
+        actor_policy = ActorPolicy(
+            model,
+            resolved_env_config,
+            ablation=checkpoint_ablation,
+            reset_hidden_policy=reset_hidden_policy,
+        )
 
     rows = []
     episode_seeds = list(seeds) if seeds is not None else [seed + episode for episode in range(episodes)]

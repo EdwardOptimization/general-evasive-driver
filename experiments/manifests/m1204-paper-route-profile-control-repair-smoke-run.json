@@ -1,0 +1,158 @@
+{
+  "id": "m1204-paper-route-profile-control-repair-smoke-run",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "docs/m1203-paper-route-profile-control-repair-implementation.md",
+      "tests/test_controller_profile_runtime.py",
+      "tests/test_evaluate_reset_hidden_policy.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1203-paper-route-profile-control-repair-implementation.json"
+    ],
+    "parent_objective": [
+      "smoke test corrected reset and current-tiled runtime controls before training"
+    ],
+    "derived_from": [
+      "m1203-paper-route-profile-control-repair-implementation"
+    ],
+    "blocked_by": [
+      "M1203 implements corrected control plumbing but no runtime smoke artifact has been written"
+    ],
+    "supersedes": [
+      "assuming focused unit tests are enough before corrected pilot rerun"
+    ],
+    "invalidates": [
+      "running corrected PPO pilot without a no-training runtime smoke"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1204-paper-route-profile-control-repair-smoke-run.md",
+  "public_gates": [
+    "M1204 may run no-training runtime smoke only",
+    "M1204 must not train controllers",
+    "M1204 must not run PPO",
+    "M1204 must not run candidate replay",
+    "M1204 must not promote",
+    "M1204 must not use private holdout",
+    "M1204 must not tune profiles",
+    "M1204 must not claim profile superiority or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not tune profiles",
+    "do not promote",
+    "do not claim performance evidence",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_profile_control_repair_smoke: no-training corrected-control runtime proof",
+    "evidence_increment": "runs a no-training smoke proving corrected reset and current-tiled controls work in runtime paths",
+    "claim_scope": "infrastructure smoke only; no training promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if current-tiled control does not preserve observation shape",
+      "stop if vector env reset/step does not apply current-tiled transform",
+      "stop if reset_hidden_policy is not honored by evaluation policy",
+      "stop if smoke requires private holdout or training"
+    ],
+    "fallback_plan": [
+      "route to runtime implementation repair if current-tiled smoke fails",
+      "route to evaluator repair if reset-policy smoke fails",
+      "route to corrected pilot design if smoke passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1203 implementation needs no-training runtime smoke before corrected pilot rerun",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "corrected control runtime smoke",
+    "admission_evidence": [
+      "M1203 focused tests pass",
+      "M1203 implements current-tiled history transform",
+      "M1203 implements reset-hidden evaluation policy"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make performance or self-ID claims"
+    ],
+    "allowed_updates": [
+      "no-training runtime smoke artifacts",
+      "M1204 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "current-tiled runtime smoke passes",
+      "reset-policy eval smoke passes",
+      "no training or promotion occurs",
+      "corrected pilot design or implementation repair is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1204 tests controls that will later isolate current-frame substitution; smoke itself is not self-ID evidence.",
+    "history_necessity_tests": [
+      "current_tiled_runtime_smoke",
+      "reset_hidden_policy_runtime_smoke"
+    ],
+    "temporal_evidence_window": "No-training runtime smoke only.",
+    "negative_result_policy": "If smoke fails, route to implementation repair and do not run corrected pilot.",
+    "allowed_claims": [
+      "corrected-control runtime smoke readiness",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Corrected reset and current-tiled controls work in no-training runtime/eval paths.",
+  "success_criteria": [
+    "docs/m1204-paper-route-profile-control-repair-smoke-run.md exists",
+    "runs/m1204_profile_control_repair_smoke/summary.json exists",
+    "current-tiled runtime smoke passes",
+    "reset-policy eval smoke passes",
+    "private holdout remains unused",
+    "no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, or actor-input contract expansion occurs",
+    "next corrected pilot or repair milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1204 trains or tunes profiles",
+    "private holdout is used",
+    "smoke treats runtime checks as performance evidence",
+    "hidden or oracle actor inputs are introduced",
+    "failed smoke is ignored"
+  ],
+  "commands": [
+    {
+      "name": "run_profile_control_repair_smoke",
+      "command": "run no-training corrected-control runtime smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1204-paper-route-profile-control-repair-smoke-run.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m1204_profile_control_repair_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "docs/m1203-paper-route-profile-control-repair-implementation.md"
+  ],
+  "decision_rule": "M1204 passes if no-training runtime smoke proves corrected controls work without training, tuning, promotion, private holdout, or actor-input expansion.",
+  "next_blocker": "m1204-paper-route-profile-control-repair-smoke-run"
+}

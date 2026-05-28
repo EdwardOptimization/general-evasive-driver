@@ -151,5 +151,5 @@
     "docs/m1202-paper-route-profile-control-repair-design.md"
   ],
   "decision_rule": "M1203 passes if corrected diagnostic-control plumbing is implemented and tested without training, tuning, promotion, private holdout, or actor-input expansion.",
-  "next_blocker": "m1203-paper-route-profile-control-repair-implementation"
+  "next_blocker": "m1204-paper-route-profile-control-repair-smoke-run"
 }

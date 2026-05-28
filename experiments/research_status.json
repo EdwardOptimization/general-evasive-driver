@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1212,
+    "completed": 1213,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1202-paper-route-profile-control-repair-design.md",
+    "command_log": "docs/m1203-paper-route-profile-control-repair-implementation.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1202-paper-route-profile-control-repair-design"
+    "task_id": "m1203-paper-route-profile-control-repair-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1203-paper-route-profile-control-repair-implementation.json",
-    "hypothesis": "Reset-hidden evaluation semantics and current-tiled L2 runtime controls can be implemented without changing actor inputs or running training.",
-    "id": "m1203-paper-route-profile-control-repair-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement reset-policy eval support and current-tiled L2 runtime controls",
-    "priority": 11980,
+    "command": "see experiments/manifests/m1204-paper-route-profile-control-repair-smoke-run.json",
+    "hypothesis": "Corrected reset and current-tiled controls work in no-training runtime/eval paths.",
+    "id": "m1204-paper-route-profile-control-repair-smoke-run",
+    "kind": "gate",
+    "notes": "Pending: run no-training corrected-control runtime smoke",
+    "priority": 11990,
     "status": "pending",
-    "success_artifact": "docs/m1203-paper-route-profile-control-repair-implementation.md"
+    "success_artifact": "docs/m1204-paper-route-profile-control-repair-smoke-run.md"
   },
-  "updated_at_utc": "20260528T054840Z"
+  "updated_at_utc": "20260528T055254Z"
 }

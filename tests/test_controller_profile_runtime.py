@@ -5,6 +5,7 @@ import numpy as np
 from autodrift.artifacts import read_json
 from autodrift.config import build_env_config
 from autodrift.controller_profile_runtime import (
+    CURRENT_TILED_HISTORY,
     ControllerProfileObservationWrapper,
     apply_runtime_observation_mask,
     assert_profile_mask_matches_scaffold,
@@ -82,6 +83,37 @@ def test_l2_unmasked_stacked_profile_is_unchanged() -> None:
     assert np.array_equal(masked, obs)
 
 
+def test_current_tiled_history_transform_repeats_current_frame() -> None:
+    config = read_json(L2_CONFIG)
+    config["controller_profile"]["history_transform"] = CURRENT_TILED_HISTORY
+    profile = get_profile("L2_window_25")
+    obs = np.arange(profile.observation_dim, dtype=np.float32)
+
+    transformed = apply_runtime_observation_mask(config, obs)
+    frames = transformed.reshape(profile.env_history_length, HUMAN_VIEW_OBS_DIM)
+    expected_current = obs[:HUMAN_VIEW_OBS_DIM]
+
+    assert transformed.shape == obs.shape
+    assert np.array_equal(frames[0], expected_current)
+    for frame_index in range(1, profile.env_history_length):
+        assert np.array_equal(frames[frame_index], expected_current)
+
+
+def test_current_tiled_history_transform_handles_batched_observations() -> None:
+    config = read_json(L2_CONFIG)
+    config["controller_profile"]["history_transform"] = CURRENT_TILED_HISTORY
+    profile = get_profile("L2_window_25")
+    obs = np.arange(profile.observation_dim * 2, dtype=np.float32).reshape(2, profile.observation_dim)
+
+    transformed = apply_runtime_observation_mask(config, obs)
+    frames = transformed.reshape(2, profile.env_history_length, HUMAN_VIEW_OBS_DIM)
+
+    assert transformed.shape == obs.shape
+    for batch_index in range(2):
+        for frame_index in range(1, profile.env_history_length):
+            assert np.array_equal(frames[batch_index, frame_index], frames[batch_index, 0])
+
+
 def test_mask_spec_matches_scaffold_profiles() -> None:
     for path in PROFILE_CONFIGS:
         config = read_json(path)
@@ -106,8 +138,16 @@ def test_all_unmasked_generated_profiles_leave_observation_unchanged() -> None:
 def test_runtime_summary_reports_no_training_or_oracle_inputs() -> None:
     summary = profile_runtime_summary(read_json(L0_CONFIG))
     assert summary["mask_enabled"] is True
+    assert summary["history_transform"] == "none"
+    assert summary["history_transform_enabled"] is False
+    assert summary["reset_hidden_policy"] == "not_applicable"
     assert summary["hidden_or_oracle_actor_inputs"] is False
     assert summary["wheel_or_slip_actor_inputs"] is False
     assert summary["training_started"] is False
     assert summary["ppo_used"] is False
     assert summary["private_holdout_used"] is False
+
+
+def test_runtime_summary_reports_l3_reset_hidden_policy() -> None:
+    summary = profile_runtime_summary(read_json("configs/paper_route_profiles/m1190_l3_reset_control_smoke.json"))
+    assert summary["reset_hidden_policy"] == "every_step_control"

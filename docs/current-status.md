@@ -115,8 +115,28 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1203-paper-route-profile-control-repair-implementation
+m1204-paper-route-profile-control-repair-smoke-run
 ```
+
+M1203 completed profile control repair implementation:
+
+```text
+artifact: docs/m1203-paper-route-profile-control-repair-implementation.md
+source: src/autodrift/controller_profile_runtime.py, src/autodrift/evaluate.py
+tests: tests/test_controller_profile_runtime.py, tests/test_controller_profile_train_entrypoint_mask.py, tests/test_evaluate_reset_hidden_policy.py
+decision: profile_control_repair_implementation_ready_for_corrected_runtime_smoke
+```
+
+Implemented:
+
+```text
+ObservationMaskSpec.history_transform = current_tiled
+ObservationMaskSpec.reset_hidden_policy metadata
+ActorPolicy reset_hidden_policy=every_step_control semantics
+```
+
+Focused tests passed (`17 passed`). M1204 must run a no-training runtime smoke
+before any corrected PPO pilot.
 
 M1202 completed profile control repair design:
 
