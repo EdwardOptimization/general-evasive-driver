@@ -16,14 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1355-paper-route-materialized-source-history-replay-aware-retention-probe
+m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis
+m1357-paper-route-bidirectional-replay-active-set-design
 ```
+
+M1356 synthesizes M1346-M1355 and closes
+`paper_route_materialized_source_history_pair_group_update_implementation` with a
+`pivot` decision. The branch proved strong source-history trainability but also
+falsified three simpler routes: fixed pair-group objective alone is not
+replay-safe, pure interpolation only gives a tiny diagnostic alpha, and
+normal-branch retention alone makes wrong-history branches safe. The new branch
+is `paper_route_bidirectional_replay_active_set_retention`: explicitly separate
+correct-history success constraints from wrong-history/rejected-branch
+constraints. M1357 should design that branch-asymmetric active-set objective.
 
 M1355 ran the replay-aware retained no-PPO update. It is a negative
 `proof_washout` result. The retained update strongly improves exact

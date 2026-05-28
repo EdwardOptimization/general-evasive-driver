@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1365,
+    "completed": 1366,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1355-paper-route-materialized-source-history-replay-aware-retention-probe.md",
+    "command_log": "docs/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "runs/m1355_materialized_source_history_replay_aware_retention_probe/summary.json",
+    "run_dir": "docs/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m1355-paper-route-materialized-source-history-replay-aware-retention-probe"
+    "task_id": "m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.json",
-    "hypothesis": "Synthesize M1346-M1355 before any more local tuning",
-    "id": "m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis",
+    "command": "see experiments/manifests/m1357-paper-route-bidirectional-replay-active-set-design.json",
+    "hypothesis": "Design separate correct-history and wrong-history replay constraints after M1356 pivot",
+    "id": "m1357-paper-route-bidirectional-replay-active-set-design",
     "kind": "gate",
-    "notes": "Pending: branch synthesis after M1355 proof washout; no training, PPO, promotion, private holdout, or actor update",
-    "priority": 13510,
+    "notes": "Pending: bidirectional active-set design only; no training, PPO, promotion, private holdout, replay run, or actor update",
+    "priority": 13520,
     "status": "pending",
-    "success_artifact": "docs/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.md"
+    "success_artifact": "docs/m1357-paper-route-bidirectional-replay-active-set-design.md"
   },
-  "updated_at_utc": "20260528T200151Z"
+  "updated_at_utc": "20260528T200455Z"
 }

@@ -19899,3 +19899,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no PPO, promotion, private holdout, full replay, threshold relaxation, actor-input expansion, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.json`.
 - next: `m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis`
+
+## 20260528T200455Z - m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.md`
+- decision: `materialized_source_history_pair_group_update_synthesis_pivot_to_bidirectional_active_set`
+- synthesis decision: `pivot`
+- closed branch: `paper_route_materialized_source_history_pair_group_update_implementation`
+- opened branch: `paper_route_bidirectional_replay_active_set_retention`
+- evidence summary: M1346 exact metrics are strong but raw replay fails normal branch; M1352 finds only a tiny safe interpolation; M1355 preserves normal branch but makes wrong-history rows `6`, `10`, `13`, `15`, and `16` successful.
+- supported claims: source-history objective is trainable, replay constraints are active, and normal retention alone is insufficient.
+- falsified claims: fixed pair-group objective alone is replay-safe; pure interpolation is enough; normal-branch retention is enough.
+- failure taxonomy: `proof_washout` plus `objective_overfit` risk on fixed public surfaces.
+- public-gate overfit risk: `high`.
+- next branch decision: design bidirectional active-set retention with separate correct-history success and wrong-history/rejected-branch constraints.
+- guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1357-paper-route-bidirectional-replay-active-set-design.json`.
+- next: `m1357-paper-route-bidirectional-replay-active-set-design`

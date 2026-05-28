@@ -182,6 +182,37 @@
     "docs/m1355-paper-route-materialized-source-history-replay-aware-retention-probe.md",
     "runs/m1355_materialized_source_history_replay_aware_retention_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.md",
+    "decision": "materialized_source_history_pair_group_update_synthesis_pivot_to_bidirectional_active_set",
+    "synthesis_decision": "pivot",
+    "closed_branch": "paper_route_materialized_source_history_pair_group_update_implementation",
+    "opened_branch": "paper_route_bidirectional_replay_active_set_retention",
+    "failure_type": "proof_washout",
+    "m1346_exact_positive": true,
+    "m1349_raw_replay_failed_normal_branch": true,
+    "m1352_tiny_alpha_only": true,
+    "m1355_normal_retention_failed_wrong_branch": true,
+    "wrong_history_safe_row_ids": [
+      6,
+      10,
+      13,
+      15,
+      16
+    ],
+    "public_gate_overfit_risk": "high",
+    "selected_route": "bidirectional_replay_active_set_design",
+    "training_started": false,
+    "actor_update_used": false,
+    "replay_run_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "next_manifest": "experiments/manifests/m1357-paper-route-bidirectional-replay-active-set-design.json"
+  },
   "decision_rule": "M1356 passes as a synthesis milestone if it summarizes M1346-M1355 evidence and selects a branch decision before any further implementation, PPO, private holdout, promotion, or actor-input expansion.",
-  "next_blocker": "m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis"
+  "next_blocker": "m1357-paper-route-bidirectional-replay-active-set-design"
 }
