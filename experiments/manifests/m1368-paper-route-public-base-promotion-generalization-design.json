@@ -153,6 +153,30 @@
     "docs/m1367-paper-route-bidirectional-active-set-retention-branch-synthesis.md",
     "runs/m1365_bidirectional_broader_public_replay/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1368-paper-route-public-base-promotion-generalization-design.md",
+    "decision": "public_base_promotion_generalization_design_admit_gate_implementation",
+    "selected_checkpoint": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "public_base_checkpoint": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "gate_tiers_defined": [
+      "contract_and_mutation",
+      "exact_source_history_retention",
+      "public_proof_replay",
+      "fresh_public_generalization",
+      "behavior_and_ablation_retention"
+    ],
+    "private_holdout_used": false,
+    "training_started": false,
+    "actor_update_used": false,
+    "replay_run_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "next_manifest": "experiments/manifests/m1369-paper-route-public-base-promotion-generalization-gate-implementation.json"
+  },
+  "decision": "public_base_promotion_generalization_design_admit_gate_implementation",
   "decision_rule": "M1368 passes as a design milestone only if it defines promotion/generalization criteria while keeping training, replay, PPO, private holdout, promotion, and actor-input changes blocked.",
-  "next_blocker": "m1368-paper-route-public-base-promotion-generalization-design"
+  "next_blocker": "m1369-paper-route-public-base-promotion-generalization-gate-implementation"
 }

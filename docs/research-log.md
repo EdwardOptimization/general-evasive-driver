@@ -20101,3 +20101,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1368-paper-route-public-base-promotion-generalization-design.json`.
 - next: `m1368-paper-route-public-base-promotion-generalization-design`
+
+## 20260528T211000Z - m1368-paper-route-public-base-promotion-generalization-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1368-paper-route-public-base-promotion-generalization-design.md`
+- decision: `public_base_promotion_generalization_design_admit_gate_implementation`
+- candidate checkpoint: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`.
+- public base: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`.
+- design: M1369 must evaluate contract/mutation, exact source-history retention, public proof replay, fresh public/generalization, and behavior/ablation tiers before any promotion audit.
+- private holdout policy: not used; later private evidence remains promotion/paper quality only and must rotate if used for repair.
+- gate utility classification: core promotion gates are separated from research-only row diagnostics, extended-regression gates, and legacy single-key blockers.
+- guardrail: no training, PPO, replay run, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1369-paper-route-public-base-promotion-generalization-gate-implementation.json`.
+- next: `m1369-paper-route-public-base-promotion-generalization-gate-implementation`

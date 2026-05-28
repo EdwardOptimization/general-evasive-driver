@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1377,
+    "completed": 1378,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1367-paper-route-bidirectional-active-set-retention-branch-synthesis.md",
+    "command_log": "docs/m1368-paper-route-public-base-promotion-generalization-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1367-paper-route-bidirectional-active-set-retention-branch-synthesis.md",
+    "run_dir": "docs/m1368-paper-route-public-base-promotion-generalization-design.md",
     "status": "completed",
-    "task_id": "m1367-paper-route-bidirectional-active-set-retention-branch-synthesis"
+    "task_id": "m1368-paper-route-public-base-promotion-generalization-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1368-paper-route-public-base-promotion-generalization-design.json",
-    "hypothesis": "Design promotion and generalization gate for M1362 alpha 0.1 broad-public candidate",
-    "id": "m1368-paper-route-public-base-promotion-generalization-design",
+    "command": "see experiments/manifests/m1369-paper-route-public-base-promotion-generalization-gate-implementation.json",
+    "hypothesis": "M1362 alpha 0.1 can pass a no-training public-base promotion/generalization gate against M1154 after its broad public replay pass",
+    "id": "m1369-paper-route-public-base-promotion-generalization-gate-implementation",
     "kind": "gate",
-    "notes": "Pending: design formal promotion/generalization criteria; no training replay PPO promotion private holdout or actor input change",
-    "priority": 13630,
+    "notes": "Pending: implement or use generic gate; evaluate exact proof replay fresh generalization and behavior tiers; no training PPO private holdout or promotion",
+    "priority": 13640,
     "status": "pending",
-    "success_artifact": "docs/m1368-paper-route-public-base-promotion-generalization-design.md"
+    "success_artifact": "runs/m1369_public_base_promotion_generalization_gate/summary.json"
   },
-  "updated_at_utc": "20260528T210520Z"
+  "updated_at_utc": "20260528T211000Z"
 }

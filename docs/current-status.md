@@ -16,14 +16,35 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1367-paper-route-bidirectional-active-set-retention-branch-synthesis
+m1368-paper-route-public-base-promotion-generalization-design
 ```
 
 Current next task:
 
 ```text
-m1368-paper-route-public-base-promotion-generalization-design
+m1369-paper-route-public-base-promotion-generalization-gate-implementation
 ```
+
+M1368 defines the no-training public-base promotion/generalization gate for the
+M1362 alpha `0.1` broad-public-replay-passing candidate. The candidate checkpoint
+is
+`runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`;
+the current public base remains
+`runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`.
+M1369 should implement or use a generic materialized-source-history promotion
+gate, then evaluate contract/mutation, exact source-history retention, public
+proof replay, source-diverse protected diagnostics, fresh public and moderate-OOD
+generalization, and behavior/ablation retention. M1369 may only classify the
+candidate as promotion-audit-ready or route to a named failure audit. It cannot
+train, run PPO, use private holdout, promote, relax thresholds, or change actor
+inputs.
+
+M1368 also classifies gate utility: actor-contract, exact source-history, public
+proof replay, source-diverse protected, fresh generalization, and behavior
+retention are core promotion gates; old-key neighborhood, row15/row16, and
+single-row diagnostics are research-only or legacy diagnostics; source-rich
+extreme distributions, private holdout, L0/L1/L2/L3 comparisons, and guarded PPO
+stability remain extended-regression or later paper-route evidence.
 
 M1367 synthesizes M1357-M1366 and closes
 `paper_route_bidirectional_replay_active_set_retention` with
@@ -31,8 +52,7 @@ M1367 synthesizes M1357-M1366 and closes
 broad-public-replay-passing candidate relative to M1154. It still lacks private
 holdout, fresh scenario/generalization evidence, PPO continuation stability, a
 formal promotion manifest, and level3 self-identification evidence. The new
-branch is `paper_route_public_base_promotion_generalization`; M1368 should define
-the formal promotion/generalization gate before PPO or private holdout.
+branch is `paper_route_public_base_promotion_generalization`.
 
 M1366 audits M1365 as a strong public diagnostic pass but not a promotion. The
 supported claim is that M1362 alpha `0.1` is a broad-public-replay-passing

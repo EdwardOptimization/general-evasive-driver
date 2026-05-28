@@ -1,0 +1,174 @@
+{
+  "id": "m1369-paper-route-public-base-promotion-generalization-gate-implementation",
+  "type": "gate",
+  "gate_tier": "promotion",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1368-paper-route-public-base-promotion-generalization-design.md",
+      "runs/m1365_bidirectional_broader_public_replay/summary.json",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/alpha_summary.csv",
+      "runs/m1336_materialized_source_history_objective_corpus_export"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1368-paper-route-public-base-promotion-generalization-design.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json",
+      "configs/eval_m574_moderate_ood_l3.json"
+    ],
+    "parent_objective": [
+      "run the no-training public-base promotion/generalization gate for M1362 alpha 0.1"
+    ],
+    "derived_from": [
+      "m1368-paper-route-public-base-promotion-generalization-design"
+    ],
+    "blocked_by": [
+      "M1368 defines the gate criteria; M1362 alpha 0.1 has broad public replay evidence but no fresh generalization gate"
+    ],
+    "supersedes": [
+      "direct promotion after M1365",
+      "direct PPO after M1365",
+      "private holdout before public promotion gate",
+      "candidate-b hardcoded promotion gate reuse without generic labels"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1369-paper-route-public-base-promotion-generalization-gate-implementation.md",
+  "public_gates": [
+    "M1369 must keep actor inputs unchanged",
+    "M1369 must evaluate exact source-history retention",
+    "M1369 must run six public proof replay surfaces or consume a clearly matching recomputed wrapper",
+    "M1369 must evaluate source-diverse protected diagnostics",
+    "M1369 must run fresh public and moderate-OOD generalization comparisons",
+    "M1369 must run behavior and ablation retention seeds",
+    "M1369 must not train, run PPO, use private holdout, or promote"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor weights",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds after seeing failures",
+    "do not let a single legacy protected key veto a source-diverse pass",
+    "do not claim strong self-identification or paper-level source-rich extreme validation"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_public_base_promotion_generalization",
+    "evidence_axis": "G_public_base_promotion_generalization",
+    "evidence_increment": "tests whether the M1362 alpha 0.1 candidate is eligible for a separate public-base promotion audit after exact, proof, fresh generalization, and behavior gates",
+    "claim_scope": "promotion-gate candidate only; no actual promotion, PPO, private holdout, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if the actor input contract changes",
+      "stop if exact source-history retention fails",
+      "stop if public proof replay or source-diverse diagnostics fail",
+      "stop if fresh public or moderate-OOD generalization regresses",
+      "stop if behavior or ablation retention regresses"
+    ],
+    "fallback_plan": [
+      "if contract fails, route to contract audit",
+      "if exact or proof replay fails, route to proof failure audit",
+      "if fresh generalization fails, route to generalization regression audit",
+      "if behavior fails, route to behavior regression audit",
+      "if all tiers pass, route to separate promotion audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1368 admits the public-base promotion/generalization gate implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "no-training public-base promotion/generalization gate",
+    "admission_evidence": [
+      "M1362 alpha 0.1 passes exact source-history and two-surface replay preflight",
+      "M1365 passes six public replay surfaces and behavior seeds",
+      "M1368 defines fresh generalization and promotion-gate criteria"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "generic promotion/generalization gate tool if missing",
+      "M1369 run artifacts",
+      "M1369 milestone document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest chosen by the result class"
+    ],
+    "next_stage_criteria": [
+      "result class is written to summary.json",
+      "failure taxonomy is assigned",
+      "candidate either routes to separate promotion audit or to a named failure audit",
+      "PPO remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1369 is a public-base promotion/generalization gate; it does not prove history necessity beyond existing wrong-history and ablation diagnostics.",
+    "history_necessity_tests": [
+      "behavior ablations must retain normal >= reset >= zero-all ordering",
+      "wrong-history proof replay must be preserved, but this is not enough for level3 self-identification"
+    ],
+    "temporal_evidence_window": "M1362 alpha 0.1 candidate compared against M1154 on exact source-history, public replay, fresh public, moderate-OOD, and behavior seeds.",
+    "negative_result_policy": "If any tier fails, preserve the failing rows and route to an audit before repair; do not tune from private holdout.",
+    "allowed_claims": [
+      "public-base promotion-gate candidacy if all tiers pass",
+      "no actual promotion, strong self-identification, private-holdout, high-fidelity, real-vehicle, or paper-level source-rich extreme claim"
+    ]
+  },
+  "hypothesis": "The M1362 alpha 0.1 checkpoint can pass a no-training public-base promotion/generalization gate against M1154 after its broad public replay pass.",
+  "success_criteria": [
+    "summary artifact exists",
+    "exact source-history retention is evaluated",
+    "public proof replay and source-diverse diagnostics are evaluated",
+    "fresh public and moderate-OOD generalization are evaluated",
+    "behavior and ablation retention seeds are evaluated",
+    "result class and failure taxonomy are written",
+    "no training, PPO, private holdout, promotion, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "actor input contract changes",
+    "exact source-history retention fails",
+    "public proof replay or source-diverse diagnostics fail",
+    "fresh public or moderate-OOD generalization regresses",
+    "behavior or ablation retention regresses",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "public_base_promotion_generalization_gate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.materialized_source_history_public_base_promotion_generalization_gate --base-checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --candidate-checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --corpus-run-dir runs/m1336_materialized_source_history_objective_corpus_export --run-dir runs/m1369_public_base_promotion_generalization_gate --device auto --fresh-env-config configs/m121_human_view_zero_obstacle_relvel.json --ood-env-config configs/eval_m574_moderate_ood_l3.json --fresh-seeds 136900,136901,136902 --ood-seeds 136920,136921 --behavior-seeds 9505,9506,136930,136931 --fresh-episodes 256 --ood-episodes 128 --behavior-episodes 80 --max-continuation-steps 60"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1369_public_base_promotion_generalization_gate/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1369-paper-route-public-base-promotion-generalization-gate-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1368-paper-route-public-base-promotion-generalization-design.md",
+    "runs/m1365_bidirectional_broader_public_replay/summary.json"
+  ],
+  "decision_rule": "M1369 may only classify M1362 alpha 0.1 as a promotion-audit candidate or route to a named audit; actual promotion must be a separate milestone.",
+  "next_blocker": "m1369-paper-route-public-base-promotion-generalization-gate-implementation"
+}
