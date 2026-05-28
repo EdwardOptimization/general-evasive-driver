@@ -16,17 +16,18 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit
+m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis
 ```
 
 Current next task:
 
 ```text
-m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis
+m1382-paper-route-history-profile-comparison-protocol-design
 ```
 
-M1380 audited the expanded no-training source-rich sequence probe and routed the
-branch to synthesis. The current public-gate base remains M1362 alpha `0.1`:
+M1381 synthesized the promoted-base source-rich/comparison-readiness branch and
+opened the history-profile comparison protocol branch. The current public-gate
+base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
@@ -142,10 +143,40 @@ seed threshold: failed (10 < 12)
 cross-fault sequence accepted rows: 0
 ```
 
-The next step is M1381 branch synthesis. It should summarize M1372-M1380 and
-choose the next paper-route branch before source-selection redesign, temporal
-corpus design, L0/L1/L2/L3 comparison, PPO, promotion, private holdout, corpus
-export, or another local expansion.
+M1380 routed to M1381 branch synthesis before source-selection redesign,
+temporal corpus design, L0/L1/L2/L3 comparison, PPO, promotion, private holdout,
+corpus export, or another local expansion.
+
+M1381 conclusion:
+
+```text
+synthesis_decision: promote_to_next_branch
+closed_branch: paper_route_promoted_base_source_rich_comparison_readiness
+opened_branch: paper_route_history_profile_comparison_protocol
+next: m1382-paper-route-history-profile-comparison-protocol-design
+```
+
+Supported by M1372-M1380:
+
+```text
+source-rich harness compatibility for M1362 alpha 0.1
+broad reset-hidden sensitivity under M1375 source-rich rows
+repeatable temporal-history positives by rows and fault-pair coverage
+```
+
+Not supported:
+
+```text
+cross-fault self-identification
+temporal corpus export without a separate source-diversity policy
+private-holdout or paper-level source-rich validation
+true high-fidelity per-wheel fault claims
+level3 anticipatory self-identification
+```
+
+M1382 should design the fixed L0/L1/L2/L3 history-profile comparison protocol
+before new comparison runs, corpus export, PPO, promotion, private holdout, or
+actor-input changes.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true

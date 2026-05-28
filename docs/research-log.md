@@ -20318,3 +20318,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, finite-window-vs-GRU claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.json`.
 - next: `m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis`
+
+## 20260528T234000Z - m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.md`
+- decision: `source_rich_comparison_readiness_synthesis_promote_to_history_profile_comparison_protocol`
+- synthesis decision: `promote_to_next_branch`
+- closed branch: `paper_route_promoted_base_source_rich_comparison_readiness`
+- opened branch: `paper_route_history_profile_comparison_protocol`
+- current public-gate base: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`
+- evidence summary: M1373/M1375 are structurally clean but cross-fault wrong-history sparse; M1375 has `1281` reset-only rows; M1377/M1379 show temporal-history positives (`180` then `224`) but remain seed-thin (`10 < 12` in M1379) and have zero cross-fault sequence accepted rows.
+- supported claim: source-rich temporal history is a useful public diagnostic axis for comparison.
+- unsupported claim: source-rich cross-fault self-identification, temporal corpus export, private-holdout evidence, high-fidelity per-wheel fault evidence, paper-level source-rich validation, and level3 self-ID remain unsupported.
+- failure taxonomy: `scenario_sampling_failure` for sparse cross-fault accepted rows, `seed_fragility` for temporal accepted-seed miss, and `metric_artifact` risk if temporal row count is overused.
+- public-gate overfit risk: `medium_high`.
+- route decision: design a fixed L0/L1/L2/L3 history-profile comparison protocol before new comparison runs, corpus export, PPO, promotion, private holdout, or actor-input changes.
+- guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, finite-window-vs-GRU result claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1382-paper-route-history-profile-comparison-protocol-design.json`.
+- next: `m1382-paper-route-history-profile-comparison-protocol-design`

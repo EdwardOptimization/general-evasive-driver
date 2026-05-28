@@ -1,0 +1,161 @@
+{
+  "id": "m1382-paper-route-history-profile-comparison-protocol-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.md",
+      "docs/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.md",
+      "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json",
+      "runs/m1369_public_base_promotion_generalization_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.json",
+      "configs/m991_capability_step_fault_source_wave.json"
+    ],
+    "parent_objective": [
+      "design a fair L0/L1/L2/L3 history-profile comparison protocol after source-rich branch synthesis"
+    ],
+    "derived_from": [
+      "m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis"
+    ],
+    "blocked_by": [
+      "M1381 closes source-rich/comparison readiness and opens history-profile comparison protocol branch"
+    ],
+    "supersedes": [
+      "direct corpus export from seed-thin temporal rows",
+      "direct L0/L1/L2/L3 comparison without fixed protocol",
+      "continuing local source-rich expansion before comparison design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1382-paper-route-history-profile-comparison-protocol-design.md",
+  "public_gates": [
+    "M1382 must design a fixed comparison protocol before new comparison runs",
+    "M1382 must define L0/L1/L2/L3 profiles and claim levels",
+    "M1382 must keep source-rich temporal diagnostics as public diagnostics only",
+    "M1382 must prevent per-profile tuning, private holdout use, PPO, promotion, corpus export, or actor-input shortcuts"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new evaluation",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not tune profiles independently before protocol",
+    "do not relax source-rich seed-diversity thresholds",
+    "do not claim true high-fidelity per-wheel physics",
+    "do not claim level3 self-identification from protocol design"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_profile_comparison_protocol",
+    "evidence_axis": "G_fair_history_profile_comparison_design",
+    "evidence_increment": "designs fixed fair-comparison protocol for L0/L1/L2/L3 history profiles before any new comparison run",
+    "claim_scope": "protocol design only; no training, corpus export, PPO, promotion, private holdout, high-fidelity, comparison result, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if profiles are not comparable under fixed budgets",
+      "stop if source-rich temporal diagnostics are treated as private holdout or level3 proof",
+      "stop if protocol allows hidden parameters, oracle labels, path/reference features, TTC, or required-clearance shortcuts",
+      "stop if per-profile tuning is allowed before comparison"
+    ],
+    "fallback_plan": [
+      "if candidate artifacts are missing, route to artifact inventory before comparison implementation",
+      "if L0/L1/L2 definitions are ambiguous, route to observation-profile contract design",
+      "if source-rich diagnostics are too seed-thin for comparison, include them as secondary diagnostics only",
+      "if comparison cannot be fair without training baselines, design fixed training budgets before running"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "history-profile fair-comparison protocol design",
+    "admission_evidence": [
+      "M1381 opens history-profile comparison protocol branch",
+      "M1362 alpha 0.1 is the current public-gate base",
+      "source-rich temporal diagnostics are positive but seed-thin",
+      "cross-fault self-ID remains unsupported"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1382 protocol design document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "L0/L1/L2/L3 profiles are defined",
+      "fixed scenario and budget policy is defined",
+      "metric and claim-level ordering is defined",
+      "next implementation or artifact-inventory route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1382 designs comparison profiles and must explicitly account for current-frame ego response substituting for history.",
+    "history_necessity_tests": [
+      "define reset-hidden, zero-history, temporal sequence, and cross-fault diagnostics as comparison axes",
+      "define how L0/L1/L2/L3 profiles separate current-frame response from accumulated history",
+      "keep temporal positives at level2 unless cross-fault or anticipatory evidence passes later"
+    ],
+    "temporal_evidence_window": "M1369 public promotion artifacts and M1373-M1380 source-rich public diagnostics.",
+    "negative_result_policy": "If profile definitions cannot isolate history necessity, route to observation-profile contract design instead of running comparisons.",
+    "allowed_claims": [
+      "fair-comparison protocol design and next implementation route",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A fixed L0/L1/L2/L3 comparison protocol can be designed from the promoted public base and source-rich synthesis without overclaiming seed-thin temporal evidence.",
+  "success_criteria": [
+    "docs/m1382-paper-route-history-profile-comparison-protocol-design.md exists",
+    "protocol defines L0/L1/L2/L3 profiles",
+    "protocol defines fixed budgets, scenario sets, and metric ordering",
+    "protocol defines source-rich temporal diagnostics as public secondary diagnostics",
+    "protocol chooses the next implementation or artifact-inventory route without training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "protocol document is missing",
+    "protocol leaves L0/L1/L2/L3 profiles ambiguous",
+    "protocol allows per-profile tuning before comparison",
+    "protocol overclaims source-rich temporal positives as level3 self-ID",
+    "protocol routes directly to training, PPO, promotion, private holdout, corpus export, or further source-rich expansion without ordering"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1382-paper-route-history-profile-comparison-protocol-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1382-paper-route-history-profile-comparison-protocol-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.md",
+    "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json"
+  ],
+  "decision_rule": "M1382 passes if it fixes a fair L0/L1/L2/L3 comparison protocol and next route before any new comparison, training, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
+  "next_blocker": "m1382-paper-route-history-profile-comparison-protocol-design"
+}

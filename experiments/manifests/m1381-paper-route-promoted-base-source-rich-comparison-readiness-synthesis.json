@@ -2,7 +2,7 @@
   "id": "m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -78,8 +78,26 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1380 completes source-rich expanded sequence audit and blocks further local expansion before synthesis",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
+  "synthesis_artifact": "docs/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
   "training_stage": {
     "stage": "process",
     "stage_objective": "source-rich/comparison readiness branch synthesis",
@@ -156,6 +174,33 @@
     "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json",
     "docs/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.md",
+    "decision": "source_rich_comparison_readiness_synthesis_promote_to_history_profile_comparison_protocol",
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "paper_route_promoted_base_source_rich_comparison_readiness",
+    "opened_branch": "paper_route_history_profile_comparison_protocol",
+    "current_public_gate_base": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "m1375_reset_only_rows": 1281,
+    "m1379_accepted_temporal_sequence_rows": 224,
+    "m1379_unique_temporal_accepted_fault_pairs": 9,
+    "m1379_unique_temporal_accepted_seeds": 10,
+    "m1379_accepted_cross_fault_sequence_rows": 0,
+    "public_gate_overfit_risk": "medium_high",
+    "selected_route": "history_profile_comparison_protocol_design",
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "corpus_exported": false,
+    "local_expansion_started": false,
+    "actor_input_contract_changed": false,
+    "high_fidelity_claim_made": false,
+    "next_manifest": "experiments/manifests/m1382-paper-route-history-profile-comparison-protocol-design.json"
+  },
+  "decision": "source_rich_comparison_readiness_synthesis_promote_to_history_profile_comparison_protocol",
   "decision_rule": "M1381 passes if it synthesizes M1372-M1380 with explicit supported/unsupported claims and chooses the next branch before any training, PPO, promotion, private holdout, corpus export, or further local expansion.",
-  "next_blocker": "m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis"
+  "next_blocker": "m1382-paper-route-history-profile-comparison-protocol-design"
 }

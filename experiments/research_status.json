@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1390,
+    "completed": 1391,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.md",
+    "command_log": "docs/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit"
+    "task_id": "m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.json",
-    "hypothesis": "The promoted-base source-rich/comparison readiness branch can be synthesized into a clear next route after cross-fault sparsity and temporal-positive seed-thin evidence.",
-    "id": "m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis",
+    "command": "see experiments/manifests/m1382-paper-route-history-profile-comparison-protocol-design.json",
+    "hypothesis": "A fixed L0/L1/L2/L3 comparison protocol can be designed from the promoted public base and source-rich synthesis without overclaiming seed-thin temporal evidence.",
+    "id": "m1382-paper-route-history-profile-comparison-protocol-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1372-M1380 before corpus export, L0/L1/L2/L3 comparison, PPO, promotion, private holdout, or further local expansion",
-    "priority": 13760,
+    "notes": "Pending: design fair history-profile comparison protocol before new comparisons, corpus export, PPO, promotion, private holdout, or actor-input changes",
+    "priority": 13770,
     "status": "pending",
-    "success_artifact": "docs/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.md"
+    "success_artifact": "docs/m1382-paper-route-history-profile-comparison-protocol-design.md"
   },
-  "updated_at_utc": "20260528T233000Z"
+  "updated_at_utc": "20260528T234000Z"
 }
