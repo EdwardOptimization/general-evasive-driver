@@ -115,8 +115,33 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1230-paper-route-short-horizon-relocation-smoke
+m1231-paper-route-short-horizon-partial-positive-audit
 ```
+
+M1230 completed short-horizon relocation smoke:
+
+```text
+artifact: docs/m1230-paper-route-short-horizon-relocation-smoke.md
+run dir:  runs/m1230_short_horizon_relocation_smoke
+decision: short_horizon_relocation_partial_source_collapsed_audit_required
+```
+
+M1230 result:
+
+```text
+accepted_wrong_rows: 80
+accepted_wrong_success_drop_fraction: 1.0
+accepted_wrong_physical_pairs: 34
+accepted_wrong_left_steps: 2
+accepted_wrong_targets: 1
+accepted_wrong_normal_margin_buckets: 1
+accepted_wrong_margin_gap_mean: 0.0022355233
+passed: false
+```
+
+Conclusion: the branch has a real short-horizon materialization signal, but it
+is source-collapsed and cannot be used as a proof pass, paper claim, or training
+corpus without audit.
 
 M1229 completed source-geometry consistency audit:
 
@@ -195,9 +220,9 @@ margin gaps cannot be treated as proof.
 Next task:
 
 ```text
-run:  runs/m1230_short_horizon_relocation_smoke
-goal: test M1227 relocation grid at max_continuation_steps 12
-blocked: long-horizon performance claims, training, PPO, promotion
+artifact: docs/m1231-paper-route-short-horizon-partial-positive-audit.md
+goal: classify M1230 partial positive and select source-diversity expansion or pivot
+blocked: training, PPO, promotion, proof-criterion weakening
 ```
 
 M1226 completed terminal-boundary candidate export:

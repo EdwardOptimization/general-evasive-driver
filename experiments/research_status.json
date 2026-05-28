@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1239,
+    "completed": 1240,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1229-paper-route-source-geometry-consistency-audit.md",
+    "command_log": "docs/m1230-paper-route-short-horizon-relocation-smoke.md",
     "returncode": 0,
-    "run_dir": "runs/m1229_source_geometry_consistency_short",
+    "run_dir": "runs/m1230_short_horizon_relocation_smoke",
     "status": "completed",
-    "task_id": "m1229-paper-route-source-geometry-consistency-audit"
+    "task_id": "m1230-paper-route-short-horizon-relocation-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1230-paper-route-short-horizon-relocation-smoke.json",
-    "hypothesis": "Run short-horizon terminal-boundary relocation smoke",
-    "id": "m1230-paper-route-short-horizon-relocation-smoke",
+    "command": "see experiments/manifests/m1231-paper-route-short-horizon-partial-positive-audit.json",
+    "hypothesis": "Audit short-horizon relocation partial positive",
+    "id": "m1231-paper-route-short-horizon-partial-positive-audit",
     "kind": "gate",
-    "notes": "Pending: run M1227 relocation grid at 12-step horizon and audit whether action-divergent rows materialize into source-diverse short-horizon margin degradation",
-    "priority": 12250,
+    "notes": "Pending: classify M1230 source-collapsed positive surface and select source-diversity expansion or pivot without training or proof-criterion weakening",
+    "priority": 12260,
     "status": "pending",
-    "success_artifact": "docs/m1230-paper-route-short-horizon-relocation-smoke.md"
+    "success_artifact": "docs/m1231-paper-route-short-horizon-partial-positive-audit.md"
   },
-  "updated_at_utc": "20260528T080641Z"
+  "updated_at_utc": "20260528T081205Z"
 }

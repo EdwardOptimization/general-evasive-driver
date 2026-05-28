@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -162,5 +162,5 @@
     "runs/m1229_source_geometry_consistency_long/summary.json"
   ],
   "decision_rule": "M1230 passes as a bounded smoke only if it records source-budget accounting and either source-diverse short-horizon accepted rows or a classified negative result.",
-  "next_blocker": "m1230-paper-route-short-horizon-relocation-smoke"
+  "next_blocker": "m1231-paper-route-short-horizon-partial-positive-audit"
 }

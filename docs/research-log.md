@@ -17668,3 +17668,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1230-paper-route-short-horizon-relocation-smoke.json`.
 - decision: `source_geometry_consistency_horizon_mismatch_route_to_short_horizon_relocation`
 - next: `m1230-paper-route-short-horizon-relocation-smoke`
+
+## 20260528T081125Z - m1230-paper-route-short-horizon-relocation-smoke
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `proof`
+- artifact: `docs/m1230-paper-route-short-horizon-relocation-smoke.md`
+- run dir: `runs/m1230_short_horizon_relocation_smoke`
+- result: partial positive short-horizon materialization signal, but proof gate failed due source collapse.
+- accepted rows: `80` wrong-history rows, all true success drops.
+- accepted diversity: `34` physical pairs, `2` left steps, `1` target, `1` checkpoint, and `1` normal-margin bucket.
+- margin: normal margin range `[0.0006900428, 0.0021887161]`, variant margin range `[-0.0017204274, -0.0000528075]`, and margin gap mean `0.0022355233`.
+- failed gates: left-step coverage, checkpoint coverage, target coverage, and normal-margin-bucket coverage.
+- interpretation: useful short-horizon materialization exists, but it is not source-diverse proof and is not training-ready.
+- guardrail: no training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1231-paper-route-short-horizon-partial-positive-audit.json`.
+- decision: `short_horizon_relocation_partial_source_collapsed_audit_required`
+- next: `m1231-paper-route-short-horizon-partial-positive-audit`

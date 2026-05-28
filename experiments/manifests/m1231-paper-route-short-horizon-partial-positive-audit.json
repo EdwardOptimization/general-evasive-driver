@@ -1,0 +1,151 @@
+{
+  "id": "m1231-paper-route-short-horizon-partial-positive-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1230_short_horizon_relocation_smoke/summary.json",
+      "runs/m1230_short_horizon_relocation_smoke/balanced_accepted_wrong_history_rows.csv",
+      "docs/m1230-paper-route-short-horizon-relocation-smoke.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1230-paper-route-short-horizon-relocation-smoke.json",
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json"
+    ],
+    "parent_objective": [
+      "audit partial short-horizon materialization signal and select next source-diversity route"
+    ],
+    "derived_from": [
+      "m1230-paper-route-short-horizon-relocation-smoke"
+    ],
+    "blocked_by": [
+      "M1230 accepted rows collapse to one target, two left steps, one checkpoint, and one margin bucket"
+    ],
+    "supersedes": [
+      "training directly from M1230 accepted rows"
+    ],
+    "invalidates": [
+      "claiming M1230 as source-diverse proof"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1231-paper-route-short-horizon-partial-positive-audit.md",
+  "public_gates": [
+    "M1231 must audit M1230 before any new training or relocation expansion",
+    "M1231 must preserve actor input contract",
+    "M1231 must not train controllers",
+    "M1231 must not run PPO",
+    "M1231 must not use private holdout",
+    "M1231 must not promote",
+    "M1231 must classify the source-collapse pattern and select a concrete next route",
+    "M1231 must not claim self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden or oracle actor inputs",
+    "do not use M1230 as a proof pass",
+    "do not claim long-horizon performance from M1230"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_terminal_boundary_materialization",
+    "evidence_axis": "T_short_horizon_partial_positive_audit",
+    "evidence_increment": "classifies the first partial short-horizon materialization signal and decides whether to expand source diversity or pivot",
+    "claim_scope": "process/partial-positive audit only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if accepted rows are too source-collapsed for objective use",
+      "stop if no concrete source-diversity expansion route exists",
+      "stop if the branch should pivot to fault/extreme source generation"
+    ],
+    "fallback_plan": [
+      "route to source-diversity expansion if accepted rows provide a useful seed",
+      "route to target/left-step focused mining if one target dominates",
+      "route to fault/extreme source generation if public candidates cannot diversify"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1230 produced accepted rows but failed source-diversity proof gates",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "partial positive source-diversity audit",
+    "admission_evidence": [
+      "M1230 produced 80 short-horizon accepted wrong-history success-drop rows",
+      "M1230 failed left-step, checkpoint, target, and margin-bucket diversity gates"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1231 audit docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "partial-positive surface is classified",
+      "next expansion or pivot route is selected",
+      "no proof or self-ID claim is made from M1230"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1231 is a process audit and does not test history necessity beyond M1230's narrow wrong-history rows.",
+    "history_necessity_tests": [
+      "audit M1230 wrong-history success-drop rows",
+      "block self-ID claims from source-collapsed short-horizon rows"
+    ],
+    "temporal_evidence_window": "Short-horizon causal-history materialization remains partial until source diversity improves.",
+    "negative_result_policy": "Record source collapse and select a next route rather than training or weakening diversity gates.",
+    "allowed_claims": [
+      "partial short-horizon materialization audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1230 is a useful partial positive signal but is too source-collapsed for proof or training, so the next step should expand or re-mine source diversity rather than train.",
+  "success_criteria": [
+    "docs/m1231-paper-route-short-horizon-partial-positive-audit.md exists",
+    "M1230 source-collapse pattern is classified",
+    "next expansion or pivot route is selected",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "M1231 trains or tunes profiles",
+    "private holdout is used",
+    "M1230 is claimed as a proof pass",
+    "source-collapse gates are weakened",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "write_partial_positive_audit",
+      "command": "write docs/m1231-paper-route-short-horizon-partial-positive-audit.md from M1230 summary and accepted-row diagnostics"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1231-paper-route-short-horizon-partial-positive-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1230_short_horizon_relocation_smoke/summary.json",
+    "runs/m1230_short_horizon_relocation_smoke/balanced_accepted_wrong_history_rows.csv"
+  ],
+  "decision_rule": "M1231 passes if it classifies M1230's partial positive surface and selects a concrete source-diversity expansion or pivot without training or proof-criterion weakening.",
+  "next_blocker": "m1231-paper-route-short-horizon-partial-positive-audit"
+}

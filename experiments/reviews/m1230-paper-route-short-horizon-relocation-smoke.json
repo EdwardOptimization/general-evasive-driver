@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M1230 produced 80 short-horizon accepted wrong-history success-drop rows but failed source-diversity gates with one target two left steps one checkpoint and one margin bucket",
+  "failure_criteria": [
+    "M1230 trains or tunes profiles",
+    "private holdout is used",
+    "accepted rows are claimed without source-diversity accounting",
+    "short-horizon rows are claimed as long-horizon performance",
+    "next route is left vague"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden or oracle actor inputs",
+    "do not claim long-horizon performance from short-horizon accepted rows",
+    "do not weaken accepted-row criteria",
+    "do not accept single-source active-set collapse"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260528T081254Z",
+  "hypothesis": "The M1227 relocation grid may materialize wrong-history margin degradation under the M1222-compatible short horizon where exact source geometry remains normal-success.",
+  "lineage": {
+    "blocked_by": [
+      "long-horizon exact source geometry collides for all selected M1226 candidates"
+    ],
+    "derived_from": [
+      "m1229-paper-route-source-geometry-consistency-audit"
+    ],
+    "invalidates": [
+      "claiming M1227 all-collision result as a source-schema failure"
+    ],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1229-paper-route-source-geometry-consistency-audit.json",
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json"
+    ],
+    "parent_dataset": [
+      "runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv",
+      "runs/m1229_source_geometry_consistency_short/summary.json",
+      "runs/m1229_source_geometry_consistency_long/summary.json",
+      "docs/m1229-paper-route-source-geometry-consistency-audit.md"
+    ],
+    "parent_objective": [
+      "test whether M1226 action-divergent candidates can be materialized under the short horizon where source geometry is replay-consistent"
+    ],
+    "supersedes": [
+      "long-horizon relocation over short-horizon-safe candidates"
+    ]
+  },
+  "milestone": "m1230-paper-route-short-horizon-relocation-smoke",
+  "next_blocker": "m1231-paper-route-short-horizon-partial-positive-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "short_horizon_relocation_partial_source_collapsed_audit_required",
+  "public_gates": [
+    "M1230 may run bounded short-horizon relocation replay only",
+    "M1230 must preserve actor input contract",
+    "M1230 must not train controllers",
+    "M1230 must not run PPO",
+    "M1230 must not use private holdout",
+    "M1230 must not promote",
+    "M1230 must scope any positive result to short-horizon materialization",
+    "M1230 must not claim long-horizon evasive-driver performance or self-identification"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1230_short_horizon_relocation_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "short_horizon_relocation_partial_source_collapsed_audit_required",
+    "milestone": "m1230-paper-route-short-horizon-relocation-smoke",
+    "reason": "M1230 produced 80 short-horizon accepted wrong-history success-drop rows but failed source-diversity gates with one target two left steps one checkpoint and one margin bucket",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1230_short_horizon_relocation_smoke/summary.json exists",
+    "runs/m1230_short_horizon_relocation_smoke/boundary_relocation_rows.csv exists",
+    "source budget and candidate selection pass before replay",
+    "accepted wrong-history rows, if any, are reported with source-diversity accounting",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next audit or fallback route is selected"
+  ],
+  "type": "gate"
+}
