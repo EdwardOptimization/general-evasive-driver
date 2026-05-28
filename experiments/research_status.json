@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1211,
+    "completed": 1212,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1201-paper-route-profile-separability-audit.md",
+    "command_log": "docs/m1202-paper-route-profile-control-repair-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1201_profile_separability_audit",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1201-paper-route-profile-separability-audit"
+    "task_id": "m1202-paper-route-profile-control-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1202-paper-route-profile-control-repair-design.json",
-    "hypothesis": "The next fair comparison can be made interpretable by designing reset-evaluation semantics and a capacity-matched current-tiled L2 control before more training.",
-    "id": "m1202-paper-route-profile-control-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design reset-hidden eval semantics and current-tiled L2 capacity control",
-    "priority": 11970,
+    "command": "see experiments/manifests/m1203-paper-route-profile-control-repair-implementation.json",
+    "hypothesis": "Reset-hidden evaluation semantics and current-tiled L2 runtime controls can be implemented without changing actor inputs or running training.",
+    "id": "m1203-paper-route-profile-control-repair-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement reset-policy eval support and current-tiled L2 runtime controls",
+    "priority": 11980,
     "status": "pending",
-    "success_artifact": "docs/m1202-paper-route-profile-control-repair-design.md"
+    "success_artifact": "docs/m1203-paper-route-profile-control-repair-implementation.md"
   },
-  "updated_at_utc": "20260528T054604Z"
+  "updated_at_utc": "20260528T054840Z"
 }

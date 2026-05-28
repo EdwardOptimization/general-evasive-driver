@@ -153,5 +153,5 @@
     "runs/m1201_profile_separability_audit/summary.json"
   ],
   "decision_rule": "M1202 passes if it designs the diagnostic-control repairs needed for an interpretable rerun without training, tuning, promotion, private holdout, or claim expansion.",
-  "next_blocker": "m1202-paper-route-profile-control-repair-design"
+  "next_blocker": "m1203-paper-route-profile-control-repair-implementation"
 }

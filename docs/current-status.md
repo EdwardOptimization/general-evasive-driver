@@ -115,8 +115,25 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1202-paper-route-profile-control-repair-design
+m1203-paper-route-profile-control-repair-implementation
 ```
+
+M1202 completed profile control repair design:
+
+```text
+artifact: docs/m1202-paper-route-profile-control-repair-design.md
+decision: profile_control_repair_design_admit_runtime_implementation
+```
+
+M1202 requires the next implementation to add:
+
+```text
+1. public eval support for controller_profile.reset_hidden_policy;
+2. current-tiled L2 controls that preserve temporal-GRU capacity but remove older-history information.
+```
+
+No longer profile comparison should run until M1203 implements and tests these
+diagnostic controls.
 
 M1201 completed the profile separability audit:
 

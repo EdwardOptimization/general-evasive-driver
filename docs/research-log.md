@@ -17201,3 +17201,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1202-paper-route-profile-control-repair-design.json`.
 - decision: `profile_separability_audit_route_to_profile_control_repair_design`
 - next: `m1202-paper-route-profile-control-repair-design`
+
+## 20260528T054840Z - m1202-paper-route-profile-control-repair-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1202-paper-route-profile-control-repair-design.md`
+- result: designs the diagnostic-control repairs needed before any longer L0/L1/L2/L3 comparison.
+- reset repair: public evaluation must honor `controller_profile.reset_hidden_policy`, with `episode_persistent` carrying hidden and `every_step_control` resetting hidden before every action.
+- L2 control repair: add current-tiled finite-window controls that keep observation dimension, temporal-GRU architecture, hidden size, parameter count, reward, env randomization, and training budget while replacing frames `1..N` with frame `0`.
+- suggested controls: `L2_window_13_current_tiled` and `L2_window_25_current_tiled`.
+- corrected route: implement controls, smoke test, then rerun a small corrected public pilot before any longer training.
+- guardrail: no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, actor-input change, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1203-paper-route-profile-control-repair-implementation.json`.
+- decision: `profile_control_repair_design_admit_runtime_implementation`
+- next: `m1203-paper-route-profile-control-repair-implementation`

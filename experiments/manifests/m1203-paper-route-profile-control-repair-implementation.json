@@ -1,0 +1,155 @@
+{
+  "id": "m1203-paper-route-profile-control-repair-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "docs/m1202-paper-route-profile-control-repair-design.md",
+      "runs/m1201_profile_separability_audit/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1202-paper-route-profile-control-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement reset-policy eval support and current-tiled L2 control plumbing"
+    ],
+    "derived_from": [
+      "m1202-paper-route-profile-control-repair-design"
+    ],
+    "blocked_by": [
+      "M1202 designs diagnostic-control repairs but no code applies reset_hidden_policy or current-tiled L2 transforms yet"
+    ],
+    "supersedes": [
+      "manual external eval that ignores reset_hidden_policy"
+    ],
+    "invalidates": [
+      "future L3 reset diagnostics that do not enforce every-step reset"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1203-paper-route-profile-control-repair-implementation.md",
+  "public_gates": [
+    "M1203 may change evaluation/runtime plumbing only",
+    "M1203 must not train controllers",
+    "M1203 must not run PPO",
+    "M1203 must not run candidate replay",
+    "M1203 must not promote",
+    "M1203 must not use private holdout",
+    "M1203 must not add hidden or oracle actor inputs",
+    "M1203 must not claim profile superiority or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run training",
+    "do not use private holdout",
+    "do not alter reward or env distribution",
+    "do not tune profiles",
+    "do not promote",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_profile_control_repair_implementation: reset semantics and current-tiled L2 runtime support",
+    "evidence_increment": "implements the diagnostic controls required for an interpretable corrected pilot",
+    "claim_scope": "infrastructure only; no training promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if reset_hidden_policy cannot be applied without changing actor inputs",
+      "stop if current-tiled L2 changes observation dimension or non-history fields",
+      "stop if focused tests cannot prove L0/L1/L2/L3 profile semantics",
+      "stop if implementation would require private holdout"
+    ],
+    "fallback_plan": [
+      "route to a narrower evaluator-only repair if current-tiled runtime is too broad",
+      "route to profile config generation repair if metadata is insufficient",
+      "route to design revision if reset semantics conflict with existing ActorPolicy abstractions"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1202 admits implementation of diagnostic-control repairs",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "profile control repair implementation",
+    "admission_evidence": [
+      "M1202 specifies reset_hidden_policy semantics",
+      "M1202 specifies current-tiled L2 capacity controls",
+      "M1201 identified a concrete L3 reset diagnostic metric artifact"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make performance or self-ID claims"
+    ],
+    "allowed_updates": [
+      "runtime/eval profile-control code",
+      "generated current-tiled smoke configs if needed",
+      "focused tests",
+      "M1203 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "reset_hidden_policy is enforced in public eval path",
+      "current-tiled L2 transform exists with tests",
+      "profile metadata records corrected controls",
+      "no training or promotion occurs"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1203 implements controls needed to test current-frame substitution but does not itself provide self-ID evidence.",
+    "history_necessity_tests": [
+      "reset_hidden_policy_eval_path",
+      "current_tiled_l2_control_runtime"
+    ],
+    "temporal_evidence_window": "Implementation only; later corrected pilot may evaluate temporal evidence.",
+    "negative_result_policy": "If implementation shows the controls cannot be represented cleanly, route back to design rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "profile-control infrastructure readiness",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Reset-hidden evaluation semantics and current-tiled L2 runtime controls can be implemented without changing actor inputs or running training.",
+  "success_criteria": [
+    "docs/m1203-paper-route-profile-control-repair-implementation.md exists",
+    "reset_hidden_policy public eval support is implemented or a focused blocker is recorded",
+    "current-tiled L2 runtime support is implemented or a focused blocker is recorded",
+    "focused tests cover reset and current-tiled semantics",
+    "private holdout remains unused",
+    "no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, or actor-input contract expansion occurs",
+    "next smoke or repair milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1203 trains or tunes profiles",
+    "private holdout is used",
+    "implementation changes actor input contract",
+    "hidden or oracle actor inputs are introduced",
+    "focused tests do not cover the corrected semantics"
+  ],
+  "commands": [
+    {
+      "name": "implement_profile_control_repairs",
+      "command": "implement reset-policy eval and current-tiled L2 runtime controls with focused tests"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1203-paper-route-profile-control-repair-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "docs/m1202-paper-route-profile-control-repair-design.md"
+  ],
+  "decision_rule": "M1203 passes if corrected diagnostic-control plumbing is implemented and tested without training, tuning, promotion, private holdout, or actor-input expansion.",
+  "next_blocker": "m1203-paper-route-profile-control-repair-implementation"
+}
