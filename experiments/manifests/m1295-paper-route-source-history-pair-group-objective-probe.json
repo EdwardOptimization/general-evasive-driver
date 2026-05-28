@@ -171,6 +171,37 @@
     "docs/m1294-paper-route-source-history-pair-group-objective-design.md",
     "runs/m1292_source_history_actor_mean_directional_feasibility_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1295_source_history_pair_group_objective_probe/summary.json",
+    "doc": "docs/m1295-paper-route-source-history-pair-group-objective-probe.md",
+    "decision": "source_history_pair_group_objective_mixed_route_to_result_audit",
+    "result_class": "source_history_pair_group_objective_mixed",
+    "candidate_count": 2,
+    "best_init_name": "base_init",
+    "best_candidate_class": "pair_group_directional_mixed",
+    "best_both_directional_fraction": 0.1973684211,
+    "best_both_positive_count": 30,
+    "best_mutually_exclusive_fraction": 0.6710526316,
+    "best_group_all_rows_both_positive_count": 15,
+    "best_group_all_rows_both_positive_fraction": 0.1973684211,
+    "best_group_any_row_both_positive_count": 15,
+    "best_group_min_margin_mean": -0.285760409,
+    "best_group_min_margin_p10": -1.8031842709,
+    "m1292_best_group_all_rows_both_positive_count": 14,
+    "group_all_rows_both_positive_count_delta": 1,
+    "any_non_actor_mean_mutation_detected": false,
+    "labels_enter_actor_input": false,
+    "objective_update_started": true,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1296-paper-route-source-history-pair-group-objective-result-audit.json"
+  },
+  "decision": "source_history_pair_group_objective_mixed_route_to_result_audit",
   "decision_rule": "M1295 passes as diagnostic infrastructure if it reports pair-group directional outcome without forbidden mutations and routes to audit or synthesis.",
-  "next_blocker": "m1295-paper-route-source-history-pair-group-objective-probe"
+  "next_blocker": "m1296-paper-route-source-history-pair-group-objective-result-audit"
 }

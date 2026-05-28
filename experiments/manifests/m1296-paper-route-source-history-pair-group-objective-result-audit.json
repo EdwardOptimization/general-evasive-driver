@@ -1,0 +1,156 @@
+{
+  "id": "m1296-paper-route-source-history-pair-group-objective-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt",
+      "runs/m1295_source_history_pair_group_objective_probe/checkpoints/base_init_pair_group_candidate.pt",
+      "runs/m1295_source_history_pair_group_objective_probe/checkpoints/m1288_init_pair_group_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1295-paper-route-source-history-pair-group-objective-probe.md",
+      "runs/m1295_source_history_pair_group_objective_probe/summary.json",
+      "runs/m1295_source_history_pair_group_objective_probe/candidate_summaries.csv",
+      "runs/m1295_source_history_pair_group_objective_probe/group_rows.csv",
+      "runs/m1295_source_history_pair_group_objective_probe/directional_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1295-paper-route-source-history-pair-group-objective-probe.json"
+    ],
+    "parent_objective": [
+      "audit mixed pair-group objective result before branch synthesis"
+    ],
+    "derived_from": [
+      "m1295-paper-route-source-history-pair-group-objective-probe"
+    ],
+    "blocked_by": [
+      "M1295 pair-group objective is mixed and below strong directional thresholds"
+    ],
+    "supersedes": [
+      "continuing objective-only actor_mean probes without result audit or synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1296-paper-route-source-history-pair-group-objective-result-audit.md",
+  "public_gates": [
+    "M1296 must audit M1295 mixed result",
+    "M1296 must not run PPO",
+    "M1296 must not use private holdout",
+    "M1296 must not promote",
+    "M1296 must decide whether to route to branch synthesis",
+    "M1296 must preserve the claim that pair-group objective is not solved"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat small group improvement as solved",
+    "do not continue narrow objective-only work past cadence without synthesis",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_objective_only_update",
+    "evidence_axis": "S_pair_group_objective_result_audit",
+    "evidence_increment": "audits mixed pair-group objective result and routes to branch synthesis by cadence",
+    "claim_scope": "result audit only; no promotion, private-holdout, PPO, paper-level, closed-loop, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if audit treats mixed result as solved",
+      "stop if audit starts PPO",
+      "stop after M1296 and route to branch synthesis before further narrow work"
+    ],
+    "fallback_plan": [
+      "if M1295 is strong, route to proof-retention design after synthesis",
+      "if M1295 is mixed or negative, route to branch synthesis deciding scope escalation or corpus refresh",
+      "do not start another narrow objective-only implementation before synthesis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1296 is the tenth milestone in this branch and must be followed by synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "pair-group objective result audit",
+    "admission_evidence": [
+      "M1295 result_class=source_history_pair_group_objective_mixed",
+      "M1295 best_group_all_rows_both_positive_fraction=0.1973684211",
+      "M1295 best_group_all_rows_both_positive_count=15",
+      "PPO remains blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1296 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one branch synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "mixed result is interpreted",
+      "PPO remains blocked",
+      "next task is branch synthesis"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1296 audits fixed-current pair-group objective rows and does not evaluate closed-loop history necessity.",
+    "history_necessity_tests": [
+      "audit group_all_rows_both_positive_fraction",
+      "preserve no-label actor input contract"
+    ],
+    "temporal_evidence_window": "M1295 fixed-current pair-group directional rows.",
+    "negative_result_policy": "If pair-group objective remains mixed, keep PPO blocked and route to branch synthesis.",
+    "allowed_claims": [
+      "pair-group objective result audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "M1295 can be audited as a mixed pair-group objective result that should route to branch synthesis rather than PPO.",
+  "success_criteria": [
+    "docs/m1296-paper-route-source-history-pair-group-objective-result-audit.md exists",
+    "audit records M1295 mixed result",
+    "audit records PPO and promotion remain blocked",
+    "next task is branch synthesis",
+    "no PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1295 as solved",
+    "audit starts PPO directly",
+    "audit promotes a diagnostic checkpoint",
+    "audit does not route to synthesis",
+    "private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1296-paper-route-source-history-pair-group-objective-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1296-paper-route-source-history-pair-group-objective-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1295-paper-route-source-history-pair-group-objective-probe.md",
+    "runs/m1295_source_history_pair_group_objective_probe/summary.json"
+  ],
+  "decision_rule": "M1296 passes if it audits M1295 as mixed and routes to branch synthesis without PPO.",
+  "next_blocker": "m1296-paper-route-source-history-pair-group-objective-result-audit"
+}

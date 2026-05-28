@@ -18751,3 +18751,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1295-paper-route-source-history-pair-group-objective-probe.json`.
 - decision: `source_history_pair_group_objective_design_admit_bounded_actor_mean_implementation`
 - next: `m1295-paper-route-source-history-pair-group-objective-probe`
+
+## 20260528T143839Z - m1295-paper-route-source-history-pair-group-objective-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1295_source_history_pair_group_objective_probe/summary.json`
+- implementation: added `src/autodrift/source_history_pair_group_objective_probe.py` and `tests/test_source_history_pair_group_objective_probe.py`.
+- validation: `PYTHONPATH=src python -m pytest -q tests/test_source_history_pair_group_objective_probe.py` passed with `1 passed`.
+- result class: `source_history_pair_group_objective_mixed`.
+- best candidate: `base_init`, `pair_group_directional_mixed`.
+- best row metrics: `best_both_directional_fraction=0.1973684211`, `best_both_positive_count=30`, `best_mutually_exclusive_fraction=0.6710526316`.
+- best group metrics: `best_group_all_rows_both_positive_count=15`, `best_group_all_rows_both_positive_fraction=0.1973684211`, `best_group_min_margin_mean=-0.2857604090`, `best_group_min_margin_p10=-1.8031842709`.
+- comparison to M1292: all-rows-both-positive groups improve from `14/76` to `15/76`; both-positive rows improve from `28/152` to `30/152`.
+- interpretation: pair-group objective produces a small directional improvement but remains below strong gate and does not solve source-history directionality.
+- guardrail: no PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1296-paper-route-source-history-pair-group-objective-result-audit.json`.
+- decision: `source_history_pair_group_objective_mixed_route_to_result_audit`
+- next: `m1296-paper-route-source-history-pair-group-objective-result-audit`
