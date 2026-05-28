@@ -16,18 +16,17 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis
+m1382-paper-route-history-profile-comparison-protocol-design
 ```
 
 Current next task:
 
 ```text
-m1382-paper-route-history-profile-comparison-protocol-design
+m1383-paper-route-history-profile-artifact-inventory
 ```
 
-M1381 synthesized the promoted-base source-rich/comparison-readiness branch and
-opened the history-profile comparison protocol branch. The current public-gate
-base remains M1362 alpha `0.1`:
+M1382 fixed the L0/L1/L2/L3 history-profile comparison protocol. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
@@ -174,9 +173,29 @@ true high-fidelity per-wheel fault claims
 level3 anticipatory self-identification
 ```
 
-M1382 should design the fixed L0/L1/L2/L3 history-profile comparison protocol
-before new comparison runs, corpus export, PPO, promotion, private holdout, or
+M1382 designed the fixed L0/L1/L2/L3 history-profile comparison protocol before
+new comparison runs, corpus export, PPO, promotion, private holdout, or
 actor-input changes.
+
+M1382 conclusion:
+
+```text
+decision: history_profile_comparison_protocol_design_admit_artifact_inventory
+profile levels: L0_current_only, L1_one_step, L2_finite_window, L3_online_gru
+required controls: current-tiled L2 controls and corrected L3 reset-control
+comparison tiers: artifact inventory, public-base diagnostic, fixed-budget refresh
+next: m1383-paper-route-history-profile-artifact-inventory
+```
+
+M1382 preserves the earlier M1205/M1213 lessons: finite-window history claims
+require current-tiled L2 controls, and L3 recurrent claims require corrected
+reset-policy-aware evaluation. M1362 can be used as the public-base L3
+diagnostic checkpoint, but not as a fair architecture-ranking checkpoint against
+newly trained L0/L1/L2 baselines unless a separate fixed-budget refresh is run.
+
+M1383 should inventory existing configs, checkpoints, runners, and M1362
+compatibility before any public-base diagnostic comparison or fixed-budget
+profile refresh.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true

@@ -1,0 +1,88 @@
+# m1382-paper-route-history-profile-comparison-protocol-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260528T222304Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: history_profile_comparison_protocol_design_admit_artifact_inventory
+- Decision reason: M1382 fixes fair L0-L1-L2-L3 protocol with current-tiled L2 controls corrected L3 reset semantics and M1362 as public-base diagnostic not architecture-ranking checkpoint
+
+## Hypothesis
+
+A fixed L0/L1/L2/L3 comparison protocol can be designed from the promoted public base and source-rich synthesis without overclaiming seed-thin temporal evidence.
+
+## Lineage
+
+- parent_checkpoint: runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
+- parent_dataset: docs/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.md, docs/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.md, runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json, runs/m1369_public_base_promotion_generalization_gate/summary.json
+- parent_config: experiments/manifests/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.json, configs/m991_capability_step_fault_source_wave.json
+- parent_objective: design a fair L0/L1/L2/L3 history-profile comparison protocol after source-rich branch synthesis
+- derived_from: m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis
+- blocked_by: M1381 closes source-rich/comparison readiness and opens history-profile comparison protocol branch
+- supersedes: direct corpus export from seed-thin temporal rows, direct L0/L1/L2/L3 comparison without fixed protocol, continuing local source-rich expansion before comparison design
+- invalidates: None
+
+## Success Criteria
+
+- docs/m1382-paper-route-history-profile-comparison-protocol-design.md exists
+- protocol defines L0/L1/L2/L3 profiles
+- protocol defines fixed budgets, scenario sets, and metric ordering
+- protocol defines source-rich temporal diagnostics as public secondary diagnostics
+- protocol chooses the next implementation or artifact-inventory route without training, PPO, promotion, private holdout, corpus export, or actor-input expansion
+
+## Failure Criteria
+
+- protocol document is missing
+- protocol leaves L0/L1/L2/L3 profiles ambiguous
+- protocol allows per-profile tuning before comparison
+- protocol overclaims source-rich temporal positives as level3 self-ID
+- protocol routes directly to training, PPO, promotion, private holdout, corpus export, or further source-rich expansion without ordering
+
+## Evidence Gates
+
+- M1382 must design a fixed comparison protocol before new comparison runs
+- M1382 must define L0/L1/L2/L3 profiles and claim levels
+- M1382 must keep source-rich temporal diagnostics as public diagnostics only
+- M1382 must prevent per-profile tuning, private holdout use, PPO, promotion, corpus export, or actor-input shortcuts
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run PPO
+- do not run new evaluation
+- do not promote
+- do not use private holdout
+- do not add actor inputs
+- do not export corpus
+- do not tune profiles independently before protocol
+- do not relax source-rich seed-diversity thresholds
+- do not claim true high-fidelity per-wheel physics
+- do not claim level3 self-identification from protocol design
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m1382-paper-route-history-profile-comparison-protocol-design
+- type: gate
+- checkpoint: docs/m1382-paper-route-history-profile-comparison-protocol-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: history_profile_comparison_protocol_design_admit_artifact_inventory
+- reason: M1382 fixes fair L0-L1-L2-L3 protocol with current-tiled L2 controls corrected L3 reset semantics and M1362 as public-base diagnostic not architecture-ranking checkpoint
+
+## Next Blocker
+
+m1383-paper-route-history-profile-artifact-inventory

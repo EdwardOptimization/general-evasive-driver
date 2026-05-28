@@ -2,7 +2,7 @@
   "id": "m1382-paper-route-history-profile-comparison-protocol-design",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -154,8 +154,47 @@
   ],
   "baseline_artifacts": [
     "docs/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.md",
-    "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json"
+    "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json",
+    "docs/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.md",
+    "docs/m1205-paper-route-finite-window-gru-evidence-synthesis.md",
+    "docs/m1213-paper-route-corrected-profile-repeat-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1382-paper-route-history-profile-comparison-protocol-design.md",
+    "decision": "history_profile_comparison_protocol_design_admit_artifact_inventory",
+    "current_public_gate_base": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "profile_levels": [
+      "L0_current_only",
+      "L1_one_step",
+      "L2_finite_window",
+      "L3_online_gru"
+    ],
+    "required_controls": [
+      "L2_current_tiled_controls",
+      "L3_reset_control_corrected",
+      "L3_zero_action_history",
+      "L3_zero_current_response",
+      "L3_zero_all_response"
+    ],
+    "comparison_tiers": [
+      "artifact_inventory_and_readiness",
+      "public_base_diagnostic_comparison",
+      "fair_fixed_budget_profile_refresh"
+    ],
+    "source_rich_temporal_diagnostics_scope": "secondary_public_seed_thin",
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1383-paper-route-history-profile-artifact-inventory.json"
+  },
+  "decision": "history_profile_comparison_protocol_design_admit_artifact_inventory",
   "decision_rule": "M1382 passes if it fixes a fair L0/L1/L2/L3 comparison protocol and next route before any new comparison, training, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
-  "next_blocker": "m1382-paper-route-history-profile-comparison-protocol-design"
+  "next_blocker": "m1383-paper-route-history-profile-artifact-inventory"
 }

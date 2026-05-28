@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1391,
+    "completed": 1392,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.md",
+    "command_log": "docs/m1382-paper-route-history-profile-comparison-protocol-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis"
+    "task_id": "m1382-paper-route-history-profile-comparison-protocol-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1382-paper-route-history-profile-comparison-protocol-design.json",
-    "hypothesis": "A fixed L0/L1/L2/L3 comparison protocol can be designed from the promoted public base and source-rich synthesis without overclaiming seed-thin temporal evidence.",
-    "id": "m1382-paper-route-history-profile-comparison-protocol-design",
+    "command": "see experiments/manifests/m1383-paper-route-history-profile-artifact-inventory.json",
+    "hypothesis": "Existing profile infrastructure can be inventoried to choose a valid public-base diagnostic or fixed-budget refresh route before running any new comparison.",
+    "id": "m1383-paper-route-history-profile-artifact-inventory",
     "kind": "gate",
-    "notes": "Pending: design fair history-profile comparison protocol before new comparisons, corpus export, PPO, promotion, private holdout, or actor-input changes",
-    "priority": 13770,
+    "notes": "Pending: inventory existing profile configs checkpoints runners and compatibility before public-base diagnostics or fixed-budget profile refresh",
+    "priority": 13780,
     "status": "pending",
-    "success_artifact": "docs/m1382-paper-route-history-profile-comparison-protocol-design.md"
+    "success_artifact": "docs/m1383-paper-route-history-profile-artifact-inventory.md"
   },
-  "updated_at_utc": "20260528T234000Z"
+  "updated_at_utc": "20260528T235000Z"
 }

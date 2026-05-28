@@ -1,0 +1,159 @@
+{
+  "id": "m1383-paper-route-history-profile-artifact-inventory",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1382-paper-route-history-profile-comparison-protocol-design.md",
+      "configs/paper_route_profiles",
+      "runs/m1212_corrected_profile_repeat/summary.json",
+      "runs/m1369_public_base_promotion_generalization_gate/summary.json",
+      "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1382-paper-route-history-profile-comparison-protocol-design.json"
+    ],
+    "parent_objective": [
+      "inventory profile configs, checkpoints, runners, and compatibility before any new history-profile comparison"
+    ],
+    "derived_from": [
+      "m1382-paper-route-history-profile-comparison-protocol-design"
+    ],
+    "blocked_by": [
+      "M1382 requires artifact inventory before public-base diagnostic or fixed-budget profile refresh"
+    ],
+    "supersedes": [
+      "running comparison before artifact compatibility audit",
+      "using old profile checkpoints as architecture-ranking baselines without lineage classification"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1383-paper-route-history-profile-artifact-inventory.md",
+  "public_gates": [
+    "M1383 must inventory existing L0/L1/L2/L3 configs and checkpoints",
+    "M1383 must classify M1362 as public-base L3 diagnostic versus fixed-budget architecture checkpoint",
+    "M1383 must identify the runner/tooling path for Tier B and Tier C",
+    "M1383 must choose implementation route without training, new evaluation, PPO, promotion, private holdout, or corpus export"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new evaluation",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not compare old and new checkpoints as fair architecture ranking",
+    "do not claim paper-level profile ranking",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_profile_comparison_protocol",
+    "evidence_axis": "G_history_profile_artifact_inventory",
+    "evidence_increment": "audits available configs/checkpoints/runners and decides whether to run public-base diagnostics or train fixed-budget profiles",
+    "claim_scope": "artifact inventory and route decision only; no training, new evaluation, PPO, promotion, private holdout, high-fidelity, profile-ranking, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if old profile checkpoints are treated as fair architecture baselines for M1362",
+      "stop if reset-hidden or current-tiled controls are missing from the implementation route",
+      "stop if profile metadata cannot enforce masks/transforms/reset policy",
+      "stop if source-rich seed-thin diagnostics are overpromoted"
+    ],
+    "fallback_plan": [
+      "if artifact lineage is incompatible, route to fresh fixed-budget profile config generation",
+      "if runner support is missing, route to runner implementation",
+      "if M1362 can only be used diagnostically, keep architecture-ranking claims blocked",
+      "if current-tiled or reset controls are broken, route to profile-control repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "history-profile artifact inventory and route decision",
+    "admission_evidence": [
+      "M1382 defines fixed L0/L1/L2/L3 comparison protocol",
+      "older corrected-profile configs and checkpoints exist",
+      "M1362 is the current public-gate base but not a fixed-budget profile checkpoint"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run new evaluation",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1383 inventory document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "existing profile configs are listed",
+      "existing checkpoints and lineage compatibility are classified",
+      "runner/tooling readiness is classified",
+      "next public-base diagnostic or fixed-budget refresh route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1383 is inventory-only and must preserve current-frame substitution controls before comparison runs.",
+    "history_necessity_tests": [
+      "verify current-tiled L2 controls exist",
+      "verify corrected L3 reset-control support exists",
+      "identify whether source-rich temporal diagnostics can be run as public secondary evidence"
+    ],
+    "temporal_evidence_window": "Existing profile branch artifacts plus current M1362 public-base and source-rich diagnostics.",
+    "negative_result_policy": "If artifacts are incompatible, route to fresh fixed-budget profile generation instead of comparing incompatible checkpoints.",
+    "allowed_claims": [
+      "artifact inventory and comparison route decision",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level profile ranking, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Existing profile infrastructure can be inventoried to choose a valid public-base diagnostic or fixed-budget refresh route before running any new comparison.",
+  "success_criteria": [
+    "docs/m1383-paper-route-history-profile-artifact-inventory.md exists",
+    "inventory lists existing profile configs and corrected controls",
+    "inventory classifies existing checkpoints and lineage compatibility",
+    "inventory identifies runner/tooling readiness and gaps",
+    "inventory chooses next route without training, new evaluation, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "inventory document is missing",
+    "inventory treats old profile checkpoints as fair M1362 architecture baselines without caveat",
+    "inventory ignores current-tiled or reset-control requirements",
+    "inventory routes directly to training, PPO, promotion, private holdout, corpus export, or source-rich expansion without implementation ordering"
+  ],
+  "commands": [
+    {
+      "name": "inventory",
+      "command": "write docs/m1383-paper-route-history-profile-artifact-inventory.md from existing config, checkpoint, runner, and source-rich artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1383-paper-route-history-profile-artifact-inventory.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1382-paper-route-history-profile-comparison-protocol-design.md",
+    "runs/m1212_corrected_profile_repeat/summary.json",
+    "configs/paper_route_profiles"
+  ],
+  "decision_rule": "M1383 passes if it classifies profile artifact readiness and selects the next implementation route before any new comparison, training, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
+  "next_blocker": "m1383-paper-route-history-profile-artifact-inventory"
+}

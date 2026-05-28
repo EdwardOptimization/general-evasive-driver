@@ -20339,3 +20339,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, finite-window-vs-GRU result claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1382-paper-route-history-profile-comparison-protocol-design.json`.
 - next: `m1382-paper-route-history-profile-comparison-protocol-design`
+
+## 20260528T235000Z - m1382-paper-route-history-profile-comparison-protocol-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1382-paper-route-history-profile-comparison-protocol-design.md`
+- decision: `history_profile_comparison_protocol_design_admit_artifact_inventory`
+- current public-gate base: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`
+- profile levels: `L0_current_only`, `L1_one_step`, `L2_finite_window`, `L3_online_gru`
+- required controls: current-tiled L2 controls, corrected L3 reset-control, L3 zero-action-history, L3 zero-current-response, and L3 zero-all-response.
+- comparison tiers: artifact inventory/readiness, public-base diagnostic comparison, and fair fixed-budget profile refresh.
+- source-rich scope: M1377/M1379 temporal diagnostics are secondary public evidence because M1379 remains seed-thin and cross-fault sparse.
+- prior lessons preserved: M1205/M1213 block finite-window history claims without current-tiled controls and block L3 reset-control claims without reset-policy-aware evaluation.
+- route decision: run M1383 artifact inventory before any public-base diagnostic, fixed-budget profile refresh, training, PPO, promotion, private holdout, corpus export, or actor-input change.
+- guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level comparison result, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1383-paper-route-history-profile-artifact-inventory.json`.
+- next: `m1383-paper-route-history-profile-artifact-inventory`
