@@ -17318,3 +17318,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1209-paper-route-corrected-profile-pilot-run.json`.
 - decision: `corrected_profile_config_smoke_pass_route_to_corrected_pilot_run`
 - next: `m1209-paper-route-corrected-profile-pilot-run`
+
+## 20260528T062807Z - m1209-paper-route-corrected-profile-pilot-run
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `infrastructure`
+- artifact: `docs/m1209-paper-route-corrected-profile-pilot-run.md`
+- run dir: `runs/m1209_corrected_profile_pilot`
+- result: fixed corrected public pilot completes all 24 seed runs with finite metrics.
+- completion: `profile_count=8`, `completed_seed_runs=24`, `failed_seed_runs=0`, `runtime_seconds=121.16`.
+- aggregate trend: `L3_online_gru` success/collision/margin `0.3594/0.5729/0.4966`; `L3_reset_control_corrected` `0.3594/0.5625/0.4562`.
+- L2 controls: `L2_window_13` success/margin `0.1302/0.0622` vs current-tiled `0.1094/0.1041`; `L2_window_25` `0.1198/0.0620` vs current-tiled `0.1146/0.1050`.
+- interpretation: public pilot trend only; L3 family looks stronger than L0/L1/L2, but L3 reset parity blocks recurrent-hidden benefit claims and L2 current-tiled parity blocks finite-window history-necessity claims.
+- runner added: `src/autodrift/corrected_profile_pilot.py` and `tests/test_corrected_profile_pilot.py`.
+- focused verification: `16 passed`.
+- guardrail: no promotion, private holdout, candidate replay, per-profile tuning, actor-input expansion, self-identification claim, profile superiority claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1210-paper-route-corrected-profile-pilot-result-audit.json`.
+- decision: `corrected_profile_pilot_completed_route_to_result_audit`
+- next: `m1210-paper-route-corrected-profile-pilot-result-audit`

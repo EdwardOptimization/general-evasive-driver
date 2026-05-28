@@ -115,8 +115,52 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1209-paper-route-corrected-profile-pilot-run
+m1210-paper-route-corrected-profile-pilot-result-audit
 ```
+
+M1209 completed the corrected public profile pilot:
+
+```text
+artifact: docs/m1209-paper-route-corrected-profile-pilot-run.md
+run dir: runs/m1209_corrected_profile_pilot
+decision: corrected_profile_pilot_completed_route_to_result_audit
+```
+
+M1209 result:
+
+```text
+result_class: corrected_profile_pilot_completed
+total_seed_runs: 24
+completed_seed_runs: 24
+failed_seed_runs: 0
+all_eval_metrics_finite: true
+private_holdout_used: false
+promoted: false
+profile_specific_tuning: false
+self_identification_claimed: false
+paper_level_claimed: false
+```
+
+Aggregate public pilot trend:
+
+```text
+L0_current_masked success/collision/margin:              0.1406 / 0.7135 / 0.2349
+L1_one_step success/collision/margin:                    0.1406 / 0.7396 / 0.1747
+L2_window_13 success/collision/margin:                   0.1302 / 0.8073 / 0.0622
+L2_window_13_current_tiled success/collision/margin:     0.1094 / 0.8021 / 0.1041
+L2_window_25 success/collision/margin:                   0.1198 / 0.8177 / 0.0620
+L2_window_25_current_tiled success/collision/margin:     0.1146 / 0.7969 / 0.1050
+L3_online_gru success/collision/margin:                  0.3594 / 0.5729 / 0.4966
+L3_reset_control_corrected success/collision/margin:     0.3594 / 0.5625 / 0.4562
+```
+
+Interpretation is deliberately limited. The corrected pilot supports a public
+trend that the L3 architecture family is stronger in this short run, but it
+does not prove recurrent hidden benefit because corrected reset-control matches
+success and termination. The L2 normal profiles do not beat current-tiled
+capacity controls; finite-window history necessity remains unsupported.
+M1210 must audit these results before repeat, longer training, or branch
+synthesis.
 
 M1208 completed generated corrected profile config smoke:
 

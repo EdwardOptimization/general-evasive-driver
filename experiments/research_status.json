@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1218,
+    "completed": 1219,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1208-paper-route-corrected-profile-config-smoke-run.md",
+    "command_log": "docs/m1209-paper-route-corrected-profile-pilot-run.md",
     "returncode": 0,
-    "run_dir": "runs/m1208_corrected_profile_config_smoke",
+    "run_dir": "runs/m1209_corrected_profile_pilot",
     "status": "completed",
-    "task_id": "m1208-paper-route-corrected-profile-config-smoke-run"
+    "task_id": "m1209-paper-route-corrected-profile-pilot-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1209-paper-route-corrected-profile-pilot-run.json",
-    "hypothesis": "The corrected fixed public pilot can produce useful L0/L1/L2/L3 trend evidence after controlling L2 current-frame substitution and L3 reset semantics.",
-    "id": "m1209-paper-route-corrected-profile-pilot-run",
+    "command": "see experiments/manifests/m1210-paper-route-corrected-profile-pilot-result-audit.json",
+    "hypothesis": "M1209 corrected public pilot artifacts can be audited to decide whether to repeat, scale, repair, or synthesize the profile-comparison branch.",
+    "id": "m1210-paper-route-corrected-profile-pilot-result-audit",
     "kind": "gate",
-    "notes": "Pending: run fixed public corrected L0 L1 L2 L3 pilot with current-tiled controls and corrected reset semantics",
-    "priority": 12040,
+    "notes": "Pending: audit M1209 L2 current-tiled and L3 reset-control implications before repeat or longer training",
+    "priority": 12050,
     "status": "pending",
-    "success_artifact": "docs/m1209-paper-route-corrected-profile-pilot-run.md"
+    "success_artifact": "docs/m1210-paper-route-corrected-profile-pilot-result-audit.md"
   },
-  "updated_at_utc": "20260528T061720Z"
+  "updated_at_utc": "20260528T062807Z"
 }

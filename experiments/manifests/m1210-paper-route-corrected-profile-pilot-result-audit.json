@@ -1,0 +1,158 @@
+{
+  "id": "m1210-paper-route-corrected-profile-pilot-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "runs/m1209_corrected_profile_pilot/summary.json",
+      "runs/m1209_corrected_profile_pilot/profile_aggregate.csv",
+      "runs/m1209_corrected_profile_pilot/profile_seed_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1209-paper-route-corrected-profile-pilot-run.json"
+    ],
+    "parent_objective": [
+      "audit corrected public pilot results before any repeat, longer run, promotion, or paper-level claim"
+    ],
+    "derived_from": [
+      "m1209-paper-route-corrected-profile-pilot-run"
+    ],
+    "blocked_by": [
+      "M1209 produced corrected public pilot trends but L2/current-tiled and L3/reset-control implications are not yet audited"
+    ],
+    "supersedes": [
+      "directly scaling corrected pilot results without audit"
+    ],
+    "invalidates": [
+      "claiming finite-window history necessity or recurrent hidden benefit directly from M1209 aggregates"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1210-paper-route-corrected-profile-pilot-result-audit.md",
+  "public_gates": [
+    "M1210 may audit M1209 artifacts only",
+    "M1210 must classify L2 normal-vs-current-tiled results",
+    "M1210 must classify L3 online-vs-corrected-reset results",
+    "M1210 must check runner/eval validity before interpreting results",
+    "M1210 must not train controllers",
+    "M1210 must not run PPO",
+    "M1210 must not use private holdout",
+    "M1210 must not promote",
+    "M1210 must not claim paper-level evidence or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not promote",
+    "do not tune profiles based on M1209",
+    "do not convert public pilot trends into paper-level claims",
+    "do not claim recurrent belief or self-identification without causal history gates"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_corrected_public_pilot_audit: interpret repaired-control profile trends",
+    "evidence_increment": "classifies whether M1209 supports longer repeat, architecture repair, or stronger history-necessity tests",
+    "claim_scope": "process audit only; no promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if M1209 artifacts are incomplete",
+      "stop if metrics are non-finite",
+      "stop if eval semantics did not apply corrected controls",
+      "stop if result interpretation requires private holdout"
+    ],
+    "fallback_plan": [
+      "route to runner/eval repair if artifacts are invalid",
+      "route to corrected pilot repeat if trends are promising but seed-fragile",
+      "route to architecture/profile repair if controls explain the apparent temporal advantage",
+      "route to branch synthesis if the result changes the paper route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1209 produced corrected public pilot results that need interpretation before any next training",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "corrected public pilot result audit",
+    "admission_evidence": [
+      "M1209 completed all 24 public pilot seed runs",
+      "M1209 recorded profile_seed_rows eval_rows profile_aggregate and summary artifacts",
+      "M1209 kept private holdout promotion per-profile tuning actor-input changes and self-ID claims disabled"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make performance promotion paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1210 audit docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "M1209 result validity is classified",
+      "L2 current-tiled implication is classified",
+      "L3 reset-control implication is classified",
+      "next repeat repair or synthesis milestone is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1210 must decide whether M1209 L2 results still show current-frame substitution risk.",
+    "history_necessity_tests": [
+      "L2_window_13_vs_L2_window_13_current_tiled",
+      "L2_window_25_vs_L2_window_25_current_tiled",
+      "L3_online_gru_vs_L3_reset_control_corrected"
+    ],
+    "temporal_evidence_window": "M1209 remains public pilot trend evidence; M1210 cannot upgrade it to causal history proof.",
+    "negative_result_policy": "Record L2/current-tiled parity or L3/reset parity as negative evidence and route to repair or stronger tests instead of weakening claim standards.",
+    "allowed_claims": [
+      "corrected public pilot trend audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1209 corrected public pilot artifacts can be audited to decide whether to repeat, scale, repair, or synthesize the profile-comparison branch.",
+  "success_criteria": [
+    "docs/m1210-paper-route-corrected-profile-pilot-result-audit.md exists",
+    "M1209 summary and aggregate are checked",
+    "L2 normal-vs-current-tiled implication is classified",
+    "L3 online-vs-corrected-reset implication is classified",
+    "runner/eval validity is assessed",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next repeat, repair, or synthesis milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1210 trains or tunes profiles",
+    "private holdout is used",
+    "metrics are framed as paper-level evidence",
+    "self-identification is claimed from public pilot aggregates",
+    "failed or negative trends are omitted"
+  ],
+  "commands": [
+    {
+      "name": "audit_corrected_profile_pilot",
+      "command": "audit M1209 corrected public pilot artifacts without training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1210-paper-route-corrected-profile-pilot-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "runs/m1209_corrected_profile_pilot/summary.json",
+    "runs/m1209_corrected_profile_pilot/profile_aggregate.csv"
+  ],
+  "decision_rule": "M1210 passes if M1209 is audited without claim expansion and routes to a specific repeat, repair, or synthesis milestone.",
+  "next_blocker": "m1210-paper-route-corrected-profile-pilot-result-audit"
+}

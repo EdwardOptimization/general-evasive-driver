@@ -1,0 +1,94 @@
+# m1209-paper-route-corrected-profile-pilot-run Research Review
+
+## Summary
+
+- Generated at UTC: 20260528T063057Z
+- Type: gate
+- Gate tier: infrastructure
+- Promotion decision: corrected_profile_pilot_completed_route_to_result_audit
+- Decision reason: M1209 completes 24/24 corrected public pilot seed runs with finite metrics; L3 online and reset both reach 0.3594 success while L2 normal does not beat current-tiled controls so route to result audit without promotion private holdout paper or self-ID claims
+
+## Hypothesis
+
+The corrected fixed public pilot can produce useful L0/L1/L2/L3 trend evidence after controlling L2 current-frame substitution and L3 reset semantics.
+
+## Lineage
+
+- parent_checkpoint: none
+- parent_dataset: configs/paper_route_corrected_profiles, runs/m1208_corrected_profile_config_smoke/summary.json
+- parent_config: experiments/manifests/m1206-paper-route-corrected-profile-pilot-design.json, experiments/manifests/m1208-paper-route-corrected-profile-config-smoke-run.json
+- parent_objective: run corrected public L0/L1/L2/L3 profile comparison pilot with fixed seeds budgets and corrected controls
+- derived_from: m1206-paper-route-corrected-profile-pilot-design, m1207-paper-route-corrected-profile-config-generation, m1208-paper-route-corrected-profile-config-smoke-run
+- blocked_by: corrected configs and runtime semantics are ready but no corrected public pilot has run
+- supersedes: interpreting M1199 without current-tiled L2 controls and corrected L3 reset semantics
+- invalidates: profile comparison claims without corrected diagnostic controls
+
+## Success Criteria
+
+- docs/m1209-paper-route-corrected-profile-pilot-run.md exists
+- runs/m1209_corrected_profile_pilot/summary.json exists
+- profile_seed_rows.csv exists
+- eval_rows.csv exists
+- profile_aggregate.csv exists
+- all selected profile seed runs complete or failures are recorded
+- private holdout remains unused
+- no promotion or actor-input contract change occurs
+- claims are limited to corrected public pilot trends
+
+## Failure Criteria
+
+- profile-specific budgets or hyperparameters change after seeing results
+- private holdout is used
+- metrics are framed as paper-level evidence
+- hidden or oracle actor inputs are introduced
+- failed profiles are omitted from summary
+- corrected controls are not applied in training or evaluation
+
+## Evidence Gates
+
+- M1209 may run the corrected public profile pilot only
+- M1209 may run PPO under the fixed M1206/M1207 profile budgets and seeds
+- M1209 must evaluate every checkpoint on the same public eval seeds
+- M1209 must not promote
+- M1209 must not use private holdout
+- M1209 must not tune profiles based on results
+- M1209 must not run candidate replay
+- M1209 must not add hidden or oracle actor inputs
+- M1209 must not claim paper-level evidence or self-identification
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not change profile-specific budgets
+- do not use private holdout
+- do not promote any checkpoint
+- do not run public proof replay as if this were a driver candidate
+- do not tune hyperparameters after seeing profile results
+- do not add hidden or oracle actor inputs
+- do not claim recurrent-belief advantage or self-identification
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m1209-paper-route-corrected-profile-pilot-run
+- type: gate
+- checkpoint: runs/m1209_corrected_profile_pilot/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: corrected_profile_pilot_completed_route_to_result_audit
+- reason: M1209 completes 24/24 corrected public pilot seed runs with finite metrics; L3 online and reset both reach 0.3594 success while L2 normal does not beat current-tiled controls so route to result audit without promotion private holdout paper or self-ID claims
+
+## Next Blocker
+
+m1210-paper-route-corrected-profile-pilot-result-audit
