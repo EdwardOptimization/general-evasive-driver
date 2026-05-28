@@ -166,6 +166,44 @@
     "docs/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md",
     "runs/m1259_richer_fault_capability_source_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1262_richer_fault_regret_boundary_retarget_smoke/summary.json",
+    "doc": "docs/m1262-paper-route-richer-fault-regret-boundary-retarget-implementation.md",
+    "decision": "regret_boundary_retarget_infrastructure_pass_source_negative_route_to_result_audit",
+    "failure_type": "scenario_sampling_failure",
+    "subtype": "regret_boundary_geometry_retarget_negative",
+    "selected_target_pairs": 1,
+    "selected_pair_ids": [
+      5
+    ],
+    "source_reconstructed_snapshot_count": 812,
+    "retarget_candidate_count": 441,
+    "retarget_rollouts": 1764,
+    "strict_accepted_count": 0,
+    "accepted_separable_pairs": 0,
+    "all_four_rollouts_collision_count": 193,
+    "own_branch_viability_fail_count": 207,
+    "wrong_branch_collision_count": 208,
+    "low_regret_count": 441,
+    "best_actions_diverged_pairs": 438,
+    "max_min_cross_regret": 0.0043813964,
+    "min_cross_regret_ge_0_005_count": 0,
+    "min_cross_regret_ge_0_020_count": 0,
+    "result_class": "action_divergent_low_regret",
+    "source_positive": false,
+    "actor_parameters_changed": false,
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "source_reconstruction_reliable": true,
+    "next_manifest": "experiments/manifests/m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit.json"
+  },
+  "decision": "regret_boundary_retarget_infrastructure_pass_source_negative_route_to_result_audit",
   "decision_rule": "M1262 passes as infrastructure if it implements focused retargeting, reports strict accepted rows and anti-collision diagnostics, and preserves all no-training/no-threshold-relaxation guardrails.",
-  "next_blocker": "m1262-paper-route-richer-fault-regret-boundary-retarget-implementation"
+  "next_blocker": "m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit"
 }

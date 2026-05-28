@@ -18188,3 +18188,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1262-paper-route-richer-fault-regret-boundary-retarget-implementation.json`.
 - decision: `regret_boundary_retarget_design_admit_bounded_implementation_smoke`
 - next: `m1262-paper-route-richer-fault-regret-boundary-retarget-implementation`
+
+## 20260528T115743Z - m1262-paper-route-richer-fault-regret-boundary-retarget-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1262_richer_fault_regret_boundary_retarget_smoke/summary.json`
+- implementation: added `src/autodrift/capability_separable_regret_retarget.py` and `tests/test_capability_separable_regret_retarget.py` to reconstruct M1259 source snapshots and replay fixed best-A/best-B sequences over a bounded obstacle-geometry retarget grid.
+- validation: `python -m compileall -q src tests` passed; `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_capability_separable_regret_retarget.py tests/test_capability_separable_source_constructor.py` passed with `13 passed`.
+- result: infrastructure passes with `source_reconstruction_reliable=true`, `source_reconstructed_snapshot_count=812`, `retarget_candidate_count=441`, and `retarget_rollouts=1764`.
+- source result: `strict_accepted_count=0`, `accepted_separable_pairs=0`, `result_class=action_divergent_low_regret`, `all_four_rollouts_collision_count=193`, `own_branch_viability_fail_count=207`, `wrong_branch_collision_count=208`, `low_regret_count=441`, and `best_actions_diverged_pairs=438`.
+- regret distribution: own-branch viable rows exist (`234/441`) and action divergence persists, but `max min_cross_regret=0.0043813964`; no row reaches `0.005`, much less the strict `0.02` threshold.
+- interpretation: geometry-only retargeting around pair 5 does not amplify two-sided cross-regret; some geometries collapse into collision-dominated rows, while viable rows remain low-regret.
+- guardrail: actor parameters unchanged; no labels entered actor inputs; no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, self-ID claim, true high-fidelity physical fault claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit.json`.
+- decision: `regret_boundary_retarget_infrastructure_pass_source_negative_route_to_result_audit`
+- next: `m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit`

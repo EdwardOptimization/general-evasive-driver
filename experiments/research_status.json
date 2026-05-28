@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1271,
+    "completed": 1272,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md",
+    "command_log": "runs/m1262_richer_fault_regret_boundary_retarget_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m1262_richer_fault_regret_boundary_retarget_smoke",
     "status": "completed",
-    "task_id": "m1261-paper-route-richer-fault-regret-boundary-retarget-design"
+    "task_id": "m1262-paper-route-richer-fault-regret-boundary-retarget-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1262-paper-route-richer-fault-regret-boundary-retarget-implementation.json",
-    "hypothesis": "Implement and smoke-test bounded regret-boundary retargeting around M1259 pair 5",
-    "id": "m1262-paper-route-richer-fault-regret-boundary-retarget-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement focused retarget tool, verify source reconstruction, and run no-training smoke",
-    "priority": 12570,
+    "command": "see experiments/manifests/m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit.json",
+    "hypothesis": "Audit M1262 geometry-retarget source-negative result before any further repair or synthesis",
+    "id": "m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit",
+    "kind": "gate",
+    "notes": "Pending: classify M1262 zero-accepted result and choose stop, repair, synthesis, or pivot without threshold relaxation",
+    "priority": 12580,
     "status": "pending",
-    "success_artifact": "runs/m1262_richer_fault_regret_boundary_retarget_smoke/summary.json"
+    "success_artifact": "docs/m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit.md"
   },
-  "updated_at_utc": "20260528T114834Z"
+  "updated_at_utc": "20260528T115743Z"
 }
