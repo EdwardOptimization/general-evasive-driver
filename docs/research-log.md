@@ -18433,3 +18433,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1277-paper-route-four-wheel-source-intervention-materialization.json`.
 - decision: `four_wheel_source_intervention_materialization_design_admit_implementation`
 - next: `m1277-paper-route-four-wheel-source-intervention-materialization`
+
+## 20260528T130454Z - m1277-paper-route-four-wheel-source-intervention-materialization
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1277_four_wheel_source_intervention_materialization/summary.json`
+- implementation: added `src/autodrift/four_wheel_source_intervention_materialization.py` and `tests/test_four_wheel_source_intervention_materialization.py`.
+- validation: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_four_wheel_source_intervention_materialization.py` passed with `1 passed`.
+- result: materialized `38` near/high union source pairs into `76` intervention rows and `63` family-balanced source pairs into `126` intervention rows.
+- artifacts: total `202` intervention rows, `202` clean observation rows, and `29088` preferred/rejected action-sequence rows.
+- checks: `observation_dim=72`, `observation_all_finite=true`, `preferred_success_fail_count=0`, `preferred_margin_negative_count=0`, and `margin_gap_below_threshold_count=0`.
+- guardrail: `intervention_observations.csv` contains only `intervention_id` and `obs_0..obs_71`; fault labels and branch labels remain metadata outside actor-view observations.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, driver-performance claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.json`.
+- decision: `four_wheel_source_intervention_materialization_pass_route_to_result_audit`
+- next: `m1278-paper-route-four-wheel-source-intervention-materialization-result-audit`

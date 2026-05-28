@@ -164,6 +164,35 @@
     "docs/m1276-paper-route-four-wheel-source-intervention-materialization-design.md",
     "runs/m1273_four_wheel_source_corpus_export/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1277_four_wheel_source_intervention_materialization/summary.json",
+    "doc": "docs/m1277-paper-route-four-wheel-source-intervention-materialization.md",
+    "decision": "four_wheel_source_intervention_materialization_pass_route_to_result_audit",
+    "near_high_union_source_pairs": 38,
+    "near_high_union_intervention_rows": 76,
+    "family_balanced_source_pairs": 63,
+    "family_balanced_intervention_rows": 126,
+    "source_pair_rows": 101,
+    "intervention_rows": 202,
+    "observation_rows": 202,
+    "action_sequence_rows": 29088,
+    "observation_dim": 72,
+    "observation_all_finite": true,
+    "preferred_success_fail_count": 0,
+    "preferred_margin_negative_count": 0,
+    "margin_gap_below_threshold_count": 0,
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.json"
+  },
+  "decision": "four_wheel_source_intervention_materialization_pass_route_to_result_audit",
   "decision_rule": "M1277 passes as infrastructure if it materializes preferred/rejected source artifacts with clean observations and expected subset counts without training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion.",
-  "next_blocker": "m1277-paper-route-four-wheel-source-intervention-materialization"
+  "next_blocker": "m1278-paper-route-four-wheel-source-intervention-materialization-result-audit"
 }

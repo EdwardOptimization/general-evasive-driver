@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1286,
+    "completed": 1287,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1276-paper-route-four-wheel-source-intervention-materialization-design.md",
+    "command_log": "docs/m1277-paper-route-four-wheel-source-intervention-materialization.md",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m1277_four_wheel_source_intervention_materialization",
     "status": "completed",
-    "task_id": "m1276-paper-route-four-wheel-source-intervention-materialization-design"
+    "task_id": "m1277-paper-route-four-wheel-source-intervention-materialization"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1277-paper-route-four-wheel-source-intervention-materialization.json",
-    "hypothesis": "Materialize no-training preferred/rejected source intervention artifacts with clean observations",
-    "id": "m1277-paper-route-four-wheel-source-intervention-materialization",
-    "kind": "infrastructure",
-    "notes": "Pending: implement intervention rows observations action sequences and source pair artifacts from near_high_union and family_balanced subsets",
-    "priority": 12720,
+    "command": "see experiments/manifests/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.json",
+    "hypothesis": "Audit materialized source-intervention artifacts before policy-side use",
+    "id": "m1278-paper-route-four-wheel-source-intervention-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit observation cleanliness preferred rejected outcome quality subset suitability and next source-intervention step",
+    "priority": 12730,
     "status": "pending",
-    "success_artifact": "runs/m1277_four_wheel_source_intervention_materialization/summary.json"
+    "success_artifact": "docs/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260528T125945Z"
+  "updated_at_utc": "20260528T130454Z"
 }
