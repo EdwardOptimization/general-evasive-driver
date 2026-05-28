@@ -190,5 +190,5 @@
     "experiments/scoreboard.csv"
   ],
   "decision_rule": "M1185 passes if it builds the gate utility matrix and provisional classification recommendations from existing artifacts while preserving all M1184 guardrails.",
-  "next_blocker": "m1185-paper-route-gate-utility-matrix-run"
+  "next_blocker": "m1186-paper-route-active-gate-policy-design"
 }

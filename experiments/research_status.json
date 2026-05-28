@@ -1,27 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1194,
+    "completed": 1195,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1184-paper-route-gate-utility-audit-design.md",
+    "command_log": "docs/m1185-paper-route-gate-utility-matrix-run.md",
     "returncode": 0,
+    "run_dir": "runs/m1185_gate_utility_matrix",
     "status": "completed",
-    "task_id": "m1184-paper-route-gate-utility-audit-design"
+    "task_id": "m1185-paper-route-gate-utility-matrix-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1185-paper-route-gate-utility-matrix-run.json",
-    "hypothesis": "Build paper-route gate utility matrix from existing artifacts",
-    "id": "m1185-paper-route-gate-utility-matrix-run",
+    "command": "see experiments/manifests/m1186-paper-route-active-gate-policy-design.json",
+    "hypothesis": "Design active gate policy from M1185 matrix",
+    "id": "m1186-paper-route-active-gate-policy-design",
     "kind": "gate",
-    "notes": "Pending: populate candidate manifest gate utility matrix and gate stack decisions from existing artifacts only; no candidate replay gate demotion training PPO promotion private holdout or actor-input change",
-    "priority": 11800,
+    "notes": "Pending: write active gate policy separating daily core balanced public extended-regression legacy and deprecated handling; no candidate replay gate deletion training PPO promotion private holdout or actor-input change",
+    "priority": 11810,
     "status": "pending",
-    "success_artifact": "docs/m1185-paper-route-gate-utility-matrix-run.md"
+    "success_artifact": "docs/m1186-paper-route-active-gate-policy-design.md"
   },
-  "updated_at_utc": "20260528T052000Z"
+  "updated_at_utc": "20260528T053500Z"
 }

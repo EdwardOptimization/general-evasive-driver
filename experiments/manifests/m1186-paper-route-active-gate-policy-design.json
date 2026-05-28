@@ -1,0 +1,176 @@
+{
+  "id": "m1186-paper-route-active-gate-policy-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1185-paper-route-gate-utility-matrix-run.md",
+      "docs/gate-utility-matrix.md",
+      "runs/m1185_gate_utility_matrix/summary.json",
+      "runs/m1185_gate_utility_matrix/candidate_manifest.csv",
+      "runs/m1185_gate_utility_matrix/gate_utility_matrix.csv",
+      "runs/m1185_gate_utility_matrix/gate_stack_decisions.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1185-paper-route-gate-utility-matrix-run.json"
+    ],
+    "parent_objective": [
+      "convert the gate utility matrix into an active gate policy for daily engineering paper-route proof and extended regression"
+    ],
+    "derived_from": [
+      "m1185-paper-route-gate-utility-matrix-run"
+    ],
+    "blocked_by": [
+      "M1185 recommends classifications but does not define how daily gates promotion gates and extended-regression gates should be scheduled"
+    ],
+    "supersedes": [
+      "ambiguous use of all historical gates as either always-active blockers or disposable legacy artifacts"
+    ],
+    "invalidates": [
+      "deleting historical tools during policy design",
+      "using Stack A as proof of self-identification",
+      "using Stack C as a permanent blocker for every finite-window or engineering baseline"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1186-paper-route-active-gate-policy-design.md",
+  "public_gates": [
+    "M1186 may write active gate policy documents only",
+    "M1186 must not run candidate replay",
+    "M1186 must not delete historical gates",
+    "M1186 must not train actor weights",
+    "M1186 must not run PPO",
+    "M1186 must not promote",
+    "M1186 must not use private holdout",
+    "M1186 must not change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run candidate replay",
+    "do not delete historical tools",
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not claim driver performance from policy design",
+    "do not claim recurrent belief from gate policy"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_process: active gate policy from utility matrix",
+    "evidence_increment": "turns the M1185 provisional matrix into a written scheduling policy for core daily balanced public and extended historical diagnostics",
+    "claim_scope": "process policy only; no replay result gate deletion training PPO promotion private-holdout driver-performance or paper-result claim",
+    "stop_condition": [
+      "stop if policy deletes historical gates without a separate implementation milestone",
+      "stop if policy treats Stack A as sufficient self-ID proof",
+      "stop if policy keeps Stack C as an unconditional blocker for every future controller comparison",
+      "stop if policy changes actor inputs"
+    ],
+    "fallback_plan": [
+      "if matrix evidence is insufficient, route to candidate inventory or executable gate audit",
+      "if Stack B is under-specified, write a Stack B executable wrapper design before controller comparisons",
+      "if a Stack C gate has unique coverage, keep it as extended-regression or core with explicit trigger conditions"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1185 matrix is complete enough to define active daily and extended gate policy before L0/L1/L2/L3 controller comparison design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "write active gate policy",
+    "admission_evidence": [
+      "M1185 matrix classifies gates as core research-only extended-regression legacy and deprecated",
+      "Stack A is insufficient for proof but needed for engineering behavior",
+      "Stack B is recommended as current paper-route default",
+      "Stack C remains valuable as extended regression rather than unconditional blocker"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not run replay",
+      "do not run training",
+      "do not delete historical tools",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "active gate policy document",
+      "M1186 milestone doc",
+      "status, queue, scoreboard, research log, and review artifacts",
+      "next manifest"
+    ],
+    "next_stage_criteria": [
+      "daily core gates are defined",
+      "balanced public gates are defined",
+      "extended-regression triggers are defined",
+      "legacy and deprecated handling is defined",
+      "next paper-route controller-comparison design is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1186 writes process policy and does not test current-frame substitution or history necessity.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1186 audits gate scheduling only.",
+    "negative_result_policy": "If the active gate policy cannot separate engineering behavior from mechanism proof, route to executable gate audit before controller comparison.",
+    "allowed_claims": [
+      "active gate policy design",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The M1185 gate utility matrix is sufficient to define an active gate policy that protects engineering behavior, public proof, and extended historical diagnostics without letting old row-specific gates dominate the paper route.",
+  "success_criteria": [
+    "docs/m1186-paper-route-active-gate-policy-design.md exists",
+    "docs/active-gate-policy.md exists",
+    "daily core gate policy is defined",
+    "balanced public gate policy is defined",
+    "extended-regression trigger policy is defined",
+    "legacy and deprecated handling policy is defined",
+    "follow-up controller comparison design is pre-registered",
+    "no candidate replay, gate deletion, actor training, PPO, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "policy deletes gates instead of scheduling them",
+    "policy treats Stack A as sufficient mechanism proof",
+    "policy keeps Stack C as unconditional blocker for all future controller comparisons",
+    "follow-up controller comparison is not pre-registered",
+    "candidate replay, actor training, PPO, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_active_gate_policy",
+      "command": "write docs/active-gate-policy.md and docs/m1186-paper-route-active-gate-policy-design.md from the M1185 utility matrix"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1186-paper-route-active-gate-policy-design.md",
+      "type": "md"
+    },
+    {
+      "path": "docs/active-gate-policy.md",
+      "type": "md"
+    },
+    {
+      "path": "experiments/manifests/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1185-paper-route-gate-utility-matrix-run.md",
+    "docs/gate-utility-matrix.md",
+    "runs/m1185_gate_utility_matrix/summary.json"
+  ],
+  "decision_rule": "M1186 passes if it defines the active gate policy and pre-registers the L0/L1/L2/L3 controller comparison design without changing gates or running experiments.",
+  "next_blocker": "m1186-paper-route-active-gate-policy-design"
+}

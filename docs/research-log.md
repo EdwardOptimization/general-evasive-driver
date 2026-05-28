@@ -16910,3 +16910,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no candidate replay, gate demotion, deletion, actor training, PPO, promotion, private holdout, or actor-input change occurred.
 - decision: `paper_route_gate_utility_audit_design_admit_matrix_run`
 - next: `m1185-paper-route-gate-utility-matrix-run`
+
+## 20260528T053500Z - m1185-paper-route-gate-utility-matrix-run
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1185-paper-route-gate-utility-matrix-run.md`
+- matrix: `docs/gate-utility-matrix.md`
+- run dir: `runs/m1185_gate_utility_matrix`
+- result: builds a first paper-route gate utility matrix from existing artifacts only.
+- candidate inventory: `12` rows with `4` good promoted/admitted, `4` known bad, `2` near-miss, and `2` null/no-op candidates.
+- gate utility rows: `13` gates or gate groups across Stack A minimal engineering, Stack B balanced public, and Stack C full historical diagnostic.
+- stack decision: Stack A is core engineering but insufficient for proof; Stack B is recommended as the active public default; Stack C remains extended regression and appendix diagnostics.
+- provisional classes: core, research-only, extended-regression, legacy, and deprecated.
+- key finding: broad engineering behavior gates can miss proof washout, while the balanced public stack catches known wrong-history-safe and duplicate-dominated surface failures without making the full historical stack an unconditional blocker.
+- follow-up manifest: `experiments/manifests/m1186-paper-route-active-gate-policy-design.json`.
+- guardrail: no candidate replay, gate demotion, deletion, actor training, PPO, promotion, private holdout, or actor-input change occurred.
+- decision: `gate_utility_matrix_pass_route_to_active_gate_policy_design`
+- next: `m1186-paper-route-active-gate-policy-design`

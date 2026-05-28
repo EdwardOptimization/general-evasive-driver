@@ -115,8 +115,39 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1185-paper-route-gate-utility-matrix-run
+m1186-paper-route-active-gate-policy-design
 ```
+
+M1185 completed the first gate utility matrix:
+
+```text
+artifact: docs/m1185-paper-route-gate-utility-matrix-run.md
+matrix: docs/gate-utility-matrix.md
+run dir: runs/m1185_gate_utility_matrix
+decision: gate_utility_matrix_pass_route_to_active_gate_policy_design
+candidate rows: 12
+gate utility rows: 13
+gate stacks: Stack A minimal engineering, Stack B balanced public, Stack C full historical diagnostic
+```
+
+M1185 result:
+
+- Stack A remains core for engineering behavior, but it can miss proof washout
+  that preserves aggregate behavior.
+- Stack B is the recommended active public default for the paper route because
+  it catches known wrong-history-safe and duplicate-dominated surface failures.
+- Stack C should remain extended regression and paper appendix diagnostics
+  unless a later executable audit shows a member has unique Stack-B-missing
+  failure coverage.
+- Legacy singletons such as the old `9944` protected key should not be
+  single-row global blockers.
+- Deprecated metric-artifact or sign-wrong objectives should not guide future
+  training without a new reinstatement manifest.
+
+M1185 did not run candidate replay, demote gates, delete tooling, train, run
+PPO, promote, use private holdout, or change actor inputs. The next blocker is
+M1186: turn the matrix into a written active gate policy before the L0/L1/L2/L3
+controller comparison design.
 
 M1184 completed the paper-route gate utility audit design:
 
