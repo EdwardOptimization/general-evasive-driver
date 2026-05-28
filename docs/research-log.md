@@ -20492,3 +20492,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1391-paper-route-causal-history-source-miner-implementation.json`.
 - next: `m1391-paper-route-causal-history-source-miner-implementation`
+
+## 20260529T012000Z - m1391-paper-route-causal-history-source-miner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1391_causal_history_source_miner/summary.json`
+- result doc: `docs/m1391-paper-route-causal-history-source-miner-implementation.md`
+- decision: `causal_history_source_miner_structural_pass_admit_candidate_outcome_probe`
+- command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.causal_history_source_miner --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m991_capability_step_fault_source_wave.json --source-rows runs/m1375_promoted_base_source_rich_public_wave/reset_only_rows.csv --max-source-rows 768 --per-fault-pair-cap 96 --history-length 12 --recent-window-length 2 --device cpu --run-dir runs/m1391_causal_history_source_miner`
+- result class: `causal_history_source_structural_pass`
+- counts: `selected_source_rows=768`, `evaluated_rows=768`, `finite_metric_rows=768`, `candidate_rows=631`, `matched_current_pairs=631`, `same_recent_window_candidates=631`, `rejected_rows=137`.
+- source diversity: `unique_source_seeds=46`, `unique_fault_pairs=9`, `unique_preferred_fault_families=7`, `unique_wrong_fault_families=5`, `max_single_seed_share=0.04913`, `max_single_fault_pair_share=0.15055`.
+- matching diagnostics: current-frame matching is strong enough for structural source materialization, but `older_history_l2_p95=0.02730` and `current_hidden_l2_p95=0.10404`; M1391 is source materialization, not history-necessity proof.
+- guardrail: `actor_parameters_changed=false`, `training_started=false`, `evaluation_started=false`, `ppo_used=false`, `promoted=false`, `private_holdout_used=false`, `training_corpus_exported=false`, `actor_input_contract_changed=false`.
+- interpretation: M1391 admits a no-training outcome-intervention probe over matched-current candidates; it does not admit corpus export, training, promotion, private holdout, or self-ID claim expansion.
+- follow-up manifest: `experiments/manifests/m1392-paper-route-causal-history-candidate-outcome-probe.json`.
+- next: `m1392-paper-route-causal-history-candidate-outcome-probe`

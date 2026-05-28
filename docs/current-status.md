@@ -16,22 +16,46 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1390-paper-route-causal-history-necessity-task-design
+m1391-paper-route-causal-history-source-miner-implementation
 ```
 
 Current next task:
 
 ```text
-m1391-paper-route-causal-history-source-miner-implementation
+m1392-paper-route-causal-history-candidate-outcome-probe
 ```
 
-M1390 designed the causal history-necessity task/gate family after M1389
-pivoted away from blind profile scaling. The
+M1391 implemented and ran the no-training causal-history source miner after
+M1390 designed the task family. The
 current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1391 result:
+
+```text
+decision: causal_history_source_miner_structural_pass_admit_candidate_outcome_probe
+result_class: causal_history_source_structural_pass
+selected_source_rows: 768
+evaluated_rows: 768
+candidate_rows: 631
+matched_current_pairs: 631
+same_recent_window_candidates: 631
+unique_candidate_source_seeds: 46
+unique_candidate_fault_pairs: 9
+older_history_l2_p95: 0.02730
+current_hidden_l2_p95: 0.10404
+next: m1392-paper-route-causal-history-candidate-outcome-probe
+```
+
+M1391 is a source-materialization pass, not history-necessity proof. Current
+frame matching and source diversity are strong enough to run a no-training
+outcome-intervention probe, but older-history observation divergence is low.
+M1392 must test normal, reset, delayed, wrong, same-recent wrong-older-history,
+and zero-current variants before any corpus export, training, private holdout,
+promotion, or self-ID claim expansion.
 
 M1390 conclusion:
 

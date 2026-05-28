@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1400,
+    "completed": 1401,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1390-paper-route-causal-history-necessity-task-design.md",
+    "command_log": "runs/m1391_causal_history_source_miner/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1391_causal_history_source_miner",
     "status": "completed",
-    "task_id": "m1390-paper-route-causal-history-necessity-task-design"
+    "task_id": "m1391-paper-route-causal-history-source-miner-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1391-paper-route-causal-history-source-miner-implementation.json",
-    "hypothesis": "A no-training source miner can materialize matched-current older-history candidates and source-diversity diagnostics for the causal history-necessity branch.",
-    "id": "m1391-paper-route-causal-history-source-miner-implementation",
+    "command": "see experiments/manifests/m1392-paper-route-causal-history-candidate-outcome-probe.json",
+    "hypothesis": "No-training outcome interventions over M1391 candidates can determine whether matched-current source rows contain source-diverse history-causal outcome gaps.",
+    "id": "m1392-paper-route-causal-history-candidate-outcome-probe",
     "kind": "infrastructure",
-    "notes": "Pending: implement or run no-training causal-history source miner/smoke before corpus export, training, or claim expansion",
-    "priority": 13860,
+    "notes": "Pending: implement or run no-training outcome interventions over M1391 candidates before corpus export, training, or claim expansion",
+    "priority": 13870,
     "status": "pending",
-    "success_artifact": "runs/m1391_causal_history_source_miner/summary.json"
+    "success_artifact": "runs/m1392_causal_history_candidate_outcome_probe/summary.json"
   },
-  "updated_at_utc": "20260529T011000Z"
+  "updated_at_utc": "20260529T012000Z"
 }

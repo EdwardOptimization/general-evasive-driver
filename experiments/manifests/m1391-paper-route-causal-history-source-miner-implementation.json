@@ -2,7 +2,7 @@
   "id": "m1391-paper-route-causal-history-source-miner-implementation",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -149,6 +149,38 @@
     "runs/m1375_promoted_base_source_rich_public_wave/reset_only_rows.csv",
     "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1391_causal_history_source_miner/summary.json",
+    "result_doc": "docs/m1391-paper-route-causal-history-source-miner-implementation.md",
+    "decision": "causal_history_source_miner_structural_pass_admit_candidate_outcome_probe",
+    "result_class": "causal_history_source_structural_pass",
+    "structural_smoke_pass": true,
+    "selected_source_rows": 768,
+    "evaluated_rows": 768,
+    "finite_metric_rows": 768,
+    "candidate_rows": 631,
+    "matched_current_pairs": 631,
+    "same_recent_window_candidates": 631,
+    "rejected_rows": 137,
+    "unique_candidate_source_seeds": 46,
+    "unique_candidate_fault_pairs": 9,
+    "max_single_seed_share": 0.0491283676703645,
+    "max_single_fault_pair_share": 0.15055467511885895,
+    "older_history_l2_p95": 0.027297300063992676,
+    "current_hidden_l2_p95": 0.10403668714083886,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "actor_parameters_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1392-paper-route-causal-history-candidate-outcome-probe.json"
+  },
+  "decision": "causal_history_source_miner_structural_pass_admit_candidate_outcome_probe",
   "decision_rule": "M1391 passes structurally if it materializes or cleanly rejects no-training matched-current older-history candidates with matching and source-diversity metrics.",
-  "next_blocker": "m1391-paper-route-causal-history-source-miner-implementation"
+  "next_blocker": "m1392-paper-route-causal-history-candidate-outcome-probe"
 }

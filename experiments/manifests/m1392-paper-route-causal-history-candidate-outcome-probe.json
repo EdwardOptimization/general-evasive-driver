@@ -1,0 +1,156 @@
+{
+  "id": "m1392-paper-route-causal-history-candidate-outcome-probe",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1391-paper-route-causal-history-source-miner-implementation.md",
+      "runs/m1391_causal_history_source_miner/summary.json",
+      "runs/m1391_causal_history_source_miner/candidate_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1391-paper-route-causal-history-source-miner-implementation.json"
+    ],
+    "parent_objective": [
+      "run no-training outcome interventions on matched-current causal-history source candidates"
+    ],
+    "derived_from": [
+      "m1391-paper-route-causal-history-source-miner-implementation"
+    ],
+    "blocked_by": [
+      "M1391 materialized candidate rows but did not test outcome-causal history dependence"
+    ],
+    "supersedes": [
+      "claiming self-identification from source materialization alone",
+      "exporting M1391 candidates directly as a training corpus"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1392-paper-route-causal-history-candidate-outcome-probe.md",
+  "public_gates": [
+    "M1392 must run or implement no-training outcome interventions over M1391 candidate rows",
+    "M1392 must separate normal reset delayed wrong same-recent and zero-current variants",
+    "M1392 must report source diversity of accepted outcome-critical rows",
+    "M1392 must not train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not count zero-current-response-only rows as self-identification",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_necessity_task_design",
+    "evidence_axis": "G_causal_history_candidate_outcome_intervention",
+    "evidence_increment": "tests whether matched-current source candidates produce outcome-relevant history intervention gaps",
+    "claim_scope": "public no-training outcome probe only; no training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if normal rollouts fail too often",
+      "stop if only reset or zero-current variants produce effects",
+      "stop if wrong or delayed history has action-only effects with no outcome gap",
+      "stop if accepted rows are source-narrow"
+    ],
+    "fallback_plan": [
+      "route to warmup-latched task design if matched-current source candidates are history-insensitive",
+      "route to near-boundary source mining if effects are action-only",
+      "route to source-diversity refresh if positives are source-narrow",
+      "route to corpus design only if source-diverse history-only outcome gaps appear"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "no-training causal-history candidate outcome probe",
+    "admission_evidence": [
+      "M1391 materialized 631 matched-current candidates across 46 seeds and 9 fault pairs",
+      "M1391 did not train, promote, use private holdout, or export a training corpus",
+      "M1391 older-history observation distance is low so outcome interventions are required before any claim"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export a training corpus"
+    ],
+    "allowed_updates": [
+      "outcome probe implementation or smoke command",
+      "summary artifacts under runs/",
+      "M1392 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "outcome intervention variants are materialized or infeasibility is classified",
+      "accepted-row source diversity is reported",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1392 must use M1391 matched-current candidates and cannot count zero-current-response-only effects as self-ID evidence.",
+    "history_necessity_tests": [
+      "normal_vs_reset_hidden",
+      "normal_vs_delayed_history",
+      "normal_vs_wrong_same_current_history",
+      "normal_vs_same_recent_wrong_older_history",
+      "zero_current_response_positive_control"
+    ],
+    "temporal_evidence_window": "No-training outcome interventions over M1391 matched-current candidate rows.",
+    "negative_result_policy": "If outcome gaps are absent or source-narrow, record the negative and route to task/source redesign before training.",
+    "allowed_claims": [
+      "public outcome-intervention probe result",
+      "no promotion, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "No-training outcome interventions over M1391 candidates can determine whether matched-current source rows contain source-diverse history-causal outcome gaps.",
+  "success_criteria": [
+    "runs/m1392_causal_history_candidate_outcome_probe/summary.json exists",
+    "normal reset delayed wrong same-recent and zero-current variants are reported or cleanly rejected",
+    "accepted-row source diversity is reported",
+    "result chooses next route without training, PPO, promotion, private holdout, training corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "outcome probe artifact is missing",
+    "variant separation is missing",
+    "source diversity is not reported",
+    "result routes directly to training or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "implement or run no-training candidate outcome intervention probe"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1392_causal_history_candidate_outcome_probe/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1391-paper-route-causal-history-source-miner-implementation.md",
+    "runs/m1391_causal_history_source_miner/summary.json",
+    "runs/m1391_causal_history_source_miner/candidate_rows.csv"
+  ],
+  "decision_rule": "M1392 passes structurally if it materializes no-training outcome interventions over M1391 candidates and reports accepted-row source diversity without claim expansion.",
+  "next_blocker": "m1392-paper-route-causal-history-candidate-outcome-probe"
+}

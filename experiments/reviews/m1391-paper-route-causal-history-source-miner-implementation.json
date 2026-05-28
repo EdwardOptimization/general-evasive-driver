@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1391 materializes 631 matched-current source candidates across 46 seeds and 9 fault pairs; structural source pass but not history proof so outcome interventions are next",
+  "failure_criteria": [
+    "source miner artifact is missing",
+    "matching distances are not measured",
+    "source diversity is not measured",
+    "result routes directly to training or claim expansion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not claim level3 self-identification",
+    "do not relax matching thresholds after seeing results"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T230455Z",
+  "hypothesis": "A no-training source miner can materialize matched-current older-history candidates and source-diversity diagnostics for the causal history-necessity branch.",
+  "lineage": {
+    "blocked_by": [
+      "M1390 requires causal history-necessity source materialization before new profile scaling or training"
+    ],
+    "derived_from": [
+      "m1390-paper-route-causal-history-necessity-task-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1390-paper-route-causal-history-necessity-task-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1390-paper-route-causal-history-necessity-task-design.md",
+      "runs/m1375_promoted_base_source_rich_public_wave/reset_only_rows.csv",
+      "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json"
+    ],
+    "parent_objective": [
+      "materialize no-training matched-current older-history source candidates before corpus export or training"
+    ],
+    "supersedes": [
+      "running another blind history-profile repeat",
+      "exporting a temporal corpus from seed-thin M1379 rows"
+    ]
+  },
+  "milestone": "m1391-paper-route-causal-history-source-miner-implementation",
+  "next_blocker": "m1392-paper-route-causal-history-candidate-outcome-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "causal_history_source_miner_structural_pass_admit_candidate_outcome_probe",
+  "public_gates": [
+    "M1391 must implement or run a no-training public source miner/smoke",
+    "M1391 must report matched-current distance histograms and source diversity",
+    "M1391 must report whether structural smoke thresholds are met",
+    "M1391 must not train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1391_causal_history_source_miner/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "causal_history_source_miner_structural_pass_admit_candidate_outcome_probe",
+    "milestone": "m1391-paper-route-causal-history-source-miner-implementation",
+    "reason": "M1391 materializes 631 matched-current source candidates across 46 seeds and 9 fault pairs; structural source pass but not history proof so outcome interventions are next",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "source miner implementation or smoke artifact exists",
+    "matching-distance histograms are reported",
+    "source-diversity metrics are reported",
+    "result chooses next route without training, PPO, promotion, private holdout, training corpus export, or actor-input expansion"
+  ],
+  "type": "infrastructure"
+}
