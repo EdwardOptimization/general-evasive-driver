@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1321,
+    "completed": 1322,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1311-paper-route-source-history-robust-minfold-objective-design.md",
+    "command_log": "docs/m1312-paper-route-source-history-robust-minfold-objective-probe.md",
     "returncode": 0,
-    "run_dir": "docs/m1311-paper-route-source-history-robust-minfold-objective-design.md",
+    "run_dir": "runs/m1312_source_history_robust_minfold_probe",
     "status": "completed",
-    "task_id": "m1311-paper-route-source-history-robust-minfold-objective-design"
+    "task_id": "m1312-paper-route-source-history-robust-minfold-objective-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1312-paper-route-source-history-robust-minfold-objective-probe.json",
-    "hypothesis": "Run a bounded no-PPO robust min-fold source-history repeat probe after M1311 design",
-    "id": "m1312-paper-route-source-history-robust-minfold-objective-probe",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded robust min-fold probe; PPO and promotion remain blocked",
-    "priority": 13070,
+    "command": "see experiments/manifests/m1313-paper-route-source-history-robust-minfold-result-audit.json",
+    "hypothesis": "Audit M1312 aggregate-positive but lost-pass robust min-fold result before another implementation",
+    "id": "m1313-paper-route-source-history-robust-minfold-result-audit",
+    "kind": "gate",
+    "notes": "Pending: process audit; PPO and promotion remain blocked",
+    "priority": 13080,
     "status": "pending",
-    "success_artifact": "runs/m1312_source_history_robust_minfold_probe/summary.json"
+    "success_artifact": "docs/m1313-paper-route-source-history-robust-minfold-result-audit.md"
   },
-  "updated_at_utc": "20260528T161011Z"
+  "updated_at_utc": "20260528T161817Z"
 }

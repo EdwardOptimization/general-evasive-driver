@@ -1,0 +1,154 @@
+{
+  "id": "m1313-paper-route-source-history-robust-minfold-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1312-paper-route-source-history-robust-minfold-objective-probe.md",
+      "runs/m1312_source_history_robust_minfold_probe/summary.json",
+      "runs/m1312_source_history_robust_minfold_tradeoff_audit/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1312-paper-route-source-history-robust-minfold-objective-probe.json"
+    ],
+    "parent_objective": [
+      "audit robust min-fold repeat result before another implementation"
+    ],
+    "derived_from": [
+      "m1312-paper-route-source-history-robust-minfold-objective-probe"
+    ],
+    "blocked_by": [
+      "M1312 improves aggregate repeat but loses baseline passing offsets"
+    ],
+    "supersedes": [
+      "direct PPO or promotion from M1312 repeat-strong classifier"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1313-paper-route-source-history-robust-minfold-result-audit.md",
+  "public_gates": [
+    "M1313 must not train",
+    "M1313 must not run PPO",
+    "M1313 must not use private holdout",
+    "M1313 must not promote",
+    "M1313 must audit aggregate gain versus lost-pass regression",
+    "M1313 must decide whether to design stricter lexicographic repair, corpus expansion, or branch synthesis"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat aggregate repeat-strong as promotion",
+    "do not hide lost-pass offsets",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_weighted_repeat_implementation",
+    "evidence_axis": "S_robust_minfold_result_audit",
+    "evidence_increment": "audits M1312 robust min-fold aggregate gain versus baseline-pass loss",
+    "claim_scope": "result audit only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if audit treats aggregate repeat-strong as enough",
+      "stop if audit omits lost-pass offsets",
+      "stop if audit routes directly to PPO",
+      "stop if audit omits branch overfit risk"
+    ],
+    "fallback_plan": [
+      "if M1312 is repairable, design stricter lexicographic pass-retention objective",
+      "if pass swapping persists, route to corpus expansion or synthesis",
+      "if fixed-current diagnostics are exhausted, route to branch synthesis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1312 implementation produced mixed aggregate-positive lost-pass result",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "robust min-fold result audit",
+    "admission_evidence": [
+      "M1312 aggregate repeat is strong",
+      "M1312 loses baseline passing offsets 0|1",
+      "M1312 improves top failed combo by +6 positives",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1313 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest if a route is admitted"
+    ],
+    "next_stage_criteria": [
+      "aggregate improvement and lost-pass regression are both recorded",
+      "route decision is explicit",
+      "no PPO or promotion is admitted"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1313 audits fixed-current source-history diagnostics and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "audit correct-history versus wrong-history repeat metrics and fold-swapping behavior"
+    ],
+    "temporal_evidence_window": "M1312 robust min-fold source-history artifacts.",
+    "negative_result_policy": "If lost-pass swapping dominates, keep PPO blocked and route to stricter lexicographic repair or corpus expansion.",
+    "allowed_claims": [
+      "robust min-fold result audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "M1312 can be classified as aggregate-positive but lexicographically non-admissible because it swaps pass surfaces, and the next route can be chosen without another training run.",
+  "success_criteria": [
+    "docs/m1313-paper-route-source-history-robust-minfold-result-audit.md exists",
+    "audit records M1312 aggregate repeat improvement",
+    "audit records lost-pass offsets 0|1",
+    "audit records top failed combo +6 positive delta",
+    "audit chooses stricter lexicographic repair, corpus expansion, or branch synthesis",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits lost-pass offsets",
+    "audit treats aggregate repeat-strong as promotion",
+    "audit routes directly to PPO",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1313-paper-route-source-history-robust-minfold-result-audit.md from M1312 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1313-paper-route-source-history-robust-minfold-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1312-paper-route-source-history-robust-minfold-objective-probe.md",
+    "runs/m1312_source_history_robust_minfold_probe/summary.json",
+    "runs/m1312_source_history_robust_minfold_tradeoff_audit/summary.json"
+  ],
+  "decision_rule": "M1313 passes if it audits M1312 aggregate gain versus lost-pass regression and chooses the next route without training, PPO, promotion, private holdout use, threshold relaxation, or actor-input expansion.",
+  "next_blocker": "m1313-paper-route-source-history-robust-minfold-result-audit"
+}

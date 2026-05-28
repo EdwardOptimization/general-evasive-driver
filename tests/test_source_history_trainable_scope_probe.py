@@ -43,10 +43,12 @@ def test_run_trainable_scope_probe_writes_split_and_parameter_artifacts(tmp_path
     checkpoint = tmp_path / "checkpoint.pt"
     history_dir = tmp_path / "history"
     intervention_dir = tmp_path / "interventions"
+    baseline_dir = tmp_path / "baseline_repeat"
     run_dir = tmp_path / "run"
     _write_checkpoint(checkpoint)
     history_dir.mkdir()
     intervention_dir.mkdir()
+    baseline_dir.mkdir()
 
     (history_dir / "summary.json").write_text(json.dumps({"history_prefix_rows": 4}), encoding="utf-8")
     _write_csv(
@@ -140,14 +142,86 @@ def test_run_trainable_scope_probe_writes_split_and_parameter_artifacts(tmp_path
             {
                 "pair_id": "0",
                 "probe_template": "left_brake_probe",
+                "source_family_pair": "single_wheel->single_wheel",
+                "source_fault_pair": "fault_0_A->fault_0_B",
+                "margin_bucket": "near_boundary",
                 "group_weight": "1.5",
+                "failed_combo_boost": "0.5",
                 "pair_specific_weight_used": "False",
             },
             {
                 "pair_id": "1",
                 "probe_template": "left_brake_probe",
+                "source_family_pair": "split_mu->split_mu",
+                "source_fault_pair": "fault_1_A->fault_1_B",
+                "margin_bucket": "negative",
                 "group_weight": "1.0",
+                "failed_combo_boost": "0.0",
                 "pair_specific_weight_used": "False",
+            },
+        ],
+    )
+    _write_csv(
+        baseline_dir / "scope_summaries.csv",
+        [
+            {
+                "scope": "fusion_head",
+                "split_offset": "0",
+                "forbidden_parameter_mutation_detected": "False",
+                "eval_group_all_rows_both_positive_fraction": "0.25",
+                "eval_both_directional_fraction": "0.25",
+                "full_group_all_rows_both_positive_count": "20",
+                "full_both_positive_count": "40",
+            },
+            {
+                "scope": "fusion_head",
+                "split_offset": "1",
+                "forbidden_parameter_mutation_detected": "False",
+                "eval_group_all_rows_both_positive_fraction": "0.0",
+                "eval_both_directional_fraction": "0.0",
+                "full_group_all_rows_both_positive_count": "10",
+                "full_both_positive_count": "20",
+            },
+        ],
+    )
+    _write_csv(
+        baseline_dir / "group_rows.csv",
+        [
+            {
+                "pair_id": "0",
+                "probe_template": "left_brake_probe",
+                "all_rows_both_positive": "True",
+                "group_min_margin": "0.1",
+                "scope": "fusion_head",
+                "split": "full",
+                "split_offset": "0",
+            },
+            {
+                "pair_id": "1",
+                "probe_template": "left_brake_probe",
+                "all_rows_both_positive": "False",
+                "group_min_margin": "-0.1",
+                "scope": "fusion_head",
+                "split": "full",
+                "split_offset": "0",
+            },
+            {
+                "pair_id": "0",
+                "probe_template": "left_brake_probe",
+                "all_rows_both_positive": "False",
+                "group_min_margin": "-0.2",
+                "scope": "fusion_head",
+                "split": "full",
+                "split_offset": "1",
+            },
+            {
+                "pair_id": "1",
+                "probe_template": "left_brake_probe",
+                "all_rows_both_positive": "True",
+                "group_min_margin": "0.2",
+                "scope": "fusion_head",
+                "split": "full",
+                "split_offset": "1",
             },
         ],
     )
@@ -164,6 +238,10 @@ def test_run_trainable_scope_probe_writes_split_and_parameter_artifacts(tmp_path
         split_offsets=(0, 1),
         split_plan_path=split_plan,
         group_weight_rows_path=group_weights,
+        baseline_repeat_run_dir=baseline_dir,
+        robust_minfold=True,
+        lambda_bucket_cvar=0.1,
+        lambda_retention=0.1,
     )
 
     assert summary["base_scope_count"] == 1
@@ -178,6 +256,8 @@ def test_run_trainable_scope_probe_writes_split_and_parameter_artifacts(tmp_path
     assert summary["split_plan_used"] is True
     assert summary["group_weights_used"] is True
     assert summary["weighted_loss_enabled"] is True
+    assert summary["robust_minfold_used"] is True
+    assert summary["baseline_pass_offsets"] == "0"
     assert summary["pair_specific_weight_used"] is False
     assert summary["max_group_weight"] == 1.5
     assert (run_dir / "summary.json").exists()
@@ -189,5 +269,7 @@ def test_run_trainable_scope_probe_writes_split_and_parameter_artifacts(tmp_path
     assert (run_dir / "parameter_group_delta.csv").exists()
     assert (run_dir / "train_trace.csv").exists()
     assert (run_dir / "weighted_group_diagnostics.csv").exists()
+    assert (run_dir / "retention_group_diagnostics.csv").exists()
+    assert (run_dir / "bucket_cvar_diagnostics.csv").exists()
     assert (run_dir / "checkpoints" / "offset_0_fusion_head_candidate.pt").exists()
     assert (run_dir / "checkpoints" / "offset_1_fusion_head_candidate.pt").exists()

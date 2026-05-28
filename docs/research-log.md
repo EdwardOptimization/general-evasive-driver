@@ -19068,3 +19068,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1312-paper-route-source-history-robust-minfold-objective-probe.json`.
 - next: `m1312-paper-route-source-history-robust-minfold-objective-probe`
+
+## 20260528T161817Z - m1312-paper-route-source-history-robust-minfold-objective-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1312_source_history_robust_minfold_probe/summary.json`
+- doc: `docs/m1312-paper-route-source-history-robust-minfold-objective-probe.md`
+- implementation: extended `source_history_trainable_scope_probe` with robust min-fold flags, bucket/CVaR loss, passing-fold retention loss, and diagnostics.
+- validation: `PYTHONPATH=src python -m pytest -q tests/test_source_history_trainable_scope_probe.py` passed with `1 passed`.
+- probe result class: `source_history_trainable_scope_repeat_strong`.
+- aggregate repeat: pass count `3/5`, mean eval row/group fraction `0.2517857143`, mean full rows/groups `40.8/20.4`.
+- lexicographic failure: baseline pass offsets `0|1|3`; current pass offsets `2|3|4`; lost pass offsets `0|1`.
+- top failed combo positive delta: `+6`.
+- tradeoff audit result class: `weighted_repeat_tradeoff_nonregressive`.
+- tradeoff audit: new pass offsets `2|4`, lost pass offsets `0|1`, mean eval fraction delta `+0.0182539683`, mean full count delta `+2.8`, full positives `95 -> 102`, full mean margin delta `+0.0183538462`.
+- interpretation: robust min-fold is better than M1309 weighted mean but still swaps pass surfaces; not admissible for PPO or promotion.
+- guardrail: no PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1313-paper-route-source-history-robust-minfold-result-audit.json`.
+- decision: `robust_minfold_repeat_mean_positive_lost_pass_tradeoff_route_to_result_audit`
+- next: `m1313-paper-route-source-history-robust-minfold-result-audit`
