@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1344 designs bounded no-PPO pair-group update protocol and routes to synthesis before implementation",
+  "failure_criteria": [
+    "design document is missing",
+    "trainable scope is ambiguous",
+    "branch cadence route is omitted",
+    "design routes directly to PPO or actor update",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, checkpoint mutation, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor weights",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use pair-specific weights",
+    "do not claim self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T190403Z",
+  "hypothesis": "A bounded no-PPO pair-group objective-update protocol can be designed without running an update, and it can specify whether branch synthesis is required before implementation.",
+  "lineage": {
+    "blocked_by": [
+      "M1343 selects update-design route but no bounded update protocol exists"
+    ],
+    "derived_from": [
+      "m1343-paper-route-materialized-source-history-pair-group-metric-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.md",
+      "runs/m1339_materialized_source_history_objective_evaluator/materialized_source_history_objective_rows.csv",
+      "runs/m1342_materialized_source_history_pair_group_metrics/group_rows.csv"
+    ],
+    "parent_objective": [
+      "design bounded no-PPO pair-group objective update protocol"
+    ],
+    "supersedes": [
+      "direct pair-group objective update without design"
+    ]
+  },
+  "milestone": "m1344-paper-route-materialized-source-history-pair-group-update-design",
+  "next_blocker": "m1345-paper-route-materialized-source-history-objective-corpus-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "materialized_source_history_pair_group_update_design_route_to_branch_synthesis",
+  "public_gates": [
+    "M1344 must not train",
+    "M1344 must not run PPO",
+    "M1344 must not update actor weights",
+    "M1344 must not use private holdout",
+    "M1344 must not promote",
+    "M1344 must preserve actor input contract",
+    "M1344 must design bounded update acceptance gates",
+    "M1344 must check branch cadence before implementation"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1344-paper-route-materialized-source-history-pair-group-update-design.md",
+    "clearance_margin_mean": "",
+    "decision": "materialized_source_history_pair_group_update_design_route_to_branch_synthesis",
+    "milestone": "m1344-paper-route-materialized-source-history-pair-group-update-design",
+    "reason": "M1344 designs bounded no-PPO pair-group update protocol and routes to synthesis before implementation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1344-paper-route-materialized-source-history-pair-group-update-design.md exists",
+    "design specifies trainable scopes",
+    "design specifies group-min and condition-balance losses",
+    "design specifies exact before/after row and group gates",
+    "design specifies forbidden parameter mutation checks",
+    "design specifies branch cadence route before implementation",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, checkpoint mutation, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

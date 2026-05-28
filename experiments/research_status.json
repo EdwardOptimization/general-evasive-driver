@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1353,
+    "completed": 1354,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.md",
+    "command_log": "docs/m1344-paper-route-materialized-source-history-pair-group-update-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.md",
+    "run_dir": "docs/m1344-paper-route-materialized-source-history-pair-group-update-design.md",
     "status": "completed",
-    "task_id": "m1343-paper-route-materialized-source-history-pair-group-metric-result-audit"
+    "task_id": "m1344-paper-route-materialized-source-history-pair-group-update-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1344-paper-route-materialized-source-history-pair-group-update-design.json",
-    "hypothesis": "Design bounded no-PPO pair-group update protocol",
-    "id": "m1344-paper-route-materialized-source-history-pair-group-update-design",
+    "command": "see experiments/manifests/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.json",
+    "hypothesis": "Synthesize M1335-M1344 materialized source-history objective corpus branch",
+    "id": "m1345-paper-route-materialized-source-history-objective-corpus-synthesis",
     "kind": "gate",
-    "notes": "Pending: design only; no training, PPO, promotion, or objective update",
-    "priority": 13390,
+    "notes": "Pending: branch synthesis only; no training, PPO, promotion, or objective update",
+    "priority": 13400,
     "status": "pending",
-    "success_artifact": "docs/m1344-paper-route-materialized-source-history-pair-group-update-design.md"
+    "success_artifact": "docs/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.md"
   },
-  "updated_at_utc": "20260528T185929Z"
+  "updated_at_utc": "20260528T190153Z"
 }

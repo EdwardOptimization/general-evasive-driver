@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1343-paper-route-materialized-source-history-pair-group-metric-result-audit
+m1344-paper-route-materialized-source-history-pair-group-update-design
 ```
 
 Current next task:
 
 ```text
-m1344-paper-route-materialized-source-history-pair-group-update-design
+m1345-paper-route-materialized-source-history-objective-corpus-synthesis
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -382,6 +382,13 @@ selected because the conflict is exact and group-structured; branch synthesis is
 not selected yet because one final design step is useful before cadence
 pressure. The active blocker is M1344: design the bounded pair-group update
 protocol and explicitly decide whether cadence requires synthesis before
+implementation. Objective updates, PPO, and promotion remain blocked. M1344
+completed the bounded no-PPO update design, with `response_context_fusion +
+actor_mean` as the recommended first useful trainable scope, frozen `log_std`,
+group-min and condition-balance losses, and exact before/after M1339/M1342
+gates. Because M1335-M1344 reaches the branch synthesis cadence, M1344 does not
+admit implementation directly. The active blocker is M1345: synthesize the
+materialized source-history objective corpus branch before any update
 implementation. Objective updates, PPO, and promotion remain blocked.
 
 ## Actor Contract

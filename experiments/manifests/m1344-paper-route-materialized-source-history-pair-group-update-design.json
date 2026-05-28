@@ -153,6 +153,33 @@
     "docs/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.md",
     "runs/m1342_materialized_source_history_pair_group_metrics/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1344-paper-route-materialized-source-history-pair-group-update-design.md",
+    "decision": "materialized_source_history_pair_group_update_design_route_to_branch_synthesis",
+    "failure_type": "none",
+    "designed_update_type": "bounded_no_ppo_pair_group_objective_update",
+    "recommended_first_scope": "response_context_fusion_plus_actor_mean",
+    "blocked_scopes_until_audit": [
+      "response_encoder_plus_gru_plus_fusion_plus_actor_mean"
+    ],
+    "row_count": 1376,
+    "group_count": 688,
+    "group_min_loss_margin": 0.05,
+    "lambda_group_min": 1.0,
+    "lambda_balance": 0.1,
+    "branch_cadence_requires_synthesis": true,
+    "implementation_admitted": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_update_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.json"
+  },
   "decision_rule": "M1344 passes as a design milestone if it defines a bounded no-PPO pair-group update protocol and the required cadence route without running training, PPO, private holdout, promotion, or actor-input expansion.",
-  "next_blocker": "m1344-paper-route-materialized-source-history-pair-group-update-design"
+  "next_blocker": "m1345-paper-route-materialized-source-history-objective-corpus-synthesis"
 }

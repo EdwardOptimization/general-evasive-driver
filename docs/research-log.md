@@ -19682,3 +19682,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1344-paper-route-materialized-source-history-pair-group-update-design.json`.
 - next: `m1344-paper-route-materialized-source-history-pair-group-update-design`
+
+## 20260528T190153Z - m1344-paper-route-materialized-source-history-pair-group-update-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1344-paper-route-materialized-source-history-pair-group-update-design.md`
+- decision: `materialized_source_history_pair_group_update_design_route_to_branch_synthesis`
+- designed update type: bounded no-PPO pair-group objective update.
+- recommended first scope after synthesis: `response_context_fusion + actor_mean`.
+- blocked wider scope until audit: `response_encoder + GRU + response_context_fusion + actor_mean`.
+- objective design: row preference loss plus group-min joint margin loss and condition-balance loss, with optional trust-region loss.
+- future acceptance gates: exact before/after M1339 row metrics and M1342 group metrics, group-min improvement, one-sided conflict reduction, no forbidden parameter mutation, no PPO, no private holdout, no promotion, and no actor-input change.
+- cadence: M1335-M1344 reaches ten milestones in `paper_route_materialized_source_history_objective_corpus`; implementation is not admitted before synthesis.
+- guardrail: no training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.json`.
+- next: `m1345-paper-route-materialized-source-history-objective-corpus-synthesis`
