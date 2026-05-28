@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1356,
+    "completed": 1357,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1346-paper-route-materialized-source-history-pair-group-update-implementation.md",
+    "command_log": "docs/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1346_materialized_source_history_pair_group_update",
+    "run_dir": "docs/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md",
     "status": "completed",
-    "task_id": "m1346-paper-route-materialized-source-history-pair-group-update-implementation"
+    "task_id": "m1347-paper-route-materialized-source-history-pair-group-update-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.json",
-    "hypothesis": "Audit M1346 exact objective improvement and both-negative tradeoff before replay gates",
-    "id": "m1347-paper-route-materialized-source-history-pair-group-update-result-audit",
+    "command": "see experiments/manifests/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.json",
+    "hypothesis": "Design bounded public replay preflight for M1346 candidate before any replay run",
+    "id": "m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design",
     "kind": "gate",
-    "notes": "Pending: result audit only; no training, PPO, private holdout, promotion, or actor-input change",
-    "priority": 13420,
+    "notes": "Pending: design only; no replay run, training, PPO, private holdout, promotion, or actor-input change",
+    "priority": 13430,
     "status": "pending",
-    "success_artifact": "docs/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md"
+    "success_artifact": "docs/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.md"
   },
-  "updated_at_utc": "20260528T191513Z"
+  "updated_at_utc": "20260528T192115Z"
 }

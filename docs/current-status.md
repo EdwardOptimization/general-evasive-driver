@@ -16,14 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1346-paper-route-materialized-source-history-pair-group-update-implementation
+m1347-paper-route-materialized-source-history-pair-group-update-result-audit
 ```
 
 Current next task:
 
 ```text
-m1347-paper-route-materialized-source-history-pair-group-update-result-audit
+m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design
 ```
+
+M1347 audited the M1346 candidate and admitted only a limited public replay
+preflight design. The useful transition is that `27` one-sided groups became
+all-rows-both-directional. The tradeoff is that `22` one-sided groups became
+both-negative, taking total both-negative groups from `4` to `26`. Because the
+candidate still improves exact group-min margin and eval fold 4 without
+forbidden mutation, it is worth checking proof washout on public replay gates.
+Because the both-negative increase is real and distributed across folds, it is
+not promotable and must not enter PPO before replay preflight.
 
 M1346 implemented and ran the first bounded no-PPO materialized source-history
 pair-group update from the M1154 public-gate base. The trainable scope was

@@ -154,6 +154,36 @@
     "docs/m1346-paper-route-materialized-source-history-pair-group-update-implementation.md",
     "runs/m1346_materialized_source_history_pair_group_update/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md",
+    "decision": "materialized_source_history_pair_group_update_audit_admit_limited_replay_preflight",
+    "failure_type": "objective_overfit",
+    "candidate_checkpoint": "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt",
+    "combined_loss_delta": -4.884860768275265,
+    "full_group_min_joint_margin_delta": 5.677481926111287,
+    "eval_fold_group_min_joint_margin_delta": 5.181856089563512,
+    "group_one_sided_conflict_count_before": 684,
+    "group_one_sided_conflict_count_after": 605,
+    "group_all_rows_both_directional_count_before": 0,
+    "group_all_rows_both_directional_count_after": 27,
+    "group_both_negative_count_before": 4,
+    "group_both_negative_count_after": 26,
+    "one_sided_to_both_directional": 27,
+    "one_sided_to_both_negative": 22,
+    "replay_preflight_admitted": true,
+    "promotion_admitted": false,
+    "ppo_admitted": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_update_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.json"
+  },
   "decision_rule": "M1347 passes if it audits M1346 tradeoffs and chooses a bounded next route without training, PPO, private holdout, promotion, or actor-input expansion.",
-  "next_blocker": "m1347-paper-route-materialized-source-history-pair-group-update-result-audit"
+  "next_blocker": "m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design"
 }

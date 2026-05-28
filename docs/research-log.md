@@ -19740,3 +19740,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.json`.
 - next: `m1347-paper-route-materialized-source-history-pair-group-update-result-audit`
+
+## 20260528T192115Z - m1347-paper-route-materialized-source-history-pair-group-update-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md`
+- decision: `materialized_source_history_pair_group_update_audit_admit_limited_replay_preflight`
+- failure taxonomy: `objective_overfit`
+- candidate checkpoint: `runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt`
+- transition audit: `27` one-sided groups become all-rows-both-directional, `22` one-sided groups become both-negative, `605` remain one-sided, and `30` become partial other states.
+- both-negative after M1346: `26/688`, concentrated most in steering actuator (`10`) and single-wheel brake pull (`8`), but present across all folds.
+- audit decision: M1346 is healthy enough for limited public replay preflight because exact group-min and eval fold improve without forbidden mutation; it is not healthy enough for promotion or PPO because both-negative groups increase and only `27/688` groups are fully both-directional.
+- guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.json`.
+- next: `m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design`

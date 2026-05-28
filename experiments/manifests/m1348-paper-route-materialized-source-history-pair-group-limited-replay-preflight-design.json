@@ -1,0 +1,152 @@
+{
+  "id": "m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md",
+      "runs/m1346_materialized_source_history_pair_group_update/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.json"
+    ],
+    "parent_objective": [
+      "design limited public replay preflight for M1346 candidate"
+    ],
+    "derived_from": [
+      "m1347-paper-route-materialized-source-history-pair-group-update-result-audit"
+    ],
+    "blocked_by": [
+      "M1347 admits limited replay preflight but no scoped replay protocol has been selected"
+    ],
+    "supersedes": [
+      "direct PPO or promotion from M1346 objective metrics"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.md",
+  "public_gates": [
+    "M1348 must not train",
+    "M1348 must not run PPO",
+    "M1348 must not use private holdout",
+    "M1348 must not promote",
+    "M1348 must preserve actor input contract",
+    "M1348 must define the replay preflight tiers and stop conditions"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not skip first-row proof preflight",
+    "do not treat objective metrics as replay proof",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_pair_group_update_implementation",
+    "evidence_axis": "S_materialized_source_history_pair_group_limited_replay_preflight_design",
+    "evidence_increment": "turns the M1347 audit route into a bounded replay-preflight protocol before any replay run",
+    "claim_scope": "process design only; no replay result, promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if design skips M267/M264 or M183/M170 first-row proof preflights",
+      "stop if design routes directly to PPO",
+      "stop if design permits promotion from limited replay alone",
+      "stop if actor inputs change"
+    ],
+    "fallback_plan": [
+      "if replay design is clean, route to one limited public replay preflight run",
+      "if replay tools do not match M1154/M1346 lineage, route to adapter implementation",
+      "if required corpora are missing, route to replay-corpus availability audit",
+      "if candidate scope is too broad, route to objective tradeoff repair design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1347 admits replay preflight but requires a scoped protocol before running gates",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "limited public replay preflight design",
+    "admission_evidence": [
+      "M1346 exact objective and eval fold improved without forbidden mutation",
+      "M1347 admits replay preflight but blocks promotion and PPO"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1348 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "preflight tiers are specified",
+      "stop conditions are specified",
+      "tooling gaps are explicit",
+      "no replay run occurs"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1348 only designs replay preflight for a fixed-objective candidate and cannot claim closed-loop history necessity.",
+    "history_necessity_tests": [
+      "design first proof preflights that compare correct-history and wrong-history retention before broader replay"
+    ],
+    "temporal_evidence_window": "M1346 candidate plus existing public replay/proof surfaces.",
+    "negative_result_policy": "If limited replay fails, classify failure as proof_washout or behavior_regression before objective repair or PPO.",
+    "allowed_claims": [
+      "limited public replay preflight design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A limited public replay preflight protocol can be designed for the M1346 candidate that checks proof washout before any PPO or promotion decision.",
+  "success_criteria": [
+    "docs/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.md exists",
+    "design specifies candidate and base checkpoints",
+    "design specifies first preflight proof gates and stop conditions",
+    "design specifies whether existing tooling is sufficient or adapter work is needed",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, checkpoint mutation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design skips proof preflight",
+    "design routes directly to PPO or promotion",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, checkpoint mutation, replay run, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md",
+    "runs/m1346_materialized_source_history_pair_group_update/summary.json"
+  ],
+  "decision_rule": "M1348 passes as a design milestone only if it defines a bounded replay-preflight protocol and keeps PPO, promotion, private holdout, replay execution, and actor-input changes blocked.",
+  "next_blocker": "m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design"
+}
