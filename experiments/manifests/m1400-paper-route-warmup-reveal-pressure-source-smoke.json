@@ -1,0 +1,154 @@
+{
+  "id": "m1400-paper-route-warmup-reveal-pressure-source-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1399-paper-route-warmup-reveal-pressure-redesign.md",
+      "runs/m1397_warmup_latched_outcome_full_sweep/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1399-paper-route-warmup-reveal-pressure-redesign.json",
+      "configs/m991_capability_step_fault_source_wave.json"
+    ],
+    "parent_objective": [
+      "run no-training late-reveal warmup/reveal pressure source smoke"
+    ],
+    "derived_from": [
+      "m1399-paper-route-warmup-reveal-pressure-redesign"
+    ],
+    "blocked_by": [
+      "M1399 requires structural late-reveal viability before outcome probing"
+    ],
+    "supersedes": [
+      "running another M1394 reveal grid",
+      "running outcome interventions before late-reveal source viability is known"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1400-paper-route-warmup-reveal-pressure-source-smoke.md",
+  "public_gates": [
+    "M1400 must run a no-training late-reveal source smoke using the existing warmup_latched_config_smoke runner",
+    "M1400 must report warmup/reveal structure, matching metrics, and source diversity",
+    "M1400 must compare structural viability against M1394",
+    "M1400 must not run outcome interventions, train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not relax matching thresholds after seeing M1397",
+    "do not claim self-identification from source materialization"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "G_late_reveal_source_smoke",
+    "evidence_increment": "tests whether late reveal timing can still materialize warmup-latched matched/bucketed rows with source diversity",
+    "claim_scope": "public no-training source smoke only; no outcome intervention, training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if late reveal cannot reconstruct enough rows",
+      "stop if matched/bucketed reveal rows are too sparse",
+      "stop if source diversity collapses",
+      "stop if actor input changes are required"
+    ],
+    "fallback_plan": [
+      "route to reveal-grid redesign if 80/88/96 are too late",
+      "route to mild warmup stimulus design if later reveal alone is insufficient",
+      "route to branch synthesis if late-reveal source viability fails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "late-reveal warmup/reveal pressure source smoke",
+    "admission_evidence": [
+      "M1399 designs late-reveal pressure as the next no-training source test",
+      "M1397 full sweep showed current M1394 reveal surface is source-narrow for outcome positives"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "source smoke artifacts under runs/",
+      "M1400 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "late-reveal source materialization is classified",
+      "matching and source-diversity metrics are reported",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1400 is only a source smoke; it must not treat source materialization as history necessity or level3 self-ID evidence.",
+    "history_necessity_tests": [
+      "late_reveal_source_materialization",
+      "matched_or_bucketed_current_reveal_metrics",
+      "source_diversity_summary"
+    ],
+    "temporal_evidence_window": "No-training late-reveal source smoke following M1399 design.",
+    "negative_result_policy": "If late reveal rows are too sparse or unmeasurable, record the negative and route to reveal-grid redesign before outcome probing.",
+    "allowed_claims": [
+      "late-reveal source/config smoke result",
+      "no outcome intervention, promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-training late-reveal source smoke can materialize matched or bucketed warmup-latched rows while increasing reveal pressure relative to M1394.",
+  "success_criteria": [
+    "runs/m1400_warmup_reveal_pressure_source_smoke/summary.json exists",
+    "warmup and reveal structure is reported",
+    "matching and source-diversity metrics are reported",
+    "result compares structural viability against M1394",
+    "result chooses next route without outcome intervention, training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "source smoke artifact is missing",
+    "warmup/reveal structure is not measured",
+    "matching or source-diversity metrics are not reported",
+    "result routes directly to outcome interpretation, training, or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "late_reveal_source_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.warmup_latched_config_smoke --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m991_capability_step_fault_source_wave.json --seed-start 140000 --seed-count 48 --reveal-steps 64,72,80,88,96 --history-length 48 --min-warmup-evidence-steps 12 --max-source-rows 6144 --device cpu --run-dir runs/m1400_warmup_reveal_pressure_source_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1400_warmup_reveal_pressure_source_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1399-paper-route-warmup-reveal-pressure-redesign.md",
+    "runs/m1394_warmup_latched_config_smoke/summary.json",
+    "runs/m1397_warmup_latched_outcome_full_sweep/summary.json"
+  ],
+  "decision_rule": "M1400 passes structurally if it materializes or cleanly rejects late-reveal warmup-latched source rows with matching and source-diversity metrics before outcome probing.",
+  "next_blocker": "m1400-paper-route-warmup-reveal-pressure-source-smoke"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1408,
+    "completed": 1409,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1398-paper-route-causal-history-necessity-branch-synthesis.md",
+    "command_log": "docs/m1399-paper-route-warmup-reveal-pressure-redesign.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1398-paper-route-causal-history-necessity-branch-synthesis"
+    "task_id": "m1399-paper-route-warmup-reveal-pressure-redesign"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1399-paper-route-warmup-reveal-pressure-redesign.json",
-    "hypothesis": "A redesigned warmup/reveal pressure source route can target normal-viable near-boundary reveals where history interventions are more likely to create source-diverse outcome gaps.",
-    "id": "m1399-paper-route-warmup-reveal-pressure-redesign",
-    "kind": "gate",
-    "notes": "Pending: design near-boundary warmup/reveal pressure source route before implementation, corpus export, or training",
-    "priority": 13940,
+    "command": "see experiments/manifests/m1400-paper-route-warmup-reveal-pressure-source-smoke.json",
+    "hypothesis": "A no-training late-reveal source smoke can materialize matched or bucketed warmup-latched rows while increasing reveal pressure relative to M1394.",
+    "id": "m1400-paper-route-warmup-reveal-pressure-source-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: run late-reveal source smoke before outcome intervention, corpus export, or training",
+    "priority": 13950,
     "status": "pending",
-    "success_artifact": "docs/m1399-paper-route-warmup-reveal-pressure-redesign.md"
+    "success_artifact": "runs/m1400_warmup_reveal_pressure_source_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T023000Z"
+  "updated_at_utc": "20260529T024000Z"
 }

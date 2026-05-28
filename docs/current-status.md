@@ -16,21 +16,37 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1398-paper-route-causal-history-necessity-branch-synthesis
+m1399-paper-route-warmup-reveal-pressure-redesign
 ```
 
 Current next task:
 
 ```text
-m1399-paper-route-warmup-reveal-pressure-redesign
+m1400-paper-route-warmup-reveal-pressure-source-smoke
 ```
 
-M1398 synthesized the M1390-M1397 causal history-necessity branch. The current
-public-gate base remains M1362 alpha `0.1`:
+M1399 designed the first source route in the new warmup/reveal pressure
+redesign branch. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1399 result:
+
+```text
+decision: warmup_reveal_pressure_redesign_admit_late_reveal_source_smoke
+design_route: late_reveal_source_smoke_before_outcome_probe
+reveal_steps: 64,72,80,88,96
+history_length: 48
+min_warmup_evidence_steps: 12
+normal_margin_screen: 0.00_to_0.50_broad_0.02_to_0.25_preferred
+next: m1400-paper-route-warmup-reveal-pressure-source-smoke
+```
+
+M1399 is design-only. M1400 should run a no-training late-reveal source smoke
+with unchanged actor inputs and no outcome intervention, corpus export, PPO,
+training, private holdout, promotion, or claim expansion.
 
 M1398 result:
 

@@ -2,7 +2,7 @@
   "id": "m1399-paper-route-warmup-reveal-pressure-redesign",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -152,6 +152,34 @@
     "docs/m1398-paper-route-causal-history-necessity-branch-synthesis.md",
     "runs/m1397_warmup_latched_outcome_full_sweep/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1399-paper-route-warmup-reveal-pressure-redesign.md",
+    "decision": "warmup_reveal_pressure_redesign_admit_late_reveal_source_smoke",
+    "design_route": "late_reveal_source_smoke_before_outcome_probe",
+    "reveal_steps": [
+      64,
+      72,
+      80,
+      88,
+      96
+    ],
+    "history_length": 48,
+    "min_warmup_evidence_steps": 12,
+    "normal_margin_screen": "0.00_to_0.50_broad_0.02_to_0.25_preferred",
+    "source_diversity_thresholds_defined": true,
+    "current_recent_substitution_controls_defined": true,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1400-paper-route-warmup-reveal-pressure-source-smoke.json"
+  },
+  "decision": "warmup_reveal_pressure_redesign_admit_late_reveal_source_smoke",
   "decision_rule": "M1399 passes if it designs a new warmup/reveal pressure source route with near-boundary viability and current/recent substitution controls before implementation or training.",
-  "next_blocker": "m1399-paper-route-warmup-reveal-pressure-redesign"
+  "next_blocker": "m1400-paper-route-warmup-reveal-pressure-source-smoke"
 }

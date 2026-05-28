@@ -20633,3 +20633,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1399-paper-route-warmup-reveal-pressure-redesign.json`.
 - next: `m1399-paper-route-warmup-reveal-pressure-redesign`
+
+## 20260529T024000Z - m1399-paper-route-warmup-reveal-pressure-redesign
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1399-paper-route-warmup-reveal-pressure-redesign.md`
+- decision: `warmup_reveal_pressure_redesign_admit_late_reveal_source_smoke`
+- blocker addressed: M1397 full sweep remains source-narrow and wrong-warmup/delayed-warmup outcome rows are zero.
+- design: late-reveal source smoke before outcome probing, using reveal steps `64,72,80,88,96`, history length `48`, and minimum warmup evidence `12` steps.
+- near-boundary screen: broad normal margin window `0.00 <= margin <= 0.50`, preferred diagnostic window `0.02 <= margin <= 0.25`.
+- thresholds: late-reveal structural smoke requires `source_rows >= 512`, `matched_or_bucketed_reveal_rows >= 160`, `unique_source_seeds >= 24`, `unique_capability_pairs >= 8`, and `unique_reveal_buckets >= 8`; near-boundary admission later requires `near_boundary_candidates >= 64`, `near_boundary_unique_seeds >= 12`, `near_boundary_unique_capability_pairs >= 6`, and `near_boundary_unique_reveal_buckets >= 4`.
+- guardrail: no training, PPO, new source sweep, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1400-paper-route-warmup-reveal-pressure-source-smoke.json`.
+- next: `m1400-paper-route-warmup-reveal-pressure-source-smoke`
