@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1265,
+    "completed": 1266,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1255-paper-route-capability-separable-event-timing-source-smoke.md",
+    "command_log": "docs/m1256-paper-route-capability-separable-event-timing-source-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1255_capability_separable_event_timing_source_smoke",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m1255-paper-route-capability-separable-event-timing-source-smoke"
+    "task_id": "m1256-paper-route-capability-separable-event-timing-source-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1256-paper-route-capability-separable-event-timing-source-result-audit.json",
-    "hypothesis": "Audit zero-accepted event-timing source result before another source run",
-    "id": "m1256-paper-route-capability-separable-event-timing-source-result-audit",
+    "command": "see experiments/manifests/m1257-paper-route-capability-separable-source-construction-synthesis.json",
+    "hypothesis": "Synthesize M1241-M1256 capability-separable source-construction evidence and choose the next branch",
+    "id": "m1257-paper-route-capability-separable-source-construction-synthesis",
     "kind": "gate",
-    "notes": "Pending: classify M1255 event-timing source-negative result and choose branch synthesis, one repair, or pivot",
-    "priority": 12510,
+    "notes": "Pending: answer branch synthesis questions and choose continue, pivot, stop, or promote_to_next_branch before another source run",
+    "priority": 12520,
     "status": "pending",
-    "success_artifact": "docs/m1256-paper-route-capability-separable-event-timing-source-result-audit.md"
+    "success_artifact": "docs/m1257-paper-route-capability-separable-source-construction-synthesis.md"
   },
-  "updated_at_utc": "20260528T111607Z"
+  "updated_at_utc": "20260528T112011Z"
 }

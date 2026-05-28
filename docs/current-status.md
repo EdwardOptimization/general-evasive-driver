@@ -115,7 +115,35 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1256-paper-route-capability-separable-event-timing-source-result-audit
+m1257-paper-route-capability-separable-source-construction-synthesis
+```
+
+M1256 completed event-timing source result audit:
+
+```text
+artifact: docs/m1256-paper-route-capability-separable-event-timing-source-result-audit.md
+decision: event_timing_source_negative_stop_same_timing_variants_route_to_branch_synthesis
+classification: scenario_sampling_failure / event_timing_source_negative
+```
+
+M1256 conclusion:
+
+```text
+Stop same event-timing variants. M1255 repeats the branch-level pattern: viable
+rows and action-divergent rows exist, but not the same accepted
+capability-separable rows. Another timing-window/proposal-budget/local
+relocation tweak would be local gate chasing.
+```
+
+Next task:
+
+```text
+artifact: docs/m1257-paper-route-capability-separable-source-construction-synthesis.md
+manifest: experiments/manifests/m1257-paper-route-capability-separable-source-construction-synthesis.json
+goal: synthesize M1241-M1256 and choose continue, pivot, stop, or
+      promote_to_next_branch before another source run
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         threshold relaxation, self-identification or paper-level claims
 ```
 
 M1255 completed capability-separable event-timing source smoke:

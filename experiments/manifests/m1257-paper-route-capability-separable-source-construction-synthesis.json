@@ -1,0 +1,167 @@
+{
+  "id": "m1257-paper-route-capability-separable-source-construction-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1241-paper-route-capability-separable-source-construction-design.md",
+      "docs/m1243-paper-route-capability-separable-low-regret-audit.md",
+      "docs/m1245-paper-route-capability-separable-source-window-audit.md",
+      "docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md",
+      "docs/m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit.md",
+      "docs/m1256-paper-route-capability-separable-event-timing-source-result-audit.md",
+      "runs/m1242_capability_separable_source_constructor_smoke/summary.json",
+      "runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json",
+      "runs/m1246_capability_separable_viability_band_relocation_smoke/summary.json",
+      "runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json",
+      "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json",
+      "runs/m1252_capability_separable_proposal_margin_restoration_smoke/summary.json",
+      "runs/m1255_capability_separable_event_timing_source_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1241-paper-route-capability-separable-source-construction-design.json",
+      "experiments/manifests/m1256-paper-route-capability-separable-event-timing-source-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize capability-separable source-construction evidence after repeated zero-accepted source results"
+    ],
+    "derived_from": [
+      "m1241-paper-route-capability-separable-source-construction-design",
+      "m1256-paper-route-capability-separable-event-timing-source-result-audit"
+    ],
+    "blocked_by": [
+      "M1256 stops same event-timing variants and routes to branch synthesis"
+    ],
+    "supersedes": [
+      "another local capability-separable source-construction run without synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1257-paper-route-capability-separable-source-construction-synthesis.md",
+  "public_gates": [
+    "M1257 must preserve actor input contract",
+    "M1257 must not train controllers",
+    "M1257 must not run PPO",
+    "M1257 must not use private holdout",
+    "M1257 must not promote",
+    "M1257 must summarize M1241-M1256 source-construction evidence",
+    "M1257 must choose continue, pivot, stop, or promote_to_next_branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, proposal labels, timing labels, oracle outcomes, or search outputs to actor inputs",
+    "do not lower capability-separable thresholds",
+    "do not start another source run before synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_capability_separable_source_construction",
+    "evidence_axis": "S_branch_synthesis",
+    "evidence_increment": "synthesizes M1241-M1256 source-construction evidence and chooses the next source branch",
+    "claim_scope": "branch synthesis only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop current local source-construction branch if repeated zero-accepted results indicate a source-family gap",
+      "stop if next proposal is just another budget/window/relocation tweak without a new evidence variable"
+    ],
+    "fallback_plan": [
+      "if synthesis finds a concrete missing source variable, pre-register one bounded source branch",
+      "if synthesis finds source-family exhaustion, pivot to broader source family, richer hidden-fault model, or teacher/optimizer-derived source"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1241-M1256 exceeds the branch synthesis cadence and M1256 stops same timing variants",
+    "synthesis_decision": "not_applicable"
+  },
+  "synthesis_artifact": "docs/m1257-paper-route-capability-separable-source-construction-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "capability-separable source-construction branch synthesis",
+    "admission_evidence": [
+      "M1242-M1255 repeatedly produced zero accepted source rows",
+      "M1256 stops same event-timing variants"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1257 synthesis document",
+      "status, queue, scoreboard, research log, and review",
+      "one next-branch manifest if synthesis admits it"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "synthesis chooses continue, pivot, stop, or promote_to_next_branch",
+      "next branch has a new evidence variable if any run is admitted"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1257 synthesizes offline source-construction evidence and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist or synthesis changes the source strategy"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "Aggregate zero-accepted source-construction results into branch-level evidence instead of treating a single run as decisive.",
+    "allowed_claims": [
+      "capability-separable source-construction branch synthesis",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The repeated zero-accepted capability-separable source results now require a branch-level synthesis before any further source construction.",
+  "success_criteria": [
+    "docs/m1257-paper-route-capability-separable-source-construction-synthesis.md exists",
+    "synthesis summarizes M1241-M1256 evidence",
+    "synthesis records supported and falsified claims",
+    "synthesis classifies failure taxonomy",
+    "synthesis assesses public-gate overfit risk",
+    "synthesis chooses next branch decision",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "synthesis is missing",
+    "synthesis ignores M1256 stop decision",
+    "synthesis admits another local source run without a new evidence variable",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1257-paper-route-capability-separable-source-construction-synthesis.md from M1241-M1256 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1257-paper-route-capability-separable-source-construction-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1256-paper-route-capability-separable-event-timing-source-result-audit.md",
+    "runs/m1255_capability_separable_event_timing_source_smoke/summary.json"
+  ],
+  "decision_rule": "M1257 passes if it writes a synthesis answering all required questions and chooses a next branch without training or threshold relaxation.",
+  "next_blocker": "m1257-paper-route-capability-separable-source-construction-synthesis"
+}

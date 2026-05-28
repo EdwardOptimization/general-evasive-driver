@@ -18095,3 +18095,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1256-paper-route-capability-separable-event-timing-source-result-audit.json`.
 - decision: `event_timing_source_smoke_infrastructure_pass_source_negative_route_to_result_audit`
 - next: `m1256-paper-route-capability-separable-event-timing-source-result-audit`
+
+## 20260528T112011Z - m1256-paper-route-capability-separable-event-timing-source-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1256-paper-route-capability-separable-event-timing-source-result-audit.md`
+- audited evidence: M1255 produced `accepted_separable_pairs=0`, `result_class=action_divergent_low_regret`, `near_boundary_viability_pairs=1`, and `best_actions_diverged_pairs=2`.
+- row pattern: event timing found viable/action-equivalent rows and action-divergent/nonviable or one-sided rows, but not accepted capability-separable rows.
+- classification: `event_timing_source_negative` under `scenario_sampling_failure`; specific interpretation is `capability_separable_source_family_gap`.
+- stop decision: no more same event-timing variants, timing-window tweaks, proposal-count increases, local relocation budget increases, or threshold relaxation before synthesis.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, self-ID claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1257-paper-route-capability-separable-source-construction-synthesis.json`.
+- decision: `event_timing_source_negative_stop_same_timing_variants_route_to_branch_synthesis`
+- next: `m1257-paper-route-capability-separable-source-construction-synthesis`

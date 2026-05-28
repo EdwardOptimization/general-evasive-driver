@@ -142,6 +142,27 @@
     "docs/m1255-paper-route-capability-separable-event-timing-source-smoke.md",
     "runs/m1255_capability_separable_event_timing_source_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1256-paper-route-capability-separable-event-timing-source-result-audit.md",
+    "decision": "event_timing_source_negative_stop_same_timing_variants_route_to_branch_synthesis",
+    "failure_type": "scenario_sampling_failure",
+    "subtype": "event_timing_source_negative",
+    "specific_interpretation": "capability_separable_source_family_gap",
+    "m1255_result_class": "action_divergent_low_regret",
+    "m1255_accepted_separable_pairs": 0,
+    "m1255_near_boundary_viability_pairs": 1,
+    "m1255_best_actions_diverged_pairs": 2,
+    "same_event_timing_variants_allowed": false,
+    "threshold_relaxation_allowed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1257-paper-route-capability-separable-source-construction-synthesis.json"
+  },
+  "decision": "event_timing_source_negative_stop_same_timing_variants_route_to_branch_synthesis",
   "decision_rule": "M1256 passes if it records the M1255 source-negative evidence and chooses the next branch without threshold relaxation or training.",
-  "next_blocker": "m1256-paper-route-capability-separable-event-timing-source-result-audit"
+  "next_blocker": "m1257-paper-route-capability-separable-source-construction-synthesis"
 }
