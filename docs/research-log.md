@@ -17864,3 +17864,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1241-paper-route-capability-separable-source-construction-design.json`.
 - decision: `extreme_fault_source_generation_synthesis_promote_to_capability_separable_source_construction`
 - next: `m1241-paper-route-capability-separable-source-construction-design`
+
+## 20260528T091420Z - m1241-paper-route-capability-separable-source-construction-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1241-paper-route-capability-separable-source-construction-design.md`
+- result: opens the `paper_route_capability_separable_source_construction` branch and defines an offline action-separability source gate before actor history tests.
+- core question: whether matched-current hidden-dynamics pairs genuinely require different first actions or short action sequences.
+- separability criterion: best action for hidden condition A and best action for hidden condition B must differ by action L2 and cross-regret margin in both directions.
+- actor guardrail: hidden dynamics labels, oracle best actions, separability scores, and terminal outcomes remain source-construction metadata and are not deployable actor inputs.
+- source artifacts: summary, matched pairs, action lattice, action rollouts, accepted separable pairs, rejected pairs, family summaries, and model-fidelity notes.
+- first implementation: M1242 will implement `src/autodrift/capability_separable_source_constructor.py` and a bounded local first-action lattice smoke around the actor base action.
+- guardrail: no training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1242-paper-route-capability-separable-source-constructor-smoke.json`.
+- decision: `capability_separable_source_construction_design_admit_lattice_smoke`
+- next: `m1242-paper-route-capability-separable-source-constructor-smoke`

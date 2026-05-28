@@ -115,7 +115,34 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1241-paper-route-capability-separable-source-construction-design
+m1242-paper-route-capability-separable-source-constructor-smoke
+```
+
+M1241 completed capability-separable source-construction design:
+
+```text
+artifact: docs/m1241-paper-route-capability-separable-source-construction-design.md
+decision: capability_separable_source_construction_design_admit_lattice_smoke
+branch: paper_route_capability_separable_source_construction
+```
+
+M1241 conclusion:
+
+```text
+Before actor self-ID tests, the source must prove that matched-current hidden
+dynamics require different actions. M1242 will implement a bounded no-training
+local first-action lattice constructor.
+```
+
+Next task:
+
+```text
+artifact: runs/m1242_capability_separable_source_constructor_smoke/summary.json
+manifest: experiments/manifests/m1242-paper-route-capability-separable-source-constructor-smoke.json
+goal: implement and run a bounded offline source-construction smoke that
+      evaluates hidden-dynamics action separability
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1240 completed extreme/fault source-generation synthesis:

@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1241 defines offline matched-current hidden-dynamics action-separability criterion artifacts actor-input guardrails and admits bounded no-training M1242 lattice smoke",
+  "failure_criteria": [
+    "M1241 trains or tunes profiles",
+    "private holdout is used",
+    "hidden dynamics labels are added to actor inputs",
+    "action-separability gates are left vague",
+    "next route is left vague"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters or oracle labels to actor inputs",
+    "do not claim self-identification from source construction alone",
+    "do not use a rule controller as a deployable actor"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T085911Z",
+  "hypothesis": "A source-construction branch that first proves hidden dynamics require different actions is higher leverage than more random hidden-fault intervention tests.",
+  "lineage": {
+    "blocked_by": [
+      "M1240 closes the same-source extreme/fault path after no-signal sequence evidence"
+    ],
+    "derived_from": [
+      "m1240-paper-route-extreme-fault-source-generation-synthesis"
+    ],
+    "invalidates": [
+      "assuming hidden-dynamics randomization automatically creates self-ID-critical cases"
+    ],
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1240-paper-route-extreme-fault-source-generation-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md",
+      "runs/m1238_extreme_fault_sequence_intervention_probe/summary.json",
+      "runs/m1236_extreme_fault_timing_repair_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "design a source-construction branch that first proves hidden dynamics require different actions under matched current observations"
+    ],
+    "supersedes": [
+      "more same-source extreme/fault hidden-swap or sequence variants"
+    ]
+  },
+  "milestone": "m1241-paper-route-capability-separable-source-construction-design",
+  "next_blocker": "m1242-paper-route-capability-separable-source-constructor-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "capability_separable_source_construction_design_admit_lattice_smoke",
+  "public_gates": [
+    "M1241 may design source construction only",
+    "M1241 must preserve actor input contract",
+    "M1241 must not train controllers",
+    "M1241 must not run PPO",
+    "M1241 must not use private holdout",
+    "M1241 must not promote",
+    "M1241 must keep hidden dynamics and oracle/source labels out of deployable actor inputs",
+    "M1241 must define a bounded first implementation step"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1241-paper-route-capability-separable-source-construction-design.md",
+    "clearance_margin_mean": "",
+    "decision": "capability_separable_source_construction_design_admit_lattice_smoke",
+    "milestone": "m1241-paper-route-capability-separable-source-construction-design",
+    "reason": "M1241 defines offline matched-current hidden-dynamics action-separability criterion artifacts actor-input guardrails and admits bounded no-training M1242 lattice smoke",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1241-paper-route-capability-separable-source-construction-design.md exists",
+    "action-separability criterion is specified",
+    "source artifacts are specified",
+    "actor-input guardrails are specified",
+    "first bounded implementation step is selected",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "type": "gate"
+}

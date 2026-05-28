@@ -146,6 +146,18 @@
   "baseline_artifacts": [
     "docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1241-paper-route-capability-separable-source-construction-design.md",
+    "decision": "capability_separable_source_construction_design_admit_lattice_smoke",
+    "selected_next_manifest": "experiments/manifests/m1242-paper-route-capability-separable-source-constructor-smoke.json",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false
+  },
+  "decision": "capability_separable_source_construction_design_admit_lattice_smoke",
   "decision_rule": "M1241 passes if it defines a bounded action-separable source-construction route with actor-input guardrails and a concrete first implementation step.",
-  "next_blocker": "m1241-paper-route-capability-separable-source-construction-design"
+  "next_blocker": "m1242-paper-route-capability-separable-source-constructor-smoke"
 }

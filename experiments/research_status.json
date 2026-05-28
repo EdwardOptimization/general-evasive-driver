@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1250,
+    "completed": 1251,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md",
+    "command_log": "docs/m1241-paper-route-capability-separable-source-construction-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1240-paper-route-extreme-fault-source-generation-synthesis"
+    "task_id": "m1241-paper-route-capability-separable-source-construction-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1241-paper-route-capability-separable-source-construction-design.json",
-    "hypothesis": "Design capability-separable source construction",
-    "id": "m1241-paper-route-capability-separable-source-construction-design",
-    "kind": "gate",
-    "notes": "Pending: define matched-current hidden-dynamics action-separability source construction before actor history tests",
-    "priority": 12360,
+    "command": "see experiments/manifests/m1242-paper-route-capability-separable-source-constructor-smoke.json",
+    "hypothesis": "Run capability-separable source constructor smoke",
+    "id": "m1242-paper-route-capability-separable-source-constructor-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run bounded no-training local first-action lattice source-construction smoke before actor self-ID tests",
+    "priority": 12370,
     "status": "pending",
-    "success_artifact": "docs/m1241-paper-route-capability-separable-source-construction-design.md"
+    "success_artifact": "runs/m1242_capability_separable_source_constructor_smoke/summary.json"
   },
-  "updated_at_utc": "20260528T090330Z"
+  "updated_at_utc": "20260528T091420Z"
 }
