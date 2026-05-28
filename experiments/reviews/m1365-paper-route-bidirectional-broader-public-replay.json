@@ -1,0 +1,92 @@
+{
+  "decision_reason": "M1365 passes six public replay surfaces source-diverse protected diagnostics and behavior seeds for M1362 alpha 0.1 without promotion",
+  "failure_criteria": [
+    "summary artifact is missing",
+    "six public replay surface results are missing",
+    "behavior seed results are missing",
+    "PPO, private holdout, promotion, threshold relaxation, training, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not treat behavior as replacing replay proof",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260528T204325Z",
+  "hypothesis": "M1362 alpha 0.1 may retain broader public replay and behavior diagnostics after passing exact metrics and two replay preflight surfaces.",
+  "lineage": {
+    "blocked_by": [
+      "M1364 designs the broader gate but it has not been run"
+    ],
+    "derived_from": [
+      "m1364-paper-route-bidirectional-broader-public-replay-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1364-paper-route-bidirectional-broader-public-replay-design.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_dataset": [
+      "docs/m1364-paper-route-bidirectional-broader-public-replay-design.md",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/summary.json"
+    ],
+    "parent_objective": [
+      "run broader public replay diagnostics for M1362 alpha 0.1 before any promotion route"
+    ],
+    "supersedes": [
+      "direct promotion after M1364",
+      "direct PPO after M1364",
+      "private holdout before public replay"
+    ]
+  },
+  "milestone": "m1365-paper-route-bidirectional-broader-public-replay",
+  "next_blocker": "m1366-paper-route-bidirectional-broader-public-replay-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bidirectional_broader_public_replay_pass_route_to_result_audit",
+  "public_gates": [
+    "M1365 must not train",
+    "M1365 must not run PPO",
+    "M1365 must not use private holdout",
+    "M1365 must not promote",
+    "M1365 must preserve actor input contract",
+    "M1365 must run the six public replay surfaces",
+    "M1365 must record source-diverse protected and old-key diagnostics",
+    "M1365 must record behavior seeds 9505 and 9506"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1365_bidirectional_broader_public_replay/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "bidirectional_broader_public_replay_pass_route_to_result_audit",
+    "milestone": "m1365-paper-route-bidirectional-broader-public-replay",
+    "reason": "M1365 passes six public replay surfaces source-diverse protected diagnostics and behavior seeds for M1362 alpha 0.1 without promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1365_bidirectional_broader_public_replay/summary.json exists",
+    "summary records six public replay surfaces",
+    "summary records source-diverse and old-key diagnostics",
+    "summary records behavior seeds 9505 and 9506",
+    "summary records actor input contract status",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

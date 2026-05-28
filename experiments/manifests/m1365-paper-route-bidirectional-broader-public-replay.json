@@ -161,6 +161,34 @@
     "docs/m1364-paper-route-bidirectional-broader-public-replay-design.md",
     "runs/m1362_bidirectional_active_set_interpolation_preflight/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1365_bidirectional_broader_public_replay/summary.json",
+    "document": "docs/m1365-paper-route-bidirectional-broader-public-replay.md",
+    "decision": "bidirectional_broader_public_replay_pass_route_to_result_audit",
+    "result_class": "public_base_controlled_fusion_candidate_replay_gate_pass",
+    "failure_type": "none",
+    "candidate_checkpoint": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "public_replay_gates_passed": 6,
+    "public_replay_surface_count": 6,
+    "six_public_replay_gates_pass": true,
+    "source_diverse_protected_status": "pass",
+    "old_key_9944_status": "diagnostic_only",
+    "behavior_pass": true,
+    "behavior_seed9505_success_delta": 0.0,
+    "behavior_seed9506_success_delta": 0.0,
+    "reset_zero_all_ordering_retained": true,
+    "actor_inputs_changed": false,
+    "training_started": false,
+    "actor_update_used": false,
+    "replay_used": true,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "next_manifest": "experiments/manifests/m1366-paper-route-bidirectional-broader-public-replay-result-audit.json"
+  },
   "decision_rule": "M1365 cannot promote; it only records broader public replay, protected diagnostics, and behavior evidence before a result audit.",
-  "next_blocker": "m1365-paper-route-bidirectional-broader-public-replay"
+  "next_blocker": "m1366-paper-route-bidirectional-broader-public-replay-result-audit"
 }

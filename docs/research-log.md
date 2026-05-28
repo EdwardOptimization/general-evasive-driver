@@ -20050,3 +20050,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1365-paper-route-bidirectional-broader-public-replay.json`.
 - next: `m1365-paper-route-bidirectional-broader-public-replay`
+
+## 20260528T205420Z - m1365-paper-route-bidirectional-broader-public-replay
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `proof`
+- artifact: `runs/m1365_bidirectional_broader_public_replay/summary.json`
+- document: `docs/m1365-paper-route-bidirectional-broader-public-replay.md`
+- decision: `bidirectional_broader_public_replay_pass_route_to_result_audit`
+- result class: `public_base_controlled_fusion_candidate_replay_gate_pass`
+- candidate checkpoint: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`.
+- six public replay surfaces: `6/6` pass.
+- source-diverse protected diagnostic: pass.
+- old-key neighborhood: diagnostic only; candidate accepted `25/40` cases versus base `24/40`.
+- behavior seeds: pass; seed 9505 success delta `0.0`, seed 9506 success delta `0.0`, reset >= zero_all ordering retained.
+- guardrail: no training, PPO, promotion, private holdout, actor update, threshold relaxation, actor-input expansion, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1366-paper-route-bidirectional-broader-public-replay-result-audit.json`.
+- next: `m1366-paper-route-bidirectional-broader-public-replay-result-audit`

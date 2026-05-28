@@ -16,14 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1364-paper-route-bidirectional-broader-public-replay-design
+m1365-paper-route-bidirectional-broader-public-replay
 ```
 
 Current next task:
 
 ```text
-m1365-paper-route-bidirectional-broader-public-replay
+m1366-paper-route-bidirectional-broader-public-replay-result-audit
 ```
+
+M1365 ran the broader public replay and behavior diagnostic gate for M1362 alpha
+`0.1`. It passed all six public replay surfaces, passed source-diverse protected
+diagnostics, kept old-key neighborhood as diagnostic-only, and passed behavior
+seeds 9505/9506 with no success regression and reset >= zero_all ordering
+retained. It did not promote and did not run PPO or private holdout. M1366 should
+audit whether this broader public pass routes to promotion-gate design, protected
+diagnostic audit, branch synthesis, or repeat.
 
 M1364 designs the broader public replay escalation for M1362 alpha `0.1`. The
 next gate uses `autodrift.public_base_controlled_fusion_candidate_replay_gate`

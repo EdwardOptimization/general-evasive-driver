@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1374,
+    "completed": 1375,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1364-paper-route-bidirectional-broader-public-replay-design.md",
+    "command_log": "runs/m1365_bidirectional_broader_public_replay/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1364-paper-route-bidirectional-broader-public-replay-design.md",
+    "run_dir": "runs/m1365_bidirectional_broader_public_replay",
     "status": "completed",
-    "task_id": "m1364-paper-route-bidirectional-broader-public-replay-design"
+    "task_id": "m1365-paper-route-bidirectional-broader-public-replay"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1365-paper-route-bidirectional-broader-public-replay.json",
-    "hypothesis": "Run broader public replay and behavior diagnostics for M1362 alpha 0.1",
-    "id": "m1365-paper-route-bidirectional-broader-public-replay",
+    "command": "see experiments/manifests/m1366-paper-route-bidirectional-broader-public-replay-result-audit.json",
+    "hypothesis": "Audit M1365 broader public replay pass before promotion or PPO route",
+    "id": "m1366-paper-route-bidirectional-broader-public-replay-result-audit",
     "kind": "gate",
-    "notes": "Pending: run six public replay surfaces plus protected diagnostics and behavior seeds; no PPO promotion private holdout or actor input change",
-    "priority": 13600,
+    "notes": "Pending: audit six-surface replay pass source-diverse pass old-key diagnostic and behavior pass; no training replay PPO promotion private holdout or actor input change",
+    "priority": 13610,
     "status": "pending",
-    "success_artifact": "runs/m1365_bidirectional_broader_public_replay/summary.json"
+    "success_artifact": "docs/m1366-paper-route-bidirectional-broader-public-replay-result-audit.md"
   },
-  "updated_at_utc": "20260528T204950Z"
+  "updated_at_utc": "20260528T205420Z"
 }
