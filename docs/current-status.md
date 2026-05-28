@@ -115,7 +115,34 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1234-paper-route-extreme-fault-source-smoke-audit
+m1235-paper-route-extreme-fault-timing-repair-design
+```
+
+M1234 completed extreme/fault source smoke audit:
+
+```text
+artifact: docs/m1234-paper-route-extreme-fault-source-smoke-audit.md
+decision: extreme_fault_source_smoke_audit_route_to_timing_repair_design
+classification: normal_failure_dominated_reset_only_source_shape
+```
+
+M1234 conclusion:
+
+```text
+M1233 is a valid infrastructure smoke, but it is not source-positive
+wrong-history evidence. Most rejected rows fail under normal history, and the
+reset-only signal is seed-collapsed.
+```
+
+Next task:
+
+```text
+artifact: docs/m1235-paper-route-extreme-fault-timing-repair-design.md
+manifest: experiments/manifests/m1235-paper-route-extreme-fault-timing-repair-design.json
+goal: define normal-survival-first timing/horizon/source-window repair before
+      any larger source wave or sequence intervention
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1233 completed extreme/fault source smoke:

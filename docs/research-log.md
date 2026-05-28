@@ -17740,3 +17740,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1234-paper-route-extreme-fault-source-smoke-audit.json`.
 - decision: `extreme_fault_source_smoke_reset_only_route_to_audit`
 - next: `m1234-paper-route-extreme-fault-source-smoke-audit`
+
+## 20260528T083250Z - m1234-paper-route-extreme-fault-source-smoke-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1234-paper-route-extreme-fault-source-smoke-audit.md`
+- result: audits M1233 as an infrastructure pass but a cross-fault wrong-history negative source result.
+- supported: current paper-route L3 checkpoint compatibility with the hidden capability-step/fault corpus harness, expected artifacts, stable actor checksum, and nonzero reset-hidden sensitivity.
+- blocked: source-positive cross-fault wrong-history proof, source-diverse causal-history proof, training/PPO readiness, recurrent belief, self-identification, paper-level result, and true per-wheel/asymmetric fault physics.
+- source diagnosis: `636` normal-failed rejections dominate the `710` rejected rows, so many pairs are not viable proof rows because the normal-history branch already fails.
+- reset-only diagnosis: `58` reset-only rows span `13` fault-family pairs but only `2` seeds, so they cannot be treated as source-diverse self-ID evidence.
+- rejected shortcut: do not scale the exact M1233 config, train from reset-only rows, lower thresholds, or count reset-hidden disruption as wrong-history proof.
+- selected next route: design timing/horizon/source-window repair with normal-survival gates before any larger source wave or sequence intervention.
+- guardrail: no training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1235-paper-route-extreme-fault-timing-repair-design.json`.
+- decision: `extreme_fault_source_smoke_audit_route_to_timing_repair_design`
+- next: `m1235-paper-route-extreme-fault-timing-repair-design`

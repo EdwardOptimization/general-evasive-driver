@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1243,
+    "completed": 1244,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1233-paper-route-extreme-fault-source-smoke.md",
+    "command_log": "docs/m1234-paper-route-extreme-fault-source-smoke-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1233_paper_route_extreme_fault_source_smoke",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1233-paper-route-extreme-fault-source-smoke"
+    "task_id": "m1234-paper-route-extreme-fault-source-smoke-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1234-paper-route-extreme-fault-source-smoke-audit.json",
-    "hypothesis": "Audit reset-only extreme/fault source smoke result",
-    "id": "m1234-paper-route-extreme-fault-source-smoke-audit",
+    "command": "see experiments/manifests/m1235-paper-route-extreme-fault-timing-repair-design.json",
+    "hypothesis": "Design normal-survival-first extreme/fault timing repair",
+    "id": "m1235-paper-route-extreme-fault-timing-repair-design",
     "kind": "gate",
-    "notes": "Pending: classify M1233 reset-only and normal-failed source shape before any larger source wave or training",
-    "priority": 12290,
+    "notes": "Pending: define timing/horizon/source-window repair because M1233 was normal-failure dominated and reset-only",
+    "priority": 12300,
     "status": "pending",
-    "success_artifact": "docs/m1234-paper-route-extreme-fault-source-smoke-audit.md"
+    "success_artifact": "docs/m1235-paper-route-extreme-fault-timing-repair-design.md"
   },
-  "updated_at_utc": "20260528T082800Z"
+  "updated_at_utc": "20260528T083250Z"
 }

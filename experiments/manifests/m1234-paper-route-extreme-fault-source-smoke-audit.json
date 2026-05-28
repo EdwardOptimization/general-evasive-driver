@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -151,6 +151,23 @@
     "runs/m1233_paper_route_extreme_fault_source_smoke/reset_only_rows.csv",
     "runs/m1233_paper_route_extreme_fault_source_smoke/rejected_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1234-paper-route-extreme-fault-source-smoke-audit.md",
+    "decision": "extreme_fault_source_smoke_audit_route_to_timing_repair_design",
+    "classification": "normal_failure_dominated_reset_only_source_shape",
+    "accepted_rows": 0,
+    "wrong_history_action_critical_rows": 0,
+    "reset_only_rows": 58,
+    "normal_failed_rejected": 636,
+    "history_insensitive_rejected": 74,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false
+  },
+  "decision": "extreme_fault_source_smoke_audit_route_to_timing_repair_design",
   "decision_rule": "M1234 passes if it classifies M1233's reset-only and normal-failure patterns and selects a concrete next source route without training or proof overclaim.",
-  "next_blocker": "m1234-paper-route-extreme-fault-source-smoke-audit"
+  "next_blocker": "m1235-paper-route-extreme-fault-timing-repair-design"
 }
