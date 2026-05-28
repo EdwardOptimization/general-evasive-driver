@@ -18718,3 +18718,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.json`.
 - decision: `source_history_actor_mean_directional_feasibility_mixed_route_to_result_audit`
 - next: `m1293-paper-route-source-history-actor-mean-feasibility-result-audit`
+
+## 20260528T143007Z - m1293-paper-route-source-history-actor-mean-feasibility-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.md`
+- decision: `source_history_actor_mean_feasibility_audit_mixed_route_to_pair_group_objective_design`
+- audited evidence: M1292 best candidate has `both_directional_fraction=0.1842105263`, `best_both_positive_count=28`, and `best_mutually_exclusive_fraction=0.7763157895`.
+- supported claim: actor_mean-only is not fully capacity-limited because it creates a partial both-positive signal.
+- unsupported claim: actor_mean-only is solved or PPO-ready; the source-history gate remains weak.
+- selected next step: pair-group directional objective design.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1294-paper-route-source-history-pair-group-objective-design.json`.
+- decision: `source_history_actor_mean_feasibility_audit_mixed_route_to_pair_group_objective_design`
+- next: `m1294-paper-route-source-history-pair-group-objective-design`

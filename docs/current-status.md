@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1292-paper-route-source-history-actor-mean-directional-feasibility-probe
+m1293-paper-route-source-history-actor-mean-feasibility-result-audit
 ```
 
 Current next task:
 
 ```text
-m1293-paper-route-source-history-actor-mean-feasibility-result-audit
+m1294-paper-route-source-history-pair-group-objective-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -97,9 +97,10 @@ M1291 designed the next step and rejected blind scalar-loss continuation. M1292
 then ran the no-PPO actor_mean directional feasibility probe. The result is
 mixed: the best candidate is `m1288_init`, with `both_directional_fraction=0.1842105263`
 and `28/152` both-positive rows, while `mutually_exclusive_fraction=0.7763157895`
-remains high. No non-actor parameters changed. The active blocker is M1293:
-audit this mixed feasibility result and choose the next no-PPO step, likely a
-pair-group directional objective design. PPO and promotion remain blocked.
+remains high. No non-actor parameters changed. M1293 audited this as mixed,
+non-promotable evidence and selected pair-group directional objective design as
+the next no-PPO step. The active blocker is M1294: design that pair-group
+objective before any further implementation. PPO and promotion remain blocked.
 
 ## Actor Contract
 

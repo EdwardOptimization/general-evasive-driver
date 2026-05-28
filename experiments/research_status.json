@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1302,
+    "completed": 1303,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1292-paper-route-source-history-actor-mean-directional-feasibility-probe.md",
+    "command_log": "docs/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1292_source_history_actor_mean_directional_feasibility_probe",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1292-paper-route-source-history-actor-mean-directional-feasibility-probe"
+    "task_id": "m1293-paper-route-source-history-actor-mean-feasibility-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.json",
-    "hypothesis": "Audit M1292 mixed feasibility result and choose the next no-PPO branch step",
-    "id": "m1293-paper-route-source-history-actor-mean-feasibility-result-audit",
+    "command": "see experiments/manifests/m1294-paper-route-source-history-pair-group-objective-design.json",
+    "hypothesis": "Design a pair-group directional objective for M1292 mutually-exclusive source-history rows",
+    "id": "m1294-paper-route-source-history-pair-group-objective-design",
     "kind": "gate",
-    "notes": "Pending: audit mixed actor_mean feasibility; PPO and promotion remain blocked",
-    "priority": 12880,
+    "notes": "Pending: design pair-group directional objective; PPO and promotion remain blocked",
+    "priority": 12890,
     "status": "pending",
-    "success_artifact": "docs/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.md"
+    "success_artifact": "docs/m1294-paper-route-source-history-pair-group-objective-design.md"
   },
-  "updated_at_utc": "20260528T142727Z"
+  "updated_at_utc": "20260528T143007Z"
 }

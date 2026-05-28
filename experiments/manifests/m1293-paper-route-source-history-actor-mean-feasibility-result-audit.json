@@ -151,6 +151,27 @@
     "docs/m1292-paper-route-source-history-actor-mean-directional-feasibility-probe.md",
     "runs/m1292_source_history_actor_mean_directional_feasibility_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.md",
+    "decision": "source_history_actor_mean_feasibility_audit_mixed_route_to_pair_group_objective_design",
+    "result_class": "source_history_actor_mean_directional_feasibility_mixed",
+    "best_both_directional_fraction": 0.1842105263,
+    "best_both_positive_count": 28,
+    "best_mutually_exclusive_fraction": 0.7763157895,
+    "any_non_actor_mean_mutation_detected": false,
+    "selected_next_step": "pair-group directional objective design",
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1294-paper-route-source-history-pair-group-objective-design.json"
+  },
+  "decision": "source_history_actor_mean_feasibility_audit_mixed_route_to_pair_group_objective_design",
   "decision_rule": "M1293 passes if it audits M1292 as mixed, non-promotable directional feasibility evidence and selects a no-PPO next step.",
-  "next_blocker": "m1293-paper-route-source-history-actor-mean-feasibility-result-audit"
+  "next_blocker": "m1294-paper-route-source-history-pair-group-objective-design"
 }

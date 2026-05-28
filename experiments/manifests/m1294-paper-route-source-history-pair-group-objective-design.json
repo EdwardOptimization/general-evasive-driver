@@ -1,0 +1,157 @@
+{
+  "id": "m1294-paper-route-source-history-pair-group-objective-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.md",
+      "runs/m1292_source_history_actor_mean_directional_feasibility_probe/summary.json",
+      "runs/m1292_source_history_actor_mean_directional_feasibility_probe/candidate_summaries.csv",
+      "runs/m1292_source_history_actor_mean_directional_feasibility_probe/directional_feasibility_rows.csv",
+      "runs/m1290_source_history_directional_conflict_audit/directional_conflict_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.json"
+    ],
+    "parent_objective": [
+      "design pair-group directional objective after M1292 mixed actor_mean feasibility"
+    ],
+    "derived_from": [
+      "m1293-paper-route-source-history-actor-mean-feasibility-result-audit"
+    ],
+    "blocked_by": [
+      "M1292 best_both_directional_fraction is only 0.1842105263 and requires pair-group repair design"
+    ],
+    "supersedes": [
+      "continuing row-wise actor_mean optimization without pair-group structure"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1294-paper-route-source-history-pair-group-objective-design.md",
+  "public_gates": [
+    "M1294 must preserve actor input contract",
+    "M1294 must not train",
+    "M1294 must not run PPO",
+    "M1294 must not use private holdout",
+    "M1294 must not promote",
+    "M1294 must design a pair-group directional objective that targets both rows in each pair/probe group",
+    "M1294 must specify exact pass/fail gates before implementation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat M1292 mixed result as solved",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_objective_only_update",
+    "evidence_axis": "S_pair_group_objective_design",
+    "evidence_increment": "designs a pair-group directional objective after mixed actor_mean feasibility",
+    "claim_scope": "objective design only; no training, promotion, private-holdout, PPO, paper-level, closed-loop, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if design ignores pair/probe group structure",
+      "stop if design requires actor-input expansion",
+      "stop if design starts PPO before directional relation is positive"
+    ],
+    "fallback_plan": [
+      "if pair-group objective is viable, admit a bounded no-PPO actor_mean implementation",
+      "if pair-group objective is not viable, route to trainable-scope escalation or corpus relabel audit",
+      "if branch reaches cadence, route to synthesis before more narrow work"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "eighth milestone in objective-only update branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-history pair-group objective design",
+    "admission_evidence": [
+      "M1292 result_class=source_history_actor_mean_directional_feasibility_mixed",
+      "M1292 best_both_directional_fraction=0.1842105263",
+      "M1290 pair_probe_group_count=76 and group size=2",
+      "PPO remains blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1294 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest if design admits implementation"
+    ],
+    "next_stage_criteria": [
+      "pair-group objective is specified",
+      "implementation budget is bounded",
+      "directional pass/fail gates are specified",
+      "PPO remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1294 designs a fixed-current pair-group objective and does not evaluate closed-loop history necessity.",
+    "history_necessity_tests": [
+      "future implementation must report both rows in each pair/probe group",
+      "future implementation must keep labels and source metadata out of actor input"
+    ],
+    "temporal_evidence_window": "M1292 fixed-current source-history directional feasibility rows.",
+    "negative_result_policy": "If pair-group design cannot avoid M1290 magnitude compression, route to scope/corpus audit and keep PPO blocked.",
+    "allowed_claims": [
+      "source-history pair-group objective design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A pair-group directional objective can be designed to target M1292 mutually-exclusive rows more directly than scalar row-wise actor_mean optimization.",
+  "success_criteria": [
+    "docs/m1294-paper-route-source-history-pair-group-objective-design.md exists",
+    "design specifies pair-group objective",
+    "design specifies group-level directional metrics",
+    "design admits bounded implementation or routes to scope/corpus audit",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores M1292 mixed result",
+    "design ignores pair/probe group structure",
+    "design starts PPO directly",
+    "design overclaims self-identification",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1294-paper-route-source-history-pair-group-objective-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1294-paper-route-source-history-pair-group-objective-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.md",
+    "runs/m1292_source_history_actor_mean_directional_feasibility_probe/summary.json"
+  ],
+  "decision_rule": "M1294 passes if it designs a bounded no-PPO pair-group directional objective or explicitly routes to scope/corpus audit.",
+  "next_blocker": "m1294-paper-route-source-history-pair-group-objective-design"
+}
