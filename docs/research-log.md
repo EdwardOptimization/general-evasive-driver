@@ -16712,3 +16712,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no mining, replay, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
 - decision: `wrong_history_action_divergence_audit_route_to_candidate_export_design`
 - next: `m1173-v4-public-base-action-divergent-candidate-export-design`
+
+## 20260528T024100Z - m1173-v4-public-base-action-divergent-candidate-export-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1173-v4-public-base-action-divergent-candidate-export-design.md`
+- result: designs a filtered score-balanced candidate export before any bounded relocation replay.
+- pool rule: `margin_gap >= 0.0025` and (`first_action_distance >= 0.15` or `action_trajectory_distance_mean >= 0.06`).
+- expected pool: `343` rows, `17` physical pairs, `3` targets, `6` checkpoints, `9` left steps, max pair fraction `0.069971`.
+- export gate: cap `240` rows, require at least `12` physical pairs, `3` targets, `6` checkpoints, `6` left steps, and max pair fraction `0.15`.
+- tooling route: implement a deterministic exporter before replay because manual CSV filtering is not acceptable.
+- guardrail: no replay, mining, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
+- decision: `action_divergent_candidate_export_design_admit_export_tooling`
+- next: `m1174-v4-public-base-action-divergent-candidate-export-tooling`

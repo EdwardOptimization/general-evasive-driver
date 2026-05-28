@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1173 is design-only. It can design an action-divergent candidate export but cannot run replay, run mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert rows, or claim proof from candidate export alone.",
+  "decision_reason": "M1173 designs a score-balanced export pool with 343 rows across 17 physical pairs 3 targets and 6 checkpoints before bounded replay",
   "failure_criteria": [
     "design artifact is missing",
     "candidate export rule is equivalent to unfiltered M1161",
@@ -22,7 +22,7 @@
     "do not claim proof from candidate export alone"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260528T015817Z",
+  "generated_at_utc": "20260528T020327Z",
   "hypothesis": "A filtered or score-balanced candidate export from existing M1161 outcome rows can preserve action divergence while avoiding the two-pair collapse that blocked same-shape relocation.",
   "lineage": {
     "blocked_by": [
@@ -52,9 +52,9 @@
     "supersedes": []
   },
   "milestone": "m1173-v4-public-base-action-divergent-candidate-export-design",
-  "next_blocker": "m1173-v4-public-base-action-divergent-candidate-export-design",
+  "next_blocker": "m1174-v4-public-base-action-divergent-candidate-export-tooling",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "action_divergent_candidate_export_design_admit_export_tooling",
   "public_gates": [
     "M1173 is design-only",
     "M1173 must not run replay",
@@ -66,7 +66,20 @@
     "M1173 must preserve actor inputs",
     "M1173 must not convert rows"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1173-v4-public-base-action-divergent-candidate-export-design.md",
+    "clearance_margin_mean": "",
+    "decision": "action_divergent_candidate_export_design_admit_export_tooling",
+    "milestone": "m1173-v4-public-base-action-divergent-candidate-export-design",
+    "reason": "M1173 designs a score-balanced export pool with 343 rows across 17 physical pairs 3 targets and 6 checkpoints before bounded replay",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "design artifact exists",
     "candidate export rule is explicit",

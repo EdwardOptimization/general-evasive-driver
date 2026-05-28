@@ -1,0 +1,159 @@
+{
+  "id": "m1174-v4-public-base-action-divergent-candidate-export-tooling",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1173-v4-public-base-action-divergent-candidate-export-design.md",
+      "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1173-v4-public-base-action-divergent-candidate-export-design.json"
+    ],
+    "parent_objective": [
+      "implement a deterministic action-divergent candidate exporter for existing outcome artifacts"
+    ],
+    "derived_from": [
+      "m1173-v4-public-base-action-divergent-candidate-export-design"
+    ],
+    "blocked_by": [
+      "existing relocation runner does not apply action-divergence filters inline"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "manual ad hoc filtered CSVs",
+      "direct replay from unfiltered M1161 outcome CSV",
+      "proof conversion from candidate export alone"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1174-v4-public-base-action-divergent-candidate-export-tooling.md",
+  "public_gates": [
+    "M1174 may implement exporter tooling and focused tests only",
+    "M1174 must not run relocation replay",
+    "M1174 must not run mining",
+    "M1174 must not train actor weights",
+    "M1174 must not run PPO",
+    "M1174 must not promote",
+    "M1174 must not use private holdout",
+    "M1174 must preserve actor inputs",
+    "M1174 must not convert rows into a proof corpus"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run relocation replay",
+    "do not run mining",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert rows into a proof corpus",
+    "do not rely on manual CSV editing"
+  ],
+  "workflow_synthesis": {
+    "branch": "stronger_wrong_history_construction",
+    "evidence_axis": "G_infra: action-divergent candidate export tooling",
+    "evidence_increment": "adds deterministic tooling to export filtered action-divergent wrong-history candidates before replay",
+    "claim_scope": "infrastructure only; no replay, mining, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if exporter changes actor inputs",
+      "stop if exporter cannot preserve source diversity metadata",
+      "stop if tests cannot verify filtering, scoring, and source balancing"
+    ],
+    "fallback_plan": [
+      "if exporter is simple, implement as a small module with focused tests",
+      "if existing source-balance helper can be reused, avoid duplicating balancing logic",
+      "if tooling scope expands, split export implementation from run"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1173 admits exporter tooling",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement deterministic candidate export tooling",
+    "admission_evidence": [
+      "M1173 defines explicit filter, score, and diversity gates",
+      "manual CSV edits would be fragile and unreproducible",
+      "export must be separated from replay"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not run replay",
+      "do not rerun mining",
+      "do not convert rows"
+    ],
+    "allowed_updates": [
+      "small source module",
+      "focused tests",
+      "docs and manifest result",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "exporter filters as designed",
+      "exporter score is deterministic",
+      "exporter preserves required columns",
+      "exporter writes summary and candidate CSV"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1174 is infrastructure only.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1174 adds no self-ID evidence.",
+    "negative_result_policy": "If tooling cannot be kept small, split the implementation before running any replay.",
+    "allowed_claims": [
+      "deterministic exporter tooling",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-level claim"
+    ]
+  },
+  "hypothesis": "A small deterministic exporter can create action-divergent candidate CSVs from existing outcome artifacts while preserving source-balance metadata and avoiding manual CSV editing.",
+  "success_criteria": [
+    "exporter module exists",
+    "focused tests cover filtering, scoring, source-balance caps, and summary fields",
+    "no replay, mining, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "exporter scope grows beyond candidate export",
+    "tests are missing",
+    "required columns are not preserved",
+    "replay, mining, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "implement_candidate_export_tooling",
+      "command": "implement exporter module and focused tests"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/action_divergent_candidate_export.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_action_divergent_candidate_export.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1174-v4-public-base-action-divergent-candidate-export-tooling.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1173-v4-public-base-action-divergent-candidate-export-design.md"
+  ],
+  "decision_rule": "M1174 may only implement deterministic candidate export tooling and focused tests. It cannot run relocation replay, run mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
+  "next_blocker": "m1174-v4-public-base-action-divergent-candidate-export-tooling"
+}

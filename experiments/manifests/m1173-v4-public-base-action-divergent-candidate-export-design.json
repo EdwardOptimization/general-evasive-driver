@@ -150,6 +150,39 @@
     "docs/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.md",
     "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1173-v4-public-base-action-divergent-candidate-export-design.md",
+    "decision": "action_divergent_candidate_export_design_admit_export_tooling",
+    "result_class": "action_divergent_candidate_export_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "candidate_pool_rule": "margin_gap >= 0.0025 and (first_action_distance >= 0.15 or action_trajectory_distance_mean >= 0.06)",
+    "expected_pool_rows": 343,
+    "expected_pool_physical_pairs": 17,
+    "expected_pool_targets": 3,
+    "expected_pool_checkpoints": 6,
+    "expected_pool_left_steps": 9,
+    "expected_pool_max_pair_fraction": 0.069971,
+    "candidate_score": "first_action_distance/0.25 + action_trajectory_distance_mean/0.15 + max(margin_gap,0)/0.01 + 0.25*target_z_delta - visible_distance/0.25",
+    "export_cap_rows": 240,
+    "target_min_physical_pairs": 12,
+    "target_min_targets": 3,
+    "target_min_checkpoints": 6,
+    "target_min_left_steps": 6,
+    "max_pair_fraction": 0.15,
+    "replay_started": false,
+    "mining_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "surface_conversion_started": false,
+    "admitted_next": "candidate_export_tooling",
+    "next_milestone": "m1174-v4-public-base-action-divergent-candidate-export-tooling"
+  },
   "decision_rule": "M1173 is design-only. It can design an action-divergent candidate export but cannot run replay, run mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert rows, or claim proof from candidate export alone.",
-  "next_blocker": "m1173-v4-public-base-action-divergent-candidate-export-design"
+  "next_blocker": "m1174-v4-public-base-action-divergent-candidate-export-tooling"
 }

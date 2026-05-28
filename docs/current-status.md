@@ -84,24 +84,36 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1173-v4-public-base-action-divergent-candidate-export-design
+m1174-v4-public-base-action-divergent-candidate-export-tooling
 ```
 
-M1172 audited existing M1161 outcome artifacts for action-divergent
-wrong-history rows:
+M1173 designed a filtered score-balanced candidate export:
 
 ```text
-wrong_history rows: 4585
-first_action_distance >= 0.20: 630 rows, 30 physical pairs
-margin_gap >= 0.005: 204 rows, 12 physical pairs
-combined fa>=0.15, traj>=0.06, margin_gap>=0.0025:
-  151 rows, 8 physical pairs, 6 checkpoints, 2 targets
-normal_better rows: 36 rows, 2 physical pairs
+pool rule:
+  margin_gap >= 0.0025
+  and (first_action_distance >= 0.15
+       or action_trajectory_distance_mean >= 0.06)
+
+expected pool:
+  rows: 343
+  physical pairs: 17
+  targets: 3
+  checkpoints: 6
+  left steps: 9
+  max pair fraction: 0.069971
+
+export gate:
+  max rows: 240
+  min physical pairs: 12
+  min targets: 3
+  min checkpoints: 6
+  min left steps: 6
+  max pair fraction: 0.15
 ```
 
-There is enough candidate signal for an export/replay diagnostic, but not
-enough diversity for direct proof conversion. M1173 should design a filtered or
-score-balanced candidate export before bounded relocation replay or new mining.
+M1174 should implement deterministic exporter tooling and focused tests before
+any bounded relocation replay. Manual CSV filtering is not acceptable.
 
 M1127 completed the expanded full public gate for the row15 projection
 candidate:

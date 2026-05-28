@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T015817Z
+- Generated at UTC: 20260528T020327Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M1173 is design-only. It can design an action-divergent candidate export but cannot run replay, run mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert rows, or claim proof from candidate export alone.
+- Promotion decision: action_divergent_candidate_export_design_admit_export_tooling
+- Decision reason: M1173 designs a score-balanced export pool with 343 rows across 17 physical pairs 3 targets and 6 checkpoints before bounded replay
 
 ## Hypothesis
 
@@ -73,8 +73,19 @@ A filtered or score-balanced candidate export from existing M1161 outcome rows c
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1173-v4-public-base-action-divergent-candidate-export-design
+- type: gate
+- checkpoint: docs/m1173-v4-public-base-action-divergent-candidate-export-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: action_divergent_candidate_export_design_admit_export_tooling
+- reason: M1173 designs a score-balanced export pool with 343 rows across 17 physical pairs 3 targets and 6 checkpoints before bounded replay
 
 ## Next Blocker
 
-m1173-v4-public-base-action-divergent-candidate-export-design
+m1174-v4-public-base-action-divergent-candidate-export-tooling
