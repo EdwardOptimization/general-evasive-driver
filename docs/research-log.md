@@ -18500,3 +18500,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.json`.
 - decision: `four_wheel_source_response_history_materialization_pass_route_to_result_audit`
 - next: `m1281-paper-route-four-wheel-source-response-history-materialization-result-audit`
+
+## 20260528T132526Z - m1281-paper-route-four-wheel-source-response-history-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.md`
+- audited evidence: M1280 produced `152` history prefixes, `3648` history frames, `152` history-intervention links, and `152` wrong-history pair rows.
+- artifact shape: `38` unique source pairs, `76` unique interventions, `2` history links per intervention, and `24` frames per history prefix.
+- cleanliness: actor-view history fields are finite and no forbidden actor-view history columns were found; branch/fault/pair columns remain metadata only.
+- policy-side caveat: `cmd_*` columns are prefix action metadata and must not be appended as actor observations; a future gate must project histories into canonical 72-value frames.
+- response signal: `response_l2_min=0.0157835288`, `response_l2_median=0.2204658044`, `response_l2_mean=0.2109745544`, with `152/152` yaw-rate differences above `0.01`.
+- wrong-history semantics: all `152` wrong-history rows are same-pair opposite-condition swaps and `correct_history_id != wrong_history_id`.
+- decision: M1280 histories are suitable for source-history policy-side gate design, but still do not prove self-identification or driver performance.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1282-paper-route-source-history-policy-gate-design.json`.
+- decision: `four_wheel_source_response_history_audit_admit_policy_gate_design`
+- next: `m1282-paper-route-source-history-policy-gate-design`

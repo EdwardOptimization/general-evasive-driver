@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1290,
+    "completed": 1291,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1280-paper-route-four-wheel-source-response-history-materialization.md",
+    "command_log": "docs/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1280_four_wheel_source_response_history_materialization",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1280-paper-route-four-wheel-source-response-history-materialization"
+    "task_id": "m1281-paper-route-four-wheel-source-response-history-materialization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.json",
-    "hypothesis": "Audit response-history cleanliness distinguishability and wrong-history semantics before policy-side use",
-    "id": "m1281-paper-route-four-wheel-source-response-history-materialization-result-audit",
+    "command": "see experiments/manifests/m1282-paper-route-source-history-policy-gate-design.json",
+    "hypothesis": "Design a no-training policy-side gate for correct-history versus wrong-history source prefixes under the canonical 72-value actor contract",
+    "id": "m1282-paper-route-source-history-policy-gate-design",
     "kind": "gate",
-    "notes": "Pending: audit source-history artifacts and decide policy-side gate design versus prefix repair",
-    "priority": 12760,
+    "notes": "Pending: design source-history policy gate before implementation or actor-side use",
+    "priority": 12770,
     "status": "pending",
-    "success_artifact": "docs/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.md"
+    "success_artifact": "docs/m1282-paper-route-source-history-policy-gate-design.md"
   },
-  "updated_at_utc": "20260528T131753Z"
+  "updated_at_utc": "20260528T132526Z"
 }

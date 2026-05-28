@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1280-paper-route-four-wheel-source-response-history-materialization
+m1281-paper-route-four-wheel-source-response-history-materialization-result-audit
 ```
 
 Current next task:
 
 ```text
-m1281-paper-route-four-wheel-source-response-history-materialization-result-audit
+m1282-paper-route-source-history-policy-gate-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -41,9 +41,14 @@ policy-side training because current-frame labels are contradictory without
 branch-specific response history. This is still not driver performance. The
 M1280 materialized branch-specific response histories: `152` history prefixes,
 `3648` actor-view command-response frames, `152` history-intervention links, and
-`152` same-pair wrong-history swaps. This is still not driver performance. The
-active blocker is to audit history cleanliness, response distinguishability, and
-wrong-history semantics before any policy-side use.
+`152` same-pair wrong-history swaps. M1281 audited these artifacts as clean and
+distinguishable enough for policy-side gate design: `38` unique source pairs,
+`76` interventions, `152/152` same-pair opposite-condition wrong-history swaps,
+and `response_l2_min=0.0157835288`. This is still not driver performance and
+still not self-identification proof. The active blocker is to design a
+no-training policy-side gate that projects M1280 histories into the canonical
+72-value actor frame and compares correct-history versus wrong-history recurrent
+hidden state without leaking labels.
 
 ## Actor Contract
 
@@ -146,7 +151,10 @@ PPO readiness, or promotion. M1184 has now designed the gate utility audit that
 will classify historical proof gates and row-specific repair logic before they
 remain permanent active training blockers or are demoted.
 
-## Current Blocker
+## Historical Notes
+
+The official current blocker is the one listed above. The older notes below are
+kept as historical context and may reference superseded active tasks.
 
 ```text
 m1262-paper-route-richer-fault-regret-boundary-retarget-implementation
