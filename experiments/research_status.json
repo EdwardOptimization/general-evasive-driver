@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1335,
+    "completed": 1336,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1325-paper-route-source-repair-topup-generation-design.md",
+    "command_log": "docs/m1326-paper-route-source-repair-topup-generation-smoke.md",
     "returncode": 0,
-    "run_dir": "docs/m1325-paper-route-source-repair-topup-generation-design.md",
+    "run_dir": "runs/m1326_source_repair_topup_generation_smoke",
     "status": "completed",
-    "task_id": "m1325-paper-route-source-repair-topup-generation-design"
+    "task_id": "m1326-paper-route-source-repair-topup-generation-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1326-paper-route-source-repair-topup-generation-smoke.json",
-    "hypothesis": "Implement source_topup_v1 and run one strict no-policy source-generation smoke for undercovered source families",
-    "id": "m1326-paper-route-source-repair-topup-generation-smoke",
+    "command": "see experiments/manifests/m1327-paper-route-source-repair-topup-horizon-corrected-smoke.json",
+    "hypothesis": "Rerun source_topup_v1 with sequence_length 72 before judging source-family top-up coverage",
+    "id": "m1327-paper-route-source-repair-topup-horizon-corrected-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: source-generation smoke only; PPO and promotion remain blocked",
-    "priority": 13210,
+    "notes": "Pending: horizon-corrected source-generation smoke only; PPO and promotion remain blocked",
+    "priority": 13220,
     "status": "pending",
-    "success_artifact": "runs/m1326_source_repair_topup_generation_smoke/summary.json"
+    "success_artifact": "runs/m1327_source_repair_topup_horizon_corrected_smoke/summary.json"
   },
-  "updated_at_utc": "20260528T172408Z"
+  "updated_at_utc": "20260528T173241Z"
 }

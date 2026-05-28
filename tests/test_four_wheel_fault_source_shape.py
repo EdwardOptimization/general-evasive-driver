@@ -11,6 +11,7 @@ from autodrift.four_wheel_fault_source_shape import (
     build_scenarios,
     build_scenarios_for_profile,
     build_source_repair_scenarios,
+    build_source_topup_scenarios,
     build_source_expansion_scenarios,
     build_viability_calibration_scenarios,
     obstacle_margin,
@@ -67,6 +68,17 @@ def test_source_repair_action_lattice_contains_multiphase_templates():
     assert all(candidate["sequence"].shape == (9, 3) for candidate in candidates)
 
 
+def test_source_topup_action_lattice_contains_topup_templates():
+    candidates = build_action_lattice(sequence_length=9, action_profile="source_topup_v1")
+
+    templates = {candidate["template"] for candidate in candidates}
+    assert "left_lift_then_power" in templates
+    assert "counter_power_recovery_right" in templates
+    assert "release_then_left_swerve" in templates
+    assert len(candidates) > len(build_action_lattice(sequence_length=9, action_profile="source_repair_v1"))
+    assert all(candidate["sequence"].shape == (9, 3) for candidate in candidates)
+
+
 def test_source_expansion_fault_profile_covers_target_families():
     faults = build_fault_cases("source_expansion_v1")
     pairs = build_fault_pairs(faults, "source_expansion_v1")
@@ -102,6 +114,22 @@ def test_source_repair_fault_profile_adds_parameter_repair_pairs():
     assert "global_friction_step->global_friction_step" in family_pairs
     assert "steering_actuator_fault->steering_actuator_fault" in family_pairs
     assert "load_cg_perturbation->load_cg_perturbation" in family_pairs
+
+
+def test_source_topup_fault_profile_adds_undercovered_family_pairs():
+    faults = build_fault_cases("source_topup_v1")
+    pairs = build_fault_pairs(faults, "source_topup_v1")
+
+    names = {fault.name for fault in faults}
+    family_pairs = {f"{left.family}->{right.family}" for left, right in pairs}
+    assert "rear_left_halfshaft_loss_0p05" in names
+    assert "front_left_brake_stuck_3p0" in names
+    assert "ultra_heavy_high_inertia" in names
+    assert "front_left_tire_blowout_like_drag_3200" in names
+    assert "halfshaft_torque_loss->halfshaft_torque_loss" in family_pairs
+    assert "single_wheel_brake_pull->single_wheel_brake_pull" in family_pairs
+    assert "load_cg_perturbation->load_cg_perturbation" in family_pairs
+    assert "tire_blowout_like->tire_blowout_like" in family_pairs
 
 
 def test_obstacle_margin_detects_collision_and_completion():
@@ -172,3 +200,15 @@ def test_source_repair_profile_adds_drive_and_curvature_states():
     assert any(abs(scenario.state.yaw_rate) > 0.0 for scenario in scenarios)
     assert any(scenario.curvature_bin != "straight" for scenario in scenarios)
     assert build_scenarios_for_profile("source_repair_v1") == scenarios
+
+
+def test_source_topup_profile_targets_undercovered_dynamics():
+    scenarios = build_source_topup_scenarios()
+
+    assert scenarios
+    assert any(scenario.state.drive_force > 0.0 and scenario.state.brake_force == 0.0 for scenario in scenarios)
+    assert any(scenario.state.brake_force >= 5500.0 for scenario in scenarios)
+    assert any(abs(scenario.state.yaw_rate) >= 0.18 for scenario in scenarios)
+    assert any(abs(scenario.state.vy) >= 1.2 for scenario in scenarios)
+    assert {scenario.speed_bin for scenario in scenarios} >= {"medium", "high"}
+    assert build_scenarios_for_profile("source_topup_v1") == scenarios

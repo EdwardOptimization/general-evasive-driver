@@ -19327,3 +19327,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1326-paper-route-source-repair-topup-generation-smoke.json`.
 - next: `m1326-paper-route-source-repair-topup-generation-smoke`
+
+## 20260528T173241Z - m1326-paper-route-source-repair-topup-generation-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1326_source_repair_topup_generation_smoke/summary.json`
+- doc: `docs/m1326-paper-route-source-repair-topup-generation-smoke.md`
+- implementation: added `source_topup_v1` fault, scenario, and action profiles plus focused tests.
+- focused tests: `14 passed`.
+- result class: `invalid_short_horizon_metric_artifact`.
+- command issue: smoke used `sequence_length=9`, unlike the valid M1320 source smoke which used default `72`.
+- scenario count: `56`; fault pairs: `47`; action lattice rows: `45`; action rollouts: `236880`.
+- observed result: `accepted_separable_pairs=0`, `accepted_fault_family_pairs=0`, and `own_branch_viability_fail_count=2632/2632`.
+- terminal reasons: all `236880` rollouts ended by `horizon`; no rollout reached obstacle completion or safe stop.
+- interpretation: this does not falsify `source_topup_v1`; it falsifies the 9-step source horizon for this source-shape task.
+- failure taxonomy: primary `metric_artifact`, secondary `scenario_sampling_failure`.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1327-paper-route-source-repair-topup-horizon-corrected-smoke.json`.
+- next: `m1327-paper-route-source-repair-topup-horizon-corrected-smoke`

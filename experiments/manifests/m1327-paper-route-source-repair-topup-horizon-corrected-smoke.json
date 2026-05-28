@@ -1,0 +1,166 @@
+{
+  "id": "m1327-paper-route-source-repair-topup-horizon-corrected-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1326-paper-route-source-repair-topup-generation-smoke.md",
+      "runs/m1326_source_repair_topup_generation_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1326-paper-route-source-repair-topup-generation-smoke.json"
+    ],
+    "parent_objective": [
+      "rerun source_topup_v1 with the historical 72-step source horizon after M1326 invalid short-horizon result"
+    ],
+    "derived_from": [
+      "m1326-paper-route-source-repair-topup-generation-smoke"
+    ],
+    "blocked_by": [
+      "M1326 used sequence_length=9 and all rollouts terminated by horizon"
+    ],
+    "supersedes": [
+      "using the M1326 9-step result for source-family conclusions"
+    ],
+    "invalidates": [
+      "M1326 zero-acceptance result as a source-family separability conclusion"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1327-paper-route-source-repair-topup-horizon-corrected-smoke.md",
+  "public_gates": [
+    "M1327 must not train",
+    "M1327 must not run PPO",
+    "M1327 must not use private holdout",
+    "M1327 must not promote",
+    "M1327 must preserve actor input contract",
+    "M1327 must use strict source acceptance thresholds",
+    "M1327 must use sequence_length=72",
+    "M1327 must report global friction separately"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax accepted thresholds",
+    "do not fabricate global friction coverage",
+    "do not reuse the M1326 9-step result as valid source evidence",
+    "do not claim high-fidelity tire blowout or load-transfer physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_repair_topup_generation",
+    "evidence_axis": "S_source_repair_topup_horizon_corrected_smoke",
+    "evidence_increment": "reruns source_topup_v1 with the source-mining horizon that made M1320 valid",
+    "claim_scope": "source-generation infrastructure only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if run does not use sequence_length=72",
+      "stop if actor inputs change",
+      "stop if accepted thresholds are relaxed",
+      "stop if global friction is hidden or mislabeled"
+    ],
+    "fallback_plan": [
+      "if target is met, route to corpus export and plan refresh",
+      "if positive but under target, route to result audit before another top-up",
+      "if still zero accepted, route to top-up scenario/action viability audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1326 invalidates the 9-step top-up smoke as a metric artifact",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "horizon-corrected source repair top-up generation smoke",
+    "admission_evidence": [
+      "M1326 source_topup_v1 wiring and tests passed",
+      "M1326 sequence_length=9 produced all-horizon rollouts and zero accepted pairs",
+      "M1320 valid source_repair_v1 run used sequence_length=72",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not relax thresholds"
+    ],
+    "allowed_updates": [
+      "M1327 run artifacts",
+      "M1327 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "summary reports accepted pairs and family counts",
+      "terminal reason distribution is not all horizon",
+      "global friction blocker or diagnostic status is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1327 generates source rows and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "produce source rows for later command-response history materialization"
+    ],
+    "temporal_evidence_window": "M1326 invalid short-horizon result and M1327 horizon-corrected smoke only.",
+    "negative_result_policy": "If top-up still fails under sequence_length=72, record the source-construction failure rather than relaxing thresholds.",
+    "allowed_claims": [
+      "horizon-corrected source top-up generation smoke result",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The source_topup_v1 profile must be judged with sequence_length=72 before concluding whether it improves M1323 undercovered source-family coverage.",
+  "success_criteria": [
+    "runs/m1327_source_repair_topup_horizon_corrected_smoke/summary.json exists",
+    "sequence_length == 72",
+    "terminal_reason_counts is not all horizon",
+    "accepted_separable_pairs >= 240 or accepted_separable_pairs > 216 with explicit gap report",
+    "global friction is reported separately as accepted, diagnostic-only, missing, or source-miner mismatch",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "sequence_length != 72",
+    "terminal_reason_counts is still all horizon",
+    "accepted_separable_pairs <= 216 without clear blocker",
+    "global friction is hidden or mislabeled",
+    "strict source thresholds are relaxed",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "run_horizon_corrected_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.four_wheel_fault_source_shape --fault-profile source_topup_v1 --scenario-profile source_topup_v1 --action-profile source_topup_v1 --sequence-length 72 --run-dir runs/m1327_source_repair_topup_horizon_corrected_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1327_source_repair_topup_horizon_corrected_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1327-paper-route-source-repair-topup-horizon-corrected-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1326-paper-route-source-repair-topup-generation-smoke.md",
+    "runs/m1326_source_repair_topup_generation_smoke/summary.json",
+    "runs/m1320_inactive_source_family_repair_smoke/summary.json"
+  ],
+  "decision_rule": "M1327 passes as infrastructure if source_topup_v1 is rerun with sequence_length=72 and reports target-met or gap-diagnostic source coverage without training, PPO, promotion, private holdout use, threshold relaxation, or actor-input expansion.",
+  "next_blocker": "m1327-paper-route-source-repair-topup-horizon-corrected-smoke"
+}

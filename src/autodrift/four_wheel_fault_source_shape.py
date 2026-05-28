@@ -239,6 +239,8 @@ def build_fault_cases(fault_profile: str = "m1268_default") -> list[FourWheelFau
         return _build_source_expansion_fault_cases()
     if fault_profile == "source_repair_v1":
         return _build_source_repair_fault_cases()
+    if fault_profile == "source_topup_v1":
+        return _build_source_topup_fault_cases()
     raise ValueError(f"unsupported fault_profile {fault_profile!r}")
 
 
@@ -498,6 +500,123 @@ def _build_source_repair_fault_cases() -> list[FourWheelFaultCase]:
     return faults
 
 
+def _build_source_topup_fault_cases() -> list[FourWheelFaultCase]:
+    faults = list(_build_source_repair_fault_cases())
+
+    for wheel in ("rear_left", "rear_right"):
+        for drive_scale in (0.05, 0.20, 0.50):
+            label = str(drive_scale).replace(".", "p")
+            faults.append(
+                _fault_case(
+                    name=f"{wheel}_halfshaft_loss_{label}",
+                    family="halfshaft_torque_loss",
+                    severity=f"drive_{label}",
+                    scales=FourWheelFaultScales.halfshaft_torque_loss(wheel, drive_scale=drive_scale),
+                    corner_or_side_variant=wheel,
+                )
+            )
+
+    for wheel in ("front_left", "front_right", "rear_left", "rear_right"):
+        for brake_scale, label in ((3.0, "stuck_3p0"), (0.0, "loss_0p0")):
+            faults.append(
+                _fault_case(
+                    name=f"{wheel}_brake_{label}",
+                    family="single_wheel_brake_pull",
+                    severity=label,
+                    scales=FourWheelFaultScales.single_wheel_brake_pull(wheel, brake_scale=brake_scale),
+                    corner_or_side_variant=wheel,
+                )
+            )
+
+    faults.extend(
+        [
+            _fault_case(
+                name="ultra_heavy_high_inertia",
+                family="load_cg_perturbation",
+                severity="ultra_heavy",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"mass": 2250.0, "iz": 4300.0},
+                corner_or_side_variant="ultra_heavy",
+            ),
+            _fault_case(
+                name="ultra_light_low_inertia",
+                family="load_cg_perturbation",
+                severity="ultra_light",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"mass": 880.0, "iz": 1180.0},
+                corner_or_side_variant="ultra_light",
+            ),
+            _fault_case(
+                name="front_cg_extreme",
+                family="load_cg_perturbation",
+                severity="front_cg_extreme",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"lf": 1.02, "lr": 1.78},
+                corner_or_side_variant="front_bias",
+            ),
+            _fault_case(
+                name="rear_cg_extreme",
+                family="load_cg_perturbation",
+                severity="rear_cg_extreme",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"lf": 1.68, "lr": 1.12},
+                corner_or_side_variant="rear_bias",
+            ),
+            _fault_case(
+                name="high_yaw_inertia_same_mass",
+                family="load_cg_perturbation",
+                severity="high_yaw_inertia",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"iz": 4100.0},
+                corner_or_side_variant="high_inertia",
+            ),
+            _fault_case(
+                name="low_yaw_inertia_same_mass",
+                family="load_cg_perturbation",
+                severity="low_yaw_inertia",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"iz": 1250.0},
+                corner_or_side_variant="low_inertia",
+            ),
+            _fault_case(
+                name="front_bias_high_inertia",
+                family="load_cg_perturbation",
+                severity="front_bias_high_inertia",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"lf": 1.08, "lr": 1.72, "iz": 3600.0},
+                corner_or_side_variant="front_bias",
+            ),
+            _fault_case(
+                name="rear_bias_low_inertia",
+                family="load_cg_perturbation",
+                severity="rear_bias_low_inertia",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"lf": 1.62, "lr": 1.18, "iz": 1500.0},
+                corner_or_side_variant="rear_bias",
+            ),
+        ]
+    )
+
+    for wheel in ("front_left", "front_right", "rear_left", "rear_right"):
+        for drag_force, label in ((3200.0, "drag_3200"), (3800.0, "drag_3800")):
+            faults.append(
+                _fault_case(
+                    name=f"{wheel}_tire_blowout_like_{label}",
+                    family="tire_blowout_like",
+                    severity=f"{label}_mu_0p12",
+                    scales=FourWheelFaultScales.tire_blowout_like(
+                        wheel,
+                        mu_scale=0.12,
+                        lateral_stiffness_scale=0.12,
+                        drag_force=drag_force,
+                    ),
+                    corner_or_side_variant=wheel,
+                )
+            )
+
+    return faults
+
+
 def build_fault_pairs(
     faults: list[FourWheelFaultCase],
     fault_profile: str = "m1268_default",
@@ -507,6 +626,8 @@ def build_fault_pairs(
         return _build_source_expansion_fault_pairs(by_name)
     if fault_profile == "source_repair_v1":
         return _build_source_repair_fault_pairs(by_name)
+    if fault_profile == "source_topup_v1":
+        return _build_source_topup_fault_pairs(by_name)
     if fault_profile != "m1268_default":
         raise ValueError(f"unsupported fault_profile {fault_profile!r}")
     return [
@@ -565,6 +686,39 @@ def _build_source_repair_fault_pairs(
             (by_name["rear_left_halfshaft_loss_0p0"], by_name["rear_right_halfshaft_loss_0p0"]),
         ]
     )
+    return pairs
+
+
+def _build_source_topup_fault_pairs(
+    by_name: dict[str, FourWheelFaultCase],
+) -> list[tuple[FourWheelFaultCase, FourWheelFaultCase]]:
+    pairs = list(_build_source_repair_fault_pairs(by_name))
+    for label in ("0p05", "0p2", "0p5"):
+        pairs.append((by_name[f"rear_left_halfshaft_loss_{label}"], by_name[f"rear_right_halfshaft_loss_{label}"]))
+    for label in ("stuck_3p0", "loss_0p0"):
+        pairs.append((by_name[f"front_left_brake_{label}"], by_name[f"front_right_brake_{label}"]))
+        pairs.append((by_name[f"rear_left_brake_{label}"], by_name[f"rear_right_brake_{label}"]))
+    pairs.extend(
+        [
+            (by_name["ultra_heavy_high_inertia"], by_name["ultra_light_low_inertia"]),
+            (by_name["front_cg_extreme"], by_name["rear_cg_extreme"]),
+            (by_name["high_yaw_inertia_same_mass"], by_name["low_yaw_inertia_same_mass"]),
+            (by_name["front_bias_high_inertia"], by_name["rear_bias_low_inertia"]),
+        ]
+    )
+    for label in ("drag_3200", "drag_3800"):
+        pairs.append(
+            (
+                by_name[f"front_left_tire_blowout_like_{label}"],
+                by_name[f"front_right_tire_blowout_like_{label}"],
+            )
+        )
+        pairs.append(
+            (
+                by_name[f"rear_left_tire_blowout_like_{label}"],
+                by_name[f"rear_right_tire_blowout_like_{label}"],
+            )
+        )
     return pairs
 
 
@@ -775,6 +929,71 @@ def build_source_repair_scenarios() -> list[FourWheelScenario]:
     return scenarios
 
 
+def build_source_topup_scenarios() -> list[FourWheelScenario]:
+    scenarios: list[FourWheelScenario] = []
+    seed = 132600
+
+    def add(**kwargs: Any) -> None:
+        nonlocal seed
+        scenarios.append(_make_scenario(scenario_id=f"fw_seed{seed}", seed=seed, **kwargs))
+        seed += 1
+
+    for speed in (15.0, 17.0, 19.0):
+        for obstacle_x in (11.0, 13.0):
+            for obstacle_y in (-0.45, 0.45):
+                add(
+                    speed=speed,
+                    obstacle_x=obstacle_x,
+                    obstacle_y=obstacle_y,
+                    obstacle_half_width=0.60,
+                    drive_force=4500.0,
+                    brake_force=0.0,
+                    previous_action=(0.35 if obstacle_y > 0.0 else -0.35, 1.0, -1.0),
+                )
+
+    for speed in (16.0, 18.0, 20.0):
+        for yaw_rate, lateral_velocity in ((-0.18, -1.2), (0.18, 1.2), (-0.10, -0.7), (0.10, 0.7)):
+            for obstacle_x in (10.0, 12.0):
+                add(
+                    speed=speed,
+                    obstacle_x=obstacle_x,
+                    obstacle_y=0.0,
+                    obstacle_half_width=0.75,
+                    yaw_rate=yaw_rate,
+                    lateral_velocity=lateral_velocity,
+                    brake_force=1500.0 if abs(yaw_rate) > 0.12 else 3000.0,
+                    previous_action=(-0.45 if yaw_rate > 0.0 else 0.45, -1.0, 0.2),
+                )
+
+    for speed in (14.0, 16.0, 18.0):
+        for obstacle_x in (9.0, 11.0):
+            for obstacle_y in (-0.25, 0.25):
+                add(
+                    speed=speed,
+                    obstacle_x=obstacle_x,
+                    obstacle_y=obstacle_y,
+                    obstacle_half_width=0.55,
+                    brake_force=5500.0,
+                    previous_action=(0.0, -1.0, 0.8),
+                )
+
+    for speed in (16.0, 18.0):
+        for obstacle_x in (10.0, 12.0):
+            for obstacle_y in (-0.45, 0.45):
+                add(
+                    speed=speed,
+                    obstacle_x=obstacle_x,
+                    obstacle_y=obstacle_y,
+                    obstacle_half_width=0.65,
+                    yaw_rate=0.06 if obstacle_y > 0.0 else -0.06,
+                    lateral_velocity=0.4 if obstacle_y > 0.0 else -0.4,
+                    brake_force=1500.0,
+                    previous_action=(-0.25 if obstacle_y > 0.0 else 0.25, -1.0, 0.2),
+                )
+
+    return scenarios
+
+
 def build_scenarios_for_profile(profile: str) -> list[FourWheelScenario]:
     if profile == "m1268_default":
         return build_scenarios()
@@ -784,6 +1003,8 @@ def build_scenarios_for_profile(profile: str) -> list[FourWheelScenario]:
         return build_source_expansion_scenarios()
     if profile == "source_repair_v1":
         return build_source_repair_scenarios()
+    if profile == "source_topup_v1":
+        return build_source_topup_scenarios()
     raise ValueError(f"unsupported scenario_profile {profile!r}")
 
 
@@ -801,7 +1022,7 @@ def build_action_lattice(*, sequence_length: int, action_profile: str = "brake_a
         ("counter_left", (0.75, -1.0, 1.0), (-0.45, -1.0, 0.3)),
         ("counter_right", (-0.75, -1.0, 1.0), (0.45, -1.0, 0.3)),
     ]
-    if action_profile in ("mixed_emergency_v1", "source_repair_v1"):
+    if action_profile in ("mixed_emergency_v1", "source_repair_v1", "source_topup_v1"):
         base_actions.extend(
             [
                 ("left_steer_throttle", (0.75, 1.0, -1.0)),
@@ -816,7 +1037,7 @@ def build_action_lattice(*, sequence_length: int, action_profile: str = "brake_a
                 ("right_release_counter_power", (-0.75, -1.0, 1.0), (0.35, 1.0, -1.0)),
             ]
         )
-    if action_profile == "source_repair_v1":
+    if action_profile in ("source_repair_v1", "source_topup_v1"):
         base_actions.extend(
             [
                 ("early_hard_brake", (0.0, -1.0, 1.0), (0.0, -1.0, 1.0), (0.0, -1.0, 0.3)),
@@ -837,7 +1058,20 @@ def build_action_lattice(*, sequence_length: int, action_profile: str = "brake_a
                 ("right_power_then_lift", (-0.55, 1.0, -1.0), (-0.45, -1.0, -1.0), (-0.2, -1.0, -1.0)),
             ]
         )
-    elif action_profile not in ("brake_avoidance_v1", "mixed_emergency_v1"):
+    if action_profile == "source_topup_v1":
+        base_actions.extend(
+            [
+                ("left_lift_then_power", (0.55, -1.0, -1.0), (0.35, 1.0, -1.0), (0.15, 1.0, -1.0)),
+                ("right_lift_then_power", (-0.55, -1.0, -1.0), (-0.35, 1.0, -1.0), (-0.15, 1.0, -1.0)),
+                ("counter_power_recovery_left", (-0.55, 1.0, -1.0), (0.35, 1.0, -1.0), (0.15, -1.0, -1.0)),
+                ("counter_power_recovery_right", (0.55, 1.0, -1.0), (-0.35, 1.0, -1.0), (-0.15, -1.0, -1.0)),
+                ("release_then_left_swerve", (0.0, -1.0, -1.0), (0.75, -1.0, 0.0), (0.55, -1.0, -1.0)),
+                ("release_then_right_swerve", (0.0, -1.0, -1.0), (-0.75, -1.0, 0.0), (-0.55, -1.0, -1.0)),
+                ("left_counter_release", (-0.45, -1.0, 0.2), (0.55, -1.0, -1.0), (0.15, -1.0, -1.0)),
+                ("right_counter_release", (0.45, -1.0, 0.2), (-0.55, -1.0, -1.0), (-0.15, -1.0, -1.0)),
+            ]
+        )
+    elif action_profile not in ("brake_avoidance_v1", "mixed_emergency_v1", "source_repair_v1"):
         raise ValueError(f"unsupported action_profile {action_profile!r}")
     candidates: list[dict[str, Any]] = []
     for candidate_id, item in enumerate(base_actions):
@@ -1355,17 +1589,17 @@ def main() -> None:
     parser.add_argument("--run-dir", type=Path, default=None)
     parser.add_argument(
         "--fault-profile",
-        choices=("m1268_default", "source_expansion_v1", "source_repair_v1"),
+        choices=("m1268_default", "source_expansion_v1", "source_repair_v1", "source_topup_v1"),
         default="m1268_default",
     )
     parser.add_argument(
         "--scenario-profile",
-        choices=("m1268_default", "viability_calibration", "source_expansion_v1", "source_repair_v1"),
+        choices=("m1268_default", "viability_calibration", "source_expansion_v1", "source_repair_v1", "source_topup_v1"),
         default="m1268_default",
     )
     parser.add_argument(
         "--action-profile",
-        choices=("brake_avoidance_v1", "mixed_emergency_v1", "source_repair_v1"),
+        choices=("brake_avoidance_v1", "mixed_emergency_v1", "source_repair_v1", "source_topup_v1"),
         default="brake_avoidance_v1",
     )
     parser.add_argument("--sequence-length", type=int, default=72)

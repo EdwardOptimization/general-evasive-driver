@@ -4,7 +4,8 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "metric_artifact",
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -143,7 +144,7 @@
     },
     {
       "name": "run_topup_smoke",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.four_wheel_fault_source_shape --fault-profile source_topup_v1 --scenario-profile source_topup_v1 --action-profile source_topup_v1 --sequence-length 9 --max-rollouts 180000 --run-dir runs/m1326_source_repair_topup_generation_smoke"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.four_wheel_fault_source_shape --fault-profile source_topup_v1 --scenario-profile source_topup_v1 --action-profile source_topup_v1 --sequence-length 9 --run-dir runs/m1326_source_repair_topup_generation_smoke"
     }
   ],
   "required_artifacts": [
@@ -163,6 +164,39 @@
     "docs/m1325-paper-route-source-repair-topup-generation-design.md",
     "runs/m1323_source_repair_corpus_expansion_plan/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1326_source_repair_topup_generation_smoke/summary.json",
+    "doc": "docs/m1326-paper-route-source-repair-topup-generation-smoke.md",
+    "decision": "source_repair_topup_smoke_invalid_short_horizon_route_to_horizon_corrected_smoke",
+    "result_class": "invalid_short_horizon_metric_artifact",
+    "focused_tests_passed": true,
+    "focused_tests": "14 passed",
+    "fault_profile": "source_topup_v1",
+    "scenario_profile": "source_topup_v1",
+    "action_profile": "source_topup_v1",
+    "sequence_length": 9,
+    "scenario_count": 56,
+    "fault_count": 86,
+    "fault_pair_count": 47,
+    "matched_pair_count": 2632,
+    "action_lattice_rows": 45,
+    "action_rollouts": 236880,
+    "accepted_separable_pairs": 0,
+    "accepted_fault_family_pairs": 0,
+    "own_branch_viability_fail_count": 2632,
+    "all_rollouts_horizon": true,
+    "historical_valid_sequence_length": 72,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1327-paper-route-source-repair-topup-horizon-corrected-smoke.json"
+  },
+  "decision": "source_repair_topup_smoke_invalid_short_horizon_route_to_horizon_corrected_smoke",
   "decision_rule": "M1326 passes as infrastructure if source_topup_v1 runs under strict source-mining thresholds and reports either target-met coverage or explicit gap diagnostics without training, PPO, promotion, private holdout use, threshold relaxation, or actor-input expansion.",
-  "next_blocker": "m1326-paper-route-source-repair-topup-generation-smoke"
+  "next_blocker": "m1327-paper-route-source-repair-topup-horizon-corrected-smoke"
 }

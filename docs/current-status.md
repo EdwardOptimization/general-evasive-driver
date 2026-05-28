@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1325-paper-route-source-repair-topup-generation-design
+m1326-paper-route-source-repair-topup-generation-smoke
 ```
 
 Current next task:
 
 ```text
-m1326-paper-route-source-repair-topup-generation-smoke
+m1327-paper-route-source-repair-topup-horizon-corrected-smoke
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -261,6 +261,11 @@ completed that design and admits M1326: implement `source_topup_v1` fault,
 scenario, and action profiles; target halfshaft, load/CG, brake asymmetry, and
 tire-blowout-like undercoverage; keep global friction separate as a diagnostic
 or explicit blocker; and run one strict no-policy source-generation smoke.
+M1326 implemented `source_topup_v1` and focused tests pass, but the smoke used
+`sequence_length=9`; all `236880` rollouts terminated by `horizon`, so
+`accepted_separable_pairs=0` is a metric artifact rather than a valid source
+coverage conclusion. The active blocker is M1327: rerun the same top-up profile
+with the historical valid source horizon `sequence_length=72`.
 
 ## Actor Contract
 
