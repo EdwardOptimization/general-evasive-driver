@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1366,
+    "completed": 1367,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.md",
+    "command_log": "docs/m1357-paper-route-bidirectional-replay-active-set-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.md",
+    "run_dir": "docs/m1357-paper-route-bidirectional-replay-active-set-design.md",
     "status": "completed",
-    "task_id": "m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis"
+    "task_id": "m1357-paper-route-bidirectional-replay-active-set-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1357-paper-route-bidirectional-replay-active-set-design.json",
-    "hypothesis": "Design separate correct-history and wrong-history replay constraints after M1356 pivot",
-    "id": "m1357-paper-route-bidirectional-replay-active-set-design",
-    "kind": "gate",
-    "notes": "Pending: bidirectional active-set design only; no training, PPO, promotion, private holdout, replay run, or actor update",
-    "priority": 13520,
+    "command": "see experiments/manifests/m1358-paper-route-bidirectional-active-set-anchor-export.json",
+    "hypothesis": "Export combined correct-history and wrong-history active-set anchors before any actor update",
+    "id": "m1358-paper-route-bidirectional-active-set-anchor-export",
+    "kind": "infrastructure",
+    "notes": "Pending: artifact-only anchor export; no training, PPO, promotion, private holdout, replay run, or actor update",
+    "priority": 13530,
     "status": "pending",
-    "success_artifact": "docs/m1357-paper-route-bidirectional-replay-active-set-design.md"
+    "success_artifact": "runs/m1358_bidirectional_active_set_anchor_export/summary.json"
   },
-  "updated_at_utc": "20260528T200455Z"
+  "updated_at_utc": "20260528T200808Z"
 }

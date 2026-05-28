@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M1357 designs branch-asymmetric correct-history and wrong-history constraints and admits artifact-only anchor export for M1355 safe wrong-history rows",
+  "failure_criteria": [
+    "design document is missing",
+    "design omits wrong-history branch constraints",
+    "design routes directly to PPO or promotion",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, replay run, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not run a new actor update",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T200858Z",
+  "hypothesis": "A bidirectional active-set design can avoid the M1355 failure by protecting both correct-history success and wrong-history rejected/failure behavior.",
+  "lineage": {
+    "blocked_by": [
+      "M1356 pivots because normal-branch retention alone makes wrong-history branches successful"
+    ],
+    "derived_from": [
+      "m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1355_materialized_source_history_replay_aware_retention_probe/checkpoints/raw_replay_aware_retention_update.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_dataset": [
+      "docs/m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis.md",
+      "runs/m1355_materialized_source_history_replay_aware_retention_probe/summary.json",
+      "runs/m1355_materialized_source_history_replay_aware_retention_probe/replay/m267_m264/boundary_replay_rows.csv",
+      "runs/m1352_materialized_source_history_interpolation_preflight/replay/m1352_alpha_0_005/m183_m170/boundary_replay_rows.csv",
+      "runs/m1336_materialized_source_history_objective_corpus_export"
+    ],
+    "parent_objective": [
+      "design bidirectional active-set objective that protects correct-history and wrong-history branches separately"
+    ],
+    "supersedes": [
+      "more local retention coefficient tuning",
+      "direct PPO after M1355",
+      "promotion of M1355"
+    ]
+  },
+  "milestone": "m1357-paper-route-bidirectional-replay-active-set-design",
+  "next_blocker": "m1358-paper-route-bidirectional-active-set-anchor-export",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bidirectional_replay_active_set_design_admit_anchor_export",
+  "public_gates": [
+    "M1357 must not train",
+    "M1357 must not run PPO",
+    "M1357 must not use private holdout",
+    "M1357 must not promote",
+    "M1357 must preserve actor input contract",
+    "M1357 must design correct-history and wrong-history active-set constraints separately"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1357-paper-route-bidirectional-replay-active-set-design.md",
+    "clearance_margin_mean": "",
+    "decision": "bidirectional_replay_active_set_design_admit_anchor_export",
+    "milestone": "m1357-paper-route-bidirectional-replay-active-set-design",
+    "reason": "M1357 designs branch-asymmetric correct-history and wrong-history constraints and admits artifact-only anchor export for M1355 safe wrong-history rows",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1357-paper-route-bidirectional-replay-active-set-design.md exists",
+    "design specifies correct-history branch constraints",
+    "design specifies wrong-history branch constraints",
+    "design identifies M1355 wrong-history safe rows as active constraints",
+    "design specifies no-PPO implementation admission criteria",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, replay run, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

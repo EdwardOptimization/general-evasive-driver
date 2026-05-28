@@ -1,0 +1,160 @@
+{
+  "id": "m1358-paper-route-bidirectional-active-set-anchor-export",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1357-paper-route-bidirectional-replay-active-set-design.md",
+      "runs/m1355_materialized_source_history_replay_aware_retention_probe/retention_surface/retention_trajectory_anchor.npz",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1357-paper-route-bidirectional-replay-active-set-design.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_objective": [
+      "export combined correct-history and wrong-history trajectory anchors for bidirectional active-set branch"
+    ],
+    "derived_from": [
+      "m1357-paper-route-bidirectional-replay-active-set-design"
+    ],
+    "blocked_by": [
+      "M1357 designs the bidirectional objective but the wrong-history anchor artifact has not been exported"
+    ],
+    "supersedes": [
+      "direct actor update before rejected-branch anchor export"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1358-paper-route-bidirectional-active-set-anchor-export.md",
+  "public_gates": [
+    "M1358 must not train",
+    "M1358 must not run PPO",
+    "M1358 must not update actor weights",
+    "M1358 must not use private holdout",
+    "M1358 must not promote",
+    "M1358 must export required wrong-history row ids 6,10,13,15,16",
+    "M1358 must verify the combined anchor loads"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor weights",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_bidirectional_replay_active_set_retention",
+    "evidence_axis": "S_bidirectional_anchor_export",
+    "evidence_increment": "materializes wrong-history rejected trajectory anchors for the M1355 proof-washout rows",
+    "claim_scope": "artifact export only; no promotion, private-holdout, PPO, actor-update, full replay, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if any required row id is missing",
+      "stop if combined anchor cannot load",
+      "stop if actor weights are updated",
+      "stop if actor inputs change"
+    ],
+    "fallback_plan": [
+      "if required rows are missing, route to active-row registry audit",
+      "if anchor export fails, route to rejected-branch exporter repair",
+      "if combined anchor is valid, route to a no-PPO bidirectional active-set probe design",
+      "if anchor is too large, route to source-balanced thinning design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1357 admits an artifact-only bidirectional anchor export",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "bidirectional anchor export",
+    "admission_evidence": [
+      "M1357 identifies wrong-history safe rows 6,10,13,15,16",
+      "rejected_history_trajectory_anchor.py can export and combine rejected trajectory anchors"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not update checkpoint weights",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "bidirectional anchor export artifacts",
+      "M1358 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "summary records required rows present",
+      "summary records rejected and combined anchor row counts",
+      "combined anchor load is verified",
+      "no actor update occurs"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1358 exports intervention anchors and cannot claim anticipatory self-identification.",
+    "history_necessity_tests": [
+      "anchor rows target wrong-history intervention behavior from M1355 proof-washout rows"
+    ],
+    "temporal_evidence_window": "M1355 M267/M264 wrong-history safe rows.",
+    "negative_result_policy": "If the artifact cannot be built, record the tooling gap before any actor update.",
+    "allowed_claims": [
+      "bidirectional anchor export result",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1355 wrong-history safe rows can be materialized into a combined correct/wrong trajectory anchor for a later bidirectional active-set update.",
+  "success_criteria": [
+    "runs/m1358_bidirectional_active_set_anchor_export/summary.json exists",
+    "summary records required row ids 6,10,13,15,16 present",
+    "summary records rejected trajectory rows",
+    "summary records combined anchor rows",
+    "summary verifies combined anchor load",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, replay run, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "required row ids are missing",
+    "combined anchor cannot load",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, replay run, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "anchor_export",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.rejected_history_trajectory_anchor --checkpoint-policy m1154_base=runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --corpus-csv runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv --base-combined-anchor-npz runs/m1355_materialized_source_history_replay_aware_retention_probe/retention_surface/retention_trajectory_anchor.npz --env-config configs/m121_human_view_zero_obstacle_relvel.json --required-row-ids 6,10,13,15,16 --max-continuation-steps 60 --rejected-weight 10.0 --failed-row-weight 50.0 --rejected-repeat 16 --device cpu --run-dir runs/m1358_bidirectional_active_set_anchor_export"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1358_bidirectional_active_set_anchor_export/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1358-paper-route-bidirectional-active-set-anchor-export.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1357-paper-route-bidirectional-replay-active-set-design.md",
+    "runs/m1355_materialized_source_history_replay_aware_retention_probe/retention_surface/retention_trajectory_anchor.npz"
+  ],
+  "decision_rule": "M1358 passes only if the combined bidirectional anchor is exported and loaded without actor update, PPO, private holdout, promotion, replay run, or actor-input expansion.",
+  "next_blocker": "m1358-paper-route-bidirectional-active-set-anchor-export"
+}

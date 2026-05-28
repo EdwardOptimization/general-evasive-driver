@@ -19919,3 +19919,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1357-paper-route-bidirectional-replay-active-set-design.json`.
 - next: `m1357-paper-route-bidirectional-replay-active-set-design`
+
+## 20260528T200808Z - m1357-paper-route-bidirectional-replay-active-set-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1357-paper-route-bidirectional-replay-active-set-design.md`
+- decision: `bidirectional_replay_active_set_design_admit_anchor_export`
+- branch: `paper_route_bidirectional_replay_active_set_retention`
+- design: separate correct-history branch constraints from wrong-history/rejected-branch constraints.
+- active wrong-history rows: M267/M264 rows `6`, `10`, `13`, `15`, and `16` from the M1355 proof washout.
+- next artifact route: use `autodrift.rejected_history_trajectory_anchor` to combine the M1355 correct-history retention anchor with wrong-history rejected trajectory anchors.
+- guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1358-paper-route-bidirectional-active-set-anchor-export.json`.
+- next: `m1358-paper-route-bidirectional-active-set-anchor-export`

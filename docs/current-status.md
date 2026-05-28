@@ -16,14 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1356-paper-route-materialized-source-history-pair-group-update-branch-synthesis
+m1357-paper-route-bidirectional-replay-active-set-design
 ```
 
 Current next task:
 
 ```text
-m1357-paper-route-bidirectional-replay-active-set-design
+m1358-paper-route-bidirectional-active-set-anchor-export
 ```
+
+M1357 designs the new bidirectional replay active-set branch. The objective is
+now branch-asymmetric: protect correct-history success/margin and separately
+protect wrong-history rejected/failure behavior, instead of only anchoring normal
+trajectories. M1358 is an artifact-only step using
+`autodrift.rejected_history_trajectory_anchor` to export wrong-history
+trajectory anchors for M1355 safe rows `6`, `10`, `13`, `15`, and `16`, then
+combine them with the existing M1355 correct-history retention anchor. No actor
+update is admitted by M1358.
 
 M1356 synthesizes M1346-M1355 and closes
 `paper_route_materialized_source_history_pair_group_update_implementation` with a
