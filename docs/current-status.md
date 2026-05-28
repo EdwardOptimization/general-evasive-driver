@@ -115,8 +115,29 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1189-paper-route-controller-profile-config-generation-design
+m1190-paper-route-controller-profile-config-generation-implementation
 ```
+
+M1189 completed controller-profile config-generation design:
+
+```text
+artifact: docs/m1189-paper-route-controller-profile-config-generation-design.md
+decision: controller_profile_config_generation_design_admit_implementation
+next manifest: experiments/manifests/m1190-paper-route-controller-profile-config-generation-implementation.json
+```
+
+M1189 specifies eight generated smoke configs under
+`configs/paper_route_profiles/`, based on
+`configs/m121_human_view_zero_obstacle_relvel.json`, with profile-specific
+history lengths and profile metadata. It requires L0 config metadata to include
+`observation_mask=zero_previous_command_fields` and previous-command indices
+`[9,10,11]`. It does not claim the runtime training/eval entrypoints already
+apply the mask; if M1190 exposes a gap, the route is a focused runtime mask
+wrapper before any L0 training.
+
+M1189 did not generate final configs, train, run replay, run PPO, promote, use
+private holdout, or change actor inputs. The next blocker is M1190: implement
+generated config files and tests without running those configs for training.
 
 M1188 implemented the controller-profile scaffold:
 

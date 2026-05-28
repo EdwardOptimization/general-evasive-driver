@@ -16981,3 +16981,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no controller training, candidate replay, PPO, promotion, private holdout, hidden/oracle actor input, or actor-input contract change occurred.
 - decision: `controller_profile_scaffold_ready_route_to_config_generation_design`
 - next: `m1189-paper-route-controller-profile-config-generation-design`
+
+## 20260528T064000Z - m1189-paper-route-controller-profile-config-generation-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1189-paper-route-controller-profile-config-generation-design.md`
+- result: designs generated smoke configs and contract checks for the M1188 controller profiles before any training.
+- required generated config family: eight profile smoke configs under `configs/paper_route_profiles/` for L0, L1, four L2 finite windows, L3, and L3 reset control.
+- base env: `configs/m121_human_view_zero_obstacle_relvel.json` with profile-specific `history_length` and no hidden/oracle actor inputs.
+- L0 handling: generated metadata must include `observation_mask=zero_previous_command_fields` and previous-command indices `[9,10,11]`; runtime mask integration remains a separate implementation concern if current entrypoints cannot apply it.
+- L3 reset handling: generated config should be metadata-only or `training_enabled=false` until reset runtime is implemented.
+- follow-up manifest: `experiments/manifests/m1190-paper-route-controller-profile-config-generation-implementation.json`.
+- guardrail: no final configs generated, controller training, candidate replay, PPO, promotion, private holdout, or actor-input change occurred.
+- decision: `controller_profile_config_generation_design_admit_implementation`
+- next: `m1190-paper-route-controller-profile-config-generation-implementation`

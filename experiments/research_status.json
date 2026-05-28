@@ -1,28 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1198,
+    "completed": 1199,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1188-paper-route-controller-profile-scaffold-implementation.md",
+    "command_log": "docs/m1189-paper-route-controller-profile-config-generation-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1188_controller_profile_scaffold_smoke",
     "status": "completed",
-    "task_id": "m1188-paper-route-controller-profile-scaffold-implementation"
+    "task_id": "m1189-paper-route-controller-profile-config-generation-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1189-paper-route-controller-profile-config-generation-design.json",
-    "hypothesis": "Design controller profile config generation",
-    "id": "m1189-paper-route-controller-profile-config-generation-design",
-    "kind": "gate",
-    "notes": "Pending: design train/eval smoke config generation and L0 runtime mask handling for L0/L1/L2/L3 without training replay PPO promotion private holdout or actor-input change",
-    "priority": 11840,
+    "command": "see experiments/manifests/m1190-paper-route-controller-profile-config-generation-implementation.json",
+    "hypothesis": "Implement controller profile config generation",
+    "id": "m1190-paper-route-controller-profile-config-generation-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: generate eight profile smoke configs and focused contract tests without running controller training replay PPO promotion private holdout hidden inputs or actor-input changes",
+    "priority": 11850,
     "status": "pending",
-    "success_artifact": "docs/m1189-paper-route-controller-profile-config-generation-design.md"
+    "success_artifact": "docs/m1190-paper-route-controller-profile-config-generation-implementation.md"
   },
-  "updated_at_utc": "20260528T062500Z"
+  "updated_at_utc": "20260528T064000Z"
 }

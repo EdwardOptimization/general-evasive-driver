@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1189 designs generated smoke config contract L0 mask metadata profile contract checks and M1190 implementation route without training replay PPO promotion private holdout or actor-input change",
+  "failure_criteria": [
+    "design omits finite-window profiles",
+    "design cannot enforce L0 mask",
+    "design allows hidden or oracle actor inputs",
+    "controller training, candidate replay, PPO, promotion, private holdout, or actor-input change starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train L0 L1 L2 or L3",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not generate configs with hidden or oracle actor inputs",
+    "do not claim controller performance from config design"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T042426Z",
+  "hypothesis": "A generated config contract can keep L0/L1/L2/L3 controller smoke runs comparable and contract-clean before training starts.",
+  "lineage": {
+    "blocked_by": [
+      "profile metadata exists but train and eval config generation is not yet specified"
+    ],
+    "derived_from": [
+      "m1188-paper-route-controller-profile-scaffold-implementation"
+    ],
+    "invalidates": [
+      "starting profile training before generated configs are contract-checked"
+    ],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1188-paper-route-controller-profile-scaffold-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1188-paper-route-controller-profile-scaffold-implementation.md",
+      "src/autodrift/controller_profiles.py",
+      "runs/m1188_controller_profile_scaffold_smoke/summary.json",
+      "docs/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.md"
+    ],
+    "parent_objective": [
+      "design config generation for L0 L1 L2 L3 profile smoke and later training without starting training"
+    ],
+    "supersedes": [
+      "manual per-profile config editing"
+    ]
+  },
+  "milestone": "m1189-paper-route-controller-profile-config-generation-design",
+  "next_blocker": "m1190-paper-route-controller-profile-config-generation-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controller_profile_config_generation_design_admit_implementation",
+  "public_gates": [
+    "M1189 may design config generation only",
+    "M1189 must not train controller weights",
+    "M1189 must not run PPO",
+    "M1189 must not run candidate replay",
+    "M1189 must not promote",
+    "M1189 must not use private holdout",
+    "M1189 must not add hidden or oracle actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1189-paper-route-controller-profile-config-generation-design.md",
+    "clearance_margin_mean": "",
+    "decision": "controller_profile_config_generation_design_admit_implementation",
+    "milestone": "m1189-paper-route-controller-profile-config-generation-design",
+    "reason": "M1189 designs generated smoke config contract L0 mask metadata profile contract checks and M1190 implementation route without training replay PPO promotion private holdout or actor-input change",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1189-paper-route-controller-profile-config-generation-design.md exists",
+    "train smoke config generation is specified",
+    "eval smoke config generation is specified",
+    "profile contract checks are specified",
+    "L0 runtime mask handling is specified",
+    "follow-up implementation milestone is pre-registered",
+    "no controller training, candidate replay, PPO, promotion, private holdout, or actor-input change occurs"
+  ],
+  "type": "gate"
+}
