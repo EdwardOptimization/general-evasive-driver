@@ -16612,3 +16612,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no relocation, mining, outcome rerun, actor training, PPO, promotion, private holdout, actor-input change, or threshold weakening occurred.
 - decision: `row15_promoted_staged_relocation_expansion_design_admit_pilot`
 - next: `m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot`
+
+## 20260528T012826Z - m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot.md`
+- result: the staged wrong-history-only relocation pilot completed but did not improve on M1161.
+- source budget: ready with `4585` candidate wrong-history rows and `242` eligible physical pairs.
+- candidate selection: `240` selected rows across `240` physical pairs, `27` left steps, and `3` targets.
+- relocation result: `4605` raw rows but only `1` accepted wrong-history row, `1` physical pair, `1` target, `1` normal-margin bucket, and normal-margin max `0.002457`.
+- comparison: M1161 had `15` accepted wrong-history rows, `2` physical pairs, `1` margin bucket, and normal-margin max `0.002483`; M1166 improves none of the pre-registered useful-improvement criteria.
+- failure class: wrong-history relocation scarcity after broad source selection, not source-budget failure.
+- guardrail: no mining rerun, outcome rerun, actor training, PPO, promotion, private holdout, surface conversion, threshold weakening, or actor-input change occurred.
+- decision: `row15_promoted_staged_relocation_pilot_reject_route_to_wrong_history_mechanism_audit`
+- next: `m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit`

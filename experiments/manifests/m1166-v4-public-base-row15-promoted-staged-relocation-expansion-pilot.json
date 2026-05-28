@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -156,6 +156,51 @@
     "docs/m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design.md",
     "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot.md",
+    "summary": "runs/m1166_row15_promoted_staged_relocation_pilot_seed116100/summary.json",
+    "decision": "row15_promoted_staged_relocation_pilot_reject_route_to_wrong_history_mechanism_audit",
+    "result_class": "row15_promoted_staged_relocation_pilot_wrong_history_scarcity",
+    "failure_types": [
+      "scenario_sampling_failure"
+    ],
+    "source_budget_ready": true,
+    "source_candidate_wrong_history_rows": 4585,
+    "source_eligible_physical_pairs": 242,
+    "selected_rows": 240,
+    "selected_physical_pairs": 240,
+    "selected_left_steps": 27,
+    "selected_targets": 3,
+    "raw_relocation_rows": 4605,
+    "accepted_wrong_history_rows": 1,
+    "accepted_wrong_physical_pairs": 1,
+    "accepted_wrong_left_steps": 1,
+    "accepted_wrong_checkpoints": 1,
+    "accepted_wrong_targets": 1,
+    "accepted_wrong_normal_margin_buckets": 1,
+    "accepted_wrong_normal_margin_max": 0.002457,
+    "accepted_wrong_success_drop_fraction": 1.0,
+    "max_rows_per_physical_pair_fraction": 1.0,
+    "control_accepted_wrong_rows": 0,
+    "m1161_accepted_wrong_history_rows": 15,
+    "m1161_accepted_wrong_physical_pairs": 2,
+    "m1161_accepted_wrong_normal_margin_buckets": 1,
+    "m1161_accepted_wrong_normal_margin_max": 0.002483,
+    "improved_vs_m1161": false,
+    "passed": false,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "mining_started": false,
+    "outcome_rerun_started": false,
+    "surface_conversion_started": false,
+    "admitted_next": "wrong_history_mechanism_audit",
+    "next_milestone": "m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit"
+  },
   "decision_rule": "M1166 may only run the small staged relocation pilot and compare it to M1161. It cannot rerun mining or outcome gates, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert the pilot surface, or claim full surface pass.",
-  "next_blocker": "m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot"
+  "next_blocker": "m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit"
 }

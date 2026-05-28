@@ -84,8 +84,32 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot
+m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit
 ```
+
+M1166 completed the resource-bounded staged relocation pilot. It confirmed
+that M1164's resource issue can be avoided, but the scientific result is
+negative:
+
+```text
+source_budget_ready: true
+selected rows: 240
+selected physical pairs: 240
+raw relocation rows: 4605
+accepted wrong-history rows: 1
+accepted wrong-history physical pairs: 1
+accepted wrong-history normal-margin buckets: 1
+accepted wrong-history normal-margin max: 0.002457
+M1161 accepted wrong-history rows: 15
+M1161 accepted wrong-history physical pairs: 2
+M1161 accepted wrong-history normal-margin max: 0.002483
+decision: row15_promoted_staged_relocation_pilot_reject_route_to_wrong_history_mechanism_audit
+```
+
+The next step is not a larger same-shape relocation run. M1167 should audit
+existing M1161 and M1166 artifacts to classify why broad source-selected
+wrong-history candidates become safe after relocation under the current
+row15-promoted public base.
 
 M1127 completed the expanded full public gate for the row15 projection
 candidate:

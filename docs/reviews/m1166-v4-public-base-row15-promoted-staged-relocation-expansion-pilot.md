@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T011926Z
+- Generated at UTC: 20260528T013136Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M1166 may only run the small staged relocation pilot and compare it to M1161. It cannot rerun mining or outcome gates, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert the pilot surface, or claim full surface pass.
+- Promotion decision: row15_promoted_staged_relocation_pilot_reject_route_to_wrong_history_mechanism_audit
+- Decision reason: M1166 source budget is ready and selected 240 physical pairs but relocation accepted only 1 wrong-history row so it does not improve over M1161 and routes to mechanism audit
 
 ## Hypothesis
 
@@ -72,12 +72,23 @@ A small wrong-history-only body-offset relocation pilot can complete quickly and
 
 ## Failure Taxonomy
 
-- none
+- scenario_sampling_failure
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot
+- type: gate
+- checkpoint: runs/m1166_row15_promoted_staged_relocation_pilot_seed116100/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_staged_relocation_pilot_reject_route_to_wrong_history_mechanism_audit
+- reason: M1166 source budget is ready and selected 240 physical pairs but relocation accepted only 1 wrong-history row so it does not improve over M1161 and routes to mechanism audit
 
 ## Next Blocker
 
-m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot
+m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit

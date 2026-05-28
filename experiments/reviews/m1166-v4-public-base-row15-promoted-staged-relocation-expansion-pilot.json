@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1166 may only run the small staged relocation pilot and compare it to M1161. It cannot rerun mining or outcome gates, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert the pilot surface, or claim full surface pass.",
+  "decision_reason": "M1166 source budget is ready and selected 240 physical pairs but relocation accepted only 1 wrong-history row so it does not improve over M1161 and routes to mechanism audit",
   "failure_criteria": [
     "summary artifact is missing",
     "pilot exceeds resource budget and must be interrupted",
@@ -7,7 +7,7 @@
     "actor training, PPO, promotion, private holdout, mining rerun, outcome rerun, conversion, or actor-input change starts"
   ],
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "forbidden_shortcuts": [
     "do not rerun mining",
@@ -21,7 +21,7 @@
     "do not claim full surface pass from pilot diagnostic"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260528T011926Z",
+  "generated_at_utc": "20260528T013136Z",
   "hypothesis": "A small wrong-history-only body-offset relocation pilot can complete quickly and indicate whether body-offset expansion improves accepted wrong-history surface quality over M1161.",
   "lineage": {
     "blocked_by": [
@@ -51,9 +51,9 @@
     "supersedes": []
   },
   "milestone": "m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot",
-  "next_blocker": "m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot",
+  "next_blocker": "m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "row15_promoted_staged_relocation_pilot_reject_route_to_wrong_history_mechanism_audit",
   "public_gates": [
     "M1166 may run only the M1165 pilot command",
     "M1166 must reuse the existing M1161 outcome CSV",
@@ -66,7 +66,20 @@
     "M1166 must preserve actor inputs",
     "M1166 must not convert the pilot surface"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m1166_row15_promoted_staged_relocation_pilot_seed116100/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_staged_relocation_pilot_reject_route_to_wrong_history_mechanism_audit",
+    "milestone": "m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot",
+    "reason": "M1166 source budget is ready and selected 240 physical pairs but relocation accepted only 1 wrong-history row so it does not improve over M1161 and routes to mechanism audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "summary artifact exists",
     "pilot runtime completes",

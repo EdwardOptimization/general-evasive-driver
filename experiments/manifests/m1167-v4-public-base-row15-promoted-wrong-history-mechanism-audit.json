@@ -1,0 +1,163 @@
+{
+  "id": "m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot.md",
+      "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv",
+      "runs/m1166_row15_promoted_staged_relocation_pilot_seed116100/summary.json",
+      "runs/m1166_row15_promoted_staged_relocation_pilot_seed116100/boundary_relocation_rows.csv",
+      "runs/m1166_row15_promoted_staged_relocation_pilot_seed116100/surface_summary.csv",
+      "runs/m1166_row15_promoted_staged_relocation_pilot_seed116100/balanced_accepted_wrong_history_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot.json"
+    ],
+    "parent_objective": [
+      "audit why M1166 preserved a broad source budget but produced only one accepted wrong-history relocation row"
+    ],
+    "derived_from": [
+      "m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot"
+    ],
+    "blocked_by": [
+      "M1166 did not improve on M1161 and accepted only one wrong-history relocation row"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "larger same-shape relocation expansion without mechanism audit",
+      "conversion from the M1166 pilot surface",
+      "PPO from the M1166 pilot surface"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md",
+  "public_gates": [
+    "M1167 must audit existing M1161 and M1166 artifacts only",
+    "M1167 must not rerun mining",
+    "M1167 must not rerun outcome gate",
+    "M1167 must not run relocation replay",
+    "M1167 must not train actor weights",
+    "M1167 must not run PPO",
+    "M1167 must not promote",
+    "M1167 must not use private holdout",
+    "M1167 must preserve actor inputs",
+    "M1167 must not convert the failed pilot surface"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun mining",
+    "do not rerun outcome gate",
+    "do not run relocation replay",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken thresholds",
+    "do not convert the failed pilot surface"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_margin_slack_surface_refresh",
+    "evidence_axis": "G_audit: wrong-history relocation mechanism scarcity",
+    "evidence_increment": "classifies why source-diverse candidates become wrong-history-safe after relocation under the current public base",
+    "claim_scope": "mechanism audit only; no mining, replay, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop same-shape relocation expansion if wrong-history failures remain source-sparse after relocation",
+      "stop same-shape relocation expansion if current-frame/reactive behavior explains most wrong-history-safe outcomes",
+      "stop same-shape relocation expansion if relocation target choices erase the matched-current ambiguity"
+    ],
+    "fallback_plan": [
+      "if wrong-history intervention is too weak, route to stronger wrong-history construction design",
+      "if relocation erases ambiguity, route to relocation-target redesign",
+      "if current-frame substitution dominates, route to observation/intervention audit rather than more mining",
+      "if audit is inconclusive, route to a tiny instrumented replay rather than full expansion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1166 completed with worse accepted wrong-history surface quality than M1161 despite broad source selection",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit existing wrong-history relocation artifacts before any further expansion",
+    "admission_evidence": [
+      "M1166 selected 240 candidates across 240 physical pairs",
+      "M1166 accepted only 1 wrong-history row after relocation",
+      "M1166 did not improve on M1161 in rows, pairs, buckets, or margin slack"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not rerun source mining",
+      "do not rerun outcome gate",
+      "do not run relocation replay",
+      "do not convert pilot surface"
+    ],
+    "allowed_updates": [
+      "audit documentation",
+      "small tabular summaries derived from existing CSVs",
+      "next design manifest if audit is clear",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "wrong-history scarcity mechanism is classified",
+      "M1161 versus M1166 contrast is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1167 audits whether current-frame/reactive behavior or relocation geometry makes wrong-history interventions too weak.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history"
+    ],
+    "temporal_evidence_window": "M1167 reads existing M1161 and M1166 continuation outputs only.",
+    "negative_result_policy": "If wrong-history intervention remains scarce, treat it as a task/intervention design blocker rather than lowering self-identification standards.",
+    "allowed_claims": [
+      "mechanism audit for level2 proof-surface mining",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "M1166 failed because relocation makes most matched wrong-history continuations safe; the audit can distinguish source-budget, target-policy, target-type, margin-window, and current-frame substitution causes using existing artifacts.",
+  "success_criteria": [
+    "audit artifact exists",
+    "M1161 and M1166 accepted-surface contrast is summarized",
+    "wrong-history-safe versus wrong-history-failure rows are summarized by checkpoint, target, pair, margin, and action-distance evidence",
+    "failure mechanism is classified",
+    "next route is explicit",
+    "no mining, outcome rerun, relocation replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "failure mechanism remains ambiguous",
+    "next route remains ambiguous",
+    "mining, outcome rerun, relocation replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "audit_wrong_history_mechanism",
+      "command": "inspect M1161 and M1166 summaries and CSVs; write docs/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot.md",
+    "runs/m1166_row15_promoted_staged_relocation_pilot_seed116100/summary.json"
+  ],
+  "decision_rule": "M1167 may only audit existing M1161 and M1166 artifacts and choose the next route. It cannot rerun mining, rerun outcome gate, run relocation replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, weaken thresholds, or convert the failed pilot surface.",
+  "next_blocker": "m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit"
+}
