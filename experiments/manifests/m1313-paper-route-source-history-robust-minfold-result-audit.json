@@ -149,6 +149,30 @@
     "runs/m1312_source_history_robust_minfold_probe/summary.json",
     "runs/m1312_source_history_robust_minfold_tradeoff_audit/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1313-paper-route-source-history-robust-minfold-result-audit.md",
+    "decision": "robust_minfold_result_audit_pivot_to_source_history_corpus_expansion",
+    "primary_failure_type": "scenario_sampling_failure",
+    "secondary_failure_type": "objective_overfit",
+    "m1312_aggregate_repeat_strong": true,
+    "m1312_baseline_pass_lost_offsets": "0|1",
+    "m1312_new_pass_offsets": "2|4",
+    "m1312_top_failed_combo_positive_delta": 6,
+    "m1312_full_positive_delta": 7,
+    "m1312_full_mean_margin_delta": 0.0183538462,
+    "root_cause": "current source-history corpus is too narrow and permits pass-surface swapping under objective tuning",
+    "opened_branch": "paper_route_source_history_corpus_expansion",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1314-paper-route-source-history-corpus-expansion-design.json"
+  },
+  "decision": "robust_minfold_result_audit_pivot_to_source_history_corpus_expansion",
   "decision_rule": "M1313 passes if it audits M1312 aggregate gain versus lost-pass regression and chooses the next route without training, PPO, promotion, private holdout use, threshold relaxation, or actor-input expansion.",
-  "next_blocker": "m1313-paper-route-source-history-robust-minfold-result-audit"
+  "next_blocker": "m1314-paper-route-source-history-corpus-expansion-design"
 }

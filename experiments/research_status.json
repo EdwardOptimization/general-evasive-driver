@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1322,
+    "completed": 1323,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1312-paper-route-source-history-robust-minfold-objective-probe.md",
+    "command_log": "docs/m1313-paper-route-source-history-robust-minfold-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1312_source_history_robust_minfold_probe",
+    "run_dir": "docs/m1313-paper-route-source-history-robust-minfold-result-audit.md",
     "status": "completed",
-    "task_id": "m1312-paper-route-source-history-robust-minfold-objective-probe"
+    "task_id": "m1313-paper-route-source-history-robust-minfold-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1313-paper-route-source-history-robust-minfold-result-audit.json",
-    "hypothesis": "Audit M1312 aggregate-positive but lost-pass robust min-fold result before another implementation",
-    "id": "m1313-paper-route-source-history-robust-minfold-result-audit",
+    "command": "see experiments/manifests/m1314-paper-route-source-history-corpus-expansion-design.json",
+    "hypothesis": "Design expanded source-history corpus after M1313 identified pass-surface swapping on current corpus",
+    "id": "m1314-paper-route-source-history-corpus-expansion-design",
     "kind": "gate",
-    "notes": "Pending: process audit; PPO and promotion remain blocked",
-    "priority": 13080,
+    "notes": "Pending: corpus expansion design; PPO and promotion remain blocked",
+    "priority": 13090,
     "status": "pending",
-    "success_artifact": "docs/m1313-paper-route-source-history-robust-minfold-result-audit.md"
+    "success_artifact": "docs/m1314-paper-route-source-history-corpus-expansion-design.md"
   },
-  "updated_at_utc": "20260528T161817Z"
+  "updated_at_utc": "20260528T162132Z"
 }

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1312-paper-route-source-history-robust-minfold-objective-probe
+m1313-paper-route-source-history-robust-minfold-result-audit
 ```
 
 Current next task:
 
 ```text
-m1313-paper-route-source-history-robust-minfold-result-audit
+m1314-paper-route-source-history-corpus-expansion-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -189,7 +189,12 @@ rows/groups are `40.8/20.4`, and top failed combo positive delta is `+6`.
 However it violates M1311 lexicographic acceptance because baseline passing
 offsets `0|1` are lost; current pass offsets become `2|3|4`. The active blocker
 is M1313: audit this aggregate-positive lost-pass tradeoff before another
-implementation. PPO and promotion remain blocked.
+implementation. M1313 completed that audit and pivots to a new
+`paper_route_source_history_corpus_expansion` branch. The current diagnosis is
+that the 38-pair / 76-group fixed source-history corpus is too narrow; objective
+tuning is now swapping pass surfaces on public folds. The active blocker is
+M1314: design an expanded source-history corpus before further objective tuning.
+PPO and promotion remain blocked.
 
 ## Actor Contract
 

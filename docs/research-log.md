@@ -19089,3 +19089,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1313-paper-route-source-history-robust-minfold-result-audit.json`.
 - decision: `robust_minfold_repeat_mean_positive_lost_pass_tradeoff_route_to_result_audit`
 - next: `m1313-paper-route-source-history-robust-minfold-result-audit`
+
+## 20260528T162132Z - m1313-paper-route-source-history-robust-minfold-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1313-paper-route-source-history-robust-minfold-result-audit.md`
+- decision: `robust_minfold_result_audit_pivot_to_source_history_corpus_expansion`
+- evidence: M1312 improves aggregate repeat and top failed combo but swaps pass offsets from `0|1|3` to `2|3|4`.
+- supported claim: robust min-fold is better than M1309 weighted mean.
+- falsified claim: train-split-only retention on the current corpus is enough to prevent lost baseline pass offsets.
+- primary failure type: `scenario_sampling_failure`; current 38-pair / 76-group fixed corpus is too narrow and permits pass-surface swapping.
+- secondary failure type: `objective_overfit`; objective tuning improves aggregate public diagnostics while losing baseline passing folds.
+- opened branch: `paper_route_source_history_corpus_expansion`.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1314-paper-route-source-history-corpus-expansion-design.json`.
+- next: `m1314-paper-route-source-history-corpus-expansion-design`
