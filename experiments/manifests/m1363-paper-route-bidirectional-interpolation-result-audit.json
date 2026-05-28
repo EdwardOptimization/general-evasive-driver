@@ -1,0 +1,160 @@
+{
+  "id": "m1363-paper-route-bidirectional-interpolation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1360_bidirectional_active_set_probe/checkpoints/raw_bidirectional_active_set_update.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1362-paper-route-bidirectional-active-set-interpolation-preflight.md",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/summary.json",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/alpha_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1362-paper-route-bidirectional-active-set-interpolation-preflight.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_objective": [
+      "audit M1362 selected alpha before any broader replay or promotion route"
+    ],
+    "derived_from": [
+      "m1362-paper-route-bidirectional-active-set-interpolation-preflight"
+    ],
+    "blocked_by": [
+      "M1362 found a passing alpha but only on exact metrics plus two public replay preflight surfaces"
+    ],
+    "supersedes": [
+      "direct promotion of M1362 alpha 0.1",
+      "direct PPO after M1362",
+      "direct private holdout after M1362"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1363-paper-route-bidirectional-interpolation-result-audit.md",
+  "public_gates": [
+    "M1363 must not train",
+    "M1363 must not run PPO",
+    "M1363 must not run replay",
+    "M1363 must not update actor weights",
+    "M1363 must not use private holdout",
+    "M1363 must not promote",
+    "M1363 must decide the next gate for alpha 0.1 without overclaiming"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not update actor weights",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_bidirectional_replay_active_set_retention",
+    "evidence_axis": "S_bidirectional_interpolation_audit",
+    "evidence_increment": "audits whether M1362 alpha 0.1 is strong enough to route to a broader public replay gate",
+    "claim_scope": "process audit only; no promotion, private-holdout, PPO, actor-update, replay, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if the audit treats M1362 alpha 0.1 as promoted",
+      "stop if the audit ignores that only two public replay surfaces passed",
+      "stop if the audit routes directly to private holdout",
+      "stop if the audit routes directly to PPO"
+    ],
+    "fallback_plan": [
+      "if alpha 0.1 is judged useful, route to a scoped broader public replay design",
+      "if alpha 0.1 is judged too weak, route to gap-aware active-set design",
+      "if the result is ambiguous, route to repeat interpolation or row-level audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1362 produced a passing selected alpha after a positive bidirectional active-set probe direction",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "M1362 result audit",
+    "admission_evidence": [
+      "M1362 selected alpha 0.1",
+      "M1362 alpha 0.1 passes exact metrics plus M267/M264 and M183/M170 replay preflights",
+      "M1362 alpha 0.1 is stronger than M1352 alpha 0.005 but not full public replay"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1363 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "audit identifies supported claims",
+      "audit identifies remaining missing gates",
+      "audit chooses the next public gate"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1363 audits public proof preflight and cannot claim anticipatory self-identification.",
+    "history_necessity_tests": [
+      "audit must preserve the distinction between replay preflight and stronger self-ID evidence"
+    ],
+    "temporal_evidence_window": "M1362 exact and two-surface replay preflight artifacts.",
+    "negative_result_policy": "If alpha 0.1 is insufficient, route to additional public proof gates before any private holdout or promotion.",
+    "allowed_claims": [
+      "M1362 interpolation result audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "M1362 alpha 0.1 is a useful replay-preflight candidate but needs an audit before broader public replay or any promotion route.",
+  "success_criteria": [
+    "docs/m1363-paper-route-bidirectional-interpolation-result-audit.md exists",
+    "audit records M1362 selected alpha and exact metrics",
+    "audit records M1362 M267/M264 and M183/M170 outcomes",
+    "audit states that M1362 is not promotion",
+    "audit routes to a specific next public gate",
+    "no training, PPO, replay, promotion, private holdout, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits selected alpha or replay results",
+    "audit treats M1362 as promotion",
+    "audit routes directly to private holdout or PPO",
+    "training, PPO, replay, private holdout, promotion, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1363-paper-route-bidirectional-interpolation-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1363-paper-route-bidirectional-interpolation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/summary.json",
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/alpha_summary.csv"
+  ],
+  "decision_rule": "M1363 passes as an audit only if it routes M1362 alpha 0.1 without training, replay, PPO, private holdout, promotion, threshold relaxation, or actor-input changes.",
+  "next_blocker": "m1363-paper-route-bidirectional-interpolation-result-audit"
+}

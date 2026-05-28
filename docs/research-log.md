@@ -20002,3 +20002,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1362-paper-route-bidirectional-active-set-interpolation-preflight.json`.
 - next: `m1362-paper-route-bidirectional-active-set-interpolation-preflight`
+
+## 20260528T203845Z - m1362-paper-route-bidirectional-active-set-interpolation-preflight
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `proof`
+- artifact: `runs/m1362_bidirectional_active_set_interpolation_preflight/summary.json`
+- document: `docs/m1362-paper-route-bidirectional-active-set-interpolation-preflight.md`
+- decision: `bidirectional_active_set_interpolation_preflight_pass_route_to_result_audit`
+- selected alpha: `0.1`.
+- selected checkpoint: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`.
+- alpha summary: exact-admitted `10/10`, M267/M264 pass `9/10`, M183/M170 pass `5/9`.
+- selected exact metrics: combined loss delta `-0.5148637349`, group-min joint margin delta `+0.5245143565`, eval-fold delta `+0.4884667957`.
+- selected M267/M264 replay: gate pass, normal success delta `0.0`, success-drop count delta `0`, margin-gap delta `-0.0001940233`.
+- selected M183/M170 replay: gate pass, normal success delta `0.0`, success-drop count delta `0`, margin-gap delta `-0.0002484803`.
+- interpretation: M1360 direction is replay-safe under amplitude control; alpha `0.1` is much stronger than M1352's diagnostic alpha `0.005`, but still not promotion or full public replay.
+- guardrail: no training, PPO, promotion, private holdout, actor update, full replay, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1363-paper-route-bidirectional-interpolation-result-audit.json`.
+- next: `m1363-paper-route-bidirectional-interpolation-result-audit`

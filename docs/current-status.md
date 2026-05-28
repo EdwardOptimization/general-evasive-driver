@@ -16,14 +16,25 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1361-paper-route-bidirectional-active-set-probe-result-audit
+m1362-paper-route-bidirectional-active-set-interpolation-preflight
 ```
 
 Current next task:
 
 ```text
-m1362-paper-route-bidirectional-active-set-interpolation-preflight
+m1363-paper-route-bidirectional-interpolation-result-audit
 ```
+
+M1362 ran the interpolation preflight from M1154 to raw M1360 and selected
+`alpha=0.1`. All `10/10` alpha candidates were exact-admitted; M267/M264 passed
+for `9/10`; M183/M170 passed for `5/9` candidates that reached it. The selected
+checkpoint
+`runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`
+passes exact metrics plus M267/M264 and M183/M170 preflight. Its exact lift is
+materially stronger than the older M1352 diagnostic alpha `0.005`
+(`combined_loss_delta=-0.5148637349`, group-min delta `+0.5245143565`,
+eval-fold delta `+0.4884667957`). This is not a promotion and not full public
+replay. M1363 should audit the result before broader gates.
 
 M1361 audits M1360 as non-promotable but useful. The bidirectional anchor fixed
 M1355's wrong-history success-drop collapse: M267/M264 normal success is

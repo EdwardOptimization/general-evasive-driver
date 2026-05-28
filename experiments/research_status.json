@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1371,
+    "completed": 1372,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1361-paper-route-bidirectional-active-set-probe-result-audit.md",
+    "command_log": "runs/m1362_bidirectional_active_set_interpolation_preflight/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1361-paper-route-bidirectional-active-set-probe-result-audit.md",
+    "run_dir": "runs/m1362_bidirectional_active_set_interpolation_preflight",
     "status": "completed",
-    "task_id": "m1361-paper-route-bidirectional-active-set-probe-result-audit"
+    "task_id": "m1362-paper-route-bidirectional-active-set-interpolation-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1362-paper-route-bidirectional-active-set-interpolation-preflight.json",
-    "hypothesis": "Test whether interpolation along the M1154 to raw M1360 direction preserves exact lift and replay retention",
-    "id": "m1362-paper-route-bidirectional-active-set-interpolation-preflight",
+    "command": "see experiments/manifests/m1363-paper-route-bidirectional-interpolation-result-audit.json",
+    "hypothesis": "Audit M1362 alpha 0.1 before any broader public replay or promotion route",
+    "id": "m1363-paper-route-bidirectional-interpolation-result-audit",
     "kind": "gate",
-    "notes": "Pending: exact-plus-replay interpolation preflight over raw M1360; no training PPO promotion private holdout full replay or actor input change",
-    "priority": 13570,
+    "notes": "Pending: process audit for selected alpha 0.1; no training PPO replay promotion private holdout or actor input change",
+    "priority": 13580,
     "status": "pending",
-    "success_artifact": "runs/m1362_bidirectional_active_set_interpolation_preflight/summary.json"
+    "success_artifact": "docs/m1363-paper-route-bidirectional-interpolation-result-audit.md"
   },
-  "updated_at_utc": "20260528T203200Z"
+  "updated_at_utc": "20260528T203845Z"
 }
