@@ -1,0 +1,174 @@
+{
+  "id": "m1217-paper-route-current-family-matched-current-export",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111600/checkpoint.pt",
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111601/checkpoint.pt",
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1216-paper-route-causal-history-source-audit.md",
+      "docs/m1215-paper-route-causal-history-gate-design.md"
+    ],
+    "parent_config": [
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json",
+      "experiments/manifests/m1216-paper-route-causal-history-source-audit.json"
+    ],
+    "parent_objective": [
+      "export a fresh matched-current ambiguity surface for the current corrected L3 family"
+    ],
+    "derived_from": [
+      "m1216-paper-route-causal-history-source-audit"
+    ],
+    "blocked_by": [
+      "M1216 selects current-family matched-current export before any history-intervention action screen"
+    ],
+    "supersedes": [
+      "directly reusing old M503 or BC5660 surfaces as the first current paper-route causal gate"
+    ],
+    "invalidates": [
+      "treating old matched-current surfaces as automatically compatible with M1212 corrected L3 checkpoints"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1217-paper-route-current-family-matched-current-export.md",
+  "public_gates": [
+    "M1217 may run matched-current pair mining only",
+    "M1217 must use P0 human-view no-wheel no-oracle corrected L3 checkpoints",
+    "M1217 must write matched_pairs candidate_pairs target_summary and summary artifacts",
+    "M1217 must not run action interventions",
+    "M1217 must not run outcome interventions",
+    "M1217 must not train controllers",
+    "M1217 must not run PPO",
+    "M1217 must not use private holdout",
+    "M1217 must not promote",
+    "M1217 must not claim self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run action or outcome intervention gates",
+    "do not use private holdout",
+    "do not promote",
+    "do not tune profiles",
+    "do not use hidden or oracle actor inputs",
+    "do not claim history necessity from pair mining alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_evidence",
+    "evidence_axis": "H_causal_history_current_family_surface: matched-current surface export",
+    "evidence_increment": "exports the first current corrected-profile L3 matched-current surface for M1215 causal gates",
+    "claim_scope": "pair mining only; no action outcome training promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if the surface is source-narrow",
+      "stop if actor-input metadata violates P0",
+      "stop if output artifacts are missing"
+    ],
+    "fallback_plan": [
+      "add M1209 corrected L3 checkpoints if M1212-only source is too narrow",
+      "expand probe seeds before changing thresholds",
+      "route to task/curriculum repair if no matched-current ambiguity exists"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1216 selects fresh current-family surface export",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "current-family matched-current pair mining",
+    "admission_evidence": [
+      "M1215 pre-registers the causal history gate",
+      "M1216 audits old surfaces and selects current-family surface export",
+      "M1212 corrected L3 checkpoints exist and preserve the P0 actor contract"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run action or outcome interventions",
+      "do not use private holdout",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1217 pair-mining run artifacts",
+      "M1217 result docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "surface diversity thresholds pass",
+      "actor contract remains P0",
+      "next action-screen milestone is pre-registered if surface passes",
+      "fallback surface expansion is selected if source-narrow"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1217 only exports candidate matched-current pairs and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "matched_current_surface_export",
+      "source_diversity_check",
+      "actor_contract_check"
+    ],
+    "temporal_evidence_window": "Causal history evidence requires later action and outcome interventions.",
+    "negative_result_policy": "If no source-diverse surface is found, record it and route to expanded source mining or task/curriculum redesign.",
+    "allowed_claims": [
+      "current-family matched-current surface found or not found",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The current corrected M1212 L3 checkpoint family exposes a source-diverse matched-current ambiguity surface suitable for later causal history intervention gates.",
+  "success_criteria": [
+    "runs/m1217_current_family_matched_current_export/summary.json exists",
+    "runs/m1217_current_family_matched_current_export/matched_pairs.csv exists",
+    "runs/m1217_current_family_matched_current_export/candidate_pairs.csv exists",
+    "accepted pairs >= 120",
+    "accepted physical pairs >= 30",
+    "probe seeds >= 3",
+    "left steps >= 5",
+    "obstacle buckets >= 4",
+    "targets >= 2",
+    "private holdout remains unused",
+    "no action intervention, outcome intervention, training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next action-screen or fallback expansion milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1217 trains or tunes profiles",
+    "private holdout is used",
+    "action or outcome interventions are run",
+    "surface is source-narrow",
+    "self-identification is claimed from pair mining"
+  ],
+  "commands": [
+    {
+      "name": "export_current_family_matched_current_surface",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_current_response_ambiguity --checkpoint-policy l3_s111600=runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111600/checkpoint.pt --checkpoint-policy l3_s111601=runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111601/checkpoint.pt --checkpoint-policy l3_s111602=runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --env-config configs/paper_route_corrected_profiles/m1207_l3_online_gru.json --probe-seeds 122600,122601,122602,122603 --episodes 32 --horizon-steps 15 --sample-stride 3 --max-samples 1200 --nearest-k 12 --match-feature-set current_response_context --max-visible-quantile 0.05 --min-target-z-delta 1.0 --max-pairs-per-target 320 --max-pairs-per-physical-pair 1 --max-pairs-per-left-step 20 --max-pairs-per-source-obstacle-bucket 40 --obstacle-distance-bucket-width 5.0 --obstacle-lateral-bucket-width 1.0 --min-accepted-pairs 120 --device cpu --run-dir runs/m1217_current_family_matched_current_export"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1217_current_family_matched_current_export/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1217_current_family_matched_current_export/matched_pairs.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1217-paper-route-current-family-matched-current-export.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111600/checkpoint.pt",
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111601/checkpoint.pt",
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1216-paper-route-causal-history-source-audit.md"
+  ],
+  "decision_rule": "M1217 passes if it exports a source-diverse matched-current surface without running any intervention or training.",
+  "next_blocker": "m1217-paper-route-current-family-matched-current-export"
+}

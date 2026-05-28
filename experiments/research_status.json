@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1225,
+    "completed": 1226,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1215-paper-route-causal-history-gate-design.md",
+    "command_log": "docs/m1216-paper-route-causal-history-source-audit.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1215-paper-route-causal-history-gate-design"
+    "task_id": "m1216-paper-route-causal-history-source-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1216-paper-route-causal-history-source-audit.json",
-    "hypothesis": "A source and tooling audit can identify a reliable first run path for the M1215 matched-current causal history gate without training or claim expansion.",
-    "id": "m1216-paper-route-causal-history-source-audit",
+    "command": "see experiments/manifests/m1217-paper-route-current-family-matched-current-export.json",
+    "hypothesis": "The current corrected M1212 L3 checkpoint family exposes a source-diverse matched-current ambiguity surface suitable for later causal history intervention gates.",
+    "id": "m1217-paper-route-current-family-matched-current-export",
     "kind": "gate",
-    "notes": "Pending: inventory existing matched-current and history-intervention artifacts before any causal history run",
-    "priority": 12110,
+    "notes": "Pending: run pair mining only on M1212 corrected L3 checkpoints and audit source diversity",
+    "priority": 12120,
     "status": "pending",
-    "success_artifact": "docs/m1216-paper-route-causal-history-source-audit.md"
+    "success_artifact": "docs/m1217-paper-route-current-family-matched-current-export.md"
   },
-  "updated_at_utc": "20260528T065150Z"
+  "updated_at_utc": "20260528T065638Z"
 }

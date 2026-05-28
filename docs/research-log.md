@@ -17434,3 +17434,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1216-paper-route-causal-history-source-audit.json`.
 - decision: `causal_history_gate_design_admit_source_audit`
 - next: `m1216-paper-route-causal-history-source-audit`
+
+## 20260528T065638Z - m1216-paper-route-causal-history-source-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1216-paper-route-causal-history-source-audit.md`
+- result: inventories old matched-current and history-intervention artifacts and selects a fresh current-family source export before causal-history intervention runs.
+- old-source audit: M503 is source-diverse and reusable as a threshold template; M524 gives event-level L3-vs-reset diagnostics; M537/M538 provide paired architecture diagnostics; M585-M587 provides the closest BC5660 history-intervention precedent and a negative wrong/delayed action-screen example.
+- tooling audit: existing `matched_current_response_ambiguity`, `matched_history_intervention_gate`, `persistent_wrong_history_intervention_gate`, and `outcome_critical_matched_current_selector` are sufficient for the staged M1215 gate.
+- decision: first causal-history source should be a fresh M1212 corrected L3 matched-current export, not direct reuse of M503/M524/M537/M538/M586/M587 rows.
+- guardrail: no training, PPO, replay, action intervention, outcome intervention, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1217-paper-route-current-family-matched-current-export.json`.
+- decision: `source_audit_selects_current_family_matched_current_export`
+- next: `m1217-paper-route-current-family-matched-current-export`

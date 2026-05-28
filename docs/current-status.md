@@ -115,8 +115,44 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1216-paper-route-causal-history-source-audit
+m1217-paper-route-current-family-matched-current-export
 ```
+
+M1216 completed the causal-history source/tooling audit:
+
+```text
+artifact: docs/m1216-paper-route-causal-history-source-audit.md
+decision: source_audit_selects_current_family_matched_current_export
+```
+
+M1216 conclusion:
+
+```text
+Old M503/M524/M537/M538/M586/M587 artifacts are useful as threshold and
+interpretation precedents, but they should not be the first current paper-route
+causal-history run source.
+
+The first run should export a fresh matched-current surface from the M1212
+corrected L3 online-GRU checkpoint family.
+```
+
+Next branch:
+
+```text
+paper_route_causal_history_evidence
+```
+
+The next task is pair mining only, not action intervention or training:
+
+```text
+checkpoint family: M1212 corrected L3 online GRU repeat
+env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
+run dir:           runs/m1217_current_family_matched_current_export
+```
+
+M1217 must write a source-diverse matched-current surface or route to expanded
+source mining. It must not run action gates, outcome gates, PPO, private
+holdout, promotion, or self-identification claims.
 
 M1215 completed the causal-history gate design:
 
@@ -134,29 +170,6 @@ Stage B: action-level screen with reset, delayed, wrong-history, zero-response,
 Stage C: persistent outcome gate using success, collision, completion, and
          clearance-margin degradation.
 ```
-
-Next branch:
-
-```text
-paper_route_causal_history_evidence
-```
-
-The next task is not training or another profile repeat. M1216 must audit
-existing matched-current and history-intervention artifacts before the first
-causal-history run:
-
-```text
-M503 natural boundary-pressure matched-current surface
-M524 multisurface history-value ablation
-M537/M538 public natural-surface paired advantage evidence
-M585-M587 BC5660 matched-current and action-screen path
-matched_current_response_ambiguity / matched_history_intervention_gate /
-persistent_wrong_history_intervention_gate / outcome_critical selector tooling
-```
-
-M1216 should decide whether to reuse existing public surfaces or export a fresh
-current-family surface for M1215. It must not train, run PPO, use private
-holdout, promote, or claim self-identification.
 
 M1214 completed corrected profile evidence synthesis:
 
