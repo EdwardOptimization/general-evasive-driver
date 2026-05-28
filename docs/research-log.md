@@ -17958,3 +17958,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1247-paper-route-capability-separable-fine-relocation-calibration-smoke.json`.
 - decision: `viability_band_relocation_infrastructure_pass_near_positive_route_to_fine_relocation`
 - next: `m1247-paper-route-capability-separable-fine-relocation-calibration-smoke`
+
+## 20260528T103026Z - m1247-paper-route-capability-separable-fine-relocation-calibration-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json`
+- implementation: added optional fine relocation around the best coarse viability-band parent using local half-width and lateral offsets.
+- runtime note: larger `48 pairs / 24 candidates` and `24 pairs / 16 candidates` commands were interrupted without artifacts because they exceeded the intended infrastructure-smoke runtime; final run is focused to `seed_count=4`, `max_pairs=12`, and `max_relocation_candidates=16`.
+- result: infrastructure passes with `relocation_candidates=192`, `coarse_relocation_candidates=96`, `fine_relocation_candidates=96`, `sequence_rollouts=1032`, `unique_matched_fault_family_pairs=2`, and `unique_matched_seeds=3`.
+- source result: `accepted_separable_pairs=0`, `best_actions_diverged_pairs=6`, `low_regret_pairs=11`, `near_boundary_viability_pairs=1`, `result_class=action_divergent_low_regret`.
+- key source shape: the strongest two-sided regret row remains nonviable (`pair_id=5`, `min_cross_regret=0.0201005052`, `pair_min_best_margin=-0.0048001855`), while the selected near-boundary viable row is action-equivalent (`pair_id=4`, `best_action_l2=0.0`).
+- guardrail: actor parameters unchanged; no labels entered actor inputs; no training, PPO, promotion, private holdout, actor-input expansion, self-ID claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1248-paper-route-capability-separable-fine-relocation-negative-audit.json`.
+- decision: `fine_relocation_valid_source_negative_route_to_limit_audit`
+- next: `m1248-paper-route-capability-separable-fine-relocation-negative-audit`

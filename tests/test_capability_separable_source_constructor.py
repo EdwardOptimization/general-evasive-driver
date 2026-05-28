@@ -4,6 +4,7 @@ from autodrift.capability_separable_source_constructor import (
     build_short_sequence_candidates,
     classify_capability_separable_result,
     evaluate_action_separability,
+    fine_relocation_geometry_candidates,
     viability_band_geometry_candidates,
 )
 from autodrift.matched_history_outcome_gate import OutcomeSnapshot
@@ -145,3 +146,18 @@ def test_viability_band_geometry_candidates_targets_half_width():
     assert candidates
     assert any(candidate["half_width"] > 1.0 for candidate in candidates)
     assert all(candidate["body_x"] > 0.0 for candidate in candidates)
+
+
+def test_fine_relocation_geometry_candidates_refines_width_and_lateral_offset():
+    candidates = fine_relocation_geometry_candidates(
+        {"body_x": 8.0, "body_y": -0.5, "half_width": 0.3},
+        half_width_deltas=(-0.02, 0.02),
+        body_y_offsets=(-0.1, 0.1),
+    )
+
+    assert candidates
+    assert any(abs(candidate["half_width"] - 0.28) < 1e-6 for candidate in candidates)
+    assert any(abs(candidate["body_y"] - -0.6) < 1e-6 for candidate in candidates)
+    assert len({(candidate["body_x"], candidate["body_y"], candidate["half_width"]) for candidate in candidates}) == len(
+        candidates
+    )

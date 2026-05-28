@@ -115,7 +115,49 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1247-paper-route-capability-separable-fine-relocation-calibration-smoke
+m1248-paper-route-capability-separable-fine-relocation-negative-audit
+```
+
+M1247 completed capability-separable fine relocation calibration smoke:
+
+```text
+artifact: runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json
+decision: fine_relocation_valid_source_negative_route_to_limit_audit
+result_class: action_divergent_low_regret
+```
+
+M1247 result:
+
+```text
+matched_pair_count: 12
+relocation_candidates: 192
+coarse_relocation_candidates: 96
+fine_relocation_candidates: 96
+near_boundary_viability_pairs: 1
+sequence_rollouts: 1032
+accepted_separable_pairs: 0
+best_actions_diverged_pairs: 6
+low_regret_pairs: 11
+```
+
+M1247 conclusion:
+
+```text
+Fine relocation is valid infrastructure but still source-negative. Near-boundary
+viable rows are action-equivalent, while action-divergent rows remain
+nonviable. The next step is a negative/source-limit audit, not actor training
+or another blind relocation-grid expansion.
+```
+
+Next task:
+
+```text
+artifact: docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md
+manifest: experiments/manifests/m1248-paper-route-capability-separable-fine-relocation-negative-audit.json
+goal: classify M1242-M1247 zero-accepted source evidence and choose the next
+      source variable or branch closure
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1246 completed capability-separable viability-band relocation smoke:

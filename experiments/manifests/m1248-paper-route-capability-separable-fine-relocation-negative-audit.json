@@ -1,0 +1,147 @@
+{
+  "id": "m1248-paper-route-capability-separable-fine-relocation-negative-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1242-paper-route-capability-separable-source-constructor-smoke.md",
+      "docs/m1244-paper-route-capability-separable-short-sequence-lattice-smoke.md",
+      "docs/m1246-paper-route-capability-separable-viability-band-relocation-smoke.md",
+      "docs/m1247-paper-route-capability-separable-fine-relocation-calibration-smoke.md",
+      "runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json",
+      "runs/m1247_capability_separable_fine_relocation_calibration_smoke/relocation_candidates.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1241-paper-route-capability-separable-source-construction-design.json",
+      "experiments/manifests/m1247-paper-route-capability-separable-fine-relocation-calibration-smoke.json"
+    ],
+    "parent_objective": [
+      "audit whether current-model local relocation and short-sequence lattice source construction is exhausted"
+    ],
+    "derived_from": [
+      "m1247-paper-route-capability-separable-fine-relocation-calibration-smoke"
+    ],
+    "blocked_by": [
+      "M1247 produced fine relocation candidates and near-boundary viable rows, but still produced zero accepted capability-separable rows"
+    ],
+    "supersedes": [
+      "another immediate local relocation grid expansion",
+      "training before an accepted source corpus exists"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md",
+  "public_gates": [
+    "M1248 must preserve actor input contract",
+    "M1248 must not train controllers",
+    "M1248 must not run PPO",
+    "M1248 must not use private holdout",
+    "M1248 must not promote",
+    "M1248 must classify the negative source-construction evidence before proposing the next source variable"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, relocation labels, or oracle outcomes to actor inputs",
+    "do not claim self-identification from source-construction negatives",
+    "do not start another relocation-grid run before the audit decision"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_capability_separable_source_construction",
+    "evidence_axis": "S_capability_separable_source_limit_audit",
+    "evidence_increment": "classifies the M1242-M1247 source-construction negatives and decides whether to continue local relocation or pivot source variable",
+    "claim_scope": "process/source-limit audit only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop local relocation branch if the audit finds near-boundary viable rows remain action-equivalent and action-divergent rows remain nonviable",
+      "stop if the next proposal would only expand the same public grid without a new evidence variable"
+    ],
+    "fallback_plan": [
+      "if current-model local relocation is exhausted, pivot to a new source variable such as richer sequence candidates, learned/teacher proposals, event timing, or higher-fidelity dynamics",
+      "if a narrow implementation bug explains the negative result, pre-register one focused repair smoke"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1247 completes the second local relocation repair with zero accepted source-positive rows",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fine relocation negative/source-limit audit",
+    "admission_evidence": [
+      "M1242 one-step lattice, M1244 short-sequence lattice, M1246 coarse viability-band relocation, and M1247 fine relocation all produced zero accepted separable pairs",
+      "M1247 produced one near-boundary viable selected pair but it was action-equivalent",
+      "M1247 retained a two-sided regret row but it remained nonviable"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1248 audit document",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "audit classifies the negative source shape",
+      "audit names the next source variable or closes the branch"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1248 audits source-construction negatives and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "Record the zero-accepted-row result as source evidence, not as evidence against the overall driver objective.",
+    "allowed_claims": [
+      "source-construction negative/source-limit audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1242-M1247 indicate a current-model local-relocation source-shape limit rather than a reason to train on the current zero-accepted corpus.",
+  "success_criteria": [
+    "docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md exists",
+    "audit cites M1242, M1244, M1246, and M1247 evidence",
+    "audit classifies failure types",
+    "audit decides whether local relocation continues or pivots",
+    "no training, PPO, promotion, private holdout, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit is missing",
+    "audit ignores M1247 fine relocation evidence",
+    "audit proposes training on zero accepted source rows",
+    "training, PPO, private holdout, promotion, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md from existing M1242-M1247 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1247-paper-route-capability-separable-fine-relocation-calibration-smoke.md",
+    "runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json"
+  ],
+  "decision_rule": "M1248 passes if it records the negative source evidence, prevents training on zero accepted rows, and chooses the next source variable or branch closure without actor-input expansion.",
+  "next_blocker": "m1248-paper-route-capability-separable-fine-relocation-negative-audit"
+}

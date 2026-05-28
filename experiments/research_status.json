@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1256,
+    "completed": 1257,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1246_capability_separable_viability_band_relocation_smoke/summary.json",
+    "command_log": "runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "runs/m1246_capability_separable_viability_band_relocation_smoke",
+    "run_dir": "runs/m1247_capability_separable_fine_relocation_calibration_smoke",
     "status": "completed",
-    "task_id": "m1246-paper-route-capability-separable-viability-band-relocation-smoke"
+    "task_id": "m1247-paper-route-capability-separable-fine-relocation-calibration-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1247-paper-route-capability-separable-fine-relocation-calibration-smoke.json",
-    "hypothesis": "Run capability-separable fine relocation calibration smoke",
-    "id": "m1247-paper-route-capability-separable-fine-relocation-calibration-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: fine-calibrate relocation around near-positive rows before actor self-ID tests or training",
-    "priority": 12420,
+    "command": "see experiments/manifests/m1248-paper-route-capability-separable-fine-relocation-negative-audit.json",
+    "hypothesis": "Audit capability-separable fine relocation negative result",
+    "id": "m1248-paper-route-capability-separable-fine-relocation-negative-audit",
+    "kind": "gate",
+    "notes": "Pending: classify M1242-M1247 zero-accepted source evidence before another relocation run or training",
+    "priority": 12430,
     "status": "pending",
-    "success_artifact": "runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json"
+    "success_artifact": "docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md"
   },
-  "updated_at_utc": "20260528T100830Z"
+  "updated_at_utc": "20260528T103026Z"
 }

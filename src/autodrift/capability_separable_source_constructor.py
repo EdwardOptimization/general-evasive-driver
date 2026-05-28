@@ -36,6 +36,9 @@ from autodrift.terminal_margin_recovery_anchor import (
 from autodrift.train_ppo import ActorCritic, resolve_device
 from autodrift.wrong_history_boundary_relocation_surface import obstacle_body_geometry, relocate_outcome_snapshot
 
+DEFAULT_FINE_HALF_WIDTH_DELTAS = (-0.08, -0.04, -0.02, -0.01, 0.01, 0.02, 0.04, 0.08)
+DEFAULT_FINE_BODY_Y_OFFSETS = (-0.40, -0.20, -0.10, -0.05, 0.05, 0.10, 0.20, 0.40)
+
 
 def _as_outcome_snapshot(snapshot: ExtremeSnapshot) -> OutcomeSnapshot:
     return OutcomeSnapshot(
@@ -52,6 +55,17 @@ def _ensure_outcome_snapshot(snapshot: ExtremeSnapshot | OutcomeSnapshot) -> Out
     if isinstance(snapshot, OutcomeSnapshot):
         return snapshot
     return _as_outcome_snapshot(snapshot)
+
+
+def _parse_bool_arg(raw: str | bool) -> bool:
+    if isinstance(raw, bool):
+        return raw
+    lowered = str(raw).strip().lower()
+    if lowered in {"1", "true", "yes", "y", "on"}:
+        return True
+    if lowered in {"0", "false", "no", "n", "off"}:
+        return False
+    raise argparse.ArgumentTypeError(f"invalid boolean value {raw!r}")
 
 
 def _margin(row: dict[str, Any]) -> float:
@@ -307,6 +321,14 @@ def _dedupe_geometry(rows: list[dict[str, float]]) -> list[dict[str, float]]:
     return output
 
 
+def _geometry_key(row: dict[str, Any]) -> tuple[float, float, float]:
+    return (
+        round(float(row["body_x"]), 6),
+        round(float(row["body_y"]), 6),
+        round(float(row["half_width"]), 6),
+    )
+
+
 def viability_band_geometry_candidates(
     snapshot: OutcomeSnapshot,
     *,
@@ -335,6 +357,62 @@ def viability_band_geometry_candidates(
         for body_y_value in body_ys
         for half_width_value in half_widths
     ]
+    return _dedupe_geometry(candidates)
+
+
+def fine_relocation_geometry_candidates(
+    parent_geometry: dict[str, Any],
+    *,
+    half_width_deltas: tuple[float, ...] = DEFAULT_FINE_HALF_WIDTH_DELTAS,
+    body_y_offsets: tuple[float, ...] = DEFAULT_FINE_BODY_Y_OFFSETS,
+    min_half_width: float = 0.2,
+    max_half_width: float = 6.0,
+) -> list[dict[str, float]]:
+    body_x = float(parent_geometry["body_x"])
+    body_y = float(parent_geometry["body_y"])
+    half_width = float(parent_geometry["half_width"])
+    candidates: list[dict[str, float]] = []
+
+    for half_width_delta in half_width_deltas:
+        refined_half_width = float(np.clip(half_width + float(half_width_delta), min_half_width, max_half_width))
+        candidates.append(
+            {
+                "body_x": body_x,
+                "body_y": body_y,
+                "half_width": refined_half_width,
+                "fine_half_width_delta": float(half_width_delta),
+                "fine_body_y_delta": 0.0,
+            }
+        )
+
+    for body_y_offset in body_y_offsets:
+        candidates.append(
+            {
+                "body_x": body_x,
+                "body_y": body_y + float(body_y_offset),
+                "half_width": half_width,
+                "fine_half_width_delta": 0.0,
+                "fine_body_y_delta": float(body_y_offset),
+            }
+        )
+
+    # Keep the cross product small and local. The axis variants above test the
+    # two main calibration directions first; these local mixed variants catch
+    # cases where a small width relaxation only works after a small lateral
+    # shift.
+    for half_width_delta in half_width_deltas[:4]:
+        for body_y_offset in body_y_offsets[2:6]:
+            refined_half_width = float(np.clip(half_width + float(half_width_delta), min_half_width, max_half_width))
+            candidates.append(
+                {
+                    "body_x": body_x,
+                    "body_y": body_y + float(body_y_offset),
+                    "half_width": refined_half_width,
+                    "fine_half_width_delta": float(half_width_delta),
+                    "fine_body_y_delta": float(body_y_offset),
+                }
+            )
+
     return _dedupe_geometry(candidates)
 
 
@@ -608,6 +686,10 @@ def _evaluate_pair_with_relocation_candidates(
     target_min_best_margin: float,
     target_max_best_margin: float,
     max_relocation_candidates: int,
+    fine_relocation: bool,
+    fine_half_width_deltas: tuple[float, ...],
+    fine_body_y_offsets: tuple[float, ...],
+    fine_parent_count: int,
     device: torch.device,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, Any], list[dict[str, Any]]]:
     original_a = _as_outcome_snapshot(condition_a)
@@ -644,11 +726,22 @@ def _evaluate_pair_with_relocation_candidates(
         target_min_best_margin=target_min_best_margin,
         target_max_best_margin=target_max_best_margin,
     )
-    if int(max_relocation_candidates) > 0:
-        geometry_candidates = geometry_candidates[: int(max_relocation_candidates)]
+    max_candidates = int(max_relocation_candidates)
+    coarse_budget = max_candidates
+    if fine_relocation and max_candidates > 0:
+        coarse_budget = min(max_candidates, max(1, min(8, len(geometry_candidates))))
+    if coarse_budget > 0:
+        geometry_candidates = geometry_candidates[:coarse_budget]
+    for geometry in geometry_candidates:
+        geometry.setdefault("relocation_stage", "coarse")
+        geometry.setdefault("parent_relocation_id", -1)
+        geometry.setdefault("fine_half_width_delta", 0.0)
+        geometry.setdefault("fine_body_y_delta", 0.0)
     relocation_rows: list[dict[str, Any]] = []
     evaluated: list[tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]]] = []
-    for relocation_id, geometry in enumerate(geometry_candidates):
+    seen_geometry = {_geometry_key(geometry) for geometry in geometry_candidates}
+
+    def evaluate_geometry(geometry: dict[str, Any], relocation_id: int) -> bool:
         relocated_a = relocate_outcome_snapshot(
             original_a,
             body_longitudinal=float(geometry["body_x"]),
@@ -696,9 +789,13 @@ def _evaluate_pair_with_relocation_candidates(
         relocation_decision = {
             **decision,
             "relocation_id": int(relocation_id),
+            "relocation_stage": str(geometry.get("relocation_stage", "coarse")),
+            "parent_relocation_id": int(geometry.get("parent_relocation_id", -1)),
             "relocated_obstacle_body_x": float(geometry["body_x"]),
             "relocated_obstacle_body_y": float(geometry["body_y"]),
             "relocated_obstacle_half_width": float(geometry["half_width"]),
+            "fine_half_width_delta": float(geometry.get("fine_half_width_delta", 0.0)),
+            "fine_body_y_delta": float(geometry.get("fine_body_y_delta", 0.0)),
             "pair_min_best_margin": relocated_min_margin,
             "near_boundary_viability": near_boundary,
             "band_distance": band_distance,
@@ -706,16 +803,62 @@ def _evaluate_pair_with_relocation_candidates(
         }
         relocation_rows.append(relocation_decision)
         evaluated.append((relocation_decision, lattice_rows, rollout_rows, relocation_decision))
-        if bool(relocation_decision.get("accepted", False)):
+        return bool(relocation_decision.get("accepted", False))
+
+    for relocation_id, geometry in enumerate(geometry_candidates):
+        if evaluate_geometry(geometry, relocation_id):
             break
+
+    if fine_relocation and evaluated and not any(bool(item[0].get("accepted", False)) for item in evaluated):
+        remaining_budget = max_candidates - len(evaluated) if max_candidates > 0 else 0
+        if remaining_budget > 0:
+            parent_decisions = sorted(
+                (item[0] for item in evaluated),
+                key=lambda decision: (
+                    not bool(decision.get("near_boundary_viability", False)),
+                    float(decision.get("band_distance", float("inf"))),
+                    -min(
+                        float(decision.get("cross_regret_A", 0.0)),
+                        float(decision.get("cross_regret_B", 0.0)),
+                    ),
+                    -float(decision.get("best_action_l2", 0.0)),
+                ),
+            )[: max(1, int(fine_parent_count))]
+            fine_candidates: list[dict[str, Any]] = []
+            for parent in parent_decisions:
+                parent_geometry = {
+                    "body_x": float(parent["relocated_obstacle_body_x"]),
+                    "body_y": float(parent["relocated_obstacle_body_y"]),
+                    "half_width": float(parent["relocated_obstacle_half_width"]),
+                }
+                for candidate in fine_relocation_geometry_candidates(
+                    parent_geometry,
+                    half_width_deltas=fine_half_width_deltas,
+                    body_y_offsets=fine_body_y_offsets,
+                ):
+                    key = _geometry_key(candidate)
+                    if key in seen_geometry:
+                        continue
+                    seen_geometry.add(key)
+                    candidate["relocation_stage"] = "fine"
+                    candidate["parent_relocation_id"] = int(parent["relocation_id"])
+                    fine_candidates.append(candidate)
+                    if len(fine_candidates) >= remaining_budget:
+                        break
+                if len(fine_candidates) >= remaining_budget:
+                    break
+            for fine_geometry in fine_candidates:
+                relocation_id = len(relocation_rows)
+                if evaluate_geometry(fine_geometry, relocation_id):
+                    break
 
     if not evaluated:
         return original_lattice, original_rollouts, {**original_decision, "relocation_id": 0}, relocation_rows
     best_decision, best_lattice, best_rollouts, _ = min(
         evaluated,
         key=lambda item: (
-            not bool(item[0].get("near_boundary_viability", False)),
             not bool(item[0].get("accepted", False)),
+            not bool(item[0].get("near_boundary_viability", False)),
             float(item[0].get("band_distance", float("inf"))),
             -float(item[0].get("best_action_l2", 0.0)),
         ),
@@ -748,6 +891,10 @@ def run_capability_separable_source_constructor(
     target_min_best_margin: float = 0.02,
     target_max_best_margin: float = 0.5,
     max_relocation_candidates: int = 8,
+    fine_relocation: bool = False,
+    fine_half_width_deltas: tuple[float, ...] = DEFAULT_FINE_HALF_WIDTH_DELTAS,
+    fine_body_y_offsets: tuple[float, ...] = DEFAULT_FINE_BODY_Y_OFFSETS,
+    fine_parent_count: int = 2,
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     config = load_scenario_config(config_path)
@@ -880,6 +1027,10 @@ def run_capability_separable_source_constructor(
             target_min_best_margin=target_min_best_margin,
             target_max_best_margin=target_max_best_margin,
             max_relocation_candidates=max_relocation_candidates,
+            fine_relocation=fine_relocation,
+            fine_half_width_deltas=fine_half_width_deltas,
+            fine_body_y_offsets=fine_body_y_offsets,
+            fine_parent_count=fine_parent_count,
             device=resolved_device,
         )
         base_pair = {
@@ -926,6 +1077,8 @@ def run_capability_separable_source_constructor(
     unique_family_pairs = {str(row.get("fault_family_pair", "")) for row in pair_rows}
     matched_seeds = {int(row.get("seed", -1)) for row in pair_rows}
     near_boundary_viability_pairs = sum(1 for row in pair_rows if bool(row.get("near_boundary_viability", False)))
+    fine_relocation_candidates = sum(1 for row in relocation_rows if str(row.get("relocation_stage")) == "fine")
+    coarse_relocation_candidates = sum(1 for row in relocation_rows if str(row.get("relocation_stage")) == "coarse")
     result_class = classify_capability_separable_result(
         matched_pair_count=len(pair_rows),
         action_rollouts=len(action_rollout_rows),
@@ -974,6 +1127,10 @@ def run_capability_separable_source_constructor(
         "target_min_best_margin": float(target_min_best_margin),
         "target_max_best_margin": float(target_max_best_margin),
         "max_relocation_candidates": int(max_relocation_candidates),
+        "fine_relocation": bool(fine_relocation),
+        "fine_half_width_deltas": fine_half_width_deltas,
+        "fine_body_y_offsets": fine_body_y_offsets,
+        "fine_parent_count": int(fine_parent_count),
         "min_best_action_l2": float(min_best_action_l2),
         "min_cross_regret_margin": float(min_cross_regret_margin),
         "scenario_count": int(len(scenario_rows)),
@@ -988,6 +1145,8 @@ def run_capability_separable_source_constructor(
         "accepted_separable_pairs": int(len(accepted_rows)),
         "rejected_pairs": int(len(rejected_rows)),
         "relocation_candidates": int(len(relocation_rows)),
+        "coarse_relocation_candidates": int(coarse_relocation_candidates),
+        "fine_relocation_candidates": int(fine_relocation_candidates),
         "relocated_matched_pairs": int(len(pair_rows)) if source_window_mode == "viability_band_relocation" else 0,
         "near_boundary_viability_pairs": int(near_boundary_viability_pairs),
         "best_actions_diverged_pairs": int(best_actions_diverged_pairs),
@@ -1044,6 +1203,10 @@ def main() -> None:
     parser.add_argument("--target-min-best-margin", type=float, default=0.02)
     parser.add_argument("--target-max-best-margin", type=float, default=0.5)
     parser.add_argument("--max-relocation-candidates", type=int, default=8)
+    parser.add_argument("--fine-relocation", nargs="?", const=True, default=False, type=_parse_bool_arg)
+    parser.add_argument("--fine-half-width-deltas", type=parse_float_list, default=DEFAULT_FINE_HALF_WIDTH_DELTAS)
+    parser.add_argument("--fine-body-y-offsets", type=parse_float_list, default=DEFAULT_FINE_BODY_Y_OFFSETS)
+    parser.add_argument("--fine-parent-count", type=int, default=2)
     parser.add_argument("--min-best-action-l2", type=float, default=0.12)
     parser.add_argument("--min-cross-regret-margin", type=float, default=0.02)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
@@ -1071,6 +1234,10 @@ def main() -> None:
         target_min_best_margin=args.target_min_best_margin,
         target_max_best_margin=args.target_max_best_margin,
         max_relocation_candidates=args.max_relocation_candidates,
+        fine_relocation=args.fine_relocation,
+        fine_half_width_deltas=args.fine_half_width_deltas,
+        fine_body_y_offsets=args.fine_body_y_offsets,
+        fine_parent_count=args.fine_parent_count,
         pairing_mode=args.pairing_mode,
         device=args.device,
         run_dir=run_dir,
