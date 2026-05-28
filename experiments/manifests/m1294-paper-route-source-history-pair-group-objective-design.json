@@ -152,6 +152,27 @@
     "docs/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.md",
     "runs/m1292_source_history_actor_mean_directional_feasibility_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1294-paper-route-source-history-pair-group-objective-design.md",
+    "decision": "source_history_pair_group_objective_design_admit_bounded_actor_mean_implementation",
+    "selected_next_step": "bounded actor_mean pair-group objective probe",
+    "baseline_group_all_rows_both_positive_count": 14,
+    "baseline_group_all_rows_both_positive_fraction": 0.1842105263,
+    "target_group_all_rows_both_positive_fraction": 0.25,
+    "target_both_directional_fraction": 0.25,
+    "trainable_scope": "actor_mean_only",
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1295-paper-route-source-history-pair-group-objective-probe.json"
+  },
+  "decision": "source_history_pair_group_objective_design_admit_bounded_actor_mean_implementation",
   "decision_rule": "M1294 passes if it designs a bounded no-PPO pair-group directional objective or explicitly routes to scope/corpus audit.",
-  "next_blocker": "m1294-paper-route-source-history-pair-group-objective-design"
+  "next_blocker": "m1295-paper-route-source-history-pair-group-objective-probe"
 }

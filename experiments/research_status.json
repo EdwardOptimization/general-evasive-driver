@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1303,
+    "completed": 1304,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.md",
+    "command_log": "docs/m1294-paper-route-source-history-pair-group-objective-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1293-paper-route-source-history-actor-mean-feasibility-result-audit"
+    "task_id": "m1294-paper-route-source-history-pair-group-objective-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1294-paper-route-source-history-pair-group-objective-design.json",
-    "hypothesis": "Design a pair-group directional objective for M1292 mutually-exclusive source-history rows",
-    "id": "m1294-paper-route-source-history-pair-group-objective-design",
-    "kind": "gate",
-    "notes": "Pending: design pair-group directional objective; PPO and promotion remain blocked",
-    "priority": 12890,
+    "command": "see experiments/manifests/m1295-paper-route-source-history-pair-group-objective-probe.json",
+    "hypothesis": "A bounded no-PPO pair-group objective can improve group-level both-positive source-history directionality beyond M1292",
+    "id": "m1295-paper-route-source-history-pair-group-objective-probe",
+    "kind": "infrastructure",
+    "notes": "Pending: run pair-group objective probe; PPO and promotion remain blocked",
+    "priority": 12900,
     "status": "pending",
-    "success_artifact": "docs/m1294-paper-route-source-history-pair-group-objective-design.md"
+    "success_artifact": "runs/m1295_source_history_pair_group_objective_probe/summary.json"
   },
-  "updated_at_utc": "20260528T143007Z"
+  "updated_at_utc": "20260528T143250Z"
 }

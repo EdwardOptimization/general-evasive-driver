@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1294 designs no-PPO pair-group actor_mean objective and admits bounded M1295 probe with group-level directional gates",
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores M1292 mixed result",
+    "design ignores pair/probe group structure",
+    "design starts PPO directly",
+    "design overclaims self-identification",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat M1292 mixed result as solved",
+    "do not overclaim self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T143446Z",
+  "hypothesis": "A pair-group directional objective can be designed to target M1292 mutually-exclusive rows more directly than scalar row-wise actor_mean optimization.",
+  "lineage": {
+    "blocked_by": [
+      "M1292 best_both_directional_fraction is only 0.1842105263 and requires pair-group repair design"
+    ],
+    "derived_from": [
+      "m1293-paper-route-source-history-actor-mean-feasibility-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.md",
+      "runs/m1292_source_history_actor_mean_directional_feasibility_probe/summary.json",
+      "runs/m1292_source_history_actor_mean_directional_feasibility_probe/candidate_summaries.csv",
+      "runs/m1292_source_history_actor_mean_directional_feasibility_probe/directional_feasibility_rows.csv",
+      "runs/m1290_source_history_directional_conflict_audit/directional_conflict_rows.csv"
+    ],
+    "parent_objective": [
+      "design pair-group directional objective after M1292 mixed actor_mean feasibility"
+    ],
+    "supersedes": [
+      "continuing row-wise actor_mean optimization without pair-group structure"
+    ]
+  },
+  "milestone": "m1294-paper-route-source-history-pair-group-objective-design",
+  "next_blocker": "m1295-paper-route-source-history-pair-group-objective-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_history_pair_group_objective_design_admit_bounded_actor_mean_implementation",
+  "public_gates": [
+    "M1294 must preserve actor input contract",
+    "M1294 must not train",
+    "M1294 must not run PPO",
+    "M1294 must not use private holdout",
+    "M1294 must not promote",
+    "M1294 must design a pair-group directional objective that targets both rows in each pair/probe group",
+    "M1294 must specify exact pass/fail gates before implementation"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1294-paper-route-source-history-pair-group-objective-design.md",
+    "clearance_margin_mean": "",
+    "decision": "source_history_pair_group_objective_design_admit_bounded_actor_mean_implementation",
+    "milestone": "m1294-paper-route-source-history-pair-group-objective-design",
+    "reason": "M1294 designs no-PPO pair-group actor_mean objective and admits bounded M1295 probe with group-level directional gates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1294-paper-route-source-history-pair-group-objective-design.md exists",
+    "design specifies pair-group objective",
+    "design specifies group-level directional metrics",
+    "design admits bounded implementation or routes to scope/corpus audit",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

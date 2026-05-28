@@ -18734,3 +18734,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1294-paper-route-source-history-pair-group-objective-design.json`.
 - decision: `source_history_actor_mean_feasibility_audit_mixed_route_to_pair_group_objective_design`
 - next: `m1294-paper-route-source-history-pair-group-objective-design`
+
+## 20260528T143250Z - m1294-paper-route-source-history-pair-group-objective-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1294-paper-route-source-history-pair-group-objective-design.md`
+- decision: `source_history_pair_group_objective_design_admit_bounded_actor_mean_implementation`
+- blocker addressed: M1292 mixed actor_mean feasibility leaves most pair/probe groups unresolved.
+- group baseline: M1292 best `m1288_init` has `14/76` pair/probe groups with all rows both-positive.
+- objective: row directional loss plus group floor loss plus group balance loss plus actor_mean anchor.
+- proposed implementation: actor_mean-only, `steps=500`, `lr=0.0003`, `target_margin=0.05`, no PPO, no promotion, no private holdout.
+- proposed strong gate: `group_all_rows_both_positive_fraction >= 0.25`, `both_directional_fraction >= 0.25`, and no non-actor mutation.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1295-paper-route-source-history-pair-group-objective-probe.json`.
+- decision: `source_history_pair_group_objective_design_admit_bounded_actor_mean_implementation`
+- next: `m1295-paper-route-source-history-pair-group-objective-probe`

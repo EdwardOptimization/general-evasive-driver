@@ -1,0 +1,176 @@
+{
+  "id": "m1295-paper-route-source-history-pair-group-objective-probe",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1294-paper-route-source-history-pair-group-objective-design.md",
+      "runs/m1292_source_history_actor_mean_directional_feasibility_probe/summary.json",
+      "runs/m1292_source_history_actor_mean_directional_feasibility_probe/directional_feasibility_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_frame_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_intervention_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/wrong_history_pair_rows.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_observations.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_action_sequences.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1294-paper-route-source-history-pair-group-objective-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded no-PPO actor_mean pair-group directional objective probe"
+    ],
+    "derived_from": [
+      "m1294-paper-route-source-history-pair-group-objective-design"
+    ],
+    "blocked_by": [
+      "M1294 designs pair-group objective but no implementation artifacts exist"
+    ],
+    "supersedes": [
+      "row-only directional objective without group-level pass/fail metrics"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1295-paper-route-source-history-pair-group-objective-probe.md",
+  "public_gates": [
+    "M1295 must preserve actor input contract",
+    "M1295 must not run PPO",
+    "M1295 must not use private holdout",
+    "M1295 must not promote",
+    "M1295 must update only actor_mean parameters in diagnostic candidates",
+    "M1295 must report row-level and group-level directional metrics",
+    "M1295 must decide whether actor_mean pair-group signal is strong, mixed, or negative"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not update GRU encoder context fusion critic log_std or sequence-tail parameters",
+    "do not treat group improvement as closed-loop performance",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_objective_only_update",
+    "evidence_axis": "S_pair_group_objective_probe",
+    "evidence_increment": "tests a pair-group actor_mean objective after mixed row-wise feasibility",
+    "claim_scope": "diagnostic infrastructure only; no promotion, private-holdout, PPO, paper-level, closed-loop, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if probe requires actor-input expansion",
+      "stop if non-actor_mean parameters change",
+      "stop if pair-group metrics cannot be computed"
+    ],
+    "fallback_plan": [
+      "if strong, route to result audit then proof-retention design",
+      "if mixed, route to result audit and scope/refresh decision",
+      "if negative, route to trainable-scope escalation or corpus relabel audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "ninth milestone in objective-only update branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "actor_mean pair-group directional objective probe",
+    "admission_evidence": [
+      "M1294 designs pair-group objective",
+      "M1292 best_both_directional_fraction=0.1842105263",
+      "M1292 best group_all_rows_both_positive_count=14",
+      "PPO remains blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not update non-actor_mean parameters"
+    ],
+    "allowed_updates": [
+      "pair-group objective probe implementation",
+      "focused tests",
+      "M1295 run artifacts",
+      "M1295 result doc",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "summary.json exists",
+      "group metrics exist",
+      "directional rows exist",
+      "mutation guard confirms only actor_mean changed",
+      "result routes to audit or synthesis by cadence"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1295 probes fixed-current pair-group source-history constraints and does not evaluate closed-loop history necessity.",
+    "history_necessity_tests": [
+      "both rows in each pair/probe group must be reported",
+      "probe must keep labels and source metadata out of actor input"
+    ],
+    "temporal_evidence_window": "M1280 24-step source prefix replay at fixed M1277 intervention observations.",
+    "negative_result_policy": "If pair-group actor_mean is mixed or negative, keep PPO blocked and route to audit/synthesis.",
+    "allowed_claims": [
+      "pair-group source-history directional objective result",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A bounded no-PPO pair-group objective can improve group-level both-positive source-history directionality beyond M1292 without mutating non-actor parameters.",
+  "success_criteria": [
+    "runs/m1295_source_history_pair_group_objective_probe/summary.json exists",
+    "candidate summaries and group metrics exist",
+    "focused tests pass",
+    "group_all_rows_both_positive_fraction is reported for each initialization",
+    "mutation guard confirms only actor_mean changed",
+    "result class is strong, mixed, or negative",
+    "no PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "group directional metrics are missing",
+    "forbidden parameters change",
+    "PPO starts",
+    "private holdout is used",
+    "checkpoint is promoted",
+    "actor input contract changes",
+    "thresholds are relaxed after seeing results"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest -q tests/test_source_history_pair_group_objective_probe.py"
+    },
+    {
+      "name": "run_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_history_pair_group_objective_probe --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --m1288-checkpoint runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt --history-run-dir runs/m1280_four_wheel_source_response_history_materialization --intervention-run-dir runs/m1277_four_wheel_source_intervention_materialization --run-dir runs/m1295_source_history_pair_group_objective_probe --device cpu --steps 500 --lr 0.0003 --target-margin 0.05"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1295_source_history_pair_group_objective_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1295-paper-route-source-history-pair-group-objective-probe.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1294-paper-route-source-history-pair-group-objective-design.md",
+    "runs/m1292_source_history_actor_mean_directional_feasibility_probe/summary.json"
+  ],
+  "decision_rule": "M1295 passes as diagnostic infrastructure if it reports pair-group directional outcome without forbidden mutations and routes to audit or synthesis.",
+  "next_blocker": "m1295-paper-route-source-history-pair-group-objective-probe"
+}

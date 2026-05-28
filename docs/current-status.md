@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1293-paper-route-source-history-actor-mean-feasibility-result-audit
+m1294-paper-route-source-history-pair-group-objective-design
 ```
 
 Current next task:
 
 ```text
-m1294-paper-route-source-history-pair-group-objective-design
+m1295-paper-route-source-history-pair-group-objective-probe
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -99,8 +99,11 @@ mixed: the best candidate is `m1288_init`, with `both_directional_fraction=0.184
 and `28/152` both-positive rows, while `mutually_exclusive_fraction=0.7763157895`
 remains high. No non-actor parameters changed. M1293 audited this as mixed,
 non-promotable evidence and selected pair-group directional objective design as
-the next no-PPO step. The active blocker is M1294: design that pair-group
-objective before any further implementation. PPO and promotion remain blocked.
+the next no-PPO step. M1294 designed that pair-group objective: treat each
+`pair_id/probe_template` two-row group as one unit, optimize group minimum
+margin and balance, and require group-level metrics before any escalation. The
+active blocker is M1295: implement and run the bounded actor_mean-only
+pair-group objective probe. PPO and promotion remain blocked.
 
 ## Actor Contract
 
