@@ -155,6 +155,49 @@
     "docs/m1357-paper-route-bidirectional-replay-active-set-design.md",
     "runs/m1355_materialized_source_history_replay_aware_retention_probe/retention_surface/retention_trajectory_anchor.npz"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1358_bidirectional_active_set_anchor_export/summary.json",
+    "document": "docs/m1358-paper-route-bidirectional-active-set-anchor-export.md",
+    "decision": "bidirectional_active_set_anchor_export_pass_route_to_probe_design",
+    "failure_type": "none",
+    "rows_selected": 17,
+    "required_row_ids": [
+      6,
+      10,
+      13,
+      15,
+      16
+    ],
+    "required_rows_present": true,
+    "rejected_trajectory_rows": 669,
+    "combined_anchor_rows": 12113,
+    "combined_anchor_npz": "runs/m1358_bidirectional_active_set_anchor_export/combined_recovery_rejected_anchor.npz",
+    "combined_anchor_shape": {
+      "observation": [
+        12113,
+        72
+      ],
+      "hidden": [
+        12113,
+        128
+      ],
+      "reference_action": [
+        12113,
+        3
+      ]
+    },
+    "forbidden_shortcuts_used": false,
+    "training_started": false,
+    "actor_update_used": false,
+    "replay_run_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "next_manifest": "experiments/manifests/m1359-paper-route-bidirectional-active-set-probe-design.json"
+  },
   "decision_rule": "M1358 passes only if the combined bidirectional anchor is exported and loaded without actor update, PPO, private holdout, promotion, replay run, or actor-input expansion.",
-  "next_blocker": "m1358-paper-route-bidirectional-active-set-anchor-export"
+  "next_blocker": "m1359-paper-route-bidirectional-active-set-probe-design"
 }

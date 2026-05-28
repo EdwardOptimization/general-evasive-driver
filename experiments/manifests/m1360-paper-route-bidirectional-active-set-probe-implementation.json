@@ -1,0 +1,171 @@
+{
+  "id": "m1360-paper-route-bidirectional-active-set-probe-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1359-paper-route-bidirectional-active-set-probe-design.md",
+      "runs/m1358_bidirectional_active_set_anchor_export/combined_recovery_rejected_anchor.npz",
+      "runs/m1336_materialized_source_history_objective_corpus_export"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1359-paper-route-bidirectional-active-set-probe-design.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_objective": [
+      "run exactly one no-PPO bidirectional active-set probe using the M1358 combined anchor"
+    ],
+    "derived_from": [
+      "m1359-paper-route-bidirectional-active-set-probe-design"
+    ],
+    "blocked_by": [
+      "M1359 designs the probe but no implementation has been run"
+    ],
+    "supersedes": [
+      "direct PPO after M1359",
+      "direct promotion after anchor export",
+      "normal-only retention coefficient tuning"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1360-paper-route-bidirectional-active-set-probe-implementation.md",
+  "public_gates": [
+    "M1360 must not run PPO",
+    "M1360 must not use private holdout",
+    "M1360 must not promote",
+    "M1360 must preserve actor input contract",
+    "M1360 must use the M1358 combined anchor",
+    "M1360 must verify mutation scope",
+    "M1360 must evaluate exact source-history metrics before replay",
+    "M1360 must run M267/M264 before M183/M170"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not skip mutation checks",
+    "do not skip exact metrics",
+    "do not skip M267/M264 before M183/M170",
+    "do not run full public replay",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_bidirectional_replay_active_set_retention",
+    "evidence_axis": "S_bidirectional_active_set_probe",
+    "evidence_increment": "tests whether a combined correct-history and wrong-history trajectory anchor prevents M1355-style wrong-branch proof washout during a no-PPO source-history update",
+    "claim_scope": "single no-PPO public proof probe only; no promotion, private-holdout, PPO, full replay, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if mutation or actor contract checks fail",
+      "stop if exact metrics do not improve vs M1154",
+      "stop if M267/M264 fails",
+      "stop if M183/M170 fails after M267/M264 passes",
+      "stop after one probe and route to result audit before local tuning"
+    ],
+    "fallback_plan": [
+      "if implementation is structurally blocked, route to bidirectional probe tooling repair",
+      "if exact progress is weak, record as no_exact_lift and audit",
+      "if normal branch fails, classify normal_branch_proof_washout and audit",
+      "if wrong branch fails, classify wrong_branch_proof_washout and audit",
+      "if both replay surfaces pass, route to result audit before any wider replay"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1359 admits exactly one no-PPO bidirectional active-set implementation probe",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "no-PPO bidirectional active-set probe",
+    "admission_evidence": [
+      "M1358 exported a valid combined anchor",
+      "M1359 pre-registers exact-first and M267-first evaluation order"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not run full public replay"
+    ],
+    "allowed_updates": [
+      "one no-PPO actor update with pre-registered trainable scope",
+      "bidirectional active-set probe artifacts",
+      "exact metric artifacts",
+      "limited replay preflight artifacts",
+      "M1360 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "summary records exact and replay outcomes",
+      "summary compares against M1154 and M1355",
+      "next route is result audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1360 checks public intervention proof retention after a no-PPO update and cannot claim anticipatory self-identification.",
+    "history_necessity_tests": [
+      "M267/M264 wrong-history rows 6,10,13,15,16 must remain rejected while normal history remains safe"
+    ],
+    "temporal_evidence_window": "M1358 combined trajectory anchor and M267/M264 boundary replay rows.",
+    "negative_result_policy": "If the probe fails, classify the failure before tuning coefficients or adding new rows.",
+    "allowed_claims": [
+      "single no-PPO bidirectional active-set proof probe result",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1358 combined anchor can reduce the M1355 wrong-branch proof washout while still improving exact source-history metrics in one bounded no-PPO update.",
+  "success_criteria": [
+    "runs/m1360_bidirectional_active_set_probe/summary.json exists",
+    "summary records use of runs/m1358_bidirectional_active_set_anchor_export/combined_recovery_rejected_anchor.npz",
+    "summary records mutation scope and actor input contract checks",
+    "summary records exact source-history metrics versus M1154 and M1355",
+    "summary records M267/M264 and conditional M183/M170 replay outcomes",
+    "no PPO, promotion, private holdout, threshold relaxation, full replay, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "M1358 combined anchor is not used",
+    "mutation or actor contract checks are missing",
+    "exact metrics are missing",
+    "M267/M264 is skipped before M183/M170",
+    "PPO, private holdout, promotion, threshold relaxation, full replay, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "bidirectional_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.materialized_source_history_bidirectional_active_set_probe --run-dir runs/m1360_bidirectional_active_set_probe --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1360_bidirectional_active_set_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1360-paper-route-bidirectional-active-set-probe-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1358_bidirectional_active_set_anchor_export/summary.json",
+    "runs/m1358_bidirectional_active_set_anchor_export/combined_recovery_rejected_anchor.npz",
+    "runs/m1355_materialized_source_history_replay_aware_retention_probe/summary.json"
+  ],
+  "decision_rule": "M1360 may run exactly one no-PPO bidirectional active-set probe; it cannot promote and must route to result audit after summary classification.",
+  "next_blocker": "m1360-paper-route-bidirectional-active-set-probe-implementation"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1367,
+    "completed": 1369,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1357-paper-route-bidirectional-replay-active-set-design.md",
+    "command_log": "docs/m1359-paper-route-bidirectional-active-set-probe-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1357-paper-route-bidirectional-replay-active-set-design.md",
+    "run_dir": "docs/m1359-paper-route-bidirectional-active-set-probe-design.md",
     "status": "completed",
-    "task_id": "m1357-paper-route-bidirectional-replay-active-set-design"
+    "task_id": "m1359-paper-route-bidirectional-active-set-probe-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1358-paper-route-bidirectional-active-set-anchor-export.json",
-    "hypothesis": "Export combined correct-history and wrong-history active-set anchors before any actor update",
-    "id": "m1358-paper-route-bidirectional-active-set-anchor-export",
+    "command": "see experiments/manifests/m1360-paper-route-bidirectional-active-set-probe-implementation.json",
+    "hypothesis": "Run one no-PPO bidirectional active-set probe using the M1358 combined anchor",
+    "id": "m1360-paper-route-bidirectional-active-set-probe-implementation",
     "kind": "infrastructure",
-    "notes": "Pending: artifact-only anchor export; no training, PPO, promotion, private holdout, replay run, or actor update",
-    "priority": 13530,
+    "notes": "Pending: implement/run exactly one no-PPO probe; exact metrics before M267/M264 and M183/M170 conditional replay; no PPO promotion private holdout full replay or actor input change",
+    "priority": 13550,
     "status": "pending",
-    "success_artifact": "runs/m1358_bidirectional_active_set_anchor_export/summary.json"
+    "success_artifact": "runs/m1360_bidirectional_active_set_probe/summary.json"
   },
-  "updated_at_utc": "20260528T200808Z"
+  "updated_at_utc": "20260528T201115Z"
 }

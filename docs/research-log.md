@@ -19934,3 +19934,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1358-paper-route-bidirectional-active-set-anchor-export.json`.
 - next: `m1358-paper-route-bidirectional-active-set-anchor-export`
+
+## 20260528T201115Z - m1358-paper-route-bidirectional-active-set-anchor-export
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1358_bidirectional_active_set_anchor_export/summary.json`
+- document: `docs/m1358-paper-route-bidirectional-active-set-anchor-export.md`
+- decision: `bidirectional_active_set_anchor_export_pass_route_to_probe_design`
+- branch: `paper_route_bidirectional_replay_active_set_retention`
+- required wrong-history rows: `6`, `10`, `13`, `15`, and `16`.
+- required rows present: `true`.
+- rejected trajectory rows: `669`.
+- combined anchor rows: `12113`, consisting of `1409` M1355 correct-history retention rows plus repeated rejected/wrong-history trajectory rows.
+- combined anchor shape: observation `[12113, 72]`, hidden `[12113, 128]`, reference action `[12113, 3]`.
+- guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1359-paper-route-bidirectional-active-set-probe-design.json`.
+- next: `m1359-paper-route-bidirectional-active-set-probe-design`
+
+## 20260528T201115Z - m1359-paper-route-bidirectional-active-set-probe-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1359-paper-route-bidirectional-active-set-probe-design.md`
+- decision: `bidirectional_active_set_probe_design_admit_implementation`
+- combined anchor: `runs/m1358_bidirectional_active_set_anchor_export/combined_recovery_rejected_anchor.npz`.
+- design: one no-PPO source-history update with the M1358 bidirectional trajectory anchor, M1355 trainable scope, exact source-history metrics first, M267/M264 first replay, and M183/M170 conditional replay.
+- trainable scope for the later probe: `response_context_fusion.0.*` and `actor_mean.*`.
+- failure taxonomy for later probe: `no_exact_lift`, `normal_branch_proof_washout`, `wrong_branch_proof_washout`, `contract_artifact`, or `probe_pass`.
+- guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1360-paper-route-bidirectional-active-set-probe-implementation.json`.
+- next: `m1360-paper-route-bidirectional-active-set-probe-implementation`

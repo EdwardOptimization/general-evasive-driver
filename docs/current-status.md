@@ -16,23 +16,36 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1357-paper-route-bidirectional-replay-active-set-design
+m1359-paper-route-bidirectional-active-set-probe-design
 ```
 
 Current next task:
 
 ```text
-m1358-paper-route-bidirectional-active-set-anchor-export
+m1360-paper-route-bidirectional-active-set-probe-implementation
 ```
 
-M1357 designs the new bidirectional replay active-set branch. The objective is
-now branch-asymmetric: protect correct-history success/margin and separately
-protect wrong-history rejected/failure behavior, instead of only anchoring normal
-trajectories. M1358 is an artifact-only step using
-`autodrift.rejected_history_trajectory_anchor` to export wrong-history
-trajectory anchors for M1355 safe rows `6`, `10`, `13`, `15`, and `16`, then
-combine them with the existing M1355 correct-history retention anchor. No actor
-update is admitted by M1358.
+M1359 designs the next implementation step: exactly one no-PPO bidirectional
+active-set probe that consumes the M1358 combined anchor, evaluates exact
+source-history metrics first, runs M267/M264 first, and runs M183/M170 only if
+M267/M264 passes. The later probe keeps the M1355 trainable scope
+(`response_context_fusion.0.*` and `actor_mean.*`) and must verify mutation
+scope, `log_std_l2=0.0`, and unchanged canonical 72-value actor input contract.
+It cannot run PPO, use private holdout, promote, run full replay, or claim driver
+performance.
+
+M1358 completed the artifact-only bidirectional anchor export. It exported
+`runs/m1358_bidirectional_active_set_anchor_export/combined_recovery_rejected_anchor.npz`
+with `12113` rows: `1409` M1355 correct-history retention rows plus repeated
+M267/M264 rejected/wrong-history trajectories. Required rows `6`, `10`, `13`,
+`15`, and `16` are present, and the combined anchor shape is observation
+`[12113, 72]`, hidden `[12113, 128]`, reference action `[12113, 3]`. No actor
+update, PPO, replay, private holdout, promotion, or actor-input change occurred.
+
+M1357 designed the new bidirectional replay active-set branch. The objective is
+branch-asymmetric: protect correct-history success/margin and separately protect
+wrong-history rejected/failure behavior, instead of only anchoring normal
+trajectories.
 
 M1356 synthesizes M1346-M1355 and closes
 `paper_route_materialized_source_history_pair_group_update_implementation` with a
@@ -42,7 +55,7 @@ replay-safe, pure interpolation only gives a tiny diagnostic alpha, and
 normal-branch retention alone makes wrong-history branches safe. The new branch
 is `paper_route_bidirectional_replay_active_set_retention`: explicitly separate
 correct-history success constraints from wrong-history/rejected-branch
-constraints. M1357 should design that branch-asymmetric active-set objective.
+constraints. M1357 designed that branch-asymmetric active-set objective.
 
 M1355 ran the replay-aware retained no-PPO update. It is a negative
 `proof_washout` result. The retained update strongly improves exact
