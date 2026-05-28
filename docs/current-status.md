@@ -115,8 +115,36 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1229-paper-route-source-geometry-consistency-audit
+m1230-paper-route-short-horizon-relocation-smoke
 ```
+
+M1229 completed source-geometry consistency audit:
+
+```text
+artifact: docs/m1229-paper-route-source-geometry-consistency-audit.md
+short run: runs/m1229_source_geometry_consistency_short
+long run:  runs/m1229_source_geometry_consistency_long
+decision: source_geometry_consistency_horizon_mismatch_route_to_short_horizon_relocation
+```
+
+M1229 result:
+
+```text
+short horizon 12:
+  normal_success: 100 / 100
+  variant_success: 100 / 100
+  margin_gap max: 0.0023704993
+
+long horizon 60:
+  normal_success: 0 / 100
+  variant_success: 0 / 100
+  normal_collision: 100 / 100
+```
+
+Conclusion: source geometry is replay-consistent at the M1222 short horizon,
+but M1222 candidates are not long-horizon safe. The next run is a
+short-horizon relocation materialization smoke; any positive result must be
+scoped to short-horizon proof only.
 
 M1228 completed the M1227 negative audit:
 
@@ -167,10 +195,9 @@ margin gaps cannot be treated as proof.
 Next task:
 
 ```text
-short run: runs/m1229_source_geometry_consistency_short
-long run:  runs/m1229_source_geometry_consistency_long
-goal: compare exact source geometry with max_continuation_steps 12 versus 60
-blocked: relocation offsets, half-width inflation, training, PPO, promotion
+run:  runs/m1230_short_horizon_relocation_smoke
+goal: test M1227 relocation grid at max_continuation_steps 12
+blocked: long-horizon performance claims, training, PPO, promotion
 ```
 
 M1226 completed terminal-boundary candidate export:

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1238,
+    "completed": 1239,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1228-paper-route-terminal-boundary-negative-audit.md",
+    "command_log": "docs/m1229-paper-route-source-geometry-consistency-audit.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1229_source_geometry_consistency_short",
     "status": "completed",
-    "task_id": "m1228-paper-route-terminal-boundary-negative-audit"
+    "task_id": "m1229-paper-route-source-geometry-consistency-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1229-paper-route-source-geometry-consistency-audit.json",
-    "hypothesis": "Run source-geometry consistency audit",
-    "id": "m1229-paper-route-source-geometry-consistency-audit",
+    "command": "see experiments/manifests/m1230-paper-route-short-horizon-relocation-smoke.json",
+    "hypothesis": "Run short-horizon terminal-boundary relocation smoke",
+    "id": "m1230-paper-route-short-horizon-relocation-smoke",
     "kind": "gate",
-    "notes": "Pending: replay exact source geometry with no offsets or width inflation under short and long horizons to separate source replay mismatch from horizon mismatch",
-    "priority": 12240,
+    "notes": "Pending: run M1227 relocation grid at 12-step horizon and audit whether action-divergent rows materialize into source-diverse short-horizon margin degradation",
+    "priority": 12250,
     "status": "pending",
-    "success_artifact": "docs/m1229-paper-route-source-geometry-consistency-audit.md"
+    "success_artifact": "docs/m1230-paper-route-short-horizon-relocation-smoke.md"
   },
-  "updated_at_utc": "20260528T080235Z"
+  "updated_at_utc": "20260528T080641Z"
 }

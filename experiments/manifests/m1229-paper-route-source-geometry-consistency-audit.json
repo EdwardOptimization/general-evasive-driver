@@ -162,5 +162,5 @@
     "runs/m1227_terminal_boundary_relocation_smoke/summary.json"
   ],
   "decision_rule": "M1229 passes as a diagnostic if it produces short and long source-geometry replay summaries and selects the next route without training or proof-criterion weakening.",
-  "next_blocker": "m1229-paper-route-source-geometry-consistency-audit"
+  "next_blocker": "m1230-paper-route-short-horizon-relocation-smoke"
 }

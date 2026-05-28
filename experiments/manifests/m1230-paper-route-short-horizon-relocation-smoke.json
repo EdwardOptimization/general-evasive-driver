@@ -1,0 +1,166 @@
+{
+  "id": "m1230-paper-route-short-horizon-relocation-smoke",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv",
+      "runs/m1229_source_geometry_consistency_short/summary.json",
+      "runs/m1229_source_geometry_consistency_long/summary.json",
+      "docs/m1229-paper-route-source-geometry-consistency-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1229-paper-route-source-geometry-consistency-audit.json",
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json"
+    ],
+    "parent_objective": [
+      "test whether M1226 action-divergent candidates can be materialized under the short horizon where source geometry is replay-consistent"
+    ],
+    "derived_from": [
+      "m1229-paper-route-source-geometry-consistency-audit"
+    ],
+    "blocked_by": [
+      "long-horizon exact source geometry collides for all selected M1226 candidates"
+    ],
+    "supersedes": [
+      "long-horizon relocation over short-horizon-safe candidates"
+    ],
+    "invalidates": [
+      "claiming M1227 all-collision result as a source-schema failure"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1230-paper-route-short-horizon-relocation-smoke.md",
+  "public_gates": [
+    "M1230 may run bounded short-horizon relocation replay only",
+    "M1230 must preserve actor input contract",
+    "M1230 must not train controllers",
+    "M1230 must not run PPO",
+    "M1230 must not use private holdout",
+    "M1230 must not promote",
+    "M1230 must scope any positive result to short-horizon materialization",
+    "M1230 must not claim long-horizon evasive-driver performance or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden or oracle actor inputs",
+    "do not claim long-horizon performance from short-horizon accepted rows",
+    "do not weaken accepted-row criteria",
+    "do not accept single-source active-set collapse"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_terminal_boundary_materialization",
+    "evidence_axis": "T_short_horizon_materialization",
+    "evidence_increment": "runs the M1227 relocation grid under the short horizon where M1229 showed exact source-geometry consistency",
+    "claim_scope": "bounded public proof smoke; positive rows can only support short-horizon causal-history materialization, not promotion or self-identification",
+    "stop_condition": [
+      "stop if accepted rows remain zero",
+      "stop if accepted rows collapse to one source family",
+      "stop if positive rows appear and require a result audit before any objective/training step"
+    ],
+    "fallback_plan": [
+      "if negative, pivot to stronger source/fault distributions",
+      "if source-collapsed, rerun source-balanced candidate selection or close branch",
+      "if positive and source-diverse, route to audit before any training"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1229 showed short-horizon source consistency and long-horizon collision",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "short-horizon terminal-boundary materialization smoke",
+    "admission_evidence": [
+      "M1229 short horizon has 100/100 normal-success source-geometry rows",
+      "M1229 long horizon has 0/100 normal-success source-geometry rows",
+      "M1226 candidate export is source-diverse"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1230 relocation artifacts",
+      "M1230 result docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "short-horizon relocation summary exists",
+      "accepted rows are source-diverse or negative result is classified",
+      "next audit or fallback route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1230 can only test short-horizon wrong-history outcome sensitivity and does not prove general history necessity.",
+    "history_necessity_tests": [
+      "wrong_matched_history short-horizon relocation replay",
+      "source-diversity gate on accepted rows if any"
+    ],
+    "temporal_evidence_window": "Any positive result is short-horizon materialization evidence only; long-horizon performance remains blocked.",
+    "negative_result_policy": "If short-horizon relocation fails, route to stronger source/fault distributions rather than weakening accepted criteria or training.",
+    "allowed_claims": [
+      "short-horizon terminal-boundary materialization evidence if source-diverse accepted rows appear",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The M1227 relocation grid may materialize wrong-history margin degradation under the M1222-compatible short horizon where exact source geometry remains normal-success.",
+  "success_criteria": [
+    "runs/m1230_short_horizon_relocation_smoke/summary.json exists",
+    "runs/m1230_short_horizon_relocation_smoke/boundary_relocation_rows.csv exists",
+    "source budget and candidate selection pass before replay",
+    "accepted wrong-history rows, if any, are reported with source-diversity accounting",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next audit or fallback route is selected"
+  ],
+  "failure_criteria": [
+    "M1230 trains or tunes profiles",
+    "private holdout is used",
+    "accepted rows are claimed without source-diversity accounting",
+    "short-horizon rows are claimed as long-horizon performance",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "run_short_horizon_relocation_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_balanced_boundary_relocation_surface --checkpoint-policy l3_s111602=runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --env-config configs/paper_route_corrected_profiles/m1207_l3_online_gru.json --outcome-csv runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv --delay-steps 10 --max-continuation-steps 12 --target-normal-margins 0.0005,0.001,0.002,0.003,0.005,0.010 --half-width-inflations 0,0.10 --body-longitudinal-offsets=-2,0,2 --body-lateral-offsets=-0.25,0,0.25 --min-normal-margin 0.0 --max-normal-margin 0.20 --min-margin-gap 0.010 --report-variants wrong_matched_history --max-candidates 120 --max-candidates-per-physical-pair 1 --max-candidates-per-checkpoint-target 64 --target-min-physical-pairs 40 --target-min-left-steps 5 --target-min-targets 2 --max-rows-per-pair-fraction 0.05 --min-eligible-physical-pairs 40 --max-candidate-pair-fraction 0.05 --device cpu --run-dir runs/m1230_short_horizon_relocation_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1230_short_horizon_relocation_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1230_short_horizon_relocation_smoke/boundary_relocation_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1230-paper-route-short-horizon-relocation-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv",
+    "runs/m1229_source_geometry_consistency_short/summary.json",
+    "runs/m1229_source_geometry_consistency_long/summary.json"
+  ],
+  "decision_rule": "M1230 passes as a bounded smoke only if it records source-budget accounting and either source-diverse short-horizon accepted rows or a classified negative result.",
+  "next_blocker": "m1230-paper-route-short-horizon-relocation-smoke"
+}

@@ -17651,3 +17651,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1229-paper-route-source-geometry-consistency-audit.json`.
 - decision: `terminal_boundary_negative_audit_route_to_source_geometry_consistency`
 - next: `m1229-paper-route-source-geometry-consistency-audit`
+
+## 20260528T080715Z - m1229-paper-route-source-geometry-consistency-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `proof`
+- artifact: `docs/m1229-paper-route-source-geometry-consistency-audit.md`
+- short run: `runs/m1229_source_geometry_consistency_short`
+- long run: `runs/m1229_source_geometry_consistency_long`
+- result: exact source geometry is replay-consistent at the short `12`-step horizon but collides for all selected rows at the long `60`-step horizon.
+- short horizon: `100/100` normal success, `100/100` wrong-history variant success, max margin gap `0.0023704993`, and `0` accepted wrong-history rows.
+- long horizon: `0/100` normal success, `0/100` variant success, `100/100` normal collisions, and `0` accepted wrong-history rows.
+- classification: `horizon_mismatch`; M1222 candidates are short-horizon source-safe but not long-horizon source-safe.
+- guardrail: no training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1230-paper-route-short-horizon-relocation-smoke.json`.
+- decision: `source_geometry_consistency_horizon_mismatch_route_to_short_horizon_relocation`
+- next: `m1230-paper-route-short-horizon-relocation-smoke`

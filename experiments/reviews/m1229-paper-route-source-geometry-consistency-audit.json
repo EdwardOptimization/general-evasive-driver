@@ -1,0 +1,92 @@
+{
+  "decision_reason": "M1229 finds exact source geometry is short-horizon normal-success but long-horizon all-collision so next is short-horizon relocation materialization with no long-horizon or self-ID claim",
+  "failure_criteria": [
+    "M1229 trains or tunes profiles",
+    "private holdout is used",
+    "offset or width-inflated relocation is mixed into the consistency audit",
+    "all-collision rows are claimed as proof",
+    "next route is left vague"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden or oracle actor inputs",
+    "do not use obstacle offsets or half-width inflation in the consistency audit",
+    "do not treat all-collision rows as proof"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260528T080710Z",
+  "hypothesis": "M1227's all-collision result is caused by a source-geometry replay consistency or horizon mismatch, not by lack of source-diverse candidate coverage.",
+  "lineage": {
+    "blocked_by": [
+      "M1227 exact source-geometry rows still collided under max_continuation_steps=60"
+    ],
+    "derived_from": [
+      "m1228-paper-route-terminal-boundary-negative-audit"
+    ],
+    "invalidates": [
+      "assuming M1222 candidate normal_success transfers directly to M1227 relocation replay"
+    ],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1228-paper-route-terminal-boundary-negative-audit.json",
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json"
+    ],
+    "parent_dataset": [
+      "runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv",
+      "runs/m1227_terminal_boundary_relocation_smoke/boundary_relocation_rows.csv",
+      "docs/m1228-paper-route-terminal-boundary-negative-audit.md"
+    ],
+    "parent_objective": [
+      "audit whether exact source geometry replay reproduces M1222 normal-success candidates under short and long horizons"
+    ],
+    "supersedes": [
+      "expanding the relocation grid without source consistency evidence"
+    ]
+  },
+  "milestone": "m1229-paper-route-source-geometry-consistency-audit",
+  "next_blocker": "m1230-paper-route-short-horizon-relocation-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_geometry_consistency_horizon_mismatch_route_to_short_horizon_relocation",
+  "public_gates": [
+    "M1229 may run source-geometry replay consistency only",
+    "M1229 must preserve actor input contract",
+    "M1229 must not train controllers",
+    "M1229 must not run PPO",
+    "M1229 must not use private holdout",
+    "M1229 must not promote",
+    "M1229 must compare short and long continuation horizons",
+    "M1229 must not claim self-identification"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1229_source_geometry_consistency_short/summary.json;runs/m1229_source_geometry_consistency_long/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "source_geometry_consistency_horizon_mismatch_route_to_short_horizon_relocation",
+    "milestone": "m1229-paper-route-source-geometry-consistency-audit",
+    "reason": "M1229 finds exact source geometry is short-horizon normal-success but long-horizon all-collision so next is short-horizon relocation materialization with no long-horizon or self-ID claim",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1229_source_geometry_consistency_short/summary.json exists",
+    "runs/m1229_source_geometry_consistency_long/summary.json exists",
+    "short and long horizon normal-success rates are reported",
+    "horizon/source mismatch is classified",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next route is selected"
+  ],
+  "type": "gate"
+}
