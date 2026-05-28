@@ -19198,3 +19198,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1319-paper-route-inactive-source-family-repair-design.json`.
 - next: `m1319-paper-route-inactive-source-family-repair-design`
+
+## 20260528T165245Z - m1319-paper-route-inactive-source-family-repair-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1319-paper-route-inactive-source-family-repair-design.md`
+- decision: `inactive_source_family_repair_design_admit_no_policy_repair_smoke`
+- design: add `source_repair_v1` fault, scenario, and action profiles for a no-policy M1320 repair smoke.
+- global friction repair: use lower-speed stopping and steer/brake envelope boundary grids rather than expecting symmetric mu changes to behave like split-mu.
+- steering actuator repair: use multi-phase early/delayed steering pulse and countersteer templates where lag and rate limits matter.
+- load/CG repair: use nonzero yaw-rate/lateral-velocity entry states and recovery templates so inertia and balance differences affect outcome.
+- halfshaft repair: use drive/coast/mixed preloads and throttle recovery templates because M1317 started mostly brake-preloaded.
+- guardrail: strict source thresholds remain; no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1320-paper-route-inactive-source-family-repair-smoke.json`.
+- next: `m1320-paper-route-inactive-source-family-repair-smoke`

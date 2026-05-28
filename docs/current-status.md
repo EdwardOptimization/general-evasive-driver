@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1318-paper-route-source-generator-update-result-audit
+m1319-paper-route-inactive-source-family-repair-design
 ```
 
 Current next task:
 
 ```text
-m1319-paper-route-inactive-source-family-repair-design
+m1320-paper-route-inactive-source-family-repair-smoke
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -225,7 +225,11 @@ global friction, steering actuator, and load/CG mostly fail as
 source grid, so direct corpus export would overrepresent the active asymmetric
 families. The active blocker is M1319: design family-specific no-policy repair
 routes before corpus export, source-history materialization, objective tuning,
-PPO, or promotion.
+PPO, or promotion. M1319 completed that design and admits M1320:
+`source_repair_v1` should target global friction with envelope boundary grids,
+steering actuator with multi-phase pulse/countersteer templates, load/CG with
+nonzero yaw/lateral entry states, and halfshaft with drive/coast/mixed preloads.
+The active blocker is M1320: implement and run that no-policy repair smoke.
 
 ## Actor Contract
 

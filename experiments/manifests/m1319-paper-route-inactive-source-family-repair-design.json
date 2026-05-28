@@ -150,6 +150,22 @@
     "runs/m1317_source_generator_update_smoke/summary.json",
     "runs/m1317_source_generator_update_smoke/inactive_fault_families.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1319-paper-route-inactive-source-family-repair-design.md",
+    "doc": "docs/m1319-paper-route-inactive-source-family-repair-design.md",
+    "decision": "inactive_source_family_repair_design_admit_no_policy_repair_smoke",
+    "target_inactive_families": [
+      "global_friction_step->global_friction_step",
+      "load_cg_perturbation->load_cg_perturbation",
+      "steering_actuator_fault->steering_actuator_fault"
+    ],
+    "target_undercovered_families": [
+      "halfshaft_torque_loss->halfshaft_torque_loss"
+    ],
+    "next_manifest": "experiments/manifests/m1320-paper-route-inactive-source-family-repair-smoke.json"
+  },
+  "decision": "inactive_source_family_repair_design_admit_no_policy_repair_smoke",
   "decision_rule": "M1319 passes if it designs family-specific no-policy repair routes without training, PPO, promotion, private holdout use, threshold relaxation, fake accepted-family labels, or actor-input expansion.",
-  "next_blocker": "m1319-paper-route-inactive-source-family-repair-design"
+  "next_blocker": "m1320-paper-route-inactive-source-family-repair-smoke"
 }

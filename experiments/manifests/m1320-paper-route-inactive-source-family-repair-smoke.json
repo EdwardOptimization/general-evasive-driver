@@ -1,0 +1,170 @@
+{
+  "id": "m1320-paper-route-inactive-source-family-repair-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1319-paper-route-inactive-source-family-repair-design.md",
+      "runs/m1317_source_generator_update_smoke/summary.json",
+      "runs/m1317_source_generator_update_smoke/inactive_fault_families.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1319-paper-route-inactive-source-family-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement and smoke-test family-specific no-policy source repair profiles"
+    ],
+    "derived_from": [
+      "m1319-paper-route-inactive-source-family-repair-design"
+    ],
+    "blocked_by": [
+      "M1319 admits source_repair_v1 no-policy repair smoke"
+    ],
+    "supersedes": [
+      "corpus export from the M1317 partial active-family subset"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1320-paper-route-inactive-source-family-repair-smoke.md",
+  "public_gates": [
+    "M1320 must not train",
+    "M1320 must not run PPO",
+    "M1320 must not use private holdout",
+    "M1320 must not promote",
+    "M1320 must preserve actor input contract",
+    "M1320 must keep strict source acceptance thresholds",
+    "M1320 must export active and inactive family diagnostics"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax source thresholds",
+    "do not hide inactive families",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_corpus_expansion",
+    "evidence_axis": "S_inactive_source_family_repair_smoke",
+    "evidence_increment": "tests whether family-specific no-policy repair profiles activate inactive or undercovered source families",
+    "claim_scope": "source-repair infrastructure only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if source thresholds must be relaxed",
+      "stop if repair requires actor input expansion",
+      "stop if no inactive or undercovered family improves",
+      "stop if runtime requires splitting by family"
+    ],
+    "fallback_plan": [
+      "if repair succeeds, route to updated source corpus export design",
+      "if repair is partial, route to source repair result audit",
+      "if families remain action-equivalent, route to simulator/source-search extension design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1319 design admits one no-policy source repair smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "inactive source-family repair smoke",
+    "admission_evidence": [
+      "M1319 designs family-specific repair grids",
+      "M1317 leaves global friction, steering actuator, and load/CG inactive",
+      "halfshaft has only 4 accepted rows",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not relax source thresholds"
+    ],
+    "allowed_updates": [
+      "source repair profile implementation",
+      "focused tests",
+      "M1320 no-policy run artifacts",
+      "M1320 result doc",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "accepted family coverage is reported",
+      "inactive family blockers are reported",
+      "halfshaft undercoverage is reported",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1320 is no-policy source repair and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "generate richer source rows for later command-response history materialization"
+    ],
+    "temporal_evidence_window": "M1319 inactive source-family repair design.",
+    "negative_result_policy": "If repaired families remain action-equivalent, export blockers rather than accepting weak rows.",
+    "allowed_claims": [
+      "inactive source-family repair smoke result",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "Family-specific source_repair_v1 profiles can activate at least one previously inactive or undercovered family without actor-input expansion or source-threshold relaxation.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m1320_inactive_source_family_repair_smoke/summary.json exists",
+    "accepted_separable_pairs >= 160 or explicit family blockers are reported",
+    "accepted_fault_family_pairs >= 6 or explicit family blockers are reported",
+    "at least one previously inactive family becomes active or all inactive families are classified as simulator/search-blocked",
+    "halfshaft accepted rows > 4 or halfshaft undercoverage blocker is reported",
+    "inactive families are exported separately",
+    "strict source acceptance thresholds are preserved",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "run artifacts are missing",
+    "source thresholds are relaxed",
+    "inactive families are hidden",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_four_wheel_fault_source_shape.py tests/test_four_wheel_dynamics.py"
+    },
+    {
+      "name": "repair_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.four_wheel_fault_source_shape --fault-profile source_repair_v1 --scenario-profile source_repair_v1 --action-profile source_repair_v1 --run-dir runs/m1320_inactive_source_family_repair_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1320_inactive_source_family_repair_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1320-paper-route-inactive-source-family-repair-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1319-paper-route-inactive-source-family-repair-design.md",
+    "runs/m1317_source_generator_update_smoke/summary.json",
+    "runs/m1317_source_generator_update_smoke/inactive_fault_families.csv"
+  ],
+  "decision_rule": "M1320 passes as infrastructure if it runs a no-policy repair smoke with strict source thresholds, exported inactive-family diagnostics, and no training, PPO, promotion, private holdout use, threshold relaxation, hidden inactive-family handling, or actor-input expansion.",
+  "next_blocker": "m1320-paper-route-inactive-source-family-repair-smoke"
+}
