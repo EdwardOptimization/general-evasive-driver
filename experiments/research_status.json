@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1301,
+    "completed": 1302,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1291-paper-route-source-history-directional-repair-design.md",
+    "command_log": "docs/m1292-paper-route-source-history-actor-mean-directional-feasibility-probe.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1292_source_history_actor_mean_directional_feasibility_probe",
     "status": "completed",
-    "task_id": "m1291-paper-route-source-history-directional-repair-design"
+    "task_id": "m1292-paper-route-source-history-actor-mean-directional-feasibility-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1292-paper-route-source-history-actor-mean-directional-feasibility-probe.json",
-    "hypothesis": "A no-PPO actor_mean-only directional feasibility probe can determine whether fixed source-history features can satisfy row-wise preferences",
-    "id": "m1292-paper-route-source-history-actor-mean-directional-feasibility-probe",
-    "kind": "infrastructure",
-    "notes": "Pending: run actor_mean directional feasibility probe; PPO and promotion remain blocked",
-    "priority": 12870,
+    "command": "see experiments/manifests/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.json",
+    "hypothesis": "Audit M1292 mixed feasibility result and choose the next no-PPO branch step",
+    "id": "m1293-paper-route-source-history-actor-mean-feasibility-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit mixed actor_mean feasibility; PPO and promotion remain blocked",
+    "priority": 12880,
     "status": "pending",
-    "success_artifact": "runs/m1292_source_history_actor_mean_directional_feasibility_probe/summary.json"
+    "success_artifact": "docs/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.md"
   },
-  "updated_at_utc": "20260528T142134Z"
+  "updated_at_utc": "20260528T142727Z"
 }

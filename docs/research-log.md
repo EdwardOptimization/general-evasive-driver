@@ -18699,3 +18699,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1292-paper-route-source-history-actor-mean-directional-feasibility-probe.json`.
 - decision: `source_history_directional_repair_design_admit_actor_mean_feasibility_probe`
 - next: `m1292-paper-route-source-history-actor-mean-directional-feasibility-probe`
+
+## 20260528T142727Z - m1292-paper-route-source-history-actor-mean-directional-feasibility-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1292_source_history_actor_mean_directional_feasibility_probe/summary.json`
+- implementation: added `src/autodrift/source_history_directional_feasibility_probe.py` and `tests/test_source_history_directional_feasibility_probe.py`.
+- validation: `PYTHONPATH=src python -m pytest -q tests/test_source_history_directional_feasibility_probe.py` passed with `1 passed`.
+- result class: `source_history_actor_mean_directional_feasibility_mixed`.
+- candidate count: `2` (`base_init`, `m1288_init`).
+- best candidate: `m1288_init`, `actor_mean_directional_mixed`.
+- best directional metrics: `best_both_directional_fraction=0.1842105263`, `best_both_positive_count=28`, `best_mutually_exclusive_fraction=0.7763157895`, `best_min_margin_mean=-0.3045456347`, `best_min_margin_p10=-1.8071264267`.
+- base-init metrics: `both_directional_fraction=0.1578947368`, `both_positive_count=24`, `mutually_exclusive_fraction=0.7631578947`.
+- guardrail: `any_non_actor_mean_mutation_detected=false`, no PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- interpretation: actor_mean-only is not completely infeasible, but the partial both-positive signal is far from sufficient; route to result audit and likely pair-group directional objective design.
+- follow-up manifest: `experiments/manifests/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.json`.
+- decision: `source_history_actor_mean_directional_feasibility_mixed_route_to_result_audit`
+- next: `m1293-paper-route-source-history-actor-mean-feasibility-result-audit`

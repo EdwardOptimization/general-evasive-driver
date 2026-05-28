@@ -170,6 +170,36 @@
     "docs/m1291-paper-route-source-history-directional-repair-design.md",
     "runs/m1290_source_history_directional_conflict_audit/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1292_source_history_actor_mean_directional_feasibility_probe/summary.json",
+    "doc": "docs/m1292-paper-route-source-history-actor-mean-directional-feasibility-probe.md",
+    "decision": "source_history_actor_mean_directional_feasibility_mixed_route_to_result_audit",
+    "result_class": "source_history_actor_mean_directional_feasibility_mixed",
+    "candidate_count": 2,
+    "best_init_name": "m1288_init",
+    "best_candidate_class": "actor_mean_directional_mixed",
+    "best_both_directional_fraction": 0.1842105263,
+    "best_both_positive_count": 28,
+    "best_mutually_exclusive_fraction": 0.7763157895,
+    "best_min_margin_mean": -0.3045456347,
+    "best_min_margin_p10": -1.8071264267,
+    "base_init_both_directional_fraction": 0.1578947368,
+    "base_init_both_positive_count": 24,
+    "m1288_init_both_directional_fraction": 0.1842105263,
+    "m1288_init_both_positive_count": 28,
+    "any_non_actor_mean_mutation_detected": false,
+    "labels_enter_actor_input": false,
+    "objective_update_started": true,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.json"
+  },
+  "decision": "source_history_actor_mean_directional_feasibility_mixed_route_to_result_audit",
   "decision_rule": "M1292 passes as diagnostic infrastructure if it reports whether actor_mean-only can satisfy row-wise source-history directional constraints without forbidden mutations.",
-  "next_blocker": "m1292-paper-route-source-history-actor-mean-directional-feasibility-probe"
+  "next_blocker": "m1293-paper-route-source-history-actor-mean-feasibility-result-audit"
 }

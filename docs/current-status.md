@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1291-paper-route-source-history-directional-repair-design
+m1292-paper-route-source-history-actor-mean-directional-feasibility-probe
 ```
 
 Current next task:
 
 ```text
-m1292-paper-route-source-history-actor-mean-directional-feasibility-probe
+m1293-paper-route-source-history-actor-mean-feasibility-result-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -93,12 +93,13 @@ M1290 ran that no-training directional conflict audit and classified M1288 as
 `source_history_directional_conflict_magnitude_compression`: all `152/152` rows
 improve combined loss, but all `152/152` rows remain mutually exclusive and the
 minimum absolute preference margin decreases on all rows. The active blocker is
-M1291 designed the next step and rejected blind scalar-loss continuation: M1292
-should run a no-PPO actor_mean directional feasibility probe to determine
-whether fixed source-history features plus the final action head can satisfy
-row-wise correct-history/wrong-history directional inequalities at all. If
-actor_mean-only is infeasible, the branch should route to trainable-scope
-escalation or corpus relabel/refresh audit. PPO and promotion remain blocked.
+M1291 designed the next step and rejected blind scalar-loss continuation. M1292
+then ran the no-PPO actor_mean directional feasibility probe. The result is
+mixed: the best candidate is `m1288_init`, with `both_directional_fraction=0.1842105263`
+and `28/152` both-positive rows, while `mutually_exclusive_fraction=0.7763157895`
+remains high. No non-actor parameters changed. The active blocker is M1293:
+audit this mixed feasibility result and choose the next no-PPO step, likely a
+pair-group directional objective design. PPO and promotion remain blocked.
 
 ## Actor Contract
 

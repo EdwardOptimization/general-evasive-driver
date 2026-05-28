@@ -1,0 +1,156 @@
+{
+  "id": "m1293-paper-route-source-history-actor-mean-feasibility-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt",
+      "runs/m1292_source_history_actor_mean_directional_feasibility_probe/checkpoints/base_init_directional_candidate.pt",
+      "runs/m1292_source_history_actor_mean_directional_feasibility_probe/checkpoints/m1288_init_directional_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1292-paper-route-source-history-actor-mean-directional-feasibility-probe.md",
+      "runs/m1292_source_history_actor_mean_directional_feasibility_probe/summary.json",
+      "runs/m1292_source_history_actor_mean_directional_feasibility_probe/candidate_summaries.csv",
+      "runs/m1292_source_history_actor_mean_directional_feasibility_probe/directional_feasibility_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1292-paper-route-source-history-actor-mean-directional-feasibility-probe.json"
+    ],
+    "parent_objective": [
+      "audit mixed actor_mean directional feasibility result before choosing pair-group objective or scope escalation"
+    ],
+    "derived_from": [
+      "m1292-paper-route-source-history-actor-mean-directional-feasibility-probe"
+    ],
+    "blocked_by": [
+      "M1292 reaches only 28/152 both-positive rows and remains mixed"
+    ],
+    "supersedes": [
+      "treating partial actor_mean feasibility as PPO admission"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.md",
+  "public_gates": [
+    "M1293 must audit M1292 mixed result",
+    "M1293 must not run PPO",
+    "M1293 must not use private holdout",
+    "M1293 must not promote",
+    "M1293 must decide whether the next step is pair-group directional objective design, trainable-scope escalation design, or corpus relabel/refresh audit",
+    "M1293 must preserve the claim that M1292 is not a positive source-history gate"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat 28/152 both-positive rows as solved",
+    "do not infer closed-loop performance from fixed-row feasibility",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_objective_only_update",
+    "evidence_axis": "S_actor_mean_feasibility_result_audit",
+    "evidence_increment": "audits the mixed actor_mean directional feasibility result and selects the next no-PPO step",
+    "claim_scope": "result audit only; no promotion, private-holdout, PPO, paper-level, closed-loop, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if audit treats mixed feasibility as promotion-ready",
+      "stop if audit ignores mutually-exclusive rows",
+      "stop if audit starts PPO"
+    ],
+    "fallback_plan": [
+      "if pair-group structure appears useful, route to pair-group objective design",
+      "if actor_mean is too weak, route to trainable-scope escalation design",
+      "if labels conflict, route to corpus relabel/refresh audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "seventh milestone in objective-only update branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "actor_mean feasibility result audit",
+    "admission_evidence": [
+      "M1292 result_class=source_history_actor_mean_directional_feasibility_mixed",
+      "M1292 best_both_directional_fraction=0.1842105263",
+      "M1292 any_non_actor_mean_mutation_detected=false",
+      "PPO remains blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1293 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest if audit admits it"
+    ],
+    "next_stage_criteria": [
+      "mixed result is interpreted",
+      "next branch step is explicit",
+      "PPO remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1293 audits fixed-current directional feasibility and does not evaluate closed-loop history necessity.",
+    "history_necessity_tests": [
+      "audit before-after both-positive counts",
+      "preserve no-label actor input contract"
+    ],
+    "temporal_evidence_window": "M1292 actor_mean directional feasibility rows from M1280/M1277 fixed observations.",
+    "negative_result_policy": "If mixed feasibility is insufficient, keep PPO blocked and route to next no-PPO diagnostic/design.",
+    "allowed_claims": [
+      "actor_mean directional feasibility result audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "M1292 can be audited as a mixed actor_mean feasibility result that should route to a no-PPO pair-group objective design rather than PPO.",
+  "success_criteria": [
+    "docs/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.md exists",
+    "audit records best_both_directional_fraction=0.1842105263",
+    "audit records no non-actor mutation",
+    "audit records PPO and promotion remain blocked",
+    "audit chooses explicit next step",
+    "no PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1292 as solved",
+    "audit starts PPO directly",
+    "audit promotes a diagnostic checkpoint",
+    "audit overclaims self-identification",
+    "private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1293-paper-route-source-history-actor-mean-feasibility-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1292-paper-route-source-history-actor-mean-directional-feasibility-probe.md",
+    "runs/m1292_source_history_actor_mean_directional_feasibility_probe/summary.json"
+  ],
+  "decision_rule": "M1293 passes if it audits M1292 as mixed, non-promotable directional feasibility evidence and selects a no-PPO next step.",
+  "next_blocker": "m1293-paper-route-source-history-actor-mean-feasibility-result-audit"
+}
