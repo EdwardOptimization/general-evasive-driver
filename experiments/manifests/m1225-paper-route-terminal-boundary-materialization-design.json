@@ -1,0 +1,163 @@
+{
+  "id": "m1225-paper-route-terminal-boundary-materialization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1224-paper-route-causal-history-evidence-synthesis.md",
+      "runs/m1222_current_family_normal_success_boundary_source_smoke/candidate_scores.csv",
+      "runs/m1222_current_family_normal_success_boundary_source_smoke/normal_window_rows.csv"
+    ],
+    "parent_config": [
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json",
+      "experiments/manifests/m1224-paper-route-causal-history-evidence-synthesis.json"
+    ],
+    "parent_objective": [
+      "design the terminal-boundary materialization branch selected by M1224"
+    ],
+    "derived_from": [
+      "m1224-paper-route-causal-history-evidence-synthesis"
+    ],
+    "blocked_by": [
+      "M1222 has action-divergent rows but no outcome degradation",
+      "M1224 selects terminal-boundary materialization as the next branch"
+    ],
+    "supersedes": [
+      "continuing the closed paper_route_causal_history_evidence branch",
+      "training from M1222 action-only rows"
+    ],
+    "invalidates": [
+      "claiming M1222 action divergence is enough for causal-history proof"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1225-paper-route-terminal-boundary-materialization-design.md",
+  "public_gates": [
+    "M1225 may design terminal-boundary materialization only",
+    "M1225 must preserve the P0 human-view no-wheel actor contract",
+    "M1225 must decide whether existing relocation tooling can consume M1222 rows or an adapter is required",
+    "M1225 must include source-diversity and active-set-collapse guards",
+    "M1225 must not run source mining or relocation replay",
+    "M1225 must not train controllers",
+    "M1225 must not run PPO",
+    "M1225 must not use private holdout",
+    "M1225 must not promote",
+    "M1225 must not claim self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run relocation replay",
+    "do not use private holdout",
+    "do not promote",
+    "do not tune actor inputs",
+    "do not add hidden or oracle actor inputs",
+    "do not use action-only rows as proof",
+    "do not ignore M1177 active-set collapse risk"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_terminal_boundary_materialization",
+    "evidence_axis": "T_terminal_boundary_materialization_design",
+    "evidence_increment": "designs how to convert M1222 action-divergent candidate rows into bounded terminal-boundary materialization tests",
+    "claim_scope": "process/design only; no closed-loop proof, training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if M1222 rows cannot provide relocation-compatible geometry",
+      "stop if no source-diversity guard can prevent active-set collapse",
+      "stop if design requires hidden/oracle actor inputs"
+    ],
+    "fallback_plan": [
+      "design an adapter/exporter if existing relocation tooling cannot consume M1222 rows",
+      "route to stronger cross-family/fault source if terminal-boundary materialization is not viable",
+      "route to branch synthesis if repeated materialization attempts collapse to one active set"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1224 opens terminal-boundary materialization after causal-history branch synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "terminal-boundary materialization design",
+    "admission_evidence": [
+      "M1222 has 274 all-action-threshold rows",
+      "M1222 has zero outcome-critical rows",
+      "M1224 selects terminal-boundary materialization"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1225 design document",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "materialization route is selected",
+      "adapter/tooling needs are identified",
+      "source-diversity and active-set-collapse gates are specified",
+      "next implementation or run manifest is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1225 remains design-only and must not upgrade M1222 action divergence to history necessity.",
+    "history_necessity_tests": [
+      "design materialized wrong-history outcome gate",
+      "source-diversity and active-set collapse guards",
+      "normal-history success and wrong-history degradation criteria"
+    ],
+    "temporal_evidence_window": "Outcome-level history necessity remains blocked until a later materialization run produces source-diverse margin or success degradation.",
+    "negative_result_policy": "If materialization design is not viable, route to stronger cross-family/fault source rather than training.",
+    "allowed_claims": [
+      "terminal-boundary materialization design",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1222 action-divergent rows can be turned into a bounded terminal-boundary materialization test with explicit source-diversity and active-set-collapse guards.",
+  "success_criteria": [
+    "docs/m1225-paper-route-terminal-boundary-materialization-design.md exists",
+    "M1222 candidate compatibility is audited",
+    "existing-tool versus adapter route is selected",
+    "source-diversity and active-set-collapse gates are specified",
+    "private holdout remains unused",
+    "no source mining, relocation replay, outcome intervention, training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next route milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1225 trains or tunes profiles",
+    "private holdout is used",
+    "relocation replay is run",
+    "self-identification is claimed",
+    "M1177 active-set-collapse lesson is omitted",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "write_terminal_boundary_materialization_design",
+      "command": "Design M1222 action-divergent terminal-boundary materialization without running relocation"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1225-paper-route-terminal-boundary-materialization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1222_current_family_normal_success_boundary_source_smoke/candidate_scores.csv",
+    "docs/m1224-paper-route-causal-history-evidence-synthesis.md"
+  ],
+  "decision_rule": "M1225 passes if it chooses a concrete materialization implementation/run route with source-diversity and active-set-collapse guards.",
+  "next_blocker": "m1225-paper-route-terminal-boundary-materialization-design"
+}

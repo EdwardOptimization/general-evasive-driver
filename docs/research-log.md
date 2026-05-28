@@ -17569,3 +17569,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1224-paper-route-causal-history-evidence-synthesis.json`.
 - decision: `boundary_source_negative_audit_route_to_causal_history_synthesis`
 - next: `m1224-paper-route-causal-history-evidence-synthesis`
+
+## 20260528T073156Z - m1224-paper-route-causal-history-evidence-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1224-paper-route-causal-history-evidence-synthesis.md`
+- result: synthesizes M1215-M1223 and closes the current causal-history branch.
+- supported claims: current L3 actors have a functional hidden path; M1217 source is source-diverse but not action-critical; M1222 can find action-divergent wrong histories.
+- blocked claims: history necessity, recurrent belief, online self-identification, outcome-level causal-history proof, training readiness, and paper-level GRU history-use claims.
+- failure summary: M1218/M1220 show real wrong/delayed histories are action-equivalent on M1217; M1222 shows action gaps without margin or success degradation.
+- public-gate risk: continuing nearby source variants would become public gate overfitting, so the branch is closed.
+- next branch: `paper_route_terminal_boundary_materialization`.
+- follow-up manifest: `experiments/manifests/m1225-paper-route-terminal-boundary-materialization-design.json`.
+- decision: `causal_history_synthesis_promote_to_terminal_boundary_materialization`
+- next: `m1225-paper-route-terminal-boundary-materialization-design`

@@ -115,7 +115,55 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1224-paper-route-causal-history-evidence-synthesis
+m1225-paper-route-terminal-boundary-materialization-design
+```
+
+M1224 completed causal-history branch synthesis:
+
+```text
+artifact: docs/m1224-paper-route-causal-history-evidence-synthesis.md
+decision: causal_history_synthesis_promote_to_terminal_boundary_materialization
+```
+
+M1224 conclusion:
+
+```text
+The causal-history branch is closed. It supports hidden-path availability and
+action-divergent source existence, but blocks self-ID/history-necessity claims
+because real wrong/delayed histories have not yet produced margin or success
+degradation.
+```
+
+Next branch:
+
+```text
+paper_route_causal_history_evidence
+```
+
+The next task is terminal-boundary materialization design, not training,
+promotion, or self-ID claim expansion:
+
+```text
+checkpoint family: M1212 corrected L3 online GRU repeat
+env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
+checkpoint:        runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
+source run:        runs/m1222_current_family_normal_success_boundary_source_smoke
+next artifact:     docs/m1225-paper-route-terminal-boundary-materialization-design.md
+next branch:       paper_route_terminal_boundary_materialization
+```
+
+M1225 should design how to use M1222 action-divergent rows as candidate
+material for bounded terminal-boundary relocation/materialization with
+source-diversity and active-set-collapse guards. M1222 action divergence alone
+is not self-ID evidence.
+
+M1224 synthesis decision:
+
+```text
+supported: hidden path exists; current-family source can produce action gaps
+blocked: history necessity, recurrent belief, online self-identification
+next: terminal-boundary materialization branch
+fallback: stronger cross-family/fault source if materialization collapses
 ```
 
 M1223 completed the current-family boundary-source negative audit:
@@ -132,28 +180,6 @@ M1222 is best classified as near_boundary_action_gap_but_no_outcome_gap.
 Training, threshold weakening, and immediate outcome gates are rejected. The
 branch should synthesize M1215-M1223 before opening another narrow route.
 ```
-
-Next branch:
-
-```text
-paper_route_causal_history_evidence
-```
-
-The next task is branch synthesis, not another immediate source-mining run,
-outcome intervention, or training:
-
-```text
-checkpoint family: M1212 corrected L3 online GRU repeat
-env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
-checkpoint:        runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
-source run:        runs/m1222_current_family_normal_success_boundary_source_smoke
-next artifact:     docs/m1224-paper-route-causal-history-evidence-synthesis.md
-```
-
-M1224 should synthesize M1215-M1223 and decide whether to open a
-terminal-boundary materialization branch, a stronger cross-family/fault source
-branch, a bounded longer-horizon check, or stop the current-family
-causal-history path. M1222 action divergence alone is not self-ID evidence.
 
 M1223 audit decision:
 

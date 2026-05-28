@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1233,
+    "completed": 1234,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1223-paper-route-current-family-boundary-source-negative-audit.md",
+    "command_log": "docs/m1224-paper-route-causal-history-evidence-synthesis.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1223-paper-route-current-family-boundary-source-negative-audit"
+    "task_id": "m1224-paper-route-causal-history-evidence-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1224-paper-route-causal-history-evidence-synthesis.json",
-    "hypothesis": "Synthesize causal-history evidence branch",
-    "id": "m1224-paper-route-causal-history-evidence-synthesis",
+    "command": "see experiments/manifests/m1225-paper-route-terminal-boundary-materialization-design.json",
+    "hypothesis": "Design terminal-boundary materialization branch",
+    "id": "m1225-paper-route-terminal-boundary-materialization-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1215-M1223 evidence and select terminal-boundary stronger-source longer-horizon or stop route",
-    "priority": 12190,
+    "notes": "Pending: design M1222 action-divergent row materialization with source-diversity and active-set-collapse guards",
+    "priority": 12200,
     "status": "pending",
-    "success_artifact": "docs/m1224-paper-route-causal-history-evidence-synthesis.md"
+    "success_artifact": "docs/m1225-paper-route-terminal-boundary-materialization-design.md"
   },
-  "updated_at_utc": "20260528T072856Z"
+  "updated_at_utc": "20260528T073156Z"
 }
