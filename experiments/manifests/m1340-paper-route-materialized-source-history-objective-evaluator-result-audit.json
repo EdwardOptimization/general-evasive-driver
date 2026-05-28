@@ -1,0 +1,160 @@
+{
+  "id": "m1340-paper-route-materialized-source-history-objective-evaluator-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1339-paper-route-materialized-source-history-objective-evaluator-implementation.md",
+      "runs/m1339_materialized_source_history_objective_evaluator/summary.json",
+      "runs/m1339_materialized_source_history_objective_evaluator/materialized_source_history_objective_rows.csv",
+      "runs/m1339_materialized_source_history_objective_evaluator/family_summary.csv",
+      "runs/m1339_materialized_source_history_objective_evaluator/fold_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1339-paper-route-materialized-source-history-objective-evaluator-implementation.json"
+    ],
+    "parent_objective": [
+      "audit finite but directionally weak materialized source-history objective evaluator result"
+    ],
+    "derived_from": [
+      "m1339-paper-route-materialized-source-history-objective-evaluator-implementation"
+    ],
+    "blocked_by": [
+      "M1339 evaluator passes structurally but has both_directional_fraction=0.0 and must be classified before objective updates"
+    ],
+    "supersedes": [
+      "direct objective-only update on M1339 exact residual without result audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md",
+  "public_gates": [
+    "M1340 must not train",
+    "M1340 must not run PPO",
+    "M1340 must not update actor weights",
+    "M1340 must not use private holdout",
+    "M1340 must not promote",
+    "M1340 must preserve actor input contract",
+    "M1340 must classify the directionally weak M1339 result",
+    "M1340 must decide objective design versus evaluator/projection repair"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor weights",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not ignore both_directional_fraction=0.0",
+    "do not claim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_objective_corpus",
+    "evidence_axis": "S_materialized_source_history_objective_evaluator_result_audit",
+    "evidence_increment": "audits finite M1339 exact objective metrics and classifies directionally weak signal before any objective update",
+    "claim_scope": "process audit only; no promotion, private-holdout, PPO, actor-update, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if audit routes directly to actor update without classifying directional conflict",
+      "stop if audit treats finite objective as solved self-identification",
+      "stop if actor inputs change",
+      "stop if private holdout is used"
+    ],
+    "fallback_plan": [
+      "if weakness is directional conflict, route to pair/group objective design",
+      "if weakness is source-current projection artifact, repair evaluator projection",
+      "if weakness is corpus symmetry, route to source-pair/group audit",
+      "if objective is usable as-is, route to bounded no-PPO objective-update design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1339 exact evaluator result has finite residual and zero both-directional fraction",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "materialized source-history evaluator result audit",
+    "admission_evidence": [
+      "M1339 result_class=materialized_source_history_objective_evaluator_pass",
+      "M1339 row_count=1376",
+      "M1339 exact_objective_finite=true",
+      "M1339 both_directional_fraction=0.0",
+      "PPO and actor update remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not update checkpoint weights",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1340 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "directional weakness is classified",
+      "family/fold evidence is summarized",
+      "next route is selected before objective update"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1340 audits source-current zero-context diagnostics and cannot claim closed-loop history necessity.",
+    "history_necessity_tests": [
+      "audit correct-history versus wrong-history action likelihood and action-distance residuals from M1339"
+    ],
+    "temporal_evidence_window": "M1336/M1339 active materialized history corpus.",
+    "negative_result_policy": "The zero both-directional result must be recorded and routed before any actor update.",
+    "allowed_claims": [
+      "materialized source-history evaluator result audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The finite but directionally weak M1339 evaluator result can be classified into a safe next route before any objective-only update.",
+  "success_criteria": [
+    "docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md exists",
+    "audit cites row_count, finite counts, checkpoint immutability, and quarantine exclusion",
+    "audit cites exact objective and directional metrics",
+    "audit cites family and fold summaries",
+    "audit classifies both_directional_fraction=0.0",
+    "audit chooses objective design, pair/group audit, projection repair, or evaluator repair",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "directionally weak result is ignored",
+    "family/fold evidence is not summarized",
+    "audit routes directly to PPO or actor update",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md from M1339 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1339-paper-route-materialized-source-history-objective-evaluator-implementation.md",
+    "runs/m1339_materialized_source_history_objective_evaluator/summary.json"
+  ],
+  "decision_rule": "M1340 passes as a process audit if it classifies the finite but weak M1339 result and selects one safe next route before any objective update, PPO, private holdout, promotion, or actor-input expansion.",
+  "next_blocker": "m1340-paper-route-materialized-source-history-objective-evaluator-result-audit"
+}

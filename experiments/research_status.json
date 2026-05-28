@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1348,
+    "completed": 1349,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1338-paper-route-materialized-source-history-objective-evaluator-design.md",
+    "command_log": "docs/m1339-paper-route-materialized-source-history-objective-evaluator-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m1338-paper-route-materialized-source-history-objective-evaluator-design.md",
+    "run_dir": "runs/m1339_materialized_source_history_objective_evaluator",
     "status": "completed",
-    "task_id": "m1338-paper-route-materialized-source-history-objective-evaluator-design"
+    "task_id": "m1339-paper-route-materialized-source-history-objective-evaluator-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1339-paper-route-materialized-source-history-objective-evaluator-implementation.json",
-    "hypothesis": "Implement exact no-update evaluator over M1336 active source-history corpus",
-    "id": "m1339-paper-route-materialized-source-history-objective-evaluator-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: no-update evaluator only; no training, PPO, promotion, or objective update",
-    "priority": 13340,
+    "command": "see experiments/manifests/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.json",
+    "hypothesis": "Audit finite but weak M1339 source-history objective evaluator result",
+    "id": "m1340-paper-route-materialized-source-history-objective-evaluator-result-audit",
+    "kind": "gate",
+    "notes": "Pending: no-training audit only; no PPO, promotion, or objective update",
+    "priority": 13350,
     "status": "pending",
-    "success_artifact": "runs/m1339_materialized_source_history_objective_evaluator/summary.json"
+    "success_artifact": "docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md"
   },
-  "updated_at_utc": "20260528T184159Z"
+  "updated_at_utc": "20260528T184610Z"
 }

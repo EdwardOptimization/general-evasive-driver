@@ -19584,3 +19584,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1339-paper-route-materialized-source-history-objective-evaluator-implementation.json`.
 - next: `m1339-paper-route-materialized-source-history-objective-evaluator-implementation`
+
+## 20260528T184610Z - m1339-paper-route-materialized-source-history-objective-evaluator-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1339_materialized_source_history_objective_evaluator/summary.json`
+- doc: `docs/m1339-paper-route-materialized-source-history-objective-evaluator-implementation.md`
+- implementation: added `materialized_source_history_objective_evaluator.py` and focused tests.
+- focused tests: `1 passed`.
+- decision: `materialized_source_history_objective_evaluator_pass_signal_weak_route_to_result_audit`
+- result class: `materialized_source_history_objective_evaluator_pass`.
+- checkpoint: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`
+- structural metrics: `row_count=1376`, `finite_row_count=1376`, `projection_valid_count=1376`, `wrong_history_valid_count=1376`, `active_quarantine_rows_used=0`, and `checkpoint_weights_mutated=false`.
+- exact objective: `combined_loss_mean=6.8847534022`, `correct_preference_loss_mean=3.4480423585`, and `wrong_history_preference_loss_mean=3.4367110436`.
+- directional metrics: `correct_preference_positive_fraction=0.4970930233`, `wrong_history_preference_positive_fraction=0.4970930233`, `both_directional_fraction=0.0`, `correct_closer_to_preferred_fraction=0.4970930233`, `wrong_closer_to_rejected_fraction=0.4970930233`, and `both_distance_directional_fraction=0.0`.
+- history action effect: `history_action_l2_mean=0.0635018957`, `p10=0.0023122903`, `p50=0.0072870062`, and `p90=0.2372618015`.
+- interpretation: evaluator infrastructure is valid and the checkpoint reacts to histories, but the correct-history and wrong-history preferences remain one-sided rather than both positive on the same row.
+- unsupported claims: actor update, PPO, promotion, closed-loop driver performance, paper-level evidence, and strong self-identification.
+- guardrail: no training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.json`.
+- next: `m1340-paper-route-materialized-source-history-objective-evaluator-result-audit`

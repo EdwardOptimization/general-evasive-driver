@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1338-paper-route-materialized-source-history-objective-evaluator-design
+m1339-paper-route-materialized-source-history-objective-evaluator-implementation
 ```
 
 Current next task:
 
 ```text
-m1339-paper-route-materialized-source-history-objective-evaluator-implementation
+m1340-paper-route-materialized-source-history-objective-evaluator-result-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -346,7 +346,16 @@ correct and wrong histories into recurrent hidden states, score preferred and
 rejected source actions, and report full-corpus log-likelihood and action
 distance residuals. The active blocker is M1339: implement and run this
 no-update evaluator on the M1336 active corpus and the current public-gate base.
-Objective updates, PPO, and promotion remain blocked.
+Objective updates, PPO, and promotion remain blocked. M1339 completed the
+implementation and the evaluator passes structurally: `1376/1376` finite rows,
+`1376` projection-valid rows, `1376` valid wrong-history rows, `0` quarantine
+rows used, and unchanged checkpoint sha256. The exact residual is finite
+(`combined_loss_mean=6.8847534022`), and history moves actions
+(`history_action_l2_mean=0.0635018957`), but the directional result is weak:
+`both_directional_fraction=0.0` and `both_distance_directional_fraction=0.0`.
+The active blocker is M1340: audit this finite but zero-both-directional result
+before objective-only update design. Objective updates, PPO, and promotion
+remain blocked.
 
 ## Actor Contract
 
