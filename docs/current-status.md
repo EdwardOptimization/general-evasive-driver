@@ -115,7 +115,54 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1225-paper-route-terminal-boundary-materialization-design
+m1226-paper-route-terminal-boundary-candidate-export
+```
+
+M1225 completed terminal-boundary materialization design:
+
+```text
+artifact: docs/m1225-paper-route-terminal-boundary-materialization-design.md
+decision: terminal_boundary_materialization_design_admit_adapter_export
+```
+
+M1225 conclusion:
+
+```text
+M1222 action-divergent rows are not directly relocation-compatible. The next
+step is a thin adapter/exporter that maps M1222 candidate_scores into a
+source-balanced candidate_outcomes.csv before any relocation replay.
+```
+
+Next branch:
+
+```text
+paper_route_causal_history_evidence
+```
+
+The next task is candidate export infrastructure, not relocation replay,
+training, promotion, or self-ID claim expansion:
+
+```text
+checkpoint family: M1212 corrected L3 online GRU repeat
+env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
+checkpoint:        runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
+source run:        runs/m1222_current_family_normal_success_boundary_source_smoke
+next run dir:      runs/m1226_terminal_boundary_candidate_export
+next artifact:     docs/m1226-paper-route-terminal-boundary-candidate-export.md
+next branch:       paper_route_terminal_boundary_materialization
+```
+
+M1226 should implement/run `autodrift.terminal_boundary_candidate_export` on
+M1222 `candidate_scores.csv`. It must not run relocation replay. M1222 action
+divergence alone is not self-ID evidence.
+
+M1225 design decision:
+
+```text
+selected: adapter/export before relocation
+required output: relocation-compatible candidate_outcomes.csv
+required guard: source-diversity and active-set-collapse accounting
+blocked: direct relocation from raw candidate_scores.csv
 ```
 
 M1224 completed causal-history branch synthesis:
@@ -133,29 +180,6 @@ action-divergent source existence, but blocks self-ID/history-necessity claims
 because real wrong/delayed histories have not yet produced margin or success
 degradation.
 ```
-
-Next branch:
-
-```text
-paper_route_causal_history_evidence
-```
-
-The next task is terminal-boundary materialization design, not training,
-promotion, or self-ID claim expansion:
-
-```text
-checkpoint family: M1212 corrected L3 online GRU repeat
-env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
-checkpoint:        runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
-source run:        runs/m1222_current_family_normal_success_boundary_source_smoke
-next artifact:     docs/m1225-paper-route-terminal-boundary-materialization-design.md
-next branch:       paper_route_terminal_boundary_materialization
-```
-
-M1225 should design how to use M1222 action-divergent rows as candidate
-material for bounded terminal-boundary relocation/materialization with
-source-diversity and active-set-collapse guards. M1222 action divergence alone
-is not self-ID evidence.
 
 M1224 synthesis decision:
 

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1234,
+    "completed": 1235,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1224-paper-route-causal-history-evidence-synthesis.md",
+    "command_log": "docs/m1225-paper-route-terminal-boundary-materialization-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1224-paper-route-causal-history-evidence-synthesis"
+    "task_id": "m1225-paper-route-terminal-boundary-materialization-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1225-paper-route-terminal-boundary-materialization-design.json",
-    "hypothesis": "Design terminal-boundary materialization branch",
-    "id": "m1225-paper-route-terminal-boundary-materialization-design",
-    "kind": "gate",
-    "notes": "Pending: design M1222 action-divergent row materialization with source-diversity and active-set-collapse guards",
-    "priority": 12200,
+    "command": "see experiments/manifests/m1226-paper-route-terminal-boundary-candidate-export.json",
+    "hypothesis": "Export terminal-boundary materialization candidates",
+    "id": "m1226-paper-route-terminal-boundary-candidate-export",
+    "kind": "infrastructure",
+    "notes": "Pending: implement/run terminal_boundary_candidate_export adapter and source-diversity accounting without relocation replay",
+    "priority": 12210,
     "status": "pending",
-    "success_artifact": "docs/m1225-paper-route-terminal-boundary-materialization-design.md"
+    "success_artifact": "docs/m1226-paper-route-terminal-boundary-candidate-export.md"
   },
-  "updated_at_utc": "20260528T073156Z"
+  "updated_at_utc": "20260528T073502Z"
 }

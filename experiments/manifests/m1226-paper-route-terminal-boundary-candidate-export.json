@@ -1,0 +1,165 @@
+{
+  "id": "m1226-paper-route-terminal-boundary-candidate-export",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1222_current_family_normal_success_boundary_source_smoke/candidate_scores.csv",
+      "docs/m1225-paper-route-terminal-boundary-materialization-design.md"
+    ],
+    "parent_config": [
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json",
+      "experiments/manifests/m1225-paper-route-terminal-boundary-materialization-design.json"
+    ],
+    "parent_objective": [
+      "implement/export M1222 action-divergent candidates into relocation-compatible terminal-boundary candidate CSV"
+    ],
+    "derived_from": [
+      "m1225-paper-route-terminal-boundary-materialization-design"
+    ],
+    "blocked_by": [
+      "M1222 candidate_scores.csv is not directly compatible with source_balanced_boundary_relocation_surface"
+    ],
+    "supersedes": [
+      "feeding M1222 candidate_scores.csv directly into relocation tooling"
+    ],
+    "invalidates": [
+      "assuming field-name compatibility between normal_success_boundary_source_miner and source_balanced_boundary_relocation_surface"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1226-paper-route-terminal-boundary-candidate-export.md",
+  "public_gates": [
+    "M1226 may implement/export adapter artifacts only",
+    "M1226 must not run relocation replay",
+    "M1226 must preserve actor input contract",
+    "M1226 must include source-diversity accounting",
+    "M1226 must not train controllers",
+    "M1226 must not run PPO",
+    "M1226 must not use private holdout",
+    "M1226 must not promote",
+    "M1226 must not claim self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run relocation replay",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden or oracle actor inputs",
+    "do not weaken M1222 action thresholds",
+    "do not treat exported candidates as proof rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_terminal_boundary_materialization",
+    "evidence_axis": "T_terminal_boundary_candidate_export",
+    "evidence_increment": "creates relocation-compatible source-balanced candidate artifacts from M1222 action-divergent rows",
+    "claim_scope": "infrastructure/export only; no relocation proof, training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if selected candidates fail source-diversity gates",
+      "stop if required relocation fields cannot be generated",
+      "stop if export requires hidden/oracle actor inputs"
+    ],
+    "fallback_plan": [
+      "repair adapter schema if tests fail",
+      "route to stronger source distribution if M1222 rows fail export diversity",
+      "route to materialization run only if export passes source-budget gates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1225 selects adapter/export before terminal-boundary relocation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "terminal-boundary candidate export adapter",
+    "admission_evidence": [
+      "M1225 design selects adapter/export before relocation",
+      "M1222 all-action-threshold rows have source-diversity diagnostics that justify an export attempt"
+    ],
+    "blocked_shortcuts": [
+      "do not run relocation replay",
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "adapter source and tests",
+      "M1226 export artifacts",
+      "M1226 result docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "candidate_outcomes.csv exists with relocation-compatible fields",
+      "source-diversity summary passes or fails clearly",
+      "next relocation-run or fallback route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1226 is export infrastructure and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "candidate export preserves wrong-history action-divergent rows for later materialization",
+      "source-diversity gates prevent active-set overfit before relocation"
+    ],
+    "temporal_evidence_window": "Outcome evidence remains blocked until a later relocation run produces source-diverse margin or success degradation.",
+    "negative_result_policy": "If export source diversity fails, route to stronger source distribution rather than training or threshold weakening.",
+    "allowed_claims": [
+      "candidate export infrastructure",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A thin adapter can export M1222 action-divergent rows into relocation-compatible candidate artifacts with sufficient source diversity for a later bounded materialization run.",
+  "success_criteria": [
+    "runs/m1226_terminal_boundary_candidate_export/summary.json exists",
+    "runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv exists",
+    "source-diversity pass/fail is reported",
+    "focused tests for the adapter pass",
+    "private holdout remains unused",
+    "no relocation replay, source mining, outcome intervention, training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next route milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1226 runs relocation replay",
+    "M1226 trains or tunes profiles",
+    "private holdout is used",
+    "candidate export omits source-diversity accounting",
+    "exported candidates are claimed as proof rows",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "run_terminal_boundary_candidate_export",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.terminal_boundary_candidate_export --candidate-scores runs/m1222_current_family_normal_success_boundary_source_smoke/candidate_scores.csv --checkpoint-label l3_s111602 --run-dir runs/m1226_terminal_boundary_candidate_export"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1226_terminal_boundary_candidate_export/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1226-paper-route-terminal-boundary-candidate-export.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1222_current_family_normal_success_boundary_source_smoke/candidate_scores.csv",
+    "docs/m1225-paper-route-terminal-boundary-materialization-design.md"
+  ],
+  "decision_rule": "M1226 passes if it produces relocation-compatible candidate artifacts with clear source-diversity accounting and no relocation replay.",
+  "next_blocker": "m1226-paper-route-terminal-boundary-candidate-export"
+}

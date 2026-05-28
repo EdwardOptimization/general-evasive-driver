@@ -17585,3 +17585,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1225-paper-route-terminal-boundary-materialization-design.json`.
 - decision: `causal_history_synthesis_promote_to_terminal_boundary_materialization`
 - next: `m1225-paper-route-terminal-boundary-materialization-design`
+
+## 20260528T073502Z - m1225-paper-route-terminal-boundary-materialization-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1225-paper-route-terminal-boundary-materialization-design.md`
+- result: designs terminal-boundary materialization and selects an adapter/export step before relocation replay.
+- compatibility audit: M1222 `candidate_scores.csv` contains action/geometry/source data but not the exact relocation candidate schema or `checkpoint_label` field.
+- selected route: implement `autodrift.terminal_boundary_candidate_export` to convert M1222 all-action-threshold rows into relocation-compatible `candidate_outcomes.csv`.
+- source-diversity gate: require exported rows to cover at least `120` rows, `40` physical pairs, `6` left seeds, `15` right seeds, `4` left steps, `2` targets, and `4` obstacle buckets, with pair/seed/target dominance caps.
+- guardrail: no source mining, relocation replay, outcome intervention, training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1226-paper-route-terminal-boundary-candidate-export.json`.
+- decision: `terminal_boundary_materialization_design_admit_adapter_export`
+- next: `m1226-paper-route-terminal-boundary-candidate-export`
