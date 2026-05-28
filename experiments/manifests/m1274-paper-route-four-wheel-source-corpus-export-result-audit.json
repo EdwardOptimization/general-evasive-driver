@@ -142,6 +142,25 @@
     "docs/m1273-paper-route-four-wheel-source-corpus-export.md",
     "runs/m1273_four_wheel_source_corpus_export/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1274-paper-route-four-wheel-source-corpus-export-result-audit.md",
+    "decision": "four_wheel_source_corpus_export_audit_route_to_branch_synthesis",
+    "all_accepted_rows": 108,
+    "near_boundary_rows": 19,
+    "high_regret_rows": 32,
+    "family_balanced_rows": 63,
+    "inactive_fault_family_count": 1,
+    "next_step_selected": "branch_synthesis_before_next_narrow_source_experiment",
+    "synthesis_cadence_reached": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1275-paper-route-fidelity-fault-source-synthesis.json"
+  },
+  "decision": "four_wheel_source_corpus_export_audit_route_to_branch_synthesis",
   "decision_rule": "M1274 passes if it audits M1273 source-corpus subsets and selects the next source step without training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion.",
-  "next_blocker": "m1274-paper-route-four-wheel-source-corpus-export-result-audit"
+  "next_blocker": "m1275-paper-route-fidelity-fault-source-synthesis"
 }

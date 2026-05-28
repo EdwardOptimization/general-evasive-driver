@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M1274 audits M1273 corpus as suitable source material but routes to branch synthesis because the fidelity fault source branch reached cadence",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores source-corpus subset counts",
+    "audit skips directly to actor/Gym integration",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add per-wheel/fault labels to actor inputs",
+    "do not lower accepted-source thresholds",
+    "do not count source-corpus rows as driver performance",
+    "do not claim high-fidelity validation from the compact pilot"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T125409Z",
+  "hypothesis": "The M1273 exported source corpus can be audited to select the next bounded source step without actor/Gym integration.",
+  "lineage": {
+    "blocked_by": [
+      "M1273 exported stratified source-corpus rows but next source use must be selected before training or actor integration"
+    ],
+    "derived_from": [
+      "m1273-paper-route-four-wheel-source-corpus-export"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1273-paper-route-four-wheel-source-corpus-export.json"
+    ],
+    "parent_dataset": [
+      "docs/m1273-paper-route-four-wheel-source-corpus-export.md",
+      "runs/m1273_four_wheel_source_corpus_export/summary.json",
+      "runs/m1273_four_wheel_source_corpus_export/near_boundary_source_rows.csv",
+      "runs/m1273_four_wheel_source_corpus_export/high_regret_source_rows.csv",
+      "runs/m1273_four_wheel_source_corpus_export/family_balanced_source_rows.csv"
+    ],
+    "parent_objective": [
+      "audit exported four-wheel source corpus before selecting next source step"
+    ],
+    "supersedes": [
+      "direct actor/Gym integration from exported M1273 corpus"
+    ]
+  },
+  "milestone": "m1274-paper-route-four-wheel-source-corpus-export-result-audit",
+  "next_blocker": "m1275-paper-route-fidelity-fault-source-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "four_wheel_source_corpus_export_audit_route_to_branch_synthesis",
+  "public_gates": [
+    "M1274 must preserve actor input contract",
+    "M1274 must not train controllers",
+    "M1274 must not run PPO",
+    "M1274 must not use private holdout",
+    "M1274 must not promote",
+    "M1274 must audit corpus subset suitability and select the next source step"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1274-paper-route-four-wheel-source-corpus-export-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "four_wheel_source_corpus_export_audit_route_to_branch_synthesis",
+    "milestone": "m1274-paper-route-four-wheel-source-corpus-export-result-audit",
+    "reason": "M1274 audits M1273 corpus as suitable source material but routes to branch synthesis because the fidelity fault source branch reached cadence",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1274-paper-route-four-wheel-source-corpus-export-result-audit.md exists",
+    "audit cites M1273 all accepted near-boundary high-regret family-balanced and inactive-family counts",
+    "audit selects the next source step",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

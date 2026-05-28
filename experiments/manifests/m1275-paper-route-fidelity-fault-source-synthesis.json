@@ -1,0 +1,180 @@
+{
+  "id": "m1275-paper-route-fidelity-fault-source-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_dataset": [
+      "docs/m1265-paper-route-fidelity-fault-source-design.md",
+      "docs/m1266-paper-route-four-wheel-fault-dynamics-pilot.md",
+      "docs/m1267-paper-route-four-wheel-fault-source-integration-design.md",
+      "docs/m1268-paper-route-four-wheel-fault-source-shape-smoke.md",
+      "docs/m1269-paper-route-four-wheel-fault-source-shape-result-audit.md",
+      "docs/m1270-paper-route-four-wheel-source-viability-calibration-design.md",
+      "docs/m1271-paper-route-four-wheel-source-viability-calibration-smoke.md",
+      "docs/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.md",
+      "docs/m1273-paper-route-four-wheel-source-corpus-export.md",
+      "docs/m1274-paper-route-four-wheel-source-corpus-export-result-audit.md",
+      "runs/m1271_four_wheel_source_viability_calibration_smoke/summary.json",
+      "runs/m1273_four_wheel_source_corpus_export/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1265-paper-route-fidelity-fault-source-design.json",
+      "experiments/manifests/m1274-paper-route-four-wheel-source-corpus-export-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize fidelity fault source branch evidence after four-wheel source-positive corpus export"
+    ],
+    "derived_from": [
+      "m1265-paper-route-fidelity-fault-source-design",
+      "m1274-paper-route-four-wheel-source-corpus-export-result-audit"
+    ],
+    "blocked_by": [
+      "M1274 routes to branch synthesis because the fidelity fault source branch reached synthesis cadence"
+    ],
+    "supersedes": [
+      "another narrow four-wheel source experiment before synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1275-paper-route-fidelity-fault-source-synthesis.md",
+  "public_gates": [
+    "M1275 must preserve actor input contract",
+    "M1275 must not train controllers",
+    "M1275 must not run PPO",
+    "M1275 must not use private holdout",
+    "M1275 must not promote a checkpoint",
+    "M1275 must summarize M1265-M1274 evidence",
+    "M1275 must choose continue, pivot, stop, or promote_to_next_branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote a checkpoint",
+    "do not add hidden parameters, fault labels, per-wheel forces, oracle outcomes, or search outputs to actor inputs",
+    "do not lower capability-separable thresholds",
+    "do not start another source run before synthesis",
+    "do not claim compact four-wheel source as high-fidelity validation"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fidelity_fault_source_design",
+    "evidence_axis": "S_branch_synthesis",
+    "evidence_increment": "synthesizes M1265-M1274 fidelity fault source evidence and chooses the next branch decision",
+    "claim_scope": "branch synthesis only; no training, promotion, private-holdout, paper-level, recurrent-belief, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if the branch did not produce source-positive rows",
+      "stop if next proposal is just another source-grid tweak without using the exported corpus",
+      "stop if next step would require actor-input expansion"
+    ],
+    "fallback_plan": [
+      "if synthesis supports continuation, promote to a source-to-intervention/materialization branch",
+      "if synthesis finds the source corpus unsuitable, route to source-corpus repair or stop",
+      "if synthesis finds high-fidelity limits dominate, pivot to external dynamics validation design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1265-M1274 reaches the branch synthesis cadence after M1273 exports a source-positive four-wheel corpus",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1275-paper-route-fidelity-fault-source-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1275-paper-route-fidelity-fault-source-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fidelity fault source branch synthesis",
+    "admission_evidence": [
+      "M1271 accepted_separable_pairs=108",
+      "M1273 exported_accepted_rows=108",
+      "M1273 near_boundary_rows=19",
+      "M1274 routes to synthesis before the next narrow source step"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote a checkpoint"
+    ],
+    "allowed_updates": [
+      "M1275 synthesis document",
+      "status, queue, scoreboard, research log, and review",
+      "one next-branch manifest if synthesis admits it"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "synthesis chooses continue, pivot, stop, or promote_to_next_branch",
+      "next branch has a new evidence variable if any run is admitted"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1275 synthesizes offline source evidence and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until synthesis routes the source corpus to an intervention or replay design"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "Aggregate M1265-M1274 evidence before starting another narrow experiment.",
+    "allowed_claims": [
+      "fidelity fault source branch synthesis",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, true high-fidelity fault, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The fidelity fault source branch has enough evidence for branch-level synthesis before any further source experiment.",
+  "success_criteria": [
+    "docs/m1275-paper-route-fidelity-fault-source-synthesis.md exists",
+    "synthesis summarizes M1265-M1274 evidence",
+    "synthesis records supported and falsified claims",
+    "synthesis classifies failure taxonomy",
+    "synthesis assesses public-gate overfit risk",
+    "synthesis chooses next branch decision",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "synthesis is missing",
+    "synthesis ignores M1274 cadence route",
+    "synthesis admits another narrow source run without a branch decision",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1275-paper-route-fidelity-fault-source-synthesis.md from M1265-M1274 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1275-paper-route-fidelity-fault-source-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint"
+  ],
+  "baseline_artifacts": [
+    "docs/m1274-paper-route-four-wheel-source-corpus-export-result-audit.md",
+    "runs/m1273_four_wheel_source_corpus_export/summary.json"
+  ],
+  "decision_rule": "M1275 passes if it synthesizes M1265-M1274 evidence and chooses a next branch without training or threshold relaxation.",
+  "next_blocker": "m1275-paper-route-fidelity-fault-source-synthesis"
+}

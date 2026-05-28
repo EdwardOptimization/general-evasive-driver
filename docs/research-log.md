@@ -18382,3 +18382,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1274-paper-route-four-wheel-source-corpus-export-result-audit.json`.
 - decision: `four_wheel_source_corpus_export_pass_route_to_result_audit`
 - next: `m1274-paper-route-four-wheel-source-corpus-export-result-audit`
+
+## 20260528T125312Z - m1274-paper-route-four-wheel-source-corpus-export-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1274-paper-route-four-wheel-source-corpus-export-result-audit.md`
+- audited evidence: M1273 exported `108` all accepted rows, `19` near-boundary rows, `32` high-regret rows, `63` family-balanced rows, and `1` inactive fault family.
+- subset suitability: near-boundary rows are the best immediate material for boundary retargeting or outcome-intervention design; high-regret rows are best for action-divergence counterfactuals; family-balanced rows are useful for source-diverse audits.
+- limitation: corpus rows are open-loop source artifacts, not actor hidden-state evidence or driver performance.
+- workflow decision: the fidelity fault source branch has reached its 10-milestone synthesis cadence from M1265 through M1274, so do not start another narrow source experiment before synthesis.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1275-paper-route-fidelity-fault-source-synthesis.json`.
+- decision: `four_wheel_source_corpus_export_audit_route_to_branch_synthesis`
+- next: `m1275-paper-route-fidelity-fault-source-synthesis`
