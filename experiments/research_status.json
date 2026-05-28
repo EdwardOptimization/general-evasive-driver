@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1269,
+    "completed": 1270,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1259-paper-route-richer-fault-capability-source-smoke.md",
+    "command_log": "docs/m1260-paper-route-richer-fault-capability-source-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1259_richer_fault_capability_source_smoke",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m1259-paper-route-richer-fault-capability-source-smoke"
+    "task_id": "m1260-paper-route-richer-fault-capability-source-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1260-paper-route-richer-fault-capability-source-result-audit.json",
-    "hypothesis": "Audit M1259 strict richer-fault source-negative result and metric correction before another source run",
-    "id": "m1260-paper-route-richer-fault-capability-source-result-audit",
+    "command": "see experiments/manifests/m1261-paper-route-richer-fault-regret-boundary-retarget-design.json",
+    "hypothesis": "Design one bounded regret-boundary retargeting step around viable action-divergent low-regret rows",
+    "id": "m1261-paper-route-richer-fault-regret-boundary-retarget-design",
     "kind": "gate",
-    "notes": "Pending: classify strict zero-accepted richer-fault result and decide one repair, synthesis, or pivot",
-    "priority": 12550,
+    "notes": "Pending: design retarget axes and anti-collision-dominance checks before any new source run",
+    "priority": 12560,
     "status": "pending",
-    "success_artifact": "docs/m1260-paper-route-richer-fault-capability-source-result-audit.md"
+    "success_artifact": "docs/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md"
   },
-  "updated_at_utc": "20260528T114030Z"
+  "updated_at_utc": "20260528T114437Z"
 }

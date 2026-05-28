@@ -115,7 +115,36 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1260-paper-route-richer-fault-capability-source-result-audit
+m1261-paper-route-richer-fault-regret-boundary-retarget-design
+```
+
+M1260 completed richer-fault source result audit:
+
+```text
+artifact: docs/m1260-paper-route-richer-fault-capability-source-result-audit.md
+decision: richer_fault_source_low_regret_audit_admit_regret_boundary_retarget_design
+classification: scenario_sampling_failure / richer_fault_source_low_regret
+```
+
+M1260 conclusion:
+
+```text
+M1259 is strict source-negative, but pair 5 is a useful repair target:
+both own branches are viable and best actions differ strongly, while two-sided
+cross-regret remains below threshold. The next variable is regret-boundary
+retargeting, not direct training or another unstructured source run.
+```
+
+Next task:
+
+```text
+artifact: docs/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md
+manifest: experiments/manifests/m1261-paper-route-richer-fault-regret-boundary-retarget-design.json
+goal: design one bounded retargeting step that targets two-sided cross-regret
+      while preserving own-branch viability
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         threshold relaxation, self-identification or high-fidelity/paper-level
+         claims
 ```
 
 M1259 completed richer-fault capability-source smoke:

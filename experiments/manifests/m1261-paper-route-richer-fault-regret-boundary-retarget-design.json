@@ -1,0 +1,151 @@
+{
+  "id": "m1261-paper-route-richer-fault-regret-boundary-retarget-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1260-paper-route-richer-fault-capability-source-result-audit.md",
+      "docs/m1259-paper-route-richer-fault-capability-source-smoke.md",
+      "runs/m1259_richer_fault_capability_source_smoke/matched_capability_pairs.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1260-paper-route-richer-fault-capability-source-result-audit.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "design a regret-boundary retargeting source repair around viable action-divergent low-regret rows"
+    ],
+    "derived_from": [
+      "m1260-paper-route-richer-fault-capability-source-result-audit"
+    ],
+    "blocked_by": [
+      "M1260 classifies M1259 pair 5 as viable action-divergent low-regret"
+    ],
+    "supersedes": [
+      "another unstructured richer-fault source run"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md",
+  "public_gates": [
+    "M1261 must preserve actor input contract",
+    "M1261 must not train controllers",
+    "M1261 must not run PPO",
+    "M1261 must not use private holdout",
+    "M1261 must not promote",
+    "M1261 must preserve strict accepted-source criteria",
+    "M1261 must design a bounded retargeting run or reject it"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, fault labels, oracle outcomes, or search outputs to actor inputs",
+    "do not lower min_cross_regret_margin",
+    "do not accept negative own-branch margins",
+    "do not treat asymmetric_success_drop as strict accepted source-positive",
+    "do not claim current single-track proxies are true single-wheel or per-wheel faults"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_richer_fault_capability_source",
+    "evidence_axis": "S_regret_boundary_retarget_design",
+    "evidence_increment": "designs one bounded retargeting variable aimed at increasing two-sided cross-regret while preserving own-branch viability",
+    "claim_scope": "design only; no training, promotion, private-holdout, paper-level, high-fidelity, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if design lowers strict thresholds",
+      "stop if design only targets own-branch viability without cross-regret",
+      "stop if design would count collision-dominated rows as success"
+    ],
+    "fallback_plan": [
+      "if a bounded retargeting implementation is straightforward, pre-register one no-training smoke",
+      "if current artifacts lack enough replay data, pre-register an implementation-only extractor",
+      "if retargeting is too unconstrained, route to source-branch synthesis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1260 admits one regret-boundary retarget design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "regret-boundary retarget design",
+    "admission_evidence": [
+      "M1259 pair 5 is viable and action-divergent but low-regret",
+      "M1260 blocks training and direct source reruns"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1261 design document",
+      "one bounded next-run manifest if design admits it",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "design identifies retarget axes and runtime bounds",
+      "design states strict acceptance and anti-collision-dominance checks",
+      "design admits or rejects one bounded no-training smoke"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1261 designs a source retargeter and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until strict source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If retargeting cannot preserve viability while increasing regret, record it as source-shape evidence and do not lower thresholds.",
+    "allowed_claims": [
+      "regret-boundary retarget design",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, true high-fidelity fault, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1259's viable action-divergent low-regret pair can motivate a bounded retargeting design that targets two-sided cross-regret rather than only viability.",
+  "success_criteria": [
+    "docs/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md exists",
+    "design cites M1259 pair 5 metrics",
+    "design preserves strict accepted-source criteria",
+    "design identifies anti-collision-dominance checks",
+    "design admits or rejects one bounded no-training smoke",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design is missing",
+    "design ignores M1260 strict negative audit",
+    "design lowers thresholds",
+    "design targets only viability and not regret",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md from M1260 audit and M1259 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1260-paper-route-richer-fault-capability-source-result-audit.md",
+    "runs/m1259_richer_fault_capability_source_smoke/summary.json"
+  ],
+  "decision_rule": "M1261 passes if it writes a design for one bounded regret-boundary retargeting step or rejects the idea without training or threshold relaxation.",
+  "next_blocker": "m1261-paper-route-richer-fault-regret-boundary-retarget-design"
+}

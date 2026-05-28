@@ -18157,3 +18157,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1260-paper-route-richer-fault-capability-source-result-audit.json`.
 - decision: `richer_fault_capability_source_smoke_infrastructure_pass_source_negative_route_to_result_audit`
 - next: `m1260-paper-route-richer-fault-capability-source-result-audit`
+
+## 20260528T114437Z - m1260-paper-route-richer-fault-capability-source-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1260-paper-route-richer-fault-capability-source-result-audit.md`
+- audited evidence: M1259 strict rerun produced `accepted_separable_pairs=0`, `result_class=action_divergent_low_regret`, `near_boundary_viability_pairs=8`, and `best_actions_diverged_pairs=4`.
+- correction preserved: `asymmetric_success_drop` is diagnostic only, not strict source-positive accepted evidence.
+- key row: pair 5 is viable and action-divergent (`best_action_l2=0.7001441121`) but low-regret (`cross_regret_A=0.0052688249`, `cross_regret_B=0.0042178858`).
+- classification: `richer_fault_source_low_regret` under `scenario_sampling_failure`; metric artifact found in M1259 was fixed before final M1259 result.
+- decision: admit one design milestone for regret-boundary retargeting around viable action-divergent low-regret rows; no direct source rerun, training, PPO, threshold relaxation, or promotion.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, self-ID claim, true high-fidelity physical fault claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1261-paper-route-richer-fault-regret-boundary-retarget-design.json`.
+- decision: `richer_fault_source_low_regret_audit_admit_regret_boundary_retarget_design`
+- next: `m1261-paper-route-richer-fault-regret-boundary-retarget-design`

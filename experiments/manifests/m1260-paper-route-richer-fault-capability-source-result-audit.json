@@ -148,6 +148,31 @@
     "docs/m1259-paper-route-richer-fault-capability-source-smoke.md",
     "runs/m1259_richer_fault_capability_source_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1260-paper-route-richer-fault-capability-source-result-audit.md",
+    "decision": "richer_fault_source_low_regret_audit_admit_regret_boundary_retarget_design",
+    "failure_type": "scenario_sampling_failure",
+    "subtype": "richer_fault_source_low_regret",
+    "metric_artifact_fixed": true,
+    "m1259_accepted_separable_pairs": 0,
+    "m1259_result_class": "action_divergent_low_regret",
+    "m1259_near_boundary_viability_pairs": 8,
+    "m1259_best_actions_diverged_pairs": 4,
+    "pair5_best_action_l2": 0.7001441121,
+    "pair5_cross_regret_A": 0.0052688249,
+    "pair5_cross_regret_B": 0.0042178858,
+    "direct_training_allowed": false,
+    "direct_ppo_allowed": false,
+    "threshold_relaxation_allowed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1261-paper-route-richer-fault-regret-boundary-retarget-design.json"
+  },
+  "decision": "richer_fault_source_low_regret_audit_admit_regret_boundary_retarget_design",
   "decision_rule": "M1260 passes if it records M1259 as strict source-negative, preserves the corrected acceptance semantics, and chooses the next branch without training or threshold relaxation.",
-  "next_blocker": "m1260-paper-route-richer-fault-capability-source-result-audit"
+  "next_blocker": "m1261-paper-route-richer-fault-regret-boundary-retarget-design"
 }
