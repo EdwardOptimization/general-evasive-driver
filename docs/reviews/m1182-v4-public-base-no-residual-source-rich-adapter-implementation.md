@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T024323Z
+- Generated at UTC: 20260528T035015Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M1182 may only implement no-residual source-rich adapter tooling and focused tests. It cannot run source-rich mining, run full replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.
+- Promotion decision: current_base_no_residual_source_rich_adapter_implemented_route_to_smoke_run
+- Decision reason: M1182 implements a current-base source-rich adapter that emits required metadata without accepting or loading residual-head inputs and routes to a bounded smoke run
 
 ## Hypothesis
 
@@ -74,8 +74,19 @@ A small no-residual adapter can reuse source-rich scenario conventions while eva
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1182-v4-public-base-no-residual-source-rich-adapter-implementation
+- type: infrastructure
+- checkpoint: src/autodrift/current_base_source_rich_adapter.py
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: current_base_no_residual_source_rich_adapter_implemented_route_to_smoke_run
+- reason: M1182 implements a current-base source-rich adapter that emits required metadata without accepting or loading residual-head inputs and routes to a bounded smoke run
 
 ## Next Blocker
 
-m1182-v4-public-base-no-residual-source-rich-adapter-implementation
+m1183-v4-public-base-no-residual-source-rich-smoke-run

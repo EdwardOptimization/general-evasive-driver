@@ -1,0 +1,155 @@
+{
+  "id": "m1183-v4-public-base-no-residual-source-rich-smoke-run",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "src/autodrift/current_base_source_rich_adapter.py",
+      "configs/cross_fault_hidden_condition_scenarios.json",
+      "docs/m1182-v4-public-base-no-residual-source-rich-adapter-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1182-v4-public-base-no-residual-source-rich-adapter-implementation.json"
+    ],
+    "parent_objective": [
+      "run a bounded no-residual metadata smoke for the current public-gate base"
+    ],
+    "derived_from": [
+      "m1182-v4-public-base-no-residual-source-rich-adapter-implementation"
+    ],
+    "blocked_by": [
+      "adapter must be smoke-tested before any source-rich mining or proof conversion"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "treating untested adapter output as source-rich evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1183-v4-public-base-no-residual-source-rich-smoke-run.md",
+  "public_gates": [
+    "M1183 may run only a small metadata smoke",
+    "M1183 must not run full source-rich mining",
+    "M1183 must not run wrong-history replay or proof conversion",
+    "M1183 must not train actor weights",
+    "M1183 must not run PPO",
+    "M1183 must not promote",
+    "M1183 must not use private holdout",
+    "M1183 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run full mining",
+    "do not run proof replay",
+    "do not convert rows",
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not claim paper evidence from smoke metadata"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_rich_extreme_scenario_surface_refresh",
+    "evidence_axis": "G_infra: current-base no-residual source-rich adapter smoke",
+    "evidence_increment": "checks that the adapter can emit source-rich metadata artifacts for the current public-gate base",
+    "claim_scope": "infrastructure smoke only; no source-rich mining, proof, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if smoke requires residual-head input",
+      "stop if smoke changes actor inputs",
+      "stop if required metadata fields are missing",
+      "stop if smoke expands into mining or proof conversion"
+    ],
+    "fallback_plan": [
+      "if metadata is missing, route to adapter instrumentation repair",
+      "if no snapshots are generated, route to smoke parameter redesign",
+      "if adapter requires residual-head state, route to M1182 failure audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1182 implements no-residual adapter tooling",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "run a small adapter metadata smoke without training or proof conversion",
+    "admission_evidence": [
+      "M1182 implements current-base no-residual adapter tooling",
+      "M1182 focused tests validate parser and metadata contract"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not run full mining",
+      "do not convert rows",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "bounded run artifacts",
+      "milestone docs",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "summary.json exists",
+      "required metadata fields pass",
+      "source_group_rows and boundary_search_plan_rows are written",
+      "no residual-head path is required"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1183 is infrastructure smoke only and adds no self-ID behavior evidence.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1183 only checks metadata plumbing for later evidence collection.",
+    "negative_result_policy": "If smoke fails, classify as adapter instrumentation or smoke-parameter failure rather than self-ID evidence.",
+    "allowed_claims": [
+      "metadata smoke",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The no-residual adapter can emit a small source-rich metadata smoke for the current public-gate base without residual-head dependency or actor-input changes.",
+  "success_criteria": [
+    "summary.json exists",
+    "source_group_rows.csv exists",
+    "boundary_search_plan_rows.csv exists",
+    "required metadata fields pass",
+    "no residual-head CLI or artifact is used",
+    "no mining, proof conversion, training, PPO, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "smoke requires residual-head input",
+    "required metadata fields are missing",
+    "actor input contract changes",
+    "mining, proof conversion, actor training, PPO, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "run_no_residual_source_rich_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.current_base_source_rich_adapter --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --scenario-config configs/cross_fault_hidden_condition_scenarios.json --run-dir runs/m1183_current_base_no_residual_source_rich_smoke --device cpu --seed-start 118300 --seed-count 1 --max-base-faults 2 --max-fault-specs 2 --max-source-groups 2 --max-snapshots-per-group 1 --max-candidates-per-snapshot 2 --max-steps 80 --min-step 20 --snapshot-stride 10 --warmup-steps 20 --max-continuation-steps 30"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1183_current_base_no_residual_source_rich_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1183-v4-public-base-no-residual-source-rich-smoke-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1182-v4-public-base-no-residual-source-rich-adapter-implementation.md"
+  ],
+  "decision_rule": "M1183 passes only if the adapter smoke writes metadata artifacts without residual-head dependency and without training, PPO, promotion, private holdout, proof conversion, or actor-input changes.",
+  "next_blocker": "m1183-v4-public-base-no-residual-source-rich-smoke-run"
+}

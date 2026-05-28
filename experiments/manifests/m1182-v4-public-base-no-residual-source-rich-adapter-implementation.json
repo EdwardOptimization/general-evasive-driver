@@ -164,5 +164,5 @@
     "docs/m1181-v4-public-base-source-rich-route-compatibility-audit.md"
   ],
   "decision_rule": "M1182 may only implement no-residual source-rich adapter tooling and focused tests. It cannot run source-rich mining, run full replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
-  "next_blocker": "m1182-v4-public-base-no-residual-source-rich-adapter-implementation"
+  "next_blocker": "m1183-v4-public-base-no-residual-source-rich-smoke-run"
 }

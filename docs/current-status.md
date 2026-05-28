@@ -115,8 +115,28 @@ gate utility matrix before remaining permanent active training blockers.
 ## Current Blocker
 
 ```text
-m1182-v4-public-base-no-residual-source-rich-adapter-implementation
+m1183-v4-public-base-no-residual-source-rich-smoke-run
 ```
+
+M1182 implemented the current-base no-residual source-rich adapter:
+
+```text
+source: src/autodrift/current_base_source_rich_adapter.py
+tests: tests/test_current_base_source_rich_adapter.py
+follow-up: experiments/manifests/m1183-v4-public-base-no-residual-source-rich-smoke-run.json
+```
+
+The adapter directly evaluates the loaded current public-base actor and
+intentionally does not accept `--residual-head`. It emits source-rich metadata
+fields for source/target obstacle geometry, fault family/fidelity/onset,
+warmup/probe mode, source outcome, and later current-frame/action-divergence
+stages. This is infrastructure only and does not claim source-rich proof,
+driver performance, recurrent-belief evidence, PPO readiness, promotion, or
+paper-level results.
+
+M1183 should run a bounded metadata smoke only. No full source-rich mining,
+proof conversion, actor training, PPO, promotion, private holdout, or
+actor-input change should happen in M1183.
 
 M1181 audited existing source-rich v4 tooling:
 

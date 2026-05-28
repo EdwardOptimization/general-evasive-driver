@@ -16865,3 +16865,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no mining, replay, actor training, PPO, promotion, private holdout, gate demotion, or actor-input change occurred.
 - decision: `paper_route_plan_recorded_continue_with_source_rich_adapter_as_infrastructure_only`
 - next: `m1182-v4-public-base-no-residual-source-rich-adapter-implementation`
+
+## 20260528T050500Z - m1182-v4-public-base-no-residual-source-rich-adapter-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1182-v4-public-base-no-residual-source-rich-adapter-implementation.md`
+- source: `src/autodrift/current_base_source_rich_adapter.py`
+- tests: `tests/test_current_base_source_rich_adapter.py`
+- result: implements a current public-base source-rich adapter that directly evaluates the loaded actor and does not accept or load a residual head.
+- metadata contract: emits or validates policy label, residual-head requirement, fault family/fidelity/onset, warmup, source and target obstacle geometry, source outcome, boundary axis, and placeholder statuses for later current-frame/action-divergence/terminal-margin stages.
+- verification: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_current_base_source_rich_adapter.py` -> `5 passed`.
+- follow-up manifest: `experiments/manifests/m1183-v4-public-base-no-residual-source-rich-smoke-run.json`.
+- guardrail: no source-rich mining, full replay, actor training, PPO, promotion, private holdout, proof conversion, or actor-input change occurred.
+- decision: `current_base_no_residual_source_rich_adapter_implemented_route_to_smoke_run`
+- next: `m1183-v4-public-base-no-residual-source-rich-smoke-run`
