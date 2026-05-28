@@ -1,0 +1,153 @@
+{
+  "id": "m1211-paper-route-corrected-profile-repeat-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "docs/m1210-paper-route-corrected-profile-pilot-result-audit.md",
+      "runs/m1209_corrected_profile_pilot/profile_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1210-paper-route-corrected-profile-pilot-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a fresh public repeat for corrected profile trends after M1209 seed fragility and control-parity audit"
+    ],
+    "derived_from": [
+      "m1210-paper-route-corrected-profile-pilot-result-audit"
+    ],
+    "blocked_by": [
+      "M1209 trends are seed-fragile and cannot justify longer training or paper-level interpretation without a fresh public repeat"
+    ],
+    "supersedes": [
+      "directly scaling M1209 into longer training"
+    ],
+    "invalidates": [
+      "treating M1209 single public seed block as stable architecture evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1211-paper-route-corrected-profile-repeat-design.md",
+  "public_gates": [
+    "M1211 may design a repeat protocol only",
+    "M1211 must use a fresh public training seed block and fresh public eval seed block",
+    "M1211 must keep the same corrected profile configs and budget unless a documented resource cap requires a smaller fixed subset",
+    "M1211 must not train controllers",
+    "M1211 must not use private holdout",
+    "M1211 must not tune profiles",
+    "M1211 must not promote",
+    "M1211 must not claim paper-level evidence or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not tune profiles based on M1209",
+    "do not change actor inputs",
+    "do not claim recurrent-hidden benefit before the repeat",
+    "do not claim finite-window history necessity before the repeat"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_corrected_public_pilot_repeat_design: seed-fragility control",
+    "evidence_increment": "pre-registers a fresh public repeat to separate stable architecture trends from lucky training seeds",
+    "claim_scope": "design only; no training promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if repeat changes profile-specific budgets after seeing M1209",
+      "stop if private holdout is proposed",
+      "stop if design omits required controls without a fixed resource reason"
+    ],
+    "fallback_plan": [
+      "route to full corrected repeat if resources are sufficient",
+      "route to fixed subset repeat only if documented resource cap requires it",
+      "route to branch synthesis if repeat is no longer the best next step"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1210 audit identifies seed fragility and control parity",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fresh corrected profile repeat design",
+    "admission_evidence": [
+      "M1209 completed the corrected public pilot with all seed runs complete",
+      "M1210 audited L2/current-tiled and L3/reset-control implications",
+      "M1210 found seed fragility that requires a fresh public repeat before stronger claims"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1211 repeat design docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "fresh repeat seed and eval blocks are fixed",
+      "profile set and budget are fixed",
+      "repeat interpretation rules are pre-registered",
+      "next repeat run milestone is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1211 must preserve current-tiled controls because M1210 keeps current-frame substitution risk active.",
+    "history_necessity_tests": [
+      "repeat_L2_window_13_vs_current_tiled",
+      "repeat_L2_window_25_vs_current_tiled",
+      "repeat_L3_online_vs_corrected_reset"
+    ],
+    "temporal_evidence_window": "Repeat design may test stability of public trends but still cannot prove causal self-ID.",
+    "negative_result_policy": "If the repeat again shows L2/current-tiled parity or L3/reset parity, record it as negative evidence and route to architecture or task redesign.",
+    "allowed_claims": [
+      "fresh public repeat protocol readiness",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A fresh public repeat protocol can test whether M1209 L3-family and L2-control trends are stable rather than seed-block artifacts.",
+  "success_criteria": [
+    "docs/m1211-paper-route-corrected-profile-repeat-design.md exists",
+    "fresh training seed base and eval seed base are fixed",
+    "profile set and budget are fixed",
+    "interpretation rules for repeat outcomes are written",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next repeat-run milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1211 trains or tunes profiles",
+    "private holdout is used",
+    "profile-specific budgets are changed based on M1209 results",
+    "repeat design omits corrected controls without justification",
+    "self-identification is claimed from public pilot aggregates"
+  ],
+  "commands": [
+    {
+      "name": "design_corrected_profile_repeat",
+      "command": "write fresh public repeat protocol without training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1211-paper-route-corrected-profile-repeat-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "docs/m1210-paper-route-corrected-profile-pilot-result-audit.md",
+    "runs/m1209_corrected_profile_pilot/profile_aggregate.csv"
+  ],
+  "decision_rule": "M1211 passes if a fixed fresh public repeat is pre-registered without training or claim expansion.",
+  "next_blocker": "m1211-paper-route-corrected-profile-repeat-design"
+}

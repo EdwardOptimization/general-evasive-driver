@@ -115,8 +115,40 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1210-paper-route-corrected-profile-pilot-result-audit
+m1211-paper-route-corrected-profile-repeat-design
 ```
+
+M1210 completed the M1209 corrected pilot audit:
+
+```text
+artifact: docs/m1210-paper-route-corrected-profile-pilot-result-audit.md
+decision: corrected_profile_pilot_audit_route_to_fresh_repeat_design
+```
+
+M1210 classification:
+
+```text
+M1209 artifact validity: valid public pilot
+L2 finite-window history necessity: negative
+L3 architecture-family trend: positive
+L3 recurrent-hidden benefit: inconclusive
+strong self-identification: negative / not supported
+```
+
+Key audit deltas:
+
+```text
+L2_window_13 - current_tiled:
+  success +0.0208, collision +0.0052, mean margin -0.0419
+L2_window_25 - current_tiled:
+  success +0.0052, collision +0.0208, mean margin -0.0430
+L3_online_gru - corrected_reset:
+  success +0.0000, collision +0.0104, mean margin +0.0404
+```
+
+Next is a fresh public repeat design, not longer training. M1209's L3 aggregate
+is promising but seed-fragile, and the corrected controls block history/belief
+claims.
 
 M1209 completed the corrected public profile pilot:
 

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1219,
+    "completed": 1220,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1209-paper-route-corrected-profile-pilot-run.md",
+    "command_log": "docs/m1210-paper-route-corrected-profile-pilot-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1209_corrected_profile_pilot",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1209-paper-route-corrected-profile-pilot-run"
+    "task_id": "m1210-paper-route-corrected-profile-pilot-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1210-paper-route-corrected-profile-pilot-result-audit.json",
-    "hypothesis": "M1209 corrected public pilot artifacts can be audited to decide whether to repeat, scale, repair, or synthesize the profile-comparison branch.",
-    "id": "m1210-paper-route-corrected-profile-pilot-result-audit",
+    "command": "see experiments/manifests/m1211-paper-route-corrected-profile-repeat-design.json",
+    "hypothesis": "A fresh public repeat protocol can test whether M1209 L3-family and L2-control trends are stable rather than seed-block artifacts.",
+    "id": "m1211-paper-route-corrected-profile-repeat-design",
     "kind": "gate",
-    "notes": "Pending: audit M1209 L2 current-tiled and L3 reset-control implications before repeat or longer training",
-    "priority": 12050,
+    "notes": "Pending: pre-register fresh public repeat seed/eval blocks and interpretation rules before another corrected profile run",
+    "priority": 12060,
     "status": "pending",
-    "success_artifact": "docs/m1210-paper-route-corrected-profile-pilot-result-audit.md"
+    "success_artifact": "docs/m1211-paper-route-corrected-profile-repeat-design.md"
   },
-  "updated_at_utc": "20260528T062807Z"
+  "updated_at_utc": "20260528T063312Z"
 }

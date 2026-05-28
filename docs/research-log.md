@@ -17337,3 +17337,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1210-paper-route-corrected-profile-pilot-result-audit.json`.
 - decision: `corrected_profile_pilot_completed_route_to_result_audit`
 - next: `m1210-paper-route-corrected-profile-pilot-result-audit`
+
+## 20260528T063312Z - m1210-paper-route-corrected-profile-pilot-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1210-paper-route-corrected-profile-pilot-result-audit.md`
+- result: audits M1209 as a valid corrected public pilot but blocks stronger claims.
+- L2 classification: `negative_for_finite_window_history_necessity`; normal L2 has tiny success gains but worse collision and worse mean/p10 margin than current-tiled controls.
+- L3 classification: `positive_for_L3_architecture_family`, `inconclusive_for_recurrent_hidden_benefit`, and `negative_for_strong_self_identification`; online/reset tie on success and termination with shared seed-fragility.
+- seed fragility: L3 online success by seed is `0.1250`, `0.8281`, `0.1250`; corrected reset is `0.1094`, `0.8125`, `0.1562`.
+- route decision: do not scale to longer training yet; pre-register a fresh public repeat with new training/eval seed blocks and identical corrected controls.
+- guardrail: no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, actor-input expansion, self-identification claim, profile superiority claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1211-paper-route-corrected-profile-repeat-design.json`.
+- decision: `corrected_profile_pilot_audit_route_to_fresh_repeat_design`
+- next: `m1211-paper-route-corrected-profile-repeat-design`
