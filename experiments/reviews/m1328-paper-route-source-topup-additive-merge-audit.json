@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1328 audits M1327 as additive top-up over M1322 and admits merge/export design with halfshaft and global friction blockers explicit",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats naive additive counts as final merged counts",
+    "audit hides halfshaft or global friction blockers",
+    "audit routes directly to PPO",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not fabricate global friction coverage",
+    "do not treat M1327 alone as a replacement corpus",
+    "do not claim merged corpus readiness without dedupe or identity audit",
+    "do not overclaim self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T175150Z",
+  "hypothesis": "M1327 is better used as an additive top-up over M1322 than as a replacement corpus, but this must be audited before export or materialization.",
+  "lineage": {
+    "blocked_by": [
+      "M1327 is source-positive but under target as a standalone replacement and halfshaft/global friction remain inactive"
+    ],
+    "derived_from": [
+      "m1327-paper-route-source-repair-topup-horizon-corrected-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1327-paper-route-source-repair-topup-horizon-corrected-smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m1327-paper-route-source-repair-topup-horizon-corrected-smoke.md",
+      "runs/m1327_source_repair_topup_horizon_corrected_smoke/summary.json",
+      "runs/m1322_source_repair_corpus_export/summary.json"
+    ],
+    "parent_objective": [
+      "audit whether M1322 and M1327 should be merged as an additive source corpus"
+    ],
+    "supersedes": [
+      "direct materialization from M1327 alone"
+    ]
+  },
+  "milestone": "m1328-paper-route-source-topup-additive-merge-audit",
+  "next_blocker": "m1329-paper-route-source-topup-additive-merge-export-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_topup_additive_merge_audit_admit_merge_export_design",
+  "public_gates": [
+    "M1328 must not train",
+    "M1328 must not run PPO",
+    "M1328 must not use private holdout",
+    "M1328 must not promote",
+    "M1328 must preserve actor input contract",
+    "M1328 must not use naive additive counts as final merged counts",
+    "M1328 must keep global friction and halfshaft blockers explicit"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1328-paper-route-source-topup-additive-merge-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "source_topup_additive_merge_audit_admit_merge_export_design",
+    "milestone": "m1328-paper-route-source-topup-additive-merge-audit",
+    "reason": "M1328 audits M1327 as additive top-up over M1322 and admits merge/export design with halfshaft and global friction blockers explicit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1328-paper-route-source-topup-additive-merge-audit.md exists",
+    "audit compares M1322 and M1327 family counts",
+    "audit states naive additive total and its limitations",
+    "audit keeps global friction and halfshaft blockers explicit",
+    "audit chooses merge/export, further repair, or merge-preview route",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

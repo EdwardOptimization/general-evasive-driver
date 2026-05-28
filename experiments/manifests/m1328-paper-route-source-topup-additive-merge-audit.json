@@ -153,6 +153,36 @@
     "runs/m1327_source_repair_topup_horizon_corrected_smoke/summary.json",
     "runs/m1322_source_repair_corpus_export/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1328-paper-route-source-topup-additive-merge-audit.md",
+    "decision": "source_topup_additive_merge_audit_admit_merge_export_design",
+    "m1322_accepted_rows": 216,
+    "m1327_accepted_rows": 150,
+    "source_run_prefixed_candidate_rows": 366,
+    "m1327_standalone_replacement": false,
+    "additive_merge_admitted": true,
+    "global_friction_missing": true,
+    "halfshaft_undercovered": true,
+    "naive_additive_family_counts": {
+      "halfshaft_torque_loss->halfshaft_torque_loss": 22,
+      "left_right_split_mu->left_right_split_mu": 37,
+      "load_cg_perturbation->load_cg_perturbation": 54,
+      "single_wheel_brake_pull->single_wheel_brake_pull": 62,
+      "single_wheel_grip_collapse->single_wheel_grip_collapse": 64,
+      "steering_actuator_fault->steering_actuator_fault": 96,
+      "tire_blowout_like->tire_blowout_like": 31
+    },
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1329-paper-route-source-topup-additive-merge-export-design.json"
+  },
+  "decision": "source_topup_additive_merge_audit_admit_merge_export_design",
   "decision_rule": "M1328 passes if it audits M1327 as additive top-up evidence and chooses a next source route without training, PPO, promotion, private holdout use, threshold relaxation, hidden blockers, or actor-input expansion.",
-  "next_blocker": "m1328-paper-route-source-topup-additive-merge-audit"
+  "next_blocker": "m1329-paper-route-source-topup-additive-merge-export-design"
 }

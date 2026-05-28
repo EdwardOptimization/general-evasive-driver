@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1327-paper-route-source-repair-topup-horizon-corrected-smoke
+m1328-paper-route-source-topup-additive-merge-audit
 ```
 
 Current next task:
 
 ```text
-m1328-paper-route-source-topup-additive-merge-audit
+m1329-paper-route-source-topup-additive-merge-export-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -271,7 +271,11 @@ standalone replacement for M1322's `216` rows. It strongly enriches load/CG
 (`48`) and brake asymmetry (`52`), but halfshaft and global friction remain
 inactive. The active blocker is M1328: audit whether M1322 plus M1327 can form
 an additive merged source corpus before export, materialization, objective
-tuning, PPO, or promotion.
+tuning, PPO, or promotion. M1328 completed that audit and admits a merge/export
+design. The source-run-prefixed candidate total is `366`, but this is not yet a
+final exported corpus count; halfshaft remains under target and global friction
+remains absent. The active blocker is M1329: design the no-policy merge/export
+tool with explicit source identity and duplicate diagnostics.
 
 ## Actor Contract
 

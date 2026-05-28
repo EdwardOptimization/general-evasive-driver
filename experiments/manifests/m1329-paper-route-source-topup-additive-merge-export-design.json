@@ -1,0 +1,159 @@
+{
+  "id": "m1329-paper-route-source-topup-additive-merge-export-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1328-paper-route-source-topup-additive-merge-audit.md",
+      "runs/m1322_source_repair_corpus_export/all_accepted_source_rows.csv",
+      "runs/m1327_source_repair_topup_horizon_corrected_smoke/accepted_separable_pairs.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1328-paper-route-source-topup-additive-merge-audit.json"
+    ],
+    "parent_objective": [
+      "design additive merge/export tool for M1322 and M1327 source rows"
+    ],
+    "derived_from": [
+      "m1328-paper-route-source-topup-additive-merge-audit"
+    ],
+    "blocked_by": [
+      "M1328 admits additive merge but requires explicit source identity and dedupe diagnostics before export"
+    ],
+    "supersedes": [
+      "direct source-history materialization from M1322 or M1327 alone"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1329-paper-route-source-topup-additive-merge-export-design.md",
+  "public_gates": [
+    "M1329 must not train",
+    "M1329 must not run PPO",
+    "M1329 must not use private holdout",
+    "M1329 must not promote",
+    "M1329 must preserve actor input contract",
+    "M1329 must define source-run-prefixed identity",
+    "M1329 must define semantic duplicate diagnostics",
+    "M1329 must keep halfshaft and global friction blockers explicit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not fabricate global friction coverage",
+    "do not export without source-run-prefixed identity",
+    "do not silently drop semantic duplicates",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_repair_topup_generation",
+    "evidence_axis": "S_source_repair_topup_merge_export_design",
+    "evidence_increment": "designs the additive merge/export implementation after M1328 audit",
+    "claim_scope": "process design only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if design omits source-run-prefixed identity",
+      "stop if design hides halfshaft or global friction blockers",
+      "stop if design routes directly to source-history materialization",
+      "stop if design changes actor inputs"
+    ],
+    "fallback_plan": [
+      "if merge/export design is feasible, implement one no-policy merge/export tool",
+      "if source schemas cannot be normalized, write a schema adapter audit",
+      "if merge identity is ambiguous, implement preview diagnostics before final export"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1328 admits additive merge/export design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source top-up additive merge export design",
+    "admission_evidence": [
+      "M1328 admits additive merge",
+      "M1322 has 216 rows",
+      "M1327 has 150 rows",
+      "source-run-prefixed candidate total is 366",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not materialize histories before merge export and plan refresh"
+    ],
+    "allowed_updates": [
+      "M1329 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "merge/export artifact schema is listed",
+      "source identity fields are specified",
+      "semantic duplicate diagnostics are specified",
+      "next implementation command is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1329 designs source export and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "design merged source rows for later command-response history materialization"
+    ],
+    "temporal_evidence_window": "M1328 additive merge audit.",
+    "negative_result_policy": "If merge/export design is not feasible, record source schema blockers rather than training anyway.",
+    "allowed_claims": [
+      "source top-up additive merge export design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A no-policy merge/export tool can be designed to combine M1322 and M1327 source rows with safe source identity and explicit duplicate diagnostics.",
+  "success_criteria": [
+    "docs/m1329-paper-route-source-topup-additive-merge-export-design.md exists",
+    "design specifies source_run_id and source_row_id",
+    "design specifies semantic duplicate diagnostics",
+    "design lists output artifacts",
+    "design routes to one no-policy merge/export implementation",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design omits source-run-prefixed identity",
+    "design hides halfshaft or global friction blockers",
+    "design routes directly to materialization or PPO",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1329-paper-route-source-topup-additive-merge-export-design.md from M1328 audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1329-paper-route-source-topup-additive-merge-export-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1328-paper-route-source-topup-additive-merge-audit.md",
+    "runs/m1322_source_repair_corpus_export/summary.json",
+    "runs/m1327_source_repair_topup_horizon_corrected_smoke/summary.json"
+  ],
+  "decision_rule": "M1329 passes if it designs merge/export implementation with source-run-prefixed identity and duplicate diagnostics without training, PPO, promotion, private holdout use, threshold relaxation, hidden blockers, or actor-input expansion.",
+  "next_blocker": "m1329-paper-route-source-topup-additive-merge-export-design"
+}

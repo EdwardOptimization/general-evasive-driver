@@ -19369,3 +19369,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1328-paper-route-source-topup-additive-merge-audit.json`.
 - next: `m1328-paper-route-source-topup-additive-merge-audit`
+
+## 20260528T175001Z - m1328-paper-route-source-topup-additive-merge-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1328-paper-route-source-topup-additive-merge-audit.md`
+- decision: `source_topup_additive_merge_audit_admit_merge_export_design`
+- input counts: M1322 has `216` accepted rows and M1327 has `150`.
+- merge identity: use `source_run_id + source_row_id`; never merge by raw `pair_id` because pair ids are run-local.
+- source-run-prefixed candidate rows: `366`.
+- naive additive family counts: grip-collapse `64`, steering `96`, split-mu `37`, tire-blowout-like `31`, halfshaft `22`, brake asymmetry `62`, and load/CG `54`.
+- interpretation: M1327 is useful additive top-up evidence but not a standalone replacement corpus.
+- blockers retained: halfshaft remains below target and global friction remains absent.
+- next route: design a merge/export tool with semantic duplicate diagnostics before corpus expansion planning or materialization.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1329-paper-route-source-topup-additive-merge-export-design.json`.
+- next: `m1329-paper-route-source-topup-additive-merge-export-design`
