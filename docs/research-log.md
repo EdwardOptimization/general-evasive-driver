@@ -19447,3 +19447,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, source-history materialization, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1332-paper-route-source-topup-materialization-design.json`.
 - next: `m1332-paper-route-source-topup-materialization-design`
+
+## 20260528T181019Z - m1332-paper-route-source-topup-materialization-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1332-paper-route-source-topup-materialization-design.md`
+- decision: `source_topup_materialization_design_admit_implementation`
+- designed tool: `src/autodrift/source_topup_response_history_materialization.py`.
+- designed test: `tests/test_source_topup_response_history_materialization.py`.
+- input corpus: M1330/M1331 merged source corpus with `366` source pairs and `732` pair-probe groups.
+- expected output shape: `1464` history prefixes, `35136` command-response frame rows, `1464` history-intervention rows, and `1464` same-pair wrong-history swap rows.
+- source identity requirement: preserve `source_run_id`, `source_row_id`, `original_pair_id`, and `source_identity`; never use raw pair id alone.
+- compatibility audit: the old M1280 materializer is not safe to reuse directly because it uses the early default fault profile, lacks source-run identity, and does not apply the newer source-run `params_override` values.
+- implementation route: use source-run-specific fault profiles `source_repair_v1` and `source_topup_v1`, resolve scenarios from the original source-generation runs, and keep command/probe metadata out of actor-view tensors.
+- blockers retained: global friction remains missing and halfshaft remains under target.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, source-history materialization run, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1333-paper-route-source-topup-materialization-implementation.json`.
+- next: `m1333-paper-route-source-topup-materialization-implementation`

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1331-paper-route-source-topup-merged-corpus-expansion-plan
+m1332-paper-route-source-topup-materialization-design
 ```
 
 Current next task:
 
 ```text
-m1332-paper-route-source-topup-materialization-design
+m1333-paper-route-source-topup-materialization-implementation
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -290,7 +290,19 @@ completed that plan and it is admissible: `366` source pairs, `732` pair-probe
 groups, all folds nonempty and pair-disjoint, and max source-family fold share
 `0.2739726027`. Global friction and halfshaft blockers remain explicit. The
 active blocker is M1332: design source-history materialization for the merged
-corpus while preserving source identity metadata.
+corpus while preserving source identity metadata. M1332 completed that design
+and admits a dedicated no-policy materialization implementation. The old M1280
+materializer is not safe to reuse directly because it assumes the early default
+fault profile, lacks source-run identity semantics, and does not apply the newer
+source-run `params_override` values. M1333 should implement
+`source_topup_response_history_materialization.py`, resolve M1322 rows back to
+`runs/m1320_inactive_source_family_repair_smoke` with `source_repair_v1`, resolve
+M1327 rows to `runs/m1327_source_repair_topup_horizon_corrected_smoke` with
+`source_topup_v1`, and preserve `source_run_id/source_row_id/original_pair_id`.
+Expected artifacts are `366` source-pair rows, `1464` history prefixes,
+`35136` frame rows, `1464` history-intervention rows, and `1464` wrong-history
+swap rows. Global friction remains missing and halfshaft remains under target.
+No policy training, PPO, promotion, or actor-input change is admitted.
 
 ## Actor Contract
 

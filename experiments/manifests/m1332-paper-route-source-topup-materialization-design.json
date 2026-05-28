@@ -154,6 +154,33 @@
     "runs/m1331_source_topup_merged_corpus_expansion_plan/summary.json",
     "runs/m1330_source_topup_additive_merge_export/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1332-paper-route-source-topup-materialization-design.md",
+    "decision": "source_topup_materialization_design_admit_implementation",
+    "designed_tool": "src/autodrift/source_topup_response_history_materialization.py",
+    "designed_test": "tests/test_source_topup_response_history_materialization.py",
+    "source_pairs": 366,
+    "planned_pair_probe_groups": 732,
+    "expected_history_prefix_rows": 1464,
+    "expected_history_frame_rows": 35136,
+    "expected_history_intervention_rows": 1464,
+    "expected_wrong_history_pair_rows": 1464,
+    "requires_source_identity_preservation": true,
+    "requires_source_run_specific_fault_profiles": true,
+    "requires_fault_params_override": true,
+    "global_friction_missing": true,
+    "halfshaft_undercovered": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1333-paper-route-source-topup-materialization-implementation.json"
+  },
+  "decision": "source_topup_materialization_design_admit_implementation",
   "decision_rule": "M1332 passes if it designs source-history materialization for the merged corpus without training, PPO, promotion, private holdout use, threshold relaxation, materialization run, hidden blockers, or actor-input expansion.",
-  "next_blocker": "m1332-paper-route-source-topup-materialization-design"
+  "next_blocker": "m1333-paper-route-source-topup-materialization-implementation"
 }

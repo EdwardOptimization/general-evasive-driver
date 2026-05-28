@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1341,
+    "completed": 1342,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1331-paper-route-source-topup-merged-corpus-expansion-plan.md",
+    "command_log": "docs/m1332-paper-route-source-topup-materialization-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1331_source_topup_merged_corpus_expansion_plan",
+    "run_dir": "docs/m1332-paper-route-source-topup-materialization-design.md",
     "status": "completed",
-    "task_id": "m1331-paper-route-source-topup-merged-corpus-expansion-plan"
+    "task_id": "m1332-paper-route-source-topup-materialization-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1332-paper-route-source-topup-materialization-design.json",
-    "hypothesis": "Design no-policy source-history materialization for the admissible M1330/M1331 merged corpus",
-    "id": "m1332-paper-route-source-topup-materialization-design",
-    "kind": "gate",
-    "notes": "Pending: design only; no materialization run, PPO, or promotion",
-    "priority": 13270,
+    "command": "see experiments/manifests/m1333-paper-route-source-topup-materialization-implementation.json",
+    "hypothesis": "Implement no-policy source-history materialization for the admissible M1330/M1331 merged corpus",
+    "id": "m1333-paper-route-source-topup-materialization-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run materialization only; no training, PPO, or promotion",
+    "priority": 13280,
     "status": "pending",
-    "success_artifact": "docs/m1332-paper-route-source-topup-materialization-design.md"
+    "success_artifact": "runs/m1333_source_topup_response_history_materialization/summary.json"
   },
-  "updated_at_utc": "20260528T180442Z"
+  "updated_at_utc": "20260528T181019Z"
 }
