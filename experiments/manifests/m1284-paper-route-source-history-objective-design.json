@@ -1,0 +1,156 @@
+{
+  "id": "m1284-paper-route-source-history-objective-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1283-paper-route-source-history-policy-gate-implementation.md",
+      "runs/m1283_source_history_policy_gate/summary.json",
+      "runs/m1283_source_history_policy_gate/policy_gate_rows.csv",
+      "runs/m1283_source_history_policy_gate/history_projection_audit.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1283-paper-route-source-history-policy-gate-implementation.json"
+    ],
+    "parent_objective": [
+      "design exact no-PPO source-history preference objective after weak policy-side gate signal"
+    ],
+    "derived_from": [
+      "m1283-paper-route-source-history-policy-gate-implementation"
+    ],
+    "blocked_by": [
+      "M1283 implemented the gate but the current checkpoint has weak directional source-history signal"
+    ],
+    "supersedes": [
+      "starting PPO from weak source-history action-level signal"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1284-paper-route-source-history-objective-design.md",
+  "public_gates": [
+    "M1284 must preserve actor input contract",
+    "M1284 must not train controllers",
+    "M1284 must not run PPO",
+    "M1284 must not use private holdout",
+    "M1284 must not promote",
+    "M1284 must design an exact source-history preference objective",
+    "M1284 must keep M1283 weak-signal result as negative evidence",
+    "M1284 must define no-PPO objective-only implementation criteria"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not treat M1283 weak signal as PPO admission",
+    "do not add fault condition pair or probe labels to actor inputs",
+    "do not claim self-identification from objective design",
+    "do not claim high-fidelity validation from the compact pilot"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_four_wheel_source_intervention_materialization",
+    "evidence_axis": "S_source_history_objective_design",
+    "evidence_increment": "designs the exact source-history preference objective needed after M1283 weak action-level gate signal",
+    "claim_scope": "objective design only; no training, promotion, private-holdout, paper-level, closed-loop, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if the objective would require noncanonical actor inputs",
+      "stop if the objective cannot be evaluated exactly on M1280/M1277 artifacts",
+      "stop if the branch reaches cadence after M1285 without synthesis"
+    ],
+    "fallback_plan": [
+      "if objective is designable, admit no-PPO objective implementation",
+      "if objective is not designable, route to source-history corpus repair",
+      "after the implementation/result pair, synthesize the branch before more narrow work"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1283 weak source-history policy signal routes to objective design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-history objective design",
+    "admission_evidence": [
+      "M1283 result_class=action_level_history_signal_weak",
+      "M1283 both_directional_fraction=0.0",
+      "M1283 preferred_hidden_margin_positive_fraction=0.4868421053",
+      "M1283 history_action_l2_mean=0.0991899077"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1284 objective design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest if design admits implementation"
+    ],
+    "next_stage_criteria": [
+      "objective terms are specified",
+      "exact evaluator is specified",
+      "retention guardrails are specified",
+      "implementation artifacts and no-PPO criteria are specified"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1284 designs a history objective after a weak same-current-observation policy gate; it does not yet create closed-loop or history-necessity evidence.",
+    "history_necessity_tests": [
+      "future objective-only implementation must evaluate exact correct-history versus wrong-history preference metrics",
+      "future result must retain no-label actor inputs and no PPO"
+    ],
+    "temporal_evidence_window": "24-step source prefix replay from M1280, objective design only.",
+    "negative_result_policy": "M1283 weak result remains negative evidence and should motivate objective design rather than PPO admission.",
+    "allowed_claims": [
+      "source-history objective design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "An exact no-PPO source-history preference objective can be designed to address M1283's weak directional action-level signal without expanding actor inputs or starting PPO.",
+  "success_criteria": [
+    "docs/m1284-paper-route-source-history-objective-design.md exists",
+    "design defines correct-history and wrong-history preference loss terms",
+    "design defines exact full-corpus evaluator metrics",
+    "design defines retention and branch-cadence guardrails",
+    "design admits at most a no-PPO objective implementation",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores M1283 weak signal",
+    "design starts PPO directly",
+    "design uses labels as actor inputs",
+    "design overclaims self-identification",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1284-paper-route-source-history-objective-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1284-paper-route-source-history-objective-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1283-paper-route-source-history-policy-gate-implementation.md",
+    "runs/m1283_source_history_policy_gate/summary.json"
+  ],
+  "decision_rule": "M1284 passes if it defines an exact no-PPO source-history objective implementation plan without actor-input expansion or self-identification overclaiming.",
+  "next_blocker": "m1284-paper-route-source-history-objective-design"
+}

@@ -18536,3 +18536,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1283-paper-route-source-history-policy-gate-implementation.json`.
 - decision: `source_history_policy_gate_design_admit_no_training_implementation`
 - next: `m1283-paper-route-source-history-policy-gate-implementation`
+
+## 20260528T133940Z - m1283-paper-route-source-history-policy-gate-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1283_source_history_policy_gate/summary.json`
+- implementation: added `src/autodrift/source_history_policy_gate.py` and `tests/test_source_history_policy_gate.py`.
+- validation: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_source_history_policy_gate.py` passed with `2 passed`.
+- run checkpoint: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`.
+- projection gate: `row_count=152`, `finite_row_count=152`, `projection_rows=152`, `projection_valid_count=152`, and `wrong_history_valid_count=152`.
+- checkpoint contract: `human_view_online_gru`, canonical 72-value human-view online recurrent actor.
+- result class: `action_level_history_signal_weak`.
+- signal metrics: `both_directional_fraction=0.0`, `preferred_hidden_margin_positive_fraction=0.4868421053`, and `history_action_l2_mean=0.0991899077`.
+- interpretation: source histories move action means, but the current public-gate checkpoint does not map correct history to preferred actions and wrong history to rejected actions on this source corpus.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1284-paper-route-source-history-objective-design.json`.
+- decision: `source_history_policy_gate_implementation_pass_signal_weak_route_to_objective_design`
+- next: `m1284-paper-route-source-history-objective-design`

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1282-paper-route-source-history-policy-gate-design
+m1283-paper-route-source-history-policy-gate-implementation
 ```
 
 Current next task:
 
 ```text
-m1283-paper-route-source-history-policy-gate-implementation
+m1284-paper-route-source-history-objective-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -50,9 +50,15 @@ policy-side gate. It requires canonical projection of M1280 history rows into
 72-value actor frames, treats `cmd_*` columns as prefix action metadata rather
 than actor observations, and compares correct-history versus wrong-history
 action likelihood/action distance at the same current M1277 intervention
-observation. The active blocker is to implement and run that eval-only gate in
-M1283 without training, PPO, promotion, private holdout, actor-input expansion,
-or self-identification overclaiming.
+observation. M1283 implemented and ran that eval-only gate against the current
+public-gate checkpoint. The gate is infrastructure-valid with `152` finite rows,
+`152` valid projections, and `152` valid wrong-history swaps, but the result is
+`action_level_history_signal_weak`: `both_directional_fraction=0.0`,
+`preferred_hidden_margin_positive_fraction=0.4868421053`, and
+`history_action_l2_mean=0.0991899077`. The histories move action means, but the
+current checkpoint does not map correct history to preferred actions and wrong
+history to rejected actions. The active blocker is to design an exact no-PPO
+source-history preference objective; PPO and promotion remain blocked.
 
 ## Actor Contract
 

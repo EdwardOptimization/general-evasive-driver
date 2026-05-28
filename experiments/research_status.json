@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1292,
+    "completed": 1293,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1282-paper-route-source-history-policy-gate-design.md",
+    "command_log": "docs/m1283-paper-route-source-history-policy-gate-implementation.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1283_source_history_policy_gate",
     "status": "completed",
-    "task_id": "m1282-paper-route-source-history-policy-gate-design"
+    "task_id": "m1283-paper-route-source-history-policy-gate-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1283-paper-route-source-history-policy-gate-implementation.json",
-    "hypothesis": "Implement and run the eval-only source-history policy gate with finite correct-history versus wrong-history metrics",
-    "id": "m1283-paper-route-source-history-policy-gate-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement canonical 72-frame history projection and source-history policy metrics without training",
-    "priority": 12780,
+    "command": "see experiments/manifests/m1284-paper-route-source-history-objective-design.json",
+    "hypothesis": "Design an exact no-PPO source-history preference objective after M1283 weak directional action-level signal",
+    "id": "m1284-paper-route-source-history-objective-design",
+    "kind": "gate",
+    "notes": "Pending: design source-history objective and evaluator; do not start PPO",
+    "priority": 12790,
     "status": "pending",
-    "success_artifact": "runs/m1283_source_history_policy_gate/summary.json"
+    "success_artifact": "docs/m1284-paper-route-source-history-objective-design.md"
   },
-  "updated_at_utc": "20260528T133035Z"
+  "updated_at_utc": "20260528T133940Z"
 }
