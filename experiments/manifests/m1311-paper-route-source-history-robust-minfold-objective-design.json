@@ -1,0 +1,161 @@
+{
+  "id": "m1311-paper-route-source-history-robust-minfold-objective-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1310-paper-route-source-history-weighted-repeat-tradeoff-audit.md",
+      "runs/m1310_source_history_weighted_repeat_tradeoff_audit/summary.json",
+      "runs/m1310_source_history_weighted_repeat_tradeoff_audit/offset_comparison.csv",
+      "runs/m1310_source_history_weighted_repeat_tradeoff_audit/full_group_comparison.csv",
+      "runs/m1310_source_history_weighted_repeat_tradeoff_audit/source_probe_summary.csv",
+      "runs/m1310_source_history_weighted_repeat_tradeoff_audit/weight_gain_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1310-paper-route-source-history-weighted-repeat-tradeoff-audit.json"
+    ],
+    "parent_objective": [
+      "design robust min-fold or lexicographic source-history objective after weighted-repeat regression"
+    ],
+    "derived_from": [
+      "m1310-paper-route-source-history-weighted-repeat-tradeoff-audit"
+    ],
+    "blocked_by": [
+      "M1310 classified M1309 as top-combo partial improvement with global repeat regression"
+    ],
+    "supersedes": [
+      "more scalar group-weight pressure after M1309"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1311-paper-route-source-history-robust-minfold-objective-design.md",
+  "public_gates": [
+    "M1311 must not train",
+    "M1311 must not run PPO",
+    "M1311 must not use private holdout",
+    "M1311 must not promote",
+    "M1311 must preserve actor input contract",
+    "M1311 must design fold-level non-regression criteria",
+    "M1311 must define how passing folds are protected before failed folds are optimized",
+    "M1311 must decide whether implementation is justified"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use pair-specific weights",
+    "do not average away lost-pass regressions",
+    "do not treat fixed-current diagnostics as closed-loop self-identification proof"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_weighted_repeat_implementation",
+    "evidence_axis": "S_robust_minfold_objective_design",
+    "evidence_increment": "designs a repeat-aware objective after M1310 falsified simple weighted averaging",
+    "claim_scope": "objective design only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if design only increases scalar weights",
+      "stop if design omits lost-pass non-regression",
+      "stop if design relies on pair-specific weights",
+      "stop if design routes directly to PPO"
+    ],
+    "fallback_plan": [
+      "if robust min-fold objective is too narrow, route to source-history corpus expansion",
+      "if objective design is admissible, pre-register a bounded no-PPO implementation",
+      "if fixed-current diagnostics are exhausted, route to branch synthesis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1310 requires design before further implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "robust min-fold objective design",
+    "admission_evidence": [
+      "M1310 found weighted repeat improved offset 3 and top failed combo partially",
+      "M1310 found global repeat robustness regressed from 3/5 to 1/5",
+      "M1310 recommended robust min-fold or lexicographic design before PPO"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not use pair-specific weights"
+    ],
+    "allowed_updates": [
+      "M1311 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest if implementation is admitted"
+    ],
+    "next_stage_criteria": [
+      "objective residuals are explicitly defined",
+      "fold-level non-regression criteria are explicit",
+      "success and failure criteria are pre-registered",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1311 remains a fixed-current source-history objective design and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "design correct-history versus wrong-history fold-level objective checks",
+      "preserve pair-disjoint repeat evidence before PPO"
+    ],
+    "temporal_evidence_window": "M1302 through M1310 fixed-current source-history diagnostics.",
+    "negative_result_policy": "If robust min-fold design cannot protect passing folds without pair-specific weights, route to corpus expansion or branch synthesis rather than training.",
+    "allowed_claims": [
+      "robust min-fold objective design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A robust min-fold or lexicographic objective can address M1309's weighted-repeat global regression by making lost-pass non-regression a first-class constraint instead of increasing scalar group weights.",
+  "success_criteria": [
+    "docs/m1311-paper-route-source-history-robust-minfold-objective-design.md exists",
+    "design defines fold-level non-regression criteria",
+    "design defines objective terms for passing-fold retention and failed-fold improvement",
+    "design keeps pair-specific weights forbidden",
+    "design pre-registers implementation thresholds if implementation is admitted",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design only increases scalar weights",
+    "design omits lost-pass non-regression",
+    "design uses pair-specific weights",
+    "design routes directly to PPO",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1311-paper-route-source-history-robust-minfold-objective-design.md from M1310 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1311-paper-route-source-history-robust-minfold-objective-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1310-paper-route-source-history-weighted-repeat-tradeoff-audit.md",
+    "runs/m1310_source_history_weighted_repeat_tradeoff_audit/summary.json"
+  ],
+  "decision_rule": "M1311 passes if it defines a fold-level robust or lexicographic objective without training, PPO, promotion, private holdout use, threshold relaxation, pair-specific weights, or actor-input expansion.",
+  "next_blocker": "m1311-paper-route-source-history-robust-minfold-objective-design"
+}

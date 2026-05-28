@@ -19028,3 +19028,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1310-paper-route-source-history-weighted-repeat-tradeoff-audit.json`.
 - decision: `source_history_weighted_repeat_mixed_regression_route_to_tradeoff_audit`
 - next: `m1310-paper-route-source-history-weighted-repeat-tradeoff-audit`
+
+## 20260528T160650Z - m1310-paper-route-source-history-weighted-repeat-tradeoff-audit
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1310_source_history_weighted_repeat_tradeoff_audit/summary.json`
+- doc: `docs/m1310-paper-route-source-history-weighted-repeat-tradeoff-audit.md`
+- implementation: added no-training weighted-repeat tradeoff audit and focused test.
+- validation: `PYTHONPATH=src python -m pytest -q tests/test_source_history_weighted_repeat_tradeoff_audit.py` passed with `1 passed`.
+- result class: `weighted_repeat_top_combo_partial_improvement_global_regression`.
+- offset result: M1302 baseline has `3/5` pass offsets; M1309 weighted repeat has `1/5`; delta `-2`.
+- lost pass offsets: `0|1`.
+- eval-improved offsets: `3|4`; eval-regressed offsets: `0|1|2`.
+- best weighted offset: `3`, eval fraction `0.4375`, eval delta `0.1517857143`.
+- mean eval fraction delta versus M1302: `-0.0246031746`.
+- mean full both-positive count delta versus M1302: `-0.8`.
+- full group comparison: `30` groups improve to positive and `32` regress from positive; full mean margin delta `-0.0151337285`.
+- top failed combo: `single_wheel_grip_collapse->single_wheel_grip_collapse` + `left_brake_probe` improves positives from `12` to `15`, with `14` improved-to-positive and `11` regressed-from-positive groups.
+- interpretation: weighting partially targets the intended failed family but creates global fold/objective regression; scalar weight pressure and PPO remain blocked.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1311-paper-route-source-history-robust-minfold-objective-design.json`.
+- decision: `weighted_repeat_top_combo_partial_improvement_global_regression_route_to_robust_minfold_design`
+- next: `m1311-paper-route-source-history-robust-minfold-objective-design`

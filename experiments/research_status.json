@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1319,
+    "completed": 1320,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1309-paper-route-source-history-weighted-repeat-implementation.md",
+    "command_log": "docs/m1310-paper-route-source-history-weighted-repeat-tradeoff-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1309_source_history_weighted_repeat_probe",
+    "run_dir": "runs/m1310_source_history_weighted_repeat_tradeoff_audit",
     "status": "completed",
-    "task_id": "m1309-paper-route-source-history-weighted-repeat-implementation"
+    "task_id": "m1310-paper-route-source-history-weighted-repeat-tradeoff-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1310-paper-route-source-history-weighted-repeat-tradeoff-audit.json",
-    "hypothesis": "Classify why M1309 weighted repeat improved one split but regressed repeat robustness before another objective run",
-    "id": "m1310-paper-route-source-history-weighted-repeat-tradeoff-audit",
-    "kind": "infrastructure",
-    "notes": "Pending: no-training tradeoff audit; PPO and promotion remain blocked",
-    "priority": 13050,
+    "command": "see experiments/manifests/m1311-paper-route-source-history-robust-minfold-objective-design.json",
+    "hypothesis": "Design a robust min-fold or lexicographic source-history objective after M1310 showed weighted-repeat global regression",
+    "id": "m1311-paper-route-source-history-robust-minfold-objective-design",
+    "kind": "gate",
+    "notes": "Pending: design fold-level non-regression objective; PPO and promotion remain blocked",
+    "priority": 13060,
     "status": "pending",
-    "success_artifact": "runs/m1310_source_history_weighted_repeat_tradeoff_audit/summary.json"
+    "success_artifact": "docs/m1311-paper-route-source-history-robust-minfold-objective-design.md"
   },
-  "updated_at_utc": "20260528T155822Z"
+  "updated_at_utc": "20260528T160650Z"
 }

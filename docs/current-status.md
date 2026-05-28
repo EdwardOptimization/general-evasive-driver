@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1309-paper-route-source-history-weighted-repeat-implementation
+m1310-paper-route-source-history-weighted-repeat-tradeoff-audit
 ```
 
 Current next task:
 
 ```text
-m1310-paper-route-source-history-weighted-repeat-tradeoff-audit
+m1311-paper-route-source-history-robust-minfold-objective-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -171,7 +171,14 @@ the repeat pass count drops from `3/5` to `1/5`, mean eval fraction drops from
 `0.2335317460` to `0.2089285714`, and mean full counts drop from `38.0/19.0`
 rows/groups to `37.2/18.6`. The active blocker is M1310: run a no-training
 tradeoff audit against M1302, M1304, and M1306 before another objective run.
-PPO and promotion remain blocked.
+M1310 completed that no-training tradeoff audit. It classified M1309 as
+`weighted_repeat_top_combo_partial_improvement_global_regression`: top failed
+combo positives improve by `+3` (`12 -> 15`), but global repeat pass count
+regresses from `3/5` to `1/5`, offsets `0|1` lose pass status, mean eval
+fraction delta is `-0.0246031746`, full positives go `95 -> 93`, and full mean
+margin delta is `-0.0151337285`. The active blocker is M1311: design a robust
+min-fold or lexicographic source-history objective that protects passing folds
+before optimizing failed folds. PPO and promotion remain blocked.
 
 ## Actor Contract
 
