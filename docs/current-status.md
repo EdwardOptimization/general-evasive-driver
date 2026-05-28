@@ -16,18 +16,17 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1376-paper-route-promoted-base-source-rich-public-wave-result-audit
+m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe
 ```
 
 Current next task:
 
 ```text
-m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe
+m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit
 ```
 
-M1376 audits M1375 as a clean larger public source-rich wave that is not
-source-positive for current cross-fault wrong-history swaps. The current
-public-gate base remains M1362 alpha `0.1`:
+M1377 ran the no-training source-rich sequence intervention probe on M1375
+reset-only rows. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
@@ -85,14 +84,31 @@ accepted preferred fault families versus threshold `4`, and `2` accepted seeds
 versus threshold `24`. It strongly confirms reset-hidden sensitivity with
 `1281` reset-only rows across `12 / 15` fault-family pair groups.
 
-M1376 therefore routes to M1377, a no-training sequence intervention probe over
-the M1375 reset-only rows. M1377 should use
-`autodrift.capability_step_sequence_intervention_probe`, history lengths
-`4,8,12`, max source rows `384`, and run dir
-`runs/m1377_promoted_base_source_rich_sequence_intervention_probe`. It must
-separate temporal accepted rows from cross-fault accepted rows and cannot export
-a training corpus, run PPO, promote, use private holdout, change actor inputs,
-or claim level3 self-identification.
+M1377 used `autodrift.capability_step_sequence_intervention_probe`, history
+lengths `4,8,12`, max source rows `384`, and run dir
+`runs/m1377_promoted_base_source_rich_sequence_intervention_probe`. Result:
+
+```text
+result_class: sequence_temporal_history_positive
+selected_source_rows: 384
+intervention_rows: 6912
+accepted_sequence_rows: 180
+accepted_temporal_sequence_rows: 180
+accepted_cross_fault_sequence_rows: 0
+unique_temporal_accepted_fault_pairs: 8
+unique_temporal_accepted_seeds: 9
+actor_parameters_changed: false
+training_started: false
+ppo_used: false
+promoted: false
+```
+
+M1377 is temporal-history positive by row count and fault-pair diversity, but
+seed-thin against the pre-registered accepted-seed threshold (`9 < 12`).
+Cross-fault self-identification remains unsupported because all cross-fault and
+action-response mismatch sequence variants have zero accepted rows. M1378 should
+audit whether to expand sequence source coverage, design a temporal corpus,
+redesign cross-fault interventions, or synthesize before L0/L1/L2/L3 comparison.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1386,
+    "completed": 1387,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.md",
+    "command_log": "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.md",
+    "run_dir": "runs/m1377_promoted_base_source_rich_sequence_intervention_probe",
     "status": "completed",
-    "task_id": "m1376-paper-route-promoted-base-source-rich-public-wave-result-audit"
+    "task_id": "m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe.json",
-    "hypothesis": "M1375 reset-only source rows can expose temporal-history dependence for the promoted M1362 base under sequence-level interventions",
-    "id": "m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe",
+    "command": "see experiments/manifests/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.json",
+    "hypothesis": "M1377 can be audited as temporal-history positive but seed-thin with cross-fault self-ID still unsupported",
+    "id": "m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit",
     "kind": "gate",
-    "notes": "Pending: run no-training sequence intervention probe on M1375 reset-only rows; separate temporal accepted rows from cross-fault accepted rows",
-    "priority": 13720,
+    "notes": "Pending: audit M1377 temporal-positive seed-thin sequence probe; decide expansion corpus design cross-fault redesign or synthesis without training",
+    "priority": 13730,
     "status": "pending",
-    "success_artifact": "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/summary.json"
+    "success_artifact": "docs/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.md"
   },
-  "updated_at_utc": "20260528T225000Z"
+  "updated_at_utc": "20260528T230000Z"
 }

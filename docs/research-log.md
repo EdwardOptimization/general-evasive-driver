@@ -20252,3 +20252,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, finite-window-vs-GRU claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe.json`.
 - next: `m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe`
+
+## 20260528T230000Z - m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `generalization`
+- artifact: `runs/m1377_promoted_base_source_rich_sequence_intervention_probe/summary.json`
+- decision: `promoted_base_source_rich_sequence_probe_temporal_positive_seed_thin_route_to_audit`
+- command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_step_sequence_intervention_probe --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m991_capability_step_fault_source_wave.json --source-rows runs/m1375_promoted_base_source_rich_public_wave/reset_only_rows.csv --max-source-rows 384 --per-fault-pair-cap 48 --history-lengths 4,8,12 --max-continuation-steps 48 --min-margin-gap 0.012 --min-sequence-action-l2 0.025 --device auto --run-dir runs/m1377_promoted_base_source_rich_sequence_intervention_probe`
+- result class: `sequence_temporal_history_positive`
+- counts: `384` selected source rows, `6912` intervention rows, `180` accepted sequence rows, `180` temporal accepted rows, `0` cross-fault accepted rows, `1491` action-critical rows.
+- threshold audit: temporal row threshold passes (`180 >= 100`) and fault-pair threshold passes (`8 >= 6`), but accepted-seed threshold misses (`9 < 12`).
+- variants: `reset_then_warm_history` has `138` accepted rows; `delayed_capability_history` has `42`; all cross-fault/action-response mismatch variants have `0`.
+- guardrail: `actor_parameters_changed=false`, `training_started=false`, `ppo_used=false`, `promoted=false`; no private holdout, actor-input expansion, corpus export, training, PPO, high-fidelity claim, paper-level claim, finite-window-vs-GRU claim, or level3 self-ID claim occurred.
+- interpretation: temporal-history evidence is positive but seed-thin; cross-fault self-identification remains unsupported.
+- follow-up manifest: `experiments/manifests/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.json`.
+- next: `m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit`

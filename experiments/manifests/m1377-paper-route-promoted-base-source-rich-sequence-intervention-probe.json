@@ -2,7 +2,7 @@
   "id": "m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe",
   "type": "gate",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -177,6 +177,37 @@
     "runs/m1375_promoted_base_source_rich_public_wave/reset_only_rows.csv",
     "configs/m991_capability_step_fault_source_wave.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/summary.json",
+    "doc": "docs/m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe.md",
+    "decision": "promoted_base_source_rich_sequence_probe_temporal_positive_seed_thin_route_to_audit",
+    "result_class": "sequence_temporal_history_positive",
+    "selected_source_rows": 384,
+    "intervention_rows": 6912,
+    "accepted_sequence_rows": 180,
+    "accepted_cross_fault_sequence_rows": 0,
+    "accepted_temporal_sequence_rows": 180,
+    "sequence_action_critical_rows": 1491,
+    "normal_failed_rows": 0,
+    "rejected_trace_rows": 0,
+    "unique_accepted_fault_pairs": 8,
+    "unique_accepted_seeds": 9,
+    "unique_cross_fault_accepted_fault_pairs": 0,
+    "unique_cross_fault_accepted_seeds": 0,
+    "unique_temporal_accepted_fault_pairs": 8,
+    "unique_temporal_accepted_seeds": 9,
+    "temporal_candidate_row_threshold_passed": true,
+    "temporal_candidate_fault_pair_threshold_passed": true,
+    "temporal_candidate_seed_threshold_passed": false,
+    "actor_parameters_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_manifest": "experiments/manifests/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.json"
+  },
+  "decision": "promoted_base_source_rich_sequence_probe_temporal_positive_seed_thin_route_to_audit",
   "decision_rule": "M1377 passes structurally if it produces clean no-training sequence intervention artifacts with unchanged actor/checkpoint contract and separates temporal from cross-fault accepted rows.",
-  "next_blocker": "m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe"
+  "next_blocker": "m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit"
 }

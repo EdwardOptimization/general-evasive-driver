@@ -1,0 +1,155 @@
+{
+  "id": "m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/summary.json",
+      "docs/m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe.md",
+      "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/accepted_sequence_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe.json",
+      "configs/m991_capability_step_fault_source_wave.json"
+    ],
+    "parent_objective": [
+      "audit temporal-positive but seed-thin sequence intervention result before corpus export, expanded probe, or branch synthesis"
+    ],
+    "derived_from": [
+      "m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe"
+    ],
+    "blocked_by": [
+      "M1377 temporal accepted rows pass row and fault-pair thresholds but miss the accepted-seed threshold"
+    ],
+    "supersedes": [
+      "exporting temporal sequence corpus without source-diversity audit",
+      "calling temporal positives cross-fault self-identification",
+      "training directly from M1377 accepted rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.md",
+  "public_gates": [
+    "M1378 must audit M1377 temporal and cross-fault accepted rows separately",
+    "M1378 must classify the seed-thin temporal-positive result",
+    "M1378 must choose the next route without private holdout, training, PPO, promotion, or corpus export",
+    "M1378 must keep high-fidelity proxy claim boundaries intact"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new evaluation",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus without a separate design",
+    "do not call temporal positives cross-fault self-identification",
+    "do not claim true high-fidelity per-wheel physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_promoted_base_source_rich_comparison_readiness",
+    "evidence_axis": "G_source_rich_temporal_sequence_probe_audit",
+    "evidence_increment": "audits whether M1377 temporal-positive seed-thin result should route to expanded sequence probe, corpus design, cross-fault redesign, or branch synthesis",
+    "claim_scope": "result audit only; no training, corpus export, PPO, promotion, private holdout, high-fidelity, L0/L1/L2/L3, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if temporal positives are overclaimed as cross-fault self-identification",
+      "stop if source-diversity threshold miss is ignored",
+      "stop if private holdout, corpus export, or training is proposed without a separate design"
+    ],
+    "fallback_plan": [
+      "if seed-thin result can be fixed by larger public source-row coverage, route to expanded sequence probe",
+      "if current result is enough for corpus design, route to explicit source-diversity corpus export design",
+      "if cross-fault zeros are the blocker, route to cross-fault intervention redesign",
+      "if branch evidence is sufficient for now, route to synthesis before L0/L1/L2/L3 comparison"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1377 completes temporal sequence probe with positive but seed-thin result",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-rich sequence probe result audit",
+    "admission_evidence": [
+      "M1377 result_class is sequence_temporal_history_positive",
+      "M1377 accepted_temporal_sequence_rows is 180",
+      "M1377 unique_temporal_accepted_fault_pairs is 8",
+      "M1377 unique_temporal_accepted_seeds is 9 below the pre-registered threshold 12",
+      "M1377 accepted_cross_fault_sequence_rows is 0"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus without a separate design"
+    ],
+    "allowed_updates": [
+      "M1378 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "M1377 threshold result is audited",
+      "temporal and cross-fault accepted rows are classified separately",
+      "next source-rich route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1378 audits temporal history dependence but cannot upgrade it to level3 self-identification.",
+    "history_necessity_tests": [
+      "separate temporal positives from cross-fault zeros",
+      "treat temporal positives as temporal-history dependence only",
+      "decide whether seed diversity must be expanded before corpus export"
+    ],
+    "temporal_evidence_window": "M1377 sequence intervention artifacts over M1375 reset-only source rows.",
+    "negative_result_policy": "If seed diversity is insufficient, route to expansion or audit instead of ignoring the threshold.",
+    "allowed_claims": [
+      "M1377 result audit and next route decision",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level, L0/L1/L2/L3, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1377 can be audited as temporal-history positive but seed-thin, with cross-fault self-ID still unsupported.",
+  "success_criteria": [
+    "docs/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.md exists",
+    "audit summarizes M1377 temporal and cross-fault accepted-row results",
+    "audit evaluates row, fault-pair, and seed thresholds",
+    "audit chooses a next route without private holdout, training, PPO, promotion, actor-input change, corpus export, or high-fidelity overclaim"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit overclaims temporal positives as cross-fault proof",
+    "audit ignores the seed-diversity miss",
+    "audit routes directly to training, PPO, promotion, private holdout, corpus export, or high-fidelity claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.md from M1377 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/summary.json",
+    "docs/m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe.md"
+  ],
+  "decision_rule": "M1378 passes if it audits M1377 without overclaiming temporal-positive seed-thin evidence and chooses the next route before any training, PPO, promotion, private holdout, or corpus export.",
+  "next_blocker": "m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit"
+}
