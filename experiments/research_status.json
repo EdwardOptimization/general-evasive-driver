@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1214,
+    "completed": 1215,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1204-paper-route-profile-control-repair-smoke-run.md",
+    "command_log": "docs/m1205-paper-route-finite-window-gru-evidence-synthesis.md",
     "returncode": 0,
-    "run_dir": "runs/m1204_profile_control_repair_smoke",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1204-paper-route-profile-control-repair-smoke-run"
+    "task_id": "m1205-paper-route-finite-window-gru-evidence-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1205-paper-route-finite-window-gru-evidence-synthesis.json",
-    "hypothesis": "The M1195-M1204 finite-window vs GRU evidence branch can be synthesized into a safe next-route decision.",
-    "id": "m1205-paper-route-finite-window-gru-evidence-synthesis",
+    "command": "see experiments/manifests/m1206-paper-route-corrected-profile-pilot-design.json",
+    "hypothesis": "A corrected public pilot can be designed with current-tiled L2 controls and corrected L3 reset semantics under fixed budgets.",
+    "id": "m1206-paper-route-corrected-profile-pilot-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1195-M1204 evidence before corrected pilot design",
-    "priority": 12000,
+    "notes": "Pending: design corrected public pilot with current-tiled L2 controls and corrected L3 reset semantics",
+    "priority": 12010,
     "status": "pending",
-    "success_artifact": "docs/m1205-paper-route-finite-window-gru-evidence-synthesis.md"
+    "success_artifact": "docs/m1206-paper-route-corrected-profile-pilot-design.md"
   },
-  "updated_at_utc": "20260528T055553Z"
+  "updated_at_utc": "20260528T055928Z"
 }

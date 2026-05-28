@@ -17250,3 +17250,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1205-paper-route-finite-window-gru-evidence-synthesis.json`.
 - decision: `profile_control_repair_smoke_pass_route_to_corrected_pilot_design`
 - next: `m1205-paper-route-finite-window-gru-evidence-synthesis`
+
+## 20260528T055928Z - m1205-paper-route-finite-window-gru-evidence-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1205-paper-route-finite-window-gru-evidence-synthesis.md`
+- synthesis decision: `continue`
+- result: synthesizes M1195-M1204 and resets the branch cadence before corrected pilot design.
+- supported claims: profile-mask training path works, all generated profiles can enter train-loop smoke, M1199 is a valid short public pilot trend, corrected reset/current-tiled controls are implemented and smoke-tested.
+- blocked claims: finite-window history necessity, GRU recurrent-belief advantage, L2 promotion, self-identification, private-holdout generalization, and paper-level architecture ranking.
+- failure taxonomy: `metric_artifact` for M1199 reset-control diagnostic; current-frame substitution risk remains an active self-ID/process blocker.
+- public-gate overfit risk: moderate; corrected pilot must remain public diagnostic evidence and private holdout remains blocked.
+- next branch decision: continue to corrected public pilot design with current-tiled L2 controls and corrected L3 reset semantics.
+- guardrail: no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1206-paper-route-corrected-profile-pilot-design.json`.
+- decision: `continue_to_corrected_profile_pilot_design`
+- next: `m1206-paper-route-corrected-profile-pilot-design`

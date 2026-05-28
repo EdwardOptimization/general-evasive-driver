@@ -1,0 +1,152 @@
+{
+  "id": "m1206-paper-route-corrected-profile-pilot-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "docs/m1205-paper-route-finite-window-gru-evidence-synthesis.md",
+      "runs/m1204_profile_control_repair_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1205-paper-route-finite-window-gru-evidence-synthesis.json"
+    ],
+    "parent_objective": [
+      "design corrected public pilot after branch synthesis"
+    ],
+    "derived_from": [
+      "m1205-paper-route-finite-window-gru-evidence-synthesis"
+    ],
+    "blocked_by": [
+      "synthesis continues the branch but requires corrected pilot design before any training"
+    ],
+    "supersedes": [
+      "M1199-style comparison without current-tiled controls or corrected reset semantics"
+    ],
+    "invalidates": [
+      "claiming finite-window history benefit without current-tiled capacity controls"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1206-paper-route-corrected-profile-pilot-design.md",
+  "public_gates": [
+    "M1206 may design the corrected public pilot only",
+    "M1206 must not train controllers",
+    "M1206 must not run PPO",
+    "M1206 must not run candidate replay",
+    "M1206 must not promote",
+    "M1206 must not use private holdout",
+    "M1206 must not tune profiles",
+    "M1206 must not claim profile superiority or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not tune profiles",
+    "do not promote",
+    "do not claim performance evidence from design",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_corrected_profile_pilot_design: corrected controls under fixed protocol",
+    "evidence_increment": "pre-registers the corrected public pilot after synthesis reset the branch cadence",
+    "claim_scope": "design only; no training promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if pilot lacks current-tiled L2 controls",
+      "stop if pilot lacks corrected L3 reset semantics",
+      "stop if budgets or seeds differ per profile",
+      "stop if private holdout would be used"
+    ],
+    "fallback_plan": [
+      "route to corrected config generation if configs are missing",
+      "route to smoke repair if controls cannot be applied in generated configs",
+      "route to profile repair if corrected pilot cannot be made fair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1205 branch synthesis decision is continue",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "corrected public pilot design",
+    "admission_evidence": [
+      "M1205 synthesis continues the branch",
+      "M1204 corrected-control smoke passes",
+      "private holdout remains unused"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers in M1206",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make performance or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1206 design document",
+      "next manifest",
+      "status, queue, scoreboard, research log, review"
+    ],
+    "next_stage_criteria": [
+      "corrected profile set is fixed",
+      "shared seeds budgets and eval rules are fixed",
+      "claim scope is limited",
+      "next config-generation or pilot-run milestone is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1206 designs current-tiled controls to test current-frame substitution but does not itself produce self-ID evidence.",
+    "history_necessity_tests": [
+      "design_current_tiled_l2_comparison",
+      "design_corrected_l3_reset_comparison"
+    ],
+    "temporal_evidence_window": "Design only; later pilot may evaluate temporal evidence on public seeds.",
+    "negative_result_policy": "If corrected controls do not separate profiles later, route to task/profile design rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "corrected pilot design readiness",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A corrected public pilot can be designed with current-tiled L2 controls and corrected L3 reset semantics under fixed budgets.",
+  "success_criteria": [
+    "docs/m1206-paper-route-corrected-profile-pilot-design.md exists",
+    "corrected profile set, seeds, budgets, eval rules, metrics, artifacts, and claim scope are fixed",
+    "private holdout remains unused",
+    "no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, or actor-input contract expansion occurs",
+    "next config-generation or pilot-run milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1206 trains or tunes profiles",
+    "private holdout is used",
+    "design omits current-tiled L2 controls or corrected reset semantics",
+    "hidden or oracle actor inputs are introduced",
+    "design claims performance evidence"
+  ],
+  "commands": [
+    {
+      "name": "design_corrected_profile_pilot",
+      "command": "write corrected public pilot design without training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1206-paper-route-corrected-profile-pilot-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "docs/m1205-paper-route-finite-window-gru-evidence-synthesis.md",
+    "docs/m1204-paper-route-profile-control-repair-smoke-run.md"
+  ],
+  "decision_rule": "M1206 passes if it pre-registers the corrected public pilot without training, tuning, promotion, private holdout, or claim expansion.",
+  "next_blocker": "m1206-paper-route-corrected-profile-pilot-design"
+}

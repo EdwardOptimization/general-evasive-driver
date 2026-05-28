@@ -182,5 +182,5 @@
     "docs/m1204-paper-route-profile-control-repair-smoke-run.md"
   ],
   "decision_rule": "M1205 passes if it answers the required synthesis questions and selects the next branch route without training, tuning, promotion, private holdout, or claim expansion.",
-  "next_blocker": "m1205-paper-route-finite-window-gru-evidence-synthesis"
+  "next_blocker": "m1206-paper-route-corrected-profile-pilot-design"
 }

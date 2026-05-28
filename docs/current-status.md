@@ -115,8 +115,21 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1205-paper-route-finite-window-gru-evidence-synthesis
+m1206-paper-route-corrected-profile-pilot-design
 ```
+
+M1205 completed the finite-window vs GRU evidence synthesis:
+
+```text
+artifact: docs/m1205-paper-route-finite-window-gru-evidence-synthesis.md
+decision: continue_to_corrected_profile_pilot_design
+```
+
+Synthesis result: M1195-M1204 established train-loop-capable profiles, a valid
+short public L2 trend, and working corrected controls. It did not establish
+finite-window history necessity, GRU recurrent-belief advantage, self-ID, or
+paper-level architecture ranking. The next branch step is M1206 corrected public
+pilot design.
 
 M1204 completed the no-training corrected-control runtime smoke:
 
