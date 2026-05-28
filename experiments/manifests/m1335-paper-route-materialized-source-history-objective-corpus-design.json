@@ -1,0 +1,163 @@
+{
+  "id": "m1335-paper-route-materialized-source-history-objective-corpus-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1334-paper-route-source-topup-materialization-result-audit.md",
+      "runs/m1333_source_topup_response_history_materialization/summary.json",
+      "runs/m1333_source_topup_response_history_materialization/source_pair_rows.csv",
+      "runs/m1333_source_topup_response_history_materialization/history_prefix_rows.csv",
+      "runs/m1333_source_topup_response_history_materialization/history_intervention_rows.csv",
+      "runs/m1333_source_topup_response_history_materialization/wrong_history_pair_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1334-paper-route-source-topup-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design active materialized source-history objective corpus after M1334 branch synthesis"
+    ],
+    "derived_from": [
+      "m1334-paper-route-source-topup-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M1334 routes to objective-corpus design with halfshaft and global friction quarantine before objective tuning"
+    ],
+    "supersedes": [
+      "direct objective tuning on the full M1333 materialized corpus"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1335-paper-route-materialized-source-history-objective-corpus-design.md",
+  "public_gates": [
+    "M1335 must not train",
+    "M1335 must not run PPO",
+    "M1335 must not use private holdout",
+    "M1335 must not promote",
+    "M1335 must preserve actor input contract",
+    "M1335 must design an active non-halfshaft objective corpus",
+    "M1335 must quarantine halfshaft and global friction explicitly",
+    "M1335 must preserve source identity metadata"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not include halfshaft history-silent rows in the active corpus without a separate flag",
+    "do not hide global friction gap",
+    "do not claim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_objective_corpus",
+    "evidence_axis": "S_materialized_source_history_objective_corpus_design",
+    "evidence_increment": "designs an active source-history objective corpus export from M1333 non-halfshaft materialized rows",
+    "claim_scope": "process design only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if design hides halfshaft quarantine",
+      "stop if design hides global friction gap",
+      "stop if design routes directly to PPO",
+      "stop if actor inputs change"
+    ],
+    "fallback_plan": [
+      "if active subset is sufficient, implement no-policy corpus export",
+      "if active subset is too imbalanced, design fold/cap repair before export",
+      "if halfshaft is required immediately, pivot to drive-sensitive halfshaft probe design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1334 opens the materialized source-history objective corpus branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "active materialized source-history objective corpus design",
+    "admission_evidence": [
+      "M1334 active_nonhalfshaft_source_pairs=344",
+      "M1334 active_nonhalfshaft_pair_probe_groups=688",
+      "M1334 active_nonhalfshaft_source_family_count=6",
+      "M1334 active_nonhalfshaft_zero_response_l2_prefix_count=0",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1335 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "active corpus selection rules are specified",
+      "quarantine artifacts are specified",
+      "source identity preservation is specified",
+      "exact expected export outputs are listed"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1335 designs offline objective-corpus artifacts and does not test a deployed actor's closed-loop history necessity.",
+    "history_necessity_tests": [
+      "design correct-history and wrong-history objective corpus using materialized response histories"
+    ],
+    "temporal_evidence_window": "M1333/M1334 materialized source-history artifacts.",
+    "negative_result_policy": "History-silent or missing families must be quarantined rather than softened into self-identification evidence.",
+    "allowed_claims": [
+      "materialized source-history objective corpus design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The history-distinguishable non-halfshaft M1333 materialized rows can be designed into an active source-history objective corpus while explicitly quarantining halfshaft and global friction gaps.",
+  "success_criteria": [
+    "docs/m1335-paper-route-materialized-source-history-objective-corpus-design.md exists",
+    "design uses active non-halfshaft rows",
+    "design cites 344 active source pairs and 688 active pair-probe groups",
+    "design specifies halfshaft quarantine",
+    "design specifies global friction quarantine",
+    "design preserves source_run_id/source_row_id/original_pair_id/source_identity",
+    "design lists output artifacts for a no-policy export",
+    "design routes to one no-policy corpus export implementation",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design hides halfshaft or global friction quarantine",
+    "design routes directly to objective update or PPO",
+    "design drops source identity metadata",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1335-paper-route-materialized-source-history-objective-corpus-design.md from M1333/M1334 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1335-paper-route-materialized-source-history-objective-corpus-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1334-paper-route-source-topup-materialization-result-audit.md",
+    "runs/m1333_source_topup_response_history_materialization/summary.json",
+    "runs/m1333_source_topup_response_history_materialization/history_prefix_rows.csv"
+  ],
+  "decision_rule": "M1335 passes if it designs an active non-halfshaft materialized source-history objective corpus with explicit quarantines and source identity preservation without training, PPO, promotion, private holdout use, threshold relaxation, hidden blockers, or actor-input expansion.",
+  "next_blocker": "m1335-paper-route-materialized-source-history-objective-corpus-design"
+}

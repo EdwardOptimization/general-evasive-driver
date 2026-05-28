@@ -19488,3 +19488,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1334-paper-route-source-topup-materialization-result-audit.json`.
 - next: `m1334-paper-route-source-topup-materialization-result-audit`
+
+## 20260528T182323Z - m1334-paper-route-source-topup-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1334-paper-route-source-topup-materialization-result-audit.md`
+- decision: `source_topup_materialization_audit_promote_to_materialized_objective_corpus_branch`
+- synthesis decision: `promote_to_next_branch`.
+- closed branch: `paper_route_source_repair_topup_generation`.
+- opened branch: `paper_route_materialized_source_history_objective_corpus`.
+- M1333 structural audit: `366` source pairs, `1464` prefixes, `35136` frames, `1464` history-intervention rows, `1464` wrong-history rows, clean finite actor-view history, and valid source identity.
+- halfshaft diagnostic: `88` zero response-l2 prefixes, all from `halfshaft_torque_loss`; current brake/lift probes do not excite drive-side torque-loss differences.
+- active subset after halfshaft quarantine: `344` source pairs, `688` pair-probe groups, `1376` prefixes, `6` source families, `0` zero response-l2 prefixes, and max source-family fold share about `0.2985`.
+- supported claim: the top-up branch produced a clean materialized command-response corpus, and the non-halfshaft active subset is broad enough for objective-corpus design.
+- falsified claim: current brake/lift probes make halfshaft rows history-distinguishable.
+- failure taxonomy: `scenario_sampling_failure`, specifically probe/source sampling limitation rather than software failure.
+- public-gate overfit risk: `medium`; these remain public source artifacts, not private generalization evidence.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1335-paper-route-materialized-source-history-objective-corpus-design.json`.
+- next: `m1335-paper-route-materialized-source-history-objective-corpus-design`

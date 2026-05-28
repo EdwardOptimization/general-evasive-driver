@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1343,
+    "completed": 1344,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1333-paper-route-source-topup-materialization-implementation.md",
+    "command_log": "docs/m1334-paper-route-source-topup-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1333_source_topup_response_history_materialization",
+    "run_dir": "docs/m1334-paper-route-source-topup-materialization-result-audit.md",
     "status": "completed",
-    "task_id": "m1333-paper-route-source-topup-materialization-implementation"
+    "task_id": "m1334-paper-route-source-topup-materialization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1334-paper-route-source-topup-materialization-result-audit.json",
-    "hypothesis": "Audit M1333 structural pass and halfshaft zero-response diagnostics before objective tuning",
-    "id": "m1334-paper-route-source-topup-materialization-result-audit",
+    "command": "see experiments/manifests/m1335-paper-route-materialized-source-history-objective-corpus-design.json",
+    "hypothesis": "Design active non-halfshaft materialized source-history objective corpus with quarantines",
+    "id": "m1335-paper-route-materialized-source-history-objective-corpus-design",
     "kind": "gate",
-    "notes": "Pending: audit and synthesize branch route; no training, PPO, or promotion",
-    "priority": 13290,
+    "notes": "Pending: design only; no training, PPO, or promotion",
+    "priority": 13300,
     "status": "pending",
-    "success_artifact": "docs/m1334-paper-route-source-topup-materialization-result-audit.md"
+    "success_artifact": "docs/m1335-paper-route-materialized-source-history-objective-corpus-design.md"
   },
-  "updated_at_utc": "20260528T181944Z"
+  "updated_at_utc": "20260528T182323Z"
 }

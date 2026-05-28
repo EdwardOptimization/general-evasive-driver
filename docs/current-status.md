@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1333-paper-route-source-topup-materialization-implementation
+m1334-paper-route-source-topup-materialization-result-audit
 ```
 
 Current next task:
 
 ```text
-m1334-paper-route-source-topup-materialization-result-audit
+m1335-paper-route-materialized-source-history-objective-corpus-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -311,7 +311,15 @@ actor-view histories. The important diagnostic is that `88` prefixes have
 `response_l2=0.0`, and all `88` are halfshaft rows. This means the current
 brake/lift probes do not excite drive-side torque-loss differences. The active
 blocker is M1334: audit M1333 and synthesize the branch route before any
-source-history objective tuning, PPO, or promotion.
+source-history objective tuning, PPO, or promotion. M1334 completed that audit
+and closed `paper_route_source_repair_topup_generation`. The new branch is
+`paper_route_materialized_source_history_objective_corpus`. M1334 quarantines
+halfshaft rows until drive-sensitive history probes exist, keeps global friction
+as absent, and advances the active non-halfshaft subset: `344` source pairs,
+`688` pair-probe groups, `1376` history prefixes, `6` source families,
+`0` zero-response prefixes, and max source-family fold share about `0.2985`.
+The active blocker is M1335: design a no-policy objective corpus export from
+that active subset with explicit halfshaft and global-friction quarantine.
 
 ## Actor Contract
 
