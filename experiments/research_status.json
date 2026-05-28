@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1230,
+    "completed": 1231,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1220-paper-route-current-family-hidden-action-sensitivity-probe.md",
+    "command_log": "docs/m1221-paper-route-action-critical-hidden-source-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1220_current_family_hidden_action_sensitivity_probe",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1220-paper-route-current-family-hidden-action-sensitivity-probe"
+    "task_id": "m1221-paper-route-action-critical-hidden-source-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1221-paper-route-action-critical-hidden-source-design.json",
-    "hypothesis": "Design action-critical hidden-history source mining",
-    "id": "m1221-paper-route-action-critical-hidden-source-design",
+    "command": "see experiments/manifests/m1222-paper-route-current-family-normal-success-boundary-source-smoke.json",
+    "hypothesis": "Run current-family normal-success boundary source smoke",
+    "id": "m1222-paper-route-current-family-normal-success-boundary-source-smoke",
     "kind": "gate",
-    "notes": "Pending: audit existing action-critical wrong-history tools and select next mining route before outcome interventions",
-    "priority": 12160,
+    "notes": "Pending: run normal_success_boundary_source_miner on M1212 L3 seed111602 with fresh public seed range 122700-122763",
+    "priority": 12170,
     "status": "pending",
-    "success_artifact": "docs/m1221-paper-route-action-critical-hidden-source-design.md"
+    "success_artifact": "docs/m1222-paper-route-current-family-normal-success-boundary-source-smoke.md"
   },
-  "updated_at_utc": "20260528T071500Z"
+  "updated_at_utc": "20260528T072038Z"
 }

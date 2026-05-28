@@ -115,7 +115,53 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1221-paper-route-action-critical-hidden-source-design
+m1222-paper-route-current-family-normal-success-boundary-source-smoke
+```
+
+M1221 completed action-critical hidden source design:
+
+```text
+artifact: docs/m1221-paper-route-action-critical-hidden-source-design.md
+decision: select_current_family_normal_success_boundary_source_smoke
+```
+
+M1221 conclusion:
+
+```text
+Existing source tools should not be used to run an outcome gate from M1217.
+The next route is current-family normal-success boundary source mining using
+M1212 L3 seed111602 and fresh public seeds 122700-122763.
+```
+
+Next branch:
+
+```text
+paper_route_causal_history_evidence
+```
+
+The next task is source mining, not outcome intervention or training:
+
+```text
+checkpoint family: M1212 corrected L3 online GRU repeat
+env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
+checkpoint:        runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
+seed range:        122700:122763
+run dir:           runs/m1222_current_family_normal_success_boundary_source_smoke
+next artifact:     docs/m1222-paper-route-current-family-normal-success-boundary-source-smoke.md
+```
+
+M1222 should run `normal_success_boundary_source_miner`: normal-history
+near-boundary prepass first, then compatible wrong-history pairing, then
+action/outcome acceptance. Off-manifold hidden sensitivity cannot be claimed as
+self-ID; it only justified looking for a stronger real-history source.
+
+M1221 source-design decision:
+
+```text
+selected route: current-family normal_success_boundary_source_miner smoke
+selected checkpoint: L3 seed111602
+selected public seed range: 122700:122763
+rejected immediate route: persistent outcome rollout from M1217 rows
 ```
 
 M1220 completed hidden-action sensitivity probing:
@@ -134,28 +180,6 @@ matched histories are not action-critical. Reset/random/scaled hidden
 perturbations move actions strongly, while real wrong/delayed matched histories
 remain action-equivalent.
 ```
-
-Next branch:
-
-```text
-paper_route_causal_history_evidence
-```
-
-The next task is action-critical hidden-history source design, not outcome
-intervention or training:
-
-```text
-checkpoint family: M1212 corrected L3 online GRU repeat
-env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
-pair source:       runs/m1217_current_family_matched_current_export/matched_pairs.csv
-probe source:      runs/m1220_current_family_hidden_action_sensitivity_probe
-next artifact:     docs/m1221-paper-route-action-critical-hidden-source-design.md
-```
-
-M1221 should inspect existing source-mining tools and choose a concrete route
-for source-diverse real-history action-critical pair mining. Off-manifold hidden
-sensitivity cannot be claimed as self-ID; it only justifies looking for a
-stronger real-history source.
 
 M1220 hidden-action sensitivity result:
 

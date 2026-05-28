@@ -17519,3 +17519,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1221-paper-route-action-critical-hidden-source-design.json`.
 - decision: `hidden_path_exists_but_real_matched_histories_are_action_equivalent`
 - next: `m1221-paper-route-action-critical-hidden-source-design`
+
+## 20260528T072038Z - m1221-paper-route-action-critical-hidden-source-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1221-paper-route-action-critical-hidden-source-design.md`
+- result: selects a current-family normal-success boundary source smoke as the next causal-history source route.
+- tool audit: `natural_wrong_history_action_sensitive_selector` is a fallback offset screen for existing pairs, `adversarial_wrong_history_pair_search` needs near-boundary anchors, `action_divergent_wrong_history_corpus` is downstream conversion, `action_critical_wrong_history_source_miner` lacks a normal-success prepass, and `normal_success_boundary_source_miner` best matches the current blocker.
+- selected checkpoint: `runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt` because M1220 showed the strongest hidden-action sensitivity for this L3 repeat.
+- selected seed range: fresh public `122700:122763`.
+- selected route: run `autodrift.normal_success_boundary_source_miner` with normal-history near-boundary prepass before any wrong-history outcome gate or training.
+- guardrail: no source mining run, outcome intervention, training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1222-paper-route-current-family-normal-success-boundary-source-smoke.json`.
+- decision: `select_current_family_normal_success_boundary_source_smoke`
+- next: `m1222-paper-route-current-family-normal-success-boundary-source-smoke`

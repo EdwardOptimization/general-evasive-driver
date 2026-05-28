@@ -1,0 +1,91 @@
+# m1221-paper-route-action-critical-hidden-source-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260528T072302Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: select_current_family_normal_success_boundary_source_smoke
+- Decision reason: M1221 audits natural selector adversarial search action-divergent corpus action-critical miner normal-success boundary miner and extreme/fault corpus and selects a current-family normal-success boundary source smoke on M1212 L3 seed111602 before outcome gates or training
+
+## Hypothesis
+
+Existing action-critical wrong-history mining tools can be routed to produce a better real-history action-screen source than the M1217 current-family matched-current surface.
+
+## Lineage
+
+- parent_checkpoint: runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111600/checkpoint.pt, runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111601/checkpoint.pt, runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
+- parent_dataset: runs/m1217_current_family_matched_current_export/matched_pairs.csv, runs/m1220_current_family_hidden_action_sensitivity_probe/variant_summary.csv, runs/m1220_current_family_hidden_action_sensitivity_probe/action_sensitivity_rows.csv
+- parent_config: configs/paper_route_corrected_profiles/m1207_l3_online_gru.json, experiments/manifests/m1220-paper-route-current-family-hidden-action-sensitivity-probe.json
+- parent_objective: choose a next source-mining path after M1220 finds hidden-path sensitivity but no real matched-history action signal
+- derived_from: m1220-paper-route-current-family-hidden-action-sensitivity-probe
+- blocked_by: M1220 shows reset/random/scaled hidden perturbations move action but wrong/delayed current-family matched histories remain action-equivalent
+- supersedes: directly running outcome interventions from M1217 rows, directly changing PPO or hidden objectives without an action-critical source
+- invalidates: treating off-manifold hidden perturbation sensitivity as causal-history evidence
+
+## Success Criteria
+
+- docs/m1221-paper-route-action-critical-hidden-source-design.md exists
+- existing tools and their compatible inputs are audited
+- one next mining route is selected with concrete thresholds
+- private holdout remains unused
+- no outcome intervention, training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs
+- next route milestone is selected
+
+## Failure Criteria
+
+- M1221 trains or tunes profiles
+- private holdout is used
+- outcome interventions are run
+- off-manifold hidden effects are claimed as self-identification
+- next route is left vague
+
+## Evidence Gates
+
+- M1221 may inspect source-mining tools and existing artifacts only
+- M1221 must select an action-critical mining route before any outcome gate
+- M1221 must preserve the P0 human-view no-wheel actor contract
+- M1221 must not train controllers
+- M1221 must not run PPO
+- M1221 must not run outcome interventions
+- M1221 must not use private holdout
+- M1221 must not promote
+- M1221 must not claim self-identification
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run outcome intervention gates
+- do not use private holdout
+- do not promote
+- do not tune profiles
+- do not use hidden or oracle actor inputs
+- do not treat random/reset/scaled hidden sensitivity as self-identification
+- do not continue from M1217 rows unless a real-history action-critical screen is expected
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m1221-paper-route-action-critical-hidden-source-design
+- type: gate
+- checkpoint: docs/m1221-paper-route-action-critical-hidden-source-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: select_current_family_normal_success_boundary_source_smoke
+- reason: M1221 audits natural selector adversarial search action-divergent corpus action-critical miner normal-success boundary miner and extreme/fault corpus and selects a current-family normal-success boundary source smoke on M1212 L3 seed111602 before outcome gates or training
+
+## Next Blocker
+
+m1222-paper-route-current-family-normal-success-boundary-source-smoke

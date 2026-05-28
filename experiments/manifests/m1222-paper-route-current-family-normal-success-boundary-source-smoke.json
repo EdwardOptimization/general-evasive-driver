@@ -1,0 +1,179 @@
+{
+  "id": "m1222-paper-route-current-family-normal-success-boundary-source-smoke",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1220_current_family_hidden_action_sensitivity_probe/variant_summary.csv",
+      "docs/m1221-paper-route-action-critical-hidden-source-design.md"
+    ],
+    "parent_config": [
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json",
+      "experiments/manifests/m1221-paper-route-action-critical-hidden-source-design.json"
+    ],
+    "parent_objective": [
+      "run current-family normal-success boundary source mining after M1221 selects this route"
+    ],
+    "derived_from": [
+      "m1221-paper-route-action-critical-hidden-source-design",
+      "m667-normal-success-boundary-source-miner-implementation"
+    ],
+    "blocked_by": [
+      "M1220 shows M1217 real matched histories are action-equivalent",
+      "M1221 selects broader current-family normal-success boundary source mining before outcome gates"
+    ],
+    "supersedes": [
+      "directly running persistent outcome intervention from M1217 rows",
+      "directly using reset/random hidden perturbations as training or self-ID evidence"
+    ],
+    "invalidates": [
+      "assuming the M1217 matched-current source is sufficient for causal-history outcome testing"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1222-paper-route-current-family-normal-success-boundary-source-smoke.md",
+  "public_gates": [
+    "M1222 may run normal_success_boundary_source_miner only",
+    "M1222 must use P0 human-view no-wheel actor inputs unchanged",
+    "M1222 must keep hidden labels and scenario metadata outside actor observation",
+    "M1222 must not train controllers",
+    "M1222 must not run PPO",
+    "M1222 must not promote",
+    "M1222 must not use private holdout",
+    "M1222 must not claim self-identification",
+    "M1222 must classify a negative result before any next training or outcome step"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run persistent outcome gates from M1217 rows",
+    "do not use private holdout",
+    "do not promote",
+    "do not tune actor inputs",
+    "do not add hidden or oracle actor inputs",
+    "do not weaken action or margin thresholds after seeing the result",
+    "do not claim self-identification from source mining alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_evidence",
+    "evidence_axis": "H_causal_history_action_critical_source_mining",
+    "evidence_increment": "tests whether a broader current-family normal-success boundary source can produce real-history action/outcome-critical rows",
+    "claim_scope": "source-mining diagnostic only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if required source-mining artifacts are missing",
+      "stop if no near-boundary normal-success windows exist",
+      "stop if real wrong-history action/outcome gaps remain absent and branch needs synthesis",
+      "stop if actor checksum changes"
+    ],
+    "fallback_plan": [
+      "if no near-boundary windows exist, design scenario/window coverage expansion",
+      "if near-boundary exists but no action gap, route to representation/action-boundary design or stronger cross-family source",
+      "if action gap exists but no outcome gap, route to sharper terminal-boundary or longer-horizon outcome mining",
+      "if source-diverse accepted rows pass, audit before any outcome/training use"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1221 selected current-family normal-success boundary source mining after M1220 negative real-history action signal",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "current-family normal-success boundary source mining",
+    "admission_evidence": [
+      "M1220 shows the actor has hidden-path sensitivity under reset/random/scaled perturbations",
+      "M1220 shows current M1217 real wrong/delayed histories are action-equivalent",
+      "M1221 selects normal-success boundary source mining as the next current-family source route"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1222 source-mining artifacts",
+      "M1222 result docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "normal-success window coverage is reported",
+      "action/outcome accepted rows are reported",
+      "negative result is classified if corpus does not pass",
+      "next audit or source route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1222 tests whether current-family real wrong-history hidden substitutions matter under matched current scene/response, but source mining alone still cannot prove history necessity.",
+    "history_necessity_tests": [
+      "normal-success near-boundary source windows",
+      "wrong matched-history action-sequence divergence",
+      "wrong matched-history margin or success degradation",
+      "source diversity and actor-checksum no-mutation guards"
+    ],
+    "temporal_evidence_window": "M1222 can admit a future causal-history action/outcome gate source only if real-history action/outcome-critical rows are source-diverse.",
+    "negative_result_policy": "Classify no-window, no-action-gap, action-gap-no-outcome, or source-diversity failure and route before any training.",
+    "allowed_claims": [
+      "source-mining diagnostic",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A broader current-family normal-success boundary source miner can find real wrong-history action/outcome-critical rows that M1217 matched-current pairs missed.",
+  "success_criteria": [
+    "runs/m1222_current_family_normal_success_boundary_source_smoke/summary.json exists",
+    "runs/m1222_current_family_normal_success_boundary_source_smoke/normal_window_summary.csv exists",
+    "runs/m1222_current_family_normal_success_boundary_source_smoke/candidate_scores.csv exists",
+    "runs/m1222_current_family_normal_success_boundary_source_smoke/normal_success_boundary_rows.csv exists",
+    "normal-success window coverage is reported",
+    "accepted row count and diversity are reported",
+    "actor checksum is unchanged",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next route milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1222 trains or tunes profiles",
+    "private holdout is used",
+    "PPO is run",
+    "actor checksum changes",
+    "hidden/oracle fields enter actor input",
+    "action/margin thresholds are weakened after seeing the result",
+    "source mining alone is claimed as self-identification",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "run_current_family_normal_success_boundary_source_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.normal_success_boundary_source_miner --checkpoint runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --surface-config l3_current=configs/paper_route_corrected_profiles/m1207_l3_online_gru.json --surface-seed-range l3_current=122700:122763 --sequence-lengths 5,7,9 --obstacle-distance-min 0.0 --obstacle-distance-max 45.0 --normal-margin-min 0.0 --normal-margin-max 1.0 --max-right-candidates-per-left 96 --max-candidate-pairs-per-surface 2400 --context-distance-threshold 0.25 --response-distance-threshold 0.20 --obstacle-x-abs-delta 10.0 --obstacle-y-abs-delta 2.0 --step-abs-delta 30 --min-wrong-first-action-l2 0.002 --min-wrong-action-sequence-mean-l2 0.006 --min-preferred-rejected-action-mean-l2 0.010 --min-margin-gap 0.010 --max-snapshots-per-surface 768 --max-snapshots-per-seed 8 --sample-stride 3 --max-continuation-steps 12 --device cpu --run-dir runs/m1222_current_family_normal_success_boundary_source_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1222_current_family_normal_success_boundary_source_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1222_current_family_normal_success_boundary_source_smoke/normal_window_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1222-paper-route-current-family-normal-success-boundary-source-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1220_current_family_hidden_action_sensitivity_probe/variant_summary.csv",
+    "docs/m1221-paper-route-action-critical-hidden-source-design.md"
+  ],
+  "decision_rule": "M1222 passes as source mining only if it reports normal-success windows and source-diverse real-history action/outcome-critical rows without actor mutation; otherwise it must classify the negative result.",
+  "next_blocker": "m1222-paper-route-current-family-normal-success-boundary-source-smoke"
+}
