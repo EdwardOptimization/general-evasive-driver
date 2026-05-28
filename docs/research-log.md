@@ -19756,3 +19756,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.json`.
 - next: `m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design`
+
+## 20260528T192351Z - m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.md`
+- decision: `materialized_source_history_limited_replay_preflight_design_admit_two_surface_preflight`
+- tooling decision: do not use `autodrift.capability_step_temporal_sequence_public_replay_gate` directly because it assumes M997 temporal exact retention and actor-mean-only changes; use `autodrift.boundary_outcome_replay_gate` directly.
+- M1349 preflight order: run `M267/M264` first; only if it passes, run `M183/M170`; stop after the first failed proof surface.
+- replay tolerances: `max_normal_success_drop=0.0`, `max_normal_margin_regression=0.005`, `max_margin_gap_regression=0.001`, `max_success_drop_count_regression=0`, `max_continuation_steps=60`.
+- base checkpoint: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`.
+- candidate checkpoint: `runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt`.
+- guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.json`.
+- next: `m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight`

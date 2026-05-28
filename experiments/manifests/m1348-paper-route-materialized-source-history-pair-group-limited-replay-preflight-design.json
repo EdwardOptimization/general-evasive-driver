@@ -147,6 +147,32 @@
     "docs/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md",
     "runs/m1346_materialized_source_history_pair_group_update/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.md",
+    "decision": "materialized_source_history_limited_replay_preflight_design_admit_two_surface_preflight",
+    "failure_type": "none",
+    "base_checkpoint": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "candidate_checkpoint": "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt",
+    "selected_replay_tool": "autodrift.boundary_outcome_replay_gate",
+    "blocked_direct_tool": "autodrift.capability_step_temporal_sequence_public_replay_gate",
+    "blocked_direct_tool_reason": "temporal wrapper assumes M997 temporal exact retention and actor_mean-only mutations while M1346 uses materialized source-history metrics and response_context_fusion plus actor_mean",
+    "first_preflight_surface": "m267_m264",
+    "second_preflight_surface": "m183_m170",
+    "full_replay_admitted": false,
+    "promotion_admitted": false,
+    "ppo_admitted": false,
+    "training_started": false,
+    "replay_run_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_update_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.json"
+  },
   "decision_rule": "M1348 passes as a design milestone only if it defines a bounded replay-preflight protocol and keeps PPO, promotion, private holdout, replay execution, and actor-input changes blocked.",
-  "next_blocker": "m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design"
+  "next_blocker": "m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight"
 }

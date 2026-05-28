@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1357,
+    "completed": 1358,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md",
+    "command_log": "docs/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md",
+    "run_dir": "docs/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.md",
     "status": "completed",
-    "task_id": "m1347-paper-route-materialized-source-history-pair-group-update-result-audit"
+    "task_id": "m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.json",
-    "hypothesis": "Design bounded public replay preflight for M1346 candidate before any replay run",
-    "id": "m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design",
+    "command": "see experiments/manifests/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.json",
+    "hypothesis": "Run bounded two-surface public replay preflight for M1346 candidate",
+    "id": "m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight",
     "kind": "gate",
-    "notes": "Pending: design only; no replay run, training, PPO, private holdout, promotion, or actor-input change",
-    "priority": 13430,
+    "notes": "Pending: run M267/M264 first and M183/M170 only if first surface passes; no training, PPO, private holdout, promotion, or actor-input change",
+    "priority": 13440,
     "status": "pending",
-    "success_artifact": "docs/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.md"
+    "success_artifact": "runs/m1349_materialized_source_history_limited_replay_preflight/summary.json"
   },
-  "updated_at_utc": "20260528T192115Z"
+  "updated_at_utc": "20260528T192351Z"
 }

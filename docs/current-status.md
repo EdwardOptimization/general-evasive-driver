@@ -16,14 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1347-paper-route-materialized-source-history-pair-group-update-result-audit
+m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design
 ```
 
 Current next task:
 
 ```text
-m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design
+m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight
 ```
+
+M1348 designed the limited replay preflight. The existing temporal full-replay
+wrapper is not a drop-in fit because it assumes M997 temporal exact retention
+and actor-mean-only mutations, while M1346 changes `response_context_fusion +
+actor_mean` and is admitted by materialized source-history metrics. M1349 should
+therefore use `autodrift.boundary_outcome_replay_gate` directly. It must run
+M267/M264 first and stop if that proof surface fails; only if it passes should
+it run M183/M170. No full replay, PPO, or promotion is admitted by M1348.
 
 M1347 audited the M1346 candidate and admitted only a limited public replay
 preflight design. The useful transition is that `27` one-sided groups became
