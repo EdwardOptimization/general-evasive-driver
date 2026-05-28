@@ -16,22 +16,52 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1393-paper-route-warmup-latched-causal-history-task-design
+m1394-paper-route-warmup-latched-config-smoke
 ```
 
 Current next task:
 
 ```text
-m1394-paper-route-warmup-latched-config-smoke
+m1395-paper-route-warmup-latched-outcome-probe
 ```
 
-M1393 designed a warmup-latched causal-history task/source route after M1392
-showed source-narrow delayed-history signal. The
-current public-gate base remains M1362 alpha `0.1`:
+M1394 implemented and ran the no-training warmup-latched source/config smoke
+required by M1393. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1394 result:
+
+```text
+decision: warmup_latched_config_smoke_structural_pass_admit_outcome_probe
+result_class: warmup_latched_structural_pass
+source_rows: 2580
+matched_current_rows: 270
+bucketed_current_rows: 436
+matched_or_bucketed_reveal_rows: 604
+finite_metric_rows: 2580
+matched/bucketed unique_source_seeds: 27
+matched/bucketed unique_capability_pairs: 16
+matched/bucketed unique_reveal_buckets: 131
+next: m1395-paper-route-warmup-latched-outcome-probe
+```
+
+M1394 is a structural source smoke, not self-identification proof. It shows that
+warmup/reveal rows with matched or bucketed reveal frames can be materialized
+with enough source diversity. M1395 should run or implement a no-training
+outcome-intervention probe over:
+
+```text
+runs/m1394_warmup_latched_config_smoke/matched_or_bucketed_rows.csv
+```
+
+M1395 must keep the same guardrails: no corpus export, training, PPO, private
+holdout, promotion, actor-input change, or level3 self-ID claim. It must
+separate normal, reset-hidden, zero-current-response, delayed-warmup-history,
+wrong-warmup-history, same-recent-wrong-warmup-history, and shortened/removed
+warmup variants.
 
 M1393 result:
 

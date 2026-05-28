@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M1394 structural pass materializes 2580 warmup/reveal rows with 604 matched/bucketed rows across 27 seeds 16 capability pairs and 131 reveal buckets without training",
+  "failure_criteria": [
+    "smoke artifact is missing",
+    "warmup/reveal structure is not measured",
+    "matching or source-diversity metrics are not reported",
+    "result routes directly to training or claim expansion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T232623Z",
+  "hypothesis": "A no-training warmup-latched source/config smoke can materialize matched or bucketed reveal candidates with source-diversity metrics.",
+  "lineage": {
+    "blocked_by": [
+      "M1393 requires a structural warmup-latched source smoke before outcome probing or corpus export"
+    ],
+    "derived_from": [
+      "m1393-paper-route-warmup-latched-causal-history-task-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1393-paper-route-warmup-latched-causal-history-task-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1393-paper-route-warmup-latched-causal-history-task-design.md",
+      "runs/m1392_causal_history_candidate_outcome_probe/summary.json"
+    ],
+    "parent_objective": [
+      "implement or run no-training warmup-latched config/source smoke"
+    ],
+    "supersedes": [
+      "training from M1392 source-narrow rows",
+      "claiming self-identification from reset or zero-current controls"
+    ]
+  },
+  "milestone": "m1394-paper-route-warmup-latched-config-smoke",
+  "next_blocker": "m1395-paper-route-warmup-latched-outcome-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "warmup_latched_config_smoke_structural_pass_admit_outcome_probe",
+  "public_gates": [
+    "M1394 must implement or run a no-training warmup-latched source/config smoke",
+    "M1394 must report warmup/reveal structure and current-frame matching metrics",
+    "M1394 must report source-diversity metrics",
+    "M1394 must not train, run PPO, promote, use private holdout, export a corpus, or change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1394_warmup_latched_config_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "warmup_latched_config_smoke_structural_pass_admit_outcome_probe",
+    "milestone": "m1394-paper-route-warmup-latched-config-smoke",
+    "reason": "M1394 structural pass materializes 2580 warmup/reveal rows with 604 matched/bucketed rows across 27 seeds 16 capability pairs and 131 reveal buckets without training",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1394_warmup_latched_config_smoke/summary.json exists",
+    "warmup and reveal structure is reported",
+    "matching and source-diversity metrics are reported",
+    "result chooses next route without training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "type": "infrastructure"
+}

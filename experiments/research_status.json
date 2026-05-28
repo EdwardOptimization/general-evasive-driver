@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1403,
+    "completed": 1404,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1393-paper-route-warmup-latched-causal-history-task-design.md",
+    "command_log": "docs/m1394-paper-route-warmup-latched-config-smoke.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1394_warmup_latched_config_smoke",
     "status": "completed",
-    "task_id": "m1393-paper-route-warmup-latched-causal-history-task-design"
+    "task_id": "m1394-paper-route-warmup-latched-config-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1394-paper-route-warmup-latched-config-smoke.json",
-    "hypothesis": "A no-training warmup-latched source/config smoke can materialize matched or bucketed reveal candidates with source-diversity metrics.",
-    "id": "m1394-paper-route-warmup-latched-config-smoke",
+    "command": "see experiments/manifests/m1395-paper-route-warmup-latched-outcome-probe.json",
+    "hypothesis": "No-training outcome interventions over M1394 warmup-latched rows can determine whether pre-emergency command-response history produces source-diverse outcome-relevant gaps beyond reset or zero-current controls.",
+    "id": "m1395-paper-route-warmup-latched-outcome-probe",
     "kind": "infrastructure",
-    "notes": "Pending: implement or run warmup-latched no-training source/config smoke before outcome probing, corpus export, or training",
-    "priority": 13890,
+    "notes": "Pending: implement or run no-training warmup-latched outcome probe over M1394 matched/bucketed rows before corpus export or training",
+    "priority": 13900,
     "status": "pending",
-    "success_artifact": "runs/m1394_warmup_latched_config_smoke/summary.json"
+    "success_artifact": "runs/m1395_warmup_latched_outcome_probe/summary.json"
   },
-  "updated_at_utc": "20260529T014000Z"
+  "updated_at_utc": "20260529T015000Z"
 }

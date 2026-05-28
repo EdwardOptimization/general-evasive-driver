@@ -2,7 +2,7 @@
   "id": "m1394-paper-route-warmup-latched-config-smoke",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -144,6 +144,36 @@
     "docs/m1393-paper-route-warmup-latched-causal-history-task-design.md",
     "runs/m1392_causal_history_candidate_outcome_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1394_warmup_latched_config_smoke/summary.json",
+    "result_doc": "docs/m1394-paper-route-warmup-latched-config-smoke.md",
+    "decision": "warmup_latched_config_smoke_structural_pass_admit_outcome_probe",
+    "result_class": "warmup_latched_structural_pass",
+    "source_rows": 2580,
+    "matched_current_rows": 270,
+    "bucketed_current_rows": 436,
+    "matched_or_bucketed_reveal_rows": 604,
+    "finite_metric_rows": 2580,
+    "rejected_rows": 1772,
+    "unique_source_seeds": 28,
+    "unique_capability_pairs": 16,
+    "unique_reveal_buckets": 393,
+    "matched_or_bucketed_unique_source_seeds": 27,
+    "matched_or_bucketed_unique_capability_pairs": 16,
+    "matched_or_bucketed_unique_reveal_buckets": 131,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "actor_parameters_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1395-paper-route-warmup-latched-outcome-probe.json"
+  },
+  "decision": "warmup_latched_config_smoke_structural_pass_admit_outcome_probe",
   "decision_rule": "M1394 passes structurally if it materializes or cleanly rejects warmup-latched source candidates with matching and source-diversity metrics.",
-  "next_blocker": "m1394-paper-route-warmup-latched-config-smoke"
+  "next_blocker": "m1395-paper-route-warmup-latched-outcome-probe"
 }

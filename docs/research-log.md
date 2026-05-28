@@ -20544,3 +20544,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1394-paper-route-warmup-latched-config-smoke.json`.
 - next: `m1394-paper-route-warmup-latched-config-smoke`
+
+## 20260529T015000Z - m1394-paper-route-warmup-latched-config-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1394_warmup_latched_config_smoke/summary.json`
+- result doc: `docs/m1394-paper-route-warmup-latched-config-smoke.md`
+- decision: `warmup_latched_config_smoke_structural_pass_admit_outcome_probe`
+- command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.warmup_latched_config_smoke --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m991_capability_step_fault_source_wave.json --seed-start 139400 --seed-count 32 --reveal-steps 48,56,64,72 --history-length 36 --min-warmup-evidence-steps 8 --max-source-rows 4096 --device cpu --run-dir runs/m1394_warmup_latched_config_smoke`
+- result class: `warmup_latched_structural_pass`
+- counts: `source_rows=2580`, `matched_current_rows=270`, `bucketed_current_rows=436`, `matched_or_bucketed_reveal_rows=604`, `finite_metric_rows=2580`, `rejected_rows=1772`.
+- source diversity: all rows span `28` seeds, `16` capability pairs, and `393` reveal buckets; matched/bucketed rows span `27` seeds, `16` capability pairs, and `131` reveal buckets.
+- matching diagnostics: `warmup_history_l2_mean=0.03127`, `warmup_history_l2_p95=0.07154`, `current_hidden_l2_mean=0.23777`, `current_hidden_l2_p95=0.58974`, `scene_context_l2_mean=0.03639`, and `obstacle_position_l2_mean=0.00498`.
+- interpretation: M1394 confirms the warmup-latched route can materialize source-diverse matched/bucketed reveal rows; it is not self-ID proof and does not admit training or corpus export yet.
+- guardrail: `actor_parameters_changed=false`, `training_started=false`, `evaluation_started=false`, `ppo_used=false`, `promoted=false`, `private_holdout_used=false`, `training_corpus_exported=false`, `actor_input_contract_changed=false`.
+- follow-up manifest: `experiments/manifests/m1395-paper-route-warmup-latched-outcome-probe.json`.
+- next: `m1395-paper-route-warmup-latched-outcome-probe`
