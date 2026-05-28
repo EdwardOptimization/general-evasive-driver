@@ -19699,3 +19699,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.json`.
 - next: `m1345-paper-route-materialized-source-history-objective-corpus-synthesis`
+
+## 20260528T190506Z - m1345-paper-route-materialized-source-history-objective-corpus-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.md`
+- decision: `materialized_source_history_objective_corpus_synthesis_promote_to_pair_group_update_branch`
+- synthesis decision: `promote_to_next_branch`
+- closed branch: `paper_route_materialized_source_history_objective_corpus`
+- opened branch: `paper_route_materialized_source_history_pair_group_update_implementation`
+- evidence summary: M1336 produced `344` active source pairs, `1376` history prefixes, explicit halfshaft/global-friction quarantines, and clean source identity; M1339 produced `1376` finite exact evaluator rows without checkpoint mutation; M1342 produced `688` valid two-condition groups with `684` one-sided conflicts.
+- supported claims: active corpus/export/evaluator/group metrics are structurally valid, and the current checkpoint reacts to histories but does not solve directionality.
+- falsified claims: current checkpoint solves materialized source-history directionality; rowwise scalar source-history objective is sufficient without group pairing; current halfshaft probes are usable.
+- failure taxonomy: retained `scenario_sampling_failure` for halfshaft/global friction and `objective_overfit` for group directional conflict.
+- public-gate overfit risk: `high`, because all metrics are public fixed source-current diagnostics with zero scene context.
+- next branch decision: open bounded no-PPO pair-group update implementation branch; first probe must start from M1154, use `response_context_fusion + actor_mean`, freeze `log_std`, and write exact before/after M1339/M1342 metrics.
+- guardrail: no training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1346-paper-route-materialized-source-history-pair-group-update-implementation.json`.
+- next: `m1346-paper-route-materialized-source-history-pair-group-update-implementation`

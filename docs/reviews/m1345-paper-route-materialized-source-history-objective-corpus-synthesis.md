@@ -1,0 +1,92 @@
+# m1345-paper-route-materialized-source-history-objective-corpus-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260528T190708Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: materialized_source_history_objective_corpus_synthesis_promote_to_pair_group_update_branch
+- Decision reason: M1345 closes materialized objective corpus branch and opens bounded pair-group update implementation branch
+
+## Hypothesis
+
+The M1335-M1344 materialized source-history objective corpus branch can be synthesized into an explicit continue, pivot, stop, or promote-to-next-branch decision before implementation.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+- parent_dataset: docs/m1335-paper-route-materialized-source-history-objective-corpus-design.md, docs/m1336-paper-route-materialized-source-history-objective-corpus-export.md, docs/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.md, docs/m1338-paper-route-materialized-source-history-objective-evaluator-design.md, docs/m1339-paper-route-materialized-source-history-objective-evaluator-implementation.md, docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md, docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md, docs/m1342-paper-route-materialized-source-history-pair-group-metric-evaluator.md, docs/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.md, docs/m1344-paper-route-materialized-source-history-pair-group-update-design.md, runs/m1336_materialized_source_history_objective_corpus_export/summary.json, runs/m1339_materialized_source_history_objective_evaluator/summary.json, runs/m1342_materialized_source_history_pair_group_metrics/summary.json
+- parent_config: experiments/manifests/m1344-paper-route-materialized-source-history-pair-group-update-design.json
+- parent_objective: synthesize materialized source-history objective corpus branch before update implementation
+- derived_from: m1335-paper-route-materialized-source-history-objective-corpus-design, m1344-paper-route-materialized-source-history-pair-group-update-design
+- blocked_by: M1344 reaches ten milestones in the materialized source-history objective corpus branch and requires synthesis before implementation
+- supersedes: direct implementation of M1344 update design without synthesis
+- invalidates: None
+
+## Success Criteria
+
+- docs/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.md exists
+- synthesis summarizes M1335-M1344 evidence
+- synthesis lists supported claims
+- synthesis lists falsified claims
+- synthesis classifies failure taxonomy
+- synthesis assesses public-gate overfit risk
+- synthesis chooses next branch decision
+- no training, PPO, promotion, private holdout, threshold relaxation, actor update, checkpoint mutation, or actor-input expansion occurs
+
+## Failure Criteria
+
+- synthesis document is missing
+- synthesis omits M1339 weak directional result
+- synthesis omits M1342 group conflict
+- synthesis starts implementation or PPO directly
+- synthesis overclaims self-identification
+- training, PPO, private holdout, promotion, threshold relaxation, actor update, checkpoint mutation, or actor-input expansion occurs
+
+## Evidence Gates
+
+- M1345 must synthesize M1335-M1344
+- M1345 must not train
+- M1345 must not run PPO
+- M1345 must not update actor weights
+- M1345 must not use private holdout
+- M1345 must not promote
+- M1345 must choose continue, pivot, stop, or promote_to_next_branch
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run PPO
+- do not update actor weights
+- do not promote
+- do not use private holdout
+- do not add actor inputs
+- do not implement M1344 before synthesis
+- do not claim self-identification
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m1345-paper-route-materialized-source-history-objective-corpus-synthesis
+- type: gate
+- checkpoint: docs/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: materialized_source_history_objective_corpus_synthesis_promote_to_pair_group_update_branch
+- reason: M1345 closes materialized objective corpus branch and opens bounded pair-group update implementation branch
+
+## Next Blocker
+
+m1346-paper-route-materialized-source-history-pair-group-update-implementation

@@ -183,6 +183,31 @@
     "docs/m1344-paper-route-materialized-source-history-pair-group-update-design.md",
     "runs/m1342_materialized_source_history_pair_group_metrics/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.md",
+    "decision": "materialized_source_history_objective_corpus_synthesis_promote_to_pair_group_update_branch",
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "paper_route_materialized_source_history_objective_corpus",
+    "opened_branch": "paper_route_materialized_source_history_pair_group_update_implementation",
+    "active_source_pair_rows": 344,
+    "active_history_prefix_rows": 1376,
+    "evaluator_row_count": 1376,
+    "group_count": 688,
+    "group_one_sided_conflict_count": 684,
+    "group_both_negative_count": 4,
+    "public_gate_overfit_risk": "high",
+    "selected_route": "bounded_no_ppo_pair_group_update_probe",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_update_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1346-paper-route-materialized-source-history-pair-group-update-implementation.json"
+  },
   "decision_rule": "M1345 passes as a synthesis milestone if it summarizes M1335-M1344 evidence and selects a branch decision before any implementation, PPO, private holdout, promotion, or actor-input expansion.",
-  "next_blocker": "m1345-paper-route-materialized-source-history-objective-corpus-synthesis"
+  "next_blocker": "m1346-paper-route-materialized-source-history-pair-group-update-implementation"
 }

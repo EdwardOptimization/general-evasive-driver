@@ -1,0 +1,171 @@
+{
+  "id": "m1346-paper-route-materialized-source-history-pair-group-update-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.md",
+      "runs/m1339_materialized_source_history_objective_evaluator/materialized_source_history_objective_rows.csv",
+      "runs/m1342_materialized_source_history_pair_group_metrics/group_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.json"
+    ],
+    "parent_objective": [
+      "implement one bounded no-PPO pair-group objective update probe"
+    ],
+    "derived_from": [
+      "m1345-paper-route-materialized-source-history-objective-corpus-synthesis"
+    ],
+    "blocked_by": [
+      "M1345 opens the pair-group update branch but no bounded update probe has been run"
+    ],
+    "supersedes": [
+      "implementation on the closed materialized objective corpus branch"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1346-paper-route-materialized-source-history-pair-group-update-implementation.md",
+  "public_gates": [
+    "M1346 must not run PPO",
+    "M1346 must not use private holdout",
+    "M1346 must not promote",
+    "M1346 must preserve actor input contract",
+    "M1346 must start from the M1154 public-gate base",
+    "M1346 must update only the declared trainable scope",
+    "M1346 must write exact before/after row and group metrics"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not mutate forbidden parameters",
+    "do not claim driver performance",
+    "do not claim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_pair_group_update_implementation",
+    "evidence_axis": "S_materialized_source_history_pair_group_update_probe",
+    "evidence_increment": "runs one bounded no-PPO pair-group objective update probe from the M1154 base",
+    "claim_scope": "infrastructure/objective-probe only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if forbidden parameters mutate",
+      "stop if exact metrics become nonfinite",
+      "stop if eval fold regresses while train improves",
+      "stop if actor inputs change"
+    ],
+    "fallback_plan": [
+      "if probe improves group metrics, route to result audit before replay gates",
+      "if probe regresses eval fold, audit objective overfit",
+      "if scope is underpowered, audit before escalating scope",
+      "if implementation fails structurally, repair tool before updates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1345 opens pair-group update implementation branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "bounded no-PPO pair-group source-history objective update",
+    "admission_evidence": [
+      "M1345 selected bounded no-PPO pair-group update branch",
+      "M1344 recommends response_context_fusion + actor_mean first scope",
+      "M1342 group_one_sided_conflict_count=684",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "bounded update tool and focused tests",
+      "one M1346 run artifact",
+      "M1346 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "exact before/after metrics are finite",
+      "allowed trainable scope is respected",
+      "group metric deltas are reported",
+      "no promotion occurs"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1346 optimizes zero-context source-current diagnostics and cannot claim closed-loop history necessity.",
+    "history_necessity_tests": [
+      "compare before/after grouped correct-history versus wrong-history residuals"
+    ],
+    "temporal_evidence_window": "M1339/M1342 materialized source-history metrics.",
+    "negative_result_policy": "Any weak, regressive, or split-overfit result must be audited before replay gates or scope escalation.",
+    "allowed_claims": [
+      "bounded materialized pair-group objective update probe",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A bounded response_context_fusion + actor_mean no-PPO update can reduce the M1342 pair-group conflict metrics without forbidden parameter mutation.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m1346_materialized_source_history_pair_group_update/summary.json exists",
+    "checkpoint starts from runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "trainable_scope == response_context_fusion_plus_actor_mean",
+    "log_std_l2 == 0",
+    "forbidden_parameter_mutation_detected is false",
+    "before and after M1339-style row metrics are finite",
+    "before and after M1342-style group metrics are finite",
+    "full group_min_joint_margin_mean improves",
+    "eval-fold group_min_joint_margin_mean does not regress",
+    "group_one_sided_conflict_count decreases or is explicitly audited as no-improvement",
+    "no PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "run artifacts are missing",
+    "checkpoint lineage is wrong",
+    "forbidden parameters mutate",
+    "exact metrics are nonfinite",
+    "eval fold regresses while train improves",
+    "PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_materialized_source_history_pair_group_update.py"
+    },
+    {
+      "name": "update_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.materialized_source_history_pair_group_update --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --corpus-run-dir runs/m1336_materialized_source_history_objective_corpus_export --row-metrics runs/m1339_materialized_source_history_objective_evaluator/materialized_source_history_objective_rows.csv --run-dir runs/m1346_materialized_source_history_pair_group_update --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1346_materialized_source_history_pair_group_update/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1346-paper-route-materialized-source-history-pair-group-update-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.md",
+    "runs/m1342_materialized_source_history_pair_group_metrics/summary.json"
+  ],
+  "decision_rule": "M1346 passes as an objective-update probe only if it writes exact before/after row and group metrics, respects trainable-scope mutation guards, and performs no PPO, private holdout, promotion, or actor-input expansion.",
+  "next_blocker": "m1346-paper-route-materialized-source-history-pair-group-update-implementation"
+}
