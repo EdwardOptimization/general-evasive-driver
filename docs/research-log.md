@@ -17809,3 +17809,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1238-paper-route-extreme-fault-sequence-intervention-probe.json`.
 - decision: `extreme_fault_sequence_intervention_design_admit_probe`
 - next: `m1238-paper-route-extreme-fault-sequence-intervention-probe`
+
+## 20260528T085250Z - m1238-paper-route-extreme-fault-sequence-intervention-probe
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `generalization`
+- artifact: `docs/m1238-paper-route-extreme-fault-sequence-intervention-probe.md`
+- run dir: `runs/m1238_extreme_fault_sequence_intervention_probe`
+- result: valid no-training sequence intervention probe with `sequence_no_signal`.
+- coverage: `384` selected source rows, `6912` intervention rows, `6` variants, history lengths `4`, `8`, and `12`, and zero trace reconstruction failures.
+- normal viability: `normal_failed_rows=2178`, which is below total intervention rows; normal success rate is `0.6848958333`.
+- scientific signal: `accepted_sequence_rows=0`, `accepted_cross_fault_sequence_rows=0`, `accepted_temporal_sequence_rows=0`, and `sequence_action_critical_rows=0`.
+- variant signal: all six variants have success-drop rate `0.0`; the largest mean sequence action distance is `0.0020443838` for zero-command history, far below the `0.025` threshold.
+- interpretation: this M1236 repaired source distribution does not expose history-necessity evidence under single hidden swaps or sequence-level command-response interventions.
+- guardrail: no training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1239-paper-route-extreme-fault-sequence-negative-audit.json`.
+- decision: `extreme_fault_sequence_probe_no_signal_route_to_negative_audit`
+- next: `m1239-paper-route-extreme-fault-sequence-negative-audit`

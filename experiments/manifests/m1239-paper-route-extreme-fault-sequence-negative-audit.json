@@ -1,0 +1,152 @@
+{
+  "id": "m1239-paper-route-extreme-fault-sequence-negative-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1238_extreme_fault_sequence_intervention_probe/summary.json",
+      "runs/m1238_extreme_fault_sequence_intervention_probe/variant_summary.csv",
+      "runs/m1238_extreme_fault_sequence_intervention_probe/history_length_summary.csv",
+      "docs/m1238-paper-route-extreme-fault-sequence-intervention-probe.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1238-paper-route-extreme-fault-sequence-intervention-probe.json",
+      "configs/m1236_extreme_fault_timing_repair_smoke.json"
+    ],
+    "parent_objective": [
+      "audit no-signal sequence intervention result before any new source construction or training"
+    ],
+    "derived_from": [
+      "m1238-paper-route-extreme-fault-sequence-intervention-probe"
+    ],
+    "blocked_by": [
+      "M1238 produced zero accepted, zero cross-fault, zero temporal, and zero action-critical sequence rows"
+    ],
+    "supersedes": [
+      "directly training or scaling from M1238"
+    ],
+    "invalidates": [
+      "claiming M1238 as self-identification evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1239-paper-route-extreme-fault-sequence-negative-audit.md",
+  "public_gates": [
+    "M1239 must audit M1238 before any training or larger source wave",
+    "M1239 must preserve actor input contract",
+    "M1239 must not train controllers",
+    "M1239 must not run PPO",
+    "M1239 must not use private holdout",
+    "M1239 must not promote",
+    "M1239 must classify the no-signal result and select a concrete next route"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden or oracle actor inputs",
+    "do not claim self-ID from no-signal sequence rows",
+    "do not claim true per-wheel or asymmetric fault physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_extreme_fault_source_generation",
+    "evidence_axis": "S_extreme_fault_sequence_negative_audit",
+    "evidence_increment": "classifies the no-signal sequence intervention result and decides whether to synthesize, strengthen sources, or change task family",
+    "claim_scope": "process/negative-result audit only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if no-signal result invalidates the current source path",
+      "stop if further same-source intervention variants would only overfit",
+      "stop if branch synthesis is needed before more milestones"
+    ],
+    "fallback_plan": [
+      "route to branch synthesis if source path is exhausted",
+      "route to stronger source construction if a concrete source gap is identified",
+      "route to longer-horizon sequence probe only if normal viability can be preserved"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1238 produced no sequence signal after M1236 repaired normal survival",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "negative sequence intervention audit",
+    "admission_evidence": [
+      "M1238 produced 6912 intervention rows across 6 variants",
+      "M1238 produced zero accepted sequence rows",
+      "M1238 produced zero sequence action-critical rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1239 audit docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "M1238 no-signal result is classified",
+      "same-source overfitting risk is assessed",
+      "next route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1239 audits a null sequence intervention result and therefore weakens, not strengthens, history-necessity evidence for this source.",
+    "history_necessity_tests": [
+      "audit delayed, cross-fault, command-response mismatch, zero-command, and reset-warm no-signal results"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked for the M1236/M1238 source path.",
+    "negative_result_policy": "Record the no-signal result and either synthesize the branch or define a new stronger source path rather than training.",
+    "allowed_claims": [
+      "negative sequence-intervention audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1238 is a valid negative result for the current repaired extreme/fault source path and should be audited before the branch continues.",
+  "success_criteria": [
+    "docs/m1239-paper-route-extreme-fault-sequence-negative-audit.md exists",
+    "M1238 no-signal result is classified",
+    "same-source overfitting risk is assessed",
+    "next route is selected",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "M1239 trains or tunes profiles",
+    "private holdout is used",
+    "M1238 is claimed as self-ID proof",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "write_negative_audit",
+      "command": "write docs/m1239-paper-route-extreme-fault-sequence-negative-audit.md from M1238 summary and CSV diagnostics"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1239-paper-route-extreme-fault-sequence-negative-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1238_extreme_fault_sequence_intervention_probe/summary.json",
+    "runs/m1238_extreme_fault_sequence_intervention_probe/variant_summary.csv",
+    "docs/m1238-paper-route-extreme-fault-sequence-intervention-probe.md"
+  ],
+  "decision_rule": "M1239 passes if it classifies M1238's no-signal result and selects a concrete next route without training or proof overclaim.",
+  "next_blocker": "m1239-paper-route-extreme-fault-sequence-negative-audit"
+}

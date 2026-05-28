@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M1238 probe is valid with 384 source rows 6912 intervention rows and 6 variants but result is sequence_no_signal with zero accepted sequence rows and zero action-critical rows",
+  "failure_criteria": [
+    "trace reconstruction fails for all rows",
+    "normal-failed rows dominate all interventions",
+    "actor parameters change",
+    "hidden fault/event labels enter actor observations",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden fault labels or hidden parameters to actor inputs",
+    "do not count temporal-only positives as cross-fault positives",
+    "do not count action-only rows as outcome evidence",
+    "do not claim true per-wheel or asymmetric fault physics"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260528T084531Z",
+  "hypothesis": "Sequence-level command-response interventions over M1236 normal-surviving rows will expose stronger temporal-history dependence than single hidden-state swaps.",
+  "lineage": {
+    "blocked_by": [
+      "M1236 single hidden-state swaps are history-insensitive"
+    ],
+    "derived_from": [
+      "m1237-paper-route-extreme-fault-sequence-intervention-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1237-paper-route-extreme-fault-sequence-intervention-design.json",
+      "configs/m1236_extreme_fault_timing_repair_smoke.json"
+    ],
+    "parent_dataset": [
+      "runs/m1236_extreme_fault_timing_repair_smoke/rejected_rows.csv",
+      "docs/m1237-paper-route-extreme-fault-sequence-intervention-design.md"
+    ],
+    "parent_objective": [
+      "run no-training sequence-level command-response interventions over M1236 normal-surviving rows"
+    ],
+    "supersedes": [
+      "continuing single hidden-swap tuning on M1236"
+    ]
+  },
+  "milestone": "m1238-paper-route-extreme-fault-sequence-intervention-probe",
+  "next_blocker": "m1239-paper-route-extreme-fault-sequence-negative-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "extreme_fault_sequence_probe_no_signal_route_to_negative_audit",
+  "public_gates": [
+    "M1238 must preserve actor input contract",
+    "M1238 must not train controllers",
+    "M1238 must not run PPO",
+    "M1238 must not use private holdout",
+    "M1238 must not promote",
+    "M1238 must report normal, cross-fault, temporal, reset/warm, zero-command, action-only, and normal-failed outcomes separately",
+    "M1238 must not claim self-identification without a separate audit"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1238_extreme_fault_sequence_intervention_probe/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "extreme_fault_sequence_probe_no_signal_route_to_negative_audit",
+    "milestone": "m1238-paper-route-extreme-fault-sequence-intervention-probe",
+    "reason": "M1238 probe is valid with 384 source rows 6912 intervention rows and 6 variants but result is sequence_no_signal with zero accepted sequence rows and zero action-critical rows",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1238_extreme_fault_sequence_intervention_probe/summary.json exists",
+    "selected_source_rows > 0",
+    "intervention_rows > 0",
+    "variant_count >= 6",
+    "normal_failed_rows < intervention_rows",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "private holdout remains unused",
+    "no actor-input contract expansion occurs"
+  ],
+  "type": "gate"
+}

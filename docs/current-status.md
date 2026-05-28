@@ -115,7 +115,46 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1238-paper-route-extreme-fault-sequence-intervention-probe
+m1239-paper-route-extreme-fault-sequence-negative-audit
+```
+
+M1238 completed extreme/fault sequence intervention probe:
+
+```text
+artifact: docs/m1238-paper-route-extreme-fault-sequence-intervention-probe.md
+run dir:  runs/m1238_extreme_fault_sequence_intervention_probe
+decision: extreme_fault_sequence_probe_no_signal_route_to_negative_audit
+```
+
+M1238 result:
+
+```text
+result_class: sequence_no_signal
+selected_source_rows: 384
+intervention_rows: 6912
+variant_count: 6
+accepted_sequence_rows: 0
+accepted_cross_fault_sequence_rows: 0
+accepted_temporal_sequence_rows: 0
+sequence_action_critical_rows: 0
+normal_failed_rows: 2178
+rejected_trace_rows: 0
+```
+
+Conclusion: the probe is valid but negative. The M1236 repaired source
+distribution does not expose history-necessity evidence under delayed,
+cross-fault, command-response mismatch, zero-command, or reset-warm sequence
+interventions.
+
+Next task:
+
+```text
+artifact: docs/m1239-paper-route-extreme-fault-sequence-negative-audit.md
+manifest: experiments/manifests/m1239-paper-route-extreme-fault-sequence-negative-audit.json
+goal: audit the no-signal result and choose branch synthesis, stronger source
+      construction, longer-horizon test, or task-family change
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1237 completed extreme/fault sequence intervention design:

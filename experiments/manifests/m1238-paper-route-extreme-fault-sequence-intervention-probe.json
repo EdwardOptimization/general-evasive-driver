@@ -163,6 +163,26 @@
     "runs/m1236_extreme_fault_timing_repair_smoke/rejected_rows.csv",
     "docs/m1237-paper-route-extreme-fault-sequence-intervention-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "run_dir": "runs/m1238_extreme_fault_sequence_intervention_probe",
+    "summary": "runs/m1238_extreme_fault_sequence_intervention_probe/summary.json",
+    "result_class": "sequence_no_signal",
+    "selected_source_rows": 384,
+    "intervention_rows": 6912,
+    "accepted_sequence_rows": 0,
+    "accepted_cross_fault_sequence_rows": 0,
+    "accepted_temporal_sequence_rows": 0,
+    "sequence_action_critical_rows": 0,
+    "normal_failed_rows": 2178,
+    "rejected_trace_rows": 0,
+    "variant_count": 6,
+    "actor_parameters_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "extreme_fault_sequence_probe_no_signal_route_to_negative_audit",
   "decision_rule": "M1238 passes as a no-training probe if it produces sequence intervention artifacts and a classified result without actor mutation, training, PPO, promotion, private holdout, or actor-input expansion. Any positive result still requires audit.",
-  "next_blocker": "m1238-paper-route-extreme-fault-sequence-intervention-probe"
+  "next_blocker": "m1239-paper-route-extreme-fault-sequence-negative-audit"
 }

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1247,
+    "completed": 1248,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1237-paper-route-extreme-fault-sequence-intervention-design.md",
+    "command_log": "docs/m1238-paper-route-extreme-fault-sequence-intervention-probe.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1238_extreme_fault_sequence_intervention_probe",
     "status": "completed",
-    "task_id": "m1237-paper-route-extreme-fault-sequence-intervention-design"
+    "task_id": "m1238-paper-route-extreme-fault-sequence-intervention-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1238-paper-route-extreme-fault-sequence-intervention-probe.json",
-    "hypothesis": "Run sequence intervention over normal-surviving extreme/fault rows",
-    "id": "m1238-paper-route-extreme-fault-sequence-intervention-probe",
+    "command": "see experiments/manifests/m1239-paper-route-extreme-fault-sequence-negative-audit.json",
+    "hypothesis": "Audit no-signal extreme/fault sequence intervention result",
+    "id": "m1239-paper-route-extreme-fault-sequence-negative-audit",
     "kind": "gate",
-    "notes": "Pending: run no-training delayed cross-fault command-response mismatch sequence probe over M1236 normal-surviving rows",
-    "priority": 12330,
+    "notes": "Pending: classify M1238 no-signal result and select branch synthesis, stronger source construction, or task-family change",
+    "priority": 12340,
     "status": "pending",
-    "success_artifact": "runs/m1238_extreme_fault_sequence_intervention_probe/summary.json"
+    "success_artifact": "docs/m1239-paper-route-extreme-fault-sequence-negative-audit.md"
   },
-  "updated_at_utc": "20260528T084820Z"
+  "updated_at_utc": "20260528T085250Z"
 }
