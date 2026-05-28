@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1235,
+    "completed": 1236,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1225-paper-route-terminal-boundary-materialization-design.md",
+    "command_log": "docs/m1226-paper-route-terminal-boundary-candidate-export.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1226_terminal_boundary_candidate_export",
     "status": "completed",
-    "task_id": "m1225-paper-route-terminal-boundary-materialization-design"
+    "task_id": "m1226-paper-route-terminal-boundary-candidate-export"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1226-paper-route-terminal-boundary-candidate-export.json",
-    "hypothesis": "Export terminal-boundary materialization candidates",
-    "id": "m1226-paper-route-terminal-boundary-candidate-export",
-    "kind": "infrastructure",
-    "notes": "Pending: implement/run terminal_boundary_candidate_export adapter and source-diversity accounting without relocation replay",
-    "priority": 12210,
+    "command": "see experiments/manifests/m1227-paper-route-terminal-boundary-relocation-smoke.json",
+    "hypothesis": "Run bounded terminal-boundary relocation smoke",
+    "id": "m1227-paper-route-terminal-boundary-relocation-smoke",
+    "kind": "gate",
+    "notes": "Pending: run bounded source-balanced relocation on M1226 exported candidates and audit whether wrong-history action gaps materialize into source-diverse margin or success degradation",
+    "priority": 12220,
     "status": "pending",
-    "success_artifact": "docs/m1226-paper-route-terminal-boundary-candidate-export.md"
+    "success_artifact": "docs/m1227-paper-route-terminal-boundary-relocation-smoke.md"
   },
-  "updated_at_utc": "20260528T073502Z"
+  "updated_at_utc": "20260528T074528Z"
 }

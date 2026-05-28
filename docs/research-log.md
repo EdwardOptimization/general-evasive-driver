@@ -17600,3 +17600,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1226-paper-route-terminal-boundary-candidate-export.json`.
 - decision: `terminal_boundary_materialization_design_admit_adapter_export`
 - next: `m1226-paper-route-terminal-boundary-candidate-export`
+
+## 20260528T074528Z - m1226-paper-route-terminal-boundary-candidate-export
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1226-paper-route-terminal-boundary-candidate-export.md`
+- run dir: `runs/m1226_terminal_boundary_candidate_export`
+- result: implemented and ran `autodrift.terminal_boundary_candidate_export`, converting M1222 action-divergent rows into relocation-compatible candidate artifacts.
+- exported rows: `274` candidate rows and `6926` rejected rows from `7200` input wrong-history rows.
+- source diversity: `110` physical pairs, `7` left seeds, `24` right seeds, `5` left steps, `2` targets, and `5` obstacle buckets.
+- dominance: max physical-pair share `0.0109489051`, max left-seed share `0.3649635036`, and max target share `0.6423357664`.
+- decision: export source-diversity gate passed, so bounded terminal-boundary relocation smoke is admitted next.
+- guardrail: no relocation replay, source mining, outcome intervention, training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1227-paper-route-terminal-boundary-relocation-smoke.json`.
+- decision: `terminal_boundary_candidate_export_passed`
+- next: `m1227-paper-route-terminal-boundary-relocation-smoke`

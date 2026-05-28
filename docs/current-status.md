@@ -115,7 +115,66 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1226-paper-route-terminal-boundary-candidate-export
+m1227-paper-route-terminal-boundary-relocation-smoke
+```
+
+M1226 completed terminal-boundary candidate export:
+
+```text
+artifact: docs/m1226-paper-route-terminal-boundary-candidate-export.md
+run dir:  runs/m1226_terminal_boundary_candidate_export
+decision: terminal_boundary_candidate_export_passed
+```
+
+M1226 result:
+
+```text
+candidate_pool_rows:                 274
+selected_physical_pairs:             110
+selected_left_seeds:                   7
+selected_right_seeds:                 24
+selected_left_steps:                   5
+selected_targets:                      2
+selected_source_obstacle_buckets:      5
+max_rows_per_physical_pair_fraction:   0.0109489051
+max_left_seed_share:                   0.3649635036
+max_target_share:                      0.6423357664
+```
+
+Next branch:
+
+```text
+paper_route_terminal_boundary_materialization
+```
+
+The next task is bounded relocation replay over source-diverse exported
+candidates, not training, promotion, or self-ID claim expansion:
+
+```text
+checkpoint family: M1212 corrected L3 online GRU repeat
+env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
+checkpoint:        runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
+candidate csv:     runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv
+next run dir:      runs/m1227_terminal_boundary_relocation_smoke
+next artifact:     docs/m1227-paper-route-terminal-boundary-relocation-smoke.md
+next branch:       paper_route_terminal_boundary_materialization
+```
+
+M1227 should run `autodrift.source_balanced_boundary_relocation_surface` with a
+bounded candidate count and geometry grid. It may only support a bounded
+terminal-boundary materialization claim if accepted wrong-history rows have
+source-diverse margin or success degradation.
+
+M1226 guardrails:
+
+```text
+relocation_replay_started: false
+training_started: false
+ppo_used: false
+promoted: false
+private_holdout_used: false
+actor_inputs_changed: false
+self_identification_claimed: false
 ```
 
 M1225 completed terminal-boundary materialization design:
@@ -128,41 +187,9 @@ decision: terminal_boundary_materialization_design_admit_adapter_export
 M1225 conclusion:
 
 ```text
-M1222 action-divergent rows are not directly relocation-compatible. The next
-step is a thin adapter/exporter that maps M1222 candidate_scores into a
+M1222 action-divergent rows are not directly relocation-compatible. The selected
+route was a thin adapter/exporter that maps M1222 candidate_scores into a
 source-balanced candidate_outcomes.csv before any relocation replay.
-```
-
-Next branch:
-
-```text
-paper_route_causal_history_evidence
-```
-
-The next task is candidate export infrastructure, not relocation replay,
-training, promotion, or self-ID claim expansion:
-
-```text
-checkpoint family: M1212 corrected L3 online GRU repeat
-env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
-checkpoint:        runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
-source run:        runs/m1222_current_family_normal_success_boundary_source_smoke
-next run dir:      runs/m1226_terminal_boundary_candidate_export
-next artifact:     docs/m1226-paper-route-terminal-boundary-candidate-export.md
-next branch:       paper_route_terminal_boundary_materialization
-```
-
-M1226 should implement/run `autodrift.terminal_boundary_candidate_export` on
-M1222 `candidate_scores.csv`. It must not run relocation replay. M1222 action
-divergence alone is not self-ID evidence.
-
-M1225 design decision:
-
-```text
-selected: adapter/export before relocation
-required output: relocation-compatible candidate_outcomes.csv
-required guard: source-diversity and active-set-collapse accounting
-blocked: direct relocation from raw candidate_scores.csv
 ```
 
 M1224 completed causal-history branch synthesis:
@@ -170,24 +197,6 @@ M1224 completed causal-history branch synthesis:
 ```text
 artifact: docs/m1224-paper-route-causal-history-evidence-synthesis.md
 decision: causal_history_synthesis_promote_to_terminal_boundary_materialization
-```
-
-M1224 conclusion:
-
-```text
-The causal-history branch is closed. It supports hidden-path availability and
-action-divergent source existence, but blocks self-ID/history-necessity claims
-because real wrong/delayed histories have not yet produced margin or success
-degradation.
-```
-
-M1224 synthesis decision:
-
-```text
-supported: hidden path exists; current-family source can produce action gaps
-blocked: history necessity, recurrent belief, online self-identification
-next: terminal-boundary materialization branch
-fallback: stronger cross-family/fault source if materialization collapses
 ```
 
 M1223 completed the current-family boundary-source negative audit:

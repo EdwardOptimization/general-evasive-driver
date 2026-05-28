@@ -1,0 +1,165 @@
+{
+  "id": "m1227-paper-route-terminal-boundary-relocation-smoke",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv",
+      "runs/m1226_terminal_boundary_candidate_export/summary.json",
+      "docs/m1226-paper-route-terminal-boundary-candidate-export.md"
+    ],
+    "parent_config": [
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json",
+      "experiments/manifests/m1226-paper-route-terminal-boundary-candidate-export.json"
+    ],
+    "parent_objective": [
+      "bounded terminal-boundary materialization test from M1226 source-diverse action-divergent candidates"
+    ],
+    "derived_from": [
+      "m1226-paper-route-terminal-boundary-candidate-export"
+    ],
+    "blocked_by": [
+      "M1222 action-divergent rows do not yet show margin-threshold or success-drop degradation under source geometry"
+    ],
+    "supersedes": [
+      "directly claiming outcome evidence from M1222 action gaps"
+    ],
+    "invalidates": [
+      "assuming action divergence alone is a causal-history proof row"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1227-paper-route-terminal-boundary-relocation-smoke.md",
+  "public_gates": [
+    "M1227 may run bounded relocation replay only on M1226 exported candidates",
+    "M1227 must preserve actor input contract",
+    "M1227 must not train controllers",
+    "M1227 must not run PPO",
+    "M1227 must not use private holdout",
+    "M1227 must not promote",
+    "M1227 must report source-diverse accepted rows or a clear negative result",
+    "M1227 must not claim self-identification unless outcome degradation is source-diverse and explicitly scoped"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden or oracle actor inputs",
+    "do not weaken M1226 candidate thresholds",
+    "do not claim action divergence as outcome evidence",
+    "do not accept a single-source active set as proof"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_terminal_boundary_materialization",
+    "evidence_axis": "T_terminal_boundary_materialization",
+    "evidence_increment": "runs the first bounded relocation replay over M1226 source-diverse action-divergent candidates to test whether action gaps can be materialized into margin or success degradation",
+    "claim_scope": "bounded public proof smoke only; no training, promotion, private-holdout, paper-level, recurrent-belief, or strong self-identification claim",
+    "stop_condition": [
+      "stop if relocation accepted rows are zero or collapse to one source family",
+      "stop if source budget fails before replay",
+      "stop if runtime or artifact volume exceeds bounded smoke scope"
+    ],
+    "fallback_plan": [
+      "if no accepted rows appear, route to stronger terminal/fault source distributions",
+      "if accepted rows collapse to one source, route to source-balanced expanded mining rather than training",
+      "if accepted rows are source-diverse, route to result audit before any objective or training step"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1226 exported source-diverse relocation-compatible candidates",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "materialize terminal-boundary wrong-history outcome degradation without changing or training the actor",
+    "admission_evidence": [
+      "M1226 exported 274 candidates across 110 physical pairs and passed source-diversity gates",
+      "M1222 showed action divergence but no outcome degradation under source geometry"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1227 relocation artifacts",
+      "M1227 result docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "summary.json exists",
+      "boundary_relocation_rows.csv exists",
+      "balanced accepted wrong-history rows are source-diverse or the negative result is classified",
+      "next audit or fallback route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1227 can show wrong-history outcome sensitivity only after obstacle relocation; it still cannot by itself prove general recurrent belief.",
+    "history_necessity_tests": [
+      "wrong_matched_history relocation replay over matched source candidates",
+      "source-diversity gate on accepted wrong-history rows"
+    ],
+    "temporal_evidence_window": "A positive result may support bounded outcome-level causal-history evidence on materialized terminal-boundary rows, not paper-level self-ID.",
+    "negative_result_policy": "If relocation fails, record the negative result and route to stronger terminal/fault source distributions rather than weakening gates or training.",
+    "allowed_claims": [
+      "bounded terminal-boundary materialization evidence if source-diverse accepted rows appear",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-level result claim"
+    ]
+  },
+  "hypothesis": "Bounded obstacle/timing relocation can turn M1226 source-diverse action-divergent wrong-history candidates into source-diverse terminal-margin or success-critical rows.",
+  "success_criteria": [
+    "runs/m1227_terminal_boundary_relocation_smoke/summary.json exists",
+    "runs/m1227_terminal_boundary_relocation_smoke/boundary_relocation_rows.csv exists",
+    "source budget and candidate selection pass before replay",
+    "accepted wrong-history rows, if any, are reported with source-diversity accounting",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next audit or fallback route is selected"
+  ],
+  "failure_criteria": [
+    "M1227 trains or tunes profiles",
+    "private holdout is used",
+    "accepted rows are claimed without source-diversity accounting",
+    "single-source active-set rows are treated as proof",
+    "action divergence is treated as self-identification without outcome degradation",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "run_bounded_terminal_boundary_relocation_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_balanced_boundary_relocation_surface --checkpoint-policy l3_s111602=runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --env-config configs/paper_route_corrected_profiles/m1207_l3_online_gru.json --outcome-csv runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv --delay-steps 10 --max-continuation-steps 60 --target-normal-margins 0.0005,0.001,0.002,0.003,0.005,0.010 --half-width-inflations 0,0.10 --body-longitudinal-offsets -2,0,2 --body-lateral-offsets -0.25,0,0.25 --min-normal-margin 0.0 --max-normal-margin 0.20 --min-margin-gap 0.010 --report-variants wrong_matched_history --max-candidates 80 --max-candidates-per-physical-pair 1 --max-candidates-per-checkpoint-target 48 --target-min-physical-pairs 40 --target-min-left-steps 5 --target-min-targets 2 --max-rows-per-pair-fraction 0.05 --min-eligible-physical-pairs 40 --max-candidate-pair-fraction 0.05 --device cpu --run-dir runs/m1227_terminal_boundary_relocation_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1227_terminal_boundary_relocation_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1227_terminal_boundary_relocation_smoke/boundary_relocation_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1227-paper-route-terminal-boundary-relocation-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1226_terminal_boundary_candidate_export/summary.json",
+    "runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv"
+  ],
+  "decision_rule": "M1227 passes as a bounded smoke only if it runs relocation with source-budget accounting and records either source-diverse accepted rows or a classified negative result.",
+  "next_blocker": "m1227-paper-route-terminal-boundary-relocation-smoke"
+}
