@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1215 pre-registers a matched-current causal history gate with action and outcome stages reset delayed wrong-history zero-response zero-action and current-tiled controls plus failure taxonomy and routes next to source/tooling audit",
+  "failure_criteria": [
+    "M1215 trains or tunes profiles",
+    "private holdout is used",
+    "gate uses hidden or oracle actor inputs",
+    "design lacks reset/delayed/wrong-history controls",
+    "self-identification is claimed from profile aggregates"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not promote",
+    "do not tune profiles",
+    "do not use oracle actor inputs",
+    "do not call aggregate ranking a causal history gate"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T065440Z",
+  "hypothesis": "A matched-current causal history gate can more directly test self-identification than aggregate profile comparison.",
+  "lineage": {
+    "blocked_by": [
+      "Profile comparisons cannot prove self-identification because current-tiled and reset controls explain key trends"
+    ],
+    "derived_from": [
+      "m1214-paper-route-corrected-profile-evidence-synthesis"
+    ],
+    "invalidates": [
+      "using aggregate profile ranking as memory-causality evidence"
+    ],
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1214-paper-route-corrected-profile-evidence-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1214-paper-route-corrected-profile-evidence-synthesis.md",
+      "runs/m1209_corrected_profile_pilot/profile_aggregate.csv",
+      "runs/m1212_corrected_profile_repeat/profile_aggregate.csv"
+    ],
+    "parent_objective": [
+      "design a causal history gate after corrected profile comparisons fail to prove memory necessity"
+    ],
+    "supersedes": [
+      "running more broad profile pilots as the next default step"
+    ]
+  },
+  "milestone": "m1215-paper-route-causal-history-gate-design",
+  "next_blocker": "m1216-paper-route-causal-history-source-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "causal_history_gate_design_admit_source_audit",
+  "public_gates": [
+    "M1215 may design causal history gates only",
+    "M1215 must target matched-current observations with different histories or hidden dynamics",
+    "M1215 must pre-register normal reset delayed wrong-history and current-tiled controls",
+    "M1215 must not train controllers",
+    "M1215 must not run PPO",
+    "M1215 must not use private holdout",
+    "M1215 must not promote",
+    "M1215 must not claim paper-level evidence or self-identification"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1215-paper-route-causal-history-gate-design.md",
+    "clearance_margin_mean": "",
+    "decision": "causal_history_gate_design_admit_source_audit",
+    "milestone": "m1215-paper-route-causal-history-gate-design",
+    "reason": "M1215 pre-registers a matched-current causal history gate with action and outcome stages reset delayed wrong-history zero-response zero-action and current-tiled controls plus failure taxonomy and routes next to source/tooling audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1215-paper-route-causal-history-gate-design.md exists",
+    "gate inputs and interventions are defined",
+    "matched-current ambiguity requirements are defined",
+    "success and failure thresholds are pre-registered",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next implementation or audit milestone is selected"
+  ],
+  "type": "gate"
+}

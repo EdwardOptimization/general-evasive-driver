@@ -17418,3 +17418,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1215-paper-route-causal-history-gate-design.json`.
 - decision: `corrected_profile_synthesis_promote_to_causal_history_gate_design`
 - next: `m1215-paper-route-causal-history-gate-design`
+
+## 20260528T065150Z - m1215-paper-route-causal-history-gate-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1215-paper-route-causal-history-gate-design.md`
+- result: pre-registers a matched-current causal-history gate after broad profile comparisons failed to prove memory necessity.
+- gate structure: Stage A matched-current surface, Stage B action intervention screen, Stage C persistent outcome intervention gate.
+- required controls: normal, reset-hidden, delayed-history, wrong matched history, zero-current-response, zero-action-history, and current-tiled/current-response controls where profile-compatible.
+- acceptance: outcome-positive rows require current match, normal success or safe near-boundary behavior, history-only degradation by success/collision/completion or margin gap, and source-diverse coverage.
+- failure taxonomy: `no_matched_current_surface`, `current_feedback_only_signal`, `action_only_history_signal`, `source_narrow_history_signal`, and `causal_history_positive_public_diagnostic`.
+- guardrail: no training, PPO, replay, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1216-paper-route-causal-history-source-audit.json`.
+- decision: `causal_history_gate_design_admit_source_audit`
+- next: `m1216-paper-route-causal-history-source-audit`

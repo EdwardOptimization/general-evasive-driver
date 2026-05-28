@@ -115,24 +115,24 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1215-paper-route-causal-history-gate-design
+m1216-paper-route-causal-history-source-audit
 ```
 
-M1214 completed corrected profile evidence synthesis:
+M1215 completed the causal-history gate design:
 
 ```text
-artifact: docs/m1214-paper-route-corrected-profile-evidence-synthesis.md
-decision: corrected_profile_synthesis_promote_to_causal_history_gate_design
+artifact: docs/m1215-paper-route-causal-history-gate-design.md
+decision: causal_history_gate_design_admit_source_audit
 ```
 
-Current paper-route conclusion:
+M1215 gate structure:
 
 ```text
-Corrected profile infrastructure is usable.
-L2 finite-window trend is not history-necessity evidence.
-Current-tiled controls are required for future profile claims.
-L3 online-GRU can train useful reactive behavior but recurrent-hidden benefit is not proven.
-Broad profile rankings are seed-block sensitive.
+Stage A: matched-current surface with source-diverse ambiguity.
+Stage B: action-level screen with reset, delayed, wrong-history, zero-response,
+         zero-action, and current-tiled/current-response controls.
+Stage C: persistent outcome gate using success, collision, completion, and
+         clearance-margin degradation.
 ```
 
 Next branch:
@@ -141,9 +141,29 @@ Next branch:
 paper_route_causal_history_evidence
 ```
 
-The next task is not another broad profile repeat. M1215 must design a
-matched-current causal history gate with normal, reset, delayed, wrong-history,
-and current-tiled/current-response controls.
+The next task is not training or another profile repeat. M1216 must audit
+existing matched-current and history-intervention artifacts before the first
+causal-history run:
+
+```text
+M503 natural boundary-pressure matched-current surface
+M524 multisurface history-value ablation
+M537/M538 public natural-surface paired advantage evidence
+M585-M587 BC5660 matched-current and action-screen path
+matched_current_response_ambiguity / matched_history_intervention_gate /
+persistent_wrong_history_intervention_gate / outcome_critical selector tooling
+```
+
+M1216 should decide whether to reuse existing public surfaces or export a fresh
+current-family surface for M1215. It must not train, run PPO, use private
+holdout, promote, or claim self-identification.
+
+M1214 completed corrected profile evidence synthesis:
+
+```text
+artifact: docs/m1214-paper-route-corrected-profile-evidence-synthesis.md
+decision: corrected_profile_synthesis_promote_to_causal_history_gate_design
+```
 
 M1213 completed the M1209/M1212 cross-block audit:
 

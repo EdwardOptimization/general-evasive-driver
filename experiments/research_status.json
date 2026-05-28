@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1224,
+    "completed": 1225,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1214-paper-route-corrected-profile-evidence-synthesis.md",
+    "command_log": "docs/m1215-paper-route-causal-history-gate-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1214-paper-route-corrected-profile-evidence-synthesis"
+    "task_id": "m1215-paper-route-causal-history-gate-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1215-paper-route-causal-history-gate-design.json",
-    "hypothesis": "A matched-current causal history gate can more directly test self-identification than aggregate profile comparison.",
-    "id": "m1215-paper-route-causal-history-gate-design",
+    "command": "see experiments/manifests/m1216-paper-route-causal-history-source-audit.json",
+    "hypothesis": "A source and tooling audit can identify a reliable first run path for the M1215 matched-current causal history gate without training or claim expansion.",
+    "id": "m1216-paper-route-causal-history-source-audit",
     "kind": "gate",
-    "notes": "Pending: design causal history intervention gate with reset delayed wrong-history and current-tiled controls",
-    "priority": 12100,
+    "notes": "Pending: inventory existing matched-current and history-intervention artifacts before any causal history run",
+    "priority": 12110,
     "status": "pending",
-    "success_artifact": "docs/m1215-paper-route-causal-history-gate-design.md"
+    "success_artifact": "docs/m1216-paper-route-causal-history-source-audit.md"
   },
-  "updated_at_utc": "20260528T064512Z"
+  "updated_at_utc": "20260528T065150Z"
 }
