@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1300,
+    "completed": 1301,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1290-paper-route-source-history-directional-conflict-audit.md",
+    "command_log": "docs/m1291-paper-route-source-history-directional-repair-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1290_source_history_directional_conflict_audit",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1290-paper-route-source-history-directional-conflict-audit"
+    "task_id": "m1291-paper-route-source-history-directional-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1291-paper-route-source-history-directional-repair-design.json",
-    "hypothesis": "Design a no-PPO directional repair path for the M1290 magnitude-compression failure mode",
-    "id": "m1291-paper-route-source-history-directional-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design row-wise directional repair; PPO and promotion remain blocked",
-    "priority": 12860,
+    "command": "see experiments/manifests/m1292-paper-route-source-history-actor-mean-directional-feasibility-probe.json",
+    "hypothesis": "A no-PPO actor_mean-only directional feasibility probe can determine whether fixed source-history features can satisfy row-wise preferences",
+    "id": "m1292-paper-route-source-history-actor-mean-directional-feasibility-probe",
+    "kind": "infrastructure",
+    "notes": "Pending: run actor_mean directional feasibility probe; PPO and promotion remain blocked",
+    "priority": 12870,
     "status": "pending",
-    "success_artifact": "docs/m1291-paper-route-source-history-directional-repair-design.md"
+    "success_artifact": "runs/m1292_source_history_actor_mean_directional_feasibility_probe/summary.json"
   },
-  "updated_at_utc": "20260528T141705Z"
+  "updated_at_utc": "20260528T142134Z"
 }

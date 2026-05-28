@@ -18682,3 +18682,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1291-paper-route-source-history-directional-repair-design.json`.
 - decision: `source_history_directional_conflict_magnitude_compression_route_to_directional_repair_design`
 - next: `m1291-paper-route-source-history-directional-repair-design`
+
+## 20260528T142134Z - m1291-paper-route-source-history-directional-repair-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1291-paper-route-source-history-directional-repair-design.md`
+- decision: `source_history_directional_repair_design_admit_actor_mean_feasibility_probe`
+- blocker addressed: M1290 shows M1288 scalar exact-loss improvement is magnitude compression with `after_mutually_exclusive_fraction=1.0`.
+- rejected next step: blind scalar-loss actor_mean continuation, PPO, promotion, and immediate public replay-gate escalation.
+- selected next step: no-PPO actor_mean directional feasibility probe.
+- rationale: with fixed log_std and fixed preferred/rejected actions, each preference is a linear inequality in the actor_mean output; before changing encoders or GRU, test whether fixed source-history features plus actor_mean can satisfy row-wise directional constraints.
+- proposed directional gates: `both_directional_fraction`, `after_both_positive_count`, `after_mutually_exclusive_fraction`, `min_margin_mean`, and `min_margin_p10`.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1292-paper-route-source-history-actor-mean-directional-feasibility-probe.json`.
+- decision: `source_history_directional_repair_design_admit_actor_mean_feasibility_probe`
+- next: `m1292-paper-route-source-history-actor-mean-directional-feasibility-probe`

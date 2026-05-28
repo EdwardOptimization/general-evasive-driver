@@ -151,6 +151,36 @@
     "docs/m1290-paper-route-source-history-directional-conflict-audit.md",
     "runs/m1290_source_history_directional_conflict_audit/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1291-paper-route-source-history-directional-repair-design.md",
+    "decision": "source_history_directional_repair_design_admit_actor_mean_feasibility_probe",
+    "rejected_options": [
+      "blind scalar-loss actor_mean continuation",
+      "PPO",
+      "promotion",
+      "immediate public replay gate escalation"
+    ],
+    "selected_next_step": "actor_mean directional feasibility probe",
+    "rationale": "M1290 shows scalar exact loss improves by magnitude compression; the next question is whether fixed source-history features plus actor_mean can satisfy row-wise directional inequalities at all.",
+    "directional_gates": [
+      "both_directional_fraction",
+      "after_both_positive_count",
+      "after_mutually_exclusive_fraction",
+      "min_margin_mean",
+      "min_margin_p10"
+    ],
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1292-paper-route-source-history-actor-mean-directional-feasibility-probe.json"
+  },
+  "decision": "source_history_directional_repair_design_admit_actor_mean_feasibility_probe",
   "decision_rule": "M1291 passes if it designs a bounded no-PPO directional repair path or explicitly routes to corpus repair without overclaiming.",
-  "next_blocker": "m1291-paper-route-source-history-directional-repair-design"
+  "next_blocker": "m1292-paper-route-source-history-actor-mean-directional-feasibility-probe"
 }
