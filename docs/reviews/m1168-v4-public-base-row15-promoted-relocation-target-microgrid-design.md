@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T013634Z
+- Generated at UTC: 20260528T013956Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M1168 is design-only. It can design a future target-margin microgrid diagnostic but cannot run relocation replay, rerun mining, rerun outcome gate, train actor weights, run PPO, promote, use private holdout, change actor inputs, weaken thresholds, convert a surface, or claim broad surface pass.
+- Promotion decision: row15_promoted_target_microgrid_design_admit_m1169_run
+- Decision reason: M1168 designs a small zero-body-offset fine target-margin microgrid diagnostic to separate M1166 target-grid false negative from broader wrong-history scarcity
 
 ## Hypothesis
 
@@ -76,8 +76,19 @@ A fine target-margin microgrid can test whether M1166 undercounted wrong-history
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design
+- type: gate
+- checkpoint: docs/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_target_microgrid_design_admit_m1169_run
+- reason: M1168 designs a small zero-body-offset fine target-margin microgrid diagnostic to separate M1166 target-grid false negative from broader wrong-history scarcity
 
 ## Next Blocker
 
-m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design
+m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run

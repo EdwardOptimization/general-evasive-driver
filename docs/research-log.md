@@ -16642,3 +16642,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no mining, outcome rerun, relocation replay, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
 - decision: `row15_promoted_wrong_history_mechanism_audit_route_to_target_margin_microgrid_design`
 - next: `m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design`
+
+## 20260528T014500Z - m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.md`
+- result: designs a tiny target-margin microgrid diagnostic for M1169.
+- input: existing M1161 outcome CSV only.
+- scope: `240` candidates, `wrong_matched_history` only, body offsets fixed to `0.0`, and fine target margins `0.00025,0.0005,0.00075,0.001,0.00125,0.0015,0.002,0.0025,0.003,0.004,0.005`.
+- comparison target: recover old M1161 pairs and check whether any new source-diverse pairs appear beyond the two known pairs.
+- guardrail: no relocation replay, mining, outcome rerun, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
+- decision: `row15_promoted_target_microgrid_design_admit_m1169_run`
+- next: `m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run`

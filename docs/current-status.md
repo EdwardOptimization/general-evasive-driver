@@ -84,29 +84,25 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design
+m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run
 ```
 
-M1167 completed the wrong-history mechanism audit. It found that M1166 selected
-both M1161 accepted physical pairs, so M1166 did not fail by simply missing the
-old sensitive active set. The failure has two components:
+M1168 completed the target-margin microgrid design. M1169 should run a tiny
+diagnostic:
 
 ```text
-target-grid artifact:
-  M1166 omitted the fine 0.0005 target-margin value.
-  One old sensitive pair stayed wrong-history safe at normal margin 0.002983,
-  while M1161 had it accepted at normal margin 0.002483.
-
-broader wrong-history scarcity:
-  M1166 rows normal-success/wrong-history-success: 3321
-  M1166 rows normal-failure/wrong-history-failure: 1283
-  M1166 rows normal-success/wrong-history-failure: 1
+input: existing M1161 outcome CSV
+max_candidates: 240
+report variant: wrong_matched_history only
+body offsets: 0.0 only
+target margins:
+  0.00025,0.0005,0.00075,0.001,0.00125,0.0015,
+  0.002,0.0025,0.003,0.004,0.005
 ```
 
-The next step is a tiny target-margin microgrid design, not a larger
-same-shape expansion. It should restore fine near-boundary target margins and
-test whether the second old pair is recovered before deciding whether the
-branch needs a stronger wrong-history construction.
+It should compare against M1161 and M1166. If it recovers only the two old
+pairs, the same-shape relocation branch should synthesize and pivot to stronger
+wrong-history construction rather than expand the same cross product.
 
 M1127 completed the expanded full public gate for the row15 projection
 candidate:

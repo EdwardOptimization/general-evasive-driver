@@ -1,0 +1,86 @@
+# m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run Research Review
+
+## Summary
+
+- Generated at UTC: 20260528T013956Z
+- Type: gate
+- Gate tier: proof
+- Promotion decision: not_applicable
+- Decision reason: M1169 may only run the M1168 target-margin microgrid diagnostic and compare against M1161/M1166. It cannot rerun mining, rerun outcome gate, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert a surface, or claim full surface pass.
+
+## Hypothesis
+
+Restoring fine target margins including 0.0005 will recover at least the M1161 old sensitive pair that M1166 missed; if it does not reveal new source-diverse pairs, same-shape relocation remains exhausted.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+- parent_dataset: docs/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.md, runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv
+- parent_config: experiments/manifests/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.json
+- parent_objective: run the fine target-margin microgrid diagnostic designed in M1168
+- derived_from: m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design
+- blocked_by: M1168 designs the exact microgrid command
+- supersedes: None
+- invalidates: full same-shape relocation expansion before target-grid diagnosis, conversion from M1166 pilot rows, PPO before refreshed wrong-history surface evidence
+
+## Success Criteria
+
+- summary artifact exists
+- source_budget_ready is reported
+- accepted_wrong_history_rows is reported
+- accepted_wrong_physical_pairs is reported
+- old M1161 pair recovery is reported
+- new physical-pair recovery beyond the two M1161 pairs is reported
+- comparison to M1161 and M1166 is explicit
+- no mining, outcome rerun, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs
+
+## Failure Criteria
+
+- summary artifact is missing
+- run exceeds M1166-scale resource budget
+- comparison to M1161 and M1166 remains ambiguous
+- mining, outcome rerun, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts
+
+## Evidence Gates
+
+- M1169 may run only the M1168 microgrid command
+- M1169 must reuse the existing M1161 outcome CSV
+- M1169 must restore fine target margins including 0.0005
+- M1169 must keep body offsets fixed at 0.0
+- M1169 must evaluate wrong_matched_history only
+- M1169 must not rerun mining
+- M1169 must not rerun outcome gate
+- M1169 must not train actor weights
+- M1169 must not run PPO
+- M1169 must not promote
+- M1169 must not use private holdout
+- M1169 must preserve actor inputs
+- M1169 must not convert a surface
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not rerun mining
+- do not rerun outcome gate
+- do not train actor weights
+- do not run PPO
+- do not promote
+- do not use private holdout
+- do not change actor inputs
+- do not convert a surface
+- do not claim full surface pass from the microgrid diagnostic
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- No scoreboard row recorded.
+
+## Next Blocker
+
+m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run

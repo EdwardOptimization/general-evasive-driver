@@ -1,0 +1,165 @@
+{
+  "id": "m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.md",
+      "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.json"
+    ],
+    "parent_objective": [
+      "run the fine target-margin microgrid diagnostic designed in M1168"
+    ],
+    "derived_from": [
+      "m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design"
+    ],
+    "blocked_by": [
+      "M1168 designs the exact microgrid command"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "full same-shape relocation expansion before target-grid diagnosis",
+      "conversion from M1166 pilot rows",
+      "PPO before refreshed wrong-history surface evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run.md",
+  "public_gates": [
+    "M1169 may run only the M1168 microgrid command",
+    "M1169 must reuse the existing M1161 outcome CSV",
+    "M1169 must restore fine target margins including 0.0005",
+    "M1169 must keep body offsets fixed at 0.0",
+    "M1169 must evaluate wrong_matched_history only",
+    "M1169 must not rerun mining",
+    "M1169 must not rerun outcome gate",
+    "M1169 must not train actor weights",
+    "M1169 must not run PPO",
+    "M1169 must not promote",
+    "M1169 must not use private holdout",
+    "M1169 must preserve actor inputs",
+    "M1169 must not convert a surface"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun mining",
+    "do not rerun outcome gate",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert a surface",
+    "do not claim full surface pass from the microgrid diagnostic"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_margin_slack_surface_refresh",
+    "evidence_axis": "G_surface: target-margin microgrid diagnostic",
+    "evidence_increment": "tests whether restoring fine target margins recovers M1161 wrong-history rows without broad body-offset expansion",
+    "claim_scope": "microgrid diagnostic only; no conversion, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if the run exceeds the M1166-scale resource budget",
+      "stop if the run recovers only old pairs",
+      "stop if the run remains wrong-history sparse"
+    ],
+    "fallback_plan": [
+      "if only old pairs recover, route to branch synthesis and stronger wrong-history construction",
+      "if new source-diverse pairs recover, route to staged conversion design",
+      "if no pairs recover, route to target-grid artifact rejection and mechanism audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1168 admits the target-margin microgrid diagnostic",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run a tiny target-margin microgrid diagnostic without training",
+    "admission_evidence": [
+      "M1167 identifies a target-margin grid artifact",
+      "M1168 pre-registers a small command with no body-offset expansion",
+      "M1168 blocks full surface pass claims"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not rerun source mining",
+      "do not rerun outcome gate",
+      "do not convert the diagnostic surface"
+    ],
+    "allowed_updates": [
+      "run artifacts",
+      "result documentation",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "M1161/M1166/M1169 comparison is explicit",
+      "old-pair recovery is explicit",
+      "new source-diverse pair recovery is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1169 is a wrong-history proof-surface diagnostic, not a level3 self-identification test.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history"
+    ],
+    "temporal_evidence_window": "M1169 reuses existing M1161 outcome rows and changes only relocation target margins.",
+    "negative_result_policy": "If fine margins do not reveal a broader surface, record same-shape relocation as exhausted rather than lowering self-ID standards.",
+    "allowed_claims": [
+      "target-margin sensitivity diagnostic for level2 proof-surface mining",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "Restoring fine target margins including 0.0005 will recover at least the M1161 old sensitive pair that M1166 missed; if it does not reveal new source-diverse pairs, same-shape relocation remains exhausted.",
+  "success_criteria": [
+    "summary artifact exists",
+    "source_budget_ready is reported",
+    "accepted_wrong_history_rows is reported",
+    "accepted_wrong_physical_pairs is reported",
+    "old M1161 pair recovery is reported",
+    "new physical-pair recovery beyond the two M1161 pairs is reported",
+    "comparison to M1161 and M1166 is explicit",
+    "no mining, outcome rerun, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "run exceeds M1166-scale resource budget",
+    "comparison to M1161 and M1166 remains ambiguous",
+    "mining, outcome rerun, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "target_margin_microgrid",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_balanced_boundary_relocation_surface --checkpoint-policy row15_current=runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --checkpoint-policy row15_previous_alpha015=runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt --checkpoint-policy previous_m1078_base=runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --checkpoint-policy short61049=runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --checkpoint-policy short61050=runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt --checkpoint-policy short61051=runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-candidates 240 --max-candidates-per-physical-pair 4 --max-candidates-per-checkpoint-target 64 --max-accepted-rows-per-physical-pair 20 --target-min-physical-pairs 12 --target-min-left-steps 6 --target-min-targets 2 --max-rows-per-pair-fraction 0.25 --min-eligible-physical-pairs 12 --max-candidate-pair-fraction 0.25 --source-obstacle-distance-bucket-width 5.0 --source-obstacle-lateral-bucket-width 1.0 --target-normal-margins 0.00025,0.0005,0.00075,0.001,0.00125,0.0015,0.002,0.0025,0.003,0.004,0.005 --half-width-inflations 0 --body-longitudinal-offsets=0.0 --body-lateral-offsets=0.0 --min-normal-margin 0.0 --max-normal-margin 0.20 --min-margin-gap 0.02 --report-variants wrong_matched_history --margin-bucket-width 0.005 --control-checkpoint-label none --device cpu --run-dir runs/m1169_row15_promoted_target_microgrid_seed116100"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1169_row15_promoted_target_microgrid_seed116100/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.md",
+    "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
+  ],
+  "decision_rule": "M1169 may only run the M1168 target-margin microgrid diagnostic and compare against M1161/M1166. It cannot rerun mining, rerun outcome gate, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert a surface, or claim full surface pass.",
+  "next_blocker": "m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run"
+}

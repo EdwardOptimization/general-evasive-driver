@@ -153,6 +153,49 @@
   "baseline_artifacts": [
     "docs/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.md",
+    "decision": "row15_promoted_target_microgrid_design_admit_m1169_run",
+    "result_class": "target_margin_microgrid_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "future_max_candidates": 240,
+    "future_body_longitudinal_offsets": [
+      0.0
+    ],
+    "future_body_lateral_offsets": [
+      0.0
+    ],
+    "future_report_variants": [
+      "wrong_matched_history"
+    ],
+    "future_target_normal_margins": [
+      0.00025,
+      0.0005,
+      0.00075,
+      0.001,
+      0.00125,
+      0.0015,
+      0.002,
+      0.0025,
+      0.003,
+      0.004,
+      0.005
+    ],
+    "relocation_replay_started": false,
+    "mining_started": false,
+    "outcome_rerun_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "surface_conversion_started": false,
+    "admitted_next": "target_margin_microgrid_run",
+    "next_milestone": "m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run"
+  },
   "decision_rule": "M1168 is design-only. It can design a future target-margin microgrid diagnostic but cannot run relocation replay, rerun mining, rerun outcome gate, train actor weights, run PPO, promote, use private holdout, change actor inputs, weaken thresholds, convert a surface, or claim broad surface pass.",
-  "next_blocker": "m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design"
+  "next_blocker": "m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run"
 }

@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1168 is design-only. It can design a future target-margin microgrid diagnostic but cannot run relocation replay, rerun mining, rerun outcome gate, train actor weights, run PPO, promote, use private holdout, change actor inputs, weaken thresholds, convert a surface, or claim broad surface pass.",
+  "decision_reason": "M1168 designs a small zero-body-offset fine target-margin microgrid diagnostic to separate M1166 target-grid false negative from broader wrong-history scarcity",
   "failure_criteria": [
     "design artifact is missing",
     "future command is too large for staged diagnostic use",
@@ -22,7 +22,7 @@
     "do not claim broad surface pass from the future microgrid diagnostic"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260528T013634Z",
+  "generated_at_utc": "20260528T013956Z",
   "hypothesis": "A fine target-margin microgrid can test whether M1166 undercounted wrong-history rows because it omitted very fine near-boundary target margins, while still keeping the diagnostic small enough to avoid M1164 resource failure.",
   "lineage": {
     "blocked_by": [
@@ -53,9 +53,9 @@
     "supersedes": []
   },
   "milestone": "m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design",
-  "next_blocker": "m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design",
+  "next_blocker": "m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "row15_promoted_target_microgrid_design_admit_m1169_run",
   "public_gates": [
     "M1168 is design-only",
     "M1168 must not run relocation replay",
@@ -68,7 +68,20 @@
     "M1168 must preserve actor inputs",
     "M1168 must not convert a surface"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.md",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_target_microgrid_design_admit_m1169_run",
+    "milestone": "m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design",
+    "reason": "M1168 designs a small zero-body-offset fine target-margin microgrid diagnostic to separate M1166 target-grid false negative from broader wrong-history scarcity",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "design artifact exists",
     "future command reuses existing M1161 outcome CSV",
