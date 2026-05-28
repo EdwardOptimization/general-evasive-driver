@@ -16,14 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1363-paper-route-bidirectional-interpolation-result-audit
+m1364-paper-route-bidirectional-broader-public-replay-design
 ```
 
 Current next task:
 
 ```text
-m1364-paper-route-bidirectional-broader-public-replay-design
+m1365-paper-route-bidirectional-broader-public-replay
 ```
+
+M1364 designs the broader public replay escalation for M1362 alpha `0.1`. The
+next gate uses `autodrift.public_base_controlled_fusion_candidate_replay_gate`
+with M1154 as base and M1362 alpha `0.1` as candidate. Interpretation order is:
+actor input contract, six public replay surfaces, source-diverse protected
+diagnostic, old-key diagnostic, then behavior seeds 9505/9506. M1365 cannot
+promote and cannot use private holdout or PPO.
 
 M1363 audits the M1362 alpha `0.1` candidate as useful but not promotable. It
 has meaningful exact source-history lift and passes M267/M264 plus M183/M170,

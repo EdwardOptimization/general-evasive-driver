@@ -20036,3 +20036,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1364-paper-route-bidirectional-broader-public-replay-design.json`.
 - next: `m1364-paper-route-bidirectional-broader-public-replay-design`
+
+## 20260528T204950Z - m1364-paper-route-bidirectional-broader-public-replay-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1364-paper-route-bidirectional-broader-public-replay-design.md`
+- decision: `bidirectional_broader_public_replay_design_admit_implementation`
+- candidate checkpoint: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`.
+- design: run six public replay surfaces, source-diverse protected diagnostic, old-key diagnostic, and behavior seeds 9505/9506 with the existing public replay wrapper.
+- interpretation order: actor input contract, six public replay surfaces, protected diagnostics, old-key diagnostic, then behavior seeds.
+- guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1365-paper-route-bidirectional-broader-public-replay.json`.
+- next: `m1365-paper-route-bidirectional-broader-public-replay`

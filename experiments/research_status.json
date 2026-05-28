@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1373,
+    "completed": 1374,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1363-paper-route-bidirectional-interpolation-result-audit.md",
+    "command_log": "docs/m1364-paper-route-bidirectional-broader-public-replay-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1363-paper-route-bidirectional-interpolation-result-audit.md",
+    "run_dir": "docs/m1364-paper-route-bidirectional-broader-public-replay-design.md",
     "status": "completed",
-    "task_id": "m1363-paper-route-bidirectional-interpolation-result-audit"
+    "task_id": "m1364-paper-route-bidirectional-broader-public-replay-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1364-paper-route-bidirectional-broader-public-replay-design.json",
-    "hypothesis": "Design broader public replay escalation for M1362 alpha 0.1 before PPO private holdout or promotion",
-    "id": "m1364-paper-route-bidirectional-broader-public-replay-design",
+    "command": "see experiments/manifests/m1365-paper-route-bidirectional-broader-public-replay.json",
+    "hypothesis": "Run broader public replay and behavior diagnostics for M1362 alpha 0.1",
+    "id": "m1365-paper-route-bidirectional-broader-public-replay",
     "kind": "gate",
-    "notes": "Pending: design six-surface public replay plus protected-key and behavior ordering; no training replay PPO promotion private holdout or actor input change",
-    "priority": 13590,
+    "notes": "Pending: run six public replay surfaces plus protected diagnostics and behavior seeds; no PPO promotion private holdout or actor input change",
+    "priority": 13600,
     "status": "pending",
-    "success_artifact": "docs/m1364-paper-route-bidirectional-broader-public-replay-design.md"
+    "success_artifact": "runs/m1365_bidirectional_broader_public_replay/summary.json"
   },
-  "updated_at_utc": "20260528T204330Z"
+  "updated_at_utc": "20260528T204950Z"
 }

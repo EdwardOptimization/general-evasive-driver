@@ -154,6 +154,35 @@
     "docs/m1363-paper-route-bidirectional-interpolation-result-audit.md",
     "runs/m1362_bidirectional_active_set_interpolation_preflight/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1364-paper-route-bidirectional-broader-public-replay-design.md",
+    "decision": "bidirectional_broader_public_replay_design_admit_implementation",
+    "failure_type": "none",
+    "candidate_checkpoint": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "wrapper": "autodrift.public_base_controlled_fusion_candidate_replay_gate",
+    "public_replay_surfaces": [
+      "M183/M168",
+      "M183/M170",
+      "M193/M189",
+      "M212/M204",
+      "M223/M219",
+      "M267/M264"
+    ],
+    "behavior_seeds": [
+      9505,
+      9506
+    ],
+    "training_started": false,
+    "actor_update_used": false,
+    "replay_run_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "next_manifest": "experiments/manifests/m1365-paper-route-bidirectional-broader-public-replay.json"
+  },
   "decision_rule": "M1364 passes as a design milestone only if it specifies broader public replay escalation while keeping training, replay, PPO, private holdout, promotion, and actor-input changes blocked.",
-  "next_blocker": "m1364-paper-route-bidirectional-broader-public-replay-design"
+  "next_blocker": "m1365-paper-route-bidirectional-broader-public-replay"
 }
