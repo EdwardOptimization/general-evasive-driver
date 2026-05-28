@@ -231,7 +231,7 @@ def evaluate_action_separability(
             or (best_b_viable and not _success(b_using_a) and np.isfinite(cross_regret_b))
         )
     )
-    accepted = bool(symmetric_margin_accept or asymmetric_success_drop)
+    accepted = bool(symmetric_margin_accept)
     if action_l2 < float(min_best_action_l2):
         rejection_reason = "best_actions_too_close"
     elif not (best_a_viable and best_b_viable):
@@ -1312,6 +1312,7 @@ def run_capability_separable_source_constructor(
         if min(_finite_float(row.get("cross_regret_A")), _finite_float(row.get("cross_regret_B")))
         < float(min_cross_regret_margin)
     )
+    asymmetric_success_drop_pairs = sum(1 for row in pair_rows if bool(row.get("asymmetric_success_drop", False)))
     unique_family_pairs = {str(row.get("fault_family_pair", "")) for row in pair_rows}
     matched_seeds = {int(row.get("seed", -1)) for row in pair_rows}
     near_boundary_viability_pairs = sum(1 for row in pair_rows if bool(row.get("near_boundary_viability", False)))
@@ -1399,6 +1400,7 @@ def run_capability_separable_source_constructor(
         "relocated_matched_pairs": int(len(pair_rows)) if source_window_mode == "viability_band_relocation" else 0,
         "near_boundary_viability_pairs": int(near_boundary_viability_pairs),
         "best_actions_diverged_pairs": int(best_actions_diverged_pairs),
+        "asymmetric_success_drop_pairs": int(asymmetric_success_drop_pairs),
         "low_regret_pairs": int(low_regret_pairs),
         "unique_matched_fault_family_pairs": int(len(unique_family_pairs)),
         "unique_matched_seeds": int(len(matched_seeds)),

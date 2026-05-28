@@ -49,6 +49,25 @@ def test_evaluate_action_separability_accepts_cross_regret():
     assert result["cross_regret_B"] > 0.05
 
 
+def test_evaluate_action_separability_rejects_asymmetric_nonviable_best_branch():
+    result = evaluate_action_separability(
+        pair_id=9,
+        candidate_rows=[
+            _row("A", 0, -0.4, 0.10, success=True),
+            _row("A", 1, 0.4, -0.10, success=False),
+            _row("B", 0, -0.4, -0.10, success=False),
+            _row("B", 1, 0.4, -0.02, success=False),
+        ],
+        min_best_action_l2=0.25,
+        min_cross_regret_margin=0.05,
+    )
+
+    assert not result["accepted"]
+    assert result["asymmetric_success_drop"]
+    assert not result["symmetric_margin_accept"]
+    assert result["rejection_reason"] == "best_candidate_not_viable"
+
+
 def test_evaluate_action_separability_rejects_low_regret():
     result = evaluate_action_separability(
         pair_id=8,
