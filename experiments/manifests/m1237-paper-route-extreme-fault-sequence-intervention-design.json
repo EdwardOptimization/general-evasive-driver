@@ -151,6 +151,20 @@
     "runs/m1236_extreme_fault_timing_repair_smoke/rejected_rows.csv",
     "docs/m1236-paper-route-extreme-fault-timing-repair-smoke.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1237-paper-route-extreme-fault-sequence-intervention-design.md",
+    "decision": "extreme_fault_sequence_intervention_design_admit_probe",
+    "selected_next_manifest": "experiments/manifests/m1238-paper-route-extreme-fault-sequence-intervention-probe.json",
+    "source_rows": "runs/m1236_extreme_fault_timing_repair_smoke/rejected_rows.csv",
+    "intended_source_subset": "rejection_reason == history_insensitive_too_mild",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false
+  },
+  "decision": "extreme_fault_sequence_intervention_design_admit_probe",
   "decision_rule": "M1237 passes if it defines a bounded sequence-level intervention route over M1236 normal-surviving rows with actor-input guardrails and explicit result taxonomy.",
-  "next_blocker": "m1237-paper-route-extreme-fault-sequence-intervention-design"
+  "next_blocker": "m1238-paper-route-extreme-fault-sequence-intervention-probe"
 }

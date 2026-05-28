@@ -17792,3 +17792,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1237-paper-route-extreme-fault-sequence-intervention-design.json`.
 - decision: `extreme_fault_timing_repair_pass_route_to_sequence_intervention_design`
 - next: `m1237-paper-route-extreme-fault-sequence-intervention-design`
+
+## 20260528T084820Z - m1237-paper-route-extreme-fault-sequence-intervention-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1237-paper-route-extreme-fault-sequence-intervention-design.md`
+- result: designs a bounded no-training sequence-level intervention probe over M1236 normal-surviving history-insensitive rows.
+- source: `runs/m1236_extreme_fault_timing_repair_smoke/rejected_rows.csv`, with intended subset `rejection_reason == history_insensitive_too_mild`.
+- rationale: M1236 fixed normal survival but single cross-fault hidden-state swaps remained behaviorally too compatible, so the next causal test should perturb recent command-response windows.
+- variants: delayed capability history, reset-then-warm history, zero-command history window, cross-fault response window, wrong commands with preferred response, and wrong response with preferred commands.
+- M1238 command: use `src/autodrift/capability_step_sequence_intervention_probe.py` with history lengths `4,8,12`, 18-step continuation, max `384` source rows, and per-fault-pair cap `48`.
+- interpretation rule: separate cross-fault positives, temporal positives, action-only rows, no-signal rows, and normal-failed rows before any objective or training step.
+- guardrail: no training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1238-paper-route-extreme-fault-sequence-intervention-probe.json`.
+- decision: `extreme_fault_sequence_intervention_design_admit_probe`
+- next: `m1238-paper-route-extreme-fault-sequence-intervention-probe`

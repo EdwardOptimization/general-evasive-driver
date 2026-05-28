@@ -1,0 +1,168 @@
+{
+  "id": "m1238-paper-route-extreme-fault-sequence-intervention-probe",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1236_extreme_fault_timing_repair_smoke/rejected_rows.csv",
+      "docs/m1237-paper-route-extreme-fault-sequence-intervention-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1237-paper-route-extreme-fault-sequence-intervention-design.json",
+      "configs/m1236_extreme_fault_timing_repair_smoke.json"
+    ],
+    "parent_objective": [
+      "run no-training sequence-level command-response interventions over M1236 normal-surviving rows"
+    ],
+    "derived_from": [
+      "m1237-paper-route-extreme-fault-sequence-intervention-design"
+    ],
+    "blocked_by": [
+      "M1236 single hidden-state swaps are history-insensitive"
+    ],
+    "supersedes": [
+      "continuing single hidden-swap tuning on M1236"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1238-paper-route-extreme-fault-sequence-intervention-probe.md",
+  "public_gates": [
+    "M1238 must preserve actor input contract",
+    "M1238 must not train controllers",
+    "M1238 must not run PPO",
+    "M1238 must not use private holdout",
+    "M1238 must not promote",
+    "M1238 must report normal, cross-fault, temporal, reset/warm, zero-command, action-only, and normal-failed outcomes separately",
+    "M1238 must not claim self-identification without a separate audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden fault labels or hidden parameters to actor inputs",
+    "do not count temporal-only positives as cross-fault positives",
+    "do not count action-only rows as outcome evidence",
+    "do not claim true per-wheel or asymmetric fault physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_extreme_fault_source_generation",
+    "evidence_axis": "S_extreme_fault_sequence_intervention_probe",
+    "evidence_increment": "runs a bounded no-training sequence-level command-response intervention probe after normal-survival repair",
+    "claim_scope": "no-training probe only; no promotion, PPO, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if trace reconstruction fails",
+      "stop if normal-failed rows dominate",
+      "stop if no sequence signal appears and the branch needs synthesis",
+      "stop if positive rows are source-collapsed and require audit"
+    ],
+    "fallback_plan": [
+      "if normal-failed dominates, return to timing repair",
+      "if no signal appears, synthesize or redesign source construction",
+      "if temporal-only signal appears, audit before corpus export",
+      "if cross-fault signal appears, audit source diversity before objective work"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1237 admits the sequence intervention probe",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "no-training sequence intervention probe",
+    "admission_evidence": [
+      "M1236 normal survival is repaired",
+      "M1236 single hidden swaps are history-insensitive",
+      "M1237 selects sequence-level command-response intervention"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1238 run artifacts",
+      "M1238 result docs",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "sequence intervention artifacts exist",
+      "result class is recorded",
+      "positive or negative signal is routed to audit or synthesis"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1238 tests sequence history interventions but still requires audit before any stronger self-ID claim.",
+    "history_necessity_tests": [
+      "delayed capability history",
+      "cross-fault response window",
+      "wrong commands with preferred response",
+      "wrong response with preferred commands",
+      "zero command history window",
+      "reset then warm history"
+    ],
+    "temporal_evidence_window": "Sequence evidence is still public diagnostic evidence until source-diversity and outcome audits pass.",
+    "negative_result_policy": "If sequence interventions are null or action-only, record the negative and do not train.",
+    "allowed_claims": [
+      "sequence intervention diagnostic result",
+      "no strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Sequence-level command-response interventions over M1236 normal-surviving rows will expose stronger temporal-history dependence than single hidden-state swaps.",
+  "success_criteria": [
+    "runs/m1238_extreme_fault_sequence_intervention_probe/summary.json exists",
+    "selected_source_rows > 0",
+    "intervention_rows > 0",
+    "variant_count >= 6",
+    "normal_failed_rows < intervention_rows",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "private holdout remains unused",
+    "no actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "trace reconstruction fails for all rows",
+    "normal-failed rows dominate all interventions",
+    "actor parameters change",
+    "hidden fault/event labels enter actor observations",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_step_sequence_intervention_probe --checkpoint runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --config configs/m1236_extreme_fault_timing_repair_smoke.json --source-rows runs/m1236_extreme_fault_timing_repair_smoke/rejected_rows.csv --max-source-rows 384 --per-fault-pair-cap 48 --history-lengths 4,8,12 --max-continuation-steps 18 --min-margin-gap 0.012 --min-sequence-action-l2 0.025 --device auto --run-dir runs/m1238_extreme_fault_sequence_intervention_probe"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1238_extreme_fault_sequence_intervention_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1238-paper-route-extreme-fault-sequence-intervention-probe.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1236_extreme_fault_timing_repair_smoke/summary.json",
+    "runs/m1236_extreme_fault_timing_repair_smoke/rejected_rows.csv",
+    "docs/m1237-paper-route-extreme-fault-sequence-intervention-design.md"
+  ],
+  "decision_rule": "M1238 passes as a no-training probe if it produces sequence intervention artifacts and a classified result without actor mutation, training, PPO, promotion, private holdout, or actor-input expansion. Any positive result still requires audit.",
+  "next_blocker": "m1238-paper-route-extreme-fault-sequence-intervention-probe"
+}

@@ -115,7 +115,35 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1237-paper-route-extreme-fault-sequence-intervention-design
+m1238-paper-route-extreme-fault-sequence-intervention-probe
+```
+
+M1237 completed extreme/fault sequence intervention design:
+
+```text
+artifact: docs/m1237-paper-route-extreme-fault-sequence-intervention-design.md
+decision: extreme_fault_sequence_intervention_design_admit_probe
+source: runs/m1236_extreme_fault_timing_repair_smoke/rejected_rows.csv
+intended subset: rejection_reason == history_insensitive_too_mild
+```
+
+M1237 conclusion:
+
+```text
+M1236 fixed normal survival but single hidden-state swaps remain too compatible.
+The next causal test should perturb recent command-response windows using the
+existing sequence intervention probe.
+```
+
+Next task:
+
+```text
+artifact: runs/m1238_extreme_fault_sequence_intervention_probe/summary.json
+manifest: experiments/manifests/m1238-paper-route-extreme-fault-sequence-intervention-probe.json
+goal: run no-training delayed/cross-fault/command-response mismatch sequence
+      interventions over M1236 normal-surviving rows
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims before audit
 ```
 
 M1236 completed extreme/fault timing repair smoke:
