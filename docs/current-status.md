@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1339-paper-route-materialized-source-history-objective-evaluator-implementation
+m1340-paper-route-materialized-source-history-objective-evaluator-result-audit
 ```
 
 Current next task:
 
 ```text
-m1340-paper-route-materialized-source-history-objective-evaluator-result-audit
+m1341-paper-route-materialized-source-history-pair-group-objective-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -355,7 +355,15 @@ rows used, and unchanged checkpoint sha256. The exact residual is finite
 `both_directional_fraction=0.0` and `both_distance_directional_fraction=0.0`.
 The active blocker is M1340: audit this finite but zero-both-directional result
 before objective-only update design. Objective updates, PPO, and promotion
-remain blocked.
+remain blocked. M1340 completed the audit and classifies the result as a
+two-condition directional conflict, not an evaluator failure. The sign quadrants
+are balanced: `684` rows are correct-negative/wrong-positive, `684` rows are
+correct-positive/wrong-negative, `8` rows are both negative, and `0` rows are
+both positive. Grouping by `source_identity + probe_template` yields `688`
+two-row groups: `684` groups solve one condition while missing the other, and
+`4` groups solve neither. The active blocker is M1341: design a pair/group
+objective that treats each two-condition group as the unit of work before any
+actor update. Objective updates, PPO, and promotion remain blocked.
 
 ## Actor Contract
 

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1349,
+    "completed": 1350,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1339-paper-route-materialized-source-history-objective-evaluator-implementation.md",
+    "command_log": "docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1339_materialized_source_history_objective_evaluator",
+    "run_dir": "docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md",
     "status": "completed",
-    "task_id": "m1339-paper-route-materialized-source-history-objective-evaluator-implementation"
+    "task_id": "m1340-paper-route-materialized-source-history-objective-evaluator-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.json",
-    "hypothesis": "Audit finite but weak M1339 source-history objective evaluator result",
-    "id": "m1340-paper-route-materialized-source-history-objective-evaluator-result-audit",
+    "command": "see experiments/manifests/m1341-paper-route-materialized-source-history-pair-group-objective-design.json",
+    "hypothesis": "Design group-level objective for materialized source-history two-condition conflict",
+    "id": "m1341-paper-route-materialized-source-history-pair-group-objective-design",
     "kind": "gate",
-    "notes": "Pending: no-training audit only; no PPO, promotion, or objective update",
-    "priority": 13350,
+    "notes": "Pending: design only; no training, PPO, promotion, or objective update",
+    "priority": 13360,
     "status": "pending",
-    "success_artifact": "docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md"
+    "success_artifact": "docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md"
   },
-  "updated_at_utc": "20260528T184610Z"
+  "updated_at_utc": "20260528T185131Z"
 }

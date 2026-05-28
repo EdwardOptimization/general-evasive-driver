@@ -19606,3 +19606,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.json`.
 - next: `m1340-paper-route-materialized-source-history-objective-evaluator-result-audit`
+
+## 20260528T185131Z - m1340-paper-route-materialized-source-history-objective-evaluator-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md`
+- decision: `materialized_source_history_objective_evaluator_audit_directional_conflict_route_to_pair_group_design`
+- failure taxonomy: `objective_overfit`
+- diagnosis: `materialized_source_history_two_condition_directional_conflict`
+- structural gate: M1339 is valid with `1376` finite rows, `1376` projection-valid rows, `1376` valid wrong-history rows, `0` quarantine rows used, finite exact objective, and no checkpoint mutation.
+- log-prob quadrants: `684` correct-negative/wrong-positive, `684` correct-positive/wrong-negative, `8` both-negative, and `0` both-positive.
+- distance quadrants: the same `684/684/8/0` split appears in action-distance diagnostics.
+- condition audit: condition A has `478` c-/w+ and `206` c+/w- rows; condition B flips to `478` c+/w- and `206` c-/w+ rows.
+- probe audit: left and right brake probes are symmetric, each with `342` c-/w+, `342` c+/w-, and `4` both-negative rows.
+- family audit: every active family is split across one-sided quadrants; steering actuator contributes the `8` both-negative rows.
+- group audit: `684/688` source-identity/probe groups have one row on each one-sided quadrant; `4/688` groups are both-negative; `0/688` groups are both-positive.
+- route: do not run rowwise scalar objective update; design a pair/group objective that protects both condition rows inside each group.
+- guardrail: no training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1341-paper-route-materialized-source-history-pair-group-objective-design.json`.
+- next: `m1341-paper-route-materialized-source-history-pair-group-objective-design`

@@ -155,6 +155,37 @@
     "docs/m1339-paper-route-materialized-source-history-objective-evaluator-implementation.md",
     "runs/m1339_materialized_source_history_objective_evaluator/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md",
+    "decision": "materialized_source_history_objective_evaluator_audit_directional_conflict_route_to_pair_group_design",
+    "failure_type": "objective_overfit",
+    "diagnosis": "materialized_source_history_two_condition_directional_conflict",
+    "row_count": 1376,
+    "finite_row_count": 1376,
+    "both_directional_fraction": 0.0,
+    "both_distance_directional_fraction": 0.0,
+    "correct_preference_positive_fraction": 0.4970930233,
+    "wrong_history_preference_positive_fraction": 0.4970930233,
+    "history_action_l2_mean": 0.0635018957,
+    "logprob_quadrant_correct_negative_wrong_positive": 684,
+    "logprob_quadrant_correct_positive_wrong_negative": 684,
+    "logprob_quadrant_both_negative": 8,
+    "logprob_quadrant_both_positive": 0,
+    "pair_probe_groups": 688,
+    "one_sided_pair_probe_groups": 684,
+    "both_negative_pair_probe_groups": 4,
+    "both_positive_pair_probe_groups": 0,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_update_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1341-paper-route-materialized-source-history-pair-group-objective-design.json"
+  },
   "decision_rule": "M1340 passes as a process audit if it classifies the finite but weak M1339 result and selects one safe next route before any objective update, PPO, private holdout, promotion, or actor-input expansion.",
-  "next_blocker": "m1340-paper-route-materialized-source-history-objective-evaluator-result-audit"
+  "next_blocker": "m1341-paper-route-materialized-source-history-pair-group-objective-design"
 }

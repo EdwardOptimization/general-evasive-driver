@@ -1,0 +1,158 @@
+{
+  "id": "m1341-paper-route-materialized-source-history-pair-group-objective-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md",
+      "runs/m1339_materialized_source_history_objective_evaluator/materialized_source_history_objective_rows.csv",
+      "runs/m1339_materialized_source_history_objective_evaluator/family_summary.csv",
+      "runs/m1339_materialized_source_history_objective_evaluator/fold_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.json"
+    ],
+    "parent_objective": [
+      "design pair/group objective after M1340 classifies two-condition directional conflict"
+    ],
+    "derived_from": [
+      "m1340-paper-route-materialized-source-history-objective-evaluator-result-audit"
+    ],
+    "blocked_by": [
+      "M1340 shows rowwise M1339 exact objective has balanced one-sided two-condition conflict"
+    ],
+    "supersedes": [
+      "direct rowwise source-history objective update from M1339"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1341-paper-route-materialized-source-history-pair-group-objective-design.md",
+  "public_gates": [
+    "M1341 must not train",
+    "M1341 must not run PPO",
+    "M1341 must not update actor weights",
+    "M1341 must not use private holdout",
+    "M1341 must not promote",
+    "M1341 must preserve actor input contract",
+    "M1341 must design group-level objective semantics",
+    "M1341 must preserve both condition rows inside each group"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor weights",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use pair-specific tuning to hide conflict",
+    "do not claim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_objective_corpus",
+    "evidence_axis": "S_materialized_source_history_pair_group_objective_design",
+    "evidence_increment": "designs a group-level objective for the M1340 two-condition directional conflict",
+    "claim_scope": "process design only; no promotion, private-holdout, PPO, actor-update, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if design optimizes one condition row independently of its paired row",
+      "stop if design uses pair-specific overfit weights",
+      "stop if design routes directly to PPO",
+      "stop if actor inputs change"
+    ],
+    "fallback_plan": [
+      "if pair-group objective is well specified, route to no-update exact evaluator for group metrics",
+      "if group semantics are ambiguous, route to group-corpus audit",
+      "if source-current projection is the blocker, route to evaluator projection repair",
+      "if objective is not actionable, synthesize branch before update work"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1340 routes finite rowwise conflict to group-level objective design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "materialized source-history pair-group objective design",
+    "admission_evidence": [
+      "M1340 pair_probe_groups=688",
+      "M1340 one_sided_pair_probe_groups=684",
+      "M1340 both_positive_pair_probe_groups=0",
+      "PPO and actor update remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not update checkpoint weights",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1341 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "group keys are specified",
+      "group-min or lexicographic objective terms are specified",
+      "condition-balance and anti-overfit guards are specified",
+      "next implementation or audit route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1341 designs objectives over zero-context source-current diagnostics and cannot claim closed-loop history necessity.",
+    "history_necessity_tests": [
+      "design group-level correct-history versus wrong-history residuals that require both condition rows to improve"
+    ],
+    "temporal_evidence_window": "M1336/M1339 active materialized history corpus.",
+    "negative_result_policy": "If group-level objectives are underdetermined, route to source-current projection or corpus repair before actor update.",
+    "allowed_claims": [
+      "materialized source-history pair-group objective design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1340 two-condition conflict can be addressed by designing a group-level objective that treats source_identity/probe_template pairs as the unit of work before any actor update.",
+  "success_criteria": [
+    "docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md exists",
+    "design specifies group keys and expected group counts",
+    "design specifies group-min or lexicographic directional terms",
+    "design specifies anti-overfit guards against solving one condition only",
+    "design specifies exact no-update group evaluator or bounded implementation route",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "group semantics are ambiguous",
+    "design ignores the two-condition conflict",
+    "design routes directly to PPO or actor update",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md",
+    "runs/m1339_materialized_source_history_objective_evaluator/summary.json"
+  ],
+  "decision_rule": "M1341 passes as a design milestone if it specifies group-level objective semantics and anti-overfit guards for the two-condition directional conflict without training, PPO, private holdout, promotion, or actor-input expansion.",
+  "next_blocker": "m1341-paper-route-materialized-source-history-pair-group-objective-design"
+}
