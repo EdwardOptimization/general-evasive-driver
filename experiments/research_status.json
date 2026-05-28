@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1323,
+    "completed": 1324,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1313-paper-route-source-history-robust-minfold-result-audit.md",
+    "command_log": "docs/m1314-paper-route-source-history-corpus-expansion-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1313-paper-route-source-history-robust-minfold-result-audit.md",
+    "run_dir": "docs/m1314-paper-route-source-history-corpus-expansion-design.md",
     "status": "completed",
-    "task_id": "m1313-paper-route-source-history-robust-minfold-result-audit"
+    "task_id": "m1314-paper-route-source-history-corpus-expansion-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1314-paper-route-source-history-corpus-expansion-design.json",
-    "hypothesis": "Design expanded source-history corpus after M1313 identified pass-surface swapping on current corpus",
-    "id": "m1314-paper-route-source-history-corpus-expansion-design",
-    "kind": "gate",
-    "notes": "Pending: corpus expansion design; PPO and promotion remain blocked",
-    "priority": 13090,
+    "command": "see experiments/manifests/m1315-paper-route-source-history-corpus-expansion-plan.json",
+    "hypothesis": "Build deterministic no-policy source-history expansion plan and report coverage gaps",
+    "id": "m1315-paper-route-source-history-corpus-expansion-plan",
+    "kind": "infrastructure",
+    "notes": "Pending: no-policy expansion plan builder; PPO and promotion remain blocked",
+    "priority": 13100,
     "status": "pending",
-    "success_artifact": "docs/m1314-paper-route-source-history-corpus-expansion-design.md"
+    "success_artifact": "runs/m1315_source_history_corpus_expansion_plan/summary.json"
   },
-  "updated_at_utc": "20260528T162132Z"
+  "updated_at_utc": "20260528T162356Z"
 }

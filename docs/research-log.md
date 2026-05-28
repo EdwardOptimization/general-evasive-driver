@@ -19106,3 +19106,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1314-paper-route-source-history-corpus-expansion-design.json`.
 - next: `m1314-paper-route-source-history-corpus-expansion-design`
+
+## 20260528T162356Z - m1314-paper-route-source-history-corpus-expansion-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1314-paper-route-source-history-corpus-expansion-design.md`
+- decision: `source_history_corpus_expansion_design_admit_plan_builder`
+- design goal: expand the source-history substrate before more policy-side objective tuning.
+- target plan: `planned_source_pairs>=240`, `planned_pair_probe_groups>=480`, `source_fault_family_count>=6`, `corner_or_side_variant_count>=16`, pair-disjoint folds, and max source-family fold share `<=0.40`.
+- source families: single-wheel grip collapse, tire blowout-like events, brake asymmetry, drive torque loss, split-mu road, steering actuator faults, global friction steps, and load/CG perturbations.
+- guardrail: unsupported source families must be reported as coverage gaps, not fabricated.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1315-paper-route-source-history-corpus-expansion-plan.json`.
+- next: `m1315-paper-route-source-history-corpus-expansion-plan`

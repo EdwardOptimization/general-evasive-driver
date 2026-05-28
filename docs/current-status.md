@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1313-paper-route-source-history-robust-minfold-result-audit
+m1314-paper-route-source-history-corpus-expansion-design
 ```
 
 Current next task:
 
 ```text
-m1314-paper-route-source-history-corpus-expansion-design
+m1315-paper-route-source-history-corpus-expansion-plan
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -194,7 +194,13 @@ implementation. M1313 completed that audit and pivots to a new
 that the 38-pair / 76-group fixed source-history corpus is too narrow; objective
 tuning is now swapping pass surfaces on public folds. The active blocker is
 M1314: design an expanded source-history corpus before further objective tuning.
-PPO and promotion remain blocked.
+M1314 completed that design and set first expansion targets:
+`planned_source_pairs>=240`, `planned_pair_probe_groups>=480`,
+`source_fault_family_count>=6`, pair-disjoint folds, and max source-family fold
+share `<=0.40`, with unsupported families reported rather than fabricated. The
+active blocker is M1315: build a deterministic no-policy expansion plan from
+existing source artifacts and report coverage gaps. PPO and promotion remain
+blocked.
 
 ## Actor Contract
 

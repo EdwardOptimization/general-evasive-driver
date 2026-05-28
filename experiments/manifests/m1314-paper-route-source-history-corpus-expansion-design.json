@@ -155,6 +155,26 @@
     "runs/m1312_source_history_robust_minfold_probe/summary.json",
     "runs/m1312_source_history_robust_minfold_tradeoff_audit/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1314-paper-route-source-history-corpus-expansion-design.md",
+    "decision": "source_history_corpus_expansion_design_admit_plan_builder",
+    "planned_source_pairs_target": 240,
+    "planned_pair_probe_groups_target": 480,
+    "source_fault_family_count_target": 6,
+    "pair_disjoint_required": true,
+    "max_source_family_fold_share_target": 0.4,
+    "pair_specific_weight_used": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1315-paper-route-source-history-corpus-expansion-plan.json"
+  },
+  "decision": "source_history_corpus_expansion_design_admit_plan_builder",
   "decision_rule": "M1314 passes if it defines an expanded source-history corpus plan without training, PPO, promotion, private holdout use, threshold relaxation, privileged actor inputs, or actor-input expansion.",
-  "next_blocker": "m1314-paper-route-source-history-corpus-expansion-design"
+  "next_blocker": "m1315-paper-route-source-history-corpus-expansion-plan"
 }

@@ -1,0 +1,164 @@
+{
+  "id": "m1315-paper-route-source-history-corpus-expansion-plan",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1314-paper-route-source-history-corpus-expansion-design.md",
+      "runs/m1273_four_wheel_source_corpus_export/summary.json",
+      "runs/m1280_four_wheel_source_response_history_materialization/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1314-paper-route-source-history-corpus-expansion-design.json"
+    ],
+    "parent_objective": [
+      "build no-policy source-history corpus expansion plan"
+    ],
+    "derived_from": [
+      "m1314-paper-route-source-history-corpus-expansion-design"
+    ],
+    "blocked_by": [
+      "M1314 admits no-policy expansion plan builder"
+    ],
+    "supersedes": [
+      "further objective tuning on the current 38-pair source-history corpus"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1315-paper-route-source-history-corpus-expansion-plan.md",
+  "public_gates": [
+    "M1315 must not train",
+    "M1315 must not run PPO",
+    "M1315 must not use private holdout",
+    "M1315 must not promote",
+    "M1315 must preserve actor input contract",
+    "M1315 must output a deterministic expansion plan",
+    "M1315 must report coverage gaps instead of fabricating unsupported families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not fabricate unsupported source families",
+    "do not use pair-specific weights",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_corpus_expansion",
+    "evidence_axis": "S_source_history_corpus_expansion_plan",
+    "evidence_increment": "implements the first no-policy plan for expanded source-history corpus coverage",
+    "claim_scope": "planning infrastructure only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if plan builder cannot find enough source families",
+      "stop if pair-disjoint folds cannot be built",
+      "stop if the plan requires actor input expansion",
+      "stop if plan uses pair-specific weights"
+    ],
+    "fallback_plan": [
+      "if plan is admissible, route to no-policy materialization design",
+      "if source coverage is insufficient, route to source-generator update design",
+      "if fold balance fails, route to fold-balancing redesign"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "first implementation in source-history corpus expansion branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source-history corpus expansion plan",
+    "admission_evidence": [
+      "M1314 defines expansion axes and acceptance criteria",
+      "M1313 identifies scenario_sampling_failure as primary blocker",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "plan builder implementation",
+      "focused tests",
+      "M1315 run artifacts",
+      "M1315 result doc",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "coverage and gaps are reported",
+      "fold discipline is reported",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1315 is a corpus plan and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "plan richer matched command-response history pairs for later diagnostics"
+    ],
+    "temporal_evidence_window": "M1273 and M1280 source-history substrate plus M1314 expansion design.",
+    "negative_result_policy": "If coverage is insufficient, route to source-generator update design rather than policy training.",
+    "allowed_claims": [
+      "source-history corpus expansion plan",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The existing source artifacts can support a deterministic expanded source-history corpus plan with materially broader fault-family and fold coverage before another objective run.",
+  "success_criteria": [
+    "runs/m1315_source_history_corpus_expansion_plan/summary.json exists",
+    "focused tests pass",
+    "planned_source_pairs >= 240 or unsupported coverage gaps are explicitly reported",
+    "planned_pair_probe_groups >= 480 or unsupported coverage gaps are explicitly reported",
+    "source_fault_family_count >= 6 or unsupported coverage gaps are explicitly reported",
+    "pair_disjoint is true",
+    "all_folds_nonempty is true",
+    "pair_specific_weight_used is false",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "focused tests fail",
+    "coverage gaps are hidden",
+    "pair-disjoint folds are violated",
+    "pair-specific weights are used",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "run_plan_builder",
+      "command": "PYTHONPATH=src python -m autodrift.source_history_corpus_expansion_plan --source-corpus-run-dir runs/m1273_four_wheel_source_corpus_export --history-run-dir runs/m1280_four_wheel_source_response_history_materialization --run-dir runs/m1315_source_history_corpus_expansion_plan --target-source-pairs 240 --fold-count 5"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1315_source_history_corpus_expansion_plan/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1315-paper-route-source-history-corpus-expansion-plan.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1314-paper-route-source-history-corpus-expansion-design.md",
+    "runs/m1273_four_wheel_source_corpus_export/summary.json",
+    "runs/m1280_four_wheel_source_response_history_materialization/summary.json"
+  ],
+  "decision_rule": "M1315 passes as planning infrastructure if it writes deterministic expansion plan artifacts without training, PPO, promotion, private holdout use, threshold relaxation, pair-specific weights, or actor-input expansion.",
+  "next_blocker": "m1315-paper-route-source-history-corpus-expansion-plan"
+}
