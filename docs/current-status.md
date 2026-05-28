@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1332-paper-route-source-topup-materialization-design
+m1333-paper-route-source-topup-materialization-implementation
 ```
 
 Current next task:
 
 ```text
-m1333-paper-route-source-topup-materialization-implementation
+m1334-paper-route-source-topup-materialization-result-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -302,7 +302,16 @@ M1327 rows to `runs/m1327_source_repair_topup_horizon_corrected_smoke` with
 Expected artifacts are `366` source-pair rows, `1464` history prefixes,
 `35136` frame rows, `1464` history-intervention rows, and `1464` wrong-history
 swap rows. Global friction remains missing and halfshaft remains under target.
-No policy training, PPO, promotion, or actor-input change is admitted.
+No policy training, PPO, promotion, or actor-input change is admitted. M1333
+implemented and ran that materializer. It passes structural gates:
+`366` source-pair rows, `1464` prefixes, `35136` frames, `1464`
+history-intervention rows, `1464` wrong-history rows, no scenario/fault/plan
+lookup misses, no source identity duplicates, and clean finite 12-column
+actor-view histories. The important diagnostic is that `88` prefixes have
+`response_l2=0.0`, and all `88` are halfshaft rows. This means the current
+brake/lift probes do not excite drive-side torque-loss differences. The active
+blocker is M1334: audit M1333 and synthesize the branch route before any
+source-history objective tuning, PPO, or promotion.
 
 ## Actor Contract
 

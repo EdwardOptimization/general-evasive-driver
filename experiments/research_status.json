@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1342,
+    "completed": 1343,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1332-paper-route-source-topup-materialization-design.md",
+    "command_log": "docs/m1333-paper-route-source-topup-materialization-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m1332-paper-route-source-topup-materialization-design.md",
+    "run_dir": "runs/m1333_source_topup_response_history_materialization",
     "status": "completed",
-    "task_id": "m1332-paper-route-source-topup-materialization-design"
+    "task_id": "m1333-paper-route-source-topup-materialization-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1333-paper-route-source-topup-materialization-implementation.json",
-    "hypothesis": "Implement no-policy source-history materialization for the admissible M1330/M1331 merged corpus",
-    "id": "m1333-paper-route-source-topup-materialization-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run materialization only; no training, PPO, or promotion",
-    "priority": 13280,
+    "command": "see experiments/manifests/m1334-paper-route-source-topup-materialization-result-audit.json",
+    "hypothesis": "Audit M1333 structural pass and halfshaft zero-response diagnostics before objective tuning",
+    "id": "m1334-paper-route-source-topup-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit and synthesize branch route; no training, PPO, or promotion",
+    "priority": 13290,
     "status": "pending",
-    "success_artifact": "runs/m1333_source_topup_response_history_materialization/summary.json"
+    "success_artifact": "docs/m1334-paper-route-source-topup-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260528T181019Z"
+  "updated_at_utc": "20260528T181944Z"
 }

@@ -19466,3 +19466,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, source-history materialization run, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1333-paper-route-source-topup-materialization-implementation.json`.
 - next: `m1333-paper-route-source-topup-materialization-implementation`
+
+## 20260528T181944Z - m1333-paper-route-source-topup-materialization-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1333_source_topup_response_history_materialization/summary.json`
+- doc: `docs/m1333-paper-route-source-topup-materialization-implementation.md`
+- implementation: added `source_topup_response_history_materialization.py` and focused tests.
+- focused tests: `1 passed`.
+- decision: `source_topup_response_history_materialization_pass_route_to_result_audit`
+- result class: `source_topup_response_history_materialization_pass`.
+- source pairs: `366`; pair-probe groups: `732`.
+- materialized rows: `1464` history prefixes, `35136` history frames, `1464` history-intervention rows, and `1464` wrong-history swap rows.
+- lookup and identity: scenario missing `0`, fault missing `0`, plan missing `0`, source identity duplicates `0`, wrong-history valid `1464`.
+- actor-view history: `12` canonical response columns, all finite, forbidden actor-view columns `[]`.
+- response diagnostics: `response_l2_mean=0.3003082731`, `response_l2_min=0.0`, `response_l2_ge_0_01_count=1376`, yaw diff count `1300`, vy diff count `1280`.
+- important diagnostic: all `88` zero response-l2 prefixes are `halfshaft_torque_loss`, because the current brake/lift probes do not excite drive-side torque-loss differences.
+- blockers retained: global friction missing and halfshaft under target.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1334-paper-route-source-topup-materialization-result-audit.json`.
+- next: `m1334-paper-route-source-topup-materialization-result-audit`
