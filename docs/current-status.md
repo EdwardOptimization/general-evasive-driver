@@ -115,7 +115,42 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1227-paper-route-terminal-boundary-relocation-smoke
+m1228-paper-route-terminal-boundary-negative-audit
+```
+
+M1227 completed bounded terminal-boundary relocation smoke:
+
+```text
+artifact: docs/m1227-paper-route-terminal-boundary-relocation-smoke.md
+run dir:  runs/m1227_terminal_boundary_relocation_smoke
+decision: terminal_boundary_relocation_smoke_negative_audit_required
+```
+
+M1227 result:
+
+```text
+source_budget_ready: true
+candidate_selection_ready: true
+relocation_replay_started: true
+raw relocation rows: 7200
+accepted_wrong_rows: 0
+normal_success rows: 0
+variant_success rows: 0
+normal_collision rows: 7200
+variant_collision rows: 7200
+normal_margin_positive rows: 0
+```
+
+M1227 is negative for materialized wrong-history outcome evidence. The current
+relocation grid overshot: every normal-history rollout collided, so positive
+margin gaps cannot be treated as proof.
+
+Next task:
+
+```text
+artifact: docs/m1228-paper-route-terminal-boundary-negative-audit.md
+goal: classify M1227 failure and select a narrower relocation/source/fallback route
+blocked: training, PPO, promotion, private holdout, accepted-row weakening
 ```
 
 M1226 completed terminal-boundary candidate export:
@@ -141,29 +176,27 @@ max_left_seed_share:                   0.3649635036
 max_target_share:                      0.6423357664
 ```
 
-Next branch:
+Current branch:
 
 ```text
 paper_route_terminal_boundary_materialization
 ```
 
-The next task is bounded relocation replay over source-diverse exported
-candidates, not training, promotion, or self-ID claim expansion:
+M1227 used source-diverse exported candidates, not training, promotion, or
+self-ID claim expansion:
 
 ```text
 checkpoint family: M1212 corrected L3 online GRU repeat
 env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
 checkpoint:        runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
 candidate csv:     runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv
-next run dir:      runs/m1227_terminal_boundary_relocation_smoke
-next artifact:     docs/m1227-paper-route-terminal-boundary-relocation-smoke.md
+latest run dir:    runs/m1227_terminal_boundary_relocation_smoke
+latest artifact:   docs/m1227-paper-route-terminal-boundary-relocation-smoke.md
 next branch:       paper_route_terminal_boundary_materialization
 ```
 
-M1227 should run `autodrift.source_balanced_boundary_relocation_surface` with a
-bounded candidate count and geometry grid. It may only support a bounded
-terminal-boundary materialization claim if accepted wrong-history rows have
-source-diverse margin or success degradation.
+M1228 should not expand the grid blindly. It should first audit why the normal
+branch collided for all M1227 relocation rows.
 
 M1226 guardrails:
 

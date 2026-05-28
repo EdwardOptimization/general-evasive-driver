@@ -335,13 +335,15 @@ def select_source_balanced_candidates(
     rejected = pd.DataFrame(rejected_rows)
     selected_count = int(len(selected))
     max_rows_per_pair = int(selected["physical_pair_key"].value_counts().max()) if selected_count else 0
+    selected_left_steps = int(selected["left_step"].nunique()) if selected_count else 0
+    selected_targets = int(selected["target"].astype(str).nunique()) if selected_count and "target" in selected else 0
     summary = {
         "candidate_rows": int(len(candidates)),
         "selected_rows": selected_count,
         "rejected_rows": int(len(rejected)),
         "selected_physical_pairs": int(selected["physical_pair_key"].nunique()) if selected_count else 0,
-        "selected_left_steps": int(selected["left_step"].nunique()) if selected_count else 0,
-        "selected_targets": int(selected["target"].astype(str).nunique()) if selected_count and "target" in selected else 0,
+        "selected_left_steps": selected_left_steps,
+        "selected_targets": selected_targets,
         "max_selected_rows_per_physical_pair": max_rows_per_pair,
         "max_selected_pair_fraction": float(max_rows_per_pair / max(selected_count, 1)) if selected_count else 0.0,
         "target_min_physical_pairs": int(quotas.target_min_physical_pairs),
@@ -350,6 +352,8 @@ def select_source_balanced_candidates(
         "decision": "source_balanced_candidates_ready"
         if selected_count
         and int(selected["physical_pair_key"].nunique()) >= int(quotas.target_min_physical_pairs)
+        and selected_left_steps >= int(quotas.target_min_left_steps)
+        and selected_targets >= int(quotas.target_min_targets)
         and float(max_rows_per_pair / max(selected_count, 1)) <= float(quotas.max_rows_per_pair_fraction)
         else "source_balanced_candidates_source_limited",
     }

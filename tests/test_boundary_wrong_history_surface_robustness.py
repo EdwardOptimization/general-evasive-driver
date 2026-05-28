@@ -4,6 +4,7 @@ import pandas as pd
 
 from autodrift.boundary_wrong_history_surface_robustness import (
     accepted_wrong_history_rows,
+    add_robustness_keys,
     build_gate_rows,
     decision_from_gates,
     run_boundary_wrong_history_surface_robustness,
@@ -51,6 +52,16 @@ def test_accepted_wrong_history_rows_filters_variant_and_acceptance():
     assert len(accepted) == 1
     assert accepted.iloc[0]["physical_pair_key"] == "1:10:2:20"
     assert accepted.iloc[0]["normal_margin_bucket"] == "0.000-0.010"
+
+
+def test_add_robustness_keys_handles_empty_typed_frame():
+    frame = pd.DataFrame(columns=["normal_margin", "left_seed", "left_step", "right_seed", "right_step"])
+
+    keyed = add_robustness_keys(frame, margin_bucket_width=0.01)
+
+    assert keyed.empty
+    assert "physical_pair_key" in keyed.columns
+    assert "normal_margin_bucket" in keyed.columns
 
 
 def test_summary_exposes_duplicate_dominated_surface():

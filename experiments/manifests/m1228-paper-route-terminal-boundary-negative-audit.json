@@ -1,0 +1,153 @@
+{
+  "id": "m1228-paper-route-terminal-boundary-negative-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1227_terminal_boundary_relocation_smoke/summary.json",
+      "runs/m1227_terminal_boundary_relocation_smoke/boundary_relocation_rows.csv",
+      "docs/m1227-paper-route-terminal-boundary-relocation-smoke.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1227-paper-route-terminal-boundary-relocation-smoke.json",
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json"
+    ],
+    "parent_objective": [
+      "audit why bounded terminal-boundary relocation produced zero accepted wrong-history rows"
+    ],
+    "derived_from": [
+      "m1227-paper-route-terminal-boundary-relocation-smoke"
+    ],
+    "blocked_by": [
+      "M1227 relocation grid produced all-collision normal and wrong-history rows"
+    ],
+    "supersedes": [
+      "immediately expanding relocation replay after zero accepted rows"
+    ],
+    "invalidates": [
+      "treating M1227 positive margin gaps from all-collision rows as proof"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1228-paper-route-terminal-boundary-negative-audit.md",
+  "public_gates": [
+    "M1228 must audit M1227 before another relocation run",
+    "M1228 must preserve actor input contract",
+    "M1228 must not train controllers",
+    "M1228 must not run PPO",
+    "M1228 must not use private holdout",
+    "M1228 must not promote",
+    "M1228 must classify the negative result and select a concrete next route",
+    "M1228 must not claim self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden or oracle actor inputs",
+    "do not weaken accepted-row criteria",
+    "do not treat all-collision margin gaps as proof",
+    "do not expand the grid without diagnosing normal-branch collision"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_terminal_boundary_materialization",
+    "evidence_axis": "T_terminal_boundary_negative_audit",
+    "evidence_increment": "classifies the first relocation smoke failure and selects whether to narrow the grid, change candidate selection, move to fault/extreme sources, or close the branch",
+    "claim_scope": "process/negative-audit only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if the negative result is explained by normal-branch collision",
+      "stop if next relocation would merely expand the same failing grid",
+      "stop if no concrete next route is selected"
+    ],
+    "fallback_plan": [
+      "route to narrower grid if normal branch can be kept successful",
+      "route to source/fault distribution if source candidates cannot materialize near-boundary rows",
+      "close terminal-boundary materialization if repeated audits show no viable route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1227 produced zero accepted rows after relocation replay",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "negative relocation result audit",
+    "admission_evidence": [
+      "M1227 source and candidate selection gates passed",
+      "M1227 produced 7200 relocation rows but zero accepted wrong-history rows",
+      "all M1227 normal and wrong-history rollouts collided"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1228 audit docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "negative result is classified",
+      "next relocation/source/fallback route is selected",
+      "no proof or self-ID claim is made from M1227"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1228 is a negative audit and does not test history necessity.",
+    "history_necessity_tests": [
+      "audit M1227 wrong-history relocation result",
+      "block self-ID claims from all-collision rows"
+    ],
+    "temporal_evidence_window": "Outcome-level causal-history evidence remains blocked until a later run produces normal-success wrong-history degradation.",
+    "negative_result_policy": "Record zero accepted rows and select a next route without weakening accepted-row criteria or training.",
+    "allowed_claims": [
+      "negative relocation audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1227 failed because the relocation grid pushed normal-history rollouts past the terminal boundary into collision, so the next step should change the materialization design rather than train or expand the same grid.",
+  "success_criteria": [
+    "docs/m1228-paper-route-terminal-boundary-negative-audit.md exists",
+    "M1227 failure mode is classified",
+    "next relocation/source/fallback route is selected",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "M1228 trains or tunes profiles",
+    "private holdout is used",
+    "M1227 all-collision rows are claimed as proof",
+    "accepted-row criteria are weakened",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "write_negative_audit",
+      "command": "write docs/m1228-paper-route-terminal-boundary-negative-audit.md from M1227 summary and boundary diagnostics"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1228-paper-route-terminal-boundary-negative-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1227_terminal_boundary_relocation_smoke/summary.json",
+    "runs/m1227_terminal_boundary_relocation_smoke/boundary_relocation_rows.csv"
+  ],
+  "decision_rule": "M1228 passes if it classifies M1227's zero-accepted-row result and selects a concrete next route without training or weakening proof criteria.",
+  "next_blocker": "m1228-paper-route-terminal-boundary-negative-audit"
+}

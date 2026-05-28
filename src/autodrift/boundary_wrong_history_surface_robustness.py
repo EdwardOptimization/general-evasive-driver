@@ -34,6 +34,10 @@ def add_robustness_keys(frame: pd.DataFrame, *, margin_bucket_width: float) -> p
     if missing:
         raise ValueError(f"boundary rows missing physical pair columns: {missing}")
     next_frame = frame.copy()
+    if next_frame.empty:
+        next_frame["physical_pair_key"] = pd.Series(dtype=object)
+        next_frame["normal_margin_bucket"] = pd.Series(dtype=object)
+        return next_frame
     next_frame["physical_pair_key"] = next_frame.apply(
         lambda row: ":".join(str(int(row[column])) for column in PHYSICAL_PAIR_COLUMNS),
         axis=1,

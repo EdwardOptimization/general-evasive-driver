@@ -171,6 +171,36 @@ def test_balanced_candidate_selection_round_robins_instead_of_global_top_k():
     assert summary["decision"] == "source_balanced_candidates_ready"
 
 
+def test_candidate_selection_decision_requires_left_step_coverage():
+    rows = [
+        _candidate(
+            left_seed=10 + index,
+            left_step=20,
+            right_seed=30 + index,
+            right_step=40 + index,
+            margin_gap=0.4,
+            first_action_distance=0.2,
+            target="brake" if index % 2 else "yaw",
+        )
+        for index in range(6)
+    ]
+
+    _selected, _rejected, summary = select_source_balanced_candidates(
+        pd.DataFrame(rows),
+        quotas=SourceBalanceQuotas(
+            max_candidates=6,
+            max_candidates_per_physical_pair=1,
+            target_min_physical_pairs=6,
+            target_min_left_steps=2,
+            target_min_targets=2,
+        ),
+    )
+
+    assert summary["selected_physical_pairs"] == 6
+    assert summary["selected_left_steps"] == 1
+    assert summary["decision"] == "source_balanced_candidates_source_limited"
+
+
 def test_balanced_export_marks_extra_rows_non_exportable_and_gates_pass():
     rows = []
     for pair_index in range(10):

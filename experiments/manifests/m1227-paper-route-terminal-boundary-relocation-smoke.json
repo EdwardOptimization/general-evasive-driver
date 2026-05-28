@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -136,7 +136,7 @@
   "commands": [
     {
       "name": "run_bounded_terminal_boundary_relocation_smoke",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_balanced_boundary_relocation_surface --checkpoint-policy l3_s111602=runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --env-config configs/paper_route_corrected_profiles/m1207_l3_online_gru.json --outcome-csv runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv --delay-steps 10 --max-continuation-steps 60 --target-normal-margins 0.0005,0.001,0.002,0.003,0.005,0.010 --half-width-inflations 0,0.10 --body-longitudinal-offsets -2,0,2 --body-lateral-offsets -0.25,0,0.25 --min-normal-margin 0.0 --max-normal-margin 0.20 --min-margin-gap 0.010 --report-variants wrong_matched_history --max-candidates 80 --max-candidates-per-physical-pair 1 --max-candidates-per-checkpoint-target 48 --target-min-physical-pairs 40 --target-min-left-steps 5 --target-min-targets 2 --max-rows-per-pair-fraction 0.05 --min-eligible-physical-pairs 40 --max-candidate-pair-fraction 0.05 --device cpu --run-dir runs/m1227_terminal_boundary_relocation_smoke"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_balanced_boundary_relocation_surface --checkpoint-policy l3_s111602=runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --env-config configs/paper_route_corrected_profiles/m1207_l3_online_gru.json --outcome-csv runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv --delay-steps 10 --max-continuation-steps 60 --target-normal-margins 0.0005,0.001,0.002,0.003,0.005,0.010 --half-width-inflations 0,0.10 --body-longitudinal-offsets=-2,0,2 --body-lateral-offsets=-0.25,0,0.25 --min-normal-margin 0.0 --max-normal-margin 0.20 --min-margin-gap 0.010 --report-variants wrong_matched_history --max-candidates 120 --max-candidates-per-physical-pair 1 --max-candidates-per-checkpoint-target 64 --target-min-physical-pairs 40 --target-min-left-steps 5 --target-min-targets 2 --max-rows-per-pair-fraction 0.05 --min-eligible-physical-pairs 40 --max-candidate-pair-fraction 0.05 --device cpu --run-dir runs/m1227_terminal_boundary_relocation_smoke"
     }
   ],
   "required_artifacts": [
@@ -161,5 +161,5 @@
     "runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv"
   ],
   "decision_rule": "M1227 passes as a bounded smoke only if it runs relocation with source-budget accounting and records either source-diverse accepted rows or a classified negative result.",
-  "next_blocker": "m1227-paper-route-terminal-boundary-relocation-smoke"
+  "next_blocker": "m1228-paper-route-terminal-boundary-negative-audit"
 }

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1236,
+    "completed": 1237,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1226-paper-route-terminal-boundary-candidate-export.md",
+    "command_log": "docs/m1227-paper-route-terminal-boundary-relocation-smoke.md",
     "returncode": 0,
-    "run_dir": "runs/m1226_terminal_boundary_candidate_export",
+    "run_dir": "runs/m1227_terminal_boundary_relocation_smoke",
     "status": "completed",
-    "task_id": "m1226-paper-route-terminal-boundary-candidate-export"
+    "task_id": "m1227-paper-route-terminal-boundary-relocation-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1227-paper-route-terminal-boundary-relocation-smoke.json",
-    "hypothesis": "Run bounded terminal-boundary relocation smoke",
-    "id": "m1227-paper-route-terminal-boundary-relocation-smoke",
+    "command": "see experiments/manifests/m1228-paper-route-terminal-boundary-negative-audit.json",
+    "hypothesis": "Audit terminal-boundary relocation negative result",
+    "id": "m1228-paper-route-terminal-boundary-negative-audit",
     "kind": "gate",
-    "notes": "Pending: run bounded source-balanced relocation on M1226 exported candidates and audit whether wrong-history action gaps materialize into source-diverse margin or success degradation",
-    "priority": 12220,
+    "notes": "Pending: classify M1227 all-collision relocation failure and select narrower relocation source-distribution or branch-close route without training threshold weakening or self-ID claims",
+    "priority": 12230,
     "status": "pending",
-    "success_artifact": "docs/m1227-paper-route-terminal-boundary-relocation-smoke.md"
+    "success_artifact": "docs/m1228-paper-route-terminal-boundary-negative-audit.md"
   },
-  "updated_at_utc": "20260528T074528Z"
+  "updated_at_utc": "20260528T075755Z"
 }

@@ -17617,3 +17617,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1227-paper-route-terminal-boundary-relocation-smoke.json`.
 - decision: `terminal_boundary_candidate_export_passed`
 - next: `m1227-paper-route-terminal-boundary-relocation-smoke`
+
+## 20260528T075108Z - m1227-paper-route-terminal-boundary-relocation-smoke
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `proof`
+- artifact: `docs/m1227-paper-route-terminal-boundary-relocation-smoke.md`
+- run dir: `runs/m1227_terminal_boundary_relocation_smoke`
+- result: negative bounded terminal-boundary relocation smoke.
+- harness repairs: fixed empty typed robustness DataFrame handling and enforced `target_min_left_steps` / `target_min_targets` in source-balanced candidate selection before recording the final run.
+- source budget: ready with `274` candidate rows, `110` eligible physical pairs, `5` eligible left steps, `2` targets, and max candidate pair fraction `0.0109489051`.
+- candidate selection: ready with `100` selected rows, `100` selected physical pairs, `5` left steps, `2` targets, and max selected pair fraction `0.01`.
+- relocation replay: started and produced `7200` boundary relocation rows.
+- outcome: `0` accepted wrong-history rows, `0` normal-success rows, `0` variant-success rows, `7200` normal collisions, and `7200` variant collisions.
+- classification: `scenario_sampling_failure`; the relocation grid overshot because the normal branch collided for every row.
+- guardrail: no training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1228-paper-route-terminal-boundary-negative-audit.json`.
+- decision: `terminal_boundary_relocation_smoke_negative_audit_required`
+- next: `m1228-paper-route-terminal-boundary-negative-audit`
