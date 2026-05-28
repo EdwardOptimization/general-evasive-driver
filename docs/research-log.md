@@ -16529,3 +16529,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, replay, objective optimization, mining, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_projection_post_promotion_open_margin_slack_surface_refresh`
 - next: `m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design`
+
+## 20260528T003200Z - m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design.md`
+- result: designs the first alpha_0_05 current-base source-diverse margin-slack surface refresh.
+- current policy: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`.
+- source family: alpha_0_05, alpha_0_15, previous M1078 base, and short PPO seeds `61049`, `61050`, `61051`.
+- pipeline: matched-current ambiguity mining, matched-history outcome gate, then source-balanced boundary relocation.
+- primary slack gate: accepted rows at least `100`, physical pairs at least `12`, left steps at least `6`, checkpoints at least `4`, targets at least `2`, normal-margin buckets at least `3` at width `0.005`, and normal-margin max at least `0.01`.
+- guardrail: no mining, replay, actor training, PPO, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_margin_slack_surface_refresh_design_admit_run`
+- next: `m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run`

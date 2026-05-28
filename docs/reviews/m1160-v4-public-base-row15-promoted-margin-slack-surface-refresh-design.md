@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T000813Z
+- Generated at UTC: 20260528T001224Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1160 may only design the next alpha_0_05 current-base margin-slack surface refresh. It cannot run mining, replay, actor training, PPO, promotion, private holdout, or actor-input changes.
+- Promotion decision: row15_promoted_margin_slack_surface_refresh_design_admit_run
+- Decision reason: M1160 designs alpha_0_05 current-base surface refresh with six source policies and explicit slack thresholds before any mining replay PPO or promotion
 
 ## Hypothesis
 
@@ -74,8 +74,19 @@ A source-diverse margin-slack refresh can produce a stronger alpha_0_05 current-
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design
+- type: gate
+- checkpoint: docs/m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_margin_slack_surface_refresh_design_admit_run
+- reason: M1160 designs alpha_0_05 current-base surface refresh with six source policies and explicit slack thresholds before any mining replay PPO or promotion
 
 ## Next Blocker
 
-m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design
+m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run

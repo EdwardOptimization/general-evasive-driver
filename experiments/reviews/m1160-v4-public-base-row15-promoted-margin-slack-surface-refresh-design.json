@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1160 may only design the next alpha_0_05 current-base margin-slack surface refresh. It cannot run mining, replay, actor training, PPO, promotion, private holdout, or actor-input changes.",
+  "decision_reason": "M1160 designs alpha_0_05 current-base surface refresh with six source policies and explicit slack thresholds before any mining replay PPO or promotion",
   "failure_criteria": [
     "design artifact is missing",
     "source family remains ambiguous",
@@ -22,7 +22,7 @@
     "do not treat row15 near-boundary margin as sufficient coverage by itself"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260528T000813Z",
+  "generated_at_utc": "20260528T001224Z",
   "hypothesis": "A source-diverse margin-slack refresh can produce a stronger alpha_0_05 current-base proof surface before any PPO continuation.",
   "lineage": {
     "blocked_by": [
@@ -52,9 +52,9 @@
     "supersedes": []
   },
   "milestone": "m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design",
-  "next_blocker": "m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design",
+  "next_blocker": "m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "row15_promoted_margin_slack_surface_refresh_design_admit_run",
   "public_gates": [
     "M1160 must design the alpha_0_05 current-base surface refresh only",
     "M1160 must pre-register source diversity and margin-slack thresholds",
@@ -66,7 +66,20 @@
     "M1160 must not use private holdout",
     "M1160 must preserve actor inputs"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design.md",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_margin_slack_surface_refresh_design_admit_run",
+    "milestone": "m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design",
+    "reason": "M1160 designs alpha_0_05 current-base surface refresh with six source policies and explicit slack thresholds before any mining replay PPO or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "design artifact exists",
     "source policy family is explicit",

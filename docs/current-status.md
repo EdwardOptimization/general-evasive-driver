@@ -84,7 +84,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design
+m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -535,6 +535,31 @@ surface.
 
 M1160 should design that refresh only. It must not mine rows, run replay, run
 PPO, promote, use private holdout, or change actor inputs.
+
+M1160 completed the design. M1161 should run the pre-registered three-stage
+surface refresh:
+
+```text
+source family:
+  alpha_0_05 current base
+  alpha_0_15 previous base
+  previous M1078 base
+  short61049
+  short61050
+  short61051
+
+minimum accepted wrong-history rows: 100
+minimum physical pairs: 12
+minimum left steps: 6
+minimum checkpoints: 4
+minimum targets: 2
+minimum normal-margin buckets at 0.005m: 3
+minimum normal-margin max: 0.01m
+```
+
+M1161 must not train, run PPO, promote, use private holdout, change actor
+inputs, weaken thresholds after seeing results, or convert the surface into an
+objective corpus inside the same milestone.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

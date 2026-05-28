@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1168,
+    "completed": 1169,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis",
+    "task_id": "m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis.md",
-    "result_class": "post_promotion_synthesis_promote_to_next_branch",
-    "decision": "row15_promoted_projection_post_promotion_open_margin_slack_surface_refresh"
+    "command_log": "docs/m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design.md",
+    "result_class": "row15_promoted_margin_slack_surface_refresh_design_complete",
+    "decision": "row15_promoted_margin_slack_surface_refresh_design_admit_run"
   },
   "next_task": {
-    "id": "m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design",
+    "id": "m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run",
     "status": "pending",
-    "priority": 11550,
+    "priority": 11560,
     "kind": "gate",
-    "hypothesis": "A source-diverse margin-slack refresh can produce a stronger alpha_0_05 current-base proof surface before any PPO continuation",
-    "command": "see experiments/manifests/m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design.json",
-    "success_artifact": "docs/m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design.md",
-    "notes": "Pending: design current-base surface refresh only; no actor training PPO replay mining promotion private holdout or actor-input change"
+    "hypothesis": "The alpha_0_05 public base has a source-diverse current-base wrong-history proof surface with at least three 0.005m normal-margin buckets and normal-margin max at least 0.01m",
+    "command": "see experiments/manifests/m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run.json",
+    "success_artifact": "docs/m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run.md",
+    "notes": "Pending: run the pre-registered three-stage surface-refresh pipeline only; no actor training PPO promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T002100Z"
+  "updated_at_utc": "20260528T003200Z"
 }

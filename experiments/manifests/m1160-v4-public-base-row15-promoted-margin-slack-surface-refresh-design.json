@@ -154,6 +154,35 @@
   "baseline_artifacts": [
     "docs/m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design.md",
+    "decision": "row15_promoted_margin_slack_surface_refresh_design_admit_run",
+    "result_class": "row15_promoted_margin_slack_surface_refresh_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "current_public_gate_base": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "source_policy_count": 6,
+    "minimum_accepted_wrong_history_rows": 100,
+    "minimum_physical_pairs": 12,
+    "minimum_left_steps": 6,
+    "minimum_checkpoints": 4,
+    "minimum_targets": 2,
+    "minimum_normal_margin_buckets_width_0_005": 3,
+    "minimum_normal_margin_max": 0.01,
+    "max_rows_per_physical_pair_fraction": 0.25,
+    "control_accepted_wrong_rows_required": 0,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "admitted_next": "margin_slack_surface_refresh_run",
+    "next_milestone": "m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run"
+  },
   "decision_rule": "M1160 may only design the next alpha_0_05 current-base margin-slack surface refresh. It cannot run mining, replay, actor training, PPO, promotion, private holdout, or actor-input changes.",
-  "next_blocker": "m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design"
+  "next_blocker": "m1161-v4-public-base-row15-promoted-margin-slack-surface-refresh-run"
 }
