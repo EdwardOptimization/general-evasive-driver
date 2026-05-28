@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1232 defines current-model/proxy versus future high-fidelity fault families actor-input guardrails source-mining artifacts and source-diversity gates and admits bounded no-training M1233 smoke",
+  "failure_criteria": [
+    "M1232 trains or tunes profiles",
+    "private holdout is used",
+    "fault labels are added to actor inputs",
+    "scenario design becomes too broad to validate",
+    "next route is left vague"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add fault labels or hidden parameters to actor inputs",
+    "do not treat fault scenario labels as oracle feasibility labels",
+    "do not claim self-identification from scenario design"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T082311Z",
+  "hypothesis": "A source-generation branch focused on hidden extreme/fault dynamics is higher leverage than continued grid tuning around M1230's source-collapsed short-horizon active set.",
+  "lineage": {
+    "blocked_by": [
+      "M1230 accepted rows are short-horizon and source-collapsed"
+    ],
+    "derived_from": [
+      "m1231-paper-route-short-horizon-partial-positive-audit"
+    ],
+    "invalidates": [
+      "training directly from M1230 accepted rows"
+    ],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1231-paper-route-short-horizon-partial-positive-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m1230_short_horizon_relocation_smoke/summary.json",
+      "docs/m1231-paper-route-short-horizon-partial-positive-audit.md"
+    ],
+    "parent_objective": [
+      "design source-diverse extreme/fault scenario generation after M1230 partial-positive source collapse"
+    ],
+    "supersedes": [
+      "continuing to tune the same M1226 public source pool"
+    ]
+  },
+  "milestone": "m1232-paper-route-extreme-fault-source-generation-design",
+  "next_blocker": "m1233-paper-route-extreme-fault-source-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "extreme_fault_source_generation_design_admit_smoke",
+  "public_gates": [
+    "M1232 may design source-generation infrastructure only",
+    "M1232 must preserve actor input contract",
+    "M1232 must not train controllers",
+    "M1232 must not run PPO",
+    "M1232 must not use private holdout",
+    "M1232 must not promote",
+    "M1232 must keep hidden fault labels out of deployable actor inputs",
+    "M1232 must select a bounded first implementation step"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1232-paper-route-extreme-fault-source-generation-design.md",
+    "clearance_margin_mean": "",
+    "decision": "extreme_fault_source_generation_design_admit_smoke",
+    "milestone": "m1232-paper-route-extreme-fault-source-generation-design",
+    "reason": "M1232 defines current-model/proxy versus future high-fidelity fault families actor-input guardrails source-mining artifacts and source-diversity gates and admits bounded no-training M1233 smoke",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1232-paper-route-extreme-fault-source-generation-design.md exists",
+    "scenario families and hidden ranges are specified",
+    "actor-input guardrails are specified",
+    "source-diversity gates are specified",
+    "first bounded implementation step is selected",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "type": "gate"
+}

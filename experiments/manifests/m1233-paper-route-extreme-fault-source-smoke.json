@@ -1,0 +1,168 @@
+{
+  "id": "m1233-paper-route-extreme-fault-source-smoke",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1232-paper-route-extreme-fault-source-generation-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1232-paper-route-extreme-fault-source-generation-design.json",
+      "configs/m990_capability_step_fault_scenarios.json",
+      "src/autodrift/extreme_dynamics_scenario_corpus.py"
+    ],
+    "parent_objective": [
+      "smoke current paper-route L3 checkpoint through existing hidden capability-step/fault source generator"
+    ],
+    "derived_from": [
+      "m1232-paper-route-extreme-fault-source-generation-design"
+    ],
+    "blocked_by": [
+      "M1232 admits only a bounded no-training smoke before larger source mining or training"
+    ],
+    "supersedes": [
+      "continuing to grid-tune the M1226/M1230 source-collapsed public pool"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1233-paper-route-extreme-fault-source-smoke.md",
+  "public_gates": [
+    "M1233 must preserve actor input contract",
+    "M1233 must keep hidden fault labels as logging/pairing metadata only",
+    "M1233 must write model fidelity limits",
+    "M1233 must not train controllers",
+    "M1233 must not run PPO",
+    "M1233 must not use private holdout",
+    "M1233 must not promote",
+    "M1233 must not require accepted rows at smoke scale"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add fault labels or hidden parameters to actor inputs",
+    "do not claim true per-wheel or asymmetric fault physics",
+    "do not claim self-identification from smoke artifacts"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_extreme_fault_source_generation",
+    "evidence_axis": "S_extreme_fault_source_smoke",
+    "evidence_increment": "tests current-checkpoint compatibility and source shape for the existing hidden capability-step/fault corpus harness",
+    "claim_scope": "infrastructure/source-shape smoke only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if checkpoint/config observation compatibility fails",
+      "stop if hidden fault labels enter actor observations",
+      "stop if actor checksum changes",
+      "stop if core artifacts or fidelity-limit notes are missing"
+    ],
+    "fallback_plan": [
+      "if no matched pairs appear, repair matching windows or activation timing in a new manifest",
+      "if all normal branches fail, audit scenario timing before widening grids",
+      "if smoke passes but accepted rows are sparse, route to larger no-training source wave"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1232 selects a bounded first implementation step for the source-generation branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "extreme/fault source-generation compatibility and source-shape smoke",
+    "admission_evidence": [
+      "M1232 defines actor-input guardrails and current-model fault boundaries",
+      "existing extreme_dynamics_scenario_corpus harness can generate cross-fault source artifacts"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1233 run artifacts",
+      "M1233 result docs",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "core source-generation artifacts exist",
+      "matched pairs are produced",
+      "actor checksum remains unchanged",
+      "source shape is classified without proof overclaim"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1233 is a no-training source-generation smoke and does not test history necessity beyond diagnostic intervention outputs.",
+    "history_necessity_tests": [
+      "generate wrong-history and reset-hidden intervention rollouts for later audit",
+      "do not count reset-only or action-only rows as self-identification proof"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked until future source-diverse matched-history outcome gates pass.",
+    "negative_result_policy": "If smoke is sparse or reset-only, record the source shape and route to audit or larger no-training source wave instead of training.",
+    "allowed_claims": [
+      "current-checkpoint source-generation compatibility",
+      "source-shape diagnostics",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The current paper-route L3 checkpoint can be smoke-run through the existing hidden capability-step/fault source generator while preserving the actor contract and producing matched cross-fault artifacts.",
+  "success_criteria": [
+    "runs/m1233_paper_route_extreme_fault_source_smoke/summary.json exists",
+    "scenario_count > 0",
+    "snapshot_count > 0",
+    "matched_pair_count > 0",
+    "scenario_summary.csv exists",
+    "matched_cross_fault_pairs.csv exists",
+    "intervention_rollouts.csv exists",
+    "model_fidelity_limits.md exists",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "private holdout remains unused",
+    "no actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "checkpoint/config observation compatibility fails",
+    "no snapshots or matched pairs are produced",
+    "actor parameters change",
+    "hidden fault/event labels enter actor observations",
+    "model fidelity boundary is missing",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --config configs/m990_capability_step_fault_scenarios.json --pairing-mode cross_fault --seed-start 123300 --seed-count 64 --device auto --run-dir runs/m1233_paper_route_extreme_fault_source_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1233_paper_route_extreme_fault_source_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1233-paper-route-extreme-fault-source-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1232-paper-route-extreme-fault-source-generation-design.md",
+    "configs/m990_capability_step_fault_scenarios.json",
+    "src/autodrift/extreme_dynamics_scenario_corpus.py"
+  ],
+  "decision_rule": "M1233 passes as a smoke if core source artifacts and matched pairs are produced without actor mutation, training, PPO, promotion, private holdout, or actor-input expansion. Accepted rows are diagnostic, not required.",
+  "next_blocker": "m1233-paper-route-extreme-fault-source-smoke"
+}

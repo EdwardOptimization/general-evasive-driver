@@ -17703,3 +17703,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1232-paper-route-extreme-fault-source-generation-design.json`.
 - decision: `short_horizon_partial_positive_pivot_to_extreme_fault_source_generation`
 - next: `m1232-paper-route-extreme-fault-source-generation-design`
+
+## 20260528T081946Z - m1232-paper-route-extreme-fault-source-generation-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1232-paper-route-extreme-fault-source-generation-design.md`
+- result: opens the `paper_route_extreme_fault_source_generation` branch after M1230/M1231 showed a real but source-collapsed short-horizon materialization signal.
+- selected source families: current-model or proxy hidden capability changes including global friction drop, front/rear lateral authority loss, brake/drive authority loss, steering lag or authority loss, actuator delay, mass/CG/inertia shift, and combined faults.
+- model-fidelity boundary: true single-wheel blowout, split-mu, stuck caliper, half-shaft, differential, per-wheel ABS, wheel-speed sensor physical dynamics, suspension/toe damage, tire thermal/wear/delamination, and other single-corner effects remain future four-wheel or high-fidelity work only.
+- actor-input guardrail: fault labels, severities, activation steps, and hidden parameters stay out of deployable actor observations and may be used only for scenario generation, logging, pairing, source accounting, and future training-time diagnostics.
+- source-mining outputs: keep compatibility with existing matched-history, relocation, temporal-sequence, and exact-objective tooling by writing scenario, snapshot, matched-pair, rollout, accepted/reset-only/rejected, family-summary, pair-summary, and fidelity-limit artifacts.
+- source-diversity gates: later positives must account for fault family, wrong family, family pair, severity, seed, activation phase, emergency difficulty, obstacle target, left/snapshot step, and margin bucket dominance.
+- first bounded implementation: M1233 will smoke the current paper-route L3 checkpoint through `src/autodrift/extreme_dynamics_scenario_corpus.py` with `configs/m990_capability_step_fault_scenarios.json`.
+- guardrail: no training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1233-paper-route-extreme-fault-source-smoke.json`.
+- decision: `extreme_fault_source_generation_design_admit_smoke`
+- next: `m1233-paper-route-extreme-fault-source-smoke`

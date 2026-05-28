@@ -115,7 +115,63 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1232-paper-route-extreme-fault-source-generation-design
+m1233-paper-route-extreme-fault-source-smoke
+```
+
+M1232 completed extreme/fault source-generation design:
+
+```text
+artifact: docs/m1232-paper-route-extreme-fault-source-generation-design.md
+decision: extreme_fault_source_generation_design_admit_smoke
+branch:   paper_route_extreme_fault_source_generation
+```
+
+M1232 conclusion:
+
+```text
+The next source branch should generate hidden-dynamics extreme/fault cases
+instead of continuing to grid-tune the M1226/M1230 public source-collapsed pool.
+Fault labels and hidden parameters remain metadata only; they are not actor
+inputs.
+```
+
+Current-model/proxy families selected for source generation:
+
+```text
+global_mu_drop
+front_lateral_authority_drop
+rear_lateral_authority_drop
+brake_authority_drop
+drive_authority_drop
+steering_fault
+delay_noise_fault
+mass_cg_shift
+combined_fault
+```
+
+Future high-fidelity-only examples:
+
+```text
+true single-wheel blowout
+true split-mu patch
+stuck single caliper / single-wheel brake pull
+half-shaft or differential failure
+per-wheel ABS or wheel-speed physical faults
+corner suspension/toe damage
+tire pressure/thermal/wear/delamination dynamics
+```
+
+Next task:
+
+```text
+artifact: runs/m1233_paper_route_extreme_fault_source_smoke/summary.json
+manifest: experiments/manifests/m1233-paper-route-extreme-fault-source-smoke.json
+checkpoint: runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
+config: configs/m990_capability_step_fault_scenarios.json
+goal: no-training compatibility/source-shape smoke through the existing hidden
+      capability-step/fault corpus harness
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1231 completed partial-positive audit:
@@ -125,121 +181,12 @@ artifact: docs/m1231-paper-route-short-horizon-partial-positive-audit.md
 decision: short_horizon_partial_positive_pivot_to_extreme_fault_source_generation
 ```
 
-M1231 conclusion:
-
-```text
-M1230 is a real short-horizon materialization signal, but it is too
-source-collapsed for proof or training. The next branch should generate
-source-diverse hidden-dynamics extreme/fault scenarios instead of tuning the
-same public source pool.
-```
-
 M1230 completed short-horizon relocation smoke:
 
 ```text
-artifact: docs/m1230-paper-route-short-horizon-relocation-smoke.md
-run dir:  runs/m1230_short_horizon_relocation_smoke
-decision: short_horizon_relocation_partial_source_collapsed_audit_required
-```
-
-M1230 result:
-
-```text
 accepted_wrong_rows: 80
-accepted_wrong_success_drop_fraction: 1.0
-accepted_wrong_physical_pairs: 34
-accepted_wrong_left_steps: 2
-accepted_wrong_targets: 1
-accepted_wrong_normal_margin_buckets: 1
-accepted_wrong_margin_gap_mean: 0.0022355233
-passed: false
-```
-
-Conclusion: the branch has a real short-horizon materialization signal, but it
-is source-collapsed and cannot be used as a proof pass, paper claim, or training
-corpus without audit.
-
-M1229 completed source-geometry consistency audit:
-
-```text
-artifact: docs/m1229-paper-route-source-geometry-consistency-audit.md
-short run: runs/m1229_source_geometry_consistency_short
-long run:  runs/m1229_source_geometry_consistency_long
-decision: source_geometry_consistency_horizon_mismatch_route_to_short_horizon_relocation
-```
-
-M1229 result:
-
-```text
-short horizon 12:
-  normal_success: 100 / 100
-  variant_success: 100 / 100
-  margin_gap max: 0.0023704993
-
-long horizon 60:
-  normal_success: 0 / 100
-  variant_success: 0 / 100
-  normal_collision: 100 / 100
-```
-
-Conclusion: source geometry is replay-consistent at the M1222 short horizon,
-but M1222 candidates are not long-horizon safe. The next run is a
-short-horizon relocation materialization smoke; any positive result must be
-scoped to short-horizon proof only.
-
-M1228 completed the M1227 negative audit:
-
-```text
-artifact: docs/m1228-paper-route-terminal-boundary-negative-audit.md
-decision: terminal_boundary_negative_audit_route_to_source_geometry_consistency
-```
-
-M1228 conclusion:
-
-```text
-failure type: source_geometry_replay_consistency_gap
-dx=0, dy=0, half_width_inflation=0 rows: 100
-normal_success in exact source-geometry rows: 0
-normal_margin range in exact source-geometry rows: [-0.1945879451, -0.0080074171]
-```
-
-The next blocker is not a wider relocation grid. M1229 should first separate
-short-horizon versus long-horizon source replay consistency.
-
-M1227 completed bounded terminal-boundary relocation smoke:
-
-```text
-artifact: docs/m1227-paper-route-terminal-boundary-relocation-smoke.md
-run dir:  runs/m1227_terminal_boundary_relocation_smoke
-decision: terminal_boundary_relocation_smoke_negative_audit_required
-```
-
-M1227 result:
-
-```text
-source_budget_ready: true
-candidate_selection_ready: true
-relocation_replay_started: true
-raw relocation rows: 7200
-accepted_wrong_rows: 0
-normal_success rows: 0
-variant_success rows: 0
-normal_collision rows: 7200
-variant_collision rows: 7200
-normal_margin_positive rows: 0
-```
-
-M1227 is negative for materialized wrong-history outcome evidence. The current
-relocation grid overshot: every normal-history rollout collided, so positive
-margin gaps cannot be treated as proof.
-
-Next task:
-
-```text
-artifact: docs/m1232-paper-route-extreme-fault-source-generation-design.md
-branch: paper_route_extreme_fault_source_generation
-goal: design source-diverse hidden-dynamics fault/extreme scenario generation
-blocked: hidden/fault labels as actor inputs, training, PPO, promotion
+success_drop_fraction: 1.0
+source collapse: one target, two left steps, one checkpoint, one margin bucket
 ```
 
 M1226 completed terminal-boundary candidate export:

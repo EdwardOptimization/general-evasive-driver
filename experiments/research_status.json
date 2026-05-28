@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1241,
+    "completed": 1242,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1231-paper-route-short-horizon-partial-positive-audit.md",
+    "command_log": "docs/m1232-paper-route-extreme-fault-source-generation-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1231-paper-route-short-horizon-partial-positive-audit"
+    "task_id": "m1232-paper-route-extreme-fault-source-generation-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1232-paper-route-extreme-fault-source-generation-design.json",
-    "hypothesis": "Design extreme/fault source generation",
-    "id": "m1232-paper-route-extreme-fault-source-generation-design",
+    "command": "see experiments/manifests/m1233-paper-route-extreme-fault-source-smoke.json",
+    "hypothesis": "Run bounded current-checkpoint extreme/fault source smoke",
+    "id": "m1233-paper-route-extreme-fault-source-smoke",
     "kind": "gate",
-    "notes": "Pending: define hidden-dynamics extreme fault scenario families actor-input guardrails source-mining artifacts source-diversity gates and first bounded implementation step",
-    "priority": 12270,
+    "notes": "Pending: smoke current paper-route L3 checkpoint through existing hidden capability-step/fault corpus harness with actor-input guardrails and no training",
+    "priority": 12280,
     "status": "pending",
-    "success_artifact": "docs/m1232-paper-route-extreme-fault-source-generation-design.md"
+    "success_artifact": "runs/m1233_paper_route_extreme_fault_source_smoke/summary.json"
   },
-  "updated_at_utc": "20260528T081607Z"
+  "updated_at_utc": "20260528T081946Z"
 }

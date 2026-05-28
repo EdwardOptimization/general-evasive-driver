@@ -147,6 +147,18 @@
     "docs/m1231-paper-route-short-horizon-partial-positive-audit.md",
     "runs/m1230_short_horizon_relocation_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1232-paper-route-extreme-fault-source-generation-design.md",
+    "decision": "extreme_fault_source_generation_design_admit_smoke",
+    "selected_next_manifest": "experiments/manifests/m1233-paper-route-extreme-fault-source-smoke.json",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false
+  },
+  "decision": "extreme_fault_source_generation_design_admit_smoke",
   "decision_rule": "M1232 passes if it defines a bounded source-generation branch with actor-input guardrails and a concrete first implementation step.",
-  "next_blocker": "m1232-paper-route-extreme-fault-source-generation-design"
+  "next_blocker": "m1233-paper-route-extreme-fault-source-smoke"
 }
