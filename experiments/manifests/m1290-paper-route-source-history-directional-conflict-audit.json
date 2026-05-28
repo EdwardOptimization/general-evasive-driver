@@ -1,0 +1,163 @@
+{
+  "id": "m1290-paper-route-source-history-directional-conflict-audit",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1289-paper-route-source-history-objective-only-update-result-audit.md",
+      "runs/m1288_source_history_objective_only_update/summary.json",
+      "runs/m1288_source_history_objective_only_update/source_history_objective_rows_before.csv",
+      "runs/m1288_source_history_objective_only_update/source_history_objective_rows_after.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1289-paper-route-source-history-objective-only-update-result-audit.json"
+    ],
+    "parent_objective": [
+      "quantify row-wise directional conflict after exact-loss-positive actor_mean_only update"
+    ],
+    "derived_from": [
+      "m1289-paper-route-source-history-objective-only-update-result-audit"
+    ],
+    "blocked_by": [
+      "M1288 improves exact loss but both_directional_fraction remains 0.0"
+    ],
+    "supersedes": [
+      "blindly increasing actor_mean_only update steps after M1288"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1290-paper-route-source-history-directional-conflict-audit.md",
+  "public_gates": [
+    "M1290 must not train",
+    "M1290 must not run PPO",
+    "M1290 must not use private holdout",
+    "M1290 must not promote",
+    "M1290 must quantify before-after sign quadrants",
+    "M1290 must quantify paired-row symmetry or conflict",
+    "M1290 must decide whether next step is longer actor_mean continuation, directional objective repair, trainable-scope escalation, or source-history refresh"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not infer closed-loop performance from row-wise objective CSVs",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_objective_only_update",
+    "evidence_axis": "S_directional_conflict_audit",
+    "evidence_increment": "diagnoses why exact loss improves while both_directional_fraction remains zero",
+    "claim_scope": "diagnostic infrastructure only; no training, promotion, private-holdout, PPO, paper-level, closed-loop, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if before-after objective rows are missing",
+      "stop if sign-quadrant counts cannot be reproduced",
+      "stop if audit cannot distinguish magnitude compression from directional repair"
+    ],
+    "fallback_plan": [
+      "if magnitude compression dominates, design row-wise directional objective repair",
+      "if actor_mean_only capacity limit dominates, design trainable-scope escalation with retention guardrails",
+      "if corpus conflict dominates, design source-history corpus refresh or relabel audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "fourth milestone in objective-only update branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source-history directional conflict audit",
+    "admission_evidence": [
+      "M1288 exact combined loss improved by -11.4311475093",
+      "M1288 both_directional_fraction stayed 0.0",
+      "M1289 routes to directional conflict audit before further update pressure"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "directional conflict audit implementation",
+      "focused tests",
+      "M1290 run artifacts",
+      "M1290 result doc",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "summary.json exists",
+      "directional_conflict_rows.csv exists",
+      "quadrant counts are reproduced",
+      "next branch step is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1290 audits fixed-current source-history objective rows and does not evaluate rollout history necessity.",
+    "history_necessity_tests": [
+      "before-after sign quadrants for correct-history and wrong-history preferences",
+      "paired-row conflict diagnostics across source history swaps"
+    ],
+    "temporal_evidence_window": "M1288 before-after objective rows from 24-step source prefix replay.",
+    "negative_result_policy": "If directional conflict remains unresolved, record negative evidence and keep PPO blocked.",
+    "allowed_claims": [
+      "source-history directional conflict audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A no-training directional conflict audit can explain why M1288 reduces exact loss while leaving both_directional_fraction at zero.",
+  "success_criteria": [
+    "runs/m1290_source_history_directional_conflict_audit/summary.json exists",
+    "directional_conflict_rows.csv exists",
+    "before and after sign-quadrant counts are reproduced",
+    "audit classifies the M1288 update mechanism",
+    "next branch step is explicit",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "sign-quadrant counts cannot be reproduced",
+    "audit ignores both_directional_fraction=0.0",
+    "audit starts training or PPO",
+    "audit overclaims self-identification",
+    "private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "run_directional_conflict_audit",
+      "command": "PYTHONPATH=src python -m autodrift.source_history_directional_conflict_audit --before-rows runs/m1288_source_history_objective_only_update/source_history_objective_rows_before.csv --after-rows runs/m1288_source_history_objective_only_update/source_history_objective_rows_after.csv --run-dir runs/m1290_source_history_directional_conflict_audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1290_source_history_directional_conflict_audit/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1290-paper-route-source-history-directional-conflict-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1289-paper-route-source-history-objective-only-update-result-audit.md",
+    "runs/m1288_source_history_objective_only_update/summary.json"
+  ],
+  "decision_rule": "M1290 passes as diagnostic infrastructure if it reproduces directional conflict counts and routes to a concrete no-PPO next step.",
+  "next_blocker": "m1290-paper-route-source-history-directional-conflict-audit"
+}

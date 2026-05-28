@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1298,
+    "completed": 1299,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1288-paper-route-source-history-objective-only-update-implementation.md",
+    "command_log": "docs/m1289-paper-route-source-history-objective-only-update-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1288_source_history_objective_only_update",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1288-paper-route-source-history-objective-only-update-implementation"
+    "task_id": "m1289-paper-route-source-history-objective-only-update-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1289-paper-route-source-history-objective-only-update-result-audit.json",
-    "hypothesis": "Audit M1288 as exact-loss-positive while preserving the directional-gate caveat",
-    "id": "m1289-paper-route-source-history-objective-only-update-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit exact objective improvement and decide next branch step; PPO and promotion remain blocked",
-    "priority": 12840,
+    "command": "see experiments/manifests/m1290-paper-route-source-history-directional-conflict-audit.json",
+    "hypothesis": "A no-training directional conflict audit can explain why exact loss improves while both_directional_fraction remains zero",
+    "id": "m1290-paper-route-source-history-directional-conflict-audit",
+    "kind": "infrastructure",
+    "notes": "Pending: run directional conflict audit before more objective pressure; PPO and promotion remain blocked",
+    "priority": 12850,
     "status": "pending",
-    "success_artifact": "docs/m1289-paper-route-source-history-objective-only-update-result-audit.md"
+    "success_artifact": "runs/m1290_source_history_directional_conflict_audit/summary.json"
   },
-  "updated_at_utc": "20260528T140723Z"
+  "updated_at_utc": "20260528T141224Z"
 }

@@ -155,6 +155,37 @@
     "docs/m1288-paper-route-source-history-objective-only-update-implementation.md",
     "runs/m1288_source_history_objective_only_update/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1289-paper-route-source-history-objective-only-update-result-audit.md",
+    "decision": "source_history_objective_update_audit_exact_loss_positive_directional_weak_admit_conflict_audit",
+    "exact_loss_positive": true,
+    "combined_loss_delta": -11.4311475093,
+    "actor_mean_only_guardrail_passed": true,
+    "before_sign_quadrants": {
+      "correct_positive_wrong_positive": 0,
+      "correct_positive_wrong_negative": 76,
+      "correct_negative_wrong_positive": 76,
+      "correct_negative_wrong_negative": 0
+    },
+    "after_sign_quadrants": {
+      "correct_positive_wrong_positive": 0,
+      "correct_positive_wrong_negative": 76,
+      "correct_negative_wrong_positive": 76,
+      "correct_negative_wrong_negative": 0
+    },
+    "directional_gate_positive": false,
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1290-paper-route-source-history-directional-conflict-audit.json"
+  },
+  "decision": "source_history_objective_update_audit_exact_loss_positive_directional_weak_admit_conflict_audit",
   "decision_rule": "M1289 passes if it audits M1288 as exact-loss-positive but non-promotable and chooses the next branch step without PPO.",
-  "next_blocker": "m1289-paper-route-source-history-objective-only-update-result-audit"
+  "next_blocker": "m1290-paper-route-source-history-directional-conflict-audit"
 }

@@ -18646,3 +18646,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1289-paper-route-source-history-objective-only-update-result-audit.json`.
 - decision: `source_history_objective_update_exact_loss_improved_route_to_result_audit`
 - next: `m1289-paper-route-source-history-objective-only-update-result-audit`
+
+## 20260528T141224Z - m1289-paper-route-source-history-objective-only-update-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1289-paper-route-source-history-objective-only-update-result-audit.md`
+- decision: `source_history_objective_update_audit_exact_loss_positive_directional_weak_admit_conflict_audit`
+- exact-loss evidence: M1288 improves combined loss from `18.6105005714` to `7.1793530621`, with `combined_loss_delta=-11.4311475093`.
+- mutation evidence: M1288 changes only `actor_mean` parameters; `non_actor_mean_mutation_detected=false`.
+- directional caveat: before and after M1288, sign quadrants remain `{correct-positive/wrong-negative: 76, correct-negative/wrong-positive: 76, both-positive: 0, both-negative: 0}`.
+- interpretation: M1288 validates that the exact objective is trainable, but it mostly reduces residual magnitude and does not solve row-wise correct-history/wrong-history directionality.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1290-paper-route-source-history-directional-conflict-audit.json`.
+- decision: `source_history_objective_update_audit_exact_loss_positive_directional_weak_admit_conflict_audit`
+- next: `m1290-paper-route-source-history-directional-conflict-audit`

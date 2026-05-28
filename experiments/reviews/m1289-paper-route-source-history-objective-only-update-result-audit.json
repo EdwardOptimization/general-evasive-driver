@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M1289 audits M1288 as exact-loss positive but directional-gate weak; routes to no-training directional conflict audit before PPO or promotion",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores directional caveat",
+    "audit treats M1288 as promoted",
+    "audit starts PPO directly",
+    "audit overclaims self-identification",
+    "PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat exact loss improvement as closed-loop performance",
+    "do not treat both_directional_fraction=0.0 as a positive source-history gate",
+    "do not overclaim self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T141441Z",
+  "hypothesis": "M1288 can be audited as an exact objective-level positive result while preserving the caveat that directional source-history gate metrics remain weak.",
+  "lineage": {
+    "blocked_by": [
+      "M1288 improves exact objective but directional policy-gate metrics remain weak"
+    ],
+    "derived_from": [
+      "m1288-paper-route-source-history-objective-only-update-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1288-paper-route-source-history-objective-only-update-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1288-paper-route-source-history-objective-only-update-implementation.md",
+      "runs/m1288_source_history_objective_only_update/summary.json",
+      "runs/m1288_source_history_objective_only_update/objective_before.json",
+      "runs/m1288_source_history_objective_only_update/objective_after.json",
+      "runs/m1288_source_history_objective_only_update/source_history_objective_rows_before.csv",
+      "runs/m1288_source_history_objective_only_update/source_history_objective_rows_after.csv",
+      "runs/m1288_source_history_objective_only_update/train_trace.csv",
+      "runs/m1288_source_history_objective_only_update/parameter_delta.json"
+    ],
+    "parent_objective": [
+      "audit the exact-loss-positive actor-mean-only objective update before any PPO or replay escalation"
+    ],
+    "supersedes": [
+      "starting PPO or replay gates immediately after exact-loss improvement"
+    ]
+  },
+  "milestone": "m1289-paper-route-source-history-objective-only-update-result-audit",
+  "next_blocker": "m1290-paper-route-source-history-directional-conflict-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_history_objective_update_audit_exact_loss_positive_directional_weak_admit_conflict_audit",
+  "public_gates": [
+    "M1289 must audit M1288 exact-loss improvement",
+    "M1289 must audit mutation guardrails",
+    "M1289 must compare before-after directional policy-gate metrics",
+    "M1289 must decide whether to continue actor_mean_only, repair directional objective, refresh corpus, or escalate retention gates",
+    "M1289 must not run PPO",
+    "M1289 must not use private holdout",
+    "M1289 must not promote"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1289-paper-route-source-history-objective-only-update-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "source_history_objective_update_audit_exact_loss_positive_directional_weak_admit_conflict_audit",
+    "milestone": "m1289-paper-route-source-history-objective-only-update-result-audit",
+    "reason": "M1289 audits M1288 as exact-loss positive but directional-gate weak; routes to no-training directional conflict audit before PPO or promotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1289-paper-route-source-history-objective-only-update-result-audit.md exists",
+    "audit records exact-loss improvement",
+    "audit records actor_mean_only mutation guardrail",
+    "audit records both_directional_fraction remains 0.0",
+    "audit chooses an explicit next branch step",
+    "no PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

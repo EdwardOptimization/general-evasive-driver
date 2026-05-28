@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1288-paper-route-source-history-objective-only-update-implementation
+m1289-paper-route-source-history-objective-only-update-result-audit
 ```
 
 Current next task:
 
 ```text
-m1289-paper-route-source-history-objective-only-update-result-audit
+m1290-paper-route-source-history-directional-conflict-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -85,10 +85,14 @@ objective-level positive: exact combined loss improved from `18.6105005714` to
 The caveat is important: `both_directional_fraction` remains `0.0`, and
 `preferred_hidden_margin_positive_fraction` fell from `0.4868421053` to
 `0.4078947368`, so this is not a positive policy-side source-history gate and
-not a driver-performance claim. The active blocker is M1289: audit whether the
-M1288 exact-loss improvement is an admissible first step, a row-wise
-directional-repair target, or a public-corpus overfit signal. PPO and promotion
-remain blocked.
+not a driver-performance claim. M1289 audited the result as exact-loss-positive
+but directional-gate weak. The row-wise sign quadrants stayed mutually
+exclusive before and after M1288: `76` rows have correct-positive/wrong-negative
+and `76` rows have correct-negative/wrong-positive, with `0` rows both positive.
+The active blocker is M1290: run a no-training directional conflict audit to
+decide whether the next step should be row-wise directional objective repair,
+trainable-scope escalation, longer actor-head continuation, or source-history
+corpus refresh. PPO and promotion remain blocked.
 
 ## Actor Contract
 
