@@ -115,7 +115,34 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit
+m1254-paper-route-capability-separable-event-timing-source-design
+```
+
+M1253 completed capability-separable trajectory proposal source-variable audit:
+
+```text
+artifact: docs/m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit.md
+decision: trajectory_proposal_source_near_miss_stop_same_budget_pivot_to_event_timing_source_design
+subtype: source_state_timing_near_miss
+```
+
+M1253 conclusion:
+
+```text
+M1250-M1252 show stable near-miss evidence, but accepted source rows remain
+zero. Stop same-source proposal seed/budget expansion and pivot to
+event-timing/source-state source mining.
+```
+
+Next task:
+
+```text
+artifact: docs/m1254-paper-route-capability-separable-event-timing-source-design.md
+manifest: experiments/manifests/m1254-paper-route-capability-separable-event-timing-source-design.json
+goal: design no-training event-timing/source-state source miner and
+      pre-register bounded M1255 smoke
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         threshold relaxation, self-identification or paper-level claims
 ```
 
 M1252 completed capability-separable proposal margin-restoration smoke:

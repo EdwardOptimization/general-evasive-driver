@@ -18050,3 +18050,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit.json`.
 - decision: `proposal_margin_restoration_near_miss_persists_route_to_source_variable_audit`
 - next: `m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit`
+
+## 20260528T105859Z - m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit.md`
+- audited evidence: M1250 and M1252 both produced trajectory-proposal near-misses but zero accepted separable rows.
+- classification: `source_state_timing_near_miss` under `scenario_sampling_failure`.
+- stop decision: no more same-source proposal seed/budget/local relocation expansion before a new evidence variable.
+- selected next variable: event-timing/source-state source mining, keeping the same actor checkpoint, acceptance thresholds, no-training guardrails, and actor input contract.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, self-ID claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1254-paper-route-capability-separable-event-timing-source-design.json`.
+- decision: `trajectory_proposal_source_near_miss_stop_same_budget_pivot_to_event_timing_source_design`
+- next: `m1254-paper-route-capability-separable-event-timing-source-design`

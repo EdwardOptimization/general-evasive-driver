@@ -136,6 +136,24 @@
     "docs/m1252-paper-route-capability-separable-proposal-margin-restoration-smoke.md",
     "runs/m1252_capability_separable_proposal_margin_restoration_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit.md",
+    "decision": "trajectory_proposal_source_near_miss_stop_same_budget_pivot_to_event_timing_source_design",
+    "failure_type": "scenario_sampling_failure",
+    "subtype": "source_state_timing_near_miss",
+    "m1250_pair_min_best_margin": -0.0018868557,
+    "m1252_pair_min_best_margin": -0.0006610772,
+    "same_budget_expansion_allowed": false,
+    "next_source_variable": "event_timing_source_state",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1254-paper-route-capability-separable-event-timing-source-design.json"
+  },
+  "decision": "trajectory_proposal_source_near_miss_stop_same_budget_pivot_to_event_timing_source_design",
   "decision_rule": "M1253 passes if it records M1250-M1252 near-miss negatives and chooses the next branch without threshold relaxation or training.",
-  "next_blocker": "m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit"
+  "next_blocker": "m1254-paper-route-capability-separable-event-timing-source-design"
 }
