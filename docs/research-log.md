@@ -18173,3 +18173,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1261-paper-route-richer-fault-regret-boundary-retarget-design.json`.
 - decision: `richer_fault_source_low_regret_audit_admit_regret_boundary_retarget_design`
 - next: `m1261-paper-route-richer-fault-regret-boundary-retarget-design`
+
+## 20260528T114834Z - m1261-paper-route-richer-fault-regret-boundary-retarget-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md`
+- design: implement a focused retargeting tool around M1259 pair 5, using fixed best-A and best-B action sequences while scanning bounded obstacle geometry.
+- target: amplify two-sided cross-regret while preserving strict own-branch viability; do not target viability alone.
+- acceptance remains strict: own-branch best margins nonnegative, `best_action_l2>=0.12`, and both `cross_regret_A` and `cross_regret_B >= 0.02`; `asymmetric_success_drop` remains diagnostic only.
+- anti-collision guard: M1262 must report own-branch viability failures and all-four-rollout collision counts so retargeting cannot pass by making everything fail.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, self-ID claim, true high-fidelity physical fault claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1262-paper-route-richer-fault-regret-boundary-retarget-implementation.json`.
+- decision: `regret_boundary_retarget_design_admit_bounded_implementation_smoke`
+- next: `m1262-paper-route-richer-fault-regret-boundary-retarget-implementation`

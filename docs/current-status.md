@@ -115,7 +115,35 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1261-paper-route-richer-fault-regret-boundary-retarget-design
+m1262-paper-route-richer-fault-regret-boundary-retarget-implementation
+```
+
+M1261 completed regret-boundary retarget design:
+
+```text
+artifact: docs/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md
+decision: regret_boundary_retarget_design_admit_bounded_implementation_smoke
+target_pair_id: 5
+```
+
+M1261 conclusion:
+
+```text
+Implement a focused retargeting tool around M1259 pair 5. It should scan
+bounded obstacle geometry using fixed best-A and best-B action sequences, with
+the explicit target of increasing two-sided cross-regret while preserving
+own-branch viability. It must report anti-collision-dominance diagnostics.
+```
+
+Next task:
+
+```text
+artifact: runs/m1262_richer_fault_regret_boundary_retarget_smoke/summary.json
+manifest: experiments/manifests/m1262-paper-route-richer-fault-regret-boundary-retarget-implementation.json
+goal: implement and run bounded no-training regret-boundary retarget smoke
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         threshold relaxation, self-identification or high-fidelity/paper-level
+         claims
 ```
 
 M1260 completed richer-fault source result audit:

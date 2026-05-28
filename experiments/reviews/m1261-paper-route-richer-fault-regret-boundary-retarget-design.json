@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1261 designs fixed-action geometry retargeting around M1259 pair 5 to amplify two-sided cross-regret while preserving strict own-branch viability",
+  "failure_criteria": [
+    "design is missing",
+    "design ignores M1260 strict negative audit",
+    "design lowers thresholds",
+    "design targets only viability and not regret",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, fault labels, oracle outcomes, or search outputs to actor inputs",
+    "do not lower min_cross_regret_margin",
+    "do not accept negative own-branch margins",
+    "do not treat asymmetric_success_drop as strict accepted source-positive",
+    "do not claim current single-track proxies are true single-wheel or per-wheel faults"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T114949Z",
+  "hypothesis": "M1259's viable action-divergent low-regret pair can motivate a bounded retargeting design that targets two-sided cross-regret rather than only viability.",
+  "lineage": {
+    "blocked_by": [
+      "M1260 classifies M1259 pair 5 as viable action-divergent low-regret"
+    ],
+    "derived_from": [
+      "m1260-paper-route-richer-fault-capability-source-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1260-paper-route-richer-fault-capability-source-result-audit.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_dataset": [
+      "docs/m1260-paper-route-richer-fault-capability-source-result-audit.md",
+      "docs/m1259-paper-route-richer-fault-capability-source-smoke.md",
+      "runs/m1259_richer_fault_capability_source_smoke/matched_capability_pairs.csv"
+    ],
+    "parent_objective": [
+      "design a regret-boundary retargeting source repair around viable action-divergent low-regret rows"
+    ],
+    "supersedes": [
+      "another unstructured richer-fault source run"
+    ]
+  },
+  "milestone": "m1261-paper-route-richer-fault-regret-boundary-retarget-design",
+  "next_blocker": "m1262-paper-route-richer-fault-regret-boundary-retarget-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "regret_boundary_retarget_design_admit_bounded_implementation_smoke",
+  "public_gates": [
+    "M1261 must preserve actor input contract",
+    "M1261 must not train controllers",
+    "M1261 must not run PPO",
+    "M1261 must not use private holdout",
+    "M1261 must not promote",
+    "M1261 must preserve strict accepted-source criteria",
+    "M1261 must design a bounded retargeting run or reject it"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md",
+    "clearance_margin_mean": "",
+    "decision": "regret_boundary_retarget_design_admit_bounded_implementation_smoke",
+    "milestone": "m1261-paper-route-richer-fault-regret-boundary-retarget-design",
+    "reason": "M1261 designs fixed-action geometry retargeting around M1259 pair 5 to amplify two-sided cross-regret while preserving strict own-branch viability",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md exists",
+    "design cites M1259 pair 5 metrics",
+    "design preserves strict accepted-source criteria",
+    "design identifies anti-collision-dominance checks",
+    "design admits or rejects one bounded no-training smoke",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

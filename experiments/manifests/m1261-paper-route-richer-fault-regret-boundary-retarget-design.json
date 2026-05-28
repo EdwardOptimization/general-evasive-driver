@@ -146,6 +146,22 @@
     "docs/m1260-paper-route-richer-fault-capability-source-result-audit.md",
     "runs/m1259_richer_fault_capability_source_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md",
+    "decision": "regret_boundary_retarget_design_admit_bounded_implementation_smoke",
+    "target_pair_id": 5,
+    "target_metric": "two_sided_cross_regret",
+    "accepted_thresholds_changed": false,
+    "implementation_required": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1262-paper-route-richer-fault-regret-boundary-retarget-implementation.json"
+  },
+  "decision": "regret_boundary_retarget_design_admit_bounded_implementation_smoke",
   "decision_rule": "M1261 passes if it writes a design for one bounded regret-boundary retargeting step or rejects the idea without training or threshold relaxation.",
-  "next_blocker": "m1261-paper-route-richer-fault-regret-boundary-retarget-design"
+  "next_blocker": "m1262-paper-route-richer-fault-regret-boundary-retarget-implementation"
 }

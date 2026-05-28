@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1270,
+    "completed": 1271,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1260-paper-route-richer-fault-capability-source-result-audit.md",
+    "command_log": "docs/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1260-paper-route-richer-fault-capability-source-result-audit"
+    "task_id": "m1261-paper-route-richer-fault-regret-boundary-retarget-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1261-paper-route-richer-fault-regret-boundary-retarget-design.json",
-    "hypothesis": "Design one bounded regret-boundary retargeting step around viable action-divergent low-regret rows",
-    "id": "m1261-paper-route-richer-fault-regret-boundary-retarget-design",
-    "kind": "gate",
-    "notes": "Pending: design retarget axes and anti-collision-dominance checks before any new source run",
-    "priority": 12560,
+    "command": "see experiments/manifests/m1262-paper-route-richer-fault-regret-boundary-retarget-implementation.json",
+    "hypothesis": "Implement and smoke-test bounded regret-boundary retargeting around M1259 pair 5",
+    "id": "m1262-paper-route-richer-fault-regret-boundary-retarget-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement focused retarget tool, verify source reconstruction, and run no-training smoke",
+    "priority": 12570,
     "status": "pending",
-    "success_artifact": "docs/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md"
+    "success_artifact": "runs/m1262_richer_fault_regret_boundary_retarget_smoke/summary.json"
   },
-  "updated_at_utc": "20260528T114437Z"
+  "updated_at_utc": "20260528T114834Z"
 }
