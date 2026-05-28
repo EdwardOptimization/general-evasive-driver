@@ -1,0 +1,149 @@
+{
+  "id": "m1402-paper-route-warmup-reveal-pressure-outcome-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1401-paper-route-warmup-reveal-pressure-outcome-probe.md",
+      "runs/m1401_warmup_reveal_pressure_outcome_probe/summary.json",
+      "runs/m1401_warmup_reveal_pressure_outcome_probe/normal_margin_band_summary.csv",
+      "runs/m1401_warmup_reveal_pressure_outcome_probe/variant_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1401-paper-route-warmup-reveal-pressure-outcome-probe.json"
+    ],
+    "parent_objective": [
+      "audit action-only late-reveal outcome probe before new source changes"
+    ],
+    "derived_from": [
+      "m1401-paper-route-warmup-reveal-pressure-outcome-probe"
+    ],
+    "blocked_by": [
+      "M1401 found action sensitivity but no outcome-critical rows and no preferred near-boundary candidates"
+    ],
+    "supersedes": [
+      "running another late-reveal outcome probe without a route decision",
+      "training from M1401 action-only rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.md",
+  "public_gates": [
+    "M1402 must audit M1401 before new source changes or training",
+    "M1402 must classify action-only evidence and near-boundary sparsity",
+    "M1402 must choose reveal-grid redesign, mild warmup stimulus design, simulator/task extension, or synthesis",
+    "M1402 must not train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not count action-only rows as outcome evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "G_late_reveal_outcome_result_audit",
+    "evidence_increment": "classifies M1401 action-only late-reveal outcome result and selects the next route",
+    "claim_scope": "process audit only; no training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if audit treats action-only rows as outcome evidence",
+      "stop if near-boundary sparsity is ignored",
+      "stop if next route repeats the same late-reveal grid without a new evidence axis"
+    ],
+    "fallback_plan": [
+      "route to mild warmup stimulus design if late reveal alone is insufficient",
+      "route to simulator/task extension if obstacle pressure cannot be tightened with existing config",
+      "route to branch synthesis if no credible public next route remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "late-reveal outcome result audit",
+    "admission_evidence": [
+      "M1401 found 1464 action-critical rows but 0 accepted outcome rows",
+      "M1401 found 16 broad near-boundary candidates and 0 preferred near-boundary candidates",
+      "M1401 did not train, promote, use private holdout, export corpus, or change actor inputs"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1402 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "M1401 result is classified",
+      "next route is explicit",
+      "no training or corpus export is admitted from action-only evidence"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1402 must treat M1401 as action-only and cannot count hidden/action differences without outcome gaps as history necessity.",
+    "history_necessity_tests": [
+      "m1401_action_only_rows",
+      "m1401_normal_margin_band_sparsity",
+      "m1401_zero_accepted_outcome_rows"
+    ],
+    "temporal_evidence_window": "Process audit over M1401 no-training outcome artifacts.",
+    "negative_result_policy": "If late-reveal outcome evidence is absent, route to a new source/task design before training.",
+    "allowed_claims": [
+      "M1401 action-only result audit",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A process audit can determine the next route after M1401 shows action sensitivity but no outcome-critical near-boundary history evidence.",
+  "success_criteria": [
+    "docs/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.md exists",
+    "audit classifies action-only evidence and near-boundary sparsity",
+    "audit chooses a next route without corpus export, training, PPO, promotion, private holdout, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores action-only evidence",
+    "audit ignores near-boundary sparsity",
+    "audit routes directly to training or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1401-paper-route-warmup-reveal-pressure-outcome-probe.md",
+    "runs/m1401_warmup_reveal_pressure_outcome_probe/summary.json"
+  ],
+  "decision_rule": "M1402 passes if it audits M1401 and chooses a redesign or synthesis route before any training, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
+  "next_blocker": "m1402-paper-route-warmup-reveal-pressure-outcome-result-audit"
+}

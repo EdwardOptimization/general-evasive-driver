@@ -2,7 +2,7 @@
   "id": "m1401-paper-route-warmup-reveal-pressure-outcome-probe",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -154,6 +154,36 @@
     "runs/m1400_warmup_reveal_pressure_source_smoke/summary.json",
     "runs/m1400_warmup_reveal_pressure_source_smoke/matched_or_bucketed_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1401_warmup_reveal_pressure_outcome_probe/summary.json",
+    "result_doc": "docs/m1401-paper-route-warmup-reveal-pressure-outcome-probe.md",
+    "decision": "late_reveal_margin_banded_outcome_action_only_route_to_result_audit",
+    "result_class": "warmup_latched_outcome_action_only",
+    "selected_candidate_rows": 256,
+    "outcome_rows": 2048,
+    "normal_margin_candidate_rows": 256,
+    "broad_near_boundary_candidate_rows": 16,
+    "preferred_near_boundary_candidate_rows": 0,
+    "accepted_outcome_rows": 0,
+    "warmup_history_positive_rows": 0,
+    "accepted_reset_rows": 0,
+    "accepted_zero_current_rows": 0,
+    "action_critical_rows": 1464,
+    "normal_failed_rows": 16,
+    "rejected_rows": 0,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "actor_parameters_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.json"
+  },
+  "decision": "late_reveal_margin_banded_outcome_action_only_route_to_result_audit",
   "decision_rule": "M1401 passes structurally if it materializes no-training margin-banded outcome interventions over M1400 rows and reports source/reveal-step diversity without claim expansion.",
-  "next_blocker": "m1401-paper-route-warmup-reveal-pressure-outcome-probe"
+  "next_blocker": "m1402-paper-route-warmup-reveal-pressure-outcome-result-audit"
 }

@@ -171,6 +171,31 @@ def source_diversity(rows: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def normal_margin_band(value: float) -> str:
+    margin = _finite(value)
+    if not np.isfinite(margin):
+        return "nonfinite"
+    if margin < 0.0:
+        return "negative"
+    if margin < 0.02:
+        return "viable_0p00_0p02"
+    if margin <= 0.25:
+        return "preferred_0p02_0p25"
+    if margin <= 0.50:
+        return "broad_0p25_0p50"
+    return "high_gt_0p50"
+
+
+def is_broad_near_boundary(value: float) -> bool:
+    margin = _finite(value)
+    return bool(np.isfinite(margin) and 0.0 <= margin <= 0.50)
+
+
+def is_preferred_near_boundary(value: float) -> bool:
+    margin = _finite(value)
+    return bool(np.isfinite(margin) and 0.02 <= margin <= 0.25)
+
+
 def summarize_groups(rows: list[dict[str, Any]], keys: tuple[str, ...]) -> list[dict[str, Any]]:
     if not rows:
         return []
@@ -194,6 +219,59 @@ def summarize_groups(rows: list[dict[str, Any]], keys: tuple[str, ...]) -> list[
             }
         )
         output.append(item)
+    return output
+
+
+def summarize_normal_margin_bands(
+    candidate_rows: list[dict[str, Any]],
+    outcome_rows: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    if not candidate_rows and not outcome_rows:
+        return []
+    candidate_frame = pd.DataFrame(candidate_rows)
+    outcome_frame = pd.DataFrame(outcome_rows)
+    bands = [
+        "negative",
+        "viable_0p00_0p02",
+        "preferred_0p02_0p25",
+        "broad_0p25_0p50",
+        "high_gt_0p50",
+        "nonfinite",
+    ]
+    output: list[dict[str, Any]] = []
+    for band in bands:
+        candidate_group = (
+            candidate_frame[candidate_frame["normal_margin_band"] == band]
+            if not candidate_frame.empty
+            else pd.DataFrame()
+        )
+        outcome_group = (
+            outcome_frame[outcome_frame["normal_margin_band"] == band]
+            if not outcome_frame.empty
+            else pd.DataFrame()
+        )
+        if candidate_group.empty and outcome_group.empty:
+            continue
+        output.append(
+            {
+                "normal_margin_band": band,
+                "candidate_rows": int(len(candidate_group)),
+                "outcome_rows": int(len(outcome_group)),
+                "outcome_critical_rows": int(outcome_group["outcome_critical"].astype(bool).sum())
+                if "outcome_critical" in outcome_group.columns
+                else 0,
+                "warmup_history_positive_rows": int(outcome_group["warmup_history_positive"].astype(bool).sum())
+                if "warmup_history_positive" in outcome_group.columns
+                else 0,
+                "unique_seeds": int(candidate_group["seed"].nunique()) if "seed" in candidate_group.columns else 0,
+                "unique_capability_pairs": int(candidate_group["capability_pair"].nunique())
+                if "capability_pair" in candidate_group.columns
+                else 0,
+                "unique_reveal_buckets": int(candidate_group["preferred_reveal_bucket"].nunique())
+                if "preferred_reveal_bucket" in candidate_group.columns
+                else 0,
+            }
+        )
     return output
 
 
@@ -277,6 +355,7 @@ def run_warmup_latched_outcome_probe(
         return trace_cache[key]
 
     outcome_rows: list[dict[str, Any]] = []
+    normal_margin_candidate_rows: list[dict[str, Any]] = []
     rejected_rows: list[dict[str, Any]] = []
     for selected_index, row in selected_rows.reset_index(drop=True).iterrows():
         seed = int(row["seed"])
@@ -318,7 +397,33 @@ def run_warmup_latched_outcome_probe(
         normal_first_action = _first_action(normal)
         normal_success = bool(normal.get("success", False))
         normal_margin = _finite(normal.get("min_clearance_margin"))
+        margin_band = normal_margin_band(normal_margin)
+        broad_near_boundary = is_broad_near_boundary(normal_margin)
+        preferred_near_boundary = is_preferred_near_boundary(normal_margin)
         normal_viable = bool(normal_success and np.isfinite(normal_margin) and normal_margin >= 0.0)
+        normal_margin_candidate_rows.append(
+            {
+                "selected_index": int(selected_index),
+                "source_index": int(row.get("source_index", selected_index)),
+                "seed": seed,
+                "reveal_step": reveal_step,
+                "preferred_fault": preferred_fault,
+                "preferred_fault_family": str(row.get("preferred_fault_family", "")),
+                "wrong_fault": wrong_fault,
+                "wrong_fault_family": str(row.get("wrong_fault_family", "")),
+                "capability_pair": capability_pair,
+                "preferred_reveal_bucket": str(row.get("preferred_reveal_bucket", "")),
+                "wrong_reveal_bucket": str(row.get("wrong_reveal_bucket", "")),
+                "matched_current_pass": bool(row.get("matched_current_pass", False)),
+                "bucketed_current_pass": bool(row.get("bucketed_current_pass", False)),
+                "normal_success": normal_success,
+                "normal_margin": normal_margin,
+                "normal_terminal_reason": str(normal.get("terminal_reason", "")),
+                "normal_margin_band": margin_band,
+                "normal_broad_near_boundary": broad_near_boundary,
+                "normal_preferred_near_boundary": preferred_near_boundary,
+            }
+        )
         variant_hiddens = build_warmup_variant_hiddens(
             model=model,
             preferred_trace=preferred_trace,
@@ -374,6 +479,9 @@ def run_warmup_latched_outcome_probe(
                     "variant_success": bool(result.get("success", False)),
                     "success_drop": success_drop,
                     "normal_margin": normal_margin,
+                    "normal_margin_band": margin_band,
+                    "normal_broad_near_boundary": broad_near_boundary,
+                    "normal_preferred_near_boundary": preferred_near_boundary,
                     "variant_margin": variant_margin,
                     "margin_gap": margin_gap,
                     "normal_terminal_reason": str(normal.get("terminal_reason", "")),
@@ -389,6 +497,12 @@ def run_warmup_latched_outcome_probe(
 
     accepted = [row for row in outcome_rows if bool(row.get("outcome_critical", False))]
     accepted_history = [row for row in outcome_rows if bool(row.get("warmup_history_positive", False))]
+    accepted_history_broad = [
+        row for row in accepted_history if bool(row.get("normal_broad_near_boundary", False))
+    ]
+    accepted_history_preferred = [
+        row for row in accepted_history if bool(row.get("normal_preferred_near_boundary", False))
+    ]
     accepted_reset = [row for row in accepted if str(row.get("variant", "")) == "reset_hidden"]
     accepted_zero_current = [row for row in accepted if str(row.get("variant", "")) == "zero_current_response"]
     action_critical = [row for row in outcome_rows if bool(row.get("sequence_action_critical", False))]
@@ -414,8 +528,18 @@ def run_warmup_latched_outcome_probe(
     variant_summary = summarize_groups(outcome_rows, ("variant",))
     capability_pair_summary = summarize_groups(outcome_rows, ("capability_pair",))
     reveal_bucket_summary = summarize_groups(outcome_rows, ("preferred_reveal_bucket",))
+    reveal_step_summary = summarize_groups(outcome_rows, ("reveal_step",))
+    strict_bucketed_summary = summarize_groups(outcome_rows, ("matched_current_pass", "bucketed_current_pass"))
+    normal_margin_band_summary = summarize_normal_margin_bands(normal_margin_candidate_rows, outcome_rows)
+    broad_near_boundary_candidates = [
+        row for row in normal_margin_candidate_rows if bool(row.get("normal_broad_near_boundary", False))
+    ]
+    preferred_near_boundary_candidates = [
+        row for row in normal_margin_candidate_rows if bool(row.get("normal_preferred_near_boundary", False))
+    ]
 
     write_csv_rows(run_dir / "selected_candidate_rows.csv", selected_rows.to_dict("records"))
+    write_csv_rows(run_dir / "normal_margin_candidate_rows.csv", normal_margin_candidate_rows)
     write_csv_rows(run_dir / "outcome_rows.csv", outcome_rows)
     write_csv_rows(run_dir / "accepted_outcome_rows.csv", accepted)
     write_csv_rows(run_dir / "accepted_warmup_history_rows.csv", accepted_history)
@@ -423,6 +547,9 @@ def run_warmup_latched_outcome_probe(
     write_csv_rows(run_dir / "variant_summary.csv", variant_summary)
     write_csv_rows(run_dir / "capability_pair_summary.csv", capability_pair_summary)
     write_csv_rows(run_dir / "reveal_bucket_summary.csv", reveal_bucket_summary)
+    write_csv_rows(run_dir / "reveal_step_summary.csv", reveal_step_summary)
+    write_csv_rows(run_dir / "strict_bucketed_summary.csv", strict_bucketed_summary)
+    write_csv_rows(run_dir / "normal_margin_band_summary.csv", normal_margin_band_summary)
     summary = {
         "run_type": "warmup_latched_outcome_probe",
         "checkpoint": checkpoint_path,
@@ -437,16 +564,26 @@ def run_warmup_latched_outcome_probe(
         "min_margin_gap": float(min_margin_gap),
         "min_sequence_action_l2": float(min_sequence_action_l2),
         "outcome_rows": int(len(outcome_rows)),
+        "normal_margin_candidate_rows": int(len(normal_margin_candidate_rows)),
+        "broad_near_boundary_candidate_rows": int(len(broad_near_boundary_candidates)),
+        "preferred_near_boundary_candidate_rows": int(len(preferred_near_boundary_candidates)),
         "accepted_outcome_rows": int(len(accepted)),
         "warmup_history_positive_rows": int(len(accepted_history)),
+        "accepted_warmup_history_broad_near_boundary_rows": int(len(accepted_history_broad)),
+        "accepted_warmup_history_preferred_near_boundary_rows": int(len(accepted_history_preferred)),
         "accepted_reset_rows": int(len(accepted_reset)),
         "accepted_zero_current_rows": int(len(accepted_zero_current)),
         "action_critical_rows": int(len(action_critical)),
         "normal_failed_rows": int(len(normal_failed)),
         "rejected_rows": int(len(rejected_rows)),
         "accepted_warmup_history_diversity": accepted_history_diversity,
+        "accepted_warmup_history_broad_near_boundary_diversity": source_diversity(accepted_history_broad),
+        "accepted_warmup_history_preferred_near_boundary_diversity": source_diversity(accepted_history_preferred),
         "accepted_outcome_diversity": source_diversity(accepted),
         "evaluated_diversity": source_diversity(outcome_rows),
+        "broad_near_boundary_candidate_diversity": source_diversity(broad_near_boundary_candidates),
+        "preferred_near_boundary_candidate_diversity": source_diversity(preferred_near_boundary_candidates),
+        "normal_margin_band_summary": normal_margin_band_summary,
         "variant_count": int(len({str(row.get("variant", "")) for row in outcome_rows})),
         "result_class": result_class,
         "actor_parameters_changed": actor_parameters_changed,
@@ -458,6 +595,7 @@ def run_warmup_latched_outcome_probe(
         "training_corpus_exported": False,
         "actor_input_contract_changed": False,
         "selected_candidate_rows_csv": run_dir / "selected_candidate_rows.csv",
+        "normal_margin_candidate_rows_csv": run_dir / "normal_margin_candidate_rows.csv",
         "outcome_rows_csv": run_dir / "outcome_rows.csv",
         "accepted_outcome_rows_csv": run_dir / "accepted_outcome_rows.csv",
         "accepted_warmup_history_rows_csv": run_dir / "accepted_warmup_history_rows.csv",
@@ -465,6 +603,9 @@ def run_warmup_latched_outcome_probe(
         "variant_summary_csv": run_dir / "variant_summary.csv",
         "capability_pair_summary_csv": run_dir / "capability_pair_summary.csv",
         "reveal_bucket_summary_csv": run_dir / "reveal_bucket_summary.csv",
+        "reveal_step_summary_csv": run_dir / "reveal_step_summary.csv",
+        "strict_bucketed_summary_csv": run_dir / "strict_bucketed_summary.csv",
+        "normal_margin_band_summary_csv": run_dir / "normal_margin_band_summary.csv",
     }
     write_json(run_dir / "summary.json", summary)
     return summary

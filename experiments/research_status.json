@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1410,
+    "completed": 1411,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1400-paper-route-warmup-reveal-pressure-source-smoke.md",
+    "command_log": "docs/m1401-paper-route-warmup-reveal-pressure-outcome-probe.md",
     "returncode": 0,
-    "run_dir": "runs/m1400_warmup_reveal_pressure_source_smoke",
+    "run_dir": "runs/m1401_warmup_reveal_pressure_outcome_probe",
     "status": "completed",
-    "task_id": "m1400-paper-route-warmup-reveal-pressure-source-smoke"
+    "task_id": "m1401-paper-route-warmup-reveal-pressure-outcome-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1401-paper-route-warmup-reveal-pressure-outcome-probe.json",
-    "hypothesis": "No-training margin-banded outcome interventions over M1400 late-reveal rows can determine whether stronger reveal pressure creates source-diverse history-relevant outcome gaps.",
-    "id": "m1401-paper-route-warmup-reveal-pressure-outcome-probe",
-    "kind": "infrastructure",
-    "notes": "Pending: implement or run margin-banded late-reveal outcome probe before corpus export or training",
-    "priority": 13960,
+    "command": "see experiments/manifests/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.json",
+    "hypothesis": "A process audit can determine the next route after M1401 shows action sensitivity but no outcome-critical near-boundary history evidence.",
+    "id": "m1402-paper-route-warmup-reveal-pressure-outcome-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit action-only late-reveal outcome result before new source changes or training",
+    "priority": 13970,
     "status": "pending",
-    "success_artifact": "runs/m1401_warmup_reveal_pressure_outcome_probe/summary.json"
+    "success_artifact": "docs/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.md"
   },
-  "updated_at_utc": "20260529T025000Z"
+  "updated_at_utc": "20260529T030000Z"
 }

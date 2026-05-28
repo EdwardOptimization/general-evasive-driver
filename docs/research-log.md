@@ -20667,3 +20667,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: `actor_parameters_changed=false`, `training_started=false`, `evaluation_started=false`, `ppo_used=false`, `promoted=false`, `private_holdout_used=false`, `training_corpus_exported=false`, `actor_input_contract_changed=false`.
 - follow-up manifest: `experiments/manifests/m1401-paper-route-warmup-reveal-pressure-outcome-probe.json`.
 - next: `m1401-paper-route-warmup-reveal-pressure-outcome-probe`
+
+## 20260529T030000Z - m1401-paper-route-warmup-reveal-pressure-outcome-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1401_warmup_reveal_pressure_outcome_probe/summary.json`
+- result doc: `docs/m1401-paper-route-warmup-reveal-pressure-outcome-probe.md`
+- decision: `late_reveal_margin_banded_outcome_action_only_route_to_result_audit`
+- command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.warmup_latched_outcome_probe --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m991_capability_step_fault_source_wave.json --candidate-rows runs/m1400_warmup_reveal_pressure_source_smoke/matched_or_bucketed_rows.csv --max-candidate-rows 0 --per-capability-pair-cap 128 --history-length 48 --recent-window-length 4 --max-continuation-steps 48 --device cpu --run-dir runs/m1401_warmup_reveal_pressure_outcome_probe`
+- result class: `warmup_latched_outcome_action_only`
+- counts: `selected_candidate_rows=256`, `outcome_rows=2048`, `normal_margin_candidate_rows=256`, `broad_near_boundary_candidate_rows=16`, `preferred_near_boundary_candidate_rows=0`, `accepted_outcome_rows=0`, `warmup_history_positive_rows=0`, `action_critical_rows=1464`, `normal_failed_rows=16`, `rejected_rows=0`.
+- normal margin bands: `negative=2 candidates`, `broad_0p25_0p50=16 candidates`, `high_gt_0p50=238 candidates`, and `preferred_0p02_0p25=0 candidates`.
+- variant finding: all variants have `0` outcome-critical rows despite high action sensitivity; reset hidden sequence action L2 mean is `0.9791`, warmup removed is `0.6298`, warmup shortened is `0.3336`.
+- interpretation: late reveal alone increases action differences but does not create near-boundary outcome gaps; route to result audit before another source change.
+- guardrail: `actor_parameters_changed=false`, `training_started=false`, `evaluation_started=false`, `ppo_used=false`, `promoted=false`, `private_holdout_used=false`, `training_corpus_exported=false`, `actor_input_contract_changed=false`.
+- follow-up manifest: `experiments/manifests/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.json`.
+- next: `m1402-paper-route-warmup-reveal-pressure-outcome-result-audit`

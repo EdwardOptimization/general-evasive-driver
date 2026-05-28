@@ -16,21 +16,42 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1400-paper-route-warmup-reveal-pressure-source-smoke
+m1401-paper-route-warmup-reveal-pressure-outcome-probe
 ```
 
 Current next task:
 
 ```text
-m1401-paper-route-warmup-reveal-pressure-outcome-probe
+m1402-paper-route-warmup-reveal-pressure-outcome-result-audit
 ```
 
-M1400 ran the late-reveal source smoke from the warmup/reveal pressure redesign
-branch. The current public-gate base remains M1362 alpha `0.1`:
+M1401 ran the no-training margin-banded outcome probe over M1400 late-reveal
+matched/bucketed rows. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1401 result:
+
+```text
+decision: late_reveal_margin_banded_outcome_action_only_route_to_result_audit
+result_class: warmup_latched_outcome_action_only
+selected_candidate_rows: 256
+outcome_rows: 2048
+broad_near_boundary_candidate_rows: 16
+preferred_near_boundary_candidate_rows: 0
+accepted_outcome_rows: 0
+warmup_history_positive_rows: 0
+action_critical_rows: 1464
+next: m1402-paper-route-warmup-reveal-pressure-outcome-result-audit
+```
+
+M1401 shows late reveal alone is insufficient: it creates strong action
+differences but no accepted outcome gaps and no preferred near-boundary
+candidate window. M1402 must audit this action-only result before any new source
+change, corpus export, PPO, training, private holdout, promotion, or claim
+expansion.
 
 M1400 result:
 
