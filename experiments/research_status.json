@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1296,
+    "completed": 1297,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.md",
+    "command_log": "docs/m1287-paper-route-source-history-objective-only-update-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1286-paper-route-four-wheel-source-intervention-materialization-synthesis"
+    "task_id": "m1287-paper-route-source-history-objective-only-update-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1287-paper-route-source-history-objective-only-update-design.json",
-    "hypothesis": "Design a bounded no-PPO objective-only update path around exact M1285 source-history residual",
-    "id": "m1287-paper-route-source-history-objective-only-update-design",
-    "kind": "gate",
-    "notes": "Pending: design objective-only update path; PPO and promotion remain blocked",
-    "priority": 12820,
+    "command": "see experiments/manifests/m1288-paper-route-source-history-objective-only-update-implementation.json",
+    "hypothesis": "A tiny actor-mean-only no-PPO update can reduce exact M1285 source-history residual while preserving mutation guardrails",
+    "id": "m1288-paper-route-source-history-objective-only-update-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded objective-only update; PPO and promotion remain blocked",
+    "priority": 12830,
     "status": "pending",
-    "success_artifact": "docs/m1287-paper-route-source-history-objective-only-update-design.md"
+    "success_artifact": "runs/m1288_source_history_objective_only_update/summary.json"
   },
-  "updated_at_utc": "20260528T135339Z"
+  "updated_at_utc": "20260528T135947Z"
 }

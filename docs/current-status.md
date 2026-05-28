@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1286-paper-route-four-wheel-source-intervention-materialization-synthesis
+m1287-paper-route-source-history-objective-only-update-design
 ```
 
 Current next task:
 
 ```text
-m1287-paper-route-source-history-objective-only-update-design
+m1288-paper-route-source-history-objective-only-update-implementation
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -73,9 +73,15 @@ This confirms the source-history residual is measurable and large. The active
 M1286 synthesized the branch and closed
 `paper_route_four_wheel_source_intervention_materialization` with
 `promote_to_next_branch`. The new active branch is
-`paper_route_source_history_objective_only_update`. The active blocker is M1287:
-design a bounded no-PPO objective-only update path around the exact M1285
-residual. PPO and promotion remain blocked.
+`paper_route_source_history_objective_only_update`. M1287 designed the first
+bounded objective-only update path: start from the M1154 public-gate base, update
+only `actor_mean` parameters, evaluate the exact full-corpus M1285 residual
+before and after the update, require finite loss and negative combined-loss
+delta before any public replay gate, and route to a result audit before any PPO
+or promotion. The active blocker is M1288: implement the tiny
+`actor_mean_only` no-PPO objective update and write before/after objective,
+train trace, parameter-delta, and summary artifacts. PPO and promotion remain
+blocked.
 
 ## Actor Contract
 

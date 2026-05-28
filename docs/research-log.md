@@ -18609,3 +18609,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1287-paper-route-source-history-objective-only-update-design.json`.
 - decision: `four_wheel_source_intervention_materialization_synthesis_promote_to_source_history_objective_only_update`
 - next: `m1287-paper-route-source-history-objective-only-update-design`
+
+## 20260528T135947Z - m1287-paper-route-source-history-objective-only-update-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1287-paper-route-source-history-objective-only-update-design.md`
+- design decision: `source_history_objective_only_update_design_admit_tiny_actor_mean_implementation`
+- blocker addressed: M1285 made exact source-history residual finite and large, while M1283 showed the public-gate checkpoint reacts to histories but not in the desired direction.
+- first trainable scope: `actor_mean_only`.
+- exact first gate: evaluate the full M1285 source-history objective before and after the update, requiring finite metrics and negative `combined_loss_delta` before any public replay gate.
+- implementation budget for next milestone: `steps=100`, `learning_rate=0.0001`, no PPO, no promotion, no private holdout, no actor-input change.
+- retention plan: only `actor_mean` parameters may mutate in the first probe; route to result audit before any PPO or promotion.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1288-paper-route-source-history-objective-only-update-implementation.json`.
+- decision: `source_history_objective_only_update_design_admit_tiny_actor_mean_implementation`
+- next: `m1288-paper-route-source-history-objective-only-update-implementation`

@@ -149,6 +149,41 @@
     "docs/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.md",
     "runs/m1285_source_history_objective_evaluator/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1287-paper-route-source-history-objective-only-update-design.md",
+    "decision": "source_history_objective_only_update_design_admit_tiny_actor_mean_implementation",
+    "trainable_scopes": [
+      "actor_mean_only",
+      "response_context_fusion_plus_actor_mean",
+      "response_encoder_gru_fusion_actor_mean"
+    ],
+    "first_trainable_scope": "actor_mean_only",
+    "exact_objective_first_gate": true,
+    "implementation_budget": {
+      "steps": 100,
+      "learning_rate": 0.0001,
+      "ppo_allowed": false,
+      "promotion_allowed": false,
+      "private_holdout_allowed": false
+    },
+    "retention_plan": [
+      "exact M1285 before-after finite gate",
+      "exact M1285 improvement gate before public replay gates",
+      "only actor_mean parameters may mutate in the first probe",
+      "route to result audit before any PPO or promotion"
+    ],
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1288-paper-route-source-history-objective-only-update-implementation.json"
+  },
+  "decision": "source_history_objective_only_update_design_admit_tiny_actor_mean_implementation",
   "decision_rule": "M1287 passes if it designs a bounded no-PPO objective-only update path with exact-loss and retention gates.",
-  "next_blocker": "m1287-paper-route-source-history-objective-only-update-design"
+  "next_blocker": "m1288-paper-route-source-history-objective-only-update-implementation"
 }

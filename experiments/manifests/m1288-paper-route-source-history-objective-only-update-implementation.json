@@ -1,0 +1,181 @@
+{
+  "id": "m1288-paper-route-source-history-objective-only-update-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1287-paper-route-source-history-objective-only-update-design.md",
+      "runs/m1285_source_history_objective_evaluator/summary.json",
+      "runs/m1285_source_history_objective_evaluator/source_history_objective_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_frame_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_intervention_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/wrong_history_pair_rows.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_observations.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_action_sequences.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1287-paper-route-source-history-objective-only-update-design.json"
+    ],
+    "parent_objective": [
+      "implement and run a tiny no-PPO actor-mean-only objective update around the exact M1285 source-history residual"
+    ],
+    "derived_from": [
+      "m1287-paper-route-source-history-objective-only-update-design"
+    ],
+    "blocked_by": [
+      "M1287 designs the bounded objective-only update path but no implementation artifacts exist"
+    ],
+    "supersedes": [
+      "starting PPO before exact objective-only evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1288-paper-route-source-history-objective-only-update-implementation.md",
+  "public_gates": [
+    "M1288 must preserve actor input contract",
+    "M1288 must not run PPO",
+    "M1288 must not use private holdout",
+    "M1288 must not promote",
+    "M1288 must update only actor_mean parameters",
+    "M1288 must evaluate exact M1285 objective before and after the update",
+    "M1288 must write train trace, parameter delta, and before/after objective artifacts",
+    "M1288 must route to result audit after completion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not update GRU encoder context fusion critic or log_std parameters",
+    "do not skip exact M1285 before-after evaluation",
+    "do not run public replay gates before exact-loss sanity",
+    "do not relax thresholds after seeing results",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_objective_only_update",
+    "evidence_axis": "S_objective_only_update_implementation",
+    "evidence_increment": "implements the first tiny actor-mean-only no-PPO update around exact source-history residuals",
+    "claim_scope": "objective-update infrastructure only; no promotion, private-holdout, PPO, paper-level, closed-loop, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if exact objective values become nonfinite",
+      "stop if update requires actor-input expansion",
+      "stop if any non-actor_mean parameter changes",
+      "stop if exact loss does not improve and route to result audit or scope repair"
+    ],
+    "fallback_plan": [
+      "if actor_mean_only improves exact loss, route to result audit",
+      "if actor_mean_only cannot improve exact loss, route to update-scope repair design",
+      "if public-corpus overfit risk dominates, route to source-history refresh design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "second milestone in the objective-only update branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "tiny actor-mean-only source-history objective update",
+    "admission_evidence": [
+      "M1285 exact objective finite",
+      "M1285 combined_loss_mean=18.6105005708",
+      "M1287 designs an exact-loss-first actor_mean_only update path",
+      "PPO remains blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not update non-actor_mean parameters"
+    ],
+    "allowed_updates": [
+      "objective-only update implementation",
+      "focused tests",
+      "M1288 run artifacts",
+      "M1288 result doc",
+      "status, queue, scoreboard, research log, and review",
+      "one result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "summary.json exists",
+      "before and after exact objective artifacts exist",
+      "train trace exists",
+      "parameter delta confirms only actor_mean changed",
+      "result routes to audit before any PPO"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1288 optimizes same-current-observation source-history residuals; it still does not evaluate closed-loop history necessity.",
+    "history_necessity_tests": [
+      "correct-history versus same-pair wrong-history exact objective before and after update",
+      "parameter-delta guard ensuring the probe tests the existing history-conditioned representation with an actor-mean head"
+    ],
+    "temporal_evidence_window": "24-step source prefix replay from M1280, fixed current M1277 intervention observations.",
+    "negative_result_policy": "If exact objective-only update fails or mutates forbidden parameters, record negative evidence and do not start PPO.",
+    "allowed_claims": [
+      "source-history objective-only update probe",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A tiny actor-mean-only no-PPO update can reduce the exact M1285 source-history residual while preserving the actor input contract and mutation guardrails.",
+  "success_criteria": [
+    "runs/m1288_source_history_objective_only_update/summary.json exists",
+    "objective before and after artifacts exist",
+    "train_trace.csv exists",
+    "parameter_delta.json exists",
+    "exact objective values are finite before and after",
+    "combined_loss_delta is negative",
+    "only actor_mean parameters change",
+    "next task is result audit",
+    "no PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "exact objective values are nonfinite",
+    "combined_loss_delta is nonnegative",
+    "forbidden parameters change",
+    "PPO starts",
+    "private holdout is used",
+    "checkpoint is promoted",
+    "actor input contract changes",
+    "thresholds are relaxed after seeing results"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_source_history_objective_evaluator.py tests/test_source_history_policy_gate.py"
+    },
+    {
+      "name": "run_objective_update",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_history_objective_update --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --history-run-dir runs/m1280_four_wheel_source_response_history_materialization --intervention-run-dir runs/m1277_four_wheel_source_intervention_materialization --run-dir runs/m1288_source_history_objective_only_update --trainable-scope actor_mean_only --steps 100 --lr 0.0001"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1288_source_history_objective_only_update/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1288-paper-route-source-history-objective-only-update-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1287-paper-route-source-history-objective-only-update-design.md",
+    "runs/m1285_source_history_objective_evaluator/summary.json"
+  ],
+  "decision_rule": "M1288 passes as infrastructure if it implements a tiny actor-mean-only no-PPO update, improves exact M1285 loss, and routes to audit without promotion.",
+  "next_blocker": "m1288-paper-route-source-history-objective-only-update-implementation"
+}
