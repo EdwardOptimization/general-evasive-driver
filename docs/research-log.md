@@ -18555,3 +18555,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1284-paper-route-source-history-objective-design.json`.
 - decision: `source_history_policy_gate_implementation_pass_signal_weak_route_to_objective_design`
 - next: `m1284-paper-route-source-history-objective-design`
+
+## 20260528T134330Z - m1284-paper-route-source-history-objective-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1284-paper-route-source-history-objective-design.md`
+- design decision: `source_history_objective_design_admit_exact_evaluator`
+- blocker addressed: M1283 gate is infrastructure-valid but `action_level_history_signal_weak`, so PPO remains blocked.
+- objective: `L_correct = softplus(logp_cr - logp_cp + m_correct)` and `L_wrong = softplus(logp_wp - logp_wr + m_wrong)` over the full `152`-row source-history corpus.
+- defaults: `m_correct=0.05`, `m_wrong=0.05`, `lambda_wrong=1.0`, uniform weights.
+- next implementation: exact no-update evaluator only; no actor update, PPO, interpolation, public replay gate, or promotion.
+- branch cadence: M1285 will be the tenth milestone in `paper_route_four_wheel_source_intervention_materialization`, so the following milestone must be branch synthesis before more narrow work.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1285-paper-route-source-history-objective-evaluator.json`.
+- decision: `source_history_objective_design_admit_exact_evaluator`
+- next: `m1285-paper-route-source-history-objective-evaluator`

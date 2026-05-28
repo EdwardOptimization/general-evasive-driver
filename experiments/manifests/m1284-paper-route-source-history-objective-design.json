@@ -151,6 +151,29 @@
     "docs/m1283-paper-route-source-history-policy-gate-implementation.md",
     "runs/m1283_source_history_policy_gate/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1284-paper-route-source-history-objective-design.md",
+    "decision": "source_history_objective_design_admit_exact_evaluator",
+    "objective": "L_source_history = mean(L_correct + lambda_wrong * L_wrong)",
+    "correct_preference_loss": "softplus(logp_cr - logp_cp + m_correct)",
+    "wrong_history_preference_loss": "softplus(logp_wp - logp_wr + m_wrong)",
+    "m_correct": 0.05,
+    "m_wrong": 0.05,
+    "lambda_wrong": 1.0,
+    "full_corpus_rows_expected": 152,
+    "next_step": "exact no-update evaluator before branch synthesis",
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1285-paper-route-source-history-objective-evaluator.json"
+  },
+  "decision": "source_history_objective_design_admit_exact_evaluator",
   "decision_rule": "M1284 passes if it defines an exact no-PPO source-history objective implementation plan without actor-input expansion or self-identification overclaiming.",
-  "next_blocker": "m1284-paper-route-source-history-objective-design"
+  "next_blocker": "m1285-paper-route-source-history-objective-evaluator"
 }

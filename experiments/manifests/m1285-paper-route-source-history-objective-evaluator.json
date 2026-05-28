@@ -1,0 +1,174 @@
+{
+  "id": "m1285-paper-route-source-history-objective-evaluator",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1284-paper-route-source-history-objective-design.md",
+      "runs/m1283_source_history_policy_gate/summary.json",
+      "runs/m1283_source_history_policy_gate/policy_gate_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_frame_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_intervention_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/wrong_history_pair_rows.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_observations.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_action_sequences.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1284-paper-route-source-history-objective-design.json"
+    ],
+    "parent_objective": [
+      "implement and run exact no-update source-history preference objective evaluator"
+    ],
+    "derived_from": [
+      "m1284-paper-route-source-history-objective-design"
+    ],
+    "blocked_by": [
+      "M1284 designs the source-history objective but exact evaluator artifacts do not exist"
+    ],
+    "supersedes": [
+      "using M1283 policy gate metrics without exact objective residuals"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1285-paper-route-source-history-objective-evaluator.md",
+  "public_gates": [
+    "M1285 must preserve actor input contract",
+    "M1285 must not train controllers",
+    "M1285 must not run PPO",
+    "M1285 must not use private holdout",
+    "M1285 must not promote",
+    "M1285 must implement exact full-corpus source-history preference evaluator",
+    "M1285 must write objective rows and summary artifacts",
+    "M1285 must route to branch synthesis after completion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update checkpoint weights",
+    "do not use private holdout",
+    "do not promote",
+    "do not add fault condition pair or probe labels to actor inputs",
+    "do not overclaim self-identification",
+    "do not continue this branch after M1285 without synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_four_wheel_source_intervention_materialization",
+    "evidence_axis": "S_source_history_objective_evaluator",
+    "evidence_increment": "implements exact no-update source-history preference objective evaluator as the branch-cadence endpoint",
+    "claim_scope": "objective-evaluator infrastructure only; no training, promotion, private-holdout, paper-level, closed-loop, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if exact objective metrics are nonfinite",
+      "stop if evaluator requires actor-input expansion",
+      "stop after M1285 and route to branch synthesis before further narrow work"
+    ],
+    "fallback_plan": [
+      "if evaluator passes, route to source-intervention branch synthesis",
+      "if evaluator fails, route to source-history projection/objective repair and then synthesis",
+      "do not start objective-only training before synthesis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1285 is the tenth milestone in this branch and must be followed by synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source-history objective evaluator",
+    "admission_evidence": [
+      "M1284 defines L_correct and L_wrong",
+      "M1284 requires exact full-corpus evaluator before optimizer work",
+      "M1284 notes branch synthesis is required after M1285"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not update checkpoint weights",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "source-history objective evaluator implementation",
+      "focused tests",
+      "M1285 run artifacts",
+      "M1285 result doc",
+      "status, queue, scoreboard, research log, and review",
+      "one branch synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "summary.json exists",
+      "source_history_objective_rows.csv exists",
+      "all exact objective values are finite",
+      "checkpoint weights are not mutated",
+      "next manifest is branch synthesis"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1285 still evaluates action-level objective residuals at fixed current observations; it does not provide closed-loop or history-necessity proof.",
+    "history_necessity_tests": [
+      "correct history versus same-pair wrong history exact objective metrics",
+      "full-corpus finite objective evaluation"
+    ],
+    "temporal_evidence_window": "24-step source prefix replay from M1280; no closed-loop rollout.",
+    "negative_result_policy": "If objective residuals are high, record them as the optimization target; do not weaken the claim standard or start PPO.",
+    "allowed_claims": [
+      "source-history objective evaluator result",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1284 source-history preference objective can be implemented as a full-corpus no-update evaluator with finite exact residuals.",
+  "success_criteria": [
+    "runs/m1285_source_history_objective_evaluator/summary.json exists",
+    "source_history_objective_rows.csv exists",
+    "focused tests pass",
+    "all exact objective values are finite",
+    "checkpoint contract is verified",
+    "checkpoint weights are not mutated",
+    "next task is branch synthesis",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "exact objective values are nonfinite",
+    "metadata labels are actor inputs",
+    "evaluator mutates checkpoint weights",
+    "next task is not branch synthesis",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_source_history_objective_evaluator.py"
+    },
+    {
+      "name": "run_evaluator",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_history_objective_evaluator --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --history-run-dir runs/m1280_four_wheel_source_response_history_materialization --intervention-run-dir runs/m1277_four_wheel_source_intervention_materialization --run-dir runs/m1285_source_history_objective_evaluator"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1285_source_history_objective_evaluator/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1285-paper-route-source-history-objective-evaluator.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1284-paper-route-source-history-objective-design.md",
+    "runs/m1283_source_history_policy_gate/summary.json"
+  ],
+  "decision_rule": "M1285 passes as infrastructure if it implements an exact no-update source-history objective evaluator with finite full-corpus metrics and routes to branch synthesis.",
+  "next_blocker": "m1285-paper-route-source-history-objective-evaluator"
+}

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1283-paper-route-source-history-policy-gate-implementation
+m1284-paper-route-source-history-objective-design
 ```
 
 Current next task:
 
 ```text
-m1284-paper-route-source-history-objective-design
+m1285-paper-route-source-history-objective-evaluator
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -57,8 +57,17 @@ public-gate checkpoint. The gate is infrastructure-valid with `152` finite rows,
 `preferred_hidden_margin_positive_fraction=0.4868421053`, and
 `history_action_l2_mean=0.0991899077`. The histories move action means, but the
 current checkpoint does not map correct history to preferred actions and wrong
-history to rejected actions. The active blocker is to design an exact no-PPO
-source-history preference objective; PPO and promotion remain blocked.
+history to rejected actions. M1284 designed the exact no-PPO source-history
+preference objective:
+
+```text
+L_correct = softplus(logp_cr - logp_cp + 0.05)
+L_wrong   = softplus(logp_wp - logp_wr + 0.05)
+```
+
+The active blocker is to implement the full-corpus no-update evaluator in
+M1285. After M1285, this branch reaches its 10-milestone cadence and must
+synthesize before more narrow implementation, optimizer, PPO, or promotion work.
 
 ## Actor Contract
 
