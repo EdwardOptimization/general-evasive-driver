@@ -1,0 +1,95 @@
+{
+  "decision_reason": "M1282 designs canonical 72-frame source-history projection action-likelihood metrics and admits no-training policy gate implementation",
+  "failure_criteria": [
+    "design document is missing",
+    "design would append noncanonical history fields to actor observations",
+    "design uses fault condition pair labels as actor inputs",
+    "design treats action-level sensitivity as closed-loop self-identification proof",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add branch/fault labels to actor-view frames",
+    "do not append cmd_* as extra actor observation channels",
+    "do not use per-wheel fault metadata as actor input",
+    "do not treat policy-side action differences as closed-loop self-identification proof",
+    "do not claim high-fidelity validation from the compact pilot"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T133224Z",
+  "hypothesis": "A no-training policy-side gate can be designed to test whether a recurrent actor is sensitive to M1280 correct-history versus wrong-history prefixes under the canonical 72-value human-view contract.",
+  "lineage": {
+    "blocked_by": [
+      "M1281 admits policy-side gate design but policy-side projection and recurrent-history semantics are not yet specified"
+    ],
+    "derived_from": [
+      "m1281-paper-route-four-wheel-source-response-history-materialization-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.md",
+      "runs/m1280_four_wheel_source_response_history_materialization/summary.json",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_frame_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_intervention_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/wrong_history_pair_rows.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_observations.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_action_sequences.csv"
+    ],
+    "parent_objective": [
+      "design a no-training policy-side gate for source histories"
+    ],
+    "supersedes": [
+      "direct source-history policy evaluation without canonical frame projection design"
+    ]
+  },
+  "milestone": "m1282-paper-route-source-history-policy-gate-design",
+  "next_blocker": "m1283-paper-route-source-history-policy-gate-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_history_policy_gate_design_admit_no_training_implementation",
+  "public_gates": [
+    "M1282 must preserve actor input contract",
+    "M1282 must not train controllers",
+    "M1282 must not run PPO",
+    "M1282 must not use private holdout",
+    "M1282 must not promote",
+    "M1282 must define canonical 72-frame projection for M1280 history rows",
+    "M1282 must define correct-history versus wrong-history policy-side metrics",
+    "M1282 must keep fault condition and pair labels outside actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1282-paper-route-source-history-policy-gate-design.md",
+    "clearance_margin_mean": "",
+    "decision": "source_history_policy_gate_design_admit_no_training_implementation",
+    "milestone": "m1282-paper-route-source-history-policy-gate-design",
+    "reason": "M1282 designs canonical 72-frame source-history projection action-likelihood metrics and admits no-training policy gate implementation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1282-paper-route-source-history-policy-gate-design.md exists",
+    "design defines canonical projection from M1280 history rows to 72-value actor frames",
+    "design defines normalization for response stream indices",
+    "design defines correct-history wrong-history metrics",
+    "design defines implementation artifacts and pass/fail conditions",
+    "design blocks direct training and PPO",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

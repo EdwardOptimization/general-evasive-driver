@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1281-paper-route-four-wheel-source-response-history-materialization-result-audit
+m1282-paper-route-source-history-policy-gate-design
 ```
 
 Current next task:
 
 ```text
-m1282-paper-route-source-history-policy-gate-design
+m1283-paper-route-source-history-policy-gate-implementation
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -45,10 +45,14 @@ M1280 materialized branch-specific response histories: `152` history prefixes,
 distinguishable enough for policy-side gate design: `38` unique source pairs,
 `76` interventions, `152/152` same-pair opposite-condition wrong-history swaps,
 and `response_l2_min=0.0157835288`. This is still not driver performance and
-still not self-identification proof. The active blocker is to design a
-no-training policy-side gate that projects M1280 histories into the canonical
-72-value actor frame and compares correct-history versus wrong-history recurrent
-hidden state without leaking labels.
+still not self-identification proof. M1282 designed the next no-training
+policy-side gate. It requires canonical projection of M1280 history rows into
+72-value actor frames, treats `cmd_*` columns as prefix action metadata rather
+than actor observations, and compares correct-history versus wrong-history
+action likelihood/action distance at the same current M1277 intervention
+observation. The active blocker is to implement and run that eval-only gate in
+M1283 without training, PPO, promotion, private holdout, actor-input expansion,
+or self-identification overclaiming.
 
 ## Actor Contract
 

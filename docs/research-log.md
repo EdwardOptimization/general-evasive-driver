@@ -18518,3 +18518,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1282-paper-route-source-history-policy-gate-design.json`.
 - decision: `four_wheel_source_response_history_audit_admit_policy_gate_design`
 - next: `m1282-paper-route-source-history-policy-gate-design`
+
+## 20260528T133035Z - m1282-paper-route-source-history-policy-gate-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1282-paper-route-source-history-policy-gate-design.md`
+- design decision: `source_history_policy_gate_design_admit_no_training_implementation`
+- default eval checkpoint: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`
+- canonical projection: M1280 history rows must project into 72-value actor frames with response indices `0..11`; `cmd_*` fields are prefix action metadata and are not appended as actor inputs.
+- prefix replay rule: context indices `12..71` are zero during history replay because the canonical GRU hidden update depends only on response indices.
+- current action query: use the same M1277 `intervention_observations.csv` row for correct-history and wrong-history hidden states.
+- primary metrics: `correct_preference_margin`, `wrong_history_preference_margin`, `preferred_hidden_margin`, `rejected_hidden_margin`, and `history_action_l2`.
+- positive signal thresholds: `both_directional_fraction >= 0.60`, `preferred_hidden_margin_positive_fraction >= 0.60`, and `history_action_l2_mean >= 0.02`.
+- guardrail: a positive result would still be action-level only; no closed-loop driver, promotion, high-fidelity, paper-level, or self-ID claim is allowed.
+- follow-up manifest: `experiments/manifests/m1283-paper-route-source-history-policy-gate-implementation.json`.
+- decision: `source_history_policy_gate_design_admit_no_training_implementation`
+- next: `m1283-paper-route-source-history-policy-gate-implementation`

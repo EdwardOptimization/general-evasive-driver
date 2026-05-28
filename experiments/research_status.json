@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1291,
+    "completed": 1292,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.md",
+    "command_log": "docs/m1282-paper-route-source-history-policy-gate-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1281-paper-route-four-wheel-source-response-history-materialization-result-audit"
+    "task_id": "m1282-paper-route-source-history-policy-gate-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1282-paper-route-source-history-policy-gate-design.json",
-    "hypothesis": "Design a no-training policy-side gate for correct-history versus wrong-history source prefixes under the canonical 72-value actor contract",
-    "id": "m1282-paper-route-source-history-policy-gate-design",
-    "kind": "gate",
-    "notes": "Pending: design source-history policy gate before implementation or actor-side use",
-    "priority": 12770,
+    "command": "see experiments/manifests/m1283-paper-route-source-history-policy-gate-implementation.json",
+    "hypothesis": "Implement and run the eval-only source-history policy gate with finite correct-history versus wrong-history metrics",
+    "id": "m1283-paper-route-source-history-policy-gate-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement canonical 72-frame history projection and source-history policy metrics without training",
+    "priority": 12780,
     "status": "pending",
-    "success_artifact": "docs/m1282-paper-route-source-history-policy-gate-design.md"
+    "success_artifact": "runs/m1283_source_history_policy_gate/summary.json"
   },
-  "updated_at_utc": "20260528T132526Z"
+  "updated_at_utc": "20260528T133035Z"
 }

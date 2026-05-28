@@ -1,0 +1,175 @@
+{
+  "id": "m1283-paper-route-source-history-policy-gate-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1282-paper-route-source-history-policy-gate-design.md",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_frame_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_intervention_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/wrong_history_pair_rows.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_observations.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_action_sequences.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1282-paper-route-source-history-policy-gate-design.json"
+    ],
+    "parent_objective": [
+      "implement and run no-training source-history policy gate"
+    ],
+    "derived_from": [
+      "m1282-paper-route-source-history-policy-gate-design"
+    ],
+    "blocked_by": [
+      "M1282 designs the policy-side source-history gate but implementation artifacts do not yet exist"
+    ],
+    "supersedes": [
+      "manual source-history policy probing without canonical projection audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1283-paper-route-source-history-policy-gate-implementation.md",
+  "public_gates": [
+    "M1283 must preserve actor input contract",
+    "M1283 must not train controllers",
+    "M1283 must not run PPO",
+    "M1283 must not use private holdout",
+    "M1283 must not promote",
+    "M1283 must implement canonical 72-frame projection for M1280 histories",
+    "M1283 must write policy_gate_rows.csv and history_projection_audit.csv",
+    "M1283 must keep metadata labels outside actor inputs",
+    "M1283 must classify action-level history signal without self-identification overclaiming"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not append cmd_* as actor inputs",
+    "do not feed fault condition pair or probe labels to actor",
+    "do not alter checkpoint weights",
+    "do not treat action-level signal as closed-loop driver proof",
+    "do not claim high-fidelity validation from the compact pilot"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_four_wheel_source_intervention_materialization",
+    "evidence_axis": "S_source_history_policy_gate_implementation",
+    "evidence_increment": "implements and runs the no-training policy-side correct-history versus wrong-history source-history gate",
+    "claim_scope": "eval-only action-level source-history diagnostic; no training, promotion, private-holdout, paper-level, closed-loop, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if canonical projection is invalid",
+      "stop if checkpoint contract is not canonical 72-value human-view online recurrent",
+      "stop if policy gate rows are nonfinite",
+      "stop if implementation requires actor-input expansion"
+    ],
+    "fallback_plan": [
+      "if implementation is valid and signal is positive, route to no-training outcome replay design",
+      "if implementation is valid but signal is weak, route to source-history objective or adapter design",
+      "if projection is invalid, route to projection repair",
+      "if branch reaches cadence after M1285, synthesize before new narrow work"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1282 admits no-training implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source-history policy gate implementation",
+    "admission_evidence": [
+      "M1282 defines canonical projection",
+      "M1282 defines action-likelihood and action-distance metrics",
+      "M1282 blocks training and PPO"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "source-history policy gate implementation",
+      "focused tests",
+      "M1283 run artifacts",
+      "M1283 result doc",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "summary.json exists",
+      "policy_gate_rows.csv exists",
+      "history_projection_audit.csv exists",
+      "projection is finite",
+      "policy metrics are finite",
+      "result class is action_level_history_signal_positive or action_level_history_signal_weak"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1283 uses the same current observation for correct and wrong histories, but it remains action-level and not closed-loop.",
+    "history_necessity_tests": [
+      "correct history versus same-pair wrong history at the same current observation",
+      "zero/reset hidden diagnostics only as secondary controls"
+    ],
+    "temporal_evidence_window": "24-step source prefix replay from M1280; no closed-loop rollout.",
+    "negative_result_policy": "If action-level history signal is weak, route to source-history objective or adapter design rather than PPO.",
+    "allowed_claims": [
+      "source-history policy gate implementation result",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1282 gate can be implemented and run as an eval-only diagnostic that produces finite correct-history versus wrong-history policy-side metrics under the canonical 72-value human-view contract.",
+  "success_criteria": [
+    "runs/m1283_source_history_policy_gate/summary.json exists",
+    "policy_gate_rows.csv exists",
+    "history_projection_audit.csv exists",
+    "focused tests pass",
+    "checkpoint contract is verified",
+    "all policy gate metrics are finite",
+    "metadata labels are not actor inputs",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "projection produces nonfinite actor frames",
+    "cmd_* metadata are appended to actor observations",
+    "fault condition pair or probe labels are fed to the actor",
+    "policy metric computation mutates checkpoint weights",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_source_history_policy_gate.py"
+    },
+    {
+      "name": "run_gate",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_history_policy_gate --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --history-run-dir runs/m1280_four_wheel_source_response_history_materialization --intervention-run-dir runs/m1277_four_wheel_source_intervention_materialization --run-dir runs/m1283_source_history_policy_gate"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1283_source_history_policy_gate/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1283-paper-route-source-history-policy-gate-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1282-paper-route-source-history-policy-gate-design.md",
+    "runs/m1280_four_wheel_source_response_history_materialization/summary.json"
+  ],
+  "decision_rule": "M1283 passes as infrastructure if it implements and runs the source-history policy gate with finite metrics and no actor-input expansion.",
+  "next_blocker": "m1283-paper-route-source-history-policy-gate-implementation"
+}

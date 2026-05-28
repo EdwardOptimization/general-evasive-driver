@@ -156,6 +156,39 @@
     "docs/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.md",
     "runs/m1280_four_wheel_source_response_history_materialization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1282-paper-route-source-history-policy-gate-design.md",
+    "decision": "source_history_policy_gate_design_admit_no_training_implementation",
+    "default_checkpoint": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "canonical_projection_defined": true,
+    "response_indices": "0..11",
+    "context_prefix_mode": "zero_context_for_hidden_replay",
+    "current_observation_source": "runs/m1277_four_wheel_source_intervention_materialization/intervention_observations.csv",
+    "action_target_source": "runs/m1277_four_wheel_source_intervention_materialization/intervention_action_sequences.csv",
+    "primary_metrics": [
+      "correct_preference_margin",
+      "wrong_history_preference_margin",
+      "preferred_hidden_margin",
+      "rejected_hidden_margin",
+      "history_action_l2"
+    ],
+    "history_signal_positive_thresholds": {
+      "both_directional_fraction": 0.6,
+      "preferred_hidden_margin_positive_fraction": 0.6,
+      "history_action_l2_mean": 0.02
+    },
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1283-paper-route-source-history-policy-gate-implementation.json"
+  },
+  "decision": "source_history_policy_gate_design_admit_no_training_implementation",
   "decision_rule": "M1282 passes if it defines a no-training policy-side source-history gate without actor-input expansion or self-identification overclaiming.",
-  "next_blocker": "m1282-paper-route-source-history-policy-gate-design"
+  "next_blocker": "m1283-paper-route-source-history-policy-gate-implementation"
 }
