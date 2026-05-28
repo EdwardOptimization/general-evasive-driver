@@ -2,7 +2,7 @@
   "id": "m1370-paper-route-public-base-promotion-audit",
   "type": "gate",
   "gate_tier": "promotion",
-  "promotion_decision": "pending",
+  "promotion_decision": "promote",
   "failure_types": [
     "none"
   ],
@@ -158,6 +158,28 @@
     "runs/m1369_public_base_promotion_generalization_gate/summary.json",
     "docs/m1369-paper-route-public-base-promotion-generalization-gate-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1370-paper-route-public-base-promotion-audit.md",
+    "decision": "promote_public_base_m1362_alpha_0_1",
+    "promoted_checkpoint": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "previous_public_base": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "m1369_result_class": "materialized_source_history_public_base_promotion_gate_candidate",
+    "exact_pass": true,
+    "proof_pass": true,
+    "source_diverse_pass": true,
+    "generalization_pass": true,
+    "behavior_pass": true,
+    "private_holdout_used": false,
+    "training_started": false,
+    "replay_run_started": false,
+    "new_eval_started": false,
+    "ppo_used": false,
+    "actor_input_contract_changed": false,
+    "claim_scope": "public-gate base promotion only",
+    "next_manifest": "experiments/manifests/m1371-paper-route-post-public-base-promotion-synthesis.json"
+  },
+  "decision": "promote_public_base_m1362_alpha_0_1",
   "decision_rule": "M1370 may promote M1362 alpha 0.1 as the public base only if it accepts the M1369 evidence and keeps private-holdout, source-rich, PPO, and self-ID claims out of scope.",
-  "next_blocker": "m1370-paper-route-public-base-promotion-audit"
+  "next_blocker": "m1371-paper-route-post-public-base-promotion-synthesis"
 }

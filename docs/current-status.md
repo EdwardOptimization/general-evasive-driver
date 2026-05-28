@@ -16,14 +16,34 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1369-paper-route-public-base-promotion-generalization-gate-implementation
+m1370-paper-route-public-base-promotion-audit
 ```
 
 Current next task:
 
 ```text
-m1370-paper-route-public-base-promotion-audit
+m1371-paper-route-post-public-base-promotion-synthesis
 ```
+
+M1370 promotes M1362 alpha `0.1` as the official public-gate base:
+
+```text
+runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
+```
+
+M1154 remains the previous public-gate base:
+
+```text
+runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+```
+
+This promotion is scoped to public-gate base hardening only. It does not claim
+private-holdout evidence, source-rich extreme validation, PPO continuation
+stability, paper-level simulation evidence, high-fidelity or real-vehicle
+transfer, finite-window-vs-GRU conclusions, or level3 anticipatory
+self-identification. M1371 should synthesize M1368-M1370 and choose the next
+evidence branch before any PPO, private holdout, source-rich run, or L0/L1/L2/L3
+comparison.
 
 M1369 implemented and ran the no-training public-base promotion/generalization
 gate for M1362 alpha `0.1` against M1154. The result class is
@@ -32,31 +52,16 @@ source-history retention passed, six public replay surfaces passed, the
 source-diverse protected diagnostic passed, fresh public `3/3` and moderate-OOD
 `2/2` generalization comparisons passed, and behavior seeds `9505`, `9506`,
 `136930`, and `136931` passed with normal >= reset >= zero-all ordering retained.
-The candidate is now eligible for a separate public-base promotion audit. It is
-not yet promoted, and M1369 does not claim private-holdout, source-rich extreme,
-PPO continuation, high-fidelity, paper-level, or level3 self-identification
-evidence.
-
-M1370 should audit whether the official public base moves from
-`runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`
-to
-`runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`.
-M1370 must not train, run PPO, use private holdout, run new replay/eval, change
-actor inputs, or expand the claim boundary.
+M1369 did not promote the checkpoint by itself; M1370 performed the separate
+promotion audit and accepted it.
 
 M1368 defines the no-training public-base promotion/generalization gate for the
 M1362 alpha `0.1` broad-public-replay-passing candidate. The candidate checkpoint
 is
 `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`;
-the current public base remains
+the public base at that time was
 `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`.
-M1369 should implement or use a generic materialized-source-history promotion
-gate, then evaluate contract/mutation, exact source-history retention, public
-proof replay, source-diverse protected diagnostics, fresh public and moderate-OOD
-generalization, and behavior/ablation retention. M1369 may only classify the
-candidate as promotion-audit-ready or route to a named failure audit. It cannot
-train, run PPO, use private holdout, promote, relax thresholds, or change actor
-inputs.
+M1369 then implemented the generic materialized-source-history promotion gate.
 
 M1368 also classifies gate utility: actor-contract, exact source-history, public
 proof replay, source-diverse protected, fresh generalization, and behavior
@@ -684,34 +689,29 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-Status: M1158 promoted the M1154 alpha `0.05` row15-promoted projection
-checkpoint as the current public-gate base after M1154 repaired the promoted
-failed-row unsafe surface, M1156 passed expanded public diagnostics, and M1157
-audited the result. This is a proof-hardening public-gate promotion only; it is
-not a medium-PPO performance claim. Private holdout, medium/long PPO stability,
-paper-level generalization, real-vehicle claims, and level3 anticipatory
-self-identification claims remain blocked. The near-boundary wrong-history
-margin caveat remains active:
-
-```text
-row15_promoted_materialized wrong_history_margin_max: -0.000000497
-```
+Status: M1370 promoted the M1362 alpha `0.1` bidirectional active-set
+interpolation checkpoint as the current public-gate base after M1369 passed exact
+source-history retention, six public replay surfaces, source-diverse protected
+diagnostics, fresh public and moderate-OOD generalization, and behavior/ablation
+retention against M1154. This is a public-gate promotion only; it is not a PPO,
+private-holdout, source-rich extreme, paper-level, high-fidelity, real-vehicle,
+finite-window-vs-GRU, or level3 self-identification claim.
 
 Previous public-gate base:
 
 ```text
-runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt
+runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
 ```
 
-Status: M1129 promoted the M1123 alpha `0.15` row15 projection checkpoint as
-the previous public-gate base after M1127 passed exact, old public replay,
-M1061 family-intersection, source-diverse, fresh/OOD, and behavior gates. M1158
-supersedes it with the M1154 alpha `0.05` row15-promoted projection candidate.
-M1078, M1052, M1049, M1044, M1038 combined active-set, Candidate B, M974, M964
-alpha `1.0`, and M399 alpha `0.05` remain older lineage points.
+Status: M1158 promoted the M1154 alpha `0.05` row15-promoted projection
+checkpoint as the previous public-gate base after M1154 repaired the promoted
+failed-row unsafe surface, M1156 passed expanded public diagnostics, and M1157
+audited the result. M1370 supersedes it with M1362 alpha `0.1`. M1123 alpha
+`0.15`, M1078, M1052, M1049, M1044, M1038 combined active-set, Candidate B,
+M974, M964 alpha `1.0`, and M399 alpha `0.05` remain older lineage points.
 
 Latest active diagnostic BC checkpoint:
 

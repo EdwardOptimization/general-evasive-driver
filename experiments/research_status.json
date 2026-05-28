@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1379,
+    "completed": 1380,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1369-paper-route-public-base-promotion-generalization-gate-implementation.md",
+    "command_log": "docs/m1370-paper-route-public-base-promotion-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1369_public_base_promotion_generalization_gate",
+    "run_dir": "docs/m1370-paper-route-public-base-promotion-audit.md",
     "status": "completed",
-    "task_id": "m1369-paper-route-public-base-promotion-generalization-gate-implementation"
+    "task_id": "m1370-paper-route-public-base-promotion-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1370-paper-route-public-base-promotion-audit.json",
-    "hypothesis": "M1369 evidence is sufficient to promote M1362 alpha 0.1 as the official public base while keeping paper-level and self-ID claims pending",
-    "id": "m1370-paper-route-public-base-promotion-audit",
+    "command": "see experiments/manifests/m1371-paper-route-post-public-base-promotion-synthesis.json",
+    "hypothesis": "The M1368-M1370 promotion branch can be closed with M1362 alpha 0.1 as the public-gate base and a clear next evidence branch",
+    "id": "m1371-paper-route-post-public-base-promotion-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit promotion decision; no training PPO private holdout new replay new eval or claim expansion",
-    "priority": 13650,
+    "notes": "Pending: synthesize post-promotion state and choose next branch; no training PPO private holdout source-rich run or L0-L3 comparison",
+    "priority": 13660,
     "status": "pending",
-    "success_artifact": "docs/m1370-paper-route-public-base-promotion-audit.md"
+    "success_artifact": "docs/m1371-paper-route-post-public-base-promotion-synthesis.md"
   },
-  "updated_at_utc": "20260528T214000Z"
+  "updated_at_utc": "20260528T215000Z"
 }

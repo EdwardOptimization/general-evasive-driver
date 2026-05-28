@@ -20136,3 +20136,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, source-rich extreme claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1370-paper-route-public-base-promotion-audit.json`.
 - next: `m1370-paper-route-public-base-promotion-audit`
+
+## 20260528T215000Z - m1370-paper-route-public-base-promotion-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `promotion`
+- artifact: `docs/m1370-paper-route-public-base-promotion-audit.md`
+- decision: `promote_public_base_m1362_alpha_0_1`
+- promoted public-gate base: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`.
+- previous public-gate base: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`.
+- accepted evidence: M1369 exact, six-surface proof replay, source-diverse protected, fresh/OOD generalization, and behavior/ablation tiers all pass.
+- claim boundary: public-gate base promotion only; no private-holdout, source-rich extreme, PPO continuation, paper-level, high-fidelity, real-vehicle, finite-window-vs-GRU, or level3 self-ID claim.
+- guardrail: no training, PPO, new replay, new evaluation, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, or claim expansion occurred.
+- follow-up manifest: `experiments/manifests/m1371-paper-route-post-public-base-promotion-synthesis.json`.
+- next: `m1371-paper-route-post-public-base-promotion-synthesis`

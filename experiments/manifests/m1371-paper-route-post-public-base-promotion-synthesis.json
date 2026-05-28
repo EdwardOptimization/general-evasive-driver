@@ -1,0 +1,155 @@
+{
+  "id": "m1371-paper-route-post-public-base-promotion-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1368-paper-route-public-base-promotion-generalization-design.md",
+      "docs/m1369-paper-route-public-base-promotion-generalization-gate-implementation.md",
+      "docs/m1370-paper-route-public-base-promotion-audit.md",
+      "runs/m1369_public_base_promotion_generalization_gate/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1370-paper-route-public-base-promotion-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize the public-base promotion/generalization branch after promoting M1362 alpha 0.1"
+    ],
+    "derived_from": [
+      "m1370-paper-route-public-base-promotion-audit"
+    ],
+    "blocked_by": [
+      "M1370 promotes M1362 alpha 0.1 as the official public-gate base; next branch must be chosen before PPO or private holdout"
+    ],
+    "supersedes": [
+      "starting PPO immediately after promotion",
+      "using private holdout immediately after promotion",
+      "claiming source-rich or L0/L1/L2/L3 results from the promotion gate"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1371-paper-route-post-public-base-promotion-synthesis.md",
+  "public_gates": [
+    "M1371 must synthesize M1368-M1370",
+    "M1371 must name the new public-gate base",
+    "M1371 must state supported and unsupported claims",
+    "M1371 must choose the next branch before PPO, private holdout, source-rich runs, or L0/L1/L2/L3 comparisons",
+    "M1371 must not train, run PPO, run replay, run evaluation, or use private holdout"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay or evaluation",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not claim source-rich extreme, paper-level, high-fidelity, or level3 self-ID evidence",
+    "do not skip branch synthesis before the next experiment branch"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_public_base_promotion_generalization",
+    "evidence_axis": "S_post_promotion_synthesis",
+    "evidence_increment": "synthesizes M1368-M1370 after public-base promotion and selects the next paper-route evidence branch",
+    "claim_scope": "post-promotion synthesis only; no PPO, private holdout, source-rich run, L0/L1/L2/L3 result, high-fidelity, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if promoted-base evidence is incomplete",
+      "stop if the synthesis overclaims M1370",
+      "stop if next branch mixes source-rich, fair-comparison, and PPO without ordering",
+      "stop if private holdout is proposed before public evidence branch design"
+    ],
+    "fallback_plan": [
+      "if promotion evidence is accepted, open source-rich and comparison readiness branch",
+      "if promotion claim boundary is unclear, route to claim-boundary audit",
+      "if source-rich tooling is missing, route to source-rich evaluator design",
+      "if comparison protocol is stale, route to fair-comparison refresh design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1370 promotes a new public-gate base",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "post-public-base-promotion synthesis",
+    "admission_evidence": [
+      "M1368 defines promotion/generalization gate criteria",
+      "M1369 passes the gate",
+      "M1370 promotes M1362 alpha 0.1 as the public-gate base"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run evaluation",
+      "do not use private holdout",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1371 synthesis document",
+      "status, queue, scoreboard, research log, and review",
+      "one next-branch manifest"
+    ],
+    "next_stage_criteria": [
+      "supported claims are documented",
+      "falsified or still-missing claims are documented",
+      "public-gate overfit risk is reassessed",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1371 synthesizes promotion evidence only and must not convert it into level3 self-identification.",
+    "history_necessity_tests": [
+      "summarize M1369 behavior and proof retention as level2 evidence only",
+      "leave L0/L1/L2/L3 and source-rich self-ID tests to later branches"
+    ],
+    "temporal_evidence_window": "M1368-M1370 promotion/generalization branch.",
+    "negative_result_policy": "If synthesis finds missing evidence, route to that evidence branch before PPO or private holdout.",
+    "allowed_claims": [
+      "post-promotion synthesis and next-branch decision",
+      "no strong self-identification, private-holdout, source-rich, high-fidelity, real-vehicle, or paper-level claim"
+    ]
+  },
+  "hypothesis": "The M1368-M1370 promotion branch can be closed with M1362 alpha 0.1 as the public-gate base and a clear next evidence branch.",
+  "success_criteria": [
+    "docs/m1371-paper-route-post-public-base-promotion-synthesis.md exists",
+    "synthesis summarizes M1368-M1370 evidence",
+    "synthesis lists supported and unsupported claims",
+    "synthesis chooses a next branch",
+    "no training, PPO, replay, evaluation, private holdout, actor update, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis omits promotion evidence",
+    "synthesis overclaims source-rich, paper-level, or level3 self-ID evidence",
+    "synthesis routes directly to PPO or private holdout",
+    "training, PPO, replay, evaluation, private holdout, actor update, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1371-paper-route-post-public-base-promotion-synthesis.md from M1368-M1370 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1371-paper-route-post-public-base-promotion-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1370-paper-route-public-base-promotion-audit.md",
+    "runs/m1369_public_base_promotion_generalization_gate/summary.json"
+  ],
+  "decision_rule": "M1371 passes if it closes or continues the promotion/generalization branch with explicit claim boundaries and a next evidence branch before PPO or private holdout.",
+  "next_blocker": "m1371-paper-route-post-public-base-promotion-synthesis"
+}
