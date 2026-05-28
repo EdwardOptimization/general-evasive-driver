@@ -18127,3 +18127,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1258-paper-route-richer-fault-capability-source-design.json`.
 - decision: `capability_separable_source_construction_synthesis_promote_to_richer_fault_source_branch`
 - next: `m1258-paper-route-richer-fault-capability-source-design`
+
+## 20260528T112820Z - m1258-paper-route-richer-fault-capability-source-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1258-paper-route-richer-fault-capability-source-design.md`
+- design: opens `paper_route_richer_fault_capability_source` using `configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json` as the first richer source-family variable.
+- claim boundary: current-model proxy faults may be used as source-mining metadata, but true single-wheel blowout, split-mu, stuck-caliper, halfshaft, per-wheel ABS, suspension, and tire-delamination physics remain future high-fidelity/four-wheel claims.
+- admitted smoke: M1259 bounded no-training v4 proxy-fault capability-separable source smoke with unchanged thresholds (`min_best_action_l2=0.12`, `min_cross_regret_margin=0.02`, own-branch margins nonnegative).
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, self-ID claim, true high-fidelity physical fault claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1259-paper-route-richer-fault-capability-source-smoke.json`.
+- decision: `richer_fault_capability_source_design_admit_bounded_v4_proxy_fault_smoke`
+- next: `m1259-paper-route-richer-fault-capability-source-smoke`

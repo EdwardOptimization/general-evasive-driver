@@ -1,0 +1,168 @@
+{
+  "id": "m1259-paper-route-richer-fault-capability-source-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1258-paper-route-richer-fault-capability-source-design.md",
+      "docs/m1257-paper-route-capability-separable-source-construction-synthesis.md",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1258-paper-route-richer-fault-capability-source-design.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "run a bounded no-training capability-separable source smoke on richer v4 proxy-fault source family"
+    ],
+    "derived_from": [
+      "m1258-paper-route-richer-fault-capability-source-design"
+    ],
+    "blocked_by": [
+      "M1258 admits richer-fault/source-family smoke after M1257 closes local source construction"
+    ],
+    "supersedes": [
+      "another local timing/proposal/relocation source tweak"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1259-paper-route-richer-fault-capability-source-smoke.md",
+  "public_gates": [
+    "M1259 must preserve actor input contract",
+    "M1259 must not train controllers",
+    "M1259 must not run PPO",
+    "M1259 must not use private holdout",
+    "M1259 must not promote",
+    "M1259 must keep proxy fault labels and oracle outcomes out of deployable actor inputs",
+    "M1259 must not lower accepted source thresholds",
+    "M1259 must keep true high-fidelity/per-wheel physical claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, fault labels, oracle outcomes, or search outputs to actor inputs",
+    "do not lower min_cross_regret_margin",
+    "do not accept negative own-branch margins",
+    "do not claim current single-track proxies are true single-wheel or per-wheel faults",
+    "do not claim self-identification from source construction"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_richer_fault_capability_source",
+    "evidence_axis": "S_richer_fault_source_smoke",
+    "evidence_increment": "tests whether changing source family to richer v4 proxy faults produces capability-separable source rows",
+    "claim_scope": "infrastructure/source-shape smoke only; no training, promotion, private-holdout, paper-level, high-fidelity, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if actor checksum changes",
+      "stop if fault labels or oracle outcomes enter actor observation",
+      "stop if accepted source thresholds are relaxed",
+      "stop if proxy faults are interpreted as true per-wheel physical faults"
+    ],
+    "fallback_plan": [
+      "if accepted rows appear, route to source-diversity and fidelity-boundary audit before any objective or training",
+      "if accepted rows remain zero, write richer-fault source result audit before another source run",
+      "if the v4 config is incompatible with the constructor, write an implementation-only compatibility report"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1258 admits first richer-fault source-family smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "richer-fault capability-source smoke",
+    "admission_evidence": [
+      "M1258 designs bounded v4 proxy-fault source-family smoke"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1259 run artifacts",
+      "M1259 result docs",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "source result is classified",
+      "accepted separable pairs are reported",
+      "proxy/high-fidelity claim guardrails are reported"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1259 constructs source candidates offline and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If M1259 remains zero-accepted, record it as richer-fault source evidence and audit before another run.",
+    "allowed_claims": [
+      "richer proxy-fault source-construction smoke result",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, true high-fidelity fault, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Richer v4 proxy-fault source families can produce capability-separable matched-current rows where the narrower M1241-M1256 source family could not.",
+  "success_criteria": [
+    "runs/m1259_richer_fault_capability_source_smoke/summary.json exists",
+    "trajectory_proposals > 0",
+    "trajectory_proposal_rollouts > 0",
+    "matched_pair_count > 0",
+    "unique_matched_fault_family_pairs is reported",
+    "accepted_separable_pairs is reported",
+    "min_cross_regret_margin remains 0.02",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "labels_enter_actor_input == false",
+    "private holdout remains unused",
+    "no actor-input contract expansion occurs",
+    "true high-fidelity/per-wheel physical claims remain blocked"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "proposal source cannot produce rollouts",
+    "accepted thresholds are lowered",
+    "actor parameters change",
+    "fault labels or oracle outcomes enter actor observations",
+    "training or PPO starts",
+    "promotion occurs",
+    "current single-track proxy faults are claimed as true physical per-wheel faults"
+  ],
+  "commands": [
+    {
+      "name": "smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_separable_source_constructor --checkpoint runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --config configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json --pairing-mode cross_fault --seed-start 78048 --seed-count 4 --max-pairs 12 --max-pairs-per-seed 4 --max-pairs-per-family-pair 4 --candidate-mode trajectory_proposal --sequence-length 4 --proposal-count-per-condition 24 --proposal-seed 125900 --proposal-steer-scale 0.45 --proposal-brake-scale 0.45 --proposal-throttle-scale 0.25 --source-window-mode viability_band_relocation --target-min-best-margin 0.002 --target-max-best-margin 0.08 --max-relocation-candidates 12 --fine-relocation --fine-parent-count 1 --max-continuation-steps 18 --min-best-action-l2 0.12 --min-cross-regret-margin 0.02 --device auto --run-dir runs/m1259_richer_fault_capability_source_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1259_richer_fault_capability_source_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1259-paper-route-richer-fault-capability-source-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1258-paper-route-richer-fault-capability-source-design.md",
+    "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+  ],
+  "decision_rule": "M1259 passes as infrastructure if richer v4 proxy-fault proposals and rollouts are produced without actor mutation, training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, or high-fidelity claim leakage. Accepted rows remain diagnostic source evidence only.",
+  "next_blocker": "m1259-paper-route-richer-fault-capability-source-smoke"
+}

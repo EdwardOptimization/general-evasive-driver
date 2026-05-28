@@ -143,6 +143,24 @@
     "docs/m1257-paper-route-capability-separable-source-construction-synthesis.md",
     "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1258-paper-route-richer-fault-capability-source-design.md",
+    "decision": "richer_fault_capability_source_design_admit_bounded_v4_proxy_fault_smoke",
+    "new_branch": "paper_route_richer_fault_capability_source",
+    "source_config": "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json",
+    "next_run_dir": "runs/m1259_richer_fault_capability_source_smoke",
+    "threshold_relaxation_allowed": false,
+    "proxy_faults_allowed_as_source_mining_metadata": true,
+    "true_high_fidelity_fault_claims_allowed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1259-paper-route-richer-fault-capability-source-smoke.json"
+  },
+  "decision": "richer_fault_capability_source_design_admit_bounded_v4_proxy_fault_smoke",
   "decision_rule": "M1258 passes if it writes a richer-fault source design with clear proxy/high-fidelity boundaries and admits or rejects one bounded no-training smoke.",
-  "next_blocker": "m1258-paper-route-richer-fault-capability-source-design"
+  "next_blocker": "m1259-paper-route-richer-fault-capability-source-smoke"
 }

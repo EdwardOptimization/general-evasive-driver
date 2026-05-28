@@ -115,7 +115,36 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1258-paper-route-richer-fault-capability-source-design
+m1259-paper-route-richer-fault-capability-source-smoke
+```
+
+M1258 completed richer-fault capability-source design:
+
+```text
+artifact: docs/m1258-paper-route-richer-fault-capability-source-design.md
+decision: richer_fault_capability_source_design_admit_bounded_v4_proxy_fault_smoke
+source_config: configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json
+```
+
+M1258 conclusion:
+
+```text
+The next evidence variable is source family / fault richness. Use the existing
+v4 low-margin proxy-fault config for a bounded no-training source smoke, while
+keeping current-model proxy claims separate from true four-wheel/high-fidelity
+fault claims.
+```
+
+Next task:
+
+```text
+artifact: runs/m1259_richer_fault_capability_source_smoke/summary.json
+manifest: experiments/manifests/m1259-paper-route-richer-fault-capability-source-smoke.json
+goal: run bounded v4 proxy-fault capability-separable source smoke with
+      unchanged thresholds
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         threshold relaxation, self-identification or high-fidelity/paper-level
+         claims
 ```
 
 M1257 completed capability-separable source-construction synthesis:

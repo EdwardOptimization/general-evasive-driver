@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1267,
+    "completed": 1268,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1257-paper-route-capability-separable-source-construction-synthesis.md",
+    "command_log": "docs/m1258-paper-route-richer-fault-capability-source-design.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1257-paper-route-capability-separable-source-construction-synthesis"
+    "task_id": "m1258-paper-route-richer-fault-capability-source-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1258-paper-route-richer-fault-capability-source-design.json",
-    "hypothesis": "Design richer-fault capability source branch using v4 proxy-fault config while preserving high-fidelity claim boundaries",
-    "id": "m1258-paper-route-richer-fault-capability-source-design",
-    "kind": "gate",
-    "notes": "Pending: design a new source-family evidence variable; no run until proxy/high-fidelity boundaries and runtime bounds are pre-registered",
-    "priority": 12530,
+    "command": "see experiments/manifests/m1259-paper-route-richer-fault-capability-source-smoke.json",
+    "hypothesis": "Run bounded richer v4 proxy-fault capability-separable source smoke",
+    "id": "m1259-paper-route-richer-fault-capability-source-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: run no-training v4 proxy-fault source-family smoke with unchanged capability-separable thresholds and high-fidelity claims blocked",
+    "priority": 12540,
     "status": "pending",
-    "success_artifact": "docs/m1258-paper-route-richer-fault-capability-source-design.md"
+    "success_artifact": "runs/m1259_richer_fault_capability_source_smoke/summary.json"
   },
-  "updated_at_utc": "20260528T112430Z"
+  "updated_at_utc": "20260528T112820Z"
 }
