@@ -115,7 +115,48 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1242-paper-route-capability-separable-source-constructor-smoke
+m1243-paper-route-capability-separable-low-regret-audit
+```
+
+M1242 completed capability-separable source-constructor smoke:
+
+```text
+artifact: runs/m1242_capability_separable_source_constructor_smoke/summary.json
+decision: capability_separable_constructor_smoke_infrastructure_pass_low_regret_route_to_audit
+result_class: action_divergent_low_regret
+```
+
+M1242 result:
+
+```text
+candidate_pair_count: 1356
+matched_pair_count: 160
+action_rollouts: 24000
+unique_matched_fault_family_pairs: 10
+unique_matched_seeds: 20
+accepted_separable_pairs: 0
+best_actions_diverged_pairs: 3
+low_regret_pairs: 160
+```
+
+M1242 conclusion:
+
+```text
+The source-constructor infrastructure works and no actor/checkpoint/input
+guardrail was violated. The current shared local first-action lattice did not
+find source-positive separable rows; action differences are mostly absent or
+too low-regret.
+```
+
+Next task:
+
+```text
+artifact: docs/m1243-paper-route-capability-separable-low-regret-audit.md
+manifest: experiments/manifests/m1243-paper-route-capability-separable-low-regret-audit.json
+goal: audit whether M1242's low-regret result is caused by lattice locality,
+      horizon, policy continuation, source windows, or current simulator limits
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1241 completed capability-separable source-construction design:

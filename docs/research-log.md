@@ -17881,3 +17881,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1242-paper-route-capability-separable-source-constructor-smoke.json`.
 - decision: `capability_separable_source_construction_design_admit_lattice_smoke`
 - next: `m1242-paper-route-capability-separable-source-constructor-smoke`
+
+## 20260528T091728Z - m1242-paper-route-capability-separable-source-constructor-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1242_capability_separable_source_constructor_smoke/summary.json`
+- implementation: added `src/autodrift/capability_separable_source_constructor.py` and `tests/test_capability_separable_source_constructor.py`.
+- sampler repair: added per-seed and per-fault-family-pair caps after early smoke attempts showed source dominance.
+- result: infrastructure passes with `matched_pair_count=160`, `action_rollouts=24000`, `unique_matched_fault_family_pairs=10`, and `unique_matched_seeds=20`.
+- negative source result: `accepted_separable_pairs=0`, `best_actions_diverged_pairs=3`, `low_regret_pairs=160`, `result_class=action_divergent_low_regret`.
+- guardrail: actor parameters unchanged; no labels entered actor inputs; no training, PPO, promotion, private holdout, actor-input expansion, self-ID claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1243-paper-route-capability-separable-low-regret-audit.json`.
+- decision: `capability_separable_constructor_smoke_infrastructure_pass_low_regret_route_to_audit`
+- next: `m1243-paper-route-capability-separable-low-regret-audit`

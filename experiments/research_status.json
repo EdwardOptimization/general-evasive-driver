@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1251,
+    "completed": 1252,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1241-paper-route-capability-separable-source-construction-design.md",
+    "command_log": "runs/m1242_capability_separable_source_constructor_smoke/summary.json",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1242_capability_separable_source_constructor_smoke",
     "status": "completed",
-    "task_id": "m1241-paper-route-capability-separable-source-construction-design"
+    "task_id": "m1242-paper-route-capability-separable-source-constructor-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1242-paper-route-capability-separable-source-constructor-smoke.json",
-    "hypothesis": "Run capability-separable source constructor smoke",
-    "id": "m1242-paper-route-capability-separable-source-constructor-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run bounded no-training local first-action lattice source-construction smoke before actor self-ID tests",
-    "priority": 12370,
+    "command": "see experiments/manifests/m1243-paper-route-capability-separable-low-regret-audit.json",
+    "hypothesis": "Audit capability-separable low-regret source result",
+    "id": "m1243-paper-route-capability-separable-low-regret-audit",
+    "kind": "gate",
+    "notes": "Pending: classify why M1242 produced action-divergent low-regret rows and select one bounded next source-construction repair before training",
+    "priority": 12380,
     "status": "pending",
-    "success_artifact": "runs/m1242_capability_separable_source_constructor_smoke/summary.json"
+    "success_artifact": "docs/m1243-paper-route-capability-separable-low-regret-audit.md"
   },
-  "updated_at_utc": "20260528T091420Z"
+  "updated_at_utc": "20260528T091728Z"
 }

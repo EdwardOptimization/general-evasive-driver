@@ -176,6 +176,8 @@ python -m autodrift.capability_separable_source_constructor \
   --seed-start 124200 \
   --seed-count 24 \
   --max-pairs 160 \
+  --max-pairs-per-seed 8 \
+  --max-pairs-per-family-pair 24 \
   --max-continuation-steps 18 \
   --steer-deltas=-0.30,-0.15,0,0.15,0.30 \
   --throttle-deltas=-0.20,0,0.20 \

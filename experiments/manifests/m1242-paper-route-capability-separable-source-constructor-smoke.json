@@ -145,7 +145,7 @@
     },
     {
       "name": "smoke",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_separable_source_constructor --checkpoint runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --config configs/m1236_extreme_fault_timing_repair_smoke.json --pairing-mode cross_fault --seed-start 124200 --seed-count 24 --max-pairs 160 --max-continuation-steps 18 --steer-deltas=-0.30,-0.15,0,0.15,0.30 --throttle-deltas=-0.20,0,0.20 --brake-deltas=-0.30,-0.15,0,0.15,0.30 --min-best-action-l2 0.12 --min-cross-regret-margin 0.02 --device auto --run-dir runs/m1242_capability_separable_source_constructor_smoke"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_separable_source_constructor --checkpoint runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --config configs/m1236_extreme_fault_timing_repair_smoke.json --pairing-mode cross_fault --seed-start 124200 --seed-count 24 --max-pairs 160 --max-pairs-per-seed 8 --max-pairs-per-family-pair 24 --max-continuation-steps 18 --steer-deltas=-0.30,-0.15,0,0.15,0.30 --throttle-deltas=-0.20,0,0.20 --brake-deltas=-0.30,-0.15,0,0.15,0.30 --min-best-action-l2 0.12 --min-cross-regret-margin 0.02 --device auto --run-dir runs/m1242_capability_separable_source_constructor_smoke"
     }
   ],
   "required_artifacts": [
@@ -173,6 +173,29 @@
     "docs/m1241-paper-route-capability-separable-source-construction-design.md",
     "configs/m1236_extreme_fault_timing_repair_smoke.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1242_capability_separable_source_constructor_smoke/summary.json",
+    "decision": "capability_separable_constructor_smoke_infrastructure_pass_low_regret_route_to_audit",
+    "result_class": "action_divergent_low_regret",
+    "candidate_pair_count": 1356,
+    "matched_pair_count": 160,
+    "action_rollouts": 24000,
+    "accepted_separable_pairs": 0,
+    "best_actions_diverged_pairs": 3,
+    "low_regret_pairs": 160,
+    "unique_matched_fault_family_pairs": 10,
+    "unique_matched_seeds": 20,
+    "actor_parameters_changed": false,
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1243-paper-route-capability-separable-low-regret-audit.json"
+  },
+  "decision": "capability_separable_constructor_smoke_infrastructure_pass_low_regret_route_to_audit",
   "decision_rule": "M1242 passes as infrastructure if the constructor writes core artifacts and source-shape metrics without actor mutation, training, PPO, promotion, private holdout, or actor-input expansion. Accepted separable pairs are diagnostic only.",
-  "next_blocker": "m1242-paper-route-capability-separable-source-constructor-smoke"
+  "next_blocker": "m1243-paper-route-capability-separable-low-regret-audit"
 }

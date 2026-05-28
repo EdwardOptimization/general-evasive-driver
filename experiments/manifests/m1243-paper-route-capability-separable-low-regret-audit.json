@@ -1,0 +1,148 @@
+{
+  "id": "m1243-paper-route-capability-separable-low-regret-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "runs/m1242_capability_separable_source_constructor_smoke/summary.json",
+      "runs/m1242_capability_separable_source_constructor_smoke/matched_capability_pairs.csv",
+      "runs/m1242_capability_separable_source_constructor_smoke/action_rollouts.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1242-paper-route-capability-separable-source-constructor-smoke.json"
+    ],
+    "parent_objective": [
+      "audit why the shared first-action lattice produced action-divergent but low-regret matched hidden-dynamics pairs"
+    ],
+    "derived_from": [
+      "m1242-paper-route-capability-separable-source-constructor-smoke"
+    ],
+    "blocked_by": [
+      "M1242 infrastructure passed but accepted_separable_pairs == 0"
+    ],
+    "supersedes": [
+      "training actor history on non-separable source rows"
+    ],
+    "invalidates": [
+      "assuming matched hidden-dynamics pairs are source-positive without cross-regret evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1243-paper-route-capability-separable-low-regret-audit.md",
+  "public_gates": [
+    "M1243 may audit M1242 artifacts only",
+    "M1243 must not train controllers",
+    "M1243 must not run PPO",
+    "M1243 must not use private holdout",
+    "M1243 must not promote",
+    "M1243 must preserve actor input contract",
+    "M1243 must select one bounded next step"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters or oracle labels to actor inputs",
+    "do not claim self-identification from M1242 source construction",
+    "do not tune thresholds after looking at the result and call it source-positive"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_capability_separable_source_construction",
+    "evidence_axis": "S_capability_separable_low_regret_audit",
+    "evidence_increment": "classifies the M1242 low-regret source shape and chooses the next bounded source-construction repair",
+    "claim_scope": "audit/process only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if audit tries to promote zero accepted separable pairs",
+      "stop if next step is broader than one source-construction variable",
+      "stop if hidden labels are proposed as actor inputs"
+    ],
+    "fallback_plan": [
+      "short sequence lattice",
+      "longer continuation horizon",
+      "more adversarial source windows",
+      "simulator extension if current proxy faults cannot create separable cases"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1242 infrastructure pass with source-negative low-regret result",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "low-regret source-shape audit",
+    "admission_evidence": [
+      "M1242 produced 160 matched pairs and 24000 action rollouts",
+      "M1242 produced 0 accepted separable pairs and result_class action_divergent_low_regret"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1243 audit docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "audit explains whether lattice, horizon, continuation, source windows, or simulator fidelity is the likely bottleneck",
+      "one bounded next source-construction step is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1243 audits source separability and still does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If M1242 low-regret is caused by source/model limits, record it and route to a bounded source or simulator extension.",
+    "allowed_claims": [
+      "source-shape audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1242's zero accepted separable pairs can be classified before changing source construction, and the next step should vary only one bounded source-construction variable.",
+  "success_criteria": [
+    "docs/m1243-paper-route-capability-separable-low-regret-audit.md exists",
+    "M1242 summary metrics are quoted",
+    "best-action divergence and cross-regret distributions are inspected",
+    "source-diversity and sampler repairs are recorded",
+    "one bounded next step is selected",
+    "private holdout remains unused",
+    "no training, PPO, promotion, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "M1243 starts training or PPO",
+    "M1243 treats zero accepted separable pairs as source-positive",
+    "M1243 changes actor inputs",
+    "M1243 leaves the next route vague"
+  ],
+  "commands": [
+    {
+      "name": "write_low_regret_audit",
+      "command": "write docs/m1243-paper-route-capability-separable-low-regret-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1243-paper-route-capability-separable-low-regret-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "runs/m1242_capability_separable_source_constructor_smoke/summary.json"
+  ],
+  "decision_rule": "M1243 passes if it classifies the M1242 low-regret source shape and admits exactly one bounded next source-construction repair without training or overclaiming.",
+  "next_blocker": "m1243-paper-route-capability-separable-low-regret-audit"
+}

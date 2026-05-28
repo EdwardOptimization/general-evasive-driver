@@ -1,0 +1,98 @@
+{
+  "decision_reason": "M1242 infrastructure passes with 160 matched pairs 24000 action rollouts 10 fault-family pairs and 20 seeds but accepted_separable_pairs is 0 and result_class is action_divergent_low_regret",
+  "failure_criteria": [
+    "constructor cannot produce matched pairs",
+    "constructor cannot produce action rollouts",
+    "actor parameters change",
+    "hidden labels enter actor observations",
+    "model fidelity boundary is missing",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters or oracle labels to actor inputs",
+    "do not claim self-identification from source construction",
+    "do not treat the action lattice as a deployable controller"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T091939Z",
+  "hypothesis": "A small local shared-base first-action lattice can determine whether current matched hidden-dynamics sources contain action-separable cases before actor history tests.",
+  "lineage": {
+    "blocked_by": [
+      "M1241 admits only bounded no-training source construction before actor self-ID tests"
+    ],
+    "derived_from": [
+      "m1241-paper-route-capability-separable-source-construction-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1241-paper-route-capability-separable-source-construction-design.json",
+      "configs/m1236_extreme_fault_timing_repair_smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m1241-paper-route-capability-separable-source-construction-design.md"
+    ],
+    "parent_objective": [
+      "implement and run bounded action-lattice source-construction smoke to test hidden-dynamics action separability"
+    ],
+    "supersedes": [
+      "testing actor history before proving source action separability"
+    ]
+  },
+  "milestone": "m1242-paper-route-capability-separable-source-constructor-smoke",
+  "next_blocker": "m1243-paper-route-capability-separable-low-regret-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "capability_separable_constructor_smoke_infrastructure_pass_low_regret_route_to_audit",
+  "public_gates": [
+    "M1242 must preserve actor input contract",
+    "M1242 must not train controllers",
+    "M1242 must not run PPO",
+    "M1242 must not use private holdout",
+    "M1242 must not promote",
+    "M1242 must keep hidden dynamics and oracle/source labels out of deployable actor inputs",
+    "M1242 must report accepted separable pairs as diagnostic only"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1242_capability_separable_source_constructor_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "capability_separable_constructor_smoke_infrastructure_pass_low_regret_route_to_audit",
+    "milestone": "m1242-paper-route-capability-separable-source-constructor-smoke",
+    "reason": "M1242 infrastructure passes with 160 matched pairs 24000 action rollouts 10 fault-family pairs and 20 seeds but accepted_separable_pairs is 0 and result_class is action_divergent_low_regret",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "src/autodrift/capability_separable_source_constructor.py exists",
+    "tests/test_capability_separable_source_constructor.py exists",
+    "runs/m1242_capability_separable_source_constructor_smoke/summary.json exists",
+    "each matched pair evaluates the same clipped action candidates under both hidden-dynamics conditions",
+    "matched_pair_count > 0",
+    "action_rollouts > 0",
+    "matched fault-family pairs >= 6",
+    "matched seeds >= 6",
+    "model_fidelity_limits.md exists",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "labels_enter_actor_input == false",
+    "private holdout remains unused",
+    "no actor-input contract expansion occurs"
+  ],
+  "type": "infrastructure"
+}
