@@ -1,0 +1,173 @@
+{
+  "id": "m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1158-v4-public-base-row15-promoted-projection-promotion-audit.md",
+      "docs/m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit.md",
+      "docs/m1156-v4-public-base-row15-promoted-projection-family-behavior-run.md",
+      "docs/m1154-v4-public-base-row15-promoted-unsafe-margin-projection-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1158-v4-public-base-row15-promoted-projection-promotion-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize post-promotion route after alpha_0_05 becomes the public-gate base"
+    ],
+    "derived_from": [
+      "m1158-v4-public-base-row15-promoted-projection-promotion-audit"
+    ],
+    "blocked_by": [
+      "M1158 promotes a new public-gate base and the next branch has not been selected"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "starting PPO immediately after promotion without post-promotion synthesis",
+      "claiming performance improvement from proof-hardening promotion",
+      "ignoring the near-boundary wrong-history margin caveat in the next branch"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis.md",
+  "public_gates": [
+    "M1159 must synthesize the promotion and choose the next branch",
+    "M1159 must not train actor weights",
+    "M1159 must not run PPO",
+    "M1159 must not run replay",
+    "M1159 must not run objective optimization",
+    "M1159 must not mine rows",
+    "M1159 must not promote another checkpoint",
+    "M1159 must not use private holdout",
+    "M1159 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train actor weights",
+    "do not run PPO",
+    "do not run replay",
+    "do not run objective optimization",
+    "do not mine rows",
+    "do not promote another checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not start medium PPO before selecting the post-promotion branch"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_unsafe_margin_projection",
+    "evidence_axis": "G_branch: post-promotion branch selection",
+    "evidence_increment": "synthesizes the M1158 public proof-base hardening promotion and selects the next research branch",
+    "claim_scope": "process synthesis only; no training, replay, PPO, private holdout, or new driver capability claim",
+    "stop_condition": [
+      "stop if the next branch would overclaim M1158 as performance improvement",
+      "stop if public-gate overfit risk is not handled",
+      "stop if current public-gate base lineage is ambiguous",
+      "stop if the near-zero wrong-history margin caveat is not reflected in the next branch"
+    ],
+    "fallback_plan": [
+      "if promotion status is coherent, choose post-promotion current-base surface refresh or margin-slack audit",
+      "if promotion status is incoherent, route to promotion-status repair",
+      "if PPO readiness is unsupported, block PPO until a branch explicitly admits it"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1158 promoted alpha_0_05 as the current public-gate base",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "select the next branch after public proof-base promotion",
+    "admission_evidence": [
+      "M1158 promoted alpha_0_05 as the current public-gate base",
+      "M1158 scope is public proof-base hardening only",
+      "M1158 preserves the near-boundary wrong-history margin caveat"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train actor weights",
+      "do not run replay",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "post-promotion synthesis document",
+      "pre-register next branch if synthesis supports it",
+      "queue, status, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "current public-gate base is explicit",
+      "supported and unsupported claims are explicit",
+      "public proof overfit risk is explicit",
+      "near-boundary margin risk is explicit",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1159 synthesizes public proof-base promotion and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1159 synthesizes existing promotion artifacts and adds no new self-ID intervention.",
+    "negative_result_policy": "If the next branch is not ready for PPO, block PPO and route to a surface-refresh or audit branch.",
+    "allowed_claims": [
+      "post-promotion branch readiness",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "After M1158 promotion, the next branch should refresh current-base source-diverse protected/preference surfaces with explicit margin-slack attention before another PPO proposal.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "promotion evidence is summarized",
+    "supported and unsupported claims are explicit",
+    "public-gate overfit risk is explicit",
+    "near-boundary margin caveat is explicit",
+    "next branch decision is explicit",
+    "no actor training, PPO, replay, objective optimization, mining, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "next branch decision is ambiguous",
+    "promotion scope is overclaimed",
+    "near-boundary caveat is ignored",
+    "actor training, PPO, replay, objective optimization, mining, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_post_promotion_synthesis",
+      "command": "write docs/m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1158-v4-public-base-row15-promoted-projection-promotion-audit.md"
+  ],
+  "decision_rule": "M1159 may only synthesize the post-promotion state and choose the next branch. It cannot train actor weights, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or change actor inputs.",
+  "next_blocker": "m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis"
+}

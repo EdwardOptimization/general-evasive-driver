@@ -42,29 +42,34 @@ Not allowed in the deployable actor:
 Latest public-gate base:
 
 ```text
-runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt
+runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
 ```
 
-Status: M1129 promoted the M1123 alpha `0.15` row15 projection checkpoint as
-the current public-gate base after M1127 passed exact, old public replay, M1061
-family-intersection, source-diverse, fresh/OOD, and behavior gates. This is a
-proof-hardening public-gate promotion only; it is not a medium-PPO performance
-claim. Private holdout, medium/long PPO stability, paper-level generalization,
-real-vehicle claims, and level3 anticipatory self-identification claims remain
-blocked.
+Status: M1158 promoted the M1154 alpha `0.05` row15-promoted projection
+checkpoint as the current public-gate base after M1154 repaired the promoted
+failed-row unsafe surface, M1156 passed expanded public diagnostics, and M1157
+audited the result. This is a proof-hardening public-gate promotion only; it is
+not a medium-PPO performance claim. Private holdout, medium/long PPO stability,
+paper-level generalization, real-vehicle claims, and level3 anticipatory
+self-identification claims remain blocked. The near-boundary wrong-history
+margin caveat remains active:
+
+```text
+row15_promoted_materialized wrong_history_margin_max: -0.000000497
+```
 
 Previous public-gate base:
 
 ```text
-runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt
+runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt
 ```
 
-Status: M1078 promoted the M1076 contract-clean projection checkpoint as the
-previous public-gate base after M1076 passed exact, old public replay, M1061
-family-intersection, source-diverse, fresh/OOD, and behavior gates. M1129
-supersedes it with the M1123 alpha `0.15` row15 projection candidate. M1052
-M1049, M1044, M1038 combined active-set, Candidate B, M974, M964 alpha `1.0`,
-and M399 alpha `0.05` remain older lineage points.
+Status: M1129 promoted the M1123 alpha `0.15` row15 projection checkpoint as
+the previous public-gate base after M1127 passed exact, old public replay,
+M1061 family-intersection, source-diverse, fresh/OOD, and behavior gates. M1158
+supersedes it with the M1154 alpha `0.05` row15-promoted projection candidate.
+M1078, M1052, M1049, M1044, M1038 combined active-set, Candidate B, M974, M964
+alpha `1.0`, and M399 alpha `0.05` remain older lineage points.
 
 Latest active diagnostic BC checkpoint:
 
@@ -79,7 +84,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1158-v4-public-base-row15-promoted-projection-promotion-audit
+m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -493,6 +498,25 @@ The next milestone is M1158: decide whether `alpha_0_05` should replace
 `alpha_0_15` as the current public-gate base for proof-base hardening only.
 M1158 must preserve the near-zero wrong-history margin caveat and must not run
 training, PPO, replay, mining, private holdout, or actor-input changes.
+
+M1158 completed the promotion audit and promoted `alpha_0_05`:
+
+```text
+new_public_gate_base:
+  runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+previous_public_gate_base:
+  runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt
+scope: public proof-base hardening only
+medium_ppo_performance_claim: false
+private_holdout_claim: false
+paper_level_generalization_claim: false
+driver_performance_claim: false
+level3_self_identification_claim: false
+```
+
+M1159 should synthesize the post-promotion state, close
+`row15_promoted_unsafe_margin_projection`, and choose the next branch before
+any PPO, private holdout, mining, or medium-scale training.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

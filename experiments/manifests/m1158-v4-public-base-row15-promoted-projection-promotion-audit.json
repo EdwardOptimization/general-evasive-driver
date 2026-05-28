@@ -167,6 +167,44 @@
     "docs/m1156-v4-public-base-row15-promoted-projection-family-behavior-run.md",
     "docs/m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1158-v4-public-base-row15-promoted-projection-promotion-audit.md",
+    "decision": "row15_promoted_projection_promote_public_gate_base",
+    "result_class": "row15_promoted_projection_promoted_public_gate_base",
+    "failure_types": [
+      "none"
+    ],
+    "new_public_gate_base": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "previous_public_gate_base": "runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt",
+    "evidence": [
+      "M1154 alpha_0_05 improves exact M1144 and passes failed-row unsafe-margin plus M1149 first replay",
+      "M1156 alpha_0_05 passes expanded public exact/proof/family-intersection/source-diverse/generalization/behavior diagnostics",
+      "M1157 audits the evidence as internally consistent and admits promotion audit",
+      "actor input contract unchanged",
+      "allowed changed-parameter surface passed"
+    ],
+    "near_boundary_wrong_history_margin_caveat": true,
+    "row15_promoted_materialized_wrong_history_margin_max": -0.000000497,
+    "scope": "public_gate_base_only",
+    "medium_ppo_performance_claim": false,
+    "long_run_ppo_stability_claim": false,
+    "private_holdout_claim": false,
+    "paper_level_generalization_claim": false,
+    "driver_performance_claim": false,
+    "real_vehicle_claim": false,
+    "level3_self_identification_claim": false,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "objective_optimization_started": false,
+    "mining_started": false,
+    "promoted": true,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis"
+  },
   "decision_rule": "M1158 may only audit promotion from existing M1154/M1156/M1157 evidence. It cannot train actor weights, run PPO, run replay, run objective optimization, mine rows, use private holdout, change actor inputs, or claim beyond public proof-base hardening.",
-  "next_blocker": "m1158-v4-public-base-row15-promoted-projection-promotion-audit"
+  "next_blocker": "m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis"
 }

@@ -16499,3 +16499,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_projection_result_audit_admit_promotion_audit`
 - next: `m1158-v4-public-base-row15-promoted-projection-promotion-audit`
+
+## 20260528T001200Z - m1158-v4-public-base-row15-promoted-projection-promotion-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1158-v4-public-base-row15-promoted-projection-promotion-audit.md`
+- result: promotes `alpha_0_05` as the current public-gate base for public proof-base hardening only.
+- new public-gate base: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`.
+- previous public-gate base: `runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt`.
+- supporting evidence: M1154 exact M1144 improvement plus M1149 first replay pass; M1156 expanded diagnostic all-pass; M1157 result audit.
+- caveat retained: row15-promoted materialized wrong-history margin max `-0.000000497`.
+- blocked claims: medium/long PPO readiness, private-holdout generalization, driver-performance improvement, paper-level evidence, real-vehicle transfer, and level3 self-identification.
+- guardrail: no actor training, PPO, replay, objective optimization, mining, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_projection_promote_public_gate_base`
+- next: `m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis`

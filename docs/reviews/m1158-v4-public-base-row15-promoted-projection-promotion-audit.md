@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T000130Z
+- Generated at UTC: 20260528T000524Z
 - Type: gate
 - Gate tier: promotion
-- Promotion decision: promote
-- Decision reason: M1158 may only audit promotion from existing M1154/M1156/M1157 evidence. It cannot train actor weights, run PPO, run replay, run objective optimization, mine rows, use private holdout, change actor inputs, or claim beyond public proof-base hardening.
+- Promotion decision: row15_promoted_projection_promote_public_gate_base
+- Decision reason: M1158 promotes alpha_0_05 as current public-gate base scoped strictly to public proof-base hardening with no PPO private-holdout paper-level or driver-performance claim
 
 ## Hypothesis
 
@@ -76,8 +76,19 @@ Alpha_0_05 has enough public evidence to be promoted as the current public-gate 
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1158-v4-public-base-row15-promoted-projection-promotion-audit
+- type: gate
+- checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_projection_promote_public_gate_base
+- reason: M1158 promotes alpha_0_05 as current public-gate base scoped strictly to public proof-base hardening with no PPO private-holdout paper-level or driver-performance claim
 
 ## Next Blocker
 
-m1158-v4-public-base-row15-promoted-projection-promotion-audit
+m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis

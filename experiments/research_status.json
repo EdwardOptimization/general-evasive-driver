@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1166,
+    "completed": 1167,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit",
+    "task_id": "m1158-v4-public-base-row15-promoted-projection-promotion-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit.md",
-    "result_class": "row15_promoted_projection_public_diagnostic_pass_audit_complete",
-    "decision": "row15_promoted_projection_result_audit_admit_promotion_audit"
+    "command_log": "docs/m1158-v4-public-base-row15-promoted-projection-promotion-audit.md",
+    "result_class": "row15_promoted_projection_promoted_public_gate_base",
+    "decision": "row15_promoted_projection_promote_public_gate_base"
   },
   "next_task": {
-    "id": "m1158-v4-public-base-row15-promoted-projection-promotion-audit",
+    "id": "m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis",
     "status": "pending",
-    "priority": 11530,
+    "priority": 11540,
     "kind": "gate",
-    "hypothesis": "Alpha_0_05 has enough public evidence to be promoted as the current public-gate base for proof-base hardening with no PPO private-holdout or driver-performance claim",
-    "command": "see experiments/manifests/m1158-v4-public-base-row15-promoted-projection-promotion-audit.json",
-    "success_artifact": "docs/m1158-v4-public-base-row15-promoted-projection-promotion-audit.md",
-    "notes": "Pending: audit existing M1154 M1156 and M1157 evidence only; no actor training PPO replay mining private holdout or actor-input change"
+    "hypothesis": "After M1158 promotion the next branch should refresh current-base source-diverse protected/preference surfaces with explicit margin-slack attention before another PPO proposal",
+    "command": "see experiments/manifests/m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis.json",
+    "success_artifact": "docs/m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis.md",
+    "notes": "Pending: synthesize post-promotion state and select the next branch only; no actor training PPO replay mining promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T000300Z"
+  "updated_at_utc": "20260528T001200Z"
 }
