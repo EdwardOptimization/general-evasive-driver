@@ -19427,3 +19427,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, source-history materialization, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1331-paper-route-source-topup-merged-corpus-expansion-plan.json`.
 - next: `m1331-paper-route-source-topup-merged-corpus-expansion-plan`
+
+## 20260528T180442Z - m1331-paper-route-source-topup-merged-corpus-expansion-plan
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1331_source_topup_merged_corpus_expansion_plan/summary.json`
+- doc: `docs/m1331-paper-route-source-topup-merged-corpus-expansion-plan.md`
+- decision: `source_topup_merged_corpus_expansion_plan_admissible_route_to_materialization_design`
+- result class: `source_history_corpus_expansion_plan_admissible`.
+- planned source pairs: `366` versus target `240`.
+- planned pair-probe groups: `732` versus target `480`.
+- source fault families: `7`; corner/side variants: `34`.
+- fold balance: all folds nonempty, pair-disjoint, max source-family fold share `0.2739726027`.
+- materialized source pairs: `0`, as intended for the new merged corpus.
+- blockers retained: global friction missing and halfshaft `22/30` under target.
+- recommended next step: source-history materialization design, not PPO or promotion.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, source-history materialization, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1332-paper-route-source-topup-materialization-design.json`.
+- next: `m1332-paper-route-source-topup-materialization-design`

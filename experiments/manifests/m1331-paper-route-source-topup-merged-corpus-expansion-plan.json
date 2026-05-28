@@ -162,6 +162,36 @@
     "docs/m1330-paper-route-source-topup-additive-merge-export.md",
     "runs/m1330_source_topup_additive_merge_export/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1331_source_topup_merged_corpus_expansion_plan/summary.json",
+    "doc": "docs/m1331-paper-route-source-topup-merged-corpus-expansion-plan.md",
+    "decision": "source_topup_merged_corpus_expansion_plan_admissible_route_to_materialization_design",
+    "result_class": "source_history_corpus_expansion_plan_admissible",
+    "planned_source_pairs": 366,
+    "target_source_pairs": 240,
+    "planned_pair_probe_groups": 732,
+    "target_pair_probe_groups": 480,
+    "source_fault_family_count": 7,
+    "corner_or_side_variant_count": 34,
+    "materialized_source_pair_count": 0,
+    "all_folds_nonempty": true,
+    "pair_disjoint": true,
+    "max_source_family_fold_share": 0.2739726027,
+    "coverage_gap_reported": true,
+    "unsupported_or_undercovered_family_count": 2,
+    "global_friction_missing": true,
+    "halfshaft_undercovered": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1332-paper-route-source-topup-materialization-design.json"
+  },
+  "decision": "source_topup_merged_corpus_expansion_plan_admissible_route_to_materialization_design",
   "decision_rule": "M1331 passes as infrastructure if it plans the M1330 merged source export into pair-disjoint folds and reports coverage gaps without training, PPO, promotion, private holdout use, threshold relaxation, materialization, or actor-input expansion.",
-  "next_blocker": "m1331-paper-route-source-topup-merged-corpus-expansion-plan"
+  "next_blocker": "m1332-paper-route-source-topup-materialization-design"
 }

@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M1331 plans 366 source pairs and 732 groups with max fold share 0.274 while retaining global friction and halfshaft blockers",
+  "failure_criteria": [
+    "run artifacts are missing",
+    "stale materialized histories are counted",
+    "target source pairs or groups are under target without clear blocker",
+    "folds are empty or pair-disjointness is violated",
+    "global friction or halfshaft gaps are hidden",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use stale M1280 materialized history by pair id",
+    "do not hide global friction gap",
+    "do not hide halfshaft undercoverage",
+    "do not route directly to PPO"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T180603Z",
+  "hypothesis": "The M1330 merged source export can support an admissible source-history corpus expansion plan without stale materialized-history matches.",
+  "lineage": {
+    "blocked_by": [
+      "M1330 exports a merged source corpus candidate that needs fold planning before materialization"
+    ],
+    "derived_from": [
+      "m1330-paper-route-source-topup-additive-merge-export"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1330-paper-route-source-topup-additive-merge-export.json"
+    ],
+    "parent_dataset": [
+      "docs/m1330-paper-route-source-topup-additive-merge-export.md",
+      "runs/m1330_source_topup_additive_merge_export/summary.json"
+    ],
+    "parent_objective": [
+      "run source-history corpus expansion plan on the M1330 merged source export"
+    ],
+    "supersedes": [
+      "source-history materialization from M1322 or M1327 alone"
+    ]
+  },
+  "milestone": "m1331-paper-route-source-topup-merged-corpus-expansion-plan",
+  "next_blocker": "m1332-paper-route-source-topup-materialization-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_topup_merged_corpus_expansion_plan_admissible_route_to_materialization_design",
+  "public_gates": [
+    "M1331 must not train",
+    "M1331 must not run PPO",
+    "M1331 must not use private holdout",
+    "M1331 must not promote",
+    "M1331 must preserve actor input contract",
+    "M1331 must use the M1330 merged export",
+    "M1331 must not count stale materialized histories",
+    "M1331 must report global friction and halfshaft coverage gaps"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1331_source_topup_merged_corpus_expansion_plan/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "source_topup_merged_corpus_expansion_plan_admissible_route_to_materialization_design",
+    "milestone": "m1331-paper-route-source-topup-merged-corpus-expansion-plan",
+    "reason": "M1331 plans 366 source pairs and 732 groups with max fold share 0.274 while retaining global friction and halfshaft blockers",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1331_source_topup_merged_corpus_expansion_plan/summary.json exists",
+    "planned_source_pairs >= 240",
+    "planned_pair_probe_groups >= 480",
+    "source_fault_family_count >= 7",
+    "pair_disjoint is true",
+    "all_folds_nonempty is true",
+    "materialized_source_pair_count == 0",
+    "global friction and halfshaft coverage gaps are reported",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "infrastructure"
+}

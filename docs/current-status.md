@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1330-paper-route-source-topup-additive-merge-export
+m1331-paper-route-source-topup-merged-corpus-expansion-plan
 ```
 
 Current next task:
 
 ```text
-m1331-paper-route-source-topup-merged-corpus-expansion-plan
+m1332-paper-route-source-topup-materialization-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -285,7 +285,12 @@ identity duplicates, `0` semantic duplicate groups, `250` family-balanced rows,
 and `7` accepted source-family pairs. Merged `pair_id` is now global `0..365`,
 with original ids preserved as `source_row_id/original_pair_id`. Global friction
 remains missing and halfshaft remains under target. The active blocker is
-M1331: run a fresh corpus expansion plan on the M1330 merged export.
+M1331: run a fresh corpus expansion plan on the M1330 merged export. M1331
+completed that plan and it is admissible: `366` source pairs, `732` pair-probe
+groups, all folds nonempty and pair-disjoint, and max source-family fold share
+`0.2739726027`. Global friction and halfshaft blockers remain explicit. The
+active blocker is M1332: design source-history materialization for the merged
+corpus while preserving source identity metadata.
 
 ## Actor Contract
 
