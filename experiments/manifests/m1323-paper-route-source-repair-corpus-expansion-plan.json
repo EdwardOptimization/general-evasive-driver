@@ -1,0 +1,164 @@
+{
+  "id": "m1323-paper-route-source-repair-corpus-expansion-plan",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1322-paper-route-source-repair-corpus-export.md",
+      "runs/m1322_source_repair_corpus_export/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1322-paper-route-source-repair-corpus-export.json"
+    ],
+    "parent_objective": [
+      "plan source-history corpus expansion using the M1322 source repair corpus"
+    ],
+    "derived_from": [
+      "m1322-paper-route-source-repair-corpus-export"
+    ],
+    "blocked_by": [
+      "M1322 exports a new seven-family source corpus candidate that needs fold planning"
+    ],
+    "supersedes": [
+      "planning from the old M1273 source corpus"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1323-paper-route-source-repair-corpus-expansion-plan.md",
+  "public_gates": [
+    "M1323 must not train",
+    "M1323 must not run PPO",
+    "M1323 must not use private holdout",
+    "M1323 must not promote",
+    "M1323 must preserve actor input contract",
+    "M1323 must use the M1322 source corpus",
+    "M1323 must avoid false materialized-history matches from pair-id collision",
+    "M1323 must report coverage gaps instead of fabricating global friction"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not fabricate global friction coverage",
+    "do not use stale M1280 materialized history by pair id",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_corpus_expansion",
+    "evidence_axis": "S_source_repair_corpus_expansion_plan",
+    "evidence_increment": "tests whether the M1322 exported source corpus meets expansion planning targets",
+    "claim_scope": "planning infrastructure only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if plan uses stale materialized histories by pair-id collision",
+      "stop if plan hides global friction coverage gap",
+      "stop if plan routes directly to PPO",
+      "stop if plan changes actor inputs"
+    ],
+    "fallback_plan": [
+      "if plan is admissible, route to source-history materialization design",
+      "if plan is near but under target, route to export/coverage audit",
+      "if global friction blocks target, route to global-friction source branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1322 exports the source repair corpus candidate",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source repair corpus expansion plan",
+    "admission_evidence": [
+      "M1322 exported 216 accepted source rows",
+      "M1322 exported 7 accepted source families",
+      "global friction remains inactive",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not fabricate global friction coverage"
+    ],
+    "allowed_updates": [
+      "M1323 plan artifacts",
+      "M1323 result doc",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "planned source-pair count is reported",
+      "planned pair-probe group count is reported",
+      "family count and fold balance are reported",
+      "global friction blocker is reported",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1323 is a corpus plan and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "plan source rows for later command-response history materialization"
+    ],
+    "temporal_evidence_window": "M1322 source repair corpus export.",
+    "negative_result_policy": "If planning targets are missed, report coverage gaps rather than routing to policy training.",
+    "allowed_claims": [
+      "source repair corpus expansion plan",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1322 source repair corpus can support a materially broader source-history expansion plan while preserving the global-friction blocker and avoiding stale materialized-history matches.",
+  "success_criteria": [
+    "runs/m1323_source_repair_corpus_expansion_plan/summary.json exists",
+    "planned_source_pairs >= 216",
+    "planned_pair_probe_groups >= 432",
+    "source_fault_family_count >= 7",
+    "pair_disjoint is true",
+    "all_folds_nonempty is true",
+    "materialized_source_pair_count == 0",
+    "global friction is reported as missing or inactive",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "stale materialized histories are counted",
+    "global friction gap is hidden",
+    "pair-disjoint folds are violated",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "run_plan_builder",
+      "command": "PYTHONPATH=src python -m autodrift.source_history_corpus_expansion_plan --source-corpus-run-dir runs/m1322_source_repair_corpus_export --history-run-dir runs/m1322_no_materialized_history --run-dir runs/m1323_source_repair_corpus_expansion_plan --target-source-pairs 240 --fold-count 5"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1323_source_repair_corpus_expansion_plan/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1323-paper-route-source-repair-corpus-expansion-plan.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1322-paper-route-source-repair-corpus-export.md",
+    "runs/m1322_source_repair_corpus_export/summary.json"
+  ],
+  "decision_rule": "M1323 passes as infrastructure if it writes deterministic expansion plan artifacts from M1322 without stale materialized-history matches, hidden global-friction gaps, training, PPO, promotion, private holdout use, threshold relaxation, or actor-input expansion.",
+  "next_blocker": "m1323-paper-route-source-repair-corpus-expansion-plan"
+}

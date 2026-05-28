@@ -19250,3 +19250,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1322-paper-route-source-repair-corpus-export.json`.
 - next: `m1322-paper-route-source-repair-corpus-export`
+
+## 20260528T170921Z - m1322-paper-route-source-repair-corpus-export
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1322_source_repair_corpus_export/summary.json`
+- doc: `docs/m1322-paper-route-source-repair-corpus-export.md`
+- validation: focused export test passed with `1 passed`.
+- exported accepted rows: `216`.
+- near-boundary rows: `39`.
+- high-regret rows: `154`.
+- family-balanced rows: `121`.
+- accepted families: `7`.
+- inactive families: `global_friction_step->global_friction_step`.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- note: M1323 must avoid stale materialized-history matches by not reusing M1280 pair ids as if they refer to M1322 rows.
+- follow-up manifest: `experiments/manifests/m1323-paper-route-source-repair-corpus-expansion-plan.json`.
+- decision: `source_repair_corpus_export_pass_route_to_expansion_plan`
+- next: `m1323-paper-route-source-repair-corpus-expansion-plan`

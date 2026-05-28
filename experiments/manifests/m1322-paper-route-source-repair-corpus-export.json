@@ -163,6 +163,31 @@
     "runs/m1320_inactive_source_family_repair_smoke/accepted_separable_pairs.csv",
     "runs/m1320_inactive_source_family_repair_smoke/inactive_fault_families.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1322_source_repair_corpus_export/summary.json",
+    "doc": "docs/m1322-paper-route-source-repair-corpus-export.md",
+    "decision": "source_repair_corpus_export_pass_route_to_expansion_plan",
+    "source_run_dir": "runs/m1320_inactive_source_family_repair_smoke",
+    "exported_accepted_rows": 216,
+    "near_boundary_rows": 39,
+    "high_regret_rows": 154,
+    "family_balanced_rows": 121,
+    "inactive_fault_family_count": 1,
+    "inactive_fault_families": [
+      "global_friction_step->global_friction_step"
+    ],
+    "focused_tests": "1 passed",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1323-paper-route-source-repair-corpus-expansion-plan.json"
+  },
+  "decision": "source_repair_corpus_export_pass_route_to_expansion_plan",
   "decision_rule": "M1322 passes as infrastructure if it exports the M1320 source corpus with global-friction blocker retained and no training, PPO, promotion, private holdout use, threshold relaxation, hidden blocker handling, or actor-input expansion.",
-  "next_blocker": "m1322-paper-route-source-repair-corpus-export"
+  "next_blocker": "m1323-paper-route-source-repair-corpus-expansion-plan"
 }

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1331,
+    "completed": 1332,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1321-paper-route-source-repair-result-audit.md",
+    "command_log": "docs/m1322-paper-route-source-repair-corpus-export.md",
     "returncode": 0,
-    "run_dir": "docs/m1321-paper-route-source-repair-result-audit.md",
+    "run_dir": "runs/m1322_source_repair_corpus_export",
     "status": "completed",
-    "task_id": "m1321-paper-route-source-repair-result-audit"
+    "task_id": "m1322-paper-route-source-repair-corpus-export"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1322-paper-route-source-repair-corpus-export.json",
-    "hypothesis": "Export the M1320 seven-family source corpus candidate with global-friction blocker retained",
-    "id": "m1322-paper-route-source-repair-corpus-export",
+    "command": "see experiments/manifests/m1323-paper-route-source-repair-corpus-expansion-plan.json",
+    "hypothesis": "Plan source-history corpus expansion from the M1322 source repair corpus",
+    "id": "m1323-paper-route-source-repair-corpus-expansion-plan",
     "kind": "infrastructure",
-    "notes": "Pending: export updated source corpus; PPO and promotion remain blocked",
-    "priority": 13170,
+    "notes": "Pending: plan M1322 source corpus without stale materialized-history matches; PPO and promotion remain blocked",
+    "priority": 13180,
     "status": "pending",
-    "success_artifact": "runs/m1322_source_repair_corpus_export/summary.json"
+    "success_artifact": "runs/m1323_source_repair_corpus_expansion_plan/summary.json"
   },
-  "updated_at_utc": "20260528T170617Z"
+  "updated_at_utc": "20260528T170921Z"
 }
