@@ -1,0 +1,167 @@
+{
+  "id": "m1246-paper-route-capability-separable-viability-band-relocation-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1245-paper-route-capability-separable-source-window-audit.md",
+      "runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1245-paper-route-capability-separable-source-window-audit.json",
+      "configs/m1236_extreme_fault_timing_repair_smoke.json"
+    ],
+    "parent_objective": [
+      "relocate matched source geometry into a near-boundary viability band before action-separability testing"
+    ],
+    "derived_from": [
+      "m1245-paper-route-capability-separable-source-window-audit"
+    ],
+    "blocked_by": [
+      "M1245 finds broad matched windows are bifurcated into nonviable or easy states with no near-boundary viability band"
+    ],
+    "supersedes": [
+      "more sequence-template tuning before source-window repair"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1246-paper-route-capability-separable-viability-band-relocation-smoke.md",
+  "public_gates": [
+    "M1246 must preserve actor input contract",
+    "M1246 must not train controllers",
+    "M1246 must not run PPO",
+    "M1246 must not use private holdout",
+    "M1246 must not promote",
+    "M1246 must keep relocation labels and oracle outcomes out of deployable actor inputs",
+    "M1246 must report accepted separable pairs as diagnostic only"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, relocation labels, or oracle outcomes to actor inputs",
+    "do not claim self-identification from source construction",
+    "do not change simulator fidelity in the same milestone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_capability_separable_source_construction",
+    "evidence_axis": "S_capability_separable_viability_band_relocation",
+    "evidence_increment": "tests one source-window repair: near-boundary obstacle/source relocation",
+    "claim_scope": "infrastructure/source-shape smoke only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if actor checksum changes",
+      "stop if relocation labels enter actor observation",
+      "stop if no relocated matched pairs or sequence rollouts are produced"
+    ],
+    "fallback_plan": [
+      "if relocation cannot produce viable boundary rows, route to current-model limit audit",
+      "if relocated rows are source-positive, route to compact source corpus construction"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1245 selects viability-band relocation as the next bounded source-window repair",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "viability-band relocated source smoke",
+    "admission_evidence": [
+      "M1245 finds no pair_min_best_margin rows in [0.0, 0.2)",
+      "M1244 short-sequence action spread exists but branch-specific cross-regret remains low"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "relocation source constructor implementation",
+      "focused tests",
+      "M1246 run artifacts",
+      "M1246 result docs",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "relocated matched pairs and sequence rollouts are produced",
+      "near-boundary viability band count is reported",
+      "source separability is classified without proof overclaim"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1246 constructs relocated source candidates offline and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If viability-band relocation still cannot create source-positive rows, record current-model/source limits before training.",
+    "allowed_claims": [
+      "viability-band relocation source-construction smoke result",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Relocating matched source geometry into a near-boundary viability band can expose hidden-dynamics action separability that broad matched windows missed.",
+  "success_criteria": [
+    "relocation source constructor code exists",
+    "focused tests exist",
+    "runs/m1246_capability_separable_viability_band_relocation_smoke/summary.json exists",
+    "relocated matched pairs > 0",
+    "sequence_rollouts > 0",
+    "near_boundary_viability_pairs is reported",
+    "matched fault-family pairs >= 6",
+    "matched seeds >= 6",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "labels_enter_actor_input == false",
+    "private holdout remains unused",
+    "no actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "constructor cannot produce relocated matched pairs",
+    "constructor cannot produce sequence rollouts",
+    "actor parameters change",
+    "hidden or relocation labels enter actor observations",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_capability_separable_source_constructor.py"
+    },
+    {
+      "name": "smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_separable_source_constructor --checkpoint runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --config configs/m1236_extreme_fault_timing_repair_smoke.json --pairing-mode cross_fault --seed-start 124600 --seed-count 24 --max-pairs 96 --max-pairs-per-seed 6 --max-pairs-per-family-pair 16 --candidate-mode short_sequence --sequence-length 3 --sequence-template-set steer_brake_pulses --source-window-mode viability_band_relocation --target-min-best-margin 0.02 --target-max-best-margin 0.5 --max-continuation-steps 18 --min-best-action-l2 0.12 --min-cross-regret-margin 0.02 --device auto --run-dir runs/m1246_capability_separable_viability_band_relocation_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1246_capability_separable_viability_band_relocation_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1246-paper-route-capability-separable-viability-band-relocation-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1245-paper-route-capability-separable-source-window-audit.md",
+    "runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json"
+  ],
+  "decision_rule": "M1246 passes as infrastructure if relocated matched source rows and sequence rollouts are produced without actor mutation, training, PPO, promotion, private holdout, or actor-input expansion. Accepted separable pairs are diagnostic only.",
+  "next_blocker": "m1246-paper-route-capability-separable-viability-band-relocation-smoke"
+}

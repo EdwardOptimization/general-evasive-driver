@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1245 audits M1244 as close-obstacle but viability-band-missing source-negative result and selects bounded near-boundary relocation smoke",
+  "failure_criteria": [
+    "M1245 starts training or PPO",
+    "M1245 treats zero accepted separable pairs as source-positive",
+    "M1245 changes actor inputs",
+    "M1245 leaves the next route vague"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters or oracle labels to actor inputs",
+    "do not claim self-identification from source construction",
+    "do not continue tuning sequence templates without source-window diagnosis"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T093802Z",
+  "hypothesis": "Repeated low-regret source-negative results can be classified by auditing source-window and boundary-conditioning variables before changing simulator fidelity or training an actor.",
+  "lineage": {
+    "blocked_by": [
+      "M1244 short-sequence lattice infrastructure passed but accepted_separable_pairs == 0"
+    ],
+    "derived_from": [
+      "m1244-paper-route-capability-separable-short-sequence-lattice-smoke"
+    ],
+    "invalidates": [
+      "assuming a short sequence lattice alone is sufficient to expose hidden-dynamics separability"
+    ],
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1244-paper-route-capability-separable-short-sequence-lattice-smoke.json"
+    ],
+    "parent_dataset": [
+      "runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json",
+      "runs/m1244_capability_separable_short_sequence_lattice_smoke/matched_capability_pairs.csv",
+      "runs/m1244_capability_separable_short_sequence_lattice_smoke/sequence_rollouts.csv"
+    ],
+    "parent_objective": [
+      "audit whether source-window and boundary-conditioning choices explain repeated low-regret source-negative results"
+    ],
+    "supersedes": [
+      "more short-sequence template tuning before source-window audit"
+    ]
+  },
+  "milestone": "m1245-paper-route-capability-separable-source-window-audit",
+  "next_blocker": "m1246-paper-route-capability-separable-viability-band-relocation-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_window_audit_select_viability_band_relocation_smoke",
+  "public_gates": [
+    "M1245 may audit M1244 artifacts only",
+    "M1245 must not train controllers",
+    "M1245 must not run PPO",
+    "M1245 must not use private holdout",
+    "M1245 must not promote",
+    "M1245 must preserve actor input contract",
+    "M1245 must select one bounded next source-window repair or explicitly route to simulator-fidelity design"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1245-paper-route-capability-separable-source-window-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "source_window_audit_select_viability_band_relocation_smoke",
+    "milestone": "m1245-paper-route-capability-separable-source-window-audit",
+    "reason": "M1245 audits M1244 as close-obstacle but viability-band-missing source-negative result and selects bounded near-boundary relocation smoke",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1245-paper-route-capability-separable-source-window-audit.md exists",
+    "M1244 summary metrics are quoted",
+    "best-action divergence and cross-regret distributions are inspected",
+    "source-window and boundary-conditioning hypotheses are evaluated",
+    "one bounded next step is selected",
+    "private holdout remains unused",
+    "no training, PPO, promotion, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "type": "gate"
+}

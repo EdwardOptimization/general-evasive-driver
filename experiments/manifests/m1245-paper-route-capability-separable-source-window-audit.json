@@ -142,6 +142,24 @@
   "baseline_artifacts": [
     "runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1245-paper-route-capability-separable-source-window-audit.md",
+    "decision": "source_window_audit_select_viability_band_relocation_smoke",
+    "m1244_result_class": "action_divergent_low_regret",
+    "m1244_accepted_separable_pairs": 0,
+    "pair_min_best_margin_negative_pairs": 46,
+    "pair_min_best_margin_0_to_0_05_pairs": 0,
+    "pair_min_best_margin_0_05_to_0_2_pairs": 0,
+    "pair_min_best_margin_0_2_to_1_pairs": 8,
+    "selected_next_manifest": "experiments/manifests/m1246-paper-route-capability-separable-viability-band-relocation-smoke.json",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false
+  },
+  "decision": "source_window_audit_select_viability_band_relocation_smoke",
   "decision_rule": "M1245 passes if it classifies the M1244 low-regret source shape through source-window/boundary-conditioning evidence and admits one bounded next step without training or overclaiming.",
-  "next_blocker": "m1245-paper-route-capability-separable-source-window-audit"
+  "next_blocker": "m1246-paper-route-capability-separable-viability-band-relocation-smoke"
 }

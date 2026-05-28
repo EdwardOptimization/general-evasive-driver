@@ -115,7 +115,34 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1245-paper-route-capability-separable-source-window-audit
+m1246-paper-route-capability-separable-viability-band-relocation-smoke
+```
+
+M1245 completed capability-separable source-window audit:
+
+```text
+artifact: docs/m1245-paper-route-capability-separable-source-window-audit.md
+decision: source_window_audit_select_viability_band_relocation_smoke
+```
+
+M1245 conclusion:
+
+```text
+M1244's selected obstacles are already close, but the pair-level best-margin
+distribution is bifurcated: 46 pairs are negative, 0 pairs lie in [0.0, 0.2),
+and 66 pairs are easy with margins in [1.0, 10.0). The source is missing a
+near-boundary viability band.
+```
+
+Next task:
+
+```text
+artifact: runs/m1246_capability_separable_viability_band_relocation_smoke/summary.json
+manifest: experiments/manifests/m1246-paper-route-capability-separable-viability-band-relocation-smoke.json
+goal: relocate matched source geometry to target both-hidden-condition viable
+      near-boundary rows before action-separability testing
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1244 completed capability-separable short-sequence lattice smoke:

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1254,
+    "completed": 1255,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json",
+    "command_log": "docs/m1245-paper-route-capability-separable-source-window-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1244_capability_separable_short_sequence_lattice_smoke",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1244-paper-route-capability-separable-short-sequence-lattice-smoke"
+    "task_id": "m1245-paper-route-capability-separable-source-window-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1245-paper-route-capability-separable-source-window-audit.json",
-    "hypothesis": "Audit capability-separable source-window low-regret result",
-    "id": "m1245-paper-route-capability-separable-source-window-audit",
-    "kind": "gate",
-    "notes": "Pending: audit source-window and boundary-conditioning variables before more sequence tuning simulator changes training or actor self-ID tests",
-    "priority": 12400,
+    "command": "see experiments/manifests/m1246-paper-route-capability-separable-viability-band-relocation-smoke.json",
+    "hypothesis": "Run capability-separable viability-band relocation smoke",
+    "id": "m1246-paper-route-capability-separable-viability-band-relocation-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-training relocation smoke that targets both-hidden-condition near-boundary viable source rows",
+    "priority": 12410,
     "status": "pending",
-    "success_artifact": "docs/m1245-paper-route-capability-separable-source-window-audit.md"
+    "success_artifact": "runs/m1246_capability_separable_viability_band_relocation_smoke/summary.json"
   },
-  "updated_at_utc": "20260528T093203Z"
+  "updated_at_utc": "20260528T093601Z"
 }

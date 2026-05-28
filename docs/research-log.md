@@ -17926,3 +17926,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1245-paper-route-capability-separable-source-window-audit.json`.
 - decision: `short_sequence_lattice_smoke_infrastructure_pass_low_regret_route_to_source_window_audit`
 - next: `m1245-paper-route-capability-separable-source-window-audit`
+
+## 20260528T093601Z - m1245-paper-route-capability-separable-source-window-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1245-paper-route-capability-separable-source-window-audit.md`
+- audited artifact: `runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json`
+- finding: obstacle distances are already close (`p50=10.58m`, max `17.66m`), so low-regret is not explained by pre-emergency/far-obstacle rows.
+- key finding: pair-level minimum best margin is bifurcated: 46 pairs are negative, 0 pairs lie in `[0.0, 0.2)`, and 66 pairs are in `[1.0, 10.0)`.
+- interpretation: the source window is missing a near-boundary viability band where both hidden conditions are viable but sensitive to action choice.
+- selected next variable: obstacle/source relocation into `pair_min_best_margin in [0.02, 0.5]`, keeping checkpoint, source config, short sequence candidate object, diversity caps, no-training policy, and no-promotion guardrails fixed.
+- follow-up manifest: `experiments/manifests/m1246-paper-route-capability-separable-viability-band-relocation-smoke.json`.
+- decision: `source_window_audit_select_viability_band_relocation_smoke`
+- next: `m1246-paper-route-capability-separable-viability-band-relocation-smoke`
