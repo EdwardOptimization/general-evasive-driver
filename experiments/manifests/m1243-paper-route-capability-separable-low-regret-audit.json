@@ -143,6 +143,23 @@
   "baseline_artifacts": [
     "runs/m1242_capability_separable_source_constructor_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1243-paper-route-capability-separable-low-regret-audit.md",
+    "decision": "low_regret_audit_select_short_sequence_lattice_smoke",
+    "m1242_result_class": "action_divergent_low_regret",
+    "m1242_accepted_separable_pairs": 0,
+    "m1242_best_actions_too_close": 157,
+    "m1242_insufficient_cross_regret": 2,
+    "m1242_best_candidate_not_viable": 1,
+    "selected_next_manifest": "experiments/manifests/m1244-paper-route-capability-separable-short-sequence-lattice-smoke.json",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false
+  },
+  "decision": "low_regret_audit_select_short_sequence_lattice_smoke",
   "decision_rule": "M1243 passes if it classifies the M1242 low-regret source shape and admits exactly one bounded next source-construction repair without training or overclaiming.",
-  "next_blocker": "m1243-paper-route-capability-separable-low-regret-audit"
+  "next_blocker": "m1244-paper-route-capability-separable-short-sequence-lattice-smoke"
 }

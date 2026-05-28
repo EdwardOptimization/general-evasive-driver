@@ -17896,3 +17896,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1243-paper-route-capability-separable-low-regret-audit.json`.
 - decision: `capability_separable_constructor_smoke_infrastructure_pass_low_regret_route_to_audit`
 - next: `m1243-paper-route-capability-separable-low-regret-audit`
+
+## 20260528T092212Z - m1243-paper-route-capability-separable-low-regret-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1243-paper-route-capability-separable-low-regret-audit.md`
+- audited artifact: `runs/m1242_capability_separable_source_constructor_smoke/summary.json`
+- finding: M1242 is source-diverse infrastructure pass but source-negative with `accepted_separable_pairs=0`.
+- rejection distribution: `best_actions_too_close=157`, `insufficient_cross_regret=2`, `best_candidate_not_viable=1`.
+- threshold audit: no row has both cross regrets near the 0.02 threshold; lowering thresholds would create weak source labels.
+- selected next variable: short K-step action sequence lattice, keeping checkpoint, source config, pairing, diversity caps, actor inputs, no-training policy, and no-promotion guardrails fixed.
+- follow-up manifest: `experiments/manifests/m1244-paper-route-capability-separable-short-sequence-lattice-smoke.json`.
+- decision: `low_regret_audit_select_short_sequence_lattice_smoke`
+- next: `m1244-paper-route-capability-separable-short-sequence-lattice-smoke`

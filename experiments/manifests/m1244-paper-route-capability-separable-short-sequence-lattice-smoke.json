@@ -1,0 +1,168 @@
+{
+  "id": "m1244-paper-route-capability-separable-short-sequence-lattice-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1243-paper-route-capability-separable-low-regret-audit.md",
+      "runs/m1242_capability_separable_source_constructor_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1243-paper-route-capability-separable-low-regret-audit.json",
+      "configs/m1236_extreme_fault_timing_repair_smoke.json"
+    ],
+    "parent_objective": [
+      "test whether short K-step action sequences expose hidden-dynamics action separability that one-step actions did not"
+    ],
+    "derived_from": [
+      "m1243-paper-route-capability-separable-low-regret-audit"
+    ],
+    "blocked_by": [
+      "M1242 produced action-divergent low-regret rows with zero accepted first-action separable pairs"
+    ],
+    "supersedes": [
+      "more first-action threshold tuning on M1242 rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1244-paper-route-capability-separable-short-sequence-lattice-smoke.md",
+  "public_gates": [
+    "M1244 must preserve actor input contract",
+    "M1244 must not train controllers",
+    "M1244 must not run PPO",
+    "M1244 must not use private holdout",
+    "M1244 must not promote",
+    "M1244 must evaluate the same sequence candidates under both hidden-dynamics conditions",
+    "M1244 must report accepted sequence-separable pairs as diagnostic only"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters or oracle labels to actor inputs",
+    "do not claim self-identification from source construction",
+    "do not lower M1242 thresholds and call that source-positive",
+    "do not change simulator fidelity in the same milestone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_capability_separable_source_construction",
+    "evidence_axis": "S_capability_separable_short_sequence_lattice",
+    "evidence_increment": "tests one source-construction variable: short action sequences instead of one first action",
+    "claim_scope": "infrastructure/source-shape smoke only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if actor checksum changes",
+      "stop if labels enter actor observation",
+      "stop if sequence candidates are not shared across hidden conditions",
+      "stop if no matched pairs or sequence rollouts are produced"
+    ],
+    "fallback_plan": [
+      "if sequence rollouts fail, reduce sequence templates or pairs",
+      "if sequence smoke passes but no signal appears, audit source window or simulator fidelity limits"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1243 selects short-sequence lattice as the next bounded variable",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "short-sequence action-separability source smoke",
+    "admission_evidence": [
+      "M1242 one-step lattice yielded zero accepted separable pairs",
+      "M1243 audits the result as low-regret rather than threshold-near-miss"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "short-sequence source constructor implementation",
+      "focused tests",
+      "M1244 run artifacts",
+      "M1244 result docs",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "sequence constructor writes core artifacts",
+      "matched pairs and sequence rollouts are produced",
+      "source separability is classified without proof overclaim"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1244 constructs source candidates offline and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor tests remain blocked until source separability is established"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If no sequence-separable pairs appear, record the negative and audit source windows or simulator fidelity next.",
+    "allowed_claims": [
+      "short-sequence source-construction smoke result",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A compact shared short-sequence lattice can expose hidden-dynamics action separability that the M1242 one-step lattice missed.",
+  "success_criteria": [
+    "short-sequence source constructor code exists",
+    "focused tests exist",
+    "runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json exists",
+    "matched_pair_count > 0",
+    "sequence_rollouts > 0",
+    "matched fault-family pairs >= 6",
+    "matched seeds >= 6",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "labels_enter_actor_input == false",
+    "private holdout remains unused",
+    "no actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "constructor cannot produce matched pairs",
+    "constructor cannot produce sequence rollouts",
+    "actor parameters change",
+    "hidden labels enter actor observations",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_capability_separable_source_constructor.py"
+    },
+    {
+      "name": "smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_separable_source_constructor --checkpoint runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --config configs/m1236_extreme_fault_timing_repair_smoke.json --pairing-mode cross_fault --seed-start 124400 --seed-count 24 --max-pairs 120 --max-pairs-per-seed 6 --max-pairs-per-family-pair 18 --candidate-mode short_sequence --sequence-length 3 --sequence-template-set steer_brake_pulses --max-continuation-steps 18 --min-best-action-l2 0.12 --min-cross-regret-margin 0.02 --device auto --run-dir runs/m1244_capability_separable_short_sequence_lattice_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1244-paper-route-capability-separable-short-sequence-lattice-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1243-paper-route-capability-separable-low-regret-audit.md",
+    "runs/m1242_capability_separable_source_constructor_smoke/summary.json"
+  ],
+  "decision_rule": "M1244 passes as infrastructure if the sequence constructor writes core artifacts and source-shape metrics without actor mutation, training, PPO, promotion, private holdout, or actor-input expansion. Accepted separable pairs are diagnostic only.",
+  "next_blocker": "m1244-paper-route-capability-separable-short-sequence-lattice-smoke"
+}

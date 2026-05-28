@@ -115,7 +115,34 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1243-paper-route-capability-separable-low-regret-audit
+m1244-paper-route-capability-separable-short-sequence-lattice-smoke
+```
+
+M1243 completed capability-separable low-regret audit:
+
+```text
+artifact: docs/m1243-paper-route-capability-separable-low-regret-audit.md
+decision: low_regret_audit_select_short_sequence_lattice_smoke
+```
+
+M1243 conclusion:
+
+```text
+M1242 is a source-diverse infrastructure pass but source-negative. The zero
+accepted result is not a threshold near miss: 157/160 rows had best actions too
+close, only 3 rows had best_action_l2 >= 0.12, and no row had both cross regrets
+near 0.02.
+```
+
+Next task:
+
+```text
+artifact: runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json
+manifest: experiments/manifests/m1244-paper-route-capability-separable-short-sequence-lattice-smoke.json
+goal: change one source-construction variable by evaluating shared short
+      K-step action-sequence candidates instead of one first action
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1242 completed capability-separable source-constructor smoke:
