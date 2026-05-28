@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1394,
+    "completed": 1395,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1384-paper-route-history-profile-fixed-budget-refresh-design.md",
+    "command_log": "runs/m1385_history_profile_corrected_runtime_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1385_history_profile_corrected_runtime_smoke",
     "status": "completed",
-    "task_id": "m1384-paper-route-history-profile-fixed-budget-refresh-design"
+    "task_id": "m1385-paper-route-history-profile-corrected-runtime-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1385-paper-route-history-profile-corrected-runtime-smoke.json",
-    "hypothesis": "The corrected profile configs still instantiate and enforce current-tiled and reset-control runtime metadata before fixed-budget training.",
-    "id": "m1385-paper-route-history-profile-corrected-runtime-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: run no-training corrected-profile runtime smoke before one-seed fixed-budget profile training smoke",
-    "priority": 13800,
+    "command": "see experiments/manifests/m1386-paper-route-history-profile-one-seed-fixed-budget-smoke.json",
+    "hypothesis": "All eight corrected history-profile configs can complete one fixed-budget train/eval seed with finite metrics under the current codebase.",
+    "id": "m1386-paper-route-history-profile-one-seed-fixed-budget-smoke",
+    "kind": "gate",
+    "notes": "Pending: run one fixed-budget training/eval seed per corrected profile as plumbing smoke only",
+    "priority": 13810,
     "status": "pending",
-    "success_artifact": "runs/m1385_history_profile_corrected_runtime_smoke/summary.json"
+    "success_artifact": "runs/m1386_history_profile_fixed_budget_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T001000Z"
+  "updated_at_utc": "20260529T002000Z"
 }

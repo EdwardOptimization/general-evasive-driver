@@ -2,7 +2,7 @@
   "id": "m1385-paper-route-history-profile-corrected-runtime-smoke",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -160,6 +160,33 @@
     "docs/m1384-paper-route-history-profile-fixed-budget-refresh-design.md",
     "configs/paper_route_corrected_profiles"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1385_history_profile_corrected_runtime_smoke/summary.json",
+    "doc": "docs/m1385-paper-route-history-profile-corrected-runtime-smoke.md",
+    "decision": "history_profile_corrected_runtime_smoke_pass_admit_one_seed_smoke",
+    "result_class": "controller_profile_runtime_smoke_pass",
+    "config_count": 8,
+    "all_configs_instantiated": true,
+    "contract_ok": true,
+    "model_forward_ok": true,
+    "l0_mask_observed": true,
+    "current_tiled_profile_count": 2,
+    "current_tiled_profiles_observed": true,
+    "corrected_reset_profile_count": 1,
+    "corrected_reset_policy_routing_ok": true,
+    "unmasked_profiles_unchanged": true,
+    "training_started": false,
+    "optimizer_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1386-paper-route-history-profile-one-seed-fixed-budget-smoke.json"
+  },
+  "decision": "history_profile_corrected_runtime_smoke_pass_admit_one_seed_smoke",
   "decision_rule": "M1385 passes if corrected profile runtime smoke succeeds and routes to one-seed fixed-budget smoke or repair without training, checkpoint evaluation, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
-  "next_blocker": "m1385-paper-route-history-profile-corrected-runtime-smoke"
+  "next_blocker": "m1386-paper-route-history-profile-one-seed-fixed-budget-smoke"
 }

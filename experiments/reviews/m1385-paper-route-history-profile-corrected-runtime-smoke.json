@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M1385 passes corrected-profile runtime smoke with all 8 configs instantiated current-tiled controls observed and corrected reset metadata routed",
+  "failure_criteria": [
+    "runtime smoke summary is missing",
+    "any corrected profile config fails to instantiate",
+    "current-tiled controls are not observed",
+    "corrected reset-control metadata is not observed",
+    "training, checkpoint evaluation, PPO, promotion, private holdout, corpus export, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not evaluate checkpoints",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim profile ranking",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T223506Z",
+  "hypothesis": "The corrected profile configs still instantiate and enforce current-tiled and reset-control runtime metadata before fixed-budget training.",
+  "lineage": {
+    "blocked_by": [
+      "M1384 requires runtime smoke before one-seed fixed-budget training smoke"
+    ],
+    "derived_from": [
+      "m1384-paper-route-history-profile-fixed-budget-refresh-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1384-paper-route-history-profile-fixed-budget-refresh-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1384-paper-route-history-profile-fixed-budget-refresh-design.md",
+      "configs/paper_route_corrected_profiles"
+    ],
+    "parent_objective": [
+      "run no-training corrected-profile runtime smoke before fixed-budget profile training"
+    ],
+    "supersedes": [
+      "starting profile training before runtime smoke",
+      "assuming corrected profile controls still instantiate without current validation"
+    ]
+  },
+  "milestone": "m1385-paper-route-history-profile-corrected-runtime-smoke",
+  "next_blocker": "m1386-paper-route-history-profile-one-seed-fixed-budget-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "history_profile_corrected_runtime_smoke_pass_admit_one_seed_smoke",
+  "public_gates": [
+    "M1385 must instantiate all corrected profile configs",
+    "M1385 must observe current-tiled L2 transforms",
+    "M1385 must observe corrected L3 reset-control metadata",
+    "M1385 must not train, evaluate checkpoints, run PPO, promote, use private holdout, or export corpus"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1385_history_profile_corrected_runtime_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "history_profile_corrected_runtime_smoke_pass_admit_one_seed_smoke",
+    "milestone": "m1385-paper-route-history-profile-corrected-runtime-smoke",
+    "reason": "M1385 passes corrected-profile runtime smoke with all 8 configs instantiated current-tiled controls observed and corrected reset metadata routed",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1385_history_profile_corrected_runtime_smoke/summary.json exists",
+    "result_class is controller_profile_runtime_smoke_pass",
+    "profile_count is 8",
+    "current_tiled_profile_count is 2",
+    "current_tiled_profiles_observed is true",
+    "corrected_reset_profile_count is 1",
+    "all_configs_instantiated is true",
+    "docs/m1385-paper-route-history-profile-corrected-runtime-smoke.md exists"
+  ],
+  "type": "infrastructure"
+}

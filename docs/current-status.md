@@ -16,17 +16,17 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1384-paper-route-history-profile-fixed-budget-refresh-design
+m1385-paper-route-history-profile-corrected-runtime-smoke
 ```
 
 Current next task:
 
 ```text
-m1385-paper-route-history-profile-corrected-runtime-smoke
+m1386-paper-route-history-profile-one-seed-fixed-budget-smoke
 ```
 
-M1384 designed the fresh fixed-budget history-profile refresh. The current
-public-gate base remains M1362 alpha `0.1`:
+M1385 passed the corrected-profile runtime smoke. The current public-gate base
+remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
@@ -225,9 +225,29 @@ stage 2: three-seed public pilot only after one-seed smoke audit
 M1362 anchor policy: diagnostic anchor only
 ```
 
-M1385 should instantiate `configs/paper_route_corrected_profiles/m1207_*.json`
-and verify current-tiled L2 controls plus corrected L3 reset-control metadata
+M1385 instantiated `configs/paper_route_corrected_profiles/m1207_*.json` and
+verified current-tiled L2 controls plus corrected L3 reset-control metadata
 before any fixed-budget profile training.
+
+M1385 result:
+
+```text
+result_class: controller_profile_runtime_smoke_pass
+config_count: 8
+all_configs_instantiated: true
+l0_mask_observed: true
+current_tiled_profile_count: 2
+current_tiled_profiles_observed: true
+corrected_reset_profile_count: 1
+corrected_reset_policy_routing_ok: true
+training_started: false
+ppo_used: false
+promoted: false
+```
+
+M1386 may now run one fixed-budget train/eval seed per corrected profile as a
+plumbing smoke only. It must not claim architecture ranking, paper-level
+evidence, private-holdout evidence, or self-identification.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true

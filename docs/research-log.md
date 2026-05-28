@@ -20390,3 +20390,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level profile-ranking claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1385-paper-route-history-profile-corrected-runtime-smoke.json`.
 - next: `m1385-paper-route-history-profile-corrected-runtime-smoke`
+
+## 20260529T002000Z - m1385-paper-route-history-profile-corrected-runtime-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1385_history_profile_corrected_runtime_smoke/summary.json`
+- decision: `history_profile_corrected_runtime_smoke_pass_admit_one_seed_smoke`
+- command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.controller_profile_runtime_smoke --config-dir configs/paper_route_corrected_profiles --config-glob 'm1207_*.json' --seed 138500 --run-dir runs/m1385_history_profile_corrected_runtime_smoke`
+- result class: `controller_profile_runtime_smoke_pass`
+- config count: `8`
+- all configs instantiated: `true`
+- contract/model forward: `contract_ok=true`, `model_forward_ok=true`
+- controls: `l0_mask_observed=true`, `current_tiled_profile_count=2`, `current_tiled_profiles_observed=true`, `corrected_reset_profile_count=1`, `corrected_reset_policy_routing_ok=true`
+- guardrail: `training_started=false`, `optimizer_started=false`, `ppo_used=false`, `private_holdout_used=false`, `promoted=false`, `actor_input_contract_changed=false`.
+- interpretation: corrected profile runtime is ready for one-seed fixed-budget train/eval smoke; this is not performance or profile-ranking evidence.
+- follow-up manifest: `experiments/manifests/m1386-paper-route-history-profile-one-seed-fixed-budget-smoke.json`.
+- next: `m1386-paper-route-history-profile-one-seed-fixed-budget-smoke`

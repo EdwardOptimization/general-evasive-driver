@@ -1,0 +1,201 @@
+{
+  "id": "m1386-paper-route-history-profile-one-seed-fixed-budget-smoke",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "docs/m1385-paper-route-history-profile-corrected-runtime-smoke.md",
+      "runs/m1385_history_profile_corrected_runtime_smoke/summary.json",
+      "configs/paper_route_corrected_profiles"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1385-paper-route-history-profile-corrected-runtime-smoke.json"
+    ],
+    "parent_objective": [
+      "run one-seed fixed-budget L0/L1/L2/L3 profile training/eval smoke after corrected runtime smoke passes"
+    ],
+    "derived_from": [
+      "m1385-paper-route-history-profile-corrected-runtime-smoke"
+    ],
+    "blocked_by": [
+      "M1385 passes runtime smoke and admits one-seed fixed-budget training/eval smoke"
+    ],
+    "supersedes": [
+      "jumping directly to a 3-seed profile pilot",
+      "claiming profile ranking before one-seed fixed-budget plumbing is verified"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1386-paper-route-history-profile-one-seed-fixed-budget-smoke.md",
+  "public_gates": [
+    "M1386 may run exactly one fixed-budget seed per corrected profile",
+    "M1386 must use the same training seed and eval seed block for every profile",
+    "M1386 must record failed profiles instead of omitting them",
+    "M1386 must not promote, use private holdout, tune profiles, export corpus, or claim paper-level/profile-ranking evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change profile-specific budgets",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not tune hyperparameters after seeing profile results",
+    "do not add hidden or oracle actor inputs",
+    "do not claim recurrent-belief advantage",
+    "do not claim self-identification",
+    "do not claim architecture ranking from one seed"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_profile_comparison_protocol",
+    "evidence_axis": "G_one_seed_fixed_budget_profile_smoke",
+    "evidence_increment": "runs one fixed-budget seed per corrected profile to verify train/eval plumbing before a public pilot",
+    "claim_scope": "one-seed public training/eval smoke only; no promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if any profile fails and route to repair before 3-seed pilot",
+      "stop if metrics are non-finite",
+      "stop if fixed protocol changes after seeing a profile result",
+      "stop if corrected controls are bypassed during training or evaluation"
+    ],
+    "fallback_plan": [
+      "if one or more profiles fail, record failures and route to focused repair",
+      "if runtime is excessive, audit resource usage before scaling",
+      "if all profiles complete, route to result audit before 3-seed pilot",
+      "if metrics are non-finite, route to metric/eval repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "guarded_rl",
+    "stage_objective": "one-seed fixed-budget profile train/eval smoke",
+    "admission_evidence": [
+      "M1385 runtime smoke provides pretrain capability evidence that all corrected profile configs instantiate before training",
+      "M1384 and M1385 provide exact public gate discipline by requiring fixed profile set, fixed seed/eval protocol, current-tiled controls, corrected reset-control, and no claim expansion",
+      "M1384 provides rollback and repair protection by routing any failed profile, non-finite metric, current-tiled failure, or reset-control failure to focused repair before a 3-seed pilot"
+    ],
+    "blocked_shortcuts": [
+      "do not promote",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make profile-ranking, paper-level, or self-ID claims"
+    ],
+    "allowed_updates": [
+      "one-seed profile training runs",
+      "one-seed profile summary artifacts",
+      "M1386 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "all eight profile seed runs complete or failures are recorded",
+      "profile seed rows and aggregate rows are recorded",
+      "finite metric flags are recorded",
+      "claim scope remains one-seed smoke only",
+      "next audit or repair milestone is selected"
+    ]
+  },
+  "profile_smoke_protocol": {
+    "profiles": [
+      "L0_current_masked",
+      "L1_one_step",
+      "L2_window_13",
+      "L2_window_13_current_tiled",
+      "L2_window_25",
+      "L2_window_25_current_tiled",
+      "L3_online_gru",
+      "L3_reset_control_corrected"
+    ],
+    "training_seed_base": 138600,
+    "training_seed_offsets": [
+      0
+    ],
+    "eval_seed_base": 138700,
+    "eval_seed_policy": "same 32 public eval seeds for every profile checkpoint",
+    "total_steps_per_seed": 8192,
+    "rollout_steps": 128,
+    "num_envs": 4,
+    "update_epochs": 2,
+    "minibatch_size": 256,
+    "eval_episodes_per_checkpoint": 32,
+    "device": "cpu",
+    "vector_env_mode": "sync"
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1386 includes current-tiled L2 controls and corrected L3 reset-control but remains one-seed plumbing evidence only.",
+    "history_necessity_tests": [
+      "L2_window_13_vs_L2_window_13_current_tiled",
+      "L2_window_25_vs_L2_window_25_current_tiled",
+      "L3_online_gru_vs_L3_reset_control_corrected"
+    ],
+    "temporal_evidence_window": "One public training seed and 32 public eval seeds per profile.",
+    "negative_result_policy": "If controls match or beat normal profiles, record it and route to audit; do not weaken claim standards.",
+    "allowed_claims": [
+      "one-seed fixed-budget training/eval smoke completion",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, paper-result, or architecture-ranking claim"
+    ]
+  },
+  "hypothesis": "All eight corrected history-profile configs can complete one fixed-budget train/eval seed with finite metrics under the current codebase.",
+  "success_criteria": [
+    "docs/m1386-paper-route-history-profile-one-seed-fixed-budget-smoke.md exists",
+    "runs/m1386_history_profile_fixed_budget_smoke/summary.json exists",
+    "profile_seed_rows.csv exists",
+    "eval_rows.csv exists",
+    "profile_aggregate.csv exists",
+    "total_seed_runs is 8",
+    "completed_seed_runs is 8",
+    "failed_seed_runs is 0",
+    "all_eval_metrics_finite is true",
+    "private holdout remains unused",
+    "no promotion or actor-input contract change occurs",
+    "claims are limited to one-seed fixed-budget smoke"
+  ],
+  "failure_criteria": [
+    "profile-specific budgets or hyperparameters change after seeing results",
+    "private holdout is used",
+    "metrics are framed as architecture-ranking or paper-level evidence",
+    "hidden or oracle actor inputs are introduced",
+    "failed profiles are omitted from summary",
+    "corrected controls are not applied in training or evaluation"
+  ],
+  "commands": [
+    {
+      "name": "run_one_seed_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.corrected_profile_pilot --config-dir configs/paper_route_corrected_profiles --config-glob 'm1207_*.json' --run-dir runs/m1386_history_profile_fixed_budget_smoke --training-seed-base 138600 --seed-offsets 0 --eval-seed-base 138700 --eval-episodes 32 --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1386-paper-route-history-profile-one-seed-fixed-budget-smoke.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m1386_history_profile_fixed_budget_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1386_history_profile_fixed_budget_smoke/profile_seed_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1386_history_profile_fixed_budget_smoke/profile_aggregate.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "docs/m1385-paper-route-history-profile-corrected-runtime-smoke.md",
+    "runs/m1385_history_profile_corrected_runtime_smoke/summary.json",
+    "configs/paper_route_corrected_profiles"
+  ],
+  "decision_rule": "M1386 passes if all eight corrected profiles complete one fixed-budget train/eval seed with finite metrics and no claim expansion or protocol drift.",
+  "next_blocker": "m1386-paper-route-history-profile-one-seed-fixed-budget-smoke"
+}
