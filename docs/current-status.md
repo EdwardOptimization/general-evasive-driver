@@ -115,8 +115,46 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1217-paper-route-current-family-matched-current-export
+m1218-paper-route-current-family-history-action-screen
 ```
+
+M1217 completed current-family matched-current export:
+
+```text
+artifact: docs/m1217-paper-route-current-family-matched-current-export.md
+run dir: runs/m1217_current_family_matched_current_export
+decision: current_family_matched_current_surface_pass_admit_action_screen
+```
+
+M1217 source-diversity result:
+
+```text
+accepted pairs:          1790
+physical pairs:           427
+probe seeds:                4
+left steps:                21
+obstacle buckets:          12
+targets:                    3
+```
+
+Next branch:
+
+```text
+paper_route_causal_history_evidence
+```
+
+The next task is action screening only, not outcome intervention or training:
+
+```text
+checkpoint family: M1212 corrected L3 online GRU repeat
+env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
+pair source:       runs/m1217_current_family_matched_current_export/matched_pairs.csv
+run dir:           runs/m1218_current_family_history_action_screen
+```
+
+M1218 must classify wrong/delayed hidden-history action sensitivity separately
+from zero-current-response and zero-action-history controls. It must not run
+outcome gates, PPO, private holdout, promotion, or self-identification claims.
 
 M1216 completed the causal-history source/tooling audit:
 
@@ -131,28 +169,7 @@ M1216 conclusion:
 Old M503/M524/M537/M538/M586/M587 artifacts are useful as threshold and
 interpretation precedents, but they should not be the first current paper-route
 causal-history run source.
-
-The first run should export a fresh matched-current surface from the M1212
-corrected L3 online-GRU checkpoint family.
 ```
-
-Next branch:
-
-```text
-paper_route_causal_history_evidence
-```
-
-The next task is pair mining only, not action intervention or training:
-
-```text
-checkpoint family: M1212 corrected L3 online GRU repeat
-env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
-run dir:           runs/m1217_current_family_matched_current_export
-```
-
-M1217 must write a source-diverse matched-current surface or route to expanded
-source mining. It must not run action gates, outcome gates, PPO, private
-holdout, promotion, or self-identification claims.
 
 M1215 completed the causal-history gate design:
 

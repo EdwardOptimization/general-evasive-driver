@@ -1,0 +1,172 @@
+{
+  "id": "m1218-paper-route-current-family-history-action-screen",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111600/checkpoint.pt",
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111601/checkpoint.pt",
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1217_current_family_matched_current_export/matched_pairs.csv",
+      "docs/m1217-paper-route-current-family-matched-current-export.md"
+    ],
+    "parent_config": [
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json",
+      "experiments/manifests/m1217-paper-route-current-family-matched-current-export.json"
+    ],
+    "parent_objective": [
+      "screen whether reset delayed wrong-history zero-response and zero-action interventions change current-family L3 actions on matched-current pairs"
+    ],
+    "derived_from": [
+      "m1217-paper-route-current-family-matched-current-export"
+    ],
+    "blocked_by": [
+      "M1217 pair mining passes and admits action-level history-intervention screening"
+    ],
+    "supersedes": [
+      "running persistent outcome intervention before action-screen admission"
+    ],
+    "invalidates": [
+      "claiming history causality from pair mining alone"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1218-paper-route-current-family-history-action-screen.md",
+  "public_gates": [
+    "M1218 may run action-level history interventions only",
+    "M1218 must use M1217 matched-current pairs",
+    "M1218 must include reset_hidden wrong_matched_history delayed_history zero_current_response and zero_action_history variants",
+    "M1218 must not run outcome interventions",
+    "M1218 must not train controllers",
+    "M1218 must not run PPO",
+    "M1218 must not use private holdout",
+    "M1218 must not promote",
+    "M1218 must not claim self-identification from action distance alone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run outcome intervention gates",
+    "do not use private holdout",
+    "do not promote",
+    "do not tune profiles",
+    "do not use hidden or oracle actor inputs",
+    "do not claim self-identification from action screen alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_evidence",
+    "evidence_axis": "H_causal_history_current_family_action_screen: matched-current intervention action sensitivity",
+    "evidence_increment": "tests whether history-only interventions change current-family L3 actions on the M1217 matched-current surface",
+    "claim_scope": "action screen only; no outcome training promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if wrong/delayed history action signal is below threshold",
+      "stop if only zero-current-response is sensitive",
+      "stop if output artifacts are missing"
+    ],
+    "fallback_plan": [
+      "route to negative action-screen audit if wrong/delayed history is negative",
+      "route to persistent outcome intervention design if wrong/delayed signal is source-diverse",
+      "route to expanded surface mining if signal is source-narrow"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1217 exports current-family matched-current surface",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "current-family matched-current action intervention screen",
+    "admission_evidence": [
+      "M1217 exports 1790 accepted matched-current pairs across 427 physical pairs, 4 probe seeds, 21 left steps, 12 obstacle buckets, and 3 targets",
+      "M1215 requires action-level screening before outcome intervention",
+      "M587 showed that a source-diverse surface can still produce negative wrong/delayed history action results"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1218 action-screen run artifacts",
+      "M1218 result docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "action intervention artifacts exist",
+      "wrong/delayed history action signal is classified",
+      "positive controls are reported",
+      "next outcome-gate or negative-audit milestone is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1218 must separate wrong/delayed history effects from zero-current-response and zero-action-history controls.",
+    "history_necessity_tests": [
+      "wrong_matched_history_action_distance",
+      "delayed_history_action_distance",
+      "reset_hidden_action_distance",
+      "zero_current_response_positive_control",
+      "zero_action_history_positive_control"
+    ],
+    "temporal_evidence_window": "Action evidence can admit outcome gates but cannot prove self-identification by itself.",
+    "negative_result_policy": "If wrong/delayed history is negative, record current-feedback-only or action-history-only evidence and route to audit instead of outcome rollout.",
+    "allowed_claims": [
+      "action-level history intervention sensitivity or negative result",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "On the M1217 current-family matched-current surface, wrong or delayed recurrent history will produce measurable action changes beyond zero-current-response and zero-action controls.",
+  "success_criteria": [
+    "runs/m1218_current_family_history_action_screen/summary.json exists",
+    "runs/m1218_current_family_history_action_screen/action_interventions.csv exists",
+    "runs/m1218_current_family_history_action_screen/variant_summary.csv exists",
+    "wrong_matched_history or delayed_history action_distance_mean >= 0.01 on at least one checkpoint-target group",
+    "wrong_matched_history or delayed_history above_threshold_count >= 16 on at least one checkpoint-target group with threshold 0.02",
+    "zero_current_response and zero_action_history positive controls are reported",
+    "private holdout remains unused",
+    "no outcome intervention, training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next outcome-gate or negative-audit milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1218 trains or tunes profiles",
+    "private holdout is used",
+    "outcome interventions are run",
+    "only zero-current-response is action-sensitive and wrong/delayed history is not",
+    "self-identification is claimed from action distance"
+  ],
+  "commands": [
+    {
+      "name": "run_current_family_history_action_screen",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.matched_history_intervention_gate --checkpoint-policy l3_s111600=runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111600/checkpoint.pt --checkpoint-policy l3_s111601=runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111601/checkpoint.pt --checkpoint-policy l3_s111602=runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --env-config configs/paper_route_corrected_profiles/m1207_l3_online_gru.json --pairs-csv runs/m1217_current_family_matched_current_export/matched_pairs.csv --delay-steps 2 --min-action-distance 0.02 --max-pairs-per-checkpoint-target 120 --pair-label-mode matching --device cpu --run-dir runs/m1218_current_family_history_action_screen"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1218_current_family_history_action_screen/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1218_current_family_history_action_screen/action_interventions.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1218-paper-route-current-family-history-action-screen.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111600/checkpoint.pt",
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111601/checkpoint.pt",
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1217_current_family_matched_current_export/matched_pairs.csv"
+  ],
+  "decision_rule": "M1218 admits outcome intervention only if wrong or delayed history has source-diverse action sensitivity; otherwise it must route to a negative audit.",
+  "next_blocker": "m1218-paper-route-current-family-history-action-screen"
+}

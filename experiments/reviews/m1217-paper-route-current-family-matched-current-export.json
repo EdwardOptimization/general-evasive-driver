@@ -1,0 +1,100 @@
+{
+  "decision_reason": "M1217 exports a source-diverse current-family M1212 L3 matched-current surface with 1790 accepted pairs 427 physical pairs 4 probe seeds 21 left steps 12 obstacle buckets and 3 targets and admits M1218 action screening",
+  "failure_criteria": [
+    "M1217 trains or tunes profiles",
+    "private holdout is used",
+    "action or outcome interventions are run",
+    "surface is source-narrow",
+    "self-identification is claimed from pair mining"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run action or outcome intervention gates",
+    "do not use private holdout",
+    "do not promote",
+    "do not tune profiles",
+    "do not use hidden or oracle actor inputs",
+    "do not claim history necessity from pair mining alone"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260528T070346Z",
+  "hypothesis": "The current corrected M1212 L3 checkpoint family exposes a source-diverse matched-current ambiguity surface suitable for later causal history intervention gates.",
+  "lineage": {
+    "blocked_by": [
+      "M1216 selects current-family matched-current export before any history-intervention action screen"
+    ],
+    "derived_from": [
+      "m1216-paper-route-causal-history-source-audit"
+    ],
+    "invalidates": [
+      "treating old matched-current surfaces as automatically compatible with M1212 corrected L3 checkpoints"
+    ],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111600/checkpoint.pt",
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111601/checkpoint.pt",
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json",
+      "experiments/manifests/m1216-paper-route-causal-history-source-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1216-paper-route-causal-history-source-audit.md",
+      "docs/m1215-paper-route-causal-history-gate-design.md"
+    ],
+    "parent_objective": [
+      "export a fresh matched-current ambiguity surface for the current corrected L3 family"
+    ],
+    "supersedes": [
+      "directly reusing old M503 or BC5660 surfaces as the first current paper-route causal gate"
+    ]
+  },
+  "milestone": "m1217-paper-route-current-family-matched-current-export",
+  "next_blocker": "m1218-paper-route-current-family-history-action-screen",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_family_matched_current_surface_pass_admit_action_screen",
+  "public_gates": [
+    "M1217 may run matched-current pair mining only",
+    "M1217 must use P0 human-view no-wheel no-oracle corrected L3 checkpoints",
+    "M1217 must write matched_pairs candidate_pairs target_summary and summary artifacts",
+    "M1217 must not run action interventions",
+    "M1217 must not run outcome interventions",
+    "M1217 must not train controllers",
+    "M1217 must not run PPO",
+    "M1217 must not use private holdout",
+    "M1217 must not promote",
+    "M1217 must not claim self-identification"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1217_current_family_matched_current_export/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "current_family_matched_current_surface_pass_admit_action_screen",
+    "milestone": "m1217-paper-route-current-family-matched-current-export",
+    "reason": "M1217 exports a source-diverse current-family M1212 L3 matched-current surface with 1790 accepted pairs 427 physical pairs 4 probe seeds 21 left steps 12 obstacle buckets and 3 targets and admits M1218 action screening",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1217_current_family_matched_current_export/summary.json exists",
+    "runs/m1217_current_family_matched_current_export/matched_pairs.csv exists",
+    "runs/m1217_current_family_matched_current_export/candidate_pairs.csv exists",
+    "accepted pairs >= 120",
+    "accepted physical pairs >= 30",
+    "probe seeds >= 3",
+    "left steps >= 5",
+    "obstacle buckets >= 4",
+    "targets >= 2",
+    "private holdout remains unused",
+    "no action intervention, outcome intervention, training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next action-screen or fallback expansion milestone is selected"
+  ],
+  "type": "gate"
+}

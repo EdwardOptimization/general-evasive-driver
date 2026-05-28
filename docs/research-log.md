@@ -17449,3 +17449,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1217-paper-route-current-family-matched-current-export.json`.
 - decision: `source_audit_selects_current_family_matched_current_export`
 - next: `m1217-paper-route-current-family-matched-current-export`
+
+## 20260528T070145Z - m1217-paper-route-current-family-matched-current-export
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `proof`
+- artifact: `docs/m1217-paper-route-current-family-matched-current-export.md`
+- run dir: `runs/m1217_current_family_matched_current_export`
+- result: current-family M1212 corrected L3 matched-current surface passes source-diversity thresholds.
+- counts: `177579` candidate pairs, `1790` accepted pairs, `427` physical pairs, `4` probe seeds, `21` left steps, `12` obstacle buckets, and `3` targets.
+- target mix: `1051` future braking deceleration rows, `697` future yaw response rows, and `42` future lateral accel response rows.
+- source balance: max checkpoint share `0.4162`, max probe seed share `0.2620`, max obstacle-label share `0.4497`.
+- interpretation: pair mining only; this is a substrate for causal-history action screening, not history necessity or self-identification evidence.
+- caveat: lateral-accel target is underrepresented and should be watched in M1218.
+- guardrail: no action intervention, outcome intervention, training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1218-paper-route-current-family-history-action-screen.json`.
+- decision: `current_family_matched_current_surface_pass_admit_action_screen`
+- next: `m1218-paper-route-current-family-history-action-screen`

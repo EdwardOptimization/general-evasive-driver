@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1226,
+    "completed": 1227,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1216-paper-route-causal-history-source-audit.md",
+    "command_log": "runs/m1217_current_family_matched_current_export/summary.json",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1217_current_family_matched_current_export",
     "status": "completed",
-    "task_id": "m1216-paper-route-causal-history-source-audit"
+    "task_id": "m1217-paper-route-current-family-matched-current-export"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1217-paper-route-current-family-matched-current-export.json",
-    "hypothesis": "The current corrected M1212 L3 checkpoint family exposes a source-diverse matched-current ambiguity surface suitable for later causal history intervention gates.",
-    "id": "m1217-paper-route-current-family-matched-current-export",
+    "command": "see experiments/manifests/m1218-paper-route-current-family-history-action-screen.json",
+    "hypothesis": "On the M1217 current-family matched-current surface, wrong or delayed recurrent history will produce measurable action changes beyond zero-current-response and zero-action controls.",
+    "id": "m1218-paper-route-current-family-history-action-screen",
     "kind": "gate",
-    "notes": "Pending: run pair mining only on M1212 corrected L3 checkpoints and audit source diversity",
-    "priority": 12120,
+    "notes": "Pending: run action-level reset delayed wrong-history zero-response and zero-action interventions on M1217 pairs",
+    "priority": 12130,
     "status": "pending",
-    "success_artifact": "docs/m1217-paper-route-current-family-matched-current-export.md"
+    "success_artifact": "docs/m1218-paper-route-current-family-history-action-screen.md"
   },
-  "updated_at_utc": "20260528T065638Z"
+  "updated_at_utc": "20260528T070145Z"
 }
