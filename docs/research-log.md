@@ -18220,3 +18220,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1264-paper-route-richer-fault-capability-source-synthesis.json`.
 - decision: `regret_boundary_geometry_retarget_negative_route_to_richer_fault_branch_synthesis`
 - next: `m1264-paper-route-richer-fault-capability-source-synthesis`
+
+## 20260528T120508Z - m1264-paper-route-richer-fault-capability-source-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1264-paper-route-richer-fault-capability-source-synthesis.md`
+- synthesis decision: `pivot`
+- closed branch: `paper_route_richer_fault_capability_source`
+- opened branch: `paper_route_fidelity_fault_source_design`
+- evidence summary: M1259 improved source shape with `8` near-boundary viable pairs and `4` action-divergent pairs but `accepted_separable_pairs=0`; M1262 then tested pair 5 with `441` geometry candidates and still produced `accepted_separable_pairs=0` with `max min_cross_regret=0.0043813964`.
+- supported claims: current-model richer proxy faults improve diagnostics; action divergence alone is insufficient; geometry retargeting around pair 5 does not create branch-specific outcome regret.
+- falsified claims: the current single-track richer proxy-fault family plus trajectory proposals and obstacle-geometry retargeting is sufficient for strict accepted capability-separable rows under current thresholds.
+- overfit risk: high for more pair-5 geometry/proposal repair; next work must change source fidelity or another explicit evidence variable.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, self-ID claim, true high-fidelity physical fault claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1265-paper-route-fidelity-fault-source-design.json`.
+- decision: `richer_fault_capability_source_synthesis_pivot_to_fidelity_source_design`
+- next: `m1265-paper-route-fidelity-fault-source-design`

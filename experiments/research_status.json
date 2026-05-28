@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1273,
+    "completed": 1274,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit.md",
+    "command_log": "docs/m1264-paper-route-richer-fault-capability-source-synthesis.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit"
+    "task_id": "m1264-paper-route-richer-fault-capability-source-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1264-paper-route-richer-fault-capability-source-synthesis.json",
-    "hypothesis": "Synthesize M1258-M1263 current-model richer-fault source evidence and choose the next branch",
-    "id": "m1264-paper-route-richer-fault-capability-source-synthesis",
+    "command": "see experiments/manifests/m1265-paper-route-fidelity-fault-source-design.json",
+    "hypothesis": "Design the next source-fidelity branch after current proxy-fault source mining remains zero-accepted",
+    "id": "m1265-paper-route-fidelity-fault-source-design",
     "kind": "gate",
-    "notes": "Pending: answer synthesis questions and decide whether to close current proxy-fault branch, pivot, or admit one new evidence variable",
-    "priority": 12590,
+    "notes": "Pending: define bounded in-repo four-wheel/fault pilot versus external high-fidelity simulator validation route",
+    "priority": 12600,
     "status": "pending",
-    "success_artifact": "docs/m1264-paper-route-richer-fault-capability-source-synthesis.md"
+    "success_artifact": "docs/m1265-paper-route-fidelity-fault-source-design.md"
   },
-  "updated_at_utc": "20260528T120341Z"
+  "updated_at_utc": "20260528T120508Z"
 }

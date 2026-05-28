@@ -1,0 +1,78 @@
+# m1264-paper-route-richer-fault-capability-source-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260528T120638Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: not_applicable
+- Decision reason: M1264 passes if it synthesizes M1258-M1263 evidence and chooses a next branch without training or threshold relaxation.
+
+## Hypothesis
+
+The M1258-M1263 current-model richer-fault branch now requires a synthesis before any further source construction.
+
+## Lineage
+
+- parent_checkpoint: runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
+- parent_dataset: docs/m1258-paper-route-richer-fault-capability-source-design.md, docs/m1259-paper-route-richer-fault-capability-source-smoke.md, docs/m1260-paper-route-richer-fault-capability-source-result-audit.md, docs/m1261-paper-route-richer-fault-regret-boundary-retarget-design.md, docs/m1262-paper-route-richer-fault-regret-boundary-retarget-implementation.md, docs/m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit.md, runs/m1259_richer_fault_capability_source_smoke/summary.json, runs/m1262_richer_fault_regret_boundary_retarget_smoke/summary.json
+- parent_config: experiments/manifests/m1258-paper-route-richer-fault-capability-source-design.json, experiments/manifests/m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit.json, configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json
+- parent_objective: synthesize current single-track/proxy-fault richer-source evidence after M1259 and M1262 zero-accepted results
+- derived_from: m1258-paper-route-richer-fault-capability-source-design, m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit
+- blocked_by: M1263 stops same-axis geometry retargeting and routes to branch synthesis
+- supersedes: another current-model richer-fault source repair without synthesis
+- invalidates: None
+
+## Success Criteria
+
+- docs/m1264-paper-route-richer-fault-capability-source-synthesis.md exists
+- synthesis summarizes M1258-M1263 evidence
+- synthesis records supported and falsified claims
+- synthesis classifies failure taxonomy
+- synthesis assesses public-gate overfit risk
+- synthesis chooses next branch decision
+- no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs
+
+## Failure Criteria
+
+- synthesis is missing
+- synthesis ignores M1263 stop decision
+- synthesis admits another current-model source run without a new evidence variable
+- training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs
+
+## Evidence Gates
+
+- M1264 must preserve actor input contract
+- M1264 must not train controllers
+- M1264 must not run PPO
+- M1264 must not use private holdout
+- M1264 must not promote
+- M1264 must summarize M1258-M1263 richer-fault evidence
+- M1264 must choose continue, pivot, stop, or promote_to_next_branch
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run PPO
+- do not use private holdout
+- do not promote
+- do not add hidden parameters, fault labels, oracle outcomes, or search outputs to actor inputs
+- do not lower capability-separable thresholds
+- do not start another current-model richer-fault source run before synthesis
+- do not claim current single-track proxies are true single-wheel or per-wheel faults
+
+## Failure Taxonomy
+
+- scenario_sampling_failure
+
+## Scoreboard
+
+- No scoreboard row recorded.
+
+## Next Blocker
+
+m1265-paper-route-fidelity-fault-source-design

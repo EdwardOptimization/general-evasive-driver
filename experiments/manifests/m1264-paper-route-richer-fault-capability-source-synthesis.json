@@ -170,6 +170,38 @@
     "docs/m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit.md",
     "runs/m1262_richer_fault_regret_boundary_retarget_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1264-paper-route-richer-fault-capability-source-synthesis.md",
+    "decision": "richer_fault_capability_source_synthesis_pivot_to_fidelity_source_design",
+    "synthesis_decision": "pivot",
+    "closed_branch": "paper_route_richer_fault_capability_source",
+    "opened_branch": "paper_route_fidelity_fault_source_design",
+    "failure_type": "scenario_sampling_failure",
+    "failure_subtypes": [
+      "richer_fault_source_low_regret",
+      "regret_boundary_geometry_retarget_negative",
+      "fixed_action_geometry_retarget_exhausted_for_pair5"
+    ],
+    "supported_claims": [
+      "current-model richer proxy faults improve source shape",
+      "action divergence alone is insufficient without branch-specific outcome regret",
+      "geometry retargeting around pair 5 does not amplify two-sided regret"
+    ],
+    "falsified_claims": [
+      "current single-track richer proxy-fault family plus trajectory proposals and obstacle-geometry retargeting is sufficient for strict accepted source rows",
+      "larger same-axis geometry grid around pair 5 is likely to solve the source-positive gap"
+    ],
+    "public_gate_overfit_risk": "high for more pair-5 geometry/proposal repair",
+    "next_manifest": "experiments/manifests/m1265-paper-route-fidelity-fault-source-design.json",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "threshold_relaxation_allowed": false
+  },
+  "decision": "richer_fault_capability_source_synthesis_pivot_to_fidelity_source_design",
   "decision_rule": "M1264 passes if it synthesizes M1258-M1263 evidence and chooses a next branch without training or threshold relaxation.",
-  "next_blocker": "m1264-paper-route-richer-fault-capability-source-synthesis"
+  "next_blocker": "m1265-paper-route-fidelity-fault-source-design"
 }

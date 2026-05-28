@@ -1,0 +1,145 @@
+{
+  "id": "m1265-paper-route-fidelity-fault-source-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1264-paper-route-richer-fault-capability-source-synthesis.md",
+      "runs/m1259_richer_fault_capability_source_smoke/summary.json",
+      "runs/m1262_richer_fault_regret_boundary_retarget_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1264-paper-route-richer-fault-capability-source-synthesis.json"
+    ],
+    "parent_objective": [
+      "design the next source-fidelity branch after current single-track/proxy-fault source mining remains zero-accepted"
+    ],
+    "derived_from": [
+      "m1264-paper-route-richer-fault-capability-source-synthesis"
+    ],
+    "blocked_by": [
+      "M1264 pivots from current-model richer proxy faults to fidelity fault source design"
+    ],
+    "supersedes": [
+      "another current-model proxy-fault repair without a source-fidelity design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1265-paper-route-fidelity-fault-source-design.md",
+  "public_gates": [
+    "M1265 must preserve actor input contract",
+    "M1265 must not train controllers",
+    "M1265 must not run PPO",
+    "M1265 must not use private holdout",
+    "M1265 must not promote",
+    "M1265 must define the minimum next source-fidelity branch before implementation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, fault labels, oracle outcomes, or search outputs to actor inputs",
+    "do not lower capability-separable thresholds",
+    "do not claim current single-track proxies are true single-wheel or per-wheel faults",
+    "do not choose an external simulator without a bounded integration/validation plan"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fidelity_fault_source_design",
+    "evidence_axis": "S_fidelity_source_design",
+    "evidence_increment": "designs a new source-fidelity branch after current-model proxy fault source mining remains zero-accepted",
+    "claim_scope": "design only; no training, promotion, private-holdout, paper-level, high-fidelity-result, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if the design proposes another single-track proxy-only source run without a new fidelity variable",
+      "stop if the design lowers accepted-source thresholds",
+      "stop if the design cannot bound implementation and validation work"
+    ],
+    "fallback_plan": [
+      "if full high-fidelity integration is too large, design the smallest in-repo four-wheel/fault source pilot",
+      "if in-repo four-wheel dynamics is too speculative, design an external-engine comparison/integration scout"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1264 opens the fidelity fault source design branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fidelity fault source branch design",
+    "admission_evidence": [
+      "M1264 closed current richer proxy-fault branch",
+      "M1264 opened paper_route_fidelity_fault_source_design"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1265 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next implementation or scout manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "design identifies minimum fidelity variable",
+      "design separates in-repo pilot from external simulator validation",
+      "design preserves strict source acceptance and actor input guardrails"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1265 designs source fidelity and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "Use M1264 synthesis as the reason to change source-fidelity branch instead of repairing fixed public rows.",
+    "allowed_claims": [
+      "fidelity fault source design",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, true high-fidelity fault result, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A source-fidelity design can identify a bounded next branch that is more likely to produce true capability-separable rows than more current-model proxy-fault repair.",
+  "success_criteria": [
+    "docs/m1265-paper-route-fidelity-fault-source-design.md exists",
+    "design explains why current single-track/proxy source is insufficient",
+    "design separates minimum in-repo four-wheel/fault pilot from external high-fidelity simulator validation",
+    "design defines source acceptance gates and guardrails",
+    "design pre-registers the next bounded implementation or scout if admitted",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design is missing",
+    "design proposes another current-model proxy-only run without a new fidelity variable",
+    "design lowers strict accepted-source thresholds",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1265-paper-route-fidelity-fault-source-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1265-paper-route-fidelity-fault-source-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1264-paper-route-richer-fault-capability-source-synthesis.md"
+  ],
+  "decision_rule": "M1265 passes if it defines the next fidelity-source branch with bounded implementation/scout criteria and no training or threshold relaxation.",
+  "next_blocker": "m1265-paper-route-fidelity-fault-source-design"
+}
