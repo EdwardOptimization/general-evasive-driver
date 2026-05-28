@@ -20357,3 +20357,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level comparison result, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1383-paper-route-history-profile-artifact-inventory.json`.
 - next: `m1383-paper-route-history-profile-artifact-inventory`
+
+## 20260529T000000Z - m1383-paper-route-history-profile-artifact-inventory
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1383-paper-route-history-profile-artifact-inventory.md`
+- decision: `history_profile_artifact_inventory_admit_fixed_budget_refresh_design`
+- current public-gate base: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`
+- inventory: `8` smoke profile configs, `8` corrected profile configs, and `24` M1212 corrected-profile checkpoints exist.
+- corrected controls: current-tiled L2 configs and corrected L3 reset-control configs exist with forbidden-input flags false.
+- checkpoint lineage: M1212 profile checkpoints contain explicit `history_baseline` metadata; M1362 is an online-GRU public-base checkpoint but has no `history_baseline` or `controller_profile` metadata.
+- compatibility conclusion: M1362 can be a public-base L3 diagnostic anchor, but M1212 profile checkpoints cannot be compared against M1362 as a fair fixed-budget architecture ranking.
+- route decision: design a fresh fixed-budget L0/L1/L2/L3 profile refresh before config generation, runtime smoke, training, PPO, promotion, private holdout, corpus export, or actor-input change.
+- guardrail: no training, PPO, new evaluation, replay, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level profile-ranking claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1384-paper-route-history-profile-fixed-budget-refresh-design.json`.
+- next: `m1384-paper-route-history-profile-fixed-budget-refresh-design`

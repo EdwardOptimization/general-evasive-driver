@@ -16,16 +16,16 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1382-paper-route-history-profile-comparison-protocol-design
+m1383-paper-route-history-profile-artifact-inventory
 ```
 
 Current next task:
 
 ```text
-m1383-paper-route-history-profile-artifact-inventory
+m1384-paper-route-history-profile-fixed-budget-refresh-design
 ```
 
-M1382 fixed the L0/L1/L2/L3 history-profile comparison protocol. The current
+M1383 inventoried the history-profile comparison artifacts. The current
 public-gate base remains M1362 alpha `0.1`:
 
 ```text
@@ -193,9 +193,27 @@ reset-policy-aware evaluation. M1362 can be used as the public-base L3
 diagnostic checkpoint, but not as a fair architecture-ranking checkpoint against
 newly trained L0/L1/L2 baselines unless a separate fixed-budget refresh is run.
 
-M1383 should inventory existing configs, checkpoints, runners, and M1362
-compatibility before any public-base diagnostic comparison or fixed-budget
-profile refresh.
+M1383 inventoried existing configs, checkpoints, runners, and M1362 compatibility
+before any public-base diagnostic comparison or fixed-budget profile refresh.
+
+M1383 conclusion:
+
+```text
+decision: history_profile_artifact_inventory_admit_fixed_budget_refresh_design
+smoke profile configs: 8
+corrected profile configs: 8
+M1212 corrected-profile checkpoints: 24
+M1362 history_baseline metadata: absent
+M1362 controller_profile metadata: absent
+```
+
+M1212 profile checkpoints are valid old public diagnostic artifacts with
+matched-history metadata. M1362 is the current public-base L3 diagnostic anchor,
+but it is not a fixed-budget profile checkpoint and must not be compared against
+M1212 as a fair architecture-ranking result. M1384 should therefore design a
+fresh fixed-budget L0/L1/L2/L3 profile refresh before config generation, runtime
+smoke, training, PPO, promotion, private holdout, corpus export, or actor-input
+changes.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true

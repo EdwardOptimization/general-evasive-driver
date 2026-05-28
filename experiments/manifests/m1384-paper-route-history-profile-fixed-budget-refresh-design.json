@@ -1,0 +1,162 @@
+{
+  "id": "m1384-paper-route-history-profile-fixed-budget-refresh-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1383-paper-route-history-profile-artifact-inventory.md",
+      "docs/m1382-paper-route-history-profile-comparison-protocol-design.md",
+      "runs/m1212_corrected_profile_repeat/summary.json",
+      "configs/paper_route_corrected_profiles"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1383-paper-route-history-profile-artifact-inventory.json"
+    ],
+    "parent_objective": [
+      "design fresh fixed-budget L0/L1/L2/L3 profile refresh after artifact inventory finds old profile checkpoints incompatible with M1362 architecture ranking"
+    ],
+    "derived_from": [
+      "m1383-paper-route-history-profile-artifact-inventory"
+    ],
+    "blocked_by": [
+      "M1383 blocks direct M1212-vs-M1362 architecture ranking and requires a fresh fixed-budget refresh design"
+    ],
+    "supersedes": [
+      "direct comparison of old M1212 checkpoints against M1362",
+      "running profile training without fixed budget and gate policy",
+      "using M1362 as fixed-budget architecture checkpoint"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1384-paper-route-history-profile-fixed-budget-refresh-design.md",
+  "public_gates": [
+    "M1384 must design the fresh fixed-budget profile refresh before training",
+    "M1384 must preserve current-tiled L2 and corrected L3 reset controls",
+    "M1384 must define training seeds, budgets, evaluation seeds, gate order, and claim boundaries",
+    "M1384 must keep M1362 as diagnostic anchor rather than architecture-ranking checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new evaluation",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not compare old and new checkpoints as fair architecture ranking",
+    "do not drop current-tiled L2 controls",
+    "do not drop corrected L3 reset-control",
+    "do not claim paper-level profile ranking",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_profile_comparison_protocol",
+    "evidence_axis": "G_fixed_budget_profile_refresh_design",
+    "evidence_increment": "designs fresh fixed-budget profile refresh required for fair architecture comparison after artifact inventory",
+    "claim_scope": "design only; no training, new evaluation, PPO, promotion, private holdout, high-fidelity, profile-ranking, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if training budgets or seeds differ by profile without pre-registration",
+      "stop if current-tiled L2 controls are omitted",
+      "stop if corrected L3 reset-control is omitted",
+      "stop if M1362 is treated as a fixed-budget profile checkpoint"
+    ],
+    "fallback_plan": [
+      "if fixed-budget refresh is too large, route to a smaller smoke with the same profile set",
+      "if config generation is stale, route to current-profile config generator update",
+      "if evaluation runner is stale, route to profile runner update before training",
+      "if public source-rich diagnostics cannot be integrated, keep them secondary and run standard public comparison first"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fixed-budget profile refresh design",
+    "admission_evidence": [
+      "M1383 finds profile infrastructure available",
+      "M1383 finds M1362 lacks profile metadata and is not fixed-budget comparable to M1212",
+      "M1382 defines comparison protocol and required controls"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run new evaluation",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1384 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "fresh profile set is specified",
+      "fixed training and eval budgets are specified",
+      "gate and metric ordering is specified",
+      "next config-generation or smoke route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1384 must keep L0/L1 and current-tiled L2 controls in the design so later comparisons can separate current-frame substitution from history.",
+    "history_necessity_tests": [
+      "include L2 current-tiled controls",
+      "include corrected L3 reset-control",
+      "include L3 zero-action and zero-response diagnostics where compatible",
+      "keep source-rich temporal diagnostics secondary until seed diversity improves"
+    ],
+    "temporal_evidence_window": "M1382-M1383 profile comparison protocol and inventory.",
+    "negative_result_policy": "If a fair fixed-budget design cannot be specified, route to profile-runner/config repair instead of training.",
+    "allowed_claims": [
+      "fixed-budget profile refresh design and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level profile ranking, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A fresh fixed-budget L0/L1/L2/L3 profile refresh can be designed so later runs produce fair public architecture evidence rather than lineage-confounded comparisons.",
+  "success_criteria": [
+    "docs/m1384-paper-route-history-profile-fixed-budget-refresh-design.md exists",
+    "design specifies profile set and required controls",
+    "design specifies fixed training seeds, budgets, and eval seeds",
+    "design specifies gate order and claim boundaries",
+    "design chooses next config-generation or smoke route without training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design omits current-tiled L2 controls",
+    "design omits corrected L3 reset-control",
+    "design treats M1362 as a fixed-budget architecture checkpoint",
+    "design routes directly to training, PPO, promotion, private holdout, corpus export, or source-rich expansion without config/runtime checks"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1384-paper-route-history-profile-fixed-budget-refresh-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1384-paper-route-history-profile-fixed-budget-refresh-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1383-paper-route-history-profile-artifact-inventory.md",
+    "configs/paper_route_corrected_profiles"
+  ],
+  "decision_rule": "M1384 passes if it designs a fresh fixed-budget profile refresh and next config/runtime route before any training, new evaluation, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
+  "next_blocker": "m1384-paper-route-history-profile-fixed-budget-refresh-design"
+}

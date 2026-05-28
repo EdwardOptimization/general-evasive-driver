@@ -2,7 +2,7 @@
   "id": "m1383-paper-route-history-profile-artifact-inventory",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -154,6 +154,34 @@
     "runs/m1212_corrected_profile_repeat/summary.json",
     "configs/paper_route_profiles"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1383-paper-route-history-profile-artifact-inventory.md",
+    "decision": "history_profile_artifact_inventory_admit_fixed_budget_refresh_design",
+    "current_public_gate_base": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "smoke_profile_config_count": 8,
+    "corrected_profile_config_count": 8,
+    "m1212_checkpoint_count": 24,
+    "m1212_completed_seed_runs": 24,
+    "m1212_all_eval_metrics_finite": true,
+    "m1362_checkpoint_exists": true,
+    "m1362_history_baseline_metadata": "absent",
+    "m1362_profile_metadata": "absent",
+    "direct_m1212_vs_m1362_architecture_ranking_valid": false,
+    "fixed_budget_refresh_required_for_architecture_ranking": true,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "checkpoint_mutated": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1384-paper-route-history-profile-fixed-budget-refresh-design.json"
+  },
+  "decision": "history_profile_artifact_inventory_admit_fixed_budget_refresh_design",
   "decision_rule": "M1383 passes if it classifies profile artifact readiness and selects the next implementation route before any new comparison, training, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
-  "next_blocker": "m1383-paper-route-history-profile-artifact-inventory"
+  "next_blocker": "m1384-paper-route-history-profile-fixed-budget-refresh-design"
 }

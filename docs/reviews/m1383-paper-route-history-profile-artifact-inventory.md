@@ -1,0 +1,86 @@
+# m1383-paper-route-history-profile-artifact-inventory Research Review
+
+## Summary
+
+- Generated at UTC: 20260528T222708Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: history_profile_artifact_inventory_admit_fixed_budget_refresh_design
+- Decision reason: M1383 finds corrected profile infra and old checkpoints exist but direct M1212-vs-M1362 architecture ranking is invalid so fresh fixed-budget refresh design is required
+
+## Hypothesis
+
+Existing profile infrastructure can be inventoried to choose a valid public-base diagnostic or fixed-budget refresh route before running any new comparison.
+
+## Lineage
+
+- parent_checkpoint: runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
+- parent_dataset: docs/m1382-paper-route-history-profile-comparison-protocol-design.md, configs/paper_route_profiles, runs/m1212_corrected_profile_repeat/summary.json, runs/m1369_public_base_promotion_generalization_gate/summary.json, runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json
+- parent_config: experiments/manifests/m1382-paper-route-history-profile-comparison-protocol-design.json
+- parent_objective: inventory profile configs, checkpoints, runners, and compatibility before any new history-profile comparison
+- derived_from: m1382-paper-route-history-profile-comparison-protocol-design
+- blocked_by: M1382 requires artifact inventory before public-base diagnostic or fixed-budget profile refresh
+- supersedes: running comparison before artifact compatibility audit, using old profile checkpoints as architecture-ranking baselines without lineage classification
+- invalidates: None
+
+## Success Criteria
+
+- docs/m1383-paper-route-history-profile-artifact-inventory.md exists
+- inventory lists existing profile configs and corrected controls
+- inventory classifies existing checkpoints and lineage compatibility
+- inventory identifies runner/tooling readiness and gaps
+- inventory chooses next route without training, new evaluation, PPO, promotion, private holdout, corpus export, or actor-input expansion
+
+## Failure Criteria
+
+- inventory document is missing
+- inventory treats old profile checkpoints as fair M1362 architecture baselines without caveat
+- inventory ignores current-tiled or reset-control requirements
+- inventory routes directly to training, PPO, promotion, private holdout, corpus export, or source-rich expansion without implementation ordering
+
+## Evidence Gates
+
+- M1383 must inventory existing L0/L1/L2/L3 configs and checkpoints
+- M1383 must classify M1362 as public-base L3 diagnostic versus fixed-budget architecture checkpoint
+- M1383 must identify the runner/tooling path for Tier B and Tier C
+- M1383 must choose implementation route without training, new evaluation, PPO, promotion, private holdout, or corpus export
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run PPO
+- do not run new evaluation
+- do not promote
+- do not use private holdout
+- do not add actor inputs
+- do not export corpus
+- do not compare old and new checkpoints as fair architecture ranking
+- do not claim paper-level profile ranking
+- do not claim level3 self-identification
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m1383-paper-route-history-profile-artifact-inventory
+- type: gate
+- checkpoint: docs/m1383-paper-route-history-profile-artifact-inventory.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: history_profile_artifact_inventory_admit_fixed_budget_refresh_design
+- reason: M1383 finds corrected profile infra and old checkpoints exist but direct M1212-vs-M1362 architecture ranking is invalid so fresh fixed-budget refresh design is required
+
+## Next Blocker
+
+m1384-paper-route-history-profile-fixed-budget-refresh-design
