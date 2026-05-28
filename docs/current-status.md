@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1300-paper-route-source-history-trainable-scope-result-audit
+m1301-paper-route-source-history-trainable-scope-repeat-design
 ```
 
 Current next task:
 
 ```text
-m1301-paper-route-source-history-trainable-scope-repeat-design
+m1302-paper-route-source-history-trainable-scope-repeat-probe
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -124,7 +124,10 @@ before any repeat, proof-retention, PPO, or promotion decision. M1300 accepted
 M1299 as meaningful positive diagnostic evidence, but kept escalation blocked
 because the eval thresholds are met exactly at `0.25` on a small public split.
 The active blocker is M1301: design repeat/split robustness for the `fusion_head`
-signal. PPO and promotion remain blocked.
+signal. M1301 completed that design: repeat `fusion_head` across five
+deterministic pair-disjoint split offsets and require at least `3/5` offset
+passes plus clean mutation guards. The active blocker is M1302: implement and run
+that split-repeat probe. PPO and promotion remain blocked.
 
 ## Actor Contract
 

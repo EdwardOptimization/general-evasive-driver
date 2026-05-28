@@ -152,6 +152,31 @@
     "docs/m1300-paper-route-source-history-trainable-scope-result-audit.md",
     "runs/m1299_source_history_trainable_scope_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1301-paper-route-source-history-trainable-scope-repeat-design.md",
+    "decision": "source_history_trainable_scope_repeat_design_admit_bounded_repeat_probe",
+    "repeat_scope": "fusion_head",
+    "split_mod": 5,
+    "split_offsets": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "offset_pass_requirement": "at_least_3_of_5",
+    "mean_eval_threshold": 0.25,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1302-paper-route-source-history-trainable-scope-repeat-probe.json"
+  },
+  "decision": "source_history_trainable_scope_repeat_design_admit_bounded_repeat_probe",
   "decision_rule": "M1301 passes if it designs bounded repeat/split robustness checks before any PPO or promotion decision.",
-  "next_blocker": "m1301-paper-route-source-history-trainable-scope-repeat-design"
+  "next_blocker": "m1302-paper-route-source-history-trainable-scope-repeat-probe"
 }

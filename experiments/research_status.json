@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1310,
+    "completed": 1311,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1300-paper-route-source-history-trainable-scope-result-audit.md",
+    "command_log": "docs/m1301-paper-route-source-history-trainable-scope-repeat-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1300-paper-route-source-history-trainable-scope-result-audit"
+    "task_id": "m1301-paper-route-source-history-trainable-scope-repeat-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1301-paper-route-source-history-trainable-scope-repeat-design.json",
-    "hypothesis": "Design repeat/split robustness probe for M1299 fusion_head signal before any proof-retention or PPO work",
-    "id": "m1301-paper-route-source-history-trainable-scope-repeat-design",
-    "kind": "gate",
-    "notes": "Pending: design repeat/split robustness; PPO and promotion remain blocked",
-    "priority": 12960,
+    "command": "see experiments/manifests/m1302-paper-route-source-history-trainable-scope-repeat-probe.json",
+    "hypothesis": "The M1299 fusion_head signal remains positive across multiple deterministic pair-disjoint split offsets",
+    "id": "m1302-paper-route-source-history-trainable-scope-repeat-probe",
+    "kind": "infrastructure",
+    "notes": "Pending: implement split-repeat robustness probe; PPO and promotion remain blocked",
+    "priority": 12970,
     "status": "pending",
-    "success_artifact": "docs/m1301-paper-route-source-history-trainable-scope-repeat-design.md"
+    "success_artifact": "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json"
   },
-  "updated_at_utc": "20260528T150456Z"
+  "updated_at_utc": "20260528T150746Z"
 }

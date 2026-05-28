@@ -18865,3 +18865,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1301-paper-route-source-history-trainable-scope-repeat-design.json`.
 - decision: `source_history_trainable_scope_audit_strong_route_to_repeat_design`
 - next: `m1301-paper-route-source-history-trainable-scope-repeat-design`
+
+## 20260528T150746Z - m1301-paper-route-source-history-trainable-scope-repeat-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1301-paper-route-source-history-trainable-scope-repeat-design.md`
+- decision: `source_history_trainable_scope_repeat_design_admit_bounded_repeat_probe`
+- repeat scope: `fusion_head`
+- split plan: `split_mod=5`, `split_offsets=0,1,2,3,4`, eval if `stable_hash(pair_id) % 5 == offset`.
+- pass rule: each offset must meet eval row/group fractions `>=0.25`, full row/group counts above M1295, and no forbidden mutation.
+- repeat-strong rule: at least `3/5` offsets pass, mean eval row/group fractions `>=0.25`, mean full counts above M1295, and clean mutation guards for all offsets.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1302-paper-route-source-history-trainable-scope-repeat-probe.json`.
+- next: `m1302-paper-route-source-history-trainable-scope-repeat-probe`

@@ -1,0 +1,171 @@
+{
+  "id": "m1302-paper-route-source-history-trainable-scope-repeat-probe",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1301-paper-route-source-history-trainable-scope-repeat-design.md",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_frame_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_intervention_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/wrong_history_pair_rows.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_observations.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_action_sequences.csv",
+      "runs/m1299_source_history_trainable_scope_probe/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1301-paper-route-source-history-trainable-scope-repeat-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded fusion_head split-repeat source-history diagnostic"
+    ],
+    "derived_from": [
+      "m1301-paper-route-source-history-trainable-scope-repeat-design"
+    ],
+    "blocked_by": [
+      "M1301 designs split-repeat robustness but no repeat artifacts exist"
+    ],
+    "supersedes": [
+      "single split M1299 result as robustness evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1302-paper-route-source-history-trainable-scope-repeat-probe.md",
+  "public_gates": [
+    "M1302 must preserve actor input contract",
+    "M1302 must not run PPO",
+    "M1302 must not use private holdout",
+    "M1302 must not promote",
+    "M1302 must run multiple pair-disjoint split offsets",
+    "M1302 must report repeat pass counts",
+    "M1302 must report parameter-group deltas"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not train scopes beyond fusion_head",
+    "do not treat repeat success as closed-loop proof",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_trainable_scope_escalation",
+    "evidence_axis": "S_trainable_scope_repeat_probe",
+    "evidence_increment": "tests M1299 fusion_head result across deterministic pair-disjoint split offsets",
+    "claim_scope": "diagnostic infrastructure only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if any forbidden parameter group mutates",
+      "stop if repeat summaries are missing",
+      "stop if implementation requires actor-input expansion"
+    ],
+    "fallback_plan": [
+      "if repeat strong, route to result audit and proof-retention design",
+      "if repeat mixed, route to result audit and scope/corpus decision",
+      "if repeat negative, route to corpus refresh or sequence preference design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "fifth milestone in trainable-scope escalation branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "no-PPO fusion_head split-repeat source-history probe",
+    "admission_evidence": [
+      "M1301 defines split offsets and repeat thresholds",
+      "M1299 fusion_head was strong on one split",
+      "PPO remains blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "repeat-probe implementation",
+      "focused tests",
+      "M1302 run artifacts",
+      "M1302 result doc",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "summary.json exists",
+      "repeat summaries exist",
+      "parameter-group deltas exist",
+      "result routes to audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1302 uses fixed-current intervention observations and source-history hidden states; it does not prove closed-loop history necessity.",
+    "history_necessity_tests": [
+      "correct-history versus wrong-history metrics must be repeated across split offsets",
+      "pair-disjoint split variants must be reported"
+    ],
+    "temporal_evidence_window": "M1280 source-history prefixes with fixed M1277 intervention observations.",
+    "negative_result_policy": "If repeat is mixed or negative, keep PPO blocked and route to audit/corpus refresh.",
+    "allowed_claims": [
+      "trainable-scope split-repeat diagnostic result",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1299 fusion_head signal remains positive across multiple deterministic pair-disjoint split offsets.",
+  "success_criteria": [
+    "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json exists",
+    "focused tests pass",
+    "repeat summaries and offset pass counts are reported",
+    "parameter-group deltas are reported",
+    "forbidden parameter mutation flag is false",
+    "result class is repeat strong, mixed, negative, or contract artifact",
+    "no PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "repeat metrics are missing",
+    "parameter-group deltas are missing",
+    "forbidden parameters mutate",
+    "PPO starts",
+    "private holdout is used",
+    "checkpoint is promoted",
+    "actor input contract changes",
+    "thresholds are relaxed after seeing results"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest -q tests/test_source_history_trainable_scope_probe.py"
+    },
+    {
+      "name": "run_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_history_trainable_scope_probe --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --history-run-dir runs/m1280_four_wheel_source_response_history_materialization --intervention-run-dir runs/m1277_four_wheel_source_intervention_materialization --run-dir runs/m1302_source_history_trainable_scope_repeat_probe --device cpu --steps 400 --lr 0.0002 --target-margin 0.05 --scopes fusion_head --split-offsets 0,1,2,3,4"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1302-paper-route-source-history-trainable-scope-repeat-probe.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1301-paper-route-source-history-trainable-scope-repeat-design.md",
+    "runs/m1299_source_history_trainable_scope_probe/summary.json"
+  ],
+  "decision_rule": "M1302 passes as diagnostic infrastructure if it reports split-repeat results without forbidden mutations and routes to audit.",
+  "next_blocker": "m1302-paper-route-source-history-trainable-scope-repeat-probe"
+}

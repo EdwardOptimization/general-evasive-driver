@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1301 designs fusion_head split-repeat robustness probe across five deterministic pair-disjoint offsets with at least 3/5 pass threshold; PPO and promotion remain blocked",
+  "failure_criteria": [
+    "design document is missing",
+    "design admits PPO directly",
+    "design omits split variants",
+    "design omits pass/fail thresholds",
+    "design treats single split as robust",
+    "training, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train in the design milestone",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat one split result as robust",
+    "do not overclaim self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T150937Z",
+  "hypothesis": "A bounded repeat/split design can test whether the M1299 fusion_head signal survives deterministic pair-disjoint split variants before any proof-retention or PPO work.",
+  "lineage": {
+    "blocked_by": [
+      "M1300 accepts M1299 as strong diagnostic but boundary-threshold eval result"
+    ],
+    "derived_from": [
+      "m1300-paper-route-source-history-trainable-scope-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1299_source_history_trainable_scope_probe/checkpoints/fusion_head_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1300-paper-route-source-history-trainable-scope-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1300-paper-route-source-history-trainable-scope-result-audit.md",
+      "runs/m1299_source_history_trainable_scope_probe/summary.json",
+      "runs/m1299_source_history_trainable_scope_probe/scope_summaries.csv",
+      "runs/m1299_source_history_trainable_scope_probe/split_rows.csv",
+      "runs/m1299_source_history_trainable_scope_probe/parameter_group_delta.csv"
+    ],
+    "parent_objective": [
+      "design repeat/split robustness probe for M1299 fusion_head strong diagnostic"
+    ],
+    "supersedes": [
+      "direct proof-retention or PPO design from a single split"
+    ]
+  },
+  "milestone": "m1301-paper-route-source-history-trainable-scope-repeat-design",
+  "next_blocker": "m1302-paper-route-source-history-trainable-scope-repeat-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_history_trainable_scope_repeat_design_admit_bounded_repeat_probe",
+  "public_gates": [
+    "M1301 must preserve actor input contract",
+    "M1301 must not run PPO",
+    "M1301 must not train in the design milestone",
+    "M1301 must not use private holdout",
+    "M1301 must not promote",
+    "M1301 must define repeat split variants",
+    "M1301 must define robustness pass/fail criteria"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1301-paper-route-source-history-trainable-scope-repeat-design.md",
+    "clearance_margin_mean": "",
+    "decision": "source_history_trainable_scope_repeat_design_admit_bounded_repeat_probe",
+    "milestone": "m1301-paper-route-source-history-trainable-scope-repeat-design",
+    "reason": "M1301 designs fusion_head split-repeat robustness probe across five deterministic pair-disjoint offsets with at least 3/5 pass threshold; PPO and promotion remain blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1301-paper-route-source-history-trainable-scope-repeat-design.md exists",
+    "design specifies split variants",
+    "design specifies repeat pass/fail thresholds",
+    "design preserves mutation guard",
+    "design blocks PPO and promotion",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}
