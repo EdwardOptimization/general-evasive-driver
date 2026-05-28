@@ -6,6 +6,7 @@ from autodrift.capability_separable_source_constructor import (
     classify_capability_separable_result,
     evaluate_action_separability,
     fine_relocation_geometry_candidates,
+    source_collection_settings,
     viability_band_geometry_candidates,
 )
 from autodrift.matched_history_outcome_gate import OutcomeSnapshot
@@ -184,3 +185,32 @@ def test_build_trajectory_proposal_candidates_includes_branch_origins():
         assert candidate["sequence"].shape == (4, 3)
         assert candidate["candidate_vector"].shape == (12,)
         assert candidate["action_l2_from_shared_base"] >= 0.0
+
+
+def test_source_collection_settings_reports_effective_overrides():
+    settings = source_collection_settings(
+        {
+            "min_step": 35,
+            "max_steps": 260,
+            "snapshot_stride": 5,
+            "max_snapshots_per_scenario": 4,
+            "obstacle_longitudinal_min": -8.0,
+            "obstacle_longitudinal_max": 90.0,
+        },
+        source_min_step=18,
+        source_snapshot_stride=2,
+        source_max_snapshots_per_scenario=8,
+        source_obstacle_longitudinal_min=4.0,
+        source_obstacle_longitudinal_max=24.0,
+    )
+
+    assert settings["configured_min_step"] == 35
+    assert settings["effective_min_step"] == 18
+    assert settings["configured_max_steps"] == 260
+    assert settings["effective_max_steps"] == 260
+    assert settings["source_max_steps_override"] is None
+    assert settings["configured_snapshot_stride"] == 5
+    assert settings["effective_snapshot_stride"] == 2
+    assert settings["effective_max_snapshots_per_scenario"] == 8
+    assert settings["effective_obstacle_longitudinal_min"] == 4.0
+    assert settings["effective_obstacle_longitudinal_max"] == 24.0

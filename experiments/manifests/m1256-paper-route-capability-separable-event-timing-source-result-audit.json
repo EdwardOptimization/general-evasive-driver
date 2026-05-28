@@ -1,0 +1,147 @@
+{
+  "id": "m1256-paper-route-capability-separable-event-timing-source-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1255-paper-route-capability-separable-event-timing-source-smoke.md",
+      "runs/m1255_capability_separable_event_timing_source_smoke/summary.json",
+      "runs/m1255_capability_separable_event_timing_source_smoke/matched_capability_pairs.csv",
+      "runs/m1255_capability_separable_event_timing_source_smoke/fault_family_pair_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1255-paper-route-capability-separable-event-timing-source-smoke.json",
+      "configs/m1236_extreme_fault_timing_repair_smoke.json"
+    ],
+    "parent_objective": [
+      "audit event-timing/source-state source result after bounded smoke remains zero-accepted"
+    ],
+    "derived_from": [
+      "m1255-paper-route-capability-separable-event-timing-source-smoke"
+    ],
+    "blocked_by": [
+      "M1255 produced action-divergent low-regret evidence but accepted separable pairs remained zero"
+    ],
+    "supersedes": [
+      "another immediate event-timing source variant without a result audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1256-paper-route-capability-separable-event-timing-source-result-audit.md",
+  "public_gates": [
+    "M1256 must preserve actor input contract",
+    "M1256 must not train controllers",
+    "M1256 must not run PPO",
+    "M1256 must not use private holdout",
+    "M1256 must not promote",
+    "M1256 must not lower capability-separable acceptance thresholds",
+    "M1256 must decide whether to stop the current event-timing source branch, synthesize, or pre-register a new source variable"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, timing labels, proposal labels, oracle outcomes, or search outputs to actor inputs",
+    "do not lower min_cross_regret_margin",
+    "do not accept negative own-branch margins",
+    "do not start another source run before audit"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_capability_separable_event_timing_source",
+    "evidence_axis": "S_event_timing_source_result_audit",
+    "evidence_increment": "classifies the M1255 event-timing source-negative result before another source variable or run",
+    "claim_scope": "process/source-result audit only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop same event-timing variants if the audit finds only viable/action-equivalent or action-divergent/nonviable rows",
+      "stop if the next proposal is only more timing windows without a new evidence variable"
+    ],
+    "fallback_plan": [
+      "if current event timing is exhausted, synthesize the capability-separable source-construction branch and choose a broader source family or fidelity pivot",
+      "if a concrete under-specified source variable explains the result, pre-register exactly one bounded repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1255 remains zero-accepted and M1254 fallback requires audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "event-timing source result audit",
+    "admission_evidence": [
+      "M1255 produced trajectory proposals and rollouts with source timing overrides",
+      "M1255 accepted_separable_pairs remained zero",
+      "M1255 found action-divergent/nonviable rows and one viable/action-equivalent row"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1256 audit document",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "audit classifies the event-timing result",
+      "audit chooses branch synthesis, one repair, or pivot"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1256 audits offline source-construction evidence and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "Record zero-accepted event-timing evidence as source-design evidence, not overall objective failure.",
+    "allowed_claims": [
+      "event-timing source result audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1255 indicates the current event-timing source branch is not enough to produce accepted capability-separable rows and must be audited before another source run.",
+  "success_criteria": [
+    "docs/m1256-paper-route-capability-separable-event-timing-source-result-audit.md exists",
+    "audit cites M1255 accepted_separable_pairs and result_class",
+    "audit classifies the row patterns",
+    "audit does not lower thresholds",
+    "audit chooses the next branch decision",
+    "no training, PPO, promotion, private holdout, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit is missing",
+    "audit ignores M1254 fallback rule",
+    "audit proposes another timing run without a new evidence variable",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1256-paper-route-capability-separable-event-timing-source-result-audit.md from M1255 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1256-paper-route-capability-separable-event-timing-source-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1255-paper-route-capability-separable-event-timing-source-smoke.md",
+    "runs/m1255_capability_separable_event_timing_source_smoke/summary.json"
+  ],
+  "decision_rule": "M1256 passes if it records the M1255 source-negative evidence and chooses the next branch without threshold relaxation or training.",
+  "next_blocker": "m1256-paper-route-capability-separable-event-timing-source-result-audit"
+}

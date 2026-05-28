@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1264,
+    "completed": 1265,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1254-paper-route-capability-separable-event-timing-source-design.md",
+    "command_log": "docs/m1255-paper-route-capability-separable-event-timing-source-smoke.md",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m1255_capability_separable_event_timing_source_smoke",
     "status": "completed",
-    "task_id": "m1254-paper-route-capability-separable-event-timing-source-design"
+    "task_id": "m1255-paper-route-capability-separable-event-timing-source-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1255-paper-route-capability-separable-event-timing-source-smoke.json",
-    "hypothesis": "Run event-timing capability-separable source smoke",
-    "id": "m1255-paper-route-capability-separable-event-timing-source-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: implement source timing CLI overrides and run bounded no-training event-timing source smoke",
-    "priority": 12500,
+    "command": "see experiments/manifests/m1256-paper-route-capability-separable-event-timing-source-result-audit.json",
+    "hypothesis": "Audit zero-accepted event-timing source result before another source run",
+    "id": "m1256-paper-route-capability-separable-event-timing-source-result-audit",
+    "kind": "gate",
+    "notes": "Pending: classify M1255 event-timing source-negative result and choose branch synthesis, one repair, or pivot",
+    "priority": 12510,
     "status": "pending",
-    "success_artifact": "runs/m1255_capability_separable_event_timing_source_smoke/summary.json"
+    "success_artifact": "docs/m1256-paper-route-capability-separable-event-timing-source-result-audit.md"
   },
-  "updated_at_utc": "20260528T110551Z"
+  "updated_at_utc": "20260528T111607Z"
 }

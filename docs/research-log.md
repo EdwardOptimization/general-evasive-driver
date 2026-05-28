@@ -18079,3 +18079,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1255-paper-route-capability-separable-event-timing-source-smoke.json`.
 - decision: `event_timing_source_design_admit_bounded_smoke`
 - next: `m1255-paper-route-capability-separable-event-timing-source-smoke`
+
+## 20260528T111607Z - m1255-paper-route-capability-separable-event-timing-source-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1255_capability_separable_event_timing_source_smoke/summary.json`
+- implementation: added source timing CLI overrides and summary reporting for configured/effective collection settings.
+- result: infrastructure passes with `scenario_count=52`, `snapshot_count=299`, `matched_pair_count=8`, `trajectory_proposals=424`, `trajectory_proposal_rollouts=848`, `relocation_candidates=96`, `fine_relocation_candidates=32`, `unique_matched_fault_family_pairs=2`, and `unique_matched_seeds=2`.
+- source result: `accepted_separable_pairs=0`, `best_actions_diverged_pairs=2`, `near_boundary_viability_pairs=1`, `low_regret_pairs=8`, and `result_class=action_divergent_low_regret`.
+- row pattern: pair 7 is closest on two-sided regret (`min_cross_regret=0.0161391286`) but remains below `0.02` and nonviable (`pair_min_best_margin=-0.0004416509`); pair 4 is viable (`pair_min_best_margin=0.0309116731`) but action-equivalent (`best_action_l2=0.0`).
+- interpretation: event timing produced viable rows and action-divergent rows, but not the same rows; accepted source-positive rows remain blocked under unchanged thresholds.
+- guardrail: actor parameters unchanged; no labels entered actor inputs; no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, self-ID claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1256-paper-route-capability-separable-event-timing-source-result-audit.json`.
+- decision: `event_timing_source_smoke_infrastructure_pass_source_negative_route_to_result_audit`
+- next: `m1256-paper-route-capability-separable-event-timing-source-result-audit`

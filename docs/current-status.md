@@ -115,7 +115,37 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1255-paper-route-capability-separable-event-timing-source-smoke
+m1256-paper-route-capability-separable-event-timing-source-result-audit
+```
+
+M1255 completed capability-separable event-timing source smoke:
+
+```text
+artifact: runs/m1255_capability_separable_event_timing_source_smoke/summary.json
+decision: event_timing_source_smoke_infrastructure_pass_source_negative_route_to_result_audit
+result_class: action_divergent_low_regret
+accepted_separable_pairs: 0
+```
+
+M1255 conclusion:
+
+```text
+The event-timing smoke produced 424 trajectory proposals, 848 rollouts, 1
+near-boundary viable pair, and 2 action-divergent pairs, but no accepted
+capability-separable row. Viable rows and action-divergent rows remain separate:
+pair 4 is viable but action-equivalent, while pair 7 is action-divergent but
+still slightly below the two-sided regret and viability thresholds.
+```
+
+Next task:
+
+```text
+artifact: docs/m1256-paper-route-capability-separable-event-timing-source-result-audit.md
+manifest: experiments/manifests/m1256-paper-route-capability-separable-event-timing-source-result-audit.json
+goal: audit M1255 before another source run and choose branch synthesis,
+      one repair, or pivot
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         threshold relaxation, self-identification or paper-level claims
 ```
 
 M1254 completed capability-separable event-timing source design:

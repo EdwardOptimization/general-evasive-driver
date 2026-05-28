@@ -68,6 +68,66 @@ def _parse_bool_arg(raw: str | bool) -> bool:
     raise argparse.ArgumentTypeError(f"invalid boolean value {raw!r}")
 
 
+def source_collection_settings(
+    config: dict[str, Any],
+    *,
+    source_min_step: int | None = None,
+    source_max_steps: int | None = None,
+    source_snapshot_stride: int | None = None,
+    source_max_snapshots_per_scenario: int | None = None,
+    source_obstacle_longitudinal_min: float | None = None,
+    source_obstacle_longitudinal_max: float | None = None,
+) -> dict[str, Any]:
+    configured_min_step = int(config.get("min_step", 35))
+    configured_max_steps = int(config.get("max_steps", 260))
+    configured_snapshot_stride = int(config.get("snapshot_stride", 5))
+    configured_max_snapshots_per_scenario = int(config.get("max_snapshots_per_scenario", 4))
+    configured_obstacle_longitudinal_min = float(config.get("obstacle_longitudinal_min", -8.0))
+    configured_obstacle_longitudinal_max = float(config.get("obstacle_longitudinal_max", 90.0))
+
+    effective_min_step = configured_min_step if source_min_step is None else int(source_min_step)
+    effective_max_steps = configured_max_steps if source_max_steps is None else int(source_max_steps)
+    effective_snapshot_stride = (
+        configured_snapshot_stride if source_snapshot_stride is None else int(source_snapshot_stride)
+    )
+    effective_max_snapshots_per_scenario = (
+        configured_max_snapshots_per_scenario
+        if source_max_snapshots_per_scenario is None
+        else int(source_max_snapshots_per_scenario)
+    )
+    effective_obstacle_longitudinal_min = (
+        configured_obstacle_longitudinal_min
+        if source_obstacle_longitudinal_min is None
+        else float(source_obstacle_longitudinal_min)
+    )
+    effective_obstacle_longitudinal_max = (
+        configured_obstacle_longitudinal_max
+        if source_obstacle_longitudinal_max is None
+        else float(source_obstacle_longitudinal_max)
+    )
+
+    return {
+        "configured_min_step": configured_min_step,
+        "configured_max_steps": configured_max_steps,
+        "configured_snapshot_stride": configured_snapshot_stride,
+        "configured_max_snapshots_per_scenario": configured_max_snapshots_per_scenario,
+        "configured_obstacle_longitudinal_min": configured_obstacle_longitudinal_min,
+        "configured_obstacle_longitudinal_max": configured_obstacle_longitudinal_max,
+        "source_min_step_override": source_min_step,
+        "source_max_steps_override": source_max_steps,
+        "source_snapshot_stride_override": source_snapshot_stride,
+        "source_max_snapshots_per_scenario_override": source_max_snapshots_per_scenario,
+        "source_obstacle_longitudinal_min_override": source_obstacle_longitudinal_min,
+        "source_obstacle_longitudinal_max_override": source_obstacle_longitudinal_max,
+        "effective_min_step": effective_min_step,
+        "effective_max_steps": effective_max_steps,
+        "effective_snapshot_stride": effective_snapshot_stride,
+        "effective_max_snapshots_per_scenario": effective_max_snapshots_per_scenario,
+        "effective_obstacle_longitudinal_min": effective_obstacle_longitudinal_min,
+        "effective_obstacle_longitudinal_max": effective_obstacle_longitudinal_max,
+    }
+
+
 def _margin(row: dict[str, Any]) -> float:
     return _finite_float(row.get("min_clearance_margin"))
 
@@ -1053,6 +1113,12 @@ def run_capability_separable_source_constructor(
     fine_half_width_deltas: tuple[float, ...] = DEFAULT_FINE_HALF_WIDTH_DELTAS,
     fine_body_y_offsets: tuple[float, ...] = DEFAULT_FINE_BODY_Y_OFFSETS,
     fine_parent_count: int = 2,
+    source_min_step: int | None = None,
+    source_max_steps: int | None = None,
+    source_snapshot_stride: int | None = None,
+    source_max_snapshots_per_scenario: int | None = None,
+    source_obstacle_longitudinal_min: float | None = None,
+    source_obstacle_longitudinal_max: float | None = None,
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     config = load_scenario_config(config_path)
@@ -1069,12 +1135,21 @@ def run_capability_separable_source_constructor(
     checksum_before = model_parameter_checksum(model)
 
     faults = [NOMINAL_FAULT, *config["faults"]]
-    min_step = int(config.get("min_step", 35))
-    max_steps = int(config.get("max_steps", 260))
-    snapshot_stride = int(config.get("snapshot_stride", 5))
-    max_snapshots_per_scenario = int(config.get("max_snapshots_per_scenario", 4))
-    obstacle_longitudinal_min = float(config.get("obstacle_longitudinal_min", -8.0))
-    obstacle_longitudinal_max = float(config.get("obstacle_longitudinal_max", 90.0))
+    source_settings = source_collection_settings(
+        config,
+        source_min_step=source_min_step,
+        source_max_steps=source_max_steps,
+        source_snapshot_stride=source_snapshot_stride,
+        source_max_snapshots_per_scenario=source_max_snapshots_per_scenario,
+        source_obstacle_longitudinal_min=source_obstacle_longitudinal_min,
+        source_obstacle_longitudinal_max=source_obstacle_longitudinal_max,
+    )
+    min_step = int(source_settings["effective_min_step"])
+    max_steps = int(source_settings["effective_max_steps"])
+    snapshot_stride = int(source_settings["effective_snapshot_stride"])
+    max_snapshots_per_scenario = int(source_settings["effective_max_snapshots_per_scenario"])
+    obstacle_longitudinal_min = float(source_settings["effective_obstacle_longitudinal_min"])
+    obstacle_longitudinal_max = float(source_settings["effective_obstacle_longitudinal_max"])
 
     snapshots: list[ExtremeSnapshot] = []
     scenario_rows: list[dict[str, Any]] = []
@@ -1283,6 +1358,7 @@ def run_capability_separable_source_constructor(
         "max_pairs_per_seed": int(max_pairs_per_seed),
         "max_pairs_per_family_pair": int(max_pairs_per_family_pair),
         "max_continuation_steps": int(max_continuation_steps),
+        **source_settings,
         "steer_deltas": steer_deltas,
         "throttle_deltas": throttle_deltas,
         "brake_deltas": brake_deltas,
@@ -1366,6 +1442,12 @@ def main() -> None:
     parser.add_argument("--max-pairs-per-seed", type=int, default=8)
     parser.add_argument("--max-pairs-per-family-pair", type=int, default=24)
     parser.add_argument("--max-continuation-steps", type=int, default=18)
+    parser.add_argument("--source-min-step", type=int, default=None)
+    parser.add_argument("--source-max-steps", type=int, default=None)
+    parser.add_argument("--source-snapshot-stride", type=int, default=None)
+    parser.add_argument("--source-max-snapshots-per-scenario", type=int, default=None)
+    parser.add_argument("--source-obstacle-longitudinal-min", type=float, default=None)
+    parser.add_argument("--source-obstacle-longitudinal-max", type=float, default=None)
     parser.add_argument("--steer-deltas", type=parse_float_list, default=(-0.30, -0.15, 0.0, 0.15, 0.30))
     parser.add_argument("--throttle-deltas", type=parse_float_list, default=(-0.20, 0.0, 0.20))
     parser.add_argument("--brake-deltas", type=parse_float_list, default=(-0.30, -0.15, 0.0, 0.15, 0.30))
@@ -1408,6 +1490,12 @@ def main() -> None:
         max_pairs_per_seed=args.max_pairs_per_seed,
         max_pairs_per_family_pair=args.max_pairs_per_family_pair,
         max_continuation_steps=args.max_continuation_steps,
+        source_min_step=args.source_min_step,
+        source_max_steps=args.source_max_steps,
+        source_snapshot_stride=args.source_snapshot_stride,
+        source_max_snapshots_per_scenario=args.source_max_snapshots_per_scenario,
+        source_obstacle_longitudinal_min=args.source_obstacle_longitudinal_min,
+        source_obstacle_longitudinal_max=args.source_obstacle_longitudinal_max,
         steer_deltas=args.steer_deltas,
         throttle_deltas=args.throttle_deltas,
         brake_deltas=args.brake_deltas,
