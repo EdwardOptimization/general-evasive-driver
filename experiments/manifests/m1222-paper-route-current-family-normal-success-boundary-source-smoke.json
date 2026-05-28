@@ -175,5 +175,5 @@
     "docs/m1221-paper-route-action-critical-hidden-source-design.md"
   ],
   "decision_rule": "M1222 passes as source mining only if it reports normal-success windows and source-diverse real-history action/outcome-critical rows without actor mutation; otherwise it must classify the negative result.",
-  "next_blocker": "m1222-paper-route-current-family-normal-success-boundary-source-smoke"
+  "next_blocker": "m1223-paper-route-current-family-boundary-source-negative-audit"
 }

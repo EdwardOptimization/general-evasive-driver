@@ -115,7 +115,58 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1222-paper-route-current-family-normal-success-boundary-source-smoke
+m1223-paper-route-current-family-boundary-source-negative-audit
+```
+
+M1222 completed current-family normal-success boundary source mining:
+
+```text
+artifact: docs/m1222-paper-route-current-family-normal-success-boundary-source-smoke.md
+run dir: runs/m1222_current_family_normal_success_boundary_source_smoke
+decision: normal_success_boundary_source_negative_admit_audit
+```
+
+M1222 conclusion:
+
+```text
+Current-family normal-success near-boundary windows exist, and wrong-history
+action gaps can be found, but no tested wrong-history substitution degrades
+margin or success. The result is action-gap-positive and outcome-gap-negative.
+```
+
+Next branch:
+
+```text
+paper_route_causal_history_evidence
+```
+
+The next task is a negative-result audit, not another immediate source-mining
+run, outcome intervention, or training:
+
+```text
+checkpoint family: M1212 corrected L3 online GRU repeat
+env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
+checkpoint:        runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
+source run:        runs/m1222_current_family_normal_success_boundary_source_smoke
+next artifact:     docs/m1223-paper-route-current-family-boundary-source-negative-audit.md
+```
+
+M1223 should decide whether to move toward terminal-boundary relocation,
+longer-horizon outcome scoring, stronger cross-family/fault source
+distributions, or branch synthesis. M1222 action divergence alone is not
+self-ID evidence.
+
+M1222 source-mining result:
+
+```text
+near_boundary_preferred_snapshots:          45
+candidate_rows:                          7200
+all_action_threshold_rows:                274
+margin_gap >= 0.010 rows:                   0
+success_drop_rows:                          0
+accepted_rows:                              0
+max margin gap:                      0.002370
+classification: near_boundary_action_gap_but_no_outcome_gap
 ```
 
 M1221 completed action-critical hidden source design:
@@ -132,28 +183,6 @@ Existing source tools should not be used to run an outcome gate from M1217.
 The next route is current-family normal-success boundary source mining using
 M1212 L3 seed111602 and fresh public seeds 122700-122763.
 ```
-
-Next branch:
-
-```text
-paper_route_causal_history_evidence
-```
-
-The next task is source mining, not outcome intervention or training:
-
-```text
-checkpoint family: M1212 corrected L3 online GRU repeat
-env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
-checkpoint:        runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
-seed range:        122700:122763
-run dir:           runs/m1222_current_family_normal_success_boundary_source_smoke
-next artifact:     docs/m1222-paper-route-current-family-normal-success-boundary-source-smoke.md
-```
-
-M1222 should run `normal_success_boundary_source_miner`: normal-history
-near-boundary prepass first, then compatible wrong-history pairing, then
-action/outcome acceptance. Off-manifold hidden sensitivity cannot be claimed as
-self-ID; it only justified looking for a stronger real-history source.
 
 M1221 source-design decision:
 

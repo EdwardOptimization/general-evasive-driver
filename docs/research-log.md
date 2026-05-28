@@ -17535,3 +17535,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1222-paper-route-current-family-normal-success-boundary-source-smoke.json`.
 - decision: `select_current_family_normal_success_boundary_source_smoke`
 - next: `m1222-paper-route-current-family-normal-success-boundary-source-smoke`
+
+## 20260528T072506Z - m1222-paper-route-current-family-normal-success-boundary-source-smoke
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `proof`
+- artifact: `docs/m1222-paper-route-current-family-normal-success-boundary-source-smoke.md`
+- run dir: `runs/m1222_current_family_normal_success_boundary_source_smoke`
+- result: negative source-mining smoke with action gaps but no outcome gaps.
+- counts: `512` snapshots, `2400` candidate pairs, `7200` candidate sequence rows, and `0` accepted rows.
+- normal windows: `45` near-boundary preferred, `350` early-safe diagnostic, and `117` already-failed diagnostic.
+- action evidence: `6927` rows pass first-action threshold, `707` pass sequence threshold, and `274` pass all action thresholds.
+- outcome evidence: `0` rows pass margin threshold, `0` success drops, max margin gap `0.002370`, and both normal/wrong success rates are `1.000`.
+- classification: `near_boundary_action_gap_but_no_outcome_gap`.
+- guardrail: actor checksum unchanged, no actor checkpoint written, no training, no PPO, no promotion, no private holdout, no actor-input expansion, and no self-identification claim.
+- follow-up manifest: `experiments/manifests/m1223-paper-route-current-family-boundary-source-negative-audit.json`.
+- decision: `normal_success_boundary_source_negative_admit_audit`
+- next: `m1223-paper-route-current-family-boundary-source-negative-audit`

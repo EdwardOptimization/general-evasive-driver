@@ -1,0 +1,159 @@
+{
+  "id": "m1223-paper-route-current-family-boundary-source-negative-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1222_current_family_normal_success_boundary_source_smoke/summary.json",
+      "runs/m1222_current_family_normal_success_boundary_source_smoke/candidate_scores.csv",
+      "runs/m1222_current_family_normal_success_boundary_source_smoke/normal_window_rows.csv"
+    ],
+    "parent_config": [
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json",
+      "experiments/manifests/m1222-paper-route-current-family-normal-success-boundary-source-smoke.json"
+    ],
+    "parent_objective": [
+      "audit M1222 negative source mining and choose terminal-boundary, longer-horizon, stronger-source, or synthesis route"
+    ],
+    "derived_from": [
+      "m1222-paper-route-current-family-normal-success-boundary-source-smoke"
+    ],
+    "blocked_by": [
+      "M1222 finds action-divergent wrong-history rows but no success or margin degradation"
+    ],
+    "supersedes": [
+      "immediate training from empty accepted corpus",
+      "immediate threshold weakening after negative source mining"
+    ],
+    "invalidates": [
+      "treating M1222 action-divergent rows as sufficient self-identification or outcome evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1223-paper-route-current-family-boundary-source-negative-audit.md",
+  "public_gates": [
+    "M1223 may audit existing M1222 artifacts only",
+    "M1223 must classify the M1222 negative result",
+    "M1223 must choose a concrete next route or require branch synthesis",
+    "M1223 must not train controllers",
+    "M1223 must not run PPO",
+    "M1223 must not run new source mining or outcome interventions",
+    "M1223 must not use private holdout",
+    "M1223 must not promote",
+    "M1223 must not claim self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new source mining",
+    "do not run outcome intervention gates",
+    "do not use private holdout",
+    "do not promote",
+    "do not weaken thresholds after seeing M1222",
+    "do not use hidden or oracle actor inputs",
+    "do not claim self-identification from action divergence alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_evidence",
+    "evidence_axis": "H_causal_history_source_negative_audit",
+    "evidence_increment": "classifies M1222 as action-gap-positive outcome-gap-negative and chooses the next route",
+    "claim_scope": "process/audit only; no closed-loop, training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if M1222 artifacts are missing",
+      "stop if failure classification is ambiguous",
+      "stop if another narrow milestone would exceed synthesis cadence without a branch decision"
+    ],
+    "fallback_plan": [
+      "route to branch synthesis if M1223 cannot choose a single next research path",
+      "route to terminal-boundary relocation if action gaps are source-diverse but outcome gaps are absent",
+      "route to stronger cross-family/fault source if current-family scenes are too outcome-insensitive"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1222 closes the current-family normal-success boundary source smoke with no accepted rows",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit current-family boundary source negative result",
+    "admission_evidence": [
+      "M1222 has near-boundary preferred windows",
+      "M1222 has 274 all-action-threshold rows",
+      "M1222 has zero margin-threshold or success-drop rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1223 audit document",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "negative result class is recorded",
+      "next terminal-boundary, stronger-source, longer-horizon, or synthesis route is selected",
+      "threshold weakening and training shortcuts remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1223 is an audit of source-mining evidence and must not infer history necessity from action divergence without outcome degradation.",
+    "history_necessity_tests": [
+      "classification of near-boundary/action-gap/outcome-gap evidence",
+      "route selection before any outcome gate or training",
+      "guards against interpreting action divergence as self-ID"
+    ],
+    "temporal_evidence_window": "Outcome-critical evidence remains blocked until a later route produces real-history margin or success degradation.",
+    "negative_result_policy": "Record the negative result and route to terminal-boundary, stronger-source, longer-horizon, or branch synthesis rather than training.",
+    "allowed_claims": [
+      "negative result classification",
+      "next-route selection",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1222 is best classified as action-gap-positive but outcome-gap-negative, so the next route should sharpen the outcome boundary or change source distribution before training.",
+  "success_criteria": [
+    "docs/m1223-paper-route-current-family-boundary-source-negative-audit.md exists",
+    "M1222 negative result is classified",
+    "one next route is selected or branch synthesis is required",
+    "private holdout remains unused",
+    "no outcome intervention, training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "M1223 trains or tunes profiles",
+    "private holdout is used",
+    "new source mining or outcome intervention is run",
+    "thresholds are weakened after seeing M1222",
+    "action-divergent rows are claimed as self-identification",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "write_current_family_boundary_source_negative_audit",
+      "command": "Inspect M1222 artifacts and write docs/m1223-paper-route-current-family-boundary-source-negative-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1223-paper-route-current-family-boundary-source-negative-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1222_current_family_normal_success_boundary_source_smoke/summary.json",
+    "docs/m1222-paper-route-current-family-normal-success-boundary-source-smoke.md"
+  ],
+  "decision_rule": "M1223 passes if it classifies M1222 and selects a concrete next route without running new experiments or weakening thresholds.",
+  "next_blocker": "m1223-paper-route-current-family-boundary-source-negative-audit"
+}

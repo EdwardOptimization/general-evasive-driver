@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1231,
+    "completed": 1232,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1221-paper-route-action-critical-hidden-source-design.md",
+    "command_log": "docs/m1222-paper-route-current-family-normal-success-boundary-source-smoke.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1222_current_family_normal_success_boundary_source_smoke",
     "status": "completed",
-    "task_id": "m1221-paper-route-action-critical-hidden-source-design"
+    "task_id": "m1222-paper-route-current-family-normal-success-boundary-source-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1222-paper-route-current-family-normal-success-boundary-source-smoke.json",
-    "hypothesis": "Run current-family normal-success boundary source smoke",
-    "id": "m1222-paper-route-current-family-normal-success-boundary-source-smoke",
+    "command": "see experiments/manifests/m1223-paper-route-current-family-boundary-source-negative-audit.json",
+    "hypothesis": "Audit current-family boundary source negative result",
+    "id": "m1223-paper-route-current-family-boundary-source-negative-audit",
     "kind": "gate",
-    "notes": "Pending: run normal_success_boundary_source_miner on M1212 L3 seed111602 with fresh public seed range 122700-122763",
-    "priority": 12170,
+    "notes": "Pending: classify M1222 action-gap-positive outcome-gap-negative result and choose terminal-boundary longer-horizon stronger-source or synthesis route",
+    "priority": 12180,
     "status": "pending",
-    "success_artifact": "docs/m1222-paper-route-current-family-normal-success-boundary-source-smoke.md"
+    "success_artifact": "docs/m1223-paper-route-current-family-boundary-source-negative-audit.md"
   },
-  "updated_at_utc": "20260528T072038Z"
+  "updated_at_utc": "20260528T072506Z"
 }
