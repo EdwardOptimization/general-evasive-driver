@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1260,
+    "completed": 1261,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json",
+    "command_log": "docs/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1250_capability_separable_trajectory_proposal_source_smoke",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m1250-paper-route-capability-separable-trajectory-proposal-source-smoke"
+    "task_id": "m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.json",
-    "hypothesis": "Audit trajectory proposal source near-miss",
-    "id": "m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit",
-    "kind": "gate",
-    "notes": "Pending: classify M1250 near-miss before threshold changes, training, or another source run",
-    "priority": 12460,
+    "command": "see experiments/manifests/m1252-paper-route-capability-separable-proposal-margin-restoration-smoke.json",
+    "hypothesis": "Run proposal margin-restoration source smoke",
+    "id": "m1252-paper-route-capability-separable-proposal-margin-restoration-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: run one targeted positive-band trajectory proposal source repair before any training",
+    "priority": 12470,
     "status": "pending",
-    "success_artifact": "docs/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.md"
+    "success_artifact": "runs/m1252_capability_separable_proposal_margin_restoration_smoke/summary.json"
   },
-  "updated_at_utc": "20260528T104555Z"
+  "updated_at_utc": "20260528T104941Z"
 }

@@ -138,6 +138,25 @@
     "docs/m1250-paper-route-capability-separable-trajectory-proposal-source-smoke.md",
     "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.md",
+    "decision": "trajectory_proposal_near_miss_admit_targeted_margin_restoration_smoke",
+    "failure_type": "scenario_sampling_failure",
+    "near_miss_subtype": "near_positive_nonviable_source_row",
+    "key_near_miss_pair_id": 5,
+    "key_near_miss_min_cross_regret": 0.0239608733,
+    "key_near_miss_pair_min_best_margin": -0.0018868557,
+    "threshold_relaxation": false,
+    "next_source_repair": "proposal_margin_restoration_smoke",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1252-paper-route-capability-separable-proposal-margin-restoration-smoke.json"
+  },
+  "decision": "trajectory_proposal_near_miss_admit_targeted_margin_restoration_smoke",
   "decision_rule": "M1251 passes if it records the near-miss without threshold relaxation and chooses a targeted source repair or branch pivot before training.",
-  "next_blocker": "m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit"
+  "next_blocker": "m1252-paper-route-capability-separable-proposal-margin-restoration-smoke"
 }

@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M1251 audits M1250 pair 5 near-miss and admits one targeted margin-restoration smoke without threshold relaxation",
+  "failure_criteria": [
+    "audit is missing",
+    "audit ignores M1250 near-miss evidence",
+    "audit lowers acceptance thresholds",
+    "training, PPO, private holdout, promotion, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, proposal labels, oracle outcomes, or search outputs to actor inputs",
+    "do not lower source-positive thresholds after seeing M1250",
+    "do not claim self-identification from near-miss source evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T105212Z",
+  "hypothesis": "M1250's two-sided regret but slightly nonviable row is actionable source evidence, but requires audit before another repair or pivot.",
+  "lineage": {
+    "blocked_by": [
+      "M1250 produced zero accepted source rows but found a two-sided regret row whose own-branch margins were only slightly negative"
+    ],
+    "derived_from": [
+      "m1250-paper-route-capability-separable-trajectory-proposal-source-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1250-paper-route-capability-separable-trajectory-proposal-source-smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m1250-paper-route-capability-separable-trajectory-proposal-source-smoke.md",
+      "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json",
+      "runs/m1250_capability_separable_trajectory_proposal_source_smoke/matched_capability_pairs.csv",
+      "runs/m1250_capability_separable_trajectory_proposal_source_smoke/relocation_candidates.csv"
+    ],
+    "parent_objective": [
+      "audit trajectory proposal near-miss source result before changing thresholds or running another source smoke"
+    ],
+    "supersedes": [
+      "lowering acceptance thresholds after seeing M1250",
+      "starting training before accepted source rows exist"
+    ]
+  },
+  "milestone": "m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit",
+  "next_blocker": "m1252-paper-route-capability-separable-proposal-margin-restoration-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "trajectory_proposal_near_miss_admit_targeted_margin_restoration_smoke",
+  "public_gates": [
+    "M1251 must preserve actor input contract",
+    "M1251 must not train controllers",
+    "M1251 must not run PPO",
+    "M1251 must not use private holdout",
+    "M1251 must not promote",
+    "M1251 must decide whether the M1250 near-miss justifies one targeted source repair or a branch pivot"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "trajectory_proposal_near_miss_admit_targeted_margin_restoration_smoke",
+    "milestone": "m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit",
+    "reason": "M1251 audits M1250 pair 5 near-miss and admits one targeted margin-restoration smoke without threshold relaxation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.md exists",
+    "audit cites M1250 pair 5 near-miss metrics",
+    "audit does not lower source-positive thresholds",
+    "audit chooses targeted repair or pivot",
+    "no training, PPO, promotion, private holdout, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

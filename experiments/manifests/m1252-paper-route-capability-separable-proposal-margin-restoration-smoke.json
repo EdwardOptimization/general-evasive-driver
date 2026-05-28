@@ -1,0 +1,162 @@
+{
+  "id": "m1252-paper-route-capability-separable-proposal-margin-restoration-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.md",
+      "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json",
+      "runs/m1250_capability_separable_trajectory_proposal_source_smoke/matched_capability_pairs.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.json",
+      "configs/m1236_extreme_fault_timing_repair_smoke.json"
+    ],
+    "parent_objective": [
+      "run one targeted no-training margin-restoration source smoke for M1250 trajectory proposal near-miss"
+    ],
+    "derived_from": [
+      "m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit"
+    ],
+    "blocked_by": [
+      "M1251 finds M1250 pair 5 is a two-sided regret near-miss with slightly negative own-branch margins"
+    ],
+    "supersedes": [
+      "lowering source-positive thresholds",
+      "starting training on zero accepted source rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1252-paper-route-capability-separable-proposal-margin-restoration-smoke.md",
+  "public_gates": [
+    "M1252 must preserve actor input contract",
+    "M1252 must not train controllers",
+    "M1252 must not run PPO",
+    "M1252 must not use private holdout",
+    "M1252 must not promote",
+    "M1252 must keep proposal labels and oracle outcomes out of deployable actor inputs",
+    "M1252 must not lower accepted source thresholds"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, proposal labels, oracle outcomes, or search outputs to actor inputs",
+    "do not lower min_cross_regret_margin",
+    "do not accept negative own-branch margins",
+    "do not claim self-identification from source construction"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_capability_separable_trajectory_proposal_source",
+    "evidence_axis": "S_proposal_margin_restoration_smoke",
+    "evidence_increment": "tests one targeted positive-band source repair for the M1250 trajectory proposal near-miss",
+    "claim_scope": "infrastructure/source-shape smoke only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if actor checksum changes",
+      "stop if proposal labels enter actor observation",
+      "stop if accepted source thresholds are relaxed",
+      "stop after this targeted repair if accepted rows remain zero"
+    ],
+    "fallback_plan": [
+      "if accepted rows appear, route to compact source corpus construction and exact sanity gates",
+      "if accepted rows remain zero, write source-variable audit before another source run"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1251 admits exactly one targeted margin-restoration repair after M1250 near-miss",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "proposal margin-restoration source smoke",
+    "admission_evidence": [
+      "M1251 selects one targeted no-training repair because M1250 pair 5 is near-positive but slightly nonviable"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1252 run artifacts",
+      "M1252 result docs",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "source result is classified",
+      "accepted separable pairs are reported",
+      "threshold and actor-contract guardrails are reported"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1252 constructs proposal source candidates offline and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If M1252 remains zero-accepted, stop this source variable and audit before another run.",
+    "allowed_claims": [
+      "proposal margin-restoration source-construction smoke result",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A positive near-zero viability-band target with slightly richer trajectory proposals can turn M1250's near-miss into accepted diagnostic source rows without threshold relaxation.",
+  "success_criteria": [
+    "runs/m1252_capability_separable_proposal_margin_restoration_smoke/summary.json exists",
+    "trajectory_proposals > 0",
+    "trajectory_proposal_rollouts > 0",
+    "accepted_separable_pairs is reported",
+    "min_cross_regret_margin remains 0.02",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "labels_enter_actor_input == false",
+    "private holdout remains unused",
+    "no actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "proposal source cannot produce rollouts",
+    "accepted thresholds are lowered",
+    "actor parameters change",
+    "proposal labels or oracle outcomes enter actor observations",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_separable_source_constructor --checkpoint runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --config configs/m1236_extreme_fault_timing_repair_smoke.json --pairing-mode cross_fault --seed-start 124600 --seed-count 4 --max-pairs 8 --max-pairs-per-seed 4 --max-pairs-per-family-pair 8 --candidate-mode trajectory_proposal --sequence-length 4 --proposal-count-per-condition 32 --proposal-seed 125200 --proposal-steer-scale 0.45 --proposal-brake-scale 0.45 --proposal-throttle-scale 0.25 --source-window-mode viability_band_relocation --target-min-best-margin 0.005 --target-max-best-margin 0.08 --max-relocation-candidates 16 --fine-relocation --fine-parent-count 1 --max-continuation-steps 18 --min-best-action-l2 0.12 --min-cross-regret-margin 0.02 --device auto --run-dir runs/m1252_capability_separable_proposal_margin_restoration_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1252_capability_separable_proposal_margin_restoration_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1252-paper-route-capability-separable-proposal-margin-restoration-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.md",
+    "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json"
+  ],
+  "decision_rule": "M1252 passes as infrastructure if proposal candidates and rollouts are produced without actor mutation, training, PPO, promotion, private holdout, actor-input expansion, or threshold relaxation. Accepted rows remain diagnostic source evidence only.",
+  "next_blocker": "m1252-paper-route-capability-separable-proposal-margin-restoration-smoke"
+}

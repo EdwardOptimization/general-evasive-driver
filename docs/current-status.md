@@ -115,7 +115,33 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit
+m1252-paper-route-capability-separable-proposal-margin-restoration-smoke
+```
+
+M1251 completed capability-separable trajectory proposal near-miss audit:
+
+```text
+artifact: docs/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.md
+decision: trajectory_proposal_near_miss_admit_targeted_margin_restoration_smoke
+subtype: near_positive_nonviable_source_row
+```
+
+M1251 conclusion:
+
+```text
+M1250 pair 5 is an actionable near-miss: two-sided regret passes thresholds,
+but own-branch viability is slightly negative. Do not lower thresholds. Run one
+targeted no-training positive-band margin-restoration smoke.
+```
+
+Next task:
+
+```text
+artifact: runs/m1252_capability_separable_proposal_margin_restoration_smoke/summary.json
+manifest: experiments/manifests/m1252-paper-route-capability-separable-proposal-margin-restoration-smoke.json
+goal: run one targeted trajectory-proposal margin-restoration source smoke
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         threshold relaxation, self-identification or paper-level claims
 ```
 
 M1250 completed capability-separable trajectory proposal source smoke:

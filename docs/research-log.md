@@ -18020,3 +18020,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.json`.
 - decision: `trajectory_proposal_source_near_miss_route_to_result_audit`
 - next: `m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit`
+
+## 20260528T104941Z - m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.md`
+- audited evidence: M1250 pair 5 passes the action separation and two-sided regret thresholds but remains slightly nonviable (`pair_min_best_margin=-0.0018868557`).
+- classification: `near_positive_nonviable_source_row` under `scenario_sampling_failure`.
+- threshold policy: no source-positive threshold relaxation; negative own-branch margins remain unacceptable and `min_cross_regret_margin` remains `0.02`.
+- selected next step: exactly one targeted no-training proposal margin-restoration smoke with a small positive viability-band target.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, self-ID claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1252-paper-route-capability-separable-proposal-margin-restoration-smoke.json`.
+- decision: `trajectory_proposal_near_miss_admit_targeted_margin_restoration_smoke`
+- next: `m1252-paper-route-capability-separable-proposal-margin-restoration-smoke`
