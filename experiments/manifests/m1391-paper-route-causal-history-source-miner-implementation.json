@@ -1,0 +1,154 @@
+{
+  "id": "m1391-paper-route-causal-history-source-miner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1390-paper-route-causal-history-necessity-task-design.md",
+      "runs/m1375_promoted_base_source_rich_public_wave/reset_only_rows.csv",
+      "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1390-paper-route-causal-history-necessity-task-design.json"
+    ],
+    "parent_objective": [
+      "materialize no-training matched-current older-history source candidates before corpus export or training"
+    ],
+    "derived_from": [
+      "m1390-paper-route-causal-history-necessity-task-design"
+    ],
+    "blocked_by": [
+      "M1390 requires causal history-necessity source materialization before new profile scaling or training"
+    ],
+    "supersedes": [
+      "running another blind history-profile repeat",
+      "exporting a temporal corpus from seed-thin M1379 rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1391-paper-route-causal-history-source-miner-implementation.md",
+  "public_gates": [
+    "M1391 must implement or run a no-training public source miner/smoke",
+    "M1391 must report matched-current distance histograms and source diversity",
+    "M1391 must report whether structural smoke thresholds are met",
+    "M1391 must not train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not claim level3 self-identification",
+    "do not relax matching thresholds after seeing results"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_necessity_task_design",
+    "evidence_axis": "G_causal_history_source_materialization",
+    "evidence_increment": "implements or runs the first no-training source materialization for matched-current older-history causal tasks",
+    "claim_scope": "infrastructure/source smoke only; no training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if source mining cannot produce matched-current candidates",
+      "stop if current-frame matching cannot be measured",
+      "stop if source-diversity metrics are omitted",
+      "stop if implementation requires actor-input expansion"
+    ],
+    "fallback_plan": [
+      "route to broader source sampling if too few candidates are found",
+      "route to simulator/task extension design if current artifacts cannot express same-current older-history ambiguity",
+      "route to source-selection redesign if candidates are source-narrow",
+      "route to branch synthesis if causal source materialization is infeasible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "no-training causal-history source miner implementation",
+    "admission_evidence": [
+      "M1390 defines matched-current older-history task families and thresholds",
+      "M1375/M1379 provide public source-rich artifacts but are not sufficient for corpus export",
+      "M1389 blocks more blind profile scaling"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export a training corpus"
+    ],
+    "allowed_updates": [
+      "source miner implementation or smoke command",
+      "summary artifacts under runs/",
+      "M1391 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "source candidates are materialized or infeasibility is classified",
+      "matching-distance and source-diversity metrics are reported",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1391 must report current-frame matching and cannot count rows that fail same-current or matched-current constraints as history-necessity evidence.",
+    "history_necessity_tests": [
+      "matched_current_candidate_selection",
+      "same_recent_window_different_older_history_candidate_selection",
+      "source_diversity_summary"
+    ],
+    "temporal_evidence_window": "No-training source materialization over public M1375/M1379 artifacts and M1362 public-base checkpoint.",
+    "negative_result_policy": "If source candidates are too few or source-narrow, record the negative and route to broader source/task redesign before training.",
+    "allowed_claims": [
+      "source miner implementation or smoke result",
+      "no promotion, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-training source miner can materialize matched-current older-history candidates and source-diversity diagnostics for the causal history-necessity branch.",
+  "success_criteria": [
+    "source miner implementation or smoke artifact exists",
+    "matching-distance histograms are reported",
+    "source-diversity metrics are reported",
+    "result chooses next route without training, PPO, promotion, private holdout, training corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "source miner artifact is missing",
+    "matching distances are not measured",
+    "source diversity is not measured",
+    "result routes directly to training or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "implement or run no-training causal history source miner/smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1391_causal_history_source_miner/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1390-paper-route-causal-history-necessity-task-design.md",
+    "runs/m1375_promoted_base_source_rich_public_wave/reset_only_rows.csv",
+    "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json"
+  ],
+  "decision_rule": "M1391 passes structurally if it materializes or cleanly rejects no-training matched-current older-history candidates with matching and source-diversity metrics.",
+  "next_blocker": "m1391-paper-route-causal-history-source-miner-implementation"
+}

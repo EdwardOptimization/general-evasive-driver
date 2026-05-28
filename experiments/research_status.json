@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1399,
+    "completed": 1400,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1389-paper-route-history-profile-three-seed-public-pilot-result-audit.md",
+    "command_log": "docs/m1390-paper-route-causal-history-necessity-task-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1389-paper-route-history-profile-three-seed-public-pilot-result-audit"
+    "task_id": "m1390-paper-route-causal-history-necessity-task-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1390-paper-route-causal-history-necessity-task-design.json",
-    "hypothesis": "A causal history-necessity task/gate family can be designed to test history dependence directly after standard profile comparison fails to expose it.",
-    "id": "m1390-paper-route-causal-history-necessity-task-design",
-    "kind": "gate",
-    "notes": "Pending: design causal history-necessity tasks/gates before new mining, training, private holdout, or claim expansion",
-    "priority": 13850,
+    "command": "see experiments/manifests/m1391-paper-route-causal-history-source-miner-implementation.json",
+    "hypothesis": "A no-training source miner can materialize matched-current older-history candidates and source-diversity diagnostics for the causal history-necessity branch.",
+    "id": "m1391-paper-route-causal-history-source-miner-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement or run no-training causal-history source miner/smoke before corpus export, training, or claim expansion",
+    "priority": 13860,
     "status": "pending",
-    "success_artifact": "docs/m1390-paper-route-causal-history-necessity-task-design.md"
+    "success_artifact": "runs/m1391_causal_history_source_miner/summary.json"
   },
-  "updated_at_utc": "20260529T010000Z"
+  "updated_at_utc": "20260529T011000Z"
 }

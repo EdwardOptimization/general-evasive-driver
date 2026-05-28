@@ -20476,3 +20476,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level architecture-ranking claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1390-paper-route-causal-history-necessity-task-design.json`.
 - next: `m1390-paper-route-causal-history-necessity-task-design`
+
+## 20260529T011000Z - m1390-paper-route-causal-history-necessity-task-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1390-paper-route-causal-history-necessity-task-design.md`
+- decision: `causal_history_necessity_task_design_admit_source_miner_implementation`
+- task families: matched-current older-history ambiguity, warmup-latched capability identification, tail-aligned critical-window wrong history, and source-rich temporal sequence diagnostics.
+- primary route: materialize Task A first, using no-training matched-current older-history source mining before corpus export, training, PPO, private holdout, or claim expansion.
+- controls required: current-tiled controls where profiles are compared, corrected reset-control for online recurrent policies, same-current/recent-window matching, delayed/wrong/older-history interventions, and zero-current-response positive control.
+- source thresholds: structural smoke requires `candidate_rows >= 200`, `matched_current_pairs >= 80`, `unique_source_seeds >= 12`, and `unique_fault_or_capability_pairs >= 6`; public diagnostic positivity requires `causal_history_positive_rows >= 48`, `accepted_seeds >= 12`, `accepted_fault_or_capability_pairs >= 8`, `accepted_scenario_buckets >= 4`, and `accepted_intervention_families >= 2`.
+- interpretation: action distance remains a screen; accepted self-ID evidence must be outcome-grounded and source-diverse. M1379 temporal positives remain useful diagnostics but are seed-thin and not corpus-export evidence.
+- guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1391-paper-route-causal-history-source-miner-implementation.json`.
+- next: `m1391-paper-route-causal-history-source-miner-implementation`

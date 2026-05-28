@@ -16,22 +16,38 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1389-paper-route-history-profile-three-seed-public-pilot-result-audit
+m1390-paper-route-causal-history-necessity-task-design
 ```
 
 Current next task:
 
 ```text
-m1390-paper-route-causal-history-necessity-task-design
+m1391-paper-route-causal-history-source-miner-implementation
 ```
 
-M1389 audited the three-seed fixed-budget history-profile public pilot and
+M1390 designed the causal history-necessity task/gate family after M1389
 pivoted away from blind profile scaling. The
 current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1390 conclusion:
+
+```text
+decision: causal_history_necessity_task_design_admit_source_miner_implementation
+primary_next_task_family: matched_current_older_history_ambiguity
+next: m1391-paper-route-causal-history-source-miner-implementation
+```
+
+M1390 defines four task families: matched-current older-history ambiguity,
+warmup-latched capability identification, tail-aligned critical-window wrong
+history, and source-rich temporal sequence diagnostics. The next concrete step
+is M1391: implement or run a no-training public source miner/smoke that
+materializes matched-current older-history candidate rows with matching-distance
+histograms and source-diversity metrics. It must not train, run PPO, promote,
+use private holdout, export a training corpus, or change actor inputs.
 
 M1389 conclusion:
 
