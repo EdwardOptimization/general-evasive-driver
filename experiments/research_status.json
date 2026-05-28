@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1255,
+    "completed": 1256,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1245-paper-route-capability-separable-source-window-audit.md",
+    "command_log": "runs/m1246_capability_separable_viability_band_relocation_smoke/summary.json",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1246_capability_separable_viability_band_relocation_smoke",
     "status": "completed",
-    "task_id": "m1245-paper-route-capability-separable-source-window-audit"
+    "task_id": "m1246-paper-route-capability-separable-viability-band-relocation-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1246-paper-route-capability-separable-viability-band-relocation-smoke.json",
-    "hypothesis": "Run capability-separable viability-band relocation smoke",
-    "id": "m1246-paper-route-capability-separable-viability-band-relocation-smoke",
+    "command": "see experiments/manifests/m1247-paper-route-capability-separable-fine-relocation-calibration-smoke.json",
+    "hypothesis": "Run capability-separable fine relocation calibration smoke",
+    "id": "m1247-paper-route-capability-separable-fine-relocation-calibration-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: implement and run no-training relocation smoke that targets both-hidden-condition near-boundary viable source rows",
-    "priority": 12410,
+    "notes": "Pending: fine-calibrate relocation around near-positive rows before actor self-ID tests or training",
+    "priority": 12420,
     "status": "pending",
-    "success_artifact": "runs/m1246_capability_separable_viability_band_relocation_smoke/summary.json"
+    "success_artifact": "runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json"
   },
-  "updated_at_utc": "20260528T093601Z"
+  "updated_at_utc": "20260528T100830Z"
 }

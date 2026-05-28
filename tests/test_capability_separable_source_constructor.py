@@ -4,7 +4,12 @@ from autodrift.capability_separable_source_constructor import (
     build_short_sequence_candidates,
     classify_capability_separable_result,
     evaluate_action_separability,
+    viability_band_geometry_candidates,
 )
+from autodrift.matched_history_outcome_gate import OutcomeSnapshot
+
+import numpy as np
+import torch
 
 
 def _row(condition: str, candidate_id: int, steer: float, margin: float, success: bool = True):
@@ -106,3 +111,37 @@ def test_build_short_sequence_candidates_uses_shared_base_and_deduplicates():
         assert candidate["sequence"].shape == (3, 3)
         assert candidate["candidate_vector"].shape == (9,)
         assert candidate["action_l2_from_shared_base"] >= 0.0
+
+
+class _DummyScenario:
+    obstacle_half_width = 0.7
+
+
+class _DummyEnv:
+    obstacle_scenario = _DummyScenario()
+    obstacle_position = np.asarray([10.0, 1.0], dtype=np.float64)
+
+    def _body_point(self, point):
+        return np.asarray(point, dtype=np.float64)
+
+
+def test_viability_band_geometry_candidates_targets_half_width():
+    snapshot = OutcomeSnapshot(
+        seed=1,
+        step=2,
+        observation=np.zeros(72, dtype=np.float32),
+        hidden=torch.zeros(1, 8),
+        env=_DummyEnv(),
+        info={},
+    )
+
+    candidates = viability_band_geometry_candidates(
+        snapshot,
+        pair_min_best_margin=2.0,
+        target_min_best_margin=0.02,
+        target_max_best_margin=0.5,
+    )
+
+    assert candidates
+    assert any(candidate["half_width"] > 1.0 for candidate in candidates)
+    assert all(candidate["body_x"] > 0.0 for candidate in candidates)

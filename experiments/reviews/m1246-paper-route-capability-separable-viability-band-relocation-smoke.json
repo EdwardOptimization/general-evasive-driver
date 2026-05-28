@@ -1,0 +1,97 @@
+{
+  "decision_reason": "M1246 infrastructure passes with 48 relocated pairs 24 near-boundary viability pairs and one near-positive two-sided cross-regret row but accepted_separable_pairs remains 0",
+  "failure_criteria": [
+    "constructor cannot produce relocated matched pairs",
+    "constructor cannot produce sequence rollouts",
+    "actor parameters change",
+    "hidden or relocation labels enter actor observations",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, relocation labels, or oracle outcomes to actor inputs",
+    "do not claim self-identification from source construction",
+    "do not change simulator fidelity in the same milestone"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T101236Z",
+  "hypothesis": "Relocating matched source geometry into a near-boundary viability band can expose hidden-dynamics action separability that broad matched windows missed.",
+  "lineage": {
+    "blocked_by": [
+      "M1245 finds broad matched windows are bifurcated into nonviable or easy states with no near-boundary viability band"
+    ],
+    "derived_from": [
+      "m1245-paper-route-capability-separable-source-window-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1245-paper-route-capability-separable-source-window-audit.json",
+      "configs/m1236_extreme_fault_timing_repair_smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m1245-paper-route-capability-separable-source-window-audit.md",
+      "runs/m1244_capability_separable_short_sequence_lattice_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "relocate matched source geometry into a near-boundary viability band before action-separability testing"
+    ],
+    "supersedes": [
+      "more sequence-template tuning before source-window repair"
+    ]
+  },
+  "milestone": "m1246-paper-route-capability-separable-viability-band-relocation-smoke",
+  "next_blocker": "m1247-paper-route-capability-separable-fine-relocation-calibration-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "viability_band_relocation_infrastructure_pass_near_positive_route_to_fine_relocation",
+  "public_gates": [
+    "M1246 must preserve actor input contract",
+    "M1246 must not train controllers",
+    "M1246 must not run PPO",
+    "M1246 must not use private holdout",
+    "M1246 must not promote",
+    "M1246 must keep relocation labels and oracle outcomes out of deployable actor inputs",
+    "M1246 must report accepted separable pairs as diagnostic only"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1246_capability_separable_viability_band_relocation_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "viability_band_relocation_infrastructure_pass_near_positive_route_to_fine_relocation",
+    "milestone": "m1246-paper-route-capability-separable-viability-band-relocation-smoke",
+    "reason": "M1246 infrastructure passes with 48 relocated pairs 24 near-boundary viability pairs and one near-positive two-sided cross-regret row but accepted_separable_pairs remains 0",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "relocation source constructor code exists",
+    "focused tests exist",
+    "runs/m1246_capability_separable_viability_band_relocation_smoke/summary.json exists",
+    "relocated matched pairs > 0",
+    "sequence_rollouts > 0",
+    "near_boundary_viability_pairs is reported",
+    "matched fault-family pairs >= 6",
+    "matched seeds >= 6",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "labels_enter_actor_input == false",
+    "private holdout remains unused",
+    "no actor-input contract expansion occurs"
+  ],
+  "type": "infrastructure"
+}

@@ -115,7 +115,47 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1246-paper-route-capability-separable-viability-band-relocation-smoke
+m1247-paper-route-capability-separable-fine-relocation-calibration-smoke
+```
+
+M1246 completed capability-separable viability-band relocation smoke:
+
+```text
+artifact: runs/m1246_capability_separable_viability_band_relocation_smoke/summary.json
+decision: viability_band_relocation_infrastructure_pass_near_positive_route_to_fine_relocation
+result_class: action_divergent_low_regret
+```
+
+M1246 result:
+
+```text
+matched_pair_count: 48
+relocation_candidates: 384
+relocated_matched_pairs: 48
+near_boundary_viability_pairs: 24
+sequence_rollouts: 4128
+accepted_separable_pairs: 0
+best_actions_diverged_pairs: 10
+low_regret_pairs: 47
+```
+
+M1246 conclusion:
+
+```text
+Viability-band relocation fixes the missing-boundary problem, but the coarse
+grid still produces zero accepted source-positive rows. One row has strong
+two-sided cross-regret but best margins are slightly negative, so the next step
+is fine relocation calibration rather than actor training.
+```
+
+Next task:
+
+```text
+artifact: runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json
+manifest: experiments/manifests/m1247-paper-route-capability-separable-fine-relocation-calibration-smoke.json
+goal: fine-calibrate obstacle relocation around near-positive source rows
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1245 completed capability-separable source-window audit:

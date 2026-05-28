@@ -34,6 +34,7 @@ from autodrift.terminal_margin_recovery_anchor import (
     parse_float_list,
 )
 from autodrift.train_ppo import ActorCritic, resolve_device
+from autodrift.wrong_history_boundary_relocation_surface import obstacle_body_geometry, relocate_outcome_snapshot
 
 
 def _as_outcome_snapshot(snapshot: ExtremeSnapshot) -> OutcomeSnapshot:
@@ -45,6 +46,12 @@ def _as_outcome_snapshot(snapshot: ExtremeSnapshot) -> OutcomeSnapshot:
         env=snapshot.env,
         info=dict(snapshot.info),
     )
+
+
+def _ensure_outcome_snapshot(snapshot: ExtremeSnapshot | OutcomeSnapshot) -> OutcomeSnapshot:
+    if isinstance(snapshot, OutcomeSnapshot):
+        return snapshot
+    return _as_outcome_snapshot(snapshot)
 
 
 def _margin(row: dict[str, Any]) -> float:
@@ -269,6 +276,68 @@ def build_short_sequence_candidates(
     return candidates
 
 
+def _pair_min_best_margin(decision: dict[str, Any]) -> float:
+    return min(
+        _finite_float(decision.get("margin_A_best_A")),
+        _finite_float(decision.get("margin_B_best_B")),
+    )
+
+
+def _band_distance(value: float, *, target_min: float, target_max: float) -> float:
+    if not np.isfinite(value):
+        return float("inf")
+    if float(target_min) <= float(value) <= float(target_max):
+        return 0.0
+    return min(abs(float(value) - float(target_min)), abs(float(value) - float(target_max)))
+
+
+def _dedupe_geometry(rows: list[dict[str, float]]) -> list[dict[str, float]]:
+    output: list[dict[str, float]] = []
+    seen: set[tuple[float, float, float]] = set()
+    for row in rows:
+        key = (
+            round(float(row["body_x"]), 6),
+            round(float(row["body_y"]), 6),
+            round(float(row["half_width"]), 6),
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        output.append(row)
+    return output
+
+
+def viability_band_geometry_candidates(
+    snapshot: OutcomeSnapshot,
+    *,
+    pair_min_best_margin: float,
+    target_min_best_margin: float,
+    target_max_best_margin: float,
+    max_half_width: float = 6.0,
+) -> list[dict[str, float]]:
+    body_x, body_y, half_width = obstacle_body_geometry(snapshot)
+    target_mid = 0.5 * (float(target_min_best_margin) + float(target_max_best_margin))
+    half_widths = [float(half_width)]
+    if np.isfinite(pair_min_best_margin):
+        for target in (target_min_best_margin, target_mid, target_max_best_margin):
+            half_widths.append(float(half_width) + float(pair_min_best_margin) - float(target))
+    half_widths.extend([float(half_width) - 0.5, float(half_width) + 0.5, float(half_width) + 1.0])
+    half_widths = [float(np.clip(value, 0.2, max_half_width)) for value in half_widths if np.isfinite(value)]
+
+    body_xs = [float(body_x)]
+    body_ys = [
+        float(body_y),
+        0.0,
+    ]
+    candidates = [
+        {"body_x": body_x_value, "body_y": body_y_value, "half_width": half_width_value}
+        for body_x_value in body_xs
+        for body_y_value in body_ys
+        for half_width_value in half_widths
+    ]
+    return _dedupe_geometry(candidates)
+
+
 def _group_pair_summary(pair_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     groups: dict[str, list[dict[str, Any]]] = {}
     for row in pair_rows:
@@ -395,8 +464,8 @@ def _rollout_action_sequence_override(
 def _evaluate_pair_lattice(
     *,
     pair_id: int,
-    condition_a: ExtremeSnapshot,
-    condition_b: ExtremeSnapshot,
+    condition_a: ExtremeSnapshot | OutcomeSnapshot,
+    condition_b: ExtremeSnapshot | OutcomeSnapshot,
     model: ActorCritic,
     steer_deltas: tuple[float, ...],
     throttle_deltas: tuple[float, ...],
@@ -407,8 +476,10 @@ def _evaluate_pair_lattice(
     max_continuation_steps: int,
     device: torch.device,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    base_a, _ = deterministic_action_from_hidden(model, condition_a.observation, condition_a.hidden, device)
-    base_b, _ = deterministic_action_from_hidden(model, condition_b.observation, condition_b.hidden, device)
+    outcome_a = _ensure_outcome_snapshot(condition_a)
+    outcome_b = _ensure_outcome_snapshot(condition_b)
+    base_a, _ = deterministic_action_from_hidden(model, outcome_a.observation, outcome_a.hidden, device)
+    base_b, _ = deterministic_action_from_hidden(model, outcome_b.observation, outcome_b.hidden, device)
     shared_base = np.clip(0.5 * (np.asarray(base_a, dtype=np.float32) + np.asarray(base_b, dtype=np.float32)), -1.0, 1.0)
     if candidate_mode == "first_action":
         candidates = [
@@ -439,8 +510,6 @@ def _evaluate_pair_lattice(
         raise ValueError(f"unknown candidate_mode {candidate_mode!r}")
     lattice_rows: list[dict[str, Any]] = []
     rollout_rows: list[dict[str, Any]] = []
-    outcome_a = _as_outcome_snapshot(condition_a)
-    outcome_b = _as_outcome_snapshot(condition_b)
     for candidate in candidates:
         sequence = np.asarray(candidate["sequence"], dtype=np.float32)
         first_action = sequence[0]
@@ -520,6 +589,140 @@ def _evaluate_pair_lattice(
     return lattice_rows, rollout_rows
 
 
+def _evaluate_pair_with_relocation_candidates(
+    *,
+    pair_id: int,
+    condition_a: ExtremeSnapshot,
+    condition_b: ExtremeSnapshot,
+    model: ActorCritic,
+    steer_deltas: tuple[float, ...],
+    throttle_deltas: tuple[float, ...],
+    brake_deltas: tuple[float, ...],
+    candidate_mode: str,
+    sequence_length: int,
+    sequence_template_set: str,
+    max_continuation_steps: int,
+    min_best_action_l2: float,
+    min_cross_regret_margin: float,
+    source_window_mode: str,
+    target_min_best_margin: float,
+    target_max_best_margin: float,
+    max_relocation_candidates: int,
+    device: torch.device,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, Any], list[dict[str, Any]]]:
+    original_a = _as_outcome_snapshot(condition_a)
+    original_b = _as_outcome_snapshot(condition_b)
+    original_lattice, original_rollouts = _evaluate_pair_lattice(
+        pair_id=pair_id,
+        condition_a=original_a,
+        condition_b=original_b,
+        model=model,
+        steer_deltas=steer_deltas,
+        throttle_deltas=throttle_deltas,
+        brake_deltas=brake_deltas,
+        candidate_mode=candidate_mode,
+        sequence_length=sequence_length,
+        sequence_template_set=sequence_template_set,
+        max_continuation_steps=max_continuation_steps,
+        device=device,
+    )
+    original_decision = evaluate_action_separability(
+        pair_id=pair_id,
+        candidate_rows=original_rollouts,
+        min_best_action_l2=min_best_action_l2,
+        min_cross_regret_margin=min_cross_regret_margin,
+    )
+    if source_window_mode == "matched_current":
+        return original_lattice, original_rollouts, {**original_decision, "relocation_id": 0}, []
+    if source_window_mode != "viability_band_relocation":
+        raise ValueError(f"unknown source_window_mode {source_window_mode!r}")
+
+    pair_min_best_margin = _pair_min_best_margin(original_decision)
+    geometry_candidates = viability_band_geometry_candidates(
+        original_a,
+        pair_min_best_margin=pair_min_best_margin,
+        target_min_best_margin=target_min_best_margin,
+        target_max_best_margin=target_max_best_margin,
+    )
+    if int(max_relocation_candidates) > 0:
+        geometry_candidates = geometry_candidates[: int(max_relocation_candidates)]
+    relocation_rows: list[dict[str, Any]] = []
+    evaluated: list[tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]]] = []
+    for relocation_id, geometry in enumerate(geometry_candidates):
+        relocated_a = relocate_outcome_snapshot(
+            original_a,
+            body_longitudinal=float(geometry["body_x"]),
+            body_lateral=float(geometry["body_y"]),
+            half_width=float(geometry["half_width"]),
+        )
+        relocated_b = relocate_outcome_snapshot(
+            original_b,
+            body_longitudinal=float(geometry["body_x"]),
+            body_lateral=float(geometry["body_y"]),
+            half_width=float(geometry["half_width"]),
+        )
+        lattice_rows, rollout_rows = _evaluate_pair_lattice(
+            pair_id=pair_id,
+            condition_a=relocated_a,
+            condition_b=relocated_b,
+            model=model,
+            steer_deltas=steer_deltas,
+            throttle_deltas=throttle_deltas,
+            brake_deltas=brake_deltas,
+            candidate_mode=candidate_mode,
+            sequence_length=sequence_length,
+            sequence_template_set=sequence_template_set,
+            max_continuation_steps=max_continuation_steps,
+            device=device,
+        )
+        decision = evaluate_action_separability(
+            pair_id=pair_id,
+            candidate_rows=rollout_rows,
+            min_best_action_l2=min_best_action_l2,
+            min_cross_regret_margin=min_cross_regret_margin,
+        )
+        relocated_min_margin = _pair_min_best_margin(decision)
+        near_boundary = bool(
+            np.isfinite(relocated_min_margin)
+            and float(target_min_best_margin) <= relocated_min_margin <= float(target_max_best_margin)
+            and bool(decision.get("best_A_success", False))
+            and bool(decision.get("best_B_success", False))
+        )
+        band_distance = _band_distance(
+            relocated_min_margin,
+            target_min=target_min_best_margin,
+            target_max=target_max_best_margin,
+        )
+        relocation_decision = {
+            **decision,
+            "relocation_id": int(relocation_id),
+            "relocated_obstacle_body_x": float(geometry["body_x"]),
+            "relocated_obstacle_body_y": float(geometry["body_y"]),
+            "relocated_obstacle_half_width": float(geometry["half_width"]),
+            "pair_min_best_margin": relocated_min_margin,
+            "near_boundary_viability": near_boundary,
+            "band_distance": band_distance,
+            "source_pair_min_best_margin": pair_min_best_margin,
+        }
+        relocation_rows.append(relocation_decision)
+        evaluated.append((relocation_decision, lattice_rows, rollout_rows, relocation_decision))
+        if bool(relocation_decision.get("accepted", False)):
+            break
+
+    if not evaluated:
+        return original_lattice, original_rollouts, {**original_decision, "relocation_id": 0}, relocation_rows
+    best_decision, best_lattice, best_rollouts, _ = min(
+        evaluated,
+        key=lambda item: (
+            not bool(item[0].get("near_boundary_viability", False)),
+            not bool(item[0].get("accepted", False)),
+            float(item[0].get("band_distance", float("inf"))),
+            -float(item[0].get("best_action_l2", 0.0)),
+        ),
+    )
+    return best_lattice, best_rollouts, best_decision, relocation_rows
+
+
 def run_capability_separable_source_constructor(
     *,
     checkpoint_path: Path,
@@ -541,6 +744,10 @@ def run_capability_separable_source_constructor(
     candidate_mode: str = "first_action",
     sequence_length: int = 1,
     sequence_template_set: str = "steer_brake_pulses",
+    source_window_mode: str = "matched_current",
+    target_min_best_margin: float = 0.02,
+    target_max_best_margin: float = 0.5,
+    max_relocation_candidates: int = 8,
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     config = load_scenario_config(config_path)
@@ -647,6 +854,7 @@ def run_capability_separable_source_constructor(
     pair_rows: list[dict[str, Any]] = []
     lattice_rows: list[dict[str, Any]] = []
     action_rollout_rows: list[dict[str, Any]] = []
+    relocation_rows: list[dict[str, Any]] = []
     accepted_rows: list[dict[str, Any]] = []
     rejected_rows: list[dict[str, Any]] = []
     for pair_id, candidate in enumerate(selected_pairs):
@@ -654,7 +862,7 @@ def run_capability_separable_source_constructor(
         matched = candidate["condition_B"]
         match_distance = float(candidate["match_distance"])
         pairing_rule = str(candidate["pairing_rule"])
-        pair_lattice_rows, pair_rollout_rows = _evaluate_pair_lattice(
+        pair_lattice_rows, pair_rollout_rows, decision, pair_relocation_rows = _evaluate_pair_with_relocation_candidates(
             pair_id=pair_id,
             condition_a=snapshot,
             condition_b=matched,
@@ -666,13 +874,13 @@ def run_capability_separable_source_constructor(
             sequence_length=sequence_length,
             sequence_template_set=sequence_template_set,
             max_continuation_steps=max_continuation_steps,
-            device=resolved_device,
-        )
-        decision = evaluate_action_separability(
-            pair_id=pair_id,
-            candidate_rows=pair_rollout_rows,
             min_best_action_l2=min_best_action_l2,
             min_cross_regret_margin=min_cross_regret_margin,
+            source_window_mode=source_window_mode,
+            target_min_best_margin=target_min_best_margin,
+            target_max_best_margin=target_max_best_margin,
+            max_relocation_candidates=max_relocation_candidates,
+            device=resolved_device,
         )
         base_pair = {
             "pair_id": int(pair_id),
@@ -699,6 +907,7 @@ def run_capability_separable_source_constructor(
         pair_rows.append(pair_row)
         lattice_rows.extend(pair_lattice_rows)
         action_rollout_rows.extend(pair_rollout_rows)
+        relocation_rows.extend({**base_pair, **row} for row in pair_relocation_rows)
         if bool(decision.get("accepted", False)):
             accepted_rows.append(pair_row)
         else:
@@ -716,6 +925,7 @@ def run_capability_separable_source_constructor(
     )
     unique_family_pairs = {str(row.get("fault_family_pair", "")) for row in pair_rows}
     matched_seeds = {int(row.get("seed", -1)) for row in pair_rows}
+    near_boundary_viability_pairs = sum(1 for row in pair_rows if bool(row.get("near_boundary_viability", False)))
     result_class = classify_capability_separable_result(
         matched_pair_count=len(pair_rows),
         action_rollouts=len(action_rollout_rows),
@@ -733,6 +943,11 @@ def run_capability_separable_source_constructor(
     if candidate_mode == "short_sequence":
         write_csv_rows(run_dir / "sequence_lattice.csv", lattice_rows)
         write_csv_rows(run_dir / "sequence_rollouts.csv", action_rollout_rows)
+    write_csv_rows(run_dir / "relocation_candidates.csv", relocation_rows)
+    write_csv_rows(
+        run_dir / "relocated_source_pairs.csv",
+        pair_rows if source_window_mode == "viability_band_relocation" else [],
+    )
     write_csv_rows(run_dir / "accepted_separable_pairs.csv", accepted_rows)
     write_csv_rows(run_dir / "rejected_pairs.csv", [*rejected_rows, *unmatched_rows])
     write_csv_rows(run_dir / "fault_family_pair_summary.csv", _group_pair_summary(pair_rows))
@@ -755,6 +970,10 @@ def run_capability_separable_source_constructor(
         "candidate_mode": candidate_mode,
         "sequence_length": int(sequence_length),
         "sequence_template_set": sequence_template_set,
+        "source_window_mode": source_window_mode,
+        "target_min_best_margin": float(target_min_best_margin),
+        "target_max_best_margin": float(target_max_best_margin),
+        "max_relocation_candidates": int(max_relocation_candidates),
         "min_best_action_l2": float(min_best_action_l2),
         "min_cross_regret_margin": float(min_cross_regret_margin),
         "scenario_count": int(len(scenario_rows)),
@@ -768,6 +987,9 @@ def run_capability_separable_source_constructor(
         "sequence_rollouts": int(len(action_rollout_rows)) if candidate_mode == "short_sequence" else 0,
         "accepted_separable_pairs": int(len(accepted_rows)),
         "rejected_pairs": int(len(rejected_rows)),
+        "relocation_candidates": int(len(relocation_rows)),
+        "relocated_matched_pairs": int(len(pair_rows)) if source_window_mode == "viability_band_relocation" else 0,
+        "near_boundary_viability_pairs": int(near_boundary_viability_pairs),
         "best_actions_diverged_pairs": int(best_actions_diverged_pairs),
         "low_regret_pairs": int(low_regret_pairs),
         "unique_matched_fault_family_pairs": int(len(unique_family_pairs)),
@@ -786,6 +1008,8 @@ def run_capability_separable_source_constructor(
         "matched_capability_pairs_csv": run_dir / "matched_capability_pairs.csv",
         "action_lattice_csv": run_dir / "action_lattice.csv",
         "action_rollouts_csv": run_dir / "action_rollouts.csv",
+        "relocation_candidates_csv": run_dir / "relocation_candidates.csv",
+        "relocated_source_pairs_csv": run_dir / "relocated_source_pairs.csv",
         "accepted_separable_pairs_csv": run_dir / "accepted_separable_pairs.csv",
         "rejected_pairs_csv": run_dir / "rejected_pairs.csv",
         "fault_family_pair_summary_csv": run_dir / "fault_family_pair_summary.csv",
@@ -812,6 +1036,14 @@ def main() -> None:
     parser.add_argument("--candidate-mode", choices=["first_action", "short_sequence"], default="first_action")
     parser.add_argument("--sequence-length", type=int, default=1)
     parser.add_argument("--sequence-template-set", choices=["steer_brake_pulses"], default="steer_brake_pulses")
+    parser.add_argument(
+        "--source-window-mode",
+        choices=["matched_current", "viability_band_relocation"],
+        default="matched_current",
+    )
+    parser.add_argument("--target-min-best-margin", type=float, default=0.02)
+    parser.add_argument("--target-max-best-margin", type=float, default=0.5)
+    parser.add_argument("--max-relocation-candidates", type=int, default=8)
     parser.add_argument("--min-best-action-l2", type=float, default=0.12)
     parser.add_argument("--min-cross-regret-margin", type=float, default=0.02)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
@@ -835,6 +1067,10 @@ def main() -> None:
         candidate_mode=args.candidate_mode,
         sequence_length=args.sequence_length,
         sequence_template_set=args.sequence_template_set,
+        source_window_mode=args.source_window_mode,
+        target_min_best_margin=args.target_min_best_margin,
+        target_max_best_margin=args.target_max_best_margin,
+        max_relocation_candidates=args.max_relocation_candidates,
         pairing_mode=args.pairing_mode,
         device=args.device,
         run_dir=run_dir,

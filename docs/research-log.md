@@ -17941,3 +17941,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1246-paper-route-capability-separable-viability-band-relocation-smoke.json`.
 - decision: `source_window_audit_select_viability_band_relocation_smoke`
 - next: `m1246-paper-route-capability-separable-viability-band-relocation-smoke`
+
+## 20260528T100830Z - m1246-paper-route-capability-separable-viability-band-relocation-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1246_capability_separable_viability_band_relocation_smoke/summary.json`
+- implementation: added bounded viability-band relocation source-window mode to `src/autodrift/capability_separable_source_constructor.py`.
+- runtime note: an initial 96-pair unbounded relocation scan was interrupted after about 16 minutes without artifacts; final smoke uses `max_pairs=48` and `max_relocation_candidates=8`.
+- result: infrastructure passes with `relocated_matched_pairs=48`, `relocation_candidates=384`, `sequence_rollouts=4128`, `unique_matched_fault_family_pairs=8`, and `unique_matched_seeds=12`.
+- boundary repair: `near_boundary_viability_pairs=24`, confirming M1245's missing-band diagnosis.
+- source result: `accepted_separable_pairs=0`, `best_actions_diverged_pairs=10`, `low_regret_pairs=47`, `result_class=action_divergent_low_regret`.
+- key near-positive row: pair 5 has `best_action_l2=0.5049752593`, `cross_regret_A=0.2107246264`, `cross_regret_B=0.0201005052`, but best margins are slightly negative (`-0.0040640062`, `-0.0048001855`).
+- guardrail: actor parameters unchanged; no labels entered actor inputs; no training, PPO, promotion, private holdout, actor-input expansion, self-ID claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1247-paper-route-capability-separable-fine-relocation-calibration-smoke.json`.
+- decision: `viability_band_relocation_infrastructure_pass_near_positive_route_to_fine_relocation`
+- next: `m1247-paper-route-capability-separable-fine-relocation-calibration-smoke`
