@@ -115,8 +115,33 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1211-paper-route-corrected-profile-repeat-design
+m1212-paper-route-corrected-profile-repeat-run
 ```
+
+M1211 completed fresh corrected profile repeat design:
+
+```text
+artifact: docs/m1211-paper-route-corrected-profile-repeat-design.md
+decision: corrected_profile_repeat_design_admit_fresh_repeat_run
+```
+
+M1212 is pre-registered:
+
+```text
+profiles: same 8 corrected profiles
+training_seed_base: 111600
+training_seed_offsets: [0, 1, 2]
+eval_seed_base: 121600
+eval_episodes_per_checkpoint: 64
+budget: same 8192-step CPU/sync profile budget
+```
+
+Interpretation thresholds are fixed before the run. L2 history necessity
+requires normal L2 to beat current-tiled control on success and margin without
+meaningful collision regression. L3 recurrent-hidden benefit requires online
+GRU to beat corrected reset-control on success or margin without collision
+regression and in at least 2 of 3 seeds. M1212 still cannot claim self-ID; that
+requires later causal history gates.
 
 M1210 completed the M1209 corrected pilot audit:
 

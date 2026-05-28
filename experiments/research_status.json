@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1220,
+    "completed": 1221,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1210-paper-route-corrected-profile-pilot-result-audit.md",
+    "command_log": "docs/m1211-paper-route-corrected-profile-repeat-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1210-paper-route-corrected-profile-pilot-result-audit"
+    "task_id": "m1211-paper-route-corrected-profile-repeat-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1211-paper-route-corrected-profile-repeat-design.json",
-    "hypothesis": "A fresh public repeat protocol can test whether M1209 L3-family and L2-control trends are stable rather than seed-block artifacts.",
-    "id": "m1211-paper-route-corrected-profile-repeat-design",
+    "command": "see experiments/manifests/m1212-paper-route-corrected-profile-repeat-run.json",
+    "hypothesis": "A fresh public seed block can test whether M1209 corrected profile trends are repeatable without private holdout or tuning.",
+    "id": "m1212-paper-route-corrected-profile-repeat-run",
     "kind": "gate",
-    "notes": "Pending: pre-register fresh public repeat seed/eval blocks and interpretation rules before another corrected profile run",
-    "priority": 12060,
+    "notes": "Pending: run fixed fresh public corrected profile repeat without private holdout promotion tuning or claim expansion",
+    "priority": 12070,
     "status": "pending",
-    "success_artifact": "docs/m1211-paper-route-corrected-profile-repeat-design.md"
+    "success_artifact": "docs/m1212-paper-route-corrected-profile-repeat-run.md"
   },
-  "updated_at_utc": "20260528T063312Z"
+  "updated_at_utc": "20260528T063652Z"
 }

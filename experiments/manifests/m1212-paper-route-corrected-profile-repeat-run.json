@@ -1,0 +1,202 @@
+{
+  "id": "m1212-paper-route-corrected-profile-repeat-run",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "docs/m1211-paper-route-corrected-profile-repeat-design.md",
+      "configs/paper_route_corrected_profiles"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1211-paper-route-corrected-profile-repeat-design.json"
+    ],
+    "parent_objective": [
+      "run a fresh public repeat of the corrected profile pilot using fixed new seed and eval blocks"
+    ],
+    "derived_from": [
+      "m1211-paper-route-corrected-profile-repeat-design"
+    ],
+    "blocked_by": [
+      "M1211 pre-registers the repeat protocol but no fresh repeat has run"
+    ],
+    "supersedes": [
+      "deciding from the single M1209 seed block"
+    ],
+    "invalidates": [
+      "claiming stable L3 or L2 trends without fresh public repeat"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1212-paper-route-corrected-profile-repeat-run.md",
+  "public_gates": [
+    "M1212 may run the fresh corrected public repeat only",
+    "M1212 may run PPO under the fixed M1211 repeat budget and seeds",
+    "M1212 must evaluate every checkpoint on the same fresh public eval seeds",
+    "M1212 must not promote",
+    "M1212 must not use private holdout",
+    "M1212 must not tune profiles based on M1209 or partial M1212 results",
+    "M1212 must not run candidate replay",
+    "M1212 must not add hidden or oracle actor inputs",
+    "M1212 must not claim paper-level evidence or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change profile-specific budgets",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not tune hyperparameters after seeing profile results",
+    "do not add hidden or oracle actor inputs",
+    "do not claim recurrent-belief advantage or self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_corrected_public_pilot_repeat: fresh seed-block stability check",
+    "evidence_increment": "runs a fresh public repeat to test whether M1209 L3-family and L2-control trends are stable",
+    "claim_scope": "public repeat trend only; no promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if any profile cannot run the fixed repeat protocol",
+      "stop if metrics are non-finite",
+      "stop if protocol changes after seeing a profile result",
+      "stop if corrected controls are bypassed during training or evaluation"
+    ],
+    "fallback_plan": [
+      "if the repeat is incomplete, record failures and route to runner or resource audit",
+      "if trends match M1209, route to combined result synthesis",
+      "if trends conflict with M1209, route to seed-fragility audit",
+      "if online GRU beats reset-control under pre-registered thresholds, route to stronger history-causality gates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1211 pre-registered fresh repeat design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "guarded_rl",
+    "stage_objective": "fresh corrected public profile repeat",
+    "admission_evidence": [
+      "M1209 provided public pilot capability evidence with all seed runs complete",
+      "M1210 audited proof/control gates and blocked claim expansion due L2 current-tiled parity and L3 reset parity",
+      "M1211 provides rollback protection by fixing the repeat protocol before training and requiring no promotion private holdout or tuning"
+    ],
+    "blocked_shortcuts": [
+      "do not promote",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "fresh public repeat training runs",
+      "repeat summary artifacts",
+      "M1212 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "all selected profiles run with fixed budgets or failures are recorded",
+      "profile seed rows and aggregate rows are recorded",
+      "finite metric flags are recorded",
+      "claim scope remains public repeat only",
+      "next audit or synthesis milestone is selected"
+    ]
+  },
+  "repeat_protocol": {
+    "profiles": [
+      "L0_current_masked",
+      "L1_one_step",
+      "L2_window_13",
+      "L2_window_13_current_tiled",
+      "L2_window_25",
+      "L2_window_25_current_tiled",
+      "L3_online_gru",
+      "L3_reset_control_corrected"
+    ],
+    "training_seed_base": 111600,
+    "training_seed_offsets": [
+      0,
+      1,
+      2
+    ],
+    "eval_seed_base": 121600,
+    "eval_seed_policy": "same fresh 64 public eval seeds for every profile checkpoint",
+    "total_steps_per_seed": 8192,
+    "rollout_steps": 128,
+    "num_envs": 4,
+    "update_epochs": 2,
+    "minibatch_size": 256,
+    "eval_episodes_per_checkpoint": 64,
+    "device": "cpu",
+    "vector_env_mode": "sync"
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1212 repeats current-tiled controls because M1210 keeps current-frame substitution risk active.",
+    "history_necessity_tests": [
+      "repeat_L2_window_13_vs_current_tiled",
+      "repeat_L2_window_25_vs_current_tiled",
+      "repeat_L3_online_vs_corrected_reset"
+    ],
+    "temporal_evidence_window": "M1212 may test trend repeatability but still cannot prove causal self-ID without later matched-history gates.",
+    "negative_result_policy": "If repeat again shows L2/current-tiled parity or L3/reset parity, record it as negative evidence and route to synthesis or architecture repair.",
+    "allowed_claims": [
+      "fresh public repeat trend",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A fresh public seed block can test whether M1209 corrected profile trends are repeatable without private holdout or tuning.",
+  "success_criteria": [
+    "docs/m1212-paper-route-corrected-profile-repeat-run.md exists",
+    "runs/m1212_corrected_profile_repeat/summary.json exists",
+    "profile_seed_rows.csv exists",
+    "eval_rows.csv exists",
+    "profile_aggregate.csv exists",
+    "all selected profile seed runs complete or failures are recorded",
+    "private holdout remains unused",
+    "no promotion or actor-input contract change occurs",
+    "claims are limited to fresh public repeat trends"
+  ],
+  "failure_criteria": [
+    "profile-specific budgets or hyperparameters change after seeing results",
+    "private holdout is used",
+    "metrics are framed as paper-level evidence",
+    "hidden or oracle actor inputs are introduced",
+    "failed profiles are omitted from summary",
+    "corrected controls are not applied in training or evaluation"
+  ],
+  "commands": [
+    {
+      "name": "run_corrected_profile_repeat",
+      "command": "run fixed fresh public corrected L0/L1/L2/L3 profile repeat with equal seeds budgets and eval protocol"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1212-paper-route-corrected-profile-repeat-run.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m1212_corrected_profile_repeat/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1212_corrected_profile_repeat/profile_seed_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1212_corrected_profile_repeat/profile_aggregate.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "docs/m1211-paper-route-corrected-profile-repeat-design.md",
+    "configs/paper_route_corrected_profiles"
+  ],
+  "decision_rule": "M1212 passes if the fixed fresh public repeat runs or records failures without claim expansion or protocol drift.",
+  "next_blocker": "m1212-paper-route-corrected-profile-repeat-run"
+}

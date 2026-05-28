@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1211 pre-registers a fresh corrected profile repeat using seed base 111600 eval base 121600 identical profiles and budget plus explicit L2/current-tiled and L3/reset interpretation thresholds",
+  "failure_criteria": [
+    "M1211 trains or tunes profiles",
+    "private holdout is used",
+    "profile-specific budgets are changed based on M1209 results",
+    "repeat design omits corrected controls without justification",
+    "self-identification is claimed from public pilot aggregates"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not tune profiles based on M1209",
+    "do not change actor inputs",
+    "do not claim recurrent-hidden benefit before the repeat",
+    "do not claim finite-window history necessity before the repeat"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T063633Z",
+  "hypothesis": "A fresh public repeat protocol can test whether M1209 L3-family and L2-control trends are stable rather than seed-block artifacts.",
+  "lineage": {
+    "blocked_by": [
+      "M1209 trends are seed-fragile and cannot justify longer training or paper-level interpretation without a fresh public repeat"
+    ],
+    "derived_from": [
+      "m1210-paper-route-corrected-profile-pilot-result-audit"
+    ],
+    "invalidates": [
+      "treating M1209 single public seed block as stable architecture evidence"
+    ],
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1210-paper-route-corrected-profile-pilot-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1210-paper-route-corrected-profile-pilot-result-audit.md",
+      "runs/m1209_corrected_profile_pilot/profile_aggregate.csv"
+    ],
+    "parent_objective": [
+      "design a fresh public repeat for corrected profile trends after M1209 seed fragility and control-parity audit"
+    ],
+    "supersedes": [
+      "directly scaling M1209 into longer training"
+    ]
+  },
+  "milestone": "m1211-paper-route-corrected-profile-repeat-design",
+  "next_blocker": "m1212-paper-route-corrected-profile-repeat-run",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "corrected_profile_repeat_design_admit_fresh_repeat_run",
+  "public_gates": [
+    "M1211 may design a repeat protocol only",
+    "M1211 must use a fresh public training seed block and fresh public eval seed block",
+    "M1211 must keep the same corrected profile configs and budget unless a documented resource cap requires a smaller fixed subset",
+    "M1211 must not train controllers",
+    "M1211 must not use private holdout",
+    "M1211 must not tune profiles",
+    "M1211 must not promote",
+    "M1211 must not claim paper-level evidence or self-identification"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1211-paper-route-corrected-profile-repeat-design.md",
+    "clearance_margin_mean": "",
+    "decision": "corrected_profile_repeat_design_admit_fresh_repeat_run",
+    "milestone": "m1211-paper-route-corrected-profile-repeat-design",
+    "reason": "M1211 pre-registers a fresh corrected profile repeat using seed base 111600 eval base 121600 identical profiles and budget plus explicit L2/current-tiled and L3/reset interpretation thresholds",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1211-paper-route-corrected-profile-repeat-design.md exists",
+    "fresh training seed base and eval seed base are fixed",
+    "profile set and budget are fixed",
+    "interpretation rules for repeat outcomes are written",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next repeat-run milestone is selected"
+  ],
+  "type": "gate"
+}

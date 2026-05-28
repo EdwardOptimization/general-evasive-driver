@@ -17353,3 +17353,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1211-paper-route-corrected-profile-repeat-design.json`.
 - decision: `corrected_profile_pilot_audit_route_to_fresh_repeat_design`
 - next: `m1211-paper-route-corrected-profile-repeat-design`
+
+## 20260528T063652Z - m1211-paper-route-corrected-profile-repeat-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1211-paper-route-corrected-profile-repeat-design.md`
+- result: pre-registers fresh corrected profile repeat before any additional training.
+- repeat seed block: training seed base `111600`, offsets `[0, 1, 2]`.
+- repeat eval block: public eval seed base `121600`, `64` episodes per checkpoint.
+- budget: same corrected profile set and same `8192`-step CPU/sync PPO budget as M1209.
+- interpretation rules: L2 finite-window positive requires success and margin advantage over current-tiled without collision regression; L3 recurrent-hidden positive requires online advantage over corrected reset in success or margin without collision regression and in at least 2 of 3 seeds.
+- guardrail: no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, actor-input expansion, self-identification claim, profile superiority claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1212-paper-route-corrected-profile-repeat-run.json`.
+- decision: `corrected_profile_repeat_design_admit_fresh_repeat_run`
+- next: `m1212-paper-route-corrected-profile-repeat-run`
