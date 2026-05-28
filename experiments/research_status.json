@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1385,
+    "completed": 1386,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1375_promoted_base_source_rich_public_wave/summary.json",
+    "command_log": "docs/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1375_promoted_base_source_rich_public_wave",
+    "run_dir": "docs/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.md",
     "status": "completed",
-    "task_id": "m1375-paper-route-promoted-base-source-rich-public-wave"
+    "task_id": "m1376-paper-route-promoted-base-source-rich-public-wave-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.json",
-    "hypothesis": "M1375 can be audited as structurally passing but not source-positive with broad reset-only sensitivity requiring a routed next step",
-    "id": "m1376-paper-route-promoted-base-source-rich-public-wave-result-audit",
+    "command": "see experiments/manifests/m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe.json",
+    "hypothesis": "M1375 reset-only source rows can expose temporal-history dependence for the promoted M1362 base under sequence-level interventions",
+    "id": "m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe",
     "kind": "gate",
-    "notes": "Pending: audit M1375 larger wave; classify 3 accepted rows 1281 reset-only rows and choose temporal/sequence source redesign or other next route without training",
-    "priority": 13710,
+    "notes": "Pending: run no-training sequence intervention probe on M1375 reset-only rows; separate temporal accepted rows from cross-fault accepted rows",
+    "priority": 13720,
     "status": "pending",
-    "success_artifact": "docs/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.md"
+    "success_artifact": "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/summary.json"
   },
-  "updated_at_utc": "20260528T224000Z"
+  "updated_at_utc": "20260528T225000Z"
 }

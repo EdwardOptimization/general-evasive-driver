@@ -1,0 +1,182 @@
+{
+  "id": "m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.md",
+      "runs/m1375_promoted_base_source_rich_public_wave/reset_only_rows.csv",
+      "runs/m1375_promoted_base_source_rich_public_wave/summary.json",
+      "docs/m994-v4-public-base-capability-step-sequence-intervention-probe.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.json",
+      "configs/m991_capability_step_fault_source_wave.json"
+    ],
+    "parent_objective": [
+      "probe sequence-level temporal interventions on M1375 reset-only source rows for the promoted M1362 base"
+    ],
+    "derived_from": [
+      "m1376-paper-route-promoted-base-source-rich-public-wave-result-audit"
+    ],
+    "blocked_by": [
+      "M1375 larger source-rich wave remains cross-fault sparse but has 1281 reset-only rows"
+    ],
+    "supersedes": [
+      "continuing seed-only cross-fault scaling without a new intervention axis",
+      "training directly from sparse M1375 accepted rows",
+      "treating reset-only rows as wrong-history proof"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe.md",
+  "public_gates": [
+    "M1377 must run no-training sequence intervention probe on M1375 reset-only rows",
+    "M1377 must keep actor inputs and checkpoint parameters unchanged",
+    "M1377 must separate temporal accepted rows from cross-fault accepted rows",
+    "M1377 must keep private holdout unused",
+    "M1377 must not export training corpus or run objective updates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not mutate the candidate checkpoint",
+    "do not call temporal-history positives cross-fault self-identification",
+    "do not export an objective corpus without a separate design/audit",
+    "do not claim true high-fidelity per-wheel physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_promoted_base_source_rich_comparison_readiness",
+    "evidence_axis": "G_source_rich_temporal_sequence_probe",
+    "evidence_increment": "tests whether M1375 reset-only rows convert into outcome-relevant temporal sequence evidence for the promoted M1362 base",
+    "claim_scope": "public no-training sequence intervention probe only; no training, corpus export, PPO, promotion, private holdout, high-fidelity, L0/L1/L2/L3, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if sequence artifacts are missing or malformed",
+      "stop if checkpoint or actor parameters change",
+      "stop if private holdout is used",
+      "stop if temporal positives are mislabeled as cross-fault self-identification"
+    ],
+    "fallback_plan": [
+      "if temporal sequence thresholds pass, route to temporal result audit before corpus export",
+      "if temporal positives are sparse, route to source/intervention redesign audit",
+      "if no sequence positives occur, route to distribution/intervention redesign",
+      "if cross-fault sequence positives occur, audit separately before any claim"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1376 admits sequence intervention probe after source-rich cross-fault sparsity",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "source-rich temporal sequence intervention probe",
+    "admission_evidence": [
+      "M1375 accepted wrong-history rows remain sparse",
+      "M1375 reset_only_rows is 1281",
+      "M1376 routes to sequence-level temporal intervention"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "sequence intervention probe artifacts",
+      "M1377 milestone document",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "sequence probe artifacts exist",
+      "accepted temporal and cross-fault rows are separated",
+      "checkpoint and actor contract are unchanged",
+      "result is classified by pre-registered thresholds"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1377 tests temporal history dependence but cannot alone prove level3 anticipatory self-identification.",
+    "history_necessity_tests": [
+      "reset_then_warm and delayed capability variants test temporal continuity",
+      "cross-fault variants are tracked separately from temporal variants",
+      "positive temporal rows must not be described as cross-fault belief proof"
+    ],
+    "temporal_evidence_window": "M1375 reset-only source rows with sequence intervention history lengths 4, 8, and 12.",
+    "negative_result_policy": "If sequence positives are sparse or absent, record the result and route to source/intervention redesign instead of threshold relaxation.",
+    "allowed_claims": [
+      "source-rich public sequence intervention artifact and metric result",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level, L0/L1/L2/L3, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1375 reset-only source rows can expose temporal-history dependence for the promoted M1362 base under sequence-level interventions.",
+  "success_criteria": [
+    "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/summary.json exists",
+    "selected_source_rows > 0",
+    "intervention_rows > 0",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "accepted_temporal_sequence_rows and accepted_cross_fault_sequence_rows are reported separately",
+    "variant and history-length summaries exist"
+  ],
+  "failure_criteria": [
+    "summary or core sequence CSV artifacts are missing",
+    "selected_source_rows or intervention_rows is zero",
+    "actor parameters or actor inputs change",
+    "training, PPO, promotion, private holdout, corpus export, or objective update occurs",
+    "temporal positives are reported as cross-fault self-identification"
+  ],
+  "commands": [
+    {
+      "name": "sequence_intervention_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_step_sequence_intervention_probe --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m991_capability_step_fault_source_wave.json --source-rows runs/m1375_promoted_base_source_rich_public_wave/reset_only_rows.csv --max-source-rows 384 --per-fault-pair-cap 48 --history-lengths 4,8,12 --max-continuation-steps 48 --min-margin-gap 0.012 --min-sequence-action-l2 0.025 --device auto --run-dir runs/m1377_promoted_base_source_rich_sequence_intervention_probe"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/selected_source_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/sequence_intervention_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/accepted_sequence_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/variant_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1377_promoted_base_source_rich_sequence_intervention_probe/history_length_summary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1375_promoted_base_source_rich_public_wave/reset_only_rows.csv",
+    "configs/m991_capability_step_fault_source_wave.json"
+  ],
+  "decision_rule": "M1377 passes structurally if it produces clean no-training sequence intervention artifacts with unchanged actor/checkpoint contract and separates temporal from cross-fault accepted rows.",
+  "next_blocker": "m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe"
+}

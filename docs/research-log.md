@@ -20236,3 +20236,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: larger public coverage mostly scales reset-only rows, not cross-fault wrong-history accepted rows.
 - follow-up manifest: `experiments/manifests/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.json`.
 - next: `m1376-paper-route-promoted-base-source-rich-public-wave-result-audit`
+
+## 20260528T225000Z - m1376-paper-route-promoted-base-source-rich-public-wave-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.md`
+- decision: `promoted_base_source_rich_public_wave_audit_admit_sequence_probe`
+- audited artifact: `runs/m1375_promoted_base_source_rich_public_wave/summary.json`
+- audit conclusion: M1375 is a clean structural larger public source-rich wave but not source-positive for current cross-fault wrong-history swaps.
+- threshold audit: `accepted_rows=3 < 40`, `unique_accepted_fault_families=2 < 4`, `unique_accepted_seeds=2 < 24`.
+- reset-only audit: `1281` reset-only rows provide the next source rows for sequence intervention.
+- next route: run `autodrift.capability_step_sequence_intervention_probe` on M1375 reset-only rows with history lengths `4,8,12`, max source rows `384`, and run dir `runs/m1377_promoted_base_source_rich_sequence_intervention_probe`.
+- guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, finite-window-vs-GRU claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe.json`.
+- next: `m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe`

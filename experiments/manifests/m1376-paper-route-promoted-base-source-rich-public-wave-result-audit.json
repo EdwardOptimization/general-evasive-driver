@@ -2,7 +2,7 @@
   "id": "m1376-paper-route-promoted-base-source-rich-public-wave-result-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -149,6 +149,33 @@
     "runs/m1375_promoted_base_source_rich_public_wave/summary.json",
     "docs/m1375-paper-route-promoted-base-source-rich-public-wave.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.md",
+    "decision": "promoted_base_source_rich_public_wave_audit_admit_sequence_probe",
+    "m1375_result_class": "cross_fault_wrong_sparse",
+    "m1375_accepted_rows": 3,
+    "m1375_reset_only_rows": 1281,
+    "m1375_unique_accepted_seeds": 2,
+    "source_positive_thresholds_passed": false,
+    "interpretation": "larger public wave passes structurally but remains cross-fault sparse with broad reset-only recurrent-state sensitivity",
+    "next_manifest": "experiments/manifests/m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe.json",
+    "planned_run_dir": "runs/m1377_promoted_base_source_rich_sequence_intervention_probe",
+    "planned_source_rows": "runs/m1375_promoted_base_source_rich_public_wave/reset_only_rows.csv",
+    "planned_max_source_rows": 384,
+    "planned_history_lengths": [
+      4,
+      8,
+      12
+    ],
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "high_fidelity_claim_made": false
+  },
+  "decision": "promoted_base_source_rich_public_wave_audit_admit_sequence_probe",
   "decision_rule": "M1376 passes if it audits M1375 source-rich public wave without overclaiming sparse/reset-only evidence and chooses the next public source-rich route before any training, PPO, promotion, or private holdout.",
-  "next_blocker": "m1376-paper-route-promoted-base-source-rich-public-wave-result-audit"
+  "next_blocker": "m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe"
 }

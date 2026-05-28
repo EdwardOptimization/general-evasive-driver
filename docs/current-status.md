@@ -16,17 +16,18 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1375-paper-route-promoted-base-source-rich-public-wave
+m1376-paper-route-promoted-base-source-rich-public-wave-result-audit
 ```
 
 Current next task:
 
 ```text
-m1376-paper-route-promoted-base-source-rich-public-wave-result-audit
+m1377-paper-route-promoted-base-source-rich-sequence-intervention-probe
 ```
 
-M1375 ran the larger no-training promoted-base source-rich public wave. The
-current public-gate base remains M1362 alpha `0.1`:
+M1376 audits M1375 as a clean larger public source-rich wave that is not
+source-positive for current cross-fault wrong-history swaps. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
@@ -82,10 +83,16 @@ M1375 passes structurally but fails the pre-registered source-positive
 interpretation thresholds: `3` accepted rows versus threshold `40`, `2`
 accepted preferred fault families versus threshold `4`, and `2` accepted seeds
 versus threshold `24`. It strongly confirms reset-hidden sensitivity with
-`1281` reset-only rows across `12 / 15` fault-family pair groups. M1376 should
-audit this before any temporal/sequence intervention design, source
-distribution redesign, L0/L1/L2/L3 comparison refresh, PPO continuation,
-promotion, or private-holdout use.
+`1281` reset-only rows across `12 / 15` fault-family pair groups.
+
+M1376 therefore routes to M1377, a no-training sequence intervention probe over
+the M1375 reset-only rows. M1377 should use
+`autodrift.capability_step_sequence_intervention_probe`, history lengths
+`4,8,12`, max source rows `384`, and run dir
+`runs/m1377_promoted_base_source_rich_sequence_intervention_probe`. It must
+separate temporal accepted rows from cross-fault accepted rows and cannot export
+a training corpus, run PPO, promote, use private holdout, change actor inputs,
+or claim level3 self-identification.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true
