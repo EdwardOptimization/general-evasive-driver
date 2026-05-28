@@ -16514,3 +16514,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, replay, objective optimization, mining, private holdout, or actor-input change occurred.
 - decision: `row15_promoted_projection_promote_public_gate_base`
 - next: `m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis`
+
+## 20260528T002100Z - m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis.md`
+- result: closes `row15_promoted_unsafe_margin_projection` after M1158 promotion.
+- current public-gate base: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`.
+- supported claim: public proof-base hardening only.
+- overfit risk: row15-promoted materialized wrong-history margin max remains `-0.000000497`, so immediate PPO is blocked.
+- opened branch: `row15_promoted_margin_slack_surface_refresh`.
+- branch objective: refresh source-diverse current-base protected/preference surfaces with explicit margin-slack coverage before PPO.
+- guardrail: no actor training, PPO, replay, objective optimization, mining, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_projection_post_promotion_open_margin_slack_surface_refresh`
+- next: `m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design`

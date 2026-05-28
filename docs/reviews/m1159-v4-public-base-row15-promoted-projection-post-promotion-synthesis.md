@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T000524Z
+- Generated at UTC: 20260528T000813Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1159 may only synthesize the post-promotion state and choose the next branch. It cannot train actor weights, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or change actor inputs.
+- Promotion decision: row15_promoted_projection_post_promotion_open_margin_slack_surface_refresh
+- Decision reason: M1159 closes row15_promoted_unsafe_margin_projection and opens row15_promoted_margin_slack_surface_refresh to refresh source-diverse current-base proof surfaces before PPO
 
 ## Hypothesis
 
@@ -75,8 +75,19 @@ After M1158 promotion, the next branch should refresh current-base source-divers
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis
+- type: gate
+- checkpoint: docs/m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_projection_post_promotion_open_margin_slack_surface_refresh
+- reason: M1159 closes row15_promoted_unsafe_margin_projection and opens row15_promoted_margin_slack_surface_refresh to refresh source-diverse current-base proof surfaces before PPO
 
 ## Next Blocker
 
-m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis
+m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design

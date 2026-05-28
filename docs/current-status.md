@@ -84,7 +84,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis
+m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -517,6 +517,24 @@ level3_self_identification_claim: false
 M1159 should synthesize the post-promotion state, close
 `row15_promoted_unsafe_margin_projection`, and choose the next branch before
 any PPO, private holdout, mining, or medium-scale training.
+
+M1159 completed that synthesis:
+
+```text
+closed_branch: row15_promoted_unsafe_margin_projection
+opened_branch: row15_promoted_margin_slack_surface_refresh
+current_public_gate_base:
+  runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+supported_claim_scope: public proof-base hardening
+```
+
+Immediate PPO remains blocked. The next branch should refresh source-diverse
+current-base protected/preference surfaces with explicit margin-slack coverage
+so the next objective/replay corpus is not only a thin near-zero row15 repair
+surface.
+
+M1160 should design that refresh only. It must not mine rows, run replay, run
+PPO, promote, use private holdout, or change actor inputs.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1159 may only synthesize the post-promotion state and choose the next branch. It cannot train actor weights, run PPO, run replay, run objective optimization, mine rows, promote, use private holdout, or change actor inputs.",
+  "decision_reason": "M1159 closes row15_promoted_unsafe_margin_projection and opens row15_promoted_margin_slack_surface_refresh to refresh source-diverse current-base proof surfaces before PPO",
   "failure_criteria": [
     "synthesis artifact is missing",
     "next branch decision is ambiguous",
@@ -22,7 +22,7 @@
     "do not start medium PPO before selecting the post-promotion branch"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260528T000524Z",
+  "generated_at_utc": "20260528T000813Z",
   "hypothesis": "After M1158 promotion, the next branch should refresh current-base source-diverse protected/preference surfaces with explicit margin-slack attention before another PPO proposal.",
   "lineage": {
     "blocked_by": [
@@ -54,9 +54,9 @@
     "supersedes": []
   },
   "milestone": "m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis",
-  "next_blocker": "m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis",
+  "next_blocker": "m1160-v4-public-base-row15-promoted-margin-slack-surface-refresh-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "row15_promoted_projection_post_promotion_open_margin_slack_surface_refresh",
   "public_gates": [
     "M1159 must synthesize the promotion and choose the next branch",
     "M1159 must not train actor weights",
@@ -68,7 +68,20 @@
     "M1159 must not use private holdout",
     "M1159 must preserve actor inputs"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_projection_post_promotion_open_margin_slack_surface_refresh",
+    "milestone": "m1159-v4-public-base-row15-promoted-projection-post-promotion-synthesis",
+    "reason": "M1159 closes row15_promoted_unsafe_margin_projection and opens row15_promoted_margin_slack_surface_refresh to refresh source-diverse current-base proof surfaces before PPO",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "synthesis artifact exists",
     "promotion evidence is summarized",
