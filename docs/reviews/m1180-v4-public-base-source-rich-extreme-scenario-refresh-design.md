@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T023426Z
+- Generated at UTC: 20260528T023850Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1180 may only design the source-rich extreme scenario refresh route. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.
+- Promotion decision: source_rich_extreme_scenario_refresh_design_admit_compatibility_audit
+- Decision reason: M1180 designs current-base source-rich extreme scenario refresh and routes first to compatibility audit because old tooling is residual-head based
 
 ## Hypothesis
 
@@ -74,8 +74,19 @@ A source-rich extreme scenario refresh design can address M1179's artifact-only 
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1180-v4-public-base-source-rich-extreme-scenario-refresh-design
+- type: gate
+- checkpoint: docs/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: source_rich_extreme_scenario_refresh_design_admit_compatibility_audit
+- reason: M1180 designs current-base source-rich extreme scenario refresh and routes first to compatibility audit because old tooling is residual-head based
 
 ## Next Blocker
 
-m1180-v4-public-base-source-rich-extreme-scenario-refresh-design
+m1181-v4-public-base-source-rich-route-compatibility-audit

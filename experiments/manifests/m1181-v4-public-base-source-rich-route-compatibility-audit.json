@@ -1,0 +1,156 @@
+{
+  "id": "m1181-v4-public-base-source-rich-route-compatibility-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md",
+      "src/autodrift/v4_extreme_hidden_dynamics_data_route.py",
+      "src/autodrift/v4_low_margin_new_data_route.py",
+      "src/autodrift/v4_boundary_preserving_missing_seed_pair_delta_refresh.py",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.json"
+    ],
+    "parent_objective": [
+      "audit whether existing source-rich v4 tooling can support current public-gate base without residual-head mismatch"
+    ],
+    "derived_from": [
+      "m1180-v4-public-base-source-rich-extreme-scenario-refresh-design"
+    ],
+    "blocked_by": [
+      "existing v4 extreme route tooling was built around M568 actor plus M761 residual head"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "running old M568+M761 source-rich route as current public-base evidence",
+      "starting source-rich mining before compatibility is checked",
+      "mixing residual-head and no-residual policy evidence without an audit"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1181-v4-public-base-source-rich-route-compatibility-audit.md",
+  "public_gates": [
+    "M1181 may inspect existing tooling and configs only",
+    "M1181 must not run mining",
+    "M1181 must not run replay",
+    "M1181 must not train actor weights",
+    "M1181 must not run PPO",
+    "M1181 must not promote",
+    "M1181 must not use private holdout",
+    "M1181 must preserve actor inputs",
+    "M1181 must not convert failed rows into a proof corpus"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run mining",
+    "do not run replay",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert failed rows",
+    "do not claim old M568+M761 route results as current public-base evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_rich_extreme_scenario_surface_refresh",
+    "evidence_axis": "G_audit: current-base source-rich route compatibility",
+    "evidence_increment": "audits whether existing source-rich route tooling can be safely reused under the current public-gate base",
+    "claim_scope": "compatibility audit only; no mining, replay, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if current-base no-residual route requires implementation",
+      "stop if existing route can only support old M568+M761 evidence",
+      "stop if source-rich metadata requirements are missing from reusable tools"
+    ],
+    "fallback_plan": [
+      "if existing tooling supports current base with identity/no-residual mode, route to bounded smoke design",
+      "if not, route to minimal current-base source-rich sampler implementation design",
+      "if metadata is missing, route to instrumentation design first"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1180 admits compatibility audit before source-rich run",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit current public-base compatibility of source-rich route tooling",
+    "admission_evidence": [
+      "M1180 finds existing v4 source-rich tooling expects --residual-head and --alpha",
+      "current public-gate base is M1154 alpha_0_05",
+      "old M825 route used M568+M761 and cannot be assumed current-base evidence"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not run mining",
+      "do not run replay",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "audit document",
+      "next manifest if route is clear",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "reuse vs new implementation decision is explicit",
+      "metadata support is audited",
+      "next no-training route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1181 audits tooling only and adds no behavior evidence.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1181 defines compatibility only.",
+    "negative_result_policy": "If existing tooling is incompatible, route to implementation design instead of forcing a run.",
+    "allowed_claims": [
+      "tooling compatibility audit",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-level claim"
+    ]
+  },
+  "hypothesis": "Existing source-rich v4 route tooling either can be safely reused for the current public-gate base with identity/no-residual behavior, or the audit will identify the minimal current-base implementation needed before any run.",
+  "success_criteria": [
+    "audit artifact exists",
+    "current-base checkpoint compatibility is assessed",
+    "residual-head dependency is assessed",
+    "source-rich metadata support is assessed",
+    "next route is explicit",
+    "no mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "audit recommends running old M568+M761 route as current-base evidence",
+    "audit ignores residual-head mismatch",
+    "next blocker is ambiguous",
+    "mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "audit_source_rich_route_compatibility",
+      "command": "inspect existing source-rich route modules and configs; write docs/m1181-v4-public-base-source-rich-route-compatibility-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1181-v4-public-base-source-rich-route-compatibility-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md"
+  ],
+  "decision_rule": "M1181 may only audit compatibility of existing source-rich route tooling and choose the next route. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
+  "next_blocker": "m1181-v4-public-base-source-rich-route-compatibility-audit"
+}

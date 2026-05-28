@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1188,
+    "completed": 1189,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1179-v4-public-base-stronger-wrong-history-construction-synthesis",
+    "task_id": "m1180-v4-public-base-source-rich-extreme-scenario-refresh-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md",
-    "result_class": "stronger_wrong_history_construction_branch_synthesis_pivot",
-    "decision": "stronger_wrong_history_construction_synthesis_pivot_to_source_rich_extreme_scenario_surface_refresh"
+    "command_log": "docs/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md",
+    "result_class": "source_rich_extreme_scenario_refresh_design_complete",
+    "decision": "source_rich_extreme_scenario_refresh_design_admit_compatibility_audit"
   },
   "next_task": {
-    "id": "m1180-v4-public-base-source-rich-extreme-scenario-refresh-design",
+    "id": "m1181-v4-public-base-source-rich-route-compatibility-audit",
     "status": "pending",
-    "priority": 11750,
+    "priority": 11760,
     "kind": "gate",
-    "hypothesis": "A source-rich extreme scenario refresh design can address M1179's artifact-only limitations by generating current-base data with explicit obstacle geometry, fault/onset/warmup metadata, and separated fidelity classes",
-    "command": "see experiments/manifests/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.json",
-    "success_artifact": "docs/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md",
-    "notes": "Pending: design only; no replay mining actor training PPO promotion private holdout conversion or actor-input change"
+    "hypothesis": "Existing source-rich v4 route tooling either can be safely reused for the current public-gate base with identity/no-residual behavior, or the audit will identify the minimal current-base implementation needed before any run",
+    "command": "see experiments/manifests/m1181-v4-public-base-source-rich-route-compatibility-audit.json",
+    "success_artifact": "docs/m1181-v4-public-base-source-rich-route-compatibility-audit.md",
+    "notes": "Pending: audit only; no replay mining actor training PPO promotion private holdout conversion or actor-input change"
   },
-  "updated_at_utc": "20260528T041000Z"
+  "updated_at_utc": "20260528T042500Z"
 }

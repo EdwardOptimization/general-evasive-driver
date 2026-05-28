@@ -84,42 +84,40 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1180-v4-public-base-source-rich-extreme-scenario-refresh-design
+m1181-v4-public-base-source-rich-route-compatibility-audit
 ```
 
-M1179 synthesized and closed the `stronger_wrong_history_construction` branch:
+M1180 designed the active branch:
 
 ```text
-artifact: docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md
-decision: stronger_wrong_history_construction_synthesis_pivot_to_source_rich_extreme_scenario_surface_refresh
+branch: source_rich_extreme_scenario_surface_refresh
+artifact: docs/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md
+decision: source_rich_extreme_scenario_refresh_design_admit_compatibility_audit
 ```
 
-Main finding:
+The route requires source obstacle geometry, target obstacle geometry, fault
+family/fidelity class, onset buckets, warm-up/probing modes, hidden dynamics
+severity, current-frame match metrics, action divergence, and terminal-margin
+sensitivity.
+
+M1180 explicitly separates:
 
 ```text
-artifact-only action-divergent filtering increased accepted row count on the old active set,
-but did not discover a broad source-diverse wrong-history proof surface.
+current_model_fault:
+  global_mu_drop, front/rear lateral authority drop, brake authority drop,
+  steering fault, mass/CG shift
+current_model_proxy:
+  drive authority drop, delay/noise, combined faults
+future_only:
+  wheel blowout, split-mu, stuck caliper, halfshaft loss, wheel-speed sensor
+  faults, asymmetric steering pull
 ```
 
-Evidence:
-
-```text
-M1175 selected rows: 240 across 17 physical pairs
-M1177 raw accepted wrong rows: 78
-M1177 balanced accepted wrong rows: 38
-M1177 accepted physical pairs: 2
-M1177 accepted targets: 1
-source_obstacle_bucket in M1175: x=nan|y=nan
-```
-
-The active branch is now `source_rich_extreme_scenario_surface_refresh`.
-M1180 should design a current-public-base data route that records source
-obstacle geometry, fault family/fidelity class, onset, warm-up/probing mode,
-hidden dynamics severity, current-frame match metrics, action divergence, and
-terminal-margin sensitivity. It must keep current-model faults, proxy faults,
-and future-only wheel-level faults separated before any mining, replay,
-training, PPO, promotion, private holdout, row conversion, or actor-input
-change.
+M1181 should audit whether existing v4 source-rich tooling can be reused under
+the current public-gate base, because older routes were built around M568+M761
+with a residual head. No mining, replay, training, PPO, promotion, private
+holdout, row conversion, or actor-input change should happen before that
+compatibility audit.
 
 M1127 completed the expanded full public gate for the row15 projection
 candidate:

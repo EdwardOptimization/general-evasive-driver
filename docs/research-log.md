@@ -16821,3 +16821,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no mining, replay, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
 - decision: `stronger_wrong_history_construction_synthesis_pivot_to_source_rich_extreme_scenario_surface_refresh`
 - next: `m1180-v4-public-base-source-rich-extreme-scenario-refresh-design`
+
+## 20260528T042500Z - m1180-v4-public-base-source-rich-extreme-scenario-refresh-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md`
+- result: designs the `source_rich_extreme_scenario_surface_refresh` branch under the current public-gate base.
+- required schema: source and target obstacle geometry, fault family/fidelity class, fault onset bucket, severity, warm-up/probing mode, current-frame match metrics, action divergence, and terminal-margin sensitivity.
+- fault boundary: current-model faults include global mu drop, front/rear lateral authority drop, brake authority drop, steering fault, and mass/CG shift; drive/delay/combined faults are proxies; wheel blowout, split-mu, stuck caliper, halfshaft loss, wheel-speed sensor faults, and asymmetric steering pull are future-only until simulator support exists.
+- generation rule: boundary-first source generation, then matched different-hidden-dynamics pairing, then wrong-history intervention.
+- compatibility blocker: existing v4 source-rich tooling was built around `M568 actor + M761 residual head`, while the current public-gate base is `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`.
+- guardrail: no mining, replay, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
+- decision: `source_rich_extreme_scenario_refresh_design_admit_compatibility_audit`
+- next: `m1181-v4-public-base-source-rich-route-compatibility-audit`

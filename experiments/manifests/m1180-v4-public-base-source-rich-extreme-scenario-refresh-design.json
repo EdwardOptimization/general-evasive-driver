@@ -155,6 +155,54 @@
     "docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md",
     "configs/cross_fault_hidden_condition_scenarios.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md",
+    "decision": "source_rich_extreme_scenario_refresh_design_admit_compatibility_audit",
+    "result_class": "source_rich_extreme_scenario_refresh_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "opened_branch": "source_rich_extreme_scenario_surface_refresh",
+    "current_public_gate_base": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "requires_source_obstacle_geometry": true,
+    "requires_fault_fidelity_boundary": true,
+    "requires_boundary_first_matching": true,
+    "current_model_faults": [
+      "global_mu_drop",
+      "front_lateral_authority_drop",
+      "rear_lateral_authority_drop",
+      "brake_authority_drop",
+      "steering_fault",
+      "mass_cg_shift"
+    ],
+    "current_model_proxy_faults": [
+      "drive_authority_drop",
+      "delay_noise_fault",
+      "combined_fault"
+    ],
+    "future_only_faults": [
+      "single_wheel_grip_collapse",
+      "single_wheel_puncture_or_blowout",
+      "left_right_split_mu",
+      "stuck_caliper_or_single_wheel_brake_pull",
+      "true_asymmetric_half_shaft_torque_loss",
+      "wheel_speed_sensor_drop_or_bias",
+      "steering_pull_from_asymmetric_front_damage"
+    ],
+    "compatibility_audit_needed": true,
+    "compatibility_blocker": "existing v4 source-rich tooling expects a residual-head route built around older M568+M761 behavior",
+    "replay_started": false,
+    "mining_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "surface_conversion_started": false,
+    "admitted_next": "source_rich_route_compatibility_audit",
+    "next_milestone": "m1181-v4-public-base-source-rich-route-compatibility-audit"
+  },
   "decision_rule": "M1180 may only design the source-rich extreme scenario refresh route. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
-  "next_blocker": "m1180-v4-public-base-source-rich-extreme-scenario-refresh-design"
+  "next_blocker": "m1181-v4-public-base-source-rich-route-compatibility-audit"
 }
