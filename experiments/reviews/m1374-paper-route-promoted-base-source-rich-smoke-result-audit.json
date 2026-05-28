@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M1374 classifies M1373 as sparse wrong-history positives plus broad reset sensitivity and admits larger public source-rich wave",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit overclaims sparse accepted rows as source-diverse proof",
+    "audit treats reset-only rows as cross-fault wrong-history proof",
+    "audit routes directly to training, PPO, promotion, private holdout, or high-fidelity claims"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new evaluation",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not claim source-diverse cross-fault proof from two accepted rows",
+    "do not claim true high-fidelity per-wheel physics"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T213445Z",
+  "hypothesis": "M1373 can be audited as a structurally passing source-rich smoke with sparse wrong-history positives and broad reset sensitivity before choosing the next public source-rich route.",
+  "lineage": {
+    "blocked_by": [
+      "M1373 smoke passes structurally but source-positive cross-fault evidence remains sparse"
+    ],
+    "derived_from": [
+      "m1373-paper-route-promoted-base-source-rich-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1373-paper-route-promoted-base-source-rich-smoke.json"
+    ],
+    "parent_dataset": [
+      "runs/m1373_promoted_base_source_rich_smoke/summary.json",
+      "docs/m1373-paper-route-promoted-base-source-rich-smoke.md",
+      "configs/m990_capability_step_fault_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit sparse wrong-history positives and broad reset-only sensitivity from promoted-base source-rich smoke"
+    ],
+    "supersedes": [
+      "routing directly from smoke to training",
+      "treating sparse accepted rows as source-positive proof",
+      "ignoring broad reset-only signal"
+    ]
+  },
+  "milestone": "m1374-paper-route-promoted-base-source-rich-smoke-result-audit",
+  "next_blocker": "m1375-paper-route-promoted-base-source-rich-public-wave",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "promoted_base_source_rich_smoke_audit_admit_public_wave",
+  "public_gates": [
+    "M1374 must audit M1373 artifacts before larger public source-rich waves",
+    "M1374 must classify accepted-row sparsity and reset-only sensitivity separately",
+    "M1374 must choose the next source-rich route without private holdout, training, PPO, or promotion",
+    "M1374 must keep high-fidelity proxy claim boundaries intact"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1374-paper-route-promoted-base-source-rich-smoke-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "promoted_base_source_rich_smoke_audit_admit_public_wave",
+    "milestone": "m1374-paper-route-promoted-base-source-rich-smoke-result-audit",
+    "reason": "M1374 classifies M1373 as sparse wrong-history positives plus broad reset sensitivity and admits larger public source-rich wave",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1374-paper-route-promoted-base-source-rich-smoke-result-audit.md exists",
+    "audit summarizes M1373 scenario, snapshot, matched-pair, accepted, reset-only, rejected, and fidelity results",
+    "audit classifies sparse accepted rows and reset-only rows separately",
+    "audit chooses a next route without private holdout, training, PPO, promotion, actor-input change, or high-fidelity overclaim"
+  ],
+  "type": "gate"
+}

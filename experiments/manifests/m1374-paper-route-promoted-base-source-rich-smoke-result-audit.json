@@ -2,7 +2,7 @@
   "id": "m1374-paper-route-promoted-base-source-rich-smoke-result-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -147,6 +147,28 @@
     "runs/m1373_promoted_base_source_rich_smoke/summary.json",
     "docs/m1373-paper-route-promoted-base-source-rich-smoke.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1374-paper-route-promoted-base-source-rich-smoke-result-audit.md",
+    "decision": "promoted_base_source_rich_smoke_audit_admit_public_wave",
+    "m1373_result_class": "cross_fault_wrong_sparse",
+    "m1373_accepted_rows": 2,
+    "m1373_reset_only_rows": 174,
+    "m1373_unique_accepted_seeds": 1,
+    "interpretation": "structural smoke pass with sparse wrong-history diagnostic positives and broad reset sensitivity",
+    "next_manifest": "experiments/manifests/m1375-paper-route-promoted-base-source-rich-public-wave.json",
+    "planned_run_dir": "runs/m1375_promoted_base_source_rich_public_wave",
+    "planned_config": "configs/m991_capability_step_fault_source_wave.json",
+    "planned_seed_start": 137500,
+    "planned_seed_count": 256,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "high_fidelity_claim_made": false
+  },
+  "decision": "promoted_base_source_rich_smoke_audit_admit_public_wave",
   "decision_rule": "M1374 passes if it audits M1373 source-rich smoke without overclaiming sparse/reset-only evidence and chooses the next public source-rich route before any training, PPO, promotion, or private holdout.",
-  "next_blocker": "m1374-paper-route-promoted-base-source-rich-smoke-result-audit"
+  "next_blocker": "m1375-paper-route-promoted-base-source-rich-public-wave"
 }

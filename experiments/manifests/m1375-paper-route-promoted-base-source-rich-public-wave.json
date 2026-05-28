@@ -1,0 +1,180 @@
+{
+  "id": "m1375-paper-route-promoted-base-source-rich-public-wave",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1374-paper-route-promoted-base-source-rich-smoke-result-audit.md",
+      "runs/m1373_promoted_base_source_rich_smoke/summary.json",
+      "configs/m991_capability_step_fault_source_wave.json",
+      "docs/m991-v4-public-base-capability-step-fault-source-wave.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1374-paper-route-promoted-base-source-rich-smoke-result-audit.json",
+      "configs/m991_capability_step_fault_source_wave.json"
+    ],
+    "parent_objective": [
+      "run a larger no-training promoted-base source-rich public wave to test whether M1373 sparse wrong-history positives repeat"
+    ],
+    "derived_from": [
+      "m1374-paper-route-promoted-base-source-rich-smoke-result-audit"
+    ],
+    "blocked_by": [
+      "M1374 audits M1373 as structurally clean but source-positive evidence remains one-seed sparse"
+    ],
+    "supersedes": [
+      "training from M1373 sparse rows",
+      "using private holdout before public source-rich scaling",
+      "claiming source-diverse proof from the M1373 smoke"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1375-paper-route-promoted-base-source-rich-public-wave.md",
+  "public_gates": [
+    "M1375 must run the promoted M1362 base through the larger public capability-step source wave",
+    "M1375 must keep actor inputs and checkpoint parameters unchanged",
+    "M1375 must produce source-rich scenario, pair, intervention, accepted, reset-only, rejected, and model-fidelity artifacts",
+    "M1375 must keep private holdout unused",
+    "M1375 must interpret accepted-row sparsity using the pre-registered thresholds"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not mutate the candidate checkpoint",
+    "do not relax source-positive thresholds after results",
+    "do not claim true high-fidelity per-wheel physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_promoted_base_source_rich_comparison_readiness",
+    "evidence_axis": "G_source_rich_public_wave",
+    "evidence_increment": "runs larger public source-rich wave for promoted M1362 base after a structurally clean but sparse smoke",
+    "claim_scope": "public source-rich wave only; no promotion, private holdout, PPO, high-fidelity, L0/L1/L2/L3, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if source-rich artifacts are missing or malformed",
+      "stop if checkpoint or actor parameters change",
+      "stop if private holdout is used",
+      "stop if source-positive thresholds are changed after seeing results"
+    ],
+    "fallback_plan": [
+      "if source-positive thresholds pass, route to source-rich result audit before objective or training",
+      "if accepted rows remain sparse, route to retargeted source/intervention audit",
+      "if accepted rows are zero but reset-only is high, route to temporal/sequence intervention design",
+      "if both accepted and reset-only signals are low, route to source-distribution redesign"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1374 admits a larger public source-rich wave after M1373 sparse smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "larger promoted-base source-rich public wave",
+    "admission_evidence": [
+      "M1373 source-rich smoke passes structurally",
+      "M1373 finds two accepted wrong-history rows but only one accepted seed",
+      "M1374 routes to larger public source-rich wave before training or private holdout"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "source-rich public wave run artifacts",
+      "M1375 milestone document",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "source-rich public wave artifacts exist",
+      "scenario, snapshot, and matched-pair counts are positive",
+      "checkpoint and actor contract are unchanged",
+      "accepted and reset-only signals are classified by pre-registered thresholds"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1375 can expose source-rich history sensitivity but cannot alone prove level3 anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal, wrong-history, and reset-history source-rich interventions are recorded",
+      "accepted wrong-history rows and reset-only rows are interpreted separately",
+      "source-positive thresholds are pre-registered and not relaxed after results"
+    ],
+    "temporal_evidence_window": "promoted M1362 base under larger M991 capability-step public source wave.",
+    "negative_result_policy": "If accepted rows remain sparse or zero, record the result and route to temporal/sequence or source-distribution redesign instead of threshold relaxation.",
+    "allowed_claims": [
+      "source-rich public wave artifact and metric result",
+      "no promotion, private-holdout, high-fidelity, paper-level, L0/L1/L2/L3, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A larger promoted-base public source-rich wave can determine whether the sparse M1373 wrong-history positives repeat under fresh broader coverage.",
+  "success_criteria": [
+    "runs/m1375_promoted_base_source_rich_public_wave/summary.json exists",
+    "scenario_count > 0",
+    "snapshot_count > 0",
+    "matched_pair_count > 0",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "pairing_mode == cross_fault",
+    "model_fidelity_limits.md exists",
+    "accepted and reset-only row counts are reported against pre-registered interpretation thresholds"
+  ],
+  "failure_criteria": [
+    "summary or core CSV artifacts are missing",
+    "scenario_count, snapshot_count, or matched_pair_count is zero",
+    "actor parameters or actor inputs change",
+    "training, PPO, promotion, or private holdout occurs",
+    "source-positive thresholds are relaxed after seeing results",
+    "future-only high-fidelity faults are reported as executed physical claims"
+  ],
+  "commands": [
+    {
+      "name": "source_rich_public_wave",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m991_capability_step_fault_source_wave.json --pairing-mode cross_fault --seed-start 137500 --seed-count 256 --device auto --run-dir runs/m1375_promoted_base_source_rich_public_wave"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1375_promoted_base_source_rich_public_wave/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1375_promoted_base_source_rich_public_wave/scenario_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1375_promoted_base_source_rich_public_wave/matched_cross_fault_pairs.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1375_promoted_base_source_rich_public_wave/intervention_rollouts.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1375_promoted_base_source_rich_public_wave/model_fidelity_limits.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1373_promoted_base_source_rich_smoke/summary.json",
+    "configs/m991_capability_step_fault_source_wave.json"
+  ],
+  "decision_rule": "M1375 passes as a public source-rich wave if it produces clean no-training cross-fault artifacts with unchanged actor/checkpoint contract and reports accepted/reset-only signals against the pre-registered thresholds.",
+  "next_blocker": "m1375-paper-route-promoted-base-source-rich-public-wave"
+}

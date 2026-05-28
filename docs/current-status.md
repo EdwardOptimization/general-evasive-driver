@@ -16,16 +16,17 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1373-paper-route-promoted-base-source-rich-smoke
+m1374-paper-route-promoted-base-source-rich-smoke-result-audit
 ```
 
 Current next task:
 
 ```text
-m1374-paper-route-promoted-base-source-rich-smoke-result-audit
+m1375-paper-route-promoted-base-source-rich-public-wave
 ```
 
-M1373 ran the no-training promoted-base source-rich public smoke. The current
+M1374 audits M1373 as a structurally clean source-rich smoke with sparse
+wrong-history positives and broad reset-hidden sensitivity. The current
 public-gate base remains M1362 alpha `0.1`:
 
 ```text
@@ -55,9 +56,17 @@ The source-rich smoke supports harness compatibility and broad reset-hidden
 sensitivity under capability-step faults. It does not yet support source-diverse
 cross-fault wrong-history self-identification: the two accepted rows cover only
 one seed and are diagnostic margin/action-critical rows, not collision
-success-drop rows. M1374 should audit this result before any larger public
-source-rich wave, L0/L1/L2/L3 comparison refresh, PPO continuation, promotion,
-or private-holdout use.
+success-drop rows. M1374 therefore admits M1375: a larger no-training public
+source-rich wave using `configs/m991_capability_step_fault_source_wave.json`,
+seed start `137500`, seed count `256`, and run dir
+`runs/m1375_promoted_base_source_rich_public_wave`.
+
+M1375 is still public evaluation only. It must not train, run PPO, promote, use
+private holdout, change actor inputs, relax thresholds after results, or claim
+high-fidelity per-wheel physics. Its purpose is to test whether the sparse
+M1373 wrong-history positives repeat under broader fresh coverage; if they do
+not, the next route should be temporal/sequence intervention or source
+distribution redesign, not threshold relaxation.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true

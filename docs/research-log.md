@@ -20203,3 +20203,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: source-rich smoke passes structurally and shows broad reset sensitivity, but wrong-history source-positive evidence remains sparse.
 - follow-up manifest: `experiments/manifests/m1374-paper-route-promoted-base-source-rich-smoke-result-audit.json`.
 - next: `m1374-paper-route-promoted-base-source-rich-smoke-result-audit`
+
+## 20260528T223000Z - m1374-paper-route-promoted-base-source-rich-smoke-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1374-paper-route-promoted-base-source-rich-smoke-result-audit.md`
+- decision: `promoted_base_source_rich_smoke_audit_admit_public_wave`
+- audited artifact: `runs/m1373_promoted_base_source_rich_smoke/summary.json`
+- M1373 classification: structural source-rich smoke pass with sparse wrong-history diagnostic positives and broad reset-hidden sensitivity.
+- accepted-row audit: `2` accepted rows, `1` accepted seed, no collision success-drop rows, not source-diverse proof.
+- reset-only audit: `174` reset-history action-critical rows across `11 / 15` fault-family pair groups; recurrent-state sensitivity, not wrong-history belief proof.
+- next route: larger no-training public source-rich wave using `configs/m991_capability_step_fault_source_wave.json`, seed start `137500`, seed count `256`, run dir `runs/m1375_promoted_base_source_rich_public_wave`.
+- guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, high-fidelity claim, paper-level claim, finite-window-vs-GRU claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1375-paper-route-promoted-base-source-rich-public-wave.json`.
+- next: `m1375-paper-route-promoted-base-source-rich-public-wave`
