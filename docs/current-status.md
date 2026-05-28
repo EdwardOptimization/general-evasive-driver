@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1284-paper-route-source-history-objective-design
+m1285-paper-route-source-history-objective-evaluator
 ```
 
 Current next task:
 
 ```text
-m1285-paper-route-source-history-objective-evaluator
+m1286-paper-route-four-wheel-source-intervention-materialization-synthesis
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -66,8 +66,12 @@ L_wrong   = softplus(logp_wp - logp_wr + 0.05)
 ```
 
 The active blocker is to implement the full-corpus no-update evaluator in
-M1285. After M1285, this branch reaches its 10-milestone cadence and must
-synthesize before more narrow implementation, optimizer, PPO, or promotion work.
+M1285. M1285 completed that evaluator: `152` finite rows,
+`exact_objective_finite=true`, `checkpoint_weights_mutated=false`,
+`combined_loss_mean=18.6105005708`, and `result_class=source_history_objective_evaluator_pass`.
+This confirms the source-history residual is measurable and large. The active
+blocker is now M1286 branch synthesis. Do not add more narrow implementation,
+optimizer, PPO, or promotion work before synthesis.
 
 ## Actor Contract
 

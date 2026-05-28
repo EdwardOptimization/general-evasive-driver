@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1294,
+    "completed": 1295,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1284-paper-route-source-history-objective-design.md",
+    "command_log": "docs/m1285-paper-route-source-history-objective-evaluator.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1285_source_history_objective_evaluator",
     "status": "completed",
-    "task_id": "m1284-paper-route-source-history-objective-design"
+    "task_id": "m1285-paper-route-source-history-objective-evaluator"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1285-paper-route-source-history-objective-evaluator.json",
-    "hypothesis": "Implement exact no-update source-history preference objective evaluator and route to branch synthesis",
-    "id": "m1285-paper-route-source-history-objective-evaluator",
-    "kind": "infrastructure",
-    "notes": "Pending: implement exact full-corpus objective evaluator; do not train or continue branch without synthesis",
-    "priority": 12800,
+    "command": "see experiments/manifests/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.json",
+    "hypothesis": "Synthesize M1276-M1285 source-intervention materialization evidence and choose next branch",
+    "id": "m1286-paper-route-four-wheel-source-intervention-materialization-synthesis",
+    "kind": "gate",
+    "notes": "Pending: branch synthesis required by cadence before any further narrow work",
+    "priority": 12810,
     "status": "pending",
-    "success_artifact": "runs/m1285_source_history_objective_evaluator/summary.json"
+    "success_artifact": "docs/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.md"
   },
-  "updated_at_utc": "20260528T134330Z"
+  "updated_at_utc": "20260528T134848Z"
 }

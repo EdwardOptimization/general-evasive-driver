@@ -1,0 +1,182 @@
+{
+  "id": "m1286-paper-route-four-wheel-source-intervention-materialization-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1276-paper-route-four-wheel-source-intervention-materialization-design.md",
+      "docs/m1277-paper-route-four-wheel-source-intervention-materialization.md",
+      "docs/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.md",
+      "docs/m1279-paper-route-four-wheel-source-response-history-materialization-design.md",
+      "docs/m1280-paper-route-four-wheel-source-response-history-materialization.md",
+      "docs/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.md",
+      "docs/m1282-paper-route-source-history-policy-gate-design.md",
+      "docs/m1283-paper-route-source-history-policy-gate-implementation.md",
+      "docs/m1284-paper-route-source-history-objective-design.md",
+      "docs/m1285-paper-route-source-history-objective-evaluator.md",
+      "runs/m1285_source_history_objective_evaluator/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1285-paper-route-source-history-objective-evaluator.json"
+    ],
+    "parent_objective": [
+      "synthesize source-intervention materialization branch after ten milestones"
+    ],
+    "derived_from": [
+      "m1276-paper-route-four-wheel-source-intervention-materialization-design",
+      "m1277-paper-route-four-wheel-source-intervention-materialization",
+      "m1278-paper-route-four-wheel-source-intervention-materialization-result-audit",
+      "m1279-paper-route-four-wheel-source-response-history-materialization-design",
+      "m1280-paper-route-four-wheel-source-response-history-materialization",
+      "m1281-paper-route-four-wheel-source-response-history-materialization-result-audit",
+      "m1282-paper-route-source-history-policy-gate-design",
+      "m1283-paper-route-source-history-policy-gate-implementation",
+      "m1284-paper-route-source-history-objective-design",
+      "m1285-paper-route-source-history-objective-evaluator"
+    ],
+    "blocked_by": [
+      "branch synthesis cadence reached after M1285"
+    ],
+    "supersedes": [
+      "continuing source-intervention materialization branch with another narrow milestone"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.md",
+  "public_gates": [
+    "M1286 must synthesize M1276-M1285",
+    "M1286 must not train controllers",
+    "M1286 must not run PPO",
+    "M1286 must not use private holdout",
+    "M1286 must not promote",
+    "M1286 must decide continue pivot stop or promote_to_next_branch",
+    "M1286 must open the next branch only if evidence supports it"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add another narrow source-history milestone before synthesis",
+    "do not overclaim self-identification",
+    "do not claim high-fidelity validation from compact four-wheel source artifacts"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_four_wheel_source_intervention_materialization",
+    "evidence_axis": "S_branch_synthesis",
+    "evidence_increment": "synthesizes M1276-M1285 source intervention and source-history evidence and chooses the next branch",
+    "claim_scope": "branch synthesis only; no training, promotion, private-holdout, paper-level, closed-loop, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop same branch after synthesis unless decision explicitly continues",
+      "stop if synthesis omits supported and falsified claims",
+      "stop if next branch decision is not explicit"
+    ],
+    "fallback_plan": [
+      "if source-history objective path is promising, promote_to_next_branch with a new branch name",
+      "if evidence is insufficient, pivot to corpus repair or richer prefix design",
+      "if source path is exhausted, stop and archive branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1285 completed the tenth milestone in the branch",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-intervention branch synthesis",
+    "admission_evidence": [
+      "M1277 materialized clean preferred/rejected interventions",
+      "M1280 materialized valid response histories",
+      "M1283 policy gate was weak but finite",
+      "M1285 exact objective evaluator passed with finite residuals",
+      "branch cadence reached"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1286 synthesis document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest if synthesis opens a new branch"
+    ],
+    "next_stage_criteria": [
+      "supported and falsified claims are documented",
+      "failure taxonomy is documented",
+      "public-gate overfit risk is assessed",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "Synthesis must preserve the distinction between action-level source-history diagnostics and closed-loop self-identification proof.",
+    "history_necessity_tests": [
+      "summarize correct-history versus wrong-history evidence",
+      "do not convert weak action-level signal into self-ID claim"
+    ],
+    "temporal_evidence_window": "M1276-M1285 branch, synthesis only.",
+    "negative_result_policy": "M1283 weak action-level signal must remain negative evidence that blocks PPO until objective-only evidence improves.",
+    "allowed_claims": [
+      "source-intervention materialization branch synthesis",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1276-M1285 branch can be synthesized into a clear next-branch decision without overclaiming or continuing narrow work past cadence.",
+  "success_criteria": [
+    "docs/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.md exists",
+    "synthesis summarizes M1276-M1285 evidence",
+    "synthesis lists supported claims",
+    "synthesis lists falsified claims",
+    "synthesis classifies failures",
+    "synthesis assesses public-gate overfit risk",
+    "synthesis chooses the next branch decision",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis omits negative M1283/M1285 evidence",
+    "synthesis starts PPO directly",
+    "synthesis continues same branch without decision",
+    "synthesis overclaims self-identification",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1285-paper-route-source-history-objective-evaluator.md",
+    "runs/m1285_source_history_objective_evaluator/summary.json"
+  ],
+  "decision_rule": "M1286 passes if it synthesizes the branch and chooses an explicit next branch without training or overclaiming.",
+  "next_blocker": "m1286-paper-route-four-wheel-source-intervention-materialization-synthesis"
+}

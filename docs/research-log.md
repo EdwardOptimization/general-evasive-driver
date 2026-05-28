@@ -18572,3 +18572,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1285-paper-route-source-history-objective-evaluator.json`.
 - decision: `source_history_objective_design_admit_exact_evaluator`
 - next: `m1285-paper-route-source-history-objective-evaluator`
+
+## 20260528T134848Z - m1285-paper-route-source-history-objective-evaluator
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1285_source_history_objective_evaluator/summary.json`
+- implementation: added `src/autodrift/source_history_objective_evaluator.py` and `tests/test_source_history_objective_evaluator.py`.
+- validation: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_source_history_objective_evaluator.py tests/test_source_history_policy_gate.py` passed with `4 passed`.
+- result class: `source_history_objective_evaluator_pass`.
+- exact rows: `row_count=152`, `finite_row_count=152`, and `exact_objective_finite=true`.
+- mutation check: checkpoint sha256 before and after match; `checkpoint_weights_mutated=false`.
+- objective residual: `correct_preference_loss_mean=9.3052502854`, `wrong_history_preference_loss_mean=9.3052502854`, and `combined_loss_mean=18.6105005708`.
+- inherited weak policy signal: `both_directional_fraction=0.0`, `preferred_hidden_margin_positive_fraction=0.4868421053`, and `history_action_l2_mean=0.0991899077`.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- branch cadence: M1285 is the tenth milestone in `paper_route_four_wheel_source_intervention_materialization`, so the next milestone must be synthesis.
+- follow-up manifest: `experiments/manifests/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.json`.
+- decision: `source_history_objective_evaluator_pass_route_to_branch_synthesis`
+- next: `m1286-paper-route-four-wheel-source-intervention-materialization-synthesis`
