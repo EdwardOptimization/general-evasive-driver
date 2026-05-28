@@ -18825,3 +18825,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1299-paper-route-source-history-trainable-scope-probe.json`.
 - next: `m1299-paper-route-source-history-trainable-scope-probe`
+
+## 20260528T150158Z - m1299-paper-route-source-history-trainable-scope-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1299_source_history_trainable_scope_probe/summary.json`
+- implementation: added `src/autodrift/source_history_trainable_scope_probe.py` and `tests/test_source_history_trainable_scope_probe.py`.
+- validation: `PYTHONPATH=src python -m pytest -q tests/test_source_history_trainable_scope_probe.py` passed with `1 passed`.
+- result class: `source_history_trainable_scope_strong`.
+- best scope: `fusion_head`, `trainable_scope_directional_strong`.
+- split: `120` train rows, `32` eval rows, `30` train pairs, `8` eval pairs, pair-disjoint.
+- best eval metrics: `best_eval_both_directional_fraction=0.25`, `best_eval_group_all_rows_both_positive_fraction=0.25`.
+- best full metrics: `best_full_both_positive_count=46`, `best_full_group_all_rows_both_positive_count=23`.
+- comparison to M1295: improves full both-positive rows from `30/152` to `46/152` and full all-rows-both-positive groups from `15/76` to `23/76`.
+- mutation guard: no forbidden parameter mutation; `fusion_head` changed only `actor_mean` and `response_context_fusion`.
+- caveat: eval thresholds are met exactly at `0.25`, so this is strong diagnostic evidence but needs result audit/repeat or retention design before escalation.
+- guardrail: no PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1300-paper-route-source-history-trainable-scope-result-audit.json`.
+- decision: `source_history_trainable_scope_strong_route_to_result_audit`
+- next: `m1300-paper-route-source-history-trainable-scope-result-audit`

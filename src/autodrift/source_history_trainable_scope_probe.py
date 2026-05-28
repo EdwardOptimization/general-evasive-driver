@@ -1,0 +1,603 @@
+"""Trainable-scope source-history diagnostic probe."""
+
+from __future__ import annotations
+
+import argparse
+from pathlib import Path
+from typing import Any, Iterable
+
+import numpy as np
+import torch
+
+from autodrift.artifacts import write_csv_rows, write_json
+from autodrift.checkpoints import load_actor_critic_checkpoint
+from autodrift.fresh_trajectory_boundary_sampler import _finite_float
+from autodrift.source_history_directional_feasibility_probe import (
+    _directional_eval,
+    _directional_rows,
+    _source_history_meta_rows,
+)
+from autodrift.source_history_objective_update import (
+    SourceHistoryBatch,
+    _clone_state_dict,
+    _load_source_history_batch,
+    _parameter_counts,
+    _save_checkpoint,
+)
+from autodrift.source_history_pair_group_objective_probe import (
+    _group_indices,
+    _pair_group_loss,
+    _row_summary,
+    _summarize_group_rows,
+)
+from autodrift.source_history_policy_gate import _checkpoint_contract
+from autodrift.train_ppo import ActorCritic, resolve_device
+
+
+DEFAULT_SCOPES = ("actor_mean_only_replay", "fusion_head", "current_step_gru_fusion_head")
+PARAMETER_GROUPS = (
+    "actor_mean",
+    "response_context_fusion",
+    "online_gru_cell",
+    "response_encoder",
+    "context_encoder",
+    "critic",
+    "log_std",
+    "sequence_tail",
+    "privileged",
+    "other",
+)
+SCOPE_ALLOWED_GROUPS = {
+    "actor_mean_only_replay": {"actor_mean"},
+    "fusion_head": {"actor_mean", "response_context_fusion"},
+    "current_step_gru_fusion_head": {"actor_mean", "response_context_fusion", "online_gru_cell"},
+}
+
+
+def _stable_eval_pair(pair_id: int, eval_mod: int = 5) -> bool:
+    return ((int(pair_id) * 2654435761) % int(eval_mod)) == 0
+
+
+def _split_rows(meta_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for index, row in enumerate(meta_rows):
+        pair_id = int(row["pair_id"])
+        split = "eval" if _stable_eval_pair(pair_id) else "train"
+        rows.append(
+            {
+                "row_index": int(index),
+                "split": split,
+                "pair_id": pair_id,
+                "probe_template": str(row["probe_template"]),
+                "history_intervention_id": int(row["history_intervention_id"]),
+                "condition": str(row["condition"]),
+            }
+        )
+    return rows
+
+
+def _indices_for_split(split_rows: list[dict[str, Any]], split: str) -> list[int]:
+    return [int(row["row_index"]) for row in split_rows if str(row["split"]) == split]
+
+
+def _slice_batch(batch: SourceHistoryBatch, indices: list[int]) -> SourceHistoryBatch:
+    idx = torch.as_tensor(indices, dtype=torch.long, device=batch.observations.device)
+    return SourceHistoryBatch(
+        observations=batch.observations.index_select(dim=0, index=idx),
+        correct_hidden=batch.correct_hidden.index_select(dim=0, index=idx),
+        wrong_hidden=batch.wrong_hidden.index_select(dim=0, index=idx),
+        preferred_actions=batch.preferred_actions.index_select(dim=0, index=idx),
+        rejected_actions=batch.rejected_actions.index_select(dim=0, index=idx),
+    )
+
+
+def _slice_meta(meta_rows: list[dict[str, Any]], indices: list[int]) -> list[dict[str, Any]]:
+    return [meta_rows[index] for index in indices]
+
+
+def _parameter_group(name: str) -> str:
+    if name.startswith("actor_mean."):
+        return "actor_mean"
+    if name.startswith("response_context_fusion."):
+        return "response_context_fusion"
+    if name.startswith("online_gru_cell."):
+        return "online_gru_cell"
+    if name.startswith("response_encoder."):
+        return "response_encoder"
+    if name.startswith("context_encoder."):
+        return "context_encoder"
+    if name.startswith("critic."):
+        return "critic"
+    if name == "log_std":
+        return "log_std"
+    if name.startswith("sequence_tail."):
+        return "sequence_tail"
+    if name.startswith("privileged_"):
+        return "privileged"
+    return "other"
+
+
+def _set_trainable_scope(model: ActorCritic, scope: str) -> None:
+    allowed = SCOPE_ALLOWED_GROUPS[scope]
+    for name, parameter in model.named_parameters():
+        parameter.requires_grad_(_parameter_group(name) in allowed)
+
+
+def _trainable_parameters(model: ActorCritic) -> list[torch.nn.Parameter]:
+    return [parameter for parameter in model.parameters() if parameter.requires_grad]
+
+
+def _parameter_group_delta(
+    base_state: dict[str, torch.Tensor],
+    updated_state: dict[str, torch.Tensor],
+) -> dict[str, dict[str, Any]]:
+    groups = {
+        group: {
+            "sq": 0.0,
+            "max_abs": 0.0,
+            "changed": False,
+            "parameter_count": 0,
+        }
+        for group in PARAMETER_GROUPS
+    }
+    for name, base_tensor in sorted(base_state.items()):
+        updated_tensor = updated_state[name].detach().cpu()
+        delta = updated_tensor - base_tensor
+        group = _parameter_group(name)
+        max_abs = float(torch.max(torch.abs(delta)).item()) if delta.numel() else 0.0
+        sq = float(torch.sum(delta.float().pow(2)).item())
+        groups[group]["sq"] += sq
+        groups[group]["max_abs"] = max(float(groups[group]["max_abs"]), max_abs)
+        groups[group]["changed"] = bool(groups[group]["changed"] or max_abs > 0.0)
+        groups[group]["parameter_count"] = int(groups[group]["parameter_count"]) + int(delta.numel())
+    return {
+        group: {
+            "l2": float(np.sqrt(float(data["sq"]))),
+            "max_abs": float(data["max_abs"]),
+            "changed": bool(data["changed"]),
+            "parameter_count": int(data["parameter_count"]),
+        }
+        for group, data in groups.items()
+    }
+
+
+def _parameter_group_rows(
+    *,
+    scope: str,
+    allowed_groups: set[str],
+    deltas: dict[str, dict[str, Any]],
+) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for group in PARAMETER_GROUPS:
+        data = deltas[group]
+        allowed = group in allowed_groups
+        rows.append(
+            {
+                "scope": scope,
+                "parameter_group": group,
+                "allowed_to_change": allowed,
+                "changed": bool(data["changed"]),
+                "l2": float(data["l2"]),
+                "max_abs": float(data["max_abs"]),
+                "parameter_count": int(data["parameter_count"]),
+                "forbidden_mutation": bool(data["changed"] and not allowed),
+            }
+        )
+    return rows
+
+
+def _parameter_anchor_loss(
+    model: ActorCritic,
+    anchor_state: dict[str, torch.Tensor],
+    allowed_groups: set[str],
+    device: torch.device,
+) -> torch.Tensor:
+    losses: list[torch.Tensor] = []
+    for name, parameter in model.named_parameters():
+        if _parameter_group(name) in allowed_groups:
+            anchor = anchor_state[name].to(device=device, dtype=torch.float32)
+            losses.append(torch.mean((parameter - anchor).pow(2)))
+    if not losses:
+        return torch.zeros((), dtype=torch.float32, device=device)
+    return torch.stack(losses).mean()
+
+
+def _summary_for_rows(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    row_summary = _row_summary(rows)
+    group_summary = _summarize_group_rows(rows)
+    group_summary.pop("group_rows")
+    return {**row_summary, **group_summary}
+
+
+def _eval_scope_split(
+    *,
+    model: ActorCritic,
+    batch: SourceHistoryBatch,
+    meta_rows: list[dict[str, Any]],
+    scope: str,
+    split: str,
+    target_margin: float,
+) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]]]:
+    if not meta_rows:
+        empty = {
+            "row_count": 0,
+            "both_positive_count": 0,
+            "mutually_exclusive_count": 0,
+            "both_directional_fraction": 0.0,
+            "mutually_exclusive_fraction": 0.0,
+            "min_margin_mean": 0.0,
+            "min_margin_p10": 0.0,
+            "pair_probe_group_count": 0,
+            "group_all_rows_both_positive_count": 0,
+            "group_any_row_both_positive_count": 0,
+            "group_all_rows_both_positive_fraction": 0.0,
+            "group_any_row_both_positive_fraction": 0.0,
+            "group_min_margin_mean": 0.0,
+            "group_min_margin_p10": 0.0,
+            "group_balance_loss_mean": 0.0,
+        }
+        return empty, [], []
+    evaluation = _directional_eval(model, batch, target_margin=target_margin, lambda_min=0.0)
+    rows = _directional_rows(meta_rows=meta_rows, evaluation=evaluation, init_name=scope)
+    for row in rows:
+        row["split"] = split
+    group_summary = _summarize_group_rows(rows)
+    group_rows = [{**row, "scope": scope, "split": split} for row in group_summary.pop("group_rows")]
+    return {**_row_summary(rows), **group_summary}, rows, group_rows
+
+
+def _prefixed(prefix: str, values: dict[str, Any]) -> dict[str, Any]:
+    return {f"{prefix}_{key}": value for key, value in values.items()}
+
+
+def _classify_scope(summary: dict[str, Any]) -> str:
+    if bool(summary["forbidden_parameter_mutation_detected"]):
+        return "trainable_scope_contract_artifact"
+    if (
+        float(summary["eval_group_all_rows_both_positive_fraction"]) >= 0.25
+        and float(summary["eval_both_directional_fraction"]) >= 0.25
+        and int(summary["full_group_all_rows_both_positive_count"]) > 15
+        and int(summary["full_both_positive_count"]) > 30
+    ):
+        return "trainable_scope_directional_strong"
+    if int(summary["full_group_all_rows_both_positive_count"]) > 15 or int(summary["full_both_positive_count"]) > 30:
+        return "trainable_scope_directional_mixed"
+    return "trainable_scope_directional_negative"
+
+
+def _train_scope(
+    *,
+    model: ActorCritic,
+    checkpoint_data: dict[str, Any],
+    base_state: dict[str, torch.Tensor],
+    train_batch: SourceHistoryBatch,
+    train_meta_rows: list[dict[str, Any]],
+    full_batch: SourceHistoryBatch,
+    full_meta_rows: list[dict[str, Any]],
+    eval_batch: SourceHistoryBatch,
+    eval_meta_rows: list[dict[str, Any]],
+    run_dir: Path,
+    scope: str,
+    steps: int,
+    lr: float,
+    target_margin: float,
+    lambda_group_floor: float,
+    lambda_group_balance: float,
+    lambda_anchor: float,
+) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
+    device = next(model.parameters()).device
+    allowed_groups = set(SCOPE_ALLOWED_GROUPS[scope])
+    _set_trainable_scope(model, scope)
+    trainable_count, frozen_count = _parameter_counts(model)
+    optimizer = torch.optim.Adam(_trainable_parameters(model), lr=float(lr))
+    train_groups = _group_indices(train_meta_rows)
+    trace_rows: list[dict[str, Any]] = []
+    for step in range(int(steps)):
+        optimizer.zero_grad()
+        eval_row = _directional_eval(model, train_batch, target_margin=target_margin, lambda_min=0.0)
+        group_floor, group_balance, group_min = _pair_group_loss(
+            min_margin=eval_row.min_margin,
+            groups=train_groups,
+            target_margin=target_margin,
+        )
+        anchor = _parameter_anchor_loss(model, base_state, allowed_groups, device)
+        loss = (
+            eval_row.correct_loss
+            + eval_row.wrong_loss
+            + float(lambda_group_floor) * group_floor
+            + float(lambda_group_balance) * group_balance
+            + float(lambda_anchor) * anchor
+        )
+        loss.backward()
+        optimizer.step()
+        trace_rows.append(
+            {
+                "scope": scope,
+                "step": int(step + 1),
+                "loss": float(loss.detach().cpu().item()),
+                "correct_loss": float(eval_row.correct_loss.detach().cpu().item()),
+                "wrong_history_loss": float(eval_row.wrong_loss.detach().cpu().item()),
+                "group_floor_loss": float(group_floor.detach().cpu().item()),
+                "group_balance_loss": float(group_balance.detach().cpu().item()),
+                "group_min_margin_mean": float(group_min.detach().cpu().item()),
+                "anchor_loss": float(anchor.detach().cpu().item()),
+            }
+        )
+
+    full_summary, full_rows, full_group_rows = _eval_scope_split(
+        model=model,
+        batch=full_batch,
+        meta_rows=full_meta_rows,
+        scope=scope,
+        split="full",
+        target_margin=target_margin,
+    )
+    train_summary, train_rows, train_group_rows = _eval_scope_split(
+        model=model,
+        batch=train_batch,
+        meta_rows=train_meta_rows,
+        scope=scope,
+        split="train",
+        target_margin=target_margin,
+    )
+    eval_summary, eval_rows, eval_group_rows = _eval_scope_split(
+        model=model,
+        batch=eval_batch,
+        meta_rows=eval_meta_rows,
+        scope=scope,
+        split="eval",
+        target_margin=target_margin,
+    )
+    state_after = _clone_state_dict(model)
+    deltas = _parameter_group_delta(base_state, state_after)
+    parameter_rows = _parameter_group_rows(scope=scope, allowed_groups=allowed_groups, deltas=deltas)
+    forbidden_mutation = any(bool(row["forbidden_mutation"]) for row in parameter_rows)
+    checkpoint_path = run_dir / "checkpoints" / f"{scope}_candidate.pt"
+    _save_checkpoint(
+        checkpoint_data=checkpoint_data,
+        model=model,
+        path=checkpoint_path,
+        metadata={
+            "source_history_trainable_scope_probe": {
+                "scope": scope,
+                "run_dir": str(run_dir),
+                "steps": int(steps),
+                "lr": float(lr),
+                "target_margin": float(target_margin),
+                "allowed_groups": sorted(allowed_groups),
+            }
+        },
+    )
+    scope_summary = {
+        "scope": scope,
+        "checkpoint": str(checkpoint_path),
+        "steps": int(steps),
+        "lr": float(lr),
+        "target_margin": float(target_margin),
+        "lambda_group_floor": float(lambda_group_floor),
+        "lambda_group_balance": float(lambda_group_balance),
+        "lambda_anchor": float(lambda_anchor),
+        "trainable_parameter_count": int(trainable_count),
+        "frozen_parameter_count": int(frozen_count),
+        "allowed_parameter_groups": "|".join(sorted(allowed_groups)),
+        "forbidden_parameter_mutation_detected": bool(forbidden_mutation),
+        **_prefixed("full", full_summary),
+        **_prefixed("train", train_summary),
+        **_prefixed("eval", eval_summary),
+    }
+    for row in parameter_rows:
+        group = str(row["parameter_group"])
+        scope_summary[f"{group}_l2"] = float(row["l2"])
+        scope_summary[f"{group}_changed"] = bool(row["changed"])
+    scope_summary["scope_class"] = _classify_scope(scope_summary)
+    write_json(run_dir / f"{scope}_summary.json", scope_summary)
+    rows = full_rows + train_rows + eval_rows
+    group_rows = full_group_rows + train_group_rows + eval_group_rows
+    return scope_summary, rows, group_rows, parameter_rows, trace_rows
+
+
+def classify_probe(scope_summaries: list[dict[str, Any]]) -> tuple[str, str]:
+    classes = {str(row["scope_class"]) for row in scope_summaries}
+    if "trainable_scope_contract_artifact" in classes:
+        return "source_history_trainable_scope_contract_artifact", "repair mutation guard before rerun"
+    if "trainable_scope_directional_strong" in classes:
+        return "source_history_trainable_scope_strong", "route to result audit and proof-retention design"
+    if "trainable_scope_directional_mixed" in classes:
+        return "source_history_trainable_scope_mixed", "route to result audit and scope/corpus decision"
+    return "source_history_trainable_scope_negative", "route to corpus refresh or sequence preference design"
+
+
+def run_trainable_scope_probe(
+    *,
+    checkpoint_path: Path,
+    history_run_dir: Path,
+    intervention_run_dir: Path,
+    run_dir: Path,
+    device: str = "auto",
+    steps: int = 400,
+    lr: float = 2e-4,
+    target_margin: float = 0.05,
+    lambda_group_floor: float = 4.0,
+    lambda_group_balance: float = 0.5,
+    lambda_anchor: float = 0.001,
+    scopes: Iterable[str] = DEFAULT_SCOPES,
+) -> dict[str, Any]:
+    checkpoint_path = Path(checkpoint_path)
+    history_run_dir = Path(history_run_dir)
+    intervention_run_dir = Path(intervention_run_dir)
+    run_dir = Path(run_dir)
+    run_dir.mkdir(parents=True, exist_ok=True)
+    resolved_device = resolve_device(device)
+
+    scope_names = [str(scope) for scope in scopes]
+    unknown_scopes = [scope for scope in scope_names if scope not in SCOPE_ALLOWED_GROUPS]
+    if unknown_scopes:
+        raise ValueError(f"unknown trainable scopes: {unknown_scopes}")
+
+    base_model, base_checkpoint = load_actor_critic_checkpoint(checkpoint_path, device=str(resolved_device))
+    contract_ok, contract_reason = _checkpoint_contract(base_model, base_checkpoint)
+    if not contract_ok:
+        raise ValueError(f"checkpoint contract violation: {contract_reason}")
+    base_model.eval()
+    base_state = _clone_state_dict(base_model)
+    full_batch = _load_source_history_batch(
+        model=base_model,
+        history_run_dir=history_run_dir,
+        intervention_run_dir=intervention_run_dir,
+        device=resolved_device,
+    )
+    full_meta_rows = _source_history_meta_rows(history_run_dir)
+    split_rows = _split_rows(full_meta_rows)
+    train_indices = _indices_for_split(split_rows, "train")
+    eval_indices = _indices_for_split(split_rows, "eval")
+    if not train_indices or not eval_indices:
+        raise ValueError("trainable-scope probe requires non-empty train and eval splits")
+    train_batch = _slice_batch(full_batch, train_indices)
+    eval_batch = _slice_batch(full_batch, eval_indices)
+    train_meta_rows = _slice_meta(full_meta_rows, train_indices)
+    eval_meta_rows = _slice_meta(full_meta_rows, eval_indices)
+    pair_split: dict[int, str] = {int(row["pair_id"]): str(row["split"]) for row in split_rows}
+    train_pairs = sorted(pair_id for pair_id, split in pair_split.items() if split == "train")
+    eval_pairs = sorted(pair_id for pair_id, split in pair_split.items() if split == "eval")
+    if set(train_pairs) & set(eval_pairs):
+        raise ValueError("pair split is not disjoint")
+
+    scope_summaries: list[dict[str, Any]] = []
+    all_rows: list[dict[str, Any]] = []
+    all_group_rows: list[dict[str, Any]] = []
+    all_parameter_rows: list[dict[str, Any]] = []
+    all_trace_rows: list[dict[str, Any]] = []
+    for scope in scope_names:
+        model, checkpoint_data = load_actor_critic_checkpoint(checkpoint_path, device=str(resolved_device))
+        contract_ok, contract_reason = _checkpoint_contract(model, checkpoint_data)
+        if not contract_ok:
+            raise ValueError(f"{scope} checkpoint contract violation: {contract_reason}")
+        model.eval()
+        scope_summary, rows, group_rows, parameter_rows, trace_rows = _train_scope(
+            model=model,
+            checkpoint_data=checkpoint_data,
+            base_state=base_state,
+            train_batch=train_batch,
+            train_meta_rows=train_meta_rows,
+            full_batch=full_batch,
+            full_meta_rows=full_meta_rows,
+            eval_batch=eval_batch,
+            eval_meta_rows=eval_meta_rows,
+            run_dir=run_dir,
+            scope=scope,
+            steps=steps,
+            lr=lr,
+            target_margin=target_margin,
+            lambda_group_floor=lambda_group_floor,
+            lambda_group_balance=lambda_group_balance,
+            lambda_anchor=lambda_anchor,
+        )
+        scope_summaries.append(scope_summary)
+        all_rows.extend(rows)
+        all_group_rows.extend(group_rows)
+        all_parameter_rows.extend(parameter_rows)
+        all_trace_rows.extend(trace_rows)
+
+    write_csv_rows(run_dir / "scope_summaries.csv", scope_summaries)
+    write_csv_rows(run_dir / "split_rows.csv", split_rows)
+    write_csv_rows(run_dir / "directional_rows.csv", all_rows)
+    write_csv_rows(run_dir / "group_rows.csv", all_group_rows)
+    write_csv_rows(run_dir / "parameter_group_delta.csv", all_parameter_rows)
+    write_csv_rows(run_dir / "train_trace.csv", all_trace_rows)
+    result_class, recommended_next_step = classify_probe(scope_summaries)
+    best = sorted(
+        scope_summaries,
+        key=lambda row: (
+            -float(row["eval_group_all_rows_both_positive_fraction"]),
+            -float(row["eval_both_directional_fraction"]),
+            -float(row["full_group_all_rows_both_positive_count"]),
+            -float(row["full_both_positive_count"]),
+        ),
+    )[0]
+    any_forbidden = any(bool(row["forbidden_parameter_mutation_detected"]) for row in scope_summaries)
+    summary = {
+        "run_type": "source_history_trainable_scope_probe",
+        "checkpoint": str(checkpoint_path),
+        "history_run_dir": str(history_run_dir),
+        "intervention_run_dir": str(intervention_run_dir),
+        "steps": int(steps),
+        "lr": float(lr),
+        "target_margin": float(target_margin),
+        "lambda_group_floor": float(lambda_group_floor),
+        "lambda_group_balance": float(lambda_group_balance),
+        "lambda_anchor": float(lambda_anchor),
+        "scope_count": int(len(scope_summaries)),
+        "scopes": "|".join(scope_names),
+        "train_row_count": int(len(train_indices)),
+        "eval_row_count": int(len(eval_indices)),
+        "full_row_count": int(len(full_meta_rows)),
+        "train_pair_count": int(len(train_pairs)),
+        "eval_pair_count": int(len(eval_pairs)),
+        "pair_split_disjoint": True,
+        "best_scope": str(best["scope"]),
+        "best_scope_class": str(best["scope_class"]),
+        "best_eval_group_all_rows_both_positive_fraction": float(
+            best["eval_group_all_rows_both_positive_fraction"]
+        ),
+        "best_eval_both_directional_fraction": float(best["eval_both_directional_fraction"]),
+        "best_full_group_all_rows_both_positive_count": int(best["full_group_all_rows_both_positive_count"]),
+        "best_full_both_positive_count": int(best["full_both_positive_count"]),
+        "forbidden_parameter_mutation_detected": bool(any_forbidden),
+        "result_class": result_class,
+        "recommended_next_step": recommended_next_step,
+        "labels_enter_actor_input": False,
+        "objective_update_started": True,
+        "ppo_used": False,
+        "promoted": False,
+        "private_holdout_used": False,
+        "actor_input_contract_changed": False,
+        "accepted_thresholds_relaxed": False,
+        "high_fidelity_validation_claimed": False,
+        "scope_summaries_csv": run_dir / "scope_summaries.csv",
+        "split_rows_csv": run_dir / "split_rows.csv",
+        "directional_rows_csv": run_dir / "directional_rows.csv",
+        "group_rows_csv": run_dir / "group_rows.csv",
+        "parameter_group_delta_csv": run_dir / "parameter_group_delta.csv",
+        "train_trace_csv": run_dir / "train_trace.csv",
+    }
+    write_json(run_dir / "summary.json", summary)
+    return summary
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Run source-history trainable-scope diagnostic probe.")
+    parser.add_argument("--checkpoint", type=Path, required=True)
+    parser.add_argument("--history-run-dir", type=Path, required=True)
+    parser.add_argument("--intervention-run-dir", type=Path, required=True)
+    parser.add_argument("--run-dir", type=Path, required=True)
+    parser.add_argument("--device", type=str, default="auto")
+    parser.add_argument("--steps", type=int, default=400)
+    parser.add_argument("--lr", type=float, default=2e-4)
+    parser.add_argument("--target-margin", type=float, default=0.05)
+    parser.add_argument("--lambda-group-floor", type=float, default=4.0)
+    parser.add_argument("--lambda-group-balance", type=float, default=0.5)
+    parser.add_argument("--lambda-anchor", type=float, default=0.001)
+    parser.add_argument("--scopes", type=str, default=",".join(DEFAULT_SCOPES))
+    args = parser.parse_args()
+    scopes = [scope.strip() for scope in str(args.scopes).split(",") if scope.strip()]
+    summary = run_trainable_scope_probe(
+        checkpoint_path=args.checkpoint,
+        history_run_dir=args.history_run_dir,
+        intervention_run_dir=args.intervention_run_dir,
+        run_dir=args.run_dir,
+        device=args.device,
+        steps=args.steps,
+        lr=args.lr,
+        target_margin=args.target_margin,
+        lambda_group_floor=args.lambda_group_floor,
+        lambda_group_balance=args.lambda_group_balance,
+        lambda_anchor=args.lambda_anchor,
+        scopes=scopes,
+    )
+    for key, value in summary.items():
+        print(f"{key}: {value}")
+    print(f"run_dir={args.run_dir}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,158 @@
+{
+  "id": "m1300-paper-route-source-history-trainable-scope-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1299_source_history_trainable_scope_probe/checkpoints/fusion_head_candidate.pt",
+      "runs/m1299_source_history_trainable_scope_probe/checkpoints/current_step_gru_fusion_head_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1299-paper-route-source-history-trainable-scope-probe.md",
+      "runs/m1299_source_history_trainable_scope_probe/summary.json",
+      "runs/m1299_source_history_trainable_scope_probe/scope_summaries.csv",
+      "runs/m1299_source_history_trainable_scope_probe/split_rows.csv",
+      "runs/m1299_source_history_trainable_scope_probe/parameter_group_delta.csv",
+      "runs/m1299_source_history_trainable_scope_probe/directional_rows.csv",
+      "runs/m1299_source_history_trainable_scope_probe/group_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1299-paper-route-source-history-trainable-scope-probe.json"
+    ],
+    "parent_objective": [
+      "audit strong trainable-scope diagnostic result before proof-retention or repeat design"
+    ],
+    "derived_from": [
+      "m1299-paper-route-source-history-trainable-scope-probe"
+    ],
+    "blocked_by": [
+      "M1299 strong diagnostic result meets eval thresholds exactly and requires audit before any escalation"
+    ],
+    "supersedes": [
+      "direct PPO or promotion from M1299 diagnostic checkpoint"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1300-paper-route-source-history-trainable-scope-result-audit.md",
+  "public_gates": [
+    "M1300 must audit M1299 strong result",
+    "M1300 must record the boundary-threshold caveat",
+    "M1300 must not run PPO",
+    "M1300 must not use private holdout",
+    "M1300 must not promote",
+    "M1300 must decide repeat/proof-retention/corpus-refresh routing"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostic split success as paper-level evidence",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_trainable_scope_escalation",
+    "evidence_axis": "S_trainable_scope_result_audit",
+    "evidence_increment": "audits the first strong fusion/head source-history directional diagnostic",
+    "claim_scope": "result audit only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if audit treats boundary-threshold result as promotion-ready",
+      "stop if audit starts PPO directly",
+      "stop if audit omits mutation and split-eval caveats"
+    ],
+    "fallback_plan": [
+      "if strong result is robust enough, route to repeat or proof-retention design",
+      "if boundary caveat dominates, route to fresh seed/split repeat",
+      "if artifacts show leakage or mutation issue, repair tooling before rerun"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "third milestone in trainable-scope escalation branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "trainable-scope result audit",
+    "admission_evidence": [
+      "M1299 result_class=source_history_trainable_scope_strong",
+      "M1299 best_scope=fusion_head",
+      "M1299 eval row/group fractions are exactly 0.25",
+      "M1299 forbidden_parameter_mutation_detected=false"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1300 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "strong result is interpreted",
+      "boundary-threshold caveat is recorded",
+      "PPO remains blocked",
+      "next routing is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1300 audits fixed-current source-history diagnostics and does not evaluate closed-loop history necessity.",
+    "history_necessity_tests": [
+      "audit correct-history versus wrong-history directional metrics",
+      "audit pair-disjoint public split metrics"
+    ],
+    "temporal_evidence_window": "M1299 fixed-current trainable-scope diagnostic rows.",
+    "negative_result_policy": "Boundary-threshold strong result must be repeated or guarded before PPO.",
+    "allowed_claims": [
+      "trainable-scope diagnostic result audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "M1299 can be audited as a strong but boundary-threshold source-history trainable-scope diagnostic that should route to repeat/proof-retention design rather than PPO.",
+  "success_criteria": [
+    "docs/m1300-paper-route-source-history-trainable-scope-result-audit.md exists",
+    "audit records M1299 strong result",
+    "audit records boundary-threshold caveat",
+    "audit records no forbidden mutation",
+    "audit records PPO and promotion remain blocked",
+    "next routing is explicit",
+    "no PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1299 as promotion-ready",
+    "audit starts PPO directly",
+    "audit omits split-eval or mutation caveat",
+    "private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1300-paper-route-source-history-trainable-scope-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1300-paper-route-source-history-trainable-scope-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1299_source_history_trainable_scope_probe/checkpoints/fusion_head_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1299-paper-route-source-history-trainable-scope-probe.md",
+    "runs/m1299_source_history_trainable_scope_probe/summary.json"
+  ],
+  "decision_rule": "M1300 passes if it audits M1299 as strong diagnostic evidence while keeping PPO and promotion blocked.",
+  "next_blocker": "m1300-paper-route-source-history-trainable-scope-result-audit"
+}

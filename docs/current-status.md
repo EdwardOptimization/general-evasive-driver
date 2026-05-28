@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1298-paper-route-source-history-trainable-scope-escalation-design
+m1299-paper-route-source-history-trainable-scope-probe
 ```
 
 Current next task:
 
 ```text
-m1299-paper-route-source-history-trainable-scope-probe
+m1300-paper-route-source-history-trainable-scope-result-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -115,7 +115,13 @@ diagnostic with source-diverse split-eval and parameter-group mutation guards.
 M1298 completed that design. The active blocker is M1299: implement and run a
 bounded no-PPO source-history trainable-scope probe, centered on
 `response_context_fusion + actor_mean`, with pair-disjoint split-eval and
-parameter-group mutation guards. PPO and promotion remain blocked.
+parameter-group mutation guards. M1299 produced a strong diagnostic result:
+`fusion_head` reaches `eval_both_directional_fraction=0.25`,
+`eval_group_all_rows_both_positive_fraction=0.25`, `46/152` full both-positive
+rows, and `23/76` full all-rows-both-positive groups with no forbidden mutation.
+The active blocker is M1300: audit this strong but boundary-threshold diagnostic
+before any repeat, proof-retention, PPO, or promotion decision. PPO and
+promotion remain blocked.
 
 ## Actor Contract
 

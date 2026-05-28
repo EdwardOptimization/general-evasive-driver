@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1308,
+    "completed": 1309,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1298-paper-route-source-history-trainable-scope-escalation-design.md",
+    "command_log": "docs/m1299-paper-route-source-history-trainable-scope-probe.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1299_source_history_trainable_scope_probe",
     "status": "completed",
-    "task_id": "m1298-paper-route-source-history-trainable-scope-escalation-design"
+    "task_id": "m1299-paper-route-source-history-trainable-scope-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1299-paper-route-source-history-trainable-scope-probe.json",
-    "hypothesis": "Training response_context_fusion plus actor_mean can improve source-history directional metrics beyond M1295 while preserving actor input and mutation guards",
-    "id": "m1299-paper-route-source-history-trainable-scope-probe",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded no-PPO trainable-scope probe; PPO and promotion remain blocked",
-    "priority": 12940,
+    "command": "see experiments/manifests/m1300-paper-route-source-history-trainable-scope-result-audit.json",
+    "hypothesis": "Audit M1299 strong but boundary-threshold trainable-scope diagnostic before repeat proof-retention or PPO decisions",
+    "id": "m1300-paper-route-source-history-trainable-scope-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit strong diagnostic result; PPO and promotion remain blocked",
+    "priority": 12950,
     "status": "pending",
-    "success_artifact": "runs/m1299_source_history_trainable_scope_probe/summary.json"
+    "success_artifact": "docs/m1300-paper-route-source-history-trainable-scope-result-audit.md"
   },
-  "updated_at_utc": "20260528T145437Z"
+  "updated_at_utc": "20260528T150158Z"
 }
