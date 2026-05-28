@@ -181,6 +181,44 @@
     "runs/m1323_source_repair_corpus_expansion_plan/summary.json",
     "runs/m1323_source_repair_corpus_expansion_plan/requires_source_generator_update.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1324-paper-route-source-repair-corpus-plan-result-audit.md",
+    "decision": "source_repair_corpus_plan_synthesis_promote_to_topup_generation_branch",
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "paper_route_source_history_corpus_expansion",
+    "opened_branch": "paper_route_source_repair_topup_generation",
+    "m1315_planned_source_pairs": 108,
+    "m1323_planned_source_pairs": 216,
+    "m1323_target_source_pairs": 240,
+    "m1323_planned_pair_probe_groups": 432,
+    "m1323_target_pair_probe_groups": 480,
+    "m1323_source_fault_family_count": 7,
+    "m1323_max_source_family_fold_share": 0.3260869565,
+    "global_friction_missing": true,
+    "materialization_ready": false,
+    "primary_failure_type": "scenario_sampling_failure",
+    "public_gate_overfit_risk": "medium",
+    "supported_claims": [
+      "source-history corpus expansion fixed the largest M1315 source diversity and fold balance defects",
+      "M1322/M1323 provide a clean seven-family pair-disjoint source corpus plan",
+      "next work should be source-data construction rather than policy objective tuning on the old narrow corpus"
+    ],
+    "falsified_claims": [
+      "M1323 fully meets the M1314 240-pair and 480-group targets",
+      "uniform global friction is represented by the current same-family action-pair source miner",
+      "the source-repair corpus can be materialized immediately without auditing coverage gaps"
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1325-paper-route-source-repair-topup-generation-design.json"
+  },
+  "decision": "source_repair_corpus_plan_synthesis_promote_to_topup_generation_branch",
   "decision_rule": "M1324 passes if it audits M1323 coverage gaps and chooses a next source route without training, PPO, promotion, private holdout use, threshold relaxation, hidden gap handling, or actor-input expansion.",
-  "next_blocker": "m1324-paper-route-source-repair-corpus-plan-result-audit"
+  "next_blocker": "m1325-paper-route-source-repair-topup-generation-design"
 }

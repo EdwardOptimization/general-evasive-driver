@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1333,
+    "completed": 1334,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1323-paper-route-source-repair-corpus-expansion-plan.md",
+    "command_log": "docs/m1324-paper-route-source-repair-corpus-plan-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1323_source_repair_corpus_expansion_plan",
+    "run_dir": "docs/m1324-paper-route-source-repair-corpus-plan-result-audit.md",
     "status": "completed",
-    "task_id": "m1323-paper-route-source-repair-corpus-expansion-plan"
+    "task_id": "m1324-paper-route-source-repair-corpus-plan-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1324-paper-route-source-repair-corpus-plan-result-audit.json",
-    "hypothesis": "Audit M1323 improved but under-target source repair corpus expansion plan",
-    "id": "m1324-paper-route-source-repair-corpus-plan-result-audit",
+    "command": "see experiments/manifests/m1325-paper-route-source-repair-topup-generation-design.json",
+    "hypothesis": "Design targeted top-up source generation for M1323 undercovered source families while keeping global friction separate",
+    "id": "m1325-paper-route-source-repair-topup-generation-design",
     "kind": "gate",
-    "notes": "Pending: audit coverage gaps and decide materialization or top-up; PPO and promotion remain blocked",
-    "priority": 13190,
+    "notes": "Pending: design bounded no-policy top-up generation before materialization, PPO, or promotion",
+    "priority": 13200,
     "status": "pending",
-    "success_artifact": "docs/m1324-paper-route-source-repair-corpus-plan-result-audit.md"
+    "success_artifact": "docs/m1325-paper-route-source-repair-topup-generation-design.md"
   },
-  "updated_at_utc": "20260528T171218Z"
+  "updated_at_utc": "20260528T171826Z"
 }

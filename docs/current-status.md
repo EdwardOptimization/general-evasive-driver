@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1323-paper-route-source-repair-corpus-expansion-plan
+m1324-paper-route-source-repair-corpus-plan-result-audit
 ```
 
 Current next task:
 
 ```text
-m1324-paper-route-source-repair-corpus-plan-result-audit
+m1325-paper-route-source-repair-topup-generation-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -245,10 +245,18 @@ without falsely counting stale M1280 materialized histories by pair-id collision
 M1323 completed that plan: `216` planned source pairs, `432` pair-probe groups,
 `7` source families, `0` materialized source pairs, and max source-family fold
 share `0.3260869565`. The plan is much better than M1315 but still below the
-`240/480` target and global friction remains missing. The active blocker is
-M1324: audit whether to materialize the seven-family corpus now or run a small
-top-up/global-friction source branch first. PPO, source-history objective tuning,
-and promotion remain blocked until that audit.
+`240/480` target and global friction remains missing. M1324 audited whether to
+materialize the seven-family corpus now or run a small top-up/global-friction
+source branch first. PPO, source-history objective tuning, and promotion
+remained blocked during that audit. M1324 completed that synthesis
+with `promote_to_next_branch`: it closes
+`paper_route_source_history_corpus_expansion` and opens
+`paper_route_source_repair_topup_generation`. The supported claim is that
+M1323 fixes the largest M1315 diversity and fold-balance defects; the falsified
+claim is that the source corpus fully meets the M1314 `240/480` target. Global
+friction remains an explicit absent blocker. The active blocker is M1325:
+design a bounded no-policy top-up source-generation pass for undercovered
+families before materialization, PPO, objective tuning, or promotion.
 
 ## Actor Contract
 

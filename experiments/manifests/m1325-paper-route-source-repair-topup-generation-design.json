@@ -1,0 +1,158 @@
+{
+  "id": "m1325-paper-route-source-repair-topup-generation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1324-paper-route-source-repair-corpus-plan-result-audit.md",
+      "runs/m1323_source_repair_corpus_expansion_plan/summary.json",
+      "runs/m1323_source_repair_corpus_expansion_plan/requires_source_generator_update.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1324-paper-route-source-repair-corpus-plan-result-audit.json"
+    ],
+    "parent_objective": [
+      "design targeted top-up source generation after M1324 synthesis"
+    ],
+    "derived_from": [
+      "m1324-paper-route-source-repair-corpus-plan-result-audit"
+    ],
+    "blocked_by": [
+      "M1324 closes the corpus expansion branch and opens top-up generation because M1323 remains below pair-count targets"
+    ],
+    "supersedes": [
+      "direct source-history materialization from the under-target M1323 plan"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1325-paper-route-source-repair-topup-generation-design.md",
+  "public_gates": [
+    "M1325 must not train",
+    "M1325 must not run PPO",
+    "M1325 must not use private holdout",
+    "M1325 must not promote",
+    "M1325 must preserve actor input contract",
+    "M1325 must target undercovered source families explicitly",
+    "M1325 must keep global friction as a separate blocker or diagnostic source path"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not fabricate global friction coverage",
+    "do not relabel split-mu or blowout rows as global friction",
+    "do not route to source-history materialization before top-up coverage is audited",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_repair_topup_generation",
+    "evidence_axis": "S_source_repair_topup_design",
+    "evidence_increment": "designs the first bounded top-up generation pass for M1323 undercovered source families",
+    "claim_scope": "process design only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if design hides the global friction gap",
+      "stop if design routes directly to PPO",
+      "stop if design fabricates source coverage labels",
+      "stop if design changes actor inputs"
+    ],
+    "fallback_plan": [
+      "if top-up design is feasible, run one no-policy top-up generation smoke",
+      "if global friction needs a different miner, keep it as a separate diagnostic branch",
+      "if undercovered families cannot be topped up under strict thresholds, synthesize and materialize the seven-family corpus only with an explicit limitation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1324 opens the source repair top-up generation branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "targeted source repair top-up generation design",
+    "admission_evidence": [
+      "M1323 planned 216 source pairs versus 240 target",
+      "M1323 planned 432 pair-probe groups versus 480 target",
+      "M1323 has 7 source families and good fold balance",
+      "global friction remains missing",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not fabricate global friction coverage"
+    ],
+    "allowed_updates": [
+      "M1325 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "undercovered families and target counts are listed",
+      "top-up source scenarios and action profiles are specified",
+      "global friction is either separated or given a diagnostic-only path",
+      "next top-up smoke command is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1325 designs source generation and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "design source rows for later command-response history materialization"
+    ],
+    "temporal_evidence_window": "M1324 synthesis and M1323 source repair corpus expansion plan.",
+    "negative_result_policy": "If top-up coverage is not feasible, record the gap rather than weakening thresholds or training anyway.",
+    "allowed_claims": [
+      "targeted source repair top-up generation design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A bounded targeted top-up source-generation design can address M1323 undercovered source families without hiding global friction or changing the actor contract.",
+  "success_criteria": [
+    "docs/m1325-paper-route-source-repair-topup-generation-design.md exists",
+    "design targets halfshaft, load/CG, brake asymmetry, and tire-blowout-like undercoverage",
+    "design keeps global friction separate from split-mu and tire-blowout-like families",
+    "design specifies a no-policy top-up smoke route",
+    "design preserves strict source acceptance thresholds",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design hides global friction gap",
+    "design relabels existing families as global friction",
+    "design routes directly to materialization or PPO",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1325-paper-route-source-repair-topup-generation-design.md from M1324 synthesis and M1323 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1325-paper-route-source-repair-topup-generation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1324-paper-route-source-repair-corpus-plan-result-audit.md",
+    "runs/m1323_source_repair_corpus_expansion_plan/summary.json",
+    "runs/m1323_source_repair_corpus_expansion_plan/requires_source_generator_update.csv"
+  ],
+  "decision_rule": "M1325 passes if it designs a bounded top-up source-generation route for undercovered M1323 families without training, PPO, promotion, private holdout use, threshold relaxation, hidden gap handling, or actor-input expansion.",
+  "next_blocker": "m1325-paper-route-source-repair-topup-generation-design"
+}

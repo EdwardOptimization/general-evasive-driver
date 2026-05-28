@@ -19290,3 +19290,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1324-paper-route-source-repair-corpus-plan-result-audit.json`.
 - decision: `source_repair_corpus_expansion_plan_gap_reported_route_to_result_audit`
 - next: `m1324-paper-route-source-repair-corpus-plan-result-audit`
+
+## 20260528T171826Z - m1324-paper-route-source-repair-corpus-plan-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1324-paper-route-source-repair-corpus-plan-result-audit.md`
+- synthesis decision: `promote_to_next_branch`
+- closed branch: `paper_route_source_history_corpus_expansion`
+- opened branch: `paper_route_source_repair_topup_generation`
+- decision: `source_repair_corpus_plan_synthesis_promote_to_topup_generation_branch`
+- evidence summary: M1315 had `108` planned source pairs, `216` groups, `3` families, and max fold share `0.5789473684`; M1323 improves this to `216` planned source pairs, `432` groups, `7` families, and max fold share `0.3260869565`.
+- supported claim: source diversity and fold balance improved enough to close the expansion-planning branch.
+- falsified claim: M1323 fully meets the M1314 `240` pair / `480` group target.
+- blocker retained: global friction remains missing with `0/30` planned pairs and must not be fabricated by relabeling other families.
+- route: do not materialize yet; design one bounded targeted source top-up generation pass for undercovered active families, with global friction kept separate.
+- failure taxonomy: primary `scenario_sampling_failure`; secondary risk `objective_overfit` if policy objectives start before source top-up.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1325-paper-route-source-repair-topup-generation-design.json`.
+- next: `m1325-paper-route-source-repair-topup-generation-design`
