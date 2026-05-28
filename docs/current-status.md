@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1337-paper-route-materialized-source-history-objective-corpus-export-audit
+m1338-paper-route-materialized-source-history-objective-evaluator-design
 ```
 
 Current next task:
 
 ```text
-m1338-paper-route-materialized-source-history-objective-evaluator-design
+m1339-paper-route-materialized-source-history-objective-evaluator-implementation
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -339,7 +339,14 @@ fold-share cap. Quarantine semantics are explicit: halfshaft remains
 The active blocker is M1338: design a no-update full-corpus evaluator over the
 M1336 active rows. This should measure correct-history versus wrong-history
 log-likelihood and action-distance residuals without mutating checkpoint
-weights. Objective updates, PPO, and promotion remain blocked.
+weights. Objective updates, PPO, and promotion remain blocked. M1338 completed
+that design. The evaluator should use a same-current source observation built
+from the final correct-history response frame with zero scene context, replay
+correct and wrong histories into recurrent hidden states, score preferred and
+rejected source actions, and report full-corpus log-likelihood and action
+distance residuals. The active blocker is M1339: implement and run this
+no-update evaluator on the M1336 active corpus and the current public-gate base.
+Objective updates, PPO, and promotion remain blocked.
 
 ## Actor Contract
 

@@ -19565,3 +19565,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1338-paper-route-materialized-source-history-objective-evaluator-design.json`.
 - next: `m1338-paper-route-materialized-source-history-objective-evaluator-design`
+
+## 20260528T184159Z - m1338-paper-route-materialized-source-history-objective-evaluator-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1338-paper-route-materialized-source-history-objective-evaluator-design.md`
+- decision: `materialized_source_history_objective_evaluator_design_admit_no_update_implementation`
+- designed tool: `src/autodrift/materialized_source_history_objective_evaluator.py`
+- designed test: `tests/test_materialized_source_history_objective_evaluator.py`
+- default checkpoint: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`
+- corpus: `runs/m1336_materialized_source_history_objective_corpus_export`
+- expected active rows: `1376` full-corpus source-history objective rows with `1376` valid wrong-history rows and `0` quarantine rows used.
+- projection design: use the final correct-history response frame as a same-current 72-value source observation with zero context; replay correct and wrong response histories into hidden states and score preferred/rejected source actions.
+- objective design: compute `logp_cp/logp_cr/logp_wp/logp_wr`, correct/wrong softplus preference losses with margin `0.05`, combined exact loss, action-distance diagnostics, family summaries, fold summaries, and checkpoint sha256 before/after.
+- claim scope: diagnostic source-history objective evaluator only; no closed-loop driver, paper-level, high-fidelity, or strong self-identification claim.
+- guardrail: no training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1339-paper-route-materialized-source-history-objective-evaluator-implementation.json`.
+- next: `m1339-paper-route-materialized-source-history-objective-evaluator-implementation`

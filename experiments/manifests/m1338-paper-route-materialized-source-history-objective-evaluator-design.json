@@ -164,6 +164,30 @@
     "docs/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.md",
     "runs/m1336_materialized_source_history_objective_corpus_export/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1338-paper-route-materialized-source-history-objective-evaluator-design.md",
+    "decision": "materialized_source_history_objective_evaluator_design_admit_no_update_implementation",
+    "failure_type": "none",
+    "designed_tool": "src/autodrift/materialized_source_history_objective_evaluator.py",
+    "designed_test": "tests/test_materialized_source_history_objective_evaluator.py",
+    "default_checkpoint": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "corpus_run_dir": "runs/m1336_materialized_source_history_objective_corpus_export",
+    "expected_row_count": 1376,
+    "expected_wrong_history_valid_count": 1376,
+    "expected_active_quarantine_rows_used": 0,
+    "expected_checkpoint_weights_mutated": false,
+    "uses_source_current_zero_context_projection": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_update_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1339-paper-route-materialized-source-history-objective-evaluator-implementation.json"
+  },
   "decision_rule": "M1338 passes as a design milestone if it specifies an exact no-update active-corpus evaluator with correct-history/wrong-history residuals, action-distance diagnostics, immutability checks, quarantine exclusion, and one safe implementation route.",
-  "next_blocker": "m1338-paper-route-materialized-source-history-objective-evaluator-design"
+  "next_blocker": "m1339-paper-route-materialized-source-history-objective-evaluator-implementation"
 }
