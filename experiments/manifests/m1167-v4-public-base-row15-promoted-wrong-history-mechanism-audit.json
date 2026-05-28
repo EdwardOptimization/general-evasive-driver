@@ -158,6 +158,50 @@
     "docs/m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot.md",
     "runs/m1166_row15_promoted_staged_relocation_pilot_seed116100/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md",
+    "decision": "row15_promoted_wrong_history_mechanism_audit_route_to_target_margin_microgrid_design",
+    "result_class": "target_grid_false_negative_plus_wrong_history_scarcity",
+    "failure_types": [
+      "scenario_sampling_failure",
+      "metric_artifact"
+    ],
+    "m1161_accepted_wrong_history_rows": 15,
+    "m1161_accepted_wrong_history_physical_pairs": 2,
+    "m1161_accepted_wrong_history_targets": 1,
+    "m1161_accepted_wrong_history_checkpoint_targets": [
+      "row15_current/future_yaw_response",
+      "row15_previous_alpha015/future_yaw_response"
+    ],
+    "m1166_accepted_wrong_history_rows": 1,
+    "m1166_accepted_wrong_history_physical_pairs": 1,
+    "m1166_selected_physical_pairs": 240,
+    "m1166_selected_included_both_m1161_pairs": true,
+    "m1166_rows_true_true_no_drop": 3321,
+    "m1166_rows_false_false_no_drop": 1283,
+    "m1166_rows_true_false_success_drop": 1,
+    "m1166_near_boundary_rows": 710,
+    "m1166_accepted_rows": 1,
+    "m1166_success_drop_checkpoint_targets": [
+      "row15_current/future_yaw_response"
+    ],
+    "target_grid_false_negative": true,
+    "wrong_history_scarcity_beyond_grid": true,
+    "same_shape_large_expansion_blocked": true,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "mining_started": false,
+    "outcome_rerun_started": false,
+    "relocation_replay_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "surface_conversion_started": false,
+    "thresholds_weakened": false,
+    "admitted_next": "target_margin_microgrid_design",
+    "next_milestone": "m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design"
+  },
   "decision_rule": "M1167 may only audit existing M1161 and M1166 artifacts and choose the next route. It cannot rerun mining, rerun outcome gate, run relocation replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, weaken thresholds, or convert the failed pilot surface.",
-  "next_blocker": "m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit"
+  "next_blocker": "m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design"
 }

@@ -16627,3 +16627,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no mining rerun, outcome rerun, actor training, PPO, promotion, private holdout, surface conversion, threshold weakening, or actor-input change occurred.
 - decision: `row15_promoted_staged_relocation_pilot_reject_route_to_wrong_history_mechanism_audit`
 - next: `m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit`
+
+## 20260528T013600Z - m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md`
+- result: classifies M1166 as a target-margin grid false negative plus broader wrong-history scarcity.
+- M1161 accepted rows: `15` rows across `2` physical pairs, all `future_yaw_response`, with normal-margin range `0.001947` to `0.002483`.
+- M1166 accepted rows: `1` row across `1` physical pair with normal margin `0.002457`.
+- candidate-selection finding: M1166 selected both M1161 accepted physical pairs, so it did not simply miss the old sensitive active set.
+- target-grid finding: M1166 omitted the fine `0.0005` target-margin value; one old pair became safe at normal margin `0.002983` where M1161 had an accepted row at `0.002483`.
+- broader finding: across `4605` M1166 wrong-history rows, `3321` were normal-success/wrong-history-success, `1283` were normal-failure/wrong-history-failure, and only `1` was normal-success/wrong-history-failure.
+- guardrail: no mining, outcome rerun, relocation replay, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
+- decision: `row15_promoted_wrong_history_mechanism_audit_route_to_target_margin_microgrid_design`
+- next: `m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design`

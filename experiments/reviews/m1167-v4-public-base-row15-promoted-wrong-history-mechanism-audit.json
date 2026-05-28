@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1167 may only audit existing M1161 and M1166 artifacts and choose the next route. It cannot rerun mining, rerun outcome gate, run relocation replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, weaken thresholds, or convert the failed pilot surface.",
+  "decision_reason": "M1167 finds M1166 selected both old sensitive pairs but coarser target margins caused one false negative while the broader 240-pair sample still shows wrong-history scarcity",
   "failure_criteria": [
     "audit artifact is missing",
     "failure mechanism remains ambiguous",
@@ -22,7 +22,7 @@
     "do not convert the failed pilot surface"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260528T013136Z",
+  "generated_at_utc": "20260528T013634Z",
   "hypothesis": "M1166 failed because relocation makes most matched wrong-history continuations safe; the audit can distinguish source-budget, target-policy, target-type, margin-window, and current-frame substitution causes using existing artifacts.",
   "lineage": {
     "blocked_by": [
@@ -56,9 +56,9 @@
     "supersedes": []
   },
   "milestone": "m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit",
-  "next_blocker": "m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit",
+  "next_blocker": "m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "row15_promoted_wrong_history_mechanism_audit_route_to_target_margin_microgrid_design",
   "public_gates": [
     "M1167 must audit existing M1161 and M1166 artifacts only",
     "M1167 must not rerun mining",
@@ -71,7 +71,20 @@
     "M1167 must preserve actor inputs",
     "M1167 must not convert the failed pilot surface"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_wrong_history_mechanism_audit_route_to_target_margin_microgrid_design",
+    "milestone": "m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit",
+    "reason": "M1167 finds M1166 selected both old sensitive pairs but coarser target margins caused one false negative while the broader 240-pair sample still shows wrong-history scarcity",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "audit artifact exists",
     "M1161 and M1166 accepted-surface contrast is summarized",

@@ -1,0 +1,158 @@
+{
+  "id": "m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md",
+      "runs/m1166_row15_promoted_staged_relocation_pilot_seed116100/summary.json",
+      "runs/m1166_row15_promoted_staged_relocation_pilot_seed116100/boundary_relocation_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.json"
+    ],
+    "parent_objective": [
+      "design a small target-margin microgrid diagnostic to separate target-grid false negative from broader wrong-history scarcity"
+    ],
+    "derived_from": [
+      "m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit"
+    ],
+    "blocked_by": [
+      "M1167 finds both a target-margin grid artifact and broader wrong-history scarcity"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "large same-shape relocation expansion before microgrid check",
+      "conversion from M1166 pilot rows",
+      "PPO before refreshed wrong-history surface evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.md",
+  "public_gates": [
+    "M1168 is design-only",
+    "M1168 must not run relocation replay",
+    "M1168 must not rerun mining",
+    "M1168 must not rerun outcome gate",
+    "M1168 must not train actor weights",
+    "M1168 must not run PPO",
+    "M1168 must not promote",
+    "M1168 must not use private holdout",
+    "M1168 must preserve actor inputs",
+    "M1168 must not convert a surface"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run relocation replay",
+    "do not rerun mining",
+    "do not rerun outcome gate",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert a surface",
+    "do not claim broad surface pass from the future microgrid diagnostic"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_margin_slack_surface_refresh",
+    "evidence_axis": "G_surface: target-margin microgrid diagnostic design",
+    "evidence_increment": "designs a small replay diagnostic that restores fine near-boundary target margins without broad body-offset expansion",
+    "claim_scope": "design only; no replay, mining, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if the microgrid would still be a large same-shape expansion",
+      "stop if it cannot explicitly compare M1161, M1166, and the fine-margin diagnostic",
+      "stop if it would weaken thresholds after seeing M1166"
+    ],
+    "fallback_plan": [
+      "if microgrid diagnostic recovers only old pairs, route to branch synthesis and stronger wrong-history construction",
+      "if it recovers source-diverse pairs, route to staged conversion design",
+      "if it remains inconclusive, route to instrumented replay with action-response diagnostics"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1167 finds target-grid false negative plus broader wrong-history scarcity",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design a tiny evaluation-only microgrid diagnostic",
+    "admission_evidence": [
+      "M1167 finds M1166 omitted a fine target margin that reproduced one M1161 accepted pair",
+      "M1167 also finds only one success drop across 240 selected physical pairs",
+      "M1167 blocks larger same-shape relocation expansion before a targeted microgrid check"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not rerun source mining",
+      "do not rerun outcome gate",
+      "do not train actor weights",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "design documentation",
+      "next run manifest",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "future run command is explicit",
+      "comparison against M1161 and M1166 is explicit",
+      "stop/fallback conditions are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1168 only designs a diagnostic for wrong-history surface availability.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history"
+    ],
+    "temporal_evidence_window": "M1168 does not add training or new task distributions.",
+    "negative_result_policy": "If the future microgrid run recovers only old pairs, record same-shape relocation expansion as exhausted before pivoting.",
+    "allowed_claims": [
+      "diagnostic design for level2 proof-surface mining",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A fine target-margin microgrid can test whether M1166 undercounted wrong-history rows because it omitted very fine near-boundary target margins, while still keeping the diagnostic small enough to avoid M1164 resource failure.",
+  "success_criteria": [
+    "design artifact exists",
+    "future command reuses existing M1161 outcome CSV",
+    "future command restores fine target margins including 0.0005",
+    "future command keeps wrong_matched_history as the only report variant",
+    "future command avoids body-offset expansion or uses only the original body offset",
+    "comparison with M1161 and M1166 is pre-registered",
+    "no relocation replay, mining, outcome rerun, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "future command is too large for staged diagnostic use",
+    "comparison to M1161 and M1166 is ambiguous",
+    "relocation replay, mining, outcome rerun, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "design_target_margin_microgrid",
+      "command": "write docs/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.md and pre-register the M1169 microgrid command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md"
+  ],
+  "decision_rule": "M1168 is design-only. It can design a future target-margin microgrid diagnostic but cannot run relocation replay, rerun mining, rerun outcome gate, train actor weights, run PPO, promote, use private holdout, change actor inputs, weaken thresholds, convert a surface, or claim broad surface pass.",
+  "next_blocker": "m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design"
+}

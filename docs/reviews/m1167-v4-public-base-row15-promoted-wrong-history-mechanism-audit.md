@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T013136Z
+- Generated at UTC: 20260528T013634Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1167 may only audit existing M1161 and M1166 artifacts and choose the next route. It cannot rerun mining, rerun outcome gate, run relocation replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, weaken thresholds, or convert the failed pilot surface.
+- Promotion decision: row15_promoted_wrong_history_mechanism_audit_route_to_target_margin_microgrid_design
+- Decision reason: M1167 finds M1166 selected both old sensitive pairs but coarser target margins caused one false negative while the broader 240-pair sample still shows wrong-history scarcity
 
 ## Hypothesis
 
@@ -75,8 +75,19 @@ M1166 failed because relocation makes most matched wrong-history continuations s
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit
+- type: gate
+- checkpoint: docs/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_wrong_history_mechanism_audit_route_to_target_margin_microgrid_design
+- reason: M1167 finds M1166 selected both old sensitive pairs but coarser target margins caused one false negative while the broader 240-pair sample still shows wrong-history scarcity
 
 ## Next Blocker
 
-m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit
+m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design

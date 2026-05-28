@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1175,
+    "completed": 1176,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot",
+    "task_id": "m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m1166_row15_promoted_staged_relocation_pilot_seed116100/summary.json",
-    "result_class": "row15_promoted_staged_relocation_pilot_wrong_history_scarcity",
-    "decision": "row15_promoted_staged_relocation_pilot_reject_route_to_wrong_history_mechanism_audit"
+    "command_log": "docs/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md",
+    "result_class": "target_grid_false_negative_plus_wrong_history_scarcity",
+    "decision": "row15_promoted_wrong_history_mechanism_audit_route_to_target_margin_microgrid_design"
   },
   "next_task": {
-    "id": "m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit",
+    "id": "m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design",
     "status": "pending",
-    "priority": 11620,
+    "priority": 11630,
     "kind": "gate",
-    "hypothesis": "Existing M1161 and M1166 artifacts can classify why broad source-selected wrong-history candidates become safe after relocation under the row15-promoted public base",
-    "command": "see experiments/manifests/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.json",
-    "success_artifact": "docs/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md",
-    "notes": "Pending: audit existing artifacts only; no mining outcome rerun relocation replay actor training PPO promotion private holdout conversion threshold weakening or actor-input change"
+    "hypothesis": "A fine target-margin microgrid design can separate M1166 target-grid false negative from broader wrong-history scarcity without repeating a large relocation expansion",
+    "command": "see experiments/manifests/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.json",
+    "success_artifact": "docs/m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design.md",
+    "notes": "Pending: design-only target-margin microgrid diagnostic; no relocation replay mining outcome rerun actor training PPO promotion private holdout conversion threshold weakening or actor-input change"
   },
-  "updated_at_utc": "20260528T012826Z"
+  "updated_at_utc": "20260528T013600Z"
 }

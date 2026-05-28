@@ -84,32 +84,29 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit
+m1168-v4-public-base-row15-promoted-relocation-target-microgrid-design
 ```
 
-M1166 completed the resource-bounded staged relocation pilot. It confirmed
-that M1164's resource issue can be avoided, but the scientific result is
-negative:
+M1167 completed the wrong-history mechanism audit. It found that M1166 selected
+both M1161 accepted physical pairs, so M1166 did not fail by simply missing the
+old sensitive active set. The failure has two components:
 
 ```text
-source_budget_ready: true
-selected rows: 240
-selected physical pairs: 240
-raw relocation rows: 4605
-accepted wrong-history rows: 1
-accepted wrong-history physical pairs: 1
-accepted wrong-history normal-margin buckets: 1
-accepted wrong-history normal-margin max: 0.002457
-M1161 accepted wrong-history rows: 15
-M1161 accepted wrong-history physical pairs: 2
-M1161 accepted wrong-history normal-margin max: 0.002483
-decision: row15_promoted_staged_relocation_pilot_reject_route_to_wrong_history_mechanism_audit
+target-grid artifact:
+  M1166 omitted the fine 0.0005 target-margin value.
+  One old sensitive pair stayed wrong-history safe at normal margin 0.002983,
+  while M1161 had it accepted at normal margin 0.002483.
+
+broader wrong-history scarcity:
+  M1166 rows normal-success/wrong-history-success: 3321
+  M1166 rows normal-failure/wrong-history-failure: 1283
+  M1166 rows normal-success/wrong-history-failure: 1
 ```
 
-The next step is not a larger same-shape relocation run. M1167 should audit
-existing M1161 and M1166 artifacts to classify why broad source-selected
-wrong-history candidates become safe after relocation under the current
-row15-promoted public base.
+The next step is a tiny target-margin microgrid design, not a larger
+same-shape expansion. It should restore fine near-boundary target margins and
+test whether the second old pair is recovered before deciding whether the
+branch needs a stronger wrong-history construction.
 
 M1127 completed the expanded full public gate for the row15 projection
 candidate:
