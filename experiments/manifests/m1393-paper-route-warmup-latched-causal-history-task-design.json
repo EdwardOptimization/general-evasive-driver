@@ -1,0 +1,156 @@
+{
+  "id": "m1393-paper-route-warmup-latched-causal-history-task-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1392-paper-route-causal-history-candidate-outcome-probe.md",
+      "runs/m1392_causal_history_candidate_outcome_probe/summary.json",
+      "runs/m1392_causal_history_candidate_outcome_probe/accepted_self_id_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1392-paper-route-causal-history-candidate-outcome-probe.json"
+    ],
+    "parent_objective": [
+      "design warmup-latched causal-history tasks after M1392 finds source-narrow delayed-history signal"
+    ],
+    "derived_from": [
+      "m1392-paper-route-causal-history-candidate-outcome-probe"
+    ],
+    "blocked_by": [
+      "M1392 outcome probe is history-sparse and dominated by reset/zero-current effects"
+    ],
+    "supersedes": [
+      "training from M1391 candidates",
+      "exporting M1392 accepted self-ID rows as a corpus",
+      "running another blind profile repeat"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1393-paper-route-warmup-latched-causal-history-task-design.md",
+  "public_gates": [
+    "M1393 must design a warmup-latched task/source route before new training or corpus export",
+    "M1393 must address M1392 source-narrow delayed-history signal",
+    "M1393 must include matched-current or bucketed-current controls and current-frame substitution controls",
+    "M1393 must not train, run PPO, promote, use private holdout, export a corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not claim level3 self-identification from design"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_necessity_task_design",
+    "evidence_axis": "G_warmup_latched_causal_task_design",
+    "evidence_increment": "designs a task/source family to make pre-emergency command-response history outcome-relevant after M1392 source-narrow result",
+    "claim_scope": "task/source design only; no training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if the task still lets current frame substitute for history",
+      "stop if warmup evidence is not outcome-relevant",
+      "stop if source-diversity thresholds are omitted",
+      "stop if design routes directly to training"
+    ],
+    "fallback_plan": [
+      "route to simulator/task extension if current scenario API cannot express warmup and emergency phases",
+      "route to source-mining redesign if warmup task cannot produce matched-current rows",
+      "route to branch synthesis if causal task design remains underspecified"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "warmup-latched causal-history task design",
+    "admission_evidence": [
+      "M1392 accepted_self_id_rows=24 but accepted_self_id_unique_seeds=1",
+      "M1392 wrong_same_current_history and same_recent_wrong_older_history produced zero accepted rows",
+      "M1392 reset_hidden and zero_current_response dominate accepted outcome rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export a training corpus"
+    ],
+    "allowed_updates": [
+      "M1393 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "warmup and emergency phases are specified",
+      "matching/bucketing and current-frame controls are specified",
+      "source-diversity thresholds are specified",
+      "next implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1393 must design against current-frame substitution with matched/bucketed current reveal and controls for zero-current/reset effects.",
+    "history_necessity_tests": [
+      "warmup_response_evidence_not_visible_in_current_frame",
+      "matched_or_bucketed_current_reveal",
+      "normal_vs_delayed_history",
+      "normal_vs_wrong_warmup_history",
+      "normal_vs_zero_current_response_positive_control"
+    ],
+    "temporal_evidence_window": "Design follows M1392 source-narrow delayed-history result and must specify pre-emergency warmup evidence.",
+    "negative_result_policy": "If warmup-latched task design cannot make history source-diverse and outcome-relevant, record blocker and synthesize branch before training.",
+    "allowed_claims": [
+      "warmup-latched task/source design",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A warmup-latched task can be designed to make pre-emergency command-response history causally relevant and less replaceable by current-frame feedback.",
+  "success_criteria": [
+    "docs/m1393-paper-route-warmup-latched-causal-history-task-design.md exists",
+    "design specifies warmup and emergency phases",
+    "design specifies matched/bucketed current controls and interventions",
+    "design specifies source-diversity thresholds and next implementation route",
+    "design does not route directly to training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores M1392 source-narrow result",
+    "design omits current-frame substitution controls",
+    "design omits source-diversity thresholds",
+    "design routes directly to training or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1393-paper-route-warmup-latched-causal-history-task-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1393-paper-route-warmup-latched-causal-history-task-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1392-paper-route-causal-history-candidate-outcome-probe.md",
+    "runs/m1392_causal_history_candidate_outcome_probe/summary.json",
+    "runs/m1392_causal_history_candidate_outcome_probe/accepted_self_id_rows.csv"
+  ],
+  "decision_rule": "M1393 passes if it designs a warmup-latched causal-history task/source route before training or claim expansion.",
+  "next_blocker": "m1393-paper-route-warmup-latched-causal-history-task-design"
+}

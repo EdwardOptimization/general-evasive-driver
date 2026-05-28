@@ -2,7 +2,7 @@
   "id": "m1392-paper-route-causal-history-candidate-outcome-probe",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -151,6 +151,36 @@
     "runs/m1391_causal_history_source_miner/summary.json",
     "runs/m1391_causal_history_source_miner/candidate_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1392_causal_history_candidate_outcome_probe/summary.json",
+    "result_doc": "docs/m1392-paper-route-causal-history-candidate-outcome-probe.md",
+    "decision": "causal_history_candidate_outcome_history_sparse_route_to_warmup_latched_task_design",
+    "result_class": "causal_history_outcome_history_sparse",
+    "selected_candidate_rows": 384,
+    "outcome_rows": 2688,
+    "accepted_outcome_rows": 633,
+    "accepted_self_id_rows": 24,
+    "accepted_reset_rows": 363,
+    "accepted_zero_current_rows": 246,
+    "action_critical_rows": 1304,
+    "normal_failed_rows": 0,
+    "rejected_rows": 0,
+    "accepted_self_id_unique_seeds": 1,
+    "accepted_self_id_unique_fault_pairs": 8,
+    "accepted_self_id_unique_variants": 2,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "actor_parameters_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1393-paper-route-warmup-latched-causal-history-task-design.json"
+  },
+  "decision": "causal_history_candidate_outcome_history_sparse_route_to_warmup_latched_task_design",
   "decision_rule": "M1392 passes structurally if it materializes no-training outcome interventions over M1391 candidates and reports accepted-row source diversity without claim expansion.",
-  "next_blocker": "m1392-paper-route-causal-history-candidate-outcome-probe"
+  "next_blocker": "m1393-paper-route-warmup-latched-causal-history-task-design"
 }

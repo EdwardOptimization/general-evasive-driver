@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1401,
+    "completed": 1402,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1391_causal_history_source_miner/summary.json",
+    "command_log": "runs/m1392_causal_history_candidate_outcome_probe/summary.json",
     "returncode": 0,
-    "run_dir": "runs/m1391_causal_history_source_miner",
+    "run_dir": "runs/m1392_causal_history_candidate_outcome_probe",
     "status": "completed",
-    "task_id": "m1391-paper-route-causal-history-source-miner-implementation"
+    "task_id": "m1392-paper-route-causal-history-candidate-outcome-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1392-paper-route-causal-history-candidate-outcome-probe.json",
-    "hypothesis": "No-training outcome interventions over M1391 candidates can determine whether matched-current source rows contain source-diverse history-causal outcome gaps.",
-    "id": "m1392-paper-route-causal-history-candidate-outcome-probe",
-    "kind": "infrastructure",
-    "notes": "Pending: implement or run no-training outcome interventions over M1391 candidates before corpus export, training, or claim expansion",
-    "priority": 13870,
+    "command": "see experiments/manifests/m1393-paper-route-warmup-latched-causal-history-task-design.json",
+    "hypothesis": "A warmup-latched task can be designed to make pre-emergency command-response history causally relevant and less replaceable by current-frame feedback.",
+    "id": "m1393-paper-route-warmup-latched-causal-history-task-design",
+    "kind": "gate",
+    "notes": "Pending: design warmup-latched causal-history task/source route after M1392 source-narrow result",
+    "priority": 13880,
     "status": "pending",
-    "success_artifact": "runs/m1392_causal_history_candidate_outcome_probe/summary.json"
+    "success_artifact": "docs/m1393-paper-route-warmup-latched-causal-history-task-design.md"
   },
-  "updated_at_utc": "20260529T012000Z"
+  "updated_at_utc": "20260529T013000Z"
 }

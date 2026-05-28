@@ -16,22 +16,46 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1391-paper-route-causal-history-source-miner-implementation
+m1392-paper-route-causal-history-candidate-outcome-probe
 ```
 
 Current next task:
 
 ```text
-m1392-paper-route-causal-history-candidate-outcome-probe
+m1393-paper-route-warmup-latched-causal-history-task-design
 ```
 
-M1391 implemented and ran the no-training causal-history source miner after
-M1390 designed the task family. The
+M1392 implemented and ran the no-training outcome probe over M1391 candidates.
+The
 current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1392 result:
+
+```text
+decision: causal_history_candidate_outcome_history_sparse_route_to_warmup_latched_task_design
+result_class: causal_history_outcome_history_sparse
+selected_candidate_rows: 384
+outcome_rows: 2688
+accepted_outcome_rows: 633
+accepted_self_id_rows: 24
+accepted_reset_rows: 363
+accepted_zero_current_rows: 246
+accepted_self_id_unique_seeds: 1
+accepted_self_id_unique_fault_pairs: 8
+next: m1393-paper-route-warmup-latched-causal-history-task-design
+```
+
+M1392 is useful negative evidence. Reset-hidden and zero-current-response
+controls produce broad outcome-critical rows, but self-ID-relevant history rows
+are delayed-history-only, margin/action-only, and concentrated in one seed.
+Wrong same-current history and same-recent wrong-older-history produce zero
+accepted rows. Do not export a corpus or train from this source family. M1393
+should design a warmup-latched causal-history task/source route that makes
+pre-emergency command-response history more source-diverse and outcome-relevant.
 
 M1391 result:
 

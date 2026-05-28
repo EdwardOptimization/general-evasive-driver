@@ -20510,3 +20510,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1391 admits a no-training outcome-intervention probe over matched-current candidates; it does not admit corpus export, training, promotion, private holdout, or self-ID claim expansion.
 - follow-up manifest: `experiments/manifests/m1392-paper-route-causal-history-candidate-outcome-probe.json`.
 - next: `m1392-paper-route-causal-history-candidate-outcome-probe`
+
+## 20260529T013000Z - m1392-paper-route-causal-history-candidate-outcome-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1392_causal_history_candidate_outcome_probe/summary.json`
+- result doc: `docs/m1392-paper-route-causal-history-candidate-outcome-probe.md`
+- decision: `causal_history_candidate_outcome_history_sparse_route_to_warmup_latched_task_design`
+- command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.causal_history_candidate_outcome_probe --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m991_capability_step_fault_source_wave.json --candidate-rows runs/m1391_causal_history_source_miner/candidate_rows.csv --max-candidate-rows 384 --per-fault-pair-cap 48 --history-length 12 --recent-window-length 2 --max-continuation-steps 48 --device cpu --run-dir runs/m1392_causal_history_candidate_outcome_probe`
+- result class: `causal_history_outcome_history_sparse`
+- counts: `selected_candidate_rows=384`, `outcome_rows=2688`, `accepted_outcome_rows=633`, `accepted_self_id_rows=24`, `accepted_reset_rows=363`, `accepted_zero_current_rows=246`, `action_critical_rows=1304`, `normal_failed_rows=0`, `rejected_rows=0`.
+- variant finding: delayed history has 24 margin/action self-ID rows (`delayed_history_8=5`, `delayed_history_12=19`), but `wrong_same_current_history=0` and `same_recent_wrong_older_history=0`.
+- source diversity: accepted self-ID rows have `unique_source_seeds=1`, `unique_fault_pairs=8`, and `unique_variants=2`; accepted outcome rows overall span `38` seeds and `8` fault pairs.
+- interpretation: broad outcome sensitivity exists, but it is dominated by reset/zero-current controls; source-diverse history-causal outcome evidence is not supported. Do not export corpus or train.
+- guardrail: `actor_parameters_changed=false`, `training_started=false`, `evaluation_started=false`, `ppo_used=false`, `promoted=false`, `private_holdout_used=false`, `training_corpus_exported=false`, `actor_input_contract_changed=false`.
+- follow-up manifest: `experiments/manifests/m1393-paper-route-warmup-latched-causal-history-task-design.json`.
+- next: `m1393-paper-route-warmup-latched-causal-history-task-design`
