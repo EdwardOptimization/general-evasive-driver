@@ -1,0 +1,152 @@
+{
+  "id": "m1276-paper-route-four-wheel-source-intervention-materialization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_dataset": [
+      "docs/m1275-paper-route-fidelity-fault-source-synthesis.md",
+      "runs/m1273_four_wheel_source_corpus_export/near_boundary_source_rows.csv",
+      "runs/m1273_four_wheel_source_corpus_export/high_regret_source_rows.csv",
+      "runs/m1273_four_wheel_source_corpus_export/family_balanced_source_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1275-paper-route-fidelity-fault-source-synthesis.json"
+    ],
+    "parent_objective": [
+      "design source-to-intervention materialization from the four-wheel source corpus"
+    ],
+    "derived_from": [
+      "m1275-paper-route-fidelity-fault-source-synthesis"
+    ],
+    "blocked_by": [
+      "M1275 promotes the fidelity source branch to source-to-intervention/materialization"
+    ],
+    "supersedes": [
+      "direct actor/Gym integration from M1273 source corpus"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1276-paper-route-four-wheel-source-intervention-materialization-design.md",
+  "public_gates": [
+    "M1276 must preserve actor input contract",
+    "M1276 must not train controllers",
+    "M1276 must not run PPO",
+    "M1276 must not use private holdout",
+    "M1276 must not promote",
+    "M1276 must design source-to-intervention artifacts before implementation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add per-wheel/fault labels to actor inputs",
+    "do not lower accepted-source thresholds",
+    "do not count source rows as driver performance",
+    "do not claim high-fidelity validation from the compact pilot"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_four_wheel_source_intervention_materialization",
+    "evidence_axis": "S_intervention_materialization_design",
+    "evidence_increment": "designs how to turn M1273 source-corpus rows into intervention/replay artifacts without actor-input leakage",
+    "claim_scope": "design only; no training, promotion, private-holdout, paper-level, recurrent-belief, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if materialization requires fault labels in actor observations",
+      "stop if materialization weakens source acceptance semantics",
+      "stop if the design skips directly to PPO or actor training"
+    ],
+    "fallback_plan": [
+      "if direct intervention materialization is not possible, route to source-corpus repair or boundary retargeting",
+      "if artifacts can be defined cleanly, admit one bounded no-training implementation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1275 opens the source-to-intervention/materialization branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "four-wheel source intervention materialization design",
+    "admission_evidence": [
+      "M1275 promotes to source-to-intervention/materialization",
+      "M1273 near_boundary_rows=19",
+      "M1273 high_regret_rows=32",
+      "M1273 family_balanced_rows=63"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1276 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next implementation manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "design defines intervention row schema",
+      "design defines preferred/rejected branch/action semantics",
+      "design defines source-corpus subset priorities",
+      "design defines no-leak actor-input guardrails"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1276 designs source artifacts and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until no-training intervention artifacts are implemented and audited"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If source-to-intervention materialization cannot be defined cleanly, route to source-corpus repair or boundary retargeting rather than actor training.",
+    "allowed_claims": [
+      "four-wheel source intervention materialization design",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A no-training source-to-intervention design can convert M1273 source-corpus rows into preferred/rejected counterfactual artifacts without actor-input leakage.",
+  "success_criteria": [
+    "docs/m1276-paper-route-four-wheel-source-intervention-materialization-design.md exists",
+    "design specifies intervention row schema",
+    "design specifies subset priorities",
+    "design specifies preferred/rejected branch/action/outcome semantics",
+    "design preserves actor-input and source-acceptance guardrails",
+    "design pre-registers one bounded implementation if admitted",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design is missing",
+    "design leaks fault/per-wheel metadata into actor observations",
+    "design treats source rows as driver performance",
+    "design skips directly to actor/Gym integration",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1276-paper-route-four-wheel-source-intervention-materialization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1276-paper-route-four-wheel-source-intervention-materialization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint"
+  ],
+  "baseline_artifacts": [
+    "docs/m1275-paper-route-fidelity-fault-source-synthesis.md",
+    "runs/m1273_four_wheel_source_corpus_export/summary.json"
+  ],
+  "decision_rule": "M1276 passes if it designs source-to-intervention materialization and the next bounded implementation without training or actor-input expansion.",
+  "next_blocker": "m1276-paper-route-four-wheel-source-intervention-materialization-design"
+}

@@ -175,6 +175,39 @@
     "docs/m1274-paper-route-four-wheel-source-corpus-export-result-audit.md",
     "runs/m1273_four_wheel_source_corpus_export/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1275-paper-route-fidelity-fault-source-synthesis.md",
+    "decision": "fidelity_fault_source_synthesis_promote_to_source_intervention_materialization",
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "paper_route_fidelity_fault_source_design",
+    "opened_branch": "paper_route_four_wheel_source_intervention_materialization",
+    "source_positive_rows_found": true,
+    "accepted_separable_pairs": 108,
+    "near_boundary_rows": 19,
+    "high_regret_rows": 32,
+    "family_balanced_rows": 63,
+    "inactive_fault_family_count": 1,
+    "supported_claims": [
+      "compact four-wheel source model can produce signed left-right yaw response",
+      "calibrated four-wheel source grid can produce strict capability-separable rows",
+      "M1273 exports reusable source artifacts for the next branch"
+    ],
+    "falsified_claims": [
+      "M1268 default source grid is sufficient",
+      "horizon-only rows may count as source success",
+      "source-positive rows are driver performance or self-ID evidence"
+    ],
+    "public_gate_overfit_risk": "moderate",
+    "next_manifest": "experiments/manifests/m1276-paper-route-four-wheel-source-intervention-materialization-design.json",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "threshold_relaxation_allowed": false
+  },
+  "decision": "fidelity_fault_source_synthesis_promote_to_source_intervention_materialization",
   "decision_rule": "M1275 passes if it synthesizes M1265-M1274 evidence and chooses a next branch without training or threshold relaxation.",
-  "next_blocker": "m1275-paper-route-fidelity-fault-source-synthesis"
+  "next_blocker": "m1276-paper-route-four-wheel-source-intervention-materialization-design"
 }

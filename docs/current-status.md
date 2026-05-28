@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1274-paper-route-four-wheel-source-corpus-export-result-audit
+m1275-paper-route-fidelity-fault-source-synthesis
 ```
 
 Current next task:
 
 ```text
-m1275-paper-route-fidelity-fault-source-synthesis
+m1276-paper-route-four-wheel-source-intervention-materialization-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -30,12 +30,13 @@ rows from `720` matched pairs under `scenario_profile=viability_calibration`.
 M1272 audited those rows as source-positive but not actor-ready because the full
 set is margin-easy on average. M1273 exported a stratified corpus: `108` all
 accepted rows, `19` near-boundary rows, `32` high-regret rows, `63`
-family-balanced rows, and one inactive halfshaft family. M1274 audited the
-corpus as suitable source material but routed to branch synthesis because
-M1265-M1274 reached the workflow synthesis cadence. This is source-corpus
-infrastructure, not driver performance. The active blocker is M1275 synthesis:
-decide whether to promote into a source-to-intervention/materialization branch
-before any actor/Gym integration.
+family-balanced rows, and one inactive halfshaft family. M1275 synthesized
+M1265-M1274 and closed the fidelity source-construction branch as
+source-positive corpus infrastructure. The new active branch is
+`paper_route_four_wheel_source_intervention_materialization`. This is still not
+driver performance. The active blocker is to design preferred/rejected
+counterfactual source artifacts from the M1273 corpus without leaking fault or
+per-wheel metadata into actor observations.
 
 ## Actor Contract
 

@@ -18397,3 +18397,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1275-paper-route-fidelity-fault-source-synthesis.json`.
 - decision: `four_wheel_source_corpus_export_audit_route_to_branch_synthesis`
 - next: `m1275-paper-route-fidelity-fault-source-synthesis`
+
+## 20260528T125612Z - m1275-paper-route-fidelity-fault-source-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1275-paper-route-fidelity-fault-source-synthesis.md`
+- synthesis decision: `promote_to_next_branch`
+- closed branch: `paper_route_fidelity_fault_source_design`
+- opened branch: `paper_route_four_wheel_source_intervention_materialization`
+- evidence summary: M1265-M1274 implemented a compact four-wheel fault source model, fixed horizon-only success semantics, found M1268 collision dominance, calibrated M1271 into `108` strict accepted rows, and exported M1273 source corpus subsets.
+- supported claims: compact four-wheel source can produce signed left/right yaw response and strict capability-separable source rows under matched visible state; previous zero-accepted source gap was partly a source-fidelity/viability-window problem.
+- falsified claims: M1268 default grid is sufficient; horizon-only rows can count as success; source-positive rows are driver performance or self-ID evidence; halfshaft is useful under the current brake-dominant lattice.
+- public gate overfit risk: `moderate`; source rows are public and calibrated, but span `71` accepted geometries and `3` accepted fault-family pairs.
+- next branch question: materialize M1273 source rows into preferred/rejected counterfactual intervention artifacts without leaking fault/per-wheel metadata into actor observations.
+- guardrail: no training, PPO, checkpoint promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1276-paper-route-four-wheel-source-intervention-materialization-design.json`.
+- decision: `fidelity_fault_source_synthesis_promote_to_source_intervention_materialization`
+- next: `m1276-paper-route-four-wheel-source-intervention-materialization-design`

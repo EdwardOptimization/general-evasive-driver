@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1284,
+    "completed": 1285,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1274-paper-route-four-wheel-source-corpus-export-result-audit.md",
+    "command_log": "docs/m1275-paper-route-fidelity-fault-source-synthesis.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1274-paper-route-four-wheel-source-corpus-export-result-audit"
+    "task_id": "m1275-paper-route-fidelity-fault-source-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1275-paper-route-fidelity-fault-source-synthesis.json",
-    "hypothesis": "Synthesize M1265-M1274 fidelity fault source evidence before any further source experiment",
-    "id": "m1275-paper-route-fidelity-fault-source-synthesis",
+    "command": "see experiments/manifests/m1276-paper-route-four-wheel-source-intervention-materialization-design.json",
+    "hypothesis": "Design no-training source-to-intervention materialization artifacts from M1273 corpus",
+    "id": "m1276-paper-route-four-wheel-source-intervention-materialization-design",
     "kind": "gate",
-    "notes": "Pending: answer synthesis questions and decide whether to promote to a source-to-intervention/materialization branch",
-    "priority": 12700,
+    "notes": "Pending: define preferred/rejected branch-action-outcome artifact schema without actor input leakage",
+    "priority": 12710,
     "status": "pending",
-    "success_artifact": "docs/m1275-paper-route-fidelity-fault-source-synthesis.md"
+    "success_artifact": "docs/m1276-paper-route-four-wheel-source-intervention-materialization-design.md"
   },
-  "updated_at_utc": "20260528T125312Z"
+  "updated_at_utc": "20260528T125612Z"
 }
