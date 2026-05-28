@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1200,
+    "completed": 1201,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1190-paper-route-controller-profile-config-generation-implementation.md",
+    "command_log": "docs/m1191-paper-route-observation-mask-runtime-wrapper-implementation.md",
     "returncode": 0,
-    "run_dir": "runs/m1190_controller_profile_config_generation",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1190-paper-route-controller-profile-config-generation-implementation"
+    "task_id": "m1191-paper-route-observation-mask-runtime-wrapper-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1191-paper-route-observation-mask-runtime-wrapper-implementation.json",
-    "hypothesis": "Implement runtime observation mask wrapper for controller profiles",
-    "id": "m1191-paper-route-observation-mask-runtime-wrapper-implementation",
+    "command": "see experiments/manifests/m1192-paper-route-controller-profile-runtime-smoke-run.json",
+    "hypothesis": "Generated L0/L1/L2/L3 configs can instantiate with runtime mask handling and no hidden/oracle actor inputs before training starts.",
+    "id": "m1192-paper-route-controller-profile-runtime-smoke-run",
     "kind": "infrastructure",
-    "notes": "Pending: implement runtime L0 observation-mask adapter and focused tests without training replay PPO promotion private holdout hidden inputs or actor-input changes",
-    "priority": 11860,
+    "notes": "Pending: instantiate generated profile configs with runtime masks and write no-training smoke artifact before controller training",
+    "priority": 11870,
     "status": "pending",
-    "success_artifact": "docs/m1191-paper-route-observation-mask-runtime-wrapper-implementation.md"
+    "success_artifact": "docs/m1192-paper-route-controller-profile-runtime-smoke-run.md"
   },
-  "updated_at_utc": "20260528T070000Z"
+  "updated_at_utc": "20260528T043800Z"
 }

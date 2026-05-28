@@ -1,0 +1,160 @@
+{
+  "id": "m1192-paper-route-controller-profile-runtime-smoke-run",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1191-paper-route-observation-mask-runtime-wrapper-implementation.md",
+      "src/autodrift/controller_profile_runtime.py",
+      "configs/paper_route_profiles"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1191-paper-route-observation-mask-runtime-wrapper-implementation.json"
+    ],
+    "parent_objective": [
+      "instantiate generated controller-profile configs with runtime observation masking and no training"
+    ],
+    "derived_from": [
+      "m1191-paper-route-observation-mask-runtime-wrapper-implementation"
+    ],
+    "blocked_by": [
+      "profile configs and runtime masks exist but have not been smoke-instantiated together across all profiles"
+    ],
+    "supersedes": [
+      "assuming generated configs are runnable because unit tests pass"
+    ],
+    "invalidates": [
+      "starting profile training before all generated configs instantiate cleanly with runtime mask handling"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1192-paper-route-controller-profile-runtime-smoke-run.md",
+  "public_gates": [
+    "M1192 may instantiate envs, wrappers, and ActorCritic models for generated profile configs",
+    "M1192 must not train controller weights",
+    "M1192 must not run PPO",
+    "M1192 must not run candidate replay",
+    "M1192 must not promote",
+    "M1192 must not use private holdout",
+    "M1192 must not add hidden or oracle actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train generated configs",
+    "do not run PPO",
+    "do not evaluate driver performance",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not add hidden or oracle actor inputs",
+    "do not claim controller performance from smoke instantiation"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_infrastructure: generated profile runtime smoke",
+    "evidence_increment": "checks that generated configs runtime masks envs and ActorCritic profiles instantiate together before training",
+    "claim_scope": "infrastructure smoke only; no training replay PPO promotion private-holdout driver-performance recurrent-belief or paper-result claim",
+    "stop_condition": [
+      "stop if any generated config fails runtime instantiation",
+      "stop if L0 reset/step observations are not masked",
+      "stop if smoke starts training or PPO",
+      "stop if hidden or oracle actor inputs appear"
+    ],
+    "fallback_plan": [
+      "if a profile fails instantiation, route to focused profile/config repair",
+      "if L2_window_100 is too large for smoke model instantiation, keep config but mark training staged with explicit reason",
+      "if reset-control needs separate hidden-state runtime, keep it metadata-only and route to reset-control wrapper design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1191 runtime mask support is ready and generated configs need integrated smoke verification",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "profile runtime smoke",
+    "admission_evidence": [
+      "M1190 generated eight profile configs",
+      "M1191 runtime mask wrapper tests pass",
+      "training remains blocked until integrated smoke passes"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "runtime smoke command or script",
+      "smoke artifact",
+      "M1192 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "all generated profile configs instantiate",
+      "L0 runtime mask is observed in smoke artifact",
+      "unmasked profiles remain unchanged",
+      "summary reports no training or PPO",
+      "next training-smoke design or controller split design is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1192 is infrastructure smoke and preserves L0/L1 controls for later current-frame substitution tests.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1192 instantiates finite-window profiles but does not evaluate temporal evidence.",
+    "negative_result_policy": "If runtime smoke fails, route to focused profile/config/runtime repair before training.",
+    "allowed_claims": [
+      "profile runtime smoke readiness",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Generated L0/L1/L2/L3 configs can instantiate with runtime mask handling and no hidden/oracle actor inputs before training starts.",
+  "success_criteria": [
+    "docs/m1192-paper-route-controller-profile-runtime-smoke-run.md exists",
+    "runs/m1192_controller_profile_runtime_smoke/summary.json exists",
+    "all eight generated configs instantiate",
+    "L0 reset and step observations are masked",
+    "unmasked profiles are unchanged",
+    "summary reports training_started false and ppo_used false",
+    "no controller training, candidate replay, PPO, promotion, private holdout, or actor-input contract change occurs"
+  ],
+  "failure_criteria": [
+    "any generated config cannot instantiate",
+    "L0 runtime mask is not observed",
+    "unmasked profiles are changed",
+    "smoke starts training or PPO",
+    "hidden or oracle actor inputs are introduced"
+  ],
+  "commands": [
+    {
+      "name": "run_profile_runtime_smoke",
+      "command": "instantiate generated profile configs with runtime masks and write smoke artifact without training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1192-paper-route-controller-profile-runtime-smoke-run.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m1192_controller_profile_runtime_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1191-paper-route-observation-mask-runtime-wrapper-implementation.md",
+    "configs/paper_route_profiles"
+  ],
+  "decision_rule": "M1192 passes if integrated runtime smoke instantiates all generated profiles and observes L0 masking without training.",
+  "next_blocker": "m1192-paper-route-controller-profile-runtime-smoke-run"
+}

@@ -158,5 +158,5 @@
     "configs/paper_route_profiles/m1190_l0_current_masked_smoke.json"
   ],
   "decision_rule": "M1191 passes if runtime mask support works in focused tests without training or actor-input contract expansion.",
-  "next_blocker": "m1191-paper-route-observation-mask-runtime-wrapper-implementation"
+  "next_blocker": "m1192-paper-route-controller-profile-runtime-smoke-run"
 }

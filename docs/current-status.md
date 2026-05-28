@@ -115,8 +115,45 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1191-paper-route-observation-mask-runtime-wrapper-implementation
+m1192-paper-route-controller-profile-runtime-smoke-run
 ```
+
+M1191 implemented runtime observation-mask support for controller-profile
+configs:
+
+```text
+artifact: docs/m1191-paper-route-observation-mask-runtime-wrapper-implementation.md
+source: src/autodrift/controller_profile_runtime.py
+tests: tests/test_controller_profile_runtime.py
+decision: runtime_observation_mask_ready_route_to_profile_runtime_smoke
+```
+
+M1191 result:
+
+```text
+L0_current_masked runtime mask: zero_previous_command_fields
+masked fields: [9, 10, 11]
+mask location: AutoDriftEnv reset/step observations via ControllerProfileObservationWrapper
+unmasked profiles: unchanged and not wrapped
+training_started: false
+optimizer_started: false
+ppo_used: false
+candidate_replay_started: false
+private_holdout_used: false
+promoted: false
+actor_input_contract_changed: false
+```
+
+Focused verification:
+
+```text
+OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_controller_profile_runtime.py tests/test_controller_profile_configs.py tests/test_controller_profiles.py
+22 passed
+```
+
+The next blocker is M1192: instantiate all generated L0/L1/L2/L3 profile
+configs with runtime masks and write a no-training smoke artifact before any
+controller training or evaluation claim.
 
 M1190 implemented generated controller-profile smoke configs:
 
@@ -129,26 +166,11 @@ run dir: runs/m1190_controller_profile_config_generation
 decision: controller_profile_configs_generated_route_to_runtime_mask_wrapper
 ```
 
-Generated config summary:
+M1190 generated eight smoke configs with L0 mask metadata, four L2 finite
+windows `[13,25,50,100]`, L3 variants, and no training/PPO/replay/promotion.
 
-```text
-generated_config_count: 8
-l2_window_steps: [13, 25, 50, 100]
-l0_observation_mask: zero_previous_command_fields
-l0_previous_command_mask_indices: [9, 10, 11]
-training_started: false
-optimizer_started: false
-ppo_used: false
-candidate_replay_started: false
-private_holdout_used: false
-promoted: false
-actor_input_contract_changed: false
-```
-
-M1190 generated the config files but did not run them. The L0 mask is present
-as metadata, not yet guaranteed at runtime inside train/eval entrypoints. The
-next blocker is M1191: implement a runtime observation-mask wrapper before any
-L0 training or evaluation.
+Older route notes below retain their then-next milestone wording as history;
+the active blocker is the M1192 runtime smoke above.
 
 M1189 completed controller-profile config-generation design:
 

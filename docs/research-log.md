@@ -17014,3 +17014,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1191-paper-route-observation-mask-runtime-wrapper-implementation.json`.
 - decision: `controller_profile_configs_generated_route_to_runtime_mask_wrapper`
 - next: `m1191-paper-route-observation-mask-runtime-wrapper-implementation`
+
+## 20260528T043800Z - m1191-paper-route-observation-mask-runtime-wrapper-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1191-paper-route-observation-mask-runtime-wrapper-implementation.md`
+- source: `src/autodrift/controller_profile_runtime.py`
+- tests: `tests/test_controller_profile_runtime.py`
+- result: implements runtime observation-mask support for controller-profile configs.
+- L0 behavior: `L0_current_masked` zeros previous-command fields `[9,10,11]` at env reset and step time through `ControllerProfileObservationWrapper`.
+- unmasked behavior: L1/L2 unmasked profiles return unchanged observations and do not wrap the env.
+- guard flags: no controller training, optimizer, PPO, candidate replay, private holdout, promotion, hidden/oracle actor input, wheel/slip actor input, or actor-input contract change.
+- focused verification: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_controller_profile_runtime.py tests/test_controller_profile_configs.py tests/test_controller_profiles.py` -> `22 passed`.
+- follow-up manifest: `experiments/manifests/m1192-paper-route-controller-profile-runtime-smoke-run.json`.
+- decision: `runtime_observation_mask_ready_route_to_profile_runtime_smoke`
+- next: `m1192-paper-route-controller-profile-runtime-smoke-run`
