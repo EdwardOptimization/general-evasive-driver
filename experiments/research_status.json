@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1388,
+    "completed": 1389,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.md",
+    "command_log": "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit.md",
+    "run_dir": "runs/m1379_promoted_base_source_rich_sequence_expanded_probe",
     "status": "completed",
-    "task_id": "m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit"
+    "task_id": "m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe.json",
-    "hypothesis": "Expanding source-row coverage can resolve the M1377 accepted-seed diversity miss while preserving temporal-history positives",
-    "id": "m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe",
+    "command": "see experiments/manifests/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.json",
+    "hypothesis": "M1379 can be audited as temporal-history positive but still seed-thin requiring a route decision before more expansion or corpus design",
+    "id": "m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit",
     "kind": "gate",
-    "notes": "Pending: run no-training expanded sequence probe with 768 source rows and per-fault-pair cap 96; no corpus export training PPO or private holdout",
-    "priority": 13740,
+    "notes": "Pending: audit M1379 expanded sequence result; choose synthesis source-selection redesign or corpus-design route without another local expansion",
+    "priority": 13750,
     "status": "pending",
-    "success_artifact": "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json"
+    "success_artifact": "docs/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.md"
   },
-  "updated_at_utc": "20260528T231000Z"
+  "updated_at_utc": "20260528T232000Z"
 }

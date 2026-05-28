@@ -1,0 +1,156 @@
+{
+  "id": "m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json",
+      "docs/m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe.md",
+      "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/accepted_sequence_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe.json",
+      "configs/m991_capability_step_fault_source_wave.json"
+    ],
+    "parent_objective": [
+      "audit expanded temporal-positive but still seed-thin sequence result before branch synthesis, source-selection redesign, or corpus design"
+    ],
+    "derived_from": [
+      "m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe"
+    ],
+    "blocked_by": [
+      "M1379 expanded sequence probe passes row and fault-pair thresholds but still misses accepted-seed threshold"
+    ],
+    "supersedes": [
+      "running another local expansion without audit",
+      "exporting temporal sequence corpus without seed-diversity decision",
+      "claiming cross-fault self-ID from temporal positives"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.md",
+  "public_gates": [
+    "M1380 must audit M1379 temporal and cross-fault accepted rows separately",
+    "M1380 must classify the persistent accepted-seed threshold miss",
+    "M1380 must choose synthesis, source-selection redesign, or corpus-design route without private holdout, training, PPO, promotion, or corpus export",
+    "M1380 must keep high-fidelity proxy claim boundaries intact"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new evaluation",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus without a separate design",
+    "do not call temporal positives cross-fault self-identification",
+    "do not run another local expansion before audit",
+    "do not claim true high-fidelity per-wheel physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_promoted_base_source_rich_comparison_readiness",
+    "evidence_axis": "G_source_rich_temporal_sequence_expanded_audit",
+    "evidence_increment": "audits expanded sequence probe and decides whether the source-rich branch should synthesize, redesign source selection, or design corpus with seed caveat",
+    "claim_scope": "result audit only; no training, corpus export, PPO, promotion, private holdout, high-fidelity, L0/L1/L2/L3, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if temporal positives are overclaimed as cross-fault self-identification",
+      "stop if persistent seed threshold miss is ignored",
+      "stop if another local expansion is proposed without a synthesis/source-selection argument",
+      "stop if private holdout, corpus export, or training is proposed without separate design"
+    ],
+    "fallback_plan": [
+      "if seed miss is acceptable only with caveats, route to branch synthesis before corpus design",
+      "if seed miss blocks corpus export, route to source-selection redesign",
+      "if evidence is enough for paper-route temporal diagnostic, route to synthesis before L0/L1/L2/L3 comparison",
+      "if cross-fault zeros are the main blocker, route to cross-fault intervention redesign"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1379 confirms temporal positives but persistent accepted-seed threshold miss",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "expanded sequence result audit",
+    "admission_evidence": [
+      "M1379 accepted_temporal_sequence_rows is 224",
+      "M1379 unique_temporal_accepted_fault_pairs is 9",
+      "M1379 unique_temporal_accepted_seeds is 10 below threshold 12",
+      "M1379 accepted_cross_fault_sequence_rows is 0"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus without a separate design"
+    ],
+    "allowed_updates": [
+      "M1380 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "M1379 threshold result is audited",
+      "temporal and cross-fault accepted rows are classified separately",
+      "next source-rich route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1380 audits temporal history dependence but cannot upgrade it to level3 self-identification.",
+    "history_necessity_tests": [
+      "separate temporal positives from cross-fault zeros",
+      "treat temporal positives as temporal-history dependence only",
+      "decide whether persistent seed-thin evidence routes to synthesis or source-selection redesign"
+    ],
+    "temporal_evidence_window": "M1379 expanded sequence intervention artifacts over M1375 reset-only source rows.",
+    "negative_result_policy": "If seed diversity remains insufficient, record the result and route explicitly instead of threshold relaxation.",
+    "allowed_claims": [
+      "M1379 result audit and next route decision",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level, L0/L1/L2/L3, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1379 can be audited as temporal-history positive but still seed-thin, requiring a route decision before more expansion or corpus design.",
+  "success_criteria": [
+    "docs/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.md exists",
+    "audit summarizes M1379 temporal and cross-fault accepted-row results",
+    "audit evaluates row, fault-pair, and seed thresholds",
+    "audit chooses a next route without private holdout, training, PPO, promotion, actor-input change, corpus export, another local expansion, or high-fidelity overclaim"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit overclaims temporal positives as cross-fault proof",
+    "audit ignores the persistent seed-diversity miss",
+    "audit routes directly to training, PPO, promotion, private holdout, corpus export, another local expansion, or high-fidelity claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.md from M1379 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json",
+    "docs/m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe.md"
+  ],
+  "decision_rule": "M1380 passes if it audits M1379 without overclaiming temporal-positive seed-thin evidence and chooses the next route before any training, PPO, promotion, private holdout, corpus export, or local expansion.",
+  "next_blocker": "m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit"
+}

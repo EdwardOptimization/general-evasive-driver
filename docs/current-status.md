@@ -16,17 +16,17 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1378-paper-route-promoted-base-source-rich-sequence-probe-result-audit
+m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe
 ```
 
 Current next task:
 
 ```text
-m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe
+m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit
 ```
 
-M1378 audits M1377 as temporal-history positive but seed-thin before corpus
-export. The current public-gate base remains M1362 alpha `0.1`:
+M1379 ran the expanded no-training source-rich sequence probe. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
@@ -108,12 +108,30 @@ seed-thin against the pre-registered accepted-seed threshold (`9 < 12`).
 Cross-fault self-identification remains unsupported because all cross-fault and
 action-response mismatch sequence variants have zero accepted rows.
 
-M1378 routes to M1379, an expanded no-training sequence probe with
-`--max-source-rows 768`, `--per-fault-pair-cap 96`, the same history lengths
+M1379 used `--max-source-rows 768`, `--per-fault-pair-cap 96`, history lengths
 `4,8,12`, and run dir
-`runs/m1379_promoted_base_source_rich_sequence_expanded_probe`. M1379 must not
-export a corpus, train, run PPO, promote, use private holdout, change actor
-inputs, or claim cross-fault self-identification from temporal positives.
+`runs/m1379_promoted_base_source_rich_sequence_expanded_probe`. Result:
+
+```text
+result_class: sequence_temporal_history_positive
+selected_source_rows: 768
+intervention_rows: 13824
+accepted_sequence_rows: 224
+accepted_temporal_sequence_rows: 224
+accepted_cross_fault_sequence_rows: 0
+unique_temporal_accepted_fault_pairs: 9
+unique_temporal_accepted_seeds: 10
+actor_parameters_changed: false
+training_started: false
+ppo_used: false
+promoted: false
+```
+
+Expanded source coverage preserves temporal-history positives but still misses
+the accepted-seed threshold (`10 < 12`). Cross-fault self-identification remains
+unsupported because cross-fault/action-response mismatch variants still have
+zero accepted rows. M1380 should audit this before branch synthesis,
+source-selection redesign, corpus design, or any further local expansion.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true
