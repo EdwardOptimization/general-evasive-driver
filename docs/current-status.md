@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1326-paper-route-source-repair-topup-generation-smoke
+m1327-paper-route-source-repair-topup-horizon-corrected-smoke
 ```
 
 Current next task:
 
 ```text
-m1327-paper-route-source-repair-topup-horizon-corrected-smoke
+m1328-paper-route-source-topup-additive-merge-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -265,7 +265,13 @@ M1326 implemented `source_topup_v1` and focused tests pass, but the smoke used
 `sequence_length=9`; all `236880` rollouts terminated by `horizon`, so
 `accepted_separable_pairs=0` is a metric artifact rather than a valid source
 coverage conclusion. The active blocker is M1327: rerun the same top-up profile
-with the historical valid source horizon `sequence_length=72`.
+with the historical valid source horizon `sequence_length=72`. M1327 completed
+that rerun and is source-positive with `150` accepted rows, but it is not a
+standalone replacement for M1322's `216` rows. It strongly enriches load/CG
+(`48`) and brake asymmetry (`52`), but halfshaft and global friction remain
+inactive. The active blocker is M1328: audit whether M1322 plus M1327 can form
+an additive merged source corpus before export, materialization, objective
+tuning, PPO, or promotion.
 
 ## Actor Contract
 

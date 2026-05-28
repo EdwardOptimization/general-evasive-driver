@@ -161,6 +161,49 @@
     "runs/m1326_source_repair_topup_generation_smoke/summary.json",
     "runs/m1320_inactive_source_family_repair_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1327_source_repair_topup_horizon_corrected_smoke/summary.json",
+    "doc": "docs/m1327-paper-route-source-repair-topup-horizon-corrected-smoke.md",
+    "decision": "source_topup_horizon_corrected_mixed_route_to_additive_merge_audit",
+    "result_class": "capability_separable_signal_mixed_under_target",
+    "fault_profile": "source_topup_v1",
+    "scenario_profile": "source_topup_v1",
+    "action_profile": "source_topup_v1",
+    "sequence_length": 72,
+    "scenario_count": 56,
+    "fault_count": 86,
+    "fault_pair_count": 47,
+    "matched_pair_count": 2632,
+    "action_lattice_rows": 45,
+    "action_rollouts": 236880,
+    "accepted_separable_pairs": 150,
+    "accepted_fault_family_pairs": 6,
+    "source_positive": true,
+    "inactive_fault_families": [
+      "global_friction_step->global_friction_step",
+      "halfshaft_torque_loss->halfshaft_torque_loss"
+    ],
+    "accepted_family_counts": {
+      "left_right_split_mu->left_right_split_mu": 2,
+      "load_cg_perturbation->load_cg_perturbation": 48,
+      "single_wheel_brake_pull->single_wheel_brake_pull": 52,
+      "single_wheel_grip_collapse->single_wheel_grip_collapse": 2,
+      "steering_actuator_fault->steering_actuator_fault": 38,
+      "tire_blowout_like->tire_blowout_like": 8
+    },
+    "naive_additive_total_with_m1322": 366,
+    "materialization_ready": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1328-paper-route-source-topup-additive-merge-audit.json"
+  },
+  "decision": "source_topup_horizon_corrected_mixed_route_to_additive_merge_audit",
   "decision_rule": "M1327 passes as infrastructure if source_topup_v1 is rerun with sequence_length=72 and reports target-met or gap-diagnostic source coverage without training, PPO, promotion, private holdout use, threshold relaxation, or actor-input expansion.",
-  "next_blocker": "m1327-paper-route-source-repair-topup-horizon-corrected-smoke"
+  "next_blocker": "m1328-paper-route-source-topup-additive-merge-audit"
 }

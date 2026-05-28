@@ -19347,3 +19347,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1327-paper-route-source-repair-topup-horizon-corrected-smoke.json`.
 - next: `m1327-paper-route-source-repair-topup-horizon-corrected-smoke`
+
+## 20260528T174326Z - m1327-paper-route-source-repair-topup-horizon-corrected-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1327_source_repair_topup_horizon_corrected_smoke/summary.json`
+- doc: `docs/m1327-paper-route-source-repair-topup-horizon-corrected-smoke.md`
+- decision: `source_topup_horizon_corrected_mixed_route_to_additive_merge_audit`
+- result class: `capability_separable_signal_mixed_under_target`.
+- source positive: `true`.
+- sequence length: `72`.
+- scenario count: `56`; fault pairs: `47`; action lattice rows: `45`; action rollouts: `236880`.
+- accepted separable pairs: `150`, below M1322's `216` and below the `240` target.
+- accepted family pairs: `6`.
+- accepted family counts: load/CG `48`, brake asymmetry `52`, steering `38`, tire-blowout-like `8`, split-mu `2`, and single-wheel grip `2`.
+- inactive families: global friction and halfshaft remain inactive.
+- interpretation: M1327 is not a standalone replacement corpus, but it is useful additive top-up evidence for load/CG and brake asymmetry.
+- naive additive total with M1322 before dedupe: `366`; this is only a planning signal, not a merged corpus count.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1328-paper-route-source-topup-additive-merge-audit.json`.
+- next: `m1328-paper-route-source-topup-additive-merge-audit`
