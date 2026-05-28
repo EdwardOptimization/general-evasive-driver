@@ -1,0 +1,148 @@
+{
+  "id": "m1270-paper-route-four-wheel-source-viability-calibration-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_dataset": [
+      "docs/m1269-paper-route-four-wheel-fault-source-shape-result-audit.md",
+      "runs/m1268_four_wheel_fault_source_shape_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1269-paper-route-four-wheel-fault-source-shape-result-audit.json"
+    ],
+    "parent_objective": [
+      "design bounded four-wheel source viability calibration after high-regret rows are collision dominated"
+    ],
+    "derived_from": [
+      "m1269-paper-route-four-wheel-fault-source-shape-result-audit"
+    ],
+    "blocked_by": [
+      "M1269 admits own-branch viability calibration as the next source variable"
+    ],
+    "supersedes": [
+      "another same-grid four-wheel source-shape run"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1270-paper-route-four-wheel-source-viability-calibration-design.md",
+  "public_gates": [
+    "M1270 must preserve actor input contract",
+    "M1270 must not train controllers",
+    "M1270 must not run PPO",
+    "M1270 must not use private holdout",
+    "M1270 must not promote",
+    "M1270 must design a new viability variable without threshold relaxation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add per-wheel/fault labels to actor inputs",
+    "do not lower accepted-source thresholds",
+    "do not treat collision-dominated rows as source-positive",
+    "do not revert to horizon-only success"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fidelity_fault_source_design",
+    "evidence_axis": "S_four_wheel_source_viability_calibration_design",
+    "evidence_increment": "designs the next source variable after M1268 shows high regret but own-branch nonviability",
+    "claim_scope": "design only; no training, promotion, private-holdout, paper-level, source-positive, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if design lowers accepted thresholds",
+      "stop if design relies on horizon-only success",
+      "stop if design cannot report collision dominance separately"
+    ],
+    "fallback_plan": [
+      "if viable high-regret rows require scenario retargeting, admit one bounded retarget smoke",
+      "if action candidates are the limiting factor, admit one bounded sequence calibration smoke"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1269 identifies own-branch viability as the next source blocker",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "four-wheel source viability calibration design",
+    "admission_evidence": [
+      "M1268 top min_cross_regret=0.1793146044",
+      "M1268 own_branch_viability_fail_count=103",
+      "M1269 routes to viability calibration"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1270 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next implementation manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "design identifies calibrated scenario/action axes",
+      "design preserves strict accepted-source thresholds",
+      "design defines anti-collision diagnostics",
+      "design pre-registers a bounded smoke if admitted"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1270 designs source viability calibration and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "Use M1269 audit to change the source variable to viability rather than repeating the same high-collision grid.",
+    "allowed_claims": [
+      "four-wheel source viability calibration design",
+      "no source-positive, recurrent-belief, strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A bounded viability calibration design can preserve M1268's high-regret signal while targeting own-branch viability under unchanged thresholds.",
+  "success_criteria": [
+    "docs/m1270-paper-route-four-wheel-source-viability-calibration-design.md exists",
+    "design cites M1268 high-regret/collision-dominance evidence",
+    "design defines calibrated scenario/action axes",
+    "design preserves success semantics and strict thresholds",
+    "design pre-registers one bounded implementation if admitted",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design is missing",
+    "design lowers strict accepted-source thresholds",
+    "design treats horizon-only rows as success",
+    "design ignores collision-dominance diagnostics",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1270-paper-route-four-wheel-source-viability-calibration-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1270-paper-route-four-wheel-source-viability-calibration-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint"
+  ],
+  "baseline_artifacts": [
+    "docs/m1269-paper-route-four-wheel-fault-source-shape-result-audit.md",
+    "runs/m1268_four_wheel_fault_source_shape_smoke/summary.json"
+  ],
+  "decision_rule": "M1270 passes if it designs one bounded four-wheel viability calibration smoke with strict thresholds and no actor-input expansion.",
+  "next_blocker": "m1270-paper-route-four-wheel-source-viability-calibration-design"
+}

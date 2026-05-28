@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1278,
+    "completed": 1279,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1268_four_wheel_fault_source_shape_smoke/summary.json",
+    "command_log": "docs/m1269-paper-route-four-wheel-fault-source-shape-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1268_four_wheel_fault_source_shape_smoke",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m1268-paper-route-four-wheel-fault-source-shape-smoke"
+    "task_id": "m1269-paper-route-four-wheel-fault-source-shape-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1269-paper-route-four-wheel-fault-source-shape-result-audit.json",
-    "hypothesis": "Audit M1268 as source-negative high-regret but collision-dominated before another four-wheel source repair",
-    "id": "m1269-paper-route-four-wheel-fault-source-shape-result-audit",
+    "command": "see experiments/manifests/m1270-paper-route-four-wheel-source-viability-calibration-design.json",
+    "hypothesis": "Design a bounded viability calibration to preserve four-wheel high-regret signal while restoring own-branch viability",
+    "id": "m1270-paper-route-four-wheel-source-viability-calibration-design",
     "kind": "gate",
-    "notes": "Pending: classify horizon-success metric correction and choose next viability source variable without threshold relaxation",
-    "priority": 12640,
+    "notes": "Pending: define scenario/action/horizon/actuator axes for one bounded viability calibration smoke",
+    "priority": 12650,
     "status": "pending",
-    "success_artifact": "docs/m1269-paper-route-four-wheel-fault-source-shape-result-audit.md"
+    "success_artifact": "docs/m1270-paper-route-four-wheel-source-viability-calibration-design.md"
   },
-  "updated_at_utc": "20260528T122537Z"
+  "updated_at_utc": "20260528T122817Z"
 }

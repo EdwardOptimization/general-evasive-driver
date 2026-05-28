@@ -18302,3 +18302,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1269-paper-route-four-wheel-fault-source-shape-result-audit.json`.
 - decision: `four_wheel_fault_source_shape_smoke_infrastructure_pass_source_negative_route_to_result_audit`
 - next: `m1269-paper-route-four-wheel-fault-source-shape-result-audit`
+
+## 20260528T122817Z - m1269-paper-route-four-wheel-fault-source-shape-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1269-paper-route-four-wheel-fault-source-shape-result-audit.md`
+- audited evidence: M1268 is infrastructure-valid but source-negative with `accepted_separable_pairs=0`, `best_actions_diverged_pairs=27`, `own_branch_viability_fail_count=103`, and `all_four_rollouts_collision_count=103`.
+- metric correction: horizon-only rows are no longer success; success requires `obstacle_completed` or `safe_stop`.
+- positive signal: four-wheel source produces high regret (`top min_cross_regret=0.1793146044`) compared with M1262's `0.0043813964`, so the new source variable is directionally useful.
+- blocker shift: source construction moved from low-regret to own-branch nonviability/collision dominance.
+- decision: admit viability calibration design over obstacle geometry, speed, sequence horizon, candidate amplitudes, and actuator-state timing; no training, PPO, promotion, threshold relaxation, or actor-input expansion.
+- follow-up manifest: `experiments/manifests/m1270-paper-route-four-wheel-source-viability-calibration-design.json`.
+- decision: `four_wheel_source_shape_audit_admit_viability_calibration_design`
+- next: `m1270-paper-route-four-wheel-source-viability-calibration-design`

@@ -147,6 +147,29 @@
     "docs/m1268-paper-route-four-wheel-fault-source-shape-smoke.md",
     "runs/m1268_four_wheel_fault_source_shape_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1269-paper-route-four-wheel-fault-source-shape-result-audit.md",
+    "decision": "four_wheel_source_shape_audit_admit_viability_calibration_design",
+    "failure_type": "scenario_sampling_failure",
+    "subtype": "four_wheel_source_collision_dominated",
+    "metric_artifact_fixed": true,
+    "m1268_accepted_separable_pairs": 0,
+    "m1268_best_actions_diverged_pairs": 27,
+    "m1268_low_regret_pairs": 92,
+    "m1268_own_branch_viability_fail_count": 103,
+    "m1268_all_four_rollouts_collision_count": 103,
+    "m1268_top_min_cross_regret": 0.1793146044,
+    "next_variable": "own_branch_viability_calibration",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "threshold_relaxation_allowed": false,
+    "next_manifest": "experiments/manifests/m1270-paper-route-four-wheel-source-viability-calibration-design.json"
+  },
+  "decision": "four_wheel_source_shape_audit_admit_viability_calibration_design",
   "decision_rule": "M1269 passes if it records M1268 as source-negative, classifies the metric artifact and collision dominance, and chooses the next source variable without training or threshold relaxation.",
-  "next_blocker": "m1269-paper-route-four-wheel-fault-source-shape-result-audit"
+  "next_blocker": "m1270-paper-route-four-wheel-source-viability-calibration-design"
 }
