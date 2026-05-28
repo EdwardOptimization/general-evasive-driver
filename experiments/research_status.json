@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1295,
+    "completed": 1296,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1285-paper-route-source-history-objective-evaluator.md",
+    "command_log": "docs/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.md",
     "returncode": 0,
-    "run_dir": "runs/m1285_source_history_objective_evaluator",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1285-paper-route-source-history-objective-evaluator"
+    "task_id": "m1286-paper-route-four-wheel-source-intervention-materialization-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.json",
-    "hypothesis": "Synthesize M1276-M1285 source-intervention materialization evidence and choose next branch",
-    "id": "m1286-paper-route-four-wheel-source-intervention-materialization-synthesis",
+    "command": "see experiments/manifests/m1287-paper-route-source-history-objective-only-update-design.json",
+    "hypothesis": "Design a bounded no-PPO objective-only update path around exact M1285 source-history residual",
+    "id": "m1287-paper-route-source-history-objective-only-update-design",
     "kind": "gate",
-    "notes": "Pending: branch synthesis required by cadence before any further narrow work",
-    "priority": 12810,
+    "notes": "Pending: design objective-only update path; PPO and promotion remain blocked",
+    "priority": 12820,
     "status": "pending",
-    "success_artifact": "docs/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.md"
+    "success_artifact": "docs/m1287-paper-route-source-history-objective-only-update-design.md"
   },
-  "updated_at_utc": "20260528T134848Z"
+  "updated_at_utc": "20260528T135339Z"
 }

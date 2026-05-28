@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1285-paper-route-source-history-objective-evaluator
+m1286-paper-route-four-wheel-source-intervention-materialization-synthesis
 ```
 
 Current next task:
 
 ```text
-m1286-paper-route-four-wheel-source-intervention-materialization-synthesis
+m1287-paper-route-source-history-objective-only-update-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -70,8 +70,12 @@ M1285. M1285 completed that evaluator: `152` finite rows,
 `exact_objective_finite=true`, `checkpoint_weights_mutated=false`,
 `combined_loss_mean=18.6105005708`, and `result_class=source_history_objective_evaluator_pass`.
 This confirms the source-history residual is measurable and large. The active
-blocker is now M1286 branch synthesis. Do not add more narrow implementation,
-optimizer, PPO, or promotion work before synthesis.
+M1286 synthesized the branch and closed
+`paper_route_four_wheel_source_intervention_materialization` with
+`promote_to_next_branch`. The new active branch is
+`paper_route_source_history_objective_only_update`. The active blocker is M1287:
+design a bounded no-PPO objective-only update path around the exact M1285
+residual. PPO and promotion remain blocked.
 
 ## Actor Contract
 

@@ -1,0 +1,154 @@
+{
+  "id": "m1287-paper-route-source-history-objective-only-update-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.md",
+      "runs/m1285_source_history_objective_evaluator/summary.json",
+      "runs/m1285_source_history_objective_evaluator/source_history_objective_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.json"
+    ],
+    "parent_objective": [
+      "design a no-PPO objective-only update around the exact M1285 source-history residual"
+    ],
+    "derived_from": [
+      "m1286-paper-route-four-wheel-source-intervention-materialization-synthesis"
+    ],
+    "blocked_by": [
+      "M1286 promotes to the source-history objective-only update branch"
+    ],
+    "supersedes": [
+      "continuing source-intervention materialization branch after synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1287-paper-route-source-history-objective-only-update-design.md",
+  "public_gates": [
+    "M1287 must preserve actor input contract",
+    "M1287 must not train controllers",
+    "M1287 must not run PPO",
+    "M1287 must not use private holdout",
+    "M1287 must not promote",
+    "M1287 must design objective-only update stages and retention gates",
+    "M1287 must keep exact M1285 objective as the first gate"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add actor inputs",
+    "do not skip exact M1285 loss gate",
+    "do not run public replay gates before exact-loss sanity",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_objective_only_update",
+    "evidence_axis": "S_objective_only_update_design",
+    "evidence_increment": "designs the first exact objective-only update branch after source-intervention synthesis",
+    "claim_scope": "update design only; no training, promotion, private-holdout, paper-level, closed-loop, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if update would require actor-input expansion",
+      "stop if exact M1285 objective cannot be used as first gate",
+      "stop if retention planning is missing"
+    ],
+    "fallback_plan": [
+      "if design is viable, admit a tiny no-PPO objective-only implementation",
+      "if design is not viable, route to source-history corpus repair",
+      "if retention cannot be specified, route to old-proof anchor design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new branch opened by M1286 synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-history objective-only update design",
+    "admission_evidence": [
+      "M1285 exact objective finite",
+      "M1285 combined_loss_mean=18.6105005708",
+      "M1286 promotes to objective-only update branch",
+      "PPO remains blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1287 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest if design admits implementation"
+    ],
+    "next_stage_criteria": [
+      "trainable scopes are specified",
+      "exact objective gate is specified",
+      "retention gates are specified",
+      "implementation budget is bounded"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1287 designs an update for same-current-observation source-history residuals but does not evaluate closed-loop history necessity.",
+    "history_necessity_tests": [
+      "future implementation must compare correct-history and wrong-history objective residuals exactly",
+      "future result must not infer self-ID from objective loss alone"
+    ],
+    "temporal_evidence_window": "M1285 exact source-history residual; design only.",
+    "negative_result_policy": "If exact objective-only update cannot improve without retention risk, record negative evidence and do not start PPO.",
+    "allowed_claims": [
+      "source-history objective-only update design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A bounded no-PPO objective-only update can be designed around the exact M1285 source-history residual with strict retention guardrails.",
+  "success_criteria": [
+    "docs/m1287-paper-route-source-history-objective-only-update-design.md exists",
+    "design specifies trainable scopes",
+    "design specifies exact M1285 loss gate",
+    "design specifies retention and no-PPO guardrails",
+    "design admits at most a tiny no-PPO implementation",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design starts PPO directly",
+    "design omits exact M1285 loss gate",
+    "design omits retention guardrails",
+    "design overclaims self-identification",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1287-paper-route-source-history-objective-only-update-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1287-paper-route-source-history-objective-only-update-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.md",
+    "runs/m1285_source_history_objective_evaluator/summary.json"
+  ],
+  "decision_rule": "M1287 passes if it designs a bounded no-PPO objective-only update path with exact-loss and retention gates.",
+  "next_blocker": "m1287-paper-route-source-history-objective-only-update-design"
+}

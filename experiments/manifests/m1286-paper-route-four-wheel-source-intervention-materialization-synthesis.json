@@ -177,6 +177,36 @@
     "docs/m1285-paper-route-source-history-objective-evaluator.md",
     "runs/m1285_source_history_objective_evaluator/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.md",
+    "decision": "four_wheel_source_intervention_materialization_synthesis_promote_to_source_history_objective_only_update",
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "paper_route_four_wheel_source_intervention_materialization",
+    "next_branch": "paper_route_source_history_objective_only_update",
+    "supported_claims": [
+      "clean preferred/rejected source intervention artifacts exist",
+      "branch-specific source response histories and wrong-history swaps are valid",
+      "policy-side source-history gate and exact objective evaluator are implemented",
+      "exact source-history residual is finite and large"
+    ],
+    "falsified_claims": [
+      "direct current-frame policy training is valid",
+      "current public-gate checkpoint already uses source histories correctly",
+      "nonzero action movement is enough for PPO admission"
+    ],
+    "public_gate_overfit_risk": "moderate_to_high",
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1287-paper-route-source-history-objective-only-update-design.json"
+  },
+  "decision": "four_wheel_source_intervention_materialization_synthesis_promote_to_source_history_objective_only_update",
   "decision_rule": "M1286 passes if it synthesizes the branch and chooses an explicit next branch without training or overclaiming.",
-  "next_blocker": "m1286-paper-route-four-wheel-source-intervention-materialization-synthesis"
+  "next_blocker": "m1287-paper-route-source-history-objective-only-update-design"
 }

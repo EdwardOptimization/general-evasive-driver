@@ -18591,3 +18591,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.json`.
 - decision: `source_history_objective_evaluator_pass_route_to_branch_synthesis`
 - next: `m1286-paper-route-four-wheel-source-intervention-materialization-synthesis`
+
+## 20260528T135339Z - m1286-paper-route-four-wheel-source-intervention-materialization-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1286-paper-route-four-wheel-source-intervention-materialization-synthesis.md`
+- synthesis decision: `promote_to_next_branch`
+- closed branch: `paper_route_four_wheel_source_intervention_materialization`
+- next branch: `paper_route_source_history_objective_only_update`
+- evidence summary: M1277 produced clean source intervention artifacts, M1280 produced valid source histories, M1283 implemented a finite but weak policy-side source-history gate, and M1285 implemented a finite exact objective evaluator.
+- supported claim: exact source-history residual is measurable and finite on the full `152`-row corpus.
+- falsified claim: the current public-gate checkpoint already uses source histories in the desired direction; M1283 `both_directional_fraction=0.0`.
+- public-gate overfit risk: moderate to high because the source-history corpus is public and compact; future optimizer work requires exact-loss-first and proof-retention guardrails.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1287-paper-route-source-history-objective-only-update-design.json`.
+- decision: `four_wheel_source_intervention_materialization_synthesis_promote_to_source_history_objective_only_update`
+- next: `m1287-paper-route-source-history-objective-only-update-design`
