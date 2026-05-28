@@ -19627,3 +19627,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1341-paper-route-materialized-source-history-pair-group-objective-design.json`.
 - next: `m1341-paper-route-materialized-source-history-pair-group-objective-design`
+
+## 20260528T185246Z - m1341-paper-route-materialized-source-history-pair-group-objective-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md`
+- decision: `materialized_source_history_pair_group_objective_design_admit_group_metric_evaluator`
+- group key: `source_identity|probe_template`.
+- expected rows/groups: `1376` rows, `688` groups, and `688` valid two-condition groups.
+- expected group conflict from M1340: `0` all-rows-both-directional groups, `684` one-sided groups, and `4` both-negative groups.
+- objective design: use row preference loss plus group-min joint margin and condition-balance terms; do not use pair-specific weights.
+- next implementation: `src/autodrift/materialized_source_history_pair_group_metrics.py` and `tests/test_materialized_source_history_pair_group_metrics.py`.
+- M1342 should not load a checkpoint or rerun the actor; it should convert M1339 exact row metrics into group rows and family/fold group summaries.
+- guardrail: no training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1342-paper-route-materialized-source-history-pair-group-metric-evaluator.json`.
+- next: `m1342-paper-route-materialized-source-history-pair-group-metric-evaluator`

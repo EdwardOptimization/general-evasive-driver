@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1341 designs group-min pair objective over 688 source_identity/probe groups and admits no-update group metrics",
+  "failure_criteria": [
+    "design document is missing",
+    "group semantics are ambiguous",
+    "design ignores the two-condition conflict",
+    "design routes directly to PPO or actor update",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor weights",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use pair-specific tuning to hide conflict",
+    "do not claim self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T185453Z",
+  "hypothesis": "The M1340 two-condition conflict can be addressed by designing a group-level objective that treats source_identity/probe_template pairs as the unit of work before any actor update.",
+  "lineage": {
+    "blocked_by": [
+      "M1340 shows rowwise M1339 exact objective has balanced one-sided two-condition conflict"
+    ],
+    "derived_from": [
+      "m1340-paper-route-materialized-source-history-objective-evaluator-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md",
+      "runs/m1339_materialized_source_history_objective_evaluator/materialized_source_history_objective_rows.csv",
+      "runs/m1339_materialized_source_history_objective_evaluator/family_summary.csv",
+      "runs/m1339_materialized_source_history_objective_evaluator/fold_summary.csv"
+    ],
+    "parent_objective": [
+      "design pair/group objective after M1340 classifies two-condition directional conflict"
+    ],
+    "supersedes": [
+      "direct rowwise source-history objective update from M1339"
+    ]
+  },
+  "milestone": "m1341-paper-route-materialized-source-history-pair-group-objective-design",
+  "next_blocker": "m1342-paper-route-materialized-source-history-pair-group-metric-evaluator",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "materialized_source_history_pair_group_objective_design_admit_group_metric_evaluator",
+  "public_gates": [
+    "M1341 must not train",
+    "M1341 must not run PPO",
+    "M1341 must not update actor weights",
+    "M1341 must not use private holdout",
+    "M1341 must not promote",
+    "M1341 must preserve actor input contract",
+    "M1341 must design group-level objective semantics",
+    "M1341 must preserve both condition rows inside each group"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md",
+    "clearance_margin_mean": "",
+    "decision": "materialized_source_history_pair_group_objective_design_admit_group_metric_evaluator",
+    "milestone": "m1341-paper-route-materialized-source-history-pair-group-objective-design",
+    "reason": "M1341 designs group-min pair objective over 688 source_identity/probe groups and admits no-update group metrics",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md exists",
+    "design specifies group keys and expected group counts",
+    "design specifies group-min or lexicographic directional terms",
+    "design specifies anti-overfit guards against solving one condition only",
+    "design specifies exact no-update group evaluator or bounded implementation route",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

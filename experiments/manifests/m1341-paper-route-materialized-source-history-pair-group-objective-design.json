@@ -153,6 +153,30 @@
     "docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md",
     "runs/m1339_materialized_source_history_objective_evaluator/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md",
+    "decision": "materialized_source_history_pair_group_objective_design_admit_group_metric_evaluator",
+    "failure_type": "none",
+    "group_key": "source_identity|probe_template",
+    "expected_row_count": 1376,
+    "expected_group_count": 688,
+    "expected_valid_two_condition_group_count": 688,
+    "expected_group_all_rows_both_directional_count": 0,
+    "expected_group_one_sided_conflict_count": 684,
+    "expected_group_both_negative_count": 4,
+    "designed_tool": "src/autodrift/materialized_source_history_pair_group_metrics.py",
+    "designed_test": "tests/test_materialized_source_history_pair_group_metrics.py",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_update_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1342-paper-route-materialized-source-history-pair-group-metric-evaluator.json"
+  },
   "decision_rule": "M1341 passes as a design milestone if it specifies group-level objective semantics and anti-overfit guards for the two-condition directional conflict without training, PPO, private holdout, promotion, or actor-input expansion.",
-  "next_blocker": "m1341-paper-route-materialized-source-history-pair-group-objective-design"
+  "next_blocker": "m1342-paper-route-materialized-source-history-pair-group-metric-evaluator"
 }

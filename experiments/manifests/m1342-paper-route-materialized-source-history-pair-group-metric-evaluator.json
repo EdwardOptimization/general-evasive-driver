@@ -1,0 +1,175 @@
+{
+  "id": "m1342-paper-route-materialized-source-history-pair-group-metric-evaluator",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md",
+      "runs/m1339_materialized_source_history_objective_evaluator/materialized_source_history_objective_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1341-paper-route-materialized-source-history-pair-group-objective-design.json"
+    ],
+    "parent_objective": [
+      "implement no-update pair-group metric evaluator for materialized source-history rows"
+    ],
+    "derived_from": [
+      "m1341-paper-route-materialized-source-history-pair-group-objective-design"
+    ],
+    "blocked_by": [
+      "M1341 designs group metrics but no grouped artifacts exist"
+    ],
+    "supersedes": [
+      "direct objective update before group-level directional conflict metrics"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1342-paper-route-materialized-source-history-pair-group-metric-evaluator.md",
+  "public_gates": [
+    "M1342 must not train",
+    "M1342 must not run PPO",
+    "M1342 must not update actor weights",
+    "M1342 must not load or mutate a checkpoint",
+    "M1342 must not use private holdout",
+    "M1342 must not promote",
+    "M1342 must preserve actor input contract",
+    "M1342 must write group-level metrics"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor weights",
+    "do not load checkpoint",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not hide one-sided conflict",
+    "do not claim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_objective_corpus",
+    "evidence_axis": "S_materialized_source_history_pair_group_metrics",
+    "evidence_increment": "implements no-update group metrics for the M1341 pair-group objective design",
+    "claim_scope": "infrastructure only; no promotion, private-holdout, PPO, actor-update, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if groups are not two-condition",
+      "stop if one-sided conflict is hidden",
+      "stop if implementation loads or mutates checkpoint",
+      "stop if actor inputs change"
+    ],
+    "fallback_plan": [
+      "if metrics pass, route to result audit before objective-update design",
+      "if group structure fails, repair grouping or source corpus",
+      "if one-sided conflict differs from M1340, audit discrepancy",
+      "if metrics are incomplete, repair tool before updates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1341 admits no-update group metric evaluator",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "materialized source-history pair-group metric evaluator",
+    "admission_evidence": [
+      "M1341 defines group_key=source_identity|probe_template",
+      "M1341 expected_group_count=688",
+      "M1341 expected_group_one_sided_conflict_count=684",
+      "PPO and actor update remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not load or update checkpoint weights",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "group metric tool and focused tests",
+      "M1342 run artifacts",
+      "M1342 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "group_count == 688",
+      "valid_two_condition_group_count == 688",
+      "group_one_sided_conflict_count == 684",
+      "group_all_rows_both_directional_count == 0",
+      "no checkpoint is loaded"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1342 computes group metrics from M1339 zero-context source-current diagnostics and cannot claim closed-loop history necessity.",
+    "history_necessity_tests": [
+      "summarize group-level correct-history versus wrong-history residuals from exact row metrics"
+    ],
+    "temporal_evidence_window": "M1339 materialized source-history objective rows.",
+    "negative_result_policy": "Group conflict should be recorded as evidence about objective geometry before actor updates.",
+    "allowed_claims": [
+      "materialized source-history pair-group metric evaluator",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "M1341 group metrics can be implemented as a no-update evaluator that preserves the M1340 two-condition conflict evidence exactly.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m1342_materialized_source_history_pair_group_metrics/summary.json exists",
+    "row_count == 1376",
+    "group_count == 688",
+    "valid_two_condition_group_count == 688",
+    "group_all_rows_both_directional_count == 0",
+    "group_one_sided_conflict_count == 684",
+    "group_both_negative_count == 4",
+    "group_rows.csv exists",
+    "family_group_summary.csv exists",
+    "fold_group_summary.csv exists",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, checkpoint load, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "run artifacts are missing",
+    "group counts do not match M1341 design",
+    "one-sided conflict is hidden",
+    "checkpoint is loaded or mutated",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_materialized_source_history_pair_group_metrics.py"
+    },
+    {
+      "name": "group_metrics",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.materialized_source_history_pair_group_metrics --rows runs/m1339_materialized_source_history_objective_evaluator/materialized_source_history_objective_rows.csv --run-dir runs/m1342_materialized_source_history_pair_group_metrics"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1342_materialized_source_history_pair_group_metrics/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1342-paper-route-materialized-source-history-pair-group-metric-evaluator.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md",
+    "runs/m1339_materialized_source_history_objective_evaluator/materialized_source_history_objective_rows.csv"
+  ],
+  "decision_rule": "M1342 passes as infrastructure if it writes exact group metrics matching M1341 expected counts without loading a checkpoint, training, PPO, private holdout, promotion, or actor-input expansion.",
+  "next_blocker": "m1342-paper-route-materialized-source-history-pair-group-metric-evaluator"
+}

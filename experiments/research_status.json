@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1350,
+    "completed": 1351,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md",
+    "command_log": "docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1340-paper-route-materialized-source-history-objective-evaluator-result-audit.md",
+    "run_dir": "docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md",
     "status": "completed",
-    "task_id": "m1340-paper-route-materialized-source-history-objective-evaluator-result-audit"
+    "task_id": "m1341-paper-route-materialized-source-history-pair-group-objective-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1341-paper-route-materialized-source-history-pair-group-objective-design.json",
-    "hypothesis": "Design group-level objective for materialized source-history two-condition conflict",
-    "id": "m1341-paper-route-materialized-source-history-pair-group-objective-design",
-    "kind": "gate",
-    "notes": "Pending: design only; no training, PPO, promotion, or objective update",
-    "priority": 13360,
+    "command": "see experiments/manifests/m1342-paper-route-materialized-source-history-pair-group-metric-evaluator.json",
+    "hypothesis": "Implement no-update group metric evaluator over M1339 objective rows",
+    "id": "m1342-paper-route-materialized-source-history-pair-group-metric-evaluator",
+    "kind": "infrastructure",
+    "notes": "Pending: no-update metric evaluator only; no checkpoint load, training, PPO, promotion, or objective update",
+    "priority": 13370,
     "status": "pending",
-    "success_artifact": "docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md"
+    "success_artifact": "runs/m1342_materialized_source_history_pair_group_metrics/summary.json"
   },
-  "updated_at_utc": "20260528T185131Z"
+  "updated_at_utc": "20260528T185246Z"
 }
