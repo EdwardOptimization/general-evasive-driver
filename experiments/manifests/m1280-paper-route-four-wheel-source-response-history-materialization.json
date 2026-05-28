@@ -1,0 +1,166 @@
+{
+  "id": "m1280-paper-route-four-wheel-source-response-history-materialization",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_dataset": [
+      "docs/m1279-paper-route-four-wheel-source-response-history-materialization-design.md",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_rows.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_observations.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1279-paper-route-four-wheel-source-response-history-materialization-design.json"
+    ],
+    "parent_objective": [
+      "materialize branch-specific response histories and wrong-history pairs for source interventions"
+    ],
+    "derived_from": [
+      "m1279-paper-route-four-wheel-source-response-history-materialization-design"
+    ],
+    "blocked_by": [
+      "M1279 admits one bounded no-training response-history materialization implementation"
+    ],
+    "supersedes": [
+      "direct policy training from current-frame source-intervention rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1280-paper-route-four-wheel-source-response-history-materialization.md",
+  "public_gates": [
+    "M1280 must preserve actor input contract",
+    "M1280 must not train controllers",
+    "M1280 must not run PPO",
+    "M1280 must not use private holdout",
+    "M1280 must not promote",
+    "M1280 must materialize response histories and wrong-history pairs",
+    "M1280 must keep actor-view history free of fault/per-wheel/source labels"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add branch/fault labels to actor-view history",
+    "do not add per-wheel force scale slip or tire metadata to actor-view history",
+    "do not claim self-identification from source-history artifacts",
+    "do not claim high-fidelity validation from the compact pilot"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_four_wheel_source_intervention_materialization",
+    "evidence_axis": "S_response_history_materialization_implementation",
+    "evidence_increment": "implements no-training branch-specific response histories and wrong-history pair artifacts",
+    "claim_scope": "source-history infrastructure only; no training, promotion, private-holdout, paper-level, recurrent-belief, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if actor-view history leaks branch/fault labels",
+      "stop if wrong-history pairs are not same-pair opposite-condition swaps",
+      "stop if response distinguishability is absent"
+    ],
+    "fallback_plan": [
+      "if histories are valid and distinguishable, audit route to policy-side gate design",
+      "if histories are weak, route to prefix repair design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1279 admits response-history materialization implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "four-wheel source response-history materialization",
+    "admission_evidence": [
+      "M1279 defines history_prefix_rows expected 152",
+      "M1279 defines history_frame_rows expected 3648",
+      "M1279 defines wrong_history_pair_rows expected 152"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "source response-history materialization implementation",
+      "focused tests",
+      "M1280 run artifacts",
+      "M1280 result doc",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "history artifacts exist",
+      "actor-view history guardrail checks pass",
+      "wrong-history pair checks pass",
+      "response distinguishability diagnostics are reported"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1280 creates history artifacts to address current-frame ambiguity but does not train or evaluate an actor.",
+    "history_necessity_tests": [
+      "future policy-side gates must compare correct history to wrong history before self-ID claims"
+    ],
+    "temporal_evidence_window": "History evidence remains artifact-level until a policy-side gate uses these histories.",
+    "negative_result_policy": "If response histories are not distinguishable, route to prefix repair rather than policy training.",
+    "allowed_claims": [
+      "four-wheel source response-history materialization result",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The M1277 source interventions can be paired with branch-specific response histories and wrong-history swaps without actor-input leakage.",
+  "success_criteria": [
+    "runs/m1280_four_wheel_source_response_history_materialization/summary.json exists",
+    "history_prefix_rows.csv exists",
+    "history_frame_rows.csv exists",
+    "history_intervention_rows.csv exists",
+    "wrong_history_pair_rows.csv exists",
+    "history_prefix_rows == 152",
+    "history_frame_rows == 3648",
+    "history_intervention_rows == 152",
+    "wrong_history_pair_rows == 152",
+    "history_frame actor-view columns are finite",
+    "wrong-history rows swap to the opposite condition within the same pair",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "history actor-view fields include branch/fault/per-wheel labels",
+    "wrong-history rows are not same-pair opposite-condition swaps",
+    "response distinguishability diagnostics are missing",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_four_wheel_source_response_history_materialization.py"
+    },
+    {
+      "name": "materialize",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.four_wheel_source_response_history_materialization --source-run-dir runs/m1271_four_wheel_source_viability_calibration_smoke --intervention-run-dir runs/m1277_four_wheel_source_intervention_materialization --run-dir runs/m1280_four_wheel_source_response_history_materialization"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1280_four_wheel_source_response_history_materialization/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1280-paper-route-four-wheel-source-response-history-materialization.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint"
+  ],
+  "baseline_artifacts": [
+    "docs/m1279-paper-route-four-wheel-source-response-history-materialization-design.md",
+    "runs/m1277_four_wheel_source_intervention_materialization/summary.json"
+  ],
+  "decision_rule": "M1280 passes as infrastructure if it materializes response-history artifacts and wrong-history pairs with clean actor-view history fields without training or actor-input expansion.",
+  "next_blocker": "m1280-paper-route-four-wheel-source-response-history-materialization"
+}

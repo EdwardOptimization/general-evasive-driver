@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1288,
+    "completed": 1289,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.md",
+    "command_log": "docs/m1279-paper-route-four-wheel-source-response-history-materialization-design.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1278-paper-route-four-wheel-source-intervention-materialization-result-audit"
+    "task_id": "m1279-paper-route-four-wheel-source-response-history-materialization-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1279-paper-route-four-wheel-source-response-history-materialization-design.json",
-    "hypothesis": "Design branch-specific response-history materialization before policy-side use",
-    "id": "m1279-paper-route-four-wheel-source-response-history-materialization-design",
-    "kind": "gate",
-    "notes": "Pending: design history prefix frame schema wrong-history pairs and no-leak actor-view history guardrails",
-    "priority": 12740,
+    "command": "see experiments/manifests/m1280-paper-route-four-wheel-source-response-history-materialization.json",
+    "hypothesis": "Materialize branch-specific response histories and wrong-history pairs for source interventions",
+    "id": "m1280-paper-route-four-wheel-source-response-history-materialization",
+    "kind": "infrastructure",
+    "notes": "Pending: implement 152 history prefixes 3648 frame rows 152 history-intervention rows and 152 wrong-history pair rows",
+    "priority": 12750,
     "status": "pending",
-    "success_artifact": "docs/m1279-paper-route-four-wheel-source-response-history-materialization-design.md"
+    "success_artifact": "runs/m1280_four_wheel_source_response_history_materialization/summary.json"
   },
-  "updated_at_utc": "20260528T130850Z"
+  "updated_at_utc": "20260528T131208Z"
 }

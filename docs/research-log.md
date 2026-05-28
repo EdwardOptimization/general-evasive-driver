@@ -18466,3 +18466,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1279-paper-route-four-wheel-source-response-history-materialization-design.json`.
 - decision: `four_wheel_source_intervention_materialization_audit_admit_response_history_design`
 - next: `m1279-paper-route-four-wheel-source-response-history-materialization-design`
+
+## 20260528T131208Z - m1279-paper-route-four-wheel-source-response-history-materialization-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1279-paper-route-four-wheel-source-response-history-materialization-design.md`
+- design decision: `four_wheel_source_response_history_materialization_design_admit_implementation`
+- blocker addressed: M1278 showed direct policy training from current-frame intervention rows is contradictory because the same current observation can require different preferred actions under branch A/B.
+- design: create branch-specific command-response history prefixes and same-pair wrong-history swaps for the M1277 near/high union intervention rows.
+- expected M1280 artifacts: `152` history prefix rows, `3648` history frame rows, `152` history-intervention rows, and `152` wrong-history pair rows.
+- actor-view history fields: command-response fields only (`vx`, `vy`, `yaw_rate`, `ax`, `ay`, actuator state, previous commands); no branch/fault labels or per-wheel metadata.
+- diagnostics: report response L2 and yaw/vy branch distinguishability; weak distinguishability routes to prefix repair, not actor training.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1280-paper-route-four-wheel-source-response-history-materialization.json`.
+- decision: `four_wheel_source_response_history_materialization_design_admit_implementation`
+- next: `m1280-paper-route-four-wheel-source-response-history-materialization`

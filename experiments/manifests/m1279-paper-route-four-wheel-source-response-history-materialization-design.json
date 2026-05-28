@@ -145,6 +145,26 @@
     "docs/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.md",
     "runs/m1277_four_wheel_source_intervention_materialization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1279-paper-route-four-wheel-source-response-history-materialization-design.md",
+    "decision": "four_wheel_source_response_history_materialization_design_admit_implementation",
+    "primary_source_pairs": 38,
+    "branch_conditioned_interventions": 76,
+    "probe_templates": 2,
+    "history_length": 24,
+    "expected_history_prefix_rows": 152,
+    "expected_history_frame_rows": 3648,
+    "expected_history_intervention_rows": 152,
+    "expected_wrong_history_pair_rows": 152,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1280-paper-route-four-wheel-source-response-history-materialization.json"
+  },
+  "decision": "four_wheel_source_response_history_materialization_design_admit_implementation",
   "decision_rule": "M1279 passes if it designs response-history materialization and one bounded implementation without training or actor-input expansion.",
-  "next_blocker": "m1279-paper-route-four-wheel-source-response-history-materialization-design"
+  "next_blocker": "m1280-paper-route-four-wheel-source-response-history-materialization"
 }
