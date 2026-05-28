@@ -19845,3 +19845,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.json`.
 - next: `m1353-paper-route-materialized-source-history-interpolation-replay-result-audit`
+
+## 20260528T194832Z - m1353-paper-route-materialized-source-history-interpolation-replay-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.md`
+- decision: `materialized_source_history_interpolation_replay_audit_route_to_replay_aware_retention_design`
+- selected alpha: `0.005`
+- selected checkpoint: `runs/m1352_materialized_source_history_interpolation_preflight/checkpoints/alpha_0_005.pt`
+- audit finding: alpha `0.005` is a useful trust-region diagnostic but not a new public base because the exact lift is weak, `group_all_rows_both_directional_count` remains `0`, and only two preflight replay surfaces have passed.
+- route decision: keep M1154 as the public-gate base and design replay-aware retention terms before another no-PPO update.
+- rejected routes: no direct full replay, PPO, promotion, private holdout, actor-input expansion, or threshold relaxation.
+- guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1354-paper-route-materialized-source-history-replay-aware-retention-design.json`.
+- next: `m1354-paper-route-materialized-source-history-replay-aware-retention-design`

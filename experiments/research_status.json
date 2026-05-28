@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1362,
+    "completed": 1363,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1352-paper-route-materialized-source-history-interpolation-preflight.md",
+    "command_log": "docs/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1352_materialized_source_history_interpolation_preflight/summary.json",
+    "run_dir": "docs/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.md",
     "status": "completed",
-    "task_id": "m1352-paper-route-materialized-source-history-interpolation-preflight"
+    "task_id": "m1353-paper-route-materialized-source-history-interpolation-replay-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.json",
-    "hypothesis": "Audit whether M1352 alpha 0.005 is worth replay escalation or should route to replay-aware retention redesign",
-    "id": "m1353-paper-route-materialized-source-history-interpolation-replay-result-audit",
+    "command": "see experiments/manifests/m1354-paper-route-materialized-source-history-replay-aware-retention-design.json",
+    "hypothesis": "Design no-PPO source-history update with M267/M264 and M183/M170 active replay retention",
+    "id": "m1354-paper-route-materialized-source-history-replay-aware-retention-design",
     "kind": "gate",
-    "notes": "Pending: classify narrow preflight pass; no training, PPO, promotion, private holdout, full replay, or actor-input change",
-    "priority": 13480,
+    "notes": "Pending: replay-aware retention design only; no training, PPO, promotion, private holdout, replay run, or actor-input change",
+    "priority": 13490,
     "status": "pending",
-    "success_artifact": "docs/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.md"
+    "success_artifact": "docs/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md"
   },
-  "updated_at_utc": "20260528T194331Z"
+  "updated_at_utc": "20260528T194832Z"
 }

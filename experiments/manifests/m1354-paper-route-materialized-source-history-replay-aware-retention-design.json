@@ -1,0 +1,161 @@
+{
+  "id": "m1354-paper-route-materialized-source-history-replay-aware-retention-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt",
+      "runs/m1352_materialized_source_history_interpolation_preflight/checkpoints/alpha_0_005.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.md",
+      "runs/m1352_materialized_source_history_interpolation_preflight/summary.json",
+      "runs/m1352_materialized_source_history_interpolation_preflight/alpha_summary.csv",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_objective": [
+      "design a no-PPO source-history update that treats replay retention as an active-set constraint"
+    ],
+    "derived_from": [
+      "m1353-paper-route-materialized-source-history-interpolation-replay-result-audit"
+    ],
+    "blocked_by": [
+      "M1353 rejects direct full-replay escalation because alpha 0.005 is only a tiny diagnostic trust-region point"
+    ],
+    "supersedes": [
+      "pure interpolation after M1352",
+      "direct PPO after M1352",
+      "direct promotion of alpha 0.005"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md",
+  "public_gates": [
+    "M1354 must not train",
+    "M1354 must not run PPO",
+    "M1354 must not use private holdout",
+    "M1354 must not promote",
+    "M1354 must preserve actor input contract",
+    "M1354 must design replay-aware retention before any new update implementation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not run a new actor update",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_pair_group_update_implementation",
+    "evidence_axis": "S_replay_aware_retention_design",
+    "evidence_increment": "turns the M1352 line-search boundary into a designed active-set retention update rather than another post-hoc interpolation",
+    "claim_scope": "process design only; no promotion, private-holdout, PPO, full replay, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if design uses alpha 0.005 as promoted base",
+      "stop if design permits PPO before no-PPO retention probe",
+      "stop if design omits M267/M264 or M183/M170 active replay rows",
+      "stop if actor inputs change"
+    ],
+    "fallback_plan": [
+      "if replay-aware retention can be expressed with existing artifacts, route to implementation",
+      "if terminal margins are missing, route to replay trajectory export design",
+      "if action anchors are insufficient, route to lexicographic margin projection design",
+      "if branch reaches cadence, route to synthesis before implementation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1353 routes interpolation result to replay-aware retention design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design replay-aware active-set retention update",
+    "admission_evidence": [
+      "M1346 fixed objective update improves exact metrics but fails replay",
+      "M1352 shows replay failure is amplitude-sensitive and bounded by M183/M170 at alpha 0.005"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1354 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "design specifies source-history objective terms",
+      "design specifies replay retention active set",
+      "design specifies implementation admission criteria",
+      "promotion and PPO remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1354 designs proof-retention machinery and cannot claim anticipatory self-identification.",
+    "history_necessity_tests": [
+      "design must preserve wrong-history outcome retention on M267/M264 and M183/M170 before any stronger claim"
+    ],
+    "temporal_evidence_window": "M1336 materialized source-history objective rows plus M267/M264 and M183/M170 boundary replay rows.",
+    "negative_result_policy": "If retention design cannot express the active replay surfaces, route to replay trajectory export or margin projection instead of weakening gates.",
+    "allowed_claims": [
+      "replay-aware retention design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A replay-aware retention design can convert M1352's tiny line-search boundary into an active-set update objective that preserves public replay proof surfaces while improving materialized source-history metrics.",
+  "success_criteria": [
+    "docs/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md exists",
+    "design specifies exact source-history objective terms",
+    "design specifies M267/M264 and M183/M170 active replay retention terms",
+    "design specifies no-PPO implementation admission criteria",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, replay run, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design omits M267/M264 or M183/M170",
+    "design routes directly to PPO or promotion",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, replay run, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt",
+    "runs/m1352_materialized_source_history_interpolation_preflight/checkpoints/alpha_0_005.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.md",
+    "runs/m1352_materialized_source_history_interpolation_preflight/summary.json",
+    "runs/m1352_materialized_source_history_interpolation_preflight/alpha_summary.csv"
+  ],
+  "decision_rule": "M1354 passes as a design milestone only if it specifies replay-aware retention while keeping training, PPO, private holdout, promotion, replay execution, and actor-input changes blocked.",
+  "next_blocker": "m1354-paper-route-materialized-source-history-replay-aware-retention-design"
+}

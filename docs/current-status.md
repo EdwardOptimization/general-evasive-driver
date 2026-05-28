@@ -16,14 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1352-paper-route-materialized-source-history-interpolation-preflight
+m1353-paper-route-materialized-source-history-interpolation-replay-result-audit
 ```
 
 Current next task:
 
 ```text
-m1353-paper-route-materialized-source-history-interpolation-replay-result-audit
+m1354-paper-route-materialized-source-history-replay-aware-retention-design
 ```
+
+M1353 audits the M1352 result and routes away from direct full replay or
+promotion. The only passing interpolation alpha is `0.005`, which is useful as a
+trust-region diagnostic but too weak to treat as a new base: its exact lift is
+small, `group_all_rows_both_directional_count` stays `0`, and it has only passed
+two public preflight replay surfaces. The M1154 checkpoint remains the
+public-gate base. M1354 should design a replay-aware retention update that
+keeps M267/M264 and M183/M170 active replay rows in the update objective before
+any new no-PPO implementation.
 
 M1352 ran the trust-region interpolation preflight over the M1154 to raw M1346
 direction. All six alphas were exact-admitted and preserved the actor input

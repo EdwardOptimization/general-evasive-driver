@@ -150,6 +150,26 @@
     "runs/m1352_materialized_source_history_interpolation_preflight/summary.json",
     "runs/m1352_materialized_source_history_interpolation_preflight/alpha_summary.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.md",
+    "decision": "materialized_source_history_interpolation_replay_audit_route_to_replay_aware_retention_design",
+    "failure_type": "none",
+    "selected_alpha": 0.005,
+    "selected_checkpoint": "runs/m1352_materialized_source_history_interpolation_preflight/checkpoints/alpha_0_005.pt",
+    "selected_alpha_promoted": false,
+    "full_replay_admitted": false,
+    "ppo_admitted": false,
+    "promotion_admitted": false,
+    "private_holdout_used": false,
+    "training_started": false,
+    "actor_update_used": false,
+    "replay_run_started": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "route": "m1354-paper-route-materialized-source-history-replay-aware-retention-design",
+    "reason": "alpha 0.005 proves a nonzero replay-safe trust region but exact lift is weak and no both-directional groups are created"
+  },
   "decision_rule": "M1353 passes only if it classifies the M1352 result without promotion/PPO/private holdout and creates one bounded next manifest.",
-  "next_blocker": "m1353-paper-route-materialized-source-history-interpolation-replay-result-audit"
+  "next_blocker": "m1354-paper-route-materialized-source-history-replay-aware-retention-design"
 }
