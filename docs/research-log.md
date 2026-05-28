@@ -19772,3 +19772,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.json`.
 - next: `m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight`
+
+## 20260528T192854Z - m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `proof`
+- artifact: `runs/m1349_materialized_source_history_limited_replay_preflight/summary.json`
+- document: `docs/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.md`
+- decision: `materialized_source_history_limited_replay_preflight_m267_m264_proof_washout_route_to_failure_audit`
+- failure taxonomy: `proof_washout`
+- M267/M264 result: `gate_pass=false`, `rows=17`, baseline normal success `1.0`, candidate normal success `0.0`, normal success delta `-1.0`.
+- success-drop retention: baseline `17`, candidate `0`, delta `-17`.
+- margin retention: normal margin mean delta `-0.1065894892`, margin gap mean delta `-0.0132868003`.
+- terminal reasons: M1154 normal completes obstacle on `17/17`; M1346 normal collides on `17/17`; both wrong-history branches collide on `17/17`.
+- stop rule honored: M183/M170 was skipped because M267/M264 failed first.
+- interpretation: M1346 fixed objective improvement causes current-family normal-branch collision and is rejected as a replay candidate.
+- guardrail: no training, PPO, promotion, private holdout, actor update, full replay, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.json`.
+- next: `m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit`

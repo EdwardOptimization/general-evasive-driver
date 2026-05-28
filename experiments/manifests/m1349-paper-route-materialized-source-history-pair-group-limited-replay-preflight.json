@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "proof_washout"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -163,6 +163,35 @@
   "baseline_artifacts": [
     "docs/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1349_materialized_source_history_limited_replay_preflight/summary.json",
+    "doc": "docs/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.md",
+    "decision": "materialized_source_history_limited_replay_preflight_m267_m264_proof_washout_route_to_failure_audit",
+    "failure_type": "proof_washout",
+    "result_class": "materialized_source_history_limited_replay_preflight_m267_m264_proof_washout",
+    "m267_m264_gate_pass": false,
+    "m267_m264_rows": 17,
+    "m267_m264_baseline_normal_success_rate": 1.0,
+    "m267_m264_candidate_normal_success_rate": 0.0,
+    "m267_m264_normal_success_delta": -1.0,
+    "m267_m264_baseline_success_drop_count": 17,
+    "m267_m264_candidate_success_drop_count": 0,
+    "m267_m264_success_drop_count_delta": -17,
+    "m267_m264_normal_margin_mean_delta": -0.10658948918405853,
+    "m267_m264_margin_gap_mean_delta": -0.013286800261648309,
+    "m183_m170_gate_ran": false,
+    "m183_m170_skipped_reason": "m267_m264_failed_first_surface",
+    "preflight_pass": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.json"
+  },
   "decision_rule": "M1349 may only advance beyond limited replay if M267/M264 and M183/M170 both pass; otherwise it routes to the corresponding proof-washout audit.",
-  "next_blocker": "m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight"
+  "next_blocker": "m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit"
 }

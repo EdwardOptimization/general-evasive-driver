@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1358,
+    "completed": 1359,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.md",
+    "command_log": "docs/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.md",
     "returncode": 0,
-    "run_dir": "docs/m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design.md",
+    "run_dir": "runs/m1349_materialized_source_history_limited_replay_preflight",
     "status": "completed",
-    "task_id": "m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design"
+    "task_id": "m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.json",
-    "hypothesis": "Run bounded two-surface public replay preflight for M1346 candidate",
-    "id": "m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight",
+    "command": "see experiments/manifests/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.json",
+    "hypothesis": "Audit M1349 proof washout and choose bounded repair or redesign route",
+    "id": "m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit",
     "kind": "gate",
-    "notes": "Pending: run M267/M264 first and M183/M170 only if first surface passes; no training, PPO, private holdout, promotion, or actor-input change",
-    "priority": 13440,
+    "notes": "Pending: failure audit only; no training, PPO, private holdout, promotion, replay run, or actor-input change",
+    "priority": 13450,
     "status": "pending",
-    "success_artifact": "runs/m1349_materialized_source_history_limited_replay_preflight/summary.json"
+    "success_artifact": "docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md"
   },
-  "updated_at_utc": "20260528T192351Z"
+  "updated_at_utc": "20260528T192854Z"
 }

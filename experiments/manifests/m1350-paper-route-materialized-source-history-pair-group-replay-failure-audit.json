@@ -1,0 +1,156 @@
+{
+  "id": "m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.md",
+      "runs/m1349_materialized_source_history_limited_replay_preflight/summary.json",
+      "runs/m1349_materialized_source_history_limited_replay_preflight/m267_m264/boundary_replay_rows.csv",
+      "runs/m1346_materialized_source_history_pair_group_update/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.json"
+    ],
+    "parent_objective": [
+      "audit M1346 objective-positive but replay-negative result"
+    ],
+    "derived_from": [
+      "m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight"
+    ],
+    "blocked_by": [
+      "M1349 shows M1346 fails M267/M264 by normal-branch collision on all rows"
+    ],
+    "supersedes": [
+      "continuing replay or PPO from M1346 after first-surface proof washout"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md",
+  "public_gates": [
+    "M1350 must not train",
+    "M1350 must not run PPO",
+    "M1350 must not use private holdout",
+    "M1350 must not promote",
+    "M1350 must preserve actor input contract",
+    "M1350 must classify the M267/M264 proof washout",
+    "M1350 must choose repair design, interpolation audit, or objective redesign route"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not ignore M267/M264 normal-branch collision",
+    "do not continue full public replay",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_pair_group_update_implementation",
+    "evidence_axis": "S_materialized_source_history_replay_failure_audit",
+    "evidence_increment": "classifies why the objective-positive M1346 candidate fails the first public replay proof surface",
+    "claim_scope": "failure audit only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if audit omits M267/M264 normal-branch collision",
+      "stop if audit routes directly to PPO",
+      "stop if audit promotes the candidate",
+      "stop if actor inputs change"
+    ],
+    "fallback_plan": [
+      "if update amplitude is the issue, route to interpolation/trust-region replay preflight",
+      "if objective is disconnected from replay, route to replay-aware active-set repair design",
+      "if materialized source metrics are misleading, route to objective redesign",
+      "if tooling is faulty, route to replay tooling audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1349 first proof surface failed and requires failure audit before another update",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "M1349 replay failure audit",
+    "admission_evidence": [
+      "M1349 M267/M264 gate_pass=false",
+      "candidate normal success rate drops from 1.0 to 0.0",
+      "success-drop count drops from 17 to 0",
+      "M183/M170 was correctly skipped"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1350 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "proof-washout cause is classified",
+      "next repair or redesign route is explicit",
+      "no update occurs"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1350 audits a failed public replay proof surface and cannot claim stronger self-identification.",
+    "history_necessity_tests": [
+      "M267/M264 failed normal versus wrong-history replay retention"
+    ],
+    "temporal_evidence_window": "M1349 public boundary-outcome replay result.",
+    "negative_result_policy": "The M1349 proof washout must be recorded as evidence against the current objective update route before more training.",
+    "allowed_claims": [
+      "M1349 replay failure audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1349 failure can be classified into an actionable repair route without running training, PPO, private holdout, promotion, or full replay.",
+  "success_criteria": [
+    "docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md exists",
+    "audit summarizes M1349 M267/M264 replay failure",
+    "audit classifies whether failure is amplitude, objective disconnect, or tooling artifact",
+    "audit chooses a bounded next route",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, replay run, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores normal-branch collision",
+    "audit routes directly to PPO or promotion",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, replay run, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.md",
+    "runs/m1349_materialized_source_history_limited_replay_preflight/summary.json"
+  ],
+  "decision_rule": "M1350 passes only if it audits the M1349 proof washout and chooses a bounded repair/redesign route without training, PPO, private holdout, promotion, or actor-input expansion.",
+  "next_blocker": "m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit"
+}

@@ -16,14 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1348-paper-route-materialized-source-history-pair-group-limited-replay-preflight-design
+m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight
 ```
 
 Current next task:
 
 ```text
-m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight
+m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit
 ```
+
+M1349 ran the first replay preflight surface, M267/M264, and stopped because it
+failed hard. The M1154 base kept normal success on `17/17` rows and wrong-history
+collision on `17/17` rows. The M1346 candidate collided on normal history for
+`17/17` rows, so normal success dropped from `1.0` to `0.0`, success-drop count
+dropped from `17` to `0`, normal margin mean delta was `-0.1065894892`, and the
+gate failed every retention check. M183/M170 was not run. The active blocker is
+M1350: audit why the fixed-objective-positive M1346 update destroys M267/M264
+normal-branch replay.
 
 M1348 designed the limited replay preflight. The existing temporal full-replay
 wrapper is not a drop-in fit because it assumes M997 temporal exact retention
