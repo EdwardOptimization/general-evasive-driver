@@ -17486,3 +17486,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1219-paper-route-current-family-action-screen-negative-audit.json`.
 - decision: `current_family_history_action_screen_negative_route_to_audit`
 - next: `m1219-paper-route-current-family-action-screen-negative-audit`
+
+## 20260528T070913Z - m1219-paper-route-current-family-action-screen-negative-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1219-paper-route-current-family-action-screen-negative-audit.md`
+- result: audits M1218 as a real negative for wrong/delayed matched-history action signal and blocks outcome rollout.
+- diagnosis: reset-hidden action movement proves hidden can affect action, but wrong/delayed natural matched histories remain action-equivalent and therefore do not support self-identification.
+- rejected next step: do not run persistent wrong-history outcome gates after failed action-screen admission.
+- selected route: run hidden-action sensitivity probe with reset, delayed, wrong, shuffled, scaled, random, zero-current, and zero-action variants.
+- guardrail: no evaluation rollout, outcome intervention, training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1220-paper-route-current-family-hidden-action-sensitivity-probe.json`.
+- decision: `negative_action_screen_admit_hidden_action_sensitivity_probe`
+- next: `m1220-paper-route-current-family-hidden-action-sensitivity-probe`

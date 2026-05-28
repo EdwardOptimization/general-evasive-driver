@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1228,
+    "completed": 1229,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1218_current_family_history_action_screen/summary.json",
+    "command_log": "docs/m1219-paper-route-current-family-action-screen-negative-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1218_current_family_history_action_screen",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1218-paper-route-current-family-history-action-screen"
+    "task_id": "m1219-paper-route-current-family-action-screen-negative-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1219-paper-route-current-family-action-screen-negative-audit.json",
-    "hypothesis": "Auditing the M1218 negative action screen can identify whether the next route should be action-critical mining, stronger history intervention, or training-objective redesign.",
-    "id": "m1219-paper-route-current-family-action-screen-negative-audit",
+    "command": "see experiments/manifests/m1220-paper-route-current-family-hidden-action-sensitivity-probe.json",
+    "hypothesis": "The current-family actor will show hidden-action sensitivity under reset, shuffled, scaled, or random hidden perturbations even though real wrong/delayed matched histories are action-equivalent.",
+    "id": "m1220-paper-route-current-family-hidden-action-sensitivity-probe",
     "kind": "gate",
-    "notes": "Pending: classify M1218 negative wrong-delayed signal and choose next route without outcome overreach",
-    "priority": 12140,
+    "notes": "Pending: probe reset shuffled scaled random wrong delayed and zero controls on M1217 pairs",
+    "priority": 12150,
     "status": "pending",
-    "success_artifact": "docs/m1219-paper-route-current-family-action-screen-negative-audit.md"
+    "success_artifact": "docs/m1220-paper-route-current-family-hidden-action-sensitivity-probe.md"
   },
-  "updated_at_utc": "20260528T070604Z"
+  "updated_at_utc": "20260528T070913Z"
 }

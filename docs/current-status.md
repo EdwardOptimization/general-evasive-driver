@@ -115,8 +115,45 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1219-paper-route-current-family-action-screen-negative-audit
+m1220-paper-route-current-family-hidden-action-sensitivity-probe
 ```
+
+M1219 completed the negative action-screen audit:
+
+```text
+artifact: docs/m1219-paper-route-current-family-action-screen-negative-audit.md
+decision: negative_action_screen_admit_hidden_action_sensitivity_probe
+```
+
+M1219 conclusion:
+
+```text
+M1218 is a real negative for wrong/delayed matched-history action signal.
+Reset-hidden sensitivity is not self-identification evidence.
+Persistent outcome rollout is blocked until hidden-action sensitivity is
+classified.
+```
+
+Next branch:
+
+```text
+paper_route_causal_history_evidence
+```
+
+The next task is hidden-action sensitivity probing, not outcome intervention or
+training:
+
+```text
+checkpoint family: M1212 corrected L3 online GRU repeat
+env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
+pair source:       runs/m1217_current_family_matched_current_export/matched_pairs.csv
+run dir:           runs/m1220_current_family_hidden_action_sensitivity_probe
+```
+
+M1220 should compare real wrong/delayed hidden histories against reset,
+shuffled, scaled, and random hidden perturbations plus zero-current/zero-action
+controls. Off-manifold hidden sensitivity cannot be claimed as self-ID; it only
+classifies the next route.
 
 M1218 completed current-family history action screening:
 
@@ -135,25 +172,6 @@ reset_hidden mean / above-threshold:          0.041795 / 629
 zero_action_history mean / above-threshold:   0.013854 / 0
 zero_current_response mean / above-threshold: 0.017431 / 20
 ```
-
-Next branch:
-
-```text
-paper_route_causal_history_evidence
-```
-
-The next task is a negative action-screen audit, not outcome intervention or
-training:
-
-```text
-checkpoint family: M1212 corrected L3 online GRU repeat
-env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
-evidence:          runs/m1218_current_family_history_action_screen/action_interventions.csv
-```
-
-M1219 must explain the reset-hidden versus wrong/delayed-history split and
-select the next route without running outcome gates. It must not treat
-reset-hidden sensitivity as self-identification proof.
 
 M1217 completed current-family matched-current export:
 
