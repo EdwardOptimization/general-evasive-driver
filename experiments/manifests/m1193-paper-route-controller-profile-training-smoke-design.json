@@ -151,5 +151,5 @@
     "configs/paper_route_profiles"
   ],
   "decision_rule": "M1193 passes if it defines a fair resource-capped training-smoke protocol and keeps actual controller training blocked.",
-  "next_blocker": "m1193-paper-route-controller-profile-training-smoke-design"
+  "next_blocker": "m1194-paper-route-finite-window-gru-infrastructure-synthesis"
 }

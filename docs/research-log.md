@@ -17049,3 +17049,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1193-paper-route-controller-profile-training-smoke-design.json`.
 - decision: `controller_profile_runtime_smoke_pass_route_to_training_smoke_design`
 - next: `m1193-paper-route-controller-profile-training-smoke-design`
+
+## 20260528T045000Z - m1193-paper-route-controller-profile-training-smoke-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1193-paper-route-controller-profile-training-smoke-design.md`
+- result: designs a fair resource-capped L0/L1/L2/L3 training-smoke protocol but keeps training blocked for workflow synthesis and then a train/eval mask integration step.
+- key finding: `train_ppo` currently constructs vector environments directly through `SyncAutoDriftVectorEnv` / `ParallelAutoDriftVectorEnv`, which construct `AutoDriftEnv` directly; the M1191 runtime mask wrapper is therefore not yet applied in training paths.
+- protocol decision: do not run generated profile training next because `L0_current_masked` would leak previous-command fields in vector training unless train/eval entrypoints apply controller-profile masks.
+- Stage A training smoke after integration: `L0_current_masked`, `L1_one_step`, `L2_window_25`, and `L3_online_gru`, each at `1024` steps, `2` envs, `1` seed, CPU, no performance claim.
+- Stage B after Stage A: all eight generated profiles under the same smoke budget.
+- fairness rules: same generated config family, seeds, env distribution, reward, action contract, total steps, eval count, public gate stack, no private holdout, no per-profile tuning from early results.
+- follow-up manifest: `experiments/manifests/m1194-paper-route-finite-window-gru-infrastructure-synthesis.json`.
+- guardrail: no controller training, PPO, candidate replay, promotion, private holdout, hidden/oracle actor input, or actor-input contract change occurred.
+- decision: `training_smoke_design_routes_to_branch_synthesis_before_mask_integration`
+- next: `m1194-paper-route-finite-window-gru-infrastructure-synthesis`

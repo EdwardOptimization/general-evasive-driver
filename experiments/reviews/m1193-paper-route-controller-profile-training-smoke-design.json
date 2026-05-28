@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1193 designs a fair resource-capped profile training-smoke protocol but blocks direct training because train_ppo vector env paths do not yet apply controller-profile masks and workflow cadence requires synthesis before another implementation milestone; no training PPO replay promotion private holdout or actor-input change",
+  "failure_criteria": [
+    "training starts in M1193",
+    "protocol gives profiles unequal budgets or per-profile tuning",
+    "private holdout is used",
+    "runtime mask training integration risk is ignored",
+    "hidden or oracle actor inputs are introduced"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train generated configs",
+    "do not run PPO",
+    "do not evaluate driver performance",
+    "do not use private holdout",
+    "do not tune per profile from early results",
+    "do not change actor inputs",
+    "do not add hidden or oracle actor inputs",
+    "do not claim profile superiority from a design document"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T045508Z",
+  "hypothesis": "A fair resource-capped training-smoke protocol can be designed for generated L0/L1/L2/L3 configs without starting training or weakening input-contract controls.",
+  "lineage": {
+    "blocked_by": [
+      "profile runtime smoke passes but training smoke should not start without a pre-registered fair resource-capped protocol"
+    ],
+    "derived_from": [
+      "m1192-paper-route-controller-profile-runtime-smoke-run"
+    ],
+    "invalidates": [
+      "claiming profile comparability from runtime instantiation alone"
+    ],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1192-paper-route-controller-profile-runtime-smoke-run.json"
+    ],
+    "parent_dataset": [
+      "docs/m1192-paper-route-controller-profile-runtime-smoke-run.md",
+      "runs/m1192_controller_profile_runtime_smoke/summary.json",
+      "configs/paper_route_profiles"
+    ],
+    "parent_objective": [
+      "design a fair bounded training-smoke protocol for L0/L1/L2/L3 profile comparison after runtime instantiation passes"
+    ],
+    "supersedes": [
+      "launching generated profile training directly after runtime smoke"
+    ]
+  },
+  "milestone": "m1193-paper-route-controller-profile-training-smoke-design",
+  "next_blocker": "m1194-paper-route-finite-window-gru-infrastructure-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "training_smoke_design_routes_to_branch_synthesis_before_mask_integration",
+  "public_gates": [
+    "M1193 may design controller profile training-smoke protocol only",
+    "M1193 must not train controller weights",
+    "M1193 must not run PPO",
+    "M1193 must not run candidate replay",
+    "M1193 must not promote",
+    "M1193 must not use private holdout",
+    "M1193 must not add hidden or oracle actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1193-paper-route-controller-profile-training-smoke-design.md",
+    "clearance_margin_mean": "",
+    "decision": "training_smoke_design_routes_to_branch_synthesis_before_mask_integration",
+    "milestone": "m1193-paper-route-controller-profile-training-smoke-design",
+    "reason": "M1193 designs a fair resource-capped profile training-smoke protocol but blocks direct training because train_ppo vector env paths do not yet apply controller-profile masks and workflow cadence requires synthesis before another implementation milestone; no training PPO replay promotion private holdout or actor-input change",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1193-paper-route-controller-profile-training-smoke-design.md exists",
+    "protocol fixes profile set, seeds, budgets, env split, metrics, gates, resource cap, and fallback ladder",
+    "runtime mask train_ppo integration requirement is explicitly handled before L0 training",
+    "no controller training, candidate replay, PPO, promotion, private holdout, or actor-input contract change occurs",
+    "next implementation or run milestone is selected"
+  ],
+  "type": "gate"
+}

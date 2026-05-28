@@ -115,7 +115,42 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1193-paper-route-controller-profile-training-smoke-design
+m1194-paper-route-finite-window-gru-infrastructure-synthesis
+```
+
+M1193 designed the bounded fair controller-profile training-smoke protocol and
+found two blockers before training:
+
+```text
+artifact: docs/m1193-paper-route-controller-profile-training-smoke-design.md
+decision: training_smoke_design_routes_to_branch_synthesis_before_mask_integration
+```
+
+First, workflow synthesis cadence has fired after the M1184-M1193 paper-route
+infrastructure sequence. M1194 is therefore a process synthesis milestone, not
+another implementation milestone.
+
+Key M1193 finding:
+
+```text
+train_ppo -> make_vector_env -> SyncAutoDriftVectorEnv / ParallelAutoDriftVectorEnv
+vector envs construct AutoDriftEnv directly
+controller_profile_runtime wrapper is not yet applied there
+```
+
+Second, profile training remains blocked after synthesis until controller-profile
+observation masks are integrated into train/eval vector paths. The follow-up
+integration must prove with focused tests that `L0_current_masked` zeros
+previous-command fields `[9,10,11]` in vector reset/step observations while
+unmasked profiles remain unchanged. M1194 must not run training or PPO.
+
+M1193's planned training-smoke ladder after synthesis and mask integration:
+
+```text
+Stage A: L0_current_masked, L1_one_step, L2_window_25, L3_online_gru
+Stage A budget: 1024 steps, 2 envs, 1 seed, CPU, no performance claim
+Stage B: all eight generated profiles under the same smoke budget
+Stage C: separate fair comparison pilot after another manifest
 ```
 
 M1192 completed the integrated no-training runtime smoke for all generated
@@ -160,10 +195,6 @@ Focused verification:
 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_controller_profile_runtime_smoke.py tests/test_controller_profile_runtime.py tests/test_controller_profile_configs.py tests/test_controller_profiles.py
 25 passed
 ```
-
-The next blocker is M1193: design a bounded fair L0/L1/L2/L3 training-smoke
-protocol before running controller training. M1193 should fix profile set,
-seeds, budgets, env splits, metrics, gates, resource cap, and fallback ladder.
 
 M1191 implemented runtime observation-mask support for controller-profile
 configs:
@@ -217,7 +248,7 @@ M1190 generated eight smoke configs with L0 mask metadata, four L2 finite
 windows `[13,25,50,100]`, L3 variants, and no training/PPO/replay/promotion.
 
 Older route notes below retain their then-next milestone wording as history;
-the active blocker is the M1193 training-smoke design above.
+the active blocker is the M1194 branch synthesis above.
 
 M1189 completed controller-profile config-generation design:
 

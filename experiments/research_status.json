@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1202,
+    "completed": 1203,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1192-paper-route-controller-profile-runtime-smoke-run.md",
+    "command_log": "docs/m1193-paper-route-controller-profile-training-smoke-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1192_controller_profile_runtime_smoke",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1192-paper-route-controller-profile-runtime-smoke-run"
+    "task_id": "m1193-paper-route-controller-profile-training-smoke-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1193-paper-route-controller-profile-training-smoke-design.json",
-    "hypothesis": "A fair resource-capped training-smoke protocol can be designed for generated L0/L1/L2/L3 configs without starting training or weakening input-contract controls.",
-    "id": "m1193-paper-route-controller-profile-training-smoke-design",
-    "kind": "gate",
-    "notes": "Pending: design fair resource-capped L0/L1/L2/L3 training-smoke protocol before running controller training",
-    "priority": 11880,
+    "command": "see experiments/manifests/m1194-paper-route-finite-window-gru-infrastructure-synthesis.json",
+    "hypothesis": "The M1184-M1193 paper-route infrastructure branch can continue, but only after explicitly recording supported claims, falsified claims, public-gate overfit risk, and the train/eval mask-integration blocker.",
+    "id": "m1194-paper-route-finite-window-gru-infrastructure-synthesis",
+    "kind": "process",
+    "notes": "Pending: workflow synthesis before continuing to train/eval profile-mask integration",
+    "priority": 11890,
     "status": "pending",
-    "success_artifact": "docs/m1193-paper-route-controller-profile-training-smoke-design.md"
+    "success_artifact": "docs/m1194-paper-route-finite-window-gru-infrastructure-synthesis.md"
   },
-  "updated_at_utc": "20260528T044400Z"
+  "updated_at_utc": "20260528T045000Z"
 }
