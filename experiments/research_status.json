@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1217,
+    "completed": 1218,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1207-paper-route-corrected-profile-config-generation.md",
+    "command_log": "docs/m1208-paper-route-corrected-profile-config-smoke-run.md",
     "returncode": 0,
-    "run_dir": "runs/m1207_corrected_profile_config_generation",
+    "run_dir": "runs/m1208_corrected_profile_config_smoke",
     "status": "completed",
-    "task_id": "m1207-paper-route-corrected-profile-config-generation"
+    "task_id": "m1208-paper-route-corrected-profile-config-smoke-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1208-paper-route-corrected-profile-config-smoke-run.json",
-    "hypothesis": "Generated corrected profile configs can be loaded through runtime paths and express current-tiled and corrected reset-control semantics without training.",
-    "id": "m1208-paper-route-corrected-profile-config-smoke-run",
+    "command": "see experiments/manifests/m1209-paper-route-corrected-profile-pilot-run.json",
+    "hypothesis": "The corrected fixed public pilot can produce useful L0/L1/L2/L3 trend evidence after controlling L2 current-frame substitution and L3 reset semantics.",
+    "id": "m1209-paper-route-corrected-profile-pilot-run",
     "kind": "gate",
-    "notes": "Pending: load generated configs and verify current-tiled/reset-control runtime semantics before corrected pilot training",
-    "priority": 12030,
+    "notes": "Pending: run fixed public corrected L0 L1 L2 L3 pilot with current-tiled controls and corrected reset semantics",
+    "priority": 12040,
     "status": "pending",
-    "success_artifact": "docs/m1208-paper-route-corrected-profile-config-smoke-run.md"
+    "success_artifact": "docs/m1209-paper-route-corrected-profile-pilot-run.md"
   },
-  "updated_at_utc": "20260528T061138Z"
+  "updated_at_utc": "20260528T061720Z"
 }

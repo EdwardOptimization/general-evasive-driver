@@ -115,8 +115,41 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1208-paper-route-corrected-profile-config-smoke-run
+m1209-paper-route-corrected-profile-pilot-run
 ```
+
+M1208 completed generated corrected profile config smoke:
+
+```text
+artifact: docs/m1208-paper-route-corrected-profile-config-smoke-run.md
+run dir: runs/m1208_corrected_profile_config_smoke
+decision: corrected_profile_config_smoke_pass_route_to_corrected_pilot_run
+```
+
+M1208 result:
+
+```text
+result_class: controller_profile_runtime_smoke_pass
+config_count: 8
+all_configs_instantiated: true
+contract_ok: true
+model_forward_ok: true
+l0_mask_observed: true
+unmasked_profiles_unchanged: true
+current_tiled_profile_count: 2
+current_tiled_profiles_observed: true
+corrected_reset_profile_count: 1
+corrected_reset_policy_routing_ok: true
+training_started: false
+ppo_used: false
+private_holdout_used: false
+promoted: false
+actor_input_contract_changed: false
+```
+
+M1209 may now run the fixed corrected public profile pilot. It remains public
+pilot trend evidence only: no promotion, private holdout, per-profile tuning,
+self-ID claim, or paper-level claim.
 
 M1207 completed corrected profile config generation:
 
@@ -155,8 +188,7 @@ L3_reset_control_corrected: online-GRU reset-control metadata with every_step_co
 
 Focused tests passed (`28 passed, 1 warning`). M1207 did not train controllers,
 run PPO, use private holdout, promote, tune profiles, or claim self-ID/profile
-superiority. M1208 must smoke-test the generated configs through runtime paths
-before any corrected public pilot training.
+superiority. M1208 smoke-tested the generated configs successfully.
 
 M1206 completed the corrected public pilot design:
 

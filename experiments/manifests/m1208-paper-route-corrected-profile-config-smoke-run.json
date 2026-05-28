@@ -159,5 +159,5 @@
     "configs/paper_route_corrected_profiles"
   ],
   "decision_rule": "M1208 passes if generated corrected configs load and runtime semantics are verified without training, tuning, promotion, private holdout, or claim expansion.",
-  "next_blocker": "m1208-paper-route-corrected-profile-config-smoke-run"
+  "next_blocker": "m1209-paper-route-corrected-profile-pilot-run"
 }

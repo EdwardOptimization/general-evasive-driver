@@ -1,0 +1,210 @@
+{
+  "id": "m1209-paper-route-corrected-profile-pilot-run",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "configs/paper_route_corrected_profiles",
+      "runs/m1208_corrected_profile_config_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1206-paper-route-corrected-profile-pilot-design.json",
+      "experiments/manifests/m1208-paper-route-corrected-profile-config-smoke-run.json"
+    ],
+    "parent_objective": [
+      "run corrected public L0/L1/L2/L3 profile comparison pilot with fixed seeds budgets and corrected controls"
+    ],
+    "derived_from": [
+      "m1206-paper-route-corrected-profile-pilot-design",
+      "m1207-paper-route-corrected-profile-config-generation",
+      "m1208-paper-route-corrected-profile-config-smoke-run"
+    ],
+    "blocked_by": [
+      "corrected configs and runtime semantics are ready but no corrected public pilot has run"
+    ],
+    "supersedes": [
+      "interpreting M1199 without current-tiled L2 controls and corrected L3 reset semantics"
+    ],
+    "invalidates": [
+      "profile comparison claims without corrected diagnostic controls"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1209-paper-route-corrected-profile-pilot-run.md",
+  "public_gates": [
+    "M1209 may run the corrected public profile pilot only",
+    "M1209 may run PPO under the fixed M1206/M1207 profile budgets and seeds",
+    "M1209 must evaluate every checkpoint on the same public eval seeds",
+    "M1209 must not promote",
+    "M1209 must not use private holdout",
+    "M1209 must not tune profiles based on results",
+    "M1209 must not run candidate replay",
+    "M1209 must not add hidden or oracle actor inputs",
+    "M1209 must not claim paper-level evidence or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change profile-specific budgets",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not run public proof replay as if this were a driver candidate",
+    "do not tune hyperparameters after seeing profile results",
+    "do not add hidden or oracle actor inputs",
+    "do not claim recurrent-belief advantage or self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_corrected_public_pilot: fair L0/L1/L2/L3 trend with repaired controls",
+    "evidence_increment": "runs the first fixed-protocol public pilot with current-tiled L2 capacity controls and corrected L3 reset-control evaluation semantics",
+    "claim_scope": "public pilot trend only; no promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if any profile cannot run the fixed protocol",
+      "stop if metrics are non-finite",
+      "stop if protocol changes after seeing a profile result",
+      "stop if corrected controls are bypassed during training or evaluation"
+    ],
+    "fallback_plan": [
+      "if full pilot is too costly, report a resource failure and route to smaller completed-subset audit",
+      "if one profile fails, record failure and route to focused repair before any comparison claim",
+      "if metrics are too weak or missing, route to evaluation-metric implementation before repeating"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1208 passed generated-config runtime smoke and M1209 is the corrected public pilot run",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "guarded_rl",
+    "stage_objective": "corrected public profile comparison pilot",
+    "admission_evidence": [
+      "M1196/M1197 pretrain smoke and M1208 no-training smoke provide capability evidence that profile train/eval paths instantiate before the corrected pilot",
+      "M1185/M1186 active public gate policy and M1208 exact generated-config smoke provide proof-gate discipline for keeping this public pilot separate from promotion",
+      "M1206/M1208 enforce rollback protection: no promotion, no private holdout, no per-profile tuning, and repair route if any corrected control fails",
+      "M1206 fixed the corrected profile set and budget",
+      "M1207 generated committed corrected configs",
+      "M1208 no-training smoke verified generated config runtime semantics"
+    ],
+    "blocked_shortcuts": [
+      "do not promote",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "public pilot training runs",
+      "pilot summary artifacts",
+      "M1209 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "all selected profiles run with fixed budgets or failures are recorded",
+      "profile seed rows and aggregate rows are recorded",
+      "finite metric flags are recorded",
+      "claim scope remains public pilot only",
+      "next audit, repeat, longer-budget, or repair milestone is selected"
+    ]
+  },
+  "pilot_protocol": {
+    "profiles": [
+      "L0_current_masked",
+      "L1_one_step",
+      "L2_window_13",
+      "L2_window_13_current_tiled",
+      "L2_window_25",
+      "L2_window_25_current_tiled",
+      "L3_online_gru",
+      "L3_reset_control_corrected"
+    ],
+    "training_seed_base": 110600,
+    "training_seed_offsets": [
+      0,
+      1,
+      2
+    ],
+    "eval_seed_base": 120600,
+    "eval_seed_policy": "same 64 public eval seeds for every profile checkpoint",
+    "total_steps_per_seed": 8192,
+    "rollout_steps": 128,
+    "num_envs": 4,
+    "update_epochs": 2,
+    "minibatch_size": 256,
+    "eval_episodes_per_checkpoint": 64,
+    "device": "cpu",
+    "vector_env_mode": "sync"
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1209 can compare L2 profiles against current-tiled capacity controls, but the pilot does not by itself prove self-ID.",
+    "history_necessity_tests": [
+      "L2_window_13_vs_L2_window_13_current_tiled",
+      "L2_window_25_vs_L2_window_25_current_tiled",
+      "L3_online_gru_vs_L3_reset_control_corrected"
+    ],
+    "temporal_evidence_window": "Profiles differ in temporal information, but M1209 remains public pilot trend evidence rather than matched-history causal proof.",
+    "negative_result_policy": "If current-tiled controls match or beat L2, record the negative result and route to profile/architecture audit instead of weakening claim standards.",
+    "allowed_claims": [
+      "corrected public pilot profile trend",
+      "whether corrected controls warrant a longer public pilot",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The corrected fixed public pilot can produce useful L0/L1/L2/L3 trend evidence after controlling L2 current-frame substitution and L3 reset semantics.",
+  "success_criteria": [
+    "docs/m1209-paper-route-corrected-profile-pilot-run.md exists",
+    "runs/m1209_corrected_profile_pilot/summary.json exists",
+    "profile_seed_rows.csv exists",
+    "eval_rows.csv exists",
+    "profile_aggregate.csv exists",
+    "all selected profile seed runs complete or failures are recorded",
+    "private holdout remains unused",
+    "no promotion or actor-input contract change occurs",
+    "claims are limited to corrected public pilot trends"
+  ],
+  "failure_criteria": [
+    "profile-specific budgets or hyperparameters change after seeing results",
+    "private holdout is used",
+    "metrics are framed as paper-level evidence",
+    "hidden or oracle actor inputs are introduced",
+    "failed profiles are omitted from summary",
+    "corrected controls are not applied in training or evaluation"
+  ],
+  "commands": [
+    {
+      "name": "run_corrected_profile_pilot",
+      "command": "run fixed public corrected L0/L1/L2/L3 comparison pilot with equal seeds budgets and eval protocol"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1209-paper-route-corrected-profile-pilot-run.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m1209_corrected_profile_pilot/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1209_corrected_profile_pilot/profile_seed_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1209_corrected_profile_pilot/profile_aggregate.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "docs/m1206-paper-route-corrected-profile-pilot-design.md",
+    "configs/paper_route_corrected_profiles",
+    "runs/m1208_corrected_profile_config_smoke/summary.json"
+  ],
+  "decision_rule": "M1209 passes if the fixed corrected public pilot runs or records failures without claim expansion or protocol drift.",
+  "next_blocker": "m1209-paper-route-corrected-profile-pilot-run"
+}

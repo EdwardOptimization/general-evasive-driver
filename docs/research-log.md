@@ -17301,3 +17301,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1208-paper-route-corrected-profile-config-smoke-run.json`.
 - decision: `corrected_profile_configs_generated_route_to_config_smoke`
 - next: `m1208-paper-route-corrected-profile-config-smoke-run`
+
+## 20260528T061720Z - m1208-paper-route-corrected-profile-config-smoke-run
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `infrastructure`
+- artifact: `docs/m1208-paper-route-corrected-profile-config-smoke-run.md`
+- run dir: `runs/m1208_corrected_profile_config_smoke`
+- result: no-training runtime smoke passes for all eight generated corrected profile configs.
+- summary: `controller_profile_runtime_smoke_pass`, `all_configs_instantiated=true`, `contract_ok=true`, `model_forward_ok=true`.
+- corrected L2 checks: two current-tiled profiles observed; raw step histories were not tiled and wrapped step histories were tiled.
+- corrected L3 check: `L3_reset_control_corrected` routes `reset_hidden_policy=every_step_control` through `ActorPolicy`.
+- focused verification: `26 passed`.
+- guardrail: no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, actor-input expansion, self-identification claim, profile superiority claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1209-paper-route-corrected-profile-pilot-run.json`.
+- decision: `corrected_profile_config_smoke_pass_route_to_corrected_pilot_run`
+- next: `m1209-paper-route-corrected-profile-pilot-run`

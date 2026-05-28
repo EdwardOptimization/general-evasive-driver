@@ -11,11 +11,13 @@ import numpy as np
 from autodrift.artifacts import read_json, utc_timestamp, write_csv_rows, write_json
 from autodrift.config import build_env_config
 from autodrift.controller_profile_runtime import (
+    CURRENT_TILED_HISTORY,
     mask_spec_from_config,
     profile_runtime_summary,
     wrap_env_with_profile_mask,
 )
 from autodrift.env import AutoDriftEnv
+from autodrift.evaluate import ActorPolicy
 from autodrift.train_ppo import ActorCritic
 
 
@@ -25,8 +27,8 @@ CONFIG_GLOB = "m1190_*_smoke.json"
 SMOKE_ACTION = np.array([0.5, 0.2, -0.3], dtype=np.float32)
 
 
-def generated_config_paths(config_dir: Path | str = DEFAULT_CONFIG_DIR) -> list[Path]:
-    paths = sorted(Path(config_dir).glob(CONFIG_GLOB))
+def generated_config_paths(config_dir: Path | str = DEFAULT_CONFIG_DIR, config_glob: str = CONFIG_GLOB) -> list[Path]:
+    paths = sorted(Path(config_dir).glob(config_glob))
     if not paths:
         raise FileNotFoundError(f"no generated profile configs found under {config_dir}")
     return paths
@@ -48,6 +50,52 @@ def _previous_command_abs_sum(obs: np.ndarray, indices: tuple[int, ...]) -> floa
     if not indices:
         return 0.0
     return float(np.abs(obs[list(indices)]).sum())
+
+
+def _is_current_tiled(obs: np.ndarray, frame_dim: int) -> bool:
+    if obs.shape[-1] % frame_dim != 0:
+        return False
+    frame_count = obs.shape[-1] // frame_dim
+    if frame_count <= 1:
+        return True
+    frames = obs.reshape(frame_count, frame_dim)
+    return bool(np.allclose(frames[1:, :], frames[0:1, :]))
+
+
+class _ResetPolicySpyModel:
+    is_online_recurrent = True
+    action_sequence_horizon = 1
+
+    def __init__(self, action_dim: int):
+        self.action_dim = int(action_dim)
+        self.hidden_inputs: list[Any] = []
+
+    def act_recurrent(
+        self,
+        observation: np.ndarray,
+        hidden: Any,
+        deterministic: bool = True,
+    ) -> tuple[np.ndarray, None, None, str]:
+        del observation, deterministic
+        self.hidden_inputs.append(hidden)
+        return np.zeros(self.action_dim, dtype=np.float32), None, None, "next_hidden"
+
+
+def _reset_policy_routing_ok(config: dict[str, Any], runtime: dict[str, Any], obs_dim: int, act_dim: int) -> bool:
+    profile = config["controller_profile"]
+    if not bool(profile.get("corrected_reset_control", False)):
+        return True
+    if runtime.get("reset_hidden_policy") != "every_step_control":
+        return False
+    model = _ResetPolicySpyModel(act_dim)
+    policy = ActorPolicy(
+        model,  # type: ignore[arg-type]
+        build_env_config(config["env"]),
+        reset_hidden_policy=str(runtime["reset_hidden_policy"]),
+    )
+    policy.hidden = "existing_hidden"
+    policy.act(np.zeros(obs_dim, dtype=np.float32), {})
+    return bool(model.hidden_inputs == [None])
 
 
 def smoke_one_profile(config_path: Path | str, *, seed: int = 1192) -> dict[str, Any]:
@@ -75,13 +123,28 @@ def smoke_one_profile(config_path: Path | str, *, seed: int = 1192) -> dict[str,
 
     raw_step_command_sum = _previous_command_abs_sum(raw_step_obs, spec.previous_command_mask_indices)
     wrapped_step_command_sum = _previous_command_abs_sum(wrapped_step_obs, spec.previous_command_mask_indices)
+    previous_command_mask_expected = bool(spec.previous_command_mask_indices)
     reset_mask_ok = (not spec.enabled) or bool(
         np.allclose(wrapped_reset_obs[list(spec.previous_command_mask_indices)], 0.0)
     )
     step_mask_ok = (not spec.enabled) or bool(
         np.allclose(wrapped_step_obs[list(spec.previous_command_mask_indices)], 0.0)
     )
-    mask_observed = (not spec.enabled) or bool(step_mask_ok and raw_step_command_sum > 1.0e-6)
+    previous_command_mask_observed = (not previous_command_mask_expected) or bool(
+        step_mask_ok and raw_step_command_sum > 1.0e-6 and wrapped_step_command_sum == 0.0
+    )
+    current_tiled_expected = spec.history_transform == CURRENT_TILED_HISTORY
+    frame_dim = int(spec.frame_dim)
+    raw_reset_current_tiled = _is_current_tiled(raw_reset_obs, frame_dim)
+    wrapped_reset_current_tiled = _is_current_tiled(wrapped_reset_obs, frame_dim)
+    raw_step_current_tiled = _is_current_tiled(raw_step_obs, frame_dim)
+    wrapped_step_current_tiled = _is_current_tiled(wrapped_step_obs, frame_dim)
+    current_tiled_reset_ok = (not current_tiled_expected) or wrapped_reset_current_tiled
+    current_tiled_step_ok = (not current_tiled_expected) or wrapped_step_current_tiled
+    current_tiled_observed = (not current_tiled_expected) or bool(
+        wrapped_step_current_tiled and not raw_step_current_tiled
+    )
+    mask_observed = bool(previous_command_mask_observed and current_tiled_observed)
     unmasked_unchanged = bool(
         spec.enabled
         or (
@@ -100,7 +163,19 @@ def smoke_one_profile(config_path: Path | str, *, seed: int = 1192) -> dict[str,
     )
     obs_dim_matches = bool(obs_dim == int(profile["observation_dim"]))
     action_shape_ok = bool(tuple(action.shape) == (act_dim,))
-    row_pass = bool(reset_mask_ok and step_mask_ok and mask_observed and unmasked_unchanged and contract_ok and obs_dim_matches and action_shape_ok)
+    reset_policy_routing_ok = _reset_policy_routing_ok(config, runtime, obs_dim, act_dim)
+    row_pass = bool(
+        reset_mask_ok
+        and step_mask_ok
+        and mask_observed
+        and current_tiled_reset_ok
+        and current_tiled_step_ok
+        and unmasked_unchanged
+        and contract_ok
+        and obs_dim_matches
+        and action_shape_ok
+        and reset_policy_routing_ok
+    )
 
     raw_env.close()
     wrapped_env.close()
@@ -116,10 +191,22 @@ def smoke_one_profile(config_path: Path | str, *, seed: int = 1192) -> dict[str,
         "action_dim": act_dim,
         "mask_enabled": spec.enabled,
         "observation_mask": spec.observation_mask,
+        "history_transform": spec.history_transform,
+        "reset_hidden_policy": spec.reset_hidden_policy,
         "previous_command_mask_indices": list(spec.previous_command_mask_indices),
         "reset_mask_ok": reset_mask_ok,
         "step_mask_ok": step_mask_ok,
         "mask_observed": mask_observed,
+        "previous_command_mask_observed": previous_command_mask_observed,
+        "current_tiled_expected": current_tiled_expected,
+        "raw_reset_current_tiled": raw_reset_current_tiled,
+        "wrapped_reset_current_tiled": wrapped_reset_current_tiled,
+        "raw_step_current_tiled": raw_step_current_tiled,
+        "wrapped_step_current_tiled": wrapped_step_current_tiled,
+        "current_tiled_reset_ok": current_tiled_reset_ok,
+        "current_tiled_step_ok": current_tiled_step_ok,
+        "current_tiled_observed": current_tiled_observed,
+        "reset_policy_routing_ok": reset_policy_routing_ok,
         "raw_step_previous_command_abs_sum": raw_step_command_sum,
         "wrapped_step_previous_command_abs_sum": wrapped_step_command_sum,
         "unmasked_unchanged": unmasked_unchanged,
@@ -141,24 +228,34 @@ def run_runtime_smoke(
     *,
     config_dir: Path | str = DEFAULT_CONFIG_DIR,
     run_dir: Path | str = DEFAULT_RUN_DIR,
+    config_glob: str = CONFIG_GLOB,
     seed: int = 1192,
 ) -> dict[str, Any]:
     output = Path(run_dir)
     output.mkdir(parents=True, exist_ok=True)
-    paths = generated_config_paths(config_dir)
+    paths = generated_config_paths(config_dir, config_glob=config_glob)
     rows = [smoke_one_profile(path, seed=seed) for path in paths]
     l0_rows = [row for row in rows if row["profile_name"] == "L0_current_masked"]
     unmasked_rows = [row for row in rows if not row["mask_enabled"]]
+    current_tiled_rows = [row for row in rows if row["current_tiled_expected"]]
+    corrected_reset_rows = [row for row in rows if row["profile_name"] == "L3_reset_control_corrected"]
 
     summary = {
         "result_class": "controller_profile_runtime_smoke_pass" if all(row["passed"] for row in rows) else "controller_profile_runtime_smoke_fail",
         "generated_at_utc": utc_timestamp(),
         "config_dir": str(config_dir),
+        "config_glob": str(config_glob),
         "config_count": len(rows),
         "profile_names": [row["profile_name"] for row in rows],
         "all_configs_instantiated": bool(all(row["passed"] for row in rows)),
         "l0_mask_observed": bool(l0_rows and all(row["mask_observed"] for row in l0_rows)),
         "unmasked_profiles_unchanged": bool(unmasked_rows and all(row["unmasked_unchanged"] for row in unmasked_rows)),
+        "current_tiled_profile_count": len(current_tiled_rows),
+        "current_tiled_profiles_observed": bool(current_tiled_rows and all(row["current_tiled_observed"] for row in current_tiled_rows)),
+        "corrected_reset_profile_count": len(corrected_reset_rows),
+        "corrected_reset_policy_routing_ok": bool(
+            corrected_reset_rows and all(row["reset_policy_routing_ok"] for row in corrected_reset_rows)
+        ),
         "contract_ok": bool(all(row["contract_ok"] for row in rows)),
         "model_forward_ok": bool(all(row["model_forward_ok"] for row in rows)),
         "training_started": False,
@@ -180,9 +277,10 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config-dir", type=Path, default=DEFAULT_CONFIG_DIR)
     parser.add_argument("--run-dir", type=Path, default=DEFAULT_RUN_DIR)
+    parser.add_argument("--config-glob", default=CONFIG_GLOB)
     parser.add_argument("--seed", type=int, default=1192)
     args = parser.parse_args(argv)
-    summary = run_runtime_smoke(config_dir=args.config_dir, run_dir=args.run_dir, seed=args.seed)
+    summary = run_runtime_smoke(config_dir=args.config_dir, run_dir=args.run_dir, config_glob=args.config_glob, seed=args.seed)
     print(f"summary={summary['summary_json']}")
     print(f"rows={summary['rows_csv']}")
     print(f"result_class={summary['result_class']}")
