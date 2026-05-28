@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1297-paper-route-source-history-objective-only-update-synthesis
+m1298-paper-route-source-history-trainable-scope-escalation-design
 ```
 
 Current next task:
 
 ```text
-m1298-paper-route-source-history-trainable-scope-escalation-design
+m1299-paper-route-source-history-trainable-scope-probe
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -112,7 +112,10 @@ non-promotable evidence. M1297 synthesized M1287-M1296 and closed the
 underpowered: exact loss is trainable, but directional repair remains weak. The
 active blocker is M1298: design a bounded no-PPO trainable-scope escalation
 diagnostic with source-diverse split-eval and parameter-group mutation guards.
-PPO and promotion remain blocked.
+M1298 completed that design. The active blocker is M1299: implement and run a
+bounded no-PPO source-history trainable-scope probe, centered on
+`response_context_fusion + actor_mean`, with pair-disjoint split-eval and
+parameter-group mutation guards. PPO and promotion remain blocked.
 
 ## Actor Contract
 

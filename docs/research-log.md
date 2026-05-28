@@ -18808,3 +18808,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1298-paper-route-source-history-trainable-scope-escalation-design.json`.
 - decision: `source_history_objective_only_update_synthesis_pivot_to_trainable_scope_escalation`
 - next: `m1298-paper-route-source-history-trainable-scope-escalation-design`
+
+## 20260528T145437Z - m1298-paper-route-source-history-trainable-scope-escalation-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1298-paper-route-source-history-trainable-scope-escalation-design.md`
+- decision: `source_history_trainable_scope_design_admit_bounded_no_ppo_probe`
+- branch: `paper_route_source_history_trainable_scope_escalation`
+- design: compare `actor_mean_only_replay`, `fusion_head`, and optional `current_step_gru_fusion_head`.
+- blocked scopes: prefix-GRU training, response/context encoder training, critic/log_std/sequence_tail training, PPO, promotion, and actor-input changes.
+- split discipline: deterministic pair-disjoint public train/eval split by `pair_id`; this is not private holdout evidence.
+- mutation guard: report deltas by actor_mean, response_context_fusion, online_gru_cell, response/context encoders, critic, log_std, sequence_tail, and other groups.
+- strong signal gate: eval group and row directional fractions at least `0.25`, plus full-corpus improvement over M1295 and no forbidden mutation.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1299-paper-route-source-history-trainable-scope-probe.json`.
+- next: `m1299-paper-route-source-history-trainable-scope-probe`

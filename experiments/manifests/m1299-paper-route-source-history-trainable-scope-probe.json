@@ -1,0 +1,172 @@
+{
+  "id": "m1299-paper-route-source-history-trainable-scope-probe",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1298-paper-route-source-history-trainable-scope-escalation-design.md",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_frame_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_intervention_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/wrong_history_pair_rows.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_observations.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_action_sequences.csv",
+      "runs/m1295_source_history_pair_group_objective_probe/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1298-paper-route-source-history-trainable-scope-escalation-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded no-PPO trainable-scope source-history diagnostic"
+    ],
+    "derived_from": [
+      "m1298-paper-route-source-history-trainable-scope-escalation-design"
+    ],
+    "blocked_by": [
+      "M1298 designs the trainable-scope diagnostic but no implementation artifacts exist"
+    ],
+    "supersedes": [
+      "actor_mean-only objective probe"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1299-paper-route-source-history-trainable-scope-probe.md",
+  "public_gates": [
+    "M1299 must preserve actor input contract",
+    "M1299 must not run PPO",
+    "M1299 must not use private holdout",
+    "M1299 must not promote",
+    "M1299 must report train/eval/full directional metrics",
+    "M1299 must report parameter-group deltas",
+    "M1299 must classify the trainable-scope result as strong, mixed, negative, or contract artifact"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not train prefix GRU histories in this implementation",
+    "do not mutate critic log_std sequence_tail privileged modules or actor input encoders unless explicitly scoped",
+    "do not treat public split success as paper-level holdout evidence",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_trainable_scope_escalation",
+    "evidence_axis": "S_trainable_scope_probe",
+    "evidence_increment": "tests whether response_context_fusion plus actor_mean can use fixed source-history hidden states directionally",
+    "claim_scope": "diagnostic infrastructure only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if any forbidden parameter group mutates",
+      "stop if split-eval metrics are missing",
+      "stop if implementation requires actor-input expansion"
+    ],
+    "fallback_plan": [
+      "if strong, route to result audit and proof-retention design",
+      "if mixed, route to result audit and decide current-step GRU/fusion or corpus refresh",
+      "if negative, route to source-history corpus refresh or sequence preference design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "second milestone in trainable-scope escalation branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "no-PPO trainable-scope source-history probe",
+    "admission_evidence": [
+      "M1298 defines allowed scopes and split-eval",
+      "M1295 actor_mean-only group fraction remains 0.1973684211",
+      "PPO remains blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "scope-probe implementation",
+      "focused tests",
+      "M1299 run artifacts",
+      "M1299 result doc",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "summary.json exists",
+      "train/eval/full metrics exist",
+      "parameter-group deltas exist",
+      "result routes to audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1299 uses fixed-current intervention observations and source-history hidden states; it does not prove closed-loop history necessity.",
+    "history_necessity_tests": [
+      "correct-history versus wrong-history directional metrics must be reported",
+      "source-diverse split metrics must be reported"
+    ],
+    "temporal_evidence_window": "M1280 source-history prefixes with fixed M1277 intervention observations.",
+    "negative_result_policy": "If wider scope remains mixed or negative, keep PPO blocked and route to audit/corpus refresh.",
+    "allowed_claims": [
+      "trainable-scope source-history diagnostic result",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "Training response_context_fusion plus actor_mean can improve source-history directional metrics beyond M1295 while preserving actor input and mutation guards.",
+  "success_criteria": [
+    "runs/m1299_source_history_trainable_scope_probe/summary.json exists",
+    "focused tests pass",
+    "full/train/eval directional and group metrics are reported",
+    "parameter-group deltas are reported",
+    "forbidden parameter mutation flag is false",
+    "result class is strong, mixed, negative, or contract artifact",
+    "no PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "split-eval metrics are missing",
+    "parameter-group deltas are missing",
+    "forbidden parameters mutate",
+    "PPO starts",
+    "private holdout is used",
+    "checkpoint is promoted",
+    "actor input contract changes",
+    "thresholds are relaxed after seeing results"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest -q tests/test_source_history_trainable_scope_probe.py"
+    },
+    {
+      "name": "run_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_history_trainable_scope_probe --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --history-run-dir runs/m1280_four_wheel_source_response_history_materialization --intervention-run-dir runs/m1277_four_wheel_source_intervention_materialization --run-dir runs/m1299_source_history_trainable_scope_probe --device cpu --steps 400 --lr 0.0002 --target-margin 0.05"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1299_source_history_trainable_scope_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1299-paper-route-source-history-trainable-scope-probe.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1298-paper-route-source-history-trainable-scope-escalation-design.md",
+    "runs/m1295_source_history_pair_group_objective_probe/summary.json"
+  ],
+  "decision_rule": "M1299 passes as diagnostic infrastructure if it reports split-eval trainable-scope results without forbidden mutations and routes to audit.",
+  "next_blocker": "m1299-paper-route-source-history-trainable-scope-probe"
+}

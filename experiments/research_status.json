@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1307,
+    "completed": 1308,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1297-paper-route-source-history-objective-only-update-synthesis.md",
+    "command_log": "docs/m1298-paper-route-source-history-trainable-scope-escalation-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1297-paper-route-source-history-objective-only-update-synthesis"
+    "task_id": "m1298-paper-route-source-history-trainable-scope-escalation-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1298-paper-route-source-history-trainable-scope-escalation-design.json",
-    "hypothesis": "Design bounded no-PPO source-history trainable-scope escalation diagnostic with split-eval and mutation guards",
-    "id": "m1298-paper-route-source-history-trainable-scope-escalation-design",
-    "kind": "gate",
-    "notes": "Pending: design next branch after actor_mean-only objective work was closed as underpowered",
-    "priority": 12930,
+    "command": "see experiments/manifests/m1299-paper-route-source-history-trainable-scope-probe.json",
+    "hypothesis": "Training response_context_fusion plus actor_mean can improve source-history directional metrics beyond M1295 while preserving actor input and mutation guards",
+    "id": "m1299-paper-route-source-history-trainable-scope-probe",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded no-PPO trainable-scope probe; PPO and promotion remain blocked",
+    "priority": 12940,
     "status": "pending",
-    "success_artifact": "docs/m1298-paper-route-source-history-trainable-scope-escalation-design.md"
+    "success_artifact": "runs/m1299_source_history_trainable_scope_probe/summary.json"
   },
-  "updated_at_utc": "20260528T144840Z"
+  "updated_at_utc": "20260528T145437Z"
 }

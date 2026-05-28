@@ -159,6 +159,34 @@
     "docs/m1297-paper-route-source-history-objective-only-update-synthesis.md",
     "runs/m1295_source_history_pair_group_objective_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1298-paper-route-source-history-trainable-scope-escalation-design.md",
+    "decision": "source_history_trainable_scope_design_admit_bounded_no_ppo_probe",
+    "opened_branch": "paper_route_source_history_trainable_scope_escalation",
+    "allowed_scopes": [
+      "actor_mean_only_replay",
+      "fusion_head",
+      "current_step_gru_fusion_head_optional"
+    ],
+    "blocked_scopes": [
+      "prefix_gru_training",
+      "response_encoder_training",
+      "context_encoder_training",
+      "critic_log_std_sequence_tail_training"
+    ],
+    "split_eval_required": true,
+    "mutation_guard_by_parameter_group_required": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1299-paper-route-source-history-trainable-scope-probe.json"
+  },
+  "decision": "source_history_trainable_scope_design_admit_bounded_no_ppo_probe",
   "decision_rule": "M1298 passes if it designs a bounded no-PPO trainable-scope escalation diagnostic with split-eval and mutation guards.",
-  "next_blocker": "m1298-paper-route-source-history-trainable-scope-escalation-design"
+  "next_blocker": "m1299-paper-route-source-history-trainable-scope-probe"
 }
