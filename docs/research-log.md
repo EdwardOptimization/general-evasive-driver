@@ -16599,3 +16599,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no actor training, PPO, promotion, private holdout, actor-input change, new mining, outcome rerun, threshold weakening, or surface conversion occurred.
 - decision: `row15_promoted_relocation_expansion_resource_failure_route_to_staged_design`
 - next: `m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design`
+
+## 20260528T020700Z - m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design.md`
+- result: designs a smaller relocation pilot over existing M1161 outcome rows.
+- pilot scope: `240` candidates, max `4` per physical pair, max `64` per checkpoint-target, `5` target margins, `3 x 3` body offsets, and `wrong_matched_history` only.
+- comparison target: M1161 accepted `15` wrong-history rows, `2` physical pairs, `1` margin bucket, and max normal margin `0.002483`.
+- claim scope: pilot diagnostic only; not conversion, not full surface pass, not PPO readiness.
+- guardrail: no relocation, mining, outcome rerun, actor training, PPO, promotion, private holdout, actor-input change, or threshold weakening occurred.
+- decision: `row15_promoted_staged_relocation_expansion_design_admit_pilot`
+- next: `m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot`

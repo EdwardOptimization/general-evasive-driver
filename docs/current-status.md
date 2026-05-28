@@ -84,7 +84,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design
+m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -623,6 +623,21 @@ M1165 should redesign the expansion as a staged, smaller pilot over the same
 existing M1161 outcome CSV. It should keep scientific acceptance thresholds
 unchanged while reducing the resource footprint enough to produce a diagnostic
 summary.
+
+M1165 completed that design. M1166 should run a `240`-candidate,
+wrong-history-only body-offset pilot over the existing M1161 outcome CSV:
+
+```text
+input: runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv
+max_candidates: 240
+target margins: 0.001,0.0025,0.005,0.01,0.02
+body offsets: 3 x 3
+variants: wrong_matched_history only
+```
+
+M1166 is only a pilot diagnostic. It must not convert the surface, claim full
+surface pass, rerun mining or the outcome gate, run PPO, promote, use private
+holdout, or change actor inputs.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

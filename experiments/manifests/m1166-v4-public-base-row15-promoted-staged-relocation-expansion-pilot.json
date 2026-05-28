@@ -1,0 +1,161 @@
+{
+  "id": "m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design.md",
+      "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design.json"
+    ],
+    "parent_objective": [
+      "run a small relocation-expansion pilot over existing M1161 outcomes"
+    ],
+    "derived_from": [
+      "m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design"
+    ],
+    "blocked_by": [
+      "M1165 designs the resource-bounded staged pilot"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "conversion from pilot result",
+      "PPO from pilot result",
+      "full expansion before pilot result"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot.md",
+  "public_gates": [
+    "M1166 may run only the M1165 pilot command",
+    "M1166 must reuse the existing M1161 outcome CSV",
+    "M1166 must not rerun mining",
+    "M1166 must not rerun outcome gate",
+    "M1166 must not train actor weights",
+    "M1166 must not run PPO",
+    "M1166 must not promote",
+    "M1166 must not use private holdout",
+    "M1166 must preserve actor inputs",
+    "M1166 must not convert the pilot surface"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun mining",
+    "do not rerun outcome gate",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert the pilot surface",
+    "do not claim full surface pass from pilot diagnostic"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_margin_slack_surface_refresh",
+    "evidence_axis": "G_surface: staged relocation expansion pilot",
+    "evidence_increment": "tests whether a small wrong-history-only body-offset relocation pilot improves over M1161 without M1164 resource blow-up",
+    "claim_scope": "pilot diagnostic only; no conversion, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if the pilot again exceeds resource budget",
+      "stop if the pilot completes with no improvement over M1161",
+      "stop if the pilot improves but still cannot support conversion"
+    ],
+    "fallback_plan": [
+      "if no improvement, route to wrong-history mechanism audit",
+      "if partial improvement, design staged expansion with measured budget",
+      "if unexpectedly strong, still route to conversion design rather than converting in this milestone"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1165 admits resource-bounded pilot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run a small wrong-history-only relocation pilot without training",
+    "admission_evidence": [
+      "M1164 was too large and produced no summary",
+      "M1165 reduces candidates, margin targets, and variants",
+      "M1165 keeps scientific acceptance thresholds unchanged"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not rerun source mining",
+      "do not rerun outcome gate",
+      "do not convert pilot surface"
+    ],
+    "allowed_updates": [
+      "run artifacts",
+      "result documentation",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "runtime completion is explicit",
+      "improvement versus M1161 is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1166 is only a pilot diagnostic for wrong-history surface availability.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history"
+    ],
+    "temporal_evidence_window": "M1166 reuses existing M1161 outcome rows and expands relocation only.",
+    "negative_result_policy": "If pilot has no improvement, record it as evidence for wrong-history intervention scarcity before any new mining.",
+    "allowed_claims": [
+      "pilot diagnostic for level2 proof-surface mining",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A small wrong-history-only body-offset relocation pilot can complete quickly and indicate whether body-offset expansion improves accepted wrong-history surface quality over M1161.",
+  "success_criteria": [
+    "summary artifact exists",
+    "pilot runtime completes",
+    "accepted_wrong_history_rows is reported",
+    "accepted_wrong_physical_pairs is reported",
+    "accepted_wrong_normal_margin_buckets is reported",
+    "accepted_wrong_normal_margin_max is reported",
+    "comparison to M1161 is explicit",
+    "no actor training, PPO, promotion, private holdout, mining rerun, outcome rerun, conversion, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "pilot exceeds resource budget and must be interrupted",
+    "comparison to M1161 remains ambiguous",
+    "actor training, PPO, promotion, private holdout, mining rerun, outcome rerun, conversion, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "staged_relocation_pilot",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_balanced_boundary_relocation_surface --checkpoint-policy row15_current=runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --checkpoint-policy row15_previous_alpha015=runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt --checkpoint-policy previous_m1078_base=runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --checkpoint-policy short61049=runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --checkpoint-policy short61050=runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt --checkpoint-policy short61051=runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv --delay-steps 10 --max-continuation-steps 60 --max-candidates 240 --max-candidates-per-physical-pair 4 --max-candidates-per-checkpoint-target 64 --max-accepted-rows-per-physical-pair 20 --target-min-physical-pairs 12 --target-min-left-steps 6 --target-min-targets 2 --max-rows-per-pair-fraction 0.25 --min-eligible-physical-pairs 12 --max-candidate-pair-fraction 0.25 --source-obstacle-distance-bucket-width 5.0 --source-obstacle-lateral-bucket-width 1.0 --target-normal-margins 0.001,0.0025,0.005,0.01,0.02 --half-width-inflations 0 --body-longitudinal-offsets=-1.0,0.0,1.0 --body-lateral-offsets=-0.3,0.0,0.3 --min-normal-margin 0.0 --max-normal-margin 0.20 --min-margin-gap 0.02 --report-variants wrong_matched_history --margin-bucket-width 0.005 --control-checkpoint-label none --device cpu --run-dir runs/m1166_row15_promoted_staged_relocation_pilot_seed116100"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1166_row15_promoted_staged_relocation_pilot_seed116100/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design.md",
+    "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
+  ],
+  "decision_rule": "M1166 may only run the small staged relocation pilot and compare it to M1161. It cannot rerun mining or outcome gates, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert the pilot surface, or claim full surface pass.",
+  "next_blocker": "m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot"
+}

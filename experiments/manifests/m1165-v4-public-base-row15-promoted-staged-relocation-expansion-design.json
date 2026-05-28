@@ -156,6 +156,45 @@
     "docs/m1164-v4-public-base-row15-promoted-relocation-expansion-run.md",
     "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design.md",
+    "decision": "row15_promoted_staged_relocation_expansion_design_admit_pilot",
+    "result_class": "row15_promoted_staged_relocation_expansion_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "uses_existing_outcome_csv": true,
+    "max_candidates": 240,
+    "max_candidates_per_physical_pair": 4,
+    "max_candidates_per_checkpoint_target": 64,
+    "target_normal_margin_count": 5,
+    "report_variants": [
+      "wrong_matched_history"
+    ],
+    "body_longitudinal_offsets": [
+      -1.0,
+      0.0,
+      1.0
+    ],
+    "body_lateral_offsets": [
+      -0.3,
+      0.0,
+      0.3
+    ],
+    "pilot_not_conversion_gate": true,
+    "scientific_acceptance_thresholds_weakened": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "relocation_started": false,
+    "mining_started": false,
+    "outcome_gate_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "admitted_next": "staged_relocation_expansion_pilot",
+    "next_milestone": "m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot"
+  },
   "decision_rule": "M1165 may only design a staged relocation-expansion pilot after the M1164 resource-scope failure. It cannot run relocation, mining, outcome gate, actor training, PPO, promotion, private holdout, actor-input changes, or threshold weakening.",
-  "next_blocker": "m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design"
+  "next_blocker": "m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot"
 }

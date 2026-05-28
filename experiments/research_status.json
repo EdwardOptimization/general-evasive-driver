@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1173,
+    "completed": 1174,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1164-v4-public-base-row15-promoted-relocation-expansion-run",
+    "task_id": "m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1164-v4-public-base-row15-promoted-relocation-expansion-run.md",
-    "result_class": "row15_promoted_relocation_expansion_resource_scope_failure",
-    "decision": "row15_promoted_relocation_expansion_resource_failure_route_to_staged_design"
+    "command_log": "docs/m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design.md",
+    "result_class": "row15_promoted_staged_relocation_expansion_design_complete",
+    "decision": "row15_promoted_staged_relocation_expansion_design_admit_pilot"
   },
   "next_task": {
-    "id": "m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design",
+    "id": "m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot",
     "status": "pending",
-    "priority": 11600,
+    "priority": 11610,
     "kind": "gate",
-    "hypothesis": "A staged relocation pilot can test whether body-offset expansion improves wrong-history accepted surface quality without the resource cost of M1164",
-    "command": "see experiments/manifests/m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design.json",
-    "success_artifact": "docs/m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design.md",
-    "notes": "Pending: design staged relocation pilot only; no relocation mining outcome rerun actor training PPO promotion private holdout or actor-input change"
+    "hypothesis": "A small wrong-history-only body-offset relocation pilot can complete quickly and indicate whether body-offset expansion improves accepted wrong-history surface quality over M1161",
+    "command": "see experiments/manifests/m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot.json",
+    "success_artifact": "docs/m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot.md",
+    "notes": "Pending: run small pilot only; no mining outcome rerun actor training PPO promotion private holdout conversion or actor-input change"
   },
-  "updated_at_utc": "20260528T015200Z"
+  "updated_at_utc": "20260528T020700Z"
 }

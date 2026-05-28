@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T011321Z
+- Generated at UTC: 20260528T011926Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1165 may only design a staged relocation-expansion pilot after the M1164 resource-scope failure. It cannot run relocation, mining, outcome gate, actor training, PPO, promotion, private holdout, actor-input changes, or threshold weakening.
+- Promotion decision: row15_promoted_staged_relocation_expansion_design_admit_pilot
+- Decision reason: M1165 designs a 240-candidate wrong-history-only relocation pilot over existing M1161 outcomes to test body-offset benefit without M1164 resource cost
 
 ## Hypothesis
 
@@ -74,8 +74,19 @@ A staged relocation pilot can test whether body-offset expansion improves wrong-
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design
+- type: gate
+- checkpoint: docs/m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_staged_relocation_expansion_design_admit_pilot
+- reason: M1165 designs a 240-candidate wrong-history-only relocation pilot over existing M1161 outcomes to test body-offset benefit without M1164 resource cost
 
 ## Next Blocker
 
-m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design
+m1166-v4-public-base-row15-promoted-staged-relocation-expansion-pilot
