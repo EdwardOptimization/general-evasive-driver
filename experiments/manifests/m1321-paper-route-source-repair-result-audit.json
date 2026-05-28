@@ -152,6 +152,21 @@
     "runs/m1320_inactive_source_family_repair_smoke/family_source_summary.csv",
     "runs/m1320_inactive_source_family_repair_smoke/inactive_fault_families.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1321-paper-route-source-repair-result-audit.md",
+    "doc": "docs/m1321-paper-route-source-repair-result-audit.md",
+    "decision": "source_repair_result_audit_route_to_updated_corpus_export_with_global_friction_blocker",
+    "audited_run": "runs/m1320_inactive_source_family_repair_smoke/summary.json",
+    "accepted_separable_pairs": 216,
+    "accepted_fault_family_pairs": 7,
+    "inactive_fault_family_count": 1,
+    "inactive_fault_families": [
+      "global_friction_step->global_friction_step"
+    ],
+    "next_manifest": "experiments/manifests/m1322-paper-route-source-repair-corpus-export.json"
+  },
+  "decision": "source_repair_result_audit_route_to_updated_corpus_export_with_global_friction_blocker",
   "decision_rule": "M1321 passes if it audits M1320 source repair coverage and chooses a next source route without training, PPO, promotion, private holdout use, threshold relaxation, hidden global-friction blocker handling, or actor-input expansion.",
-  "next_blocker": "m1321-paper-route-source-repair-result-audit"
+  "next_blocker": "m1322-paper-route-source-repair-corpus-export"
 }

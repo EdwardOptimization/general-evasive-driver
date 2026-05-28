@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1330,
+    "completed": 1331,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1320-paper-route-inactive-source-family-repair-smoke.md",
+    "command_log": "docs/m1321-paper-route-source-repair-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1320_inactive_source_family_repair_smoke",
+    "run_dir": "docs/m1321-paper-route-source-repair-result-audit.md",
     "status": "completed",
-    "task_id": "m1320-paper-route-inactive-source-family-repair-smoke"
+    "task_id": "m1321-paper-route-source-repair-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1321-paper-route-source-repair-result-audit.json",
-    "hypothesis": "Audit M1320 source repair result and choose the next source route",
-    "id": "m1321-paper-route-source-repair-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit strong partial repair and global-friction blocker; PPO and promotion remain blocked",
-    "priority": 13160,
+    "command": "see experiments/manifests/m1322-paper-route-source-repair-corpus-export.json",
+    "hypothesis": "Export the M1320 seven-family source corpus candidate with global-friction blocker retained",
+    "id": "m1322-paper-route-source-repair-corpus-export",
+    "kind": "infrastructure",
+    "notes": "Pending: export updated source corpus; PPO and promotion remain blocked",
+    "priority": 13170,
     "status": "pending",
-    "success_artifact": "docs/m1321-paper-route-source-repair-result-audit.md"
+    "success_artifact": "runs/m1322_source_repair_corpus_export/summary.json"
   },
-  "updated_at_utc": "20260528T170325Z"
+  "updated_at_utc": "20260528T170617Z"
 }

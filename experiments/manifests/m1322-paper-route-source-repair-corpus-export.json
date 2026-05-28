@@ -1,0 +1,168 @@
+{
+  "id": "m1322-paper-route-source-repair-corpus-export",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1321-paper-route-source-repair-result-audit.md",
+      "runs/m1320_inactive_source_family_repair_smoke/summary.json",
+      "runs/m1320_inactive_source_family_repair_smoke/accepted_separable_pairs.csv",
+      "runs/m1320_inactive_source_family_repair_smoke/inactive_fault_families.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1321-paper-route-source-repair-result-audit.json"
+    ],
+    "parent_objective": [
+      "export the M1320 seven-family source corpus candidate with global-friction blocker retained"
+    ],
+    "derived_from": [
+      "m1321-paper-route-source-repair-result-audit"
+    ],
+    "blocked_by": [
+      "M1321 admits updated source corpus export before source-history materialization"
+    ],
+    "supersedes": [
+      "using M1273 narrow source corpus for the next source-history expansion"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1322-paper-route-source-repair-corpus-export.md",
+  "public_gates": [
+    "M1322 must not train",
+    "M1322 must not run PPO",
+    "M1322 must not use private holdout",
+    "M1322 must not promote",
+    "M1322 must preserve actor input contract",
+    "M1322 must export all accepted near-boundary high-regret family-balanced and inactive-family rows",
+    "M1322 must keep global friction blocker visible"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax source thresholds",
+    "do not hide global friction inactivity",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_corpus_expansion",
+    "evidence_axis": "S_source_repair_corpus_export",
+    "evidence_increment": "exports the M1320 seven-family source corpus candidate for later expansion planning",
+    "claim_scope": "source-corpus export only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if export loses inactive global-friction blocker",
+      "stop if export hides accepted-family imbalance",
+      "stop if export changes actor inputs",
+      "stop if export routes directly to PPO"
+    ],
+    "fallback_plan": [
+      "if export is clean, route to source-history corpus expansion plan using M1322",
+      "if export loses metadata, repair exporter",
+      "if family imbalance is severe, route to export audit before planning"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1321 admits updated source corpus export",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source repair corpus export",
+    "admission_evidence": [
+      "M1320 accepted 216 source rows and 7 source families",
+      "M1321 routes to export with global friction blocker retained",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not relax source thresholds"
+    ],
+    "allowed_updates": [
+      "M1322 export artifacts",
+      "M1322 result doc",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "all accepted rows are exported",
+      "near-boundary and high-regret subsets are exported",
+      "family-balanced subset is exported",
+      "global-friction blocker is exported",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1322 exports source rows only and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "export source rows for later command-response history materialization"
+    ],
+    "temporal_evidence_window": "M1320 source repair smoke and M1321 audit.",
+    "negative_result_policy": "Global friction must remain an inactive blocker in export artifacts.",
+    "allowed_claims": [
+      "source repair corpus export",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1320 source repair run can be exported into stratified source-corpus artifacts while preserving accepted-family coverage and the global-friction inactive blocker.",
+  "success_criteria": [
+    "focused export tests pass",
+    "runs/m1322_source_repair_corpus_export/summary.json exists",
+    "exported_accepted_rows == 216",
+    "accepted family count is 7",
+    "inactive_fault_families includes global_friction_step->global_friction_step",
+    "all accepted, near-boundary, high-regret, family-balanced, and inactive-family CSVs exist",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "focused export tests fail",
+    "export artifacts are missing",
+    "accepted rows are dropped unexpectedly",
+    "global friction blocker is hidden",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_four_wheel_source_corpus_export.py"
+    },
+    {
+      "name": "export_corpus",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.four_wheel_source_corpus_export --source-run-dir runs/m1320_inactive_source_family_repair_smoke --run-dir runs/m1322_source_repair_corpus_export"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1322_source_repair_corpus_export/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1322-paper-route-source-repair-corpus-export.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1321-paper-route-source-repair-result-audit.md",
+    "runs/m1320_inactive_source_family_repair_smoke/summary.json",
+    "runs/m1320_inactive_source_family_repair_smoke/accepted_separable_pairs.csv",
+    "runs/m1320_inactive_source_family_repair_smoke/inactive_fault_families.csv"
+  ],
+  "decision_rule": "M1322 passes as infrastructure if it exports the M1320 source corpus with global-friction blocker retained and no training, PPO, promotion, private holdout use, threshold relaxation, hidden blocker handling, or actor-input expansion.",
+  "next_blocker": "m1322-paper-route-source-repair-corpus-export"
+}

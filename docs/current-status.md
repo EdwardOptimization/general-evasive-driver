@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1320-paper-route-inactive-source-family-repair-smoke
+m1321-paper-route-source-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m1321-paper-route-source-repair-result-audit
+m1322-paper-route-source-repair-corpus-export
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -235,7 +235,10 @@ rows, `7` accepted fault-family pairs, and only global friction still inactive.
 Steering actuator now has `58` accepted rows, load/CG has `6`, and halfshaft
 improves from `4` to `22`. The active blocker is M1321: audit whether to export
 the seven-family source corpus now or isolate global friction as a separate
-source-construction branch. PPO and promotion remain blocked.
+source-construction branch. M1321 completed that audit and routes to M1322:
+export the M1320 seven-family source corpus candidate while retaining global
+friction as an explicit inactive blocker. PPO, source-history objective tuning,
+and promotion remain blocked until the exported corpus is planned and audited.
 
 ## Actor Contract
 

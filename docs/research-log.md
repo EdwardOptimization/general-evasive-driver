@@ -19235,3 +19235,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1321-paper-route-source-repair-result-audit.json`.
 - decision: `inactive_source_family_repair_smoke_strong_partial_route_to_result_audit`
 - next: `m1321-paper-route-source-repair-result-audit`
+
+## 20260528T170617Z - m1321-paper-route-source-repair-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1321-paper-route-source-repair-result-audit.md`
+- decision: `source_repair_result_audit_route_to_updated_corpus_export_with_global_friction_blocker`
+- evidence: M1320 has `216` accepted rows and `7` accepted source-family pairs with strict thresholds preserved.
+- corpus readiness: M1320 is broad enough to export as a seven-family source corpus candidate, but still not policy-ready.
+- blocker: global friction remains inactive with `0/300` accepted rows; rejection reasons are `119` best-actions-too-close and `181` best-candidate-not-viable.
+- route: export the M1320 source corpus candidate while preserving global friction as an explicit inactive blocker.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1322-paper-route-source-repair-corpus-export.json`.
+- next: `m1322-paper-route-source-repair-corpus-export`
