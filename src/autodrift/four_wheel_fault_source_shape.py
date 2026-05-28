@@ -237,6 +237,8 @@ def build_fault_cases(fault_profile: str = "m1268_default") -> list[FourWheelFau
         ]
     if fault_profile == "source_expansion_v1":
         return _build_source_expansion_fault_cases()
+    if fault_profile == "source_repair_v1":
+        return _build_source_repair_fault_cases()
     raise ValueError(f"unsupported fault_profile {fault_profile!r}")
 
 
@@ -396,6 +398,106 @@ def _build_source_expansion_fault_cases() -> list[FourWheelFaultCase]:
     return faults
 
 
+def _build_source_repair_fault_cases() -> list[FourWheelFaultCase]:
+    faults = list(_build_source_expansion_fault_cases())
+    faults.extend(
+        [
+            _fault_case(
+                name="global_friction_0p20",
+                family="global_friction_step",
+                severity="mu_0p20",
+                scales=FourWheelFaultScales.uniform_grip(mu_scale=0.20, lateral_stiffness_scale=0.20),
+                corner_or_side_variant="all_wheels",
+            ),
+            _fault_case(
+                name="global_friction_0p85",
+                family="global_friction_step",
+                severity="mu_0p85",
+                scales=FourWheelFaultScales.uniform_grip(mu_scale=0.85, lateral_stiffness_scale=0.85),
+                corner_or_side_variant="all_wheels",
+            ),
+            _fault_case(
+                name="nominal_steer_actuator",
+                family="steering_actuator_fault",
+                severity="nominal_reference",
+                scales=FourWheelFaultScales.nominal(),
+                corner_or_side_variant="actuator",
+            ),
+            _fault_case(
+                name="very_slow_steer_tau",
+                family="steering_actuator_fault",
+                severity="very_slow_tau",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"steer_tau": 0.55},
+                corner_or_side_variant="actuator",
+            ),
+            _fault_case(
+                name="very_low_steer_rate",
+                family="steering_actuator_fault",
+                severity="very_low_rate",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"max_steer_rate": 0.65},
+                corner_or_side_variant="actuator",
+            ),
+            _fault_case(
+                name="very_reduced_steer_authority",
+                family="steering_actuator_fault",
+                severity="very_reduced_authority",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"max_steer": 0.24},
+                corner_or_side_variant="actuator",
+            ),
+            _fault_case(
+                name="very_heavy_high_inertia",
+                family="load_cg_perturbation",
+                severity="very_heavy",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"mass": 2050.0, "iz": 3800.0},
+                corner_or_side_variant="very_heavy",
+            ),
+            _fault_case(
+                name="very_light_low_inertia",
+                family="load_cg_perturbation",
+                severity="very_light",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"mass": 980.0, "iz": 1350.0},
+                corner_or_side_variant="very_light",
+            ),
+            _fault_case(
+                name="strong_front_cg_shift",
+                family="load_cg_perturbation",
+                severity="strong_front_cg",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"lf": 1.12, "lr": 1.68},
+                corner_or_side_variant="front_bias",
+            ),
+            _fault_case(
+                name="strong_rear_cg_shift",
+                family="load_cg_perturbation",
+                severity="strong_rear_cg",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"lf": 1.58, "lr": 1.22},
+                corner_or_side_variant="rear_bias",
+            ),
+            _fault_case(
+                name="rear_left_halfshaft_loss_0p0",
+                family="halfshaft_torque_loss",
+                severity="drive_0p0",
+                scales=FourWheelFaultScales.halfshaft_torque_loss("rear_left", drive_scale=0.0),
+                corner_or_side_variant="rear_left",
+            ),
+            _fault_case(
+                name="rear_right_halfshaft_loss_0p0",
+                family="halfshaft_torque_loss",
+                severity="drive_0p0",
+                scales=FourWheelFaultScales.halfshaft_torque_loss("rear_right", drive_scale=0.0),
+                corner_or_side_variant="rear_right",
+            ),
+        ]
+    )
+    return faults
+
+
 def build_fault_pairs(
     faults: list[FourWheelFaultCase],
     fault_profile: str = "m1268_default",
@@ -403,6 +505,8 @@ def build_fault_pairs(
     by_name = {fault.name: fault for fault in faults}
     if fault_profile == "source_expansion_v1":
         return _build_source_expansion_fault_pairs(by_name)
+    if fault_profile == "source_repair_v1":
+        return _build_source_repair_fault_pairs(by_name)
     if fault_profile != "m1268_default":
         raise ValueError(f"unsupported fault_profile {fault_profile!r}")
     return [
@@ -439,6 +543,26 @@ def _build_source_expansion_fault_pairs(
             (by_name["front_cg_shift"], by_name["rear_cg_shift"]),
             (by_name["front_left_tire_blowout_like"], by_name["front_right_tire_blowout_like"]),
             (by_name["rear_left_tire_blowout_like"], by_name["rear_right_tire_blowout_like"]),
+        ]
+    )
+    return pairs
+
+
+def _build_source_repair_fault_pairs(
+    by_name: dict[str, FourWheelFaultCase],
+) -> list[tuple[FourWheelFaultCase, FourWheelFaultCase]]:
+    pairs = list(_build_source_expansion_fault_pairs(by_name))
+    pairs.extend(
+        [
+            (by_name["global_friction_0p20"], by_name["global_friction_0p85"]),
+            (by_name["global_friction_0p20"], by_name["global_friction_0p45"]),
+            (by_name["global_friction_0p25"], by_name["global_friction_0p85"]),
+            (by_name["nominal_steer_actuator"], by_name["very_slow_steer_tau"]),
+            (by_name["nominal_steer_actuator"], by_name["very_low_steer_rate"]),
+            (by_name["nominal_steer_actuator"], by_name["very_reduced_steer_authority"]),
+            (by_name["very_heavy_high_inertia"], by_name["very_light_low_inertia"]),
+            (by_name["strong_front_cg_shift"], by_name["strong_rear_cg_shift"]),
+            (by_name["rear_left_halfshaft_loss_0p0"], by_name["rear_right_halfshaft_loss_0p0"]),
         ]
     )
     return pairs
@@ -550,6 +674,107 @@ def build_source_expansion_scenarios() -> list[FourWheelScenario]:
     )
 
 
+def _make_scenario(
+    *,
+    scenario_id: str,
+    seed: int,
+    speed: float,
+    obstacle_x: float,
+    obstacle_y: float,
+    obstacle_half_width: float,
+    yaw_rate: float = 0.0,
+    lateral_velocity: float = 0.0,
+    drive_force: float = 0.0,
+    brake_force: float = 6000.0,
+    previous_action: tuple[float, float, float] = (0.0, -1.0, 1.0),
+) -> FourWheelScenario:
+    return FourWheelScenario(
+        scenario_id=scenario_id,
+        seed=int(seed),
+        state=FourWheelState(
+            x=0.0,
+            y=0.0,
+            psi=0.0,
+            vx=float(speed),
+            vy=float(lateral_velocity),
+            yaw_rate=float(yaw_rate),
+            steer=0.0,
+            drive_force=float(drive_force),
+            brake_force=float(brake_force),
+        ),
+        obstacle_body_x=float(obstacle_x),
+        obstacle_body_y=float(obstacle_y),
+        obstacle_half_width=float(obstacle_half_width),
+        previous_action=previous_action,
+        speed_bin=_speed_bin(float(speed)),
+        obstacle_timing_bin=_obstacle_timing_bin(float(obstacle_x)),
+        curvature_bin=_curvature_bin(float(yaw_rate), float(lateral_velocity)),
+    )
+
+
+def build_source_repair_scenarios() -> list[FourWheelScenario]:
+    scenarios: list[FourWheelScenario] = []
+    seed = 132000
+
+    def add(**kwargs: Any) -> None:
+        nonlocal seed
+        scenarios.append(_make_scenario(scenario_id=f"fw_seed{seed}", seed=seed, **kwargs))
+        seed += 1
+
+    for speed in (10.0, 12.0, 14.0):
+        for obstacle_x in (9.0, 11.0, 13.0):
+            for obstacle_half_width in (0.45, 0.65):
+                add(
+                    speed=speed,
+                    obstacle_x=obstacle_x,
+                    obstacle_y=0.0,
+                    obstacle_half_width=obstacle_half_width,
+                    brake_force=2500.0,
+                    previous_action=(0.0, -1.0, 0.5),
+                )
+
+    for speed in (14.0, 16.0, 18.0):
+        for obstacle_x in (8.0, 10.0):
+            for obstacle_y in (-0.35, 0.35):
+                add(
+                    speed=speed,
+                    obstacle_x=obstacle_x,
+                    obstacle_y=obstacle_y,
+                    obstacle_half_width=0.55,
+                    brake_force=4000.0,
+                    previous_action=(0.0, -1.0, 0.5),
+                )
+
+    for speed in (16.0, 18.0, 20.0):
+        for yaw_rate, lateral_velocity in ((-0.12, -0.8), (0.12, 0.8)):
+            for obstacle_x in (10.0, 12.0):
+                add(
+                    speed=speed,
+                    obstacle_x=obstacle_x,
+                    obstacle_y=0.0,
+                    obstacle_half_width=0.75,
+                    yaw_rate=yaw_rate,
+                    lateral_velocity=lateral_velocity,
+                    brake_force=3000.0,
+                    previous_action=(-0.35 if yaw_rate > 0.0 else 0.35, -1.0, 0.3),
+                )
+
+    for speed in (14.0, 16.0, 18.0):
+        for obstacle_x in (12.0, 14.0, 16.0):
+            for obstacle_y in (-0.35, 0.35):
+                add(
+                    speed=speed,
+                    obstacle_x=obstacle_x,
+                    obstacle_y=obstacle_y,
+                    obstacle_half_width=0.55,
+                    drive_force=3500.0,
+                    brake_force=0.0,
+                    previous_action=(0.35 if obstacle_y > 0.0 else -0.35, 1.0, -1.0),
+                )
+
+    return scenarios
+
+
 def build_scenarios_for_profile(profile: str) -> list[FourWheelScenario]:
     if profile == "m1268_default":
         return build_scenarios()
@@ -557,6 +782,8 @@ def build_scenarios_for_profile(profile: str) -> list[FourWheelScenario]:
         return build_viability_calibration_scenarios()
     if profile == "source_expansion_v1":
         return build_source_expansion_scenarios()
+    if profile == "source_repair_v1":
+        return build_source_repair_scenarios()
     raise ValueError(f"unsupported scenario_profile {profile!r}")
 
 
@@ -574,7 +801,7 @@ def build_action_lattice(*, sequence_length: int, action_profile: str = "brake_a
         ("counter_left", (0.75, -1.0, 1.0), (-0.45, -1.0, 0.3)),
         ("counter_right", (-0.75, -1.0, 1.0), (0.45, -1.0, 0.3)),
     ]
-    if action_profile == "mixed_emergency_v1":
+    if action_profile in ("mixed_emergency_v1", "source_repair_v1"):
         base_actions.extend(
             [
                 ("left_steer_throttle", (0.75, 1.0, -1.0)),
@@ -589,7 +816,28 @@ def build_action_lattice(*, sequence_length: int, action_profile: str = "brake_a
                 ("right_release_counter_power", (-0.75, -1.0, 1.0), (0.35, 1.0, -1.0)),
             ]
         )
-    elif action_profile != "brake_avoidance_v1":
+    if action_profile == "source_repair_v1":
+        base_actions.extend(
+            [
+                ("early_hard_brake", (0.0, -1.0, 1.0), (0.0, -1.0, 1.0), (0.0, -1.0, 0.3)),
+                ("early_brake_then_release", (0.0, -1.0, 1.0), (0.0, -1.0, 0.0), (0.0, -1.0, -1.0)),
+                ("brake_then_left_swerve", (0.0, -1.0, 1.0), (0.85, -1.0, 0.3), (0.85, -1.0, -1.0)),
+                ("brake_then_right_swerve", (0.0, -1.0, 1.0), (-0.85, -1.0, 0.3), (-0.85, -1.0, -1.0)),
+                ("early_left_pulse", (0.9, -1.0, 0.0), (0.15, -1.0, 0.0), (0.0, -1.0, 0.0)),
+                ("early_right_pulse", (-0.9, -1.0, 0.0), (-0.15, -1.0, 0.0), (0.0, -1.0, 0.0)),
+                ("delayed_left_pulse", (0.0, -1.0, 0.0), (0.9, -1.0, 0.0), (0.15, -1.0, 0.0)),
+                ("delayed_right_pulse", (0.0, -1.0, 0.0), (-0.9, -1.0, 0.0), (-0.15, -1.0, 0.0)),
+                ("left_pulse_counter", (0.9, -1.0, 0.0), (-0.55, -1.0, 0.0), (-0.2, -1.0, 0.0)),
+                ("right_pulse_counter", (-0.9, -1.0, 0.0), (0.55, -1.0, 0.0), (0.2, -1.0, 0.0)),
+                ("countersteer_brake_left", (-0.65, -1.0, 0.8), (-0.35, -1.0, 0.3)),
+                ("countersteer_brake_right", (0.65, -1.0, 0.8), (0.35, -1.0, 0.3)),
+                ("left_power_hold", (0.55, 1.0, -1.0), (0.55, 1.0, -1.0), (0.2, 1.0, -1.0)),
+                ("right_power_hold", (-0.55, 1.0, -1.0), (-0.55, 1.0, -1.0), (-0.2, 1.0, -1.0)),
+                ("left_power_then_lift", (0.55, 1.0, -1.0), (0.45, -1.0, -1.0), (0.2, -1.0, -1.0)),
+                ("right_power_then_lift", (-0.55, 1.0, -1.0), (-0.45, -1.0, -1.0), (-0.2, -1.0, -1.0)),
+            ]
+        )
+    elif action_profile not in ("brake_avoidance_v1", "mixed_emergency_v1"):
         raise ValueError(f"unsupported action_profile {action_profile!r}")
     candidates: list[dict[str, Any]] = []
     for candidate_id, item in enumerate(base_actions):
@@ -598,14 +846,16 @@ def build_action_lattice(*, sequence_length: int, action_profile: str = "brake_a
         if len(item) == 2:
             sequence = np.tile(first.reshape(1, 3), (int(sequence_length), 1)).astype(np.float32)
         else:
-            second = np.asarray(item[2], dtype=np.float32)
-            split = max(1, int(sequence_length) // 2)
-            sequence = np.vstack(
-                [
-                    np.tile(first.reshape(1, 3), (split, 1)),
-                    np.tile(second.reshape(1, 3), (int(sequence_length) - split, 1)),
-                ]
-            ).astype(np.float32)
+            phases = [np.asarray(phase, dtype=np.float32) for phase in item[1:]]
+            base_len = max(1, int(sequence_length) // len(phases))
+            blocks = []
+            used = 0
+            for phase_index, phase in enumerate(phases):
+                length = base_len if phase_index < len(phases) - 1 else int(sequence_length) - used
+                length = max(1, length)
+                blocks.append(np.tile(phase.reshape(1, 3), (length, 1)))
+                used += length
+            sequence = np.vstack(blocks).astype(np.float32)[: int(sequence_length)]
         flat = sequence.reshape(-1)
         candidates.append(
             {
@@ -1105,17 +1355,17 @@ def main() -> None:
     parser.add_argument("--run-dir", type=Path, default=None)
     parser.add_argument(
         "--fault-profile",
-        choices=("m1268_default", "source_expansion_v1"),
+        choices=("m1268_default", "source_expansion_v1", "source_repair_v1"),
         default="m1268_default",
     )
     parser.add_argument(
         "--scenario-profile",
-        choices=("m1268_default", "viability_calibration", "source_expansion_v1"),
+        choices=("m1268_default", "viability_calibration", "source_expansion_v1", "source_repair_v1"),
         default="m1268_default",
     )
     parser.add_argument(
         "--action-profile",
-        choices=("brake_avoidance_v1", "mixed_emergency_v1"),
+        choices=("brake_avoidance_v1", "mixed_emergency_v1", "source_repair_v1"),
         default="brake_avoidance_v1",
     )
     parser.add_argument("--sequence-length", type=int, default=72)

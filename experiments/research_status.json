@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1329,
+    "completed": 1330,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1319-paper-route-inactive-source-family-repair-design.md",
+    "command_log": "docs/m1320-paper-route-inactive-source-family-repair-smoke.md",
     "returncode": 0,
-    "run_dir": "docs/m1319-paper-route-inactive-source-family-repair-design.md",
+    "run_dir": "runs/m1320_inactive_source_family_repair_smoke",
     "status": "completed",
-    "task_id": "m1319-paper-route-inactive-source-family-repair-design"
+    "task_id": "m1320-paper-route-inactive-source-family-repair-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1320-paper-route-inactive-source-family-repair-smoke.json",
-    "hypothesis": "Implement and smoke-test family-specific no-policy source repair profiles",
-    "id": "m1320-paper-route-inactive-source-family-repair-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: no-policy repair smoke for inactive and undercovered families; PPO and promotion remain blocked",
-    "priority": 13150,
+    "command": "see experiments/manifests/m1321-paper-route-source-repair-result-audit.json",
+    "hypothesis": "Audit M1320 source repair result and choose the next source route",
+    "id": "m1321-paper-route-source-repair-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit strong partial repair and global-friction blocker; PPO and promotion remain blocked",
+    "priority": 13160,
     "status": "pending",
-    "success_artifact": "runs/m1320_inactive_source_family_repair_smoke/summary.json"
+    "success_artifact": "docs/m1321-paper-route-source-repair-result-audit.md"
   },
-  "updated_at_utc": "20260528T165245Z"
+  "updated_at_utc": "20260528T170325Z"
 }

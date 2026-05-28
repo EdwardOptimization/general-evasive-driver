@@ -1,0 +1,157 @@
+{
+  "id": "m1321-paper-route-source-repair-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1320-paper-route-inactive-source-family-repair-smoke.md",
+      "runs/m1320_inactive_source_family_repair_smoke/summary.json",
+      "runs/m1320_inactive_source_family_repair_smoke/family_source_summary.csv",
+      "runs/m1320_inactive_source_family_repair_smoke/inactive_fault_families.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1320-paper-route-inactive-source-family-repair-smoke.json"
+    ],
+    "parent_objective": [
+      "audit source_repair_v1 result before corpus export or global-friction repair"
+    ],
+    "derived_from": [
+      "m1320-paper-route-inactive-source-family-repair-smoke"
+    ],
+    "blocked_by": [
+      "M1320 succeeds broadly but leaves global friction inactive"
+    ],
+    "supersedes": [
+      "direct PPO or source-history objective tuning from M1320"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1321-paper-route-source-repair-result-audit.md",
+  "public_gates": [
+    "M1321 must not train",
+    "M1321 must not run PPO",
+    "M1321 must not use private holdout",
+    "M1321 must not promote",
+    "M1321 must preserve actor input contract",
+    "M1321 must cite the remaining global-friction blocker",
+    "M1321 must choose the next source route"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax source thresholds",
+    "do not hide global friction inactivity",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_corpus_expansion",
+    "evidence_axis": "S_source_repair_result_audit",
+    "evidence_increment": "audits whether M1320 strong partial repair should route to corpus export or global-friction-specific source work",
+    "claim_scope": "process audit only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if audit ignores global friction inactivity",
+      "stop if audit routes directly to PPO",
+      "stop if audit treats source-generation success as driver performance",
+      "stop if audit relaxes source thresholds"
+    ],
+    "fallback_plan": [
+      "if seven-family source coverage is sufficient, route to updated source corpus export design",
+      "if global friction must be solved first, route to global-friction-specific source miner design",
+      "if both are needed, route to corpus export with explicit global-friction blocker"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1320 strong partial repair result needs routing decision",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source repair result audit",
+    "admission_evidence": [
+      "M1320 accepted 216 source rows and 7 source families",
+      "M1320 activates steering actuator and load/CG families",
+      "M1320 improves halfshaft from 4 to 22 rows",
+      "M1320 leaves global friction inactive",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not relax source thresholds"
+    ],
+    "allowed_updates": [
+      "M1321 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "global-friction blocker is classified",
+      "seven-family corpus readiness is assessed",
+      "next source route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1321 audits no-policy source repair and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "audit whether M1320 source rows are suitable for later history materialization"
+    ],
+    "temporal_evidence_window": "M1320 source repair smoke artifacts.",
+    "negative_result_policy": "Global friction inactivity must be recorded as a blocker or separate branch rather than softened into accepted evidence.",
+    "allowed_claims": [
+      "source repair result audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1320 strong partial repair result can be audited into a clear next source route before corpus export, global-friction repair, or policy-side work.",
+  "success_criteria": [
+    "docs/m1321-paper-route-source-repair-result-audit.md exists",
+    "audit cites M1320 accepted rows and accepted family counts",
+    "audit cites global friction inactivity and rejection reasons",
+    "audit chooses the next source route",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit hides global friction inactivity",
+    "audit routes directly to PPO",
+    "audit overclaims source-generation evidence as driver performance",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1321-paper-route-source-repair-result-audit.md from M1320 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1321-paper-route-source-repair-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1320-paper-route-inactive-source-family-repair-smoke.md",
+    "runs/m1320_inactive_source_family_repair_smoke/summary.json",
+    "runs/m1320_inactive_source_family_repair_smoke/family_source_summary.csv",
+    "runs/m1320_inactive_source_family_repair_smoke/inactive_fault_families.csv"
+  ],
+  "decision_rule": "M1321 passes if it audits M1320 source repair coverage and chooses a next source route without training, PPO, promotion, private holdout use, threshold relaxation, hidden global-friction blocker handling, or actor-input expansion.",
+  "next_blocker": "m1321-paper-route-source-repair-result-audit"
+}

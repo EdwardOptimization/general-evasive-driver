@@ -165,6 +165,46 @@
     "runs/m1317_source_generator_update_smoke/summary.json",
     "runs/m1317_source_generator_update_smoke/inactive_fault_families.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1320_inactive_source_family_repair_smoke/summary.json",
+    "doc": "docs/m1320-paper-route-inactive-source-family-repair-smoke.md",
+    "decision": "inactive_source_family_repair_smoke_strong_partial_route_to_result_audit",
+    "result_class": "capability_separable_signal",
+    "source_positive": true,
+    "scenario_count": 60,
+    "fault_count": 56,
+    "fault_pair_count": 32,
+    "matched_pair_count": 1920,
+    "action_lattice_rows": 37,
+    "action_rollouts": 142080,
+    "accepted_separable_pairs": 216,
+    "accepted_fault_family_pairs": 7,
+    "accepted_family_counts": {
+      "halfshaft_torque_loss->halfshaft_torque_loss": 22,
+      "left_right_split_mu->left_right_split_mu": 35,
+      "load_cg_perturbation->load_cg_perturbation": 6,
+      "single_wheel_brake_pull->single_wheel_brake_pull": 10,
+      "single_wheel_grip_collapse->single_wheel_grip_collapse": 62,
+      "steering_actuator_fault->steering_actuator_fault": 58,
+      "tire_blowout_like->tire_blowout_like": 23
+    },
+    "inactive_fault_family_count": 1,
+    "inactive_fault_families": [
+      "global_friction_step->global_friction_step"
+    ],
+    "focused_tests": "17 passed",
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1321-paper-route-source-repair-result-audit.json"
+  },
+  "decision": "inactive_source_family_repair_smoke_strong_partial_route_to_result_audit",
   "decision_rule": "M1320 passes as infrastructure if it runs a no-policy repair smoke with strict source thresholds, exported inactive-family diagnostics, and no training, PPO, promotion, private holdout use, threshold relaxation, hidden inactive-family handling, or actor-input expansion.",
-  "next_blocker": "m1320-paper-route-inactive-source-family-repair-smoke"
+  "next_blocker": "m1321-paper-route-source-repair-result-audit"
 }

@@ -19214,3 +19214,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: strict source thresholds remain; no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1320-paper-route-inactive-source-family-repair-smoke.json`.
 - next: `m1320-paper-route-inactive-source-family-repair-smoke`
+
+## 20260528T170325Z - m1320-paper-route-inactive-source-family-repair-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1320_inactive_source_family_repair_smoke/summary.json`
+- doc: `docs/m1320-paper-route-inactive-source-family-repair-smoke.md`
+- implementation: added `source_repair_v1` fault/scenario/action profiles, multi-phase source action templates, drive/coast/mixed preloaded scenarios, and stronger repair pairs.
+- validation: focused tests passed with `17 passed`.
+- result class: `capability_separable_signal`.
+- source positive: `true`.
+- accepted separable pairs: `216`, above the M1320 smoke target `160`.
+- accepted fault-family pairs: `7`, above the target `6`.
+- accepted families: single-wheel grip collapse `62`, steering actuator `58`, split-mu `35`, tire-blowout-like `23`, halfshaft `22`, brake asymmetry `10`, and load/CG `6`.
+- inactive families: only global friction remains inactive with `0/300` accepted rows.
+- interpretation: repair succeeded broadly; M1317 inactive steering and load/CG families are now active, and halfshaft improves from `4` to `22`, but global friction remains a separate source-construction blocker.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1321-paper-route-source-repair-result-audit.json`.
+- decision: `inactive_source_family_repair_smoke_strong_partial_route_to_result_audit`
+- next: `m1321-paper-route-source-repair-result-audit`

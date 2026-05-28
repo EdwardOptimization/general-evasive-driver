@@ -10,6 +10,7 @@ from autodrift.four_wheel_fault_source_shape import (
     build_human_view_observation,
     build_scenarios,
     build_scenarios_for_profile,
+    build_source_repair_scenarios,
     build_source_expansion_scenarios,
     build_viability_calibration_scenarios,
     obstacle_margin,
@@ -56,6 +57,16 @@ def test_mixed_action_lattice_contains_drive_sensitive_templates():
     assert len(candidates) > len(build_action_lattice(sequence_length=8))
 
 
+def test_source_repair_action_lattice_contains_multiphase_templates():
+    candidates = build_action_lattice(sequence_length=9, action_profile="source_repair_v1")
+
+    templates = {candidate["template"] for candidate in candidates}
+    assert "delayed_left_pulse" in templates
+    assert "brake_then_right_swerve" in templates
+    assert "left_power_hold" in templates
+    assert all(candidate["sequence"].shape == (9, 3) for candidate in candidates)
+
+
 def test_source_expansion_fault_profile_covers_target_families():
     faults = build_fault_cases("source_expansion_v1")
     pairs = build_fault_pairs(faults, "source_expansion_v1")
@@ -76,6 +87,21 @@ def test_source_expansion_fault_profile_covers_target_families():
     assert "tire_blowout_like->tire_blowout_like" in family_pairs
     assert any(fault.params_override for fault in faults if fault.family == "steering_actuator_fault")
     assert any(fault.scales.longitudinal_drag != (0.0, 0.0, 0.0, 0.0) for fault in faults)
+
+
+def test_source_repair_fault_profile_adds_parameter_repair_pairs():
+    faults = build_fault_cases("source_repair_v1")
+    pairs = build_fault_pairs(faults, "source_repair_v1")
+
+    names = {fault.name for fault in faults}
+    family_pairs = {f"{left.family}->{right.family}" for left, right in pairs}
+    assert "global_friction_0p20" in names
+    assert "very_slow_steer_tau" in names
+    assert "very_heavy_high_inertia" in names
+    assert "rear_left_halfshaft_loss_0p0" in names
+    assert "global_friction_step->global_friction_step" in family_pairs
+    assert "steering_actuator_fault->steering_actuator_fault" in family_pairs
+    assert "load_cg_perturbation->load_cg_perturbation" in family_pairs
 
 
 def test_obstacle_margin_detects_collision_and_completion():
@@ -136,3 +162,13 @@ def test_source_expansion_profile_adds_timing_and_speed_bins():
     assert {scenario.obstacle_timing_bin for scenario in scenarios} == {"late", "medium"}
     assert all(scenario.curvature_bin == "straight" for scenario in scenarios)
     assert build_scenarios_for_profile("source_expansion_v1") == scenarios
+
+
+def test_source_repair_profile_adds_drive_and_curvature_states():
+    scenarios = build_source_repair_scenarios()
+
+    assert scenarios
+    assert any(scenario.state.drive_force > 0.0 and scenario.state.brake_force == 0.0 for scenario in scenarios)
+    assert any(abs(scenario.state.yaw_rate) > 0.0 for scenario in scenarios)
+    assert any(scenario.curvature_bin != "straight" for scenario in scenarios)
+    assert build_scenarios_for_profile("source_repair_v1") == scenarios

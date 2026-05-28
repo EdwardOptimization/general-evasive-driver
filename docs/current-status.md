@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1319-paper-route-inactive-source-family-repair-design
+m1320-paper-route-inactive-source-family-repair-smoke
 ```
 
 Current next task:
 
 ```text
-m1320-paper-route-inactive-source-family-repair-smoke
+m1321-paper-route-source-repair-result-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -230,6 +230,12 @@ PPO, or promotion. M1319 completed that design and admits M1320:
 steering actuator with multi-phase pulse/countersteer templates, load/CG with
 nonzero yaw/lateral entry states, and halfshaft with drive/coast/mixed preloads.
 The active blocker is M1320: implement and run that no-policy repair smoke.
+M1320 completed the smoke with a strong partial source result: `216` accepted
+rows, `7` accepted fault-family pairs, and only global friction still inactive.
+Steering actuator now has `58` accepted rows, load/CG has `6`, and halfshaft
+improves from `4` to `22`. The active blocker is M1321: audit whether to export
+the seven-family source corpus now or isolate global friction as a separate
+source-construction branch. PPO and promotion remain blocked.
 
 ## Actor Contract
 
