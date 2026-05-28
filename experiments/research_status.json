@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1339,
+    "completed": 1340,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1329-paper-route-source-topup-additive-merge-export-design.md",
+    "command_log": "docs/m1330-paper-route-source-topup-additive-merge-export.md",
     "returncode": 0,
-    "run_dir": "docs/m1329-paper-route-source-topup-additive-merge-export-design.md",
+    "run_dir": "runs/m1330_source_topup_additive_merge_export",
     "status": "completed",
-    "task_id": "m1329-paper-route-source-topup-additive-merge-export-design"
+    "task_id": "m1330-paper-route-source-topup-additive-merge-export"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1330-paper-route-source-topup-additive-merge-export.json",
-    "hypothesis": "Implement source-run-identified additive merge/export for M1322 and M1327 source rows",
-    "id": "m1330-paper-route-source-topup-additive-merge-export",
+    "command": "see experiments/manifests/m1331-paper-route-source-topup-merged-corpus-expansion-plan.json",
+    "hypothesis": "Run source-history corpus expansion plan on the M1330 merged source export",
+    "id": "m1331-paper-route-source-topup-merged-corpus-expansion-plan",
     "kind": "infrastructure",
-    "notes": "Pending: no-policy export only; no materialization, PPO, or promotion",
-    "priority": 13250,
+    "notes": "Pending: planning only; no materialization, PPO, or promotion",
+    "priority": 13260,
     "status": "pending",
-    "success_artifact": "runs/m1330_source_topup_additive_merge_export/summary.json"
+    "success_artifact": "runs/m1331_source_topup_merged_corpus_expansion_plan/summary.json"
   },
-  "updated_at_utc": "20260528T175458Z"
+  "updated_at_utc": "20260528T180123Z"
 }

@@ -19405,3 +19405,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1330-paper-route-source-topup-additive-merge-export.json`.
 - next: `m1330-paper-route-source-topup-additive-merge-export`
+
+## 20260528T180123Z - m1330-paper-route-source-topup-additive-merge-export
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1330_source_topup_additive_merge_export/summary.json`
+- doc: `docs/m1330-paper-route-source-topup-additive-merge-export.md`
+- implementation: added `source_topup_additive_merge_export.py` and focused merge/export tests.
+- focused tests: `1 passed`.
+- decision: `source_topup_additive_merge_export_pass_route_to_expansion_plan`
+- merged source identity rows: `366`.
+- source identity duplicates: `0`.
+- semantic duplicate groups: `0`.
+- family-balanced rows with cap `40`: `250`.
+- accepted fault-family pairs: `7`.
+- family counts: grip-collapse `64`, steering `96`, split-mu `37`, tire-blowout-like `31`, halfshaft `22`, brake asymmetry `62`, and load/CG `54`.
+- blockers retained: global friction missing and halfshaft under target.
+- identity fix: merged `pair_id` is global `0..365`; original run-local ids are preserved as `source_row_id` and `original_pair_id`.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, source-history materialization, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1331-paper-route-source-topup-merged-corpus-expansion-plan.json`.
+- next: `m1331-paper-route-source-topup-merged-corpus-expansion-plan`

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1329-paper-route-source-topup-additive-merge-export-design
+m1330-paper-route-source-topup-additive-merge-export
 ```
 
 Current next task:
 
 ```text
-m1330-paper-route-source-topup-additive-merge-export
+m1331-paper-route-source-topup-merged-corpus-expansion-plan
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -280,7 +280,12 @@ that design: implement `source_topup_additive_merge_export.py`, use
 `source_run_id + source_row_id`, report semantic duplicate groups separately,
 and use family cap `40`. The active blocker is M1330: implement and run that
 no-policy merge/export before any source-history materialization or policy
-training.
+training. M1330 completed the export: `366` source-identified rows, `0` source
+identity duplicates, `0` semantic duplicate groups, `250` family-balanced rows,
+and `7` accepted source-family pairs. Merged `pair_id` is now global `0..365`,
+with original ids preserved as `source_row_id/original_pair_id`. Global friction
+remains missing and halfshaft remains under target. The active blocker is
+M1331: run a fresh corpus expansion plan on the M1330 merged export.
 
 ## Actor Contract
 
