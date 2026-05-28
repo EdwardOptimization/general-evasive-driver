@@ -1,0 +1,165 @@
+{
+  "id": "m1385-paper-route-history-profile-corrected-runtime-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1384-paper-route-history-profile-fixed-budget-refresh-design.md",
+      "configs/paper_route_corrected_profiles"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1384-paper-route-history-profile-fixed-budget-refresh-design.json"
+    ],
+    "parent_objective": [
+      "run no-training corrected-profile runtime smoke before fixed-budget profile training"
+    ],
+    "derived_from": [
+      "m1384-paper-route-history-profile-fixed-budget-refresh-design"
+    ],
+    "blocked_by": [
+      "M1384 requires runtime smoke before one-seed fixed-budget training smoke"
+    ],
+    "supersedes": [
+      "starting profile training before runtime smoke",
+      "assuming corrected profile controls still instantiate without current validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1385-paper-route-history-profile-corrected-runtime-smoke.md",
+  "public_gates": [
+    "M1385 must instantiate all corrected profile configs",
+    "M1385 must observe current-tiled L2 transforms",
+    "M1385 must observe corrected L3 reset-control metadata",
+    "M1385 must not train, evaluate checkpoints, run PPO, promote, use private holdout, or export corpus"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not evaluate checkpoints",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim profile ranking",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_profile_comparison_protocol",
+    "evidence_axis": "G_corrected_profile_runtime_smoke",
+    "evidence_increment": "checks corrected profile config runtime compatibility before fixed-budget profile training",
+    "claim_scope": "runtime smoke only; no training, checkpoint evaluation, PPO, promotion, private holdout, high-fidelity, profile-ranking, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if any corrected profile config fails to instantiate",
+      "stop if current-tiled controls are not observed",
+      "stop if corrected reset-control metadata is missing",
+      "stop if forbidden actor inputs appear"
+    ],
+    "fallback_plan": [
+      "if runtime smoke fails, route to profile-control repair",
+      "if current-tiled controls fail, repair controller_profile_runtime before training",
+      "if reset-control metadata fails, repair corrected profile configs",
+      "if smoke passes, route to one-seed fixed-budget training smoke design or run"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "corrected-profile runtime compatibility",
+    "admission_evidence": [
+      "M1384 admits runtime smoke before training",
+      "corrected profile configs exist under configs/paper_route_corrected_profiles"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not evaluate checkpoints",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "runtime smoke artifacts",
+      "M1385 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "all corrected configs instantiate",
+      "current-tiled controls are observed",
+      "corrected reset-control metadata is observed",
+      "next one-seed training smoke or repair route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1385 only validates runtime controls that later separate current-frame substitution from history.",
+    "history_necessity_tests": [
+      "verify current-tiled L2 controls instantiate",
+      "verify corrected L3 reset-control metadata instantiates"
+    ],
+    "temporal_evidence_window": "runtime smoke only",
+    "negative_result_policy": "If runtime controls fail, route to profile-control repair before any training.",
+    "allowed_claims": [
+      "runtime smoke pass/fail and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level profile ranking, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The corrected profile configs still instantiate and enforce current-tiled and reset-control runtime metadata before fixed-budget training.",
+  "success_criteria": [
+    "runs/m1385_history_profile_corrected_runtime_smoke/summary.json exists",
+    "result_class is controller_profile_runtime_smoke_pass",
+    "profile_count is 8",
+    "current_tiled_profile_count is 2",
+    "current_tiled_profiles_observed is true",
+    "corrected_reset_profile_count is 1",
+    "all_configs_instantiated is true",
+    "docs/m1385-paper-route-history-profile-corrected-runtime-smoke.md exists"
+  ],
+  "failure_criteria": [
+    "runtime smoke summary is missing",
+    "any corrected profile config fails to instantiate",
+    "current-tiled controls are not observed",
+    "corrected reset-control metadata is not observed",
+    "training, checkpoint evaluation, PPO, promotion, private holdout, corpus export, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "runtime_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.controller_profile_runtime_smoke --config-dir configs/paper_route_corrected_profiles --config-glob 'm1207_*.json' --seed 138500 --run-dir runs/m1385_history_profile_corrected_runtime_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1385_history_profile_corrected_runtime_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1385_history_profile_corrected_runtime_smoke/profile_runtime_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1385-paper-route-history-profile-corrected-runtime-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1384-paper-route-history-profile-fixed-budget-refresh-design.md",
+    "configs/paper_route_corrected_profiles"
+  ],
+  "decision_rule": "M1385 passes if corrected profile runtime smoke succeeds and routes to one-seed fixed-budget smoke or repair without training, checkpoint evaluation, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
+  "next_blocker": "m1385-paper-route-history-profile-corrected-runtime-smoke"
+}

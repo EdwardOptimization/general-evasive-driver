@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1393,
+    "completed": 1394,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1383-paper-route-history-profile-artifact-inventory.md",
+    "command_log": "docs/m1384-paper-route-history-profile-fixed-budget-refresh-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1383-paper-route-history-profile-artifact-inventory"
+    "task_id": "m1384-paper-route-history-profile-fixed-budget-refresh-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1384-paper-route-history-profile-fixed-budget-refresh-design.json",
-    "hypothesis": "A fresh fixed-budget L0/L1/L2/L3 profile refresh can be designed so later runs produce fair public architecture evidence rather than lineage-confounded comparisons.",
-    "id": "m1384-paper-route-history-profile-fixed-budget-refresh-design",
-    "kind": "gate",
-    "notes": "Pending: design fresh fixed-budget profile refresh because old M1212 checkpoints and M1362 are not directly fair architecture-ranking baselines",
-    "priority": 13790,
+    "command": "see experiments/manifests/m1385-paper-route-history-profile-corrected-runtime-smoke.json",
+    "hypothesis": "The corrected profile configs still instantiate and enforce current-tiled and reset-control runtime metadata before fixed-budget training.",
+    "id": "m1385-paper-route-history-profile-corrected-runtime-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: run no-training corrected-profile runtime smoke before one-seed fixed-budget profile training smoke",
+    "priority": 13800,
     "status": "pending",
-    "success_artifact": "docs/m1384-paper-route-history-profile-fixed-budget-refresh-design.md"
+    "success_artifact": "runs/m1385_history_profile_corrected_runtime_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T000000Z"
+  "updated_at_utc": "20260529T001000Z"
 }

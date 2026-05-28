@@ -16,16 +16,16 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1383-paper-route-history-profile-artifact-inventory
+m1384-paper-route-history-profile-fixed-budget-refresh-design
 ```
 
 Current next task:
 
 ```text
-m1384-paper-route-history-profile-fixed-budget-refresh-design
+m1385-paper-route-history-profile-corrected-runtime-smoke
 ```
 
-M1383 inventoried the history-profile comparison artifacts. The current
+M1384 designed the fresh fixed-budget history-profile refresh. The current
 public-gate base remains M1362 alpha `0.1`:
 
 ```text
@@ -210,10 +210,24 @@ M1362 controller_profile metadata: absent
 M1212 profile checkpoints are valid old public diagnostic artifacts with
 matched-history metadata. M1362 is the current public-base L3 diagnostic anchor,
 but it is not a fixed-budget profile checkpoint and must not be compared against
-M1212 as a fair architecture-ranking result. M1384 should therefore design a
-fresh fixed-budget L0/L1/L2/L3 profile refresh before config generation, runtime
+M1212 as a fair architecture-ranking result. M1384 therefore designed a fresh
+fixed-budget L0/L1/L2/L3 profile refresh before config generation, runtime
 smoke, training, PPO, promotion, private holdout, corpus export, or actor-input
 changes.
+
+M1384 conclusion:
+
+```text
+decision: history_profile_fixed_budget_refresh_design_admit_runtime_smoke
+stage 0: M1385 corrected-profile runtime smoke, no training
+stage 1: one-seed fixed-budget smoke after M1385 passes
+stage 2: three-seed public pilot only after one-seed smoke audit
+M1362 anchor policy: diagnostic anchor only
+```
+
+M1385 should instantiate `configs/paper_route_corrected_profiles/m1207_*.json`
+and verify current-tiled L2 controls plus corrected L3 reset-control metadata
+before any fixed-budget profile training.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true

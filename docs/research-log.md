@@ -20374,3 +20374,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new evaluation, replay, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level profile-ranking claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1384-paper-route-history-profile-fixed-budget-refresh-design.json`.
 - next: `m1384-paper-route-history-profile-fixed-budget-refresh-design`
+
+## 20260529T001000Z - m1384-paper-route-history-profile-fixed-budget-refresh-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1384-paper-route-history-profile-fixed-budget-refresh-design.md`
+- decision: `history_profile_fixed_budget_refresh_design_admit_runtime_smoke`
+- profile set: `L0_current_masked`, `L1_one_step`, `L2_window_13`, `L2_window_13_current_tiled`, `L2_window_25`, `L2_window_25_current_tiled`, `L3_online_gru`, `L3_reset_control_corrected`.
+- stage 0: M1385 no-training corrected-profile runtime smoke.
+- stage 1: one-seed fixed-budget training/eval smoke only after M1385 passes.
+- stage 2: three-seed public pilot only after one-seed smoke audit.
+- M1362 anchor policy: diagnostic anchor only, not fixed-budget architecture-ranking participant.
+- guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level profile-ranking claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1385-paper-route-history-profile-corrected-runtime-smoke.json`.
+- next: `m1385-paper-route-history-profile-corrected-runtime-smoke`

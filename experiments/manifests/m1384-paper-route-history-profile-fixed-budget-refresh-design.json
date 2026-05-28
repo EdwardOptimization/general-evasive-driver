@@ -2,7 +2,7 @@
   "id": "m1384-paper-route-history-profile-fixed-budget-refresh-design",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -157,6 +157,37 @@
     "docs/m1383-paper-route-history-profile-artifact-inventory.md",
     "configs/paper_route_corrected_profiles"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1384-paper-route-history-profile-fixed-budget-refresh-design.md",
+    "decision": "history_profile_fixed_budget_refresh_design_admit_runtime_smoke",
+    "profile_set": [
+      "L0_current_masked",
+      "L1_one_step",
+      "L2_window_13",
+      "L2_window_13_current_tiled",
+      "L2_window_25",
+      "L2_window_25_current_tiled",
+      "L3_online_gru",
+      "L3_reset_control_corrected"
+    ],
+    "stage_0_next": "corrected_profile_runtime_smoke",
+    "stage_1_planned": "one_seed_fixed_budget_smoke",
+    "stage_2_planned": "three_seed_public_pilot_after_audit",
+    "m1362_anchor_policy": "diagnostic_anchor_only_not_fixed_budget_architecture_ranking",
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "checkpoint_mutated": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1385-paper-route-history-profile-corrected-runtime-smoke.json"
+  },
+  "decision": "history_profile_fixed_budget_refresh_design_admit_runtime_smoke",
   "decision_rule": "M1384 passes if it designs a fresh fixed-budget profile refresh and next config/runtime route before any training, new evaluation, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
-  "next_blocker": "m1384-paper-route-history-profile-fixed-budget-refresh-design"
+  "next_blocker": "m1385-paper-route-history-profile-corrected-runtime-smoke"
 }
