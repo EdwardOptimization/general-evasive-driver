@@ -18483,3 +18483,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1280-paper-route-four-wheel-source-response-history-materialization.json`.
 - decision: `four_wheel_source_response_history_materialization_design_admit_implementation`
 - next: `m1280-paper-route-four-wheel-source-response-history-materialization`
+
+## 20260528T131753Z - m1280-paper-route-four-wheel-source-response-history-materialization
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1280_four_wheel_source_response_history_materialization/summary.json`
+- implementation: added `src/autodrift/four_wheel_source_response_history_materialization.py` and `tests/test_four_wheel_source_response_history_materialization.py`.
+- validation: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_four_wheel_source_response_history_materialization.py` passed with `1 passed`.
+- result: materialized `152` history prefix rows, `3648` actor-view history frame rows, `152` history-intervention rows, and `152` wrong-history pair rows.
+- wrong-history semantics: all `152` wrong-history rows are same-pair opposite-condition swaps.
+- actor-view history: `15` command-response columns, all finite, with no forbidden branch/fault/source label fields.
+- response signal: `response_l2_mean=0.2109745544`, `response_l2_min=0.0157835288`, `response_l2_ge_0_01_count=152`, `final_yaw_rate_diff_ge_0_01_count=152`, and `final_vy_diff_ge_0_01_count=144`.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.json`.
+- decision: `four_wheel_source_response_history_materialization_pass_route_to_result_audit`
+- next: `m1281-paper-route-four-wheel-source-response-history-materialization-result-audit`

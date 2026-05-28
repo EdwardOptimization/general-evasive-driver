@@ -161,6 +161,35 @@
     "docs/m1279-paper-route-four-wheel-source-response-history-materialization-design.md",
     "runs/m1277_four_wheel_source_intervention_materialization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1280_four_wheel_source_response_history_materialization/summary.json",
+    "doc": "docs/m1280-paper-route-four-wheel-source-response-history-materialization.md",
+    "decision": "four_wheel_source_response_history_materialization_pass_route_to_result_audit",
+    "history_prefix_rows": 152,
+    "history_frame_rows": 3648,
+    "history_intervention_rows": 152,
+    "wrong_history_pair_rows": 152,
+    "wrong_history_valid_count": 152,
+    "actor_view_history_column_count": 15,
+    "actor_view_history_all_finite": true,
+    "forbidden_actor_view_history_columns": [],
+    "response_l2_mean": 0.2109745544,
+    "response_l2_min": 0.0157835288,
+    "response_l2_ge_0_01_count": 152,
+    "final_yaw_rate_diff_ge_0_01_count": 152,
+    "final_vy_diff_ge_0_01_count": 144,
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.json"
+  },
+  "decision": "four_wheel_source_response_history_materialization_pass_route_to_result_audit",
   "decision_rule": "M1280 passes as infrastructure if it materializes response-history artifacts and wrong-history pairs with clean actor-view history fields without training or actor-input expansion.",
-  "next_blocker": "m1280-paper-route-four-wheel-source-response-history-materialization"
+  "next_blocker": "m1281-paper-route-four-wheel-source-response-history-materialization-result-audit"
 }

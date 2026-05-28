@@ -1,0 +1,156 @@
+{
+  "id": "m1281-paper-route-four-wheel-source-response-history-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_dataset": [
+      "docs/m1280-paper-route-four-wheel-source-response-history-materialization.md",
+      "runs/m1280_four_wheel_source_response_history_materialization/summary.json",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_prefix_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/history_frame_rows.csv",
+      "runs/m1280_four_wheel_source_response_history_materialization/wrong_history_pair_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1280-paper-route-four-wheel-source-response-history-materialization.json"
+    ],
+    "parent_objective": [
+      "audit branch-specific response-history artifacts before policy-side use"
+    ],
+    "derived_from": [
+      "m1280-paper-route-four-wheel-source-response-history-materialization"
+    ],
+    "blocked_by": [
+      "M1280 materialized response histories and wrong-history pairs but they require audit before policy-side gates"
+    ],
+    "supersedes": [
+      "direct policy-side use of M1280 histories without artifact audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.md",
+  "public_gates": [
+    "M1281 must preserve actor input contract",
+    "M1281 must not train controllers",
+    "M1281 must not run PPO",
+    "M1281 must not use private holdout",
+    "M1281 must not promote",
+    "M1281 must audit history cleanliness distinguishability and wrong-history semantics",
+    "M1281 must select the next source-history step before policy-side use"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add branch/fault labels to actor-view history",
+    "do not treat source-history artifacts as self-identification proof",
+    "do not claim high-fidelity validation from the compact pilot"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_four_wheel_source_intervention_materialization",
+    "evidence_axis": "S_response_history_materialization_result_audit",
+    "evidence_increment": "audits M1280 response-history artifacts and selects the next source-history step",
+    "claim_scope": "result audit only; no training, promotion, private-holdout, paper-level, recurrent-belief, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if history actor-view fields leak labels",
+      "stop if response distinguishability is too weak",
+      "stop if wrong-history rows are not same-pair opposite-condition swaps"
+    ],
+    "fallback_plan": [
+      "if artifacts are suitable, admit policy-side gate design",
+      "if histories are weak, route to prefix repair design",
+      "if schema is invalid, repair materialization"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1280 produced source response-history artifacts that require audit before use",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "four-wheel source response-history materialization result audit",
+    "admission_evidence": [
+      "M1280 history_prefix_rows=152",
+      "M1280 history_frame_rows=3648",
+      "M1280 wrong_history_pair_rows=152",
+      "M1280 response_l2_min=0.0157835288",
+      "M1280 forbidden_actor_view_history_columns=[]"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1281 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest if audit admits it"
+    ],
+    "next_stage_criteria": [
+      "audit history cleanliness",
+      "audit response distinguishability",
+      "audit wrong-history same-pair swap semantics",
+      "select next source-history or policy-side step"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1281 audits history artifacts but still does not evaluate actor dependence on history.",
+    "history_necessity_tests": [
+      "future policy-side gates must compare correct history to wrong history before self-ID claims"
+    ],
+    "temporal_evidence_window": "History evidence remains artifact-level until used by a policy-side gate.",
+    "negative_result_policy": "If histories are weak or invalid, route to prefix repair rather than policy training.",
+    "allowed_claims": [
+      "four-wheel source response-history materialization result audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The M1280 response-history artifacts can be audited for cleanliness and distinguishability before policy-side use.",
+  "success_criteria": [
+    "docs/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.md exists",
+    "audit cites M1280 history prefix frame link and wrong-history counts",
+    "audit checks history cleanliness",
+    "audit checks response distinguishability",
+    "audit checks wrong-history swap semantics",
+    "audit selects the next source-history or policy-side step",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores history cleanliness",
+    "audit ignores response distinguishability",
+    "audit treats source histories as self-identification proof",
+    "audit skips directly to actor training",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint"
+  ],
+  "baseline_artifacts": [
+    "docs/m1280-paper-route-four-wheel-source-response-history-materialization.md",
+    "runs/m1280_four_wheel_source_response_history_materialization/summary.json"
+  ],
+  "decision_rule": "M1281 passes if it audits M1280 history artifacts and selects the next source-history or policy-side step without training or actor-input expansion.",
+  "next_blocker": "m1281-paper-route-four-wheel-source-response-history-materialization-result-audit"
+}

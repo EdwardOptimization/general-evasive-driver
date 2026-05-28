@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1279-paper-route-four-wheel-source-response-history-materialization-design
+m1280-paper-route-four-wheel-source-response-history-materialization
 ```
 
 Current next task:
 
 ```text
-m1280-paper-route-four-wheel-source-response-history-materialization
+m1281-paper-route-four-wheel-source-response-history-materialization-result-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -39,10 +39,11 @@ preferred/rejected artifact schema. M1277 materialized `202` intervention rows,
 sequence rows. M1278 audited the artifacts as clean, but blocked direct
 policy-side training because current-frame labels are contradictory without
 branch-specific response history. This is still not driver performance. The
-active blocker is to implement branch-specific response-history materialization:
-`152` history prefixes, `3648` actor-view command-response frames, `152`
-history-intervention links, and `152` same-pair wrong-history swaps before any
-policy-side use.
+M1280 materialized branch-specific response histories: `152` history prefixes,
+`3648` actor-view command-response frames, `152` history-intervention links, and
+`152` same-pair wrong-history swaps. This is still not driver performance. The
+active blocker is to audit history cleanliness, response distinguishability, and
+wrong-history semantics before any policy-side use.
 
 ## Actor Contract
 

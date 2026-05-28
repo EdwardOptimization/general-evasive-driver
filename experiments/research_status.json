@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1289,
+    "completed": 1290,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1279-paper-route-four-wheel-source-response-history-materialization-design.md",
+    "command_log": "docs/m1280-paper-route-four-wheel-source-response-history-materialization.md",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m1280_four_wheel_source_response_history_materialization",
     "status": "completed",
-    "task_id": "m1279-paper-route-four-wheel-source-response-history-materialization-design"
+    "task_id": "m1280-paper-route-four-wheel-source-response-history-materialization"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1280-paper-route-four-wheel-source-response-history-materialization.json",
-    "hypothesis": "Materialize branch-specific response histories and wrong-history pairs for source interventions",
-    "id": "m1280-paper-route-four-wheel-source-response-history-materialization",
-    "kind": "infrastructure",
-    "notes": "Pending: implement 152 history prefixes 3648 frame rows 152 history-intervention rows and 152 wrong-history pair rows",
-    "priority": 12750,
+    "command": "see experiments/manifests/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.json",
+    "hypothesis": "Audit response-history cleanliness distinguishability and wrong-history semantics before policy-side use",
+    "id": "m1281-paper-route-four-wheel-source-response-history-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit source-history artifacts and decide policy-side gate design versus prefix repair",
+    "priority": 12760,
     "status": "pending",
-    "success_artifact": "runs/m1280_four_wheel_source_response_history_materialization/summary.json"
+    "success_artifact": "docs/m1281-paper-route-four-wheel-source-response-history-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260528T131208Z"
+  "updated_at_utc": "20260528T131753Z"
 }
