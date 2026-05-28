@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1328-paper-route-source-topup-additive-merge-audit
+m1329-paper-route-source-topup-additive-merge-export-design
 ```
 
 Current next task:
 
 ```text
-m1329-paper-route-source-topup-additive-merge-export-design
+m1330-paper-route-source-topup-additive-merge-export
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -275,7 +275,12 @@ tuning, PPO, or promotion. M1328 completed that audit and admits a merge/export
 design. The source-run-prefixed candidate total is `366`, but this is not yet a
 final exported corpus count; halfshaft remains under target and global friction
 remains absent. The active blocker is M1329: design the no-policy merge/export
-tool with explicit source identity and duplicate diagnostics.
+tool with explicit source identity and duplicate diagnostics. M1329 completed
+that design: implement `source_topup_additive_merge_export.py`, use
+`source_run_id + source_row_id`, report semantic duplicate groups separately,
+and use family cap `40`. The active blocker is M1330: implement and run that
+no-policy merge/export before any source-history materialization or policy
+training.
 
 ## Actor Contract
 

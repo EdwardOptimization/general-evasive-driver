@@ -1,0 +1,174 @@
+{
+  "id": "m1330-paper-route-source-topup-additive-merge-export",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1329-paper-route-source-topup-additive-merge-export-design.md",
+      "runs/m1322_source_repair_corpus_export/all_accepted_source_rows.csv",
+      "runs/m1327_source_repair_topup_horizon_corrected_smoke/accepted_separable_pairs.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1329-paper-route-source-topup-additive-merge-export-design.json"
+    ],
+    "parent_objective": [
+      "implement additive merge/export for M1322 and M1327 source rows"
+    ],
+    "derived_from": [
+      "m1329-paper-route-source-topup-additive-merge-export-design"
+    ],
+    "blocked_by": [
+      "M1329 admits one no-policy merge/export implementation before corpus expansion planning"
+    ],
+    "supersedes": [
+      "manual naive additive source count"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1330-paper-route-source-topup-additive-merge-export.md",
+  "public_gates": [
+    "M1330 must not train",
+    "M1330 must not run PPO",
+    "M1330 must not use private holdout",
+    "M1330 must not promote",
+    "M1330 must preserve actor input contract",
+    "M1330 must use source-run-prefixed identity",
+    "M1330 must report duplicate diagnostics",
+    "M1330 must keep halfshaft and global friction blockers explicit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not fabricate global friction coverage",
+    "do not silently drop semantic duplicates",
+    "do not materialize histories",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_repair_topup_generation",
+    "evidence_axis": "S_source_repair_topup_merge_export",
+    "evidence_increment": "implements and runs additive merge/export for M1322 and M1327 source rows",
+    "claim_scope": "source export infrastructure only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if source identity duplicates exist",
+      "stop if output hides halfshaft or global friction blockers",
+      "stop if actor inputs change",
+      "stop if run routes directly to materialization or PPO"
+    ],
+    "fallback_plan": [
+      "if merge/export passes, route to merged corpus expansion plan",
+      "if duplicate diagnostics fail, route to merge schema repair",
+      "if family-balanced rows remain below 240, route to result audit before materialization"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1329 admits additive merge/export implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source top-up additive merge export",
+    "admission_evidence": [
+      "M1329 designs merge/export tool and tests",
+      "source-run-prefixed candidate total is expected to exceed 300",
+      "family cap 40 is expected to produce about 250 balanced rows",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not materialize histories before plan refresh"
+    ],
+    "allowed_updates": [
+      "merge/export tool",
+      "focused tests",
+      "M1330 run artifacts",
+      "M1330 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "merged source identity rows are reported",
+      "family balanced rows are reported",
+      "global friction and halfshaft blocker rows are reported",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1330 exports source rows and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "export merged source rows for later command-response history materialization"
+    ],
+    "temporal_evidence_window": "M1329 merge/export design.",
+    "negative_result_policy": "If merge/export is below target, record the gap rather than materializing or training anyway.",
+    "allowed_claims": [
+      "source top-up additive merge export result",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A no-policy merge/export implementation can combine M1322 and M1327 into a source-run-identified corpus with enough balanced rows for a fresh expansion plan.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m1330_source_topup_additive_merge_export/summary.json exists",
+    "source_identity_duplicate_count == 0",
+    "merged_source_identity_rows >= 300",
+    "family_balanced_rows >= 240",
+    "accepted_fault_family_pairs >= 7",
+    "global friction is reported as missing",
+    "halfshaft undercoverage is reported",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "run artifacts are missing",
+    "source identity duplicates are present",
+    "family_balanced_rows < 240 without clear blocker",
+    "global friction or halfshaft blockers are hidden",
+    "training, PPO, private holdout, promotion, threshold relaxation, materialization, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_source_topup_additive_merge_export.py"
+    },
+    {
+      "name": "run_merge_export",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_topup_additive_merge_export --base-export-run-dir runs/m1322_source_repair_corpus_export --topup-source-run-dir runs/m1327_source_repair_topup_horizon_corrected_smoke --run-dir runs/m1330_source_topup_additive_merge_export --family-cap 40"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1330_source_topup_additive_merge_export/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1330-paper-route-source-topup-additive-merge-export.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1329-paper-route-source-topup-additive-merge-export-design.md",
+    "runs/m1322_source_repair_corpus_export/summary.json",
+    "runs/m1327_source_repair_topup_horizon_corrected_smoke/summary.json"
+  ],
+  "decision_rule": "M1330 passes as infrastructure if it exports a source-run-identified additive source corpus and diagnostics without training, PPO, promotion, private holdout use, threshold relaxation, materialization, hidden blockers, or actor-input expansion.",
+  "next_blocker": "m1330-paper-route-source-topup-additive-merge-export"
+}

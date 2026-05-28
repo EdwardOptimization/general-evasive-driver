@@ -19387,3 +19387,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1329-paper-route-source-topup-additive-merge-export-design.json`.
 - next: `m1329-paper-route-source-topup-additive-merge-export-design`
+
+## 20260528T175458Z - m1329-paper-route-source-topup-additive-merge-export-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1329-paper-route-source-topup-additive-merge-export-design.md`
+- decision: `source_topup_additive_merge_export_design_admit_implementation`
+- designed tool: `src/autodrift/source_topup_additive_merge_export.py`.
+- designed test: `tests/test_source_topup_additive_merge_export.py`.
+- source identity: `source_run_id + source_row_id`; raw `pair_id` is not valid across runs.
+- duplicate policy: report semantic duplicate groups but do not silently drop rows unless source identity duplicates exist.
+- family cap: `40`, with expected cap-40 balanced rows about `250` before exact export.
+- required outputs: merged all-accepted rows, near-boundary rows, high-regret rows, family-balanced rows, source-run summary, family summary, semantic duplicate diagnostics, and inactive/undercovered family report.
+- next route: implement one no-policy merge/export, then run a fresh expansion plan if export passes.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1330-paper-route-source-topup-additive-merge-export.json`.
+- next: `m1330-paper-route-source-topup-additive-merge-export`

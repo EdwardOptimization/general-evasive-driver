@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1338,
+    "completed": 1339,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1328-paper-route-source-topup-additive-merge-audit.md",
+    "command_log": "docs/m1329-paper-route-source-topup-additive-merge-export-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1328-paper-route-source-topup-additive-merge-audit.md",
+    "run_dir": "docs/m1329-paper-route-source-topup-additive-merge-export-design.md",
     "status": "completed",
-    "task_id": "m1328-paper-route-source-topup-additive-merge-audit"
+    "task_id": "m1329-paper-route-source-topup-additive-merge-export-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1329-paper-route-source-topup-additive-merge-export-design.json",
-    "hypothesis": "Design no-policy additive merge/export implementation for M1322 and M1327 source rows",
-    "id": "m1329-paper-route-source-topup-additive-merge-export-design",
-    "kind": "gate",
-    "notes": "Pending: design only; no export, materialization, PPO, or promotion",
-    "priority": 13240,
+    "command": "see experiments/manifests/m1330-paper-route-source-topup-additive-merge-export.json",
+    "hypothesis": "Implement source-run-identified additive merge/export for M1322 and M1327 source rows",
+    "id": "m1330-paper-route-source-topup-additive-merge-export",
+    "kind": "infrastructure",
+    "notes": "Pending: no-policy export only; no materialization, PPO, or promotion",
+    "priority": 13250,
     "status": "pending",
-    "success_artifact": "docs/m1329-paper-route-source-topup-additive-merge-export-design.md"
+    "success_artifact": "runs/m1330_source_topup_additive_merge_export/summary.json"
   },
-  "updated_at_utc": "20260528T175001Z"
+  "updated_at_utc": "20260528T175458Z"
 }
