@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -62,6 +63,11 @@ def _stable_eval_pair(pair_id: int, split_mod: int = 5, split_offset: int = 0) -
     return _stable_pair_bucket(pair_id, split_mod=split_mod) == int(split_offset)
 
 
+def _read_csv_rows(path: Path) -> list[dict[str, str]]:
+    with Path(path).open(newline="", encoding="utf-8") as handle:
+        return list(csv.DictReader(handle))
+
+
 def _split_rows(meta_rows: list[dict[str, Any]], *, split_mod: int = 5, split_offset: int = 0) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for index, row in enumerate(meta_rows):
@@ -76,6 +82,60 @@ def _split_rows(meta_rows: list[dict[str, Any]], *, split_mod: int = 5, split_of
                 "pair_bucket": int(_stable_pair_bucket(pair_id, split_mod=split_mod)),
                 "pair_id": pair_id,
                 "probe_template": str(row["probe_template"]),
+                "history_intervention_id": int(row["history_intervention_id"]),
+                "condition": str(row["condition"]),
+            }
+        )
+    return rows
+
+
+def _load_split_plan(path: Path) -> dict[tuple[int, str], int]:
+    rows = _read_csv_rows(path)
+    plan: dict[tuple[int, str], int] = {}
+    pair_folds: dict[int, int] = {}
+    for row in rows:
+        pair_id = int(float(row["pair_id"]))
+        probe_template = str(row["probe_template"])
+        fold = int(float(row["assigned_eval_fold"]))
+        key = (pair_id, probe_template)
+        if key in plan and plan[key] != fold:
+            raise ValueError(f"conflicting split-plan fold for key={key}")
+        plan[key] = fold
+        if pair_id in pair_folds and pair_folds[pair_id] != fold:
+            raise ValueError(f"split plan is not pair-disjoint for pair_id={pair_id}")
+        pair_folds[pair_id] = fold
+    if not plan:
+        raise ValueError("split plan is empty")
+    return plan
+
+
+def _split_rows_from_plan(
+    meta_rows: list[dict[str, Any]],
+    split_plan: dict[tuple[int, str], int],
+    *,
+    split_mod: int = 5,
+    split_offset: int = 0,
+) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for index, row in enumerate(meta_rows):
+        pair_id = int(row["pair_id"])
+        probe_template = str(row["probe_template"])
+        key = (pair_id, probe_template)
+        if key not in split_plan:
+            raise ValueError(f"split plan missing key={key}")
+        pair_bucket = int(split_plan[key])
+        if pair_bucket < 0 or pair_bucket >= int(split_mod):
+            raise ValueError(f"split plan fold {pair_bucket} outside split_mod={split_mod}")
+        split = "eval" if pair_bucket == int(split_offset) else "train"
+        rows.append(
+            {
+                "row_index": int(index),
+                "split": split,
+                "split_mod": int(split_mod),
+                "split_offset": int(split_offset),
+                "pair_bucket": int(pair_bucket),
+                "pair_id": pair_id,
+                "probe_template": probe_template,
                 "history_intervention_id": int(row["history_intervention_id"]),
                 "condition": str(row["condition"]),
             }
@@ -218,6 +278,89 @@ def _summary_for_rows(rows: list[dict[str, Any]]) -> dict[str, Any]:
     return {**row_summary, **group_summary}
 
 
+def _load_group_weights(path: Path) -> tuple[dict[tuple[int, str], float], bool, float]:
+    rows = _read_csv_rows(path)
+    weights: dict[tuple[int, str], float] = {}
+    pair_specific = False
+    max_weight = 0.0
+    for row in rows:
+        key = (int(float(row["pair_id"])), str(row["probe_template"]))
+        weight = _finite_float(row["group_weight"])
+        if key in weights and abs(weights[key] - weight) > 1e-9:
+            raise ValueError(f"conflicting group weight for key={key}")
+        weights[key] = float(weight)
+        max_weight = max(max_weight, float(weight))
+        pair_specific = pair_specific or str(row.get("pair_specific_weight_used", "")).lower() == "true"
+    if not weights:
+        raise ValueError("group weights are empty")
+    return weights, pair_specific, max_weight
+
+
+def _weights_for_meta_rows(
+    meta_rows: list[dict[str, Any]],
+    group_weights: dict[tuple[int, str], float] | None,
+    device: torch.device,
+) -> torch.Tensor | None:
+    if group_weights is None:
+        return None
+    values: list[float] = []
+    for row in meta_rows:
+        key = (int(row["pair_id"]), str(row["probe_template"]))
+        if key not in group_weights:
+            raise ValueError(f"group weights missing key={key}")
+        values.append(float(group_weights[key]))
+    return torch.as_tensor(values, dtype=torch.float32, device=device)
+
+
+def _weighted_mean(values: torch.Tensor, weights: torch.Tensor | None) -> torch.Tensor:
+    if weights is None:
+        return values.mean()
+    return torch.sum(values * weights) / torch.clamp(torch.sum(weights), min=1e-6)
+
+
+def _weighted_directional_losses(
+    evaluation: Any,
+    row_weights: torch.Tensor | None,
+    *,
+    target_margin: float,
+) -> tuple[torch.Tensor, torch.Tensor]:
+    correct_terms = torch.nn.functional.softplus(float(target_margin) - evaluation.correct_margin)
+    wrong_terms = torch.nn.functional.softplus(float(target_margin) - evaluation.wrong_margin)
+    return _weighted_mean(correct_terms, row_weights), _weighted_mean(wrong_terms, row_weights)
+
+
+def _weighted_pair_group_loss(
+    *,
+    min_margin: torch.Tensor,
+    groups: dict[tuple[int, str], list[int]],
+    group_weights: dict[tuple[int, str], float] | None,
+    target_margin: float,
+) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    group_floor_terms: list[torch.Tensor] = []
+    group_balance_terms: list[torch.Tensor] = []
+    group_min_terms: list[torch.Tensor] = []
+    weight_terms: list[torch.Tensor] = []
+    for key, indices in groups.items():
+        idx = torch.as_tensor(indices, dtype=torch.long, device=min_margin.device)
+        values = min_margin.index_select(dim=0, index=idx)
+        group_min = torch.min(values)
+        weight = 1.0 if group_weights is None else float(group_weights.get(key, 1.0))
+        weight_tensor = torch.as_tensor(weight, dtype=torch.float32, device=min_margin.device)
+        group_min_terms.append(group_min)
+        group_floor_terms.append(torch.nn.functional.softplus(float(target_margin) - group_min) * weight_tensor)
+        group_balance_terms.append(torch.mean((values - torch.mean(values)).pow(2)) * weight_tensor)
+        weight_terms.append(weight_tensor)
+    if not group_floor_terms:
+        zero = torch.zeros((), dtype=torch.float32, device=min_margin.device)
+        return zero, zero, zero
+    weight_sum = torch.clamp(torch.stack(weight_terms).sum(), min=1e-6)
+    return (
+        torch.stack(group_floor_terms).sum() / weight_sum,
+        torch.stack(group_balance_terms).sum() / weight_sum,
+        torch.stack(group_min_terms).mean(),
+    )
+
+
 def _eval_scope_split(
     *,
     model: ActorCritic,
@@ -227,6 +370,7 @@ def _eval_scope_split(
     split_offset: int,
     split: str,
     target_margin: float,
+    group_weights: dict[tuple[int, str], float] | None = None,
 ) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]]]:
     if not meta_rows:
         empty = {
@@ -252,9 +396,19 @@ def _eval_scope_split(
     for row in rows:
         row["split"] = split
         row["split_offset"] = int(split_offset)
+        if group_weights is not None:
+            row["group_weight"] = float(group_weights.get((int(row["pair_id"]), str(row["probe_template"])), 1.0))
     group_summary = _summarize_group_rows(rows)
     group_rows = [
-        {**row, "scope": scope, "split": split, "split_offset": int(split_offset)}
+        {
+            **row,
+            "scope": scope,
+            "split": split,
+            "split_offset": int(split_offset),
+            "group_weight": float(group_weights.get((int(row["pair_id"]), str(row["probe_template"])), 1.0))
+            if group_weights is not None
+            else 1.0,
+        }
         for row in group_summary.pop("group_rows")
     ]
     return {**_row_summary(rows), **group_summary}, rows, group_rows
@@ -358,6 +512,7 @@ def _train_scope(
     lambda_group_floor: float,
     lambda_group_balance: float,
     lambda_anchor: float,
+    group_weights: dict[tuple[int, str], float] | None,
 ) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
     device = next(model.parameters()).device
     allowed_groups = set(SCOPE_ALLOWED_GROUPS[scope])
@@ -365,19 +520,35 @@ def _train_scope(
     trainable_count, frozen_count = _parameter_counts(model)
     optimizer = torch.optim.Adam(_trainable_parameters(model), lr=float(lr))
     train_groups = _group_indices(train_meta_rows)
+    train_row_weights = _weights_for_meta_rows(train_meta_rows, group_weights, device)
     trace_rows: list[dict[str, Any]] = []
     for step in range(int(steps)):
         optimizer.zero_grad()
         eval_row = _directional_eval(model, train_batch, target_margin=target_margin, lambda_min=0.0)
-        group_floor, group_balance, group_min = _pair_group_loss(
-            min_margin=eval_row.min_margin,
-            groups=train_groups,
-            target_margin=target_margin,
-        )
+        if group_weights is None:
+            correct_loss = eval_row.correct_loss
+            wrong_loss = eval_row.wrong_loss
+            group_floor, group_balance, group_min = _pair_group_loss(
+                min_margin=eval_row.min_margin,
+                groups=train_groups,
+                target_margin=target_margin,
+            )
+        else:
+            correct_loss, wrong_loss = _weighted_directional_losses(
+                eval_row,
+                train_row_weights,
+                target_margin=target_margin,
+            )
+            group_floor, group_balance, group_min = _weighted_pair_group_loss(
+                min_margin=eval_row.min_margin,
+                groups=train_groups,
+                group_weights=group_weights,
+                target_margin=target_margin,
+            )
         anchor = _parameter_anchor_loss(model, base_state, allowed_groups, device)
         loss = (
-            eval_row.correct_loss
-            + eval_row.wrong_loss
+            correct_loss
+            + wrong_loss
             + float(lambda_group_floor) * group_floor
             + float(lambda_group_balance) * group_balance
             + float(lambda_anchor) * anchor
@@ -390,12 +561,16 @@ def _train_scope(
                 "split_offset": int(split_offset),
                 "step": int(step + 1),
                 "loss": float(loss.detach().cpu().item()),
-                "correct_loss": float(eval_row.correct_loss.detach().cpu().item()),
-                "wrong_history_loss": float(eval_row.wrong_loss.detach().cpu().item()),
+                "correct_loss": float(correct_loss.detach().cpu().item()),
+                "wrong_history_loss": float(wrong_loss.detach().cpu().item()),
                 "group_floor_loss": float(group_floor.detach().cpu().item()),
                 "group_balance_loss": float(group_balance.detach().cpu().item()),
                 "group_min_margin_mean": float(group_min.detach().cpu().item()),
                 "anchor_loss": float(anchor.detach().cpu().item()),
+                "weighted_loss_enabled": bool(group_weights is not None),
+                "row_weight_mean": float(train_row_weights.mean().detach().cpu().item())
+                if train_row_weights is not None
+                else 1.0,
             }
         )
 
@@ -407,6 +582,7 @@ def _train_scope(
         split_offset=split_offset,
         split="full",
         target_margin=target_margin,
+        group_weights=group_weights,
     )
     train_summary, train_rows, train_group_rows = _eval_scope_split(
         model=model,
@@ -416,6 +592,7 @@ def _train_scope(
         split_offset=split_offset,
         split="train",
         target_margin=target_margin,
+        group_weights=group_weights,
     )
     eval_summary, eval_rows, eval_group_rows = _eval_scope_split(
         model=model,
@@ -425,6 +602,7 @@ def _train_scope(
         split_offset=split_offset,
         split="eval",
         target_margin=target_margin,
+        group_weights=group_weights,
     )
     state_after = _clone_state_dict(model)
     deltas = _parameter_group_delta(base_state, state_after)
@@ -449,6 +627,7 @@ def _train_scope(
                 "lr": float(lr),
                 "target_margin": float(target_margin),
                 "allowed_groups": sorted(allowed_groups),
+                "weighted_loss_enabled": bool(group_weights is not None),
             }
         },
     )
@@ -466,6 +645,7 @@ def _train_scope(
         "frozen_parameter_count": int(frozen_count),
         "allowed_parameter_groups": "|".join(sorted(allowed_groups)),
         "forbidden_parameter_mutation_detected": bool(forbidden_mutation),
+        "weighted_loss_enabled": bool(group_weights is not None),
         **_prefixed("full", full_summary),
         **_prefixed("train", train_summary),
         **_prefixed("eval", eval_summary),
@@ -508,6 +688,8 @@ def run_trainable_scope_probe(
     scopes: Iterable[str] = DEFAULT_SCOPES,
     split_mod: int = 5,
     split_offsets: Iterable[int] = (0,),
+    split_plan_path: Path | None = None,
+    group_weight_rows_path: Path | None = None,
 ) -> dict[str, Any]:
     checkpoint_path = Path(checkpoint_path)
     history_run_dir = Path(history_run_dir)
@@ -541,6 +723,14 @@ def run_trainable_scope_probe(
         device=resolved_device,
     )
     full_meta_rows = _source_history_meta_rows(history_run_dir)
+    split_plan = _load_split_plan(split_plan_path) if split_plan_path is not None else None
+    group_weights: dict[tuple[int, str], float] | None = None
+    pair_specific_weight_used = False
+    max_group_weight = 0.0
+    if group_weight_rows_path is not None:
+        group_weights, pair_specific_weight_used, max_group_weight = _load_group_weights(group_weight_rows_path)
+    split_plan_used = split_plan is not None
+    group_weights_used = group_weights is not None
 
     scope_summaries: list[dict[str, Any]] = []
     all_split_rows: list[dict[str, Any]] = []
@@ -550,7 +740,15 @@ def run_trainable_scope_probe(
     all_trace_rows: list[dict[str, Any]] = []
     split_pair_counts: list[dict[str, Any]] = []
     for split_offset in offset_values:
-        split_rows = _split_rows(full_meta_rows, split_mod=int(split_mod), split_offset=int(split_offset))
+        if split_plan is None:
+            split_rows = _split_rows(full_meta_rows, split_mod=int(split_mod), split_offset=int(split_offset))
+        else:
+            split_rows = _split_rows_from_plan(
+                full_meta_rows,
+                split_plan,
+                split_mod=int(split_mod),
+                split_offset=int(split_offset),
+            )
         train_indices = _indices_for_split(split_rows, "train")
         eval_indices = _indices_for_split(split_rows, "eval")
         if not train_indices or not eval_indices:
@@ -599,6 +797,7 @@ def run_trainable_scope_probe(
                 lambda_group_floor=lambda_group_floor,
                 lambda_group_balance=lambda_group_balance,
                 lambda_anchor=lambda_anchor,
+                group_weights=group_weights,
             )
             scope_summaries.append(scope_summary)
             all_rows.extend(rows)
@@ -653,6 +852,13 @@ def run_trainable_scope_probe(
         "split_mod": int(split_mod),
         "split_offsets": "|".join(str(offset) for offset in offset_values),
         "scopes": "|".join(scope_names),
+        "split_plan_used": bool(split_plan_used),
+        "split_plan_path": str(split_plan_path) if split_plan_path is not None else "",
+        "group_weights_used": bool(group_weights_used),
+        "group_weight_rows_path": str(group_weight_rows_path) if group_weight_rows_path is not None else "",
+        "weighted_loss_enabled": bool(group_weights_used),
+        "pair_specific_weight_used": bool(pair_specific_weight_used),
+        "max_group_weight": float(max_group_weight),
         "train_row_count": int(split_pair_counts[0]["train_row_count"]),
         "eval_row_count": int(split_pair_counts[0]["eval_row_count"]),
         "total_train_row_count": total_train_rows,
@@ -704,7 +910,21 @@ def run_trainable_scope_probe(
         "group_rows_csv": run_dir / "group_rows.csv",
         "parameter_group_delta_csv": run_dir / "parameter_group_delta.csv",
         "train_trace_csv": run_dir / "train_trace.csv",
+        "weighted_group_diagnostics_csv": run_dir / "weighted_group_diagnostics.csv",
     }
+    if group_weights is not None:
+        weight_rows = [
+            {
+                "pair_id": int(pair_id),
+                "probe_template": str(probe_template),
+                "group_weight": float(weight),
+                "pair_specific_weight_used": False,
+            }
+            for (pair_id, probe_template), weight in sorted(group_weights.items())
+        ]
+        write_csv_rows(run_dir / "weighted_group_diagnostics.csv", weight_rows)
+    else:
+        write_csv_rows(run_dir / "weighted_group_diagnostics.csv", [])
     write_json(run_dir / "summary.json", summary)
     return summary
 
@@ -725,6 +945,8 @@ def main() -> None:
     parser.add_argument("--scopes", type=str, default=",".join(DEFAULT_SCOPES))
     parser.add_argument("--split-mod", type=int, default=5)
     parser.add_argument("--split-offsets", type=str, default="0")
+    parser.add_argument("--split-plan", type=Path, default=None)
+    parser.add_argument("--group-weight-rows", type=Path, default=None)
     args = parser.parse_args()
     scopes = [scope.strip() for scope in str(args.scopes).split(",") if scope.strip()]
     split_offsets = [int(offset.strip()) for offset in str(args.split_offsets).split(",") if offset.strip()]
@@ -743,6 +965,8 @@ def main() -> None:
         scopes=scopes,
         split_mod=args.split_mod,
         split_offsets=split_offsets,
+        split_plan_path=args.split_plan,
+        group_weight_rows_path=args.group_weight_rows,
     )
     for key, value in summary.items():
         print(f"{key}: {value}")

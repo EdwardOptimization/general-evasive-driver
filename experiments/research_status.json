@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1318,
+    "completed": 1319,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.md",
+    "command_log": "docs/m1309-paper-route-source-history-weighted-repeat-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.md",
+    "run_dir": "runs/m1309_source_history_weighted_repeat_probe",
     "status": "completed",
-    "task_id": "m1308-paper-route-source-history-trainable-scope-escalation-synthesis"
+    "task_id": "m1309-paper-route-source-history-weighted-repeat-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1309-paper-route-source-history-weighted-repeat-implementation.json",
-    "hypothesis": "Implement and run bounded weighted source-history repeat using M1306 split plan and group weights",
-    "id": "m1309-paper-route-source-history-weighted-repeat-implementation",
+    "command": "see experiments/manifests/m1310-paper-route-source-history-weighted-repeat-tradeoff-audit.json",
+    "hypothesis": "Classify why M1309 weighted repeat improved one split but regressed repeat robustness before another objective run",
+    "id": "m1310-paper-route-source-history-weighted-repeat-tradeoff-audit",
     "kind": "infrastructure",
-    "notes": "Pending: weighted repeat implementation; PPO and promotion remain blocked",
-    "priority": 13040,
+    "notes": "Pending: no-training tradeoff audit; PPO and promotion remain blocked",
+    "priority": 13050,
     "status": "pending",
-    "success_artifact": "runs/m1309_source_history_weighted_repeat_probe/summary.json"
+    "success_artifact": "runs/m1310_source_history_weighted_repeat_tradeoff_audit/summary.json"
   },
-  "updated_at_utc": "20260528T154918Z"
+  "updated_at_utc": "20260528T155822Z"
 }

@@ -1,0 +1,178 @@
+{
+  "id": "m1310-paper-route-source-history-weighted-repeat-tradeoff-audit",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1309-paper-route-source-history-weighted-repeat-implementation.md",
+      "runs/m1309_source_history_weighted_repeat_probe/summary.json",
+      "runs/m1309_source_history_weighted_repeat_probe/scope_summaries.csv",
+      "runs/m1309_source_history_weighted_repeat_probe/group_rows.csv",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/scope_summaries.csv",
+      "runs/m1304_source_history_repeat_failed_offset_audit/summary.json",
+      "runs/m1306_source_history_concentration_refresh_plan/summary.json",
+      "runs/m1306_source_history_concentration_refresh_plan/group_weight_rows.csv",
+      "runs/m1306_source_history_concentration_refresh_plan/balanced_split_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1309-paper-route-source-history-weighted-repeat-implementation.json"
+    ],
+    "parent_objective": [
+      "no-training tradeoff audit for weighted source-history repeat"
+    ],
+    "derived_from": [
+      "m1309-paper-route-source-history-weighted-repeat-implementation"
+    ],
+    "blocked_by": [
+      "M1309 weighted repeat regressed repeat robustness despite improving one split"
+    ],
+    "supersedes": [
+      "direct PPO or weighted objective tuning after M1309"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1310-paper-route-source-history-weighted-repeat-tradeoff-audit.md",
+  "public_gates": [
+    "M1310 must not train",
+    "M1310 must not run PPO",
+    "M1310 must not use private holdout",
+    "M1310 must not promote",
+    "M1310 must compare M1309 against M1302",
+    "M1310 must report which offsets improved and regressed",
+    "M1310 must classify whether the weighted plan improved the M1304 top failed source-family/probe combo",
+    "M1310 must route to corpus/plan redesign, objective redesign, or branch synthesis"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not tune weights from the same audit and call it unbiased",
+    "do not treat one improved split as repeat robustness",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_weighted_repeat_implementation",
+    "evidence_axis": "S_weighted_repeat_tradeoff_audit",
+    "evidence_increment": "classifies why M1309 weighted repeat improved one split but reduced repeat robustness",
+    "claim_scope": "diagnostic audit only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if audit cannot match M1302 and M1309 rows",
+      "stop if audit finds top failed-combo improvement but global regression",
+      "stop if audit finds weight-induced fold overfit",
+      "stop if audit finds corpus/plan insufficiency requiring source expansion"
+    ],
+    "fallback_plan": [
+      "if weighted repeat is a local tradeoff, design a lexicographic or group-robust objective rather than increasing weights",
+      "if top failed combo improves but global metrics regress, redesign weighting around robust min-fold criteria",
+      "if corpus coverage is insufficient, pivot to fresh source-history corpus expansion",
+      "if audit shows a simple implementation bug, repair M1309 before further experiments"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1309 mixed regression requires audit before another implementation milestone",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "classify weighted-repeat tradeoff before another source-history objective run",
+    "admission_evidence": [
+      "M1309 uses split plan and group weights correctly",
+      "M1309 offset 3 improves strongly",
+      "M1309 repeat robustness regresses from M1302",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "tradeoff audit implementation",
+      "focused tests",
+      "M1310 run artifacts",
+      "M1310 result doc",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "M1309 versus M1302 tradeoff is classified",
+      "top failed source-family/probe combo impact is reported",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1310 audits fixed-current source-history diagnostics and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "compare correct-history versus wrong-history directional outcomes across baseline and weighted repeat",
+      "audit source-family/probe-template concentration effects"
+    ],
+    "temporal_evidence_window": "M1302, M1304, M1306, and M1309 fixed-current artifacts.",
+    "negative_result_policy": "If M1309 is a fold-specific or weight-induced tradeoff, keep PPO blocked and route to objective/corpus redesign or synthesis.",
+    "allowed_claims": [
+      "weighted repeat tradeoff classification",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "M1309's best-offset improvement with repeat regression can be classified from existing artifacts as fold overfit, weight-induced tradeoff, top-failed-combo improvement with global regression, or corpus/plan insufficiency before another objective run.",
+  "success_criteria": [
+    "runs/m1310_source_history_weighted_repeat_tradeoff_audit/summary.json exists",
+    "focused tests pass",
+    "audit compares M1309 and M1302 per offset",
+    "audit reports improved and regressed offsets",
+    "audit reports whether M1304 top failed source-family/probe combo improved",
+    "audit reports whether group weights correlate with gains or regressions",
+    "audit produces a next-route decision",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "focused tests fail",
+    "audit cannot compare M1309 and M1302",
+    "audit omits failed-offset concentration comparison",
+    "audit starts training or PPO",
+    "audit uses private holdout",
+    "checkpoint is promoted",
+    "actor input contract changes"
+  ],
+  "commands": [
+    {
+      "name": "run_tradeoff_audit",
+      "command": "PYTHONPATH=src python -m autodrift.source_history_weighted_repeat_tradeoff_audit --weighted-run-dir runs/m1309_source_history_weighted_repeat_probe --baseline-run-dir runs/m1302_source_history_trainable_scope_repeat_probe --failed-offset-run-dir runs/m1304_source_history_repeat_failed_offset_audit --plan-run-dir runs/m1306_source_history_concentration_refresh_plan --run-dir runs/m1310_source_history_weighted_repeat_tradeoff_audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1310_source_history_weighted_repeat_tradeoff_audit/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1310-paper-route-source-history-weighted-repeat-tradeoff-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1309_source_history_weighted_repeat_probe/summary.json",
+    "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json",
+    "runs/m1304_source_history_repeat_failed_offset_audit/summary.json",
+    "runs/m1306_source_history_concentration_refresh_plan/summary.json"
+  ],
+  "decision_rule": "M1310 passes as audit infrastructure if it classifies the weighted-repeat tradeoff from existing artifacts without training, PPO, promotion, private holdout use, threshold relaxation, or actor-input expansion.",
+  "next_blocker": "m1310-paper-route-source-history-weighted-repeat-tradeoff-audit"
+}

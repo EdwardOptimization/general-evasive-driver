@@ -117,6 +117,40 @@ def test_run_trainable_scope_probe_writes_split_and_parameter_artifacts(tmp_path
             ]
         )
     _write_csv(intervention_dir / "intervention_action_sequences.csv", action_rows)
+    split_plan = tmp_path / "split_plan.csv"
+    group_weights = tmp_path / "group_weights.csv"
+    _write_csv(
+        split_plan,
+        [
+            {
+                "pair_id": "0",
+                "probe_template": "left_brake_probe",
+                "assigned_eval_fold": "0",
+            },
+            {
+                "pair_id": "1",
+                "probe_template": "left_brake_probe",
+                "assigned_eval_fold": "1",
+            },
+        ],
+    )
+    _write_csv(
+        group_weights,
+        [
+            {
+                "pair_id": "0",
+                "probe_template": "left_brake_probe",
+                "group_weight": "1.5",
+                "pair_specific_weight_used": "False",
+            },
+            {
+                "pair_id": "1",
+                "probe_template": "left_brake_probe",
+                "group_weight": "1.0",
+                "pair_specific_weight_used": "False",
+            },
+        ],
+    )
 
     summary = run_trainable_scope_probe(
         checkpoint_path=checkpoint,
@@ -128,6 +162,8 @@ def test_run_trainable_scope_probe_writes_split_and_parameter_artifacts(tmp_path
         lr=1e-3,
         scopes=("fusion_head",),
         split_offsets=(0, 1),
+        split_plan_path=split_plan,
+        group_weight_rows_path=group_weights,
     )
 
     assert summary["base_scope_count"] == 1
@@ -139,6 +175,11 @@ def test_run_trainable_scope_probe_writes_split_and_parameter_artifacts(tmp_path
     assert summary["ppo_used"] is False
     assert summary["promoted"] is False
     assert summary["private_holdout_used"] is False
+    assert summary["split_plan_used"] is True
+    assert summary["group_weights_used"] is True
+    assert summary["weighted_loss_enabled"] is True
+    assert summary["pair_specific_weight_used"] is False
+    assert summary["max_group_weight"] == 1.5
     assert (run_dir / "summary.json").exists()
     assert (run_dir / "scope_summaries.csv").exists()
     assert (run_dir / "repeat_summaries.csv").exists()
@@ -147,5 +188,6 @@ def test_run_trainable_scope_probe_writes_split_and_parameter_artifacts(tmp_path
     assert (run_dir / "group_rows.csv").exists()
     assert (run_dir / "parameter_group_delta.csv").exists()
     assert (run_dir / "train_trace.csv").exists()
+    assert (run_dir / "weighted_group_diagnostics.csv").exists()
     assert (run_dir / "checkpoints" / "offset_0_fusion_head_candidate.pt").exists()
     assert (run_dir / "checkpoints" / "offset_1_fusion_head_candidate.pt").exists()

@@ -4,7 +4,8 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "objective_overfit",
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -171,6 +172,45 @@
     "runs/m1306_source_history_concentration_refresh_plan/summary.json",
     "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1309_source_history_weighted_repeat_probe/summary.json",
+    "doc": "docs/m1309-paper-route-source-history-weighted-repeat-implementation.md",
+    "decision": "source_history_weighted_repeat_mixed_regression_route_to_tradeoff_audit",
+    "result_class": "source_history_trainable_scope_repeat_mixed",
+    "split_plan_used": true,
+    "split_plan_path": "runs/m1306_source_history_concentration_refresh_plan/balanced_split_rows.csv",
+    "group_weights_used": true,
+    "group_weight_rows_path": "runs/m1306_source_history_concentration_refresh_plan/group_weight_rows.csv",
+    "weighted_loss_enabled": true,
+    "pair_specific_weight_used": false,
+    "max_group_weight": 2.0,
+    "forbidden_parameter_mutation_detected": false,
+    "best_split_offset": 3,
+    "best_eval_both_directional_fraction": 0.4375,
+    "best_eval_group_all_rows_both_positive_fraction": 0.4375,
+    "best_full_both_positive_count": 58,
+    "best_full_group_all_rows_both_positive_count": 29,
+    "best_repeat_offset_pass_count": 1,
+    "best_repeat_required_pass_count": 3,
+    "best_repeat_mean_eval_both_directional_fraction": 0.2089285714,
+    "best_repeat_mean_eval_group_all_rows_both_positive_fraction": 0.2089285714,
+    "best_repeat_mean_full_both_positive_count": 37.2,
+    "best_repeat_mean_full_group_all_rows_both_positive_count": 18.6,
+    "m1302_best_repeat_offset_pass_count": 3,
+    "m1302_best_repeat_mean_eval_both_directional_fraction": 0.233531746,
+    "m1302_best_repeat_mean_full_both_positive_count": 38.0,
+    "m1302_best_repeat_mean_full_group_all_rows_both_positive_count": 19.0,
+    "training_started": true,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1310-paper-route-source-history-weighted-repeat-tradeoff-audit.json"
+  },
+  "decision": "source_history_weighted_repeat_mixed_regression_route_to_tradeoff_audit",
   "decision_rule": "M1309 passes as diagnostic infrastructure if it implements and runs the bounded weighted repeat without PPO, promotion, private holdout use, threshold relaxation, pair-specific weights, forbidden mutation, or actor-input expansion.",
-  "next_blocker": "m1309-paper-route-source-history-weighted-repeat-implementation"
+  "next_blocker": "m1310-paper-route-source-history-weighted-repeat-tradeoff-audit"
 }

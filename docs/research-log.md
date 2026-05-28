@@ -19006,3 +19006,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - public-gate overfit risk: high; keep claims local to fixed-current diagnostics.
 - follow-up manifest: `experiments/manifests/m1309-paper-route-source-history-weighted-repeat-implementation.json`.
 - next: `m1309-paper-route-source-history-weighted-repeat-implementation`
+
+## 20260528T155822Z - m1309-paper-route-source-history-weighted-repeat-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1309_source_history_weighted_repeat_probe/summary.json`
+- doc: `docs/m1309-paper-route-source-history-weighted-repeat-implementation.md`
+- implementation: extended `source_history_trainable_scope_probe` with `--split-plan`, `--group-weight-rows`, weighted directional losses, weighted pair-group losses, and weighted diagnostics.
+- validation: `PYTHONPATH=src python -m pytest -q tests/test_source_history_trainable_scope_probe.py` passed with `1 passed`.
+- result class: `source_history_trainable_scope_repeat_mixed`.
+- split and weight guardrails: `split_plan_used=true`, `group_weights_used=true`, `weighted_loss_enabled=true`, `pair_specific_weight_used=false`, `max_group_weight=2.0`.
+- mutation guardrail: `forbidden_parameter_mutation_detected=false`.
+- best offset: `3`, with eval row/group fractions `0.4375`, full both-positive rows `58`, and full all-rows-both-positive groups `29`.
+- repeat result: `1/5` offset pass count versus required `3/5`.
+- M1309 repeat means: eval row/group fractions `0.2089285714`, full both-positive rows `37.2`, full all-rows-both-positive groups `18.6`.
+- comparison: M1302 had `3/5` offset passes, mean eval fraction `0.2335317460`, and mean full rows/groups `38.0/19.0`.
+- interpretation: weighted repeat is infrastructure-valid but regresses repeat robustness while improving one split, compatible with objective overfit or source/corpus tradeoff.
+- guardrail: no PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1310-paper-route-source-history-weighted-repeat-tradeoff-audit.json`.
+- decision: `source_history_weighted_repeat_mixed_regression_route_to_tradeoff_audit`
+- next: `m1310-paper-route-source-history-weighted-repeat-tradeoff-audit`

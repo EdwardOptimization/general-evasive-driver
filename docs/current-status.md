@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1308-paper-route-source-history-trainable-scope-escalation-synthesis
+m1309-paper-route-source-history-weighted-repeat-implementation
 ```
 
 Current next task:
 
 ```text
-m1309-paper-route-source-history-weighted-repeat-implementation
+m1310-paper-route-source-history-weighted-repeat-tradeoff-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -160,7 +160,18 @@ before any implementation or PPO. M1308 completed that synthesis with
 `paper_route_source_history_trainable_scope_escalation` and open
 `paper_route_source_history_weighted_repeat_implementation`. The active blocker
 is M1309: implement and run the bounded weighted repeat using the M1306 split
-plan and group weights. PPO and promotion remain blocked.
+plan and group weights. M1309 implemented and ran that bounded weighted repeat.
+The implementation is valid infrastructure: `split_plan_used=true`,
+`group_weights_used=true`, `weighted_loss_enabled=true`,
+`pair_specific_weight_used=false`, `max_group_weight=2.0`, and
+`forbidden_parameter_mutation_detected=false`. The scientific result is mixed
+and regressive versus M1302 repeat robustness: offset `3` improves strongly
+(`eval_both_directional_fraction=0.4375`, `full_both_positive_count=58`), but
+the repeat pass count drops from `3/5` to `1/5`, mean eval fraction drops from
+`0.2335317460` to `0.2089285714`, and mean full counts drop from `38.0/19.0`
+rows/groups to `37.2/18.6`. The active blocker is M1310: run a no-training
+tradeoff audit against M1302, M1304, and M1306 before another objective run.
+PPO and promotion remain blocked.
 
 ## Actor Contract
 
