@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T022047Z
+- Generated at UTC: 20260528T022558Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M1177 may only run the pre-registered bounded relocation replay over M1175 candidate_outcomes.csv and document the result. It cannot run broad mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.
+- Promotion decision: action_divergent_bounded_relocation_reject_route_to_scarcity_audit
+- Decision reason: M1177 source budget passed but accepted wrong-history rows remained duplicate dominated with 38 balanced rows across only 2 physical pairs 1 target and 1 margin bucket
 
 ## Hypothesis
 
@@ -81,8 +81,19 @@ M1175 action-divergent candidates will materialize into a source-diverse wrong-h
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1177-v4-public-base-action-divergent-bounded-relocation-run
+- type: gate
+- checkpoint: runs/m1177_action_divergent_bounded_relocation_seed117700/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: action_divergent_bounded_relocation_reject_route_to_scarcity_audit
+- reason: M1177 source budget passed but accepted wrong-history rows remained duplicate dominated with 38 balanced rows across only 2 physical pairs 1 target and 1 margin bucket
 
 ## Next Blocker
 
-m1177-v4-public-base-action-divergent-bounded-relocation-run
+m1178-v4-public-base-action-divergent-relocation-scarcity-audit

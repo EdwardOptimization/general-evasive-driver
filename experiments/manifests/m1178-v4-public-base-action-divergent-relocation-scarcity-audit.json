@@ -1,0 +1,155 @@
+{
+  "id": "m1178-v4-public-base-action-divergent-relocation-scarcity-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1177_action_divergent_bounded_relocation_seed117700/summary.json",
+      "runs/m1177_action_divergent_bounded_relocation_seed117700/boundary_relocation_rows.csv",
+      "runs/m1177_action_divergent_bounded_relocation_seed117700/balanced_accepted_wrong_history_rows.csv",
+      "docs/m1177-v4-public-base-action-divergent-bounded-relocation-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1177-v4-public-base-action-divergent-bounded-relocation-run.json"
+    ],
+    "parent_objective": [
+      "audit why action-divergent bounded relocation remains duplicate dominated"
+    ],
+    "derived_from": [
+      "m1177-v4-public-base-action-divergent-bounded-relocation-run"
+    ],
+    "blocked_by": [
+      "M1177 produced accepted wrong-history rows but only across two physical pairs and one target"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "direct proof-corpus conversion from M1177",
+      "repeating M1177 unchanged",
+      "training from M1175/M1177 rows before failure classification"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1178-v4-public-base-action-divergent-relocation-scarcity-audit.md",
+  "public_gates": [
+    "M1178 may audit existing M1177 artifacts only",
+    "M1178 must not run relocation replay",
+    "M1178 must not run mining",
+    "M1178 must not train actor weights",
+    "M1178 must not run PPO",
+    "M1178 must not promote",
+    "M1178 must not use private holdout",
+    "M1178 must preserve actor inputs",
+    "M1178 must not convert rows into a proof corpus"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun relocation replay",
+    "do not rerun broad mining",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert rows into a proof corpus",
+    "do not weaken thresholds to declare M1177 a pass"
+  ],
+  "workflow_synthesis": {
+    "branch": "stronger_wrong_history_construction",
+    "evidence_axis": "G_audit: action-divergent relocation scarcity",
+    "evidence_increment": "classifies M1177 duplicate-dominated failure before any new replay or mining",
+    "claim_scope": "failure audit only; no replay, mining, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if M1177 collapse is explained by old active-set dominance",
+      "stop if source-geometry deficiency blocks further artifact-only expansion",
+      "stop if candidate scoring cannot explain accepted-vs-rejected structure"
+    ],
+    "fallback_plan": [
+      "if old active-set dominance is confirmed, route to new data/mining design rather than more artifact-only relocation",
+      "if source geometry is missing, route to richer source artifact generation",
+      "if scoring is the problem, route to scoring repair before replay"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1177 rejects after bounded action-divergent relocation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M1177 relocation scarcity",
+    "admission_evidence": [
+      "M1177 source budget passed",
+      "M1177 relocation replay started and produced 1054 rows",
+      "M1177 accepted rows remained two-pair and one-target dominated"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not run replay",
+      "do not rerun mining",
+      "do not convert rows"
+    ],
+    "allowed_updates": [
+      "audit document",
+      "next manifest if route is clear",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "failure mechanism is classified",
+      "next branch route is explicit",
+      "no threshold weakening occurred"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1178 audits artifacts only and adds no new behavior evidence.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1178 reviews M1177 relocation outputs; it does not execute new interventions.",
+    "negative_result_policy": "Record M1177 scarcity as evidence about construction limits; do not weaken proof thresholds.",
+    "allowed_claims": [
+      "failure mechanism audit",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-level claim"
+    ]
+  },
+  "hypothesis": "M1177 failure can be localized to old-active-set dominance, source-geometry deficiency, or candidate scoring limits before any new replay mining or training.",
+  "success_criteria": [
+    "audit document exists",
+    "accepted vs rejected row structure is summarized",
+    "old active-set dominance is checked",
+    "source geometry caveat is addressed",
+    "next route is explicit",
+    "no replay, mining, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "audit cannot classify the failure",
+    "audit recommends rerun unchanged",
+    "audit weakens thresholds to declare M1177 a pass",
+    "replay, mining, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "audit_m1177_artifacts",
+      "command": "inspect existing M1177 summary and CSV artifacts; write docs/m1178-v4-public-base-action-divergent-relocation-scarcity-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1178-v4-public-base-action-divergent-relocation-scarcity-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1177_action_divergent_bounded_relocation_seed117700/summary.json",
+    "docs/m1177-v4-public-base-action-divergent-bounded-relocation-run.md"
+  ],
+  "decision_rule": "M1178 may only audit existing M1177 artifacts and document the next route. It cannot run relocation replay, run mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
+  "next_blocker": "m1178-v4-public-base-action-divergent-relocation-scarcity-audit"
+}

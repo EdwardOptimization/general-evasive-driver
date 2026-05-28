@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1177 may only run the pre-registered bounded relocation replay over M1175 candidate_outcomes.csv and document the result. It cannot run broad mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
+  "decision_reason": "M1177 source budget passed but accepted wrong-history rows remained duplicate dominated with 38 balanced rows across only 2 physical pairs 1 target and 1 margin bucket",
   "failure_criteria": [
     "summary artifact missing",
     "relocation runtime/resource failure",
@@ -22,7 +22,7 @@
     "do not weaken thresholds after seeing relocation results"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260528T022047Z",
+  "generated_at_utc": "20260528T022558Z",
   "hypothesis": "M1175 action-divergent candidates will materialize into a source-diverse wrong-history boundary surface under fine target-margin bounded relocation.",
   "lineage": {
     "blocked_by": [
@@ -51,9 +51,9 @@
     "supersedes": []
   },
   "milestone": "m1177-v4-public-base-action-divergent-bounded-relocation-run",
-  "next_blocker": "m1177-v4-public-base-action-divergent-bounded-relocation-run",
+  "next_blocker": "m1178-v4-public-base-action-divergent-relocation-scarcity-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "action_divergent_bounded_relocation_reject_route_to_scarcity_audit",
   "public_gates": [
     "M1177 may run only the pre-registered bounded relocation command",
     "M1177 must not run broad mining",
@@ -64,7 +64,20 @@
     "M1177 must preserve actor inputs",
     "M1177 must not convert rows into a proof corpus"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m1177_action_divergent_bounded_relocation_seed117700/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "action_divergent_bounded_relocation_reject_route_to_scarcity_audit",
+    "milestone": "m1177-v4-public-base-action-divergent-bounded-relocation-run",
+    "reason": "M1177 source budget passed but accepted wrong-history rows remained duplicate dominated with 38 balanced rows across only 2 physical pairs 1 target and 1 margin bucket",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "summary artifact exists",
     "boundary_relocation_rows.csv exists",

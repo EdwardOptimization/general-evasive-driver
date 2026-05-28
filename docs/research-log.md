@@ -16772,3 +16772,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no relocation replay, mining, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
 - decision: `action_divergent_bounded_relocation_design_admit_run`
 - next: `m1177-v4-public-base-action-divergent-bounded-relocation-run`
+
+## 20260528T033500Z - m1177-v4-public-base-action-divergent-bounded-relocation-run
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1177-v4-public-base-action-divergent-bounded-relocation-run.md`
+- result: source budget passed and relocation replay ran, but the accepted wrong-history surface remained duplicate dominated.
+- source budget: `240` candidate rows, `17` physical pairs, `9` left steps, `3` targets, `6` checkpoints, max pair fraction `0.0625`.
+- replay: `1054` raw relocation rows, `78` raw accepted wrong-history rows, `38` balanced exportable rows.
+- accepted surface: `2` physical pairs, `2` left steps, `5` checkpoints, `1` target, `1` normal-margin bucket.
+- accepted pairs: `116117:39:116124:15` and `116117:36:116124:15`.
+- success-drop quality: accepted wrong-history success-drop fraction `1.0`; control accepted wrong rows `0`.
+- failed gates: accepted rows `<80`, physical pairs `<10`, left steps `<5`, targets `<2`, margin buckets `<2`, max pair fraction `0.526316 > 0.15`.
+- interpretation: M1177 improves raw accepted row count over M1169 but still does not break the two-pair active-set collapse.
+- guardrail: no broad mining, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
+- decision: `action_divergent_bounded_relocation_reject_route_to_scarcity_audit`
+- next: `m1178-v4-public-base-action-divergent-relocation-scarcity-audit`
