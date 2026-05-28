@@ -16996,3 +16996,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no final configs generated, controller training, candidate replay, PPO, promotion, private holdout, or actor-input change occurred.
 - decision: `controller_profile_config_generation_design_admit_implementation`
 - next: `m1190-paper-route-controller-profile-config-generation-implementation`
+
+## 20260528T070000Z - m1190-paper-route-controller-profile-config-generation-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1190-paper-route-controller-profile-config-generation-implementation.md`
+- source: `src/autodrift/controller_profile_configs.py`
+- tests: `tests/test_controller_profile_configs.py`
+- generated configs: `configs/paper_route_profiles/m1190_*_smoke.json`
+- run dir: `runs/m1190_controller_profile_config_generation`
+- result: generates eight profile smoke configs and a summary artifact without running the configs for training.
+- summary: `generated_config_count=8`, `l2_window_steps=[13,25,50,100]`, `l0_observation_mask=zero_previous_command_fields`, `l0_previous_command_mask_indices=[9,10,11]`.
+- guard flags: `training_started=false`, `optimizer_started=false`, `ppo_used=false`, `candidate_replay_started=false`, `private_holdout_used=false`, `promoted=false`, `actor_input_contract_changed=false`.
+- focused verification: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_controller_profile_configs.py tests/test_controller_profiles.py` -> `13 passed`.
+- caveat: L0 mask is generated metadata only; runtime entrypoints still need a mask adapter before L0 training or evaluation.
+- follow-up manifest: `experiments/manifests/m1191-paper-route-observation-mask-runtime-wrapper-implementation.json`.
+- decision: `controller_profile_configs_generated_route_to_runtime_mask_wrapper`
+- next: `m1191-paper-route-observation-mask-runtime-wrapper-implementation`

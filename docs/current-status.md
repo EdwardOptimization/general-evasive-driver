@@ -115,8 +115,40 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1190-paper-route-controller-profile-config-generation-implementation
+m1191-paper-route-observation-mask-runtime-wrapper-implementation
 ```
+
+M1190 implemented generated controller-profile smoke configs:
+
+```text
+artifact: docs/m1190-paper-route-controller-profile-config-generation-implementation.md
+source: src/autodrift/controller_profile_configs.py
+tests: tests/test_controller_profile_configs.py
+configs: configs/paper_route_profiles/m1190_*_smoke.json
+run dir: runs/m1190_controller_profile_config_generation
+decision: controller_profile_configs_generated_route_to_runtime_mask_wrapper
+```
+
+Generated config summary:
+
+```text
+generated_config_count: 8
+l2_window_steps: [13, 25, 50, 100]
+l0_observation_mask: zero_previous_command_fields
+l0_previous_command_mask_indices: [9, 10, 11]
+training_started: false
+optimizer_started: false
+ppo_used: false
+candidate_replay_started: false
+private_holdout_used: false
+promoted: false
+actor_input_contract_changed: false
+```
+
+M1190 generated the config files but did not run them. The L0 mask is present
+as metadata, not yet guaranteed at runtime inside train/eval entrypoints. The
+next blocker is M1191: implement a runtime observation-mask wrapper before any
+L0 training or evaluation.
 
 M1189 completed controller-profile config-generation design:
 

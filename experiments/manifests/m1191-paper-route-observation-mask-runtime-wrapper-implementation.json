@@ -1,0 +1,162 @@
+{
+  "id": "m1191-paper-route-observation-mask-runtime-wrapper-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1190-paper-route-controller-profile-config-generation-implementation.md",
+      "src/autodrift/controller_profiles.py",
+      "src/autodrift/controller_profile_configs.py",
+      "configs/paper_route_profiles/m1190_l0_current_masked_smoke.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1190-paper-route-controller-profile-config-generation-implementation.json"
+    ],
+    "parent_objective": [
+      "implement runtime observation mask support so L0_current_masked actually zeros previous command fields before training or evaluation"
+    ],
+    "derived_from": [
+      "m1190-paper-route-controller-profile-config-generation-implementation"
+    ],
+    "blocked_by": [
+      "M1190 config metadata records L0 mask but current runtime entrypoints do not apply it"
+    ],
+    "supersedes": [
+      "treating L0 metadata as if the mask is applied at runtime"
+    ],
+    "invalidates": [
+      "running L0 training or evaluation before runtime mask support exists"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1191-paper-route-observation-mask-runtime-wrapper-implementation.md",
+  "public_gates": [
+    "M1191 may implement runtime observation masking and focused tests only",
+    "M1191 must not train controller weights",
+    "M1191 must not run PPO",
+    "M1191 must not run candidate replay",
+    "M1191 must not promote",
+    "M1191 must not use private holdout",
+    "M1191 must not add hidden or oracle actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train generated configs",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not change actor input semantics beyond applying declared deployable masks",
+    "do not add hidden or oracle actor inputs",
+    "do not claim controller performance from wrapper tests"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_infrastructure: runtime observation mask support",
+    "evidence_increment": "makes declared controller-profile observation masks executable for later profile smoke and training runs",
+    "claim_scope": "infrastructure only; no training replay PPO promotion private-holdout driver-performance recurrent-belief or paper-result claim",
+    "stop_condition": [
+      "stop if wrapper changes unmasked profiles",
+      "stop if L0 mask zeros the wrong fields",
+      "stop if runtime support adds hidden or oracle actor inputs",
+      "stop if tests start training"
+    ],
+    "fallback_plan": [
+      "if train_ppo integration is too invasive, implement a pure policy/observation adapter first",
+      "if evaluation and training need separate wrappers, implement shared mask function with separate adapters",
+      "if reset-control needs hidden-state runtime support, leave it metadata-only and route to a later reset wrapper"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1190 generated config metadata exposes L0 runtime mask gap",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement observation mask runtime support",
+    "admission_evidence": [
+      "M1190 generated configs include L0 mask metadata",
+      "M1190 explicitly blocks L0 training until runtime mask support exists",
+      "M1188 apply_observation_mask already provides core masking semantics"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train controllers",
+      "do not run generated configs",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "runtime mask adapter",
+      "focused runtime mask tests",
+      "M1191 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "L0 runtime mask is applied in focused adapter tests",
+      "unmasked L1/L2/L3 profiles remain unchanged",
+      "no training or PPO starts",
+      "next profile smoke instantiation milestone is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1191 is infrastructure that preserves L0 as a true current-only control for later current-frame substitution tests.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1191 applies masks only and does not evaluate temporal evidence.",
+    "negative_result_policy": "If runtime mask integration is incomplete, keep L0 training blocked and route to focused repair.",
+    "allowed_claims": [
+      "runtime observation-mask readiness",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Runtime observation masking can make L0_current_masked executable without changing unmasked profiles or introducing oracle inputs.",
+  "success_criteria": [
+    "runtime mask adapter exists",
+    "focused runtime mask tests pass",
+    "L0 zeros previous-command fields 9 10 11 at runtime",
+    "unmasked profiles remain unchanged",
+    "no hidden or oracle actor inputs are introduced",
+    "no controller training, candidate replay, PPO, promotion, private holdout, or actor-input contract change occurs"
+  ],
+  "failure_criteria": [
+    "L0 mask is metadata-only after M1191",
+    "mask zeros wrong fields",
+    "unmasked profiles are changed",
+    "hidden or oracle actor inputs are introduced",
+    "controller training, candidate replay, PPO, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "implement_runtime_observation_mask",
+      "command": "implement runtime mask adapter and focused tests without training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1191-paper-route-observation-mask-runtime-wrapper-implementation.md",
+      "type": "md"
+    },
+    {
+      "path": "src/autodrift/controller_profile_runtime.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_controller_profile_runtime.py",
+      "type": "py"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1190-paper-route-controller-profile-config-generation-implementation.md",
+    "configs/paper_route_profiles/m1190_l0_current_masked_smoke.json"
+  ],
+  "decision_rule": "M1191 passes if runtime mask support works in focused tests without training or actor-input contract expansion.",
+  "next_blocker": "m1191-paper-route-observation-mask-runtime-wrapper-implementation"
+}

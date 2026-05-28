@@ -1,27 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1199,
+    "completed": 1200,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1189-paper-route-controller-profile-config-generation-design.md",
+    "command_log": "docs/m1190-paper-route-controller-profile-config-generation-implementation.md",
     "returncode": 0,
+    "run_dir": "runs/m1190_controller_profile_config_generation",
     "status": "completed",
-    "task_id": "m1189-paper-route-controller-profile-config-generation-design"
+    "task_id": "m1190-paper-route-controller-profile-config-generation-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1190-paper-route-controller-profile-config-generation-implementation.json",
-    "hypothesis": "Implement controller profile config generation",
-    "id": "m1190-paper-route-controller-profile-config-generation-implementation",
+    "command": "see experiments/manifests/m1191-paper-route-observation-mask-runtime-wrapper-implementation.json",
+    "hypothesis": "Implement runtime observation mask wrapper for controller profiles",
+    "id": "m1191-paper-route-observation-mask-runtime-wrapper-implementation",
     "kind": "infrastructure",
-    "notes": "Pending: generate eight profile smoke configs and focused contract tests without running controller training replay PPO promotion private holdout hidden inputs or actor-input changes",
-    "priority": 11850,
+    "notes": "Pending: implement runtime L0 observation-mask adapter and focused tests without training replay PPO promotion private holdout hidden inputs or actor-input changes",
+    "priority": 11860,
     "status": "pending",
-    "success_artifact": "docs/m1190-paper-route-controller-profile-config-generation-implementation.md"
+    "success_artifact": "docs/m1191-paper-route-observation-mask-runtime-wrapper-implementation.md"
   },
-  "updated_at_utc": "20260528T064000Z"
+  "updated_at_utc": "20260528T070000Z"
 }

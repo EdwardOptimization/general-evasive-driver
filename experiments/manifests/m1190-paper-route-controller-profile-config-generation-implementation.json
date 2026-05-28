@@ -160,5 +160,5 @@
     "src/autodrift/controller_profiles.py"
   ],
   "decision_rule": "M1190 passes if generated config files and tests preserve the profile contract without running training.",
-  "next_blocker": "m1190-paper-route-controller-profile-config-generation-implementation"
+  "next_blocker": "m1191-paper-route-observation-mask-runtime-wrapper-implementation"
 }
