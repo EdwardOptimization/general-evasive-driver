@@ -115,7 +115,52 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1223-paper-route-current-family-boundary-source-negative-audit
+m1224-paper-route-causal-history-evidence-synthesis
+```
+
+M1223 completed the current-family boundary-source negative audit:
+
+```text
+artifact: docs/m1223-paper-route-current-family-boundary-source-negative-audit.md
+decision: boundary_source_negative_audit_route_to_causal_history_synthesis
+```
+
+M1223 conclusion:
+
+```text
+M1222 is best classified as near_boundary_action_gap_but_no_outcome_gap.
+Training, threshold weakening, and immediate outcome gates are rejected. The
+branch should synthesize M1215-M1223 before opening another narrow route.
+```
+
+Next branch:
+
+```text
+paper_route_causal_history_evidence
+```
+
+The next task is branch synthesis, not another immediate source-mining run,
+outcome intervention, or training:
+
+```text
+checkpoint family: M1212 corrected L3 online GRU repeat
+env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
+checkpoint:        runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
+source run:        runs/m1222_current_family_normal_success_boundary_source_smoke
+next artifact:     docs/m1224-paper-route-causal-history-evidence-synthesis.md
+```
+
+M1224 should synthesize M1215-M1223 and decide whether to open a
+terminal-boundary materialization branch, a stronger cross-family/fault source
+branch, a bounded longer-horizon check, or stop the current-family
+causal-history path. M1222 action divergence alone is not self-ID evidence.
+
+M1223 audit decision:
+
+```text
+classification: near_boundary_action_gap_but_no_outcome_gap
+next: causal-history branch synthesis
+rejected: immediate training, threshold weakening, immediate outcome gate
 ```
 
 M1222 completed current-family normal-success boundary source mining:
@@ -133,28 +178,6 @@ Current-family normal-success near-boundary windows exist, and wrong-history
 action gaps can be found, but no tested wrong-history substitution degrades
 margin or success. The result is action-gap-positive and outcome-gap-negative.
 ```
-
-Next branch:
-
-```text
-paper_route_causal_history_evidence
-```
-
-The next task is a negative-result audit, not another immediate source-mining
-run, outcome intervention, or training:
-
-```text
-checkpoint family: M1212 corrected L3 online GRU repeat
-env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
-checkpoint:        runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
-source run:        runs/m1222_current_family_normal_success_boundary_source_smoke
-next artifact:     docs/m1223-paper-route-current-family-boundary-source-negative-audit.md
-```
-
-M1223 should decide whether to move toward terminal-boundary relocation,
-longer-horizon outcome scoring, stronger cross-family/fault source
-distributions, or branch synthesis. M1222 action divergence alone is not
-self-ID evidence.
 
 M1222 source-mining result:
 

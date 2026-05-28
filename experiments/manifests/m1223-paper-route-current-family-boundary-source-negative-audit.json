@@ -155,5 +155,5 @@
     "docs/m1222-paper-route-current-family-normal-success-boundary-source-smoke.md"
   ],
   "decision_rule": "M1223 passes if it classifies M1222 and selects a concrete next route without running new experiments or weakening thresholds.",
-  "next_blocker": "m1223-paper-route-current-family-boundary-source-negative-audit"
+  "next_blocker": "m1224-paper-route-causal-history-evidence-synthesis"
 }

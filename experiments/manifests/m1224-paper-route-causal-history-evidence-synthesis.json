@@ -1,0 +1,180 @@
+{
+  "id": "m1224-paper-route-causal-history-evidence-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111600/checkpoint.pt",
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111601/checkpoint.pt",
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1215-paper-route-causal-history-gate-design.md",
+      "docs/m1218-paper-route-current-family-history-action-screen.md",
+      "docs/m1220-paper-route-current-family-hidden-action-sensitivity-probe.md",
+      "docs/m1222-paper-route-current-family-normal-success-boundary-source-smoke.md",
+      "docs/m1223-paper-route-current-family-boundary-source-negative-audit.md"
+    ],
+    "parent_config": [
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json",
+      "experiments/manifests/m1223-paper-route-current-family-boundary-source-negative-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize the paper-route causal-history evidence branch and select the next research branch"
+    ],
+    "derived_from": [
+      "m1215-paper-route-causal-history-gate-design",
+      "m1217-paper-route-current-family-matched-current-export",
+      "m1218-paper-route-current-family-history-action-screen",
+      "m1220-paper-route-current-family-hidden-action-sensitivity-probe",
+      "m1222-paper-route-current-family-normal-success-boundary-source-smoke",
+      "m1223-paper-route-current-family-boundary-source-negative-audit"
+    ],
+    "blocked_by": [
+      "M1223 routes to synthesis after M1222 finds action gaps without outcome gaps"
+    ],
+    "supersedes": [
+      "continuing current-family causal-history source mining without branch synthesis"
+    ],
+    "invalidates": [
+      "treating the causal-history branch as solved by action divergence alone"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1224-paper-route-causal-history-evidence-synthesis.md",
+  "public_gates": [
+    "M1224 may synthesize M1215-M1223 evidence only",
+    "M1224 must answer the required synthesis questions",
+    "M1224 must select one next branch or stop the branch",
+    "M1224 must not train controllers",
+    "M1224 must not run PPO",
+    "M1224 must not run new source mining or outcome intervention",
+    "M1224 must not use private holdout",
+    "M1224 must not promote",
+    "M1224 must not claim self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new experiments",
+    "do not use private holdout",
+    "do not promote",
+    "do not hide negative results",
+    "do not claim history necessity from action-only evidence",
+    "do not leave the next branch vague"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_evidence",
+    "evidence_axis": "H_causal_history_branch_synthesis",
+    "evidence_increment": "synthesizes current-family causal-history evidence into a next-branch decision",
+    "claim_scope": "process synthesis only; no closed-loop proof, training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if synthesis upgrades action gaps into self-ID evidence",
+      "stop if M1218/M1220/M1222 negative evidence is omitted",
+      "stop if no next branch decision is made"
+    ],
+    "fallback_plan": [
+      "route to terminal-boundary materialization if current-family action gaps are enough to justify boundary sharpening",
+      "route to stronger cross-family/fault source if current-family scenes are outcome-insensitive",
+      "stop current-family causal-history source mining if no high-leverage next step remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1223 classifies M1222 as action-gap-positive outcome-gap-negative after eight causal-history milestones",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1224-paper-route-causal-history-evidence-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "causal-history evidence synthesis",
+    "admission_evidence": [
+      "M1218 wrong/delayed matched-history action screen is negative",
+      "M1220 hidden path is positive but real histories remain action-equivalent",
+      "M1222 broader source mining finds action gaps but no outcome gaps",
+      "M1223 selects synthesis before another narrow run"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1224 synthesis docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "supported and blocked claims are listed",
+      "negative results are preserved",
+      "next branch is selected",
+      "next manifest is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1224 must preserve the distinction between hidden-path sensitivity, action divergence, and outcome-level history necessity.",
+    "history_necessity_tests": [
+      "synthesize_wrong_delayed_action_screen",
+      "synthesize_hidden_action_sensitivity_probe",
+      "synthesize_normal_success_boundary_source_smoke",
+      "choose_terminal_boundary_or_stronger_source_route"
+    ],
+    "temporal_evidence_window": "Outcome-level history necessity remains blocked unless a later branch produces margin or success degradation under real history interventions.",
+    "negative_result_policy": "Preserve negative action-screen and outcome-gap evidence as constraints on the next branch.",
+    "allowed_claims": [
+      "causal-history evidence synthesis",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The current-family causal-history branch has enough evidence to synthesize supported and blocked claims and select a higher-leverage next branch.",
+  "success_criteria": [
+    "docs/m1224-paper-route-causal-history-evidence-synthesis.md exists",
+    "M1215-M1223 evidence is summarized",
+    "supported claims and blocked claims are separated",
+    "M1218/M1220/M1222 negative evidence is preserved",
+    "public-gate overfit risk is discussed",
+    "next branch is selected",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "M1224 trains or tunes profiles",
+    "private holdout is used",
+    "new experiments are run",
+    "negative evidence is omitted",
+    "self-identification is claimed",
+    "next branch is left vague"
+  ],
+  "commands": [
+    {
+      "name": "synthesize_causal_history_evidence",
+      "command": "synthesize M1215-M1223 causal-history evidence without training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1224-paper-route-causal-history-evidence-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "docs/m1223-paper-route-current-family-boundary-source-negative-audit.md",
+    "runs/m1222_current_family_normal_success_boundary_source_smoke/summary.json"
+  ],
+  "decision_rule": "M1224 passes if it makes a concrete next-branch decision without claim expansion.",
+  "next_blocker": "m1224-paper-route-causal-history-evidence-synthesis"
+}

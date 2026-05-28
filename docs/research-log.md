@@ -17553,3 +17553,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1223-paper-route-current-family-boundary-source-negative-audit.json`.
 - decision: `normal_success_boundary_source_negative_admit_audit`
 - next: `m1223-paper-route-current-family-boundary-source-negative-audit`
+
+## 20260528T072856Z - m1223-paper-route-current-family-boundary-source-negative-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1223-paper-route-current-family-boundary-source-negative-audit.md`
+- result: audits M1222 as action-gap-positive but outcome-gap-negative and routes to branch synthesis.
+- classification: `near_boundary_action_gap_but_no_outcome_gap`.
+- rejected shortcuts: no training from empty corpus, no threshold weakening, no immediate outcome gate, and no self-identification claim from action divergence alone.
+- route options reviewed: terminal-boundary relocation, longer-horizon outcome scoring, stronger cross-family/fault source, and immediate training.
+- selected next: synthesize M1215-M1223 before opening another narrow route.
+- guardrail: no new source mining, outcome intervention, training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1224-paper-route-causal-history-evidence-synthesis.json`.
+- decision: `boundary_source_negative_audit_route_to_causal_history_synthesis`
+- next: `m1224-paper-route-causal-history-evidence-synthesis`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1232,
+    "completed": 1233,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1222-paper-route-current-family-normal-success-boundary-source-smoke.md",
+    "command_log": "docs/m1223-paper-route-current-family-boundary-source-negative-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1222_current_family_normal_success_boundary_source_smoke",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1222-paper-route-current-family-normal-success-boundary-source-smoke"
+    "task_id": "m1223-paper-route-current-family-boundary-source-negative-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1223-paper-route-current-family-boundary-source-negative-audit.json",
-    "hypothesis": "Audit current-family boundary source negative result",
-    "id": "m1223-paper-route-current-family-boundary-source-negative-audit",
+    "command": "see experiments/manifests/m1224-paper-route-causal-history-evidence-synthesis.json",
+    "hypothesis": "Synthesize causal-history evidence branch",
+    "id": "m1224-paper-route-causal-history-evidence-synthesis",
     "kind": "gate",
-    "notes": "Pending: classify M1222 action-gap-positive outcome-gap-negative result and choose terminal-boundary longer-horizon stronger-source or synthesis route",
-    "priority": 12180,
+    "notes": "Pending: synthesize M1215-M1223 evidence and select terminal-boundary stronger-source longer-horizon or stop route",
+    "priority": 12190,
     "status": "pending",
-    "success_artifact": "docs/m1223-paper-route-current-family-boundary-source-negative-audit.md"
+    "success_artifact": "docs/m1224-paper-route-causal-history-evidence-synthesis.md"
   },
-  "updated_at_utc": "20260528T072506Z"
+  "updated_at_utc": "20260528T072856Z"
 }
