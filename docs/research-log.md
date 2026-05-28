@@ -18990,3 +18990,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - workflow decision: do not implement weighted repeat immediately; next milestone must synthesize M1298-M1307.
 - follow-up manifest: `experiments/manifests/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.json`.
 - next: `m1308-paper-route-source-history-trainable-scope-escalation-synthesis`
+
+## 20260528T154918Z - m1308-paper-route-source-history-trainable-scope-escalation-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.md`
+- synthesis decision: `promote_to_next_branch`
+- closed branch: `paper_route_source_history_trainable_scope_escalation`
+- opened branch: `paper_route_source_history_weighted_repeat_implementation`
+- evidence summary: M1299 found a strong single-split `fusion_head` signal; M1302 repeat was mixed; M1304 found source-family/probe-template concentration; M1306 built an admissible balanced split and capped group-weight plan; M1307 designed the bounded weighted repeat protocol.
+- supported claims: `fusion_head` decodes more fixed-current source-history signal than actor_mean-only; the signal is not single-split only; repeat weakness is structured; an admissible no-training weighted plan exists.
+- falsified claims: single split is repeat-robust; direct PPO is justified; failed offsets are one stale pair; fixed-current diagnostics prove closed-loop self-ID.
+- public-gate overfit risk: high; keep claims local to fixed-current diagnostics.
+- follow-up manifest: `experiments/manifests/m1309-paper-route-source-history-weighted-repeat-implementation.json`.
+- next: `m1309-paper-route-source-history-weighted-repeat-implementation`

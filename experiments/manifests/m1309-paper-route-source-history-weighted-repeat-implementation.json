@@ -1,0 +1,176 @@
+{
+  "id": "m1309-paper-route-source-history-weighted-repeat-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.md",
+      "docs/m1307-paper-route-source-history-weighted-repeat-design.md",
+      "runs/m1306_source_history_concentration_refresh_plan/balanced_split_rows.csv",
+      "runs/m1306_source_history_concentration_refresh_plan/group_weight_rows.csv",
+      "runs/m1306_source_history_concentration_refresh_plan/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.json"
+    ],
+    "parent_objective": [
+      "implement bounded weighted source-history trainable-scope repeat"
+    ],
+    "derived_from": [
+      "m1308-paper-route-source-history-trainable-scope-escalation-synthesis"
+    ],
+    "blocked_by": [
+      "M1308 promotes to a new weighted-repeat implementation branch"
+    ],
+    "supersedes": [
+      "unweighted M1302 repeat as the only repeat robustness probe"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1309-paper-route-source-history-weighted-repeat-implementation.md",
+  "public_gates": [
+    "M1309 must preserve actor input contract",
+    "M1309 must not run PPO",
+    "M1309 must not use private holdout",
+    "M1309 must not promote",
+    "M1309 must use M1306 split plan",
+    "M1309 must use M1306 group weights",
+    "M1309 must prove pair-specific weights are not used",
+    "M1309 must report weighted repeat metrics"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not use pair-specific weights",
+    "do not treat weighted diagnostic success as closed-loop proof",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_weighted_repeat_implementation",
+    "evidence_axis": "S_weighted_repeat_implementation",
+    "evidence_increment": "implements and runs the first bounded weighted source-history repeat after branch synthesis",
+    "claim_scope": "diagnostic infrastructure only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if pair-specific weights are used",
+      "stop if split plan is ignored",
+      "stop if implementation starts PPO or promotion"
+    ],
+    "fallback_plan": [
+      "if weighted repeat passes, route to result audit before any proof-retention design",
+      "if weighted repeat is mixed, route to tradeoff/concentration audit",
+      "if weighted repeat regresses, route to branch audit or source corpus expansion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "first milestone in weighted-repeat implementation branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "bounded weighted repeat implementation",
+    "admission_evidence": [
+      "M1308 promotes to weighted-repeat implementation branch",
+      "M1306 plan is admissible",
+      "M1307 defines weighted repeat pass/fail criteria",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not use pair-specific weights"
+    ],
+    "allowed_updates": [
+      "weighted repeat implementation",
+      "focused tests",
+      "M1309 run artifacts",
+      "M1309 result doc",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "split plan is used",
+      "group weights are used",
+      "weighted repeat metrics are reported",
+      "PPO remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1309 remains a fixed-current source-history diagnostic repeat and does not evaluate closed-loop history necessity.",
+    "history_necessity_tests": [
+      "correct-history versus wrong-history directional metrics with weighted groups",
+      "pair-disjoint balanced fold evaluation"
+    ],
+    "temporal_evidence_window": "M1306 split plan and M1280 source-history prefixes.",
+    "negative_result_policy": "If weighted repeat is mixed or negative, keep PPO blocked and route to tradeoff audit or branch audit.",
+    "allowed_claims": [
+      "weighted source-history diagnostic repeat",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "Using the M1306 balanced split plan and capped group weights will improve repeat robustness over M1302 without pair-specific overfit or forbidden parameter mutation.",
+  "success_criteria": [
+    "runs/m1309_source_history_weighted_repeat_probe/summary.json exists",
+    "focused tests pass",
+    "split_plan_used is true",
+    "group_weights_used is true",
+    "pair_specific_weight_used is false",
+    "max_group_weight <= 2.0",
+    "weighted repeat metrics are reported",
+    "no PPO, promotion, private holdout, threshold relaxation, pair-specific weighting, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "focused tests fail",
+    "split plan is not used",
+    "group weights are not used",
+    "pair-specific weights are used",
+    "forbidden parameters mutate",
+    "PPO starts",
+    "private holdout is used",
+    "checkpoint is promoted",
+    "actor input contract changes"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest -q tests/test_source_history_trainable_scope_probe.py"
+    },
+    {
+      "name": "run_weighted_repeat",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_history_trainable_scope_probe --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --history-run-dir runs/m1280_four_wheel_source_response_history_materialization --intervention-run-dir runs/m1277_four_wheel_source_intervention_materialization --run-dir runs/m1309_source_history_weighted_repeat_probe --device cpu --steps 400 --lr 0.0002 --target-margin 0.05 --scopes fusion_head --split-plan runs/m1306_source_history_concentration_refresh_plan/balanced_split_rows.csv --group-weight-rows runs/m1306_source_history_concentration_refresh_plan/group_weight_rows.csv --split-offsets 0,1,2,3,4"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1309_source_history_weighted_repeat_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1309-paper-route-source-history-weighted-repeat-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.md",
+    "runs/m1306_source_history_concentration_refresh_plan/summary.json",
+    "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json"
+  ],
+  "decision_rule": "M1309 passes as diagnostic infrastructure if it implements and runs the bounded weighted repeat without PPO, promotion, private holdout use, threshold relaxation, pair-specific weights, forbidden mutation, or actor-input expansion.",
+  "next_blocker": "m1309-paper-route-source-history-weighted-repeat-implementation"
+}

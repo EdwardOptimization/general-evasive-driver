@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1317,
+    "completed": 1318,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1307-paper-route-source-history-weighted-repeat-design.md",
+    "command_log": "docs/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.md",
     "returncode": 0,
-    "run_dir": "docs/m1307-paper-route-source-history-weighted-repeat-design.md",
+    "run_dir": "docs/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.md",
     "status": "completed",
-    "task_id": "m1307-paper-route-source-history-weighted-repeat-design"
+    "task_id": "m1308-paper-route-source-history-trainable-scope-escalation-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.json",
-    "hypothesis": "Synthesize M1298-M1307 trainable-scope escalation evidence and choose next branch decision before implementation or PPO",
-    "id": "m1308-paper-route-source-history-trainable-scope-escalation-synthesis",
-    "kind": "gate",
-    "notes": "Pending: workflow synthesis before any implementation; PPO and promotion remain blocked",
-    "priority": 13030,
+    "command": "see experiments/manifests/m1309-paper-route-source-history-weighted-repeat-implementation.json",
+    "hypothesis": "Implement and run bounded weighted source-history repeat using M1306 split plan and group weights",
+    "id": "m1309-paper-route-source-history-weighted-repeat-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: weighted repeat implementation; PPO and promotion remain blocked",
+    "priority": 13040,
     "status": "pending",
-    "success_artifact": "docs/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.md"
+    "success_artifact": "runs/m1309_source_history_weighted_repeat_probe/summary.json"
   },
-  "updated_at_utc": "20260528T154440Z"
+  "updated_at_utc": "20260528T154918Z"
 }

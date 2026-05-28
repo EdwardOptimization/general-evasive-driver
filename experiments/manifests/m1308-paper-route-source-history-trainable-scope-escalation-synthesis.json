@@ -186,6 +186,40 @@
     "docs/m1307-paper-route-source-history-weighted-repeat-design.md",
     "runs/m1306_source_history_concentration_refresh_plan/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.md",
+    "decision": "source_history_trainable_scope_escalation_synthesis_promote_to_weighted_repeat_implementation",
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "paper_route_source_history_trainable_scope_escalation",
+    "opened_branch": "paper_route_source_history_weighted_repeat_implementation",
+    "m1299_single_split_strong": true,
+    "m1302_repeat_mixed": true,
+    "m1304_concentration_found": true,
+    "m1306_plan_admissible": true,
+    "public_gate_overfit_risk": "high",
+    "supported_claims": [
+      "fusion_head decodes source-history signal better than actor_mean-only",
+      "signal is not a single split artifact",
+      "repeat weakness is structured by source-family/probe-template",
+      "admissible balanced split and capped weight plan exists"
+    ],
+    "falsified_claims": [
+      "single split result is repeat-robust",
+      "direct PPO continuation is justified",
+      "failed offsets are one stale pair id",
+      "fixed-current diagnostics prove closed-loop self-identification"
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1309-paper-route-source-history-weighted-repeat-implementation.json"
+  },
+  "decision": "source_history_trainable_scope_escalation_synthesis_promote_to_weighted_repeat_implementation",
   "decision_rule": "M1308 passes if it synthesizes M1298-M1307 and chooses a next branch decision without implementation, training, PPO, promotion, private holdout use, threshold relaxation, or actor-input expansion.",
-  "next_blocker": "m1308-paper-route-source-history-trainable-scope-escalation-synthesis"
+  "next_blocker": "m1309-paper-route-source-history-weighted-repeat-implementation"
 }
