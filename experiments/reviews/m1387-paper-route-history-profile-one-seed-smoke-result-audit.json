@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M1387 audits M1386 as plumbing pass only with L2/current-tiled and L3/reset parity and admits one 3-seed public pilot before another audit",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit overclaims one-seed results as architecture ranking",
+    "audit ignores current-tiled or reset-control parity",
+    "audit routes directly to private holdout, promotion, or paper-level claim"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new evaluation",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim architecture ranking from one seed",
+    "do not claim recurrent-belief advantage",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T224140Z",
+  "hypothesis": "M1386 can be audited as a clean one-seed plumbing pass while preserving claim boundaries before deciding whether to scale to 3 seeds.",
+  "lineage": {
+    "blocked_by": [
+      "M1386 passes plumbing but one-seed profile trends are not architecture-ranking evidence"
+    ],
+    "derived_from": [
+      "m1386-paper-route-history-profile-one-seed-fixed-budget-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1386-paper-route-history-profile-one-seed-fixed-budget-smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m1386-paper-route-history-profile-one-seed-fixed-budget-smoke.md",
+      "runs/m1386_history_profile_fixed_budget_smoke/summary.json",
+      "runs/m1386_history_profile_fixed_budget_smoke/profile_aggregate.csv"
+    ],
+    "parent_objective": [
+      "audit one-seed fixed-budget profile smoke before deciding whether to run a 3-seed public pilot"
+    ],
+    "supersedes": [
+      "scaling directly to 3-seed public pilot without result audit",
+      "claiming profile ranking from one seed"
+    ]
+  },
+  "milestone": "m1387-paper-route-history-profile-one-seed-smoke-result-audit",
+  "next_blocker": "m1388-paper-route-history-profile-three-seed-public-pilot",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "history_profile_one_seed_audit_admit_three_seed_public_pilot",
+  "public_gates": [
+    "M1387 must audit M1386 as plumbing evidence first",
+    "M1387 must classify L2-vs-current-tiled and L3-vs-reset signals",
+    "M1387 must decide whether 3-seed public pilot, stronger diagnostic, repair, or branch stop is next",
+    "M1387 must not train, run PPO, run new evaluation, promote, use private holdout, export corpus, or claim profile ranking"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1387-paper-route-history-profile-one-seed-smoke-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "history_profile_one_seed_audit_admit_three_seed_public_pilot",
+    "milestone": "m1387-paper-route-history-profile-one-seed-smoke-result-audit",
+    "reason": "M1387 audits M1386 as plumbing pass only with L2/current-tiled and L3/reset parity and admits one 3-seed public pilot before another audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1387-paper-route-history-profile-one-seed-smoke-result-audit.md exists",
+    "audit summarizes M1386 completion and finite metric status",
+    "audit classifies L2/current-tiled and L3/reset one-seed signals",
+    "audit chooses next route without training, PPO, promotion, private holdout, corpus export, actor-input expansion, or profile-ranking claim"
+  ],
+  "type": "gate"
+}

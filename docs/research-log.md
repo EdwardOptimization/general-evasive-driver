@@ -20424,3 +20424,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1386 is a clean plumbing pass only; L2/current-tiled and L3/reset parity must be audited before 3-seed scaling.
 - follow-up manifest: `experiments/manifests/m1387-paper-route-history-profile-one-seed-smoke-result-audit.json`.
 - next: `m1387-paper-route-history-profile-one-seed-smoke-result-audit`
+
+## 20260529T004000Z - m1387-paper-route-history-profile-one-seed-smoke-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1387-paper-route-history-profile-one-seed-smoke-result-audit.md`
+- decision: `history_profile_one_seed_audit_admit_three_seed_public_pilot`
+- audited artifact: `runs/m1386_history_profile_fixed_budget_smoke/summary.json`
+- plumbing audit: M1386 completed `8 / 8` profile seed runs with finite metrics and no private holdout, promotion, profile tuning, actor-input change, paper-level claim, or self-ID claim.
+- signal audit: one-seed L2 normal and current-tiled controls tie on success/collision; L3 online and corrected reset-control tie on success/collision; L0 current-only ties L3 success.
+- classification: `plumbing_pass=true`, `architecture_ranking_evidence=false`, `finite_window_history_necessity=not_supported_in_one_seed`, `online_gru_hidden_advantage=not_supported_in_one_seed`, `current_frame_substitution_risk=high`.
+- route decision: admit exactly one 3-seed fixed-budget public profile pilot as trend/stability evidence, followed by another audit before any further scaling, private holdout, promotion, or profile-ranking claim.
+- guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1388-paper-route-history-profile-three-seed-public-pilot.json`.
+- next: `m1388-paper-route-history-profile-three-seed-public-pilot`

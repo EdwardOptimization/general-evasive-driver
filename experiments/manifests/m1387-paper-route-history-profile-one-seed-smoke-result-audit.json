@@ -2,7 +2,7 @@
   "id": "m1387-paper-route-history-profile-one-seed-smoke-result-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -150,6 +150,31 @@
     "runs/m1386_history_profile_fixed_budget_smoke/summary.json",
     "runs/m1386_history_profile_fixed_budget_smoke/profile_aggregate.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1387-paper-route-history-profile-one-seed-smoke-result-audit.md",
+    "decision": "history_profile_one_seed_audit_admit_three_seed_public_pilot",
+    "m1386_result_class": "corrected_profile_pilot_completed",
+    "m1386_completed_seed_runs": 8,
+    "m1386_failed_seed_runs": 0,
+    "m1386_all_eval_metrics_finite": true,
+    "plumbing_pass": true,
+    "architecture_ranking_evidence": false,
+    "finite_window_history_necessity": "not_supported_in_one_seed",
+    "online_gru_hidden_advantage": "not_supported_in_one_seed",
+    "current_frame_substitution_risk": "high",
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1388-paper-route-history-profile-three-seed-public-pilot.json"
+  },
+  "decision": "history_profile_one_seed_audit_admit_three_seed_public_pilot",
   "decision_rule": "M1387 passes if it audits M1386 and chooses the next route before any new training, PPO, promotion, private holdout, corpus export, or profile-ranking claim.",
-  "next_blocker": "m1387-paper-route-history-profile-one-seed-smoke-result-audit"
+  "next_blocker": "m1388-paper-route-history-profile-three-seed-public-pilot"
 }

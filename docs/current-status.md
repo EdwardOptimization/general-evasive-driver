@@ -16,16 +16,16 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1386-paper-route-history-profile-one-seed-fixed-budget-smoke
+m1387-paper-route-history-profile-one-seed-smoke-result-audit
 ```
 
 Current next task:
 
 ```text
-m1387-paper-route-history-profile-one-seed-smoke-result-audit
+m1388-paper-route-history-profile-three-seed-public-pilot
 ```
 
-M1386 completed the one-seed fixed-budget history-profile smoke. The current
+M1387 audited the one-seed fixed-budget history-profile smoke. The current
 public-gate base remains M1362 alpha `0.1`:
 
 ```text
@@ -276,8 +276,24 @@ L3_online_gru: 0.625
 L3_reset_control_corrected: 0.625
 ```
 
-This is a plumbing pass, not architecture evidence. M1387 should audit
-L2/current-tiled parity and L3/reset parity before any 3-seed public pilot.
+This is a plumbing pass, not architecture evidence. M1387 audited L2/current-
+tiled parity and L3/reset parity before admitting any 3-seed public pilot.
+
+M1387 conclusion:
+
+```text
+decision: history_profile_one_seed_audit_admit_three_seed_public_pilot
+plumbing_pass: true
+architecture_ranking_evidence: false
+finite_window_history_necessity: not_supported_in_one_seed
+online_gru_hidden_advantage: not_supported_in_one_seed
+current_frame_substitution_risk: high
+```
+
+M1388 may run exactly one 3-seed fixed-budget public profile pilot as trend and
+seed-stability evidence. It must be audited before any further profile scaling,
+private holdout, promotion, corpus export, architecture-ranking claim, or
+self-identification claim.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true

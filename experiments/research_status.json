@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1396,
+    "completed": 1397,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1386_history_profile_fixed_budget_smoke/summary.json",
+    "command_log": "docs/m1387-paper-route-history-profile-one-seed-smoke-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1386_history_profile_fixed_budget_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1386-paper-route-history-profile-one-seed-fixed-budget-smoke"
+    "task_id": "m1387-paper-route-history-profile-one-seed-smoke-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1387-paper-route-history-profile-one-seed-smoke-result-audit.json",
-    "hypothesis": "M1386 can be audited as a clean one-seed plumbing pass while preserving claim boundaries before deciding whether to scale to 3 seeds.",
-    "id": "m1387-paper-route-history-profile-one-seed-smoke-result-audit",
+    "command": "see experiments/manifests/m1388-paper-route-history-profile-three-seed-public-pilot.json",
+    "hypothesis": "A three-seed fixed-budget public profile pilot can test whether M1386 one-seed profile trends are stable without profile-specific tuning or claim expansion.",
+    "id": "m1388-paper-route-history-profile-three-seed-public-pilot",
     "kind": "gate",
-    "notes": "Pending: audit one-seed profile smoke before any 3-seed public pilot or stronger diagnostic route",
-    "priority": 13820,
+    "notes": "Pending: run exactly one 3-seed public profile pilot before another audit; no ranking or private holdout claims",
+    "priority": 13830,
     "status": "pending",
-    "success_artifact": "docs/m1387-paper-route-history-profile-one-seed-smoke-result-audit.md"
+    "success_artifact": "runs/m1388_history_profile_three_seed_public_pilot/summary.json"
   },
-  "updated_at_utc": "20260529T003000Z"
+  "updated_at_utc": "20260529T004000Z"
 }
