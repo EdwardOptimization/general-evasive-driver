@@ -17081,3 +17081,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no controller training, PPO, candidate replay, promotion, private holdout, hidden/oracle actor input, or actor-input contract change occurred.
 - decision: `paper_route_infrastructure_synthesis_continue_to_train_entrypoint_mask_integration`
 - next: `m1195-paper-route-train-entrypoint-profile-mask-integration`
+
+## 20260528T050600Z - m1195-paper-route-train-entrypoint-profile-mask-integration
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1195-paper-route-train-entrypoint-profile-mask-integration.md`
+- source: `src/autodrift/vector_env.py`, `src/autodrift/train_ppo.py`
+- tests: `tests/test_controller_profile_train_entrypoint_mask.py`
+- result: integrates controller-profile observation masks into sync and parallel vector env reset/step paths and into `train_ppo` / `evaluate_actor` config discovery.
+- L0 vector behavior: focused tests confirm nonzero raw previous-command signal after step and masked vector observations zero fields `[9,10,11]`.
+- unmasked behavior: focused tests confirm L1 vector observations are unchanged when a no-mask profile spec is passed.
+- train/eval entrypoint behavior: `train_ppo` reads top-level `controller_profile`, builds `ObservationMaskSpec`, passes it to `make_vector_env`, `train`, and `evaluate_actor`, and records `controller_profile_runtime` metadata.
+- focused verification: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_controller_profile_train_entrypoint_mask.py tests/test_controller_profile_runtime.py tests/test_controller_profile_runtime_smoke.py` -> `15 passed`.
+- guardrail: no controller training, PPO, candidate replay, promotion, private holdout, hidden/oracle actor input, or actor-input contract expansion occurred.
+- follow-up manifest: `experiments/manifests/m1196-paper-route-profile-training-smoke-stage-a-run.json`.
+- decision: `train_entrypoint_profile_mask_integration_ready_for_stage_a_training_smoke`
+- next: `m1196-paper-route-profile-training-smoke-stage-a-run`

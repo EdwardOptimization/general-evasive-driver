@@ -148,6 +148,14 @@
     {
       "path": "tests/test_controller_profile_train_entrypoint_mask.py",
       "type": "py"
+    },
+    {
+      "path": "src/autodrift/vector_env.py",
+      "type": "py"
+    },
+    {
+      "path": "src/autodrift/train_ppo.py",
+      "type": "py"
     }
   ],
   "baseline_checkpoints": [
@@ -158,5 +166,5 @@
     "configs/paper_route_profiles/m1190_l0_current_masked_smoke.json"
   ],
   "decision_rule": "M1195 passes if vector train/eval observations apply declared L0 masks while unmasked profiles remain unchanged and no training starts.",
-  "next_blocker": "m1195-paper-route-train-entrypoint-profile-mask-integration"
+  "next_blocker": "m1196-paper-route-profile-training-smoke-stage-a-run"
 }

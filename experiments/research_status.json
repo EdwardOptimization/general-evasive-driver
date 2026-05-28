@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1204,
+    "completed": 1205,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1194-paper-route-finite-window-gru-infrastructure-synthesis.md",
+    "command_log": "docs/m1195-paper-route-train-entrypoint-profile-mask-integration.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1194-paper-route-finite-window-gru-infrastructure-synthesis"
+    "task_id": "m1195-paper-route-train-entrypoint-profile-mask-integration"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1195-paper-route-train-entrypoint-profile-mask-integration.json",
-    "hypothesis": "Controller-profile observation masks can be applied in train/eval vector paths without changing unmasked profiles or starting training.",
-    "id": "m1195-paper-route-train-entrypoint-profile-mask-integration",
-    "kind": "infrastructure",
-    "notes": "Pending: integrate controller-profile runtime masks into train/eval vector paths before profile training",
-    "priority": 11900,
+    "command": "see experiments/manifests/m1196-paper-route-profile-training-smoke-stage-a-run.json",
+    "hypothesis": "The representative Stage A L0/L1/L2/L3 generated profiles can complete identical smoke-scale PPO training loops after vector-path profile-mask integration.",
+    "id": "m1196-paper-route-profile-training-smoke-stage-a-run",
+    "kind": "gate",
+    "notes": "Pending: run bounded Stage A profile training smoke as plumbing only with no promotion or performance claims",
+    "priority": 11910,
     "status": "pending",
-    "success_artifact": "docs/m1195-paper-route-train-entrypoint-profile-mask-integration.md"
+    "success_artifact": "docs/m1196-paper-route-profile-training-smoke-stage-a-run.md"
   },
-  "updated_at_utc": "20260528T045800Z"
+  "updated_at_utc": "20260528T050600Z"
 }

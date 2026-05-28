@@ -9,6 +9,7 @@ from typing import Any
 
 import numpy as np
 
+from autodrift.controller_profile_runtime import ObservationMaskSpec
 from autodrift.env import AutoDriftEnv, DriftEnvConfig
 
 
@@ -39,6 +40,12 @@ def _env_worker(remote: Connection, config: DriftEnvConfig) -> None:
         return
 
 
+def _apply_observation_mask(mask_spec: ObservationMaskSpec | None, observation: np.ndarray) -> np.ndarray:
+    if mask_spec is None or not mask_spec.enabled:
+        return np.asarray(observation, dtype=np.float32)
+    return mask_spec.apply(observation)
+
+
 class SyncAutoDriftVectorEnv:
     """Small synchronous vector env.
 
@@ -53,6 +60,7 @@ class SyncAutoDriftVectorEnv:
         seed: int = 0,
         seed_sequence: list[int] | None = None,
         seed_sequence_probability: float = 1.0,
+        observation_mask_spec: ObservationMaskSpec | None = None,
     ):
         if num_envs < 1:
             raise ValueError("num_envs must be at least 1")
@@ -65,6 +73,7 @@ class SyncAutoDriftVectorEnv:
         self.base_seed = int(seed)
         self.seed_sequence = [int(item) for item in seed_sequence] if seed_sequence is not None else None
         self.seed_sequence_probability = float(seed_sequence_probability)
+        self.observation_mask_spec = observation_mask_spec
         self.seed_sequence_index = 0
         self.seed_rng = np.random.default_rng(self.base_seed + 1_000_003)
         self.envs = [AutoDriftEnv(self.config) for _ in range(self.num_envs)]
@@ -100,6 +109,7 @@ class SyncAutoDriftVectorEnv:
         for index, env in enumerate(self.envs):
             seed = self._next_seed(index)
             obs, info = env.reset(seed=seed)
+            obs = _apply_observation_mask(self.observation_mask_spec, obs)
             info = dict(info)
             info["reset_seed"] = seed
             observations.append(obs)
@@ -119,6 +129,7 @@ class SyncAutoDriftVectorEnv:
         infos: list[dict[str, Any]] = []
         for index, (env, action) in enumerate(zip(self.envs, actions, strict=True)):
             obs, reward, term, trunc, info = env.step(action)
+            obs = _apply_observation_mask(self.observation_mask_spec, obs)
             done = term or trunc
             self.episode_returns[index] += reward
             self.episode_lengths[index] += 1
@@ -136,6 +147,7 @@ class SyncAutoDriftVectorEnv:
                 }
                 seed = self._next_seed(index)
                 obs, reset_info = env.reset(seed=seed)
+                obs = _apply_observation_mask(self.observation_mask_spec, obs)
                 reset_info = dict(reset_info)
                 reset_info["reset_seed"] = seed
                 info["reset_info"] = reset_info
@@ -169,6 +181,7 @@ class ParallelAutoDriftVectorEnv:
         seed_sequence: list[int] | None = None,
         seed_sequence_probability: float = 1.0,
         start_method: str = "fork",
+        observation_mask_spec: ObservationMaskSpec | None = None,
     ):
         if num_envs < 1:
             raise ValueError("num_envs must be at least 1")
@@ -181,6 +194,7 @@ class ParallelAutoDriftVectorEnv:
         self.base_seed = int(seed)
         self.seed_sequence = [int(item) for item in seed_sequence] if seed_sequence is not None else None
         self.seed_sequence_probability = float(seed_sequence_probability)
+        self.observation_mask_spec = observation_mask_spec
         self.seed_sequence_index = 0
         self.seed_rng = np.random.default_rng(self.base_seed + 1_000_003)
         self.closed = False
@@ -233,6 +247,7 @@ class ParallelAutoDriftVectorEnv:
             remote.send(("reset", seed))
         for index, remote in enumerate(self.remotes):
             obs, info = remote.recv()
+            obs = _apply_observation_mask(self.observation_mask_spec, obs)
             info = dict(info)
             info["reset_seed"] = seeds[index]
             observations.append(obs)
@@ -255,6 +270,7 @@ class ParallelAutoDriftVectorEnv:
         infos: list[dict[str, Any]] = []
         for index, remote in enumerate(self.remotes):
             obs, reward, term, trunc, info = remote.recv()
+            obs = _apply_observation_mask(self.observation_mask_spec, obs)
             done = term or trunc
             self.episode_returns[index] += reward
             self.episode_lengths[index] += 1
@@ -273,6 +289,7 @@ class ParallelAutoDriftVectorEnv:
                 seed = self._next_seed(index)
                 remote.send(("reset", seed))
                 obs, reset_info = remote.recv()
+                obs = _apply_observation_mask(self.observation_mask_spec, obs)
                 reset_info = dict(reset_info)
                 reset_info["reset_seed"] = seed
                 info["reset_info"] = reset_info

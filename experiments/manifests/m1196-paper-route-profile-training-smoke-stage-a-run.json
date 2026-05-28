@@ -1,0 +1,162 @@
+{
+  "id": "m1196-paper-route-profile-training-smoke-stage-a-run",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1195-paper-route-train-entrypoint-profile-mask-integration.md",
+      "configs/paper_route_profiles"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1195-paper-route-train-entrypoint-profile-mask-integration.json"
+    ],
+    "parent_objective": [
+      "run the bounded M1193 Stage A profile training smoke after vector-path masks are integrated"
+    ],
+    "derived_from": [
+      "m1195-paper-route-train-entrypoint-profile-mask-integration"
+    ],
+    "blocked_by": [
+      "profile train/eval path is now mask-ready but no generated profile has run the training loop yet"
+    ],
+    "supersedes": [
+      "training-loop readiness inferred from runtime smoke alone"
+    ],
+    "invalidates": [
+      "claiming profile training readiness before Stage A smoke completes"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1196-paper-route-profile-training-smoke-stage-a-run.md",
+  "public_gates": [
+    "M1196 may run bounded Stage A PPO training smoke only",
+    "M1196 may train L0_current_masked L1_one_step L2_window_25 and L3_online_gru for smoke-scale plumbing only",
+    "M1196 must not promote",
+    "M1196 must not use private holdout",
+    "M1196 must not tune profiles based on early results",
+    "M1196 must not run candidate replay",
+    "M1196 must not add hidden or oracle actor inputs",
+    "M1196 must not claim profile superiority or driver performance"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change generated configs per profile after seeing results",
+    "do not use private holdout",
+    "do not promote a checkpoint",
+    "do not run public proof replay as if this were a driver candidate",
+    "do not compare performance except as smoke diagnostics",
+    "do not add hidden or oracle actor inputs",
+    "do not skip recording failed profiles"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_training_plumbing: bounded Stage A profile train-loop smoke",
+    "evidence_increment": "tests whether representative L0/L1/L2/L3 generated profiles can complete identical smoke-scale training loops after mask integration",
+    "claim_scope": "training plumbing smoke only; no promotion private-holdout driver-performance recurrent-belief profile-superiority or paper-result claim",
+    "stop_condition": [
+      "stop if any Stage A profile fails to complete",
+      "stop if L0 mask metadata is missing from training artifacts",
+      "stop if any run produces non-finite metrics",
+      "stop if smoke runtime exceeds the resource cap"
+    ],
+    "fallback_plan": [
+      "if L0 fails, audit mask integration before rerunning",
+      "if L2_window_25 fails due shape or memory, route to finite-window resource audit",
+      "if L3 fails due recurrent sequence handling, route to recurrent training integration repair",
+      "if all pass, route to Stage B full generated profile smoke design or run"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1195 train/eval profile masks are integrated and M1193 Stage A protocol is ready",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "bounded profile training smoke Stage A",
+    "admission_evidence": [
+      "M1193 defines Stage A profile set and budget",
+      "M1194 synthesis continues the branch",
+      "M1195 integrates vector-path profile masks"
+    ],
+    "blocked_shortcuts": [
+      "do not promote",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make performance claims"
+    ],
+    "allowed_updates": [
+      "Stage A smoke runs",
+      "Stage A summary artifact",
+      "M1196 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "all four Stage A profiles complete",
+      "metrics are finite",
+      "artifacts exist for each profile",
+      "L0 runtime mask metadata is present in artifacts",
+      "next Stage B or repair milestone is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1196 is train-loop plumbing and does not test history necessity.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1196 trains with different profile windows but does not evaluate temporal evidence.",
+    "negative_result_policy": "If a profile fails, record it as training plumbing evidence and route to the smallest integration repair without comparing performance.",
+    "allowed_claims": [
+      "Stage A training-loop smoke readiness or failure",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The representative Stage A L0/L1/L2/L3 generated profiles can complete identical smoke-scale PPO training loops after vector-path profile-mask integration.",
+  "success_criteria": [
+    "docs/m1196-paper-route-profile-training-smoke-stage-a-run.md exists",
+    "runs/m1196_profile_training_smoke_stage_a/summary.json exists",
+    "L0_current_masked L1_one_step L2_window_25 and L3_online_gru runs complete",
+    "metrics are finite",
+    "summary reports no private holdout no promotion no candidate replay no actor-input expansion",
+    "L0 artifacts include controller_profile_runtime metadata",
+    "no profile superiority or driver-performance claim occurs"
+  ],
+  "failure_criteria": [
+    "any Stage A profile cannot complete the smoke run",
+    "metrics are non-finite",
+    "L0 artifacts lack runtime mask metadata",
+    "private holdout or promotion occurs",
+    "hidden or oracle actor inputs are introduced",
+    "results are framed as profile superiority"
+  ],
+  "commands": [
+    {
+      "name": "run_stage_a_profile_training_smoke",
+      "command": "run bounded Stage A profile training smoke over L0 L1 L2_window_25 L3 with 1024 steps 2 envs 1 seed CPU"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1196-paper-route-profile-training-smoke-stage-a-run.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m1196_profile_training_smoke_stage_a/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1195-paper-route-train-entrypoint-profile-mask-integration.md",
+    "configs/paper_route_profiles"
+  ],
+  "decision_rule": "M1196 passes only as train-loop plumbing if all four Stage A profiles complete with finite metrics and no claim expansion.",
+  "next_blocker": "m1196-paper-route-profile-training-smoke-stage-a-run"
+}

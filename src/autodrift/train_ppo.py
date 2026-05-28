@@ -22,6 +22,12 @@ from torch.optim import Adam
 
 from autodrift.artifacts import make_run_dir, read_json, to_jsonable, write_csv_rows, write_json
 from autodrift.config import build_curriculum, build_env_config, env_config_for_step
+from autodrift.controller_profile_runtime import (
+    ControllerProfileObservationWrapper,
+    ObservationMaskSpec,
+    mask_spec_from_config,
+    profile_runtime_summary,
+)
 from autodrift.env import AutoDriftEnv, DriftEnvConfig, FRONT_REAR_WHEEL_OBS_DIM
 from autodrift.history_baselines import build_history_baseline_spec, history_baseline_spec_to_dict
 from autodrift.intervention_objectives import (
@@ -876,6 +882,7 @@ def make_vector_env(
     *,
     seed: int,
     seed_sequence: list[int] | None,
+    observation_mask_spec: ObservationMaskSpec | None = None,
 ) -> SyncAutoDriftVectorEnv | ParallelAutoDriftVectorEnv:
     if config.vector_env_mode == "sync":
         return SyncAutoDriftVectorEnv(
@@ -884,6 +891,7 @@ def make_vector_env(
             seed=seed,
             seed_sequence=seed_sequence,
             seed_sequence_probability=config.training_seed_mix_probability,
+            observation_mask_spec=observation_mask_spec,
         )
     if config.vector_env_mode == "parallel":
         return ParallelAutoDriftVectorEnv(
@@ -893,6 +901,7 @@ def make_vector_env(
             seed_sequence=seed_sequence,
             seed_sequence_probability=config.training_seed_mix_probability,
             start_method=config.vector_env_start_method,
+            observation_mask_spec=observation_mask_spec,
         )
     raise ValueError("vector_env_mode must be one of: sync, parallel")
 
@@ -986,6 +995,7 @@ def train(
     curriculum: list | None = None,
     checkpoint_metadata: dict | None = None,
     init_checkpoint_path: Path | None = None,
+    observation_mask_spec: ObservationMaskSpec | None = None,
 ) -> ActorCritic:
     np.random.seed(config.seed)
     torch.manual_seed(config.seed)
@@ -1102,7 +1112,13 @@ def train(
     training_seed_sequence = (
         load_training_seed_csv(config.training_seed_csv) if str(config.training_seed_csv).strip() else None
     )
-    env = make_vector_env(config, active_env_config, seed=config.seed, seed_sequence=training_seed_sequence)
+    env = make_vector_env(
+        config,
+        active_env_config,
+        seed=config.seed,
+        seed_sequence=training_seed_sequence,
+        observation_mask_spec=observation_mask_spec,
+    )
     obs, infos = env.reset()
     if config.response_prediction_dim > env.single_observation_space.shape[0]:
         raise ValueError("response_prediction_dim cannot exceed observation dimension")
@@ -1860,8 +1876,11 @@ def evaluate_actor(
     episodes: int,
     seed: int,
     env_config: DriftEnvConfig | None = None,
+    observation_mask_spec: ObservationMaskSpec | None = None,
 ) -> dict[str, float]:
     env = AutoDriftEnv(env_config or DriftEnvConfig())
+    if observation_mask_spec is not None and observation_mask_spec.enabled:
+        env = ControllerProfileObservationWrapper(env, observation_mask_spec)
     rows = []
     for episode in range(episodes):
         obs, info = env.reset(seed=seed + episode)
@@ -1919,12 +1938,17 @@ def main() -> None:
     config_data = {field.name: getattr(ppo_defaults, field.name) for field in fields(PPOConfig)}
     eval_episodes = 3
     raw_config = {}
+    profile_mask_spec: ObservationMaskSpec | None = None
+    controller_profile_runtime: dict[str, Any] | None = None
     if args.config is not None:
         raw_config = read_json(args.config)
         if "ppo" not in raw_config:
             raise ValueError(f"{args.config} is missing required top-level 'ppo' config")
         if "env" not in raw_config:
             raise ValueError(f"{args.config} is missing required top-level 'env' config")
+        if "controller_profile" in raw_config:
+            profile_mask_spec = mask_spec_from_config(raw_config)
+            controller_profile_runtime = profile_runtime_summary(raw_config)
         ppo_config = raw_config["ppo"]
         for key in config_data:
             if key in ppo_config:
@@ -1967,6 +1991,7 @@ def main() -> None:
             "env": env_config,
             "curriculum": curriculum,
             "history_baseline": history_baseline_spec,
+            "controller_profile_runtime": controller_profile_runtime,
             "eval_episodes": eval_episodes,
             "save_path": save_path,
             "init_checkpoint": args.init_checkpoint,
@@ -1979,10 +2004,22 @@ def main() -> None:
         metrics_csv_path=train_metrics_csv,
         env_config=env_config,
         curriculum=curriculum,
-        checkpoint_metadata={"env": env_config, "curriculum": curriculum, "history_baseline": history_baseline_spec},
+        checkpoint_metadata={
+            "env": env_config,
+            "curriculum": curriculum,
+            "history_baseline": history_baseline_spec,
+            "controller_profile_runtime": controller_profile_runtime,
+        },
         init_checkpoint_path=args.init_checkpoint,
+        observation_mask_spec=profile_mask_spec,
     )
-    summary = evaluate_actor(model, eval_episodes, config.seed + 10_000, env_config=env_config)
+    summary = evaluate_actor(
+        model,
+        eval_episodes,
+        config.seed + 10_000,
+        env_config=env_config,
+        observation_mask_spec=profile_mask_spec,
+    )
     write_json(run_dir / "eval_summary.json", summary)
     write_json(
         run_dir / "manifest.json",
