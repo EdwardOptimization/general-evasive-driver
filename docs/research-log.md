@@ -16757,3 +16757,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no relocation replay, mining, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
 - decision: `action_divergent_candidates_ready_route_to_bounded_relocation_design`
 - next: `m1176-v4-public-base-action-divergent-bounded-relocation-design`
+
+## 20260528T032000Z - m1176-v4-public-base-action-divergent-bounded-relocation-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1176-v4-public-base-action-divergent-bounded-relocation-design.md`
+- result: designs a bounded relocation replay over M1175 `candidate_outcomes.csv`.
+- input candidate set: `240` rows across `17` physical pairs, `9` left steps, `3` targets, and `6` checkpoints.
+- design: use fine target-normal margins `0.00025` to `0.005`, zero body-longitudinal and body-lateral offsets, and `wrong_matched_history` only.
+- resource bounds: `max_candidates=240`, `max_candidates_per_physical_pair=15`, `target_min_physical_pairs=12`, `target_min_left_steps=6`, `target_min_targets=3`, `max_rows_per_pair_fraction=0.15`.
+- acceptance: M1177 should pass only if the relocation runner reports `source_balanced_boundary_export_pass` with accepted wrong-history source diversity and success-drop preservation.
+- failure routing: scarcity routes to mechanism audit; row existence with failed diversity routes to scoring repair; pass routes to proof-corpus conversion design.
+- guardrail: no relocation replay, mining, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
+- decision: `action_divergent_bounded_relocation_design_admit_run`
+- next: `m1177-v4-public-base-action-divergent-bounded-relocation-run`

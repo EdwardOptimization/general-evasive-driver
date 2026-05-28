@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1184,
+    "completed": 1185,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1175-v4-public-base-action-divergent-candidate-export-run",
+    "task_id": "m1176-v4-public-base-action-divergent-bounded-relocation-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1175-v4-public-base-action-divergent-candidate-export-run.md",
-    "result_class": "action_divergent_candidate_export_pass",
-    "decision": "action_divergent_candidates_ready_route_to_bounded_relocation_design"
+    "command_log": "docs/m1176-v4-public-base-action-divergent-bounded-relocation-design.md",
+    "result_class": "bounded_relocation_design_complete",
+    "decision": "action_divergent_bounded_relocation_design_admit_run"
   },
   "next_task": {
-    "id": "m1176-v4-public-base-action-divergent-bounded-relocation-design",
+    "id": "m1177-v4-public-base-action-divergent-bounded-relocation-run",
     "status": "pending",
-    "priority": 11710,
+    "priority": 11720,
     "kind": "gate",
-    "hypothesis": "A bounded relocation replay design can test whether M1175 action-divergent candidates produce source-diverse wrong-history boundary rows without rerunning broad mining or changing actor inputs",
-    "command": "see experiments/manifests/m1176-v4-public-base-action-divergent-bounded-relocation-design.json",
-    "success_artifact": "docs/m1176-v4-public-base-action-divergent-bounded-relocation-design.md",
-    "notes": "Pending: design only; no relocation replay run actor training PPO promotion private holdout or actor-input change"
+    "hypothesis": "M1175 action-divergent candidates will materialize into a source-diverse wrong-history boundary surface under fine target-margin bounded relocation",
+    "command": "see experiments/manifests/m1177-v4-public-base-action-divergent-bounded-relocation-run.json",
+    "success_artifact": "docs/m1177-v4-public-base-action-divergent-bounded-relocation-run.md",
+    "notes": "Pending: run pre-registered bounded relocation replay only; no broad mining actor training PPO promotion private holdout conversion or actor-input change"
   },
-  "updated_at_utc": "20260528T030800Z"
+  "updated_at_utc": "20260528T032000Z"
 }

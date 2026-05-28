@@ -84,11 +84,17 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1176-v4-public-base-action-divergent-bounded-relocation-design
+m1177-v4-public-base-action-divergent-bounded-relocation-run
 ```
 
-M1175 ran the M1174 deterministic action-divergent candidate exporter on the
-M1161 outcome artifact:
+M1176 designed a bounded relocation replay over the M1175 action-divergent
+candidate export. The next run should consume:
+
+```text
+runs/m1175_action_divergent_candidate_export/candidate_outcomes.csv
+```
+
+M1175 export summary:
 
 ```text
 summary: runs/m1175_action_divergent_candidate_export/summary.json
@@ -103,10 +109,20 @@ max_selected_pair_fraction: 0.0625
 decision: action_divergent_candidates_ready
 ```
 
-This is not a proof corpus: `success_drop_rows` is `0`, so the next step is
-M1176 design for a bounded relocation replay over `candidate_outcomes.csv`.
-No replay, mining, actor training, PPO, promotion, private holdout, row
-conversion, or actor-input change has occurred.
+M1176 registers a fine target-margin, zero-body-offset relocation replay:
+
+```text
+target_normal_margins:
+  0.00025,0.0005,0.00075,0.001,0.00125,0.0015,0.002,0.0025,0.003,0.004,0.005
+report_variants: wrong_matched_history
+run_dir: runs/m1177_action_divergent_bounded_relocation_seed117700
+```
+
+M1175 is not a proof corpus because `success_drop_rows` is `0`; M1177 tests
+whether those action-divergent rows materialize into source-diverse
+wrong-history boundary rows under bounded relocation. No broad mining, actor
+training, PPO, promotion, private holdout, row conversion, or actor-input
+change has occurred.
 
 M1127 completed the expanded full public gate for the row15 projection
 candidate:

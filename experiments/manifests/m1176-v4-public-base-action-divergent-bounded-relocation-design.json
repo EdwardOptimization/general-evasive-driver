@@ -155,6 +155,56 @@
     "runs/m1175_action_divergent_candidate_export/candidate_outcomes.csv",
     "docs/m1175-v4-public-base-action-divergent-candidate-export-run.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1176-v4-public-base-action-divergent-bounded-relocation-design.md",
+    "decision": "action_divergent_bounded_relocation_design_admit_run",
+    "result_class": "bounded_relocation_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "input_candidate_csv": "runs/m1175_action_divergent_candidate_export/candidate_outcomes.csv",
+    "next_run_manifest": "experiments/manifests/m1177-v4-public-base-action-divergent-bounded-relocation-run.json",
+    "bounded_relocation_command_registered": true,
+    "max_candidates": 240,
+    "max_candidates_per_physical_pair": 15,
+    "target_min_physical_pairs": 12,
+    "target_min_left_steps": 6,
+    "target_min_targets": 3,
+    "max_rows_per_pair_fraction": 0.15,
+    "target_normal_margins": [
+      0.00025,
+      0.0005,
+      0.00075,
+      0.001,
+      0.00125,
+      0.0015,
+      0.002,
+      0.0025,
+      0.003,
+      0.004,
+      0.005
+    ],
+    "body_longitudinal_offsets": [
+      0.0
+    ],
+    "body_lateral_offsets": [
+      0.0
+    ],
+    "report_variants": [
+      "wrong_matched_history"
+    ],
+    "replay_started": false,
+    "mining_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "surface_conversion_started": false,
+    "admitted_next": "bounded_relocation_run",
+    "next_milestone": "m1177-v4-public-base-action-divergent-bounded-relocation-run"
+  },
   "decision_rule": "M1176 may only design a bounded relocation replay and pre-register the run. It cannot execute relocation replay, run mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
-  "next_blocker": "m1176-v4-public-base-action-divergent-bounded-relocation-design"
+  "next_blocker": "m1177-v4-public-base-action-divergent-bounded-relocation-run"
 }

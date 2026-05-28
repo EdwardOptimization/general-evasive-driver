@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T021530Z
+- Generated at UTC: 20260528T022047Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M1176 may only design a bounded relocation replay and pre-register the run. It cannot execute relocation replay, run mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.
+- Promotion decision: action_divergent_bounded_relocation_design_admit_run
+- Decision reason: M1176 designs a bounded fine-target-margin zero-offset relocation replay over M1175 candidate_outcomes.csv before any proof conversion or training
 
 ## Hypothesis
 
@@ -73,8 +73,19 @@ A bounded relocation replay design can test whether M1175 action-divergent candi
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1176-v4-public-base-action-divergent-bounded-relocation-design
+- type: gate
+- checkpoint: docs/m1176-v4-public-base-action-divergent-bounded-relocation-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: action_divergent_bounded_relocation_design_admit_run
+- reason: M1176 designs a bounded fine-target-margin zero-offset relocation replay over M1175 candidate_outcomes.csv before any proof conversion or training
 
 ## Next Blocker
 
-m1176-v4-public-base-action-divergent-bounded-relocation-design
+m1177-v4-public-base-action-divergent-bounded-relocation-run

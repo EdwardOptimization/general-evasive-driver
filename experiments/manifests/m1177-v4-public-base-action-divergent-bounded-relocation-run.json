@@ -1,0 +1,177 @@
+{
+  "id": "m1177-v4-public-base-action-divergent-bounded-relocation-run",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1175_action_divergent_candidate_export/candidate_outcomes.csv",
+      "docs/m1176-v4-public-base-action-divergent-bounded-relocation-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1176-v4-public-base-action-divergent-bounded-relocation-design.json"
+    ],
+    "parent_objective": [
+      "run bounded relocation replay over action-divergent candidate_outcomes.csv"
+    ],
+    "derived_from": [
+      "m1176-v4-public-base-action-divergent-bounded-relocation-design"
+    ],
+    "blocked_by": [
+      "M1175 candidates have source-diverse action divergence but no direct success-drop rows"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "proof conversion from unrelocated M1175 candidates",
+      "broad relocation rerun before bounded candidate replay"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1177-v4-public-base-action-divergent-bounded-relocation-run.md",
+  "public_gates": [
+    "M1177 may run only the pre-registered bounded relocation command",
+    "M1177 must not run broad mining",
+    "M1177 must not train actor weights",
+    "M1177 must not run PPO",
+    "M1177 must not promote",
+    "M1177 must not use private holdout",
+    "M1177 must preserve actor inputs",
+    "M1177 must not convert rows into a proof corpus"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun broad mining",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert rows into a proof corpus",
+    "do not weaken thresholds after seeing relocation results"
+  ],
+  "workflow_synthesis": {
+    "branch": "stronger_wrong_history_construction",
+    "evidence_axis": "G_proof: action-divergent wrong-history boundary materialization",
+    "evidence_increment": "tests whether M1175 action-divergent candidates can materialize into source-diverse wrong-history boundary rows under bounded relocation",
+    "claim_scope": "relocation proof-surface only; no training, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if accepted wrong-history rows are scarce",
+      "stop if accepted rows collapse to old two-pair surface",
+      "stop if relocation runtime/resource issue prevents summary artifact",
+      "stop if actor input contract changes"
+    ],
+    "fallback_plan": [
+      "if accepted rows are scarce, route to mechanism audit",
+      "if diversity fails but rows exist, route to source-balanced scoring repair",
+      "if pass, route to proof-corpus conversion design",
+      "if resource failure recurs, route to capped staged design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1176 admits bounded relocation run",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run bounded relocation replay over exported action-divergent candidates",
+    "admission_evidence": [
+      "M1175 selected 240 rows across 17 physical pairs, 9 left steps, 3 targets, and 6 checkpoints",
+      "M1175 action-divergence statistics are stronger than the broad wrong-history average",
+      "M1176 pre-registers resource bounds and acceptance thresholds"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not run broad mining",
+      "do not convert rows",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "run artifacts",
+      "result documentation",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "summary exists",
+      "boundary_relocation_rows.csv exists",
+      "balanced_accepted_wrong_history_rows.csv exists",
+      "result is classified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1177 tests wrong-history relocation sensitivity only; a pass would support wrong-history dependence on a bounded surface but would not prove level3 anticipatory self-identification.",
+    "history_necessity_tests": [
+      "wrong_matched_history relocation replay",
+      "success-drop fraction on accepted wrong-history rows"
+    ],
+    "temporal_evidence_window": "Uses delayed outcome snapshots and wrong-history continuation, not direct current-frame substitution.",
+    "negative_result_policy": "If relocation does not produce source-diverse success drops, record scarcity as a task/construction result and route to audit instead of weakening thresholds.",
+    "allowed_claims": [
+      "bounded wrong-history relocation surface result",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level claim"
+    ]
+  },
+  "hypothesis": "M1175 action-divergent candidates will materialize into a source-diverse wrong-history boundary surface under fine target-margin bounded relocation.",
+  "success_criteria": [
+    "summary artifact exists",
+    "boundary_relocation_rows.csv exists",
+    "balanced_accepted_wrong_history_rows.csv exists",
+    "decision is source_balanced_boundary_export_pass",
+    "accepted_wrong_rows >= 80",
+    "accepted_wrong_physical_pairs >= 10",
+    "accepted_wrong_left_steps >= 5",
+    "accepted_wrong_checkpoints >= 3",
+    "accepted_wrong_targets >= 2",
+    "accepted_wrong_normal_margin_buckets >= 2",
+    "accepted_wrong_success_drop_fraction == 1.0",
+    "max_rows_per_physical_pair_fraction <= 0.15",
+    "control_accepted_wrong_rows == 0",
+    "no broad mining, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "summary artifact missing",
+    "relocation runtime/resource failure",
+    "accepted wrong-history rows remain scarce",
+    "accepted rows collapse to old two-pair surface",
+    "source-diversity gate fails",
+    "broad mining, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "action_divergent_bounded_relocation",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_balanced_boundary_relocation_surface --checkpoint-policy row15_current=runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --checkpoint-policy row15_previous_alpha015=runs/m1123_row15_unsafe_margin_projection_probe/checkpoints/alpha_0_15.pt --checkpoint-policy previous_m1078_base=runs/m1073_medium_ppo_failed_row_repair_projection_probe/temporal_projection/checkpoints/m1031_base_row16x4_s40_a1.pt --checkpoint-policy short61049=runs/ppo_m1049_guarded_short_escalation_seed61049/checkpoint.pt --checkpoint-policy short61050=runs/ppo_m1050_guarded_short_repeat_seed61050/checkpoint.pt --checkpoint-policy short61051=runs/ppo_m1050_guarded_short_repeat_seed61051/checkpoint.pt --env-config configs/m121_human_view_zero_obstacle_relvel.json --outcome-csv runs/m1175_action_divergent_candidate_export/candidate_outcomes.csv --delay-steps 10 --max-continuation-steps 60 --max-candidates 240 --max-candidates-per-physical-pair 15 --max-candidates-per-checkpoint-target 80 --max-accepted-rows-per-physical-pair 20 --target-min-physical-pairs 12 --target-min-left-steps 6 --target-min-targets 3 --max-rows-per-pair-fraction 0.15 --min-eligible-physical-pairs 12 --max-candidate-pair-fraction 0.15 --source-obstacle-distance-bucket-width 5.0 --source-obstacle-lateral-bucket-width 1.0 --target-normal-margins 0.00025,0.0005,0.00075,0.001,0.00125,0.0015,0.002,0.0025,0.003,0.004,0.005 --half-width-inflations 0 --body-longitudinal-offsets=0.0 --body-lateral-offsets=0.0 --min-normal-margin 0.0 --max-normal-margin 0.20 --min-margin-gap 0.02 --report-variants wrong_matched_history --margin-bucket-width 0.005 --control-checkpoint-label none --device cpu --run-dir runs/m1177_action_divergent_bounded_relocation_seed117700"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1177_action_divergent_bounded_relocation_seed117700/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1177_action_divergent_bounded_relocation_seed117700/boundary_relocation_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1177_action_divergent_bounded_relocation_seed117700/balanced_accepted_wrong_history_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1177-v4-public-base-action-divergent-bounded-relocation-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1175_action_divergent_candidate_export/candidate_outcomes.csv",
+    "docs/m1176-v4-public-base-action-divergent-bounded-relocation-design.md"
+  ],
+  "decision_rule": "M1177 may only run the pre-registered bounded relocation replay over M1175 candidate_outcomes.csv and document the result. It cannot run broad mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
+  "next_blocker": "m1177-v4-public-base-action-divergent-bounded-relocation-run"
+}
