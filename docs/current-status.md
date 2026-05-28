@@ -16,14 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1353-paper-route-materialized-source-history-interpolation-replay-result-audit
+m1354-paper-route-materialized-source-history-replay-aware-retention-design
 ```
 
 Current next task:
 
 ```text
-m1354-paper-route-materialized-source-history-replay-aware-retention-design
+m1355-paper-route-materialized-source-history-replay-aware-retention-probe
 ```
+
+M1354 designs the replay-aware retention update. The key active set is M183/M170
+rows `1, 4, 12, 14, 16`, which first fail at `alpha=0.01`; the expanded
+M183/M170 rows at `alpha=0.02`; and lower-weight M267/M264 rows that first fail
+at `alpha=0.05`. M1355 is admitted as exactly one no-PPO retained update probe:
+start from M1154, keep the M1346 trainable scope (`response_context_fusion.0.*`
+and `actor_mean.*`), add active replay retention to the source-history objective,
+then run exact metrics plus M267/M264 and conditional M183/M170 preflight. It
+must not promote, run PPO, use private holdout, run full replay, or change actor
+inputs. After M1355, the branch should synthesize before more local tuning.
 
 M1353 audits the M1352 result and routes away from direct full replay or
 promotion. The only passing interpolation alpha is `0.005`, which is useful as a

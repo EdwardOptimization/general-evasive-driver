@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1363,
+    "completed": 1364,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.md",
+    "command_log": "docs/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1353-paper-route-materialized-source-history-interpolation-replay-result-audit.md",
+    "run_dir": "docs/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md",
     "status": "completed",
-    "task_id": "m1353-paper-route-materialized-source-history-interpolation-replay-result-audit"
+    "task_id": "m1354-paper-route-materialized-source-history-replay-aware-retention-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1354-paper-route-materialized-source-history-replay-aware-retention-design.json",
-    "hypothesis": "Design no-PPO source-history update with M267/M264 and M183/M170 active replay retention",
-    "id": "m1354-paper-route-materialized-source-history-replay-aware-retention-design",
-    "kind": "gate",
-    "notes": "Pending: replay-aware retention design only; no training, PPO, promotion, private holdout, replay run, or actor-input change",
-    "priority": 13490,
+    "command": "see experiments/manifests/m1355-paper-route-materialized-source-history-replay-aware-retention-probe.json",
+    "hypothesis": "Run one no-PPO replay-aware retained update and two-surface replay preflight before branch synthesis",
+    "id": "m1355-paper-route-materialized-source-history-replay-aware-retention-probe",
+    "kind": "infrastructure",
+    "notes": "Pending: one retained actor update with exact metrics and limited replay; no PPO, promotion, private holdout, full replay, or actor-input change",
+    "priority": 13500,
     "status": "pending",
-    "success_artifact": "docs/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md"
+    "success_artifact": "runs/m1355_materialized_source_history_replay_aware_retention_probe/summary.json"
   },
-  "updated_at_utc": "20260528T194832Z"
+  "updated_at_utc": "20260528T195257Z"
 }

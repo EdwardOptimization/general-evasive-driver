@@ -1,0 +1,173 @@
+{
+  "id": "m1355-paper-route-materialized-source-history-replay-aware-retention-probe",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt",
+      "runs/m1352_materialized_source_history_interpolation_preflight/checkpoints/alpha_0_005.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md",
+      "runs/m1336_materialized_source_history_objective_corpus_export",
+      "runs/m1352_materialized_source_history_interpolation_preflight/replay/m1352_alpha_0_005/m267_m264/boundary_replay_rows.csv",
+      "runs/m1352_materialized_source_history_interpolation_preflight/replay/m1352_alpha_0_005/m183_m170/boundary_replay_rows.csv",
+      "runs/m1352_materialized_source_history_interpolation_preflight/alpha_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1354-paper-route-materialized-source-history-replay-aware-retention-design.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_objective": [
+      "run one bounded no-PPO source-history update with replay-aware retention active set"
+    ],
+    "derived_from": [
+      "m1354-paper-route-materialized-source-history-replay-aware-retention-design"
+    ],
+    "blocked_by": [
+      "M1354 designs the retention objective but no retained update has been run"
+    ],
+    "supersedes": [
+      "pure interpolation-only continuation",
+      "direct PPO continuation",
+      "direct full replay of alpha 0.005"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1355-paper-route-materialized-source-history-replay-aware-retention-probe.md",
+  "public_gates": [
+    "M1355 must not run PPO",
+    "M1355 must not use private holdout",
+    "M1355 must not promote",
+    "M1355 must preserve actor input contract",
+    "M1355 must verify allowed mutation scope",
+    "M1355 must evaluate exact source-history metrics before replay",
+    "M1355 must run M267/M264 before M183/M170",
+    "M1355 must route to synthesis after result"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not skip mutation checks",
+    "do not skip exact metrics",
+    "do not skip M267/M264 before M183/M170",
+    "do not run full public replay",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_pair_group_update_implementation",
+    "evidence_axis": "S_replay_aware_retention_probe",
+    "evidence_increment": "tests whether active replay retention permits more useful source-history progress than alpha 0.005 while preserving two replay surfaces",
+    "claim_scope": "single no-PPO public proof probe only; no promotion, private-holdout, PPO, full replay, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if retention probe fails mutation or actor contract checks",
+      "stop if exact metrics do not improve vs M1154",
+      "stop if M267/M264 or M183/M170 fails",
+      "stop after one probe and route to synthesis regardless of result"
+    ],
+    "fallback_plan": [
+      "if implementation is structurally blocked, route to trajectory export or objective tooling audit",
+      "if exact progress is weak but replay passes, record as insufficient and synthesize branch",
+      "if replay fails, classify active-set miss and synthesize branch",
+      "if replay passes with stronger exact progress than alpha 0.005, synthesize before any broader replay"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1355 is the cadence-boundary implementation probe for this branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "bounded replay-aware source-history retention probe",
+    "admission_evidence": [
+      "M1354 designs the active-set objective",
+      "M1352 identifies M183/M170 row ids 1,4,12,14,16 as first-failing hard constraints"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not run full public replay"
+    ],
+    "allowed_updates": [
+      "one no-PPO retained actor update",
+      "retention active-set artifacts",
+      "exact metric artifacts",
+      "limited replay preflight artifacts",
+      "M1355 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "summary records exact and replay outcomes",
+      "summary compares against M1154 and alpha 0.005",
+      "next route is branch synthesis"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1355 checks replay proof retention after a no-PPO update and cannot claim anticipatory self-identification.",
+    "history_necessity_tests": [
+      "M267/M264 and M183/M170 wrong-history replay retention must be preserved after the retained update"
+    ],
+    "temporal_evidence_window": "M1336 materialized source-history histories plus two public boundary replay surfaces.",
+    "negative_result_policy": "If the retained update cannot beat alpha 0.005 while passing replay, record this as a branch-level limitation before synthesis.",
+    "allowed_claims": [
+      "single retained no-PPO proof probe result",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "Replay-aware retention can preserve M267/M264 and M183/M170 while producing more exact source-history progress than the diagnostic alpha 0.005 interpolation.",
+  "success_criteria": [
+    "runs/m1355_materialized_source_history_replay_aware_retention_probe/summary.json exists",
+    "summary records retention active-set rows and weights",
+    "summary records mutation scope and actor input contract checks",
+    "summary records exact source-history metrics versus M1154 and alpha 0.005",
+    "summary records M267/M264 and conditional M183/M170 replay outcomes",
+    "no PPO, promotion, private holdout, threshold relaxation, full replay, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "retention active-set rows are not recorded",
+    "mutation or actor contract checks are missing",
+    "exact metrics are missing",
+    "M267/M264 is skipped before M183/M170",
+    "PPO, private holdout, promotion, threshold relaxation, full replay, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "retention_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.materialized_source_history_replay_aware_retention_probe --run-dir runs/m1355_materialized_source_history_replay_aware_retention_probe --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1355_materialized_source_history_replay_aware_retention_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1355-paper-route-materialized-source-history-replay-aware-retention-probe.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1352_materialized_source_history_interpolation_preflight/checkpoints/alpha_0_005.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md",
+    "runs/m1352_materialized_source_history_interpolation_preflight/alpha_summary.csv"
+  ],
+  "decision_rule": "M1355 may run exactly one no-PPO retained update and limited replay preflight; it cannot promote and must route to branch synthesis after result.",
+  "next_blocker": "m1355-paper-route-materialized-source-history-replay-aware-retention-probe"
+}

@@ -19861,3 +19861,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1354-paper-route-materialized-source-history-replay-aware-retention-design.json`.
 - next: `m1354-paper-route-materialized-source-history-replay-aware-retention-design`
+
+## 20260528T195257Z - m1354-paper-route-materialized-source-history-replay-aware-retention-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md`
+- decision: `materialized_source_history_replay_aware_retention_design_admit_probe`
+- base checkpoint: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`
+- diagnostic checkpoint: `runs/m1352_materialized_source_history_interpolation_preflight/checkpoints/alpha_0_005.pt`
+- hard active replay surface: M183/M170, first failing at `alpha=0.01` on rows `1`, `4`, `12`, `14`, and `16`.
+- expanded M183/M170 failing rows at `alpha=0.02`: `1`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `13`, `14`, and `16`.
+- soft active replay surface: M267/M264, first failing at `alpha=0.05`.
+- design: one no-PPO retained source-history update with `response_context_fusion.0.*` and `actor_mean.*` trainable, exact metrics before replay, M267/M264 first, M183/M170 conditional, no promotion.
+- cadence note: M1355 is admitted as the cadence-boundary probe; after M1355 the branch should synthesize before more local tuning.
+- guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1355-paper-route-materialized-source-history-replay-aware-retention-probe.json`.
+- next: `m1355-paper-route-materialized-source-history-replay-aware-retention-probe`

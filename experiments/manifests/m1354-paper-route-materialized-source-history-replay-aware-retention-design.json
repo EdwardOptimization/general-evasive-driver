@@ -156,6 +156,36 @@
     "runs/m1352_materialized_source_history_interpolation_preflight/summary.json",
     "runs/m1352_materialized_source_history_interpolation_preflight/alpha_summary.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1354-paper-route-materialized-source-history-replay-aware-retention-design.md",
+    "decision": "materialized_source_history_replay_aware_retention_design_admit_probe",
+    "failure_type": "none",
+    "base_checkpoint": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "diagnostic_checkpoint": "runs/m1352_materialized_source_history_interpolation_preflight/checkpoints/alpha_0_005.pt",
+    "trainable_scope": "response_context_fusion_plus_actor_mean",
+    "hard_replay_surface": "m183_m170",
+    "hard_replay_first_fail_alpha": 0.01,
+    "hard_replay_first_fail_row_ids": [
+      1,
+      4,
+      12,
+      14,
+      16
+    ],
+    "soft_replay_surface": "m267_m264",
+    "soft_replay_first_fail_alpha": 0.05,
+    "m1355_admitted": true,
+    "training_started": false,
+    "actor_update_used": false,
+    "replay_run_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "next_manifest": "experiments/manifests/m1355-paper-route-materialized-source-history-replay-aware-retention-probe.json"
+  },
   "decision_rule": "M1354 passes as a design milestone only if it specifies replay-aware retention while keeping training, PPO, private holdout, promotion, replay execution, and actor-input changes blocked.",
-  "next_blocker": "m1354-paper-route-materialized-source-history-replay-aware-retention-design"
+  "next_blocker": "m1355-paper-route-materialized-source-history-replay-aware-retention-probe"
 }
