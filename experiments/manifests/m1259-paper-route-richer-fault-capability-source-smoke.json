@@ -4,7 +4,8 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure",
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -163,6 +164,44 @@
     "docs/m1258-paper-route-richer-fault-capability-source-design.md",
     "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1259_richer_fault_capability_source_smoke/summary.json",
+    "decision": "richer_fault_capability_source_smoke_infrastructure_pass_source_negative_route_to_result_audit",
+    "result_class": "action_divergent_low_regret",
+    "strict_acceptance_aligned": true,
+    "strict_acceptance_fix_commit": "92e750d3",
+    "scenario_count": 116,
+    "snapshot_count": 812,
+    "candidate_pair_count": 784,
+    "matched_pair_count": 12,
+    "trajectory_proposals": 642,
+    "trajectory_proposal_rollouts": 1284,
+    "relocation_candidates": 144,
+    "coarse_relocation_candidates": 96,
+    "fine_relocation_candidates": 48,
+    "near_boundary_viability_pairs": 8,
+    "accepted_separable_pairs": 0,
+    "best_actions_diverged_pairs": 4,
+    "asymmetric_success_drop_pairs": 0,
+    "low_regret_pairs": 12,
+    "unique_matched_fault_family_pairs": 3,
+    "unique_matched_seeds": 3,
+    "key_low_regret_pair_id": 5,
+    "key_low_regret_best_action_l2": 0.7001441121,
+    "key_low_regret_cross_regret_A": 0.0052688249,
+    "key_low_regret_cross_regret_B": 0.0042178858,
+    "actor_parameters_changed": false,
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "true_high_fidelity_fault_claims_made": false,
+    "next_manifest": "experiments/manifests/m1260-paper-route-richer-fault-capability-source-result-audit.json"
+  },
+  "decision": "richer_fault_capability_source_smoke_infrastructure_pass_source_negative_route_to_result_audit",
   "decision_rule": "M1259 passes as infrastructure if richer v4 proxy-fault proposals and rollouts are produced without actor mutation, training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, or high-fidelity claim leakage. Accepted rows remain diagnostic source evidence only.",
-  "next_blocker": "m1259-paper-route-richer-fault-capability-source-smoke"
+  "next_blocker": "m1260-paper-route-richer-fault-capability-source-result-audit"
 }

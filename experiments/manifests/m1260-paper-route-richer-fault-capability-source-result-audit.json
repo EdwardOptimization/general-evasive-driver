@@ -1,0 +1,153 @@
+{
+  "id": "m1260-paper-route-richer-fault-capability-source-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1259-paper-route-richer-fault-capability-source-smoke.md",
+      "runs/m1259_richer_fault_capability_source_smoke/summary.json",
+      "runs/m1259_richer_fault_capability_source_smoke/matched_capability_pairs.csv",
+      "runs/m1259_richer_fault_capability_source_smoke/fault_family_pair_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1259-paper-route-richer-fault-capability-source-smoke.json",
+      "configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit richer-fault source result after strict accepted-source rerun remains zero-accepted"
+    ],
+    "derived_from": [
+      "m1259-paper-route-richer-fault-capability-source-smoke"
+    ],
+    "blocked_by": [
+      "M1259 produced stronger action-divergent low-regret evidence but strict accepted separable pairs remained zero"
+    ],
+    "supersedes": [
+      "another immediate richer-fault source run without auditing the strict negative and metric correction"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1260-paper-route-richer-fault-capability-source-result-audit.md",
+  "public_gates": [
+    "M1260 must preserve actor input contract",
+    "M1260 must not train controllers",
+    "M1260 must not run PPO",
+    "M1260 must not use private holdout",
+    "M1260 must not promote",
+    "M1260 must preserve strict accepted-source criteria",
+    "M1260 must decide whether to try one bounded richer-fault repair variable, synthesize, or pivot"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, fault labels, oracle outcomes, or search outputs to actor inputs",
+    "do not lower min_cross_regret_margin",
+    "do not accept negative own-branch margins",
+    "do not treat asymmetric_success_drop as strict accepted source-positive",
+    "do not claim current single-track proxies are true single-wheel or per-wheel faults"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_richer_fault_capability_source",
+    "evidence_axis": "S_richer_fault_source_result_audit",
+    "evidence_increment": "classifies M1259 strict richer-fault source-negative result and metric correction before another source run",
+    "claim_scope": "process/source-result audit only; no training, promotion, private-holdout, paper-level, high-fidelity, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if next proposal lowers strict accepted-source thresholds",
+      "stop if next proposal only repeats the same v4 smoke without a new repair variable",
+      "stop if proxy faults are interpreted as true physical per-wheel faults"
+    ],
+    "fallback_plan": [
+      "if pair 5 is a legitimate low-regret near-miss, pre-register one bounded boundary/regret retargeting repair",
+      "if source-family remains insufficient, route to synthesis or high-fidelity simulator design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1259 strict richer-fault smoke remains zero-accepted after acceptance semantics correction",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "richer-fault source result audit",
+    "admission_evidence": [
+      "M1259 rerun produced accepted_separable_pairs=0 under strict acceptance",
+      "M1259 pair 5 is viable and action-divergent but low-regret",
+      "M1259 fixed asymmetric_success_drop acceptance semantics"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1260 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next-branch manifest if audit admits it"
+    ],
+    "next_stage_criteria": [
+      "audit classifies strict richer-fault result",
+      "audit chooses one repair, synthesis, or pivot"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1260 audits offline source-construction evidence and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until strict source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "Record M1259 strict zero-accepted evidence and metric correction before any repair.",
+    "allowed_claims": [
+      "richer-fault source result audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, true high-fidelity fault, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1259's richer-fault source result should be audited as strict source-negative with a useful low-regret near-miss, not treated as source-positive.",
+  "success_criteria": [
+    "docs/m1260-paper-route-richer-fault-capability-source-result-audit.md exists",
+    "audit cites M1259 strict accepted_separable_pairs and result_class",
+    "audit records the asymmetric_success_drop acceptance correction",
+    "audit classifies pair 5 and the dominant row patterns",
+    "audit does not lower thresholds",
+    "audit chooses the next branch decision",
+    "no training, PPO, promotion, private holdout, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit is missing",
+    "audit ignores strict acceptance correction",
+    "audit treats M1259 as source-positive",
+    "audit proposes another source run without a new evidence variable",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1260-paper-route-richer-fault-capability-source-result-audit.md from M1259 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1260-paper-route-richer-fault-capability-source-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1259-paper-route-richer-fault-capability-source-smoke.md",
+    "runs/m1259_richer_fault_capability_source_smoke/summary.json"
+  ],
+  "decision_rule": "M1260 passes if it records M1259 as strict source-negative, preserves the corrected acceptance semantics, and chooses the next branch without training or threshold relaxation.",
+  "next_blocker": "m1260-paper-route-richer-fault-capability-source-result-audit"
+}

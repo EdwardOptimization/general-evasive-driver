@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1268,
+    "completed": 1269,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1258-paper-route-richer-fault-capability-source-design.md",
+    "command_log": "docs/m1259-paper-route-richer-fault-capability-source-smoke.md",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m1259_richer_fault_capability_source_smoke",
     "status": "completed",
-    "task_id": "m1258-paper-route-richer-fault-capability-source-design"
+    "task_id": "m1259-paper-route-richer-fault-capability-source-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1259-paper-route-richer-fault-capability-source-smoke.json",
-    "hypothesis": "Run bounded richer v4 proxy-fault capability-separable source smoke",
-    "id": "m1259-paper-route-richer-fault-capability-source-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: run no-training v4 proxy-fault source-family smoke with unchanged capability-separable thresholds and high-fidelity claims blocked",
-    "priority": 12540,
+    "command": "see experiments/manifests/m1260-paper-route-richer-fault-capability-source-result-audit.json",
+    "hypothesis": "Audit M1259 strict richer-fault source-negative result and metric correction before another source run",
+    "id": "m1260-paper-route-richer-fault-capability-source-result-audit",
+    "kind": "gate",
+    "notes": "Pending: classify strict zero-accepted richer-fault result and decide one repair, synthesis, or pivot",
+    "priority": 12550,
     "status": "pending",
-    "success_artifact": "runs/m1259_richer_fault_capability_source_smoke/summary.json"
+    "success_artifact": "docs/m1260-paper-route-richer-fault-capability-source-result-audit.md"
   },
-  "updated_at_utc": "20260528T112820Z"
+  "updated_at_utc": "20260528T114030Z"
 }

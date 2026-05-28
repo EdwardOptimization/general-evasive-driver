@@ -115,7 +115,37 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1259-paper-route-richer-fault-capability-source-smoke
+m1260-paper-route-richer-fault-capability-source-result-audit
+```
+
+M1259 completed richer-fault capability-source smoke:
+
+```text
+artifact: runs/m1259_richer_fault_capability_source_smoke/summary.json
+decision: richer_fault_capability_source_smoke_infrastructure_pass_source_negative_route_to_result_audit
+result_class: action_divergent_low_regret
+accepted_separable_pairs: 0
+```
+
+M1259 conclusion:
+
+```text
+Strict accepted-source semantics now require symmetric margin acceptance.
+The v4 richer proxy-fault source improves source shape with 8 near-boundary
+viable pairs and 4 action-divergent pairs, but accepted separable pairs remain
+zero. Pair 5 is viable and action-divergent but low-regret, not source-positive.
+```
+
+Next task:
+
+```text
+artifact: docs/m1260-paper-route-richer-fault-capability-source-result-audit.md
+manifest: experiments/manifests/m1260-paper-route-richer-fault-capability-source-result-audit.json
+goal: audit M1259 strict source-negative result and decide one repair,
+      synthesis, or pivot
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         threshold relaxation, self-identification or high-fidelity/paper-level
+         claims
 ```
 
 M1258 completed richer-fault capability-source design:

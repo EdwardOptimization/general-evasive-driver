@@ -18141,3 +18141,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1259-paper-route-richer-fault-capability-source-smoke.json`.
 - decision: `richer_fault_capability_source_design_admit_bounded_v4_proxy_fault_smoke`
 - next: `m1259-paper-route-richer-fault-capability-source-smoke`
+
+## 20260528T114030Z - m1259-paper-route-richer-fault-capability-source-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1259_richer_fault_capability_source_smoke/summary.json`
+- implementation correction: M1259 audit exposed that `asymmetric_success_drop` was previously counted as accepted. Commit `92e750d3` changes accepted-source semantics to `accepted = symmetric_margin_accept`, keeps `asymmetric_success_drop` diagnostic, and adds focused regression coverage.
+- result: strict rerun passes infrastructure with `scenario_count=116`, `snapshot_count=812`, `matched_pair_count=12`, `trajectory_proposals=642`, `trajectory_proposal_rollouts=1284`, `relocation_candidates=144`, `fine_relocation_candidates=48`, `unique_matched_fault_family_pairs=3`, and `unique_matched_seeds=3`.
+- source result: `accepted_separable_pairs=0`, `near_boundary_viability_pairs=8`, `best_actions_diverged_pairs=4`, `asymmetric_success_drop_pairs=0`, `low_regret_pairs=12`, and `result_class=action_divergent_low_regret`.
+- key row: pair 5 is viable and action-divergent (`best_action_l2=0.7001441121`) but low-regret (`cross_regret_A=0.0052688249`, `cross_regret_B=0.0042178858`), so it is not accepted under the strict `0.02` threshold.
+- interpretation: richer proxy faults improve source shape but still do not produce strict capability-separable source-positive rows.
+- guardrail: actor parameters unchanged; no labels entered actor inputs; no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, self-ID claim, true high-fidelity physical fault claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1260-paper-route-richer-fault-capability-source-result-audit.json`.
+- decision: `richer_fault_capability_source_smoke_infrastructure_pass_source_negative_route_to_result_audit`
+- next: `m1260-paper-route-richer-fault-capability-source-result-audit`
