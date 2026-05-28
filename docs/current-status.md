@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1335-paper-route-materialized-source-history-objective-corpus-design
+m1336-paper-route-materialized-source-history-objective-corpus-export
 ```
 
 Current next task:
 
 ```text
-m1336-paper-route-materialized-source-history-objective-corpus-export
+m1337-paper-route-materialized-source-history-objective-corpus-export-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -320,14 +320,18 @@ as absent, and advances the active non-halfshaft subset: `344` source pairs,
 `0` zero-response prefixes, and max source-family fold share about `0.2985`.
 The active blocker is M1335: design a no-policy objective corpus export from
 that active subset with explicit halfshaft and global-friction quarantine.
-M1335 completed that design. M1336 should implement a no-policy export that
-writes active source/history/intervention/wrong-history rows for the
-non-halfshaft subset and quarantine artifacts for halfshaft plus missing global
-friction. Expected active counts are `344` source pairs, `1376` prefixes,
-`33024` frames, `1376` history-intervention rows, and `1376` wrong-history
-rows. Expected halfshaft quarantine counts are `22` source pairs, `88`
-prefixes, and `2112` frames. Objective updates, PPO, and promotion remain
-blocked until the export and follow-up audit pass.
+M1335 completed that design. M1336 implemented and ran the no-policy export.
+It passes the export gate with `344` active non-halfshaft source pairs, `1376`
+active history prefixes, `33024` active frames, `1376` history-intervention
+rows, `1376` wrong-history rows, `6` active source families,
+`0` active zero-response prefixes, and max source-family fold share about
+`0.2985`. It also writes explicit quarantines: halfshaft contributes `22`
+source pairs, `88` prefixes, and `2112` frames under
+`halfshaft_probe_silent`; global friction is recorded as
+`global_friction_missing`. Source identity has no duplicates and metadata is
+preserved. The active blocker is M1337: audit M1336 active/quarantine semantics
+before objective evaluator design. Objective updates, PPO, and promotion remain
+blocked until the export audit passes.
 
 ## Actor Contract
 

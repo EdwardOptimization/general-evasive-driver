@@ -19528,3 +19528,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1336-paper-route-materialized-source-history-objective-corpus-export.json`.
 - next: `m1336-paper-route-materialized-source-history-objective-corpus-export`
+
+## 20260528T183253Z - m1336-paper-route-materialized-source-history-objective-corpus-export
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1336_materialized_source_history_objective_corpus_export/summary.json`
+- doc: `docs/m1336-paper-route-materialized-source-history-objective-corpus-export.md`
+- implementation: added `materialized_source_history_objective_corpus_export.py` and focused tests.
+- focused tests: `1 passed`.
+- decision: `materialized_source_history_objective_corpus_export_pass_route_to_result_audit`
+- result class: `materialized_source_history_objective_corpus_export_pass`.
+- active corpus: `344` source pairs, `1376` history prefixes, `33024` history frames, `1376` history-intervention rows, and `1376` wrong-history rows.
+- active family coverage: `6` families, `0` active zero-response prefixes, `1376/1376` prefixes with `response_l2 >= 0.01`, and max source-family fold share `0.2985074627`.
+- quarantine: `22` halfshaft source pairs, `88` halfshaft prefixes, `2112` halfshaft frames, plus explicit `global_friction_missing` diagnostic row.
+- identity: `source_identity_duplicate_count=0`; source identity metadata preserved.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.json`.
+- next: `m1337-paper-route-materialized-source-history-objective-corpus-export-audit`

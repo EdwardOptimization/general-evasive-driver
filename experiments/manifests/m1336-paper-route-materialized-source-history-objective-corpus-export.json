@@ -179,6 +179,43 @@
     "docs/m1335-paper-route-materialized-source-history-objective-corpus-design.md",
     "runs/m1333_source_topup_response_history_materialization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1336_materialized_source_history_objective_corpus_export/summary.json",
+    "doc": "docs/m1336-paper-route-materialized-source-history-objective-corpus-export.md",
+    "decision": "materialized_source_history_objective_corpus_export_pass_route_to_result_audit",
+    "result_class": "materialized_source_history_objective_corpus_export_pass",
+    "focused_tests_passed": true,
+    "active_source_pair_rows": 344,
+    "active_history_prefix_rows": 1376,
+    "active_history_frame_rows": 33024,
+    "active_history_intervention_rows": 1376,
+    "active_wrong_history_pair_rows": 1376,
+    "active_source_family_count": 6,
+    "active_zero_response_l2_prefix_count": 0,
+    "active_response_l2_ge_0_01_count": 1376,
+    "active_max_source_family_fold_share": 0.2985074627,
+    "quarantine_source_pair_rows": 22,
+    "quarantine_history_prefix_rows": 88,
+    "quarantine_history_frame_rows": 2112,
+    "quarantine_history_intervention_rows": 88,
+    "quarantine_wrong_history_pair_rows": 88,
+    "quarantine_family_rows": 2,
+    "quarantine_reasons": [
+      "global_friction_missing",
+      "halfshaft_probe_silent"
+    ],
+    "source_identity_duplicate_count": 0,
+    "source_identity_metadata_preserved": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.json"
+  },
   "decision_rule": "M1336 passes as infrastructure if it exports the active non-halfshaft objective corpus and explicit quarantines without training, PPO, promotion, private holdout use, threshold relaxation, hidden blockers, or actor-input expansion.",
-  "next_blocker": "m1336-paper-route-materialized-source-history-objective-corpus-export"
+  "next_blocker": "m1337-paper-route-materialized-source-history-objective-corpus-export-audit"
 }

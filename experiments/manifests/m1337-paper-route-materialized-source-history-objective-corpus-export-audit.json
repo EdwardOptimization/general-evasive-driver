@@ -1,0 +1,168 @@
+{
+  "id": "m1337-paper-route-materialized-source-history-objective-corpus-export-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1336-paper-route-materialized-source-history-objective-corpus-export.md",
+      "runs/m1336_materialized_source_history_objective_corpus_export/summary.json",
+      "runs/m1336_materialized_source_history_objective_corpus_export/active_source_pair_rows.csv",
+      "runs/m1336_materialized_source_history_objective_corpus_export/active_history_prefix_rows.csv",
+      "runs/m1336_materialized_source_history_objective_corpus_export/active_history_frame_rows.csv",
+      "runs/m1336_materialized_source_history_objective_corpus_export/active_history_intervention_rows.csv",
+      "runs/m1336_materialized_source_history_objective_corpus_export/active_wrong_history_pair_rows.csv",
+      "runs/m1336_materialized_source_history_objective_corpus_export/quarantine_family_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1336-paper-route-materialized-source-history-objective-corpus-export.json"
+    ],
+    "parent_objective": [
+      "audit active/quarantine materialized source-history objective corpus export before evaluator design"
+    ],
+    "derived_from": [
+      "m1336-paper-route-materialized-source-history-objective-corpus-export"
+    ],
+    "blocked_by": [
+      "M1336 export exists but has not yet been audited as an admissible source-history objective evaluator substrate"
+    ],
+    "supersedes": [
+      "direct source-history objective evaluator design without export audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.md",
+  "public_gates": [
+    "M1337 must not train",
+    "M1337 must not run PPO",
+    "M1337 must not use private holdout",
+    "M1337 must not promote",
+    "M1337 must preserve actor input contract",
+    "M1337 must verify active and quarantine semantics",
+    "M1337 must verify source identity metadata",
+    "M1337 must decide objective evaluator design versus export repair"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not route directly to objective update",
+    "do not include halfshaft quarantine in active corpus",
+    "do not hide global friction gap",
+    "do not claim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_objective_corpus",
+    "evidence_axis": "S_materialized_source_history_objective_corpus_export_audit",
+    "evidence_increment": "audits M1336 exported active and quarantine rows before source-history objective evaluator design",
+    "claim_scope": "process audit only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if active export includes history-silent halfshaft rows",
+      "stop if global friction gap is hidden",
+      "stop if source identity is not preserved",
+      "stop if audit routes directly to training or PPO",
+      "stop if actor inputs change"
+    ],
+    "fallback_plan": [
+      "if audit passes, route to source-history objective evaluator design",
+      "if active/quarantine semantics fail, repair M1336 export",
+      "if source identity is ambiguous, repair lineage before objective work",
+      "if active corpus is too imbalanced, route to source cap or fold repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1336 produces active/quarantine export artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "materialized source-history objective corpus export audit",
+    "admission_evidence": [
+      "M1336 active_source_pair_rows=344",
+      "M1336 active_history_prefix_rows=1376",
+      "M1336 active_source_family_count=6",
+      "M1336 active_zero_response_l2_prefix_count=0",
+      "M1336 quarantine_reasons include global_friction_missing and halfshaft_probe_silent",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1337 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "active export counts match M1335/M1336 design",
+      "quarantine export counts match M1335/M1336 design",
+      "source identity metadata is preserved",
+      "route is selected before objective evaluator implementation"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1337 audits offline objective-corpus rows and does not test a deployed actor's closed-loop history necessity.",
+    "history_necessity_tests": [
+      "audit correct-history and wrong-history materialized objective rows for later policy-side evaluation"
+    ],
+    "temporal_evidence_window": "M1333/M1336 materialized source-history artifacts.",
+    "negative_result_policy": "If exported rows are ambiguous, imbalanced, or history-silent, record the issue and route to export or source repair before objective updates.",
+    "allowed_claims": [
+      "materialized source-history objective corpus export audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1336 active/quarantine export is an admissible no-policy substrate for designing a materialized source-history objective evaluator.",
+  "success_criteria": [
+    "docs/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.md exists",
+    "audit cites active source-pair, prefix, frame, intervention, and wrong-history counts",
+    "audit cites active fold and family balance",
+    "audit cites quarantine reasons and counts",
+    "audit verifies source_identity_duplicate_count == 0",
+    "audit verifies source_identity_metadata_preserved is true",
+    "audit chooses source-history objective evaluator design or export repair",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "active/quarantine semantics are not checked",
+    "source identity is not checked",
+    "halfshaft or global friction quarantine is hidden",
+    "audit routes directly to objective update or PPO",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.md from M1336 summary and exported CSV summaries"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1336-paper-route-materialized-source-history-objective-corpus-export.md",
+    "runs/m1336_materialized_source_history_objective_corpus_export/summary.json"
+  ],
+  "decision_rule": "M1337 passes as a process audit if it confirms M1336 active/quarantine semantics, source identity, guardrails, and a safe next route before any objective update, PPO, private holdout, promotion, or actor-input expansion.",
+  "next_blocker": "m1337-paper-route-materialized-source-history-objective-corpus-export-audit"
+}
