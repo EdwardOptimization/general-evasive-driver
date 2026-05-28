@@ -115,7 +115,35 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1248-paper-route-capability-separable-fine-relocation-negative-audit
+m1249-paper-route-capability-separable-trajectory-proposal-source-design
+```
+
+M1248 completed capability-separable fine relocation negative audit:
+
+```text
+artifact: docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md
+decision: local_relocation_source_exhausted_pivot_to_trajectory_proposal_source_design
+failure_type: scenario_sampling_failure
+```
+
+M1248 conclusion:
+
+```text
+M1242-M1247 produced zero accepted capability-separable rows. The current
+matched-current source plus fixed short-sequence lattice plus local obstacle
+relocation branch is exhausted for this source path. Near-boundary viable rows
+are action-equivalent, while action-divergent rows remain nonviable.
+```
+
+Next task:
+
+```text
+artifact: docs/m1249-paper-route-capability-separable-trajectory-proposal-source-design.md
+manifest: experiments/manifests/m1249-paper-route-capability-separable-trajectory-proposal-source-design.json
+goal: design no-training condition-wise trajectory proposal/search source
+      mining and pre-register bounded M1250 smoke
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1247 completed capability-separable fine relocation calibration smoke:

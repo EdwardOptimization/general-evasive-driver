@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1248 audits M1242-M1247 zero-accepted source evidence and pivots from local relocation plus fixed lattice to condition-wise trajectory proposal source design",
+  "failure_criteria": [
+    "audit is missing",
+    "audit ignores M1247 fine relocation evidence",
+    "audit proposes training on zero accepted source rows",
+    "training, PPO, private holdout, promotion, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, relocation labels, or oracle outcomes to actor inputs",
+    "do not claim self-identification from source-construction negatives",
+    "do not start another relocation-grid run before the audit decision"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T103658Z",
+  "hypothesis": "M1242-M1247 indicate a current-model local-relocation source-shape limit rather than a reason to train on the current zero-accepted corpus.",
+  "lineage": {
+    "blocked_by": [
+      "M1247 produced fine relocation candidates and near-boundary viable rows, but still produced zero accepted capability-separable rows"
+    ],
+    "derived_from": [
+      "m1247-paper-route-capability-separable-fine-relocation-calibration-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1241-paper-route-capability-separable-source-construction-design.json",
+      "experiments/manifests/m1247-paper-route-capability-separable-fine-relocation-calibration-smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m1242-paper-route-capability-separable-source-constructor-smoke.md",
+      "docs/m1244-paper-route-capability-separable-short-sequence-lattice-smoke.md",
+      "docs/m1246-paper-route-capability-separable-viability-band-relocation-smoke.md",
+      "docs/m1247-paper-route-capability-separable-fine-relocation-calibration-smoke.md",
+      "runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json",
+      "runs/m1247_capability_separable_fine_relocation_calibration_smoke/relocation_candidates.csv"
+    ],
+    "parent_objective": [
+      "audit whether current-model local relocation and short-sequence lattice source construction is exhausted"
+    ],
+    "supersedes": [
+      "another immediate local relocation grid expansion",
+      "training before an accepted source corpus exists"
+    ]
+  },
+  "milestone": "m1248-paper-route-capability-separable-fine-relocation-negative-audit",
+  "next_blocker": "m1249-paper-route-capability-separable-trajectory-proposal-source-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "local_relocation_source_exhausted_pivot_to_trajectory_proposal_source_design",
+  "public_gates": [
+    "M1248 must preserve actor input contract",
+    "M1248 must not train controllers",
+    "M1248 must not run PPO",
+    "M1248 must not use private holdout",
+    "M1248 must not promote",
+    "M1248 must classify the negative source-construction evidence before proposing the next source variable"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "local_relocation_source_exhausted_pivot_to_trajectory_proposal_source_design",
+    "milestone": "m1248-paper-route-capability-separable-fine-relocation-negative-audit",
+    "reason": "M1248 audits M1242-M1247 zero-accepted source evidence and pivots from local relocation plus fixed lattice to condition-wise trajectory proposal source design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md exists",
+    "audit cites M1242, M1244, M1246, and M1247 evidence",
+    "audit classifies failure types",
+    "audit decides whether local relocation continues or pivots",
+    "no training, PPO, promotion, private holdout, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

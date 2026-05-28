@@ -17974,3 +17974,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1248-paper-route-capability-separable-fine-relocation-negative-audit.json`.
 - decision: `fine_relocation_valid_source_negative_route_to_limit_audit`
 - next: `m1248-paper-route-capability-separable-fine-relocation-negative-audit`
+
+## 20260528T103527Z - m1248-paper-route-capability-separable-fine-relocation-negative-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md`
+- audited evidence: M1242 first-action lattice, M1244 short-sequence lattice, M1246 coarse viability-band relocation, and M1247 fine relocation all produced zero accepted capability-separable rows.
+- failure classification: `scenario_sampling_failure`, specifically a current source-shape limit rather than proof washout, objective overfit, behavior regression, contract violation, or holdout contamination.
+- source shape: near-boundary viable rows are action-equivalent, while action-divergent rows remain nonviable under the current fixed lattice and local relocation variables.
+- stopped branch: no more immediate local relocation-grid expansion on the same public source path.
+- selected next variable: condition-wise trajectory proposal/search source mining, still no-training and no actor-input expansion.
+- follow-up manifest: `experiments/manifests/m1249-paper-route-capability-separable-trajectory-proposal-source-design.json`.
+- decision: `local_relocation_source_exhausted_pivot_to_trajectory_proposal_source_design`
+- next: `m1249-paper-route-capability-separable-trajectory-proposal-source-design`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1257,
+    "completed": 1258,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json",
+    "command_log": "docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1247_capability_separable_fine_relocation_calibration_smoke",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m1247-paper-route-capability-separable-fine-relocation-calibration-smoke"
+    "task_id": "m1248-paper-route-capability-separable-fine-relocation-negative-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1248-paper-route-capability-separable-fine-relocation-negative-audit.json",
-    "hypothesis": "Audit capability-separable fine relocation negative result",
-    "id": "m1248-paper-route-capability-separable-fine-relocation-negative-audit",
+    "command": "see experiments/manifests/m1249-paper-route-capability-separable-trajectory-proposal-source-design.json",
+    "hypothesis": "Design condition-wise trajectory proposal source mining",
+    "id": "m1249-paper-route-capability-separable-trajectory-proposal-source-design",
     "kind": "gate",
-    "notes": "Pending: classify M1242-M1247 zero-accepted source evidence before another relocation run or training",
-    "priority": 12430,
+    "notes": "Pending: design no-training trajectory proposal/source search and pre-register bounded M1250 smoke",
+    "priority": 12440,
     "status": "pending",
-    "success_artifact": "docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md"
+    "success_artifact": "docs/m1249-paper-route-capability-separable-trajectory-proposal-source-design.md"
   },
-  "updated_at_utc": "20260528T103026Z"
+  "updated_at_utc": "20260528T103527Z"
 }
