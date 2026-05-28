@@ -1,0 +1,154 @@
+{
+  "id": "m1316-paper-route-source-history-source-generator-update-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1315-paper-route-source-history-corpus-expansion-plan.md",
+      "runs/m1315_source_history_corpus_expansion_plan/summary.json",
+      "runs/m1315_source_history_corpus_expansion_plan/requires_source_generator_update.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1315-paper-route-source-history-corpus-expansion-plan.json"
+    ],
+    "parent_objective": [
+      "design source generator updates for missing and undercovered source-history families"
+    ],
+    "derived_from": [
+      "m1315-paper-route-source-history-corpus-expansion-plan"
+    ],
+    "blocked_by": [
+      "M1315 reports source-history coverage gaps and under-target family coverage"
+    ],
+    "supersedes": [
+      "materializing M1315's current 108-pair plan as the expanded corpus"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1316-paper-route-source-history-source-generator-update-design.md",
+  "public_gates": [
+    "M1316 must not train",
+    "M1316 must not run PPO",
+    "M1316 must not use private holdout",
+    "M1316 must not promote",
+    "M1316 must preserve actor input contract",
+    "M1316 must design generator support for missing families",
+    "M1316 must define action-divergence acceptance criteria"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not fabricate source labels without dynamics",
+    "do not materialize non-divergent families as accepted",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_corpus_expansion",
+    "evidence_axis": "S_source_generator_update_design",
+    "evidence_increment": "designs source generator updates after M1315 reports coverage gaps",
+    "claim_scope": "generator design only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if design only relabels unsupported families",
+      "stop if design omits action-divergence criteria",
+      "stop if design expands actor inputs",
+      "stop if design routes directly to PPO"
+    ],
+    "fallback_plan": [
+      "if design is admissible, implement a no-policy source generation smoke",
+      "if simulator cannot represent a family, mark it blocked and use supported families only",
+      "if source generation scope is too broad, split by family"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1315 coverage gaps require source generator design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source generator update design",
+    "admission_evidence": [
+      "M1315 planned only 108 source pairs and 216 pair-probe groups",
+      "M1315 found only 3 source families",
+      "M1315 reported 7 unsupported or undercovered families",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1316 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest if source-generation smoke is admitted"
+    ],
+    "next_stage_criteria": [
+      "supported generator updates are explicit",
+      "blocked families are explicit",
+      "acceptance thresholds are explicit",
+      "next implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1316 is source-generator design and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "design source families that create matched command-response history divergence for later diagnostics"
+    ],
+    "temporal_evidence_window": "M1315 corpus expansion plan and coverage-gap report.",
+    "negative_result_policy": "If a family cannot create action-level divergence in the simulator, mark it blocked rather than accepting it.",
+    "allowed_claims": [
+      "source generator update design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "Source generator updates can be designed to cover the missing M1315 families while preserving human-view actor inputs and action-divergence acceptance criteria.",
+  "success_criteria": [
+    "docs/m1316-paper-route-source-history-source-generator-update-design.md exists",
+    "design lists supported and blocked source families",
+    "design defines action-divergence and margin acceptance criteria",
+    "design defines no-policy smoke implementation route",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design relabels unsupported families without dynamics",
+    "design omits acceptance criteria",
+    "design routes directly to PPO",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1316-paper-route-source-history-source-generator-update-design.md from M1315 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1316-paper-route-source-history-source-generator-update-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1315-paper-route-source-history-corpus-expansion-plan.md",
+    "runs/m1315_source_history_corpus_expansion_plan/summary.json",
+    "runs/m1315_source_history_corpus_expansion_plan/requires_source_generator_update.csv"
+  ],
+  "decision_rule": "M1316 passes if it designs source generator updates and acceptance criteria without training, PPO, promotion, private holdout use, threshold relaxation, fake labels, or actor-input expansion.",
+  "next_blocker": "m1316-paper-route-source-history-source-generator-update-design"
+}

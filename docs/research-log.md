@@ -19121,3 +19121,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1315-paper-route-source-history-corpus-expansion-plan.json`.
 - next: `m1315-paper-route-source-history-corpus-expansion-plan`
+
+## 20260528T162838Z - m1315-paper-route-source-history-corpus-expansion-plan
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1315_source_history_corpus_expansion_plan/summary.json`
+- doc: `docs/m1315-paper-route-source-history-corpus-expansion-plan.md`
+- implementation: added no-policy `source_history_corpus_expansion_plan` builder and focused test.
+- validation: `PYTHONPATH=src python -m pytest -q tests/test_source_history_corpus_expansion_plan.py` passed with `1 passed`.
+- result class: `source_history_corpus_expansion_plan_gap_reported`.
+- planned source pairs: `108` versus target `240`.
+- planned pair-probe groups: `216` versus target `480`.
+- source families: `3` versus target `6`.
+- materialized source pairs in current history: `38`.
+- fold discipline: `pair_disjoint=true`, `all_folds_nonempty=true`.
+- fold balance gap: max source-family fold share `0.5789473684`, above target `<=0.40`.
+- coverage gaps: `7` unsupported or undercovered families, including missing global friction step, halfshaft torque loss, load/CG perturbation, steering actuator fault, and tire blowout-like families.
+- interpretation: current artifacts are too narrow for expansion; source generator updates are required before materialization or more policy-side objective tuning.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1316-paper-route-source-history-source-generator-update-design.json`.
+- decision: `source_history_corpus_expansion_plan_gap_reported_route_to_source_generator_update_design`
+- next: `m1316-paper-route-source-history-source-generator-update-design`

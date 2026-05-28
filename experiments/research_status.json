@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1324,
+    "completed": 1325,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1314-paper-route-source-history-corpus-expansion-design.md",
+    "command_log": "docs/m1315-paper-route-source-history-corpus-expansion-plan.md",
     "returncode": 0,
-    "run_dir": "docs/m1314-paper-route-source-history-corpus-expansion-design.md",
+    "run_dir": "runs/m1315_source_history_corpus_expansion_plan",
     "status": "completed",
-    "task_id": "m1314-paper-route-source-history-corpus-expansion-design"
+    "task_id": "m1315-paper-route-source-history-corpus-expansion-plan"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1315-paper-route-source-history-corpus-expansion-plan.json",
-    "hypothesis": "Build deterministic no-policy source-history expansion plan and report coverage gaps",
-    "id": "m1315-paper-route-source-history-corpus-expansion-plan",
-    "kind": "infrastructure",
-    "notes": "Pending: no-policy expansion plan builder; PPO and promotion remain blocked",
-    "priority": 13100,
+    "command": "see experiments/manifests/m1316-paper-route-source-history-source-generator-update-design.json",
+    "hypothesis": "Design source generator updates for missing and undercovered source-history families",
+    "id": "m1316-paper-route-source-history-source-generator-update-design",
+    "kind": "gate",
+    "notes": "Pending: source generator update design; PPO and promotion remain blocked",
+    "priority": 13110,
     "status": "pending",
-    "success_artifact": "runs/m1315_source_history_corpus_expansion_plan/summary.json"
+    "success_artifact": "docs/m1316-paper-route-source-history-source-generator-update-design.md"
   },
-  "updated_at_utc": "20260528T162356Z"
+  "updated_at_utc": "20260528T162838Z"
 }

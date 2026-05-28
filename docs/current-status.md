@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1314-paper-route-source-history-corpus-expansion-design
+m1315-paper-route-source-history-corpus-expansion-plan
 ```
 
 Current next task:
 
 ```text
-m1315-paper-route-source-history-corpus-expansion-plan
+m1316-paper-route-source-history-source-generator-update-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -199,8 +199,13 @@ M1314 completed that design and set first expansion targets:
 `source_fault_family_count>=6`, pair-disjoint folds, and max source-family fold
 share `<=0.40`, with unsupported families reported rather than fabricated. The
 active blocker is M1315: build a deterministic no-policy expansion plan from
-existing source artifacts and report coverage gaps. PPO and promotion remain
-blocked.
+existing source artifacts and report coverage gaps. M1315 completed that plan:
+existing artifacts provide only `108` source pairs, `216` pair-probe groups,
+`3` families, and `38` already materialized source pairs; max source-family fold
+share is `0.5789473684`, above the `<=0.40` target. The plan explicitly reports
+`7` unsupported or undercovered families. The active blocker is M1316: design
+source generator updates before materialization or objective tuning. PPO and
+promotion remain blocked.
 
 ## Actor Contract
 

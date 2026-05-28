@@ -159,6 +159,35 @@
     "runs/m1273_four_wheel_source_corpus_export/summary.json",
     "runs/m1280_four_wheel_source_response_history_materialization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1315_source_history_corpus_expansion_plan/summary.json",
+    "doc": "docs/m1315-paper-route-source-history-corpus-expansion-plan.md",
+    "decision": "source_history_corpus_expansion_plan_gap_reported_route_to_source_generator_update_design",
+    "result_class": "source_history_corpus_expansion_plan_gap_reported",
+    "target_source_pairs": 240,
+    "target_pair_probe_groups": 480,
+    "planned_source_pairs": 108,
+    "planned_pair_probe_groups": 216,
+    "source_fault_family_count": 3,
+    "corner_or_side_variant_count": 3,
+    "materialized_source_pair_count": 38,
+    "all_folds_nonempty": true,
+    "pair_disjoint": true,
+    "max_source_family_fold_share": 0.5789473684,
+    "pair_specific_weight_used": false,
+    "coverage_gap_reported": true,
+    "unsupported_or_undercovered_family_count": 7,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1316-paper-route-source-history-source-generator-update-design.json"
+  },
+  "decision": "source_history_corpus_expansion_plan_gap_reported_route_to_source_generator_update_design",
   "decision_rule": "M1315 passes as planning infrastructure if it writes deterministic expansion plan artifacts without training, PPO, promotion, private holdout use, threshold relaxation, pair-specific weights, or actor-input expansion.",
-  "next_blocker": "m1315-paper-route-source-history-corpus-expansion-plan"
+  "next_blocker": "m1316-paper-route-source-history-source-generator-update-design"
 }
