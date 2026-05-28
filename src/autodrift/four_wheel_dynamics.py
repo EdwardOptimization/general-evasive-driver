@@ -85,6 +85,7 @@ class FourWheelFaultScales:
     lateral_stiffness: tuple[float, float, float, float] = (1.0, 1.0, 1.0, 1.0)
     brake: tuple[float, float, float, float] = (1.0, 1.0, 1.0, 1.0)
     drive: tuple[float, float, float, float] = (1.0, 1.0, 1.0, 1.0)
+    longitudinal_drag: tuple[float, float, float, float] = (0.0, 0.0, 0.0, 0.0)
 
     @staticmethod
     def nominal() -> "FourWheelFaultScales":
@@ -94,6 +95,18 @@ class FourWheelFaultScales:
     def split_mu(*, left_scale: float, right_scale: float) -> "FourWheelFaultScales":
         return FourWheelFaultScales(
             mu=(float(left_scale), float(right_scale), float(left_scale), float(right_scale))
+        )
+
+    @staticmethod
+    def uniform_grip(
+        *,
+        mu_scale: float,
+        lateral_stiffness_scale: float | None = None,
+    ) -> "FourWheelFaultScales":
+        lateral = float(lateral_stiffness_scale if lateral_stiffness_scale is not None else mu_scale)
+        return FourWheelFaultScales(
+            mu=(float(mu_scale), float(mu_scale), float(mu_scale), float(mu_scale)),
+            lateral_stiffness=(lateral, lateral, lateral, lateral),
         )
 
     @staticmethod
@@ -123,6 +136,27 @@ class FourWheelFaultScales:
         drive = [1.0, 1.0, 1.0, 1.0]
         drive[index] = float(drive_scale)
         return FourWheelFaultScales(drive=tuple(drive))
+
+    @staticmethod
+    def tire_blowout_like(
+        wheel: str,
+        *,
+        mu_scale: float,
+        lateral_stiffness_scale: float,
+        drag_force: float,
+    ) -> "FourWheelFaultScales":
+        index = _wheel_index(wheel)
+        mu = [1.0, 1.0, 1.0, 1.0]
+        lateral = [1.0, 1.0, 1.0, 1.0]
+        drag = [0.0, 0.0, 0.0, 0.0]
+        mu[index] = float(mu_scale)
+        lateral[index] = float(lateral_stiffness_scale)
+        drag[index] = float(drag_force)
+        return FourWheelFaultScales(
+            mu=tuple(mu),
+            lateral_stiffness=tuple(lateral),
+            longitudinal_drag=tuple(drag),
+        )
 
 
 @dataclass
@@ -314,6 +348,7 @@ class FourWheelDriftModel:
             mu_capacity = max(p.mu * self.fault_scales.mu[index] * fz, 1.0)
             desired_fx = drive_targets[index] * self.fault_scales.drive[index]
             desired_fx += brake_targets[index] * self.fault_scales.brake[index]
+            desired_fx -= math.copysign(abs(self.fault_scales.longitudinal_drag[index]), local_vx)
             fx_wheel = clamp(desired_fx, -0.98 * mu_capacity, 0.98 * mu_capacity)
             lateral_capacity = math.sqrt(max(mu_capacity**2 - fx_wheel**2, 1.0))
             cornering = stiffness * self.fault_scales.lateral_stiffness[index]

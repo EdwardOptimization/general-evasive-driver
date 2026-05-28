@@ -19160,3 +19160,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1317-paper-route-source-generator-update-smoke.json`.
 - next: `m1317-paper-route-source-generator-update-smoke`
+
+## 20260528T164650Z - m1317-paper-route-source-generator-update-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1317_source_generator_update_smoke/summary.json`
+- doc: `docs/m1317-paper-route-source-generator-update-smoke.md`
+- implementation: added selectable `fault_profile`, `scenario_profile`, and `action_profile`; added `source_expansion_v1` faults/scenarios and `mixed_emergency_v1` action lattice; added tire-blowout-like per-wheel drag proxy and source family diagnostics.
+- validation: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_four_wheel_fault_source_shape.py tests/test_four_wheel_dynamics.py` passed with `14 passed`.
+- result class: `capability_separable_signal`.
+- source positive: `true`.
+- matched pairs: `1242`; action rollouts: `52164`.
+- accepted separable pairs: `128`, below the smoke target `160` but with explicit coverage gaps.
+- accepted fault-family pairs: `5`, meeting the smoke family target.
+- accepted families: halfshaft torque loss `4`, split-mu `12`, brake asymmetry `44`, single-wheel grip collapse `47`, and tire-blowout-like `21`.
+- inactive families: global friction step, load/CG perturbation, and steering actuator fault.
+- interpretation: source generation improved materially by activating halfshaft and tire-blowout-like families, but remains partial coverage; do not route directly to corpus export or objective tuning.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1318-paper-route-source-generator-update-result-audit.json`.
+- decision: `source_generator_update_smoke_partial_coverage_route_to_result_audit`
+- next: `m1318-paper-route-source-generator-update-result-audit`

@@ -5,9 +5,12 @@ import numpy as np
 from autodrift.four_wheel_dynamics import FourWheelState
 from autodrift.four_wheel_fault_source_shape import (
     build_action_lattice,
+    build_fault_cases,
+    build_fault_pairs,
     build_human_view_observation,
     build_scenarios,
     build_scenarios_for_profile,
+    build_source_expansion_scenarios,
     build_viability_calibration_scenarios,
     obstacle_margin,
 )
@@ -42,6 +45,37 @@ def test_action_lattice_contains_left_and_right_sequences():
     assert "counter_right" in templates
     assert len({tuple(candidate["candidate_vector"].tolist()) for candidate in candidates}) == len(candidates)
     assert all(candidate["sequence"].shape == (8, 3) for candidate in candidates)
+
+
+def test_mixed_action_lattice_contains_drive_sensitive_templates():
+    candidates = build_action_lattice(sequence_length=8, action_profile="mixed_emergency_v1")
+
+    templates = {candidate["template"] for candidate in candidates}
+    assert "left_steer_throttle" in templates
+    assert "right_power_recovery" in templates
+    assert len(candidates) > len(build_action_lattice(sequence_length=8))
+
+
+def test_source_expansion_fault_profile_covers_target_families():
+    faults = build_fault_cases("source_expansion_v1")
+    pairs = build_fault_pairs(faults, "source_expansion_v1")
+
+    families = {fault.family for fault in faults}
+    family_pairs = {f"{left.family}->{right.family}" for left, right in pairs}
+    assert {
+        "left_right_split_mu",
+        "single_wheel_grip_collapse",
+        "single_wheel_brake_pull",
+        "halfshaft_torque_loss",
+        "global_friction_step",
+        "steering_actuator_fault",
+        "load_cg_perturbation",
+        "tire_blowout_like",
+    } <= families
+    assert "halfshaft_torque_loss->halfshaft_torque_loss" in family_pairs
+    assert "tire_blowout_like->tire_blowout_like" in family_pairs
+    assert any(fault.params_override for fault in faults if fault.family == "steering_actuator_fault")
+    assert any(fault.scales.longitudinal_drag != (0.0, 0.0, 0.0, 0.0) for fault in faults)
 
 
 def test_obstacle_margin_detects_collision_and_completion():
@@ -92,3 +126,13 @@ def test_viability_calibration_profile_expands_distance_and_width_axes():
     assert {scenario.obstacle_half_width for scenario in scenarios} == {0.55, 0.65, 0.75, 0.85}
     assert all(scenario.state.brake_force > 0.0 for scenario in scenarios)
     assert build_scenarios_for_profile("viability_calibration") == scenarios
+
+
+def test_source_expansion_profile_adds_timing_and_speed_bins():
+    scenarios = build_source_expansion_scenarios()
+
+    assert scenarios
+    assert {scenario.speed_bin for scenario in scenarios} == {"medium", "high"}
+    assert {scenario.obstacle_timing_bin for scenario in scenarios} == {"late", "medium"}
+    assert all(scenario.curvature_bin == "straight" for scenario in scenarios)
+    assert build_scenarios_for_profile("source_expansion_v1") == scenarios

@@ -77,6 +77,33 @@ def test_single_wheel_grip_collapse_reduces_capacity():
     assert abs(collapsed_forces.wheel("rear_left").fy_wheel) < abs(nominal_forces.wheel("rear_left").fy_wheel)
 
 
+def test_tire_blowout_like_drag_creates_signed_yaw_moment():
+    base_state = FourWheelState(x=0.0, y=0.0, psi=0.0, vx=18.0, vy=0.0, yaw_rate=0.0)
+    left = FourWheelDriftModel(
+        fault_scales=FourWheelFaultScales.tire_blowout_like(
+            "front_left",
+            mu_scale=0.2,
+            lateral_stiffness_scale=0.2,
+            drag_force=2200.0,
+        )
+    )
+    right = FourWheelDriftModel(
+        fault_scales=FourWheelFaultScales.tire_blowout_like(
+            "front_right",
+            mu_scale=0.2,
+            lateral_stiffness_scale=0.2,
+            drag_force=2200.0,
+        )
+    )
+
+    _, left_forces = left.step(base_state, np.asarray([0.0, -1.0, -1.0], dtype=np.float32), 0.02)
+    _, right_forces = right.step(base_state, np.asarray([0.0, -1.0, -1.0], dtype=np.float32), 0.02)
+
+    assert left_forces.yaw_moment > 100.0
+    assert right_forces.yaw_moment < -100.0
+    assert left_forces.yaw_moment * right_forces.yaw_moment < 0.0
+
+
 def test_unknown_wheel_fault_name_rejected():
     with pytest.raises(ValueError, match="unknown wheel"):
         FourWheelFaultScales.single_wheel_brake_pull("middle_left", brake_scale=2.0)

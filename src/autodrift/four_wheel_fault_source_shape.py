@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import math
 from pathlib import Path
 from typing import Any
@@ -32,6 +32,10 @@ class FourWheelFaultCase:
     family: str
     severity: str
     scales: FourWheelFaultScales
+    params_override: tuple[tuple[str, float], ...] = ()
+    corner_or_side_variant: str = ""
+    onset_timing_bin: str = "persistent"
+    curvature_bin: str = "straight"
 
 
 @dataclass(frozen=True)
@@ -46,6 +50,9 @@ class FourWheelScenario:
     vehicle_half_width: float = 0.9
     vehicle_half_length: float = 2.2
     previous_action: tuple[float, float, float] = (0.0, -1.0, 1.0)
+    speed_bin: str = "medium"
+    obstacle_timing_bin: str = "medium"
+    curvature_bin: str = "straight"
 
 
 def _body_to_world(state: FourWheelState, body_x: float, body_y: float) -> np.ndarray:
@@ -137,75 +144,304 @@ def build_human_view_observation(
     return obs
 
 
-def build_fault_cases() -> list[FourWheelFaultCase]:
-    return [
-        FourWheelFaultCase(
-            name="split_mu_left_low",
-            family="left_right_split_mu",
-            severity="severe",
-            scales=FourWheelFaultScales.split_mu(left_scale=0.25, right_scale=1.0),
-        ),
-        FourWheelFaultCase(
-            name="split_mu_right_low",
-            family="left_right_split_mu",
-            severity="severe",
-            scales=FourWheelFaultScales.split_mu(left_scale=1.0, right_scale=0.25),
-        ),
-        FourWheelFaultCase(
-            name="front_left_brake_pull",
-            family="single_wheel_brake_pull",
-            severity="severe",
-            scales=FourWheelFaultScales.single_wheel_brake_pull("front_left", brake_scale=2.0),
-        ),
-        FourWheelFaultCase(
-            name="front_right_brake_pull",
-            family="single_wheel_brake_pull",
-            severity="severe",
-            scales=FourWheelFaultScales.single_wheel_brake_pull("front_right", brake_scale=2.0),
-        ),
-        FourWheelFaultCase(
-            name="rear_left_grip_collapse",
-            family="single_wheel_grip_collapse",
-            severity="severe",
-            scales=FourWheelFaultScales.single_wheel_grip_collapse(
-                "rear_left",
-                mu_scale=0.2,
-                lateral_stiffness_scale=0.2,
-            ),
-        ),
-        FourWheelFaultCase(
-            name="rear_right_grip_collapse",
-            family="single_wheel_grip_collapse",
-            severity="severe",
-            scales=FourWheelFaultScales.single_wheel_grip_collapse(
-                "rear_right",
-                mu_scale=0.2,
-                lateral_stiffness_scale=0.2,
-            ),
-        ),
-        FourWheelFaultCase(
-            name="rear_left_halfshaft_loss",
-            family="halfshaft_torque_loss",
-            severity="severe",
-            scales=FourWheelFaultScales.halfshaft_torque_loss("rear_left", drive_scale=0.1),
-        ),
-        FourWheelFaultCase(
-            name="rear_right_halfshaft_loss",
-            family="halfshaft_torque_loss",
-            severity="severe",
-            scales=FourWheelFaultScales.halfshaft_torque_loss("rear_right", drive_scale=0.1),
-        ),
-    ]
+def _fault_case(
+    *,
+    name: str,
+    family: str,
+    severity: str,
+    scales: FourWheelFaultScales,
+    params_override: dict[str, float] | None = None,
+    corner_or_side_variant: str = "",
+    onset_timing_bin: str = "persistent",
+    curvature_bin: str = "straight",
+) -> FourWheelFaultCase:
+    return FourWheelFaultCase(
+        name=name,
+        family=family,
+        severity=severity,
+        scales=scales,
+        params_override=tuple(sorted((str(key), float(value)) for key, value in (params_override or {}).items())),
+        corner_or_side_variant=corner_or_side_variant,
+        onset_timing_bin=onset_timing_bin,
+        curvature_bin=curvature_bin,
+    )
 
 
-def build_fault_pairs(faults: list[FourWheelFaultCase]) -> list[tuple[FourWheelFaultCase, FourWheelFaultCase]]:
+def build_fault_cases(fault_profile: str = "m1268_default") -> list[FourWheelFaultCase]:
+    if fault_profile == "m1268_default":
+        return [
+            _fault_case(
+                name="split_mu_left_low",
+                family="left_right_split_mu",
+                severity="severe",
+                scales=FourWheelFaultScales.split_mu(left_scale=0.25, right_scale=1.0),
+                corner_or_side_variant="left_low",
+            ),
+            _fault_case(
+                name="split_mu_right_low",
+                family="left_right_split_mu",
+                severity="severe",
+                scales=FourWheelFaultScales.split_mu(left_scale=1.0, right_scale=0.25),
+                corner_or_side_variant="right_low",
+            ),
+            _fault_case(
+                name="front_left_brake_pull",
+                family="single_wheel_brake_pull",
+                severity="severe",
+                scales=FourWheelFaultScales.single_wheel_brake_pull("front_left", brake_scale=2.0),
+                corner_or_side_variant="front_left",
+            ),
+            _fault_case(
+                name="front_right_brake_pull",
+                family="single_wheel_brake_pull",
+                severity="severe",
+                scales=FourWheelFaultScales.single_wheel_brake_pull("front_right", brake_scale=2.0),
+                corner_or_side_variant="front_right",
+            ),
+            _fault_case(
+                name="rear_left_grip_collapse",
+                family="single_wheel_grip_collapse",
+                severity="severe",
+                scales=FourWheelFaultScales.single_wheel_grip_collapse(
+                    "rear_left",
+                    mu_scale=0.2,
+                    lateral_stiffness_scale=0.2,
+                ),
+                corner_or_side_variant="rear_left",
+            ),
+            _fault_case(
+                name="rear_right_grip_collapse",
+                family="single_wheel_grip_collapse",
+                severity="severe",
+                scales=FourWheelFaultScales.single_wheel_grip_collapse(
+                    "rear_right",
+                    mu_scale=0.2,
+                    lateral_stiffness_scale=0.2,
+                ),
+                corner_or_side_variant="rear_right",
+            ),
+            _fault_case(
+                name="rear_left_halfshaft_loss",
+                family="halfshaft_torque_loss",
+                severity="severe",
+                scales=FourWheelFaultScales.halfshaft_torque_loss("rear_left", drive_scale=0.1),
+                corner_or_side_variant="rear_left",
+            ),
+            _fault_case(
+                name="rear_right_halfshaft_loss",
+                family="halfshaft_torque_loss",
+                severity="severe",
+                scales=FourWheelFaultScales.halfshaft_torque_loss("rear_right", drive_scale=0.1),
+                corner_or_side_variant="rear_right",
+            ),
+        ]
+    if fault_profile == "source_expansion_v1":
+        return _build_source_expansion_fault_cases()
+    raise ValueError(f"unsupported fault_profile {fault_profile!r}")
+
+
+def _build_source_expansion_fault_cases() -> list[FourWheelFaultCase]:
+    faults: list[FourWheelFaultCase] = []
+    for scale in (0.15, 0.25, 0.40):
+        label = str(scale).replace(".", "p")
+        faults.extend(
+            [
+                _fault_case(
+                    name=f"split_mu_left_low_{label}",
+                    family="left_right_split_mu",
+                    severity=f"mu_{label}",
+                    scales=FourWheelFaultScales.split_mu(left_scale=scale, right_scale=1.0),
+                    corner_or_side_variant="left_low",
+                ),
+                _fault_case(
+                    name=f"split_mu_right_low_{label}",
+                    family="left_right_split_mu",
+                    severity=f"mu_{label}",
+                    scales=FourWheelFaultScales.split_mu(left_scale=1.0, right_scale=scale),
+                    corner_or_side_variant="right_low",
+                ),
+            ]
+        )
+
+    for wheel in ("front_left", "front_right", "rear_left", "rear_right"):
+        for scale in (0.15, 0.25, 0.40):
+            label = str(scale).replace(".", "p")
+            faults.append(
+                _fault_case(
+                    name=f"{wheel}_grip_collapse_{label}",
+                    family="single_wheel_grip_collapse",
+                    severity=f"mu_{label}",
+                    scales=FourWheelFaultScales.single_wheel_grip_collapse(
+                        wheel,
+                        mu_scale=scale,
+                        lateral_stiffness_scale=scale,
+                    ),
+                    corner_or_side_variant=wheel,
+                )
+            )
+
+    for wheel in ("front_left", "front_right", "rear_left", "rear_right"):
+        for brake_scale, label in ((2.0, "pull_2p0"), (0.25, "weak_0p25")):
+            faults.append(
+                _fault_case(
+                    name=f"{wheel}_brake_{label}",
+                    family="single_wheel_brake_pull",
+                    severity=label,
+                    scales=FourWheelFaultScales.single_wheel_brake_pull(wheel, brake_scale=brake_scale),
+                    corner_or_side_variant=wheel,
+                )
+            )
+
+    for wheel in ("rear_left", "rear_right"):
+        for drive_scale in (0.1, 0.35):
+            label = str(drive_scale).replace(".", "p")
+            faults.append(
+                _fault_case(
+                    name=f"{wheel}_halfshaft_loss_{label}",
+                    family="halfshaft_torque_loss",
+                    severity=f"drive_{label}",
+                    scales=FourWheelFaultScales.halfshaft_torque_loss(wheel, drive_scale=drive_scale),
+                    corner_or_side_variant=wheel,
+                )
+            )
+
+    for scale in (0.25, 0.45, 0.65):
+        label = str(scale).replace(".", "p")
+        faults.append(
+            _fault_case(
+                name=f"global_friction_{label}",
+                family="global_friction_step",
+                severity=f"mu_{label}",
+                scales=FourWheelFaultScales.uniform_grip(mu_scale=scale, lateral_stiffness_scale=scale),
+                corner_or_side_variant="all_wheels",
+            )
+        )
+
+    faults.extend(
+        [
+            _fault_case(
+                name="slow_steer_tau",
+                family="steering_actuator_fault",
+                severity="slow_tau",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"steer_tau": 0.28},
+                corner_or_side_variant="actuator",
+            ),
+            _fault_case(
+                name="low_steer_rate",
+                family="steering_actuator_fault",
+                severity="low_rate",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"max_steer_rate": 1.2},
+                corner_or_side_variant="actuator",
+            ),
+            _fault_case(
+                name="reduced_steer_authority",
+                family="steering_actuator_fault",
+                severity="reduced_authority",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"max_steer": 0.36},
+                corner_or_side_variant="actuator",
+            ),
+            _fault_case(
+                name="heavy_high_inertia",
+                family="load_cg_perturbation",
+                severity="heavy",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"mass": 1780.0, "iz": 3050.0},
+                corner_or_side_variant="heavy",
+            ),
+            _fault_case(
+                name="light_low_inertia",
+                family="load_cg_perturbation",
+                severity="light",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"mass": 1180.0, "iz": 1800.0},
+                corner_or_side_variant="light",
+            ),
+            _fault_case(
+                name="front_cg_shift",
+                family="load_cg_perturbation",
+                severity="front_cg",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"lf": 1.22, "lr": 1.58},
+                corner_or_side_variant="front_bias",
+            ),
+            _fault_case(
+                name="rear_cg_shift",
+                family="load_cg_perturbation",
+                severity="rear_cg",
+                scales=FourWheelFaultScales.nominal(),
+                params_override={"lf": 1.48, "lr": 1.32},
+                corner_or_side_variant="rear_bias",
+            ),
+        ]
+    )
+
+    for wheel in ("front_left", "front_right", "rear_left", "rear_right"):
+        faults.append(
+            _fault_case(
+                name=f"{wheel}_tire_blowout_like",
+                family="tire_blowout_like",
+                severity="drag_mu_0p18",
+                scales=FourWheelFaultScales.tire_blowout_like(
+                    wheel,
+                    mu_scale=0.18,
+                    lateral_stiffness_scale=0.18,
+                    drag_force=2200.0,
+                ),
+                corner_or_side_variant=wheel,
+            )
+        )
+    return faults
+
+
+def build_fault_pairs(
+    faults: list[FourWheelFaultCase],
+    fault_profile: str = "m1268_default",
+) -> list[tuple[FourWheelFaultCase, FourWheelFaultCase]]:
     by_name = {fault.name: fault for fault in faults}
+    if fault_profile == "source_expansion_v1":
+        return _build_source_expansion_fault_pairs(by_name)
+    if fault_profile != "m1268_default":
+        raise ValueError(f"unsupported fault_profile {fault_profile!r}")
     return [
         (by_name["split_mu_left_low"], by_name["split_mu_right_low"]),
         (by_name["front_left_brake_pull"], by_name["front_right_brake_pull"]),
         (by_name["rear_left_grip_collapse"], by_name["rear_right_grip_collapse"]),
         (by_name["rear_left_halfshaft_loss"], by_name["rear_right_halfshaft_loss"]),
     ]
+
+
+def _build_source_expansion_fault_pairs(
+    by_name: dict[str, FourWheelFaultCase],
+) -> list[tuple[FourWheelFaultCase, FourWheelFaultCase]]:
+    pairs: list[tuple[FourWheelFaultCase, FourWheelFaultCase]] = []
+    for label in ("0p15", "0p25", "0p4"):
+        pairs.append((by_name[f"split_mu_left_low_{label}"], by_name[f"split_mu_right_low_{label}"]))
+        pairs.append((by_name[f"front_left_grip_collapse_{label}"], by_name[f"front_right_grip_collapse_{label}"]))
+        pairs.append((by_name[f"rear_left_grip_collapse_{label}"], by_name[f"rear_right_grip_collapse_{label}"]))
+
+    for label in ("pull_2p0", "weak_0p25"):
+        pairs.append((by_name[f"front_left_brake_{label}"], by_name[f"front_right_brake_{label}"]))
+        pairs.append((by_name[f"rear_left_brake_{label}"], by_name[f"rear_right_brake_{label}"]))
+
+    for label in ("0p1", "0p35"):
+        pairs.append((by_name[f"rear_left_halfshaft_loss_{label}"], by_name[f"rear_right_halfshaft_loss_{label}"]))
+
+    pairs.extend(
+        [
+            (by_name["global_friction_0p25"], by_name["global_friction_0p65"]),
+            (by_name["global_friction_0p25"], by_name["global_friction_0p45"]),
+            (by_name["slow_steer_tau"], by_name["low_steer_rate"]),
+            (by_name["slow_steer_tau"], by_name["reduced_steer_authority"]),
+            (by_name["heavy_high_inertia"], by_name["light_low_inertia"]),
+            (by_name["front_cg_shift"], by_name["rear_cg_shift"]),
+            (by_name["front_left_tire_blowout_like"], by_name["front_right_tire_blowout_like"]),
+            (by_name["rear_left_tire_blowout_like"], by_name["rear_right_tire_blowout_like"]),
+        ]
+    )
+    return pairs
 
 
 def _build_grid_scenarios(
@@ -215,6 +451,8 @@ def _build_grid_scenarios(
     obstacle_xs: tuple[float, ...],
     obstacle_ys: tuple[float, ...],
     obstacle_half_widths: tuple[float, ...],
+    yaw_rates: tuple[float, ...] = (0.0,),
+    lateral_velocities: tuple[float, ...] = (0.0,),
 ) -> list[FourWheelScenario]:
     scenarios: list[FourWheelScenario] = []
     index = 0
@@ -222,30 +460,62 @@ def _build_grid_scenarios(
         for obstacle_x in obstacle_xs:
             for obstacle_y in obstacle_ys:
                 for obstacle_half_width in obstacle_half_widths:
-                    state = FourWheelState(
-                        x=0.0,
-                        y=0.0,
-                        psi=0.0,
-                        vx=float(speed),
-                        vy=0.0,
-                        yaw_rate=0.0,
-                        steer=0.0,
-                        drive_force=0.0,
-                        brake_force=6000.0,
-                    )
-                    scenarios.append(
-                        FourWheelScenario(
-                            scenario_id=f"fw_seed{seed_base + index}",
-                            seed=seed_base + index,
-                            state=state,
-                            obstacle_body_x=float(obstacle_x),
-                            obstacle_body_y=float(obstacle_y),
-                            obstacle_half_width=float(obstacle_half_width),
-                            previous_action=(0.0, -1.0, 1.0),
-                        )
-                    )
-                    index += 1
+                    for yaw_rate in yaw_rates:
+                        for lateral_velocity in lateral_velocities:
+                            state = FourWheelState(
+                                x=0.0,
+                                y=0.0,
+                                psi=0.0,
+                                vx=float(speed),
+                                vy=float(lateral_velocity),
+                                yaw_rate=float(yaw_rate),
+                                steer=0.0,
+                                drive_force=0.0,
+                                brake_force=6000.0,
+                            )
+                            scenarios.append(
+                                FourWheelScenario(
+                                    scenario_id=f"fw_seed{seed_base + index}",
+                                    seed=seed_base + index,
+                                    state=state,
+                                    obstacle_body_x=float(obstacle_x),
+                                    obstacle_body_y=float(obstacle_y),
+                                    obstacle_half_width=float(obstacle_half_width),
+                                    previous_action=(0.0, -1.0, 1.0),
+                                    speed_bin=_speed_bin(float(speed)),
+                                    obstacle_timing_bin=_obstacle_timing_bin(float(obstacle_x)),
+                                    curvature_bin=_curvature_bin(float(yaw_rate), float(lateral_velocity)),
+                                )
+                            )
+                            index += 1
     return scenarios
+
+
+def _speed_bin(speed: float) -> str:
+    if speed < 14.0:
+        return "low"
+    if speed < 18.0:
+        return "medium"
+    if speed < 22.0:
+        return "high"
+    return "extreme"
+
+
+def _obstacle_timing_bin(obstacle_x: float) -> str:
+    if obstacle_x < 12.0:
+        return "late"
+    if obstacle_x < 16.0:
+        return "medium"
+    return "early"
+
+
+def _curvature_bin(yaw_rate: float, lateral_velocity: float) -> str:
+    signal = float(yaw_rate) + 0.03 * float(lateral_velocity)
+    if signal < -0.02:
+        return "mild_right"
+    if signal > 0.02:
+        return "mild_left"
+    return "straight"
 
 
 def build_scenarios() -> list[FourWheelScenario]:
@@ -268,15 +538,29 @@ def build_viability_calibration_scenarios() -> list[FourWheelScenario]:
     )
 
 
+def build_source_expansion_scenarios() -> list[FourWheelScenario]:
+    return _build_grid_scenarios(
+        seed_base=131700,
+        speeds=(14.0, 16.0, 18.0),
+        obstacle_xs=(11.0, 13.0, 15.0),
+        obstacle_ys=(-0.35, 0.0, 0.35),
+        obstacle_half_widths=(0.55, 0.75),
+        yaw_rates=(0.0,),
+        lateral_velocities=(0.0,),
+    )
+
+
 def build_scenarios_for_profile(profile: str) -> list[FourWheelScenario]:
     if profile == "m1268_default":
         return build_scenarios()
     if profile == "viability_calibration":
         return build_viability_calibration_scenarios()
+    if profile == "source_expansion_v1":
+        return build_source_expansion_scenarios()
     raise ValueError(f"unsupported scenario_profile {profile!r}")
 
 
-def build_action_lattice(*, sequence_length: int) -> list[dict[str, Any]]:
+def build_action_lattice(*, sequence_length: int, action_profile: str = "brake_avoidance_v1") -> list[dict[str, Any]]:
     base_actions = [
         ("hard_brake", (0.0, -1.0, 1.0)),
         ("left_steer_brake", (0.75, -1.0, 1.0)),
@@ -290,6 +574,23 @@ def build_action_lattice(*, sequence_length: int) -> list[dict[str, Any]]:
         ("counter_left", (0.75, -1.0, 1.0), (-0.45, -1.0, 0.3)),
         ("counter_right", (-0.75, -1.0, 1.0), (0.45, -1.0, 0.3)),
     ]
+    if action_profile == "mixed_emergency_v1":
+        base_actions.extend(
+            [
+                ("left_steer_throttle", (0.75, 1.0, -1.0)),
+                ("right_steer_throttle", (-0.75, 1.0, -1.0)),
+                ("strong_left_steer_throttle", (1.0, 1.0, -1.0)),
+                ("strong_right_steer_throttle", (-1.0, 1.0, -1.0)),
+                ("left_lift_then_throttle", (0.75, -1.0, -1.0), (0.45, 1.0, -1.0)),
+                ("right_lift_then_throttle", (-0.75, -1.0, -1.0), (-0.45, 1.0, -1.0)),
+                ("left_power_recovery", (0.75, -1.0, 0.5), (0.45, 1.0, -1.0)),
+                ("right_power_recovery", (-0.75, -1.0, 0.5), (-0.45, 1.0, -1.0)),
+                ("left_release_counter_power", (0.75, -1.0, 1.0), (-0.35, 1.0, -1.0)),
+                ("right_release_counter_power", (-0.75, -1.0, 1.0), (0.35, 1.0, -1.0)),
+            ]
+        )
+    elif action_profile != "brake_avoidance_v1":
+        raise ValueError(f"unsupported action_profile {action_profile!r}")
     candidates: list[dict[str, Any]] = []
     for candidate_id, item in enumerate(base_actions):
         name = item[0]
@@ -325,6 +626,13 @@ def build_action_lattice(*, sequence_length: int) -> list[dict[str, Any]]:
     return candidates
 
 
+def _params_for_fault(params: FourWheelVehicleParams, fault: FourWheelFaultCase) -> FourWheelVehicleParams:
+    if not fault.params_override:
+        return params
+    updates = {key: value for key, value in fault.params_override}
+    return replace(params, **updates)
+
+
 def rollout_sequence(
     *,
     scenario: FourWheelScenario,
@@ -333,7 +641,7 @@ def rollout_sequence(
     dt: float,
     params: FourWheelVehicleParams,
 ) -> dict[str, Any]:
-    model = FourWheelDriftModel(params=params, fault_scales=fault.scales)
+    model = FourWheelDriftModel(params=_params_for_fault(params, fault), fault_scales=fault.scales)
     state = FourWheelState.from_array(scenario.state.as_array().copy())
     obstacle_world = _body_to_world(state, scenario.obstacle_body_x, scenario.obstacle_body_y)
     min_margin = float("inf")
@@ -434,6 +742,10 @@ def evaluate_source_pair(
                     "fault_name": fault.name,
                     "fault_family": fault.family,
                     "fault_severity": fault.severity,
+                    "fault_corner_or_side_variant": fault.corner_or_side_variant,
+                    "fault_onset_timing_bin": fault.onset_timing_bin,
+                    "fault_curvature_bin": fault.curvature_bin,
+                    "fault_params_override": ";".join(f"{key}={value}" for key, value in fault.params_override),
                     "sequence_length": int(candidate["sequence_length"]),
                     "template": str(candidate["template"]),
                     "candidate_steer": float(candidate["candidate_steer"]),
@@ -453,6 +765,9 @@ def evaluate_source_pair(
         min_best_action_l2=min_best_action_l2,
         min_cross_regret_margin=min_cross_regret_margin,
     )
+    candidates_by_id = {int(candidate["candidate_id"]): candidate for candidate in candidates}
+    best_a_candidate = candidates_by_id.get(int(decision.get("best_candidate_A", -1)))
+    best_b_candidate = candidates_by_id.get(int(decision.get("best_candidate_B", -1)))
     pair_row = {
         "pair_id": int(pair_id),
         "scenario_id": scenario.scenario_id,
@@ -460,14 +775,30 @@ def evaluate_source_pair(
         "condition_A_fault": condition_a.name,
         "condition_A_fault_family": condition_a.family,
         "condition_A_fault_severity": condition_a.severity,
+        "condition_A_corner_or_side_variant": condition_a.corner_or_side_variant,
+        "condition_A_onset_timing_bin": condition_a.onset_timing_bin,
+        "condition_A_curvature_bin": condition_a.curvature_bin,
+        "condition_A_params_override": ";".join(f"{key}={value}" for key, value in condition_a.params_override),
         "condition_B_fault": condition_b.name,
         "condition_B_fault_family": condition_b.family,
         "condition_B_fault_severity": condition_b.severity,
+        "condition_B_corner_or_side_variant": condition_b.corner_or_side_variant,
+        "condition_B_onset_timing_bin": condition_b.onset_timing_bin,
+        "condition_B_curvature_bin": condition_b.curvature_bin,
+        "condition_B_params_override": ";".join(f"{key}={value}" for key, value in condition_b.params_override),
         "fault_family_pair": f"{condition_a.family}->{condition_b.family}",
         "severity_pair": f"{condition_a.severity}->{condition_b.severity}",
+        "corner_or_side_variant_pair": f"{condition_a.corner_or_side_variant}->{condition_b.corner_or_side_variant}",
+        "onset_timing_bin_pair": f"{condition_a.onset_timing_bin}->{condition_b.onset_timing_bin}",
+        "curvature_bin_pair": f"{condition_a.curvature_bin}->{condition_b.curvature_bin}",
         "obstacle_body_x": float(scenario.obstacle_body_x),
         "obstacle_body_y": float(scenario.obstacle_body_y),
         "obstacle_half_width": float(scenario.obstacle_half_width),
+        "speed_bin": scenario.speed_bin,
+        "obstacle_timing_bin": scenario.obstacle_timing_bin,
+        "scenario_curvature_bin": scenario.curvature_bin,
+        "best_A_template": str(best_a_candidate.get("template", "")) if best_a_candidate is not None else "",
+        "best_B_template": str(best_b_candidate.get("template", "")) if best_b_candidate is not None else "",
         **decision,
     }
     return pair_row, rollout_rows
@@ -485,6 +816,9 @@ def _scenario_row(scenario: FourWheelScenario) -> dict[str, Any]:
         "obstacle_body_x": float(scenario.obstacle_body_x),
         "obstacle_body_y": float(scenario.obstacle_body_y),
         "obstacle_half_width": float(scenario.obstacle_half_width),
+        "speed_bin": scenario.speed_bin,
+        "obstacle_timing_bin": scenario.obstacle_timing_bin,
+        "curvature_bin": scenario.curvature_bin,
     }
 
 
@@ -508,12 +842,19 @@ def _snapshot_rows(scenarios: list[FourWheelScenario], faults: list[FourWheelFau
                     "fault_name": fault.name,
                     "fault_family": fault.family,
                     "fault_severity": fault.severity,
+                    "fault_corner_or_side_variant": fault.corner_or_side_variant,
+                    "fault_onset_timing_bin": fault.onset_timing_bin,
+                    "fault_curvature_bin": fault.curvature_bin,
+                    "fault_params_override": ";".join(f"{key}={value}" for key, value in fault.params_override),
                     "step": 0,
                     "observation_dim": int(obs.shape[0]),
                     "observation_sum": float(np.sum(obs)),
                     "obstacle_body_x": float(scenario.obstacle_body_x),
                     "obstacle_body_y": float(scenario.obstacle_body_y),
                     "obstacle_half_width": float(scenario.obstacle_half_width),
+                    "speed_bin": scenario.speed_bin,
+                    "obstacle_timing_bin": scenario.obstacle_timing_bin,
+                    "scenario_curvature_bin": scenario.curvature_bin,
                     "vx": float(scenario.state.vx),
                     "vy": float(scenario.state.vy),
                     "yaw_rate": float(scenario.state.yaw_rate),
@@ -557,14 +898,16 @@ def run_four_wheel_source_shape_smoke(
     dt: float = 0.02,
     min_best_action_l2: float = 0.12,
     min_cross_regret_margin: float = 0.02,
+    fault_profile: str = "m1268_default",
     scenario_profile: str = "m1268_default",
+    action_profile: str = "brake_avoidance_v1",
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     params = FourWheelVehicleParams()
-    faults = build_fault_cases()
-    fault_pairs = build_fault_pairs(faults)
+    faults = build_fault_cases(str(fault_profile))
+    fault_pairs = build_fault_pairs(faults, str(fault_profile))
     scenarios = build_scenarios_for_profile(str(scenario_profile))
-    candidates = build_action_lattice(sequence_length=sequence_length)
+    candidates = build_action_lattice(sequence_length=sequence_length, action_profile=str(action_profile))
 
     lattice_rows: list[dict[str, Any]] = []
     for candidate in candidates:
@@ -639,13 +982,71 @@ def run_four_wheel_source_shape_smoke(
 
     unique_fault_family_pairs = {str(row.get("fault_family_pair", "")) for row in pair_rows}
     accepted_fault_family_pairs = {str(row.get("fault_family_pair", "")) for row in accepted_rows}
+    matched_family_counts = Counter(str(row.get("fault_family_pair", "")) for row in pair_rows)
+    accepted_family_counts = Counter(str(row.get("fault_family_pair", "")) for row in accepted_rows)
+    rejected_reason_by_family: dict[str, Counter[str]] = {}
+    for row in rejected_rows:
+        family = str(row.get("fault_family_pair", ""))
+        rejected_reason_by_family.setdefault(family, Counter())[str(row.get("rejection_reason", ""))] += 1
+    family_summary_rows = []
+    inactive_family_rows = []
+    for family in sorted(unique_fault_family_pairs):
+        accepted_count = int(accepted_family_counts.get(family, 0))
+        reason_counts = rejected_reason_by_family.get(family, Counter())
+        row = {
+            "fault_family_pair": family,
+            "matched_pairs": int(matched_family_counts.get(family, 0)),
+            "accepted_pairs": accepted_count,
+            "rejected_pairs": int(matched_family_counts.get(family, 0) - accepted_count),
+            "rejection_reason_counts": ";".join(f"{reason}:{count}" for reason, count in sorted(reason_counts.items())),
+        }
+        family_summary_rows.append(row)
+        if accepted_count == 0:
+            inactive_family_rows.append(row)
+    accepted_template_counts = Counter()
+    for row in accepted_rows:
+        accepted_template_counts[str(row.get("best_A_template", ""))] += 1
+        accepted_template_counts[str(row.get("best_B_template", ""))] += 1
+    template_summary_rows = [
+        {"template": template, "accepted_best_template_count": int(count)}
+        for template, count in sorted(accepted_template_counts.items())
+    ]
     terminal_reasons = Counter(str(row.get("terminal_reason", "")) for row in rollout_rows)
     success_terminal_reasons = Counter(
         str(row.get("terminal_reason", "")) for row in rollout_rows if bool(row.get("success", False))
     )
+    write_csv_rows(
+        run_dir / "family_source_summary.csv",
+        family_summary_rows,
+        fieldnames=[
+            "fault_family_pair",
+            "matched_pairs",
+            "accepted_pairs",
+            "rejected_pairs",
+            "rejection_reason_counts",
+        ],
+    )
+    write_csv_rows(
+        run_dir / "inactive_fault_families.csv",
+        inactive_family_rows,
+        fieldnames=[
+            "fault_family_pair",
+            "matched_pairs",
+            "accepted_pairs",
+            "rejected_pairs",
+            "rejection_reason_counts",
+        ],
+    )
+    write_csv_rows(
+        run_dir / "accepted_template_summary.csv",
+        template_summary_rows,
+        fieldnames=["template", "accepted_best_template_count"],
+    )
     summary = {
         "run_type": "four_wheel_fault_source_shape_smoke",
+        "fault_profile": str(fault_profile),
         "scenario_profile": str(scenario_profile),
+        "action_profile": str(action_profile),
         "sequence_length": int(sequence_length),
         "dt": float(dt),
         "min_best_action_l2": float(min_best_action_l2),
@@ -664,6 +1065,10 @@ def run_four_wheel_source_shape_smoke(
         "all_four_rollouts_collision_count": int(all_four_collision_count),
         "unique_fault_family_pairs": int(len(unique_fault_family_pairs)),
         "accepted_fault_family_pairs": int(len(accepted_fault_family_pairs)),
+        "accepted_family_counts": dict(sorted(accepted_family_counts.items())),
+        "inactive_fault_family_count": int(len(inactive_family_rows)),
+        "inactive_fault_families": [str(row["fault_family_pair"]) for row in inactive_family_rows],
+        "accepted_best_template_count": dict(sorted(accepted_template_counts.items())),
         "terminal_reason_counts": dict(sorted(terminal_reasons.items())),
         "success_terminal_reason_counts": dict(sorted(success_terminal_reasons.items())),
         "labels_enter_actor_input": False,
@@ -686,6 +1091,9 @@ def run_four_wheel_source_shape_smoke(
         "matched_capability_pairs_csv": run_dir / "matched_capability_pairs.csv",
         "accepted_separable_pairs_csv": run_dir / "accepted_separable_pairs.csv",
         "rejected_pairs_csv": run_dir / "rejected_pairs.csv",
+        "family_source_summary_csv": run_dir / "family_source_summary.csv",
+        "inactive_fault_families_csv": run_dir / "inactive_fault_families.csv",
+        "accepted_template_summary_csv": run_dir / "accepted_template_summary.csv",
         "model_fidelity_limits_md": fidelity_path,
     }
     write_json(run_dir / "summary.json", summary)
@@ -696,9 +1104,19 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Run no-policy four-wheel fault source-shape smoke.")
     parser.add_argument("--run-dir", type=Path, default=None)
     parser.add_argument(
-        "--scenario-profile",
-        choices=("m1268_default", "viability_calibration"),
+        "--fault-profile",
+        choices=("m1268_default", "source_expansion_v1"),
         default="m1268_default",
+    )
+    parser.add_argument(
+        "--scenario-profile",
+        choices=("m1268_default", "viability_calibration", "source_expansion_v1"),
+        default="m1268_default",
+    )
+    parser.add_argument(
+        "--action-profile",
+        choices=("brake_avoidance_v1", "mixed_emergency_v1"),
+        default="brake_avoidance_v1",
     )
     parser.add_argument("--sequence-length", type=int, default=72)
     parser.add_argument("--dt", type=float, default=0.02)
@@ -712,7 +1130,9 @@ def main() -> None:
         dt=args.dt,
         min_best_action_l2=args.min_best_action_l2,
         min_cross_regret_margin=args.min_cross_regret_margin,
+        fault_profile=args.fault_profile,
         scenario_profile=args.scenario_profile,
+        action_profile=args.action_profile,
     )
     for key, value in summary.items():
         print(f"{key}: {value}")

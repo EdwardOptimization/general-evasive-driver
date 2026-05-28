@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1316-paper-route-source-history-source-generator-update-design
+m1317-paper-route-source-generator-update-smoke
 ```
 
 Current next task:
 
 ```text
-m1317-paper-route-source-generator-update-smoke
+m1318-paper-route-source-generator-update-result-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -211,8 +211,15 @@ profile; routes steering and load/CG to per-condition vehicle-parameter
 overrides; routes global friction to uniform per-wheel scales; and allows only a
 bounded tire-blowout-like drag proxy, not a high-fidelity blowout claim. The
 active blocker is M1317: implement these selectable fault/scenario/action
-profiles and run one no-policy source-generation smoke. PPO and promotion remain
-blocked.
+profiles and run one no-policy source-generation smoke. M1317 completed that
+smoke. The update is source-positive with `128` accepted rows from `1242`
+matched pairs and `5` accepted fault-family pairs: halfshaft torque loss `4`,
+split-mu `12`, brake asymmetry `44`, single-wheel grip collapse `47`, and
+tire-blowout-like proxy `21`. It is still partial coverage because the smoke
+target was `160` accepted rows and global friction, steering actuator, and
+load/CG families remain inactive. The active blocker is M1318: audit this
+partial source-positive result before deciding between family repair and partial
+corpus export. PPO and promotion remain blocked.
 
 ## Actor Contract
 

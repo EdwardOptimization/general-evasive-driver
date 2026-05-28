@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1326,
+    "completed": 1327,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1316-paper-route-source-history-source-generator-update-design.md",
+    "command_log": "docs/m1317-paper-route-source-generator-update-smoke.md",
     "returncode": 0,
-    "run_dir": "docs/m1316-paper-route-source-history-source-generator-update-design.md",
+    "run_dir": "runs/m1317_source_generator_update_smoke",
     "status": "completed",
-    "task_id": "m1316-paper-route-source-history-source-generator-update-design"
+    "task_id": "m1317-paper-route-source-generator-update-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1317-paper-route-source-generator-update-smoke.json",
-    "hypothesis": "Implement and smoke-test expanded no-policy source generator profiles",
-    "id": "m1317-paper-route-source-generator-update-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: expanded no-policy source generation smoke; PPO and promotion remain blocked",
-    "priority": 13120,
+    "command": "see experiments/manifests/m1318-paper-route-source-generator-update-result-audit.json",
+    "hypothesis": "Audit M1317 partial source-positive coverage and choose the next source route",
+    "id": "m1318-paper-route-source-generator-update-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit partial source coverage and inactive family blockers; PPO and promotion remain blocked",
+    "priority": 13130,
     "status": "pending",
-    "success_artifact": "runs/m1317_source_generator_update_smoke/summary.json"
+    "success_artifact": "docs/m1318-paper-route-source-generator-update-result-audit.md"
   },
-  "updated_at_utc": "20260528T163410Z"
+  "updated_at_utc": "20260528T164650Z"
 }
