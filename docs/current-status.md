@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1336-paper-route-materialized-source-history-objective-corpus-export
+m1337-paper-route-materialized-source-history-objective-corpus-export-audit
 ```
 
 Current next task:
 
 ```text
-m1337-paper-route-materialized-source-history-objective-corpus-export-audit
+m1338-paper-route-materialized-source-history-objective-evaluator-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -331,7 +331,15 @@ source pairs, `88` prefixes, and `2112` frames under
 `global_friction_missing`. Source identity has no duplicates and metadata is
 preserved. The active blocker is M1337: audit M1336 active/quarantine semantics
 before objective evaluator design. Objective updates, PPO, and promotion remain
-blocked until the export audit passes.
+blocked until the export audit passes. M1337 completed that audit. The active
+export is admissible as a no-policy substrate: active rows are
+history-distinguishable, non-halfshaft, source-diverse, and below the family
+fold-share cap. Quarantine semantics are explicit: halfshaft remains
+`halfshaft_probe_silent`, and global friction remains `global_friction_missing`.
+The active blocker is M1338: design a no-update full-corpus evaluator over the
+M1336 active rows. This should measure correct-history versus wrong-history
+log-likelihood and action-distance residuals without mutating checkpoint
+weights. Objective updates, PPO, and promotion remain blocked.
 
 ## Actor Contract
 

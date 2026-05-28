@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1346,
+    "completed": 1347,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1336-paper-route-materialized-source-history-objective-corpus-export.md",
+    "command_log": "docs/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1336_materialized_source_history_objective_corpus_export",
+    "run_dir": "docs/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.md",
     "status": "completed",
-    "task_id": "m1336-paper-route-materialized-source-history-objective-corpus-export"
+    "task_id": "m1337-paper-route-materialized-source-history-objective-corpus-export-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.json",
-    "hypothesis": "Audit M1336 active/quarantine export before objective evaluator design",
-    "id": "m1337-paper-route-materialized-source-history-objective-corpus-export-audit",
+    "command": "see experiments/manifests/m1338-paper-route-materialized-source-history-objective-evaluator-design.json",
+    "hypothesis": "Design exact no-update evaluator over M1336 active source-history corpus",
+    "id": "m1338-paper-route-materialized-source-history-objective-evaluator-design",
     "kind": "gate",
-    "notes": "Pending: no-training audit only; no PPO, promotion, or objective update",
-    "priority": 13320,
+    "notes": "Pending: design only; no training, PPO, promotion, or objective update",
+    "priority": 13330,
     "status": "pending",
-    "success_artifact": "docs/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.md"
+    "success_artifact": "docs/m1338-paper-route-materialized-source-history-objective-evaluator-design.md"
   },
-  "updated_at_utc": "20260528T183253Z"
+  "updated_at_utc": "20260528T183546Z"
 }

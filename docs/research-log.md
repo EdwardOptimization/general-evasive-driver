@@ -19547,3 +19547,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.json`.
 - next: `m1337-paper-route-materialized-source-history-objective-corpus-export-audit`
+
+## 20260528T183546Z - m1337-paper-route-materialized-source-history-objective-corpus-export-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.md`
+- decision: `materialized_source_history_objective_corpus_export_audit_pass_route_to_evaluator_design`
+- active corpus audited: `344` source pairs, `1376` prefixes, `33024` frames, `1376` history-intervention rows, and `1376` wrong-history rows.
+- active semantics: all active rows are non-halfshaft and history-distinguishable, with `0` active zero-response prefixes and `1376/1376` prefixes above `response_l2 >= 0.01`.
+- active family/fold balance: `6` source families and max source-family fold share `0.2985074627`, below the `0.40` cap.
+- quarantine semantics: halfshaft remains `halfshaft_probe_silent` with `22` source pairs and `88` prefixes; global friction remains `global_friction_missing`.
+- supported claim: M1336 is an admissible no-policy active/quarantine substrate for source-history objective evaluator design.
+- unsupported claims: actor update, PPO, promotion, halfshaft self-identification, global friction coverage, closed-loop driver performance, paper-level evidence, and strong self-identification.
+- failure taxonomy: `none`; retained blockers are source-coverage limitations.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1338-paper-route-materialized-source-history-objective-evaluator-design.json`.
+- next: `m1338-paper-route-materialized-source-history-objective-evaluator-design`

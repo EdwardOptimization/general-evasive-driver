@@ -1,0 +1,169 @@
+{
+  "id": "m1338-paper-route-materialized-source-history-objective-evaluator-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "current public-gate checkpoint to be named by the evaluator implementation manifest"
+    ],
+    "parent_dataset": [
+      "docs/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.md",
+      "runs/m1336_materialized_source_history_objective_corpus_export/summary.json",
+      "runs/m1336_materialized_source_history_objective_corpus_export/active_source_pair_rows.csv",
+      "runs/m1336_materialized_source_history_objective_corpus_export/active_history_prefix_rows.csv",
+      "runs/m1336_materialized_source_history_objective_corpus_export/active_history_frame_rows.csv",
+      "runs/m1336_materialized_source_history_objective_corpus_export/active_history_intervention_rows.csv",
+      "runs/m1336_materialized_source_history_objective_corpus_export/active_wrong_history_pair_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.json"
+    ],
+    "parent_objective": [
+      "design a no-update full-corpus source-history objective evaluator over M1336 active rows"
+    ],
+    "derived_from": [
+      "m1337-paper-route-materialized-source-history-objective-corpus-export-audit"
+    ],
+    "blocked_by": [
+      "M1337 admits evaluator design but no evaluator specification exists for the materialized active corpus"
+    ],
+    "supersedes": [
+      "direct materialized source-history actor update without exact no-update evaluator"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1338-paper-route-materialized-source-history-objective-evaluator-design.md",
+  "public_gates": [
+    "M1338 must not train",
+    "M1338 must not run PPO",
+    "M1338 must not mutate checkpoint weights",
+    "M1338 must not use private holdout",
+    "M1338 must not promote",
+    "M1338 must preserve actor input contract",
+    "M1338 must design full-corpus active-row evaluator semantics",
+    "M1338 must keep quarantined rows out of the active objective"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor weights",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not include halfshaft quarantine in active objective",
+    "do not hide global friction gap",
+    "do not claim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_objective_corpus",
+    "evidence_axis": "S_materialized_source_history_objective_evaluator_design",
+    "evidence_increment": "designs an exact no-update evaluator for the M1336 active materialized source-history objective corpus",
+    "claim_scope": "process design only; no promotion, private-holdout, PPO, actor-update, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if evaluator design requires hidden parameters in actor input",
+      "stop if evaluator design includes quarantine rows as active objective rows",
+      "stop if evaluator design cannot check checkpoint immutability",
+      "stop if design routes directly to PPO",
+      "stop if actor inputs change"
+    ],
+    "fallback_plan": [
+      "if design passes, implement one no-update exact evaluator",
+      "if evaluator needs missing columns, repair M1336 export",
+      "if quarantine rows are needed, pivot to halfshaft/global-friction source repair",
+      "if checkpoint projection is ambiguous, add a compatibility audit before implementation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1337 routes active export to no-update evaluator design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "materialized source-history objective evaluator design",
+    "admission_evidence": [
+      "M1337 audit passes active/quarantine semantics",
+      "M1336 active_source_pair_rows=344",
+      "M1336 active_history_prefix_rows=1376",
+      "M1336 active_wrong_history_pair_rows=1376",
+      "M1336 active_zero_response_l2_prefix_count=0",
+      "PPO and actor update remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not update checkpoint weights",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1338 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "evaluator inputs and row joins are specified",
+      "correct-history and wrong-history residuals are specified",
+      "checkpoint immutability check is specified",
+      "implementation acceptance gates are specified"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1338 designs an offline exact evaluator and does not test deployed closed-loop history necessity.",
+    "history_necessity_tests": [
+      "design correct-history versus wrong-history action likelihood and action-distance residuals using materialized command-response histories"
+    ],
+    "temporal_evidence_window": "M1336 active materialized history corpus.",
+    "negative_result_policy": "If the no-update evaluator finds weak or contradictory history signal, record it as objective/evidence weakness before any actor update.",
+    "allowed_claims": [
+      "materialized source-history objective evaluator design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A no-update full-corpus evaluator can be designed to measure source-history correct-history versus wrong-history residuals on M1336 active rows before any actor update.",
+  "success_criteria": [
+    "docs/m1338-paper-route-materialized-source-history-objective-evaluator-design.md exists",
+    "design specifies required input artifacts and joins",
+    "design specifies correct-history versus wrong-history log-likelihood residuals",
+    "design specifies action-distance residuals",
+    "design specifies checkpoint immutability checks",
+    "design specifies exact full-corpus summary metrics",
+    "design keeps quarantined rows out of active objective rows",
+    "design admits one no-update implementation milestone",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "required artifact joins are ambiguous",
+    "residual definitions are missing or depend on hidden actor inputs",
+    "checkpoint immutability is not specified",
+    "quarantined rows enter the active objective",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1338-paper-route-materialized-source-history-objective-evaluator-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1338-paper-route-materialized-source-history-objective-evaluator-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.md",
+    "runs/m1336_materialized_source_history_objective_corpus_export/summary.json"
+  ],
+  "decision_rule": "M1338 passes as a design milestone if it specifies an exact no-update active-corpus evaluator with correct-history/wrong-history residuals, action-distance diagnostics, immutability checks, quarantine exclusion, and one safe implementation route.",
+  "next_blocker": "m1338-paper-route-materialized-source-history-objective-evaluator-design"
+}

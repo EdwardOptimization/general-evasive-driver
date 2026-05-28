@@ -163,6 +163,41 @@
     "docs/m1336-paper-route-materialized-source-history-objective-corpus-export.md",
     "runs/m1336_materialized_source_history_objective_corpus_export/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1337-paper-route-materialized-source-history-objective-corpus-export-audit.md",
+    "decision": "materialized_source_history_objective_corpus_export_audit_pass_route_to_evaluator_design",
+    "failure_type": "none",
+    "active_source_pair_rows": 344,
+    "active_history_prefix_rows": 1376,
+    "active_history_frame_rows": 33024,
+    "active_history_intervention_rows": 1376,
+    "active_wrong_history_pair_rows": 1376,
+    "active_source_family_count": 6,
+    "active_zero_response_l2_prefix_count": 0,
+    "active_response_l2_ge_0_01_count": 1376,
+    "active_max_source_family_fold_share": 0.2985074627,
+    "quarantine_source_pair_rows": 22,
+    "quarantine_history_prefix_rows": 88,
+    "quarantine_history_frame_rows": 2112,
+    "quarantine_history_intervention_rows": 88,
+    "quarantine_wrong_history_pair_rows": 88,
+    "quarantine_family_rows": 2,
+    "quarantine_reasons": [
+      "global_friction_missing",
+      "halfshaft_probe_silent"
+    ],
+    "source_identity_duplicate_count": 0,
+    "source_identity_metadata_preserved": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1338-paper-route-materialized-source-history-objective-evaluator-design.json"
+  },
   "decision_rule": "M1337 passes as a process audit if it confirms M1336 active/quarantine semantics, source identity, guardrails, and a safe next route before any objective update, PPO, private holdout, promotion, or actor-input expansion.",
-  "next_blocker": "m1337-paper-route-materialized-source-history-objective-corpus-export-audit"
+  "next_blocker": "m1338-paper-route-materialized-source-history-objective-evaluator-design"
 }
