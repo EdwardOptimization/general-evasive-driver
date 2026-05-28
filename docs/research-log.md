@@ -17402,3 +17402,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1214-paper-route-corrected-profile-evidence-synthesis.json`.
 - decision: `corrected_profile_repeat_audit_route_to_branch_synthesis`
 - next: `m1214-paper-route-corrected-profile-evidence-synthesis`
+
+## 20260528T064512Z - m1214-paper-route-corrected-profile-evidence-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1214-paper-route-corrected-profile-evidence-synthesis.md`
+- synthesis decision: `promote_to_next_branch`
+- result: closes the broad corrected profile-comparison branch as an engineering/profile cleanup tool and promotes the next branch to matched-current causal history evidence.
+- supported claims: corrected profile infrastructure works, fixed public profile pilots are reproducible, current-tiled controls are required, and L2 aggregate trends are not history-necessity evidence.
+- blocked claims: finite-window history necessity, GRU recurrent-hidden benefit, self-identification, paper-level architecture ranking, private-holdout generalization, and checkpoint promotion.
+- route decision: stop automatic broad profile repeats; design a causal history gate with matched current observations and reset/delayed/wrong-history interventions.
+- guardrail: no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, actor-input expansion, self-identification claim, profile superiority claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1215-paper-route-causal-history-gate-design.json`.
+- decision: `corrected_profile_synthesis_promote_to_causal_history_gate_design`
+- next: `m1215-paper-route-causal-history-gate-design`

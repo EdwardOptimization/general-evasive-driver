@@ -1,0 +1,156 @@
+{
+  "id": "m1215-paper-route-causal-history-gate-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "docs/m1214-paper-route-corrected-profile-evidence-synthesis.md",
+      "runs/m1209_corrected_profile_pilot/profile_aggregate.csv",
+      "runs/m1212_corrected_profile_repeat/profile_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1214-paper-route-corrected-profile-evidence-synthesis.json"
+    ],
+    "parent_objective": [
+      "design a causal history gate after corrected profile comparisons fail to prove memory necessity"
+    ],
+    "derived_from": [
+      "m1214-paper-route-corrected-profile-evidence-synthesis"
+    ],
+    "blocked_by": [
+      "Profile comparisons cannot prove self-identification because current-tiled and reset controls explain key trends"
+    ],
+    "supersedes": [
+      "running more broad profile pilots as the next default step"
+    ],
+    "invalidates": [
+      "using aggregate profile ranking as memory-causality evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1215-paper-route-causal-history-gate-design.md",
+  "public_gates": [
+    "M1215 may design causal history gates only",
+    "M1215 must target matched-current observations with different histories or hidden dynamics",
+    "M1215 must pre-register normal reset delayed wrong-history and current-tiled controls",
+    "M1215 must not train controllers",
+    "M1215 must not run PPO",
+    "M1215 must not use private holdout",
+    "M1215 must not promote",
+    "M1215 must not claim paper-level evidence or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not promote",
+    "do not tune profiles",
+    "do not use oracle actor inputs",
+    "do not call aggregate ranking a causal history gate"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_evidence",
+    "evidence_axis": "H_causal_history_gate_design: matched-current history necessity",
+    "evidence_increment": "pre-registers a gate that can directly test whether policy behavior causally depends on command-response history",
+    "claim_scope": "design only; no training promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if the design relies on hidden or oracle actor inputs",
+      "stop if the design only compares aggregate profile returns",
+      "stop if the design lacks reset delayed or wrong-history controls",
+      "stop if current observations are not matched or ambiguity is not measured"
+    ],
+    "fallback_plan": [
+      "route to ambiguity-corpus export if matched-current samples are missing",
+      "route to task/curriculum repair if no ambiguity can be found",
+      "route to implementation if existing tools can support the gate"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1214 promotes the branch from aggregate profile comparison to causal history evidence",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "causal history gate design",
+    "admission_evidence": [
+      "M1214 synthesizes corrected profile evidence and blocks aggregate profile rankings as self-ID proof",
+      "M1214 preserves stable negative L2/current-tiled evidence",
+      "M1214 routes to matched-current causal history gates as the higher-leverage next branch"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1215 causal gate design docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "gate objective and controls are fixed",
+      "candidate source artifacts are selected",
+      "success and failure thresholds are pre-registered",
+      "next implementation or audit milestone is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1215 must include current-tiled and current-response controls because profile aggregates showed current-frame substitution risk.",
+    "history_necessity_tests": [
+      "matched_current_normal_vs_reset",
+      "matched_current_normal_vs_delayed_history",
+      "matched_current_normal_vs_wrong_history",
+      "matched_current_current_tiled_control",
+      "outcome_margin_degradation_under_history_intervention"
+    ],
+    "temporal_evidence_window": "The design must test causal history dependence rather than profile capacity.",
+    "negative_result_policy": "If no matched-current causal degradation exists, record that as negative evidence and route to task/curriculum redesign.",
+    "allowed_claims": [
+      "causal history gate design readiness",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A matched-current causal history gate can more directly test self-identification than aggregate profile comparison.",
+  "success_criteria": [
+    "docs/m1215-paper-route-causal-history-gate-design.md exists",
+    "gate inputs and interventions are defined",
+    "matched-current ambiguity requirements are defined",
+    "success and failure thresholds are pre-registered",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next implementation or audit milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1215 trains or tunes profiles",
+    "private holdout is used",
+    "gate uses hidden or oracle actor inputs",
+    "design lacks reset/delayed/wrong-history controls",
+    "self-identification is claimed from profile aggregates"
+  ],
+  "commands": [
+    {
+      "name": "design_causal_history_gate",
+      "command": "write matched-current causal history gate design without training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1215-paper-route-causal-history-gate-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "docs/m1214-paper-route-corrected-profile-evidence-synthesis.md"
+  ],
+  "decision_rule": "M1215 passes if it pre-registers a causal history gate without training or claim expansion.",
+  "next_blocker": "m1215-paper-route-causal-history-gate-design"
+}

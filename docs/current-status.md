@@ -115,8 +115,35 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1214-paper-route-corrected-profile-evidence-synthesis
+m1215-paper-route-causal-history-gate-design
 ```
+
+M1214 completed corrected profile evidence synthesis:
+
+```text
+artifact: docs/m1214-paper-route-corrected-profile-evidence-synthesis.md
+decision: corrected_profile_synthesis_promote_to_causal_history_gate_design
+```
+
+Current paper-route conclusion:
+
+```text
+Corrected profile infrastructure is usable.
+L2 finite-window trend is not history-necessity evidence.
+Current-tiled controls are required for future profile claims.
+L3 online-GRU can train useful reactive behavior but recurrent-hidden benefit is not proven.
+Broad profile rankings are seed-block sensitive.
+```
+
+Next branch:
+
+```text
+paper_route_causal_history_evidence
+```
+
+The next task is not another broad profile repeat. M1215 must design a
+matched-current causal history gate with normal, reset, delayed, wrong-history,
+and current-tiled/current-response controls.
 
 M1213 completed the M1209/M1212 cross-block audit:
 

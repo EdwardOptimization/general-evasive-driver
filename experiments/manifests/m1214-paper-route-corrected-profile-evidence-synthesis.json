@@ -72,7 +72,16 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1209 and M1212 complete a pilot/repeat pair with conflicting rankings",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1214-paper-route-corrected-profile-evidence-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
   "training_stage": {
     "stage": "process",
@@ -151,5 +160,5 @@
     "docs/m1213-paper-route-corrected-profile-repeat-result-audit.md"
   ],
   "decision_rule": "M1214 passes if it makes a concrete next-branch decision without claim expansion.",
-  "next_blocker": "m1214-paper-route-corrected-profile-evidence-synthesis"
+  "next_blocker": "m1215-paper-route-causal-history-gate-design"
 }

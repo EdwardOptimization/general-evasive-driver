@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1223,
+    "completed": 1224,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1213-paper-route-corrected-profile-repeat-result-audit.md",
+    "command_log": "docs/m1214-paper-route-corrected-profile-evidence-synthesis.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1213-paper-route-corrected-profile-repeat-result-audit"
+    "task_id": "m1214-paper-route-corrected-profile-evidence-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1214-paper-route-corrected-profile-evidence-synthesis.json",
-    "hypothesis": "The corrected profile-comparison branch has enough evidence to synthesize supported/blocked claims and select a higher-leverage next branch.",
-    "id": "m1214-paper-route-corrected-profile-evidence-synthesis",
+    "command": "see experiments/manifests/m1215-paper-route-causal-history-gate-design.json",
+    "hypothesis": "A matched-current causal history gate can more directly test self-identification than aggregate profile comparison.",
+    "id": "m1215-paper-route-causal-history-gate-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1199-M1213 and select next branch without training or claim expansion",
-    "priority": 12090,
+    "notes": "Pending: design causal history intervention gate with reset delayed wrong-history and current-tiled controls",
+    "priority": 12100,
     "status": "pending",
-    "success_artifact": "docs/m1214-paper-route-corrected-profile-evidence-synthesis.md"
+    "success_artifact": "docs/m1215-paper-route-causal-history-gate-design.md"
   },
-  "updated_at_utc": "20260528T064215Z"
+  "updated_at_utc": "20260528T064512Z"
 }
