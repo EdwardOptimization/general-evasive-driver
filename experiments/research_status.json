@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1196,
+    "completed": 1197,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1186-paper-route-active-gate-policy-design.md",
+    "command_log": "docs/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1186-paper-route-active-gate-policy-design"
+    "task_id": "m1187-paper-route-l0-l1-l2-l3-controller-comparison-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.json",
-    "hypothesis": "Design fair L0/L1/L2/L3 controller comparison",
-    "id": "m1187-paper-route-l0-l1-l2-l3-controller-comparison-design",
-    "kind": "gate",
-    "notes": "Pending: define current one-step finite-window and GRU controller comparison under shared deployable input contract; no training replay PPO promotion private holdout or actor-input change",
-    "priority": 11820,
+    "command": "see experiments/manifests/m1188-paper-route-controller-profile-scaffold-implementation.json",
+    "hypothesis": "Implement controller profile scaffold for L0/L1/L2/L3 comparison",
+    "id": "m1188-paper-route-controller-profile-scaffold-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement profile metadata masking and focused tests for L0/L1/L2/L3 without controller training replay PPO promotion private holdout hidden inputs or actor-input contract change",
+    "priority": 11830,
     "status": "pending",
-    "success_artifact": "docs/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.md"
+    "success_artifact": "docs/m1188-paper-route-controller-profile-scaffold-implementation.md"
   },
-  "updated_at_utc": "20260528T055000Z"
+  "updated_at_utc": "20260528T060500Z"
 }

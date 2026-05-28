@@ -1,0 +1,165 @@
+{
+  "id": "m1188-paper-route-controller-profile-scaffold-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.md",
+      "docs/active-gate-policy.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.json"
+    ],
+    "parent_objective": [
+      "implement controller-profile scaffolding for L0 L1 L2 L3 comparison without training"
+    ],
+    "derived_from": [
+      "m1187-paper-route-l0-l1-l2-l3-controller-comparison-design"
+    ],
+    "blocked_by": [
+      "controller comparison design needs executable profile metadata before configs or training can be generated fairly"
+    ],
+    "supersedes": [
+      "manual ad hoc L0 L1 L2 L3 config construction"
+    ],
+    "invalidates": [
+      "starting controller training before profile instantiation and contract checks exist"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1188-paper-route-controller-profile-scaffold-implementation.md",
+  "public_gates": [
+    "M1188 may implement profile metadata and instantiation tests only",
+    "M1188 must not train controller weights",
+    "M1188 must not run PPO",
+    "M1188 must not run candidate replay",
+    "M1188 must not promote",
+    "M1188 must not use private holdout",
+    "M1188 must not add hidden or oracle actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train L0 L1 L2 or L3",
+    "do not run PPO",
+    "do not run private holdout",
+    "do not change the deployable actor input contract",
+    "do not add slip tire force friction margin or hidden dynamics actor inputs",
+    "do not claim controller performance from scaffold tests"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_infrastructure: executable controller-profile scaffold",
+    "evidence_increment": "adds profile metadata masking and instantiation checks needed before fair L0 L1 L2 L3 training or evaluation",
+    "claim_scope": "infrastructure only; no training replay PPO promotion private-holdout driver-performance recurrent-belief or paper-result claim",
+    "stop_condition": [
+      "stop if implementation adds hidden or oracle actor inputs",
+      "stop if profile tests instantiate training or PPO",
+      "stop if L0 masking cannot be represented cleanly",
+      "stop if finite-window configs cannot be generated without actor-contract ambiguity"
+    ],
+    "fallback_plan": [
+      "if masking requires wrapper support, implement wrapper tests before config generation",
+      "if finite-window observation dimensions expose model-load incompatibility, route to config-only smoke before training",
+      "if temporal_gru profile support is missing, route to focused ActorCritic scaffold tests"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1187 design requires executable profile scaffold before dataset or training milestones",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement controller-profile scaffold",
+    "admission_evidence": [
+      "M1187 defines fair controller levels and implementation gaps",
+      "Stack A process policy permits scaffold implementation",
+      "training remains blocked until profiles can be instantiated and contract-checked"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train controllers",
+      "do not run candidate replay",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "profile metadata module",
+      "profile instantiation tests",
+      "optional smoke CLI",
+      "M1188 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "L0 current-masked profile exists",
+      "L1 one-step profile exists",
+      "L2 finite-window profile metadata exists for 13 25 50 100 steps",
+      "L3 online GRU and reset-control profile metadata exists",
+      "profile contract tests pass",
+      "no training or PPO starts"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1188 is infrastructure. It must preserve L0 and L1 profiles so later experiments can test current-frame substitution.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1188 should encode finite-window step counts but does not evaluate them.",
+    "negative_result_policy": "If profile support exposes missing implementation paths, route to focused scaffold repair rather than training only L3.",
+    "allowed_claims": [
+      "controller-profile scaffold readiness",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A small profile scaffold can instantiate and contract-check L0 L1 L2 and L3 controller configurations without training or changing actor inputs.",
+  "success_criteria": [
+    "profile metadata module exists",
+    "focused profile tests pass",
+    "L0 previous-command mask is specified",
+    "L1 canonical profile is specified",
+    "L2 finite-window profiles for 13 25 50 and 100 steps are specified",
+    "L3 online GRU and reset-control metadata are specified",
+    "no hidden or oracle actor inputs are introduced",
+    "no controller training, candidate replay, PPO, promotion, private holdout, or actor-input contract change occurs"
+  ],
+  "failure_criteria": [
+    "profile scaffold adds hidden or oracle actor input",
+    "profile tests start training or PPO",
+    "finite-window profiles are omitted",
+    "L0 masking is ambiguous",
+    "actor-input contract changes without explicit manifest"
+  ],
+  "commands": [
+    {
+      "name": "implement_controller_profiles",
+      "command": "implement profile metadata and focused tests without training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1188-paper-route-controller-profile-scaffold-implementation.md",
+      "type": "md"
+    },
+    {
+      "path": "src/autodrift/controller_profiles.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_controller_profiles.py",
+      "type": "py"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.md"
+  ],
+  "decision_rule": "M1188 passes if profile scaffolding and focused tests establish contract-clean L0/L1/L2/L3 metadata without training.",
+  "next_blocker": "m1188-paper-route-controller-profile-scaffold-implementation"
+}

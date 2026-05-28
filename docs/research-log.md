@@ -16945,3 +16945,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no candidate replay, gate deletion, actor training, PPO, promotion, private holdout, or actor-input change occurred.
 - decision: `active_gate_policy_design_admit_l0_l1_l2_l3_controller_comparison_design`
 - next: `m1187-paper-route-l0-l1-l2-l3-controller-comparison-design`
+
+## 20260528T060500Z - m1187-paper-route-l0-l1-l2-l3-controller-comparison-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.md`
+- result: defines the fair controller-comparison contract before any controller training or GRU-first paper claim.
+- L0: canonical human-view current frame with previous-command fields masked to zero.
+- L1: canonical 72-value one-step command-response feedback frame.
+- L2: finite-window command-response history with 13, 25, 50, and 100 step windows for 0.25s, 0.50s, 1.00s, and 2.00s at `dt=0.02s`.
+- L3: online human-view GRU with reset and truncation controls.
+- controls: shared deployable input boundary, shared action contract, capacity and inference-cost reporting, public split policy, and active gate policy triggers.
+- task families: reactive evasive driving, same-current same-recent-window different-older-history, diagnostic warmup, variable diagnostic delay, and source-rich extreme dynamics.
+- follow-up manifest: `experiments/manifests/m1188-paper-route-controller-profile-scaffold-implementation.json`.
+- guardrail: no controller training, candidate replay, PPO, promotion, private holdout, or actor-input change occurred.
+- decision: `l0_l1_l2_l3_controller_comparison_design_admit_profile_scaffold`
+- next: `m1188-paper-route-controller-profile-scaffold-implementation`

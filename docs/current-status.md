@@ -115,8 +115,29 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1187-paper-route-l0-l1-l2-l3-controller-comparison-design
+m1188-paper-route-controller-profile-scaffold-implementation
 ```
+
+M1187 completed the fair controller-comparison design:
+
+```text
+artifact: docs/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.md
+decision: l0_l1_l2_l3_controller_comparison_design_admit_profile_scaffold
+```
+
+The controller levels are now defined as:
+
+- L0: current-only human-view frame with previous-command fields masked to zero.
+- L1: canonical 72-value one-step command-response feedback frame.
+- L2: finite-window command-response history with 13, 25, 50, and 100 step
+  windows for 0.25s, 0.50s, 1.00s, and 2.00s at `dt=0.02s`.
+- L3: online human-view GRU recurrent state, with reset/truncation controls.
+
+M1187 also fixes task families, public split policy, capacity/inference-cost
+reporting, and gate triggers. It did not train controllers, run replay, run
+PPO, promote, use private holdout, or change actor inputs. The next blocker is
+M1188: implement profile metadata, L0 masking, profile instantiation tests, and
+contract checks before any training.
 
 M1186 completed the active gate policy:
 
