@@ -17989,3 +17989,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1249-paper-route-capability-separable-trajectory-proposal-source-design.json`.
 - decision: `local_relocation_source_exhausted_pivot_to_trajectory_proposal_source_design`
 - next: `m1249-paper-route-capability-separable-trajectory-proposal-source-design`
+
+## 20260528T103902Z - m1249-paper-route-capability-separable-trajectory-proposal-source-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1249-paper-route-capability-separable-trajectory-proposal-source-design.md`
+- design: opens a new no-training source variable, `trajectory_proposal`, after M1248 stops local relocation plus fixed short-sequence lattice.
+- candidate generator: branch-conditioned short trajectory proposals around A and B deterministic actions plus shared controls, with source-only proposal metadata.
+- acceptance gates: both own-condition proposals viable, normalized action-sequence distance >= `0.12`, and two-sided cross-regret margins >= `0.02`.
+- runtime bounds for M1250: `seed_count<=4`, `max_pairs<=8`, `max_relocation_candidates<=12`, `proposal_count_per_condition<=24`, `sequence_length<=4`, `max_continuation_steps<=18`.
+- guardrail: proposal labels, search outputs, and oracle outcomes remain outside deployable actor inputs; no training, PPO, promotion, private holdout, self-ID claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1250-paper-route-capability-separable-trajectory-proposal-source-smoke.json`.
+- decision: `trajectory_proposal_source_design_admit_bounded_smoke`
+- next: `m1250-paper-route-capability-separable-trajectory-proposal-source-smoke`

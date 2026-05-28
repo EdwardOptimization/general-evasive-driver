@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M1249 designs condition-wise no-training trajectory proposal source mining and admits bounded M1250 smoke",
+  "failure_criteria": [
+    "design is missing",
+    "design feeds proposal labels or oracle outcomes into actor inputs",
+    "design lacks acceptance gates",
+    "training, PPO, private holdout, promotion, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, proposal labels, oracle outcomes, or solver outputs to actor inputs",
+    "do not claim self-identification from source design",
+    "do not implement the run before pre-registering acceptance gates"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T104020Z",
+  "hypothesis": "A condition-wise trajectory proposal source can distinguish whether zero accepted rows are due to the fixed action lattice or due to the current simulator/source state distribution.",
+  "lineage": {
+    "blocked_by": [
+      "M1248 stops local relocation + fixed short-sequence lattice because M1242-M1247 produced zero accepted separable rows"
+    ],
+    "derived_from": [
+      "m1248-paper-route-capability-separable-fine-relocation-negative-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1248-paper-route-capability-separable-fine-relocation-negative-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md",
+      "runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json",
+      "runs/m1247_capability_separable_fine_relocation_calibration_smoke/relocation_candidates.csv"
+    ],
+    "parent_objective": [
+      "design condition-wise trajectory proposal source mining after local relocation source exhaustion"
+    ],
+    "supersedes": [
+      "another immediate local relocation-grid run",
+      "training on zero accepted source rows"
+    ]
+  },
+  "milestone": "m1249-paper-route-capability-separable-trajectory-proposal-source-design",
+  "next_blocker": "m1250-paper-route-capability-separable-trajectory-proposal-source-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "trajectory_proposal_source_design_admit_bounded_smoke",
+  "public_gates": [
+    "M1249 must preserve actor input contract",
+    "M1249 must not train controllers",
+    "M1249 must not run PPO",
+    "M1249 must not use private holdout",
+    "M1249 must not promote",
+    "M1249 must define a no-training trajectory proposal/source mining protocol"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1249-paper-route-capability-separable-trajectory-proposal-source-design.md",
+    "clearance_margin_mean": "",
+    "decision": "trajectory_proposal_source_design_admit_bounded_smoke",
+    "milestone": "m1249-paper-route-capability-separable-trajectory-proposal-source-design",
+    "reason": "M1249 designs condition-wise no-training trajectory proposal source mining and admits bounded M1250 smoke",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1249-paper-route-capability-separable-trajectory-proposal-source-design.md exists",
+    "design names candidate generation strategy",
+    "design names acceptance metrics and thresholds",
+    "design names runtime bounds",
+    "design names no-leak actor contract guardrails",
+    "M1250 bounded no-training smoke manifest exists",
+    "no training, PPO, promotion, private holdout, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

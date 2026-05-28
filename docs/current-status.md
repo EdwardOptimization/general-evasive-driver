@@ -115,7 +115,34 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1249-paper-route-capability-separable-trajectory-proposal-source-design
+m1250-paper-route-capability-separable-trajectory-proposal-source-smoke
+```
+
+M1249 completed capability-separable trajectory proposal source design:
+
+```text
+artifact: docs/m1249-paper-route-capability-separable-trajectory-proposal-source-design.md
+decision: trajectory_proposal_source_design_admit_bounded_smoke
+candidate_mode: trajectory_proposal
+```
+
+M1249 conclusion:
+
+```text
+The next source variable is no-training condition-wise trajectory proposal
+search. It tests whether fixed shared lattices were too weak by generating
+branch-conditioned short-horizon proposals around each hidden branch's own
+action and evaluating all proposals under both branches.
+```
+
+Next task:
+
+```text
+artifact: runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json
+manifest: experiments/manifests/m1250-paper-route-capability-separable-trajectory-proposal-source-smoke.json
+goal: implement and run bounded no-training trajectory proposal source smoke
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1248 completed capability-separable fine relocation negative audit:

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1258,
+    "completed": 1259,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md",
+    "command_log": "docs/m1249-paper-route-capability-separable-trajectory-proposal-source-design.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1248-paper-route-capability-separable-fine-relocation-negative-audit"
+    "task_id": "m1249-paper-route-capability-separable-trajectory-proposal-source-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1249-paper-route-capability-separable-trajectory-proposal-source-design.json",
-    "hypothesis": "Design condition-wise trajectory proposal source mining",
-    "id": "m1249-paper-route-capability-separable-trajectory-proposal-source-design",
-    "kind": "gate",
-    "notes": "Pending: design no-training trajectory proposal/source search and pre-register bounded M1250 smoke",
-    "priority": 12440,
+    "command": "see experiments/manifests/m1250-paper-route-capability-separable-trajectory-proposal-source-smoke.json",
+    "hypothesis": "Run condition-wise trajectory proposal source smoke",
+    "id": "m1250-paper-route-capability-separable-trajectory-proposal-source-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run bounded no-training trajectory proposal source smoke",
+    "priority": 12450,
     "status": "pending",
-    "success_artifact": "docs/m1249-paper-route-capability-separable-trajectory-proposal-source-design.md"
+    "success_artifact": "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json"
   },
-  "updated_at_utc": "20260528T103527Z"
+  "updated_at_utc": "20260528T103902Z"
 }

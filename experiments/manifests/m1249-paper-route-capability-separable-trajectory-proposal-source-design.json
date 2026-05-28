@@ -146,6 +146,21 @@
     "docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md",
     "runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1249-paper-route-capability-separable-trajectory-proposal-source-design.md",
+    "decision": "trajectory_proposal_source_design_admit_bounded_smoke",
+    "next_source_variable": "condition_wise_trajectory_proposal_search",
+    "candidate_mode": "trajectory_proposal",
+    "m1250_manifest": "experiments/manifests/m1250-paper-route-capability-separable-trajectory-proposal-source-smoke.json",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1250-paper-route-capability-separable-trajectory-proposal-source-smoke.json"
+  },
+  "decision": "trajectory_proposal_source_design_admit_bounded_smoke",
   "decision_rule": "M1249 passes if it opens a new no-training trajectory proposal source branch with explicit acceptance gates, runtime bounds, and actor-contract guardrails.",
-  "next_blocker": "m1249-paper-route-capability-separable-trajectory-proposal-source-design"
+  "next_blocker": "m1250-paper-route-capability-separable-trajectory-proposal-source-smoke"
 }

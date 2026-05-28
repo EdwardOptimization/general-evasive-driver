@@ -1,0 +1,164 @@
+{
+  "id": "m1250-paper-route-capability-separable-trajectory-proposal-source-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1249-paper-route-capability-separable-trajectory-proposal-source-design.md",
+      "docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md",
+      "runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1249-paper-route-capability-separable-trajectory-proposal-source-design.json",
+      "configs/m1236_extreme_fault_timing_repair_smoke.json"
+    ],
+    "parent_objective": [
+      "run a bounded no-training condition-wise trajectory proposal source smoke"
+    ],
+    "derived_from": [
+      "m1249-paper-route-capability-separable-trajectory-proposal-source-design"
+    ],
+    "blocked_by": [
+      "M1248 finds fixed-lattice local relocation exhausted and M1249 selects trajectory proposal source mining"
+    ],
+    "supersedes": [
+      "another local relocation-grid expansion before testing proposal source strength"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1250-paper-route-capability-separable-trajectory-proposal-source-smoke.md",
+  "public_gates": [
+    "M1250 must preserve actor input contract",
+    "M1250 must not train controllers",
+    "M1250 must not run PPO",
+    "M1250 must not use private holdout",
+    "M1250 must not promote",
+    "M1250 must keep proposal labels and oracle outcomes out of deployable actor inputs",
+    "M1250 must report accepted separable pairs as diagnostic source evidence only"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, proposal labels, oracle outcomes, or search outputs to actor inputs",
+    "do not claim self-identification from source construction",
+    "do not relax cross-regret thresholds after seeing the result"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_capability_separable_trajectory_proposal_source",
+    "evidence_axis": "S_condition_wise_trajectory_proposal_source_smoke",
+    "evidence_increment": "tests the first bounded trajectory proposal source after fixed-lattice local relocation exhaustion",
+    "claim_scope": "infrastructure/source-shape smoke only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if actor checksum changes",
+      "stop if proposal labels enter actor observation",
+      "stop if runtime exceeds smoke bounds before writing artifacts"
+    ],
+    "fallback_plan": [
+      "if proposal source yields accepted rows, route to compact source corpus construction and exact sanity gates",
+      "if proposal source yields zero accepted rows, write source-variable negative audit before changing simulator fidelity"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1249 pre-registers the first trajectory proposal source smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "trajectory proposal source smoke",
+    "admission_evidence": [
+      "M1249 defines condition-wise proposal source mining and acceptance gates"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "trajectory proposal source implementation",
+      "focused tests",
+      "M1250 run artifacts",
+      "M1250 result docs",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "trajectory proposal artifacts are produced",
+      "accepted separable pairs are reported",
+      "source result is classified without proof overclaim"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1250 constructs proposal source candidates offline and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If proposal source is negative, record it as source-shape evidence and audit before another source variable change.",
+    "allowed_claims": [
+      "trajectory proposal source-construction smoke result",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Condition-wise trajectory proposals can expose accepted capability-separable source rows that fixed shared lattices and local relocation missed.",
+  "success_criteria": [
+    "trajectory proposal source code exists",
+    "focused tests exist",
+    "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json exists",
+    "trajectory_proposals > 0",
+    "trajectory_proposal_rollouts > 0",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "labels_enter_actor_input == false",
+    "private holdout remains unused",
+    "no actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "proposal source cannot produce trajectory proposals",
+    "proposal source cannot produce rollouts",
+    "actor parameters change",
+    "proposal labels or oracle outcomes enter actor observations",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_capability_separable_source_constructor.py"
+    },
+    {
+      "name": "smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.capability_separable_source_constructor --checkpoint runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --config configs/m1236_extreme_fault_timing_repair_smoke.json --pairing-mode cross_fault --seed-start 124600 --seed-count 4 --max-pairs 8 --max-pairs-per-seed 4 --max-pairs-per-family-pair 8 --candidate-mode trajectory_proposal --sequence-length 4 --proposal-count-per-condition 24 --proposal-seed 125000 --proposal-steer-scale 0.45 --proposal-brake-scale 0.45 --proposal-throttle-scale 0.25 --source-window-mode viability_band_relocation --target-min-best-margin 0.02 --target-max-best-margin 0.5 --max-relocation-candidates 12 --fine-relocation --fine-parent-count 1 --max-continuation-steps 18 --min-best-action-l2 0.12 --min-cross-regret-margin 0.02 --device auto --run-dir runs/m1250_capability_separable_trajectory_proposal_source_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1250-paper-route-capability-separable-trajectory-proposal-source-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1249-paper-route-capability-separable-trajectory-proposal-source-design.md",
+    "runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json"
+  ],
+  "decision_rule": "M1250 passes as infrastructure if proposal candidates and rollouts are produced without actor mutation, training, PPO, promotion, private holdout, or actor-input expansion. Accepted separable pairs are diagnostic source evidence only.",
+  "next_blocker": "m1250-paper-route-capability-separable-trajectory-proposal-source-smoke"
+}
