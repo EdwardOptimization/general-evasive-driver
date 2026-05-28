@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1355,
+    "completed": 1356,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.md",
+    "command_log": "docs/m1346-paper-route-materialized-source-history-pair-group-update-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.md",
+    "run_dir": "runs/m1346_materialized_source_history_pair_group_update",
     "status": "completed",
-    "task_id": "m1345-paper-route-materialized-source-history-objective-corpus-synthesis"
+    "task_id": "m1346-paper-route-materialized-source-history-pair-group-update-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1346-paper-route-materialized-source-history-pair-group-update-implementation.json",
-    "hypothesis": "Run bounded no-PPO pair-group objective update probe",
-    "id": "m1346-paper-route-materialized-source-history-pair-group-update-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: objective-update probe only; no PPO, private holdout, promotion, or actor-input change",
-    "priority": 13410,
+    "command": "see experiments/manifests/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.json",
+    "hypothesis": "Audit M1346 exact objective improvement and both-negative tradeoff before replay gates",
+    "id": "m1347-paper-route-materialized-source-history-pair-group-update-result-audit",
+    "kind": "gate",
+    "notes": "Pending: result audit only; no training, PPO, private holdout, promotion, or actor-input change",
+    "priority": 13420,
     "status": "pending",
-    "success_artifact": "runs/m1346_materialized_source_history_pair_group_update/summary.json"
+    "success_artifact": "docs/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md"
   },
-  "updated_at_utc": "20260528T190506Z"
+  "updated_at_utc": "20260528T191513Z"
 }

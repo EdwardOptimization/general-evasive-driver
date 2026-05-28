@@ -1,0 +1,95 @@
+{
+  "decision_reason": "M1346 improves exact source-history group metrics without forbidden mutation but both-negative tradeoff requires audit",
+  "failure_criteria": [
+    "focused tests fail",
+    "run artifacts are missing",
+    "checkpoint lineage is wrong",
+    "forbidden parameters mutate",
+    "exact metrics are nonfinite",
+    "eval fold regresses while train improves",
+    "PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not mutate forbidden parameters",
+    "do not claim driver performance",
+    "do not claim self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T191759Z",
+  "hypothesis": "A bounded response_context_fusion + actor_mean no-PPO update can reduce the M1342 pair-group conflict metrics without forbidden parameter mutation.",
+  "lineage": {
+    "blocked_by": [
+      "M1345 opens the pair-group update branch but no bounded update probe has been run"
+    ],
+    "derived_from": [
+      "m1345-paper-route-materialized-source-history-objective-corpus-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1345-paper-route-materialized-source-history-objective-corpus-synthesis.md",
+      "runs/m1339_materialized_source_history_objective_evaluator/materialized_source_history_objective_rows.csv",
+      "runs/m1342_materialized_source_history_pair_group_metrics/group_rows.csv"
+    ],
+    "parent_objective": [
+      "implement one bounded no-PPO pair-group objective update probe"
+    ],
+    "supersedes": [
+      "implementation on the closed materialized objective corpus branch"
+    ]
+  },
+  "milestone": "m1346-paper-route-materialized-source-history-pair-group-update-implementation",
+  "next_blocker": "m1347-paper-route-materialized-source-history-pair-group-update-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "materialized_source_history_pair_group_update_probe_pass_route_to_result_audit",
+  "public_gates": [
+    "M1346 must not run PPO",
+    "M1346 must not use private holdout",
+    "M1346 must not promote",
+    "M1346 must preserve actor input contract",
+    "M1346 must start from the M1154 public-gate base",
+    "M1346 must update only the declared trainable scope",
+    "M1346 must write exact before/after row and group metrics"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1346_materialized_source_history_pair_group_update/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "materialized_source_history_pair_group_update_probe_pass_route_to_result_audit",
+    "milestone": "m1346-paper-route-materialized-source-history-pair-group-update-implementation",
+    "reason": "M1346 improves exact source-history group metrics without forbidden mutation but both-negative tradeoff requires audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m1346_materialized_source_history_pair_group_update/summary.json exists",
+    "checkpoint starts from runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "trainable_scope == response_context_fusion_plus_actor_mean",
+    "log_std_l2 == 0",
+    "forbidden_parameter_mutation_detected is false",
+    "before and after M1339-style row metrics are finite",
+    "before and after M1342-style group metrics are finite",
+    "full group_min_joint_margin_mean improves",
+    "eval-fold group_min_joint_margin_mean does not regress",
+    "group_one_sided_conflict_count decreases or is explicitly audited as no-improvement",
+    "no PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "infrastructure"
+}

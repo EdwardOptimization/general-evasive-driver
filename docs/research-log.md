@@ -19719,3 +19719,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1346-paper-route-materialized-source-history-pair-group-update-implementation.json`.
 - next: `m1346-paper-route-materialized-source-history-pair-group-update-implementation`
+
+## 20260528T191513Z - m1346-paper-route-materialized-source-history-pair-group-update-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1346_materialized_source_history_pair_group_update/summary.json`
+- document: `docs/m1346-paper-route-materialized-source-history-pair-group-update-implementation.md`
+- decision: `materialized_source_history_pair_group_update_probe_pass_route_to_result_audit`
+- result class: `materialized_source_history_pair_group_update_group_metric_improved`
+- checkpoint out: `runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt`
+- trainable scope: `response_context_fusion_plus_actor_mean`
+- mutation guard: `forbidden_parameter_mutation_detected=false`, `log_std_l2=0.0`, changed parameters are only `actor_mean.*` and `response_context_fusion.0.*`.
+- exact row metrics: `combined_loss_mean` improved from `6.8847534022` to `1.9998926339`.
+- exact group metrics: `group_min_joint_margin_mean` improved from `-6.8026667906` to `-1.1251848645`.
+- eval fold 4: `group_min_joint_margin_mean` improved from `-6.4443958161` to `-1.2625397266`; no eval-fold regression.
+- directional counts: one-sided conflicts decreased from `684` to `605`; all-rows-both-directional groups increased from `0` to `27`; both-negative groups increased from `4` to `26`.
+- interpretation: positive fixed-objective probe with a tradeoff, not a promoted checkpoint, not a replay-gated driver result, and not strong self-identification proof.
+- guardrail: no PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.json`.
+- next: `m1347-paper-route-materialized-source-history-pair-group-update-result-audit`

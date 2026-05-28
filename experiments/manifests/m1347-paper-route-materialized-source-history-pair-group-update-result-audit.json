@@ -1,0 +1,159 @@
+{
+  "id": "m1347-paper-route-materialized-source-history-pair-group-update-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt",
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1346_materialized_source_history_pair_group_update/summary.json",
+      "runs/m1346_materialized_source_history_pair_group_update/materialized_source_history_objective_rows_before.csv",
+      "runs/m1346_materialized_source_history_pair_group_update/materialized_source_history_objective_rows_after.csv",
+      "runs/m1346_materialized_source_history_pair_group_update/group_rows_before.csv",
+      "runs/m1346_materialized_source_history_pair_group_update/group_rows_after.csv",
+      "docs/m1346-paper-route-materialized-source-history-pair-group-update-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1346-paper-route-materialized-source-history-pair-group-update-implementation.json"
+    ],
+    "parent_objective": [
+      "audit bounded no-PPO pair-group objective update result before replay gates"
+    ],
+    "derived_from": [
+      "m1346-paper-route-materialized-source-history-pair-group-update-implementation"
+    ],
+    "blocked_by": [
+      "M1346 improves exact fixed source-history metrics but increases both-negative groups and has not been replay-gated"
+    ],
+    "supersedes": [
+      "direct replay gate or PPO from M1346 without result audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md",
+  "public_gates": [
+    "M1347 must not train",
+    "M1347 must not run PPO",
+    "M1347 must not use private holdout",
+    "M1347 must not promote",
+    "M1347 must preserve actor input contract",
+    "M1347 must audit the M1346 both-negative tradeoff",
+    "M1347 must decide whether limited replay gates are justified"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not ignore the both-negative group increase",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_pair_group_update_implementation",
+    "evidence_axis": "S_materialized_source_history_pair_group_update_result_audit",
+    "evidence_increment": "audits whether the M1346 objective-probe improvement is structurally healthy enough to justify replay-gate evaluation",
+    "claim_scope": "process/result audit only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if M1346 artifacts are missing",
+      "stop if forbidden parameter mutation is detected",
+      "stop if both-negative increase makes the candidate structurally regressive",
+      "stop if audit cannot justify replay-gate evaluation"
+    ],
+    "fallback_plan": [
+      "if M1346 is structurally healthy, route to limited public replay preflight",
+      "if both-negative tradeoff is unacceptable, route to objective tradeoff repair design",
+      "if eval-fold improvement is metric-only, route to metric artifact audit",
+      "if candidate violates contract, reject and repair tooling"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1346 produced the first pair-group update result and requires audit before replay gates",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "M1346 pair-group update result audit",
+    "admission_evidence": [
+      "M1346 exact group_min_joint_margin_mean improved by +5.6774819261",
+      "M1346 eval fold group_min_joint_margin_mean improved by +5.1818560896",
+      "M1346 group_one_sided_conflict_count decreased from 684 to 605",
+      "M1346 group_both_negative_count increased from 4 to 26",
+      "M1346 performed no PPO, private holdout, promotion, or actor-input change"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not update checkpoint weights",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1347 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "M1346 tradeoffs are classified",
+      "replay-gate admission or repair route is explicit",
+      "no update occurs"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1347 audits zero-context source-current diagnostics and cannot claim closed-loop history necessity.",
+    "history_necessity_tests": [
+      "compare grouped correct-history versus wrong-history before/after residuals from M1346"
+    ],
+    "temporal_evidence_window": "M1346 materialized source-history before/after metrics.",
+    "negative_result_policy": "Any tradeoff, metric artifact, or replay-risk finding must be recorded before replay gates or scope escalation.",
+    "allowed_claims": [
+      "M1346 objective-probe result audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1346 exact objective improvement can be audited into a clear route: either limited public replay preflight or objective tradeoff repair, without training or promotion.",
+  "success_criteria": [
+    "docs/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md exists",
+    "audit summarizes M1346 row, group, fold, and mutation evidence",
+    "audit classifies the both-negative increase",
+    "audit decides replay-preflight versus repair-design route",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, checkpoint mutation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores M1346 both-negative increase",
+    "audit routes directly to PPO or promotion",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, checkpoint mutation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1347-paper-route-materialized-source-history-pair-group-update-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1346-paper-route-materialized-source-history-pair-group-update-implementation.md",
+    "runs/m1346_materialized_source_history_pair_group_update/summary.json"
+  ],
+  "decision_rule": "M1347 passes if it audits M1346 tradeoffs and chooses a bounded next route without training, PPO, private holdout, promotion, or actor-input expansion.",
+  "next_blocker": "m1347-paper-route-materialized-source-history-pair-group-update-result-audit"
+}

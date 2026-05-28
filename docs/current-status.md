@@ -16,14 +16,28 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1345-paper-route-materialized-source-history-objective-corpus-synthesis
+m1346-paper-route-materialized-source-history-pair-group-update-implementation
 ```
 
 Current next task:
 
 ```text
-m1346-paper-route-materialized-source-history-pair-group-update-implementation
+m1347-paper-route-materialized-source-history-pair-group-update-result-audit
 ```
+
+M1346 implemented and ran the first bounded no-PPO materialized source-history
+pair-group update from the M1154 public-gate base. The trainable scope was
+`response_context_fusion + actor_mean`; `log_std_l2=0.0`,
+`forbidden_parameter_mutation_detected=false`, and the checkpoint contract
+remained `canonical_72_human_view_online_recurrent`. Exact row combined loss
+improved from `6.8847534022` to `1.9998926339`. Exact group-min joint margin
+improved from `-6.8026667906` to `-1.1251848645`, including eval fold 4
+(`-6.4443958161` to `-1.2625397266`). One-sided conflict groups decreased from
+`684` to `605`, and all-rows-both-directional groups increased from `0` to
+`27`. The tradeoff is that both-negative groups increased from `4` to `26`, so
+the active blocker is M1347: audit the M1346 objective result before any replay
+gate, PPO, promotion, or larger update. This remains an objective-probe result,
+not driver performance and not strong self-identification proof.
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
 rows from `720` matched pairs under `scenario_profile=viability_calibration`.
