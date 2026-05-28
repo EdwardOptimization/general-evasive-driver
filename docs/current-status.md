@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1317-paper-route-source-generator-update-smoke
+m1318-paper-route-source-generator-update-result-audit
 ```
 
 Current next task:
 
 ```text
-m1318-paper-route-source-generator-update-result-audit
+m1319-paper-route-inactive-source-family-repair-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -219,7 +219,13 @@ tire-blowout-like proxy `21`. It is still partial coverage because the smoke
 target was `160` accepted rows and global friction, steering actuator, and
 load/CG families remain inactive. The active blocker is M1318: audit this
 partial source-positive result before deciding between family repair and partial
-corpus export. PPO and promotion remain blocked.
+corpus export. M1318 completed that audit and routes to inactive-family repair:
+global friction, steering actuator, and load/CG mostly fail as
+`best_actions_too_close` or own-branch viability rejects under the current
+source grid, so direct corpus export would overrepresent the active asymmetric
+families. The active blocker is M1319: design family-specific no-policy repair
+routes before corpus export, source-history materialization, objective tuning,
+PPO, or promotion.
 
 ## Actor Contract
 

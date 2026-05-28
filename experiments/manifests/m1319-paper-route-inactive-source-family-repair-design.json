@@ -1,0 +1,155 @@
+{
+  "id": "m1319-paper-route-inactive-source-family-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1318-paper-route-source-generator-update-result-audit.md",
+      "runs/m1317_source_generator_update_smoke/summary.json",
+      "runs/m1317_source_generator_update_smoke/inactive_fault_families.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1318-paper-route-source-generator-update-result-audit.json"
+    ],
+    "parent_objective": [
+      "design family-specific source-repair grids for inactive and undercovered source families"
+    ],
+    "derived_from": [
+      "m1318-paper-route-source-generator-update-result-audit"
+    ],
+    "blocked_by": [
+      "M1318 routes M1317 partial source-positive result to inactive-family repair"
+    ],
+    "supersedes": [
+      "direct corpus export from the partial M1317 active-family subset"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1319-paper-route-inactive-source-family-repair-design.md",
+  "public_gates": [
+    "M1319 must not train",
+    "M1319 must not run PPO",
+    "M1319 must not use private holdout",
+    "M1319 must not promote",
+    "M1319 must preserve actor input contract",
+    "M1319 must keep strict source acceptance thresholds",
+    "M1319 must design family-specific repair routes for inactive families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax source thresholds",
+    "do not relabel inactive families as accepted",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_corpus_expansion",
+    "evidence_axis": "S_inactive_source_family_repair_design",
+    "evidence_increment": "designs targeted source-repair profiles for M1317 inactive and undercovered families",
+    "claim_scope": "repair design only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if design routes directly to PPO",
+      "stop if design relaxes source acceptance thresholds",
+      "stop if design requires actor input expansion",
+      "stop if design ignores global friction steering or load/CG blockers"
+    ],
+    "fallback_plan": [
+      "if repair design is admissible, implement one no-policy family-repair smoke",
+      "if a family cannot be represented, mark it simulator-extension-blocked",
+      "if scope is too broad, split repair smoke by family"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1318 routes partial coverage to family repair",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "inactive source-family repair design",
+    "admission_evidence": [
+      "M1317 accepts 5 source families but leaves 3 inactive",
+      "M1318 classifies this as scenario_sampling_failure",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not relax source thresholds"
+    ],
+    "allowed_updates": [
+      "M1319 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "global friction repair route is explicit",
+      "steering actuator repair route is explicit",
+      "load/CG repair route is explicit",
+      "halfshaft undercoverage route is explicit",
+      "next no-policy implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1319 is source-repair design and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "design source repairs that can later produce richer command-response histories"
+    ],
+    "temporal_evidence_window": "M1317 and M1318 source generator coverage artifacts.",
+    "negative_result_policy": "Families that remain action-equivalent must be marked blocked or separately repaired rather than accepted.",
+    "allowed_claims": [
+      "inactive source-family repair design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "Family-specific source-repair grids and action profiles can be designed for global friction, steering actuator, load/CG, and undercovered halfshaft cases without changing actor inputs or source thresholds.",
+  "success_criteria": [
+    "docs/m1319-paper-route-inactive-source-family-repair-design.md exists",
+    "design covers global friction, steering actuator, load/CG, and halfshaft undercoverage",
+    "design defines no-policy implementation route",
+    "design preserves strict source thresholds",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores inactive families",
+    "design routes directly to PPO",
+    "design relaxes source thresholds",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1319-paper-route-inactive-source-family-repair-design.md from M1318 audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1319-paper-route-inactive-source-family-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1318-paper-route-source-generator-update-result-audit.md",
+    "runs/m1317_source_generator_update_smoke/summary.json",
+    "runs/m1317_source_generator_update_smoke/inactive_fault_families.csv"
+  ],
+  "decision_rule": "M1319 passes if it designs family-specific no-policy repair routes without training, PPO, promotion, private holdout use, threshold relaxation, fake accepted-family labels, or actor-input expansion.",
+  "next_blocker": "m1319-paper-route-inactive-source-family-repair-design"
+}

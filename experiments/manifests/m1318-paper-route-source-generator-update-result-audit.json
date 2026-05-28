@@ -151,6 +151,24 @@
     "runs/m1317_source_generator_update_smoke/family_source_summary.csv",
     "runs/m1317_source_generator_update_smoke/inactive_fault_families.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1318-paper-route-source-generator-update-result-audit.md",
+    "doc": "docs/m1318-paper-route-source-generator-update-result-audit.md",
+    "decision": "source_generator_update_result_audit_route_to_inactive_family_repair_design",
+    "audited_run": "runs/m1317_source_generator_update_smoke/summary.json",
+    "accepted_separable_pairs": 128,
+    "accepted_fault_family_pairs": 5,
+    "inactive_fault_family_count": 3,
+    "inactive_fault_families": [
+      "global_friction_step->global_friction_step",
+      "load_cg_perturbation->load_cg_perturbation",
+      "steering_actuator_fault->steering_actuator_fault"
+    ],
+    "primary_failure_type": "scenario_sampling_failure",
+    "next_manifest": "experiments/manifests/m1319-paper-route-inactive-source-family-repair-design.json"
+  },
+  "decision": "source_generator_update_result_audit_route_to_inactive_family_repair_design",
   "decision_rule": "M1318 passes if it audits M1317 partial source-positive coverage and chooses a next source route without training, PPO, promotion, private holdout use, threshold relaxation, hidden inactive-family handling, or actor-input expansion.",
-  "next_blocker": "m1318-paper-route-source-generator-update-result-audit"
+  "next_blocker": "m1319-paper-route-inactive-source-family-repair-design"
 }

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1327,
+    "completed": 1328,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1317-paper-route-source-generator-update-smoke.md",
+    "command_log": "docs/m1318-paper-route-source-generator-update-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1317_source_generator_update_smoke",
+    "run_dir": "docs/m1318-paper-route-source-generator-update-result-audit.md",
     "status": "completed",
-    "task_id": "m1317-paper-route-source-generator-update-smoke"
+    "task_id": "m1318-paper-route-source-generator-update-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1318-paper-route-source-generator-update-result-audit.json",
-    "hypothesis": "Audit M1317 partial source-positive coverage and choose the next source route",
-    "id": "m1318-paper-route-source-generator-update-result-audit",
+    "command": "see experiments/manifests/m1319-paper-route-inactive-source-family-repair-design.json",
+    "hypothesis": "Design family-specific source-repair grids for inactive and undercovered families",
+    "id": "m1319-paper-route-inactive-source-family-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit partial source coverage and inactive family blockers; PPO and promotion remain blocked",
-    "priority": 13130,
+    "notes": "Pending: design inactive-family repair; PPO and promotion remain blocked",
+    "priority": 13140,
     "status": "pending",
-    "success_artifact": "docs/m1318-paper-route-source-generator-update-result-audit.md"
+    "success_artifact": "docs/m1319-paper-route-inactive-source-family-repair-design.md"
   },
-  "updated_at_utc": "20260528T164650Z"
+  "updated_at_utc": "20260528T164947Z"
 }

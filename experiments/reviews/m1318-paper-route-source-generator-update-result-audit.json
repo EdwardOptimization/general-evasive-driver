@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M1318 audits partial coverage and routes to family-specific repair before corpus export",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores inactive families",
+    "audit routes directly to PPO",
+    "audit overclaims paper-level source coverage",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax source acceptance thresholds",
+    "do not hide inactive families",
+    "do not overclaim self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T165159Z",
+  "hypothesis": "The M1317 partial source-positive result can be audited into a clear next route before corpus export, family repair, or more objective tuning.",
+  "lineage": {
+    "blocked_by": [
+      "M1317 is source-positive but below accepted-row target and leaves three inactive families"
+    ],
+    "derived_from": [
+      "m1317-paper-route-source-generator-update-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1317-paper-route-source-generator-update-smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m1317-paper-route-source-generator-update-smoke.md",
+      "runs/m1317_source_generator_update_smoke/summary.json",
+      "runs/m1317_source_generator_update_smoke/family_source_summary.csv",
+      "runs/m1317_source_generator_update_smoke/inactive_fault_families.csv"
+    ],
+    "parent_objective": [
+      "audit partial source generator coverage before corpus export or family repair"
+    ],
+    "supersedes": [
+      "direct corpus export from M1317 without auditing inactive-family blockers"
+    ]
+  },
+  "milestone": "m1318-paper-route-source-generator-update-result-audit",
+  "next_blocker": "m1319-paper-route-inactive-source-family-repair-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_generator_update_result_audit_route_to_inactive_family_repair_design",
+  "public_gates": [
+    "M1318 must not train",
+    "M1318 must not run PPO",
+    "M1318 must not use private holdout",
+    "M1318 must not promote",
+    "M1318 must preserve actor input contract",
+    "M1318 must classify inactive-family blockers",
+    "M1318 must choose between family repair and partial corpus export"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1318-paper-route-source-generator-update-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "source_generator_update_result_audit_route_to_inactive_family_repair_design",
+    "milestone": "m1318-paper-route-source-generator-update-result-audit",
+    "reason": "M1318 audits partial coverage and routes to family-specific repair before corpus export",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1318-paper-route-source-generator-update-result-audit.md exists",
+    "audit cites M1317 accepted rows and accepted family counts",
+    "audit cites inactive families and rejection reasons",
+    "audit chooses the next source route",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

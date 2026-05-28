@@ -19182,3 +19182,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1318-paper-route-source-generator-update-result-audit.json`.
 - decision: `source_generator_update_smoke_partial_coverage_route_to_result_audit`
 - next: `m1318-paper-route-source-generator-update-result-audit`
+
+## 20260528T164947Z - m1318-paper-route-source-generator-update-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1318-paper-route-source-generator-update-result-audit.md`
+- decision: `source_generator_update_result_audit_route_to_inactive_family_repair_design`
+- evidence: M1317 is source-positive with `128` accepted rows and `5` accepted families, including newly active halfshaft and tire-blowout-like proxy rows.
+- gap: M1317 remains below the `160` accepted-row smoke target and leaves global friction, steering actuator, and load/CG families inactive.
+- inactive blocker diagnosis: global friction has `62` best-actions-too-close and `46` viability rejects; load/CG has `96` best-actions-too-close; steering actuator has `98` best-actions-too-close.
+- primary failure type: `scenario_sampling_failure`; the current source search does not expose enough action divergence for parameter-style families.
+- route: design family-specific repair grids and action profiles before corpus export, source-history materialization, objective tuning, PPO, or promotion.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1319-paper-route-inactive-source-family-repair-design.json`.
+- next: `m1319-paper-route-inactive-source-family-repair-design`
