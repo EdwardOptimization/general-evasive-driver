@@ -104,6 +104,36 @@
       "next repeat longer-budget or repair milestone is selected"
     ]
   },
+  "pilot_protocol": {
+    "main_profiles": [
+      "L0_current_masked",
+      "L1_one_step",
+      "L2_window_13",
+      "L2_window_25",
+      "L2_window_50",
+      "L2_window_100",
+      "L3_online_gru"
+    ],
+    "diagnostic_profiles": [
+      "L3_reset_control"
+    ],
+    "training_seed_base": 109800,
+    "training_seed_offsets": [
+      0,
+      1,
+      2
+    ],
+    "eval_seed_base": 119800,
+    "eval_seed_policy": "train_ppo evaluates seed + 10000, so training_seed_base 109800 yields eval seeds 119800..119863 for offset 0",
+    "total_steps_per_seed": 8192,
+    "rollout_steps": 128,
+    "num_envs": 4,
+    "update_epochs": 2,
+    "minibatch_size": 256,
+    "eval_episodes_per_checkpoint": 64,
+    "device": "cpu",
+    "vector_env_mode": "sync"
+  },
   "self_id_evidence_discipline": {
     "claim_level": "level1_closed_loop_reactive",
     "current_frame_substitution_risk": "M1199 can only support public closed-loop reactive/profile trend evidence; it does not isolate history necessity.",
@@ -168,5 +198,5 @@
     "configs/paper_route_profiles"
   ],
   "decision_rule": "M1199 passes if the fixed public pilot runs or records failures without claim expansion or protocol drift.",
-  "next_blocker": "m1199-paper-route-fair-comparison-pilot-run"
+  "next_blocker": "m1200-paper-route-fair-comparison-pilot-result-audit"
 }

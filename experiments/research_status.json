@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1208,
+    "completed": 1209,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1198-paper-route-fair-comparison-pilot-design.md",
+    "command_log": "docs/m1199-paper-route-fair-comparison-pilot-run.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1199_fair_comparison_pilot",
     "status": "completed",
-    "task_id": "m1198-paper-route-fair-comparison-pilot-design"
+    "task_id": "m1199-paper-route-fair-comparison-pilot-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1199-paper-route-fair-comparison-pilot-run.json",
-    "hypothesis": "A fixed-protocol public pilot can produce useful L0/L1/L2/L3 trend evidence without per-profile tuning or claim expansion.",
-    "id": "m1199-paper-route-fair-comparison-pilot-run",
+    "command": "see experiments/manifests/m1200-paper-route-fair-comparison-pilot-result-audit.json",
+    "hypothesis": "The M1199 public pilot can be audited into a safe next-route decision without expanding its claim scope.",
+    "id": "m1200-paper-route-fair-comparison-pilot-result-audit",
     "kind": "gate",
-    "notes": "Pending: run fixed public comparison pilot under M1198 protocol",
-    "priority": 11940,
+    "notes": "Pending: audit M1199 L2 window-equivalence and L3 reset-control parity before scaling",
+    "priority": 11950,
     "status": "pending",
-    "success_artifact": "docs/m1199-paper-route-fair-comparison-pilot-run.md"
+    "success_artifact": "docs/m1200-paper-route-fair-comparison-pilot-result-audit.md"
   },
-  "updated_at_utc": "20260528T052820Z"
+  "updated_at_utc": "20260528T053729Z"
 }

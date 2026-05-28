@@ -17149,3 +17149,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1199-paper-route-fair-comparison-pilot-run.json`.
 - decision: `fair_comparison_pilot_design_admit_public_pilot_run`
 - next: `m1199-paper-route-fair-comparison-pilot-run`
+
+## 20260528T053729Z - m1199-paper-route-fair-comparison-pilot-run
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `infrastructure`
+- artifact: `docs/m1199-paper-route-fair-comparison-pilot-run.md`
+- run dir: `runs/m1199_fair_comparison_pilot`
+- result: runs the fixed public L0/L1/L2/L3 comparison pilot with all 24 seed runs complete and finite eval metrics.
+- protocol: seven main profiles plus `L3_reset_control` diagnostic, three training seeds, `8192` steps per seed, `4` envs, `128` rollout steps, `2` update epochs, minibatch `256`, CPU/sync vector.
+- public eval: each checkpoint evaluated on `64` fixed public seeds `119800..119863` with the controller-profile mask applied.
+- aggregate trend: L2 finite-window profiles have the strongest public pilot success/collision/margin, L1 improves over L0, and L3 online-GRU does not beat the reset-control diagnostic.
+- key metrics: L0 success/collision/margin `0.1458/0.8333/0.1072`; L1 `0.2969/0.6562/0.3505`; L2_window_25 `0.3854/0.4219/0.7189`; L3_online_gru `0.2552/0.7448/0.2726`; L3_reset_control `0.2656/0.7135/0.2934`.
+- audit flags: L2 windows from 25 to 100 are nearly identical, and L3 reset-control parity means this pilot does not support recurrent-hidden advantage.
+- guardrail: no promotion, private holdout, candidate replay, per-profile tuning, actor-input change, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1200-paper-route-fair-comparison-pilot-result-audit.json`.
+- decision: `fair_comparison_pilot_completed_route_to_result_audit`
+- next: `m1200-paper-route-fair-comparison-pilot-result-audit`

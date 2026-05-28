@@ -115,8 +115,54 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1199-paper-route-fair-comparison-pilot-run
+m1200-paper-route-fair-comparison-pilot-result-audit
 ```
+
+M1199 completed the fixed public fair comparison pilot:
+
+```text
+artifact: docs/m1199-paper-route-fair-comparison-pilot-run.md
+run dir: runs/m1199_fair_comparison_pilot
+decision: fair_comparison_pilot_completed_route_to_result_audit
+```
+
+M1199 result:
+
+```text
+profile_count: 8
+main_profile_count: 7
+total_seed_runs: 24
+completed_seed_runs: 24
+failed_seed_runs: 0
+all_selected_profile_seed_runs_complete: true
+all_eval_metrics_finite: true
+private_holdout_used: false
+promoted: false
+candidate_replay_started: false
+actor_input_contract_changed: false
+profile_specific_tuning: false
+self_identification_claimed: false
+paper_level_claimed: false
+```
+
+Public pilot trend, averaged over three training seeds and 64 fixed public eval
+episodes per seed:
+
+```text
+L0_current_masked success/collision/margin: 0.1458 / 0.8333 / 0.1072
+L1_one_step success/collision/margin:       0.2969 / 0.6562 / 0.3505
+L2_window_13 success/collision/margin:     0.3854 / 0.4219 / 0.7175
+L2_window_25 success/collision/margin:     0.3854 / 0.4219 / 0.7189
+L2_window_50 success/collision/margin:     0.3854 / 0.4219 / 0.7189
+L2_window_100 success/collision/margin:    0.3854 / 0.4219 / 0.7189
+L3_online_gru success/collision/margin:    0.2552 / 0.7448 / 0.2726
+L3_reset_control success/collision/margin: 0.2656 / 0.7135 / 0.2934
+```
+
+Interpretation is deliberately limited: L2 finite-window profiles are strongest
+in this short public pilot, L1 improves over L0, and L3 online-GRU does not show
+recurrent-hidden benefit over its reset diagnostic. Before scaling, M1200 must
+audit the near-identical L2 window metrics and the L3 reset-control parity.
 
 M1198 completed the fair public L0/L1/L2/L3 comparison pilot design:
 
