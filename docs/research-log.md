@@ -17235,3 +17235,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1204-paper-route-profile-control-repair-smoke-run.json`.
 - decision: `profile_control_repair_implementation_ready_for_corrected_runtime_smoke`
 - next: `m1204-paper-route-profile-control-repair-smoke-run`
+
+## 20260528T055553Z - m1204-paper-route-profile-control-repair-smoke-run
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `infrastructure`
+- artifact: `docs/m1204-paper-route-profile-control-repair-smoke-run.md`
+- run dir: `runs/m1204_profile_control_repair_smoke`
+- result: no-training runtime smoke passes for corrected current-tiled and reset-policy controls.
+- current-tiled checks: single-env reset and step are tiled, sync vector-env reset and step are tiled, and raw step observations are not tiled before wrapping.
+- reset-policy check: `ActorPolicy(reset_hidden_policy="every_step_control")` resets hidden before action and `L3_reset_control` runtime summary reports `every_step_control`.
+- guardrail: no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1205-paper-route-finite-window-gru-evidence-synthesis.json`.
+- decision: `profile_control_repair_smoke_pass_route_to_corrected_pilot_design`
+- next: `m1205-paper-route-finite-window-gru-evidence-synthesis`

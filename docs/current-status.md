@@ -115,8 +115,34 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1204-paper-route-profile-control-repair-smoke-run
+m1205-paper-route-finite-window-gru-evidence-synthesis
 ```
+
+M1204 completed the no-training corrected-control runtime smoke:
+
+```text
+artifact: docs/m1204-paper-route-profile-control-repair-smoke-run.md
+run dir: runs/m1204_profile_control_repair_smoke
+decision: profile_control_repair_smoke_pass_route_to_corrected_pilot_design
+```
+
+M1204 result:
+
+```text
+all_smoke_checks_passed: true
+single_env_reset_tiled: true
+single_env_step_tiled: true
+raw_step_was_not_tiled: true
+vector_env_reset_tiled: true
+vector_env_step_tiled: true
+reset_policy_honored: true
+l3_reset_runtime_policy: every_step_control
+```
+
+Next is M1205 branch synthesis because the workflow cadence fired. Do not run
+corrected PPO or even design the corrected pilot until M1195-M1204 evidence,
+failure modes, public-gate overfit risk, and next-branch decision are
+synthesized.
 
 M1203 completed profile control repair implementation:
 

@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1204 no-training runtime smoke passes: current-tiled L2 works in single and sync vector env reset/step paths raw observations are not tiled and evaluation reset policy honors every-step control",
+  "failure_criteria": [
+    "M1204 trains or tunes profiles",
+    "private holdout is used",
+    "smoke treats runtime checks as performance evidence",
+    "hidden or oracle actor inputs are introduced",
+    "failed smoke is ignored"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not tune profiles",
+    "do not promote",
+    "do not claim performance evidence",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T055829Z",
+  "hypothesis": "Corrected reset and current-tiled controls work in no-training runtime/eval paths.",
+  "lineage": {
+    "blocked_by": [
+      "M1203 implements corrected control plumbing but no runtime smoke artifact has been written"
+    ],
+    "derived_from": [
+      "m1203-paper-route-profile-control-repair-implementation"
+    ],
+    "invalidates": [
+      "running corrected PPO pilot without a no-training runtime smoke"
+    ],
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1203-paper-route-profile-control-repair-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1203-paper-route-profile-control-repair-implementation.md",
+      "tests/test_controller_profile_runtime.py",
+      "tests/test_evaluate_reset_hidden_policy.py"
+    ],
+    "parent_objective": [
+      "smoke test corrected reset and current-tiled runtime controls before training"
+    ],
+    "supersedes": [
+      "assuming focused unit tests are enough before corrected pilot rerun"
+    ]
+  },
+  "milestone": "m1204-paper-route-profile-control-repair-smoke-run",
+  "next_blocker": "m1205-paper-route-finite-window-gru-evidence-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "profile_control_repair_smoke_pass_route_to_corrected_pilot_design",
+  "public_gates": [
+    "M1204 may run no-training runtime smoke only",
+    "M1204 must not train controllers",
+    "M1204 must not run PPO",
+    "M1204 must not run candidate replay",
+    "M1204 must not promote",
+    "M1204 must not use private holdout",
+    "M1204 must not tune profiles",
+    "M1204 must not claim profile superiority or self-identification"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1204_profile_control_repair_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "profile_control_repair_smoke_pass_route_to_corrected_pilot_design",
+    "milestone": "m1204-paper-route-profile-control-repair-smoke-run",
+    "reason": "M1204 no-training runtime smoke passes: current-tiled L2 works in single and sync vector env reset/step paths raw observations are not tiled and evaluation reset policy honors every-step control",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1204-paper-route-profile-control-repair-smoke-run.md exists",
+    "runs/m1204_profile_control_repair_smoke/summary.json exists",
+    "current-tiled runtime smoke passes",
+    "reset-policy eval smoke passes",
+    "private holdout remains unused",
+    "no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, or actor-input contract expansion occurs",
+    "next corrected pilot or repair milestone is selected"
+  ],
+  "type": "gate"
+}

@@ -154,5 +154,5 @@
     "docs/m1203-paper-route-profile-control-repair-implementation.md"
   ],
   "decision_rule": "M1204 passes if no-training runtime smoke proves corrected controls work without training, tuning, promotion, private holdout, or actor-input expansion.",
-  "next_blocker": "m1204-paper-route-profile-control-repair-smoke-run"
+  "next_blocker": "m1205-paper-route-finite-window-gru-evidence-synthesis"
 }
