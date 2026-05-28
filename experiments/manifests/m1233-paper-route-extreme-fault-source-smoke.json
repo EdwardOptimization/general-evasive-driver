@@ -163,6 +163,28 @@
     "configs/m990_capability_step_fault_scenarios.json",
     "src/autodrift/extreme_dynamics_scenario_corpus.py"
   ],
+  "result": {
+    "status": "completed",
+    "run_dir": "runs/m1233_paper_route_extreme_fault_source_smoke",
+    "summary": "runs/m1233_paper_route_extreme_fault_source_smoke/summary.json",
+    "result_class": "cross_fault_reset_only",
+    "scenario_count": 832,
+    "snapshot_count": 3211,
+    "matched_pair_count": 768,
+    "unmatched_rows": 0,
+    "accepted_rows": 0,
+    "reset_only_rows": 58,
+    "rejected_rows": 710,
+    "normal_failed_rejected": 636,
+    "history_insensitive_rejected": 74,
+    "wrong_history_action_critical_rows": 0,
+    "reset_history_action_critical_rows": 58,
+    "actor_parameters_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false
+  },
+  "decision": "extreme_fault_source_smoke_reset_only_route_to_audit",
   "decision_rule": "M1233 passes as a smoke if core source artifacts and matched pairs are produced without actor mutation, training, PPO, promotion, private holdout, or actor-input expansion. Accepted rows are diagnostic, not required.",
-  "next_blocker": "m1233-paper-route-extreme-fault-source-smoke"
+  "next_blocker": "m1234-paper-route-extreme-fault-source-smoke-audit"
 }

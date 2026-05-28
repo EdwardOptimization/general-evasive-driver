@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1242,
+    "completed": 1243,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1232-paper-route-extreme-fault-source-generation-design.md",
+    "command_log": "docs/m1233-paper-route-extreme-fault-source-smoke.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1233_paper_route_extreme_fault_source_smoke",
     "status": "completed",
-    "task_id": "m1232-paper-route-extreme-fault-source-generation-design"
+    "task_id": "m1233-paper-route-extreme-fault-source-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1233-paper-route-extreme-fault-source-smoke.json",
-    "hypothesis": "Run bounded current-checkpoint extreme/fault source smoke",
-    "id": "m1233-paper-route-extreme-fault-source-smoke",
+    "command": "see experiments/manifests/m1234-paper-route-extreme-fault-source-smoke-audit.json",
+    "hypothesis": "Audit reset-only extreme/fault source smoke result",
+    "id": "m1234-paper-route-extreme-fault-source-smoke-audit",
     "kind": "gate",
-    "notes": "Pending: smoke current paper-route L3 checkpoint through existing hidden capability-step/fault corpus harness with actor-input guardrails and no training",
-    "priority": 12280,
+    "notes": "Pending: classify M1233 reset-only and normal-failed source shape before any larger source wave or training",
+    "priority": 12290,
     "status": "pending",
-    "success_artifact": "runs/m1233_paper_route_extreme_fault_source_smoke/summary.json"
+    "success_artifact": "docs/m1234-paper-route-extreme-fault-source-smoke-audit.md"
   },
-  "updated_at_utc": "20260528T081946Z"
+  "updated_at_utc": "20260528T082800Z"
 }

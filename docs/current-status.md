@@ -115,7 +115,50 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1233-paper-route-extreme-fault-source-smoke
+m1234-paper-route-extreme-fault-source-smoke-audit
+```
+
+M1233 completed extreme/fault source smoke:
+
+```text
+artifact: docs/m1233-paper-route-extreme-fault-source-smoke.md
+run dir:  runs/m1233_paper_route_extreme_fault_source_smoke
+decision: extreme_fault_source_smoke_reset_only_route_to_audit
+```
+
+M1233 result:
+
+```text
+result_class: cross_fault_reset_only
+scenario_count: 832
+snapshot_count: 3211
+matched_pair_count: 768
+accepted_rows: 0
+reset_only_rows: 58
+normal_failed_rejected: 636
+history_insensitive_rejected: 74
+wrong_history_action_critical_rows: 0
+reset_history_action_critical_rows: 58
+actor_parameters_changed: false
+training_started: false
+ppo_used: false
+promoted: false
+```
+
+Conclusion: the infrastructure smoke passes, but it is not source-positive
+wrong-history evidence. Reset-only sensitivity exists but is seed-collapsed and
+must be audited before any larger source wave, objective, training, PPO, or
+self-identification claim.
+
+Next task:
+
+```text
+artifact: docs/m1234-paper-route-extreme-fault-source-smoke-audit.md
+manifest: experiments/manifests/m1234-paper-route-extreme-fault-source-smoke-audit.json
+goal: classify M1233 reset-only / normal-failed source shape and select the
+      next source route
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1232 completed extreme/fault source-generation design:

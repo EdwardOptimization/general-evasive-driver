@@ -17721,3 +17721,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1233-paper-route-extreme-fault-source-smoke.json`.
 - decision: `extreme_fault_source_generation_design_admit_smoke`
 - next: `m1233-paper-route-extreme-fault-source-smoke`
+
+## 20260528T082800Z - m1233-paper-route-extreme-fault-source-smoke
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `infrastructure`
+- artifact: `docs/m1233-paper-route-extreme-fault-source-smoke.md`
+- run dir: `runs/m1233_paper_route_extreme_fault_source_smoke`
+- result: infrastructure/source-shape smoke passes but scientific result is `cross_fault_reset_only`.
+- coverage: `832` scenarios, `3211` snapshots, `768` matched cross-fault pairs, `15` matched fault-family pairs, and `17` matched seeds.
+- wrong-history signal: `0` accepted rows and `0` wrong-history action-critical rows, so there is no cross-fault wrong-history source-positive evidence.
+- reset-hidden signal: `58` reset-only rows and `58` reset action-critical rows across `13` fault-family pairs but only `2` seeds.
+- rejection shape: `636` normal-failed rejected rows and `74` history-insensitive rejected rows.
+- checksum/guardrail: `actor_parameters_changed=false`, `training_started=false`, `ppo_used=false`, and `promoted=false`.
+- interpretation: M1233 validates compatibility and artifacts, but reset-only seed-collapsed sensitivity cannot be counted as self-identification proof.
+- guardrail: no training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1234-paper-route-extreme-fault-source-smoke-audit.json`.
+- decision: `extreme_fault_source_smoke_reset_only_route_to_audit`
+- next: `m1234-paper-route-extreme-fault-source-smoke-audit`

@@ -1,0 +1,156 @@
+{
+  "id": "m1234-paper-route-extreme-fault-source-smoke-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1233_paper_route_extreme_fault_source_smoke/summary.json",
+      "runs/m1233_paper_route_extreme_fault_source_smoke/matched_cross_fault_pairs.csv",
+      "runs/m1233_paper_route_extreme_fault_source_smoke/reset_only_rows.csv",
+      "runs/m1233_paper_route_extreme_fault_source_smoke/rejected_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1233-paper-route-extreme-fault-source-smoke.json",
+      "configs/m990_capability_step_fault_scenarios.json"
+    ],
+    "parent_objective": [
+      "audit M1233 cross-fault reset-only source shape before any larger source wave or training"
+    ],
+    "derived_from": [
+      "m1233-paper-route-extreme-fault-source-smoke"
+    ],
+    "blocked_by": [
+      "M1233 produced zero wrong-history accepted rows and reset-only rows concentrated in two seeds"
+    ],
+    "supersedes": [
+      "directly scaling or training from M1233 reset-only rows"
+    ],
+    "invalidates": [
+      "claiming M1233 as cross-fault wrong-history proof"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1234-paper-route-extreme-fault-source-smoke-audit.md",
+  "public_gates": [
+    "M1234 must audit M1233 before any training or larger source wave",
+    "M1234 must preserve actor input contract",
+    "M1234 must not train controllers",
+    "M1234 must not run PPO",
+    "M1234 must not use private holdout",
+    "M1234 must not promote",
+    "M1234 must not count reset-only rows as self-identification proof",
+    "M1234 must select a concrete next route"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden or oracle actor inputs",
+    "do not claim wrong-history proof from zero accepted rows",
+    "do not claim true per-wheel or asymmetric fault physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_extreme_fault_source_generation",
+    "evidence_axis": "S_extreme_fault_source_smoke_audit",
+    "evidence_increment": "classifies the first current-checkpoint extreme/fault smoke as reset-only rather than wrong-history positive and selects the next source route",
+    "claim_scope": "process/source-shape audit only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if the run is normal-branch dominated and needs timing repair before scaling",
+      "stop if reset-only rows are too seed-collapsed for source use",
+      "stop if larger source wave would only amplify a negative cross-fault construction"
+    ],
+    "fallback_plan": [
+      "route to timing/horizon repair if normal failures dominate",
+      "route to sequence-level temporal intervention if reset-only temporal sensitivity is the only usable signal",
+      "route to larger no-training source wave only if source shape is diverse enough"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1233 produced an infrastructure pass but zero wrong-history accepted rows",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit reset-only source shape and select next route",
+    "admission_evidence": [
+      "M1233 passed core smoke gates",
+      "M1233 produced 0 wrong-history accepted rows and 58 reset-only rows",
+      "M1233 rejected rows are dominated by normal_failed_rejected"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1234 audit docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "M1233 source shape is classified",
+      "normal-failure and reset-only patterns are interpreted",
+      "next route is selected without proof overclaim"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1234 is an audit of reset-only source shape and does not establish history necessity.",
+    "history_necessity_tests": [
+      "audit zero wrong-history accepted rows",
+      "audit reset-only rows as recurrent disruption rather than self-ID proof",
+      "select future tests that can separate temporal history from current-frame response"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked until future source-diverse wrong-history or sequence intervention outcome gates pass.",
+    "negative_result_policy": "Record cross-fault negative evidence and route to timing repair, sequence intervention, or larger no-training source wave only if justified by source shape.",
+    "allowed_claims": [
+      "M1233 source-shape audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1233 should be treated as an infrastructure pass but a cross-fault wrong-history negative result; an audit can decide whether the next route is timing repair, sequence intervention, or larger source mining.",
+  "success_criteria": [
+    "docs/m1234-paper-route-extreme-fault-source-smoke-audit.md exists",
+    "M1233 cross-fault wrong-history result is classified",
+    "M1233 reset-only and normal-failed patterns are classified",
+    "next route is selected",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "M1234 trains or tunes profiles",
+    "private holdout is used",
+    "M1233 is claimed as self-ID proof",
+    "reset-only rows are counted as wrong-history positives",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "write_smoke_audit",
+      "command": "write docs/m1234-paper-route-extreme-fault-source-smoke-audit.md from M1233 summary and CSV diagnostics"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1234-paper-route-extreme-fault-source-smoke-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1233_paper_route_extreme_fault_source_smoke/summary.json",
+    "runs/m1233_paper_route_extreme_fault_source_smoke/reset_only_rows.csv",
+    "runs/m1233_paper_route_extreme_fault_source_smoke/rejected_rows.csv"
+  ],
+  "decision_rule": "M1234 passes if it classifies M1233's reset-only and normal-failure patterns and selects a concrete next source route without training or proof overclaim.",
+  "next_blocker": "m1234-paper-route-extreme-fault-source-smoke-audit"
+}
