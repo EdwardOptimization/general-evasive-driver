@@ -16,14 +16,31 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1365-paper-route-bidirectional-broader-public-replay
+m1367-paper-route-bidirectional-active-set-retention-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1366-paper-route-bidirectional-broader-public-replay-result-audit
+m1368-paper-route-public-base-promotion-generalization-design
 ```
+
+M1367 synthesizes M1357-M1366 and closes
+`paper_route_bidirectional_replay_active_set_retention` with
+`promote_to_next_branch`. The branch supports this claim: M1362 alpha `0.1` is a
+broad-public-replay-passing candidate relative to M1154. It still lacks private
+holdout, fresh scenario/generalization evidence, PPO continuation stability, a
+formal promotion manifest, and level3 self-identification evidence. The new
+branch is `paper_route_public_base_promotion_generalization`; M1368 should define
+the formal promotion/generalization gate before PPO or private holdout.
+
+M1366 audits M1365 as a strong public diagnostic pass but not a promotion. The
+supported claim is that M1362 alpha `0.1` is a broad-public-replay-passing
+candidate relative to M1154. Remaining missing evidence includes private holdout,
+fresh scenario distribution, PPO continuation stability, a formal promotion
+manifest, and level3 self-identification evidence. Because the branch has reached
+the synthesis cadence, M1367 should synthesize M1357-M1366 before promotion-gate
+design, PPO, private holdout, or more local alpha tuning.
 
 M1365 ran the broader public replay and behavior diagnostic gate for M1362 alpha
 `0.1`. It passed all six public replay surfaces, passed source-diverse protected

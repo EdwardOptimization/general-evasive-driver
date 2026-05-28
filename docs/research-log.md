@@ -20068,3 +20068,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, threshold relaxation, actor-input expansion, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1366-paper-route-bidirectional-broader-public-replay-result-audit.json`.
 - next: `m1366-paper-route-bidirectional-broader-public-replay-result-audit`
+
+## 20260528T205820Z - m1366-paper-route-bidirectional-broader-public-replay-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1366-paper-route-bidirectional-broader-public-replay-result-audit.md`
+- decision: `bidirectional_broader_public_replay_audit_route_to_branch_synthesis`
+- audit finding: M1365 is a strong public diagnostic pass but not a promotion.
+- supported claim: M1362 alpha `0.1` is a broad-public-replay-passing candidate relative to M1154.
+- remaining limits: no private holdout, no fresh scenario distribution, no PPO continuation stability, no promotion manifest, and no level3 self-identification claim.
+- route decision: branch cadence reached; synthesize M1357-M1366 before promotion-gate design, PPO, private holdout, or local alpha tuning.
+- guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1367-paper-route-bidirectional-active-set-retention-branch-synthesis.json`.
+- next: `m1367-paper-route-bidirectional-active-set-retention-branch-synthesis`
+
+## 20260528T210520Z - m1367-paper-route-bidirectional-active-set-retention-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1367-paper-route-bidirectional-active-set-retention-branch-synthesis.md`
+- decision: `bidirectional_active_set_retention_synthesis_promote_to_public_base_promotion_generalization`
+- synthesis decision: `promote_to_next_branch`
+- closed branch: `paper_route_bidirectional_replay_active_set_retention`
+- opened branch: `paper_route_public_base_promotion_generalization`
+- evidence summary: M1360 fixed M1355 wrong-branch success-drop washout but failed margin gap; M1362 alpha `0.1` passed exact and two replay preflight surfaces; M1365 alpha `0.1` passed broader public replay, protected diagnostics, and behavior seeds.
+- supported claim: M1362 alpha `0.1` is a broad-public-replay-passing candidate relative to M1154.
+- public-gate overfit risk: `medium` because public evidence is strong but private/fresh generalization evidence has not run.
+- next branch decision: design formal promotion/generalization criteria before PPO or private holdout.
+- guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1368-paper-route-public-base-promotion-generalization-design.json`.
+- next: `m1368-paper-route-public-base-promotion-generalization-design`

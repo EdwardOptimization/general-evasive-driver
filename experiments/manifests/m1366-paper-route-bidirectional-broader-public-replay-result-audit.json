@@ -159,6 +159,27 @@
     "runs/m1365_bidirectional_broader_public_replay/public_replay_gate_summary.csv",
     "runs/m1365_bidirectional_broader_public_replay/behavior_comparison.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1366-paper-route-bidirectional-broader-public-replay-result-audit.md",
+    "decision": "bidirectional_broader_public_replay_audit_route_to_branch_synthesis",
+    "failure_type": "none",
+    "candidate_checkpoint": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "public_replay_gates_passed": 6,
+    "source_diverse_protected_status": "pass",
+    "behavior_pass": true,
+    "old_key_9944_status": "diagnostic_only",
+    "route": "branch_synthesis_before_promotion_or_ppo",
+    "training_started": false,
+    "actor_update_used": false,
+    "replay_run_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "next_manifest": "experiments/manifests/m1367-paper-route-bidirectional-active-set-retention-branch-synthesis.json"
+  },
   "decision_rule": "M1366 passes as an audit only if it routes M1365 without training, replay, PPO, private holdout, promotion, threshold relaxation, or actor-input changes.",
-  "next_blocker": "m1366-paper-route-bidirectional-broader-public-replay-result-audit"
+  "next_blocker": "m1367-paper-route-bidirectional-active-set-retention-branch-synthesis"
 }

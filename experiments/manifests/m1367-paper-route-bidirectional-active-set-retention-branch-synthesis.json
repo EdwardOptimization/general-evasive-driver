@@ -1,0 +1,212 @@
+{
+  "id": "m1367-paper-route-bidirectional-active-set-retention-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1357-paper-route-bidirectional-replay-active-set-design.md",
+      "docs/m1358-paper-route-bidirectional-active-set-anchor-export.md",
+      "docs/m1359-paper-route-bidirectional-active-set-probe-design.md",
+      "docs/m1360-paper-route-bidirectional-active-set-probe-implementation.md",
+      "docs/m1361-paper-route-bidirectional-active-set-probe-result-audit.md",
+      "docs/m1362-paper-route-bidirectional-active-set-interpolation-preflight.md",
+      "docs/m1363-paper-route-bidirectional-interpolation-result-audit.md",
+      "docs/m1364-paper-route-bidirectional-broader-public-replay-design.md",
+      "docs/m1365-paper-route-bidirectional-broader-public-replay.md",
+      "docs/m1366-paper-route-bidirectional-broader-public-replay-result-audit.md",
+      "runs/m1365_bidirectional_broader_public_replay/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1366-paper-route-bidirectional-broader-public-replay-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M1357-M1366 bidirectional active-set retention branch"
+    ],
+    "derived_from": [
+      "m1357-paper-route-bidirectional-replay-active-set-design",
+      "m1366-paper-route-bidirectional-broader-public-replay-result-audit"
+    ],
+    "blocked_by": [
+      "M1357-M1366 reaches synthesis cadence with a broader public replay pass"
+    ],
+    "supersedes": [
+      "direct promotion after M1365 without branch synthesis",
+      "direct PPO after M1365 without branch synthesis",
+      "more local alpha tuning before synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1367-paper-route-bidirectional-active-set-retention-branch-synthesis.md",
+  "public_gates": [
+    "M1367 must synthesize M1357-M1366",
+    "M1367 must not train",
+    "M1367 must not run PPO",
+    "M1367 must not run replay",
+    "M1367 must not update actor weights",
+    "M1367 must not use private holdout",
+    "M1367 must not promote",
+    "M1367 must choose continue, pivot, stop, or promote_to_next_branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not update actor weights",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not tune alpha locally before synthesis",
+    "do not claim strong self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_bidirectional_replay_active_set_retention",
+    "evidence_axis": "S_branch_synthesis",
+    "evidence_increment": "synthesizes M1357-M1366 and decides the next branch after the M1365 broader public replay pass",
+    "claim_scope": "branch synthesis only; no promotion, private-holdout, PPO, actor-update, replay, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats broad public replay as private holdout evidence",
+      "stop if synthesis skips missing fresh-scenario evidence",
+      "stop if synthesis routes directly to PPO without public-base decision",
+      "stop if actor inputs change"
+    ],
+    "fallback_plan": [
+      "if broad public evidence is sufficient, route to promotion-gate design",
+      "if generalization is under-covered, route to fresh-scenario evaluation design",
+      "if protected diagnostics need clarification, route to protected-surface audit",
+      "if evidence is mixed, route to repeat or branch stop"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1357-M1366 reaches the branch cadence boundary after M1365 broader public replay pass",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1367-paper-route-bidirectional-active-set-retention-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1367-paper-route-bidirectional-active-set-retention-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bidirectional active-set retention branch synthesis",
+    "admission_evidence": [
+      "M1360 raw bidirectional update fixes wrong-history success-drop washout but fails margin gap",
+      "M1362 alpha 0.1 passes exact and two replay preflight surfaces",
+      "M1365 alpha 0.1 passes broader public replay and behavior diagnostics"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1367 synthesis document",
+      "status, queue, scoreboard, research log, and review",
+      "one next-branch manifest if synthesis admits it"
+    ],
+    "next_stage_criteria": [
+      "supported and falsified claims are documented",
+      "failure taxonomy is documented",
+      "public-gate overfit risk is assessed",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1367 synthesizes public replay evidence and must not convert it into level3 anticipatory self-identification.",
+    "history_necessity_tests": [
+      "summarize correct-vs-wrong-history replay retention and its limits"
+    ],
+    "temporal_evidence_window": "M1357-M1366 branch, synthesis only.",
+    "negative_result_policy": "If broad replay is insufficient, name the missing evidence before PPO or promotion.",
+    "allowed_claims": [
+      "bidirectional active-set retention branch synthesis",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "M1357-M1366 evidence is sufficient to decide the next branch after the M1365 broader public replay pass.",
+  "success_criteria": [
+    "docs/m1367-paper-route-bidirectional-active-set-retention-branch-synthesis.md exists",
+    "synthesis summarizes M1357-M1366 evidence",
+    "synthesis lists supported claims",
+    "synthesis lists falsified claims",
+    "synthesis classifies failure taxonomy",
+    "synthesis assesses public-gate overfit risk",
+    "synthesis chooses next branch decision",
+    "no training, PPO, replay, promotion, private holdout, threshold relaxation, actor update, checkpoint mutation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis omits M1365 broader public replay evidence",
+    "synthesis starts implementation or PPO directly",
+    "synthesis overclaims self-identification",
+    "training, PPO, replay, private holdout, promotion, threshold relaxation, actor update, checkpoint mutation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1367-paper-route-bidirectional-active-set-retention-branch-synthesis.md from M1357-M1366 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1367-paper-route-bidirectional-active-set-retention-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1366-paper-route-bidirectional-broader-public-replay-result-audit.md",
+    "runs/m1365_bidirectional_broader_public_replay/summary.json"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1367-paper-route-bidirectional-active-set-retention-branch-synthesis.md",
+    "decision": "bidirectional_active_set_retention_synthesis_promote_to_public_base_promotion_generalization",
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "paper_route_bidirectional_replay_active_set_retention",
+    "opened_branch": "paper_route_public_base_promotion_generalization",
+    "failure_type": "none",
+    "selected_checkpoint": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "m1365_public_replay_pass": true,
+    "m1365_behavior_pass": true,
+    "public_gate_overfit_risk": "medium",
+    "selected_route": "public_base_promotion_generalization_design",
+    "training_started": false,
+    "actor_update_used": false,
+    "replay_run_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "next_manifest": "experiments/manifests/m1368-paper-route-public-base-promotion-generalization-design.json"
+  },
+  "decision_rule": "M1367 passes as a synthesis milestone if it summarizes M1357-M1366 evidence and selects a branch decision before any further implementation, PPO, private holdout, promotion, or actor-input expansion.",
+  "next_blocker": "m1368-paper-route-public-base-promotion-generalization-design"
+}

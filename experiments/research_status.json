@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1375,
+    "completed": 1377,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1365_bidirectional_broader_public_replay/summary.json",
+    "command_log": "docs/m1367-paper-route-bidirectional-active-set-retention-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "runs/m1365_bidirectional_broader_public_replay",
+    "run_dir": "docs/m1367-paper-route-bidirectional-active-set-retention-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m1365-paper-route-bidirectional-broader-public-replay"
+    "task_id": "m1367-paper-route-bidirectional-active-set-retention-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1366-paper-route-bidirectional-broader-public-replay-result-audit.json",
-    "hypothesis": "Audit M1365 broader public replay pass before promotion or PPO route",
-    "id": "m1366-paper-route-bidirectional-broader-public-replay-result-audit",
+    "command": "see experiments/manifests/m1368-paper-route-public-base-promotion-generalization-design.json",
+    "hypothesis": "Design promotion and generalization gate for M1362 alpha 0.1 broad-public candidate",
+    "id": "m1368-paper-route-public-base-promotion-generalization-design",
     "kind": "gate",
-    "notes": "Pending: audit six-surface replay pass source-diverse pass old-key diagnostic and behavior pass; no training replay PPO promotion private holdout or actor input change",
-    "priority": 13610,
+    "notes": "Pending: design formal promotion/generalization criteria; no training replay PPO promotion private holdout or actor input change",
+    "priority": 13630,
     "status": "pending",
-    "success_artifact": "docs/m1366-paper-route-bidirectional-broader-public-replay-result-audit.md"
+    "success_artifact": "docs/m1368-paper-route-public-base-promotion-generalization-design.md"
   },
-  "updated_at_utc": "20260528T205420Z"
+  "updated_at_utc": "20260528T210520Z"
 }
