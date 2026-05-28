@@ -18035,3 +18035,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1252-paper-route-capability-separable-proposal-margin-restoration-smoke.json`.
 - decision: `trajectory_proposal_near_miss_admit_targeted_margin_restoration_smoke`
 - next: `m1252-paper-route-capability-separable-proposal-margin-restoration-smoke`
+
+## 20260528T105524Z - m1252-paper-route-capability-separable-proposal-margin-restoration-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1252_capability_separable_proposal_margin_restoration_smoke/summary.json`
+- result: infrastructure passes with `trajectory_proposals=552`, `trajectory_proposal_rollouts=1104`, `relocation_candidates=128`, `fine_relocation_candidates=64`, `unique_matched_fault_family_pairs=2`, and `unique_matched_seeds=2`.
+- source result: `accepted_separable_pairs=0`, `best_actions_diverged_pairs=6`, `low_regret_pairs=7`, `near_boundary_viability_pairs=0`, `result_class=action_divergent_low_regret`.
+- key near-miss: pair 5 remains two-sided regret positive (`cross_regret_A=0.2376237919`, `cross_regret_B=0.0226062003`) and improves to `pair_min_best_margin=-0.0006610772`, but still fails own-branch viability.
+- interpretation: targeted margin restoration moved the near-miss closer but did not create accepted source-positive rows; M1251 stop rule now requires source-variable audit before another source run.
+- guardrail: actor parameters unchanged; no labels entered actor inputs; no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, self-ID claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit.json`.
+- decision: `proposal_margin_restoration_near_miss_persists_route_to_source_variable_audit`
+- next: `m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit`

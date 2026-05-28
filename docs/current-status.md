@@ -115,7 +115,46 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1252-paper-route-capability-separable-proposal-margin-restoration-smoke
+m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit
+```
+
+M1252 completed capability-separable proposal margin-restoration smoke:
+
+```text
+artifact: runs/m1252_capability_separable_proposal_margin_restoration_smoke/summary.json
+decision: proposal_margin_restoration_near_miss_persists_route_to_source_variable_audit
+result_class: action_divergent_low_regret
+```
+
+M1252 result:
+
+```text
+matched_pair_count: 8
+trajectory_proposals: 552
+trajectory_proposal_rollouts: 1104
+near_boundary_viability_pairs: 0
+accepted_separable_pairs: 0
+best_actions_diverged_pairs: 6
+low_regret_pairs: 7
+```
+
+M1252 conclusion:
+
+```text
+Targeted source repair improves pair 5 to pair_min_best_margin -0.0006610772
+while preserving two-sided regret, but accepted source rows remain zero. M1251
+stop rule requires a source-variable audit before any further source run.
+```
+
+Next task:
+
+```text
+artifact: docs/m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit.md
+manifest: experiments/manifests/m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit.json
+goal: classify M1250-M1252 near-miss negatives and choose next branch
+blocked: another budget/seed expansion, training, PPO, promotion, private
+         holdout, actor-input expansion, threshold relaxation,
+         self-identification or paper-level claims
 ```
 
 M1251 completed capability-separable trajectory proposal near-miss audit:

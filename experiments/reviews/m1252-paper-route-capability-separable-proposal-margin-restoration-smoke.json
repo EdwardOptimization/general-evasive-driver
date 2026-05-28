@@ -1,0 +1,98 @@
+{
+  "decision_reason": "M1252 targeted repair improves pair 5 near-miss to -0.000661 margin but accepted_separable_pairs remains 0",
+  "failure_criteria": [
+    "run artifacts are missing",
+    "proposal source cannot produce rollouts",
+    "accepted thresholds are lowered",
+    "actor parameters change",
+    "proposal labels or oracle outcomes enter actor observations",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, proposal labels, oracle outcomes, or search outputs to actor inputs",
+    "do not lower min_cross_regret_margin",
+    "do not accept negative own-branch margins",
+    "do not claim self-identification from source construction"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T105808Z",
+  "hypothesis": "A positive near-zero viability-band target with slightly richer trajectory proposals can turn M1250's near-miss into accepted diagnostic source rows without threshold relaxation.",
+  "lineage": {
+    "blocked_by": [
+      "M1251 finds M1250 pair 5 is a two-sided regret near-miss with slightly negative own-branch margins"
+    ],
+    "derived_from": [
+      "m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.json",
+      "configs/m1236_extreme_fault_timing_repair_smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.md",
+      "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json",
+      "runs/m1250_capability_separable_trajectory_proposal_source_smoke/matched_capability_pairs.csv"
+    ],
+    "parent_objective": [
+      "run one targeted no-training margin-restoration source smoke for M1250 trajectory proposal near-miss"
+    ],
+    "supersedes": [
+      "lowering source-positive thresholds",
+      "starting training on zero accepted source rows"
+    ]
+  },
+  "milestone": "m1252-paper-route-capability-separable-proposal-margin-restoration-smoke",
+  "next_blocker": "m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "proposal_margin_restoration_near_miss_persists_route_to_source_variable_audit",
+  "public_gates": [
+    "M1252 must preserve actor input contract",
+    "M1252 must not train controllers",
+    "M1252 must not run PPO",
+    "M1252 must not use private holdout",
+    "M1252 must not promote",
+    "M1252 must keep proposal labels and oracle outcomes out of deployable actor inputs",
+    "M1252 must not lower accepted source thresholds"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1252_capability_separable_proposal_margin_restoration_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "proposal_margin_restoration_near_miss_persists_route_to_source_variable_audit",
+    "milestone": "m1252-paper-route-capability-separable-proposal-margin-restoration-smoke",
+    "reason": "M1252 targeted repair improves pair 5 near-miss to -0.000661 margin but accepted_separable_pairs remains 0",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1252_capability_separable_proposal_margin_restoration_smoke/summary.json exists",
+    "trajectory_proposals > 0",
+    "trajectory_proposal_rollouts > 0",
+    "accepted_separable_pairs is reported",
+    "min_cross_regret_margin remains 0.02",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "labels_enter_actor_input == false",
+    "private holdout remains unused",
+    "no actor-input contract expansion occurs"
+  ],
+  "type": "infrastructure"
+}

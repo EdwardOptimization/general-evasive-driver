@@ -1,0 +1,141 @@
+{
+  "id": "m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1252-paper-route-capability-separable-proposal-margin-restoration-smoke.md",
+      "runs/m1252_capability_separable_proposal_margin_restoration_smoke/summary.json",
+      "runs/m1252_capability_separable_proposal_margin_restoration_smoke/matched_capability_pairs.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1252-paper-route-capability-separable-proposal-margin-restoration-smoke.json"
+    ],
+    "parent_objective": [
+      "audit trajectory proposal source variable after targeted margin-restoration remains zero-accepted"
+    ],
+    "derived_from": [
+      "m1252-paper-route-capability-separable-proposal-margin-restoration-smoke"
+    ],
+    "blocked_by": [
+      "M1252 improved the near-miss but still produced zero accepted separable rows"
+    ],
+    "supersedes": [
+      "another immediate proposal-budget or seed expansion on the same public source"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit.md",
+  "public_gates": [
+    "M1253 must preserve actor input contract",
+    "M1253 must not train controllers",
+    "M1253 must not run PPO",
+    "M1253 must not use private holdout",
+    "M1253 must not promote",
+    "M1253 must decide whether to continue trajectory proposal source, pivot source state/timing, or move to fidelity/teacher source"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, proposal labels, oracle outcomes, or search outputs to actor inputs",
+    "do not lower source-positive thresholds",
+    "do not start another source run before audit"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_capability_separable_trajectory_proposal_source",
+    "evidence_axis": "S_trajectory_proposal_source_variable_audit",
+    "evidence_increment": "classifies M1250-M1252 trajectory proposal source evidence after the allowed targeted repair remains zero-accepted",
+    "claim_scope": "process/source-variable audit only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop trajectory proposal branch if the audit finds only near-positive nonviable rows without accepted source rows",
+      "stop if the next proposal is only more seeds/budget on the same public source"
+    ],
+    "fallback_plan": [
+      "if source variable is exhausted, pivot to event-timing/source-state redesign or higher-fidelity/teacher source design",
+      "if a concrete bug or under-specified generator explains the result, pre-register one focused repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1252 targeted repair remains zero-accepted and M1251 stop rule requires audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "trajectory proposal source-variable audit",
+    "admission_evidence": [
+      "M1250 found a two-sided regret near-miss",
+      "M1252 improved the near-miss margin but still produced zero accepted rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1253 audit document",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "audit classifies the source variable",
+      "audit chooses pivot, one repair, or branch closure"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1253 audits offline source evidence and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "Record near-miss negatives as source evidence, not overall objective failure.",
+    "allowed_claims": [
+      "trajectory proposal source-variable audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1250-M1252 indicate a source-state/timing or model-fidelity bottleneck rather than a reason to continue expanding the same proposal budget.",
+  "success_criteria": [
+    "docs/m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit.md exists",
+    "audit cites M1250 and M1252 near-miss metrics",
+    "audit does not lower thresholds",
+    "audit chooses the next branch",
+    "no training, PPO, promotion, private holdout, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit is missing",
+    "audit ignores M1252 stop rule",
+    "audit proposes another budget expansion without a new evidence variable",
+    "training, PPO, private holdout, promotion, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit.md from M1250-M1252 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1252-paper-route-capability-separable-proposal-margin-restoration-smoke.md",
+    "runs/m1252_capability_separable_proposal_margin_restoration_smoke/summary.json"
+  ],
+  "decision_rule": "M1253 passes if it records M1250-M1252 near-miss negatives and chooses the next branch without threshold relaxation or training.",
+  "next_blocker": "m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit"
+}

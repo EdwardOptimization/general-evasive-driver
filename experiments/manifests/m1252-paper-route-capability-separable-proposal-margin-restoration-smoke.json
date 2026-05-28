@@ -157,6 +157,36 @@
     "docs/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.md",
     "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1252_capability_separable_proposal_margin_restoration_smoke/summary.json",
+    "decision": "proposal_margin_restoration_near_miss_persists_route_to_source_variable_audit",
+    "result_class": "action_divergent_low_regret",
+    "matched_pair_count": 8,
+    "trajectory_proposals": 552,
+    "trajectory_proposal_rollouts": 1104,
+    "relocation_candidates": 128,
+    "fine_relocation_candidates": 64,
+    "near_boundary_viability_pairs": 0,
+    "accepted_separable_pairs": 0,
+    "best_actions_diverged_pairs": 6,
+    "low_regret_pairs": 7,
+    "unique_matched_fault_family_pairs": 2,
+    "unique_matched_seeds": 2,
+    "key_near_miss_pair_id": 5,
+    "key_near_miss_min_cross_regret": 0.0226062003,
+    "key_near_miss_pair_min_best_margin": -0.0006610772,
+    "threshold_relaxation": false,
+    "actor_parameters_changed": false,
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit.json"
+  },
+  "decision": "proposal_margin_restoration_near_miss_persists_route_to_source_variable_audit",
   "decision_rule": "M1252 passes as infrastructure if proposal candidates and rollouts are produced without actor mutation, training, PPO, promotion, private holdout, actor-input expansion, or threshold relaxation. Accepted rows remain diagnostic source evidence only.",
-  "next_blocker": "m1252-paper-route-capability-separable-proposal-margin-restoration-smoke"
+  "next_blocker": "m1253-paper-route-capability-separable-trajectory-proposal-source-variable-audit"
 }
