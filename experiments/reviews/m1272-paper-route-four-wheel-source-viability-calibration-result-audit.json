@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1272 audits M1271 as source-positive but not actor-ready and admits stratified source corpus export with boundary high-regret and family-balance subsets",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores source diversity",
+    "audit treats source-positive rows as driver performance",
+    "audit skips directly to actor/Gym integration",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add per-wheel/fault labels to actor inputs",
+    "do not lower accepted-source thresholds",
+    "do not count horizon-only rows as success",
+    "do not claim high-fidelity validation from the compact pilot",
+    "do not treat source-positive rows as driver performance"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T124958Z",
+  "hypothesis": "The M1271 source-positive rows can be audited for source diversity and boundary usefulness before any actor/history integration.",
+  "lineage": {
+    "blocked_by": [
+      "M1271 produced accepted source rows, but source diversity and boundary usefulness must be audited before training or integration"
+    ],
+    "derived_from": [
+      "m1271-paper-route-four-wheel-source-viability-calibration-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1271-paper-route-four-wheel-source-viability-calibration-smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m1271-paper-route-four-wheel-source-viability-calibration-smoke.md",
+      "runs/m1271_four_wheel_source_viability_calibration_smoke/summary.json",
+      "runs/m1271_four_wheel_source_viability_calibration_smoke/accepted_separable_pairs.csv",
+      "runs/m1271_four_wheel_source_viability_calibration_smoke/matched_capability_pairs.csv"
+    ],
+    "parent_objective": [
+      "audit calibrated four-wheel source-positive rows before actor/history integration"
+    ],
+    "supersedes": [
+      "direct Gym/actor integration from M1271 source-positive rows"
+    ]
+  },
+  "milestone": "m1272-paper-route-four-wheel-source-viability-calibration-result-audit",
+  "next_blocker": "m1273-paper-route-four-wheel-source-corpus-export",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "four_wheel_source_viability_calibration_audit_admit_source_corpus_export",
+  "public_gates": [
+    "M1272 must preserve actor input contract",
+    "M1272 must not train controllers",
+    "M1272 must not run PPO",
+    "M1272 must not use private holdout",
+    "M1272 must not promote",
+    "M1272 must audit source diversity and boundary usefulness",
+    "M1272 must decide the next source step before actor/Gym integration"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "four_wheel_source_viability_calibration_audit_admit_source_corpus_export",
+    "milestone": "m1272-paper-route-four-wheel-source-viability-calibration-result-audit",
+    "reason": "M1272 audits M1271 as source-positive but not actor-ready and admits stratified source corpus export with boundary high-regret and family-balance subsets",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.md exists",
+    "audit cites M1271 accepted rows and source-diversity evidence",
+    "audit classifies halfshaft inactivity",
+    "audit decides whether to export corpus, filter boundary rows, retarget, or synthesize",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

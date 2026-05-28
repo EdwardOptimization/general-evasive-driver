@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1273 exports 108 accepted rows plus 19 near-boundary 32 high-regret and 63 family-balanced rows with halfshaft logged as inactive",
+  "failure_criteria": [
+    "run artifacts are missing",
+    "accepted row count does not match M1271",
+    "source subsets are missing",
+    "export changes accepted-source semantics",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add per-wheel/fault labels to actor inputs",
+    "do not lower accepted-source thresholds",
+    "do not count horizon-only rows as success",
+    "do not treat source-corpus rows as driver performance",
+    "do not claim high-fidelity validation from the compact pilot"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T124958Z",
+  "hypothesis": "A stratified export can preserve M1271 accepted source rows while separating boundary-useful rows, high-regret rows, family-balanced rows, and inactive fault families.",
+  "lineage": {
+    "blocked_by": [
+      "M1272 admits source-corpus export before actor/Gym integration"
+    ],
+    "derived_from": [
+      "m1272-paper-route-four-wheel-source-viability-calibration-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.md",
+      "runs/m1271_four_wheel_source_viability_calibration_smoke/accepted_separable_pairs.csv",
+      "runs/m1271_four_wheel_source_viability_calibration_smoke/matched_capability_pairs.csv"
+    ],
+    "parent_objective": [
+      "export stratified four-wheel source corpus from M1271 accepted rows"
+    ],
+    "supersedes": [
+      "direct use of all 108 M1271 accepted rows as an unfiltered training/evaluation corpus"
+    ]
+  },
+  "milestone": "m1273-paper-route-four-wheel-source-corpus-export",
+  "next_blocker": "m1274-paper-route-four-wheel-source-corpus-export-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "four_wheel_source_corpus_export_pass_route_to_result_audit",
+  "public_gates": [
+    "M1273 must preserve actor input contract",
+    "M1273 must not train controllers",
+    "M1273 must not run PPO",
+    "M1273 must not use private holdout",
+    "M1273 must not promote",
+    "M1273 must export all accepted rows and stratified boundary/high-regret/family-balanced subsets",
+    "M1273 must log inactive fault families separately"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1273_four_wheel_source_corpus_export/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "four_wheel_source_corpus_export_pass_route_to_result_audit",
+    "milestone": "m1273-paper-route-four-wheel-source-corpus-export",
+    "reason": "M1273 exports 108 accepted rows plus 19 near-boundary 32 high-regret and 63 family-balanced rows with halfshaft logged as inactive",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1273_four_wheel_source_corpus_export/summary.json exists",
+    "all_accepted_source_rows.csv exists",
+    "near_boundary_source_rows.csv exists",
+    "high_regret_source_rows.csv exists",
+    "family_balanced_source_rows.csv exists",
+    "inactive_fault_families.csv exists",
+    "exported accepted row count equals 108",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "infrastructure"
+}

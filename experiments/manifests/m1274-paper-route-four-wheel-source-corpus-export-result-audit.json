@@ -1,0 +1,147 @@
+{
+  "id": "m1274-paper-route-four-wheel-source-corpus-export-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_dataset": [
+      "docs/m1273-paper-route-four-wheel-source-corpus-export.md",
+      "runs/m1273_four_wheel_source_corpus_export/summary.json",
+      "runs/m1273_four_wheel_source_corpus_export/near_boundary_source_rows.csv",
+      "runs/m1273_four_wheel_source_corpus_export/high_regret_source_rows.csv",
+      "runs/m1273_four_wheel_source_corpus_export/family_balanced_source_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1273-paper-route-four-wheel-source-corpus-export.json"
+    ],
+    "parent_objective": [
+      "audit exported four-wheel source corpus before selecting next source step"
+    ],
+    "derived_from": [
+      "m1273-paper-route-four-wheel-source-corpus-export"
+    ],
+    "blocked_by": [
+      "M1273 exported stratified source-corpus rows but next source use must be selected before training or actor integration"
+    ],
+    "supersedes": [
+      "direct actor/Gym integration from exported M1273 corpus"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1274-paper-route-four-wheel-source-corpus-export-result-audit.md",
+  "public_gates": [
+    "M1274 must preserve actor input contract",
+    "M1274 must not train controllers",
+    "M1274 must not run PPO",
+    "M1274 must not use private holdout",
+    "M1274 must not promote",
+    "M1274 must audit corpus subset suitability and select the next source step"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add per-wheel/fault labels to actor inputs",
+    "do not lower accepted-source thresholds",
+    "do not count source-corpus rows as driver performance",
+    "do not claim high-fidelity validation from the compact pilot"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fidelity_fault_source_design",
+    "evidence_axis": "S_four_wheel_source_corpus_export_result_audit",
+    "evidence_increment": "audits the exported source-corpus subsets and selects the next source step",
+    "claim_scope": "result audit only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if corpus subsets are source-collapsed",
+      "stop if boundary subset is too small for the next source step",
+      "stop if next step would require actor-input expansion"
+    ],
+    "fallback_plan": [
+      "if corpus is suitable, admit boundary retarget or intervention design",
+      "if corpus is unsuitable, route to source-corpus repair or branch synthesis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1273 exported source corpus and requires audit before use",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "four-wheel source corpus export result audit",
+    "admission_evidence": [
+      "M1273 exported_accepted_rows=108",
+      "M1273 near_boundary_rows=19",
+      "M1273 high_regret_rows=32",
+      "M1273 family_balanced_rows=63",
+      "M1273 inactive_fault_family_count=1"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1274 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest if audit admits it"
+    ],
+    "next_stage_criteria": [
+      "audit selects boundary retargeting, intervention design, corpus replay construction, repair, or synthesis"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1274 audits source corpus only and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until M1274 routes source corpus to an intervention or replay design"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If corpus subsets are unsuitable, record the limitation and route to repair or synthesis rather than actor training.",
+    "allowed_claims": [
+      "four-wheel source corpus export result audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The M1273 exported source corpus can be audited to select the next bounded source step without actor/Gym integration.",
+  "success_criteria": [
+    "docs/m1274-paper-route-four-wheel-source-corpus-export-result-audit.md exists",
+    "audit cites M1273 all accepted near-boundary high-regret family-balanced and inactive-family counts",
+    "audit selects the next source step",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores source-corpus subset counts",
+    "audit skips directly to actor/Gym integration",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1274-paper-route-four-wheel-source-corpus-export-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1274-paper-route-four-wheel-source-corpus-export-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint"
+  ],
+  "baseline_artifacts": [
+    "docs/m1273-paper-route-four-wheel-source-corpus-export.md",
+    "runs/m1273_four_wheel_source_corpus_export/summary.json"
+  ],
+  "decision_rule": "M1274 passes if it audits M1273 source-corpus subsets and selects the next source step without training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion.",
+  "next_blocker": "m1274-paper-route-four-wheel-source-corpus-export-result-audit"
+}

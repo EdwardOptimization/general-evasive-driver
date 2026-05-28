@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1281,
+    "completed": 1283,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1271-paper-route-four-wheel-source-viability-calibration-smoke.md",
+    "command_log": "docs/m1273-paper-route-four-wheel-source-corpus-export.md",
     "returncode": 0,
-    "run_dir": "runs/m1271_four_wheel_source_viability_calibration_smoke",
+    "run_dir": "runs/m1273_four_wheel_source_corpus_export",
     "status": "completed",
-    "task_id": "m1271-paper-route-four-wheel-source-viability-calibration-smoke"
+    "task_id": "m1273-paper-route-four-wheel-source-corpus-export"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.json",
-    "hypothesis": "Audit whether M1271 source-positive rows are diverse and boundary-useful before actor/history integration",
-    "id": "m1272-paper-route-four-wheel-source-viability-calibration-result-audit",
+    "command": "see experiments/manifests/m1274-paper-route-four-wheel-source-corpus-export-result-audit.json",
+    "hypothesis": "Audit whether M1273 source-corpus subsets are suitable and select the next bounded source step",
+    "id": "m1274-paper-route-four-wheel-source-corpus-export-result-audit",
     "kind": "gate",
-    "notes": "Pending: audit source diversity boundary usefulness halfshaft inactivity and next source step before actor integration",
-    "priority": 12670,
+    "notes": "Pending: audit corpus subset suitability and select boundary retargeting intervention design corpus replay repair or synthesis",
+    "priority": 12690,
     "status": "pending",
-    "success_artifact": "docs/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.md"
+    "success_artifact": "docs/m1274-paper-route-four-wheel-source-corpus-export-result-audit.md"
   },
-  "updated_at_utc": "20260528T124107Z"
+  "updated_at_utc": "20260528T124905Z"
 }

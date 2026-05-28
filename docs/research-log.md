@@ -18349,3 +18349,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.json`.
 - decision: `four_wheel_source_viability_calibration_smoke_source_positive_route_to_result_audit`
 - next: `m1272-paper-route-four-wheel-source-viability-calibration-result-audit`
+
+## 20260528T124905Z - m1272-paper-route-four-wheel-source-viability-calibration-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.md`
+- audited evidence: M1271 produced `108` accepted source rows across `71` unique accepted geometries and `3` accepted fault-family pairs.
+- diversity: accepted rows span speeds `14/15/16`, obstacle distances `12..16`, and half-widths `0.55..0.85`; lateral offsets are mostly centered with `96/108` at `y=0.0`.
+- boundary audit: `19` rows have min own margin `<=0.20`, `8` have `<=0.10`, and `5` have `<=0.05`; full accepted set median min own margin is `0.6499383280`, so all rows should not be used unfiltered.
+- regret audit: `32` rows have min cross-regret `>=0.05`, `11` have `>=0.10`, and `2` exceed `0.40`.
+- halfshaft: all `180` halfshaft rows are own-branch viable but action-equivalent with `best_action_l2 max=0.0` and `min_cross_regret max=0.0`; log as inactive for the current brake-dominant lattice.
+- decision: admit a stratified no-training corpus export before actor/Gym integration.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1273-paper-route-four-wheel-source-corpus-export.json`.
+- decision: `four_wheel_source_viability_calibration_audit_admit_source_corpus_export`
+- next: `m1273-paper-route-four-wheel-source-corpus-export`
+
+## 20260528T124905Z - m1273-paper-route-four-wheel-source-corpus-export
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1273_four_wheel_source_corpus_export/summary.json`
+- implementation: added `src/autodrift/four_wheel_source_corpus_export.py` and `tests/test_four_wheel_source_corpus_export.py` to export stratified source-corpus artifacts from accepted M1271 rows.
+- validation: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_four_wheel_source_corpus_export.py` passed with `1 passed`.
+- result: exported `108` all accepted rows, `19` near-boundary rows at min own margin `<=0.20`, `32` high-regret rows at min cross-regret `>=0.05`, and `63` family-balanced rows with cap `21` per accepted family.
+- family counts: accepted rows are `28` split-mu, `59` brake-pull, and `21` grip-collapse; near-boundary rows are `7` split-mu, `2` brake-pull, and `10` grip-collapse; high-regret rows are `11` split-mu and `21` grip-collapse.
+- inactive families: `halfshaft_torque_loss->halfshaft_torque_loss` is logged as inactive for the current lattice.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1274-paper-route-four-wheel-source-corpus-export-result-audit.json`.
+- decision: `four_wheel_source_corpus_export_pass_route_to_result_audit`
+- next: `m1274-paper-route-four-wheel-source-corpus-export-result-audit`

@@ -148,6 +148,25 @@
     "docs/m1271-paper-route-four-wheel-source-viability-calibration-smoke.md",
     "runs/m1271_four_wheel_source_viability_calibration_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1272-paper-route-four-wheel-source-viability-calibration-result-audit.md",
+    "decision": "four_wheel_source_viability_calibration_audit_admit_source_corpus_export",
+    "m1271_accepted_separable_pairs": 108,
+    "accepted_fault_family_pairs": 3,
+    "unique_accepted_scenario_ids": 71,
+    "near_boundary_margin_le_0_20": 19,
+    "high_regret_ge_0_05": 32,
+    "halfshaft_accepted_rows": 0,
+    "halfshaft_best_action_l2_max": 0.0,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1273-paper-route-four-wheel-source-corpus-export.json"
+  },
+  "decision": "four_wheel_source_viability_calibration_audit_admit_source_corpus_export",
   "decision_rule": "M1272 passes if it audits M1271 source-positive rows and selects the next source step without training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion.",
-  "next_blocker": "m1272-paper-route-four-wheel-source-viability-calibration-result-audit"
+  "next_blocker": "m1273-paper-route-four-wheel-source-corpus-export"
 }
