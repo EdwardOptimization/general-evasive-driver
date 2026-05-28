@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1205,
+    "completed": 1206,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1195-paper-route-train-entrypoint-profile-mask-integration.md",
+    "command_log": "docs/m1196-paper-route-profile-training-smoke-stage-a-run.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1196_profile_training_smoke_stage_a",
     "status": "completed",
-    "task_id": "m1195-paper-route-train-entrypoint-profile-mask-integration"
+    "task_id": "m1196-paper-route-profile-training-smoke-stage-a-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1196-paper-route-profile-training-smoke-stage-a-run.json",
-    "hypothesis": "The representative Stage A L0/L1/L2/L3 generated profiles can complete identical smoke-scale PPO training loops after vector-path profile-mask integration.",
-    "id": "m1196-paper-route-profile-training-smoke-stage-a-run",
+    "command": "see experiments/manifests/m1197-paper-route-profile-training-smoke-stage-b-run.json",
+    "hypothesis": "All eight generated L0/L1/L2/L3 profiles can complete identical smoke-scale PPO training loops after Stage A passes.",
+    "id": "m1197-paper-route-profile-training-smoke-stage-b-run",
     "kind": "gate",
-    "notes": "Pending: run bounded Stage A profile training smoke as plumbing only with no promotion or performance claims",
-    "priority": 11910,
+    "notes": "Pending: run bounded Stage B all-profile training smoke as plumbing only with no promotion or performance claims",
+    "priority": 11920,
     "status": "pending",
-    "success_artifact": "docs/m1196-paper-route-profile-training-smoke-stage-a-run.md"
+    "success_artifact": "docs/m1197-paper-route-profile-training-smoke-stage-b-run.md"
   },
-  "updated_at_utc": "20260528T050600Z"
+  "updated_at_utc": "20260528T051400Z"
 }

@@ -158,5 +158,5 @@
     "configs/paper_route_profiles"
   ],
   "decision_rule": "M1196 passes only as train-loop plumbing if all four Stage A profiles complete with finite metrics and no claim expansion.",
-  "next_blocker": "m1196-paper-route-profile-training-smoke-stage-a-run"
+  "next_blocker": "m1197-paper-route-profile-training-smoke-stage-b-run"
 }

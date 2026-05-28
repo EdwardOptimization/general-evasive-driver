@@ -115,8 +115,42 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1196-paper-route-profile-training-smoke-stage-a-run
+m1197-paper-route-profile-training-smoke-stage-b-run
 ```
+
+M1196 completed the bounded Stage A profile training smoke:
+
+```text
+artifact: docs/m1196-paper-route-profile-training-smoke-stage-a-run.md
+run dir: runs/m1196_profile_training_smoke_stage_a
+decision: profile_training_smoke_stage_a_pass_route_to_stage_b_full_profile_smoke
+```
+
+M1196 result:
+
+```text
+profiles: L0_current_masked, L1_one_step, L2_window_25, L3_online_gru
+total_steps_per_profile: 1024
+num_envs: 2
+all_profiles_complete: true
+all_eval_metrics_finite: true
+l0_runtime_mask_metadata_present: true
+training_started: true
+optimizer_started: true
+ppo_used: true
+candidate_replay_started: false
+private_holdout_used: false
+promoted: false
+actor_input_contract_changed: false
+profile_superiority_claimed: false
+driver_performance_claimed: false
+```
+
+The eval values in M1196 are smoke diagnostics only, not performance
+comparisons. The active blocker is now M1197: run Stage B all-profile training
+smoke for all eight generated profiles under the same 1024-step plumbing budget,
+still with no promotion, no private holdout, no candidate replay, and no
+profile-superiority or driver-performance claim.
 
 M1195 completed train/eval vector-path profile-mask integration:
 
@@ -148,12 +182,6 @@ Focused verification:
 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_controller_profile_train_entrypoint_mask.py tests/test_controller_profile_runtime.py tests/test_controller_profile_runtime_smoke.py
 15 passed
 ```
-
-The active blocker is now M1196: run the bounded M1193 Stage A profile training
-smoke as plumbing evidence only. M1196 may run smoke-scale PPO for
-`L0_current_masked`, `L1_one_step`, `L2_window_25`, and `L3_online_gru` with
-`1024` steps, `2` envs, `1` seed, CPU, no promotion, no private holdout, no
-candidate replay, and no profile-superiority or driver-performance claim.
 
 M1194 completed the required workflow synthesis:
 
@@ -310,7 +338,7 @@ M1190 generated eight smoke configs with L0 mask metadata, four L2 finite
 windows `[13,25,50,100]`, L3 variants, and no training/PPO/replay/promotion.
 
 Older route notes below retain their then-next milestone wording as history;
-the active blocker is the M1196 Stage A profile training smoke above.
+the active blocker is the M1197 Stage B all-profile training smoke above.
 
 M1189 completed controller-profile config-generation design:
 

@@ -1,0 +1,159 @@
+{
+  "id": "m1197-paper-route-profile-training-smoke-stage-b-run",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1196-paper-route-profile-training-smoke-stage-a-run.md",
+      "configs/paper_route_profiles"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1196-paper-route-profile-training-smoke-stage-a-run.json"
+    ],
+    "parent_objective": [
+      "run full generated-profile Stage B smoke after representative Stage A training plumbing passes"
+    ],
+    "derived_from": [
+      "m1196-paper-route-profile-training-smoke-stage-a-run"
+    ],
+    "blocked_by": [
+      "Stage A passed but the remaining L2 windows and L3_reset_control have not run train-loop smoke"
+    ],
+    "supersedes": [
+      "assuming all generated profiles train because representative profiles passed"
+    ],
+    "invalidates": [
+      "starting fair comparison pilot before all generated profiles complete smoke training"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1197-paper-route-profile-training-smoke-stage-b-run.md",
+  "public_gates": [
+    "M1197 may run bounded Stage B PPO training smoke only",
+    "M1197 may train all eight generated profiles for smoke-scale plumbing only",
+    "M1197 must not promote",
+    "M1197 must not use private holdout",
+    "M1197 must not tune profiles based on early results",
+    "M1197 must not run candidate replay",
+    "M1197 must not add hidden or oracle actor inputs",
+    "M1197 must not claim profile superiority or driver performance"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change generated configs per profile after seeing results",
+    "do not use private holdout",
+    "do not promote a checkpoint",
+    "do not run public proof replay as if this were a driver candidate",
+    "do not compare performance except as smoke diagnostics",
+    "do not add hidden or oracle actor inputs",
+    "do not skip recording failed profiles"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_training_plumbing: bounded Stage B all-profile train-loop smoke",
+    "evidence_increment": "tests whether all eight generated L0/L1/L2/L3 profiles can complete identical smoke-scale training loops",
+    "claim_scope": "training plumbing smoke only; no promotion private-holdout driver-performance recurrent-belief profile-superiority or paper-result claim",
+    "stop_condition": [
+      "stop if any generated profile fails to complete",
+      "stop if any run produces non-finite metrics",
+      "stop if L2_window_100 exceeds resource cap",
+      "stop if L3_reset_control reset semantics are not executable"
+    ],
+    "fallback_plan": [
+      "if L2_window_100 fails due resource, route to finite-window resource audit",
+      "if L3_reset_control fails, route to reset-control implementation repair",
+      "if all pass, route to fair comparison pilot design",
+      "if only Stage A repeats pass, keep Stage B blocked and do not compare profiles"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1196 Stage A training smoke passed and Stage B full generated-profile smoke is the next plumbing gate",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "bounded profile training smoke Stage B",
+    "admission_evidence": [
+      "M1195 integrates vector-path profile masks",
+      "M1196 representative Stage A profile training smoke passes"
+    ],
+    "blocked_shortcuts": [
+      "do not promote",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make performance claims"
+    ],
+    "allowed_updates": [
+      "Stage B smoke runs",
+      "Stage B summary artifact",
+      "M1197 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "all eight generated profiles complete",
+      "metrics are finite",
+      "artifacts exist for each profile",
+      "resource and runtime are recorded",
+      "next fair comparison pilot design or repair milestone is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1197 is train-loop plumbing and does not test history necessity.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1197 trains all profile windows but does not evaluate temporal evidence.",
+    "negative_result_policy": "If a profile fails, record it as training plumbing evidence and route to focused repair without comparing performance.",
+    "allowed_claims": [
+      "Stage B training-loop smoke readiness or failure",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "All eight generated L0/L1/L2/L3 profiles can complete identical smoke-scale PPO training loops after Stage A passes.",
+  "success_criteria": [
+    "docs/m1197-paper-route-profile-training-smoke-stage-b-run.md exists",
+    "runs/m1197_profile_training_smoke_stage_b/summary.json exists",
+    "all eight generated profile runs complete",
+    "metrics are finite",
+    "summary reports no private holdout no promotion no candidate replay no actor-input expansion",
+    "no profile superiority or driver-performance claim occurs"
+  ],
+  "failure_criteria": [
+    "any generated profile cannot complete the smoke run",
+    "metrics are non-finite",
+    "private holdout or promotion occurs",
+    "hidden or oracle actor inputs are introduced",
+    "results are framed as profile superiority"
+  ],
+  "commands": [
+    {
+      "name": "run_stage_b_profile_training_smoke",
+      "command": "run bounded Stage B profile training smoke over all generated profiles with 1024 steps 2 envs 1 seed CPU"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1197-paper-route-profile-training-smoke-stage-b-run.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m1197_profile_training_smoke_stage_b/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1196-paper-route-profile-training-smoke-stage-a-run.md",
+    "configs/paper_route_profiles"
+  ],
+  "decision_rule": "M1197 passes only as train-loop plumbing if all eight generated profiles complete with finite metrics and no claim expansion.",
+  "next_blocker": "m1197-paper-route-profile-training-smoke-stage-b-run"
+}
