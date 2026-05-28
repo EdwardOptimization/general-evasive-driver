@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1227,
+    "completed": 1228,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1217_current_family_matched_current_export/summary.json",
+    "command_log": "runs/m1218_current_family_history_action_screen/summary.json",
     "returncode": 0,
-    "run_dir": "runs/m1217_current_family_matched_current_export",
+    "run_dir": "runs/m1218_current_family_history_action_screen",
     "status": "completed",
-    "task_id": "m1217-paper-route-current-family-matched-current-export"
+    "task_id": "m1218-paper-route-current-family-history-action-screen"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1218-paper-route-current-family-history-action-screen.json",
-    "hypothesis": "On the M1217 current-family matched-current surface, wrong or delayed recurrent history will produce measurable action changes beyond zero-current-response and zero-action controls.",
-    "id": "m1218-paper-route-current-family-history-action-screen",
+    "command": "see experiments/manifests/m1219-paper-route-current-family-action-screen-negative-audit.json",
+    "hypothesis": "Auditing the M1218 negative action screen can identify whether the next route should be action-critical mining, stronger history intervention, or training-objective redesign.",
+    "id": "m1219-paper-route-current-family-action-screen-negative-audit",
     "kind": "gate",
-    "notes": "Pending: run action-level reset delayed wrong-history zero-response and zero-action interventions on M1217 pairs",
-    "priority": 12130,
+    "notes": "Pending: classify M1218 negative wrong-delayed signal and choose next route without outcome overreach",
+    "priority": 12140,
     "status": "pending",
-    "success_artifact": "docs/m1218-paper-route-current-family-history-action-screen.md"
+    "success_artifact": "docs/m1219-paper-route-current-family-action-screen-negative-audit.md"
   },
-  "updated_at_utc": "20260528T070145Z"
+  "updated_at_utc": "20260528T070604Z"
 }

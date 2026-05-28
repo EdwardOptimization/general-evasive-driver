@@ -17467,3 +17467,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1218-paper-route-current-family-history-action-screen.json`.
 - decision: `current_family_matched_current_surface_pass_admit_action_screen`
 - next: `m1218-paper-route-current-family-history-action-screen`
+
+## 20260528T070604Z - m1218-paper-route-current-family-history-action-screen
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `proof`
+- artifact: `docs/m1218-paper-route-current-family-history-action-screen.md`
+- run dir: `runs/m1218_current_family_history_action_screen`
+- result: negative wrong/delayed hidden-history action screen on the M1217 matched-current surface.
+- counts: `762` input matched pairs, `3810` intervention rows, and `45` variant summary rows.
+- wrong-history signal: mean action distance `0.001075`, p90 `0.001946`, max `0.002415`, above-threshold rows `0`.
+- delayed-history signal: mean action distance `0.000154`, p90 `0.000160`, max `0.015598`, above-threshold rows `0`.
+- reset-hidden control: mean action distance `0.041795`, p90 `0.076904`, above-threshold rows `629`, proving recurrent hidden can affect action but not proving matched-history self-ID.
+- zero controls: zero-action mean `0.013854` with `0` above-threshold rows; zero-current mean `0.017431` with `20` above-threshold rows.
+- route decision: block persistent outcome rollout and audit the negative action screen before redesigning mining, intervention strength, or objective.
+- guardrail: no outcome intervention, training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1219-paper-route-current-family-action-screen-negative-audit.json`.
+- decision: `current_family_history_action_screen_negative_route_to_audit`
+- next: `m1219-paper-route-current-family-action-screen-negative-audit`

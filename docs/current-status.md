@@ -115,8 +115,45 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1218-paper-route-current-family-history-action-screen
+m1219-paper-route-current-family-action-screen-negative-audit
 ```
+
+M1218 completed current-family history action screening:
+
+```text
+artifact: docs/m1218-paper-route-current-family-history-action-screen.md
+run dir: runs/m1218_current_family_history_action_screen
+decision: current_family_history_action_screen_negative_route_to_audit
+```
+
+M1218 action-screen result:
+
+```text
+wrong_matched_history mean / above-threshold: 0.001075 / 0
+delayed_history mean / above-threshold:       0.000154 / 0
+reset_hidden mean / above-threshold:          0.041795 / 629
+zero_action_history mean / above-threshold:   0.013854 / 0
+zero_current_response mean / above-threshold: 0.017431 / 20
+```
+
+Next branch:
+
+```text
+paper_route_causal_history_evidence
+```
+
+The next task is a negative action-screen audit, not outcome intervention or
+training:
+
+```text
+checkpoint family: M1212 corrected L3 online GRU repeat
+env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
+evidence:          runs/m1218_current_family_history_action_screen/action_interventions.csv
+```
+
+M1219 must explain the reset-hidden versus wrong/delayed-history split and
+select the next route without running outcome gates. It must not treat
+reset-hidden sensitivity as self-identification proof.
 
 M1217 completed current-family matched-current export:
 
@@ -136,25 +173,6 @@ left steps:                21
 obstacle buckets:          12
 targets:                    3
 ```
-
-Next branch:
-
-```text
-paper_route_causal_history_evidence
-```
-
-The next task is action screening only, not outcome intervention or training:
-
-```text
-checkpoint family: M1212 corrected L3 online GRU repeat
-env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
-pair source:       runs/m1217_current_family_matched_current_export/matched_pairs.csv
-run dir:           runs/m1218_current_family_history_action_screen
-```
-
-M1218 must classify wrong/delayed hidden-history action sensitivity separately
-from zero-current-response and zero-action-history controls. It must not run
-outcome gates, PPO, private holdout, promotion, or self-identification claims.
 
 M1216 completed the causal-history source/tooling audit:
 

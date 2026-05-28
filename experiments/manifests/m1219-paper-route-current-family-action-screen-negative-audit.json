@@ -1,0 +1,158 @@
+{
+  "id": "m1219-paper-route-current-family-action-screen-negative-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111600/checkpoint.pt",
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111601/checkpoint.pt",
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1218_current_family_history_action_screen/action_interventions.csv",
+      "runs/m1218_current_family_history_action_screen/variant_summary.csv",
+      "docs/m1218-paper-route-current-family-history-action-screen.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1218-paper-route-current-family-history-action-screen.json"
+    ],
+    "parent_objective": [
+      "audit the negative wrong/delayed hidden-history action screen before deciding the next causal-history route"
+    ],
+    "derived_from": [
+      "m1218-paper-route-current-family-history-action-screen"
+    ],
+    "blocked_by": [
+      "M1218 shows reset-hidden action sensitivity but no wrong/delayed matched-history action signal"
+    ],
+    "supersedes": [
+      "running persistent outcome intervention despite failed action-screen admission"
+    ],
+    "invalidates": [
+      "claiming current-family hidden-history self-identification from reset-hidden sensitivity alone"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1219-paper-route-current-family-action-screen-negative-audit.md",
+  "public_gates": [
+    "M1219 may audit M1218 results only",
+    "M1219 must explain reset-hidden sensitivity versus wrong/delayed-history insensitivity",
+    "M1219 must decide whether to mine action-critical pairs, adjust intervention strength, or redesign training objective",
+    "M1219 must not run outcome interventions",
+    "M1219 must not train controllers",
+    "M1219 must not run PPO",
+    "M1219 must not use private holdout",
+    "M1219 must not promote",
+    "M1219 must not claim self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run outcome intervention gates",
+    "do not use private holdout",
+    "do not promote",
+    "do not tune profiles",
+    "do not use hidden or oracle actor inputs",
+    "do not treat reset-hidden sensitivity as wrong-history proof"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_evidence",
+    "evidence_axis": "H_causal_history_action_screen_negative_audit: route decision after no wrong/delayed signal",
+    "evidence_increment": "classifies the M1218 negative action screen and chooses the next causal-history route",
+    "claim_scope": "audit only; no outcome training promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if the audit tries to run outcome gates anyway",
+      "stop if reset-hidden sensitivity is upgraded to self-ID proof",
+      "stop if the next route is left vague"
+    ],
+    "fallback_plan": [
+      "route to action-critical pair mining if M1217 pairs are not action-critical",
+      "route to stronger wrong-history interventions if hidden states are too close",
+      "route to training/objective redesign if the current actor is reactive"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1218 fails wrong/delayed action-screen admission",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "negative action-screen audit",
+    "admission_evidence": [
+      "M1218 wrong_matched_history mean action distance is 0.001075 with 0 above-threshold rows",
+      "M1218 delayed_history mean action distance is 0.000154 with 0 above-threshold rows",
+      "M1218 reset_hidden mean action distance is 0.041795 with 629 above-threshold rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1219 negative audit docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "negative result is classified",
+      "reset-vs-wrong-history distinction is documented",
+      "next action-critical mining, intervention-strength, or objective-redesign milestone is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1219 must preserve that wrong/delayed matched-history sensitivity was negative despite reset-hidden sensitivity.",
+    "history_necessity_tests": [
+      "audit_wrong_delayed_negative_action_signal",
+      "audit_reset_hidden_positive_control",
+      "audit_action_criticality_of_M1217_pairs",
+      "select_next_route_without_outcome_overreach"
+    ],
+    "temporal_evidence_window": "No self-identification evidence can be claimed from M1218; the audit chooses the next route.",
+    "negative_result_policy": "Record the negative result and use it to redesign mining or objective rather than rerunning outcome gates.",
+    "allowed_claims": [
+      "negative wrong/delayed action-screen audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Auditing the M1218 negative action screen can identify whether the next route should be action-critical mining, stronger history intervention, or training-objective redesign.",
+  "success_criteria": [
+    "docs/m1219-paper-route-current-family-action-screen-negative-audit.md exists",
+    "M1218 wrong/delayed negative result is summarized",
+    "reset-hidden sensitivity is separated from self-identification evidence",
+    "private holdout remains unused",
+    "no outcome intervention, training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next route milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1219 runs outcome intervention",
+    "private holdout is used",
+    "self-identification is claimed from reset-hidden sensitivity",
+    "negative M1218 result is ignored",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "audit_negative_action_screen",
+      "command": "audit M1218 action-screen results without running outcome gates or training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1219-paper-route-current-family-action-screen-negative-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111600/checkpoint.pt",
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111601/checkpoint.pt",
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1218_current_family_history_action_screen/action_interventions.csv"
+  ],
+  "decision_rule": "M1219 passes if it records the negative action-screen evidence and selects a concrete next route without outcome-gate overreach.",
+  "next_blocker": "m1219-paper-route-current-family-action-screen-negative-audit"
+}
