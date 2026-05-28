@@ -1,0 +1,166 @@
+{
+  "id": "m1229-paper-route-source-geometry-consistency-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv",
+      "runs/m1227_terminal_boundary_relocation_smoke/boundary_relocation_rows.csv",
+      "docs/m1228-paper-route-terminal-boundary-negative-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1228-paper-route-terminal-boundary-negative-audit.json",
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json"
+    ],
+    "parent_objective": [
+      "audit whether exact source geometry replay reproduces M1222 normal-success candidates under short and long horizons"
+    ],
+    "derived_from": [
+      "m1228-paper-route-terminal-boundary-negative-audit"
+    ],
+    "blocked_by": [
+      "M1227 exact source-geometry rows still collided under max_continuation_steps=60"
+    ],
+    "supersedes": [
+      "expanding the relocation grid without source consistency evidence"
+    ],
+    "invalidates": [
+      "assuming M1222 candidate normal_success transfers directly to M1227 relocation replay"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1229-paper-route-source-geometry-consistency-audit.md",
+  "public_gates": [
+    "M1229 may run source-geometry replay consistency only",
+    "M1229 must preserve actor input contract",
+    "M1229 must not train controllers",
+    "M1229 must not run PPO",
+    "M1229 must not use private holdout",
+    "M1229 must not promote",
+    "M1229 must compare short and long continuation horizons",
+    "M1229 must not claim self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden or oracle actor inputs",
+    "do not use obstacle offsets or half-width inflation in the consistency audit",
+    "do not treat all-collision rows as proof"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_terminal_boundary_materialization",
+    "evidence_axis": "T_source_geometry_consistency",
+    "evidence_increment": "separates horizon mismatch from source replay mismatch before another terminal-boundary relocation run",
+    "claim_scope": "diagnostic proof-path audit only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if exact source geometry fails at the short M1222 horizon",
+      "stop if exact source geometry succeeds short-horizon but fails long-horizon",
+      "stop if both horizons succeed and a narrower relocation grid is admitted"
+    ],
+    "fallback_plan": [
+      "if short horizon fails, repair source snapshot/schema consistency",
+      "if only long horizon fails, define the materialization horizon explicitly",
+      "if both pass, run narrower positive-margin relocation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1228 identified source-geometry replay consistency as the next blocker",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "source-geometry consistency audit",
+    "admission_evidence": [
+      "M1228 found exact source geometry rows collided under M1227's 60-step replay",
+      "M1222 candidate rows were selected from normal-success short continuation windows"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1229 consistency artifacts",
+      "M1229 result docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "short-horizon and long-horizon source-geometry replay summaries exist",
+      "horizon versus source-replay mismatch is classified",
+      "next relocation or repair route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1229 is a consistency audit and does not test history necessity.",
+    "history_necessity_tests": [
+      "wrong_matched_history variant is replayed only to preserve the downstream schema",
+      "claim is limited to source geometry consistency"
+    ],
+    "temporal_evidence_window": "Outcome-level causal-history evidence remains blocked until normal-success wrong-history degradation is available.",
+    "negative_result_policy": "If consistency fails, record whether the failure is short-horizon source mismatch or long-horizon collision rather than training or weakening accepted criteria.",
+    "allowed_claims": [
+      "source-geometry replay consistency or inconsistency",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1227's all-collision result is caused by a source-geometry replay consistency or horizon mismatch, not by lack of source-diverse candidate coverage.",
+  "success_criteria": [
+    "runs/m1229_source_geometry_consistency_short/summary.json exists",
+    "runs/m1229_source_geometry_consistency_long/summary.json exists",
+    "short and long horizon normal-success rates are reported",
+    "horizon/source mismatch is classified",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next route is selected"
+  ],
+  "failure_criteria": [
+    "M1229 trains or tunes profiles",
+    "private holdout is used",
+    "offset or width-inflated relocation is mixed into the consistency audit",
+    "all-collision rows are claimed as proof",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "run_source_geometry_consistency_short",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_balanced_boundary_relocation_surface --checkpoint-policy l3_s111602=runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --env-config configs/paper_route_corrected_profiles/m1207_l3_online_gru.json --outcome-csv runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv --delay-steps 10 --max-continuation-steps 12 --target-normal-margins 999 --half-width-inflations 0 --body-longitudinal-offsets=0 --body-lateral-offsets=0 --min-normal-margin 0.0 --max-normal-margin 1.0 --min-margin-gap 0.010 --report-variants wrong_matched_history --max-candidates 120 --max-candidates-per-physical-pair 1 --max-candidates-per-checkpoint-target 64 --target-min-physical-pairs 40 --target-min-left-steps 5 --target-min-targets 2 --max-rows-per-pair-fraction 0.05 --min-eligible-physical-pairs 40 --max-candidate-pair-fraction 0.05 --device cpu --run-dir runs/m1229_source_geometry_consistency_short"
+    },
+    {
+      "name": "run_source_geometry_consistency_long",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_balanced_boundary_relocation_surface --checkpoint-policy l3_s111602=runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --env-config configs/paper_route_corrected_profiles/m1207_l3_online_gru.json --outcome-csv runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv --delay-steps 10 --max-continuation-steps 60 --target-normal-margins 999 --half-width-inflations 0 --body-longitudinal-offsets=0 --body-lateral-offsets=0 --min-normal-margin 0.0 --max-normal-margin 1.0 --min-margin-gap 0.010 --report-variants wrong_matched_history --max-candidates 120 --max-candidates-per-physical-pair 1 --max-candidates-per-checkpoint-target 64 --target-min-physical-pairs 40 --target-min-left-steps 5 --target-min-targets 2 --max-rows-per-pair-fraction 0.05 --min-eligible-physical-pairs 40 --max-candidate-pair-fraction 0.05 --device cpu --run-dir runs/m1229_source_geometry_consistency_long"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1229_source_geometry_consistency_short/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1229_source_geometry_consistency_long/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1229-paper-route-source-geometry-consistency-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1226_terminal_boundary_candidate_export/candidate_outcomes.csv",
+    "runs/m1227_terminal_boundary_relocation_smoke/summary.json"
+  ],
+  "decision_rule": "M1229 passes as a diagnostic if it produces short and long source-geometry replay summaries and selects the next route without training or proof-criterion weakening.",
+  "next_blocker": "m1229-paper-route-source-geometry-consistency-audit"
+}

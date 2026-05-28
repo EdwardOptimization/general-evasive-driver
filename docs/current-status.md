@@ -115,8 +115,27 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1228-paper-route-terminal-boundary-negative-audit
+m1229-paper-route-source-geometry-consistency-audit
 ```
+
+M1228 completed the M1227 negative audit:
+
+```text
+artifact: docs/m1228-paper-route-terminal-boundary-negative-audit.md
+decision: terminal_boundary_negative_audit_route_to_source_geometry_consistency
+```
+
+M1228 conclusion:
+
+```text
+failure type: source_geometry_replay_consistency_gap
+dx=0, dy=0, half_width_inflation=0 rows: 100
+normal_success in exact source-geometry rows: 0
+normal_margin range in exact source-geometry rows: [-0.1945879451, -0.0080074171]
+```
+
+The next blocker is not a wider relocation grid. M1229 should first separate
+short-horizon versus long-horizon source replay consistency.
 
 M1227 completed bounded terminal-boundary relocation smoke:
 
@@ -148,9 +167,10 @@ margin gaps cannot be treated as proof.
 Next task:
 
 ```text
-artifact: docs/m1228-paper-route-terminal-boundary-negative-audit.md
-goal: classify M1227 failure and select a narrower relocation/source/fallback route
-blocked: training, PPO, promotion, private holdout, accepted-row weakening
+short run: runs/m1229_source_geometry_consistency_short
+long run:  runs/m1229_source_geometry_consistency_long
+goal: compare exact source geometry with max_continuation_steps 12 versus 60
+blocked: relocation offsets, half-width inflation, training, PPO, promotion
 ```
 
 M1226 completed terminal-boundary candidate export:

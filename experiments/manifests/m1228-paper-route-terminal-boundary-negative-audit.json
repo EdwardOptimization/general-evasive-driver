@@ -149,5 +149,5 @@
     "runs/m1227_terminal_boundary_relocation_smoke/boundary_relocation_rows.csv"
   ],
   "decision_rule": "M1228 passes if it classifies M1227's zero-accepted-row result and selects a concrete next route without training or weakening proof criteria.",
-  "next_blocker": "m1228-paper-route-terminal-boundary-negative-audit"
+  "next_blocker": "m1229-paper-route-source-geometry-consistency-audit"
 }

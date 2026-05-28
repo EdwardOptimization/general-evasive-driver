@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1237,
+    "completed": 1238,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1227-paper-route-terminal-boundary-relocation-smoke.md",
+    "command_log": "docs/m1228-paper-route-terminal-boundary-negative-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1227_terminal_boundary_relocation_smoke",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1227-paper-route-terminal-boundary-relocation-smoke"
+    "task_id": "m1228-paper-route-terminal-boundary-negative-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1228-paper-route-terminal-boundary-negative-audit.json",
-    "hypothesis": "Audit terminal-boundary relocation negative result",
-    "id": "m1228-paper-route-terminal-boundary-negative-audit",
+    "command": "see experiments/manifests/m1229-paper-route-source-geometry-consistency-audit.json",
+    "hypothesis": "Run source-geometry consistency audit",
+    "id": "m1229-paper-route-source-geometry-consistency-audit",
     "kind": "gate",
-    "notes": "Pending: classify M1227 all-collision relocation failure and select narrower relocation source-distribution or branch-close route without training threshold weakening or self-ID claims",
-    "priority": 12230,
+    "notes": "Pending: replay exact source geometry with no offsets or width inflation under short and long horizons to separate source replay mismatch from horizon mismatch",
+    "priority": 12240,
     "status": "pending",
-    "success_artifact": "docs/m1228-paper-route-terminal-boundary-negative-audit.md"
+    "success_artifact": "docs/m1229-paper-route-source-geometry-consistency-audit.md"
   },
-  "updated_at_utc": "20260528T075755Z"
+  "updated_at_utc": "20260528T080235Z"
 }

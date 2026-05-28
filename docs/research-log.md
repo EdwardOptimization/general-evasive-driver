@@ -17636,3 +17636,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1228-paper-route-terminal-boundary-negative-audit.json`.
 - decision: `terminal_boundary_relocation_smoke_negative_audit_required`
 - next: `m1228-paper-route-terminal-boundary-negative-audit`
+
+## 20260528T080058Z - m1228-paper-route-terminal-boundary-negative-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1228-paper-route-terminal-boundary-negative-audit.md`
+- result: audits M1227 as `source_geometry_replay_consistency_gap` rather than a missing-candidate or duplicate-dominated proof surface.
+- diagnostic: exact source-geometry rows with `dx=0`, `dy=0`, and `half_width_inflation=0` still had `0/100` normal-success rows and normal margins in `[-0.1945879451, -0.0080074171]`.
+- rejected shortcut: do not widen the relocation grid, train, weaken accepted criteria, or count all-collision positive margin gaps as proof.
+- selected next route: run source-geometry consistency with no offsets and no half-width inflation at short (`12`) and long (`60`) continuation horizons.
+- guardrail: no new relocation run, training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1229-paper-route-source-geometry-consistency-audit.json`.
+- decision: `terminal_boundary_negative_audit_route_to_source_geometry_consistency`
+- next: `m1229-paper-route-source-geometry-consistency-audit`
