@@ -134,9 +134,9 @@ def assert_profile_mask_matches_scaffold(config: dict[str, Any]) -> None:
     """Validate runtime mask metadata against the canonical scaffold profile."""
 
     spec = mask_spec_from_config(config)
-    profile = get_profile(spec.profile_name)
     if spec.history_transform != NO_HISTORY_TRANSFORM:
         return
+    profile = get_profile(spec.profile_name)
     scaffold = apply_observation_mask(profile, np.ones((profile.observation_dim,), dtype=np.float32))
     runtime = spec.apply(np.ones((profile.observation_dim,), dtype=np.float32))
     if not np.array_equal(scaffold, runtime):

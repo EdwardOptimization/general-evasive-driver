@@ -17284,3 +17284,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1207-paper-route-corrected-profile-config-generation.json`.
 - decision: `corrected_profile_pilot_design_admit_config_generation`
 - next: `m1207-paper-route-corrected-profile-config-generation`
+
+## 20260528T061138Z - m1207-paper-route-corrected-profile-config-generation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1207-paper-route-corrected-profile-config-generation.md`
+- run dir: `runs/m1207_corrected_profile_config_generation`
+- result: generates eight corrected public pilot configs under `configs/paper_route_corrected_profiles`.
+- current-tiled controls: `L2_window_13_current_tiled` and `L2_window_25_current_tiled` preserve source L2 temporal-GRU capacity while setting `history_transform=current_tiled`.
+- corrected reset control: `L3_reset_control_corrected` records `reset_hidden_policy=every_step_control` and `eval_reset_hidden_policy_enforced=true`.
+- protocol metadata: seed base `110600`, offsets `[0, 1, 2]`, `8192` PPO steps per seed, CPU/sync vector, public eval seed base `120600`, and `64` public eval episodes per checkpoint.
+- focused verification: `28 passed, 1 warning` across corrected config, runtime mask, generated config, train-entrypoint mask, and reset-policy tests.
+- guardrail: no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, actor-input expansion, self-identification claim, profile superiority claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1208-paper-route-corrected-profile-config-smoke-run.json`.
+- decision: `corrected_profile_configs_generated_route_to_config_smoke`
+- next: `m1208-paper-route-corrected-profile-config-smoke-run`

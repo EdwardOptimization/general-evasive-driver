@@ -1,0 +1,163 @@
+{
+  "id": "m1208-paper-route-corrected-profile-config-smoke-run",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "configs/paper_route_corrected_profiles",
+      "runs/m1207_corrected_profile_config_generation/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1207-paper-route-corrected-profile-config-generation.json"
+    ],
+    "parent_objective": [
+      "no-training corrected profile runtime/config smoke"
+    ],
+    "derived_from": [
+      "m1207-paper-route-corrected-profile-config-generation"
+    ],
+    "blocked_by": [
+      "generated corrected configs have not yet been instantiated through the runtime train/eval paths"
+    ],
+    "supersedes": [
+      "running corrected pilot directly after config generation"
+    ],
+    "invalidates": [
+      "corrected PPO pilot without generated-config smoke evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1208-paper-route-corrected-profile-config-smoke-run.md",
+  "public_gates": [
+    "M1208 may instantiate generated corrected configs and run no-training runtime/config checks only",
+    "M1208 must verify current-tiled transforms in generated L2 configs",
+    "M1208 must verify corrected L3 reset-control metadata and evaluation policy routing",
+    "M1208 must not train controllers",
+    "M1208 must not run PPO",
+    "M1208 must not run candidate replay",
+    "M1208 must not promote",
+    "M1208 must not use private holdout",
+    "M1208 must not tune profiles",
+    "M1208 must not claim profile superiority or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not tune profiles",
+    "do not promote",
+    "do not claim performance evidence from smoke checks",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_corrected_profile_config_smoke: generated config runtime readiness",
+    "evidence_increment": "checks that generated corrected configs can be loaded and routed through runtime profile controls before any training",
+    "claim_scope": "infrastructure only; no training promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if any generated config cannot instantiate AutoDriftEnv and ActorCritic",
+      "stop if current-tiled controls do not transform generated L2 observations",
+      "stop if corrected reset-control metadata cannot route to every-step-control evaluation",
+      "stop if smoke checks require hidden or oracle inputs"
+    ],
+    "fallback_plan": [
+      "route to config-generation repair if generated configs are malformed",
+      "route to runtime-mask repair if current-tiled checks fail",
+      "route to evaluator repair if reset-control routing fails",
+      "route to corrected pilot run if all no-training smoke checks pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1207 generated corrected configs and M1208 must validate them before training",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "no-training corrected profile config/runtime smoke",
+    "admission_evidence": [
+      "M1207 generated the corrected config set",
+      "M1204 already smoke-tested temporary corrected controls",
+      "M1206 fixed the corrected pilot budget and semantics"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make performance or self-ID claims"
+    ],
+    "allowed_updates": [
+      "no-training smoke run artifacts",
+      "M1208 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "all generated corrected configs load",
+      "current-tiled generated configs transform reset and step observations",
+      "corrected reset-control generated config routes to every-step-control evaluation semantics",
+      "next corrected pilot run milestone is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1208 checks controls that will later test current-frame substitution risk but does not itself produce self-ID evidence.",
+    "history_necessity_tests": [
+      "generated_config_current_tiled_l2_runtime_smoke",
+      "generated_config_corrected_l3_reset_control_smoke"
+    ],
+    "temporal_evidence_window": "No-training runtime/config smoke only; later pilot may evaluate temporal evidence.",
+    "negative_result_policy": "If generated configs fail runtime smoke, repair infrastructure instead of weakening comparison standards.",
+    "allowed_claims": [
+      "generated corrected config runtime readiness",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Generated corrected profile configs can be loaded through runtime paths and express current-tiled and corrected reset-control semantics without training.",
+  "success_criteria": [
+    "docs/m1208-paper-route-corrected-profile-config-smoke-run.md exists",
+    "runs/m1208_corrected_profile_config_smoke/summary.json exists",
+    "all generated corrected configs instantiate env and actor models",
+    "current-tiled generated configs pass reset/step transform checks",
+    "corrected reset-control config routes to every-step-control evaluation semantics",
+    "private holdout remains unused",
+    "no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, or actor-input contract expansion occurs",
+    "next corrected pilot-run milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1208 trains or tunes profiles",
+    "private holdout is used",
+    "any generated config cannot instantiate",
+    "current-tiled generated config does not apply the transform",
+    "corrected reset-control semantics are not enforceable",
+    "hidden or oracle actor inputs are introduced"
+  ],
+  "commands": [
+    {
+      "name": "corrected_config_smoke",
+      "command": "run no-training generated corrected profile config/runtime smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1208-paper-route-corrected-profile-config-smoke-run.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m1208_corrected_profile_config_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "runs/m1207_corrected_profile_config_generation/summary.json",
+    "configs/paper_route_corrected_profiles"
+  ],
+  "decision_rule": "M1208 passes if generated corrected configs load and runtime semantics are verified without training, tuning, promotion, private holdout, or claim expansion.",
+  "next_blocker": "m1208-paper-route-corrected-profile-config-smoke-run"
+}

@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M1207 generates eight corrected profile configs including two current-tiled L2 capacity controls and corrected L3 reset-control metadata with focused config/runtime tests passing and no training PPO promotion private holdout or claim expansion",
+  "failure_criteria": [
+    "M1207 trains or tunes profiles",
+    "private holdout is used",
+    "configs omit current-tiled controls or corrected reset semantics",
+    "hidden or oracle actor inputs are introduced",
+    "generated configs change reward/env distribution unfairly"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not tune profiles",
+    "do not promote",
+    "do not claim performance evidence from configs",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T061353Z",
+  "hypothesis": "Corrected profile configs can be generated under the M1206 protocol without hidden inputs or training.",
+  "lineage": {
+    "blocked_by": [
+      "M1206 fixes corrected pilot protocol but committed configs for current-tiled controls do not yet exist"
+    ],
+    "derived_from": [
+      "m1206-paper-route-corrected-profile-pilot-design"
+    ],
+    "invalidates": [
+      "training corrected controls without config contract checks"
+    ],
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1206-paper-route-corrected-profile-pilot-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1206-paper-route-corrected-profile-pilot-design.md"
+    ],
+    "parent_objective": [
+      "generate corrected public pilot configs before training"
+    ],
+    "supersedes": [
+      "running corrected pilot from ad hoc temporary configs"
+    ]
+  },
+  "milestone": "m1207-paper-route-corrected-profile-config-generation",
+  "next_blocker": "m1208-paper-route-corrected-profile-config-smoke-run",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "corrected_profile_configs_generated_route_to_config_smoke",
+  "public_gates": [
+    "M1207 may generate configs and run config/runtime checks only",
+    "M1207 must not train controllers",
+    "M1207 must not run PPO",
+    "M1207 must not run candidate replay",
+    "M1207 must not promote",
+    "M1207 must not use private holdout",
+    "M1207 must not tune profiles",
+    "M1207 must not claim profile superiority or self-identification"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1207_corrected_profile_config_generation/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "corrected_profile_configs_generated_route_to_config_smoke",
+    "milestone": "m1207-paper-route-corrected-profile-config-generation",
+    "reason": "M1207 generates eight corrected profile configs including two current-tiled L2 capacity controls and corrected L3 reset-control metadata with focused config/runtime tests passing and no training PPO promotion private holdout or claim expansion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1207-paper-route-corrected-profile-config-generation.md exists",
+    "corrected configs are generated or a focused blocker is recorded",
+    "config contract checks pass",
+    "private holdout remains unused",
+    "no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, or actor-input contract expansion occurs",
+    "next corrected smoke or pilot-run milestone is selected"
+  ],
+  "type": "infrastructure"
+}

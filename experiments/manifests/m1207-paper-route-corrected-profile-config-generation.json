@@ -148,5 +148,5 @@
     "docs/m1206-paper-route-corrected-profile-pilot-design.md"
   ],
   "decision_rule": "M1207 passes if corrected configs are materialized and checked without training, tuning, promotion, private holdout, or claim expansion.",
-  "next_blocker": "m1207-paper-route-corrected-profile-config-generation"
+  "next_blocker": "m1208-paper-route-corrected-profile-config-smoke-run"
 }

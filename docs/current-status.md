@@ -115,8 +115,48 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1207-paper-route-corrected-profile-config-generation
+m1208-paper-route-corrected-profile-config-smoke-run
 ```
+
+M1207 completed corrected profile config generation:
+
+```text
+artifact: docs/m1207-paper-route-corrected-profile-config-generation.md
+run dir: runs/m1207_corrected_profile_config_generation
+decision: corrected_profile_configs_generated_route_to_config_smoke
+```
+
+M1207 generated eight corrected profile configs under:
+
+```text
+configs/paper_route_corrected_profiles
+```
+
+Generated set:
+
+```text
+L0_current_masked
+L1_one_step
+L2_window_13
+L2_window_13_current_tiled
+L2_window_25
+L2_window_25_current_tiled
+L3_online_gru
+L3_reset_control_corrected
+```
+
+Key semantics:
+
+```text
+L2_window_13_current_tiled: capacity-matched temporal-GRU with older frames replaced by frame 0
+L2_window_25_current_tiled: capacity-matched temporal-GRU with older frames replaced by frame 0
+L3_reset_control_corrected: online-GRU reset-control metadata with every_step_control eval policy
+```
+
+Focused tests passed (`28 passed, 1 warning`). M1207 did not train controllers,
+run PPO, use private holdout, promote, tune profiles, or claim self-ID/profile
+superiority. M1208 must smoke-test the generated configs through runtime paths
+before any corrected public pilot training.
 
 M1206 completed the corrected public pilot design:
 
@@ -138,7 +178,8 @@ L3_online_gru
 L3_reset_control_corrected
 ```
 
-M1207 must materialize these configs and checks before any corrected PPO run.
+M1207 materialized these configs; M1208 must now load and smoke-test them before
+any corrected PPO run.
 
 M1205 completed the finite-window vs GRU evidence synthesis:
 
@@ -153,31 +194,10 @@ finite-window history necessity, GRU recurrent-belief advantage, self-ID, or
 paper-level architecture ranking. The next branch step is M1206 corrected public
 pilot design.
 
-M1204 completed the no-training corrected-control runtime smoke:
-
-```text
-artifact: docs/m1204-paper-route-profile-control-repair-smoke-run.md
-run dir: runs/m1204_profile_control_repair_smoke
-decision: profile_control_repair_smoke_pass_route_to_corrected_pilot_design
-```
-
-M1204 result:
-
-```text
-all_smoke_checks_passed: true
-single_env_reset_tiled: true
-single_env_step_tiled: true
-raw_step_was_not_tiled: true
-vector_env_reset_tiled: true
-vector_env_step_tiled: true
-reset_policy_honored: true
-l3_reset_runtime_policy: every_step_control
-```
-
-Next is M1205 branch synthesis because the workflow cadence fired. Do not run
-corrected PPO or even design the corrected pilot until M1195-M1204 evidence,
-failure modes, public-gate overfit risk, and next-branch decision are
-synthesized.
+M1204 completed the no-training corrected-control runtime smoke, and M1205
+synthesized the branch before M1206/M1207. Those earlier results remain the
+reason M1208 is allowed to smoke-test generated configs, not a reason to skip
+the generated-config smoke.
 
 M1203 completed profile control repair implementation:
 

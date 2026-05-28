@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1216,
+    "completed": 1217,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1206-paper-route-corrected-profile-pilot-design.md",
+    "command_log": "docs/m1207-paper-route-corrected-profile-config-generation.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1207_corrected_profile_config_generation",
     "status": "completed",
-    "task_id": "m1206-paper-route-corrected-profile-pilot-design"
+    "task_id": "m1207-paper-route-corrected-profile-config-generation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1207-paper-route-corrected-profile-config-generation.json",
-    "hypothesis": "Corrected profile configs can be generated under the M1206 protocol without hidden inputs or training.",
-    "id": "m1207-paper-route-corrected-profile-config-generation",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize corrected current-tiled and reset-control configs before training",
-    "priority": 12020,
+    "command": "see experiments/manifests/m1208-paper-route-corrected-profile-config-smoke-run.json",
+    "hypothesis": "Generated corrected profile configs can be loaded through runtime paths and express current-tiled and corrected reset-control semantics without training.",
+    "id": "m1208-paper-route-corrected-profile-config-smoke-run",
+    "kind": "gate",
+    "notes": "Pending: load generated configs and verify current-tiled/reset-control runtime semantics before corrected pilot training",
+    "priority": 12030,
     "status": "pending",
-    "success_artifact": "docs/m1207-paper-route-corrected-profile-config-generation.md"
+    "success_artifact": "docs/m1208-paper-route-corrected-profile-config-smoke-run.md"
   },
-  "updated_at_utc": "20260528T060313Z"
+  "updated_at_utc": "20260528T061138Z"
 }
