@@ -17844,3 +17844,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1240-paper-route-extreme-fault-source-generation-synthesis.json`.
 - decision: `extreme_fault_sequence_negative_audit_route_to_branch_synthesis`
 - next: `m1240-paper-route-extreme-fault-source-generation-synthesis`
+
+## 20260528T090330Z - m1240-paper-route-extreme-fault-source-generation-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md`
+- result: synthesizes M1232-M1239 and closes the same-source `paper_route_extreme_fault_source_generation` path.
+- supported: source harness compatibility, actor-contract preservation, current-model/proxy fault boundaries, normal-history timing repair, and successful sequence-probe execution.
+- negative evidence: M1236 repaired normal survival but single hidden swaps remained history-insensitive; M1238 ran six sequence variants over `6912` intervention rows and found zero action-critical or accepted sequence rows.
+- blocked claims: cross-fault wrong-history proof, temporal-history sequence proof, history necessity, recurrent belief, self-identification, training/PPO readiness, promotion, paper-level result, and true per-wheel/asymmetric physical fault claims.
+- overfit risk: high for continuing more same-source variants; the branch should not lower thresholds or keep tuning around M1236/M1238.
+- synthesis decision: `promote_to_next_branch`.
+- closed branch: `paper_route_extreme_fault_source_generation`.
+- opened branch: `paper_route_capability_separable_source_construction`.
+- next branch question: first prove that matched-current hidden-dynamics cases actually require different actions or short action sequences, then test whether the actor's history can recover that difference.
+- guardrail: no new experiment, training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1241-paper-route-capability-separable-source-construction-design.json`.
+- decision: `extreme_fault_source_generation_synthesis_promote_to_capability_separable_source_construction`
+- next: `m1241-paper-route-capability-separable-source-construction-design`

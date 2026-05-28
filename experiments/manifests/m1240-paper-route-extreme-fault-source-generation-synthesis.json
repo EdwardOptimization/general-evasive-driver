@@ -88,7 +88,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1239 routes to synthesis after no sequence signal in M1238",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "promote_to_next_branch",
     "synthesis_artifact": "docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -178,6 +178,20 @@
     "docs/m1239-paper-route-extreme-fault-sequence-negative-audit.md",
     "runs/m1238_extreme_fault_sequence_intervention_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md",
+    "decision": "extreme_fault_source_generation_synthesis_promote_to_capability_separable_source_construction",
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "paper_route_extreme_fault_source_generation",
+    "opened_branch": "paper_route_capability_separable_source_construction",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false
+  },
+  "decision": "extreme_fault_source_generation_synthesis_promote_to_capability_separable_source_construction",
   "decision_rule": "M1240 passes if it makes a concrete next-branch decision without claim expansion.",
-  "next_blocker": "m1240-paper-route-extreme-fault-source-generation-synthesis"
+  "next_blocker": "m1241-paper-route-capability-separable-source-construction-design"
 }

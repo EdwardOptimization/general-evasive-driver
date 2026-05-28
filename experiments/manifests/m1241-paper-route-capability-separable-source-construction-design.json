@@ -1,0 +1,151 @@
+{
+  "id": "m1241-paper-route-capability-separable-source-construction-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md",
+      "runs/m1238_extreme_fault_sequence_intervention_probe/summary.json",
+      "runs/m1236_extreme_fault_timing_repair_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1240-paper-route-extreme-fault-source-generation-synthesis.json"
+    ],
+    "parent_objective": [
+      "design a source-construction branch that first proves hidden dynamics require different actions under matched current observations"
+    ],
+    "derived_from": [
+      "m1240-paper-route-extreme-fault-source-generation-synthesis"
+    ],
+    "blocked_by": [
+      "M1240 closes the same-source extreme/fault path after no-signal sequence evidence"
+    ],
+    "supersedes": [
+      "more same-source extreme/fault hidden-swap or sequence variants"
+    ],
+    "invalidates": [
+      "assuming hidden-dynamics randomization automatically creates self-ID-critical cases"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1241-paper-route-capability-separable-source-construction-design.md",
+  "public_gates": [
+    "M1241 may design source construction only",
+    "M1241 must preserve actor input contract",
+    "M1241 must not train controllers",
+    "M1241 must not run PPO",
+    "M1241 must not use private holdout",
+    "M1241 must not promote",
+    "M1241 must keep hidden dynamics and oracle/source labels out of deployable actor inputs",
+    "M1241 must define a bounded first implementation step"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters or oracle labels to actor inputs",
+    "do not claim self-identification from source construction alone",
+    "do not use a rule controller as a deployable actor"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_capability_separable_source_construction",
+    "evidence_axis": "S_capability_separable_source_design",
+    "evidence_increment": "opens a new branch that validates action separability before actor history tests",
+    "claim_scope": "process/design only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if source construction depends on oracle labels as actor inputs",
+      "stop if action separability gates are not defined",
+      "stop if first implementation step is too broad to validate"
+    ],
+    "fallback_plan": [
+      "narrow to one hidden-dynamics axis first",
+      "use a small action-sequence lattice before adding optimizers",
+      "route to simulator extension only if current model cannot create separable cases"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1240 opens the capability-separable source construction branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "capability-separable source-construction design",
+    "admission_evidence": [
+      "M1238 no-signal result suggests random/proxy fault sources do not guarantee history-critical cases",
+      "M1240 requires proving hidden dynamics action separability before actor self-ID tests"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1241 design docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "action separability criterion is specified",
+      "source artifacts are specified",
+      "bounded first implementation step is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1241 is source-construction design and does not yet test actor history necessity.",
+    "history_necessity_tests": [
+      "design matched-current hidden-dynamics action-separability gates",
+      "future actor tests must still use human-view inputs only"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked until source-separable cases are constructed and actor history interventions pass.",
+    "negative_result_policy": "If current simulator cannot create action-separable hidden-dynamics cases, record the limitation and route to simulator extension or task redesign.",
+    "allowed_claims": [
+      "capability-separable source-construction design",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A source-construction branch that first proves hidden dynamics require different actions is higher leverage than more random hidden-fault intervention tests.",
+  "success_criteria": [
+    "docs/m1241-paper-route-capability-separable-source-construction-design.md exists",
+    "action-separability criterion is specified",
+    "source artifacts are specified",
+    "actor-input guardrails are specified",
+    "first bounded implementation step is selected",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "M1241 trains or tunes profiles",
+    "private holdout is used",
+    "hidden dynamics labels are added to actor inputs",
+    "action-separability gates are left vague",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "write_capability_separable_source_design",
+      "command": "write docs/m1241-paper-route-capability-separable-source-construction-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1241-paper-route-capability-separable-source-construction-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md"
+  ],
+  "decision_rule": "M1241 passes if it defines a bounded action-separable source-construction route with actor-input guardrails and a concrete first implementation step.",
+  "next_blocker": "m1241-paper-route-capability-separable-source-construction-design"
+}

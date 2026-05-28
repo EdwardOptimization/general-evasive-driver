@@ -115,7 +115,36 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1240-paper-route-extreme-fault-source-generation-synthesis
+m1241-paper-route-capability-separable-source-construction-design
+```
+
+M1240 completed extreme/fault source-generation synthesis:
+
+```text
+artifact: docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md
+decision: extreme_fault_source_generation_synthesis_promote_to_capability_separable_source_construction
+synthesis_decision: promote_to_next_branch
+closed branch: paper_route_extreme_fault_source_generation
+opened branch: paper_route_capability_separable_source_construction
+```
+
+M1240 conclusion:
+
+```text
+The same-source extreme/fault path produced useful infrastructure and negative
+evidence, but it did not expose history-necessity signal. M1236 repaired normal
+survival; M1238 still found zero action-critical or accepted sequence rows.
+```
+
+Next task:
+
+```text
+artifact: docs/m1241-paper-route-capability-separable-source-construction-design.md
+manifest: experiments/manifests/m1241-paper-route-capability-separable-source-construction-design.json
+goal: design matched-current hidden-dynamics action-separability source
+      construction before actor self-ID tests
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1239 completed extreme/fault sequence negative audit:

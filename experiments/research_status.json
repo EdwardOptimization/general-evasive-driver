@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1249,
+    "completed": 1250,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1239-paper-route-extreme-fault-sequence-negative-audit.md",
+    "command_log": "docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1239-paper-route-extreme-fault-sequence-negative-audit"
+    "task_id": "m1240-paper-route-extreme-fault-source-generation-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1240-paper-route-extreme-fault-source-generation-synthesis.json",
-    "hypothesis": "Synthesize extreme/fault source-generation branch",
-    "id": "m1240-paper-route-extreme-fault-source-generation-synthesis",
+    "command": "see experiments/manifests/m1241-paper-route-capability-separable-source-construction-design.json",
+    "hypothesis": "Design capability-separable source construction",
+    "id": "m1241-paper-route-capability-separable-source-construction-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1232-M1239 and choose continue, pivot, stop, or promote_to_next_branch before any new experiments",
-    "priority": 12350,
+    "notes": "Pending: define matched-current hidden-dynamics action-separability source construction before actor history tests",
+    "priority": 12360,
     "status": "pending",
-    "success_artifact": "docs/m1240-paper-route-extreme-fault-source-generation-synthesis.md"
+    "success_artifact": "docs/m1241-paper-route-capability-separable-source-construction-design.md"
   },
-  "updated_at_utc": "20260528T085700Z"
+  "updated_at_utc": "20260528T090330Z"
 }
