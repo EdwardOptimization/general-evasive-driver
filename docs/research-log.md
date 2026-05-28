@@ -16586,3 +16586,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no mining, relocation, actor training, PPO, promotion, private holdout, actor-input change, threshold weakening, or failed-surface conversion occurred.
 - decision: `row15_promoted_relocation_expansion_design_admit_run`
 - next: `m1164-v4-public-base-row15-promoted-relocation-expansion-run`
+
+## 20260528T015200Z - m1164-v4-public-base-row15-promoted-relocation-expansion-run
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1164-v4-public-base-row15-promoted-relocation-expansion-run.md`
+- result: M1164 is a resource-scope failure, not a scientific surface result.
+- command: bounded relocation expansion over existing M1161 outcome rows with `1600` candidates and a `3 x 3` body-offset grid.
+- runtime: interrupted after roughly `33` minutes with no summary artifact and an empty run directory.
+- process observation: command was using about `100%` CPU and about `1.48 GB` RSS when checked.
+- guardrail: no actor training, PPO, promotion, private holdout, actor-input change, new mining, outcome rerun, threshold weakening, or surface conversion occurred.
+- decision: `row15_promoted_relocation_expansion_resource_failure_route_to_staged_design`
+- next: `m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design`

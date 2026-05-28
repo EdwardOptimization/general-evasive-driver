@@ -1,0 +1,161 @@
+{
+  "id": "m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1164-v4-public-base-row15-promoted-relocation-expansion-run.md",
+      "docs/m1163-v4-public-base-row15-promoted-relocation-expansion-design.md",
+      "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1164-v4-public-base-row15-promoted-relocation-expansion-run.json"
+    ],
+    "parent_objective": [
+      "redesign relocation expansion as a staged resource-bounded diagnostic after M1164 was too large"
+    ],
+    "derived_from": [
+      "m1164-v4-public-base-row15-promoted-relocation-expansion-run"
+    ],
+    "blocked_by": [
+      "M1164 resource scope was too large for the interactive research loop and produced no summary artifact"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "rerunning M1164 unchanged",
+      "claiming wrong-history surface failure from interrupted M1164",
+      "weakening thresholds to compensate for runtime"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design.md",
+  "public_gates": [
+    "M1165 must design a smaller staged relocation diagnostic only",
+    "M1165 must not run relocation",
+    "M1165 must not run mining",
+    "M1165 must not rerun outcome gate",
+    "M1165 must not train actor weights",
+    "M1165 must not run PPO",
+    "M1165 must not promote",
+    "M1165 must not use private holdout",
+    "M1165 must preserve actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun M1164 unchanged",
+    "do not run relocation",
+    "do not run mining",
+    "do not rerun outcome gate",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not weaken scientific acceptance thresholds"
+  ],
+  "workflow_synthesis": {
+    "branch": "row15_promoted_margin_slack_surface_refresh",
+    "evidence_axis": "G_design: staged relocation expansion after resource failure",
+    "evidence_increment": "turns the oversized M1164 expansion into a small pilot that can produce diagnostic evidence without exhausting the loop",
+    "claim_scope": "design only; no relocation run, mining, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if the pilot cannot be bounded to a small resource budget",
+      "stop if the pilot would weaken acceptance thresholds rather than stage resource use",
+      "stop if no diagnostic metric can compare against M1161"
+    ],
+    "fallback_plan": [
+      "if staged relocation is still too expensive, pivot to offline analysis of M1161 rows",
+      "if pilot is clear, run the pilot next",
+      "if pilot shows no improvement later, classify wrong-history intervention scarcity"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1164 resource-scope failure",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design a resource-bounded relocation pilot",
+    "admission_evidence": [
+      "M1164 ran for roughly 33 minutes with no summary artifact",
+      "M1164 did not rerun mining or outcome gate",
+      "M1164 provides no scientific surface result"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not rerun M1164 unchanged",
+      "do not convert the failed M1161 surface",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "design document",
+      "next pilot manifest if design is clear",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "pilot resource bounds are explicit",
+      "pilot diagnostic metrics are explicit",
+      "scientific thresholds remain unchanged",
+      "next run command is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1165 designs a resource-bounded surface diagnostic and cannot upgrade to anticipatory self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history",
+      "normal vs reset-hidden",
+      "normal vs zero-current-response",
+      "normal vs zero-action-history",
+      "normal vs delayed-history"
+    ],
+    "temporal_evidence_window": "M1165 designs a pilot over existing M1161 outcomes only.",
+    "negative_result_policy": "If the pilot later fails, classify no-improvement versus partial-improvement before any new mining.",
+    "allowed_claims": [
+      "resource-bounded relocation diagnostic design",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "A staged relocation pilot can test whether body-offset expansion improves wrong-history accepted surface quality without the resource cost of M1164.",
+  "success_criteria": [
+    "design artifact exists",
+    "pilot command is explicit",
+    "pilot resource bounds are explicit",
+    "diagnostic comparison to M1161 is explicit",
+    "scientific acceptance thresholds remain unchanged",
+    "no actor training, PPO, relocation run, mining, outcome rerun, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "resource bounds remain ambiguous",
+    "next route is ambiguous",
+    "actor training, PPO, relocation run, mining, outcome rerun, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_staged_relocation_design",
+      "command": "write docs/m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1164-v4-public-base-row15-promoted-relocation-expansion-run.md",
+    "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
+  ],
+  "decision_rule": "M1165 may only design a staged relocation-expansion pilot after the M1164 resource-scope failure. It cannot run relocation, mining, outcome gate, actor training, PPO, promotion, private holdout, actor-input changes, or threshold weakening.",
+  "next_blocker": "m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design"
+}

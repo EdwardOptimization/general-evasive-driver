@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1164 may only run the bounded relocation expansion over existing M1161 outcomes and classify the result. It cannot rerun mining or outcome gates, train actor weights, run PPO, promote, use private holdout, change actor inputs, weaken thresholds, or convert the surface in this milestone.",
+  "decision_reason": "M1164 was interrupted after roughly 33 minutes with no summary artifact so it provides a resource-scope failure and routes to staged relocation design",
   "failure_criteria": [
     "summary artifact is missing",
     "source_budget_ready is false",
@@ -10,7 +10,7 @@
     "actor training, PPO, promotion, private holdout, mining rerun, outcome rerun, or actor-input change starts"
   ],
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "forbidden_shortcuts": [
     "do not rerun mining",
@@ -24,7 +24,7 @@
     "do not convert the surface in this milestone"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260528T003533Z",
+  "generated_at_utc": "20260528T011321Z",
   "hypothesis": "Bounded body-frame relocation expansion over existing M1161 outcomes can recover a source-diverse wrong-history margin-slack surface without weakening acceptance thresholds.",
   "lineage": {
     "blocked_by": [
@@ -54,9 +54,9 @@
     "supersedes": []
   },
   "milestone": "m1164-v4-public-base-row15-promoted-relocation-expansion-run",
-  "next_blocker": "m1164-v4-public-base-row15-promoted-relocation-expansion-run",
+  "next_blocker": "m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "row15_promoted_relocation_expansion_resource_failure_route_to_staged_design",
   "public_gates": [
     "M1164 may run only the M1163 relocation-expansion command",
     "M1164 must reuse the existing M1161 outcome CSV",
@@ -69,7 +69,20 @@
     "M1164 must not use private holdout",
     "M1164 must preserve actor inputs"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1164-v4-public-base-row15-promoted-relocation-expansion-run.md",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_relocation_expansion_resource_failure_route_to_staged_design",
+    "milestone": "m1164-v4-public-base-row15-promoted-relocation-expansion-run",
+    "reason": "M1164 was interrupted after roughly 33 minutes with no summary artifact so it provides a resource-scope failure and routes to staged relocation design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "summary artifact exists",
     "source_budget_ready == true",

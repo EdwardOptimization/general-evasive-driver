@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T003533Z
+- Generated at UTC: 20260528T011321Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M1164 may only run the bounded relocation expansion over existing M1161 outcomes and classify the result. It cannot rerun mining or outcome gates, train actor weights, run PPO, promote, use private holdout, change actor inputs, weaken thresholds, or convert the surface in this milestone.
+- Promotion decision: row15_promoted_relocation_expansion_resource_failure_route_to_staged_design
+- Decision reason: M1164 was interrupted after roughly 33 minutes with no summary artifact so it provides a resource-scope failure and routes to staged relocation design
 
 ## Hypothesis
 
@@ -80,12 +80,23 @@ Bounded body-frame relocation expansion over existing M1161 outcomes can recover
 
 ## Failure Taxonomy
 
-- none
+- scenario_sampling_failure
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1164-v4-public-base-row15-promoted-relocation-expansion-run
+- type: gate
+- checkpoint: docs/m1164-v4-public-base-row15-promoted-relocation-expansion-run.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_relocation_expansion_resource_failure_route_to_staged_design
+- reason: M1164 was interrupted after roughly 33 minutes with no summary artifact so it provides a resource-scope failure and routes to staged relocation design
 
 ## Next Blocker
 
-m1164-v4-public-base-row15-promoted-relocation-expansion-run
+m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design

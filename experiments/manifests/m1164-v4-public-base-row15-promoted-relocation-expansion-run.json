@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -169,6 +169,33 @@
     "docs/m1163-v4-public-base-row15-promoted-relocation-expansion-design.md",
     "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1164-v4-public-base-row15-promoted-relocation-expansion-run.md",
+    "decision": "row15_promoted_relocation_expansion_resource_failure_route_to_staged_design",
+    "result_class": "row15_promoted_relocation_expansion_resource_scope_failure",
+    "failure_types": [
+      "scenario_sampling_failure"
+    ],
+    "summary_missing": true,
+    "run_dir": "runs/m1164_row15_promoted_relocation_expansion_seed116100",
+    "run_dir_empty_after_interrupt": true,
+    "interrupted_after_minutes": 33,
+    "resource_scope_too_large": true,
+    "scientific_surface_result_available": false,
+    "rerun_matched_current_mining": false,
+    "rerun_outcome_gate": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "thresholds_weakened": false,
+    "surface_converted": false,
+    "admitted_next": "staged_relocation_expansion_design",
+    "next_milestone": "m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design"
+  },
   "decision_rule": "M1164 may only run the bounded relocation expansion over existing M1161 outcomes and classify the result. It cannot rerun mining or outcome gates, train actor weights, run PPO, promote, use private holdout, change actor inputs, weaken thresholds, or convert the surface in this milestone.",
-  "next_blocker": "m1164-v4-public-base-row15-promoted-relocation-expansion-run"
+  "next_blocker": "m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design"
 }

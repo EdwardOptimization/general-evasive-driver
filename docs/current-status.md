@@ -84,7 +84,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1164-v4-public-base-row15-promoted-relocation-expansion-run
+m1165-v4-public-base-row15-promoted-staged-relocation-expansion-design
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -614,6 +614,15 @@ The expansion uses `1600` candidates, body longitudinal offsets
 acceptance thresholds. It must not rerun mining or the outcome gate, train,
 run PPO, promote, use private holdout, change actor inputs, weaken thresholds,
 or convert the surface in the same milestone.
+
+M1164 attempted that expansion but was interrupted after roughly `33` minutes
+with no summary artifact and an empty run directory. This is a resource-scope
+failure, not evidence that relocation expansion cannot recover a surface.
+
+M1165 should redesign the expansion as a staged, smaller pilot over the same
+existing M1161 outcome CSV. It should keep scientific acceptance thresholds
+unchanged while reducing the resource footprint enough to produce a diagnostic
+summary.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,
