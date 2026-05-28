@@ -16,22 +16,37 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1395-paper-route-warmup-latched-outcome-probe
+m1396-paper-route-warmup-latched-outcome-result-audit
 ```
 
 Current next task:
 
 ```text
-m1396-paper-route-warmup-latched-outcome-result-audit
+m1397-paper-route-warmup-latched-outcome-full-sweep
 ```
 
-M1395 implemented and ran the no-training warmup-latched outcome probe over
-M1394 matched/bucketed reveal rows. The current public-gate base remains M1362
-alpha `0.1`:
+M1396 audited the sparse M1395 warmup-latched outcome result. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1396 result:
+
+```text
+decision: warmup_latched_outcome_audit_admit_full_sweep_before_redesign
+classification: source_narrow_warmup_duration_signal_not_source_diverse_self_id
+seed_139421_pocket: useful_task_design_clue_not_corpus_source
+wrong_warmup_evidence: unsupported
+delayed_warmup_evidence: unsupported
+next: m1397-paper-route-warmup-latched-outcome-full-sweep
+```
+
+M1396 does not admit training or corpus export. It admits one unchanged
+no-training full sweep over all `604` M1394 matched/bucketed rows, because M1395
+only evaluated `384` rows. M1397 must preserve the same thresholds, intervention
+variants, actor inputs, and public-only data policy.
 
 M1395 result:
 

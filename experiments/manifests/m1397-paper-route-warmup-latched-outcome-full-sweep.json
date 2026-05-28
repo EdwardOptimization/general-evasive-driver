@@ -1,0 +1,153 @@
+{
+  "id": "m1397-paper-route-warmup-latched-outcome-full-sweep",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1396-paper-route-warmup-latched-outcome-result-audit.md",
+      "runs/m1395_warmup_latched_outcome_probe/summary.json",
+      "runs/m1394_warmup_latched_config_smoke/matched_or_bucketed_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1396-paper-route-warmup-latched-outcome-result-audit.json"
+    ],
+    "parent_objective": [
+      "run a no-training full sweep over all M1394 warmup-latched matched/bucketed rows before redesign"
+    ],
+    "derived_from": [
+      "m1396-paper-route-warmup-latched-outcome-result-audit"
+    ],
+    "blocked_by": [
+      "M1395 used a 384-row capped subset and found source-narrow warmup-history positives"
+    ],
+    "supersedes": [
+      "redesigning warmup/reveal sources before ruling out candidate-selection cap effects",
+      "exporting M1395 sparse rows as a corpus"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1397-paper-route-warmup-latched-outcome-full-sweep.md",
+  "public_gates": [
+    "M1397 must use the same no-training M1395 outcome probe over all M1394 matched/bucketed rows",
+    "M1397 must preserve thresholds, actor inputs, intervention variants, and public-only data policy",
+    "M1397 must report whether source-diversity improves beyond M1395",
+    "M1397 must not train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not relax thresholds after seeing M1395",
+    "do not count reset-only or zero-current-only rows as self-identification",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_necessity_task_design",
+    "evidence_axis": "G_warmup_latched_outcome_full_sweep",
+    "evidence_increment": "checks whether M1395 source-narrow sparse evidence was caused by the 384-row candidate cap before redesign",
+    "claim_scope": "public no-training full sweep only; no training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if M1397 remains source-narrow",
+      "stop if positives remain only warmup-removed or shortened variants",
+      "stop if wrong-warmup and delayed-history variants remain zero",
+      "stop if full sweep reveals normal-rollout nonviability dominates"
+    ],
+    "fallback_plan": [
+      "route to warmup/reveal source redesign if source-narrow result persists",
+      "route to result audit if full sweep changes accepted-row diversity materially",
+      "route to branch synthesis if the warmup-latched route remains negative"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "no-training full sweep over M1394 warmup-latched candidates",
+    "admission_evidence": [
+      "M1395 found 12 warmup-history-positive rows but only 1 accepted seed",
+      "M1395 evaluated 384 of 604 M1394 matched/bucketed rows",
+      "M1396 recommends ruling out candidate-cap effects before redesign"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export a training corpus"
+    ],
+    "allowed_updates": [
+      "full-sweep summary artifacts under runs/",
+      "M1397 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "full sweep is materialized or infeasibility is classified",
+      "accepted-row source and reveal diversity are compared to M1395",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1397 must use the same variants and thresholds as M1395 and cannot count reset/zero-current controls or seed-narrow warmup-duration rows as source-diverse self-ID.",
+    "history_necessity_tests": [
+      "full_sweep_wrong_warmup_history_same_reveal",
+      "full_sweep_same_recent_wrong_warmup_history",
+      "full_sweep_delayed_warmup_history",
+      "full_sweep_warmup_removed_or_shortened"
+    ],
+    "temporal_evidence_window": "No-training full sweep over M1394 warmup-latched matched/bucketed reveal rows.",
+    "negative_result_policy": "If the full sweep stays source-narrow or control-dominated, record the negative and route to redesign or synthesis before training.",
+    "allowed_claims": [
+      "public full-sweep outcome-intervention result",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A full no-training sweep over all M1394 matched/bucketed rows can determine whether M1395 source-narrow warmup-history positives were caused by candidate-selection cap effects.",
+  "success_criteria": [
+    "runs/m1397_warmup_latched_outcome_full_sweep/summary.json exists",
+    "full-sweep accepted-row source and reveal-bucket diversity are reported",
+    "result compares source diversity against M1395 and chooses next route without training, PPO, promotion, private holdout, training corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "full-sweep artifact is missing",
+    "source or reveal-bucket diversity is not reported",
+    "M1395 comparison is missing",
+    "result routes directly to training or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "full_sweep",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.warmup_latched_outcome_probe --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m991_capability_step_fault_source_wave.json --candidate-rows runs/m1394_warmup_latched_config_smoke/matched_or_bucketed_rows.csv --max-candidate-rows 0 --per-capability-pair-cap 128 --history-length 36 --recent-window-length 4 --max-continuation-steps 48 --device cpu --run-dir runs/m1397_warmup_latched_outcome_full_sweep"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1397_warmup_latched_outcome_full_sweep/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1396-paper-route-warmup-latched-outcome-result-audit.md",
+    "runs/m1395_warmup_latched_outcome_probe/summary.json",
+    "runs/m1394_warmup_latched_config_smoke/matched_or_bucketed_rows.csv"
+  ],
+  "decision_rule": "M1397 passes structurally if it completes the full no-training sweep and compares accepted-row source diversity against M1395 without claim expansion.",
+  "next_blocker": "m1397-paper-route-warmup-latched-outcome-full-sweep"
+}

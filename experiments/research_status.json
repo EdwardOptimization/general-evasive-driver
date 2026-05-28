@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1405,
+    "completed": 1406,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1395-paper-route-warmup-latched-outcome-probe.md",
+    "command_log": "docs/m1396-paper-route-warmup-latched-outcome-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1395_warmup_latched_outcome_probe",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1395-paper-route-warmup-latched-outcome-probe"
+    "task_id": "m1396-paper-route-warmup-latched-outcome-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1396-paper-route-warmup-latched-outcome-result-audit.json",
-    "hypothesis": "A process audit can determine whether M1395 sparse warmup-history positives are a useful task-design clue or a singleton artifact, and choose the next route without training.",
-    "id": "m1396-paper-route-warmup-latched-outcome-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M1395 sparse result before any corpus export, training, or source expansion",
-    "priority": 13910,
+    "command": "see experiments/manifests/m1397-paper-route-warmup-latched-outcome-full-sweep.json",
+    "hypothesis": "A full no-training sweep over all M1394 matched/bucketed rows can determine whether M1395 source-narrow warmup-history positives were caused by candidate-selection cap effects.",
+    "id": "m1397-paper-route-warmup-latched-outcome-full-sweep",
+    "kind": "infrastructure",
+    "notes": "Pending: run full no-training sweep over all M1394 matched/bucketed rows before redesign or synthesis",
+    "priority": 13920,
     "status": "pending",
-    "success_artifact": "docs/m1396-paper-route-warmup-latched-outcome-result-audit.md"
+    "success_artifact": "runs/m1397_warmup_latched_outcome_full_sweep/summary.json"
   },
-  "updated_at_utc": "20260529T020000Z"
+  "updated_at_utc": "20260529T021000Z"
 }

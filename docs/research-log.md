@@ -20580,3 +20580,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: `actor_parameters_changed=false`, `training_started=false`, `evaluation_started=false`, `ppo_used=false`, `promoted=false`, `private_holdout_used=false`, `training_corpus_exported=false`, `actor_input_contract_changed=false`.
 - follow-up manifest: `experiments/manifests/m1396-paper-route-warmup-latched-outcome-result-audit.json`.
 - next: `m1396-paper-route-warmup-latched-outcome-result-audit`
+
+## 20260529T021000Z - m1396-paper-route-warmup-latched-outcome-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1396-paper-route-warmup-latched-outcome-result-audit.md`
+- decision: `warmup_latched_outcome_audit_admit_full_sweep_before_redesign`
+- classification: M1395 is a source-narrow warmup-duration signal, not source-diverse wrong-history or delayed-history evidence.
+- seed pocket: seed `139421` is useful as a task-design clue but not a corpus source.
+- unsupported variants: `wrong_warmup_history_same_reveal`, `same_recent_wrong_warmup_history`, `delayed_warmup_history_8`, and `delayed_warmup_history_16` have zero outcome-critical rows in M1395.
+- rationale: M1395 evaluated 384 of 604 M1394 matched/bucketed rows; one unchanged full no-training sweep can rule out candidate-cap effects before redesign.
+- guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1397-paper-route-warmup-latched-outcome-full-sweep.json`.
+- next: `m1397-paper-route-warmup-latched-outcome-full-sweep`

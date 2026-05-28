@@ -2,7 +2,7 @@
   "id": "m1396-paper-route-warmup-latched-outcome-result-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -146,6 +146,26 @@
     "runs/m1395_warmup_latched_outcome_probe/accepted_warmup_history_rows.csv",
     "runs/m1395_warmup_latched_outcome_probe/variant_summary.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1396-paper-route-warmup-latched-outcome-result-audit.md",
+    "decision": "warmup_latched_outcome_audit_admit_full_sweep_before_redesign",
+    "classification": "source_narrow_warmup_duration_signal_not_source_diverse_self_id",
+    "seed_139421_pocket": "useful_task_design_clue_not_corpus_source",
+    "wrong_warmup_evidence": "unsupported",
+    "delayed_warmup_evidence": "unsupported",
+    "warmup_duration_evidence": "sparse_seed_narrow",
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1397-paper-route-warmup-latched-outcome-full-sweep.json"
+  },
+  "decision": "warmup_latched_outcome_audit_admit_full_sweep_before_redesign",
   "decision_rule": "M1396 passes if it audits M1395 and chooses a redesign or synthesis route before any training or corpus export.",
-  "next_blocker": "m1396-paper-route-warmup-latched-outcome-result-audit"
+  "next_blocker": "m1397-paper-route-warmup-latched-outcome-full-sweep"
 }
