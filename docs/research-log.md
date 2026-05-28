@@ -18255,3 +18255,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1266-paper-route-four-wheel-fault-dynamics-pilot.json`.
 - decision: `fidelity_fault_source_design_admit_four_wheel_fault_dynamics_pilot`
 - next: `m1266-paper-route-four-wheel-fault-dynamics-pilot`
+
+## 20260528T121509Z - m1266-paper-route-four-wheel-fault-dynamics-pilot
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1266-paper-route-four-wheel-fault-dynamics-pilot.md`
+- implementation: added `src/autodrift/four_wheel_dynamics.py` and `tests/test_four_wheel_dynamics.py` as source-only four-wheel fault dynamics primitives.
+- validation: `python -m compileall -q src tests` passed; `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_four_wheel_dynamics.py` passed with `5 passed`.
+- measured source signals: left-low split-mu yaw moment `-786.3186173`, right-low split-mu yaw moment `786.3186173`, front-left brake-pull yaw moment `750.1433310`, front-right brake-pull yaw moment `-750.1433310`.
+- capacity signal: rear-left grip collapse reduced capacity from `3086.2084821` to `617.2416964` and lateral force magnitude from `686.2726480` to `160.3235442`.
+- scope: source primitive only; it does not replace the Gym env, train, run PPO, promote, or claim high-fidelity validation/source-positive evidence.
+- guardrail: no actor input expansion; per-wheel/fault metadata remains simulator/source metadata only.
+- follow-up manifest: `experiments/manifests/m1267-paper-route-four-wheel-fault-source-integration-design.json`.
+- decision: `four_wheel_fault_dynamics_pilot_infrastructure_pass_route_to_source_integration_design`
+- next: `m1267-paper-route-four-wheel-fault-source-integration-design`
