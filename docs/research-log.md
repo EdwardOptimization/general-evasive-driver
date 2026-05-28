@@ -19808,3 +19808,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1351-paper-route-materialized-source-history-interpolation-preflight-design.json`.
 - next: `m1351-paper-route-materialized-source-history-interpolation-preflight-design`
+
+## 20260528T193431Z - m1351-paper-route-materialized-source-history-interpolation-preflight-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1351-paper-route-materialized-source-history-interpolation-preflight-design.md`
+- decision: `materialized_source_history_interpolation_preflight_design_admit_implementation`
+- design question: whether the M1154 to raw M1346 direction has a small-alpha region that keeps exact source-history objective lift while retaining M267/M264 replay.
+- candidate alphas: `0.005`, `0.01`, `0.02`, `0.05`, `0.1`, `0.2`, with `0.0` and `1.0` as references.
+- exact tier: run materialized objective evaluator and pair-group metrics before replay; require combined loss and group-min improvement over M1154 plus eval-fold non-regression and mutation guards before replay.
+- replay tier: run M267/M264 for exact-admitted nonzero alphas; run M183/M170 only for alphas passing M267/M264.
+- selected candidate rule: largest alpha passing exact, M267/M264, and conditional M183/M170 preflight; no promotion even if one passes.
+- guardrail: no training, PPO, promotion, private holdout, actor update, replay run, full replay, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1352-paper-route-materialized-source-history-interpolation-preflight.json`.
+- next: `m1352-paper-route-materialized-source-history-interpolation-preflight`

@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M1351 designs small-alpha exact-plus-replay interpolation preflight for M1154 to M1346 direction",
+  "failure_criteria": [
+    "design document is missing",
+    "design omits M267/M264",
+    "design routes directly to PPO or promotion",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, replay run, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not skip exact objective checks",
+    "do not skip M267/M264 replay",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T193658Z",
+  "hypothesis": "A trust-region interpolation protocol can determine whether the M1346 objective direction has a usable small-alpha region before replay-aware repair.",
+  "lineage": {
+    "blocked_by": [
+      "M1350 rejects raw M1346 but leaves open whether a smaller interpolation preserves replay while improving exact objective metrics"
+    ],
+    "derived_from": [
+      "m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md",
+      "runs/m1346_materialized_source_history_pair_group_update/summary.json",
+      "runs/m1349_materialized_source_history_limited_replay_preflight/summary.json"
+    ],
+    "parent_objective": [
+      "design interpolation trust-region replay preflight for M1346 update direction"
+    ],
+    "supersedes": [
+      "direct replay-aware repair before checking alpha trust region"
+    ]
+  },
+  "milestone": "m1351-paper-route-materialized-source-history-interpolation-preflight-design",
+  "next_blocker": "m1352-paper-route-materialized-source-history-interpolation-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "materialized_source_history_interpolation_preflight_design_admit_implementation",
+  "public_gates": [
+    "M1351 must not train",
+    "M1351 must not run PPO",
+    "M1351 must not use private holdout",
+    "M1351 must not promote",
+    "M1351 must preserve actor input contract",
+    "M1351 must design exact objective and replay gates for interpolated candidates"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1351-paper-route-materialized-source-history-interpolation-preflight-design.md",
+    "clearance_margin_mean": "",
+    "decision": "materialized_source_history_interpolation_preflight_design_admit_implementation",
+    "milestone": "m1351-paper-route-materialized-source-history-interpolation-preflight-design",
+    "reason": "M1351 designs small-alpha exact-plus-replay interpolation preflight for M1154 to M1346 direction",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1351-paper-route-materialized-source-history-interpolation-preflight-design.md exists",
+    "design specifies interpolation alphas",
+    "design specifies exact source-history metric gates before replay",
+    "design specifies M267/M264 and conditional M183/M170 replay gates",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, replay run, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

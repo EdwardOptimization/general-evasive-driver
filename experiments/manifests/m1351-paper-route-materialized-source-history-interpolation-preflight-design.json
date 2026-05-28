@@ -146,6 +146,42 @@
   "baseline_artifacts": [
     "docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1351-paper-route-materialized-source-history-interpolation-preflight-design.md",
+    "decision": "materialized_source_history_interpolation_preflight_design_admit_implementation",
+    "failure_type": "none",
+    "base_checkpoint": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "raw_checkpoint": "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt",
+    "candidate_alphas": [
+      0.005,
+      0.01,
+      0.02,
+      0.05,
+      0.1,
+      0.2
+    ],
+    "reference_alphas": [
+      0.0,
+      1.0
+    ],
+    "exact_metrics_required_before_replay": true,
+    "first_replay_surface": "m267_m264",
+    "second_replay_surface_if_first_passes": "m183_m170",
+    "full_replay_admitted": false,
+    "promotion_admitted": false,
+    "ppo_admitted": false,
+    "training_started": false,
+    "replay_run_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_update_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1352-paper-route-materialized-source-history-interpolation-preflight.json"
+  },
   "decision_rule": "M1351 passes as a design milestone only if it specifies a bounded interpolation preflight and keeps training, PPO, private holdout, promotion, replay execution, and actor-input changes blocked.",
-  "next_blocker": "m1351-paper-route-materialized-source-history-interpolation-preflight-design"
+  "next_blocker": "m1352-paper-route-materialized-source-history-interpolation-preflight"
 }

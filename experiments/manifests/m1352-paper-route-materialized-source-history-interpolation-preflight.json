@@ -1,0 +1,166 @@
+{
+  "id": "m1352-paper-route-materialized-source-history-interpolation-preflight",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1351-paper-route-materialized-source-history-interpolation-preflight-design.md",
+      "runs/m1336_materialized_source_history_objective_corpus_export",
+      "runs/m267_m264_boundary_outcome_corpus_seed10070/boundary_outcome_corpus.csv",
+      "runs/m183_m170_boundary_outcome_corpus_dedup_seed9510/boundary_outcome_corpus.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1351-paper-route-materialized-source-history-interpolation-preflight-design.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_objective": [
+      "run exact plus two-surface replay preflight over M1154 to M1346 interpolation alphas"
+    ],
+    "derived_from": [
+      "m1351-paper-route-materialized-source-history-interpolation-preflight-design"
+    ],
+    "blocked_by": [
+      "M1351 designs the interpolation preflight but no alpha result exists"
+    ],
+    "supersedes": [
+      "raw M1346 replay candidacy"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1352-paper-route-materialized-source-history-interpolation-preflight.md",
+  "public_gates": [
+    "M1352 must not train",
+    "M1352 must not run PPO",
+    "M1352 must not use private holdout",
+    "M1352 must not promote",
+    "M1352 must preserve actor input contract",
+    "M1352 must run exact objective metrics before replay",
+    "M1352 must run M267/M264 before any M183/M170 replay"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not skip exact objective metrics",
+    "do not skip M267/M264 replay for exact-admitted alphas",
+    "do not run full public replay",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_pair_group_update_implementation",
+    "evidence_axis": "S_materialized_source_history_interpolation_preflight",
+    "evidence_increment": "tests whether a small-alpha region of the M1346 objective direction preserves first public replay proof surfaces",
+    "claim_scope": "limited interpolation proof replay only; no promotion, private-holdout, PPO, full replay, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if no alpha is exact-admitted",
+      "stop if exact-admitted alphas fail M267/M264",
+      "stop if M183/M170 fails after M267/M264 passes",
+      "stop if actor inputs change"
+    ],
+    "fallback_plan": [
+      "if no exact alpha exists, route to objective redesign audit",
+      "if M267/M264 fails for all exact alphas, route to replay-aware active-set repair design",
+      "if M183/M170 fails, route to boundary-cliff repair design",
+      "if an alpha passes both, route to limited repeat or full public replay design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1351 admits one interpolation preflight run",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "interpolation exact plus replay preflight",
+    "admission_evidence": [
+      "M1351 design specifies sparse alpha ladder and replay ordering",
+      "M1349 raw M1346 replay failure suggests update amplitude/trust-region check"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "interpolated checkpoint artifacts",
+      "exact objective evaluator artifacts",
+      "limited replay preflight artifacts",
+      "M1352 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "alpha exact/replay outcomes are recorded",
+      "selected alpha or failure route is explicit",
+      "no promotion occurs"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1352 checks public replay proof retention but cannot claim closed-loop anticipatory self-identification.",
+    "history_necessity_tests": [
+      "M267/M264 and conditional M183/M170 replay compare normal versus wrong-history outcome retention"
+    ],
+    "temporal_evidence_window": "fixed source-history exact metrics plus public boundary-outcome replay surfaces.",
+    "negative_result_policy": "If no alpha passes, record that the M1346 direction is unusable under replay retention before repair or redesign.",
+    "allowed_claims": [
+      "limited interpolation proof preflight result",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A smaller interpolation of the M1346 objective direction may preserve exact source-history objective lift while avoiding M267/M264 proof washout.",
+  "success_criteria": [
+    "runs/m1352_materialized_source_history_interpolation_preflight/summary.json exists",
+    "alpha_summary.csv exists and includes exact metrics plus replay outcomes",
+    "candidate_checkpoints.csv exists",
+    "all candidate checkpoints preserve actor input contract and allowed mutation scope",
+    "M267/M264 replay result is recorded for every exact-admitted nonzero alpha",
+    "M183/M170 replay result is recorded for every alpha that passes M267/M264",
+    "no training, PPO, promotion, private holdout, threshold relaxation, full replay, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "alpha summary is missing exact or replay columns",
+    "forbidden parameters mutate",
+    "M267/M264 is skipped for an exact-admitted alpha",
+    "M183/M170 is skipped for an alpha passing M267/M264",
+    "training, PPO, private holdout, promotion, threshold relaxation, full replay, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "interpolation_preflight",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.materialized_source_history_interpolation_preflight --base-checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --raw-checkpoint runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt --corpus-run-dir runs/m1336_materialized_source_history_objective_corpus_export --run-dir runs/m1352_materialized_source_history_interpolation_preflight --device cpu --alphas 0.005,0.01,0.02,0.05,0.1,0.2"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1352_materialized_source_history_interpolation_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1352-paper-route-materialized-source-history-interpolation-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1351-paper-route-materialized-source-history-interpolation-preflight-design.md"
+  ],
+  "decision_rule": "M1352 may only advance if exact-admitted alphas pass M267/M264 and conditional M183/M170; otherwise route to the corresponding audit or repair design.",
+  "next_blocker": "m1352-paper-route-materialized-source-history-interpolation-preflight"
+}

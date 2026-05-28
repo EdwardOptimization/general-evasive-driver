@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1360,
+    "completed": 1361,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md",
+    "command_log": "docs/m1351-paper-route-materialized-source-history-interpolation-preflight-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md",
+    "run_dir": "docs/m1351-paper-route-materialized-source-history-interpolation-preflight-design.md",
     "status": "completed",
-    "task_id": "m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit"
+    "task_id": "m1351-paper-route-materialized-source-history-interpolation-preflight-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1351-paper-route-materialized-source-history-interpolation-preflight-design.json",
-    "hypothesis": "Design interpolation preflight for M1154 to M1346 objective direction",
-    "id": "m1351-paper-route-materialized-source-history-interpolation-preflight-design",
+    "command": "see experiments/manifests/m1352-paper-route-materialized-source-history-interpolation-preflight.json",
+    "hypothesis": "Run exact plus replay interpolation preflight for M1154 to M1346 direction",
+    "id": "m1352-paper-route-materialized-source-history-interpolation-preflight",
     "kind": "gate",
-    "notes": "Pending: design only; no training, PPO, private holdout, promotion, replay run, or actor-input change",
-    "priority": 13460,
+    "notes": "Pending: create alpha checkpoints, run exact metrics, then M267/M264 and conditional M183/M170; no training, PPO, private holdout, promotion, full replay, or actor-input change",
+    "priority": 13470,
     "status": "pending",
-    "success_artifact": "docs/m1351-paper-route-materialized-source-history-interpolation-preflight-design.md"
+    "success_artifact": "runs/m1352_materialized_source_history_interpolation_preflight/summary.json"
   },
-  "updated_at_utc": "20260528T193029Z"
+  "updated_at_utc": "20260528T193431Z"
 }

@@ -16,14 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit
+m1351-paper-route-materialized-source-history-interpolation-preflight-design
 ```
 
 Current next task:
 
 ```text
-m1351-paper-route-materialized-source-history-interpolation-preflight-design
+m1352-paper-route-materialized-source-history-interpolation-preflight
 ```
+
+M1351 designed the trust-region interpolation preflight. M1352 should create
+small-alpha checkpoints along the M1154 to raw M1346 direction for alphas
+`0.005, 0.01, 0.02, 0.05, 0.1, 0.2`, verify allowed mutation scope and actor
+input contract, run exact M1339/M1342-style metrics first, then run M267/M264
+only for exact-admitted alphas and M183/M170 only for alphas that pass
+M267/M264. Full replay, PPO, promotion, private holdout, and actor-input changes
+remain blocked.
 
 M1350 classified the M1349 failure as `proof_washout` with subtype
 `current_family_normal_branch_collision`. The raw M1346 direction is rejected as
