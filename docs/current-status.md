@@ -16,21 +16,45 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1396-paper-route-warmup-latched-outcome-result-audit
+m1397-paper-route-warmup-latched-outcome-full-sweep
 ```
 
 Current next task:
 
 ```text
-m1397-paper-route-warmup-latched-outcome-full-sweep
+m1398-paper-route-causal-history-necessity-branch-synthesis
 ```
 
-M1396 audited the sparse M1395 warmup-latched outcome result. The current
-public-gate base remains M1362 alpha `0.1`:
+M1397 ran the full no-training warmup-latched outcome sweep over all M1394
+matched/bucketed rows. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1397 result:
+
+```text
+decision: warmup_latched_full_sweep_history_sparse_route_to_branch_synthesis
+result_class: warmup_latched_outcome_history_sparse
+selected_candidate_rows: 604
+outcome_rows: 4832
+accepted_outcome_rows: 64
+warmup_history_positive_rows: 31
+accepted_warmup_history_unique_source_seeds: 1
+accepted_warmup_history_unique_capability_pairs: 9
+accepted_warmup_history_unique_reveal_buckets: 5
+wrong_warmup_history outcome-critical rows: 0
+same_recent_wrong_warmup_history outcome-critical rows: 0
+delayed_warmup_history outcome-critical rows: 0
+next: m1398-paper-route-causal-history-necessity-branch-synthesis
+```
+
+M1397 rules out the M1395 candidate-cap explanation. The full sweep evaluates
+all `604` M1394 rows across `27` seeds, `16` capability pairs, and `131` reveal
+buckets, but accepted warmup-history rows still come from only seed `139421`.
+The next step must be branch synthesis before further local public-row tuning,
+corpus export, PPO, training, private holdout, promotion, or claim expansion.
 
 M1396 result:
 

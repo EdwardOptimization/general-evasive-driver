@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1406,
+    "completed": 1407,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1396-paper-route-warmup-latched-outcome-result-audit.md",
+    "command_log": "docs/m1397-paper-route-warmup-latched-outcome-full-sweep.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1397_warmup_latched_outcome_full_sweep",
     "status": "completed",
-    "task_id": "m1396-paper-route-warmup-latched-outcome-result-audit"
+    "task_id": "m1397-paper-route-warmup-latched-outcome-full-sweep"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1397-paper-route-warmup-latched-outcome-full-sweep.json",
-    "hypothesis": "A full no-training sweep over all M1394 matched/bucketed rows can determine whether M1395 source-narrow warmup-history positives were caused by candidate-selection cap effects.",
-    "id": "m1397-paper-route-warmup-latched-outcome-full-sweep",
-    "kind": "infrastructure",
-    "notes": "Pending: run full no-training sweep over all M1394 matched/bucketed rows before redesign or synthesis",
-    "priority": 13920,
+    "command": "see experiments/manifests/m1398-paper-route-causal-history-necessity-branch-synthesis.json",
+    "hypothesis": "The M1390-M1397 causal history-necessity evidence can be synthesized into a clear next branch after the warmup-latched full sweep remains source-narrow.",
+    "id": "m1398-paper-route-causal-history-necessity-branch-synthesis",
+    "kind": "gate",
+    "notes": "Pending: synthesize M1390-M1397 and choose the next branch before more local public-row tuning",
+    "priority": 13930,
     "status": "pending",
-    "success_artifact": "runs/m1397_warmup_latched_outcome_full_sweep/summary.json"
+    "success_artifact": "docs/m1398-paper-route-causal-history-necessity-branch-synthesis.md"
   },
-  "updated_at_utc": "20260529T021000Z"
+  "updated_at_utc": "20260529T022000Z"
 }

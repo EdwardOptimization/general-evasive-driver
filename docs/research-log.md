@@ -20595,3 +20595,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1397-paper-route-warmup-latched-outcome-full-sweep.json`.
 - next: `m1397-paper-route-warmup-latched-outcome-full-sweep`
+
+## 20260529T022000Z - m1397-paper-route-warmup-latched-outcome-full-sweep
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1397_warmup_latched_outcome_full_sweep/summary.json`
+- result doc: `docs/m1397-paper-route-warmup-latched-outcome-full-sweep.md`
+- decision: `warmup_latched_full_sweep_history_sparse_route_to_branch_synthesis`
+- command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.warmup_latched_outcome_probe --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m991_capability_step_fault_source_wave.json --candidate-rows runs/m1394_warmup_latched_config_smoke/matched_or_bucketed_rows.csv --max-candidate-rows 0 --per-capability-pair-cap 128 --history-length 36 --recent-window-length 4 --max-continuation-steps 48 --device cpu --run-dir runs/m1397_warmup_latched_outcome_full_sweep`
+- result class: `warmup_latched_outcome_history_sparse`
+- counts: `selected_candidate_rows=604`, `outcome_rows=4832`, `accepted_outcome_rows=64`, `warmup_history_positive_rows=31`, `accepted_reset_rows=14`, `accepted_zero_current_rows=19`, `action_critical_rows=3003`, `normal_failed_rows=1160`, `rejected_rows=0`.
+- evaluated diversity: `unique_source_seeds=27`, `unique_capability_pairs=16`, `unique_reveal_buckets=131`.
+- accepted warmup-history diversity: `unique_source_seeds=1`, `unique_capability_pairs=9`, `unique_reveal_buckets=5`, `unique_variants=2`, `max_single_seed_share=1.0`.
+- variant finding: `wrong_warmup_history_same_reveal=0`, `same_recent_wrong_warmup_history=0`, `delayed_warmup_history_8=0`, and `delayed_warmup_history_16=0` outcome-critical rows; positives are only `warmup_removed=24` and `warmup_shortened_8=7`.
+- interpretation: the full sweep rules out M1395 candidate-cap effects; the warmup-latched route remains source-narrow and should synthesize before any new local expansion.
+- guardrail: `actor_parameters_changed=false`, `training_started=false`, `evaluation_started=false`, `ppo_used=false`, `promoted=false`, `private_holdout_used=false`, `training_corpus_exported=false`, `actor_input_contract_changed=false`.
+- follow-up manifest: `experiments/manifests/m1398-paper-route-causal-history-necessity-branch-synthesis.json`.
+- next: `m1398-paper-route-causal-history-necessity-branch-synthesis`

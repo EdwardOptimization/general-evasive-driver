@@ -1,0 +1,181 @@
+{
+  "id": "m1398-paper-route-causal-history-necessity-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1390-paper-route-causal-history-necessity-task-design.md",
+      "runs/m1391_causal_history_source_miner/summary.json",
+      "runs/m1392_causal_history_candidate_outcome_probe/summary.json",
+      "docs/m1393-paper-route-warmup-latched-causal-history-task-design.md",
+      "runs/m1394_warmup_latched_config_smoke/summary.json",
+      "runs/m1395_warmup_latched_outcome_probe/summary.json",
+      "docs/m1396-paper-route-warmup-latched-outcome-result-audit.md",
+      "runs/m1397_warmup_latched_outcome_full_sweep/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1397-paper-route-warmup-latched-outcome-full-sweep.json",
+      "configs/m991_capability_step_fault_source_wave.json"
+    ],
+    "parent_objective": [
+      "synthesize M1390-M1397 causal history-necessity branch after full warmup-latched sweep remains source-narrow"
+    ],
+    "derived_from": [
+      "m1390-paper-route-causal-history-necessity-task-design",
+      "m1397-paper-route-warmup-latched-outcome-full-sweep"
+    ],
+    "blocked_by": [
+      "M1397 full sweep confirms source-narrow warmup-duration positives and zero wrong-warmup/delayed-history outcome rows"
+    ],
+    "supersedes": [
+      "continuing local warmup-latched outcome sweeps without synthesis",
+      "exporting warmup-removed singleton rows as a corpus",
+      "claiming source-diverse self-identification from M1397"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1398-paper-route-causal-history-necessity-branch-synthesis.md",
+  "public_gates": [
+    "M1398 must synthesize M1390-M1397 evidence",
+    "M1398 must separate supported warmup-duration evidence from unsupported wrong-history and delayed-history evidence",
+    "M1398 must classify public-gate overfit risk before more local sweeps",
+    "M1398 must choose the next branch before training, corpus export, PPO, promotion, or private holdout"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new outcome sweep",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not call seed-139421 warmup-duration rows source-diverse self-identification",
+    "do not continue local warmup-latched row tuning without synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_necessity_task_design",
+    "evidence_axis": "S_causal_history_necessity_branch_synthesis",
+    "evidence_increment": "synthesizes M1390-M1397 and selects the next paper-route branch after warmup-latched full sweep remains source-narrow",
+    "claim_scope": "branch synthesis only; no training, corpus export, PPO, promotion, private holdout, high-fidelity, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if synthesis overclaims M1397 seed-singleton positives",
+      "stop if zero wrong-warmup and delayed-history outcome rows are ignored",
+      "stop if next branch continues local public-row tuning without a new evidence axis",
+      "stop if private holdout is proposed before public protocol stabilization"
+    ],
+    "fallback_plan": [
+      "route to warmup/reveal pressure redesign if the branch needs stronger outcome-critical reveals",
+      "route to same-current intervention redesign if current/recent substitution dominates",
+      "route to new task-family design if warmup-latched evidence remains unproductive",
+      "stop causal-history branch if no credible public next route remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1397 full sweep fires the branch stop condition: source-narrow positives and zero wrong-warmup/delayed-history outcome rows",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1398-paper-route-causal-history-necessity-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1398-paper-route-causal-history-necessity-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "causal history-necessity branch synthesis",
+    "admission_evidence": [
+      "M1391 materialized matched-current source candidates",
+      "M1392 found reset/zero-current broad effects but source-narrow delayed-history positives",
+      "M1394 materialized warmup-latched matched/bucketed rows",
+      "M1395 and M1397 found warmup-history positives only in one seed and zero wrong-warmup/delayed-history outcome rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1398 synthesis document",
+      "status, queue, scoreboard, research log, and review",
+      "one next-branch manifest if synthesis admits it"
+    ],
+    "next_stage_criteria": [
+      "supported and unsupported claims are documented",
+      "failure taxonomy and overfit risk are summarized",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1398 must synthesize current-frame substitution risk from M1392-M1397 and not upgrade source-narrow warmup-duration positives to level3 self-identification.",
+    "history_necessity_tests": [
+      "summarize M1392 reset/zero-current dominance",
+      "summarize M1395/M1397 wrong-warmup zero outcome rows",
+      "summarize M1397 warmup removed/shortened singleton evidence",
+      "decide whether a stronger task design is needed before training"
+    ],
+    "temporal_evidence_window": "M1390-M1397 causal history-necessity public artifacts.",
+    "negative_result_policy": "Source-narrow and control-dominated outcomes must be recorded as constraints on the next branch.",
+    "allowed_claims": [
+      "causal history-necessity branch synthesis and next route decision",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1390-M1397 causal history-necessity evidence can be synthesized into a clear next branch after the warmup-latched full sweep remains source-narrow.",
+  "success_criteria": [
+    "docs/m1398-paper-route-causal-history-necessity-branch-synthesis.md exists",
+    "synthesis summarizes M1390-M1397 evidence",
+    "synthesis lists supported and unsupported claims",
+    "synthesis classifies failure taxonomy and public-gate overfit risk",
+    "synthesis chooses the next branch before corpus export, training, PPO, promotion, private holdout, or further local expansion"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis overclaims seed-139421 warmup-duration positives",
+    "synthesis ignores zero wrong-warmup or delayed-history outcomes",
+    "synthesis routes directly to training, PPO, promotion, private holdout, corpus export, or further local expansion without a new evidence axis"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1398-paper-route-causal-history-necessity-branch-synthesis.md from M1390-M1397 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1398-paper-route-causal-history-necessity-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1397_warmup_latched_outcome_full_sweep/summary.json",
+    "docs/m1397-paper-route-warmup-latched-outcome-full-sweep.md"
+  ],
+  "decision_rule": "M1398 passes if it synthesizes M1390-M1397 with explicit supported/unsupported claims and chooses the next branch before any training, PPO, promotion, private holdout, corpus export, or further local expansion.",
+  "next_blocker": "m1398-paper-route-causal-history-necessity-branch-synthesis"
+}
