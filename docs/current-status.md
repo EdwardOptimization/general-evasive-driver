@@ -16,14 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight
+m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit
 ```
 
 Current next task:
 
 ```text
-m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit
+m1351-paper-route-materialized-source-history-interpolation-preflight-design
 ```
+
+M1350 classified the M1349 failure as `proof_washout` with subtype
+`current_family_normal_branch_collision`. The raw M1346 direction is rejected as
+a replay candidate and must not enter PPO or promotion. The likely control
+variable is update amplitude/trust region: M1346 improved fixed metrics but had
+`allowed_parameter_l2=1.3300853209` and collapsed closed-loop normal margin.
+Next is M1351: design an interpolation preflight between M1154 and raw M1346 to
+test whether any small alpha keeps exact objective lift while passing M267/M264.
 
 M1349 ran the first replay preflight surface, M267/M264, and stopped because it
 failed hard. The M1154 base kept normal success on `17/17` rows and wrong-history

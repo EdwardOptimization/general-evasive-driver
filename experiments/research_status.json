@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1359,
+    "completed": 1360,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.md",
+    "command_log": "docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1349_materialized_source_history_limited_replay_preflight",
+    "run_dir": "docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md",
     "status": "completed",
-    "task_id": "m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight"
+    "task_id": "m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.json",
-    "hypothesis": "Audit M1349 proof washout and choose bounded repair or redesign route",
-    "id": "m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit",
+    "command": "see experiments/manifests/m1351-paper-route-materialized-source-history-interpolation-preflight-design.json",
+    "hypothesis": "Design interpolation preflight for M1154 to M1346 objective direction",
+    "id": "m1351-paper-route-materialized-source-history-interpolation-preflight-design",
     "kind": "gate",
-    "notes": "Pending: failure audit only; no training, PPO, private holdout, promotion, replay run, or actor-input change",
-    "priority": 13450,
+    "notes": "Pending: design only; no training, PPO, private holdout, promotion, replay run, or actor-input change",
+    "priority": 13460,
     "status": "pending",
-    "success_artifact": "docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md"
+    "success_artifact": "docs/m1351-paper-route-materialized-source-history-interpolation-preflight-design.md"
   },
-  "updated_at_utc": "20260528T192854Z"
+  "updated_at_utc": "20260528T193029Z"
 }

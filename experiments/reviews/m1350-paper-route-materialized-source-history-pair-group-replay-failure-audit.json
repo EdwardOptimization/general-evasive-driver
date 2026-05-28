@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1350 classifies M1349 as current-family normal-branch collision and routes to interpolation trust-region preflight design",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores normal-branch collision",
+    "audit routes directly to PPO or promotion",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, replay run, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not ignore M267/M264 normal-branch collision",
+    "do not continue full public replay",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T193252Z",
+  "hypothesis": "The M1349 failure can be classified into an actionable repair route without running training, PPO, private holdout, promotion, or full replay.",
+  "lineage": {
+    "blocked_by": [
+      "M1349 shows M1346 fails M267/M264 by normal-branch collision on all rows"
+    ],
+    "derived_from": [
+      "m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.md",
+      "runs/m1349_materialized_source_history_limited_replay_preflight/summary.json",
+      "runs/m1349_materialized_source_history_limited_replay_preflight/m267_m264/boundary_replay_rows.csv",
+      "runs/m1346_materialized_source_history_pair_group_update/summary.json"
+    ],
+    "parent_objective": [
+      "audit M1346 objective-positive but replay-negative result"
+    ],
+    "supersedes": [
+      "continuing replay or PPO from M1346 after first-surface proof washout"
+    ]
+  },
+  "milestone": "m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit",
+  "next_blocker": "m1351-paper-route-materialized-source-history-interpolation-preflight-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "materialized_source_history_replay_failure_audit_route_to_interpolation_preflight_design",
+  "public_gates": [
+    "M1350 must not train",
+    "M1350 must not run PPO",
+    "M1350 must not use private holdout",
+    "M1350 must not promote",
+    "M1350 must preserve actor input contract",
+    "M1350 must classify the M267/M264 proof washout",
+    "M1350 must choose repair design, interpolation audit, or objective redesign route"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "materialized_source_history_replay_failure_audit_route_to_interpolation_preflight_design",
+    "milestone": "m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit",
+    "reason": "M1350 classifies M1349 as current-family normal-branch collision and routes to interpolation trust-region preflight design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md exists",
+    "audit summarizes M1349 M267/M264 replay failure",
+    "audit classifies whether failure is amplitude, objective disconnect, or tooling artifact",
+    "audit chooses a bounded next route",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, replay run, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

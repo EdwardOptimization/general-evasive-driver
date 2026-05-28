@@ -151,6 +151,33 @@
     "docs/m1349-paper-route-materialized-source-history-pair-group-limited-replay-preflight.md",
     "runs/m1349_materialized_source_history_limited_replay_preflight/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md",
+    "decision": "materialized_source_history_replay_failure_audit_route_to_interpolation_preflight_design",
+    "failure_type": "proof_washout",
+    "failure_subtype": "current_family_normal_branch_collision",
+    "candidate_checkpoint": "runs/m1346_materialized_source_history_pair_group_update/checkpoints/raw_pair_group_update.pt",
+    "m267_m264_gate_pass": false,
+    "m267_m264_normal_success_delta": -1.0,
+    "m267_m264_success_drop_count_delta": -17,
+    "m267_m264_normal_margin_mean_delta": -0.10658948918405853,
+    "likely_control_variable": "update_amplitude_or_trust_region",
+    "raw_candidate_rejected": true,
+    "ppo_admitted": false,
+    "promotion_admitted": false,
+    "full_replay_admitted": false,
+    "next_route": "interpolation_trust_region_replay_preflight_design",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_update_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1351-paper-route-materialized-source-history-interpolation-preflight-design.json"
+  },
   "decision_rule": "M1350 passes only if it audits the M1349 proof washout and chooses a bounded repair/redesign route without training, PPO, private holdout, promotion, or actor-input expansion.",
-  "next_blocker": "m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit"
+  "next_blocker": "m1351-paper-route-materialized-source-history-interpolation-preflight-design"
 }

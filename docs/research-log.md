@@ -19791,3 +19791,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, full replay, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.json`.
 - next: `m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit`
+
+## 20260528T193029Z - m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1350-paper-route-materialized-source-history-pair-group-replay-failure-audit.md`
+- decision: `materialized_source_history_replay_failure_audit_route_to_interpolation_preflight_design`
+- failure taxonomy: `proof_washout`
+- subtype: `current_family_normal_branch_collision`
+- diagnosis: raw M1346 is rejected as a replay candidate because it improves fixed source-history metrics but collapses M267/M264 normal branch on all `17` rows.
+- likely control variable: update amplitude/trust region, because allowed scope is clean but `allowed_parameter_l2=1.3300853209` and closed-loop normal margin regresses by `-0.1065894892`.
+- rejected routes: no full replay, no PPO, no promotion, and no immediate objective redesign before checking whether a smaller interpolation is usable.
+- next route: design interpolation/trust-region preflight over conservative alphas between M1154 and raw M1346 with exact objective metrics before M267/M264 replay.
+- guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1351-paper-route-materialized-source-history-interpolation-preflight-design.json`.
+- next: `m1351-paper-route-materialized-source-history-interpolation-preflight-design`
