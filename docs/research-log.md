@@ -16962,3 +16962,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no controller training, candidate replay, PPO, promotion, private holdout, or actor-input change occurred.
 - decision: `l0_l1_l2_l3_controller_comparison_design_admit_profile_scaffold`
 - next: `m1188-paper-route-controller-profile-scaffold-implementation`
+
+## 20260528T062500Z - m1188-paper-route-controller-profile-scaffold-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1188-paper-route-controller-profile-scaffold-implementation.md`
+- source: `src/autodrift/controller_profiles.py`
+- tests: `tests/test_controller_profiles.py`
+- smoke: `runs/m1188_controller_profile_scaffold_smoke/summary.json`
+- result: implements profile metadata and smoke artifacts for L0/L1/L2/L3 comparison.
+- profiles: `L0_current_masked`, `L1_one_step`, `L2_window_13`, `L2_window_25`, `L2_window_50`, `L2_window_100`, `L3_online_gru`, and `L3_reset_control`.
+- L0 mask: previous-command fields `[9, 10, 11]` are zeroed by profile mask.
+- contract: no hidden/oracle actor inputs, no wheel/slip actor inputs, no reference/TTC actor inputs, and no actor-input contract change.
+- focused verification: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_controller_profiles.py` -> `7 passed`.
+- smoke command: `PYTHONPATH=src python -m autodrift.controller_profiles --run-dir runs/m1188_controller_profile_scaffold_smoke`.
+- follow-up manifest: `experiments/manifests/m1189-paper-route-controller-profile-config-generation-design.json`.
+- guardrail: no controller training, candidate replay, PPO, promotion, private holdout, hidden/oracle actor input, or actor-input contract change occurred.
+- decision: `controller_profile_scaffold_ready_route_to_config_generation_design`
+- next: `m1189-paper-route-controller-profile-config-generation-design`

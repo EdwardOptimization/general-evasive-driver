@@ -1,27 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1197,
+    "completed": 1198,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.md",
+    "command_log": "docs/m1188-paper-route-controller-profile-scaffold-implementation.md",
     "returncode": 0,
+    "run_dir": "runs/m1188_controller_profile_scaffold_smoke",
     "status": "completed",
-    "task_id": "m1187-paper-route-l0-l1-l2-l3-controller-comparison-design"
+    "task_id": "m1188-paper-route-controller-profile-scaffold-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1188-paper-route-controller-profile-scaffold-implementation.json",
-    "hypothesis": "Implement controller profile scaffold for L0/L1/L2/L3 comparison",
-    "id": "m1188-paper-route-controller-profile-scaffold-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement profile metadata masking and focused tests for L0/L1/L2/L3 without controller training replay PPO promotion private holdout hidden inputs or actor-input contract change",
-    "priority": 11830,
+    "command": "see experiments/manifests/m1189-paper-route-controller-profile-config-generation-design.json",
+    "hypothesis": "Design controller profile config generation",
+    "id": "m1189-paper-route-controller-profile-config-generation-design",
+    "kind": "gate",
+    "notes": "Pending: design train/eval smoke config generation and L0 runtime mask handling for L0/L1/L2/L3 without training replay PPO promotion private holdout or actor-input change",
+    "priority": 11840,
     "status": "pending",
-    "success_artifact": "docs/m1188-paper-route-controller-profile-scaffold-implementation.md"
+    "success_artifact": "docs/m1189-paper-route-controller-profile-config-generation-design.md"
   },
-  "updated_at_utc": "20260528T060500Z"
+  "updated_at_utc": "20260528T062500Z"
 }

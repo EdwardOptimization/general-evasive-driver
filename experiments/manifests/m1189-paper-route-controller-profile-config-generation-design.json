@@ -1,0 +1,157 @@
+{
+  "id": "m1189-paper-route-controller-profile-config-generation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1188-paper-route-controller-profile-scaffold-implementation.md",
+      "src/autodrift/controller_profiles.py",
+      "runs/m1188_controller_profile_scaffold_smoke/summary.json",
+      "docs/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1188-paper-route-controller-profile-scaffold-implementation.json"
+    ],
+    "parent_objective": [
+      "design config generation for L0 L1 L2 L3 profile smoke and later training without starting training"
+    ],
+    "derived_from": [
+      "m1188-paper-route-controller-profile-scaffold-implementation"
+    ],
+    "blocked_by": [
+      "profile metadata exists but train and eval config generation is not yet specified"
+    ],
+    "supersedes": [
+      "manual per-profile config editing"
+    ],
+    "invalidates": [
+      "starting profile training before generated configs are contract-checked"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1189-paper-route-controller-profile-config-generation-design.md",
+  "public_gates": [
+    "M1189 may design config generation only",
+    "M1189 must not train controller weights",
+    "M1189 must not run PPO",
+    "M1189 must not run candidate replay",
+    "M1189 must not promote",
+    "M1189 must not use private holdout",
+    "M1189 must not add hidden or oracle actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train L0 L1 L2 or L3",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not generate configs with hidden or oracle actor inputs",
+    "do not claim controller performance from config design"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_design: controller-profile config generation contract",
+    "evidence_increment": "defines generated train eval and smoke configs for the controller-profile scaffold before implementation",
+    "claim_scope": "design only; no training replay PPO promotion private-holdout driver-performance recurrent-belief or paper-result claim",
+    "stop_condition": [
+      "stop if generated config design changes actor inputs",
+      "stop if finite-window profiles are omitted",
+      "stop if config design skips profile contract checks",
+      "stop if design starts training"
+    ],
+    "fallback_plan": [
+      "if train configs are too broad, design smoke-only generation first",
+      "if L2_window_100 is too large for initial smoke, keep metadata but mark training as staged",
+      "if current code cannot apply L0 mask at runtime, route to observation-mask wrapper implementation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1188 scaffold is ready and needs generated config contract before training",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design controller-profile config generation",
+    "admission_evidence": [
+      "M1188 profile scaffold and tests pass",
+      "profile smoke confirms no hidden or oracle actor inputs",
+      "training remains blocked until generated configs are contract-checked"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "config generation design document",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "train smoke configs are specified",
+      "eval smoke configs are specified",
+      "profile contract checker is specified",
+      "L0 mask runtime path is specified",
+      "next implementation milestone is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1189 is design only and should preserve L0 and L1 as current-frame substitution controls.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1189 should preserve finite-window steps from M1188 but does not evaluate them.",
+    "negative_result_policy": "If config design cannot keep profiles comparable, route to profile scaffold repair before training.",
+    "allowed_claims": [
+      "config generation design",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A generated config contract can keep L0/L1/L2/L3 controller smoke runs comparable and contract-clean before training starts.",
+  "success_criteria": [
+    "docs/m1189-paper-route-controller-profile-config-generation-design.md exists",
+    "train smoke config generation is specified",
+    "eval smoke config generation is specified",
+    "profile contract checks are specified",
+    "L0 runtime mask handling is specified",
+    "follow-up implementation milestone is pre-registered",
+    "no controller training, candidate replay, PPO, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "design omits finite-window profiles",
+    "design cannot enforce L0 mask",
+    "design allows hidden or oracle actor inputs",
+    "controller training, candidate replay, PPO, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_config_generation_design",
+      "command": "write docs/m1189-paper-route-controller-profile-config-generation-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1189-paper-route-controller-profile-config-generation-design.md",
+      "type": "md"
+    },
+    {
+      "path": "experiments/manifests/m1190-paper-route-controller-profile-config-generation-implementation.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1188-paper-route-controller-profile-scaffold-implementation.md",
+    "src/autodrift/controller_profiles.py"
+  ],
+  "decision_rule": "M1189 passes if it defines the config generation contract and next implementation milestone without training or actor-input changes.",
+  "next_blocker": "m1189-paper-route-controller-profile-config-generation-design"
+}

@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1188 implements controller profile metadata L0 previous-command masking finite-window L2 profiles L3 reset control smoke artifact and focused tests without training replay PPO promotion private holdout or actor-input change",
+  "failure_criteria": [
+    "profile scaffold adds hidden or oracle actor input",
+    "profile tests start training or PPO",
+    "finite-window profiles are omitted",
+    "L0 masking is ambiguous",
+    "actor-input contract changes without explicit manifest"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train L0 L1 L2 or L3",
+    "do not run PPO",
+    "do not run private holdout",
+    "do not change the deployable actor input contract",
+    "do not add slip tire force friction margin or hidden dynamics actor inputs",
+    "do not claim controller performance from scaffold tests"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T042059Z",
+  "hypothesis": "A small profile scaffold can instantiate and contract-check L0 L1 L2 and L3 controller configurations without training or changing actor inputs.",
+  "lineage": {
+    "blocked_by": [
+      "controller comparison design needs executable profile metadata before configs or training can be generated fairly"
+    ],
+    "derived_from": [
+      "m1187-paper-route-l0-l1-l2-l3-controller-comparison-design"
+    ],
+    "invalidates": [
+      "starting controller training before profile instantiation and contract checks exist"
+    ],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.md",
+      "docs/active-gate-policy.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "implement controller-profile scaffolding for L0 L1 L2 L3 comparison without training"
+    ],
+    "supersedes": [
+      "manual ad hoc L0 L1 L2 L3 config construction"
+    ]
+  },
+  "milestone": "m1188-paper-route-controller-profile-scaffold-implementation",
+  "next_blocker": "m1189-paper-route-controller-profile-config-generation-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controller_profile_scaffold_ready_route_to_config_generation_design",
+  "public_gates": [
+    "M1188 may implement profile metadata and instantiation tests only",
+    "M1188 must not train controller weights",
+    "M1188 must not run PPO",
+    "M1188 must not run candidate replay",
+    "M1188 must not promote",
+    "M1188 must not use private holdout",
+    "M1188 must not add hidden or oracle actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1188_controller_profile_scaffold_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "controller_profile_scaffold_ready_route_to_config_generation_design",
+    "milestone": "m1188-paper-route-controller-profile-scaffold-implementation",
+    "reason": "M1188 implements controller profile metadata L0 previous-command masking finite-window L2 profiles L3 reset control smoke artifact and focused tests without training replay PPO promotion private holdout or actor-input change",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "profile metadata module exists",
+    "focused profile tests pass",
+    "L0 previous-command mask is specified",
+    "L1 canonical profile is specified",
+    "L2 finite-window profiles for 13 25 50 and 100 steps are specified",
+    "L3 online GRU and reset-control metadata are specified",
+    "no hidden or oracle actor inputs are introduced",
+    "no controller training, candidate replay, PPO, promotion, private holdout, or actor-input contract change occurs"
+  ],
+  "type": "infrastructure"
+}

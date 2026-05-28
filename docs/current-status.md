@@ -115,8 +115,39 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1188-paper-route-controller-profile-scaffold-implementation
+m1189-paper-route-controller-profile-config-generation-design
 ```
+
+M1188 implemented the controller-profile scaffold:
+
+```text
+artifact: docs/m1188-paper-route-controller-profile-scaffold-implementation.md
+source: src/autodrift/controller_profiles.py
+tests: tests/test_controller_profiles.py
+smoke: runs/m1188_controller_profile_scaffold_smoke/summary.json
+decision: controller_profile_scaffold_ready_route_to_config_generation_design
+```
+
+Profiles now available:
+
+```text
+L0_current_masked
+L1_one_step
+L2_window_13
+L2_window_25
+L2_window_50
+L2_window_100
+L3_online_gru
+L3_reset_control
+```
+
+M1188 verifies L0 previous-command masking `[9,10,11]`, no hidden/oracle actor
+inputs, no wheel/slip actor inputs, no reference/TTC actor inputs, model
+instantiation for representative profiles, and profile smoke artifact writing.
+It did not train controllers, run replay, run PPO, promote, use private
+holdout, or change actor inputs. The next blocker is M1189: design generated
+train/eval smoke configs and L0 runtime mask handling before any controller
+training.
 
 M1187 completed the fair controller-comparison design:
 
