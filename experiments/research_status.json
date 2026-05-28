@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1272,
+    "completed": 1273,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1262_richer_fault_regret_boundary_retarget_smoke/summary.json",
+    "command_log": "docs/m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1262_richer_fault_regret_boundary_retarget_smoke",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m1262-paper-route-richer-fault-regret-boundary-retarget-implementation"
+    "task_id": "m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit.json",
-    "hypothesis": "Audit M1262 geometry-retarget source-negative result before any further repair or synthesis",
-    "id": "m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit",
+    "command": "see experiments/manifests/m1264-paper-route-richer-fault-capability-source-synthesis.json",
+    "hypothesis": "Synthesize M1258-M1263 current-model richer-fault source evidence and choose the next branch",
+    "id": "m1264-paper-route-richer-fault-capability-source-synthesis",
     "kind": "gate",
-    "notes": "Pending: classify M1262 zero-accepted result and choose stop, repair, synthesis, or pivot without threshold relaxation",
-    "priority": 12580,
+    "notes": "Pending: answer synthesis questions and decide whether to close current proxy-fault branch, pivot, or admit one new evidence variable",
+    "priority": 12590,
     "status": "pending",
-    "success_artifact": "docs/m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit.md"
+    "success_artifact": "docs/m1264-paper-route-richer-fault-capability-source-synthesis.md"
   },
-  "updated_at_utc": "20260528T115743Z"
+  "updated_at_utc": "20260528T120341Z"
 }

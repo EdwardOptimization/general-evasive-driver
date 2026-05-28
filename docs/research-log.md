@@ -18205,3 +18205,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit.json`.
 - decision: `regret_boundary_retarget_infrastructure_pass_source_negative_route_to_result_audit`
 - next: `m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit`
+
+## 20260528T120341Z - m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit.md`
+- audited evidence: M1262 reconstructed the M1259 source snapshots reliably and produced `441` geometry candidates plus `1764` fixed-sequence rollouts, but `strict_accepted_count=0`.
+- regret result: action divergence survived (`438/441` rows), but `max min_cross_regret=0.0043813964`; no row reached `0.005`, much less the strict `0.02` threshold.
+- collision result: `all_four_rollouts_collision_count=193`, `own_branch_viability_fail_count=207`, and `wrong_branch_collision_count=208`, so a larger same-axis grid risks collision-dominated negatives rather than valid source-positive evidence.
+- classification: `regret_boundary_geometry_retarget_negative` under `scenario_sampling_failure`; more specific diagnosis is `fixed_action_geometry_retarget_exhausted_for_pair5`.
+- decision: stop same-axis geometry retargeting around pair 5; do not train, PPO, promote, relax thresholds, or expand actor inputs.
+- follow-up manifest: `experiments/manifests/m1264-paper-route-richer-fault-capability-source-synthesis.json`.
+- decision: `regret_boundary_geometry_retarget_negative_route_to_richer_fault_branch_synthesis`
+- next: `m1264-paper-route-richer-fault-capability-source-synthesis`

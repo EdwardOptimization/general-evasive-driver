@@ -1,0 +1,79 @@
+# m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260528T120337Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: not_applicable
+- Decision reason: M1263 passes if it records M1262 as strict source-negative, preserves the corrected acceptance semantics, and chooses the next branch without training or threshold relaxation.
+
+## Hypothesis
+
+M1262 should be audited as a valid geometry-retarget infrastructure pass but source-negative result before deciding the next richer-fault branch move.
+
+## Lineage
+
+- parent_checkpoint: runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt
+- parent_dataset: docs/m1262-paper-route-richer-fault-regret-boundary-retarget-implementation.md, runs/m1262_richer_fault_regret_boundary_retarget_smoke/summary.json, runs/m1262_richer_fault_regret_boundary_retarget_smoke/retarget_decisions.csv, runs/m1262_richer_fault_regret_boundary_retarget_smoke/retarget_rollouts.csv
+- parent_config: experiments/manifests/m1262-paper-route-richer-fault-regret-boundary-retarget-implementation.json, configs/extreme_fault_distribution_v4_low_margin_refresh_scenarios.json
+- parent_objective: audit geometry-only regret-boundary retargeting after strict accepted rows remain zero
+- derived_from: m1262-paper-route-richer-fault-regret-boundary-retarget-implementation
+- blocked_by: M1262 produced zero strict accepted rows and max min_cross_regret remained far below 0.02
+- supersedes: another immediate same-axis geometry retargeting run without auditing the low-regret and collision-dominance result
+- invalidates: None
+
+## Success Criteria
+
+- docs/m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit.md exists
+- audit cites M1262 strict accepted count and max regret evidence
+- audit records anti-collision diagnostics
+- audit does not lower thresholds
+- audit chooses the next branch decision
+- no training, PPO, promotion, private holdout, or actor-input expansion occurs
+
+## Failure Criteria
+
+- audit is missing
+- audit treats M1262 as source-positive
+- audit ignores collision-dominance diagnostics
+- audit proposes another same-axis geometry run without new evidence variable
+- training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs
+
+## Evidence Gates
+
+- M1263 must preserve actor input contract
+- M1263 must not train controllers
+- M1263 must not run PPO
+- M1263 must not use private holdout
+- M1263 must not promote
+- M1263 must preserve strict accepted-source criteria
+- M1263 must decide whether same-axis geometry retargeting should stop, repair, synthesize, or pivot
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run PPO
+- do not use private holdout
+- do not promote
+- do not add hidden parameters, fault labels, oracle outcomes, or search outputs to actor inputs
+- do not lower min_cross_regret_margin
+- do not accept negative own-branch margins
+- do not treat asymmetric_success_drop as strict accepted source-positive
+- do not claim current single-track proxies are true single-wheel or per-wheel faults
+
+## Failure Taxonomy
+
+- scenario_sampling_failure
+
+## Scoreboard
+
+- No scoreboard row recorded.
+
+## Next Blocker
+
+m1264-paper-route-richer-fault-capability-source-synthesis

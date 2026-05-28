@@ -147,6 +147,30 @@
     "docs/m1262-paper-route-richer-fault-regret-boundary-retarget-implementation.md",
     "runs/m1262_richer_fault_regret_boundary_retarget_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit.md",
+    "decision": "regret_boundary_geometry_retarget_negative_route_to_richer_fault_branch_synthesis",
+    "failure_type": "scenario_sampling_failure",
+    "subtype": "regret_boundary_geometry_retarget_negative",
+    "specific_diagnosis": "fixed_action_geometry_retarget_exhausted_for_pair5",
+    "m1262_strict_accepted_count": 0,
+    "m1262_retarget_candidate_count": 441,
+    "m1262_retarget_rollouts": 1764,
+    "m1262_all_four_rollouts_collision_count": 193,
+    "m1262_own_branch_viability_fail_count": 207,
+    "m1262_best_actions_diverged_pairs": 438,
+    "m1262_max_min_cross_regret": 0.0043813964,
+    "same_axis_geometry_retargeting_stopped": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "threshold_relaxation_allowed": false,
+    "next_manifest": "experiments/manifests/m1264-paper-route-richer-fault-capability-source-synthesis.json"
+  },
+  "decision": "regret_boundary_geometry_retarget_negative_route_to_richer_fault_branch_synthesis",
   "decision_rule": "M1263 passes if it records M1262 as strict source-negative, preserves the corrected acceptance semantics, and chooses the next branch without training or threshold relaxation.",
-  "next_blocker": "m1263-paper-route-richer-fault-regret-boundary-retarget-result-audit"
+  "next_blocker": "m1264-paper-route-richer-fault-capability-source-synthesis"
 }
