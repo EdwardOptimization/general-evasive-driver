@@ -16,14 +16,33 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1368-paper-route-public-base-promotion-generalization-design
+m1369-paper-route-public-base-promotion-generalization-gate-implementation
 ```
 
 Current next task:
 
 ```text
-m1369-paper-route-public-base-promotion-generalization-gate-implementation
+m1370-paper-route-public-base-promotion-audit
 ```
+
+M1369 implemented and ran the no-training public-base promotion/generalization
+gate for M1362 alpha `0.1` against M1154. The result class is
+`materialized_source_history_public_base_promotion_gate_candidate`: exact
+source-history retention passed, six public replay surfaces passed, the
+source-diverse protected diagnostic passed, fresh public `3/3` and moderate-OOD
+`2/2` generalization comparisons passed, and behavior seeds `9505`, `9506`,
+`136930`, and `136931` passed with normal >= reset >= zero-all ordering retained.
+The candidate is now eligible for a separate public-base promotion audit. It is
+not yet promoted, and M1369 does not claim private-holdout, source-rich extreme,
+PPO continuation, high-fidelity, paper-level, or level3 self-identification
+evidence.
+
+M1370 should audit whether the official public base moves from
+`runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`
+to
+`runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`.
+M1370 must not train, run PPO, use private holdout, run new replay/eval, change
+actor inputs, or expand the claim boundary.
 
 M1368 defines the no-training public-base promotion/generalization gate for the
 M1362 alpha `0.1` broad-public-replay-passing candidate. The candidate checkpoint

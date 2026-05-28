@@ -20117,3 +20117,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, replay run, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1369-paper-route-public-base-promotion-generalization-gate-implementation.json`.
 - next: `m1369-paper-route-public-base-promotion-generalization-gate-implementation`
+
+## 20260528T214000Z - m1369-paper-route-public-base-promotion-generalization-gate-implementation
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `promotion`
+- artifact: `runs/m1369_public_base_promotion_generalization_gate/summary.json`
+- document: `docs/m1369-paper-route-public-base-promotion-generalization-gate-implementation.md`
+- decision: `public_base_promotion_generalization_gate_candidate_route_to_promotion_audit`
+- result class: `materialized_source_history_public_base_promotion_gate_candidate`
+- candidate checkpoint: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`.
+- public base: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`.
+- exact source-history: pass; combined loss delta `-0.5148637358`, group-min delta `+0.5245143158`, eval-fold delta `+0.4884667325`.
+- proof replay: six public replay surfaces `6/6` pass and source-diverse protected diagnostics pass.
+- fresh/OOD generalization: fresh public `3/3` pass and moderate OOD `2/2` pass with no success or collision regression.
+- behavior retention: seeds `9505`, `9506`, `136930`, and `136931` pass with normal >= reset >= zero-all ordering retained.
+- guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, source-rich extreme claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1370-paper-route-public-base-promotion-audit.json`.
+- next: `m1370-paper-route-public-base-promotion-audit`

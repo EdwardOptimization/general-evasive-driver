@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1378,
+    "completed": 1379,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1368-paper-route-public-base-promotion-generalization-design.md",
+    "command_log": "docs/m1369-paper-route-public-base-promotion-generalization-gate-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m1368-paper-route-public-base-promotion-generalization-design.md",
+    "run_dir": "runs/m1369_public_base_promotion_generalization_gate",
     "status": "completed",
-    "task_id": "m1368-paper-route-public-base-promotion-generalization-design"
+    "task_id": "m1369-paper-route-public-base-promotion-generalization-gate-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1369-paper-route-public-base-promotion-generalization-gate-implementation.json",
-    "hypothesis": "M1362 alpha 0.1 can pass a no-training public-base promotion/generalization gate against M1154 after its broad public replay pass",
-    "id": "m1369-paper-route-public-base-promotion-generalization-gate-implementation",
+    "command": "see experiments/manifests/m1370-paper-route-public-base-promotion-audit.json",
+    "hypothesis": "M1369 evidence is sufficient to promote M1362 alpha 0.1 as the official public base while keeping paper-level and self-ID claims pending",
+    "id": "m1370-paper-route-public-base-promotion-audit",
     "kind": "gate",
-    "notes": "Pending: implement or use generic gate; evaluate exact proof replay fresh generalization and behavior tiers; no training PPO private holdout or promotion",
-    "priority": 13640,
+    "notes": "Pending: audit promotion decision; no training PPO private holdout new replay new eval or claim expansion",
+    "priority": 13650,
     "status": "pending",
-    "success_artifact": "runs/m1369_public_base_promotion_generalization_gate/summary.json"
+    "success_artifact": "docs/m1370-paper-route-public-base-promotion-audit.md"
   },
-  "updated_at_utc": "20260528T211000Z"
+  "updated_at_utc": "20260528T214000Z"
 }

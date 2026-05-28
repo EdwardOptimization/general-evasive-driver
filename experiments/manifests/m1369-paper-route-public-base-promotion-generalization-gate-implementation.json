@@ -2,7 +2,7 @@
   "id": "m1369-paper-route-public-base-promotion-generalization-gate-implementation",
   "type": "gate",
   "gate_tier": "promotion",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -169,6 +169,30 @@
     "docs/m1368-paper-route-public-base-promotion-generalization-design.md",
     "runs/m1365_bidirectional_broader_public_replay/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1369_public_base_promotion_generalization_gate/summary.json",
+    "report": "docs/m1369-paper-route-public-base-promotion-generalization-gate-implementation.md",
+    "decision": "public_base_promotion_generalization_gate_candidate_route_to_promotion_audit",
+    "result_class": "materialized_source_history_public_base_promotion_gate_candidate",
+    "exact_pass": true,
+    "proof_pass": true,
+    "source_diverse_pass": true,
+    "generalization_pass": true,
+    "fresh_generalization_comparison_count": 3,
+    "ood_generalization_comparison_count": 2,
+    "behavior_seed_count": 4,
+    "behavior_pass": true,
+    "actor_inputs_changed": false,
+    "forbidden_parameter_mutation_detected": false,
+    "log_std_l2": 0.0,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "next_milestone": "m1370-paper-route-public-base-promotion-audit"
+  },
+  "decision": "public_base_promotion_generalization_gate_candidate_route_to_promotion_audit",
   "decision_rule": "M1369 may only classify M1362 alpha 0.1 as a promotion-audit candidate or route to a named audit; actual promotion must be a separate milestone.",
-  "next_blocker": "m1369-paper-route-public-base-promotion-generalization-gate-implementation"
+  "next_blocker": "m1370-paper-route-public-base-promotion-audit"
 }
