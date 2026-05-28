@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -157,5 +157,5 @@
     "runs/m1199_fair_comparison_pilot/eval_rows.csv"
   ],
   "decision_rule": "M1201 passes if it audits M1199 profile separability and chooses a safe next route without training, tuning, promotion, private holdout, or claim expansion.",
-  "next_blocker": "m1201-paper-route-profile-separability-audit"
+  "next_blocker": "m1202-paper-route-profile-control-repair-design"
 }

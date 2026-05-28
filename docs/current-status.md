@@ -115,8 +115,33 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1201-paper-route-profile-separability-audit
+m1202-paper-route-profile-control-repair-design
 ```
+
+M1201 completed the profile separability audit:
+
+```text
+artifact: docs/m1201-paper-route-profile-separability-audit.md
+run dir: runs/m1201_profile_separability_audit
+decision: profile_separability_audit_route_to_profile_control_repair_design
+```
+
+M1201 result:
+
+```text
+configs_differ_as_intended: true
+l2_observation_stacks_nonidentical: true
+l2_older_tiled_action_l2_mean_overall: 0.001374
+l2_older_zeroed_action_l2_mean_overall: 0.060810
+l3_online_normal_vs_reset_action_l2_mean: 0.044612
+reset_control_external_eval_semantics_mismatch: true
+```
+
+Interpretation: M1199's L2 trend is not yet finite-window history evidence,
+because plausible current-tiled older-history ablation barely changes actions.
+Also, the M1199 `L3_reset_control` diagnostic was a metric artifact: external
+eval did not enforce every-step hidden reset. M1202 must design reset-eval
+semantics and a current-tiled L2 capacity control before more training.
 
 M1200 completed the M1199 result audit:
 

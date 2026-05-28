@@ -17183,3 +17183,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1201-paper-route-profile-separability-audit.json`.
 - decision: `fair_comparison_pilot_audit_route_to_profile_separability_audit`
 - next: `m1201-paper-route-profile-separability-audit`
+
+## 20260528T054604Z - m1201-paper-route-profile-separability-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1201-paper-route-profile-separability-audit.md`
+- run dir: `runs/m1201_profile_separability_audit`
+- result: verifies generated configs and L2 observation stacks differ as intended, but finds the M1199 interpretation is still confounded.
+- L2 observation audit: current-to-oldest L2 norms are nonzero for all L2 windows, so the env is not returning identical history frames.
+- L2 action audit: replacing older frames with the current frame changes actions by only `0.001374` mean L2, while zeroing older frames changes actions by `0.060810`; this indicates high current-frame substitution risk rather than finite-window history necessity.
+- L3 action audit: normal-vs-reset-hidden action difference is nonzero but modest (`0.044612` mean L2 for `L3_online_gru`).
+- metric artifact: M1199 external eval did not enforce `L3_reset_control`'s `every_step_control` reset policy, so the reset diagnostic aggregate cannot be interpreted literally.
+- route decision: design profile-control repairs, specifically reset-hidden eval semantics and a current-tiled L2 capacity control, before more training or longer profile comparison.
+- guardrail: no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, actor-input change, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1202-paper-route-profile-control-repair-design.json`.
+- decision: `profile_separability_audit_route_to_profile_control_repair_design`
+- next: `m1202-paper-route-profile-control-repair-design`

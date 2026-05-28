@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1210,
+    "completed": 1211,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1200-paper-route-fair-comparison-pilot-result-audit.md",
+    "command_log": "docs/m1201-paper-route-profile-separability-audit.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1201_profile_separability_audit",
     "status": "completed",
-    "task_id": "m1200-paper-route-fair-comparison-pilot-result-audit"
+    "task_id": "m1201-paper-route-profile-separability-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1201-paper-route-profile-separability-audit.json",
-    "hypothesis": "M1199 profile families can be audited for config, observation, and action-level separability before any longer comparison.",
-    "id": "m1201-paper-route-profile-separability-audit",
+    "command": "see experiments/manifests/m1202-paper-route-profile-control-repair-design.json",
+    "hypothesis": "The next fair comparison can be made interpretable by designing reset-evaluation semantics and a capacity-matched current-tiled L2 control before more training.",
+    "id": "m1202-paper-route-profile-control-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit L0/L1/L2/L3 profile separability without training",
-    "priority": 11960,
+    "notes": "Pending: design reset-hidden eval semantics and current-tiled L2 capacity control",
+    "priority": 11970,
     "status": "pending",
-    "success_artifact": "docs/m1201-paper-route-profile-separability-audit.md"
+    "success_artifact": "docs/m1202-paper-route-profile-control-repair-design.md"
   },
-  "updated_at_utc": "20260528T053947Z"
+  "updated_at_utc": "20260528T054604Z"
 }

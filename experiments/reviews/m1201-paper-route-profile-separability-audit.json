@@ -1,0 +1,92 @@
+{
+  "decision_reason": "M1201 verifies configs and L2 observation stacks differ but finds L2 current-tiled older-history action sensitivity near zero and M1199 L3_reset_control eval semantics did not enforce every-step reset so diagnostic controls need repair",
+  "failure_criteria": [
+    "M1201 trains or tunes profiles",
+    "private holdout is used",
+    "M1201 treats action probes as paper-level evidence",
+    "hidden or oracle actor inputs are introduced",
+    "audit skips L2 or L3 separability"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not tune profiles",
+    "do not promote",
+    "do not claim profile superiority from action probes",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T054650Z",
+  "hypothesis": "M1199 profile families can be audited for config, observation, and action-level separability before any longer comparison.",
+  "lineage": {
+    "blocked_by": [
+      "M1200 classifies L2 window-equivalence as inconclusive but suspicious and L3 reset parity as negative for hidden benefit in M1199"
+    ],
+    "derived_from": [
+      "m1200-paper-route-fair-comparison-pilot-result-audit"
+    ],
+    "invalidates": [
+      "treating M1199 L2 trend as ready for direct scaling without implementation and action-sensitivity audit"
+    ],
+    "parent_checkpoint": [
+      "runs/m1199_fair_comparison_pilot/profile_runs"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1200-paper-route-fair-comparison-pilot-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m1199_fair_comparison_pilot/profile_seed_rows.csv",
+      "runs/m1199_fair_comparison_pilot/eval_rows.csv",
+      "runs/m1199_fair_comparison_pilot/profile_aggregate.csv",
+      "docs/m1200-paper-route-fair-comparison-pilot-result-audit.md"
+    ],
+    "parent_objective": [
+      "verify profile separability before longer L0/L1/L2/L3 comparison"
+    ],
+    "supersedes": [
+      "running a longer comparison before checking whether profiles are meaningfully separated"
+    ]
+  },
+  "milestone": "m1201-paper-route-profile-separability-audit",
+  "next_blocker": "m1202-paper-route-profile-control-repair-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "profile_separability_audit_route_to_profile_control_repair_design",
+  "public_gates": [
+    "M1201 may run artifact and checkpoint analysis only",
+    "M1201 must not train controllers",
+    "M1201 must not run PPO",
+    "M1201 must not run candidate replay",
+    "M1201 must not promote",
+    "M1201 must not use private holdout",
+    "M1201 must not tune profiles",
+    "M1201 must not claim paper-level evidence or self-identification"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1201_profile_separability_audit/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "profile_separability_audit_route_to_profile_control_repair_design",
+    "milestone": "m1201-paper-route-profile-separability-audit",
+    "reason": "M1201 verifies configs and L2 observation stacks differ but finds L2 current-tiled older-history action sensitivity near zero and M1199 L3_reset_control eval semantics did not enforce every-step reset so diagnostic controls need repair",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1201-paper-route-profile-separability-audit.md exists",
+    "config differences are summarized",
+    "observation history-stack differences are summarized",
+    "L2 older-history action sensitivity is measured or a tooling blocker is recorded",
+    "L3 reset-hidden action sensitivity is measured or a tooling blocker is recorded",
+    "private holdout remains unused",
+    "no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, or actor-input contract change occurs",
+    "next route is selected"
+  ],
+  "type": "gate"
+}

@@ -1,0 +1,157 @@
+{
+  "id": "m1202-paper-route-profile-control-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1199_fair_comparison_pilot/profile_runs"
+    ],
+    "parent_dataset": [
+      "runs/m1201_profile_separability_audit/summary.json",
+      "runs/m1201_profile_separability_audit/l2_older_history_action_sensitivity.csv",
+      "runs/m1201_profile_separability_audit/l3_hidden_action_sensitivity.csv",
+      "docs/m1201-paper-route-profile-separability-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1201-paper-route-profile-separability-audit.json"
+    ],
+    "parent_objective": [
+      "design diagnostic-control repairs before any longer profile comparison"
+    ],
+    "derived_from": [
+      "m1201-paper-route-profile-separability-audit"
+    ],
+    "blocked_by": [
+      "M1201 finds high current-frame substitution risk for L2 older history and a reset-control evaluation semantic artifact"
+    ],
+    "supersedes": [
+      "directly repeating M1199 without corrected reset evaluation and capacity-matched current-tiled L2 controls"
+    ],
+    "invalidates": [
+      "using M1199 L3_reset_control aggregate as a true reset-hidden diagnostic"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1202-paper-route-profile-control-repair-design.md",
+  "public_gates": [
+    "M1202 may design repairs only",
+    "M1202 must not train controllers",
+    "M1202 must not run PPO",
+    "M1202 must not run candidate replay",
+    "M1202 must not promote",
+    "M1202 must not use private holdout",
+    "M1202 must not tune profiles",
+    "M1202 must not claim paper-level evidence or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun the comparison before reset evaluation semantics are fixed",
+    "do not claim finite-window history necessity without a current-tiled capacity control",
+    "do not use private holdout",
+    "do not tune one profile after M1199",
+    "do not promote",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_profile_control_repair: reset semantics and current-tiled L2 control",
+    "evidence_increment": "designs the control repairs needed to make the next profile comparison interpretable",
+    "claim_scope": "design only; no training promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if reset_hidden_policy cannot be represented in public evaluation tooling",
+      "stop if a current-tiled L2 control would change non-history inputs or actor capacity",
+      "stop if repair would require profile-specific tuning",
+      "stop if the repair cannot be tested without private holdout"
+    ],
+    "fallback_plan": [
+      "route to evaluator implementation if reset semantics are straightforward",
+      "route to controller-profile runtime implementation if current-tiled L2 needs a wrapper",
+      "route to benchmark redesign if controls cannot isolate history from capacity",
+      "route to synthesis if the branch cadence fires before implementation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1201 identifies diagnostic control gaps that block longer comparison",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "diagnostic control repair design",
+    "admission_evidence": [
+      "M1201 verifies profile configs and L2 observation stacks are nonidentical",
+      "M1201 finds L2 older-current-tiled action sensitivity is near zero",
+      "M1201 finds L3_reset_control external eval did not enforce every-step reset semantics"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers in M1202",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1202 design document",
+      "next manifest",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "reset evaluation semantic repair is specified",
+      "current-tiled L2 capacity control is specified",
+      "focused tests and rerun protocol are specified",
+      "next implementation or synthesis milestone is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1201 shows current-frame substitution risk is high for L2 older-history ablation, so M1202 must design controls that separate history use from current-frame and encoder-capacity effects.",
+    "history_necessity_tests": [
+      "design_current_tiled_l2_capacity_control",
+      "design_reset_hidden_policy_eval_semantics"
+    ],
+    "temporal_evidence_window": "No new temporal evidence is claimed in M1202; it designs the controls required for later evidence.",
+    "negative_result_policy": "Treat near-zero older-current-tiled action sensitivity and reset-control metric artifact as process blockers, not as reasons to lower self-ID standards.",
+    "allowed_claims": [
+      "diagnostic control repair design",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The next fair comparison can be made interpretable by designing reset-evaluation semantics and a capacity-matched current-tiled L2 control before more training.",
+  "success_criteria": [
+    "docs/m1202-paper-route-profile-control-repair-design.md exists",
+    "reset_hidden_policy evaluation semantics are specified",
+    "current-tiled L2 capacity control is specified",
+    "focused tests and rerun protocol are specified",
+    "private holdout remains unused",
+    "no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, or actor-input contract change occurs",
+    "next implementation or synthesis milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1202 trains or tunes profiles",
+    "private holdout is used",
+    "M1202 treats repair design as performance evidence",
+    "hidden or oracle actor inputs are introduced",
+    "design fails to address either reset semantics or L2 capacity control"
+  ],
+  "commands": [
+    {
+      "name": "design_profile_control_repairs",
+      "command": "write reset-eval and current-tiled L2 control design without training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1202-paper-route-profile-control-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1199_fair_comparison_pilot/profile_runs"
+  ],
+  "baseline_artifacts": [
+    "docs/m1201-paper-route-profile-separability-audit.md",
+    "runs/m1201_profile_separability_audit/summary.json"
+  ],
+  "decision_rule": "M1202 passes if it designs the diagnostic-control repairs needed for an interpretable rerun without training, tuning, promotion, private holdout, or claim expansion.",
+  "next_blocker": "m1202-paper-route-profile-control-repair-design"
+}
