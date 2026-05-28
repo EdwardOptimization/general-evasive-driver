@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1351,
+    "completed": 1352,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md",
+    "command_log": "docs/m1342-paper-route-materialized-source-history-pair-group-metric-evaluator.md",
     "returncode": 0,
-    "run_dir": "docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md",
+    "run_dir": "runs/m1342_materialized_source_history_pair_group_metrics",
     "status": "completed",
-    "task_id": "m1341-paper-route-materialized-source-history-pair-group-objective-design"
+    "task_id": "m1342-paper-route-materialized-source-history-pair-group-metric-evaluator"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1342-paper-route-materialized-source-history-pair-group-metric-evaluator.json",
-    "hypothesis": "Implement no-update group metric evaluator over M1339 objective rows",
-    "id": "m1342-paper-route-materialized-source-history-pair-group-metric-evaluator",
-    "kind": "infrastructure",
-    "notes": "Pending: no-update metric evaluator only; no checkpoint load, training, PPO, promotion, or objective update",
-    "priority": 13370,
+    "command": "see experiments/manifests/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.json",
+    "hypothesis": "Audit M1342 group metrics and choose next route",
+    "id": "m1343-paper-route-materialized-source-history-pair-group-metric-result-audit",
+    "kind": "gate",
+    "notes": "Pending: no-training audit only; no checkpoint load, PPO, promotion, or objective update",
+    "priority": 13380,
     "status": "pending",
-    "success_artifact": "runs/m1342_materialized_source_history_pair_group_metrics/summary.json"
+    "success_artifact": "docs/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.md"
   },
-  "updated_at_utc": "20260528T185246Z"
+  "updated_at_utc": "20260528T185652Z"
 }

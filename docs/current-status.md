@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1341-paper-route-materialized-source-history-pair-group-objective-design
+m1342-paper-route-materialized-source-history-pair-group-metric-evaluator
 ```
 
 Current next task:
 
 ```text
-m1342-paper-route-materialized-source-history-pair-group-metric-evaluator
+m1343-paper-route-materialized-source-history-pair-group-metric-result-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -369,7 +369,14 @@ completed that design. The group key is `source_identity|probe_template`, with
 group-min directional term and condition-balance term rather than rowwise scalar
 loss alone. The active blocker is M1342: implement a no-update group metric
 evaluator over the M1339 rows before any objective-update design. Objective
-updates, PPO, and promotion remain blocked.
+updates, PPO, and promotion remain blocked. M1342 completed that evaluator and
+confirmed `688` valid two-condition groups: `0` all-rows-both-directional
+groups, `684` one-sided conflict groups, and `4` both-negative groups. The
+one-sided conflict fraction is `0.9941860465`, and the mean group-min joint
+margin is `-6.8026667906`. The active blocker is M1343: audit these group
+metrics and choose between bounded pair-group objective-update design,
+source-current projection repair, or branch synthesis. Objective updates, PPO,
+and promotion remain blocked.
 
 ## Actor Contract
 

@@ -170,6 +170,33 @@
     "docs/m1341-paper-route-materialized-source-history-pair-group-objective-design.md",
     "runs/m1339_materialized_source_history_objective_evaluator/materialized_source_history_objective_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1342_materialized_source_history_pair_group_metrics/summary.json",
+    "doc": "docs/m1342-paper-route-materialized-source-history-pair-group-metric-evaluator.md",
+    "decision": "materialized_source_history_pair_group_metrics_pass_route_to_result_audit",
+    "result_class": "materialized_source_history_pair_group_metrics_pass",
+    "focused_tests_passed": true,
+    "row_count": 1376,
+    "group_count": 688,
+    "valid_two_condition_group_count": 688,
+    "group_all_rows_both_directional_count": 0,
+    "group_all_rows_distance_both_count": 0,
+    "group_one_sided_conflict_count": 684,
+    "group_both_negative_count": 4,
+    "group_one_sided_conflict_fraction": 0.9941860465,
+    "group_min_joint_margin_mean": -6.8026667906,
+    "checkpoint_loaded": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_update_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.json"
+  },
   "decision_rule": "M1342 passes as infrastructure if it writes exact group metrics matching M1341 expected counts without loading a checkpoint, training, PPO, private holdout, promotion, or actor-input expansion.",
-  "next_blocker": "m1342-paper-route-materialized-source-history-pair-group-metric-evaluator"
+  "next_blocker": "m1343-paper-route-materialized-source-history-pair-group-metric-result-audit"
 }

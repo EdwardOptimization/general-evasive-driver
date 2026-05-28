@@ -19644,3 +19644,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1342-paper-route-materialized-source-history-pair-group-metric-evaluator.json`.
 - next: `m1342-paper-route-materialized-source-history-pair-group-metric-evaluator`
+
+## 20260528T185652Z - m1342-paper-route-materialized-source-history-pair-group-metric-evaluator
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1342_materialized_source_history_pair_group_metrics/summary.json`
+- doc: `docs/m1342-paper-route-materialized-source-history-pair-group-metric-evaluator.md`
+- implementation: added `materialized_source_history_pair_group_metrics.py` and focused tests.
+- focused tests: `1 passed`.
+- decision: `materialized_source_history_pair_group_metrics_pass_route_to_result_audit`
+- result class: `materialized_source_history_pair_group_metrics_pass`.
+- structural metrics: `row_count=1376`, `group_count=688`, and `valid_two_condition_group_count=688`.
+- group metrics: `group_all_rows_both_directional_count=0`, `group_all_rows_distance_both_count=0`, `group_one_sided_conflict_count=684`, and `group_both_negative_count=4`.
+- fractions: `group_one_sided_conflict_fraction=0.9941860465`, `group_both_negative_fraction=0.0058139535`, and `group_min_joint_margin_mean=-6.8026667906`.
+- family audit: every family has group pass fraction `0.0`; all non-steering families are fully one-sided, while steering actuator has `0.0208333333` both-negative groups.
+- fold audit: every fold has group pass fraction `0.0`; folds `3` and `4` contain the both-negative groups.
+- guardrail: no checkpoint load, training, PPO, promotion, private holdout, actor update, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.json`.
+- next: `m1343-paper-route-materialized-source-history-pair-group-metric-result-audit`

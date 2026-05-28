@@ -1,0 +1,157 @@
+{
+  "id": "m1343-paper-route-materialized-source-history-pair-group-metric-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1342-paper-route-materialized-source-history-pair-group-metric-evaluator.md",
+      "runs/m1342_materialized_source_history_pair_group_metrics/summary.json",
+      "runs/m1342_materialized_source_history_pair_group_metrics/group_rows.csv",
+      "runs/m1342_materialized_source_history_pair_group_metrics/family_group_summary.csv",
+      "runs/m1342_materialized_source_history_pair_group_metrics/fold_group_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1342-paper-route-materialized-source-history-pair-group-metric-evaluator.json"
+    ],
+    "parent_objective": [
+      "audit group metric result before objective-update design"
+    ],
+    "derived_from": [
+      "m1342-paper-route-materialized-source-history-pair-group-metric-evaluator"
+    ],
+    "blocked_by": [
+      "M1342 confirms group-level conflict but route to update design versus projection repair has not been chosen"
+    ],
+    "supersedes": [
+      "direct pair-group actor update without group metric audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.md",
+  "public_gates": [
+    "M1343 must not train",
+    "M1343 must not run PPO",
+    "M1343 must not update actor weights",
+    "M1343 must not use private holdout",
+    "M1343 must not promote",
+    "M1343 must preserve actor input contract",
+    "M1343 must audit group metrics and select a route"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not update actor weights",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not hide one-sided conflict",
+    "do not claim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_objective_corpus",
+    "evidence_axis": "S_materialized_source_history_pair_group_metric_audit",
+    "evidence_increment": "audits M1342 group metrics and chooses objective-update design versus projection repair or synthesis",
+    "claim_scope": "process audit only; no promotion, private-holdout, PPO, actor-update, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if audit routes directly to actor update without design",
+      "stop if audit ignores group_one_sided_conflict_fraction",
+      "stop if actor inputs change",
+      "stop if private holdout is used"
+    ],
+    "fallback_plan": [
+      "if group metrics are accepted, route to bounded pair-group objective-update design",
+      "if projection artifact dominates, route to source-current projection repair",
+      "if branch has enough evidence for cadence synthesis, route to branch synthesis",
+      "if metrics disagree with M1340, audit discrepancy"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1342 confirms exact group-level conflict metrics",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "materialized source-history pair-group metric result audit",
+    "admission_evidence": [
+      "M1342 group_count=688",
+      "M1342 valid_two_condition_group_count=688",
+      "M1342 group_one_sided_conflict_count=684",
+      "M1342 group_all_rows_both_directional_count=0",
+      "PPO and actor update remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not update checkpoint weights",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1343 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "M1342 group metrics are summarized",
+      "route is selected before objective update",
+      "guardrails remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1343 audits zero-context source-current group metrics and cannot claim closed-loop history necessity.",
+    "history_necessity_tests": [
+      "audit grouped correct-history versus wrong-history residuals from M1342"
+    ],
+    "temporal_evidence_window": "M1339/M1342 materialized source-history objective rows.",
+    "negative_result_policy": "Group conflict must remain explicit before update design.",
+    "allowed_claims": [
+      "materialized source-history pair-group metric result audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1342 group metrics can be audited into a safe next route before any pair-group objective update.",
+  "success_criteria": [
+    "docs/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.md exists",
+    "audit cites M1342 group counts and conflict fractions",
+    "audit cites family and fold group summaries",
+    "audit chooses bounded objective-update design, projection repair, or branch synthesis",
+    "no training, PPO, promotion, private holdout, threshold relaxation, actor update, checkpoint load, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "group metrics are not summarized",
+    "route is ambiguous",
+    "audit routes directly to PPO or actor update",
+    "training, PPO, private holdout, promotion, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.md from M1342 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1343-paper-route-materialized-source-history-pair-group-metric-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1342-paper-route-materialized-source-history-pair-group-metric-evaluator.md",
+    "runs/m1342_materialized_source_history_pair_group_metrics/summary.json"
+  ],
+  "decision_rule": "M1343 passes as a process audit if it summarizes M1342 group evidence and selects one safe next route before any objective update, PPO, private holdout, promotion, or actor-input expansion.",
+  "next_blocker": "m1343-paper-route-materialized-source-history-pair-group-metric-result-audit"
+}
