@@ -16789,3 +16789,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no broad mining, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
 - decision: `action_divergent_bounded_relocation_reject_route_to_scarcity_audit`
 - next: `m1178-v4-public-base-action-divergent-relocation-scarcity-audit`
+
+## 20260528T035000Z - m1178-v4-public-base-action-divergent-relocation-scarcity-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1178-v4-public-base-action-divergent-relocation-scarcity-audit.md`
+- result: confirms M1177 increased old-active-set accepted row count but did not discover a new source-diverse physical-pair surface.
+- old active set: M1177 accepted pairs exactly match M1169 pairs `116117:36:116124:15` and `116117:39:116124:15`.
+- density change: M1169 had `6` accepted rows; M1177 had `78` raw accepted rows and `38` balanced exportable rows.
+- candidate audit: M1175 had `17` candidate physical pairs, but only `30/240` selected rows belonged to the accepted pairs; `210/240` rows did not materialize.
+- scoring audit: non-accepted-pair candidates include higher action-divergent scores and larger margin gaps, so score alone does not predict materialization.
+- source-geometry caveat: M1175 candidates have only `x=nan|y=nan` source obstacle bucket, so artifact-only selection cannot balance original obstacle geometry.
+- classification: `old_active_set_dominance=true`, `candidate_scoring_insufficient_for_materialization=true`, `source_geometry_deficiency_for_artifact_only_selection=true`, `source_budget_failure=false`, `runtime_failure=false`.
+- guardrail: no relocation replay, mining, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
+- decision: `action_divergent_relocation_scarcity_audit_route_to_branch_synthesis`
+- next: `m1179-v4-public-base-stronger-wrong-history-construction-synthesis`

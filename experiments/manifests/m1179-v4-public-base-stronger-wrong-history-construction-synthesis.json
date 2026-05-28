@@ -1,0 +1,172 @@
+{
+  "id": "m1179-v4-public-base-stronger-wrong-history-construction-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md",
+      "docs/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.md",
+      "docs/m1175-v4-public-base-action-divergent-candidate-export-run.md",
+      "docs/m1177-v4-public-base-action-divergent-bounded-relocation-run.md",
+      "docs/m1178-v4-public-base-action-divergent-relocation-scarcity-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1178-v4-public-base-action-divergent-relocation-scarcity-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize the stronger_wrong_history_construction branch after artifact-only action-divergent relocation remains old-active-set dominated"
+    ],
+    "derived_from": [
+      "m1178-v4-public-base-action-divergent-relocation-scarcity-audit"
+    ],
+    "blocked_by": [
+      "M1178 confirms M1177 only expands the old two-pair active set"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "continuing artifact-only action-divergent relocation without synthesis",
+      "training from M1175/M1177 rows before a new branch decision",
+      "converting M1177 rows into a proof corpus"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md",
+  "public_gates": [
+    "M1179 must synthesize M1171 through M1178",
+    "M1179 must close or explicitly continue the stronger_wrong_history_construction branch",
+    "M1179 must not run mining",
+    "M1179 must not run replay",
+    "M1179 must not train actor weights",
+    "M1179 must not run PPO",
+    "M1179 must not promote",
+    "M1179 must not use private holdout",
+    "M1179 must preserve actor inputs",
+    "M1179 must not convert failed surface rows"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run mining",
+    "do not run replay",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert failed surface rows",
+    "do not continue artifact-only relocation expansion without a new branch decision"
+  ],
+  "workflow_synthesis": {
+    "branch": "stronger_wrong_history_construction",
+    "evidence_axis": "G_branch: stronger wrong-history construction synthesis",
+    "evidence_increment": "synthesizes M1171-M1178 after action-divergent artifact-only replay fails to break old active-set dominance",
+    "claim_scope": "process synthesis only; no mining, replay, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if supported and falsified claims are not separated",
+      "stop if artifact-only continuation is recommended without evidence",
+      "stop if next branch does not address source-geometry and scenario-coverage limitations",
+      "stop if public-gate overfit risk is not recorded"
+    ],
+    "fallback_plan": [
+      "if evidence supports pivot, open a richer source artifact or extreme scenario mining branch",
+      "if evidence is ambiguous, open a targeted instrumentation audit branch",
+      "if evidence unexpectedly supports continuation, pre-register exact continuation criteria"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1178 confirms old active-set dominance after M1171-M1178 branch work",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "close or pivot the stronger_wrong_history_construction branch",
+    "admission_evidence": [
+      "M1172 found action-divergent candidate signal in existing artifacts",
+      "M1175 exported a source-diverse action-divergent candidate set",
+      "M1177 materialized accepted rows but only on the old two-pair active set",
+      "M1178 classified the failure as old-active-set dominance plus source-geometry deficiency"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not rerun source mining",
+      "do not rerun relocation",
+      "do not convert failed surfaces",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "synthesis document",
+      "next branch manifest if synthesis is decisive",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "branch decision is explicit",
+      "artifact-only continuation is accepted or blocked explicitly",
+      "next branch blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1179 synthesizes proof-surface construction evidence and cannot upgrade to level3 self-identification.",
+    "history_necessity_tests": [
+      "normal vs wrong-matched-history relocation replay"
+    ],
+    "temporal_evidence_window": "M1179 synthesizes existing M1171-M1178 artifacts only.",
+    "negative_result_policy": "Record artifact-only wrong-history construction scarcity as a branch result and require new source/scenario evidence before more PPO.",
+    "allowed_claims": [
+      "branch-level evidence synthesis for level2 proof-surface construction",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The stronger_wrong_history_construction branch should pivot because action-divergent artifact-only construction improves old-active-set density but does not produce a broad source-diverse wrong-history surface.",
+  "success_criteria": [
+    "synthesis artifact exists",
+    "M1171-M1178 evidence is summarized",
+    "supported claims are explicit",
+    "falsified claims are explicit",
+    "failure taxonomy is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "no mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "branch decision is ambiguous",
+    "artifact-only relocation expansion is continued without evidence",
+    "next blocker is ambiguous",
+    "mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_branch_synthesis",
+      "command": "write docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1178-v4-public-base-action-divergent-relocation-scarcity-audit.md"
+  ],
+  "decision_rule": "M1179 may only synthesize the M1171-M1178 branch and choose the next branch. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert failed surface rows.",
+  "next_blocker": "m1179-v4-public-base-stronger-wrong-history-construction-synthesis"
+}

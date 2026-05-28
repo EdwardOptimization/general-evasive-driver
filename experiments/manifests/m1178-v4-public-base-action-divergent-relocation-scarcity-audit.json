@@ -150,6 +150,49 @@
     "runs/m1177_action_divergent_bounded_relocation_seed117700/summary.json",
     "docs/m1177-v4-public-base-action-divergent-bounded-relocation-run.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1178-v4-public-base-action-divergent-relocation-scarcity-audit.md",
+    "decision": "action_divergent_relocation_scarcity_audit_route_to_branch_synthesis",
+    "result_class": "old_active_set_dominance_confirmed",
+    "failure_types": [
+      "scenario_sampling_failure"
+    ],
+    "old_active_set_dominance": true,
+    "candidate_scoring_insufficient_for_materialization": true,
+    "source_geometry_deficiency_for_artifact_only_selection": true,
+    "source_budget_failure": false,
+    "runtime_failure": false,
+    "actor_contract_violation": false,
+    "m1169_accepted_rows": 6,
+    "m1169_accepted_physical_pairs": 2,
+    "m1177_balanced_accepted_rows": 38,
+    "m1177_raw_accepted_rows": 78,
+    "m1177_accepted_physical_pairs": 2,
+    "m1177_accepted_pair_keys": [
+      "116117:36:116124:15",
+      "116117:39:116124:15"
+    ],
+    "m1177_accepted_target": "future_yaw_response",
+    "m1175_candidate_pairs": 17,
+    "m1175_rows_on_accepted_pairs": 30,
+    "m1175_rows_on_nonaccepted_pairs": 210,
+    "accepted_pair_action_divergent_score_mean": 2.8972562064945704,
+    "nonaccepted_pair_action_divergent_score_mean": 2.2212852732504853,
+    "nonaccepted_pair_action_divergent_score_max": 5.719663966835624,
+    "source_obstacle_bucket_unique_count": 1,
+    "source_obstacle_bucket_value": "x=nan|y=nan",
+    "replay_started": false,
+    "mining_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "surface_conversion_started": false,
+    "admitted_next": "stronger_wrong_history_construction_branch_synthesis",
+    "next_milestone": "m1179-v4-public-base-stronger-wrong-history-construction-synthesis"
+  },
   "decision_rule": "M1178 may only audit existing M1177 artifacts and document the next route. It cannot run relocation replay, run mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
-  "next_blocker": "m1178-v4-public-base-action-divergent-relocation-scarcity-audit"
+  "next_blocker": "m1179-v4-public-base-stronger-wrong-history-construction-synthesis"
 }

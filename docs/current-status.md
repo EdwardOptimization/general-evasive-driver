@@ -84,49 +84,37 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1178-v4-public-base-action-divergent-relocation-scarcity-audit
+m1179-v4-public-base-stronger-wrong-history-construction-synthesis
 ```
 
-M1177 ran the bounded relocation replay over the M1175 action-divergent
-candidate export:
+M1178 audited the M1177 bounded relocation failure:
 
 ```text
-summary: runs/m1177_action_divergent_bounded_relocation_seed117700/summary.json
-decision: reject_duplicate_dominated_boundary_surface
-passed: false
+artifact: docs/m1178-v4-public-base-action-divergent-relocation-scarcity-audit.md
+decision: action_divergent_relocation_scarcity_audit_route_to_branch_synthesis
 ```
 
-Source budget and replay execution were healthy:
+Main finding:
 
 ```text
-candidate_rows: 240
-selected_physical_pairs: 17
-selected_left_steps: 9
-selected_targets: 3
-selected_checkpoints: 6
-max_selected_pair_fraction: 0.0625
-relocation_replay_started: true
-raw_rows: 1054
+M1177 accepted pairs exactly match the old M1169 active set:
+  116117:36:116124:15
+  116117:39:116124:15
 ```
 
-But accepted wrong-history rows remained duplicate dominated:
+M1177 increased density on that old active set:
 
 ```text
-raw_accepted_wrong_rows: 78
-balanced_accepted_wrong_rows: 38
-accepted_wrong_physical_pairs: 2
-accepted_wrong_left_steps: 2
-accepted_wrong_targets: 1
-accepted_wrong_normal_margin_buckets: 1
-max_rows_per_physical_pair_fraction: 0.5263157895
-accepted_wrong_success_drop_fraction: 1.0
-control_accepted_wrong_rows: 0
+M1169 accepted rows: 6
+M1177 raw accepted rows: 78
+M1177 balanced accepted rows: 38
 ```
 
-M1178 should audit whether this is old-active-set dominance, a source-geometry
-deficiency in the artifacts, or a candidate scoring limitation before any new
-replay, mining, actor training, PPO, promotion, private holdout, row conversion,
-or actor-input change.
+But it found no new physical-pair surface. M1178 classifies the failure as
+old-active-set dominance plus source-geometry deficiency in the artifact-only
+candidate table. M1179 should synthesize M1171-M1178 and choose the next branch
+before any new replay, mining, actor training, PPO, promotion, private holdout,
+row conversion, or actor-input change.
 
 M1127 completed the expanded full public gate for the row15 projection
 candidate:

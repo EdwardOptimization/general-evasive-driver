@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T022558Z
+- Generated at UTC: 20260528T022956Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M1178 may only audit existing M1177 artifacts and document the next route. It cannot run relocation replay, run mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.
+- Promotion decision: action_divergent_relocation_scarcity_audit_route_to_branch_synthesis
+- Decision reason: M1178 confirms M1177 increased old-active-set density but found no new physical-pair surface and routes to branch synthesis
 
 ## Hypothesis
 
@@ -73,8 +73,19 @@ M1177 failure can be localized to old-active-set dominance, source-geometry defi
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1178-v4-public-base-action-divergent-relocation-scarcity-audit
+- type: gate
+- checkpoint: docs/m1178-v4-public-base-action-divergent-relocation-scarcity-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: action_divergent_relocation_scarcity_audit_route_to_branch_synthesis
+- reason: M1178 confirms M1177 increased old-active-set density but found no new physical-pair surface and routes to branch synthesis
 
 ## Next Blocker
 
-m1178-v4-public-base-action-divergent-relocation-scarcity-audit
+m1179-v4-public-base-stronger-wrong-history-construction-synthesis
