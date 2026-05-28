@@ -150,6 +150,37 @@
   "baseline_artifacts": [
     "docs/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1171-v4-public-base-stronger-wrong-history-construction-design.md",
+    "decision": "stronger_wrong_history_construction_design_admit_action_divergence_audit",
+    "result_class": "stronger_wrong_history_construction_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "designed_construction_axes": [
+      "action_divergence",
+      "terminal_margin_sensitivity",
+      "source_diversity",
+      "current_frame_match_guard",
+      "no_actor_input_change"
+    ],
+    "existing_artifact_first_action_mean_wrong_history": 0.096101,
+    "existing_artifact_first_action_p90_wrong_history": 0.227336,
+    "existing_artifact_first_action_mean_reset": 0.652387,
+    "existing_artifact_margin_gap_p90_wrong_history": 0.002677,
+    "existing_artifact_margin_gap_p90_zero_current": 0.01809,
+    "mining_started": false,
+    "replay_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "surface_conversion_started": false,
+    "admitted_next": "action_divergence_existing_artifact_audit",
+    "next_milestone": "m1172-v4-public-base-wrong-history-action-divergence-artifact-audit"
+  },
   "decision_rule": "M1171 is design-only. It can design stronger wrong-history construction but cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert failed rows.",
-  "next_blocker": "m1171-v4-public-base-stronger-wrong-history-construction-design"
+  "next_blocker": "m1172-v4-public-base-wrong-history-action-divergence-artifact-audit"
 }

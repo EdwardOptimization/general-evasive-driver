@@ -1,0 +1,159 @@
+{
+  "id": "m1172-v4-public-base-wrong-history-action-divergence-artifact-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1171-v4-public-base-stronger-wrong-history-construction-design.md",
+      "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv",
+      "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1171-v4-public-base-stronger-wrong-history-construction-design.json"
+    ],
+    "parent_objective": [
+      "audit existing M1161 outcome rows for action-divergent and terminal-margin-sensitive wrong histories"
+    ],
+    "derived_from": [
+      "m1171-v4-public-base-stronger-wrong-history-construction-design"
+    ],
+    "blocked_by": [
+      "M1171 designs an existing-artifact action-divergence audit before new mining or replay"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "new mining before checking existing action-divergent rows",
+      "replay before measuring intervention strength",
+      "PPO before a broader wrong-history proof surface exists"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.md",
+  "public_gates": [
+    "M1172 must audit existing M1161 outcome artifacts only",
+    "M1172 must not run mining",
+    "M1172 must not run replay",
+    "M1172 must not train actor weights",
+    "M1172 must not run PPO",
+    "M1172 must not promote",
+    "M1172 must not use private holdout",
+    "M1172 must preserve actor inputs",
+    "M1172 must not convert rows"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run mining",
+    "do not run replay",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert rows",
+    "do not claim success-drop proof from action-distance alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "stronger_wrong_history_construction",
+    "evidence_axis": "G_audit: existing-artifact action-divergence availability",
+    "evidence_increment": "measures whether existing wrong-history outcome rows have enough action divergence and margin sensitivity to support a stronger candidate construction",
+    "claim_scope": "artifact audit only; no mining, replay, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if existing artifacts do not contain enough action-divergent wrong-history rows",
+      "stop if action-divergent rows are dominated by one physical pair or target",
+      "stop if terminal-margin sensitivity remains too small"
+    ],
+    "fallback_plan": [
+      "if enough rows exist, design a bounded existing-artifact replay diagnostic",
+      "if rows are sparse, design new action-divergent mining",
+      "if current-frame substitution dominates, route to observation/intervention audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1171 admits an existing-artifact action-divergence audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "measure existing action-divergent wrong-history candidate availability",
+    "admission_evidence": [
+      "M1171 observes wrong_matched_history first action distance is much smaller than reset_hidden",
+      "M1170 closes same-shape relocation expansion",
+      "M1161 outcome artifacts already contain action-distance and margin-gap columns"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not run replay",
+      "do not rerun mining",
+      "do not convert rows"
+    ],
+    "allowed_updates": [
+      "audit documentation",
+      "small tabular summaries derived from existing CSVs",
+      "next design manifest if audit is clear",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "candidate availability by threshold is explicit",
+      "source diversity by threshold is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1172 only audits candidate strength and cannot claim history necessity by itself.",
+    "history_necessity_tests": [
+      "normal vs action-divergent wrong-history",
+      "normal vs terminal-margin-sensitive wrong-history"
+    ],
+    "temporal_evidence_window": "M1172 reads existing M1161 outcome rows only.",
+    "negative_result_policy": "If existing artifacts lack action-divergent rows, route to new mining instead of lowering proof standards.",
+    "allowed_claims": [
+      "existing-artifact candidate availability for level2 proof-surface construction",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "Existing M1161 outcome artifacts may contain enough action-divergent and margin-sensitive wrong-history rows to design a stronger candidate replay without new mining.",
+  "success_criteria": [
+    "audit artifact exists",
+    "threshold counts for first_action_distance are reported",
+    "threshold counts for action_trajectory_distance_mean are reported",
+    "threshold counts for margin_gap are reported",
+    "source diversity for promising rows is reported",
+    "next route is explicit",
+    "no mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "audit artifact is missing",
+    "threshold availability remains ambiguous",
+    "source diversity remains ambiguous",
+    "next route remains ambiguous",
+    "mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "audit_existing_action_divergence",
+      "command": "inspect runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv and write docs/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1171-v4-public-base-stronger-wrong-history-construction-design.md",
+    "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
+  ],
+  "decision_rule": "M1172 may only audit existing M1161 outcome artifacts. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, convert rows, or claim proof from action-distance alone.",
+  "next_blocker": "m1172-v4-public-base-wrong-history-action-divergence-artifact-audit"
+}

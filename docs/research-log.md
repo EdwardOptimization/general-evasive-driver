@@ -16685,3 +16685,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no mining, replay, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
 - decision: `row15_promoted_margin_slack_surface_refresh_synthesis_pivot_to_stronger_wrong_history_construction`
 - next: `m1171-v4-public-base-stronger-wrong-history-construction-design`
+
+## 20260528T021900Z - m1171-v4-public-base-stronger-wrong-history-construction-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1171-v4-public-base-stronger-wrong-history-construction-design.md`
+- result: designs a stronger wrong-history construction based on action divergence, terminal-margin sensitivity, source diversity, and current-frame match guards.
+- evidence input: M1161 outcome artifacts show ordinary wrong-matched-history first-action distance is much smaller than reset-hidden (`0.096101` mean vs `0.652387` mean).
+- proposed construction: rank wrong histories by first-step action distance, trajectory action distance, positive margin gap, target z delta, scene mismatch penalty, and source dominance penalty.
+- next audit: inspect existing M1161 outcome rows for enough action-divergent and margin-sensitive wrong-history candidates before new mining or replay.
+- guardrail: no mining, replay, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
+- decision: `stronger_wrong_history_construction_design_admit_action_divergence_audit`
+- next: `m1172-v4-public-base-wrong-history-action-divergence-artifact-audit`

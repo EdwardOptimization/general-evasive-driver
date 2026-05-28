@@ -84,27 +84,27 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1171-v4-public-base-stronger-wrong-history-construction-design
+m1172-v4-public-base-wrong-history-action-divergence-artifact-audit
 ```
 
-M1170 synthesized and closed `row15_promoted_margin_slack_surface_refresh`.
-The branch result is:
+M1171 opened the `stronger_wrong_history_construction` branch. The core design
+principle is to stop treating any matched-current wrong history as useful; the
+wrong history must be action-divergent and terminal-margin-sensitive.
+
+Existing M1161 outcome artifacts show why:
 
 ```text
-source budget failure: false
-fine target margins matter: true
-M1161 accepted wrong-history rows: 15
-M1161 accepted physical pairs: 2
-M1169 accepted wrong-history rows: 6
-M1169 accepted physical pairs: 2
-new physical pairs beyond M1161 after microgrid: 0
-same-shape relocation exhausted: true
+wrong_matched_history first_action_distance_mean: 0.096101
+wrong_matched_history first_action_distance_p90: 0.227336
+reset_hidden first_action_distance_mean: 0.652387
+reset_hidden first_action_distance_p90: 1.007947
+wrong_matched_history margin_gap_p90: 0.002677
+zero_current_response margin_gap_p90: 0.018090
 ```
 
-The next branch is `stronger_wrong_history_construction`: design wrong-history
-interventions that are action-divergent and terminal-margin-sensitive instead
-of continuing the same-shape relocation expansion around two old physical
-pairs.
+M1172 should audit whether existing artifacts contain enough high-action-
+divergence wrong-history rows to support a bounded replay diagnostic, before
+new mining or PPO.
 
 M1127 completed the expanded full public gate for the row15 projection
 candidate:

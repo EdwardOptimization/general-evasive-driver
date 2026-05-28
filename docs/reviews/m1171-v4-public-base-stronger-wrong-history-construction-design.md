@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T014814Z
+- Generated at UTC: 20260528T015341Z
 - Type: gate
 - Gate tier: proof
-- Promotion decision: not_applicable
-- Decision reason: M1171 is design-only. It can design stronger wrong-history construction but cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert failed rows.
+- Promotion decision: stronger_wrong_history_construction_design_admit_action_divergence_audit
+- Decision reason: M1171 designs action-divergent and terminal-margin-sensitive wrong-history construction and routes to an existing-artifact action-divergence audit
 
 ## Hypothesis
 
@@ -72,8 +72,19 @@ The next useful step is to design a wrong-history construction that intentionall
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1171-v4-public-base-stronger-wrong-history-construction-design
+- type: gate
+- checkpoint: docs/m1171-v4-public-base-stronger-wrong-history-construction-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: stronger_wrong_history_construction_design_admit_action_divergence_audit
+- reason: M1171 designs action-divergent and terminal-margin-sensitive wrong-history construction and routes to an existing-artifact action-divergence audit
 
 ## Next Blocker
 
-m1171-v4-public-base-stronger-wrong-history-construction-design
+m1172-v4-public-base-wrong-history-action-divergence-artifact-audit

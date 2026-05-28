@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1171 is design-only. It can design stronger wrong-history construction but cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert failed rows.",
+  "decision_reason": "M1171 designs action-divergent and terminal-margin-sensitive wrong-history construction and routes to an existing-artifact action-divergence audit",
   "failure_criteria": [
     "design artifact is missing",
     "intervention construction remains equivalent to same-shape relocation",
@@ -21,7 +21,7 @@
     "do not reuse the two-pair microgrid surface as a broad proof corpus"
   ],
   "gate_tier": "proof",
-  "generated_at_utc": "20260528T014814Z",
+  "generated_at_utc": "20260528T015341Z",
   "hypothesis": "The next useful step is to design a wrong-history construction that intentionally pairs current scenes with histories that are action-divergent and terminal-margin-sensitive, because same-shape matched-history relocation only recovers two old physical pairs.",
   "lineage": {
     "blocked_by": [
@@ -53,9 +53,9 @@
     "supersedes": []
   },
   "milestone": "m1171-v4-public-base-stronger-wrong-history-construction-design",
-  "next_blocker": "m1171-v4-public-base-stronger-wrong-history-construction-design",
+  "next_blocker": "m1172-v4-public-base-wrong-history-action-divergence-artifact-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "stronger_wrong_history_construction_design_admit_action_divergence_audit",
   "public_gates": [
     "M1171 is design-only",
     "M1171 must not run mining",
@@ -67,7 +67,20 @@
     "M1171 must preserve actor inputs",
     "M1171 must not convert failed surface rows"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1171-v4-public-base-stronger-wrong-history-construction-design.md",
+    "clearance_margin_mean": "",
+    "decision": "stronger_wrong_history_construction_design_admit_action_divergence_audit",
+    "milestone": "m1171-v4-public-base-stronger-wrong-history-construction-design",
+    "reason": "M1171 designs action-divergent and terminal-margin-sensitive wrong-history construction and routes to an existing-artifact action-divergence audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "design artifact exists",
     "new wrong-history construction criteria are explicit",

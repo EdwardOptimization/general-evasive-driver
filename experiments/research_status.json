@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1179,
+    "completed": 1180,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis",
+    "task_id": "m1171-v4-public-base-stronger-wrong-history-construction-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md",
-    "result_class": "surface_refresh_branch_synthesis_pivot",
-    "decision": "row15_promoted_margin_slack_surface_refresh_synthesis_pivot_to_stronger_wrong_history_construction"
+    "command_log": "docs/m1171-v4-public-base-stronger-wrong-history-construction-design.md",
+    "result_class": "stronger_wrong_history_construction_design_complete",
+    "decision": "stronger_wrong_history_construction_design_admit_action_divergence_audit"
   },
   "next_task": {
-    "id": "m1171-v4-public-base-stronger-wrong-history-construction-design",
+    "id": "m1172-v4-public-base-wrong-history-action-divergence-artifact-audit",
     "status": "pending",
-    "priority": 11660,
+    "priority": 11670,
     "kind": "gate",
-    "hypothesis": "A stronger wrong-history construction should target action-divergent and terminal-margin-sensitive histories rather than repeating same-shape relocation",
-    "command": "see experiments/manifests/m1171-v4-public-base-stronger-wrong-history-construction-design.json",
-    "success_artifact": "docs/m1171-v4-public-base-stronger-wrong-history-construction-design.md",
-    "notes": "Pending: design-only stronger wrong-history construction; no mining replay actor training PPO promotion private holdout conversion or actor-input change"
+    "hypothesis": "Existing M1161 outcome artifacts may contain enough action-divergent and margin-sensitive wrong-history rows to design stronger candidate replay without new mining",
+    "command": "see experiments/manifests/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.json",
+    "success_artifact": "docs/m1172-v4-public-base-wrong-history-action-divergence-artifact-audit.md",
+    "notes": "Pending: existing-artifact audit only; no mining replay actor training PPO promotion private holdout conversion or actor-input change"
   },
-  "updated_at_utc": "20260528T020800Z"
+  "updated_at_utc": "20260528T021900Z"
 }
