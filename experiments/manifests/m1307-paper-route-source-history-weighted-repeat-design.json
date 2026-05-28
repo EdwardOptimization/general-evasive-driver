@@ -157,6 +157,26 @@
     "runs/m1306_source_history_concentration_refresh_plan/summary.json",
     "runs/m1306_source_history_concentration_refresh_plan/group_weight_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1307-paper-route-source-history-weighted-repeat-design.md",
+    "decision": "source_history_weighted_repeat_design_route_to_branch_synthesis",
+    "m1306_result_class": "source_history_concentration_refresh_plan_admissible",
+    "split_plan_required": true,
+    "group_weights_required": true,
+    "pair_specific_weights_allowed": false,
+    "max_group_weight": 2.0,
+    "implementation_blocked_until_synthesis": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.json"
+  },
+  "decision": "source_history_weighted_repeat_design_route_to_branch_synthesis",
   "decision_rule": "M1307 passes if it designs a bounded weighted repeat protocol and requires branch synthesis before any implementation, larger training, PPO, promotion, private holdout use, threshold relaxation, pair-specific weights, or actor-input expansion.",
-  "next_blocker": "m1307-paper-route-source-history-weighted-repeat-design"
+  "next_blocker": "m1308-paper-route-source-history-trainable-scope-escalation-synthesis"
 }

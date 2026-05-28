@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1306-paper-route-source-history-concentration-refresh-plan
+m1307-paper-route-source-history-weighted-repeat-design
 ```
 
 Current next task:
 
 ```text
-m1307-paper-route-source-history-weighted-repeat-design
+m1308-paper-route-source-history-trainable-scope-escalation-synthesis
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -150,7 +150,12 @@ completed that plan and classified it as admissible: `76` groups, `38` pairs,
 `max_group_weight=2.0`, and source-family max fold share improved from `0.667`
 to `0.625`. The active blocker is M1307: design the bounded weighted repeat
 protocol from the M1306 plan, while requiring branch synthesis before any
-implementation, larger training, or PPO. PPO and promotion remain blocked.
+implementation, larger training, or PPO. M1307 completed that protocol design:
+future weighted repeats must use `balanced_split_rows.csv` and
+`group_weight_rows.csv`, cannot use pair-specific weights, must keep full-count
+metrics at least at M1302 mean levels, and must improve the top failed
+source-family/probe combo. The active blocker is M1308: synthesize M1298-M1307
+before any implementation or PPO. PPO and promotion remain blocked.
 
 ## Actor Contract
 

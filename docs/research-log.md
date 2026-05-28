@@ -18975,3 +18975,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1307-paper-route-source-history-weighted-repeat-design.json`.
 - decision: `source_history_concentration_refresh_plan_admissible_route_to_weighted_repeat_design`
 - next: `m1307-paper-route-source-history-weighted-repeat-design`
+
+## 20260528T154440Z - m1307-paper-route-source-history-weighted-repeat-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1307-paper-route-source-history-weighted-repeat-design.md`
+- decision: `source_history_weighted_repeat_design_route_to_branch_synthesis`
+- design input: M1306 admissible plan with pair-disjoint folds, no pair-specific weights, and max group weight `2.0`.
+- intended implementation: extend the existing no-PPO trainable-scope probe with `--split-plan` and `--group-weight-rows`.
+- required pass criteria: `offset_pass_count >= 3/5`, mean eval row/group fractions `>=0.25`, mean full both-positive rows `>=38.0`, mean full all-rows-both-positive groups `>=19.0`, top failed source-family/probe combo improves, and no forbidden parameter mutation.
+- forbidden: pair-id-specific weights, history-intervention-specific weights, offset-only weights, private holdout feedback, actor input changes, PPO, promotion, and threshold relaxation.
+- workflow decision: do not implement weighted repeat immediately; next milestone must synthesize M1298-M1307.
+- follow-up manifest: `experiments/manifests/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.json`.
+- next: `m1308-paper-route-source-history-trainable-scope-escalation-synthesis`

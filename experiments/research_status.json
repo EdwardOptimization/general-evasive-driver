@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1316,
+    "completed": 1317,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1306-paper-route-source-history-concentration-refresh-plan.md",
+    "command_log": "docs/m1307-paper-route-source-history-weighted-repeat-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1306_source_history_concentration_refresh_plan",
+    "run_dir": "docs/m1307-paper-route-source-history-weighted-repeat-design.md",
     "status": "completed",
-    "task_id": "m1306-paper-route-source-history-concentration-refresh-plan"
+    "task_id": "m1307-paper-route-source-history-weighted-repeat-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1307-paper-route-source-history-weighted-repeat-design.json",
-    "hypothesis": "Design a bounded no-PPO weighted fusion_head repeat protocol from the M1306 admissible plan and require branch synthesis before implementation",
-    "id": "m1307-paper-route-source-history-weighted-repeat-design",
+    "command": "see experiments/manifests/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.json",
+    "hypothesis": "Synthesize M1298-M1307 trainable-scope escalation evidence and choose next branch decision before implementation or PPO",
+    "id": "m1308-paper-route-source-history-trainable-scope-escalation-synthesis",
     "kind": "gate",
-    "notes": "Pending: design weighted repeat protocol; PPO and promotion remain blocked",
-    "priority": 13020,
+    "notes": "Pending: workflow synthesis before any implementation; PPO and promotion remain blocked",
+    "priority": 13030,
     "status": "pending",
-    "success_artifact": "docs/m1307-paper-route-source-history-weighted-repeat-design.md"
+    "success_artifact": "docs/m1308-paper-route-source-history-trainable-scope-escalation-synthesis.md"
   },
-  "updated_at_utc": "20260528T154121Z"
+  "updated_at_utc": "20260528T154440Z"
 }
