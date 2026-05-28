@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1306,
+    "completed": 1307,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1296-paper-route-source-history-pair-group-objective-result-audit.md",
+    "command_log": "docs/m1297-paper-route-source-history-objective-only-update-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1296-paper-route-source-history-pair-group-objective-result-audit"
+    "task_id": "m1297-paper-route-source-history-objective-only-update-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1297-paper-route-source-history-objective-only-update-synthesis.json",
-    "hypothesis": "Synthesize M1287-M1296 objective-only update branch and choose next branch decision",
-    "id": "m1297-paper-route-source-history-objective-only-update-synthesis",
+    "command": "see experiments/manifests/m1298-paper-route-source-history-trainable-scope-escalation-design.json",
+    "hypothesis": "Design bounded no-PPO source-history trainable-scope escalation diagnostic with split-eval and mutation guards",
+    "id": "m1298-paper-route-source-history-trainable-scope-escalation-design",
     "kind": "gate",
-    "notes": "Pending: branch synthesis required before more actor_mean-only objective work; PPO and promotion remain blocked",
-    "priority": 12920,
+    "notes": "Pending: design next branch after actor_mean-only objective work was closed as underpowered",
+    "priority": 12930,
     "status": "pending",
-    "success_artifact": "docs/m1297-paper-route-source-history-objective-only-update-synthesis.md"
+    "success_artifact": "docs/m1298-paper-route-source-history-trainable-scope-escalation-design.md"
   },
-  "updated_at_utc": "20260528T144424Z"
+  "updated_at_utc": "20260528T144840Z"
 }

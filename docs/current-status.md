@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1296-paper-route-source-history-pair-group-objective-result-audit
+m1297-paper-route-source-history-objective-only-update-synthesis
 ```
 
 Current next task:
 
 ```text
-m1297-paper-route-source-history-objective-only-update-synthesis
+m1298-paper-route-source-history-trainable-scope-escalation-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -107,9 +107,12 @@ probe. The result is mixed: best candidate reaches `15/76` all-rows-both-positiv
 groups versus M1292's `14/76`, with `best_both_directional_fraction=0.1973684211`
 and `best_mutually_exclusive_fraction=0.6710526316`. This is a small directional
 improvement but below the strong gate. M1296 audited this as valid but mixed
-non-promotable evidence. The active blocker is M1297: synthesize the
-`paper_route_source_history_objective_only_update` branch before any more narrow
-actor_mean-only objective work. PPO and promotion remain blocked.
+non-promotable evidence. M1297 synthesized M1287-M1296 and closed the
+`paper_route_source_history_objective_only_update` branch as actor_mean-only
+underpowered: exact loss is trainable, but directional repair remains weak. The
+active blocker is M1298: design a bounded no-PPO trainable-scope escalation
+diagnostic with source-diverse split-eval and parameter-group mutation guards.
+PPO and promotion remain blocked.
 
 ## Actor Contract
 

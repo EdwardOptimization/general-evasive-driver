@@ -187,6 +187,41 @@
     "docs/m1296-paper-route-source-history-pair-group-objective-result-audit.md",
     "runs/m1295_source_history_pair_group_objective_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1297-paper-route-source-history-objective-only-update-synthesis.md",
+    "decision": "source_history_objective_only_update_synthesis_pivot_to_trainable_scope_escalation",
+    "synthesis_decision": "pivot",
+    "closed_branch": "paper_route_source_history_objective_only_update",
+    "opened_branch": "paper_route_source_history_trainable_scope_escalation",
+    "actor_mean_only_exhausted": true,
+    "m1288_exact_loss_improved": true,
+    "m1290_mutually_exclusive_rows": 152,
+    "m1292_best_both_positive_count": 28,
+    "m1295_best_both_positive_count": 30,
+    "m1295_best_group_all_rows_both_positive_count": 15,
+    "public_gate_overfit_risk": "high",
+    "supported_claims": [
+      "source-history exact objective is finite and trainable",
+      "actor_mean-only optimization can reduce exact loss",
+      "actor_mean-only directional objectives produce small but insufficient directional movement"
+    ],
+    "falsified_claims": [
+      "exact loss improvement alone repairs source-history directionality",
+      "actor_mean-only row-wise objective solves the source-history gate",
+      "actor_mean-only pair-group objective solves the source-history gate",
+      "the branch is ready for PPO"
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1298-paper-route-source-history-trainable-scope-escalation-design.json"
+  },
+  "decision": "source_history_objective_only_update_synthesis_pivot_to_trainable_scope_escalation",
   "decision_rule": "M1297 passes if it synthesizes M1287-M1296 evidence and chooses a next branch decision without training or overclaiming.",
-  "next_blocker": "m1297-paper-route-source-history-objective-only-update-synthesis"
+  "next_blocker": "m1298-paper-route-source-history-trainable-scope-escalation-design"
 }

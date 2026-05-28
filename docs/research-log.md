@@ -18788,3 +18788,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1297-paper-route-source-history-objective-only-update-synthesis.json`.
 - decision: `source_history_pair_group_objective_result_audit_route_to_branch_synthesis`
 - next: `m1297-paper-route-source-history-objective-only-update-synthesis`
+
+## 20260528T144840Z - m1297-paper-route-source-history-objective-only-update-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1297-paper-route-source-history-objective-only-update-synthesis.md`
+- synthesis decision: `pivot`
+- closed branch: `paper_route_source_history_objective_only_update`
+- opened branch: `paper_route_source_history_trainable_scope_escalation`
+- evidence summary: M1288 exact loss improved from `18.6105005714` to `7.1793530621`, but M1290 found `152/152` mutually exclusive rows.
+- evidence summary: M1292 actor_mean directional feasibility was mixed with `28/152` both-positive rows and `best_both_directional_fraction=0.1842105263`.
+- evidence summary: M1295 pair-group objective was mixed with `30/152` both-positive rows and `15/76` all-rows-both-positive groups.
+- supported claim: actor_mean-only optimization can move the source-history surface.
+- falsified claim: actor_mean-only exact or pair-group objectives solve source-history directional repair or admit PPO.
+- public-gate overfit risk: `high` because the branch repeatedly optimized the same fixed 152-row source-history public corpus.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1298-paper-route-source-history-trainable-scope-escalation-design.json`.
+- decision: `source_history_objective_only_update_synthesis_pivot_to_trainable_scope_escalation`
+- next: `m1298-paper-route-source-history-trainable-scope-escalation-design`
