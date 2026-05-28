@@ -84,37 +84,42 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1179-v4-public-base-stronger-wrong-history-construction-synthesis
+m1180-v4-public-base-source-rich-extreme-scenario-refresh-design
 ```
 
-M1178 audited the M1177 bounded relocation failure:
+M1179 synthesized and closed the `stronger_wrong_history_construction` branch:
 
 ```text
-artifact: docs/m1178-v4-public-base-action-divergent-relocation-scarcity-audit.md
-decision: action_divergent_relocation_scarcity_audit_route_to_branch_synthesis
+artifact: docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md
+decision: stronger_wrong_history_construction_synthesis_pivot_to_source_rich_extreme_scenario_surface_refresh
 ```
 
 Main finding:
 
 ```text
-M1177 accepted pairs exactly match the old M1169 active set:
-  116117:36:116124:15
-  116117:39:116124:15
+artifact-only action-divergent filtering increased accepted row count on the old active set,
+but did not discover a broad source-diverse wrong-history proof surface.
 ```
 
-M1177 increased density on that old active set:
+Evidence:
 
 ```text
-M1169 accepted rows: 6
-M1177 raw accepted rows: 78
-M1177 balanced accepted rows: 38
+M1175 selected rows: 240 across 17 physical pairs
+M1177 raw accepted wrong rows: 78
+M1177 balanced accepted wrong rows: 38
+M1177 accepted physical pairs: 2
+M1177 accepted targets: 1
+source_obstacle_bucket in M1175: x=nan|y=nan
 ```
 
-But it found no new physical-pair surface. M1178 classifies the failure as
-old-active-set dominance plus source-geometry deficiency in the artifact-only
-candidate table. M1179 should synthesize M1171-M1178 and choose the next branch
-before any new replay, mining, actor training, PPO, promotion, private holdout,
-row conversion, or actor-input change.
+The active branch is now `source_rich_extreme_scenario_surface_refresh`.
+M1180 should design a current-public-base data route that records source
+obstacle geometry, fault family/fidelity class, onset, warm-up/probing mode,
+hidden dynamics severity, current-frame match metrics, action divergence, and
+terminal-margin sensitivity. It must keep current-model faults, proxy faults,
+and future-only wheel-level faults separated before any mining, replay,
+training, PPO, promotion, private holdout, row conversion, or actor-input
+change.
 
 M1127 completed the expanded full public gate for the row15 projection
 candidate:

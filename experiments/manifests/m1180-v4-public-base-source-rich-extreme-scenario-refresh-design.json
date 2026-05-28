@@ -1,0 +1,160 @@
+{
+  "id": "m1180-v4-public-base-source-rich-extreme-scenario-refresh-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md",
+      "docs/m824-v4-extreme-hidden-dynamics-data-route-design.md",
+      "docs/m826-v4-extreme-hidden-dynamics-data-route-audit.md",
+      "docs/m831-v4-low-margin-new-data-route-second-branch-synthesis.md",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.json"
+    ],
+    "parent_objective": [
+      "design source-rich extreme scenario surface refresh for current public base"
+    ],
+    "derived_from": [
+      "m1179-v4-public-base-stronger-wrong-history-construction-synthesis"
+    ],
+    "blocked_by": [
+      "artifact-only wrong-history construction repeatedly returns to the same old active set and lacks source obstacle geometry"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "continuing M1161 artifact-only candidate rescoring",
+      "new PPO before source-rich proof-surface refresh",
+      "claiming wheel-level fault evidence from current single-track proxy faults"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md",
+  "public_gates": [
+    "M1180 may design source-rich extreme scenario refresh only",
+    "M1180 must not run mining",
+    "M1180 must not run replay",
+    "M1180 must not train actor weights",
+    "M1180 must not run PPO",
+    "M1180 must not promote",
+    "M1180 must not use private holdout",
+    "M1180 must preserve actor inputs",
+    "M1180 must not convert failed rows into a proof corpus"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run mining",
+    "do not run replay",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert failed rows",
+    "do not mix current_model_fault, current_model_proxy, and future_only evidence claims"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_rich_extreme_scenario_surface_refresh",
+    "evidence_axis": "G_design: source-rich extreme scenario refresh",
+    "evidence_increment": "designs the first source-rich current-public-base data route after artifact-only wrong-history construction failed",
+    "claim_scope": "design only; no mining, replay, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if the design does not record source obstacle geometry",
+      "stop if the design conflates proxy faults with true wheel-level faults",
+      "stop if the design lacks source/fault/onset/warmup diversity gates",
+      "stop if it admits PPO before no-training evidence"
+    ],
+    "fallback_plan": [
+      "if existing v4 source-rich tooling is reusable, design a current-base refresh using it",
+      "if current tooling lacks required metadata, design instrumentation first",
+      "if current simulator lacks a desired fault, mark it as future_only rather than using it as evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1179 opens source_rich_extreme_scenario_surface_refresh",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design source-rich extreme scenario surface refresh",
+    "admission_evidence": [
+      "M1179 closes artifact-only action-divergent relocation",
+      "M824-M831 provide prior extreme hidden-dynamics route lessons",
+      "configs/cross_fault_hidden_condition_scenarios.json already separates current_model_fault, current_model_proxy, and future_only fault classes"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not run mining",
+      "do not run replay",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "design document",
+      "next manifest if route is clear",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "source-rich schema is explicit",
+      "fault fidelity claim boundary is explicit",
+      "next no-training implementation or audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1180 is design-only and adds no behavior evidence.",
+    "history_necessity_tests": [
+      "planned wrong-cross-fault history",
+      "planned reset-hidden",
+      "planned command/response delay or shift"
+    ],
+    "temporal_evidence_window": "M1180 defines future temporal evidence requirements only.",
+    "negative_result_policy": "If existing source-rich tooling cannot support current-base refresh, route to instrumentation before replay or training.",
+    "allowed_claims": [
+      "source-rich extreme scenario refresh design",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-level claim"
+    ]
+  },
+  "hypothesis": "A source-rich extreme scenario refresh design can address M1179's artifact-only limitations by generating current-base data with explicit obstacle geometry, fault/onset/warmup metadata, and separated fidelity classes.",
+  "success_criteria": [
+    "design artifact exists",
+    "source-rich schema is specified",
+    "fault fidelity boundary is specified",
+    "current-model supported axes and future-only axes are separated",
+    "next route is explicit",
+    "no mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "design conflates proxy faults with current-model evidence",
+    "design lacks source obstacle geometry requirements",
+    "next blocker is ambiguous",
+    "mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_source_rich_extreme_scenario_refresh_design",
+      "command": "write docs/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md",
+    "configs/cross_fault_hidden_condition_scenarios.json"
+  ],
+  "decision_rule": "M1180 may only design the source-rich extreme scenario refresh route. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
+  "next_blocker": "m1180-v4-public-base-source-rich-extreme-scenario-refresh-design"
+}

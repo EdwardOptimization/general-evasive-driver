@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T022956Z
+- Generated at UTC: 20260528T023426Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1179 may only synthesize the M1171-M1178 branch and choose the next branch. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert failed surface rows.
+- Promotion decision: stronger_wrong_history_construction_synthesis_pivot_to_source_rich_extreme_scenario_surface_refresh
+- Decision reason: M1179 closes artifact-only stronger wrong-history construction and opens source-rich extreme scenario surface refresh under the current public base
 
 ## Hypothesis
 
@@ -77,8 +77,19 @@ The stronger_wrong_history_construction branch should pivot because action-diver
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1179-v4-public-base-stronger-wrong-history-construction-synthesis
+- type: gate
+- checkpoint: docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: stronger_wrong_history_construction_synthesis_pivot_to_source_rich_extreme_scenario_surface_refresh
+- reason: M1179 closes artifact-only stronger wrong-history construction and opens source-rich extreme scenario surface refresh under the current public base
 
 ## Next Blocker
 
-m1179-v4-public-base-stronger-wrong-history-construction-synthesis
+m1180-v4-public-base-source-rich-extreme-scenario-refresh-design

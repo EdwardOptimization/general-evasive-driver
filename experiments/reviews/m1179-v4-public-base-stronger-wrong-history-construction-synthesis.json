@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1179 may only synthesize the M1171-M1178 branch and choose the next branch. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert failed surface rows.",
+  "decision_reason": "M1179 closes artifact-only stronger wrong-history construction and opens source-rich extreme scenario surface refresh under the current public base",
   "failure_criteria": [
     "synthesis artifact is missing",
     "branch decision is ambiguous",
@@ -22,7 +22,7 @@
     "do not continue artifact-only relocation expansion without a new branch decision"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260528T022956Z",
+  "generated_at_utc": "20260528T023426Z",
   "hypothesis": "The stronger_wrong_history_construction branch should pivot because action-divergent artifact-only construction improves old-active-set density but does not produce a broad source-diverse wrong-history surface.",
   "lineage": {
     "blocked_by": [
@@ -55,9 +55,9 @@
     "supersedes": []
   },
   "milestone": "m1179-v4-public-base-stronger-wrong-history-construction-synthesis",
-  "next_blocker": "m1179-v4-public-base-stronger-wrong-history-construction-synthesis",
+  "next_blocker": "m1180-v4-public-base-source-rich-extreme-scenario-refresh-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "stronger_wrong_history_construction_synthesis_pivot_to_source_rich_extreme_scenario_surface_refresh",
   "public_gates": [
     "M1179 must synthesize M1171 through M1178",
     "M1179 must close or explicitly continue the stronger_wrong_history_construction branch",
@@ -70,7 +70,20 @@
     "M1179 must preserve actor inputs",
     "M1179 must not convert failed surface rows"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "stronger_wrong_history_construction_synthesis_pivot_to_source_rich_extreme_scenario_surface_refresh",
+    "milestone": "m1179-v4-public-base-stronger-wrong-history-construction-synthesis",
+    "reason": "M1179 closes artifact-only stronger wrong-history construction and opens source-rich extreme scenario surface refresh under the current public base",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "synthesis artifact exists",
     "M1171-M1178 evidence is summarized",

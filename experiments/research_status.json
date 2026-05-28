@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1187,
+    "completed": 1188,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1178-v4-public-base-action-divergent-relocation-scarcity-audit",
+    "task_id": "m1179-v4-public-base-stronger-wrong-history-construction-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1178-v4-public-base-action-divergent-relocation-scarcity-audit.md",
-    "result_class": "old_active_set_dominance_confirmed",
-    "decision": "action_divergent_relocation_scarcity_audit_route_to_branch_synthesis"
+    "command_log": "docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md",
+    "result_class": "stronger_wrong_history_construction_branch_synthesis_pivot",
+    "decision": "stronger_wrong_history_construction_synthesis_pivot_to_source_rich_extreme_scenario_surface_refresh"
   },
   "next_task": {
-    "id": "m1179-v4-public-base-stronger-wrong-history-construction-synthesis",
+    "id": "m1180-v4-public-base-source-rich-extreme-scenario-refresh-design",
     "status": "pending",
-    "priority": 11740,
+    "priority": 11750,
     "kind": "gate",
-    "hypothesis": "The stronger_wrong_history_construction branch should pivot because action-divergent artifact-only construction improves old-active-set density but does not produce a broad source-diverse wrong-history surface",
-    "command": "see experiments/manifests/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.json",
-    "success_artifact": "docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md",
-    "notes": "Pending: synthesis only; no replay mining actor training PPO promotion private holdout conversion or actor-input change"
+    "hypothesis": "A source-rich extreme scenario refresh design can address M1179's artifact-only limitations by generating current-base data with explicit obstacle geometry, fault/onset/warmup metadata, and separated fidelity classes",
+    "command": "see experiments/manifests/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.json",
+    "success_artifact": "docs/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md",
+    "notes": "Pending: design only; no replay mining actor training PPO promotion private holdout conversion or actor-input change"
   },
-  "updated_at_utc": "20260528T035000Z"
+  "updated_at_utc": "20260528T041000Z"
 }

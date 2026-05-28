@@ -167,6 +167,46 @@
   "baseline_artifacts": [
     "docs/m1178-v4-public-base-action-divergent-relocation-scarcity-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md",
+    "decision": "stronger_wrong_history_construction_synthesis_pivot_to_source_rich_extreme_scenario_surface_refresh",
+    "result_class": "stronger_wrong_history_construction_branch_synthesis_pivot",
+    "failure_types": [
+      "scenario_sampling_failure",
+      "metric_artifact"
+    ],
+    "closed_branch": "stronger_wrong_history_construction",
+    "opened_branch": "source_rich_extreme_scenario_surface_refresh",
+    "current_public_gate_base": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "m1172_wrong_history_rows": 4585,
+    "m1175_candidate_pool_rows": 343,
+    "m1175_selected_rows": 240,
+    "m1175_selected_physical_pairs": 17,
+    "m1177_raw_accepted_wrong_rows": 78,
+    "m1177_balanced_accepted_wrong_rows": 38,
+    "m1177_accepted_physical_pairs": 2,
+    "m1177_accepted_targets": 1,
+    "artifact_only_path_exhausted": true,
+    "old_active_set_dominance": true,
+    "source_geometry_deficiency": true,
+    "next_branch_requires_source_geometry": true,
+    "ppo_readiness_claim": false,
+    "surface_conversion_claim": false,
+    "private_holdout_claim": false,
+    "driver_performance_claim": false,
+    "level3_self_identification_claim": false,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "surface_conversion_started": false,
+    "next_milestone": "m1180-v4-public-base-source-rich-extreme-scenario-refresh-design"
+  },
   "decision_rule": "M1179 may only synthesize the M1171-M1178 branch and choose the next branch. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert failed surface rows.",
-  "next_blocker": "m1179-v4-public-base-stronger-wrong-history-construction-synthesis"
+  "next_blocker": "m1180-v4-public-base-source-rich-extreme-scenario-refresh-design"
 }

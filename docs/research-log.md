@@ -16805,3 +16805,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no relocation replay, mining, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
 - decision: `action_divergent_relocation_scarcity_audit_route_to_branch_synthesis`
 - next: `m1179-v4-public-base-stronger-wrong-history-construction-synthesis`
+
+## 20260528T041000Z - m1179-v4-public-base-stronger-wrong-history-construction-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md`
+- result: closes `stronger_wrong_history_construction` and opens `source_rich_extreme_scenario_surface_refresh`.
+- evidence summary: M1172 found action-divergent signal in existing M1161 artifacts; M1175 exported `240` source-diverse candidates across `17` physical pairs; M1177 materialized `78` raw accepted wrong rows but only `38` balanced rows across `2` physical pairs and `1` target.
+- supported claim: action-divergent filtering densifies the old active set and preserves a real small protected diagnostic.
+- falsified claim: M1161 artifact-only action-divergent filtering is sufficient to discover a broad source-diverse wrong-history proof surface.
+- failure taxonomy: `scenario_sampling_failure` for two-pair collapse; `metric_artifact` for treating action-divergent score as if it predicted proof materialization.
+- public-gate overfit risk: continuing from M1161 artifact-only rows would keep optimizing around the same two physical pairs and one yaw-response target.
+- next branch: source-rich current-public-base extreme scenario refresh with explicit source obstacle geometry, fault fidelity classes, onset buckets, warm-up/probing modes, and hidden-dynamics severity.
+- guardrail: no mining, replay, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
+- decision: `stronger_wrong_history_construction_synthesis_pivot_to_source_rich_extreme_scenario_surface_refresh`
+- next: `m1180-v4-public-base-source-rich-extreme-scenario-refresh-design`

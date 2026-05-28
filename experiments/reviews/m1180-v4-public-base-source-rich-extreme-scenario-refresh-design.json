@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M1180 may only design the source-rich extreme scenario refresh route. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
+  "failure_criteria": [
+    "design artifact is missing",
+    "design conflates proxy faults with current-model evidence",
+    "design lacks source obstacle geometry requirements",
+    "next blocker is ambiguous",
+    "mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run mining",
+    "do not run replay",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert failed rows",
+    "do not mix current_model_fault, current_model_proxy, and future_only evidence claims"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T023426Z",
+  "hypothesis": "A source-rich extreme scenario refresh design can address M1179's artifact-only limitations by generating current-base data with explicit obstacle geometry, fault/onset/warmup metadata, and separated fidelity classes.",
+  "lineage": {
+    "blocked_by": [
+      "artifact-only wrong-history construction repeatedly returns to the same old active set and lacks source obstacle geometry"
+    ],
+    "derived_from": [
+      "m1179-v4-public-base-stronger-wrong-history-construction-synthesis"
+    ],
+    "invalidates": [
+      "continuing M1161 artifact-only candidate rescoring",
+      "new PPO before source-rich proof-surface refresh",
+      "claiming wheel-level fault evidence from current single-track proxy faults"
+    ],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md",
+      "docs/m824-v4-extreme-hidden-dynamics-data-route-design.md",
+      "docs/m826-v4-extreme-hidden-dynamics-data-route-audit.md",
+      "docs/m831-v4-low-margin-new-data-route-second-branch-synthesis.md",
+      "configs/cross_fault_hidden_condition_scenarios.json"
+    ],
+    "parent_objective": [
+      "design source-rich extreme scenario surface refresh for current public base"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1180-v4-public-base-source-rich-extreme-scenario-refresh-design",
+  "next_blocker": "m1180-v4-public-base-source-rich-extreme-scenario-refresh-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M1180 may design source-rich extreme scenario refresh only",
+    "M1180 must not run mining",
+    "M1180 must not run replay",
+    "M1180 must not train actor weights",
+    "M1180 must not run PPO",
+    "M1180 must not promote",
+    "M1180 must not use private holdout",
+    "M1180 must preserve actor inputs",
+    "M1180 must not convert failed rows into a proof corpus"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "design artifact exists",
+    "source-rich schema is specified",
+    "fault fidelity boundary is specified",
+    "current-model supported axes and future-only axes are separated",
+    "next route is explicit",
+    "no mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "type": "gate"
+}
