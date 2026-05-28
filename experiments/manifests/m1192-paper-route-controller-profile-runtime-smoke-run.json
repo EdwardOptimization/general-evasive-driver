@@ -36,6 +36,7 @@
   },
   "review_artifact": "docs/reviews/m1192-paper-route-controller-profile-runtime-smoke-run.md",
   "public_gates": [
+    "M1192 may implement a no-training runtime smoke runner if needed",
     "M1192 may instantiate envs, wrappers, and ActorCritic models for generated profile configs",
     "M1192 must not train controller weights",
     "M1192 must not run PPO",
@@ -146,6 +147,18 @@
     {
       "path": "runs/m1192_controller_profile_runtime_smoke/summary.json",
       "type": "json"
+    },
+    {
+      "path": "runs/m1192_controller_profile_runtime_smoke/profile_runtime_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "src/autodrift/controller_profile_runtime_smoke.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_controller_profile_runtime_smoke.py",
+      "type": "py"
     }
   ],
   "baseline_checkpoints": [
@@ -156,5 +169,5 @@
     "configs/paper_route_profiles"
   ],
   "decision_rule": "M1192 passes if integrated runtime smoke instantiates all generated profiles and observes L0 masking without training.",
-  "next_blocker": "m1192-paper-route-controller-profile-runtime-smoke-run"
+  "next_blocker": "m1193-paper-route-controller-profile-training-smoke-design"
 }

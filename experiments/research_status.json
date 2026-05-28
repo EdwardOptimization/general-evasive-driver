@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1201,
+    "completed": 1202,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1191-paper-route-observation-mask-runtime-wrapper-implementation.md",
+    "command_log": "docs/m1192-paper-route-controller-profile-runtime-smoke-run.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1192_controller_profile_runtime_smoke",
     "status": "completed",
-    "task_id": "m1191-paper-route-observation-mask-runtime-wrapper-implementation"
+    "task_id": "m1192-paper-route-controller-profile-runtime-smoke-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1192-paper-route-controller-profile-runtime-smoke-run.json",
-    "hypothesis": "Generated L0/L1/L2/L3 configs can instantiate with runtime mask handling and no hidden/oracle actor inputs before training starts.",
-    "id": "m1192-paper-route-controller-profile-runtime-smoke-run",
-    "kind": "infrastructure",
-    "notes": "Pending: instantiate generated profile configs with runtime masks and write no-training smoke artifact before controller training",
-    "priority": 11870,
+    "command": "see experiments/manifests/m1193-paper-route-controller-profile-training-smoke-design.json",
+    "hypothesis": "A fair resource-capped training-smoke protocol can be designed for generated L0/L1/L2/L3 configs without starting training or weakening input-contract controls.",
+    "id": "m1193-paper-route-controller-profile-training-smoke-design",
+    "kind": "gate",
+    "notes": "Pending: design fair resource-capped L0/L1/L2/L3 training-smoke protocol before running controller training",
+    "priority": 11880,
     "status": "pending",
-    "success_artifact": "docs/m1192-paper-route-controller-profile-runtime-smoke-run.md"
+    "success_artifact": "docs/m1193-paper-route-controller-profile-training-smoke-design.md"
   },
-  "updated_at_utc": "20260528T043800Z"
+  "updated_at_utc": "20260528T044400Z"
 }

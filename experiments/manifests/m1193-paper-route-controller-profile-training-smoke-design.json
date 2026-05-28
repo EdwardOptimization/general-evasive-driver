@@ -1,0 +1,155 @@
+{
+  "id": "m1193-paper-route-controller-profile-training-smoke-design",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1192-paper-route-controller-profile-runtime-smoke-run.md",
+      "runs/m1192_controller_profile_runtime_smoke/summary.json",
+      "configs/paper_route_profiles"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1192-paper-route-controller-profile-runtime-smoke-run.json"
+    ],
+    "parent_objective": [
+      "design a fair bounded training-smoke protocol for L0/L1/L2/L3 profile comparison after runtime instantiation passes"
+    ],
+    "derived_from": [
+      "m1192-paper-route-controller-profile-runtime-smoke-run"
+    ],
+    "blocked_by": [
+      "profile runtime smoke passes but training smoke should not start without a pre-registered fair resource-capped protocol"
+    ],
+    "supersedes": [
+      "launching generated profile training directly after runtime smoke"
+    ],
+    "invalidates": [
+      "claiming profile comparability from runtime instantiation alone"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1193-paper-route-controller-profile-training-smoke-design.md",
+  "public_gates": [
+    "M1193 may design controller profile training-smoke protocol only",
+    "M1193 must not train controller weights",
+    "M1193 must not run PPO",
+    "M1193 must not run candidate replay",
+    "M1193 must not promote",
+    "M1193 must not use private holdout",
+    "M1193 must not add hidden or oracle actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train generated configs",
+    "do not run PPO",
+    "do not evaluate driver performance",
+    "do not use private holdout",
+    "do not tune per profile from early results",
+    "do not change actor inputs",
+    "do not add hidden or oracle actor inputs",
+    "do not claim profile superiority from a design document"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_experiment_design: fair profile training smoke",
+    "evidence_increment": "defines the smallest resource-capped training smoke that can test profile training plumbing without turning into a performance comparison",
+    "claim_scope": "design only; no training replay PPO promotion private-holdout driver-performance recurrent-belief or paper-result claim",
+    "stop_condition": [
+      "stop if the protocol would compare profiles with unequal seeds budgets env distributions or gate criteria",
+      "stop if it requires private holdout",
+      "stop if it begins training instead of designing the run",
+      "stop if L2_window_100 cost makes all-profile smoke infeasible without staged admission"
+    ],
+    "fallback_plan": [
+      "if all eight profiles are too costly, design a two-stage L0/L1/L2_window_25/L3 pilot followed by full-window expansion",
+      "if generated smoke configs need train_ppo integration for runtime masks, route to integration implementation first",
+      "if recurrent hidden reset semantics are not executable, keep L3_reset_control out of first training smoke and document the block"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1192 runtime smoke passed and training should not start without a fair pre-registered protocol",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded profile training smoke protocol",
+    "admission_evidence": [
+      "M1190 generated eight profile smoke configs",
+      "M1191 runtime mask wrapper tests pass",
+      "M1192 all generated profiles instantiate with runtime masks and model forwards"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train controllers in M1193",
+      "do not use private holdout",
+      "do not make performance claims"
+    ],
+    "allowed_updates": [
+      "training-smoke protocol document",
+      "M1193 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "training-smoke profiles are selected",
+      "shared seeds budgets env splits and metrics are fixed",
+      "runtime mask train_ppo integration risk is explicitly handled",
+      "resource cap and fallback ladder are fixed",
+      "next implementation or run milestone is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1193 designs controls for L0/L1/L2/L3 comparison but does not test history necessity.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1193 may define windows but does not evaluate temporal evidence.",
+    "negative_result_policy": "If a fair smoke protocol cannot be designed, keep training blocked and route to profile integration or resource-scope repair.",
+    "allowed_claims": [
+      "training-smoke design readiness",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A fair resource-capped training-smoke protocol can be designed for generated L0/L1/L2/L3 configs without starting training or weakening input-contract controls.",
+  "success_criteria": [
+    "docs/m1193-paper-route-controller-profile-training-smoke-design.md exists",
+    "protocol fixes profile set, seeds, budgets, env split, metrics, gates, resource cap, and fallback ladder",
+    "runtime mask train_ppo integration requirement is explicitly handled before L0 training",
+    "no controller training, candidate replay, PPO, promotion, private holdout, or actor-input contract change occurs",
+    "next implementation or run milestone is selected"
+  ],
+  "failure_criteria": [
+    "training starts in M1193",
+    "protocol gives profiles unequal budgets or per-profile tuning",
+    "private holdout is used",
+    "runtime mask training integration risk is ignored",
+    "hidden or oracle actor inputs are introduced"
+  ],
+  "commands": [
+    {
+      "name": "design_profile_training_smoke",
+      "command": "write bounded fair training-smoke protocol without running training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1193-paper-route-controller-profile-training-smoke-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1192-paper-route-controller-profile-runtime-smoke-run.md",
+    "runs/m1192_controller_profile_runtime_smoke/summary.json",
+    "configs/paper_route_profiles"
+  ],
+  "decision_rule": "M1193 passes if it defines a fair resource-capped training-smoke protocol and keeps actual controller training blocked.",
+  "next_blocker": "m1193-paper-route-controller-profile-training-smoke-design"
+}

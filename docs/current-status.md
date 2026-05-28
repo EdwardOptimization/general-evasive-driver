@@ -115,8 +115,55 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1192-paper-route-controller-profile-runtime-smoke-run
+m1193-paper-route-controller-profile-training-smoke-design
 ```
+
+M1192 completed the integrated no-training runtime smoke for all generated
+controller-profile configs:
+
+```text
+artifact: docs/m1192-paper-route-controller-profile-runtime-smoke-run.md
+source: src/autodrift/controller_profile_runtime_smoke.py
+tests: tests/test_controller_profile_runtime_smoke.py
+run dir: runs/m1192_controller_profile_runtime_smoke
+decision: controller_profile_runtime_smoke_pass_route_to_training_smoke_design
+```
+
+M1192 result:
+
+```text
+config_count: 8
+all_configs_instantiated: true
+l0_mask_observed: true
+unmasked_profiles_unchanged: true
+contract_ok: true
+model_forward_ok: true
+training_started: false
+optimizer_started: false
+ppo_used: false
+candidate_replay_started: false
+private_holdout_used: false
+promoted: false
+actor_input_contract_changed: false
+```
+
+The L0 runtime wrapper did real work after a nonzero control step:
+
+```text
+raw_step_previous_command_abs_sum: 1.4500000476837158
+wrapped_step_previous_command_abs_sum: 0.0
+```
+
+Focused verification:
+
+```text
+OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_controller_profile_runtime_smoke.py tests/test_controller_profile_runtime.py tests/test_controller_profile_configs.py tests/test_controller_profiles.py
+25 passed
+```
+
+The next blocker is M1193: design a bounded fair L0/L1/L2/L3 training-smoke
+protocol before running controller training. M1193 should fix profile set,
+seeds, budgets, env splits, metrics, gates, resource cap, and fallback ladder.
 
 M1191 implemented runtime observation-mask support for controller-profile
 configs:
@@ -170,7 +217,7 @@ M1190 generated eight smoke configs with L0 mask metadata, four L2 finite
 windows `[13,25,50,100]`, L3 variants, and no training/PPO/replay/promotion.
 
 Older route notes below retain their then-next milestone wording as history;
-the active blocker is the M1192 runtime smoke above.
+the active blocker is the M1193 training-smoke design above.
 
 M1189 completed controller-profile config-generation design:
 

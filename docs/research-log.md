@@ -17030,3 +17030,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1192-paper-route-controller-profile-runtime-smoke-run.json`.
 - decision: `runtime_observation_mask_ready_route_to_profile_runtime_smoke`
 - next: `m1192-paper-route-controller-profile-runtime-smoke-run`
+
+## 20260528T044400Z - m1192-paper-route-controller-profile-runtime-smoke-run
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1192-paper-route-controller-profile-runtime-smoke-run.md`
+- source: `src/autodrift/controller_profile_runtime_smoke.py`
+- tests: `tests/test_controller_profile_runtime_smoke.py`
+- run dir: `runs/m1192_controller_profile_runtime_smoke`
+- result: integrated no-training runtime smoke passes for all generated controller-profile configs.
+- profiles: `L0_current_masked`, `L1_one_step`, `L2_window_13`, `L2_window_25`, `L2_window_50`, `L2_window_100`, `L3_online_gru`, and `L3_reset_control`.
+- summary: `config_count=8`, `all_configs_instantiated=true`, `l0_mask_observed=true`, `unmasked_profiles_unchanged=true`, `contract_ok=true`, `model_forward_ok=true`.
+- L0 runtime mask check: raw step previous-command absolute sum `1.4500000476837158`; wrapped step previous-command absolute sum `0.0`.
+- guard flags: no controller training, optimizer, PPO, candidate replay, private holdout, promotion, hidden/oracle actor input, wheel/slip actor input, or actor-input contract change.
+- focused verification: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_controller_profile_runtime_smoke.py tests/test_controller_profile_runtime.py tests/test_controller_profile_configs.py tests/test_controller_profiles.py` -> `25 passed`.
+- smoke command: `PYTHONPATH=src python -m autodrift.controller_profile_runtime_smoke --config-dir configs/paper_route_profiles --run-dir runs/m1192_controller_profile_runtime_smoke --seed 1192`.
+- follow-up manifest: `experiments/manifests/m1193-paper-route-controller-profile-training-smoke-design.json`.
+- decision: `controller_profile_runtime_smoke_pass_route_to_training_smoke_design`
+- next: `m1193-paper-route-controller-profile-training-smoke-design`
