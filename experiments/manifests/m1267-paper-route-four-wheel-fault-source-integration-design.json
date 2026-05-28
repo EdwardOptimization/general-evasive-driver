@@ -140,6 +140,21 @@
   "baseline_artifacts": [
     "docs/m1266-paper-route-four-wheel-fault-dynamics-pilot.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1267-paper-route-four-wheel-fault-source-integration-design.md",
+    "decision": "four_wheel_fault_source_integration_design_admit_source_shape_smoke",
+    "next_manifest": "experiments/manifests/m1268-paper-route-four-wheel-fault-source-shape-smoke.json",
+    "next_run_dir": "runs/m1268_four_wheel_fault_source_shape_smoke",
+    "integration_route": "no-policy source-shape smoke before Gym/actor integration",
+    "actor_input_contract_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "threshold_relaxation_allowed": false
+  },
+  "decision": "four_wheel_fault_source_integration_design_admit_source_shape_smoke",
   "decision_rule": "M1267 passes if it designs deterministic four-wheel source integration with clean actor observations and unchanged accepted-source thresholds.",
-  "next_blocker": "m1267-paper-route-four-wheel-fault-source-integration-design"
+  "next_blocker": "m1268-paper-route-four-wheel-fault-source-shape-smoke"
 }

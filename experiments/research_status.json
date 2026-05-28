@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1276,
+    "completed": 1277,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1266-paper-route-four-wheel-fault-dynamics-pilot.md",
+    "command_log": "docs/m1267-paper-route-four-wheel-fault-source-integration-design.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1266-paper-route-four-wheel-fault-dynamics-pilot"
+    "task_id": "m1267-paper-route-four-wheel-fault-source-integration-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1267-paper-route-four-wheel-fault-source-integration-design.json",
-    "hypothesis": "Design deterministic source integration for four-wheel fault primitives while preserving clean actor observations",
-    "id": "m1267-paper-route-four-wheel-fault-source-integration-design",
-    "kind": "gate",
-    "notes": "Pending: define source snapshot schema, observation mapping, metadata boundary, and source-smoke acceptance before implementation",
-    "priority": 12620,
+    "command": "see experiments/manifests/m1268-paper-route-four-wheel-fault-source-shape-smoke.json",
+    "hypothesis": "The four-wheel fault dynamics pilot can produce strict capability-separable source rows in a no-policy source-shape smoke",
+    "id": "m1268-paper-route-four-wheel-fault-source-shape-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-policy source-shape smoke; report accepted rows, collision diagnostics, and guardrails",
+    "priority": 12630,
     "status": "pending",
-    "success_artifact": "docs/m1267-paper-route-four-wheel-fault-source-integration-design.md"
+    "success_artifact": "runs/m1268_four_wheel_fault_source_shape_smoke/summary.json"
   },
-  "updated_at_utc": "20260528T121509Z"
+  "updated_at_utc": "20260528T121758Z"
 }

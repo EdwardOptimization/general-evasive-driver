@@ -1,0 +1,167 @@
+{
+  "id": "m1268-paper-route-four-wheel-fault-source-shape-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_dataset": [
+      "docs/m1267-paper-route-four-wheel-fault-source-integration-design.md",
+      "src/autodrift/four_wheel_dynamics.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1267-paper-route-four-wheel-fault-source-integration-design.json"
+    ],
+    "parent_objective": [
+      "implement no-policy four-wheel fault source-shape smoke"
+    ],
+    "derived_from": [
+      "m1267-paper-route-four-wheel-fault-source-integration-design"
+    ],
+    "blocked_by": [
+      "M1267 admits no-policy source-shape smoke before Gym/actor integration"
+    ],
+    "supersedes": [
+      "direct actor training or PPO on unvalidated four-wheel source"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1268-paper-route-four-wheel-fault-source-shape-smoke.md",
+  "public_gates": [
+    "M1268 must preserve actor input contract",
+    "M1268 must not train controllers",
+    "M1268 must not run PPO",
+    "M1268 must not use private holdout",
+    "M1268 must not promote",
+    "M1268 must report accepted-source rows and collision-dominance diagnostics"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add per-wheel/fault labels to actor inputs",
+    "do not lower accepted-source thresholds",
+    "do not claim high-fidelity validation from the compact pilot",
+    "do not use policy success as a substitute for strict source acceptance"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fidelity_fault_source_design",
+    "evidence_axis": "S_four_wheel_fault_source_shape",
+    "evidence_increment": "tests whether four-wheel fault dynamics contain strict capability-separable source rows before actor/Gym integration",
+    "claim_scope": "source-shape infrastructure smoke only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if observation mapping leaks per-wheel/fault metadata",
+      "stop if accepted thresholds are relaxed",
+      "stop if run becomes collision-dominated without viable own-branch rows"
+    ],
+    "fallback_plan": [
+      "if accepted rows are zero, audit whether source timing, candidate actions, or model fidelity remains limiting",
+      "if accepted rows exist, audit source diversity before actor/history integration"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1267 admits no-policy four-wheel source-shape smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "four-wheel fault source-shape smoke",
+    "admission_evidence": [
+      "M1266 four-wheel fault primitives pass focused tests",
+      "M1267 designs no-policy source-shape smoke before actor integration"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "four-wheel source-shape smoke implementation",
+      "focused tests",
+      "M1268 run artifacts",
+      "M1268 result docs",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "run summary exists",
+      "strict accepted rows are reported",
+      "collision-dominance diagnostics are reported",
+      "actor-input guardrails are reported"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1268 tests source shape only and does not test actor history necessity.",
+    "history_necessity_tests": [
+      "future actor history tests remain blocked until source-positive cases exist"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked.",
+    "negative_result_policy": "If source-positive rows remain zero, write a source-shape audit before any actor/Gym integration.",
+    "allowed_claims": [
+      "four-wheel fault source-shape smoke result",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The four-wheel fault dynamics pilot can produce strict capability-separable source rows in a no-policy source-shape smoke while preserving clean actor observations.",
+  "success_criteria": [
+    "runs/m1268_four_wheel_fault_source_shape_smoke/summary.json exists",
+    "scenario_summary.csv exists",
+    "snapshot_candidates.csv exists",
+    "action_lattice.csv exists",
+    "action_rollouts.csv exists",
+    "matched_capability_pairs.csv exists",
+    "accepted_separable_pairs.csv exists",
+    "collision-dominance diagnostics are reported",
+    "actor_input_contract_changed == false",
+    "labels_enter_actor_input == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "private_holdout_used == false",
+    "accepted_thresholds_relaxed == false"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "observation mapping includes per-wheel/fault metadata",
+    "accepted thresholds are lowered",
+    "training or PPO starts",
+    "promotion occurs",
+    "high-fidelity validation is claimed"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_four_wheel_fault_source_shape.py tests/test_four_wheel_dynamics.py"
+    },
+    {
+      "name": "smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.four_wheel_fault_source_shape --run-dir runs/m1268_four_wheel_fault_source_shape_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1268_four_wheel_fault_source_shape_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1268-paper-route-four-wheel-fault-source-shape-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint"
+  ],
+  "baseline_artifacts": [
+    "docs/m1267-paper-route-four-wheel-fault-source-integration-design.md",
+    "docs/m1266-paper-route-four-wheel-fault-dynamics-pilot.md"
+  ],
+  "decision_rule": "M1268 passes as infrastructure if it emits source-shape artifacts, strict accepted-row counts, and guardrails without training, PPO, promotion, or actor-input expansion.",
+  "next_blocker": "m1268-paper-route-four-wheel-fault-source-shape-smoke"
+}

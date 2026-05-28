@@ -1,0 +1,72 @@
+{
+  "decision_reason": "M1267 passes if it designs deterministic four-wheel source integration with clean actor observations and unchanged accepted-source thresholds.",
+  "failure_criteria": [
+    "design is missing",
+    "design requires per-wheel/fault labels in actor input",
+    "design lowers strict accepted-source thresholds",
+    "design skips deterministic reconstruction requirements",
+    "training, PPO, private holdout, promotion, or threshold relaxation occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add per-wheel/fault labels to actor inputs",
+    "do not lower accepted-source thresholds",
+    "do not claim high-fidelity validation from the compact pilot",
+    "do not run source mining before source reconstruction and observation mapping are specified"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T121758Z",
+  "hypothesis": "A bounded integration design can route four-wheel fault primitives into source mining while keeping deployable actor observations clean.",
+  "lineage": {
+    "blocked_by": [
+      "M1266 implements four-wheel fault primitives but does not integrate them into source mining"
+    ],
+    "derived_from": [
+      "m1266-paper-route-four-wheel-fault-dynamics-pilot"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1266-paper-route-four-wheel-fault-dynamics-pilot.json"
+    ],
+    "parent_dataset": [
+      "docs/m1266-paper-route-four-wheel-fault-dynamics-pilot.md"
+    ],
+    "parent_objective": [
+      "design integration of four-wheel fault primitives into source collection and capability-separable evaluation"
+    ],
+    "supersedes": [
+      "direct source mining before integration guardrails are designed"
+    ]
+  },
+  "milestone": "m1267-paper-route-four-wheel-fault-source-integration-design",
+  "next_blocker": "m1268-paper-route-four-wheel-fault-source-shape-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M1267 must preserve actor input contract",
+    "M1267 must not train controllers",
+    "M1267 must not run PPO",
+    "M1267 must not use private holdout",
+    "M1267 must not promote",
+    "M1267 must design source integration before implementation"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "docs/m1267-paper-route-four-wheel-fault-source-integration-design.md exists",
+    "design defines source snapshot schema",
+    "design defines observation mapping from four-wheel state to human-view frame",
+    "design defines metadata boundaries for per-wheel/fault data",
+    "design pre-registers the next bounded implementation if admitted",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

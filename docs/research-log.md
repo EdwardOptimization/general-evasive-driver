@@ -18271,3 +18271,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1267-paper-route-four-wheel-fault-source-integration-design.json`.
 - decision: `four_wheel_fault_dynamics_pilot_infrastructure_pass_route_to_source_integration_design`
 - next: `m1267-paper-route-four-wheel-fault-source-integration-design`
+
+## 20260528T121758Z - m1267-paper-route-four-wheel-fault-source-integration-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1267-paper-route-four-wheel-fault-source-integration-design.md`
+- design decision: `four_wheel_fault_source_integration_design_admit_source_shape_smoke`
+- integration principle: do not put the four-wheel model directly into Gym/actor training; first run a no-policy source-shape smoke to test whether the new dynamics contain strict capability-separable source rows.
+- schema: design defines `FourWheelSourceSnapshot` fields, 72-value human-view-compatible observation mapping, and simulator-only metadata boundaries for fault scales/per-wheel forces.
+- source plan: matched-current hidden-fault pairs hold visible state and obstacle geometry fixed while varying split-mu, brake-pull, grip-collapse, or halfshaft source faults.
+- guardrail: actor inputs must not include per-wheel/fault labels, tire forces, slip, oracle feasibility, candidate ids, search results, or outcome labels.
+- follow-up manifest: `experiments/manifests/m1268-paper-route-four-wheel-fault-source-shape-smoke.json`.
+- decision: `four_wheel_fault_source_integration_design_admit_source_shape_smoke`
+- next: `m1268-paper-route-four-wheel-fault-source-shape-smoke`
