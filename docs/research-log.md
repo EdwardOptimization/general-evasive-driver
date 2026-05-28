@@ -17686,3 +17686,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1231-paper-route-short-horizon-partial-positive-audit.json`.
 - decision: `short_horizon_relocation_partial_source_collapsed_audit_required`
 - next: `m1231-paper-route-short-horizon-partial-positive-audit`
+
+## 20260528T081608Z - m1231-paper-route-short-horizon-partial-positive-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1231-paper-route-short-horizon-partial-positive-audit.md`
+- result: audits M1230 as a real but source-collapsed short-horizon materialization signal.
+- supported narrow claim: action-divergent wrong-history candidates can be materialized into short-horizon success drops under relocation.
+- blocked claims: source-diverse causal-history proof, long-horizon evasive-driver performance, recurrent belief, self-identification, promotion, and training readiness.
+- rejected route: do not train from the 80 accepted rows and do not continue tuning the same M1226 public pool.
+- selected next branch: `paper_route_extreme_fault_source_generation`.
+- next design: define hidden-dynamics extreme/fault scenario families, actor-input guardrails, source-mining artifacts, and source-diversity gates.
+- guardrail: no training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1232-paper-route-extreme-fault-source-generation-design.json`.
+- decision: `short_horizon_partial_positive_pivot_to_extreme_fault_source_generation`
+- next: `m1232-paper-route-extreme-fault-source-generation-design`

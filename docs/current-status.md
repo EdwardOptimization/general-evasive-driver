@@ -115,7 +115,23 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1231-paper-route-short-horizon-partial-positive-audit
+m1232-paper-route-extreme-fault-source-generation-design
+```
+
+M1231 completed partial-positive audit:
+
+```text
+artifact: docs/m1231-paper-route-short-horizon-partial-positive-audit.md
+decision: short_horizon_partial_positive_pivot_to_extreme_fault_source_generation
+```
+
+M1231 conclusion:
+
+```text
+M1230 is a real short-horizon materialization signal, but it is too
+source-collapsed for proof or training. The next branch should generate
+source-diverse hidden-dynamics extreme/fault scenarios instead of tuning the
+same public source pool.
 ```
 
 M1230 completed short-horizon relocation smoke:
@@ -220,9 +236,10 @@ margin gaps cannot be treated as proof.
 Next task:
 
 ```text
-artifact: docs/m1231-paper-route-short-horizon-partial-positive-audit.md
-goal: classify M1230 partial positive and select source-diversity expansion or pivot
-blocked: training, PPO, promotion, proof-criterion weakening
+artifact: docs/m1232-paper-route-extreme-fault-source-generation-design.md
+branch: paper_route_extreme_fault_source_generation
+goal: design source-diverse hidden-dynamics fault/extreme scenario generation
+blocked: hidden/fault labels as actor inputs, training, PPO, promotion
 ```
 
 M1226 completed terminal-boundary candidate export:

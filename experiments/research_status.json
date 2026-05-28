@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1240,
+    "completed": 1241,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1230-paper-route-short-horizon-relocation-smoke.md",
+    "command_log": "docs/m1231-paper-route-short-horizon-partial-positive-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1230_short_horizon_relocation_smoke",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1230-paper-route-short-horizon-relocation-smoke"
+    "task_id": "m1231-paper-route-short-horizon-partial-positive-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1231-paper-route-short-horizon-partial-positive-audit.json",
-    "hypothesis": "Audit short-horizon relocation partial positive",
-    "id": "m1231-paper-route-short-horizon-partial-positive-audit",
+    "command": "see experiments/manifests/m1232-paper-route-extreme-fault-source-generation-design.json",
+    "hypothesis": "Design extreme/fault source generation",
+    "id": "m1232-paper-route-extreme-fault-source-generation-design",
     "kind": "gate",
-    "notes": "Pending: classify M1230 source-collapsed positive surface and select source-diversity expansion or pivot without training or proof-criterion weakening",
-    "priority": 12260,
+    "notes": "Pending: define hidden-dynamics extreme fault scenario families actor-input guardrails source-mining artifacts source-diversity gates and first bounded implementation step",
+    "priority": 12270,
     "status": "pending",
-    "success_artifact": "docs/m1231-paper-route-short-horizon-partial-positive-audit.md"
+    "success_artifact": "docs/m1232-paper-route-extreme-fault-source-generation-design.md"
   },
-  "updated_at_utc": "20260528T081205Z"
+  "updated_at_utc": "20260528T081607Z"
 }

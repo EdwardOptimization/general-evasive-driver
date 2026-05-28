@@ -1,0 +1,152 @@
+{
+  "id": "m1232-paper-route-extreme-fault-source-generation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1230_short_horizon_relocation_smoke/summary.json",
+      "docs/m1231-paper-route-short-horizon-partial-positive-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1231-paper-route-short-horizon-partial-positive-audit.json"
+    ],
+    "parent_objective": [
+      "design source-diverse extreme/fault scenario generation after M1230 partial-positive source collapse"
+    ],
+    "derived_from": [
+      "m1231-paper-route-short-horizon-partial-positive-audit"
+    ],
+    "blocked_by": [
+      "M1230 accepted rows are short-horizon and source-collapsed"
+    ],
+    "supersedes": [
+      "continuing to tune the same M1226 public source pool"
+    ],
+    "invalidates": [
+      "training directly from M1230 accepted rows"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1232-paper-route-extreme-fault-source-generation-design.md",
+  "public_gates": [
+    "M1232 may design source-generation infrastructure only",
+    "M1232 must preserve actor input contract",
+    "M1232 must not train controllers",
+    "M1232 must not run PPO",
+    "M1232 must not use private holdout",
+    "M1232 must not promote",
+    "M1232 must keep hidden fault labels out of deployable actor inputs",
+    "M1232 must select a bounded first implementation step"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add fault labels or hidden parameters to actor inputs",
+    "do not treat fault scenario labels as oracle feasibility labels",
+    "do not claim self-identification from scenario design"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_extreme_fault_source_generation",
+    "evidence_axis": "S_extreme_fault_source_design",
+    "evidence_increment": "opens a new source-generation branch to create source-diverse hidden-dynamics stress cases instead of overfitting the M1226 public source pool",
+    "claim_scope": "process/design only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if scenario families require oracle actor inputs",
+      "stop if first implementation step is too broad to validate",
+      "stop if source-diversity gates are not defined"
+    ],
+    "fallback_plan": [
+      "narrow to one or two hidden fault families first",
+      "use existing friction/actuator randomization hooks if full fault dynamics are not yet implemented",
+      "route to simulator extension only after design identifies missing dynamics hooks"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1231 pivots away from a source-collapsed public pool",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "extreme/fault source-generation branch design",
+    "admission_evidence": [
+      "M1230 produced a local materialization signal but failed source-diversity gates",
+      "user explicitly wants broad extreme/fault scenario coverage for a general evasive driver"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1232 design docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "scenario families are specified",
+      "actor-input guardrails are specified",
+      "source-mining artifacts are specified",
+      "first bounded implementation step is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1232 is source-generation design and does not test history necessity.",
+    "history_necessity_tests": [
+      "design future source cases where hidden dynamics should require history",
+      "do not claim self-ID from scenario labels"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked until future source-diverse matched-history outcome gates pass.",
+    "negative_result_policy": "If fault-source design cannot avoid oracle actor inputs, narrow the branch or fall back to deployable randomization hooks.",
+    "allowed_claims": [
+      "extreme/fault source-generation design",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A source-generation branch focused on hidden extreme/fault dynamics is higher leverage than continued grid tuning around M1230's source-collapsed short-horizon active set.",
+  "success_criteria": [
+    "docs/m1232-paper-route-extreme-fault-source-generation-design.md exists",
+    "scenario families and hidden ranges are specified",
+    "actor-input guardrails are specified",
+    "source-diversity gates are specified",
+    "first bounded implementation step is selected",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "M1232 trains or tunes profiles",
+    "private holdout is used",
+    "fault labels are added to actor inputs",
+    "scenario design becomes too broad to validate",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "write_extreme_fault_source_generation_design",
+      "command": "write docs/m1232-paper-route-extreme-fault-source-generation-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1232-paper-route-extreme-fault-source-generation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1231-paper-route-short-horizon-partial-positive-audit.md",
+    "runs/m1230_short_horizon_relocation_smoke/summary.json"
+  ],
+  "decision_rule": "M1232 passes if it defines a bounded source-generation branch with actor-input guardrails and a concrete first implementation step.",
+  "next_blocker": "m1232-paper-route-extreme-fault-source-generation-design"
+}
