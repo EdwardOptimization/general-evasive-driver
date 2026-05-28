@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1206,
+    "completed": 1207,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1196-paper-route-profile-training-smoke-stage-a-run.md",
+    "command_log": "docs/m1197-paper-route-profile-training-smoke-stage-b-run.md",
     "returncode": 0,
-    "run_dir": "runs/m1196_profile_training_smoke_stage_a",
+    "run_dir": "runs/m1197_profile_training_smoke_stage_b",
     "status": "completed",
-    "task_id": "m1196-paper-route-profile-training-smoke-stage-a-run"
+    "task_id": "m1197-paper-route-profile-training-smoke-stage-b-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1197-paper-route-profile-training-smoke-stage-b-run.json",
-    "hypothesis": "All eight generated L0/L1/L2/L3 profiles can complete identical smoke-scale PPO training loops after Stage A passes.",
-    "id": "m1197-paper-route-profile-training-smoke-stage-b-run",
+    "command": "see experiments/manifests/m1198-paper-route-fair-comparison-pilot-design.json",
+    "hypothesis": "A fair public comparison pilot can be designed for L0/L1/L2/L3 profiles without using smoke metrics as performance evidence or tuning profiles unequally.",
+    "id": "m1198-paper-route-fair-comparison-pilot-design",
     "kind": "gate",
-    "notes": "Pending: run bounded Stage B all-profile training smoke as plumbing only with no promotion or performance claims",
-    "priority": 11920,
+    "notes": "Pending: design fair comparison pilot before using any profile metrics as evidence",
+    "priority": 11930,
     "status": "pending",
-    "success_artifact": "docs/m1197-paper-route-profile-training-smoke-stage-b-run.md"
+    "success_artifact": "docs/m1198-paper-route-fair-comparison-pilot-design.md"
   },
-  "updated_at_utc": "20260528T051400Z"
+  "updated_at_utc": "20260528T052000Z"
 }

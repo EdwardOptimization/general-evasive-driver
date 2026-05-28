@@ -155,5 +155,5 @@
     "configs/paper_route_profiles"
   ],
   "decision_rule": "M1197 passes only as train-loop plumbing if all eight generated profiles complete with finite metrics and no claim expansion.",
-  "next_blocker": "m1197-paper-route-profile-training-smoke-stage-b-run"
+  "next_blocker": "m1198-paper-route-fair-comparison-pilot-design"
 }

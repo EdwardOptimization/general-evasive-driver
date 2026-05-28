@@ -115,8 +115,42 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1197-paper-route-profile-training-smoke-stage-b-run
+m1198-paper-route-fair-comparison-pilot-design
 ```
+
+M1197 completed the bounded Stage B all-profile training smoke:
+
+```text
+artifact: docs/m1197-paper-route-profile-training-smoke-stage-b-run.md
+run dir: runs/m1197_profile_training_smoke_stage_b
+decision: profile_training_smoke_stage_b_pass_route_to_fair_comparison_pilot_design
+```
+
+M1197 result:
+
+```text
+profiles: L0_current_masked, L1_one_step, L2_window_13, L2_window_25, L2_window_50, L2_window_100, L3_online_gru, L3_reset_control
+total_steps_per_profile: 1024
+num_envs: 2
+all_profiles_complete: true
+all_eval_metrics_finite: true
+l0_runtime_mask_metadata_present: true
+training_started: true
+optimizer_started: true
+ppo_used: true
+candidate_replay_started: false
+private_holdout_used: false
+promoted: false
+actor_input_contract_changed: false
+profile_superiority_claimed: false
+driver_performance_claimed: false
+```
+
+The eval values in M1197 are smoke diagnostics only, not performance
+comparisons. The active blocker is now M1198: design a fair L0/L1/L2/L3
+comparison pilot before using any profile metric as evidence. M1198 must not
+train, run PPO, use private holdout, tune profiles from smoke results, or claim
+profile superiority.
 
 M1196 completed the bounded Stage A profile training smoke:
 
@@ -145,12 +179,6 @@ actor_input_contract_changed: false
 profile_superiority_claimed: false
 driver_performance_claimed: false
 ```
-
-The eval values in M1196 are smoke diagnostics only, not performance
-comparisons. The active blocker is now M1197: run Stage B all-profile training
-smoke for all eight generated profiles under the same 1024-step plumbing budget,
-still with no promotion, no private holdout, no candidate replay, and no
-profile-superiority or driver-performance claim.
 
 M1195 completed train/eval vector-path profile-mask integration:
 
@@ -338,7 +366,7 @@ M1190 generated eight smoke configs with L0 mask metadata, four L2 finite
 windows `[13,25,50,100]`, L3 variants, and no training/PPO/replay/promotion.
 
 Older route notes below retain their then-next milestone wording as history;
-the active blocker is the M1197 Stage B all-profile training smoke above.
+the active blocker is the M1198 fair comparison pilot design above.
 
 M1189 completed controller-profile config-generation design:
 

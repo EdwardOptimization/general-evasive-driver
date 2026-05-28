@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1197 completes Stage B smoke-scale PPO plumbing for all eight generated profiles with finite metrics and L0 runtime mask metadata present; no profile superiority driver-performance promotion private holdout candidate replay or actor-input change claim",
+  "failure_criteria": [
+    "any generated profile cannot complete the smoke run",
+    "metrics are non-finite",
+    "private holdout or promotion occurs",
+    "hidden or oracle actor inputs are introduced",
+    "results are framed as profile superiority"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not change generated configs per profile after seeing results",
+    "do not use private holdout",
+    "do not promote a checkpoint",
+    "do not run public proof replay as if this were a driver candidate",
+    "do not compare performance except as smoke diagnostics",
+    "do not add hidden or oracle actor inputs",
+    "do not skip recording failed profiles"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T052250Z",
+  "hypothesis": "All eight generated L0/L1/L2/L3 profiles can complete identical smoke-scale PPO training loops after Stage A passes.",
+  "lineage": {
+    "blocked_by": [
+      "Stage A passed but the remaining L2 windows and L3_reset_control have not run train-loop smoke"
+    ],
+    "derived_from": [
+      "m1196-paper-route-profile-training-smoke-stage-a-run"
+    ],
+    "invalidates": [
+      "starting fair comparison pilot before all generated profiles complete smoke training"
+    ],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1196-paper-route-profile-training-smoke-stage-a-run.json"
+    ],
+    "parent_dataset": [
+      "docs/m1196-paper-route-profile-training-smoke-stage-a-run.md",
+      "configs/paper_route_profiles"
+    ],
+    "parent_objective": [
+      "run full generated-profile Stage B smoke after representative Stage A training plumbing passes"
+    ],
+    "supersedes": [
+      "assuming all generated profiles train because representative profiles passed"
+    ]
+  },
+  "milestone": "m1197-paper-route-profile-training-smoke-stage-b-run",
+  "next_blocker": "m1198-paper-route-fair-comparison-pilot-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "profile_training_smoke_stage_b_pass_route_to_fair_comparison_pilot_design",
+  "public_gates": [
+    "M1197 may run bounded Stage B PPO training smoke only",
+    "M1197 may train all eight generated profiles for smoke-scale plumbing only",
+    "M1197 must not promote",
+    "M1197 must not use private holdout",
+    "M1197 must not tune profiles based on early results",
+    "M1197 must not run candidate replay",
+    "M1197 must not add hidden or oracle actor inputs",
+    "M1197 must not claim profile superiority or driver performance"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1197_profile_training_smoke_stage_b/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "profile_training_smoke_stage_b_pass_route_to_fair_comparison_pilot_design",
+    "milestone": "m1197-paper-route-profile-training-smoke-stage-b-run",
+    "reason": "M1197 completes Stage B smoke-scale PPO plumbing for all eight generated profiles with finite metrics and L0 runtime mask metadata present; no profile superiority driver-performance promotion private holdout candidate replay or actor-input change claim",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1197-paper-route-profile-training-smoke-stage-b-run.md exists",
+    "runs/m1197_profile_training_smoke_stage_b/summary.json exists",
+    "all eight generated profile runs complete",
+    "metrics are finite",
+    "summary reports no private holdout no promotion no candidate replay no actor-input expansion",
+    "no profile superiority or driver-performance claim occurs"
+  ],
+  "type": "gate"
+}

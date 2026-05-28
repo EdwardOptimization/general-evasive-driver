@@ -1,0 +1,155 @@
+{
+  "id": "m1198-paper-route-fair-comparison-pilot-design",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1197-paper-route-profile-training-smoke-stage-b-run.md",
+      "runs/m1197_profile_training_smoke_stage_b/summary.json",
+      "configs/paper_route_profiles"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1197-paper-route-profile-training-smoke-stage-b-run.json"
+    ],
+    "parent_objective": [
+      "design the first fair multi-profile comparison pilot after all generated profiles pass train-loop smoke"
+    ],
+    "derived_from": [
+      "m1197-paper-route-profile-training-smoke-stage-b-run"
+    ],
+    "blocked_by": [
+      "Stage B proves train-loop plumbing but not fair comparison readiness or profile superiority"
+    ],
+    "supersedes": [
+      "using one-seed smoke diagnostics as a profile comparison"
+    ],
+    "invalidates": [
+      "claiming finite-window or GRU advantage from M1197 smoke metrics"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1198-paper-route-fair-comparison-pilot-design.md",
+  "public_gates": [
+    "M1198 may design a fair comparison pilot only",
+    "M1198 must not train controller weights",
+    "M1198 must not run PPO",
+    "M1198 must not run candidate replay",
+    "M1198 must not promote",
+    "M1198 must not use private holdout",
+    "M1198 must not add hidden or oracle actor inputs",
+    "M1198 must not claim profile superiority"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run training",
+    "do not reuse smoke metrics as comparison evidence",
+    "do not use private holdout",
+    "do not tune per profile from M1196 or M1197 results",
+    "do not add hidden or oracle actor inputs",
+    "do not promote any checkpoint",
+    "do not claim paper-level evidence from a design document"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_experiment_design: fair L0/L1/L2/L3 comparison pilot",
+    "evidence_increment": "pre-registers the first fair multi-seed comparison pilot after all generated profiles complete train-loop smoke",
+    "claim_scope": "design only; no training replay PPO promotion private-holdout driver-performance recurrent-belief profile-superiority or paper-result claim",
+    "stop_condition": [
+      "stop if pilot would compare profiles with unequal seeds budgets env distributions or evaluation rules",
+      "stop if it relies on private holdout",
+      "stop if it would tune profile-specific hyperparameters from smoke results",
+      "stop if it does not separate plumbing evidence from comparison evidence"
+    ],
+    "fallback_plan": [
+      "if full profile pilot is too costly, design a public pilot over L0 L1 L2_window_25 L3 first",
+      "if recurrent profiles need reset semantics before comparison, route to reset-control design repair",
+      "if smoke metrics show a likely issue, route to focused training stability audit before comparison"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1197 all generated profiles pass smoke training and comparison must be pre-registered before any performance claim",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fair comparison pilot design",
+    "admission_evidence": [
+      "M1195 train/eval masks are integrated",
+      "M1196 representative Stage A training smoke passes",
+      "M1197 all-profile Stage B training smoke passes"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers in M1198",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make performance claims"
+    ],
+    "allowed_updates": [
+      "fair comparison pilot design document",
+      "M1198 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "profile set is fixed",
+      "shared seeds budgets env splits and eval metrics are fixed",
+      "pilot claim scope is limited",
+      "repair and failure rules are fixed",
+      "next pilot run or implementation milestone is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1198 designs comparison controls but does not test history necessity.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1198 may define evaluation windows but does not evaluate temporal evidence.",
+    "negative_result_policy": "If a fair pilot cannot be designed without unequal tuning or private holdout, keep comparison blocked and route to process repair.",
+    "allowed_claims": [
+      "fair comparison pilot design readiness",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A fair public comparison pilot can be designed for L0/L1/L2/L3 profiles without using smoke metrics as performance evidence or tuning profiles unequally.",
+  "success_criteria": [
+    "docs/m1198-paper-route-fair-comparison-pilot-design.md exists",
+    "profile set, seeds, training budget, eval budget, metrics, artifacts, failure rules, and claim scope are fixed",
+    "private holdout remains unused",
+    "smoke metrics are explicitly excluded as performance evidence",
+    "no controller training, candidate replay, PPO, promotion, private holdout, or actor-input contract change occurs",
+    "next run or implementation milestone is selected"
+  ],
+  "failure_criteria": [
+    "training starts in M1198",
+    "pilot uses unequal budgets or per-profile tuning",
+    "private holdout is used",
+    "M1197 smoke metrics are used as comparison evidence",
+    "hidden or oracle actor inputs are introduced"
+  ],
+  "commands": [
+    {
+      "name": "design_fair_comparison_pilot",
+      "command": "write fair comparison pilot design without running training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1198-paper-route-fair-comparison-pilot-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1197-paper-route-profile-training-smoke-stage-b-run.md",
+    "runs/m1197_profile_training_smoke_stage_b/summary.json"
+  ],
+  "decision_rule": "M1198 passes if it pre-registers a fair comparison pilot and keeps all performance claims blocked.",
+  "next_blocker": "m1198-paper-route-fair-comparison-pilot-design"
+}

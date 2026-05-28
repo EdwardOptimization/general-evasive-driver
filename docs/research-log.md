@@ -17115,3 +17115,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1197-paper-route-profile-training-smoke-stage-b-run.json`.
 - decision: `profile_training_smoke_stage_a_pass_route_to_stage_b_full_profile_smoke`
 - next: `m1197-paper-route-profile-training-smoke-stage-b-run`
+
+## 20260528T052000Z - m1197-paper-route-profile-training-smoke-stage-b-run
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `infrastructure`
+- artifact: `docs/m1197-paper-route-profile-training-smoke-stage-b-run.md`
+- run dir: `runs/m1197_profile_training_smoke_stage_b`
+- result: Stage B smoke-scale PPO plumbing passes for all eight generated L0/L1/L2/L3 profiles.
+- profiles: `L0_current_masked`, `L1_one_step`, `L2_window_13`, `L2_window_25`, `L2_window_50`, `L2_window_100`, `L3_online_gru`, and `L3_reset_control`.
+- budget: `1024` steps, `64` rollout steps, `2` envs, `1` seed per profile from generated configs, CPU, sync vector env.
+- summary: `profile_count=8`, `all_profiles_complete=true`, `all_eval_metrics_finite=true`, `l0_runtime_mask_metadata_present=true`.
+- run-level flags: `training_started=true`, `optimizer_started=true`, `ppo_used=true`, `candidate_replay_started=false`, `private_holdout_used=false`, `promoted=false`, `actor_input_contract_changed=false`, `profile_superiority_claimed=false`, `driver_performance_claimed=false`.
+- smoke eval diagnostics only: L0 return mean `71.2942`, L1 `43.3980`, L2_window_13 `35.8591`, L2_window_25 `92.4284`, L2_window_50 `67.9624`, L2_window_100 `65.6784`, L3 `39.3816`, L3_reset `34.8628`; these are not performance comparison claims.
+- follow-up manifest: `experiments/manifests/m1198-paper-route-fair-comparison-pilot-design.json`.
+- decision: `profile_training_smoke_stage_b_pass_route_to_fair_comparison_pilot_design`
+- next: `m1198-paper-route-fair-comparison-pilot-design`
