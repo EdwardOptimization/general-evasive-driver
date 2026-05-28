@@ -163,5 +163,5 @@
     "docs/m1193-paper-route-controller-profile-training-smoke-design.md"
   ],
   "decision_rule": "M1194 passes if it records the branch-level synthesis decision and keeps training blocked until the next explicit integration milestone.",
-  "next_blocker": "m1194-paper-route-finite-window-gru-infrastructure-synthesis"
+  "next_blocker": "m1195-paper-route-train-entrypoint-profile-mask-integration"
 }

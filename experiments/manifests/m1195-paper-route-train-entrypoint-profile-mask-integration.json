@@ -1,0 +1,162 @@
+{
+  "id": "m1195-paper-route-train-entrypoint-profile-mask-integration",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1194-paper-route-finite-window-gru-infrastructure-synthesis.md",
+      "src/autodrift/controller_profile_runtime.py",
+      "src/autodrift/controller_profile_runtime_smoke.py",
+      "configs/paper_route_profiles"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1194-paper-route-finite-window-gru-infrastructure-synthesis.json"
+    ],
+    "parent_objective": [
+      "integrate controller-profile observation masks into train/eval entrypoints or vector-env construction before profile training starts"
+    ],
+    "derived_from": [
+      "m1194-paper-route-finite-window-gru-infrastructure-synthesis"
+    ],
+    "blocked_by": [
+      "M1194 synthesis continued the branch but kept training blocked until train/eval vector paths apply controller-profile masks"
+    ],
+    "supersedes": [
+      "assuming single-env wrapper support is enough for PPO training"
+    ],
+    "invalidates": [
+      "running L0 controller-profile training before vector training observations are masked"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1195-paper-route-train-entrypoint-profile-mask-integration.md",
+  "public_gates": [
+    "M1195 may integrate controller-profile observation masks into vector env or train/eval entrypoint construction",
+    "M1195 may add focused tests for vector reset/step masking",
+    "M1195 must not train controller weights",
+    "M1195 must not run PPO",
+    "M1195 must not run candidate replay",
+    "M1195 must not promote",
+    "M1195 must not use private holdout",
+    "M1195 must not add hidden or oracle actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train generated configs",
+    "do not run PPO",
+    "do not evaluate driver performance",
+    "do not use private holdout",
+    "do not change actor input semantics except applying declared deployable profile masks",
+    "do not add hidden or oracle actor inputs",
+    "do not claim controller performance from integration tests"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_infrastructure: training entrypoint profile mask integration",
+    "evidence_increment": "makes L0_current_masked executable in vector training/evaluation paths so later training smoke does not leak previous commands",
+    "claim_scope": "infrastructure only; no training replay PPO promotion private-holdout driver-performance recurrent-belief or paper-result claim",
+    "stop_condition": [
+      "stop if vector-env masking changes unmasked profiles",
+      "stop if L0 vector reset/step observations are not masked",
+      "stop if integration requires hidden or oracle actor inputs",
+      "stop if implementation starts training"
+    ],
+    "fallback_plan": [
+      "if vector-env wrapping is invasive, add a batched observation-mask adapter at train_ppo reset/step boundaries first",
+      "if parallel vector env cannot share the same adapter immediately, support sync vector env first and keep parallel profile training blocked",
+      "if evaluation needs a separate path, implement shared mask function and separate train/eval adapters"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1194 synthesis continued the branch and selected train/eval profile-mask integration next",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "train/eval profile mask integration",
+    "admission_evidence": [
+      "M1191 single-env runtime mask wrapper tests pass",
+      "M1192 generated profile runtime smoke passes",
+      "M1193 training-smoke design identifies vector training mask gap",
+      "M1194 synthesis continues the branch but keeps training blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not train controllers in M1195",
+      "do not use private holdout",
+      "do not make performance claims"
+    ],
+    "allowed_updates": [
+      "vector-env or train/eval profile mask integration",
+      "focused integration tests",
+      "M1195 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "L0 vector reset/step observations are masked in focused tests",
+      "unmasked profiles remain unchanged",
+      "train/eval config path can discover profile mask metadata",
+      "no training or PPO starts",
+      "next bounded training-smoke run is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1195 is infrastructure to enforce L0 current-only control; it does not test history necessity.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1195 does not evaluate temporal evidence.",
+    "negative_result_policy": "If vector profile-mask integration fails, keep all controller-profile training blocked and route to focused adapter repair.",
+    "allowed_claims": [
+      "train/eval runtime-mask integration readiness",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Controller-profile observation masks can be applied in train/eval vector paths without changing unmasked profiles or starting training.",
+  "success_criteria": [
+    "docs/m1195-paper-route-train-entrypoint-profile-mask-integration.md exists",
+    "focused train/eval or vector-env mask integration tests pass",
+    "L0 vector reset and step observations zero previous-command fields 9 10 11",
+    "unmasked profiles remain unchanged",
+    "no hidden or oracle actor inputs are introduced",
+    "no controller training, candidate replay, PPO, promotion, private holdout, or actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "L0 remains unmasked in train/eval vector paths",
+    "unmasked profiles are changed",
+    "parallel or sync behavior silently diverges without documentation",
+    "hidden or oracle actor inputs are introduced",
+    "controller training, candidate replay, PPO, promotion, private holdout, or actor-input expansion starts"
+  ],
+  "commands": [
+    {
+      "name": "integrate_train_entrypoint_profile_mask",
+      "command": "implement train/eval vector-path profile masks and focused tests without training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1195-paper-route-train-entrypoint-profile-mask-integration.md",
+      "type": "md"
+    },
+    {
+      "path": "tests/test_controller_profile_train_entrypoint_mask.py",
+      "type": "py"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1194-paper-route-finite-window-gru-infrastructure-synthesis.md",
+    "configs/paper_route_profiles/m1190_l0_current_masked_smoke.json"
+  ],
+  "decision_rule": "M1195 passes if vector train/eval observations apply declared L0 masks while unmasked profiles remain unchanged and no training starts.",
+  "next_blocker": "m1195-paper-route-train-entrypoint-profile-mask-integration"
+}

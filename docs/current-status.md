@@ -115,8 +115,43 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1194-paper-route-finite-window-gru-infrastructure-synthesis
+m1195-paper-route-train-entrypoint-profile-mask-integration
 ```
+
+M1194 completed the required workflow synthesis:
+
+```text
+artifact: docs/m1194-paper-route-finite-window-gru-infrastructure-synthesis.md
+decision: paper_route_infrastructure_synthesis_continue_to_train_entrypoint_mask_integration
+synthesis_decision: continue
+```
+
+M1194 supported claims:
+
+```text
+active gate policy exists
+L0/L1/L2/L3 comparison contract exists
+eight generated profile configs exist
+no-training runtime smoke passes
+single-env L0 runtime mask works
+unmasked profiles remain unchanged
+```
+
+M1194 blocked claims:
+
+```text
+metadata alone is not enough for L0 training
+runtime smoke is not PPO readiness
+GRU superiority is unsupported
+runtime smoke is not driver performance evidence
+self-identification evidence has not been tested in this branch
+```
+
+The active blocker is now M1195: integrate controller-profile observation masks
+into train/eval vector paths. M1195 must prove with focused tests that
+`L0_current_masked` zeros previous-command fields `[9,10,11]` in vector
+reset/step observations while unmasked profiles remain unchanged. M1195 must
+not run training or PPO.
 
 M1193 designed the bounded fair controller-profile training-smoke protocol and
 found two blockers before training:
@@ -126,10 +161,6 @@ artifact: docs/m1193-paper-route-controller-profile-training-smoke-design.md
 decision: training_smoke_design_routes_to_branch_synthesis_before_mask_integration
 ```
 
-First, workflow synthesis cadence has fired after the M1184-M1193 paper-route
-infrastructure sequence. M1194 is therefore a process synthesis milestone, not
-another implementation milestone.
-
 Key M1193 finding:
 
 ```text
@@ -138,11 +169,11 @@ vector envs construct AutoDriftEnv directly
 controller_profile_runtime wrapper is not yet applied there
 ```
 
-Second, profile training remains blocked after synthesis until controller-profile
+Profile training remains blocked after synthesis until controller-profile
 observation masks are integrated into train/eval vector paths. The follow-up
 integration must prove with focused tests that `L0_current_masked` zeros
 previous-command fields `[9,10,11]` in vector reset/step observations while
-unmasked profiles remain unchanged. M1194 must not run training or PPO.
+unmasked profiles remain unchanged.
 
 M1193's planned training-smoke ladder after synthesis and mask integration:
 
@@ -248,7 +279,7 @@ M1190 generated eight smoke configs with L0 mask metadata, four L2 finite
 windows `[13,25,50,100]`, L3 variants, and no training/PPO/replay/promotion.
 
 Older route notes below retain their then-next milestone wording as history;
-the active blocker is the M1194 branch synthesis above.
+the active blocker is the M1195 train/eval profile-mask integration above.
 
 M1189 completed controller-profile config-generation design:
 

@@ -17065,3 +17065,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no controller training, PPO, candidate replay, promotion, private holdout, hidden/oracle actor input, or actor-input contract change occurred.
 - decision: `training_smoke_design_routes_to_branch_synthesis_before_mask_integration`
 - next: `m1194-paper-route-finite-window-gru-infrastructure-synthesis`
+
+## 20260528T045800Z - m1194-paper-route-finite-window-gru-infrastructure-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1194-paper-route-finite-window-gru-infrastructure-synthesis.md`
+- result: synthesizes M1184-M1193 and resets the branch cadence with decision `continue`.
+- evidence summary: M1184-M1186 established active gate policy; M1187-M1190 created the L0/L1/L2/L3 comparison contract and generated eight configs; M1191-M1192 proved single-env runtime mask and no-training integrated runtime smoke; M1193 designed the training smoke and identified the train/eval vector mask gap.
+- supported claims: profile infrastructure is executable at no-training smoke level, L0 single-env runtime mask works, unmasked profiles remain unchanged, and fair training-smoke protocol is defined.
+- falsified or blocked claims: metadata alone is not enough for L0 training, runtime smoke is not PPO readiness, GRU superiority is unsupported, runtime smoke is not driver performance, and no self-identification evidence exists yet.
+- public-gate overfit risk: controlled but still present if smoke configs become comparison evidence or if profile-specific tuning occurs after early results.
+- next decision: continue to `m1195-paper-route-train-entrypoint-profile-mask-integration`.
+- guardrail: no controller training, PPO, candidate replay, promotion, private holdout, hidden/oracle actor input, or actor-input contract change occurred.
+- decision: `paper_route_infrastructure_synthesis_continue_to_train_entrypoint_mask_integration`
+- next: `m1195-paper-route-train-entrypoint-profile-mask-integration`

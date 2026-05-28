@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M1194 synthesizes M1184-M1193 as infrastructure-ready but training-blocked; supported claims include active gate policy generated profiles runtime mask and no-training smoke; blocked claims include PPO readiness profile superiority and self-ID evidence; continues to train/eval mask integration without training PPO replay promotion private holdout or actor-input change",
+  "failure_criteria": [
+    "synthesis is skipped",
+    "synthesis fails to answer required questions",
+    "training starts in M1194",
+    "private holdout is used",
+    "hidden or oracle actor inputs are introduced"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train generated configs",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not skip synthesis cadence",
+    "do not change actor inputs",
+    "do not add hidden or oracle actor inputs",
+    "do not claim profile superiority from synthesis"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T045913Z",
+  "hypothesis": "The M1184-M1193 paper-route infrastructure branch can continue, but only after explicitly recording supported claims, falsified claims, public-gate overfit risk, and the train/eval mask-integration blocker.",
+  "lineage": {
+    "blocked_by": [
+      "workflow synthesis cadence reached after the controller-profile infrastructure sequence"
+    ],
+    "derived_from": [
+      "m1184-paper-route-gate-utility-audit-design",
+      "m1193-paper-route-controller-profile-training-smoke-design"
+    ],
+    "invalidates": [
+      "treating M1184-M1193 as isolated local milestones without branch-level decision"
+    ],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1193-paper-route-controller-profile-training-smoke-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1184-paper-route-gate-utility-audit-design.md",
+      "docs/m1185-paper-route-gate-utility-matrix-run.md",
+      "docs/m1186-paper-route-active-gate-policy-design.md",
+      "docs/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.md",
+      "docs/m1188-paper-route-controller-profile-scaffold-implementation.md",
+      "docs/m1193-paper-route-controller-profile-training-smoke-design.md"
+    ],
+    "parent_objective": [
+      "synthesize the paper-route finite-window vs GRU infrastructure branch before continuing to train/eval mask integration"
+    ],
+    "supersedes": [
+      "continuing with another narrow implementation milestone before synthesis"
+    ]
+  },
+  "milestone": "m1194-paper-route-finite-window-gru-infrastructure-synthesis",
+  "next_blocker": "m1195-paper-route-train-entrypoint-profile-mask-integration",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "paper_route_infrastructure_synthesis_continue_to_train_entrypoint_mask_integration",
+  "public_gates": [
+    "M1194 may synthesize the paper-route infrastructure branch only",
+    "M1194 must not train controller weights",
+    "M1194 must not run PPO",
+    "M1194 must not run candidate replay",
+    "M1194 must not promote",
+    "M1194 must not use private holdout",
+    "M1194 must not add hidden or oracle actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1194-paper-route-finite-window-gru-infrastructure-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "paper_route_infrastructure_synthesis_continue_to_train_entrypoint_mask_integration",
+    "milestone": "m1194-paper-route-finite-window-gru-infrastructure-synthesis",
+    "reason": "M1194 synthesizes M1184-M1193 as infrastructure-ready but training-blocked; supported claims include active gate policy generated profiles runtime mask and no-training smoke; blocked claims include PPO readiness profile superiority and self-ID evidence; continues to train/eval mask integration without training PPO replay promotion private holdout or actor-input change",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1194-paper-route-finite-window-gru-infrastructure-synthesis.md exists",
+    "synthesis answers all required workflow questions",
+    "supported claims and falsified or blocked claims are separated",
+    "public-gate overfit risk is stated",
+    "next branch decision is explicit",
+    "no controller training, candidate replay, PPO, promotion, private holdout, or actor-input contract change occurs"
+  ],
+  "type": "gate"
+}
