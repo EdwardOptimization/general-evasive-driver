@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T014352Z
+- Generated at UTC: 20260528T014814Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1170 may only synthesize the M1160-M1169 branch and choose the next branch. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert failed surface rows.
+- Promotion decision: row15_promoted_margin_slack_surface_refresh_synthesis_pivot_to_stronger_wrong_history_construction
+- Decision reason: M1170 closes the same-shape surface refresh branch and opens stronger wrong-history construction after M1160-M1169 fail to produce a broad source-diverse surface
 
 ## Hypothesis
 
@@ -78,8 +78,19 @@ The row15_promoted_margin_slack_surface_refresh branch should close and pivot be
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis
+- type: gate
+- checkpoint: docs/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_margin_slack_surface_refresh_synthesis_pivot_to_stronger_wrong_history_construction
+- reason: M1170 closes the same-shape surface refresh branch and opens stronger wrong-history construction after M1160-M1169 fail to produce a broad source-diverse surface
 
 ## Next Blocker
 
-m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis
+m1171-v4-public-base-stronger-wrong-history-construction-design

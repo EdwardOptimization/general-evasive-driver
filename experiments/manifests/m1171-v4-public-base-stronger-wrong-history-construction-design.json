@@ -1,0 +1,155 @@
+{
+  "id": "m1171-v4-public-base-stronger-wrong-history-construction-design",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md",
+      "docs/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.md",
+      "docs/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md",
+      "docs/m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.json"
+    ],
+    "parent_objective": [
+      "design a stronger wrong-history construction after same-shape relocation exhausted"
+    ],
+    "derived_from": [
+      "m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis"
+    ],
+    "blocked_by": [
+      "M1170 closes row15_promoted_margin_slack_surface_refresh and opens stronger_wrong_history_construction"
+    ],
+    "supersedes": [],
+    "invalidates": [
+      "continuing same-shape relocation expansion without stronger intervention construction",
+      "PPO before a broader wrong-history proof surface exists",
+      "objective conversion from the two-pair microgrid surface"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1171-v4-public-base-stronger-wrong-history-construction-design.md",
+  "public_gates": [
+    "M1171 is design-only",
+    "M1171 must not run mining",
+    "M1171 must not run replay",
+    "M1171 must not train actor weights",
+    "M1171 must not run PPO",
+    "M1171 must not promote",
+    "M1171 must not use private holdout",
+    "M1171 must preserve actor inputs",
+    "M1171 must not convert failed surface rows"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run mining",
+    "do not run replay",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert failed surface rows",
+    "do not reuse the two-pair microgrid surface as a broad proof corpus"
+  ],
+  "workflow_synthesis": {
+    "branch": "stronger_wrong_history_construction",
+    "evidence_axis": "G_surface: stronger wrong-history construction design",
+    "evidence_increment": "designs a new intervention construction that selects action-divergent and terminal-margin-sensitive wrong histories rather than repeating same-shape relocation",
+    "claim_scope": "design only; no mining, replay, PPO, private holdout, promotion, or driver capability claim",
+    "stop_condition": [
+      "stop if the design cannot distinguish action-divergent wrong histories from ordinary matched histories",
+      "stop if the design would train or convert rows before measuring intervention strength",
+      "stop if the design weakens the human-view actor contract"
+    ],
+    "fallback_plan": [
+      "if existing artifacts are sufficient, run an existing-artifact intervention-strength audit",
+      "if new mining is required, design a bounded mining run with explicit source-diversity and terminal-sensitivity gates",
+      "if current-frame substitution dominates, route to observation/intervention audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1170 opens stronger_wrong_history_construction",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design the first stronger wrong-history construction step",
+    "admission_evidence": [
+      "M1170 closes same-shape relocation as exhausted",
+      "M1169 recovers only two old active-set pairs",
+      "M1162 shows reset/zero-current sensitivity is much broader than wrong-history sensitivity"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not rerun same-shape relocation",
+      "do not convert two-pair rows",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "design documentation",
+      "next audit or run manifest",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "new intervention construction objective is explicit",
+      "measured diagnostic metrics are explicit",
+      "guardrails against surface overfit are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1171 must explicitly account for current-frame substitution and cannot claim level3 self-identification.",
+    "history_necessity_tests": [
+      "normal vs action-divergent wrong-history",
+      "normal vs terminal-margin-sensitive wrong-history"
+    ],
+    "temporal_evidence_window": "M1171 is design-only and adds no training evidence.",
+    "negative_result_policy": "If stronger wrong-history construction cannot create broad success drops, record task/intervention design limitation before PPO.",
+    "allowed_claims": [
+      "design for level2 proof-surface construction",
+      "no level3 anticipatory self-identification claim",
+      "no driver capability, promotion, private-holdout, real-vehicle, or paper-level generalization claim"
+    ]
+  },
+  "hypothesis": "The next useful step is to design a wrong-history construction that intentionally pairs current scenes with histories that are action-divergent and terminal-margin-sensitive, because same-shape matched-history relocation only recovers two old physical pairs.",
+  "success_criteria": [
+    "design artifact exists",
+    "new wrong-history construction criteria are explicit",
+    "metrics for action divergence, terminal-margin sensitivity, and source diversity are explicit",
+    "next audit or run is pre-registered",
+    "no mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "design artifact is missing",
+    "intervention construction remains equivalent to same-shape relocation",
+    "next route is ambiguous",
+    "mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "design_stronger_wrong_history_construction",
+      "command": "write docs/m1171-v4-public-base-stronger-wrong-history-construction-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1171-v4-public-base-stronger-wrong-history-construction-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md"
+  ],
+  "decision_rule": "M1171 is design-only. It can design stronger wrong-history construction but cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert failed rows.",
+  "next_blocker": "m1171-v4-public-base-stronger-wrong-history-construction-design"
+}

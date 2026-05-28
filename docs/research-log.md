@@ -16670,3 +16670,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no mining, outcome rerun, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
 - decision: `row15_promoted_target_microgrid_recovers_old_pairs_route_to_branch_synthesis`
 - next: `m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis`
+
+## 20260528T020800Z - m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md`
+- result: closes `row15_promoted_margin_slack_surface_refresh` and opens `stronger_wrong_history_construction`.
+- evidence summary: M1161 had broad source budget (`4585` matched-current accepted pairs, `242` physical pairs) but only `15` accepted wrong-history rows across `2` physical pairs after relocation.
+- audit summary: reset/zero-current interventions were broad (`1010` reset rows, `655` zero-current rows), while wrong-matched-history remained sparse.
+- microgrid summary: M1169 restored fine target margins and recovered both old M1161 pairs, but produced no new physical pairs beyond M1161.
+- supported claim: fine target margins matter, but same-shape relocation is exhausted for building a broad current-base wrong-history surface.
+- falsified claim: alpha_0_05 has a broad source-diverse wrong-history margin-slack surface under the current same-shape relocation construction.
+- guardrail: no mining, replay, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
+- decision: `row15_promoted_margin_slack_surface_refresh_synthesis_pivot_to_stronger_wrong_history_construction`
+- next: `m1171-v4-public-base-stronger-wrong-history-construction-design`

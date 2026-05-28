@@ -171,6 +171,45 @@
   "baseline_artifacts": [
     "docs/m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md",
+    "decision": "row15_promoted_margin_slack_surface_refresh_synthesis_pivot_to_stronger_wrong_history_construction",
+    "result_class": "surface_refresh_branch_synthesis_pivot",
+    "failure_types": [
+      "scenario_sampling_failure",
+      "metric_artifact"
+    ],
+    "closed_branch": "row15_promoted_margin_slack_surface_refresh",
+    "opened_branch": "stronger_wrong_history_construction",
+    "current_public_gate_base": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "source_budget_failure": false,
+    "matched_current_accepted_pairs": 4585,
+    "eligible_physical_pairs": 242,
+    "m1161_accepted_wrong_history_rows": 15,
+    "m1161_accepted_wrong_history_physical_pairs": 2,
+    "m1166_accepted_wrong_history_rows": 1,
+    "m1169_accepted_wrong_history_rows": 6,
+    "m1169_accepted_wrong_history_physical_pairs": 2,
+    "new_physical_pairs_beyond_m1161_after_microgrid": 0,
+    "fine_target_margin_matters": true,
+    "same_shape_relocation_exhausted": true,
+    "ppo_readiness_claim": false,
+    "surface_conversion_claim": false,
+    "private_holdout_claim": false,
+    "driver_performance_claim": false,
+    "level3_self_identification_claim": false,
+    "training_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "surface_conversion_started": false,
+    "next_milestone": "m1171-v4-public-base-stronger-wrong-history-construction-design"
+  },
   "decision_rule": "M1170 may only synthesize the M1160-M1169 branch and choose the next branch. It cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert failed surface rows.",
-  "next_blocker": "m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis"
+  "next_blocker": "m1171-v4-public-base-stronger-wrong-history-construction-design"
 }

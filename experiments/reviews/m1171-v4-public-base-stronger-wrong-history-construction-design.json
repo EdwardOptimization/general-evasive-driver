@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M1171 is design-only. It can design stronger wrong-history construction but cannot run mining, run replay, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert failed rows.",
+  "failure_criteria": [
+    "design artifact is missing",
+    "intervention construction remains equivalent to same-shape relocation",
+    "next route is ambiguous",
+    "mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run mining",
+    "do not run replay",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert failed surface rows",
+    "do not reuse the two-pair microgrid surface as a broad proof corpus"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260528T014814Z",
+  "hypothesis": "The next useful step is to design a wrong-history construction that intentionally pairs current scenes with histories that are action-divergent and terminal-margin-sensitive, because same-shape matched-history relocation only recovers two old physical pairs.",
+  "lineage": {
+    "blocked_by": [
+      "M1170 closes row15_promoted_margin_slack_surface_refresh and opens stronger_wrong_history_construction"
+    ],
+    "derived_from": [
+      "m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis"
+    ],
+    "invalidates": [
+      "continuing same-shape relocation expansion without stronger intervention construction",
+      "PPO before a broader wrong-history proof surface exists",
+      "objective conversion from the two-pair microgrid surface"
+    ],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md",
+      "docs/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.md",
+      "docs/m1167-v4-public-base-row15-promoted-wrong-history-mechanism-audit.md",
+      "docs/m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run.md"
+    ],
+    "parent_objective": [
+      "design a stronger wrong-history construction after same-shape relocation exhausted"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1171-v4-public-base-stronger-wrong-history-construction-design",
+  "next_blocker": "m1171-v4-public-base-stronger-wrong-history-construction-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M1171 is design-only",
+    "M1171 must not run mining",
+    "M1171 must not run replay",
+    "M1171 must not train actor weights",
+    "M1171 must not run PPO",
+    "M1171 must not promote",
+    "M1171 must not use private holdout",
+    "M1171 must preserve actor inputs",
+    "M1171 must not convert failed surface rows"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "design artifact exists",
+    "new wrong-history construction criteria are explicit",
+    "metrics for action divergence, terminal-margin sensitivity, and source diversity are explicit",
+    "next audit or run is pre-registered",
+    "no mining, replay, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "type": "gate"
+}

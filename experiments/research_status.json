@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1178,
+    "completed": 1179,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1169-v4-public-base-row15-promoted-relocation-target-microgrid-run",
+    "task_id": "m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis",
     "status": "completed",
     "returncode": 0,
-    "command_log": "runs/m1169_row15_promoted_target_microgrid_seed116100/summary.json",
-    "result_class": "target_microgrid_recovers_old_pairs_only",
-    "decision": "row15_promoted_target_microgrid_recovers_old_pairs_route_to_branch_synthesis"
+    "command_log": "docs/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md",
+    "result_class": "surface_refresh_branch_synthesis_pivot",
+    "decision": "row15_promoted_margin_slack_surface_refresh_synthesis_pivot_to_stronger_wrong_history_construction"
   },
   "next_task": {
-    "id": "m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis",
+    "id": "m1171-v4-public-base-stronger-wrong-history-construction-design",
     "status": "pending",
-    "priority": 11650,
+    "priority": 11660,
     "kind": "gate",
-    "hypothesis": "The row15_promoted_margin_slack_surface_refresh branch should close and pivot because microgrid recovered only old active-set pairs",
-    "command": "see experiments/manifests/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.json",
-    "success_artifact": "docs/m1170-v4-public-base-row15-promoted-margin-slack-surface-refresh-synthesis.md",
-    "notes": "Pending: branch synthesis only; no mining replay actor training PPO promotion private holdout conversion or actor-input change"
+    "hypothesis": "A stronger wrong-history construction should target action-divergent and terminal-margin-sensitive histories rather than repeating same-shape relocation",
+    "command": "see experiments/manifests/m1171-v4-public-base-stronger-wrong-history-construction-design.json",
+    "success_artifact": "docs/m1171-v4-public-base-stronger-wrong-history-construction-design.md",
+    "notes": "Pending: design-only stronger wrong-history construction; no mining replay actor training PPO promotion private holdout conversion or actor-input change"
   },
-  "updated_at_utc": "20260528T015500Z"
+  "updated_at_utc": "20260528T020800Z"
 }
