@@ -2,7 +2,7 @@
   "id": "m1389-paper-route-history-profile-three-seed-public-pilot-result-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -72,8 +72,26 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1388 completed the staged profile pilot and profile-scaling must be audited before continuation",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m1389-paper-route-history-profile-three-seed-public-pilot-result-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
+  "synthesis_artifact": "docs/m1389-paper-route-history-profile-three-seed-public-pilot-result-audit.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
   "training_stage": {
     "stage": "process",
     "stage_objective": "three-seed profile public pilot audit",
@@ -150,6 +168,34 @@
     "runs/m1388_history_profile_three_seed_public_pilot/summary.json",
     "runs/m1388_history_profile_three_seed_public_pilot/profile_aggregate.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1389-paper-route-history-profile-three-seed-public-pilot-result-audit.md",
+    "decision": "history_profile_three_seed_audit_pivot_to_causal_history_necessity_task_design",
+    "synthesis_decision": "pivot",
+    "closed_branch": "paper_route_history_profile_comparison_protocol",
+    "opened_branch": "paper_route_causal_history_necessity_task_design",
+    "m1388_result_class": "corrected_profile_pilot_completed",
+    "m1388_completed_seed_runs": 24,
+    "m1388_failed_seed_runs": 0,
+    "m1388_all_eval_metrics_finite": true,
+    "finite_window_history_necessity": "not_supported",
+    "online_gru_hidden_advantage": "not_supported",
+    "current_frame_substitution_risk": "high",
+    "profile_scaling_value": "low_without_new_task",
+    "public_gate_overfit_risk": "medium",
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1390-paper-route-causal-history-necessity-task-design.json"
+  },
+  "decision": "history_profile_three_seed_audit_pivot_to_causal_history_necessity_task_design",
   "decision_rule": "M1389 passes if it audits M1388 and chooses the next route before any new training, PPO, promotion, private holdout, corpus export, or architecture-ranking claim.",
-  "next_blocker": "m1389-paper-route-history-profile-three-seed-public-pilot-result-audit"
+  "next_blocker": "m1390-paper-route-causal-history-necessity-task-design"
 }

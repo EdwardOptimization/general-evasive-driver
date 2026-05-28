@@ -20456,3 +20456,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: public trend is not positive for finite-window history necessity or online recurrent hidden benefit; M1389 must audit before any further profile scaling.
 - follow-up manifest: `experiments/manifests/m1389-paper-route-history-profile-three-seed-public-pilot-result-audit.json`.
 - next: `m1389-paper-route-history-profile-three-seed-public-pilot-result-audit`
+
+## 20260529T010000Z - m1389-paper-route-history-profile-three-seed-public-pilot-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1389-paper-route-history-profile-three-seed-public-pilot-result-audit.md`
+- decision: `history_profile_three_seed_audit_pivot_to_causal_history_necessity_task_design`
+- synthesis decision: `pivot`
+- closed branch: `paper_route_history_profile_comparison_protocol`
+- opened branch: `paper_route_causal_history_necessity_task_design`
+- audited artifact: `runs/m1388_history_profile_three_seed_public_pilot/summary.json`
+- completion audit: M1388 completed `24 / 24` profile seed runs with `failed_seed_runs=0` and `all_eval_metrics_finite=true`.
+- L2/current-tiled audit: `L2_window_13` beats current-tiled by only `+0.00521` success and `+0.00771` mean margin; `L2_window_25` underperforms current-tiled by `-0.00521` success and `-0.00419` mean margin.
+- L3/reset audit: `L3_online_gru` underperforms corrected reset-control by `-0.02083` success, `+0.02083` collision, and `-0.01565` mean margin.
+- classification: `finite_window_history_necessity=not_supported`, `online_gru_hidden_advantage=not_supported`, `current_frame_substitution_risk=high`, `profile_scaling_value=low_without_new_task`.
+- interpretation: the corrected profile harness is operational, but blind fixed-budget profile scaling on this distribution is not high-leverage; next work must design causal history-necessity tasks where current-frame/current-tiled controls cannot substitute.
+- guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level architecture-ranking claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1390-paper-route-causal-history-necessity-task-design.json`.
+- next: `m1390-paper-route-causal-history-necessity-task-design`

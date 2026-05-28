@@ -1,0 +1,158 @@
+{
+  "id": "m1390-paper-route-causal-history-necessity-task-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1389-paper-route-history-profile-three-seed-public-pilot-result-audit.md",
+      "runs/m1388_history_profile_three_seed_public_pilot/summary.json",
+      "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1389-paper-route-history-profile-three-seed-public-pilot-result-audit.json"
+    ],
+    "parent_objective": [
+      "design causal history-necessity task/gate family after fixed-budget profile pilot is negative for history necessity"
+    ],
+    "derived_from": [
+      "m1389-paper-route-history-profile-three-seed-public-pilot-result-audit"
+    ],
+    "blocked_by": [
+      "M1389 pivots away from blind profile scaling to causal history-necessity task design"
+    ],
+    "supersedes": [
+      "running another profile repeat without a new history-necessity task",
+      "claiming recurrent belief from standard public profile pilot"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1390-paper-route-causal-history-necessity-task-design.md",
+  "public_gates": [
+    "M1390 must design history-necessity tasks before new mining/training",
+    "M1390 must define matched-current or same-current intervention requirements",
+    "M1390 must define accepted-seed/source-diversity thresholds",
+    "M1390 must not train, run PPO, run new evaluation, promote, use private holdout, export corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new evaluation",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not weaken claim standards after negative profile results",
+    "do not claim level3 self-identification from design"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_necessity_task_design",
+    "evidence_axis": "G_causal_history_necessity_task_design",
+    "evidence_increment": "designs tasks and gates that make command-response history causally necessary after profile pilot negatives",
+    "claim_scope": "task/gate design only; no training, new evaluation, PPO, promotion, private holdout, high-fidelity, profile-ranking, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if design only repeats profile comparison without making history causal",
+      "stop if current-frame substitution controls are omitted",
+      "stop if accepted-seed/source-diversity thresholds are omitted",
+      "stop if source-rich seed-thin limitations are ignored"
+    ],
+    "fallback_plan": [
+      "if matched-current task design is too hard, route to source mining design first",
+      "if source-rich rows remain seed-thin, design a broader source distribution before training",
+      "if current simulator cannot express needed interventions, route to simulator/task extension design",
+      "if no causal history task can be specified, synthesize branch and stop the self-ID claim route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "causal history-necessity task design",
+    "admission_evidence": [
+      "M1389 finds fixed-budget profile pilot negative for finite-window history necessity and online GRU hidden advantage",
+      "M1377/M1379 provide temporal source-rich diagnostics but remain seed-thin",
+      "M1389 blocks more blind profile scaling"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run new evaluation",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1390 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "task families are specified",
+      "history interventions are specified",
+      "source-diversity thresholds are specified",
+      "next mining or implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1390 must explicitly design against current-frame substitution by requiring matched-current or same-current interventions.",
+    "history_necessity_tests": [
+      "matched_current_normal_vs_reset",
+      "matched_current_normal_vs_delayed_history",
+      "matched_current_normal_vs_wrong_history",
+      "same_recent_window_different_older_history",
+      "warmup_response_evidence_not_visible_in_current_frame"
+    ],
+    "temporal_evidence_window": "Design uses M1379 source-rich temporal positives and M1388 profile negatives as constraints.",
+    "negative_result_policy": "If causal tasks cannot be specified with source diversity, record blocker and avoid self-ID claims.",
+    "allowed_claims": [
+      "causal history-necessity task/gate design and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A causal history-necessity task/gate family can be designed to test history dependence directly after standard profile comparison fails to expose it.",
+  "success_criteria": [
+    "docs/m1390-paper-route-causal-history-necessity-task-design.md exists",
+    "design specifies task families and interventions",
+    "design specifies accepted-row and accepted-seed/source-diversity thresholds",
+    "design chooses next mining or implementation route without training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design repeats standard profile comparison without making history causal",
+    "design omits current-frame substitution controls",
+    "design omits source-diversity thresholds",
+    "design routes directly to training, PPO, promotion, private holdout, or corpus export without source design"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1390-paper-route-causal-history-necessity-task-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1390-paper-route-causal-history-necessity-task-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1389-paper-route-history-profile-three-seed-public-pilot-result-audit.md",
+    "runs/m1388_history_profile_three_seed_public_pilot/summary.json",
+    "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json"
+  ],
+  "decision_rule": "M1390 passes if it designs causal history-necessity tasks and chooses the next source-mining or implementation route before training or claim expansion.",
+  "next_blocker": "m1390-paper-route-causal-history-necessity-task-design"
+}

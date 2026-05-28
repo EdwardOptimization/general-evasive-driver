@@ -16,21 +16,44 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1388-paper-route-history-profile-three-seed-public-pilot
+m1389-paper-route-history-profile-three-seed-public-pilot-result-audit
 ```
 
 Current next task:
 
 ```text
-m1389-paper-route-history-profile-three-seed-public-pilot-result-audit
+m1390-paper-route-causal-history-necessity-task-design
 ```
 
-M1388 completed the three-seed fixed-budget history-profile public pilot. The
+M1389 audited the three-seed fixed-budget history-profile public pilot and
+pivoted away from blind profile scaling. The
 current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1389 conclusion:
+
+```text
+decision: history_profile_three_seed_audit_pivot_to_causal_history_necessity_task_design
+synthesis_decision: pivot
+closed_branch: paper_route_history_profile_comparison_protocol
+opened_branch: paper_route_causal_history_necessity_task_design
+finite_window_history_necessity: not_supported
+online_gru_hidden_advantage: not_supported
+current_frame_substitution_risk: high
+next: m1390-paper-route-causal-history-necessity-task-design
+```
+
+M1388 remains a clean public trend run: `24 / 24` profile seed runs completed,
+`failed_seed_runs=0`, and `all_eval_metrics_finite=true`. Its result is negative
+or inconclusive for history necessity. `L2_window_13` and its current-tiled
+control are near parity, `L2_window_25` slightly underperforms its current-tiled
+control, and `L3_online_gru` underperforms corrected reset-control. M1390 should
+therefore design causal history-necessity tasks and gates with matched-current
+or same-current interventions before any new mining, profile scaling, training,
+private holdout, promotion, or claim expansion.
 
 M1373 used `configs/m990_capability_step_fault_scenarios.json` and
 `src/autodrift/extreme_dynamics_scenario_corpus.py`, writing
