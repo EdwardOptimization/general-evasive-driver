@@ -198,5 +198,5 @@
     "configs/paper_route_corrected_profiles"
   ],
   "decision_rule": "M1212 passes if the fixed fresh public repeat runs or records failures without claim expansion or protocol drift.",
-  "next_blocker": "m1212-paper-route-corrected-profile-repeat-run"
+  "next_blocker": "m1213-paper-route-corrected-profile-repeat-result-audit"
 }

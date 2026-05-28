@@ -17369,3 +17369,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1212-paper-route-corrected-profile-repeat-run.json`.
 - decision: `corrected_profile_repeat_design_admit_fresh_repeat_run`
 - next: `m1212-paper-route-corrected-profile-repeat-run`
+
+## 20260528T063908Z - m1212-paper-route-corrected-profile-repeat-run
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `infrastructure`
+- artifact: `docs/m1212-paper-route-corrected-profile-repeat-run.md`
+- run dir: `runs/m1212_corrected_profile_repeat`
+- result: fresh corrected public repeat completes all 24 seed runs with finite metrics.
+- completion: `profile_count=8`, `completed_seed_runs=24`, `failed_seed_runs=0`, `runtime_seconds=120.63`.
+- L2 repeat result: current-tiled controls outperform normal L2; `L2_window_13` success/margin `0.4062/0.5237` vs current-tiled `0.4271/0.6153`, and `L2_window_25` `0.4115/0.5240` vs current-tiled `0.4271/0.6191`.
+- L3 repeat result: `L3_online_gru` beats corrected reset in aggregate, success/collision/margin `0.1875/0.8073/0.1225` vs `0.1354/0.8646/0.0651`, but L3 family does not repeat M1209's overall strength.
+- interpretation: public repeat trend only; L2 history necessity remains negative, while L3 online-vs-reset needs cross-block audit before any recurrent-hidden claim.
+- guardrail: no promotion, private holdout, candidate replay, per-profile tuning, actor-input expansion, self-identification claim, profile superiority claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1213-paper-route-corrected-profile-repeat-result-audit.json`.
+- decision: `corrected_profile_repeat_completed_route_to_repeat_result_audit`
+- next: `m1213-paper-route-corrected-profile-repeat-result-audit`

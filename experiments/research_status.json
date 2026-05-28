@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1221,
+    "completed": 1222,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1211-paper-route-corrected-profile-repeat-design.md",
+    "command_log": "docs/m1212-paper-route-corrected-profile-repeat-run.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1212_corrected_profile_repeat",
     "status": "completed",
-    "task_id": "m1211-paper-route-corrected-profile-repeat-design"
+    "task_id": "m1212-paper-route-corrected-profile-repeat-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1212-paper-route-corrected-profile-repeat-run.json",
-    "hypothesis": "A fresh public seed block can test whether M1209 corrected profile trends are repeatable without private holdout or tuning.",
-    "id": "m1212-paper-route-corrected-profile-repeat-run",
+    "command": "see experiments/manifests/m1213-paper-route-corrected-profile-repeat-result-audit.json",
+    "hypothesis": "M1209 and M1212 corrected public profile artifacts can be compared to decide whether the branch should synthesize, repeat again, or move to stronger causal history tests.",
+    "id": "m1213-paper-route-corrected-profile-repeat-result-audit",
     "kind": "gate",
-    "notes": "Pending: run fixed fresh public corrected profile repeat without private holdout promotion tuning or claim expansion",
-    "priority": 12070,
+    "notes": "Pending: compare M1209 and M1212 trend stability before synthesis repeat repair or causal history gates",
+    "priority": 12080,
     "status": "pending",
-    "success_artifact": "docs/m1212-paper-route-corrected-profile-repeat-run.md"
+    "success_artifact": "docs/m1213-paper-route-corrected-profile-repeat-result-audit.md"
   },
-  "updated_at_utc": "20260528T063652Z"
+  "updated_at_utc": "20260528T063908Z"
 }

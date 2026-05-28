@@ -115,8 +115,35 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1212-paper-route-corrected-profile-repeat-run
+m1213-paper-route-corrected-profile-repeat-result-audit
 ```
+
+M1212 completed the fresh corrected profile repeat:
+
+```text
+artifact: docs/m1212-paper-route-corrected-profile-repeat-run.md
+run dir: runs/m1212_corrected_profile_repeat
+decision: corrected_profile_repeat_completed_route_to_repeat_result_audit
+```
+
+M1212 aggregate trend:
+
+```text
+L0_current_masked success/collision/margin:              0.2240 / 0.6250 / 0.3540
+L1_one_step success/collision/margin:                    0.3385 / 0.5156 / 0.4758
+L2_window_13 success/collision/margin:                   0.4062 / 0.4792 / 0.5237
+L2_window_13_current_tiled success/collision/margin:     0.4271 / 0.4427 / 0.6153
+L2_window_25 success/collision/margin:                   0.4115 / 0.4740 / 0.5240
+L2_window_25_current_tiled success/collision/margin:     0.4271 / 0.4427 / 0.6191
+L3_online_gru success/collision/margin:                  0.1875 / 0.8073 / 0.1225
+L3_reset_control_corrected success/collision/margin:     0.1354 / 0.8646 / 0.0651
+```
+
+M1212 reinforces the negative L2 history-necessity result: current-tiled
+controls outperform normal L2 on success, collision, and mean margin. It also
+shows aggregate online-GRU > reset-control within the L3 pair, but the L3 family
+does not repeat M1209's overall strength. M1213 must audit cross-block stability
+before any synthesis or causal history gates.
 
 M1211 completed fresh corrected profile repeat design:
 

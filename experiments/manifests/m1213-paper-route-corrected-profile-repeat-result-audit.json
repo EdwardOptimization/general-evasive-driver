@@ -1,0 +1,156 @@
+{
+  "id": "m1213-paper-route-corrected-profile-repeat-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "runs/m1209_corrected_profile_pilot/profile_aggregate.csv",
+      "runs/m1212_corrected_profile_repeat/profile_aggregate.csv",
+      "runs/m1212_corrected_profile_repeat/profile_seed_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1212-paper-route-corrected-profile-repeat-run.json"
+    ],
+    "parent_objective": [
+      "audit fresh corrected profile repeat against M1209 before choosing synthesis or another repeat"
+    ],
+    "derived_from": [
+      "m1212-paper-route-corrected-profile-repeat-run"
+    ],
+    "blocked_by": [
+      "M1212 repeat completed but differs materially from M1209 and must be audited before another training step"
+    ],
+    "supersedes": [
+      "interpreting M1212 alone without M1209 comparison"
+    ],
+    "invalidates": [
+      "claiming stable profile ranking from one public seed block"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1213-paper-route-corrected-profile-repeat-result-audit.md",
+  "public_gates": [
+    "M1213 may audit M1209 and M1212 artifacts only",
+    "M1213 must compare L2/current-tiled and L3/reset trends across both public seed blocks",
+    "M1213 must classify whether M1212 matched M1209, conflicted with M1209, or produced a new stable direction",
+    "M1213 must not train controllers",
+    "M1213 must not run PPO",
+    "M1213 must not use private holdout",
+    "M1213 must not promote",
+    "M1213 must not claim paper-level evidence or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not promote",
+    "do not tune profiles based on M1212",
+    "do not claim stable architecture ranking from one repeat",
+    "do not claim recurrent belief or self-identification without causal history gates"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_corrected_public_repeat_audit: cross-seed-block profile stability",
+    "evidence_increment": "classifies whether corrected profile trends are stable across M1209 and M1212",
+    "claim_scope": "process audit only; no promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if M1212 artifacts are incomplete",
+      "stop if metrics are non-finite",
+      "stop if eval semantics did not apply corrected controls",
+      "stop if interpretation requires private holdout"
+    ],
+    "fallback_plan": [
+      "route to combined synthesis if trend classifications are clear",
+      "route to another fresh repeat only if uncertainty remains high and resource use is justified",
+      "route to profile/architecture repair if controls consistently explain temporal claims",
+      "route to stronger history-causality gates only if online-vs-reset advantage is stable enough"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1212 completed fresh repeat and must be compared to M1209",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "corrected public repeat result audit",
+    "admission_evidence": [
+      "M1209 and M1212 both completed all 24 public seed runs",
+      "M1212 recorded profile_seed_rows eval_rows profile_aggregate and summary artifacts",
+      "M1212 kept private holdout promotion per-profile tuning actor-input changes and self-ID claims disabled"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make performance promotion paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1213 audit docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "M1209-vs-M1212 trend stability is classified",
+      "L2 current-tiled implication is classified across both blocks",
+      "L3 reset-control implication is classified across both blocks",
+      "next repeat synthesis or repair milestone is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1213 must decide whether current-tiled controls consistently explain L2 behavior across M1209 and M1212.",
+    "history_necessity_tests": [
+      "cross_block_L2_window_13_vs_current_tiled",
+      "cross_block_L2_window_25_vs_current_tiled",
+      "cross_block_L3_online_vs_corrected_reset"
+    ],
+    "temporal_evidence_window": "M1213 can audit public repeat stability but cannot upgrade it to causal self-ID proof.",
+    "negative_result_policy": "Record conflicting or parity results as negative/inconclusive evidence and route to synthesis or stronger causal gates.",
+    "allowed_claims": [
+      "corrected public repeat trend audit",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "M1209 and M1212 corrected public profile artifacts can be compared to decide whether the branch should synthesize, repeat again, or move to stronger causal history tests.",
+  "success_criteria": [
+    "docs/m1213-paper-route-corrected-profile-repeat-result-audit.md exists",
+    "M1209 and M1212 aggregates are compared",
+    "L2 normal-vs-current-tiled implication is classified across both seed blocks",
+    "L3 online-vs-corrected-reset implication is classified across both seed blocks",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next synthesis, repeat, repair, or causal-gate milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1213 trains or tunes profiles",
+    "private holdout is used",
+    "metrics are framed as paper-level evidence",
+    "self-identification is claimed from public repeat aggregates",
+    "conflicting trends are omitted"
+  ],
+  "commands": [
+    {
+      "name": "audit_corrected_profile_repeat",
+      "command": "audit M1209 and M1212 corrected public profile artifacts without training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1213-paper-route-corrected-profile-repeat-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "runs/m1209_corrected_profile_pilot/profile_aggregate.csv",
+    "runs/m1212_corrected_profile_repeat/profile_aggregate.csv"
+  ],
+  "decision_rule": "M1213 passes if the repeat is audited without claim expansion and routes to a specific synthesis, repeat, repair, or causal-gate milestone.",
+  "next_blocker": "m1213-paper-route-corrected-profile-repeat-result-audit"
+}
