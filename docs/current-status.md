@@ -84,36 +84,24 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1174-v4-public-base-action-divergent-candidate-export-tooling
+m1175-v4-public-base-action-divergent-candidate-export-run
 ```
 
-M1173 designed a filtered score-balanced candidate export:
+M1174 implemented deterministic action-divergent candidate export tooling:
 
 ```text
-pool rule:
-  margin_gap >= 0.0025
-  and (first_action_distance >= 0.15
-       or action_trajectory_distance_mean >= 0.06)
-
-expected pool:
-  rows: 343
-  physical pairs: 17
-  targets: 3
-  checkpoints: 6
-  left steps: 9
-  max pair fraction: 0.069971
-
-export gate:
-  max rows: 240
-  min physical pairs: 12
-  min targets: 3
-  min checkpoints: 6
-  min left steps: 6
-  max pair fraction: 0.15
+module: src/autodrift/action_divergent_candidate_export.py
+tests: tests/test_action_divergent_candidate_export.py
+focused tests: 3 passed
+outputs:
+  candidate_pool.csv
+  candidate_outcomes.csv
+  rejected_candidates.csv
+  summary.json
 ```
 
-M1174 should implement deterministic exporter tooling and focused tests before
-any bounded relocation replay. Manual CSV filtering is not acceptable.
+M1175 should run the exporter on the M1161 outcome artifacts and audit source
+diversity before any bounded relocation replay.
 
 M1127 completed the expanded full public gate for the row15 projection
 candidate:

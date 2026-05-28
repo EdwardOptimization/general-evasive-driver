@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T020355Z
+- Generated at UTC: 20260528T021022Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M1174 may only implement deterministic candidate export tooling and focused tests. It cannot run relocation replay, run mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.
+- Promotion decision: action_divergent_candidate_export_tooling_admit_real_export_run
+- Decision reason: M1174 implements deterministic action-divergent candidate export tooling with focused tests passing and no replay or training
 
 ## Hypothesis
 
@@ -70,8 +70,19 @@ A small deterministic exporter can create action-divergent candidate CSVs from e
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1174-v4-public-base-action-divergent-candidate-export-tooling
+- type: infrastructure
+- checkpoint: src/autodrift/action_divergent_candidate_export.py
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: action_divergent_candidate_export_tooling_admit_real_export_run
+- reason: M1174 implements deterministic action-divergent candidate export tooling with focused tests passing and no replay or training
 
 ## Next Blocker
 
-m1174-v4-public-base-action-divergent-candidate-export-tooling
+m1175-v4-public-base-action-divergent-candidate-export-run

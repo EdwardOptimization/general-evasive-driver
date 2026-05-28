@@ -16726,3 +16726,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, mining, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
 - decision: `action_divergent_candidate_export_design_admit_export_tooling`
 - next: `m1174-v4-public-base-action-divergent-candidate-export-tooling`
+
+## 20260528T025500Z - m1174-v4-public-base-action-divergent-candidate-export-tooling
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1174-v4-public-base-action-divergent-candidate-export-tooling.md`
+- result: implements deterministic action-divergent candidate export tooling.
+- source: `src/autodrift/action_divergent_candidate_export.py`.
+- tests: `tests/test_action_divergent_candidate_export.py`.
+- verification: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_action_divergent_candidate_export.py` -> `3 passed`.
+- exporter outputs: `candidate_pool.csv`, `candidate_outcomes.csv`, `rejected_candidates.csv`, and `summary.json`.
+- guardrail: no relocation replay, mining, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
+- decision: `action_divergent_candidate_export_tooling_admit_real_export_run`
+- next: `m1175-v4-public-base-action-divergent-candidate-export-run`

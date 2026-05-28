@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1182,
+    "completed": 1183,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1173-v4-public-base-action-divergent-candidate-export-design",
+    "task_id": "m1174-v4-public-base-action-divergent-candidate-export-tooling",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1173-v4-public-base-action-divergent-candidate-export-design.md",
-    "result_class": "action_divergent_candidate_export_design_complete",
-    "decision": "action_divergent_candidate_export_design_admit_export_tooling"
+    "command_log": "docs/m1174-v4-public-base-action-divergent-candidate-export-tooling.md",
+    "result_class": "action_divergent_candidate_export_tooling_complete",
+    "decision": "action_divergent_candidate_export_tooling_admit_real_export_run"
   },
   "next_task": {
-    "id": "m1174-v4-public-base-action-divergent-candidate-export-tooling",
+    "id": "m1175-v4-public-base-action-divergent-candidate-export-run",
     "status": "pending",
-    "priority": 11690,
+    "priority": 11700,
     "kind": "infrastructure",
-    "hypothesis": "A deterministic exporter can create action-divergent candidate CSVs from existing outcome artifacts without manual CSV editing or replay",
-    "command": "see experiments/manifests/m1174-v4-public-base-action-divergent-candidate-export-tooling.json",
-    "success_artifact": "docs/m1174-v4-public-base-action-divergent-candidate-export-tooling.md",
-    "notes": "Pending: implement exporter tooling and focused tests only; no replay mining actor training PPO promotion private holdout conversion or actor-input change"
+    "hypothesis": "The M1174 exporter will produce a source-diverse action-divergent candidate CSV from M1161 outcome rows under the M1173 gates",
+    "command": "see experiments/manifests/m1175-v4-public-base-action-divergent-candidate-export-run.json",
+    "success_artifact": "docs/m1175-v4-public-base-action-divergent-candidate-export-run.md",
+    "notes": "Pending: run candidate exporter only; no replay mining actor training PPO promotion private holdout conversion or actor-input change"
   },
-  "updated_at_utc": "20260528T024100Z"
+  "updated_at_utc": "20260528T025500Z"
 }
