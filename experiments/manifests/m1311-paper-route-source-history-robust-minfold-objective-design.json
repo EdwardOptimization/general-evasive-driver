@@ -156,6 +156,28 @@
     "docs/m1310-paper-route-source-history-weighted-repeat-tradeoff-audit.md",
     "runs/m1310_source_history_weighted_repeat_tradeoff_audit/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1311-paper-route-source-history-robust-minfold-objective-design.md",
+    "decision": "source_history_robust_minfold_objective_design_admit_bounded_probe",
+    "design_choice": "train-split-only robust min-fold objective with bucket CVaR and passing-fold retention",
+    "baseline_passing_offsets": "0|1|3",
+    "baseline_repeat_offset_pass_count": 3,
+    "baseline_mean_eval_both_directional_fraction": 0.233531746,
+    "baseline_mean_full_both_positive_count": 38.0,
+    "baseline_mean_full_group_all_rows_both_positive_count": 19.0,
+    "lost_pass_non_regression_required": true,
+    "pair_specific_weights_forbidden": true,
+    "heldout_eval_training_forbidden": true,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1312-paper-route-source-history-robust-minfold-objective-probe.json"
+  },
+  "decision": "source_history_robust_minfold_objective_design_admit_bounded_probe",
   "decision_rule": "M1311 passes if it defines a fold-level robust or lexicographic objective without training, PPO, promotion, private holdout use, threshold relaxation, pair-specific weights, or actor-input expansion.",
-  "next_blocker": "m1311-paper-route-source-history-robust-minfold-objective-design"
+  "next_blocker": "m1312-paper-route-source-history-robust-minfold-objective-probe"
 }

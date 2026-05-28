@@ -1,0 +1,174 @@
+{
+  "id": "m1312-paper-route-source-history-robust-minfold-objective-probe",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1311-paper-route-source-history-robust-minfold-objective-design.md",
+      "runs/m1310_source_history_weighted_repeat_tradeoff_audit/summary.json",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json",
+      "runs/m1306_source_history_concentration_refresh_plan/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1311-paper-route-source-history-robust-minfold-objective-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded no-PPO robust min-fold source-history objective probe"
+    ],
+    "derived_from": [
+      "m1311-paper-route-source-history-robust-minfold-objective-design"
+    ],
+    "blocked_by": [
+      "M1311 admits robust min-fold implementation after M1309 weighted repeat global regression"
+    ],
+    "supersedes": [
+      "M1309 weighted mean repeat as the next implementation route"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1312-paper-route-source-history-robust-minfold-objective-probe.md",
+  "public_gates": [
+    "M1312 must not run PPO",
+    "M1312 must not use private holdout",
+    "M1312 must not promote",
+    "M1312 must preserve actor input contract",
+    "M1312 must not use pair-specific weights",
+    "M1312 must report lost-pass offsets versus M1302",
+    "M1312 must report repeat pass count and mean eval metrics",
+    "M1312 must route to result audit before any further gate"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use pair-specific weights",
+    "do not train on held-out eval rows in the repeat probe",
+    "do not average away lost-pass regressions",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_weighted_repeat_implementation",
+    "evidence_axis": "S_robust_minfold_objective_probe",
+    "evidence_increment": "implements and runs a bounded no-PPO robust min-fold source-history repeat probe",
+    "claim_scope": "diagnostic infrastructure only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if implementation uses pair-specific weights",
+      "stop if implementation trains on held-out eval rows",
+      "stop if implementation hides lost-pass regressions",
+      "stop if implementation routes directly to PPO"
+    ],
+    "fallback_plan": [
+      "if robust min-fold repeat passes, route to result audit before public replay gates",
+      "if robust min-fold repeat is mixed, route to result audit before more tuning",
+      "if robust min-fold repeat regresses, route to corpus expansion or branch synthesis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1311 admits one bounded implementation probe",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "bounded robust min-fold objective probe",
+    "admission_evidence": [
+      "M1311 defines fold-level non-regression criteria",
+      "M1310 shows weighted mean is insufficient",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not use pair-specific weights"
+    ],
+    "allowed_updates": [
+      "robust min-fold probe implementation",
+      "focused tests",
+      "M1312 run artifacts",
+      "M1312 result doc",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "repeat pass count is reported",
+      "lost-pass offsets are reported",
+      "top failed combo impact is reported",
+      "result is audited before further training"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1312 remains a fixed-current source-history diagnostic and does not test closed-loop history necessity.",
+    "history_necessity_tests": [
+      "correct-history versus wrong-history directional repeat metrics",
+      "pair-disjoint held-out fold evaluation"
+    ],
+    "temporal_evidence_window": "M1302 through M1311 source-history diagnostics.",
+    "negative_result_policy": "If robust min-fold still loses passing folds, keep PPO blocked and route to corpus expansion or branch synthesis.",
+    "allowed_claims": [
+      "bounded robust min-fold source-history diagnostic",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "A train-split-only robust min-fold objective can protect M1302 passing folds while retaining or improving failed-fold source-history directionality better than M1309 weighted mean.",
+  "success_criteria": [
+    "runs/m1312_source_history_robust_minfold_probe/summary.json exists",
+    "focused tests pass",
+    "forbidden_parameter_mutation_detected is false",
+    "pair_specific_weight_used is false",
+    "baseline_pass_lost_offsets is empty",
+    "repeat_offset_pass_count >= 3",
+    "mean_eval_both_directional_fraction >= 0.2335317460",
+    "mean_full_both_positive_count >= 38.0",
+    "top_failed_combo_positive_delta >= 0",
+    "no PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "run artifacts are missing",
+    "focused tests fail",
+    "forbidden parameters mutate",
+    "pair-specific weights are used",
+    "held-out eval rows are trained on",
+    "baseline passing offsets are lost",
+    "PPO starts",
+    "private holdout is used",
+    "checkpoint is promoted",
+    "actor input contract changes"
+  ],
+  "commands": [
+    {
+      "name": "run_robust_minfold_probe",
+      "command": "PYTHONPATH=src python -m autodrift.source_history_trainable_scope_probe --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --history-run-dir runs/m1280_four_wheel_source_response_history_materialization --intervention-run-dir runs/m1277_four_wheel_source_intervention_materialization --run-dir runs/m1312_source_history_robust_minfold_probe --device cpu --steps 400 --lr 0.0002 --target-margin 0.05 --scopes fusion_head --split-plan runs/m1306_source_history_concentration_refresh_plan/balanced_split_rows.csv --group-weight-rows runs/m1306_source_history_concentration_refresh_plan/group_weight_rows.csv --split-offsets 0,1,2,3,4 --baseline-repeat-run-dir runs/m1302_source_history_trainable_scope_repeat_probe --robust-minfold --bucket-columns source_family_pair,probe_template,margin_bucket --lambda-bucket-cvar 2.0 --lambda-retention 2.0 --retention-margin-eps 0.02 --minfold-temperature 0.25"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1312_source_history_robust_minfold_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1312-paper-route-source-history-robust-minfold-objective-probe.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1311-paper-route-source-history-robust-minfold-objective-design.md",
+    "runs/m1310_source_history_weighted_repeat_tradeoff_audit/summary.json",
+    "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json"
+  ],
+  "decision_rule": "M1312 passes as diagnostic infrastructure if it runs a bounded robust min-fold repeat without PPO, promotion, private holdout use, threshold relaxation, pair-specific weights, held-out-row training, or actor-input expansion.",
+  "next_blocker": "m1312-paper-route-source-history-robust-minfold-objective-probe"
+}

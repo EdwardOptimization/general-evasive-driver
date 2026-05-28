@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1320,
+    "completed": 1321,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1310-paper-route-source-history-weighted-repeat-tradeoff-audit.md",
+    "command_log": "docs/m1311-paper-route-source-history-robust-minfold-objective-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1310_source_history_weighted_repeat_tradeoff_audit",
+    "run_dir": "docs/m1311-paper-route-source-history-robust-minfold-objective-design.md",
     "status": "completed",
-    "task_id": "m1310-paper-route-source-history-weighted-repeat-tradeoff-audit"
+    "task_id": "m1311-paper-route-source-history-robust-minfold-objective-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1311-paper-route-source-history-robust-minfold-objective-design.json",
-    "hypothesis": "Design a robust min-fold or lexicographic source-history objective after M1310 showed weighted-repeat global regression",
-    "id": "m1311-paper-route-source-history-robust-minfold-objective-design",
-    "kind": "gate",
-    "notes": "Pending: design fold-level non-regression objective; PPO and promotion remain blocked",
-    "priority": 13060,
+    "command": "see experiments/manifests/m1312-paper-route-source-history-robust-minfold-objective-probe.json",
+    "hypothesis": "Run a bounded no-PPO robust min-fold source-history repeat probe after M1311 design",
+    "id": "m1312-paper-route-source-history-robust-minfold-objective-probe",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded robust min-fold probe; PPO and promotion remain blocked",
+    "priority": 13070,
     "status": "pending",
-    "success_artifact": "docs/m1311-paper-route-source-history-robust-minfold-objective-design.md"
+    "success_artifact": "runs/m1312_source_history_robust_minfold_probe/summary.json"
   },
-  "updated_at_utc": "20260528T160650Z"
+  "updated_at_utc": "20260528T161011Z"
 }

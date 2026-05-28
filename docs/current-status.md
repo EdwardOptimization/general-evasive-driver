@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1310-paper-route-source-history-weighted-repeat-tradeoff-audit
+m1311-paper-route-source-history-robust-minfold-objective-design
 ```
 
 Current next task:
 
 ```text
-m1311-paper-route-source-history-robust-minfold-objective-design
+m1312-paper-route-source-history-robust-minfold-objective-probe
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -178,7 +178,12 @@ regresses from `3/5` to `1/5`, offsets `0|1` lose pass status, mean eval
 fraction delta is `-0.0246031746`, full positives go `95 -> 93`, and full mean
 margin delta is `-0.0151337285`. The active blocker is M1311: design a robust
 min-fold or lexicographic source-history objective that protects passing folds
-before optimizing failed folds. PPO and promotion remain blocked.
+before optimizing failed folds. M1311 completed that design and admitted one
+bounded no-PPO probe. The design is train-split-only, keeps held-out eval rows
+for evaluation, forbids pair-specific weights, adds bucket/CVaR loss for
+source-family/probe/margin-bucket concentration, and adds passing-fold
+retention. The active blocker is M1312: implement and run the bounded robust
+min-fold repeat probe. PPO and promotion remain blocked.
 
 ## Actor Contract
 

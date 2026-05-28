@@ -19052,3 +19052,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1311-paper-route-source-history-robust-minfold-objective-design.json`.
 - decision: `weighted_repeat_top_combo_partial_improvement_global_regression_route_to_robust_minfold_design`
 - next: `m1311-paper-route-source-history-robust-minfold-objective-design`
+
+## 20260528T161011Z - m1311-paper-route-source-history-robust-minfold-objective-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1311-paper-route-source-history-robust-minfold-objective-design.md`
+- decision: `source_history_robust_minfold_objective_design_admit_bounded_probe`
+- input evidence: M1310 found top failed combo partial improvement but global repeat regression from `3/5` to `1/5` pass offsets.
+- design choice: train-split-only robust min-fold objective rather than more scalar weight pressure.
+- objective terms: base directional loss, group floor loss, bucket/CVaR loss by source-family/probe/margin bucket, passing-fold retention, and parameter anchor.
+- lexicographic acceptance: no forbidden mutation, no actor input change, no pair-specific weights, no lost pass on M1302 passing offsets `0|1|3`, repeat pass count at least `3/5`, mean eval fractions at least `0.2335317460`, mean full counts at least `38.0/19.0`, and top failed combo not worse.
+- implementation admission: one bounded no-PPO M1312 probe.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1312-paper-route-source-history-robust-minfold-objective-probe.json`.
+- next: `m1312-paper-route-source-history-robust-minfold-objective-probe`
