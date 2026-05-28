@@ -1,0 +1,184 @@
+{
+  "id": "m1336-paper-route-materialized-source-history-objective-corpus-export",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_dataset": [
+      "docs/m1335-paper-route-materialized-source-history-objective-corpus-design.md",
+      "runs/m1333_source_topup_response_history_materialization/summary.json",
+      "runs/m1333_source_topup_response_history_materialization/source_pair_rows.csv",
+      "runs/m1333_source_topup_response_history_materialization/history_prefix_rows.csv",
+      "runs/m1333_source_topup_response_history_materialization/history_frame_rows.csv",
+      "runs/m1333_source_topup_response_history_materialization/history_intervention_rows.csv",
+      "runs/m1333_source_topup_response_history_materialization/wrong_history_pair_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1335-paper-route-materialized-source-history-objective-corpus-design.json"
+    ],
+    "parent_objective": [
+      "export active non-halfshaft materialized source-history objective corpus with explicit quarantine artifacts"
+    ],
+    "derived_from": [
+      "m1335-paper-route-materialized-source-history-objective-corpus-design"
+    ],
+    "blocked_by": [
+      "M1335 designs active/quarantine export but artifacts do not yet exist"
+    ],
+    "supersedes": [
+      "direct source-history objective tuning on raw M1333 materialized rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1336-paper-route-materialized-source-history-objective-corpus-export.md",
+  "public_gates": [
+    "M1336 must not train",
+    "M1336 must not run PPO",
+    "M1336 must not use private holdout",
+    "M1336 must not promote",
+    "M1336 must preserve actor input contract",
+    "M1336 must export active non-halfshaft rows",
+    "M1336 must export halfshaft and global-friction quarantine artifacts",
+    "M1336 must preserve source identity metadata"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not include halfshaft history-silent rows in active corpus",
+    "do not hide global friction gap",
+    "do not claim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_materialized_source_history_objective_corpus",
+    "evidence_axis": "S_materialized_source_history_objective_corpus_export",
+    "evidence_increment": "exports active and quarantined materialized source-history objective corpus rows",
+    "claim_scope": "infrastructure only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if export hides halfshaft quarantine",
+      "stop if export hides global friction gap",
+      "stop if export routes directly to PPO",
+      "stop if actor inputs change"
+    ],
+    "fallback_plan": [
+      "if export passes, route to result audit before objective evaluator design",
+      "if active counts are under target, route to fold/cap repair audit",
+      "if quarantine handling fails, repair export before objective work"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1335 admits active/quarantine objective corpus export",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "active materialized source-history objective corpus export",
+    "admission_evidence": [
+      "M1335 active_source_pair_rows=344",
+      "M1335 active_pair_probe_groups=688",
+      "M1335 active_source_family_count=6",
+      "M1335 active_zero_response_l2_prefix_count=0",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "export tool and focused tests",
+      "M1336 run artifacts",
+      "M1336 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "active rows match expected counts",
+      "quarantine rows match expected counts",
+      "source identity metadata is preserved",
+      "fold and family summaries are written"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1336 exports offline objective-corpus rows and does not test a deployed actor's closed-loop history necessity.",
+    "history_necessity_tests": [
+      "export correct-history and wrong-history objective corpus rows for later policy-side evaluation"
+    ],
+    "temporal_evidence_window": "M1333/M1335 materialized source-history artifacts.",
+    "negative_result_policy": "Export failures or quarantine gaps must be recorded before any policy objective update.",
+    "allowed_claims": [
+      "materialized source-history objective corpus export",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1335 active/quarantine design can be implemented as a no-policy export with 344 active source pairs and explicit halfshaft/global-friction quarantine artifacts.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m1336_materialized_source_history_objective_corpus_export/summary.json exists",
+    "active_source_pair_rows == 344",
+    "active_history_prefix_rows == 1376",
+    "active_history_frame_rows == 33024",
+    "active_history_intervention_rows == 1376",
+    "active_wrong_history_pair_rows == 1376",
+    "active_source_family_count == 6",
+    "active_zero_response_l2_prefix_count == 0",
+    "active_response_l2_ge_0_01_count == 1376",
+    "active_max_source_family_fold_share <= 0.40",
+    "quarantine_source_pair_rows == 22",
+    "quarantine_history_prefix_rows == 88",
+    "quarantine_history_frame_rows == 2112",
+    "quarantine_family_rows include halfshaft_probe_silent and global_friction_missing",
+    "source_identity_duplicate_count == 0",
+    "source_identity_metadata_preserved is true",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "run artifacts are missing",
+    "active counts do not match design without clear blocker",
+    "quarantine artifacts are missing",
+    "source identity metadata is missing or duplicated",
+    "halfshaft or global friction quarantine is hidden",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_materialized_source_history_objective_corpus_export.py"
+    },
+    {
+      "name": "export",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.materialized_source_history_objective_corpus_export --materialized-run-dir runs/m1333_source_topup_response_history_materialization --run-dir runs/m1336_materialized_source_history_objective_corpus_export --min-response-l2 0.01"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1336_materialized_source_history_objective_corpus_export/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1336-paper-route-materialized-source-history-objective-corpus-export.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable"
+  ],
+  "baseline_artifacts": [
+    "docs/m1335-paper-route-materialized-source-history-objective-corpus-design.md",
+    "runs/m1333_source_topup_response_history_materialization/summary.json"
+  ],
+  "decision_rule": "M1336 passes as infrastructure if it exports the active non-halfshaft objective corpus and explicit quarantines without training, PPO, promotion, private holdout use, threshold relaxation, hidden blockers, or actor-input expansion.",
+  "next_blocker": "m1336-paper-route-materialized-source-history-objective-corpus-export"
+}

@@ -19509,3 +19509,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1335-paper-route-materialized-source-history-objective-corpus-design.json`.
 - next: `m1335-paper-route-materialized-source-history-objective-corpus-design`
+
+## 20260528T182639Z - m1335-paper-route-materialized-source-history-objective-corpus-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1335-paper-route-materialized-source-history-objective-corpus-design.md`
+- decision: `materialized_source_history_objective_corpus_design_admit_export`
+- designed tool: `src/autodrift/materialized_source_history_objective_corpus_export.py`.
+- designed test: `tests/test_materialized_source_history_objective_corpus_export.py`.
+- active selection: non-halfshaft source pairs whose history prefixes all have `response_l2_from_opposite_branch >= 0.01`.
+- active expected counts: `344` source pairs, `688` pair-probe groups, `1376` history prefixes, `33024` history frames, `1376` history-intervention rows, and `1376` wrong-history rows.
+- active source families: steering actuator, single-wheel grip collapse, single-wheel brake pull, load/CG, split-mu, and tire-blowout-like.
+- quarantine expected counts: halfshaft `22` source pairs, `88` history prefixes, `2112` history frames; global friction represented as a missing-family quarantine row.
+- source identity requirement: preserve `source_run_id`, `source_row_id`, `original_pair_id`, and `source_identity`.
+- next route: implement one no-policy active/quarantine export before objective evaluator design, objective update, PPO, or promotion.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1336-paper-route-materialized-source-history-objective-corpus-export.json`.
+- next: `m1336-paper-route-materialized-source-history-objective-corpus-export`

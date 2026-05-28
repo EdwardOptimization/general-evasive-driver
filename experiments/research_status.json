@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1344,
+    "completed": 1345,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1334-paper-route-source-topup-materialization-result-audit.md",
+    "command_log": "docs/m1335-paper-route-materialized-source-history-objective-corpus-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1334-paper-route-source-topup-materialization-result-audit.md",
+    "run_dir": "docs/m1335-paper-route-materialized-source-history-objective-corpus-design.md",
     "status": "completed",
-    "task_id": "m1334-paper-route-source-topup-materialization-result-audit"
+    "task_id": "m1335-paper-route-materialized-source-history-objective-corpus-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1335-paper-route-materialized-source-history-objective-corpus-design.json",
-    "hypothesis": "Design active non-halfshaft materialized source-history objective corpus with quarantines",
-    "id": "m1335-paper-route-materialized-source-history-objective-corpus-design",
-    "kind": "gate",
-    "notes": "Pending: design only; no training, PPO, or promotion",
-    "priority": 13300,
+    "command": "see experiments/manifests/m1336-paper-route-materialized-source-history-objective-corpus-export.json",
+    "hypothesis": "Export active non-halfshaft materialized source-history objective corpus with quarantines",
+    "id": "m1336-paper-route-materialized-source-history-objective-corpus-export",
+    "kind": "infrastructure",
+    "notes": "Pending: no-policy export only; no training, PPO, or promotion",
+    "priority": 13310,
     "status": "pending",
-    "success_artifact": "docs/m1335-paper-route-materialized-source-history-objective-corpus-design.md"
+    "success_artifact": "runs/m1336_materialized_source_history_objective_corpus_export/summary.json"
   },
-  "updated_at_utc": "20260528T182323Z"
+  "updated_at_utc": "20260528T182639Z"
 }

@@ -158,6 +158,36 @@
     "runs/m1333_source_topup_response_history_materialization/summary.json",
     "runs/m1333_source_topup_response_history_materialization/history_prefix_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1335-paper-route-materialized-source-history-objective-corpus-design.md",
+    "decision": "materialized_source_history_objective_corpus_design_admit_export",
+    "designed_tool": "src/autodrift/materialized_source_history_objective_corpus_export.py",
+    "designed_test": "tests/test_materialized_source_history_objective_corpus_export.py",
+    "active_source_pair_rows": 344,
+    "active_pair_probe_groups": 688,
+    "active_history_prefix_rows": 1376,
+    "active_history_frame_rows": 33024,
+    "active_history_intervention_rows": 1376,
+    "active_wrong_history_pair_rows": 1376,
+    "active_source_family_count": 6,
+    "active_zero_response_l2_prefix_count": 0,
+    "active_max_source_family_fold_share": 0.2985,
+    "quarantine_source_pair_rows": 22,
+    "quarantine_history_prefix_rows": 88,
+    "quarantine_history_frame_rows": 2112,
+    "halfshaft_quarantined": true,
+    "global_friction_quarantined": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1336-paper-route-materialized-source-history-objective-corpus-export.json"
+  },
+  "decision": "materialized_source_history_objective_corpus_design_admit_export",
   "decision_rule": "M1335 passes if it designs an active non-halfshaft materialized source-history objective corpus with explicit quarantines and source identity preservation without training, PPO, promotion, private holdout use, threshold relaxation, hidden blockers, or actor-input expansion.",
-  "next_blocker": "m1335-paper-route-materialized-source-history-objective-corpus-design"
+  "next_blocker": "m1336-paper-route-materialized-source-history-objective-corpus-export"
 }
