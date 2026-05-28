@@ -1,0 +1,155 @@
+{
+  "id": "m1214-paper-route-corrected-profile-evidence-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "docs/m1213-paper-route-corrected-profile-repeat-result-audit.md",
+      "runs/m1209_corrected_profile_pilot/profile_aggregate.csv",
+      "runs/m1212_corrected_profile_repeat/profile_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1213-paper-route-corrected-profile-repeat-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize corrected profile evidence and choose the next paper-route branch"
+    ],
+    "derived_from": [
+      "m1209-paper-route-corrected-profile-pilot-run",
+      "m1212-paper-route-corrected-profile-repeat-run",
+      "m1213-paper-route-corrected-profile-repeat-result-audit"
+    ],
+    "blocked_by": [
+      "M1213 identifies stable L2 negative evidence and unstable L3 family ranking, requiring branch-level synthesis before more experiments"
+    ],
+    "supersedes": [
+      "continuing repeated public profile pilots without synthesis"
+    ],
+    "invalidates": [
+      "treating L0/L1/L2/L3 profile comparison as settled paper evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1214-paper-route-corrected-profile-evidence-synthesis.md",
+  "public_gates": [
+    "M1214 may synthesize M1199-M1213 profile evidence only",
+    "M1214 must decide whether to stop, repeat, repair, or route to stronger causal history gates",
+    "M1214 must not train controllers",
+    "M1214 must not run PPO",
+    "M1214 must not use private holdout",
+    "M1214 must not promote",
+    "M1214 must not claim paper-level evidence or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not promote",
+    "do not tune profiles",
+    "do not hide negative or conflicting results",
+    "do not claim recurrent belief or self-identification without causal history gates"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_corrected_profile_branch_synthesis: profile-comparison branch decision",
+    "evidence_increment": "synthesizes corrected profile pilot and repeat results into a next-branch decision",
+    "claim_scope": "process synthesis only; no promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if synthesis tries to promote a profile",
+      "stop if synthesis ignores M1212 conflict with M1209",
+      "stop if synthesis upgrades public pilot trends to private or paper evidence"
+    ],
+    "fallback_plan": [
+      "route to another repeat only if a specific uncertainty remains and the expected value is high",
+      "route to stronger causal history gates if profile comparisons cannot answer self-ID",
+      "route to architecture/task redesign if controls explain temporal claims"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1209 and M1212 complete a pilot/repeat pair with conflicting rankings",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "corrected profile evidence synthesis",
+    "admission_evidence": [
+      "M1209 and M1212 both completed fixed public profile runs",
+      "M1213 audits cross-block stability and blocks direct claim expansion",
+      "M1213 routes to synthesis because repeated profile pilots are no longer the highest-leverage next step without branch decision"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "M1214 synthesis docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "supported and blocked claims are listed",
+      "negative evidence is preserved",
+      "next branch is selected",
+      "next manifest is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1214 must carry forward the stable negative L2/current-tiled result.",
+    "history_necessity_tests": [
+      "synthesize_L2_current_tiled_controls",
+      "synthesize_L3_reset_control",
+      "choose_stronger_causal_history_tests_or_repair"
+    ],
+    "temporal_evidence_window": "Profile comparisons remain public trend evidence, not causal self-ID proof.",
+    "negative_result_policy": "Preserve L2 negative evidence and L3 instability as branch constraints for future experiments.",
+    "allowed_claims": [
+      "corrected profile evidence synthesis",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "The corrected profile-comparison branch has enough evidence to synthesize supported/blocked claims and select a higher-leverage next branch.",
+  "success_criteria": [
+    "docs/m1214-paper-route-corrected-profile-evidence-synthesis.md exists",
+    "M1199-M1213 evidence is summarized",
+    "supported claims and blocked claims are separated",
+    "negative L2/current-tiled evidence is preserved",
+    "L3 online-vs-reset instability is preserved",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next branch milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1214 trains or tunes profiles",
+    "private holdout is used",
+    "conflicting M1209/M1212 trends are omitted",
+    "self-identification is claimed from public profile aggregates",
+    "next branch is left vague"
+  ],
+  "commands": [
+    {
+      "name": "synthesize_corrected_profile_evidence",
+      "command": "synthesize M1199-M1213 corrected profile evidence without training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1214-paper-route-corrected-profile-evidence-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "docs/m1213-paper-route-corrected-profile-repeat-result-audit.md"
+  ],
+  "decision_rule": "M1214 passes if it makes a concrete next-branch decision without claim expansion.",
+  "next_blocker": "m1214-paper-route-corrected-profile-evidence-synthesis"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1222,
+    "completed": 1223,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1212-paper-route-corrected-profile-repeat-run.md",
+    "command_log": "docs/m1213-paper-route-corrected-profile-repeat-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1212_corrected_profile_repeat",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1212-paper-route-corrected-profile-repeat-run"
+    "task_id": "m1213-paper-route-corrected-profile-repeat-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1213-paper-route-corrected-profile-repeat-result-audit.json",
-    "hypothesis": "M1209 and M1212 corrected public profile artifacts can be compared to decide whether the branch should synthesize, repeat again, or move to stronger causal history tests.",
-    "id": "m1213-paper-route-corrected-profile-repeat-result-audit",
+    "command": "see experiments/manifests/m1214-paper-route-corrected-profile-evidence-synthesis.json",
+    "hypothesis": "The corrected profile-comparison branch has enough evidence to synthesize supported/blocked claims and select a higher-leverage next branch.",
+    "id": "m1214-paper-route-corrected-profile-evidence-synthesis",
     "kind": "gate",
-    "notes": "Pending: compare M1209 and M1212 trend stability before synthesis repeat repair or causal history gates",
-    "priority": 12080,
+    "notes": "Pending: synthesize M1199-M1213 and select next branch without training or claim expansion",
+    "priority": 12090,
     "status": "pending",
-    "success_artifact": "docs/m1213-paper-route-corrected-profile-repeat-result-audit.md"
+    "success_artifact": "docs/m1214-paper-route-corrected-profile-evidence-synthesis.md"
   },
-  "updated_at_utc": "20260528T063908Z"
+  "updated_at_utc": "20260528T064215Z"
 }

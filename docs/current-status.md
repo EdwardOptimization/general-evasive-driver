@@ -115,8 +115,29 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1213-paper-route-corrected-profile-repeat-result-audit
+m1214-paper-route-corrected-profile-evidence-synthesis
 ```
+
+M1213 completed the M1209/M1212 cross-block audit:
+
+```text
+artifact: docs/m1213-paper-route-corrected-profile-repeat-result-audit.md
+decision: corrected_profile_repeat_audit_route_to_branch_synthesis
+```
+
+M1213 classification:
+
+```text
+L2 finite-window history necessity: stable negative
+current-tiled controls: required for future profile claims
+L3 family ranking: unstable across seed blocks
+L3 online-vs-reset: weak positive in M1212, inconclusive across blocks
+self-identification: not supported
+```
+
+The strongest corrected-profile finding is negative but useful: L2
+finite-window performance should not be treated as history-necessity evidence.
+The branch now needs synthesis, not another automatic repeat.
 
 M1212 completed the fresh corrected profile repeat:
 

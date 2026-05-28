@@ -17386,3 +17386,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1213-paper-route-corrected-profile-repeat-result-audit.json`.
 - decision: `corrected_profile_repeat_completed_route_to_repeat_result_audit`
 - next: `m1213-paper-route-corrected-profile-repeat-result-audit`
+
+## 20260528T064215Z - m1213-paper-route-corrected-profile-repeat-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1213-paper-route-corrected-profile-repeat-result-audit.md`
+- result: compares M1209 and M1212 corrected public seed blocks before further training.
+- stable finding: L2 finite-window history necessity is negative; current-tiled controls explain or outperform normal L2 across both blocks.
+- unstable finding: L3 family ranking conflicts across blocks; M1209 has L3 strongest overall while M1212 has L2/current-tiled strongest.
+- online-vs-reset finding: M1212 is aggregate-positive for online vs reset, but M1209 is parity; across blocks this is inconclusive and not self-ID evidence.
+- route decision: stop automatic profile repeats and synthesize the corrected profile branch before selecting causal history gates, task repair, or another targeted repeat.
+- guardrail: no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, actor-input expansion, self-identification claim, profile superiority claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1214-paper-route-corrected-profile-evidence-synthesis.json`.
+- decision: `corrected_profile_repeat_audit_route_to_branch_synthesis`
+- next: `m1214-paper-route-corrected-profile-evidence-synthesis`
