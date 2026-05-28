@@ -19987,3 +19987,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no PPO, promotion, private holdout, full replay, threshold relaxation, actor-input expansion, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1361-paper-route-bidirectional-active-set-probe-result-audit.json`.
 - next: `m1361-paper-route-bidirectional-active-set-probe-result-audit`
+
+## 20260528T203200Z - m1361-paper-route-bidirectional-active-set-probe-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1361-paper-route-bidirectional-active-set-probe-result-audit.md`
+- decision: `bidirectional_active_set_probe_audit_route_to_interpolation_preflight`
+- audit finding: M1360 is not promotable but it converts M1355's wrong-branch success-drop washout into a narrower M267/M264 margin-gap retention failure.
+- positive evidence: exact metrics beat M1355; M267/M264 normal success delta `0.0`; success-drop count delta `0`; wrong safe required rows `[]`.
+- remaining failure: M267/M264 margin-gap mean delta `-0.0012517729` exceeds allowed regression `-0.001` by about `0.0002517729`.
+- route decision: test update amplitude before adding a new loss; run interpolation preflight from M1154 to raw M1360.
+- guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1362-paper-route-bidirectional-active-set-interpolation-preflight.json`.
+- next: `m1362-paper-route-bidirectional-active-set-interpolation-preflight`

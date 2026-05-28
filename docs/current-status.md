@@ -16,14 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1360-paper-route-bidirectional-active-set-probe-implementation
+m1361-paper-route-bidirectional-active-set-probe-result-audit
 ```
 
 Current next task:
 
 ```text
-m1361-paper-route-bidirectional-active-set-probe-result-audit
+m1362-paper-route-bidirectional-active-set-interpolation-preflight
 ```
+
+M1361 audits M1360 as non-promotable but useful. The bidirectional anchor fixed
+M1355's wrong-history success-drop collapse: M267/M264 normal success is
+retained, success-drop count is retained, and no required wrong-history rows
+became safe. The remaining failure is a narrow margin-gap retention miss:
+`margin_gap_mean_delta=-0.0012517729` versus allowed `-0.001`. M1362 should test
+amplitude control first, using an interpolation preflight from M1154 to raw
+M1360, before adding a new gap-aware active-set term.
 
 M1360 implemented and ran the no-PPO bidirectional active-set probe. The result
 is exact-positive but still a public proof failure: exact metrics beat both

@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M1361 classifies M1360 as a narrow M267 margin-gap washout and routes to interpolation preflight before new gap-aware terms",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits M1360 exact or replay evidence",
+    "audit treats M1360 as promotion",
+    "audit routes directly to PPO",
+    "training, PPO, replay, private holdout, promotion, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not update actor weights",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T203242Z",
+  "hypothesis": "M1360's bidirectional active-set result should be classified as a narrower M267 margin-gap proof washout and routed before any coefficient tuning or PPO.",
+  "lineage": {
+    "blocked_by": [
+      "M1360 improves exact metrics and preserves success-drop count but fails M267/M264 margin-gap retention"
+    ],
+    "derived_from": [
+      "m1360-paper-route-bidirectional-active-set-probe-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1360_bidirectional_active_set_probe/checkpoints/raw_bidirectional_active_set_update.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1360-paper-route-bidirectional-active-set-probe-implementation.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_dataset": [
+      "docs/m1360-paper-route-bidirectional-active-set-probe-implementation.md",
+      "runs/m1360_bidirectional_active_set_probe/summary.json",
+      "runs/m1360_bidirectional_active_set_probe/replay/m267_m264/summary.json"
+    ],
+    "parent_objective": [
+      "audit M1360 exact-positive but M267 margin-gap-negative bidirectional active-set result"
+    ],
+    "supersedes": [
+      "direct coefficient tuning after M1360",
+      "direct PPO after M1360",
+      "direct promotion after M1360"
+    ]
+  },
+  "milestone": "m1361-paper-route-bidirectional-active-set-probe-result-audit",
+  "next_blocker": "m1362-paper-route-bidirectional-active-set-interpolation-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bidirectional_active_set_probe_audit_route_to_interpolation_preflight",
+  "public_gates": [
+    "M1361 must not train",
+    "M1361 must not run PPO",
+    "M1361 must not run replay",
+    "M1361 must not update actor weights",
+    "M1361 must not use private holdout",
+    "M1361 must not promote",
+    "M1361 must classify whether M1360 failure is interpolation-addressable or needs a new gap-aware term"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1361-paper-route-bidirectional-active-set-probe-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "bidirectional_active_set_probe_audit_route_to_interpolation_preflight",
+    "milestone": "m1361-paper-route-bidirectional-active-set-probe-result-audit",
+    "reason": "M1361 classifies M1360 as a narrow M267 margin-gap washout and routes to interpolation preflight before new gap-aware terms",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1361-paper-route-bidirectional-active-set-probe-result-audit.md exists",
+    "audit records M1360 exact metrics",
+    "audit records M1360 M267/M264 success-count retention",
+    "audit records M1360 M267/M264 margin-gap failure",
+    "audit routes to a specific next design",
+    "no training, PPO, replay, promotion, private holdout, threshold relaxation, actor update, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

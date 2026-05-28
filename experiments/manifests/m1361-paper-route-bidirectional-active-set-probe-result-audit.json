@@ -156,6 +156,30 @@
     "runs/m1360_bidirectional_active_set_probe/summary.json",
     "runs/m1360_bidirectional_active_set_probe/replay/m267_m264/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1361-paper-route-bidirectional-active-set-probe-result-audit.md",
+    "decision": "bidirectional_active_set_probe_audit_route_to_interpolation_preflight",
+    "failure_type": "none",
+    "m1360_result_class": "materialized_source_history_bidirectional_active_set_m267_proof_washout",
+    "m1360_combined_loss_delta": -4.720626368826161,
+    "m1360_full_group_min_joint_margin_delta": 5.349434823490853,
+    "m1360_eval_fold_group_min_joint_margin_delta": 4.926713918572041,
+    "m1360_m267_normal_success_delta": 0.0,
+    "m1360_m267_success_drop_count_delta": 0,
+    "m1360_m267_wrong_safe_required_row_ids": [],
+    "m1360_m267_margin_gap_mean_delta": -0.0012517728578869385,
+    "route": "interpolation_preflight_before_gap_aware_term",
+    "training_started": false,
+    "actor_update_used": false,
+    "replay_run_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "next_manifest": "experiments/manifests/m1362-paper-route-bidirectional-active-set-interpolation-preflight.json"
+  },
   "decision_rule": "M1361 passes as an audit only if it routes the M1360 negative result without changing thresholds, training, replay, PPO, private holdout, promotion, or actor inputs.",
-  "next_blocker": "m1361-paper-route-bidirectional-active-set-probe-result-audit"
+  "next_blocker": "m1362-paper-route-bidirectional-active-set-interpolation-preflight"
 }

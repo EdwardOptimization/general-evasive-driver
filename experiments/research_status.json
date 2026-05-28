@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1370,
+    "completed": 1371,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1360_bidirectional_active_set_probe/summary.json",
+    "command_log": "docs/m1361-paper-route-bidirectional-active-set-probe-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1360_bidirectional_active_set_probe",
+    "run_dir": "docs/m1361-paper-route-bidirectional-active-set-probe-result-audit.md",
     "status": "completed",
-    "task_id": "m1360-paper-route-bidirectional-active-set-probe-implementation"
+    "task_id": "m1361-paper-route-bidirectional-active-set-probe-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1361-paper-route-bidirectional-active-set-probe-result-audit.json",
-    "hypothesis": "Audit M1360 exact-positive but M267 margin-gap-negative bidirectional active-set result",
-    "id": "m1361-paper-route-bidirectional-active-set-probe-result-audit",
+    "command": "see experiments/manifests/m1362-paper-route-bidirectional-active-set-interpolation-preflight.json",
+    "hypothesis": "Test whether interpolation along the M1154 to raw M1360 direction preserves exact lift and replay retention",
+    "id": "m1362-paper-route-bidirectional-active-set-interpolation-preflight",
     "kind": "gate",
-    "notes": "Pending: classify whether M1360 is interpolation-addressable or needs a gap-aware active-set term; no training PPO replay promotion private holdout or actor input change",
-    "priority": 13560,
+    "notes": "Pending: exact-plus-replay interpolation preflight over raw M1360; no training PPO promotion private holdout full replay or actor input change",
+    "priority": 13570,
     "status": "pending",
-    "success_artifact": "docs/m1361-paper-route-bidirectional-active-set-probe-result-audit.md"
+    "success_artifact": "runs/m1362_bidirectional_active_set_interpolation_preflight/summary.json"
   },
-  "updated_at_utc": "20260528T202120Z"
+  "updated_at_utc": "20260528T203200Z"
 }
