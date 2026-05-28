@@ -20614,3 +20614,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: `actor_parameters_changed=false`, `training_started=false`, `evaluation_started=false`, `ppo_used=false`, `promoted=false`, `private_holdout_used=false`, `training_corpus_exported=false`, `actor_input_contract_changed=false`.
 - follow-up manifest: `experiments/manifests/m1398-paper-route-causal-history-necessity-branch-synthesis.json`.
 - next: `m1398-paper-route-causal-history-necessity-branch-synthesis`
+
+## 20260529T023000Z - m1398-paper-route-causal-history-necessity-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1398-paper-route-causal-history-necessity-branch-synthesis.md`
+- decision: `causal_history_necessity_synthesis_promote_to_warmup_reveal_pressure_redesign`
+- synthesis decision: `promote_to_next_branch`
+- closed branch: `paper_route_causal_history_necessity_task_design`
+- opened branch: `paper_route_warmup_reveal_pressure_redesign`
+- evidence summary: M1391 materialized 631 matched-current source candidates, M1392 found broad reset/zero-current effects but only 24 self-ID rows from 1 seed, M1394 materialized 604 warmup-latched matched/bucketed rows, and M1397 full sweep found 31 warmup-history-positive rows from 1 seed with zero wrong-warmup/delayed-history outcome rows.
+- supported claims: source materialization and diagnostic controls are working; warmup removed/shortened can affect margin in one source pocket.
+- unsupported claims: source-diverse wrong-history self-ID, delayed-history outcome necessity, corpus export, training admission, and level3 self-ID.
+- failure taxonomy: `scenario_sampling_failure` plus high public-gate overfit risk for M1394/M1397 rows.
+- next branch: design near-boundary warmup/reveal pressure sources with explicit current/recent substitution controls.
+- guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1399-paper-route-warmup-reveal-pressure-redesign.json`.
+- next: `m1399-paper-route-warmup-reveal-pressure-redesign`

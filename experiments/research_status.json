@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1407,
+    "completed": 1408,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1397-paper-route-warmup-latched-outcome-full-sweep.md",
+    "command_log": "docs/m1398-paper-route-causal-history-necessity-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "runs/m1397_warmup_latched_outcome_full_sweep",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1397-paper-route-warmup-latched-outcome-full-sweep"
+    "task_id": "m1398-paper-route-causal-history-necessity-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1398-paper-route-causal-history-necessity-branch-synthesis.json",
-    "hypothesis": "The M1390-M1397 causal history-necessity evidence can be synthesized into a clear next branch after the warmup-latched full sweep remains source-narrow.",
-    "id": "m1398-paper-route-causal-history-necessity-branch-synthesis",
+    "command": "see experiments/manifests/m1399-paper-route-warmup-reveal-pressure-redesign.json",
+    "hypothesis": "A redesigned warmup/reveal pressure source route can target normal-viable near-boundary reveals where history interventions are more likely to create source-diverse outcome gaps.",
+    "id": "m1399-paper-route-warmup-reveal-pressure-redesign",
     "kind": "gate",
-    "notes": "Pending: synthesize M1390-M1397 and choose the next branch before more local public-row tuning",
-    "priority": 13930,
+    "notes": "Pending: design near-boundary warmup/reveal pressure source route before implementation, corpus export, or training",
+    "priority": 13940,
     "status": "pending",
-    "success_artifact": "docs/m1398-paper-route-causal-history-necessity-branch-synthesis.md"
+    "success_artifact": "docs/m1399-paper-route-warmup-reveal-pressure-redesign.md"
   },
-  "updated_at_utc": "20260529T022000Z"
+  "updated_at_utc": "20260529T023000Z"
 }

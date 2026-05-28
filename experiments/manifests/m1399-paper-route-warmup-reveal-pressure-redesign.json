@@ -1,0 +1,157 @@
+{
+  "id": "m1399-paper-route-warmup-reveal-pressure-redesign",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1398-paper-route-causal-history-necessity-branch-synthesis.md",
+      "runs/m1397_warmup_latched_outcome_full_sweep/summary.json",
+      "runs/m1397_warmup_latched_outcome_full_sweep/accepted_warmup_history_rows.csv",
+      "runs/m1397_warmup_latched_outcome_full_sweep/variant_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1398-paper-route-causal-history-necessity-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design a stronger warmup/reveal pressure source route after M1390-M1397 synthesis"
+    ],
+    "derived_from": [
+      "m1398-paper-route-causal-history-necessity-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1398 closes the prior branch and requires a new evidence axis before more public-row tuning"
+    ],
+    "supersedes": [
+      "continuing M1394/M1397 local sweeps",
+      "exporting seed-139421 warmup-duration rows as a corpus",
+      "claiming self-ID from source-narrow warmup removed/shortened rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1399-paper-route-warmup-reveal-pressure-redesign.md",
+  "public_gates": [
+    "M1399 must design a new warmup/reveal pressure source route before implementation",
+    "M1399 must define normal-viable near-boundary source criteria",
+    "M1399 must define current/recent substitution controls and source-diversity thresholds",
+    "M1399 must not train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run a new source sweep",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not relax M1397 thresholds after seeing sparse results",
+    "do not count seed-singleton warmup-duration rows as source-diverse self-ID"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "G_warmup_reveal_pressure_design",
+    "evidence_increment": "designs a new source-generation route that targets near-boundary viable reveals and stronger warmup evidence",
+    "claim_scope": "task/source redesign only; no training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if design still uses broad high-margin reveals",
+      "stop if design cannot separate normal viability from near-boundary pressure",
+      "stop if current/recent substitution controls are omitted",
+      "stop if design routes directly to training"
+    ],
+    "fallback_plan": [
+      "route to same-current intervention redesign if reveal pressure cannot be expressed",
+      "route to new task-family design if warmup-latched reveal pressure remains unworkable",
+      "route to branch synthesis if source-diversity thresholds cannot be specified"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new_branch_start_after_m1398_synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "warmup/reveal pressure source redesign",
+    "admission_evidence": [
+      "M1398 closes the previous causal history-necessity branch",
+      "M1397 full sweep remains source-narrow with zero wrong-warmup/delayed-history outcome rows",
+      "M1398 selects warmup/reveal pressure redesign as the next branch"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1399 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "near-boundary normal-viability criteria are specified",
+      "warmup evidence and reveal pressure changes are specified",
+      "source-diversity and stop thresholds are specified",
+      "next implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1399 must explicitly design against current/recent substitution and cannot use M1397 seed-singleton positives as sufficient self-ID evidence.",
+    "history_necessity_tests": [
+      "near_boundary_normal_viability",
+      "same_current_or_bucketed_reveal_matching",
+      "wrong_warmup_history_same_reveal",
+      "delayed_or_removed_warmup_history",
+      "zero_current_response_positive_control"
+    ],
+    "temporal_evidence_window": "Task/source design following M1398 branch synthesis.",
+    "negative_result_policy": "If near-boundary warmup/reveal pressure cannot be specified, record the blocker and route to a different task family before training.",
+    "allowed_claims": [
+      "warmup/reveal pressure source design",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A redesigned warmup/reveal pressure source route can target normal-viable near-boundary reveals where history interventions are more likely to create source-diverse outcome gaps.",
+  "success_criteria": [
+    "docs/m1399-paper-route-warmup-reveal-pressure-redesign.md exists",
+    "design specifies near-boundary normal-viability criteria",
+    "design specifies warmup stimulus and reveal pressure changes",
+    "design specifies current/recent substitution controls, source-diversity thresholds, stop conditions, and next implementation route",
+    "design does not route directly to training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores M1397/M1398 negative evidence",
+    "design omits near-boundary viability or current/recent substitution controls",
+    "design routes directly to training or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1399-paper-route-warmup-reveal-pressure-redesign.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1399-paper-route-warmup-reveal-pressure-redesign.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1398-paper-route-causal-history-necessity-branch-synthesis.md",
+    "runs/m1397_warmup_latched_outcome_full_sweep/summary.json"
+  ],
+  "decision_rule": "M1399 passes if it designs a new warmup/reveal pressure source route with near-boundary viability and current/recent substitution controls before implementation or training.",
+  "next_blocker": "m1399-paper-route-warmup-reveal-pressure-redesign"
+}

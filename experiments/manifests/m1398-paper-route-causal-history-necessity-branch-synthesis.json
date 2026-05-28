@@ -2,7 +2,7 @@
   "id": "m1398-paper-route-causal-history-necessity-branch-synthesis",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -176,6 +176,35 @@
     "runs/m1397_warmup_latched_outcome_full_sweep/summary.json",
     "docs/m1397-paper-route-warmup-latched-outcome-full-sweep.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1398-paper-route-causal-history-necessity-branch-synthesis.md",
+    "decision": "causal_history_necessity_synthesis_promote_to_warmup_reveal_pressure_redesign",
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "paper_route_causal_history_necessity_task_design",
+    "opened_branch": "paper_route_warmup_reveal_pressure_redesign",
+    "m1391_candidate_rows": 631,
+    "m1392_accepted_self_id_rows": 24,
+    "m1392_accepted_self_id_unique_seeds": 1,
+    "m1394_matched_or_bucketed_reveal_rows": 604,
+    "m1397_warmup_history_positive_rows": 31,
+    "m1397_accepted_warmup_history_unique_source_seeds": 1,
+    "m1397_wrong_warmup_outcome_rows": 0,
+    "m1397_delayed_warmup_outcome_rows": 0,
+    "public_gate_overfit_risk": "high_for_m1394_m1397_rows",
+    "selected_route": "warmup_reveal_pressure_redesign",
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "corpus_exported": false,
+    "local_expansion_started": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1399-paper-route-warmup-reveal-pressure-redesign.json"
+  },
+  "decision": "causal_history_necessity_synthesis_promote_to_warmup_reveal_pressure_redesign",
   "decision_rule": "M1398 passes if it synthesizes M1390-M1397 with explicit supported/unsupported claims and chooses the next branch before any training, PPO, promotion, private holdout, corpus export, or further local expansion.",
-  "next_blocker": "m1398-paper-route-causal-history-necessity-branch-synthesis"
+  "next_blocker": "m1399-paper-route-warmup-reveal-pressure-redesign"
 }

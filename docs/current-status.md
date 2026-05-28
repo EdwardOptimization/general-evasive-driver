@@ -16,21 +16,39 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1397-paper-route-warmup-latched-outcome-full-sweep
+m1398-paper-route-causal-history-necessity-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1398-paper-route-causal-history-necessity-branch-synthesis
+m1399-paper-route-warmup-reveal-pressure-redesign
 ```
 
-M1397 ran the full no-training warmup-latched outcome sweep over all M1394
-matched/bucketed rows. The current public-gate base remains M1362 alpha `0.1`:
+M1398 synthesized the M1390-M1397 causal history-necessity branch. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1398 result:
+
+```text
+decision: causal_history_necessity_synthesis_promote_to_warmup_reveal_pressure_redesign
+synthesis_decision: promote_to_next_branch
+closed_branch: paper_route_causal_history_necessity_task_design
+opened_branch: paper_route_warmup_reveal_pressure_redesign
+public_gate_overfit_risk: high_for_m1394_m1397_rows
+next: m1399-paper-route-warmup-reveal-pressure-redesign
+```
+
+M1398 supports source materialization and diagnostic controls, but rejects
+source-diverse wrong-history/delayed-history self-ID under the current
+warmup-latched setup. The next branch must design stronger near-boundary
+warmup/reveal pressure sources with current/recent substitution controls before
+any new implementation, corpus export, PPO, training, private holdout,
+promotion, or claim expansion.
 
 M1397 result:
 
