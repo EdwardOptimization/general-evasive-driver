@@ -1,28 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1193,
+    "completed": 1194,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1183-v4-public-base-no-residual-source-rich-smoke-run.md",
+    "command_log": "docs/m1184-paper-route-gate-utility-audit-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1183_current_base_no_residual_source_rich_smoke",
     "status": "completed",
-    "task_id": "m1183-v4-public-base-no-residual-source-rich-smoke-run"
+    "task_id": "m1184-paper-route-gate-utility-audit-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1184-paper-route-gate-utility-audit-design.json",
-    "hypothesis": "Design paper-route gate utility audit for engineering-logic cleanup",
-    "id": "m1184-paper-route-gate-utility-audit-design",
+    "command": "see experiments/manifests/m1185-paper-route-gate-utility-matrix-run.json",
+    "hypothesis": "Build paper-route gate utility matrix from existing artifacts",
+    "id": "m1185-paper-route-gate-utility-matrix-run",
     "kind": "gate",
-    "notes": "Pending: design candidate classes gate stacks and classification rules only; no candidate replay gate demotion training PPO promotion private holdout or actor-input change",
-    "priority": 11790,
+    "notes": "Pending: populate candidate manifest gate utility matrix and gate stack decisions from existing artifacts only; no candidate replay gate demotion training PPO promotion private holdout or actor-input change",
+    "priority": 11800,
     "status": "pending",
-    "success_artifact": "docs/m1184-paper-route-gate-utility-audit-design.md"
+    "success_artifact": "docs/m1185-paper-route-gate-utility-matrix-run.md"
   },
-  "updated_at_utc": "20260528T051000Z"
+  "updated_at_utc": "20260528T052000Z"
 }

@@ -106,17 +106,42 @@ The paper route now separates:
 - conditional recurrent-belief advantage;
 - strong self-identification evidence.
 
-M1182 no-residual source-rich adapter remains the next infrastructure blocker,
-but it is scoped as data-generation support. It does not by itself justify a
-GRU recurrent-belief claim, a paper-level result, PPO readiness, or promotion.
-Historical proof gates and row-specific repair logic should be audited with a
-gate utility matrix before remaining permanent active training blockers.
+M1182 no-residual source-rich adapter is scoped as data-generation support. It
+does not by itself justify a GRU recurrent-belief claim, a paper-level result,
+PPO readiness, or promotion. M1184 has now designed the gate utility audit that
+will classify historical proof gates and row-specific repair logic before they
+remain permanent active training blockers or are demoted.
 
 ## Current Blocker
 
 ```text
-m1184-paper-route-gate-utility-audit-design
+m1185-paper-route-gate-utility-matrix-run
 ```
+
+M1184 completed the paper-route gate utility audit design:
+
+```text
+artifact: docs/m1184-paper-route-gate-utility-audit-design.md
+decision: paper_route_gate_utility_audit_design_admit_matrix_run
+candidate classes: good promoted/admitted, known bad, near-miss, null/no-op
+gate stacks: Stack A minimal engineering, Stack B balanced public, Stack C full historical diagnostic
+classifications: core, research-only, extended-regression, legacy, deprecated
+```
+
+M1184 did not run candidate replay, demote gates, delete tooling, train, run
+PPO, promote, use private holdout, or change actor inputs. Its only active
+effect is to pre-register M1185:
+
+```text
+manifest: experiments/manifests/m1185-paper-route-gate-utility-matrix-run.json
+success artifact: docs/m1185-paper-route-gate-utility-matrix-run.md
+required matrix: docs/gate-utility-matrix.md
+run dir: runs/m1185_gate_utility_matrix
+```
+
+M1185 should populate a candidate manifest, gate utility matrix, and gate stack
+decision table from existing artifacts only. If inventory is insufficient, it
+should route to candidate inventory rather than weaken gate standards.
 
 M1183 ran the bounded source-rich adapter metadata smoke:
 

@@ -1,0 +1,194 @@
+{
+  "id": "m1185-paper-route-gate-utility-matrix-run",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1184-paper-route-gate-utility-audit-design.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md",
+      "experiments/scoreboard.csv",
+      "experiments/research_queue.csv",
+      "docs/current-status.md",
+      "docs/research-log.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1184-paper-route-gate-utility-audit-design.json"
+    ],
+    "parent_objective": [
+      "build a gate utility matrix from existing artifacts so historical gates can be classified before cleanup"
+    ],
+    "derived_from": [
+      "m1184-paper-route-gate-utility-audit-design"
+    ],
+    "blocked_by": [
+      "gate cleanup and paper-route training need evidence about which gates catch known bad candidates and which gates false-reject good candidates"
+    ],
+    "supersedes": [
+      "using an unaudited full historical gate stack as a permanent blocker",
+      "demoting row-specific gates without candidate-based utility evidence"
+    ],
+    "invalidates": [
+      "claiming gate cleanup from a design-only milestone",
+      "using private holdout to tune gate classification",
+      "running replay or training inside the utility matrix milestone"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1185-paper-route-gate-utility-matrix-run.md",
+  "public_gates": [
+    "M1185 may inspect existing public artifacts, docs, manifests, and scoreboard rows",
+    "M1185 must not run candidate replay",
+    "M1185 must not demote or delete gates",
+    "M1185 must not train actor weights",
+    "M1185 must not run PPO",
+    "M1185 must not promote",
+    "M1185 must not use private holdout",
+    "M1185 must not change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run candidate replay",
+    "do not demote or delete gates",
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not classify a missing-path candidate as pass or fail",
+    "do not treat a not-applicable non-checkpoint artifact as a driver checkpoint",
+    "do not claim paper evidence from matrix construction"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_process: gate utility and engineering-logic cleanup matrix",
+    "evidence_increment": "populates the M1184-designed candidate and gate-stack matrix from existing artifacts without replay or training",
+    "claim_scope": "process evidence only; provisional gate classification recommendations and no active demotion, promotion, PPO, private-holdout, driver-performance, or paper-result claim",
+    "stop_condition": [
+      "stop if candidate classes lack known good or known bad examples",
+      "stop if missing paths are silently treated as pass or fail",
+      "stop if the matrix starts replay, training, PPO, promotion, or private holdout",
+      "stop if the matrix changes actor inputs"
+    ],
+    "fallback_plan": [
+      "if inventory is insufficient, route to a candidate inventory milestone",
+      "if a gate command cannot be resolved from docs, classify command_status as unresolved rather than demoting the gate",
+      "if known bad coverage cannot be scored, keep the gate as extended-regression until a later executable audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1184 audit design requires a utility matrix before historical gates can be cleaned up or kept as permanent active blockers",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "build gate utility matrix from existing artifacts",
+    "admission_evidence": [
+      "M1184 defines candidate classes, gate stacks, and classification rules",
+      "M1182a requires gate utility audit before paper-route cleanup",
+      "M1183 confirms source-rich metadata infrastructure is smoke-ready but not proof-ready"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not run replay",
+      "do not run training",
+      "do not demote gates",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "gate utility matrix documentation",
+      "candidate and gate classification CSVs",
+      "summary artifact",
+      "status, queue, scoreboard, research log, and review artifacts"
+    ],
+    "next_stage_criteria": [
+      "candidate classes are populated",
+      "gate stacks A/B/C are represented",
+      "core/research-only/extended-regression/legacy/deprecated recommendations are reported",
+      "missing candidate paths and not-applicable rows are explicit",
+      "follow-up cleanup or inventory route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1185 is a process matrix over existing artifacts and does not test current-frame substitution or history necessity.",
+    "history_necessity_tests": [
+      "not_applicable"
+    ],
+    "temporal_evidence_window": "M1185 audits evidence governance only.",
+    "negative_result_policy": "If the matrix finds insufficient candidate evidence, route to inventory or executable audit instead of weakening self-identification standards.",
+    "allowed_claims": [
+      "gate utility matrix construction",
+      "provisional gate classification recommendation",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Existing artifacts are sufficient to populate a first gate utility matrix that separates core, research-only, extended-regression, legacy, and deprecated gates without running replay or changing gates.",
+  "success_criteria": [
+    "docs/m1185-paper-route-gate-utility-matrix-run.md exists",
+    "docs/gate-utility-matrix.md exists",
+    "summary.json exists",
+    "candidate_manifest.csv exists",
+    "gate_utility_matrix.csv exists",
+    "gate_stack_decisions.csv exists",
+    "candidate classes include good, known bad, near-miss, and null/no-op rows",
+    "gate stacks A/B/C are represented",
+    "gate classification recommendations are reported with reasons",
+    "missing paths and not-applicable rows are explicit",
+    "no gate demotion, candidate replay, actor training, PPO, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "matrix demotes or deletes gates instead of recommending classifications",
+    "known bad candidates are omitted",
+    "good candidates are omitted",
+    "missing paths are silently treated as pass or fail",
+    "not-applicable rows are treated as driver passes or failures",
+    "candidate replay, actor training, PPO, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "build_gate_utility_matrix_from_existing_artifacts",
+      "command": "construct docs/gate-utility-matrix.md and runs/m1185_gate_utility_matrix/*.csv from existing docs, manifests, scoreboard, and run summaries only"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1185-paper-route-gate-utility-matrix-run.md",
+      "type": "md"
+    },
+    {
+      "path": "docs/gate-utility-matrix.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m1185_gate_utility_matrix/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1185_gate_utility_matrix/candidate_manifest.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1185_gate_utility_matrix/gate_utility_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1185_gate_utility_matrix/gate_stack_decisions.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1184-paper-route-gate-utility-audit-design.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md",
+    "experiments/scoreboard.csv"
+  ],
+  "decision_rule": "M1185 passes if it builds the gate utility matrix and provisional classification recommendations from existing artifacts while preserving all M1184 guardrails.",
+  "next_blocker": "m1185-paper-route-gate-utility-matrix-run"
+}

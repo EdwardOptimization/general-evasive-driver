@@ -16895,3 +16895,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no full mining, proof conversion, actor training, PPO, promotion, private holdout, or actor-input change occurred.
 - decision: `current_base_no_residual_source_rich_smoke_pass_route_to_gate_utility_audit_design`
 - next: `m1184-paper-route-gate-utility-audit-design`
+
+## 20260528T052000Z - m1184-paper-route-gate-utility-audit-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1184-paper-route-gate-utility-audit-design.md`
+- result: designs a paper-route gate utility audit before historical gates, row-specific repair logic, and proof corpora remain active blockers or are demoted.
+- candidate classes: good promoted/admitted, known bad, near-miss, and null/no-op candidates.
+- gate stacks: Stack A minimal engineering, Stack B balanced public, and Stack C full historical diagnostic.
+- classification labels: `core`, `research-only`, `extended-regression`, `legacy`, and `deprecated`.
+- utility metrics: known-bad caught/missed, good false rejects, near-miss resolution, not-applicable handling, runtime/cost estimate, lineage specificity, overlap, private-holdout contamination risk, and classification reason.
+- follow-up manifest: `experiments/manifests/m1185-paper-route-gate-utility-matrix-run.json`.
+- guardrail: no candidate replay, gate demotion, deletion, actor training, PPO, promotion, private holdout, or actor-input change occurred.
+- decision: `paper_route_gate_utility_audit_design_admit_matrix_run`
+- next: `m1185-paper-route-gate-utility-matrix-run`

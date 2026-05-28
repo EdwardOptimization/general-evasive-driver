@@ -157,5 +157,5 @@
     "docs/m1183-v4-public-base-no-residual-source-rich-smoke-run.md"
   ],
   "decision_rule": "M1184 passes if it designs a candidate-based gate utility audit with explicit classification rules and pre-registers the follow-up utility matrix run without running replay or changing gates.",
-  "next_blocker": "m1184-paper-route-gate-utility-audit-design"
+  "next_blocker": "m1185-paper-route-gate-utility-matrix-run"
 }
