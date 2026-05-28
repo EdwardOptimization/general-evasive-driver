@@ -1,0 +1,160 @@
+{
+  "id": "m1289-paper-route-source-history-objective-only-update-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1288-paper-route-source-history-objective-only-update-implementation.md",
+      "runs/m1288_source_history_objective_only_update/summary.json",
+      "runs/m1288_source_history_objective_only_update/objective_before.json",
+      "runs/m1288_source_history_objective_only_update/objective_after.json",
+      "runs/m1288_source_history_objective_only_update/source_history_objective_rows_before.csv",
+      "runs/m1288_source_history_objective_only_update/source_history_objective_rows_after.csv",
+      "runs/m1288_source_history_objective_only_update/train_trace.csv",
+      "runs/m1288_source_history_objective_only_update/parameter_delta.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1288-paper-route-source-history-objective-only-update-implementation.json"
+    ],
+    "parent_objective": [
+      "audit the exact-loss-positive actor-mean-only objective update before any PPO or replay escalation"
+    ],
+    "derived_from": [
+      "m1288-paper-route-source-history-objective-only-update-implementation"
+    ],
+    "blocked_by": [
+      "M1288 improves exact objective but directional policy-gate metrics remain weak"
+    ],
+    "supersedes": [
+      "starting PPO or replay gates immediately after exact-loss improvement"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1289-paper-route-source-history-objective-only-update-result-audit.md",
+  "public_gates": [
+    "M1289 must audit M1288 exact-loss improvement",
+    "M1289 must audit mutation guardrails",
+    "M1289 must compare before-after directional policy-gate metrics",
+    "M1289 must decide whether to continue actor_mean_only, repair directional objective, refresh corpus, or escalate retention gates",
+    "M1289 must not run PPO",
+    "M1289 must not use private holdout",
+    "M1289 must not promote"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat exact loss improvement as closed-loop performance",
+    "do not treat both_directional_fraction=0.0 as a positive source-history gate",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_objective_only_update",
+    "evidence_axis": "S_objective_only_update_result_audit",
+    "evidence_increment": "audits the first exact-loss-positive actor-mean-only update and chooses the next branch step",
+    "claim_scope": "result audit only; no promotion, private-holdout, PPO, paper-level, closed-loop, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if exact-loss improvement is contradicted by artifacts",
+      "stop if mutation guardrails failed",
+      "stop if directional metrics remain weak and no repair path is specified"
+    ],
+    "fallback_plan": [
+      "if exact-loss improvement is valid but directional metrics are weak, design row-wise directional repair",
+      "if exact-loss improvement and directional metrics are both positive, design public proof-retention gate",
+      "if public-corpus overfit risk dominates, design source-history refresh"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "third milestone in objective-only update branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-history objective update result audit",
+    "admission_evidence": [
+      "M1288 exact combined loss improved from 18.6105005714 to 7.1793530621",
+      "M1288 changed only actor_mean parameters",
+      "M1288 both_directional_fraction remains 0.0",
+      "PPO remains blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1289 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest if audit admits it"
+    ],
+    "next_stage_criteria": [
+      "exact-loss improvement is interpreted",
+      "directional caveat is interpreted",
+      "public overfit risk is assessed",
+      "next branch step is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1289 audits fixed-current source-history objective metrics and does not evaluate closed-loop history necessity.",
+    "history_necessity_tests": [
+      "before-after correct-history versus wrong-history objective metrics",
+      "directional gate comparison including both_directional_fraction"
+    ],
+    "temporal_evidence_window": "24-step source prefix replay from M1280; no closed-loop rollout.",
+    "negative_result_policy": "If exact loss improves but directional gate remains weak, record weak-positive objective evidence and do not start PPO.",
+    "allowed_claims": [
+      "source-history objective update result audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "M1288 can be audited as an exact objective-level positive result while preserving the caveat that directional source-history gate metrics remain weak.",
+  "success_criteria": [
+    "docs/m1289-paper-route-source-history-objective-only-update-result-audit.md exists",
+    "audit records exact-loss improvement",
+    "audit records actor_mean_only mutation guardrail",
+    "audit records both_directional_fraction remains 0.0",
+    "audit chooses an explicit next branch step",
+    "no PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores directional caveat",
+    "audit treats M1288 as promoted",
+    "audit starts PPO directly",
+    "audit overclaims self-identification",
+    "PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1289-paper-route-source-history-objective-only-update-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1289-paper-route-source-history-objective-only-update-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m1288_source_history_objective_only_update/checkpoints/raw_objective_update.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1288-paper-route-source-history-objective-only-update-implementation.md",
+    "runs/m1288_source_history_objective_only_update/summary.json"
+  ],
+  "decision_rule": "M1289 passes if it audits M1288 as exact-loss-positive but non-promotable and chooses the next branch step without PPO.",
+  "next_blocker": "m1289-paper-route-source-history-objective-only-update-result-audit"
+}

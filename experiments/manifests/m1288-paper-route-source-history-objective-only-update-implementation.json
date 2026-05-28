@@ -156,7 +156,7 @@
     },
     {
       "name": "run_objective_update",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_history_objective_update --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --history-run-dir runs/m1280_four_wheel_source_response_history_materialization --intervention-run-dir runs/m1277_four_wheel_source_intervention_materialization --run-dir runs/m1288_source_history_objective_only_update --trainable-scope actor_mean_only --steps 100 --lr 0.0001"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_history_objective_update --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --history-run-dir runs/m1280_four_wheel_source_response_history_materialization --intervention-run-dir runs/m1277_four_wheel_source_intervention_materialization --run-dir runs/m1288_source_history_objective_only_update --device cpu --trainable-scope actor_mean_only --steps 100 --lr 0.0001"
     }
   ],
   "required_artifacts": [
@@ -176,6 +176,48 @@
     "docs/m1287-paper-route-source-history-objective-only-update-design.md",
     "runs/m1285_source_history_objective_evaluator/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1288_source_history_objective_only_update/summary.json",
+    "doc": "docs/m1288-paper-route-source-history-objective-only-update-implementation.md",
+    "decision": "source_history_objective_update_exact_loss_improved_route_to_result_audit",
+    "result_class": "source_history_objective_update_exact_loss_improved",
+    "row_count": 152,
+    "finite_before": true,
+    "finite_after": true,
+    "base_combined_loss_mean": 18.6105005714,
+    "after_combined_loss_mean": 7.1793530621,
+    "combined_loss_delta": -11.4311475093,
+    "base_correct_preference_loss_mean": 9.3052502857,
+    "after_correct_preference_loss_mean": 3.589676531,
+    "correct_preference_loss_delta": -5.7155737547,
+    "base_wrong_history_preference_loss_mean": 9.3052502857,
+    "after_wrong_history_preference_loss_mean": 3.589676531,
+    "wrong_history_preference_loss_delta": -5.7155737547,
+    "trainable_scope": "actor_mean_only",
+    "trainable_parameter_count": 387,
+    "frozen_parameter_count": 164292,
+    "actor_mean_changed": true,
+    "actor_mean_l2": 0.1133155453,
+    "actor_mean_max_abs": 0.0100500062,
+    "non_actor_mean_mutation_detected": false,
+    "non_actor_mean_l2": 0.0,
+    "non_actor_mean_max_abs": 0.0,
+    "before_both_directional_fraction": 0.0,
+    "after_both_directional_fraction": 0.0,
+    "before_preferred_hidden_margin_positive_fraction": 0.4868421053,
+    "after_preferred_hidden_margin_positive_fraction": 0.4078947368,
+    "labels_enter_actor_input": false,
+    "objective_update_started": true,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1289-paper-route-source-history-objective-only-update-result-audit.json"
+  },
+  "decision": "source_history_objective_update_exact_loss_improved_route_to_result_audit",
   "decision_rule": "M1288 passes as infrastructure if it implements a tiny actor-mean-only no-PPO update, improves exact M1285 loss, and routes to audit without promotion.",
-  "next_blocker": "m1288-paper-route-source-history-objective-only-update-implementation"
+  "next_blocker": "m1289-paper-route-source-history-objective-only-update-result-audit"
 }

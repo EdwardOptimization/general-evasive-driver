@@ -18626,3 +18626,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1288-paper-route-source-history-objective-only-update-implementation.json`.
 - decision: `source_history_objective_only_update_design_admit_tiny_actor_mean_implementation`
 - next: `m1288-paper-route-source-history-objective-only-update-implementation`
+
+## 20260528T140723Z - m1288-paper-route-source-history-objective-only-update-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1288_source_history_objective_only_update/summary.json`
+- implementation: added `src/autodrift/source_history_objective_update.py` and `tests/test_source_history_objective_update.py`.
+- validation: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_source_history_objective_update.py tests/test_source_history_objective_evaluator.py tests/test_source_history_policy_gate.py` passed with `5 passed`.
+- run checkpoint: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`.
+- trainable scope: `actor_mean_only`, `trainable_parameter_count=387`, `frozen_parameter_count=164292`.
+- exact objective before: `combined_loss_mean=18.6105005714`, `correct_preference_loss_mean=9.3052502857`, `wrong_history_preference_loss_mean=9.3052502857`.
+- exact objective after: `combined_loss_mean=7.1793530621`, `correct_preference_loss_mean=3.5896765310`, `wrong_history_preference_loss_mean=3.5896765310`.
+- exact objective delta: `combined_loss_delta=-11.4311475093`, `correct_preference_loss_delta=-5.7155737547`, `wrong_history_preference_loss_delta=-5.7155737547`.
+- mutation guardrail: `actor_mean_changed=true`, `actor_mean_l2=0.1133155453`, `actor_mean_max_abs=0.0100500062`, `non_actor_mean_mutation_detected=false`, `non_actor_mean_l2=0.0`.
+- caveat: `both_directional_fraction` remains `0.0`; `preferred_hidden_margin_positive_fraction` falls from `0.4868421053` to `0.4078947368`, so the update improves exact loss but is not yet a positive policy-side source-history gate.
+- guardrail: no PPO, promotion, private holdout, actor-input expansion, threshold relaxation, driver-performance claim, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1289-paper-route-source-history-objective-only-update-result-audit.json`.
+- decision: `source_history_objective_update_exact_loss_improved_route_to_result_audit`
+- next: `m1289-paper-route-source-history-objective-only-update-result-audit`

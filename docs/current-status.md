@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1287-paper-route-source-history-objective-only-update-design
+m1288-paper-route-source-history-objective-only-update-implementation
 ```
 
 Current next task:
 
 ```text
-m1288-paper-route-source-history-objective-only-update-implementation
+m1289-paper-route-source-history-objective-only-update-result-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -78,10 +78,17 @@ bounded objective-only update path: start from the M1154 public-gate base, updat
 only `actor_mean` parameters, evaluate the exact full-corpus M1285 residual
 before and after the update, require finite loss and negative combined-loss
 delta before any public replay gate, and route to a result audit before any PPO
-or promotion. The active blocker is M1288: implement the tiny
-`actor_mean_only` no-PPO objective update and write before/after objective,
-train trace, parameter-delta, and summary artifacts. PPO and promotion remain
-blocked.
+or promotion. M1288 implemented that tiny objective-only probe. It is
+objective-level positive: exact combined loss improved from `18.6105005714` to
+`7.1793530621`, only `actor_mean` changed (`actor_mean_l2=0.1133155453`,
+`non_actor_mean_l2=0.0`), and PPO/private holdout/promotion remained unused.
+The caveat is important: `both_directional_fraction` remains `0.0`, and
+`preferred_hidden_margin_positive_fraction` fell from `0.4868421053` to
+`0.4078947368`, so this is not a positive policy-side source-history gate and
+not a driver-performance claim. The active blocker is M1289: audit whether the
+M1288 exact-loss improvement is an admissible first step, a row-wise
+directional-repair target, or a public-corpus overfit signal. PPO and promotion
+remain blocked.
 
 ## Actor Contract
 

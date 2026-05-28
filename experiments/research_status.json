@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1297,
+    "completed": 1298,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1287-paper-route-source-history-objective-only-update-design.md",
+    "command_log": "docs/m1288-paper-route-source-history-objective-only-update-implementation.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1288_source_history_objective_only_update",
     "status": "completed",
-    "task_id": "m1287-paper-route-source-history-objective-only-update-design"
+    "task_id": "m1288-paper-route-source-history-objective-only-update-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1288-paper-route-source-history-objective-only-update-implementation.json",
-    "hypothesis": "A tiny actor-mean-only no-PPO update can reduce exact M1285 source-history residual while preserving mutation guardrails",
-    "id": "m1288-paper-route-source-history-objective-only-update-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded objective-only update; PPO and promotion remain blocked",
-    "priority": 12830,
+    "command": "see experiments/manifests/m1289-paper-route-source-history-objective-only-update-result-audit.json",
+    "hypothesis": "Audit M1288 as exact-loss-positive while preserving the directional-gate caveat",
+    "id": "m1289-paper-route-source-history-objective-only-update-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit exact objective improvement and decide next branch step; PPO and promotion remain blocked",
+    "priority": 12840,
     "status": "pending",
-    "success_artifact": "runs/m1288_source_history_objective_only_update/summary.json"
+    "success_artifact": "docs/m1289-paper-route-source-history-objective-only-update-result-audit.md"
   },
-  "updated_at_utc": "20260528T135947Z"
+  "updated_at_utc": "20260528T140723Z"
 }
