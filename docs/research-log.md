@@ -18900,3 +18900,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.json`.
 - decision: `source_history_trainable_scope_repeat_mixed_route_to_result_audit`
 - next: `m1303-paper-route-source-history-trainable-scope-repeat-result-audit`
+
+## 20260528T152033Z - m1303-paper-route-source-history-trainable-scope-repeat-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.md`
+- audited result: M1302 is split-sensitive mixed evidence, not repeat-robust evidence.
+- positive evidence: `fusion_head` passes `3/5` deterministic pair-disjoint split offsets and has no forbidden parameter mutation.
+- caveat: mean eval row/group fractions are `0.2335317460`, below the `0.25` repeat-strong threshold.
+- failed offsets: `2` and `4`.
+- supported claim: the source-history trainable-scope signal is real and not a single-offset artifact.
+- blocked claim: repeat-robust diagnostic, proof-retention design, PPO continuation, promotion, closed-loop driver performance, and strong self-ID remain blocked.
+- routing: no-training failed-offset/corpus audit before objective tuning or PPO.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1304-paper-route-source-history-repeat-failed-offset-audit.json`.
+- decision: `source_history_trainable_scope_repeat_audit_mixed_route_to_failed_offset_audit`
+- next: `m1304-paper-route-source-history-repeat-failed-offset-audit`

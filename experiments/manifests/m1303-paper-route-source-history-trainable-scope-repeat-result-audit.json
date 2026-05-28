@@ -153,6 +153,36 @@
     "docs/m1302-paper-route-source-history-trainable-scope-repeat-probe.md",
     "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.md",
+    "decision": "source_history_trainable_scope_repeat_audit_mixed_route_to_failed_offset_audit",
+    "m1302_result_class": "source_history_trainable_scope_repeat_mixed",
+    "scope": "fusion_head",
+    "offset_count": 5,
+    "offset_pass_count": 3,
+    "required_pass_count": 3,
+    "mean_eval_both_directional_fraction": 0.233531746,
+    "mean_eval_group_all_rows_both_positive_fraction": 0.233531746,
+    "mean_full_both_positive_count": 38.0,
+    "mean_full_group_all_rows_both_positive_count": 19.0,
+    "failed_offsets": [
+      2,
+      4
+    ],
+    "forbidden_parameter_mutation_detected": false,
+    "repeat_robust_claim_supported": false,
+    "failed_offset_audit_required": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1304-paper-route-source-history-repeat-failed-offset-audit.json"
+  },
+  "decision": "source_history_trainable_scope_repeat_audit_mixed_route_to_failed_offset_audit",
   "decision_rule": "M1303 passes if it audits M1302 as mixed split-sensitive evidence while keeping PPO and promotion blocked.",
-  "next_blocker": "m1303-paper-route-source-history-trainable-scope-repeat-result-audit"
+  "next_blocker": "m1304-paper-route-source-history-repeat-failed-offset-audit"
 }

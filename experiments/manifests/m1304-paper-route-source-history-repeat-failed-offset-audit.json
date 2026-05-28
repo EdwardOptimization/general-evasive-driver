@@ -1,0 +1,178 @@
+{
+  "id": "m1304-paper-route-source-history-repeat-failed-offset-audit",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/checkpoints/offset_0_fusion_head_candidate.pt",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/checkpoints/offset_1_fusion_head_candidate.pt",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/checkpoints/offset_2_fusion_head_candidate.pt",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/checkpoints/offset_3_fusion_head_candidate.pt",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/checkpoints/offset_4_fusion_head_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.md",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/repeat_summaries.csv",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/scope_summaries.csv",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/split_rows.csv",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/directional_rows.csv",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/group_rows.csv",
+      "runs/m1302_source_history_trainable_scope_repeat_probe/parameter_group_delta.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.json"
+    ],
+    "parent_objective": [
+      "audit failed split offsets before tuning or PPO"
+    ],
+    "derived_from": [
+      "m1303-paper-route-source-history-trainable-scope-repeat-result-audit"
+    ],
+    "blocked_by": [
+      "M1302 repeat is mixed: offsets 2 and 4 fail and mean eval fractions are below 0.25"
+    ],
+    "supersedes": [
+      "direct objective tuning from split-sensitive repeat result"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1304-paper-route-source-history-repeat-failed-offset-audit.md",
+  "public_gates": [
+    "M1304 must preserve actor input contract",
+    "M1304 must not run PPO",
+    "M1304 must not train",
+    "M1304 must not use private holdout",
+    "M1304 must not promote",
+    "M1304 must compare passing and failing offsets",
+    "M1304 must report whether failures concentrate by pair, family, template, or margin bucket"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not treat split-sensitive diagnostics as closed-loop proof",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_trainable_scope_escalation",
+    "evidence_axis": "S_failed_offset_audit",
+    "evidence_increment": "identifies whether M1302 failed offsets are caused by pair/family/template/margin concentration before objective tuning",
+    "claim_scope": "diagnostic infrastructure only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if audit requires training or PPO",
+      "stop if audit cannot identify passing versus failing offset composition",
+      "stop if artifacts needed for failed-offset comparison are missing"
+    ],
+    "fallback_plan": [
+      "if failed offsets are corpus-imbalanced, route to source-history corpus refresh",
+      "if failed offsets are objective-underweighted, route to objective-tune design",
+      "if failures are diffuse, route to sequence/trajectory preference design or branch synthesis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "seventh milestone in trainable-scope escalation branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "failed-offset source-history repeat audit",
+    "admission_evidence": [
+      "M1302 result_class=source_history_trainable_scope_repeat_mixed",
+      "M1302 offset_pass_count=3/5",
+      "M1302 failed offsets are 2 and 4",
+      "M1303 keeps PPO and promotion blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "failed-offset audit implementation",
+      "focused tests if implementation is added",
+      "M1304 run artifacts",
+      "M1304 result doc",
+      "status, queue, scoreboard, research log, and review",
+      "one next manifest"
+    ],
+    "next_stage_criteria": [
+      "passing and failing offsets are compared",
+      "failure concentration is classified",
+      "next routing is explicit",
+      "PPO remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1304 audits fixed-current source-history diagnostics and does not evaluate closed-loop history necessity.",
+    "history_necessity_tests": [
+      "compare correct-history versus wrong-history directional metrics across passing and failing split offsets",
+      "inspect whether failed offsets concentrate in source-history pairs or physical fault families"
+    ],
+    "temporal_evidence_window": "M1302 split-repeat fixed-current source-history diagnostics.",
+    "negative_result_policy": "If failures are concentrated, route to corpus refresh or objective redesign; if failures are diffuse, keep PPO blocked and synthesize the branch.",
+    "allowed_claims": [
+      "failed-offset diagnostic audit",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "M1302 failed offsets can be explained by source pair, fault-family, probe-template, or margin-bucket composition, enabling a better next routing decision than blind objective tuning.",
+  "success_criteria": [
+    "runs/m1304_source_history_repeat_failed_offset_audit/summary.json exists",
+    "docs/m1304-paper-route-source-history-repeat-failed-offset-audit.md exists",
+    "audit reports passing versus failing offsets",
+    "audit reports failed eval pairs or groups",
+    "audit reports whether failures concentrate by pair, fault family, probe template, or margin bucket",
+    "audit keeps PPO and promotion blocked",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "audit document is missing",
+    "audit cannot distinguish passing and failing offsets",
+    "audit starts training or PPO",
+    "audit uses private holdout",
+    "checkpoint is promoted",
+    "actor input contract changes",
+    "thresholds are relaxed after seeing results"
+  ],
+  "commands": [
+    {
+      "name": "run_failed_offset_audit",
+      "command": "PYTHONPATH=src python -m autodrift.source_history_repeat_failed_offset_audit --repeat-run-dir runs/m1302_source_history_trainable_scope_repeat_probe --history-run-dir runs/m1280_four_wheel_source_response_history_materialization --run-dir runs/m1304_source_history_repeat_failed_offset_audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1304_source_history_repeat_failed_offset_audit/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1304-paper-route-source-history-repeat-failed-offset-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.md",
+    "runs/m1302_source_history_trainable_scope_repeat_probe/summary.json",
+    "runs/m1302_source_history_trainable_scope_repeat_probe/repeat_summaries.csv",
+    "runs/m1302_source_history_trainable_scope_repeat_probe/directional_rows.csv",
+    "runs/m1302_source_history_trainable_scope_repeat_probe/group_rows.csv"
+  ],
+  "decision_rule": "M1304 passes if it classifies the M1302 failed offsets without training, PPO, promotion, private holdout use, threshold relaxation, or actor-input expansion.",
+  "next_blocker": "m1304-paper-route-source-history-repeat-failed-offset-audit"
+}

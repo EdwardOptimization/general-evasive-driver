@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1302-paper-route-source-history-trainable-scope-repeat-probe
+m1303-paper-route-source-history-trainable-scope-repeat-result-audit
 ```
 
 Current next task:
 
 ```text
-m1303-paper-route-source-history-trainable-scope-repeat-result-audit
+m1304-paper-route-source-history-repeat-failed-offset-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -130,8 +130,12 @@ passes plus clean mutation guards. M1302 implemented and ran the repeat. The
 result is mixed: `3/5` offsets pass, but mean eval row/group fractions are
 `0.2335317460`, below the `0.25` repeat-strong threshold. The active blocker is
 M1303: audit the split-sensitive mixed result and choose failed-offset,
-objective-tuning, corpus-refresh, or sequence-target routing. PPO and promotion
-remain blocked.
+objective-tuning, corpus-refresh, or sequence-target routing. M1303 completed
+that audit: the `fusion_head` signal is real but split-sensitive, with offsets
+`0`, `1`, and `3` passing and offsets `2` and `4` failing. The active blocker is
+M1304: run a no-training failed-offset/corpus audit to determine whether the
+failed offsets concentrate by source pair, fault family, probe template, or
+margin bucket before objective tuning or PPO. PPO and promotion remain blocked.
 
 ## Actor Contract
 

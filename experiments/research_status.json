@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1312,
+    "completed": 1313,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1302-paper-route-source-history-trainable-scope-repeat-probe.md",
+    "command_log": "docs/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1302_source_history_trainable_scope_repeat_probe",
+    "run_dir": "docs/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.md",
     "status": "completed",
-    "task_id": "m1302-paper-route-source-history-trainable-scope-repeat-probe"
+    "task_id": "m1303-paper-route-source-history-trainable-scope-repeat-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.json",
-    "hypothesis": "Audit M1302 mixed split-repeat result and choose failed-offset corpus objective routing before PPO",
-    "id": "m1303-paper-route-source-history-trainable-scope-repeat-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit mixed split-repeat result; PPO and promotion remain blocked",
-    "priority": 12980,
+    "command": "see experiments/manifests/m1304-paper-route-source-history-repeat-failed-offset-audit.json",
+    "hypothesis": "Classify M1302 failed split offsets by pair, family, template, or margin composition before objective tuning or PPO",
+    "id": "m1304-paper-route-source-history-repeat-failed-offset-audit",
+    "kind": "infrastructure",
+    "notes": "Pending: no-training failed-offset/corpus audit; PPO and promotion remain blocked",
+    "priority": 12990,
     "status": "pending",
-    "success_artifact": "docs/m1303-paper-route-source-history-trainable-scope-repeat-result-audit.md"
+    "success_artifact": "runs/m1304_source_history_repeat_failed_offset_audit/summary.json"
   },
-  "updated_at_utc": "20260528T151534Z"
+  "updated_at_utc": "20260528T152033Z"
 }
