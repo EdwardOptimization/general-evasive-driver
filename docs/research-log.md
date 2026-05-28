@@ -18004,3 +18004,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1250-paper-route-capability-separable-trajectory-proposal-source-smoke.json`.
 - decision: `trajectory_proposal_source_design_admit_bounded_smoke`
 - next: `m1250-paper-route-capability-separable-trajectory-proposal-source-smoke`
+
+## 20260528T104555Z - m1250-paper-route-capability-separable-trajectory-proposal-source-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json`
+- implementation: added `trajectory_proposal` candidate mode with branch-conditioned A/B proposals plus shared proposals; proposal metadata remains source-only.
+- result: infrastructure passes with `trajectory_proposals=425`, `trajectory_proposal_rollouts=850`, `relocation_candidates=96`, `fine_relocation_candidates=32`, `unique_matched_fault_family_pairs=2`, and `unique_matched_seeds=2`.
+- source result: `accepted_separable_pairs=0`, `best_actions_diverged_pairs=6`, `low_regret_pairs=7`, `near_boundary_viability_pairs=1`, `result_class=action_divergent_low_regret`.
+- key near-miss: pair 5 passes two-sided regret thresholds (`cross_regret_A=0.2439473105`, `cross_regret_B=0.0239608733`) but own-branch viability is still slightly negative (`pair_min_best_margin=-0.0018868557`).
+- interpretation: trajectory proposals improve source signal relative to fixed lattice, but still do not produce accepted source-positive rows.
+- guardrail: actor parameters unchanged; no labels entered actor inputs; no training, PPO, promotion, private holdout, actor-input expansion, self-ID claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.json`.
+- decision: `trajectory_proposal_source_near_miss_route_to_result_audit`
+- next: `m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit`

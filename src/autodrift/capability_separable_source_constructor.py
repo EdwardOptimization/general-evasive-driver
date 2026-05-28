@@ -290,6 +290,121 @@ def build_short_sequence_candidates(
     return candidates
 
 
+def _proposal_sequence(base: np.ndarray, delta: np.ndarray, *, template: str, length: int) -> np.ndarray:
+    if template == "hold":
+        scales = np.ones(length, dtype=np.float32)
+        sequence = [base + delta * float(scale) for scale in scales]
+    elif template == "release":
+        scales = np.linspace(1.0, 0.0, num=length, dtype=np.float32)
+        sequence = [base + delta * float(scale) for scale in scales]
+    elif template == "ramp":
+        scales = np.linspace(0.0, 1.0, num=length, dtype=np.float32)
+        sequence = [base + delta * float(scale) for scale in scales]
+    elif template == "steer_then_brake":
+        sequence = []
+        for step in range(length):
+            scale = 1.0 if step < max(1, length // 2) else 0.0
+            brake_scale = 0.0 if step < max(1, length // 2) else 1.0
+            step_delta = np.asarray([delta[0] * scale, delta[1] * 0.5, delta[2] * brake_scale], dtype=np.float32)
+            sequence.append(base + step_delta)
+    elif template == "brake_then_steer":
+        sequence = []
+        for step in range(length):
+            brake_scale = 1.0 if step < max(1, length // 2) else 0.0
+            steer_scale = 0.0 if step < max(1, length // 2) else 1.0
+            step_delta = np.asarray([delta[0] * steer_scale, delta[1] * 0.5, delta[2] * brake_scale], dtype=np.float32)
+            sequence.append(base + step_delta)
+    elif template == "reversal":
+        scales = np.linspace(1.0, -0.6, num=length, dtype=np.float32)
+        sequence = [base + np.asarray([delta[0] * float(scale), delta[1] * 0.5, delta[2]], dtype=np.float32) for scale in scales]
+    else:
+        raise ValueError(f"unknown proposal template {template!r}")
+    return np.clip(np.asarray(sequence, dtype=np.float32), -1.0, 1.0)
+
+
+def build_trajectory_proposal_candidates(
+    base_a_action: np.ndarray,
+    base_b_action: np.ndarray,
+    shared_base_action: np.ndarray,
+    *,
+    sequence_length: int,
+    proposal_count_per_condition: int,
+    proposal_seed: int,
+    steer_scale: float,
+    throttle_scale: float,
+    brake_scale: float,
+) -> list[dict[str, Any]]:
+    """Build branch-conditioned no-training trajectory proposals."""
+
+    base_a = np.asarray(base_a_action, dtype=np.float32)
+    base_b = np.asarray(base_b_action, dtype=np.float32)
+    shared_base = np.asarray(shared_base_action, dtype=np.float32)
+    for name, base in (("base_a_action", base_a), ("base_b_action", base_b), ("shared_base_action", shared_base)):
+        if base.shape != (3,):
+            raise ValueError(f"{name} must have shape (3,), got {base.shape}")
+    length = int(sequence_length)
+    if length < 1:
+        raise ValueError("sequence_length must be positive")
+    count = int(proposal_count_per_condition)
+    if count < 1:
+        raise ValueError("proposal_count_per_condition must be positive")
+
+    rng = np.random.default_rng(int(proposal_seed))
+    templates = ("hold", "release", "ramp", "steer_then_brake", "brake_then_steer", "reversal")
+    candidates: list[dict[str, Any]] = []
+    seen: set[tuple[float, ...]] = set()
+
+    def add_candidate(*, origin: str, base: np.ndarray, delta: np.ndarray, template: str, local_index: int) -> None:
+        nonlocal candidates
+        sequence = _proposal_sequence(base, delta.astype(np.float32), template=template, length=length)
+        flat = sequence.reshape(-1).astype(np.float32)
+        key = tuple(round(float(value), 6) for value in flat.tolist())
+        if key in seen:
+            return
+        seen.add(key)
+        candidates.append(
+            {
+                "candidate_id": len(candidates),
+                "template": template,
+                "candidate_origin": origin,
+                "proposal_seed": int(proposal_seed),
+                "proposal_local_index": int(local_index),
+                "steer_delta": float(delta[0]),
+                "throttle_delta": float(delta[1]),
+                "brake_delta": float(delta[2]),
+                "sequence": sequence,
+                "candidate_vector": flat,
+                "action_l2_from_shared_base": float(
+                    np.linalg.norm(flat - np.tile(shared_base, length)) / math.sqrt(length)
+                ),
+            }
+        )
+
+    for origin, base in (("A", base_a), ("B", base_b)):
+        add_candidate(origin=origin, base=base, delta=np.zeros(3, dtype=np.float32), template="hold", local_index=-1)
+        for local_index in range(count):
+            template = templates[local_index % len(templates)]
+            delta = np.asarray(
+                [
+                    rng.uniform(-float(steer_scale), float(steer_scale)),
+                    rng.uniform(-float(throttle_scale), float(throttle_scale)),
+                    rng.uniform(-float(brake_scale), float(brake_scale)),
+                ],
+                dtype=np.float32,
+            )
+            add_candidate(origin=origin, base=base, delta=delta, template=template, local_index=local_index)
+
+    shared_deltas = (
+        np.asarray([0.0, 0.0, 0.0], dtype=np.float32),
+        np.asarray([float(steer_scale), 0.0, float(brake_scale)], dtype=np.float32),
+        np.asarray([-float(steer_scale), 0.0, float(brake_scale)], dtype=np.float32),
+        np.asarray([0.0, -float(throttle_scale), float(brake_scale)], dtype=np.float32),
+    )
+    for local_index, delta in enumerate(shared_deltas):
+        add_candidate(origin="shared", base=shared_base, delta=delta, template=templates[local_index], local_index=local_index)
+    return candidates
+
+
 def _pair_min_best_margin(decision: dict[str, Any]) -> float:
     return min(
         _finite_float(decision.get("margin_A_best_A")),
@@ -551,6 +666,11 @@ def _evaluate_pair_lattice(
     candidate_mode: str,
     sequence_length: int,
     sequence_template_set: str,
+    proposal_count_per_condition: int,
+    proposal_seed: int,
+    proposal_steer_scale: float,
+    proposal_throttle_scale: float,
+    proposal_brake_scale: float,
     max_continuation_steps: int,
     device: torch.device,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
@@ -584,6 +704,18 @@ def _evaluate_pair_lattice(
             sequence_length=sequence_length,
             template_set=sequence_template_set,
         )
+    elif candidate_mode == "trajectory_proposal":
+        candidates = build_trajectory_proposal_candidates(
+            base_a,
+            base_b,
+            shared_base,
+            sequence_length=sequence_length,
+            proposal_count_per_condition=proposal_count_per_condition,
+            proposal_seed=int(proposal_seed) + int(pair_id) * 1009,
+            steer_scale=proposal_steer_scale,
+            throttle_scale=proposal_throttle_scale,
+            brake_scale=proposal_brake_scale,
+        )
     else:
         raise ValueError(f"unknown candidate_mode {candidate_mode!r}")
     lattice_rows: list[dict[str, Any]] = []
@@ -597,6 +729,9 @@ def _evaluate_pair_lattice(
                 "pair_id": int(pair_id),
                 "candidate_id": int(candidate["candidate_id"]),
                 "candidate_mode": candidate_mode,
+                "candidate_origin": str(candidate.get("candidate_origin", "shared")),
+                "proposal_seed": int(candidate.get("proposal_seed", -1)),
+                "proposal_local_index": int(candidate.get("proposal_local_index", -1)),
                 "sequence_length": int(sequence.shape[0]),
                 "template": str(candidate["template"]),
                 "shared_base_steer": float(shared_base[0]),
@@ -643,6 +778,9 @@ def _evaluate_pair_lattice(
                     "pair_id": int(pair_id),
                     "candidate_id": int(candidate["candidate_id"]),
                     "candidate_mode": candidate_mode,
+                    "candidate_origin": str(candidate.get("candidate_origin", "shared")),
+                    "proposal_seed": int(candidate.get("proposal_seed", -1)),
+                    "proposal_local_index": int(candidate.get("proposal_local_index", -1)),
                     "sequence_length": int(sequence.shape[0]),
                     "template": str(candidate["template"]),
                     "condition": condition,
@@ -679,6 +817,11 @@ def _evaluate_pair_with_relocation_candidates(
     candidate_mode: str,
     sequence_length: int,
     sequence_template_set: str,
+    proposal_count_per_condition: int,
+    proposal_seed: int,
+    proposal_steer_scale: float,
+    proposal_throttle_scale: float,
+    proposal_brake_scale: float,
     max_continuation_steps: int,
     min_best_action_l2: float,
     min_cross_regret_margin: float,
@@ -705,6 +848,11 @@ def _evaluate_pair_with_relocation_candidates(
         candidate_mode=candidate_mode,
         sequence_length=sequence_length,
         sequence_template_set=sequence_template_set,
+        proposal_count_per_condition=proposal_count_per_condition,
+        proposal_seed=proposal_seed,
+        proposal_steer_scale=proposal_steer_scale,
+        proposal_throttle_scale=proposal_throttle_scale,
+        proposal_brake_scale=proposal_brake_scale,
         max_continuation_steps=max_continuation_steps,
         device=device,
     )
@@ -765,6 +913,11 @@ def _evaluate_pair_with_relocation_candidates(
             candidate_mode=candidate_mode,
             sequence_length=sequence_length,
             sequence_template_set=sequence_template_set,
+            proposal_count_per_condition=proposal_count_per_condition,
+            proposal_seed=proposal_seed,
+            proposal_steer_scale=proposal_steer_scale,
+            proposal_throttle_scale=proposal_throttle_scale,
+            proposal_brake_scale=proposal_brake_scale,
             max_continuation_steps=max_continuation_steps,
             device=device,
         )
@@ -887,6 +1040,11 @@ def run_capability_separable_source_constructor(
     candidate_mode: str = "first_action",
     sequence_length: int = 1,
     sequence_template_set: str = "steer_brake_pulses",
+    proposal_count_per_condition: int = 24,
+    proposal_seed: int = 125000,
+    proposal_steer_scale: float = 0.45,
+    proposal_throttle_scale: float = 0.25,
+    proposal_brake_scale: float = 0.45,
     source_window_mode: str = "matched_current",
     target_min_best_margin: float = 0.02,
     target_max_best_margin: float = 0.5,
@@ -1020,6 +1178,11 @@ def run_capability_separable_source_constructor(
             candidate_mode=candidate_mode,
             sequence_length=sequence_length,
             sequence_template_set=sequence_template_set,
+            proposal_count_per_condition=proposal_count_per_condition,
+            proposal_seed=proposal_seed,
+            proposal_steer_scale=proposal_steer_scale,
+            proposal_throttle_scale=proposal_throttle_scale,
+            proposal_brake_scale=proposal_brake_scale,
             max_continuation_steps=max_continuation_steps,
             min_best_action_l2=min_best_action_l2,
             min_cross_regret_margin=min_cross_regret_margin,
@@ -1096,6 +1259,9 @@ def run_capability_separable_source_constructor(
     if candidate_mode == "short_sequence":
         write_csv_rows(run_dir / "sequence_lattice.csv", lattice_rows)
         write_csv_rows(run_dir / "sequence_rollouts.csv", action_rollout_rows)
+    if candidate_mode == "trajectory_proposal":
+        write_csv_rows(run_dir / "trajectory_proposals.csv", lattice_rows)
+        write_csv_rows(run_dir / "trajectory_proposal_rollouts.csv", action_rollout_rows)
     write_csv_rows(run_dir / "relocation_candidates.csv", relocation_rows)
     write_csv_rows(
         run_dir / "relocated_source_pairs.csv",
@@ -1123,6 +1289,11 @@ def run_capability_separable_source_constructor(
         "candidate_mode": candidate_mode,
         "sequence_length": int(sequence_length),
         "sequence_template_set": sequence_template_set,
+        "proposal_count_per_condition": int(proposal_count_per_condition),
+        "proposal_seed": int(proposal_seed),
+        "proposal_steer_scale": float(proposal_steer_scale),
+        "proposal_throttle_scale": float(proposal_throttle_scale),
+        "proposal_brake_scale": float(proposal_brake_scale),
         "source_window_mode": source_window_mode,
         "target_min_best_margin": float(target_min_best_margin),
         "target_max_best_margin": float(target_max_best_margin),
@@ -1142,6 +1313,8 @@ def run_capability_separable_source_constructor(
         "action_rollouts": int(len(action_rollout_rows)),
         "sequence_lattice_rows": int(len(lattice_rows)) if candidate_mode == "short_sequence" else 0,
         "sequence_rollouts": int(len(action_rollout_rows)) if candidate_mode == "short_sequence" else 0,
+        "trajectory_proposals": int(len(lattice_rows)) if candidate_mode == "trajectory_proposal" else 0,
+        "trajectory_proposal_rollouts": int(len(action_rollout_rows)) if candidate_mode == "trajectory_proposal" else 0,
         "accepted_separable_pairs": int(len(accepted_rows)),
         "rejected_pairs": int(len(rejected_rows)),
         "relocation_candidates": int(len(relocation_rows)),
@@ -1167,6 +1340,10 @@ def run_capability_separable_source_constructor(
         "matched_capability_pairs_csv": run_dir / "matched_capability_pairs.csv",
         "action_lattice_csv": run_dir / "action_lattice.csv",
         "action_rollouts_csv": run_dir / "action_rollouts.csv",
+        "trajectory_proposals_csv": run_dir / "trajectory_proposals.csv" if candidate_mode == "trajectory_proposal" else None,
+        "trajectory_proposal_rollouts_csv": run_dir / "trajectory_proposal_rollouts.csv"
+        if candidate_mode == "trajectory_proposal"
+        else None,
         "relocation_candidates_csv": run_dir / "relocation_candidates.csv",
         "relocated_source_pairs_csv": run_dir / "relocated_source_pairs.csv",
         "accepted_separable_pairs_csv": run_dir / "accepted_separable_pairs.csv",
@@ -1192,9 +1369,18 @@ def main() -> None:
     parser.add_argument("--steer-deltas", type=parse_float_list, default=(-0.30, -0.15, 0.0, 0.15, 0.30))
     parser.add_argument("--throttle-deltas", type=parse_float_list, default=(-0.20, 0.0, 0.20))
     parser.add_argument("--brake-deltas", type=parse_float_list, default=(-0.30, -0.15, 0.0, 0.15, 0.30))
-    parser.add_argument("--candidate-mode", choices=["first_action", "short_sequence"], default="first_action")
+    parser.add_argument(
+        "--candidate-mode",
+        choices=["first_action", "short_sequence", "trajectory_proposal"],
+        default="first_action",
+    )
     parser.add_argument("--sequence-length", type=int, default=1)
     parser.add_argument("--sequence-template-set", choices=["steer_brake_pulses"], default="steer_brake_pulses")
+    parser.add_argument("--proposal-count-per-condition", type=int, default=24)
+    parser.add_argument("--proposal-seed", type=int, default=125000)
+    parser.add_argument("--proposal-steer-scale", type=float, default=0.45)
+    parser.add_argument("--proposal-throttle-scale", type=float, default=0.25)
+    parser.add_argument("--proposal-brake-scale", type=float, default=0.45)
     parser.add_argument(
         "--source-window-mode",
         choices=["matched_current", "viability_band_relocation"],
@@ -1230,6 +1416,11 @@ def main() -> None:
         candidate_mode=args.candidate_mode,
         sequence_length=args.sequence_length,
         sequence_template_set=args.sequence_template_set,
+        proposal_count_per_condition=args.proposal_count_per_condition,
+        proposal_seed=args.proposal_seed,
+        proposal_steer_scale=args.proposal_steer_scale,
+        proposal_throttle_scale=args.proposal_throttle_scale,
+        proposal_brake_scale=args.proposal_brake_scale,
         source_window_mode=args.source_window_mode,
         target_min_best_margin=args.target_min_best_margin,
         target_max_best_margin=args.target_max_best_margin,

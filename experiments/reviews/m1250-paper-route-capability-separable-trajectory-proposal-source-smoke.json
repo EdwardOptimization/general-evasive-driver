@@ -1,0 +1,95 @@
+{
+  "decision_reason": "M1250 proposal source smoke produced 425 proposals and a two-sided regret near-miss but accepted_separable_pairs remains 0",
+  "failure_criteria": [
+    "proposal source cannot produce trajectory proposals",
+    "proposal source cannot produce rollouts",
+    "actor parameters change",
+    "proposal labels or oracle outcomes enter actor observations",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden parameters, proposal labels, oracle outcomes, or search outputs to actor inputs",
+    "do not claim self-identification from source construction",
+    "do not relax cross-regret thresholds after seeing the result"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T104849Z",
+  "hypothesis": "Condition-wise trajectory proposals can expose accepted capability-separable source rows that fixed shared lattices and local relocation missed.",
+  "lineage": {
+    "blocked_by": [
+      "M1248 finds fixed-lattice local relocation exhausted and M1249 selects trajectory proposal source mining"
+    ],
+    "derived_from": [
+      "m1249-paper-route-capability-separable-trajectory-proposal-source-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1249-paper-route-capability-separable-trajectory-proposal-source-design.json",
+      "configs/m1236_extreme_fault_timing_repair_smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m1249-paper-route-capability-separable-trajectory-proposal-source-design.md",
+      "docs/m1248-paper-route-capability-separable-fine-relocation-negative-audit.md",
+      "runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "run a bounded no-training condition-wise trajectory proposal source smoke"
+    ],
+    "supersedes": [
+      "another local relocation-grid expansion before testing proposal source strength"
+    ]
+  },
+  "milestone": "m1250-paper-route-capability-separable-trajectory-proposal-source-smoke",
+  "next_blocker": "m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "trajectory_proposal_source_near_miss_route_to_result_audit",
+  "public_gates": [
+    "M1250 must preserve actor input contract",
+    "M1250 must not train controllers",
+    "M1250 must not run PPO",
+    "M1250 must not use private holdout",
+    "M1250 must not promote",
+    "M1250 must keep proposal labels and oracle outcomes out of deployable actor inputs",
+    "M1250 must report accepted separable pairs as diagnostic source evidence only"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "trajectory_proposal_source_near_miss_route_to_result_audit",
+    "milestone": "m1250-paper-route-capability-separable-trajectory-proposal-source-smoke",
+    "reason": "M1250 proposal source smoke produced 425 proposals and a two-sided regret near-miss but accepted_separable_pairs remains 0",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "trajectory proposal source code exists",
+    "focused tests exist",
+    "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json exists",
+    "trajectory_proposals > 0",
+    "trajectory_proposal_rollouts > 0",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "labels_enter_actor_input == false",
+    "private holdout remains unused",
+    "no actor-input contract expansion occurs"
+  ],
+  "type": "infrastructure"
+}

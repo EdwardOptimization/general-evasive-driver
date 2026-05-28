@@ -159,6 +159,37 @@
     "docs/m1249-paper-route-capability-separable-trajectory-proposal-source-design.md",
     "runs/m1247_capability_separable_fine_relocation_calibration_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json",
+    "decision": "trajectory_proposal_source_near_miss_route_to_result_audit",
+    "result_class": "action_divergent_low_regret",
+    "candidate_pair_count": 204,
+    "matched_pair_count": 8,
+    "trajectory_proposals": 425,
+    "trajectory_proposal_rollouts": 850,
+    "relocation_candidates": 96,
+    "coarse_relocation_candidates": 64,
+    "fine_relocation_candidates": 32,
+    "near_boundary_viability_pairs": 1,
+    "accepted_separable_pairs": 0,
+    "best_actions_diverged_pairs": 6,
+    "low_regret_pairs": 7,
+    "unique_matched_fault_family_pairs": 2,
+    "unique_matched_seeds": 2,
+    "key_near_miss_pair_id": 5,
+    "key_near_miss_min_cross_regret": 0.0239608733,
+    "key_near_miss_pair_min_best_margin": -0.0018868557,
+    "actor_parameters_changed": false,
+    "labels_enter_actor_input": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.json"
+  },
+  "decision": "trajectory_proposal_source_near_miss_route_to_result_audit",
   "decision_rule": "M1250 passes as infrastructure if proposal candidates and rollouts are produced without actor mutation, training, PPO, promotion, private holdout, or actor-input expansion. Accepted separable pairs are diagnostic source evidence only.",
-  "next_blocker": "m1250-paper-route-capability-separable-trajectory-proposal-source-smoke"
+  "next_blocker": "m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit"
 }

@@ -115,7 +115,46 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1250-paper-route-capability-separable-trajectory-proposal-source-smoke
+m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit
+```
+
+M1250 completed capability-separable trajectory proposal source smoke:
+
+```text
+artifact: runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json
+decision: trajectory_proposal_source_near_miss_route_to_result_audit
+result_class: action_divergent_low_regret
+```
+
+M1250 result:
+
+```text
+matched_pair_count: 8
+trajectory_proposals: 425
+trajectory_proposal_rollouts: 850
+near_boundary_viability_pairs: 1
+accepted_separable_pairs: 0
+best_actions_diverged_pairs: 6
+low_regret_pairs: 7
+```
+
+M1250 conclusion:
+
+```text
+Trajectory proposals improve the source signal but still do not produce
+accepted source-positive rows. Pair 5 passes two-sided cross-regret thresholds
+but remains slightly nonviable, with pair_min_best_margin -0.0018868557.
+```
+
+Next task:
+
+```text
+artifact: docs/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.md
+manifest: experiments/manifests/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.json
+goal: audit the near-miss without lowering thresholds and choose targeted
+      source repair or branch pivot
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1249 completed capability-separable trajectory proposal source design:

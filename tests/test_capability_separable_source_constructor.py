@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from autodrift.capability_separable_source_constructor import (
     build_short_sequence_candidates,
+    build_trajectory_proposal_candidates,
     classify_capability_separable_result,
     evaluate_action_separability,
     fine_relocation_geometry_candidates,
@@ -161,3 +162,25 @@ def test_fine_relocation_geometry_candidates_refines_width_and_lateral_offset():
     assert len({(candidate["body_x"], candidate["body_y"], candidate["half_width"]) for candidate in candidates}) == len(
         candidates
     )
+
+
+def test_build_trajectory_proposal_candidates_includes_branch_origins():
+    candidates = build_trajectory_proposal_candidates(
+        np.asarray([0.1, 0.0, 0.2], dtype=np.float32),
+        np.asarray([-0.1, 0.0, 0.4], dtype=np.float32),
+        np.asarray([0.0, 0.0, 0.3], dtype=np.float32),
+        sequence_length=4,
+        proposal_count_per_condition=3,
+        proposal_seed=7,
+        steer_scale=0.2,
+        throttle_scale=0.1,
+        brake_scale=0.2,
+    )
+
+    assert candidates
+    assert {"A", "B", "shared"}.issubset({candidate["candidate_origin"] for candidate in candidates})
+    assert len({tuple(candidate["candidate_vector"].tolist()) for candidate in candidates}) == len(candidates)
+    for candidate in candidates:
+        assert candidate["sequence"].shape == (4, 3)
+        assert candidate["candidate_vector"].shape == (12,)
+        assert candidate["action_l2_from_shared_base"] >= 0.0

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1259,
+    "completed": 1260,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1249-paper-route-capability-separable-trajectory-proposal-source-design.md",
+    "command_log": "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m1250_capability_separable_trajectory_proposal_source_smoke",
     "status": "completed",
-    "task_id": "m1249-paper-route-capability-separable-trajectory-proposal-source-design"
+    "task_id": "m1250-paper-route-capability-separable-trajectory-proposal-source-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1250-paper-route-capability-separable-trajectory-proposal-source-smoke.json",
-    "hypothesis": "Run condition-wise trajectory proposal source smoke",
-    "id": "m1250-paper-route-capability-separable-trajectory-proposal-source-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run bounded no-training trajectory proposal source smoke",
-    "priority": 12450,
+    "command": "see experiments/manifests/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.json",
+    "hypothesis": "Audit trajectory proposal source near-miss",
+    "id": "m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit",
+    "kind": "gate",
+    "notes": "Pending: classify M1250 near-miss before threshold changes, training, or another source run",
+    "priority": 12460,
     "status": "pending",
-    "success_artifact": "runs/m1250_capability_separable_trajectory_proposal_source_smoke/summary.json"
+    "success_artifact": "docs/m1251-paper-route-capability-separable-trajectory-proposal-near-miss-audit.md"
   },
-  "updated_at_utc": "20260528T103902Z"
+  "updated_at_utc": "20260528T104555Z"
 }
