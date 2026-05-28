@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1315-paper-route-source-history-corpus-expansion-plan
+m1316-paper-route-source-history-source-generator-update-design
 ```
 
 Current next task:
 
 ```text
-m1316-paper-route-source-history-source-generator-update-design
+m1317-paper-route-source-generator-update-smoke
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -204,8 +204,15 @@ existing artifacts provide only `108` source pairs, `216` pair-probe groups,
 `3` families, and `38` already materialized source pairs; max source-family fold
 share is `0.5789473684`, above the `<=0.40` target. The plan explicitly reports
 `7` unsupported or undercovered families. The active blocker is M1316: design
-source generator updates before materialization or objective tuning. PPO and
-promotion remain blocked.
+source generator updates before materialization or objective tuning. M1316
+completed that design. It keeps split-mu, single-wheel grip collapse, and brake
+asymmetry as supported families; routes halfshaft to a drive-sensitive action
+profile; routes steering and load/CG to per-condition vehicle-parameter
+overrides; routes global friction to uniform per-wheel scales; and allows only a
+bounded tire-blowout-like drag proxy, not a high-fidelity blowout claim. The
+active blocker is M1317: implement these selectable fault/scenario/action
+profiles and run one no-policy source-generation smoke. PPO and promotion remain
+blocked.
 
 ## Actor Contract
 

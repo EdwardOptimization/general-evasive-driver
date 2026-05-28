@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1325,
+    "completed": 1326,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1315-paper-route-source-history-corpus-expansion-plan.md",
+    "command_log": "docs/m1316-paper-route-source-history-source-generator-update-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1315_source_history_corpus_expansion_plan",
+    "run_dir": "docs/m1316-paper-route-source-history-source-generator-update-design.md",
     "status": "completed",
-    "task_id": "m1315-paper-route-source-history-corpus-expansion-plan"
+    "task_id": "m1316-paper-route-source-history-source-generator-update-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1316-paper-route-source-history-source-generator-update-design.json",
-    "hypothesis": "Design source generator updates for missing and undercovered source-history families",
-    "id": "m1316-paper-route-source-history-source-generator-update-design",
-    "kind": "gate",
-    "notes": "Pending: source generator update design; PPO and promotion remain blocked",
-    "priority": 13110,
+    "command": "see experiments/manifests/m1317-paper-route-source-generator-update-smoke.json",
+    "hypothesis": "Implement and smoke-test expanded no-policy source generator profiles",
+    "id": "m1317-paper-route-source-generator-update-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: expanded no-policy source generation smoke; PPO and promotion remain blocked",
+    "priority": 13120,
     "status": "pending",
-    "success_artifact": "docs/m1316-paper-route-source-history-source-generator-update-design.md"
+    "success_artifact": "runs/m1317_source_generator_update_smoke/summary.json"
   },
-  "updated_at_utc": "20260528T162838Z"
+  "updated_at_utc": "20260528T163410Z"
 }

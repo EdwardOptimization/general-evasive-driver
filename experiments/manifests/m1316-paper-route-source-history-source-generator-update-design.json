@@ -149,6 +149,33 @@
     "runs/m1315_source_history_corpus_expansion_plan/summary.json",
     "runs/m1315_source_history_corpus_expansion_plan/requires_source_generator_update.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1316-paper-route-source-history-source-generator-update-design.md",
+    "doc": "docs/m1316-paper-route-source-history-source-generator-update-design.md",
+    "decision": "source_generator_update_design_admit_source_generation_smoke",
+    "supported_immediate_families": [
+      "left_right_split_mu",
+      "single_wheel_grip_collapse",
+      "single_wheel_brake_pull"
+    ],
+    "supported_after_generator_update": [
+      "halfshaft_torque_loss with drive-sensitive action profile",
+      "global_friction_step with uniform per-wheel scale",
+      "steering_actuator_fault with vehicle-parameter override",
+      "load_cg_perturbation with vehicle-parameter override",
+      "tire_blowout_like with explicit per-wheel drag proxy"
+    ],
+    "blocked_high_fidelity_claims": [
+      "true tire blowout physics",
+      "true drivetrain halfshaft transient",
+      "true suspension damage",
+      "external-simulator validation",
+      "real-vehicle validation"
+    ],
+    "next_manifest": "experiments/manifests/m1317-paper-route-source-generator-update-smoke.json"
+  },
+  "decision": "source_generator_update_design_admit_source_generation_smoke",
   "decision_rule": "M1316 passes if it designs source generator updates and acceptance criteria without training, PPO, promotion, private holdout use, threshold relaxation, fake labels, or actor-input expansion.",
-  "next_blocker": "m1316-paper-route-source-history-source-generator-update-design"
+  "next_blocker": "m1317-paper-route-source-generator-update-smoke"
 }

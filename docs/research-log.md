@@ -19144,3 +19144,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1316-paper-route-source-history-source-generator-update-design.json`.
 - decision: `source_history_corpus_expansion_plan_gap_reported_route_to_source_generator_update_design`
 - next: `m1316-paper-route-source-history-source-generator-update-design`
+
+## 20260528T163410Z - m1316-paper-route-source-history-source-generator-update-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1316-paper-route-source-history-source-generator-update-design.md`
+- decision: `source_generator_update_design_admit_source_generation_smoke`
+- evidence: M1315 reports only `108` source pairs, `216` pair-probe groups, `3` source families, and max source-family fold share `0.5789473684`.
+- supported current families: split-mu, single-wheel grip collapse, and brake asymmetry are representable but need more variants and better fold balance.
+- supported after update: halfshaft requires drive-sensitive action templates; steering and load/CG require per-condition vehicle-parameter overrides; global friction can use uniform per-wheel scale; tire blowout-like requires an explicit per-wheel drag proxy rather than a renamed grip-collapse label.
+- blocked claims: true tire blowout physics, true drivetrain halfshaft transient, true suspension damage, external-simulator validation, real-vehicle validation, paper-level result, and closed-loop self-identification proof.
+- acceptance design: keep strict source gates for own-branch success, nonnegative own margins, `best_action_l2>=0.12`, and both cross-regrets `>=0.02`; inactive families must be exported separately.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1317-paper-route-source-generator-update-smoke.json`.
+- next: `m1317-paper-route-source-generator-update-smoke`
