@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1409,
+    "completed": 1410,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1399-paper-route-warmup-reveal-pressure-redesign.md",
+    "command_log": "docs/m1400-paper-route-warmup-reveal-pressure-source-smoke.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1400_warmup_reveal_pressure_source_smoke",
     "status": "completed",
-    "task_id": "m1399-paper-route-warmup-reveal-pressure-redesign"
+    "task_id": "m1400-paper-route-warmup-reveal-pressure-source-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1400-paper-route-warmup-reveal-pressure-source-smoke.json",
-    "hypothesis": "A no-training late-reveal source smoke can materialize matched or bucketed warmup-latched rows while increasing reveal pressure relative to M1394.",
-    "id": "m1400-paper-route-warmup-reveal-pressure-source-smoke",
+    "command": "see experiments/manifests/m1401-paper-route-warmup-reveal-pressure-outcome-probe.json",
+    "hypothesis": "No-training margin-banded outcome interventions over M1400 late-reveal rows can determine whether stronger reveal pressure creates source-diverse history-relevant outcome gaps.",
+    "id": "m1401-paper-route-warmup-reveal-pressure-outcome-probe",
     "kind": "infrastructure",
-    "notes": "Pending: run late-reveal source smoke before outcome intervention, corpus export, or training",
-    "priority": 13950,
+    "notes": "Pending: implement or run margin-banded late-reveal outcome probe before corpus export or training",
+    "priority": 13960,
     "status": "pending",
-    "success_artifact": "runs/m1400_warmup_reveal_pressure_source_smoke/summary.json"
+    "success_artifact": "runs/m1401_warmup_reveal_pressure_outcome_probe/summary.json"
   },
-  "updated_at_utc": "20260529T024000Z"
+  "updated_at_utc": "20260529T025000Z"
 }

@@ -16,21 +16,42 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1399-paper-route-warmup-reveal-pressure-redesign
+m1400-paper-route-warmup-reveal-pressure-source-smoke
 ```
 
 Current next task:
 
 ```text
-m1400-paper-route-warmup-reveal-pressure-source-smoke
+m1401-paper-route-warmup-reveal-pressure-outcome-probe
 ```
 
-M1399 designed the first source route in the new warmup/reveal pressure
-redesign branch. The current public-gate base remains M1362 alpha `0.1`:
+M1400 ran the late-reveal source smoke from the warmup/reveal pressure redesign
+branch. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1400 result:
+
+```text
+decision: late_reveal_source_smoke_structural_pass_admit_margin_banded_outcome_probe
+result_class: warmup_latched_structural_pass
+source_rows: 1604
+matched_or_bucketed_reveal_rows: 256
+source unique_source_seeds: 24
+matched/bucketed unique_source_seeds: 23
+matched/bucketed unique_capability_pairs: 16
+matched/bucketed unique_reveal_buckets: 92
+matched/bucketed reveal steps: 64,72,80
+next: m1401-paper-route-warmup-reveal-pressure-outcome-probe
+```
+
+M1400 shows late reveal is structurally viable mostly at steps `64/72/80`;
+steps `88/96` are too late for matched/bucketed source rows. Compared with
+M1394, M1400 has fewer rows but stronger warmup/history divergence. M1401 must
+run or implement a no-training margin-banded outcome probe before any corpus
+export, PPO, training, private holdout, promotion, or claim expansion.
 
 M1399 result:
 

@@ -20648,3 +20648,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new source sweep, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1400-paper-route-warmup-reveal-pressure-source-smoke.json`.
 - next: `m1400-paper-route-warmup-reveal-pressure-source-smoke`
+
+## 20260529T025000Z - m1400-paper-route-warmup-reveal-pressure-source-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1400_warmup_reveal_pressure_source_smoke/summary.json`
+- result doc: `docs/m1400-paper-route-warmup-reveal-pressure-source-smoke.md`
+- decision: `late_reveal_source_smoke_structural_pass_admit_margin_banded_outcome_probe`
+- command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.warmup_latched_config_smoke --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m991_capability_step_fault_source_wave.json --seed-start 140000 --seed-count 48 --reveal-steps 64,72,80,88,96 --history-length 48 --min-warmup-evidence-steps 12 --max-source-rows 6144 --device cpu --run-dir runs/m1400_warmup_reveal_pressure_source_smoke`
+- result class: `warmup_latched_structural_pass`
+- counts: `source_rows=1604`, `matched_current_rows=198`, `bucketed_current_rows=110`, `matched_or_bucketed_reveal_rows=256`, `finite_metric_rows=1604`, `rejected_rows=6556`.
+- source diversity: all rows span `24` seeds, `16` capability pairs, and `349` reveal buckets; matched/bucketed rows span `23` seeds, `16` capability pairs, and `92` reveal buckets.
+- reveal-step diagnostic: matched/bucketed rows are concentrated at steps `64` (`144`), `72` (`80`), and `80` (`32`); steps `88` and `96` produce zero matched/bucketed rows.
+- comparison to M1394: M1400 has fewer matched/bucketed rows (`256` vs `604`) but stronger divergence (`warmup_history_l2_p95=0.09223` vs `0.07154`, `current_hidden_l2_p95=0.66495` vs `0.58974`).
+- interpretation: late reveal is structurally viable for steps 64/72/80 and admits a margin-banded outcome probe; it does not admit corpus export or training.
+- guardrail: `actor_parameters_changed=false`, `training_started=false`, `evaluation_started=false`, `ppo_used=false`, `promoted=false`, `private_holdout_used=false`, `training_corpus_exported=false`, `actor_input_contract_changed=false`.
+- follow-up manifest: `experiments/manifests/m1401-paper-route-warmup-reveal-pressure-outcome-probe.json`.
+- next: `m1401-paper-route-warmup-reveal-pressure-outcome-probe`

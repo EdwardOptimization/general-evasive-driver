@@ -2,7 +2,7 @@
   "id": "m1400-paper-route-warmup-reveal-pressure-source-smoke",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -149,6 +149,41 @@
     "runs/m1394_warmup_latched_config_smoke/summary.json",
     "runs/m1397_warmup_latched_outcome_full_sweep/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1400_warmup_reveal_pressure_source_smoke/summary.json",
+    "result_doc": "docs/m1400-paper-route-warmup-reveal-pressure-source-smoke.md",
+    "decision": "late_reveal_source_smoke_structural_pass_admit_margin_banded_outcome_probe",
+    "result_class": "warmup_latched_structural_pass",
+    "source_rows": 1604,
+    "matched_current_rows": 198,
+    "bucketed_current_rows": 110,
+    "matched_or_bucketed_reveal_rows": 256,
+    "finite_metric_rows": 1604,
+    "rejected_rows": 6556,
+    "source_unique_source_seeds": 24,
+    "source_unique_capability_pairs": 16,
+    "source_unique_reveal_buckets": 349,
+    "matched_or_bucketed_unique_source_seeds": 23,
+    "matched_or_bucketed_unique_capability_pairs": 16,
+    "matched_or_bucketed_unique_reveal_buckets": 92,
+    "matched_or_bucketed_reveal_steps_with_rows": [
+      64,
+      72,
+      80
+    ],
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "actor_parameters_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1401-paper-route-warmup-reveal-pressure-outcome-probe.json"
+  },
+  "decision": "late_reveal_source_smoke_structural_pass_admit_margin_banded_outcome_probe",
   "decision_rule": "M1400 passes structurally if it materializes or cleanly rejects late-reveal warmup-latched source rows with matching and source-diversity metrics before outcome probing.",
-  "next_blocker": "m1400-paper-route-warmup-reveal-pressure-source-smoke"
+  "next_blocker": "m1401-paper-route-warmup-reveal-pressure-outcome-probe"
 }

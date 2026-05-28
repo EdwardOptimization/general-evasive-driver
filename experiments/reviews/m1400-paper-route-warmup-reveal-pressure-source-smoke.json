@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M1400 materializes 1604 late-reveal source rows and 256 matched/bucketed rows at steps 64 72 80 without outcome probing or training",
+  "failure_criteria": [
+    "source smoke artifact is missing",
+    "warmup/reveal structure is not measured",
+    "matching or source-diversity metrics are not reported",
+    "result routes directly to outcome interpretation, training, or claim expansion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not relax matching thresholds after seeing M1397",
+    "do not claim self-identification from source materialization"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T235220Z",
+  "hypothesis": "A no-training late-reveal source smoke can materialize matched or bucketed warmup-latched rows while increasing reveal pressure relative to M1394.",
+  "lineage": {
+    "blocked_by": [
+      "M1399 requires structural late-reveal viability before outcome probing"
+    ],
+    "derived_from": [
+      "m1399-paper-route-warmup-reveal-pressure-redesign"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1399-paper-route-warmup-reveal-pressure-redesign.json",
+      "configs/m991_capability_step_fault_source_wave.json"
+    ],
+    "parent_dataset": [
+      "docs/m1399-paper-route-warmup-reveal-pressure-redesign.md",
+      "runs/m1397_warmup_latched_outcome_full_sweep/summary.json"
+    ],
+    "parent_objective": [
+      "run no-training late-reveal warmup/reveal pressure source smoke"
+    ],
+    "supersedes": [
+      "running another M1394 reveal grid",
+      "running outcome interventions before late-reveal source viability is known"
+    ]
+  },
+  "milestone": "m1400-paper-route-warmup-reveal-pressure-source-smoke",
+  "next_blocker": "m1401-paper-route-warmup-reveal-pressure-outcome-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "late_reveal_source_smoke_structural_pass_admit_margin_banded_outcome_probe",
+  "public_gates": [
+    "M1400 must run a no-training late-reveal source smoke using the existing warmup_latched_config_smoke runner",
+    "M1400 must report warmup/reveal structure, matching metrics, and source diversity",
+    "M1400 must compare structural viability against M1394",
+    "M1400 must not run outcome interventions, train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1400_warmup_reveal_pressure_source_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "late_reveal_source_smoke_structural_pass_admit_margin_banded_outcome_probe",
+    "milestone": "m1400-paper-route-warmup-reveal-pressure-source-smoke",
+    "reason": "M1400 materializes 1604 late-reveal source rows and 256 matched/bucketed rows at steps 64 72 80 without outcome probing or training",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1400_warmup_reveal_pressure_source_smoke/summary.json exists",
+    "warmup and reveal structure is reported",
+    "matching and source-diversity metrics are reported",
+    "result compares structural viability against M1394",
+    "result chooses next route without outcome intervention, training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "type": "infrastructure"
+}
