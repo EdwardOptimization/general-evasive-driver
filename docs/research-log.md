@@ -18450,3 +18450,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.json`.
 - decision: `four_wheel_source_intervention_materialization_pass_route_to_result_audit`
 - next: `m1278-paper-route-four-wheel-source-intervention-materialization-result-audit`
+
+## 20260528T130850Z - m1278-paper-route-four-wheel-source-intervention-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.md`
+- audited evidence: M1277 has `202` intervention rows, `202` observation rows, and `29088` action sequence rows with `observation_all_finite=true`.
+- observation cleanliness: `intervention_observations.csv` has only `intervention_id` and `obs_0..obs_71`; no fault, condition, candidate, success, margin, subset, source, or label columns.
+- outcome quality: preferred outcomes all succeed with nonnegative margins; `margin_gap_below_threshold_count=0`; rejected outcomes include `52` success-drop counterfactuals and `150` lower-margin successes.
+- blocker: direct BC or actor training from M1277 current-frame rows is blocked because the same current observation can require different preferred actions under hidden branch A/B.
+- decision: next artifact must be branch-specific command-response history and wrong-history pair materialization, not policy training.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, driver-performance claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1279-paper-route-four-wheel-source-response-history-materialization-design.json`.
+- decision: `four_wheel_source_intervention_materialization_audit_admit_response_history_design`
+- next: `m1279-paper-route-four-wheel-source-response-history-materialization-design`

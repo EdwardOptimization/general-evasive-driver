@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1277-paper-route-four-wheel-source-intervention-materialization
+m1278-paper-route-four-wheel-source-intervention-materialization-result-audit
 ```
 
 Current next task:
 
 ```text
-m1278-paper-route-four-wheel-source-intervention-materialization-result-audit
+m1279-paper-route-four-wheel-source-response-history-materialization-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -36,9 +36,11 @@ source-positive corpus infrastructure. The new active branch is
 `paper_route_four_wheel_source_intervention_materialization`. M1276 designed the
 preferred/rejected artifact schema. M1277 materialized `202` intervention rows,
 `202` clean 72-value observation rows, and `29088` preferred/rejected action
-sequence rows. This is still not driver performance. The active blocker is to
-audit observation cleanliness and preferred/rejected outcome quality before any
-policy-side use.
+sequence rows. M1278 audited the artifacts as clean, but blocked direct
+policy-side training because current-frame labels are contradictory without
+branch-specific response history. This is still not driver performance. The
+active blocker is to design response-history materialization and wrong-history
+pairs before any policy-side use.
 
 ## Actor Contract
 

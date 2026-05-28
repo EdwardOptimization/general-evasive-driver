@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1278 audits M1277 artifacts as clean but blocks direct policy training because branch-specific response history is still missing",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores observation cleanliness",
+    "audit treats materialized artifacts as driver performance",
+    "audit skips directly to actor/Gym integration",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add per-wheel/fault labels to actor observations",
+    "do not lower accepted-source thresholds",
+    "do not treat materialized artifacts as driver performance",
+    "do not claim self-identification from source materialization",
+    "do not claim high-fidelity validation from the compact pilot"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T131007Z",
+  "hypothesis": "The M1277 materialized source-intervention artifacts can be audited for observation cleanliness and preferred/rejected outcome quality before policy-side use.",
+  "lineage": {
+    "blocked_by": [
+      "M1277 materialized preferred/rejected source artifacts but result quality must be audited before replay or actor integration"
+    ],
+    "derived_from": [
+      "m1277-paper-route-four-wheel-source-intervention-materialization"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1277-paper-route-four-wheel-source-intervention-materialization.json"
+    ],
+    "parent_dataset": [
+      "docs/m1277-paper-route-four-wheel-source-intervention-materialization.md",
+      "runs/m1277_four_wheel_source_intervention_materialization/summary.json",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_rows.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_observations.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_action_sequences.csv"
+    ],
+    "parent_objective": [
+      "audit materialized four-wheel source intervention artifacts before policy-side use"
+    ],
+    "supersedes": [
+      "direct policy training from M1277 artifacts"
+    ]
+  },
+  "milestone": "m1278-paper-route-four-wheel-source-intervention-materialization-result-audit",
+  "next_blocker": "m1279-paper-route-four-wheel-source-response-history-materialization-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "four_wheel_source_intervention_materialization_audit_admit_response_history_design",
+  "public_gates": [
+    "M1278 must preserve actor input contract",
+    "M1278 must not train controllers",
+    "M1278 must not run PPO",
+    "M1278 must not use private holdout",
+    "M1278 must not promote",
+    "M1278 must audit observation cleanliness and preferred/rejected outcome quality",
+    "M1278 must select the next source-intervention step before actor/Gym integration"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "four_wheel_source_intervention_materialization_audit_admit_response_history_design",
+    "milestone": "m1278-paper-route-four-wheel-source-intervention-materialization-result-audit",
+    "reason": "M1278 audits M1277 artifacts as clean but blocks direct policy training because branch-specific response history is still missing",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.md exists",
+    "audit cites M1277 intervention observation and action-sequence counts",
+    "audit checks observation cleanliness",
+    "audit checks preferred/rejected outcome quality",
+    "audit selects the next source-intervention step",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "gate"
+}

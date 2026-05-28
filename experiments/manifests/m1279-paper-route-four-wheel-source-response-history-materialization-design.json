@@ -1,0 +1,150 @@
+{
+  "id": "m1279-paper-route-four-wheel-source-response-history-materialization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_dataset": [
+      "docs/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.md",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_rows.csv",
+      "runs/m1277_four_wheel_source_intervention_materialization/intervention_observations.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design branch-specific response-history materialization for source interventions"
+    ],
+    "derived_from": [
+      "m1278-paper-route-four-wheel-source-intervention-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M1278 blocks direct policy training from contradictory current-observation intervention labels"
+    ],
+    "supersedes": [
+      "direct BC or actor training from M1277 current-frame intervention rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1279-paper-route-four-wheel-source-response-history-materialization-design.md",
+  "public_gates": [
+    "M1279 must preserve actor input contract",
+    "M1279 must not train controllers",
+    "M1279 must not run PPO",
+    "M1279 must not use private holdout",
+    "M1279 must not promote",
+    "M1279 must design branch-specific response-history artifacts without actor-input leakage"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add fault labels or branch labels to actor observations",
+    "do not lower accepted-source thresholds",
+    "do not train directly on contradictory current-frame intervention rows",
+    "do not claim self-identification from source artifacts"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_four_wheel_source_intervention_materialization",
+    "evidence_axis": "S_response_history_materialization_design",
+    "evidence_increment": "designs branch-specific response-history artifacts needed to make M1277 interventions policy-usable without branch labels",
+    "claim_scope": "design only; no training, promotion, private-holdout, paper-level, recurrent-belief, high-fidelity, or self-identification claim",
+    "stop_condition": [
+      "stop if history materialization requires branch/fault labels in actor observations",
+      "stop if current-frame contradictory labels are used directly for actor training",
+      "stop if design skips no-training artifact audit"
+    ],
+    "fallback_plan": [
+      "if history artifacts can be cleanly defined, admit one bounded implementation",
+      "if not, route to source-intervention schema repair or branch synthesis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1278 identifies branch-specific response history as the missing artifact before policy-side use",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "four-wheel source response-history materialization design",
+    "admission_evidence": [
+      "M1277 observation_rows=202 and observation_all_finite=true",
+      "M1277 preferred_success_fail_count=0",
+      "M1278 blocks direct policy training due contradictory branch labels under same current observation"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "M1279 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one next implementation manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "design defines history prefix schema",
+      "design defines response frame fields",
+      "design defines wrong-history pair artifacts",
+      "design defines no-leak actor-view history guardrails"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1279 explicitly addresses the current-frame ambiguity in M1277 but remains design-only.",
+    "history_necessity_tests": [
+      "future implementation must include wrong-history swap artifacts and distinguishability checks before any self-ID claim"
+    ],
+    "temporal_evidence_window": "History evidence remains blocked until response-history artifacts exist and are audited.",
+    "negative_result_policy": "If histories are not distinguishable without labels, route to history-prefix repair or active probing design rather than actor training.",
+    "allowed_claims": [
+      "four-wheel source response-history materialization design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A no-training response-history materialization design can make M1277 preferred/rejected intervention artifacts usable for later recurrent-policy tests without revealing branch labels.",
+  "success_criteria": [
+    "docs/m1279-paper-route-four-wheel-source-response-history-materialization-design.md exists",
+    "design explains why direct current-frame training is blocked",
+    "design specifies history prefix and frame schema",
+    "design specifies wrong-history pair semantics",
+    "design preserves actor-input guardrails",
+    "design pre-registers one bounded implementation if admitted",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design is missing",
+    "design ignores contradictory current-frame labels",
+    "design leaks branch/fault labels into actor-view history",
+    "design skips directly to actor training",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1279-paper-route-four-wheel-source-response-history-materialization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1279-paper-route-four-wheel-source-response-history-materialization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint"
+  ],
+  "baseline_artifacts": [
+    "docs/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.md",
+    "runs/m1277_four_wheel_source_intervention_materialization/summary.json"
+  ],
+  "decision_rule": "M1279 passes if it designs response-history materialization and one bounded implementation without training or actor-input expansion.",
+  "next_blocker": "m1279-paper-route-four-wheel-source-response-history-materialization-design"
+}

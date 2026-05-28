@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1287,
+    "completed": 1288,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1277-paper-route-four-wheel-source-intervention-materialization.md",
+    "command_log": "docs/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1277_four_wheel_source_intervention_materialization",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m1277-paper-route-four-wheel-source-intervention-materialization"
+    "task_id": "m1278-paper-route-four-wheel-source-intervention-materialization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.json",
-    "hypothesis": "Audit materialized source-intervention artifacts before policy-side use",
-    "id": "m1278-paper-route-four-wheel-source-intervention-materialization-result-audit",
+    "command": "see experiments/manifests/m1279-paper-route-four-wheel-source-response-history-materialization-design.json",
+    "hypothesis": "Design branch-specific response-history materialization before policy-side use",
+    "id": "m1279-paper-route-four-wheel-source-response-history-materialization-design",
     "kind": "gate",
-    "notes": "Pending: audit observation cleanliness preferred rejected outcome quality subset suitability and next source-intervention step",
-    "priority": 12730,
+    "notes": "Pending: design history prefix frame schema wrong-history pairs and no-leak actor-view history guardrails",
+    "priority": 12740,
     "status": "pending",
-    "success_artifact": "docs/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.md"
+    "success_artifact": "docs/m1279-paper-route-four-wheel-source-response-history-materialization-design.md"
   },
-  "updated_at_utc": "20260528T130454Z"
+  "updated_at_utc": "20260528T130850Z"
 }

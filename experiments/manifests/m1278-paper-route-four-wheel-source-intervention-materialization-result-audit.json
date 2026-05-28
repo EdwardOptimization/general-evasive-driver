@@ -150,6 +150,27 @@
     "docs/m1277-paper-route-four-wheel-source-intervention-materialization.md",
     "runs/m1277_four_wheel_source_intervention_materialization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1278-paper-route-four-wheel-source-intervention-materialization-result-audit.md",
+    "decision": "four_wheel_source_intervention_materialization_audit_admit_response_history_design",
+    "intervention_rows": 202,
+    "observation_rows": 202,
+    "action_sequence_rows": 29088,
+    "forbidden_observation_fields": 0,
+    "preferred_success_fail_count": 0,
+    "preferred_margin_negative_count": 0,
+    "margin_gap_below_threshold_count": 0,
+    "success_drop_counterfactuals": 52,
+    "direct_policy_training_blocked": true,
+    "next_manifest": "experiments/manifests/m1279-paper-route-four-wheel-source-response-history-materialization-design.json",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false
+  },
+  "decision": "four_wheel_source_intervention_materialization_audit_admit_response_history_design",
   "decision_rule": "M1278 passes if it audits M1277 source-intervention artifacts and selects the next source-intervention step without training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion.",
-  "next_blocker": "m1278-paper-route-four-wheel-source-intervention-materialization-result-audit"
+  "next_blocker": "m1279-paper-route-four-wheel-source-response-history-materialization-design"
 }
