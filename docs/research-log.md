@@ -18955,3 +18955,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - forbidden: pair-id-specific weights, offset-only repair, private holdout use, actor input changes, threshold relaxation, PPO, and promotion.
 - follow-up manifest: `experiments/manifests/m1306-paper-route-source-history-concentration-refresh-plan.json`.
 - next: `m1306-paper-route-source-history-concentration-refresh-plan`
+
+## 20260528T154121Z - m1306-paper-route-source-history-concentration-refresh-plan
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1306_source_history_concentration_refresh_plan/summary.json`
+- implementation: added `src/autodrift/source_history_concentration_refresh_plan.py` and `tests/test_source_history_concentration_refresh_plan.py`.
+- validation: `PYTHONPATH=src python -m pytest -q tests/test_source_history_concentration_refresh_plan.py` passed with `1 passed`.
+- result class: `source_history_concentration_refresh_plan_admissible`.
+- plan rows: `76` groups, `38` pairs, `5` folds.
+- split invariants: `pair_disjoint=true`, `all_folds_nonempty=true`, `all_folds_have_both_probe_templates=true`.
+- weight invariants: `pair_specific_weight_used=false`, `max_group_weight=2.0`, `mean_group_weight=1.2514206712`.
+- composition: original max source-family fold share `0.6666666667`; balanced max source-family fold share `0.625`; `composition_improved=true`.
+- interpretation: plan is admissible infrastructure, not a weighted-update result or driver-performance result.
+- routing: bounded weighted repeat design next, with synthesis required before any implementation/larger training/PPO step.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1307-paper-route-source-history-weighted-repeat-design.json`.
+- decision: `source_history_concentration_refresh_plan_admissible_route_to_weighted_repeat_design`
+- next: `m1307-paper-route-source-history-weighted-repeat-design`

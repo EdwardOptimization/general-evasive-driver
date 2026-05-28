@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1315,
+    "completed": 1316,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1305-paper-route-source-history-concentration-aware-refresh-design.md",
+    "command_log": "docs/m1306-paper-route-source-history-concentration-refresh-plan.md",
     "returncode": 0,
-    "run_dir": "docs/m1305-paper-route-source-history-concentration-aware-refresh-design.md",
+    "run_dir": "runs/m1306_source_history_concentration_refresh_plan",
     "status": "completed",
-    "task_id": "m1305-paper-route-source-history-concentration-aware-refresh-design"
+    "task_id": "m1306-paper-route-source-history-concentration-refresh-plan"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1306-paper-route-source-history-concentration-refresh-plan.json",
-    "hypothesis": "Build a no-training pair-disjoint balanced split and capped group-weight plan for M1304 source-family/probe-template concentration",
-    "id": "m1306-paper-route-source-history-concentration-refresh-plan",
-    "kind": "infrastructure",
-    "notes": "Pending: implement concentration refresh plan; PPO and promotion remain blocked",
-    "priority": 13010,
+    "command": "see experiments/manifests/m1307-paper-route-source-history-weighted-repeat-design.json",
+    "hypothesis": "Design a bounded no-PPO weighted fusion_head repeat protocol from the M1306 admissible plan and require branch synthesis before implementation",
+    "id": "m1307-paper-route-source-history-weighted-repeat-design",
+    "kind": "gate",
+    "notes": "Pending: design weighted repeat protocol; PPO and promotion remain blocked",
+    "priority": 13020,
     "status": "pending",
-    "success_artifact": "runs/m1306_source_history_concentration_refresh_plan/summary.json"
+    "success_artifact": "docs/m1307-paper-route-source-history-weighted-repeat-design.md"
   },
-  "updated_at_utc": "20260528T153517Z"
+  "updated_at_utc": "20260528T154121Z"
 }

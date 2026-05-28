@@ -1,0 +1,162 @@
+{
+  "id": "m1307-paper-route-source-history-weighted-repeat-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1306-paper-route-source-history-concentration-refresh-plan.md",
+      "runs/m1306_source_history_concentration_refresh_plan/summary.json",
+      "runs/m1306_source_history_concentration_refresh_plan/balanced_split_rows.csv",
+      "runs/m1306_source_history_concentration_refresh_plan/group_weight_rows.csv",
+      "runs/m1306_source_history_concentration_refresh_plan/fold_composition_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1306-paper-route-source-history-concentration-refresh-plan.json"
+    ],
+    "parent_objective": [
+      "design bounded weighted trainable-scope repeat using M1306 plan"
+    ],
+    "derived_from": [
+      "m1306-paper-route-source-history-concentration-refresh-plan"
+    ],
+    "blocked_by": [
+      "M1306 produced an admissible plan but no weighted repeat protocol exists"
+    ],
+    "supersedes": [
+      "direct weighted trainable-scope implementation without process design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1307-paper-route-source-history-weighted-repeat-design.md",
+  "public_gates": [
+    "M1307 must preserve actor input contract",
+    "M1307 must not run PPO",
+    "M1307 must not train",
+    "M1307 must not use private holdout",
+    "M1307 must not promote",
+    "M1307 must define how split-plan and group weights enter the next probe",
+    "M1307 must require branch synthesis before any larger training or PPO step"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train in the design milestone",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not use pair_id-specific weights",
+    "do not overclaim self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_history_trainable_scope_escalation",
+    "evidence_axis": "S_weighted_repeat_design",
+    "evidence_increment": "designs the bounded weighted repeat protocol from the M1306 admissible plan",
+    "claim_scope": "design only; no promotion, private-holdout, PPO, closed-loop, paper-level, high-fidelity, or strong self-identification claim",
+    "stop_condition": [
+      "stop if design admits PPO directly",
+      "stop if design omits group-weight caps",
+      "stop if design does not route to synthesis before implementation or larger training"
+    ],
+    "fallback_plan": [
+      "if weighted repeat design is feasible, route to branch synthesis before implementation",
+      "if design is too narrow, route to branch synthesis and pivot",
+      "if the plan cannot be used cleanly, route to source corpus expansion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "tenth milestone in trainable-scope escalation branch; next milestone must synthesize before implementation or PPO",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded weighted repeat design",
+    "admission_evidence": [
+      "M1306 result_class=source_history_concentration_refresh_plan_admissible",
+      "M1306 pair_disjoint=true",
+      "M1306 pair_specific_weight_used=false",
+      "M1306 max_group_weight=2.0",
+      "PPO and promotion remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1307 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "weighted repeat protocol is specified",
+      "pass/fail criteria are specified",
+      "synthesis requirement is explicit",
+      "PPO remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1307 designs fixed-current source-history weighted diagnostics only; it does not evaluate closed-loop history necessity.",
+    "history_necessity_tests": [
+      "preserve correct-history versus wrong-history diagnostic rows",
+      "preserve pair-disjoint fold evaluation and group-level weights"
+    ],
+    "temporal_evidence_window": "M1306 concentration refresh plan.",
+    "negative_result_policy": "If weighted design cannot avoid public-row overfit, route to branch synthesis and pivot before implementation.",
+    "allowed_claims": [
+      "weighted repeat design",
+      "no strong self-identification, promotion, private-holdout, high-fidelity validation, real-vehicle, paper-result, or closed-loop driver claim"
+    ]
+  },
+  "hypothesis": "The M1306 admissible plan can be converted into a bounded no-PPO weighted fusion_head repeat protocol with clear pass/fail gates and synthesis before implementation.",
+  "success_criteria": [
+    "docs/m1307-paper-route-source-history-weighted-repeat-design.md exists",
+    "design specifies split-plan usage",
+    "design specifies group-weight usage and caps",
+    "design specifies pass/fail criteria",
+    "design requires branch synthesis before implementation or PPO",
+    "design keeps PPO and promotion blocked",
+    "no training, PPO, promotion, private holdout, threshold relaxation, pair-specific weighting, or actor-input expansion occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design omits split-plan or group-weight usage",
+    "design starts training or PPO",
+    "design permits pair-specific weights",
+    "private holdout is used",
+    "checkpoint is promoted",
+    "actor input contract changes",
+    "thresholds are relaxed after seeing results"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1307-paper-route-source-history-weighted-repeat-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1307-paper-route-source-history-weighted-repeat-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1306-paper-route-source-history-concentration-refresh-plan.md",
+    "runs/m1306_source_history_concentration_refresh_plan/summary.json",
+    "runs/m1306_source_history_concentration_refresh_plan/group_weight_rows.csv"
+  ],
+  "decision_rule": "M1307 passes if it designs a bounded weighted repeat protocol and requires branch synthesis before any implementation, larger training, PPO, promotion, private holdout use, threshold relaxation, pair-specific weights, or actor-input expansion.",
+  "next_blocker": "m1307-paper-route-source-history-weighted-repeat-design"
+}

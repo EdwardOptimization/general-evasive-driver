@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M1306 builds an admissible no-training plan with pair-disjoint folds no pair-specific weights max weight 2.0 and source-family fold share improves from 0.667 to 0.625",
+  "failure_criteria": [
+    "summary artifact is missing",
+    "balanced split rows are missing",
+    "group weight rows are missing",
+    "folds are not pair-disjoint",
+    "pair_id-specific weights are used",
+    "training or PPO starts",
+    "private holdout is used",
+    "checkpoint is promoted",
+    "actor input contract changes"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not use pair_id-specific weights",
+    "do not overclaim self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T154342Z",
+  "hypothesis": "A no-training plan builder can produce pair-disjoint balanced folds and capped group weights that address M1304 source-family/probe-template concentration without pair-specific overfit.",
+  "lineage": {
+    "blocked_by": [
+      "M1305 requires a no-training plan builder before any weighted update"
+    ],
+    "derived_from": [
+      "m1305-paper-route-source-history-concentration-aware-refresh-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1305-paper-route-source-history-concentration-aware-refresh-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1305-paper-route-source-history-concentration-aware-refresh-design.md",
+      "runs/m1304_source_history_repeat_failed_offset_audit/summary.json",
+      "runs/m1304_source_history_repeat_failed_offset_audit/eval_group_rows.csv",
+      "runs/m1304_source_history_repeat_failed_offset_audit/composition_summary.csv"
+    ],
+    "parent_objective": [
+      "implement no-training concentration-aware split and weight plan"
+    ],
+    "supersedes": [
+      "direct weighted trainable-scope repeat without plan audit"
+    ]
+  },
+  "milestone": "m1306-paper-route-source-history-concentration-refresh-plan",
+  "next_blocker": "m1307-paper-route-source-history-weighted-repeat-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_history_concentration_refresh_plan_admissible_route_to_weighted_repeat_design",
+  "public_gates": [
+    "M1306 must preserve actor input contract",
+    "M1306 must not run PPO",
+    "M1306 must not train",
+    "M1306 must not use private holdout",
+    "M1306 must not promote",
+    "M1306 must output balanced split rows",
+    "M1306 must output group weight rows",
+    "M1306 must prove no pair_id-specific weights are used"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1306_source_history_concentration_refresh_plan/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "source_history_concentration_refresh_plan_admissible_route_to_weighted_repeat_design",
+    "milestone": "m1306-paper-route-source-history-concentration-refresh-plan",
+    "reason": "M1306 builds an admissible no-training plan with pair-disjoint folds no pair-specific weights max weight 2.0 and source-family fold share improves from 0.667 to 0.625",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1306_source_history_concentration_refresh_plan/summary.json exists",
+    "balanced_split_rows.csv exists",
+    "group_weight_rows.csv exists",
+    "fold_composition_summary.csv exists",
+    "pair-disjoint folds are preserved",
+    "no pair_id-specific weights are used",
+    "max group weight is <= 2.0",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "infrastructure"
+}

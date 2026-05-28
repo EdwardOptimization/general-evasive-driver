@@ -165,6 +165,34 @@
     "runs/m1304_source_history_repeat_failed_offset_audit/summary.json",
     "runs/m1304_source_history_repeat_failed_offset_audit/eval_group_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1306_source_history_concentration_refresh_plan/summary.json",
+    "doc": "docs/m1306-paper-route-source-history-concentration-refresh-plan.md",
+    "decision": "source_history_concentration_refresh_plan_admissible_route_to_weighted_repeat_design",
+    "result_class": "source_history_concentration_refresh_plan_admissible",
+    "group_count": 76,
+    "pair_count": 38,
+    "fold_count": 5,
+    "pair_disjoint": true,
+    "all_folds_nonempty": true,
+    "all_folds_have_both_probe_templates": true,
+    "pair_specific_weight_used": false,
+    "max_group_weight": 2.0,
+    "mean_group_weight": 1.2514206712,
+    "original_max_source_family_pair_fold_share": 0.6666666667,
+    "balanced_max_source_family_pair_fold_share": 0.625,
+    "composition_improved": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1307-paper-route-source-history-weighted-repeat-design.json"
+  },
+  "decision": "source_history_concentration_refresh_plan_admissible_route_to_weighted_repeat_design",
   "decision_rule": "M1306 passes if it creates an admissible pair-disjoint concentration-aware split and capped group-weight plan without training, PPO, promotion, private holdout use, threshold relaxation, pair-specific weights, or actor-input expansion.",
-  "next_blocker": "m1306-paper-route-source-history-concentration-refresh-plan"
+  "next_blocker": "m1307-paper-route-source-history-weighted-repeat-design"
 }

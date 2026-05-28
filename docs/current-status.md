@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1305-paper-route-source-history-concentration-aware-refresh-design
+m1306-paper-route-source-history-concentration-refresh-plan
 ```
 
 Current next task:
 
 ```text
-m1306-paper-route-source-history-concentration-refresh-plan
+m1307-paper-route-source-history-weighted-repeat-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -144,8 +144,13 @@ design a concentration-aware source-history refresh that handles source-family
 and probe-template balance before another objective run or PPO. M1305 completed
 that design and admitted M1306 as a no-training plan builder: create
 pair-disjoint balanced folds and capped group-level weights, with no
-pair-id-specific weighting, before any weighted trainable-scope repeat. PPO and
-promotion remain blocked.
+pair-id-specific weighting, before any weighted trainable-scope repeat. M1306
+completed that plan and classified it as admissible: `76` groups, `38` pairs,
+`5` folds, `pair_disjoint=true`, `pair_specific_weight_used=false`,
+`max_group_weight=2.0`, and source-family max fold share improved from `0.667`
+to `0.625`. The active blocker is M1307: design the bounded weighted repeat
+protocol from the M1306 plan, while requiring branch synthesis before any
+implementation, larger training, or PPO. PPO and promotion remain blocked.
 
 ## Actor Contract
 
