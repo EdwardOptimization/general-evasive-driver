@@ -1,0 +1,155 @@
+{
+  "id": "m1389-paper-route-history-profile-three-seed-public-pilot-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "docs/m1388-paper-route-history-profile-three-seed-public-pilot.md",
+      "runs/m1388_history_profile_three_seed_public_pilot/summary.json",
+      "runs/m1388_history_profile_three_seed_public_pilot/profile_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1388-paper-route-history-profile-three-seed-public-pilot.json"
+    ],
+    "parent_objective": [
+      "audit three-seed fixed-budget public profile pilot before any further profile scaling or causal-history branch"
+    ],
+    "derived_from": [
+      "m1388-paper-route-history-profile-three-seed-public-pilot"
+    ],
+    "blocked_by": [
+      "M1388 completed public pilot and must be audited before any further profile scaling"
+    ],
+    "supersedes": [
+      "claiming profile ranking directly from M1388",
+      "running another profile repeat without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1389-paper-route-history-profile-three-seed-public-pilot-result-audit.md",
+  "public_gates": [
+    "M1389 must audit M1388 completion and finite metrics",
+    "M1389 must classify L2-vs-current-tiled and L3-vs-reset results",
+    "M1389 must choose next branch before further profile scaling",
+    "M1389 must not train, run PPO, run new evaluation, promote, use private holdout, export corpus, or claim architecture ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new evaluation",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim architecture ranking from public pilot alone",
+    "do not claim recurrent-belief advantage if L3 reset is stronger",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_profile_comparison_protocol",
+    "evidence_axis": "G_three_seed_profile_pilot_result_audit",
+    "evidence_increment": "audits three-seed profile public pilot and decides whether to stop profile scaling or move to causal history tasks",
+    "claim_scope": "result audit only; no training, new evaluation, PPO, promotion, private holdout, high-fidelity, profile-ranking, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if public pilot trends are overclaimed as architecture ranking",
+      "stop if L2/current-tiled parity is ignored",
+      "stop if L3 reset outperforming online is ignored",
+      "stop if another profile repeat is proposed without a specific unresolved uncertainty"
+    ],
+    "fallback_plan": [
+      "route to stronger causal history-necessity task design if profile pilot is negative/inconclusive",
+      "route to L3 repair design only if recurrent family weakness is the chosen blocker",
+      "route to branch synthesis if profile evidence has reached a cadence boundary",
+      "route to another repeat only if a specific high-value uncertainty remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1388 completed the staged profile pilot and profile-scaling must be audited before continuation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "three-seed profile public pilot audit",
+    "admission_evidence": [
+      "M1388 completed all 24 profile seed runs with finite metrics",
+      "M1388 public trend shows L2/current-tiled parity and L3 reset-control stronger than L3 online",
+      "M1388 did not use private holdout, promotion, profile tuning, or actor-input changes"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run new evaluation",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1389 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "completion and finite metrics are classified",
+      "profile trend limitations are classified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1389 must treat L2/current-tiled parity and L3 reset-control strength as evidence against history-necessity in this profile pilot.",
+    "history_necessity_tests": [
+      "audit L2_window_13_vs_current_tiled",
+      "audit L2_window_25_vs_current_tiled",
+      "audit L3_online_vs_corrected_reset"
+    ],
+    "temporal_evidence_window": "Three public training seeds and 64 public eval seeds per profile.",
+    "negative_result_policy": "If public trend is negative for history necessity, route to stronger causal history tasks or task redesign instead of weakening claim standards.",
+    "allowed_claims": [
+      "three-seed profile public pilot audit and next route",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, paper-result, or architecture-ranking claim"
+    ]
+  },
+  "hypothesis": "M1388 can be audited as a completed public profile trend while preserving claim boundaries and choosing a higher-leverage next route.",
+  "success_criteria": [
+    "docs/m1389-paper-route-history-profile-three-seed-public-pilot-result-audit.md exists",
+    "audit summarizes M1388 completion and finite metric status",
+    "audit classifies L2/current-tiled and L3/reset public trends",
+    "audit chooses next route without training, PPO, promotion, private holdout, corpus export, actor-input expansion, or architecture-ranking claim"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit overclaims M1388 as architecture ranking",
+    "audit ignores current-tiled or reset-control parity",
+    "audit routes directly to private holdout, promotion, or paper-level claim"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1389-paper-route-history-profile-three-seed-public-pilot-result-audit.md from M1388 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1389-paper-route-history-profile-three-seed-public-pilot-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "docs/m1388-paper-route-history-profile-three-seed-public-pilot.md",
+    "runs/m1388_history_profile_three_seed_public_pilot/summary.json",
+    "runs/m1388_history_profile_three_seed_public_pilot/profile_aggregate.csv"
+  ],
+  "decision_rule": "M1389 passes if it audits M1388 and chooses the next route before any new training, PPO, promotion, private holdout, corpus export, or architecture-ranking claim.",
+  "next_blocker": "m1389-paper-route-history-profile-three-seed-public-pilot-result-audit"
+}

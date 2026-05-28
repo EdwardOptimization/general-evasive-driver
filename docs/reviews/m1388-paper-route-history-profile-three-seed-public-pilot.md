@@ -1,0 +1,93 @@
+# m1388-paper-route-history-profile-three-seed-public-pilot Research Review
+
+## Summary
+
+- Generated at UTC: 20260528T224629Z
+- Type: gate
+- Gate tier: generalization
+- Promotion decision: history_profile_three_seed_public_pilot_complete_route_to_result_audit
+- Decision reason: M1388 completes 24 profile seed runs with finite metrics; L2 family strongest but current-tiled comparable and L3 reset outperforms online
+
+## Hypothesis
+
+A three-seed fixed-budget public profile pilot can test whether M1386 one-seed profile trends are stable without profile-specific tuning or claim expansion.
+
+## Lineage
+
+- parent_checkpoint: none
+- parent_dataset: docs/m1387-paper-route-history-profile-one-seed-smoke-result-audit.md, runs/m1386_history_profile_fixed_budget_smoke/summary.json, configs/paper_route_corrected_profiles
+- parent_config: experiments/manifests/m1387-paper-route-history-profile-one-seed-smoke-result-audit.json
+- parent_objective: run three-seed fixed-budget public profile pilot after one-seed plumbing pass and audit
+- derived_from: m1387-paper-route-history-profile-one-seed-smoke-result-audit
+- blocked_by: M1387 admits exactly one 3-seed public pilot as a stability check before another audit
+- supersedes: using M1386 one-seed trends as architecture ranking, running repeated profile pilots without audit
+- invalidates: None
+
+## Success Criteria
+
+- docs/m1388-paper-route-history-profile-three-seed-public-pilot.md exists
+- runs/m1388_history_profile_three_seed_public_pilot/summary.json exists
+- profile_seed_rows.csv exists
+- eval_rows.csv exists
+- profile_aggregate.csv exists
+- total_seed_runs is 24
+- completed_seed_runs is 24
+- failed_seed_runs is 0
+- all_eval_metrics_finite is true
+- private holdout remains unused
+- no promotion or actor-input contract change occurs
+- claims are limited to public profile trend
+
+## Failure Criteria
+
+- profile-specific budgets or hyperparameters change after seeing results
+- private holdout is used
+- metrics are framed as architecture-ranking or paper-level evidence
+- hidden or oracle actor inputs are introduced
+- failed profiles are omitted from summary
+- corrected controls are not applied in training or evaluation
+
+## Evidence Gates
+
+- M1388 may run exactly three fixed-budget seeds per corrected profile
+- M1388 must use the same seed offsets and public eval seeds for every profile
+- M1388 must record failed profiles instead of omitting them
+- M1388 must not promote, use private holdout, tune profiles, export corpus, or claim paper-level/profile-ranking evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not change profile-specific budgets
+- do not use private holdout
+- do not promote any checkpoint
+- do not tune hyperparameters after seeing profile results
+- do not add hidden or oracle actor inputs
+- do not claim recurrent-belief advantage before audit
+- do not claim self-identification
+- do not claim architecture ranking directly from this run
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m1388-paper-route-history-profile-three-seed-public-pilot
+- type: gate
+- checkpoint: runs/m1388_history_profile_three_seed_public_pilot/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: history_profile_three_seed_public_pilot_complete_route_to_result_audit
+- reason: M1388 completes 24 profile seed runs with finite metrics; L2 family strongest but current-tiled comparable and L3 reset outperforms online
+
+## Next Blocker
+
+m1389-paper-route-history-profile-three-seed-public-pilot-result-audit

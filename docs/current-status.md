@@ -16,17 +16,17 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1387-paper-route-history-profile-one-seed-smoke-result-audit
+m1388-paper-route-history-profile-three-seed-public-pilot
 ```
 
 Current next task:
 
 ```text
-m1388-paper-route-history-profile-three-seed-public-pilot
+m1389-paper-route-history-profile-three-seed-public-pilot-result-audit
 ```
 
-M1387 audited the one-seed fixed-budget history-profile smoke. The current
-public-gate base remains M1362 alpha `0.1`:
+M1388 completed the three-seed fixed-budget history-profile public pilot. The
+current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
@@ -290,10 +290,39 @@ online_gru_hidden_advantage: not_supported_in_one_seed
 current_frame_substitution_risk: high
 ```
 
-M1388 may run exactly one 3-seed fixed-budget public profile pilot as trend and
-seed-stability evidence. It must be audited before any further profile scaling,
-private holdout, promotion, corpus export, architecture-ranking claim, or
-self-identification claim.
+M1388 ran exactly one 3-seed fixed-budget public profile pilot as trend and
+seed-stability evidence. It must now be audited before any further profile
+scaling, private holdout, promotion, corpus export, architecture-ranking claim,
+or self-identification claim.
+
+M1388 result:
+
+```text
+result_class: corrected_profile_pilot_completed
+profile_count: 8
+total_seed_runs: 24
+completed_seed_runs: 24
+failed_seed_runs: 0
+all_eval_metrics_finite: true
+```
+
+Aggregate success:
+
+```text
+L0_current_masked: 0.520833
+L1_one_step: 0.473958
+L2_window_13: 0.567708
+L2_window_13_current_tiled: 0.562500
+L2_window_25: 0.557292
+L2_window_25_current_tiled: 0.562500
+L3_online_gru: 0.442708
+L3_reset_control_corrected: 0.463542
+```
+
+The public trend is not positive for finite-window history necessity or online
+recurrent hidden benefit: L2 is only comparable to current-tiled controls, and
+L3 reset-control outperforms L3 online in aggregate. M1389 should audit this
+before any further profile scaling.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true

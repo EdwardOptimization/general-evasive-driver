@@ -20440,3 +20440,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1388-paper-route-history-profile-three-seed-public-pilot.json`.
 - next: `m1388-paper-route-history-profile-three-seed-public-pilot`
+
+## 20260529T005000Z - m1388-paper-route-history-profile-three-seed-public-pilot
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `generalization`
+- artifact: `runs/m1388_history_profile_three_seed_public_pilot/summary.json`
+- decision: `history_profile_three_seed_public_pilot_complete_route_to_result_audit`
+- command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.corrected_profile_pilot --config-dir configs/paper_route_corrected_profiles --config-glob 'm1207_*.json' --run-dir runs/m1388_history_profile_three_seed_public_pilot --training-seed-base 138800 --seed-offsets 0,1,2 --eval-seed-base 138900 --eval-episodes 64 --device cpu`
+- result class: `corrected_profile_pilot_completed`
+- completion: `24 / 24` profile seed runs complete, `failed_seed_runs=0`, `all_eval_metrics_finite=true`.
+- guardrail: `private_holdout_used=false`, `promoted=false`, `profile_specific_tuning=false`, `profile_superiority_claimed=false`, `self_identification_claimed=false`, `paper_level_claimed=false`, `actor_input_contract_changed=false`.
+- aggregate success: `L0=0.520833`, `L1=0.473958`, `L2_13=0.567708`, `L2_13_current_tiled=0.562500`, `L2_25=0.557292`, `L2_25_current_tiled=0.562500`, `L3_online=0.442708`, `L3_reset=0.463542`.
+- interpretation: public trend is not positive for finite-window history necessity or online recurrent hidden benefit; M1389 must audit before any further profile scaling.
+- follow-up manifest: `experiments/manifests/m1389-paper-route-history-profile-three-seed-public-pilot-result-audit.json`.
+- next: `m1389-paper-route-history-profile-three-seed-public-pilot-result-audit`
