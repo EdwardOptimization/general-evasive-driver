@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1389,
+    "completed": 1390,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json",
+    "command_log": "docs/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1379_promoted_base_source_rich_sequence_expanded_probe",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe"
+    "task_id": "m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.json",
-    "hypothesis": "M1379 can be audited as temporal-history positive but still seed-thin requiring a route decision before more expansion or corpus design",
-    "id": "m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit",
+    "command": "see experiments/manifests/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.json",
+    "hypothesis": "The promoted-base source-rich/comparison readiness branch can be synthesized into a clear next route after cross-fault sparsity and temporal-positive seed-thin evidence.",
+    "id": "m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M1379 expanded sequence result; choose synthesis source-selection redesign or corpus-design route without another local expansion",
-    "priority": 13750,
+    "notes": "Pending: synthesize M1372-M1380 before corpus export, L0/L1/L2/L3 comparison, PPO, promotion, private holdout, or further local expansion",
+    "priority": 13760,
     "status": "pending",
-    "success_artifact": "docs/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.md"
+    "success_artifact": "docs/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.md"
   },
-  "updated_at_utc": "20260528T232000Z"
+  "updated_at_utc": "20260528T233000Z"
 }

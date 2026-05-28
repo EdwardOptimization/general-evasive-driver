@@ -2,7 +2,7 @@
   "id": "m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -151,6 +151,30 @@
     "runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json",
     "docs/m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.md",
+    "decision": "promoted_base_source_rich_sequence_expanded_audit_route_to_branch_synthesis",
+    "m1379_result_class": "sequence_temporal_history_positive",
+    "m1379_accepted_temporal_sequence_rows": 224,
+    "m1379_accepted_cross_fault_sequence_rows": 0,
+    "m1379_unique_temporal_accepted_fault_pairs": 9,
+    "m1379_unique_temporal_accepted_seeds": 10,
+    "row_threshold_passed": true,
+    "fault_pair_threshold_passed": true,
+    "seed_threshold_passed": false,
+    "interpretation": "expanded temporal-history evidence remains positive but seed-thin and cross-fault self-ID remains unsupported",
+    "next_manifest": "experiments/manifests/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.json",
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "corpus_exported": false,
+    "local_expansion_started": false,
+    "actor_input_contract_changed": false,
+    "high_fidelity_claim_made": false
+  },
+  "decision": "promoted_base_source_rich_sequence_expanded_audit_route_to_branch_synthesis",
   "decision_rule": "M1380 passes if it audits M1379 without overclaiming temporal-positive seed-thin evidence and chooses the next route before any training, PPO, promotion, private holdout, corpus export, or local expansion.",
-  "next_blocker": "m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit"
+  "next_blocker": "m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis"
 }

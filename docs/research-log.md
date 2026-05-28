@@ -20302,3 +20302,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: expanded temporal-history evidence remains positive but seed-thin; cross-fault self-identification remains unsupported.
 - follow-up manifest: `experiments/manifests/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.json`.
 - next: `m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit`
+
+## 20260528T233000Z - m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit.md`
+- decision: `promoted_base_source_rich_sequence_expanded_audit_route_to_branch_synthesis`
+- audited artifact: `runs/m1379_promoted_base_source_rich_sequence_expanded_probe/summary.json`
+- audit conclusion: M1379 remains temporal-history positive by row and fault-pair coverage, but still seed-thin and not cross-fault self-ID positive.
+- threshold audit: expanded row threshold passes (`224 >= 200`), fault-pair threshold passes (`9 >= 8`), and seed threshold misses (`10 < 12`).
+- branch evidence: M1373/M1375 show sparse cross-fault wrong-history rows (`2` then `3`), while M1377/M1379 show temporal-history positives (`180` then `224`) but zero cross-fault sequence accepted rows.
+- route decision: do not run another local expansion immediately; synthesize the source-rich/comparison-readiness branch before source-selection redesign, temporal corpus design, L0/L1/L2/L3 comparison, PPO, promotion, private holdout, or further local expansion.
+- guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, finite-window-vs-GRU claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis.json`.
+- next: `m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis`

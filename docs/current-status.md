@@ -16,17 +16,17 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1379-paper-route-promoted-base-source-rich-sequence-expanded-probe
+m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit
 ```
 
 Current next task:
 
 ```text
-m1380-paper-route-promoted-base-source-rich-sequence-expanded-result-audit
+m1381-paper-route-promoted-base-source-rich-comparison-readiness-synthesis
 ```
 
-M1379 ran the expanded no-training source-rich sequence probe. The current
-public-gate base remains M1362 alpha `0.1`:
+M1380 audited the expanded no-training source-rich sequence probe and routed the
+branch to synthesis. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
@@ -130,8 +130,22 @@ promoted: false
 Expanded source coverage preserves temporal-history positives but still misses
 the accepted-seed threshold (`10 < 12`). Cross-fault self-identification remains
 unsupported because cross-fault/action-response mismatch variants still have
-zero accepted rows. M1380 should audit this before branch synthesis,
-source-selection redesign, corpus design, or any further local expansion.
+zero accepted rows.
+
+M1380 conclusion:
+
+```text
+decision: promoted_base_source_rich_sequence_expanded_audit_route_to_branch_synthesis
+row threshold: passed (224 >= 200)
+fault-pair threshold: passed (9 >= 8)
+seed threshold: failed (10 < 12)
+cross-fault sequence accepted rows: 0
+```
+
+The next step is M1381 branch synthesis. It should summarize M1372-M1380 and
+choose the next paper-route branch before source-selection redesign, temporal
+corpus design, L0/L1/L2/L3 comparison, PPO, promotion, private holdout, corpus
+export, or another local expansion.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true
