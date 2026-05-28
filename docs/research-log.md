@@ -19270,3 +19270,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1323-paper-route-source-repair-corpus-expansion-plan.json`.
 - decision: `source_repair_corpus_export_pass_route_to_expansion_plan`
 - next: `m1323-paper-route-source-repair-corpus-expansion-plan`
+
+## 20260528T171218Z - m1323-paper-route-source-repair-corpus-expansion-plan
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1323_source_repair_corpus_expansion_plan/summary.json`
+- doc: `docs/m1323-paper-route-source-repair-corpus-expansion-plan.md`
+- command: used `runs/m1322_no_materialized_history` to avoid stale M1280 materialized-history matches by pair-id collision.
+- result class: `source_history_corpus_expansion_plan_gap_reported`.
+- planned source pairs: `216` versus target `240`.
+- planned pair-probe groups: `432` versus target `480`.
+- source families: `7`, meeting the target.
+- fold balance: max source-family fold share `0.3260869565`, meeting the `<=0.40` target.
+- materialized source pairs: `0`, as intended for the new corpus.
+- coverage gaps: global friction missing; halfshaft `22/30`, load/CG `6/30`, brake asymmetry `10/30`, and tire-blowout-like `23/30` under target.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1324-paper-route-source-repair-corpus-plan-result-audit.json`.
+- decision: `source_repair_corpus_expansion_plan_gap_reported_route_to_result_audit`
+- next: `m1324-paper-route-source-repair-corpus-plan-result-audit`

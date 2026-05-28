@@ -159,6 +159,34 @@
     "docs/m1322-paper-route-source-repair-corpus-export.md",
     "runs/m1322_source_repair_corpus_export/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1323_source_repair_corpus_expansion_plan/summary.json",
+    "doc": "docs/m1323-paper-route-source-repair-corpus-expansion-plan.md",
+    "decision": "source_repair_corpus_expansion_plan_gap_reported_route_to_result_audit",
+    "result_class": "source_history_corpus_expansion_plan_gap_reported",
+    "target_source_pairs": 240,
+    "target_pair_probe_groups": 480,
+    "planned_source_pairs": 216,
+    "planned_pair_probe_groups": 432,
+    "source_fault_family_count": 7,
+    "corner_or_side_variant_count": 22,
+    "materialized_source_pair_count": 0,
+    "all_folds_nonempty": true,
+    "pair_disjoint": true,
+    "max_source_family_fold_share": 0.3260869565,
+    "coverage_gap_reported": true,
+    "unsupported_or_undercovered_family_count": 5,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1324-paper-route-source-repair-corpus-plan-result-audit.json"
+  },
+  "decision": "source_repair_corpus_expansion_plan_gap_reported_route_to_result_audit",
   "decision_rule": "M1323 passes as infrastructure if it writes deterministic expansion plan artifacts from M1322 without stale materialized-history matches, hidden global-friction gaps, training, PPO, promotion, private holdout use, threshold relaxation, or actor-input expansion.",
-  "next_blocker": "m1323-paper-route-source-repair-corpus-expansion-plan"
+  "next_blocker": "m1324-paper-route-source-repair-corpus-plan-result-audit"
 }

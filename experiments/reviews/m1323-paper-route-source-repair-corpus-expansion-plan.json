@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1323 plans 216 source pairs and 7 families with good fold balance but remains below 240 target",
+  "failure_criteria": [
+    "run artifacts are missing",
+    "stale materialized histories are counted",
+    "global friction gap is hidden",
+    "pair-disjoint folds are violated",
+    "training, PPO, private holdout, promotion, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not fabricate global friction coverage",
+    "do not use stale M1280 materialized history by pair id",
+    "do not overclaim self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T171455Z",
+  "hypothesis": "The M1322 source repair corpus can support a materially broader source-history expansion plan while preserving the global-friction blocker and avoiding stale materialized-history matches.",
+  "lineage": {
+    "blocked_by": [
+      "M1322 exports a new seven-family source corpus candidate that needs fold planning"
+    ],
+    "derived_from": [
+      "m1322-paper-route-source-repair-corpus-export"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1322-paper-route-source-repair-corpus-export.json"
+    ],
+    "parent_dataset": [
+      "docs/m1322-paper-route-source-repair-corpus-export.md",
+      "runs/m1322_source_repair_corpus_export/summary.json"
+    ],
+    "parent_objective": [
+      "plan source-history corpus expansion using the M1322 source repair corpus"
+    ],
+    "supersedes": [
+      "planning from the old M1273 source corpus"
+    ]
+  },
+  "milestone": "m1323-paper-route-source-repair-corpus-expansion-plan",
+  "next_blocker": "m1324-paper-route-source-repair-corpus-plan-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_repair_corpus_expansion_plan_gap_reported_route_to_result_audit",
+  "public_gates": [
+    "M1323 must not train",
+    "M1323 must not run PPO",
+    "M1323 must not use private holdout",
+    "M1323 must not promote",
+    "M1323 must preserve actor input contract",
+    "M1323 must use the M1322 source corpus",
+    "M1323 must avoid false materialized-history matches from pair-id collision",
+    "M1323 must report coverage gaps instead of fabricating global friction"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1323_source_repair_corpus_expansion_plan/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "source_repair_corpus_expansion_plan_gap_reported_route_to_result_audit",
+    "milestone": "m1323-paper-route-source-repair-corpus-expansion-plan",
+    "reason": "M1323 plans 216 source pairs and 7 families with good fold balance but remains below 240 target",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1323_source_repair_corpus_expansion_plan/summary.json exists",
+    "planned_source_pairs >= 216",
+    "planned_pair_probe_groups >= 432",
+    "source_fault_family_count >= 7",
+    "pair_disjoint is true",
+    "all_folds_nonempty is true",
+    "materialized_source_pair_count == 0",
+    "global friction is reported as missing or inactive",
+    "no training, PPO, promotion, private holdout, threshold relaxation, or actor-input expansion occurs"
+  ],
+  "type": "infrastructure"
+}

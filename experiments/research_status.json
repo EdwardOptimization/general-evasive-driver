@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1332,
+    "completed": 1333,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1322-paper-route-source-repair-corpus-export.md",
+    "command_log": "docs/m1323-paper-route-source-repair-corpus-expansion-plan.md",
     "returncode": 0,
-    "run_dir": "runs/m1322_source_repair_corpus_export",
+    "run_dir": "runs/m1323_source_repair_corpus_expansion_plan",
     "status": "completed",
-    "task_id": "m1322-paper-route-source-repair-corpus-export"
+    "task_id": "m1323-paper-route-source-repair-corpus-expansion-plan"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1323-paper-route-source-repair-corpus-expansion-plan.json",
-    "hypothesis": "Plan source-history corpus expansion from the M1322 source repair corpus",
-    "id": "m1323-paper-route-source-repair-corpus-expansion-plan",
-    "kind": "infrastructure",
-    "notes": "Pending: plan M1322 source corpus without stale materialized-history matches; PPO and promotion remain blocked",
-    "priority": 13180,
+    "command": "see experiments/manifests/m1324-paper-route-source-repair-corpus-plan-result-audit.json",
+    "hypothesis": "Audit M1323 improved but under-target source repair corpus expansion plan",
+    "id": "m1324-paper-route-source-repair-corpus-plan-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit coverage gaps and decide materialization or top-up; PPO and promotion remain blocked",
+    "priority": 13190,
     "status": "pending",
-    "success_artifact": "runs/m1323_source_repair_corpus_expansion_plan/summary.json"
+    "success_artifact": "docs/m1324-paper-route-source-repair-corpus-plan-result-audit.md"
   },
-  "updated_at_utc": "20260528T170921Z"
+  "updated_at_utc": "20260528T171218Z"
 }

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1322-paper-route-source-repair-corpus-export
+m1323-paper-route-source-repair-corpus-expansion-plan
 ```
 
 Current next task:
 
 ```text
-m1323-paper-route-source-repair-corpus-expansion-plan
+m1324-paper-route-source-repair-corpus-plan-result-audit
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -242,8 +242,13 @@ friction as an explicit inactive blocker. M1322 completed the export:
 family-balanced rows, and global friction retained as inactive. The active
 blocker is M1323: run a new source-history corpus expansion plan from M1322
 without falsely counting stale M1280 materialized histories by pair-id collision.
-PPO, source-history objective tuning, and promotion remain blocked until the
-exported corpus is planned and audited.
+M1323 completed that plan: `216` planned source pairs, `432` pair-probe groups,
+`7` source families, `0` materialized source pairs, and max source-family fold
+share `0.3260869565`. The plan is much better than M1315 but still below the
+`240/480` target and global friction remains missing. The active blocker is
+M1324: audit whether to materialize the seven-family corpus now or run a small
+top-up/global-friction source branch first. PPO, source-history objective tuning,
+and promotion remain blocked until that audit.
 
 ## Actor Contract
 
