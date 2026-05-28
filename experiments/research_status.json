@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1229,
+    "completed": 1230,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1219-paper-route-current-family-action-screen-negative-audit.md",
+    "command_log": "docs/m1220-paper-route-current-family-hidden-action-sensitivity-probe.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1220_current_family_hidden_action_sensitivity_probe",
     "status": "completed",
-    "task_id": "m1219-paper-route-current-family-action-screen-negative-audit"
+    "task_id": "m1220-paper-route-current-family-hidden-action-sensitivity-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1220-paper-route-current-family-hidden-action-sensitivity-probe.json",
-    "hypothesis": "The current-family actor will show hidden-action sensitivity under reset, shuffled, scaled, or random hidden perturbations even though real wrong/delayed matched histories are action-equivalent.",
-    "id": "m1220-paper-route-current-family-hidden-action-sensitivity-probe",
+    "command": "see experiments/manifests/m1221-paper-route-action-critical-hidden-source-design.json",
+    "hypothesis": "Design action-critical hidden-history source mining",
+    "id": "m1221-paper-route-action-critical-hidden-source-design",
     "kind": "gate",
-    "notes": "Pending: probe reset shuffled scaled random wrong delayed and zero controls on M1217 pairs",
-    "priority": 12150,
+    "notes": "Pending: audit existing action-critical wrong-history tools and select next mining route before outcome interventions",
+    "priority": 12160,
     "status": "pending",
-    "success_artifact": "docs/m1220-paper-route-current-family-hidden-action-sensitivity-probe.md"
+    "success_artifact": "docs/m1221-paper-route-action-critical-hidden-source-design.md"
   },
-  "updated_at_utc": "20260528T070913Z"
+  "updated_at_utc": "20260528T071500Z"
 }

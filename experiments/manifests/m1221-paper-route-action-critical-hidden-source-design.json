@@ -1,0 +1,163 @@
+{
+  "id": "m1221-paper-route-action-critical-hidden-source-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111600/checkpoint.pt",
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111601/checkpoint.pt",
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1217_current_family_matched_current_export/matched_pairs.csv",
+      "runs/m1220_current_family_hidden_action_sensitivity_probe/variant_summary.csv",
+      "runs/m1220_current_family_hidden_action_sensitivity_probe/action_sensitivity_rows.csv"
+    ],
+    "parent_config": [
+      "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json",
+      "experiments/manifests/m1220-paper-route-current-family-hidden-action-sensitivity-probe.json"
+    ],
+    "parent_objective": [
+      "choose a next source-mining path after M1220 finds hidden-path sensitivity but no real matched-history action signal"
+    ],
+    "derived_from": [
+      "m1220-paper-route-current-family-hidden-action-sensitivity-probe"
+    ],
+    "blocked_by": [
+      "M1220 shows reset/random/scaled hidden perturbations move action but wrong/delayed current-family matched histories remain action-equivalent"
+    ],
+    "supersedes": [
+      "directly running outcome interventions from M1217 rows",
+      "directly changing PPO or hidden objectives without an action-critical source"
+    ],
+    "invalidates": [
+      "treating off-manifold hidden perturbation sensitivity as causal-history evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1221-paper-route-action-critical-hidden-source-design.md",
+  "public_gates": [
+    "M1221 may inspect source-mining tools and existing artifacts only",
+    "M1221 must select an action-critical mining route before any outcome gate",
+    "M1221 must preserve the P0 human-view no-wheel actor contract",
+    "M1221 must not train controllers",
+    "M1221 must not run PPO",
+    "M1221 must not run outcome interventions",
+    "M1221 must not use private holdout",
+    "M1221 must not promote",
+    "M1221 must not claim self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run outcome intervention gates",
+    "do not use private holdout",
+    "do not promote",
+    "do not tune profiles",
+    "do not use hidden or oracle actor inputs",
+    "do not treat random/reset/scaled hidden sensitivity as self-identification",
+    "do not continue from M1217 rows unless a real-history action-critical screen is expected"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_causal_history_evidence",
+    "evidence_axis": "H_causal_history_action_critical_source_selection",
+    "evidence_increment": "selects a source-mining route that can produce source-diverse matched-current pairs with real-history action divergence",
+    "claim_scope": "process/design route only; no closed-loop, training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if no existing tool can produce candidate action-critical real-history pairs",
+      "stop if proposed route relies on private holdout or hidden/oracle actor inputs",
+      "stop if branch cadence requires synthesis before another narrow implementation milestone"
+    ],
+    "fallback_plan": [
+      "design a minimal selector if existing tools cannot use M1217/M1220 artifacts",
+      "pivot to stronger cross-family or adversarial history sources if current-family histories remain too close",
+      "write branch synthesis if another action-screen negative closes the current causal-history source path"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1220 blocks outcome rollout and selects action-critical hidden-history source mining",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "select action-critical hidden-history source mining route",
+    "admission_evidence": [
+      "M1220 random_hidden_unit reset_hidden and scaled_hidden variants move action strongly",
+      "M1220 wrong_matched_history delayed_history and shuffled_history are weak or sparse",
+      "M1220 blocks outcome rollout from M1217 rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not make paper-level or self-ID claims"
+    ],
+    "allowed_updates": [
+      "tooling audit",
+      "source-mining route design",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "one concrete action-critical mining command or implementation route is selected",
+      "admission thresholds for a future action screen are specified",
+      "negative-result fallback is specified"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1221 is only a source selection design and must not infer history necessity from hidden-path structural sensitivity.",
+    "history_necessity_tests": [
+      "tooling readiness for real-history action-critical pair mining",
+      "source-diversity requirements for wrong/delayed/shuffled history action screens",
+      "controls preventing off-manifold hidden perturbations from becoming self-ID evidence"
+    ],
+    "temporal_evidence_window": "A future M1222-style mining run may produce an admission surface; outcome evidence remains blocked until action-critical real-history rows exist.",
+    "negative_result_policy": "If no action-critical real-history source is available, record the branch as blocked or pivot to stronger source generation instead of running outcome gates.",
+    "allowed_claims": [
+      "source-mining route selection",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Existing action-critical wrong-history mining tools can be routed to produce a better real-history action-screen source than the M1217 current-family matched-current surface.",
+  "success_criteria": [
+    "docs/m1221-paper-route-action-critical-hidden-source-design.md exists",
+    "existing tools and their compatible inputs are audited",
+    "one next mining route is selected with concrete thresholds",
+    "private holdout remains unused",
+    "no outcome intervention, training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs",
+    "next route milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1221 trains or tunes profiles",
+    "private holdout is used",
+    "outcome interventions are run",
+    "off-manifold hidden effects are claimed as self-identification",
+    "next route is left vague"
+  ],
+  "commands": [
+    {
+      "name": "write_action_critical_hidden_source_design",
+      "command": "Inspect existing action-critical wrong-history mining tools and write docs/m1221-paper-route-action-critical-hidden-source-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1221-paper-route-action-critical-hidden-source-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111600/checkpoint.pt",
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111601/checkpoint.pt",
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1217_current_family_matched_current_export/matched_pairs.csv",
+    "runs/m1220_current_family_hidden_action_sensitivity_probe/variant_summary.csv",
+    "docs/m1220-paper-route-current-family-hidden-action-sensitivity-probe.md"
+  ],
+  "decision_rule": "M1221 passes if it selects a concrete action-critical source-mining route without outcome-gate or claim overreach.",
+  "next_blocker": "m1221-paper-route-action-critical-hidden-source-design"
+}

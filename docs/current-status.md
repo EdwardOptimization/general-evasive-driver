@@ -115,7 +115,56 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1220-paper-route-current-family-hidden-action-sensitivity-probe
+m1221-paper-route-action-critical-hidden-source-design
+```
+
+M1220 completed hidden-action sensitivity probing:
+
+```text
+artifact: docs/m1220-paper-route-current-family-hidden-action-sensitivity-probe.md
+run dir: runs/m1220_current_family_hidden_action_sensitivity_probe
+decision: hidden_path_exists_but_real_matched_histories_are_action_equivalent
+```
+
+M1220 conclusion:
+
+```text
+The L3 actors have a functional hidden path, but the current M1217 natural
+matched histories are not action-critical. Reset/random/scaled hidden
+perturbations move actions strongly, while real wrong/delayed matched histories
+remain action-equivalent.
+```
+
+Next branch:
+
+```text
+paper_route_causal_history_evidence
+```
+
+The next task is action-critical hidden-history source design, not outcome
+intervention or training:
+
+```text
+checkpoint family: M1212 corrected L3 online GRU repeat
+env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
+pair source:       runs/m1217_current_family_matched_current_export/matched_pairs.csv
+probe source:      runs/m1220_current_family_hidden_action_sensitivity_probe
+next artifact:     docs/m1221-paper-route-action-critical-hidden-source-design.md
+```
+
+M1221 should inspect existing source-mining tools and choose a concrete route
+for source-diverse real-history action-critical pair mining. Off-manifold hidden
+sensitivity cannot be claimed as self-ID; it only justifies looking for a
+stronger real-history source.
+
+M1220 hidden-action sensitivity result:
+
+```text
+random_hidden_unit action mean / above-threshold: 0.057720 / 713
+reset_hidden action mean / above-threshold:       0.041795 / 629
+scaled_hidden_2_0 action mean / above-threshold:  0.038319 / 509
+wrong_matched_history mean / above-threshold:     0.001075 / 0
+delayed_history mean / above-threshold:           0.000154 / 0
 ```
 
 M1219 completed the negative action-screen audit:
@@ -133,27 +182,6 @@ Reset-hidden sensitivity is not self-identification evidence.
 Persistent outcome rollout is blocked until hidden-action sensitivity is
 classified.
 ```
-
-Next branch:
-
-```text
-paper_route_causal_history_evidence
-```
-
-The next task is hidden-action sensitivity probing, not outcome intervention or
-training:
-
-```text
-checkpoint family: M1212 corrected L3 online GRU repeat
-env config:        configs/paper_route_corrected_profiles/m1207_l3_online_gru.json
-pair source:       runs/m1217_current_family_matched_current_export/matched_pairs.csv
-run dir:           runs/m1220_current_family_hidden_action_sensitivity_probe
-```
-
-M1220 should compare real wrong/delayed hidden histories against reset,
-shuffled, scaled, and random hidden perturbations plus zero-current/zero-action
-controls. Off-manifold hidden sensitivity cannot be claimed as self-ID; it only
-classifies the next route.
 
 M1218 completed current-family history action screening:
 

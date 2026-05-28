@@ -17501,3 +17501,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1220-paper-route-current-family-hidden-action-sensitivity-probe.json`.
 - decision: `negative_action_screen_admit_hidden_action_sensitivity_probe`
 - next: `m1220-paper-route-current-family-hidden-action-sensitivity-probe`
+
+## 20260528T071500Z - m1220-paper-route-current-family-hidden-action-sensitivity-probe
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `proof`
+- artifact: `docs/m1220-paper-route-current-family-hidden-action-sensitivity-probe.md`
+- run dir: `runs/m1220_current_family_hidden_action_sensitivity_probe`
+- result: hidden-path sensitivity exists, but current-family real wrong/delayed matched histories remain action-equivalent.
+- counts: `762` input matched pairs, `8382` action rows, `99` variant summary rows, and `99` correlation summary rows.
+- fusion audit: hidden/context/interaction final-layer norm shares are balanced near one third for all three L3 checkpoints.
+- positive controls: `random_hidden_unit` action mean `0.057720` with `713` above-threshold rows, `reset_hidden` action mean `0.041795` with `629` rows, and `scaled_hidden_2_0` action mean `0.038319` with `509` rows.
+- real-history result: `wrong_matched_history` action mean `0.001075` with `0` above-threshold rows and `delayed_history` action mean `0.000154` with `0` rows.
+- interpretation: the actor has a functional hidden path, but M1217 current-family natural histories are too close or action-equivalent for causal-history outcome testing.
+- guardrail: no outcome intervention, training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1221-paper-route-action-critical-hidden-source-design.json`.
+- decision: `hidden_path_exists_but_real_matched_histories_are_action_equivalent`
+- next: `m1221-paper-route-action-critical-hidden-source-design`
