@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M1206 designs corrected public pilot with L0/L1/L2 normal/current-tiled controls and L3 online/corrected reset under fixed public seeds budgets eval rules and no promotion private holdout or self-ID claim",
+  "failure_criteria": [
+    "M1206 trains or tunes profiles",
+    "private holdout is used",
+    "design omits current-tiled L2 controls or corrected reset semantics",
+    "hidden or oracle actor inputs are introduced",
+    "design claims performance evidence"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not tune profiles",
+    "do not promote",
+    "do not claim performance evidence from design",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T060411Z",
+  "hypothesis": "A corrected public pilot can be designed with current-tiled L2 controls and corrected L3 reset semantics under fixed budgets.",
+  "lineage": {
+    "blocked_by": [
+      "synthesis continues the branch but requires corrected pilot design before any training"
+    ],
+    "derived_from": [
+      "m1205-paper-route-finite-window-gru-evidence-synthesis"
+    ],
+    "invalidates": [
+      "claiming finite-window history benefit without current-tiled capacity controls"
+    ],
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1205-paper-route-finite-window-gru-evidence-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1205-paper-route-finite-window-gru-evidence-synthesis.md",
+      "runs/m1204_profile_control_repair_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "design corrected public pilot after branch synthesis"
+    ],
+    "supersedes": [
+      "M1199-style comparison without current-tiled controls or corrected reset semantics"
+    ]
+  },
+  "milestone": "m1206-paper-route-corrected-profile-pilot-design",
+  "next_blocker": "m1207-paper-route-corrected-profile-config-generation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "corrected_profile_pilot_design_admit_config_generation",
+  "public_gates": [
+    "M1206 may design the corrected public pilot only",
+    "M1206 must not train controllers",
+    "M1206 must not run PPO",
+    "M1206 must not run candidate replay",
+    "M1206 must not promote",
+    "M1206 must not use private holdout",
+    "M1206 must not tune profiles",
+    "M1206 must not claim profile superiority or self-identification"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1206-paper-route-corrected-profile-pilot-design.md",
+    "clearance_margin_mean": "",
+    "decision": "corrected_profile_pilot_design_admit_config_generation",
+    "milestone": "m1206-paper-route-corrected-profile-pilot-design",
+    "reason": "M1206 designs corrected public pilot with L0/L1/L2 normal/current-tiled controls and L3 online/corrected reset under fixed public seeds budgets eval rules and no promotion private holdout or self-ID claim",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1206-paper-route-corrected-profile-pilot-design.md exists",
+    "corrected profile set, seeds, budgets, eval rules, metrics, artifacts, and claim scope are fixed",
+    "private holdout remains unused",
+    "no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, or actor-input contract expansion occurs",
+    "next config-generation or pilot-run milestone is selected"
+  ],
+  "type": "gate"
+}

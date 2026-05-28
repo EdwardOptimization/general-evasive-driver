@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1215,
+    "completed": 1216,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1205-paper-route-finite-window-gru-evidence-synthesis.md",
+    "command_log": "docs/m1206-paper-route-corrected-profile-pilot-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1205-paper-route-finite-window-gru-evidence-synthesis"
+    "task_id": "m1206-paper-route-corrected-profile-pilot-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1206-paper-route-corrected-profile-pilot-design.json",
-    "hypothesis": "A corrected public pilot can be designed with current-tiled L2 controls and corrected L3 reset semantics under fixed budgets.",
-    "id": "m1206-paper-route-corrected-profile-pilot-design",
-    "kind": "gate",
-    "notes": "Pending: design corrected public pilot with current-tiled L2 controls and corrected L3 reset semantics",
-    "priority": 12010,
+    "command": "see experiments/manifests/m1207-paper-route-corrected-profile-config-generation.json",
+    "hypothesis": "Corrected profile configs can be generated under the M1206 protocol without hidden inputs or training.",
+    "id": "m1207-paper-route-corrected-profile-config-generation",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize corrected current-tiled and reset-control configs before training",
+    "priority": 12020,
     "status": "pending",
-    "success_artifact": "docs/m1206-paper-route-corrected-profile-pilot-design.md"
+    "success_artifact": "docs/m1207-paper-route-corrected-profile-config-generation.md"
   },
-  "updated_at_utc": "20260528T055928Z"
+  "updated_at_utc": "20260528T060313Z"
 }

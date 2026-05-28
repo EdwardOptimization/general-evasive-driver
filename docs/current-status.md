@@ -115,8 +115,30 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1206-paper-route-corrected-profile-pilot-design
+m1207-paper-route-corrected-profile-config-generation
 ```
+
+M1206 completed the corrected public pilot design:
+
+```text
+artifact: docs/m1206-paper-route-corrected-profile-pilot-design.md
+decision: corrected_profile_pilot_design_admit_config_generation
+```
+
+Corrected pilot profile set:
+
+```text
+L0_current_masked
+L1_one_step
+L2_window_13
+L2_window_13_current_tiled
+L2_window_25
+L2_window_25_current_tiled
+L3_online_gru
+L3_reset_control_corrected
+```
+
+M1207 must materialize these configs and checks before any corrected PPO run.
 
 M1205 completed the finite-window vs GRU evidence synthesis:
 

@@ -1,0 +1,152 @@
+{
+  "id": "m1207-paper-route-corrected-profile-config-generation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "docs/m1206-paper-route-corrected-profile-pilot-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1206-paper-route-corrected-profile-pilot-design.json"
+    ],
+    "parent_objective": [
+      "generate corrected public pilot configs before training"
+    ],
+    "derived_from": [
+      "m1206-paper-route-corrected-profile-pilot-design"
+    ],
+    "blocked_by": [
+      "M1206 fixes corrected pilot protocol but committed configs for current-tiled controls do not yet exist"
+    ],
+    "supersedes": [
+      "running corrected pilot from ad hoc temporary configs"
+    ],
+    "invalidates": [
+      "training corrected controls without config contract checks"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1207-paper-route-corrected-profile-config-generation.md",
+  "public_gates": [
+    "M1207 may generate configs and run config/runtime checks only",
+    "M1207 must not train controllers",
+    "M1207 must not run PPO",
+    "M1207 must not run candidate replay",
+    "M1207 must not promote",
+    "M1207 must not use private holdout",
+    "M1207 must not tune profiles",
+    "M1207 must not claim profile superiority or self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not use private holdout",
+    "do not tune profiles",
+    "do not promote",
+    "do not claim performance evidence from configs",
+    "do not add hidden or oracle actor inputs"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_corrected_profile_config_generation: materialized corrected controls",
+    "evidence_increment": "materializes current-tiled and corrected-reset profile configs under the M1206 protocol",
+    "claim_scope": "infrastructure only; no training promotion private-holdout paper-level generalization recurrent-belief or self-identification claim",
+    "stop_condition": [
+      "stop if current-tiled configs do not preserve actor capacity",
+      "stop if reset-control config cannot express every-step eval semantics",
+      "stop if config checks require hidden or oracle inputs",
+      "stop if generated configs differ in reward or env distribution"
+    ],
+    "fallback_plan": [
+      "route to runtime repair if current-tiled config checks fail",
+      "route to evaluator repair if reset semantics cannot be represented",
+      "route to corrected pilot run if config smoke passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1206 corrected pilot design requires materialized configs before training",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "corrected profile config generation",
+    "admission_evidence": [
+      "M1206 fixes corrected profile set and budget",
+      "M1204 runtime smoke passes corrected controls",
+      "M1205 synthesis continues the branch"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not use private holdout",
+      "do not tune profiles",
+      "do not make performance or self-ID claims"
+    ],
+    "allowed_updates": [
+      "corrected profile configs",
+      "config contract checks",
+      "M1207 docs",
+      "status, queue, scoreboard, research log, review, and next manifest"
+    ],
+    "next_stage_criteria": [
+      "corrected configs exist",
+      "current-tiled controls pass contract checks",
+      "corrected reset-control metadata passes checks",
+      "next corrected smoke or pilot run is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1207 materializes controls for later current-frame substitution tests but does not itself produce self-ID evidence.",
+    "history_necessity_tests": [
+      "config_current_tiled_l2_controls",
+      "config_corrected_l3_reset_control"
+    ],
+    "temporal_evidence_window": "Config generation only; later pilot may evaluate temporal evidence.",
+    "negative_result_policy": "If configs cannot express corrected controls cleanly, route to implementation repair instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "corrected config readiness",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Corrected profile configs can be generated under the M1206 protocol without hidden inputs or training.",
+  "success_criteria": [
+    "docs/m1207-paper-route-corrected-profile-config-generation.md exists",
+    "corrected configs are generated or a focused blocker is recorded",
+    "config contract checks pass",
+    "private holdout remains unused",
+    "no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, or actor-input contract expansion occurs",
+    "next corrected smoke or pilot-run milestone is selected"
+  ],
+  "failure_criteria": [
+    "M1207 trains or tunes profiles",
+    "private holdout is used",
+    "configs omit current-tiled controls or corrected reset semantics",
+    "hidden or oracle actor inputs are introduced",
+    "generated configs change reward/env distribution unfairly"
+  ],
+  "commands": [
+    {
+      "name": "generate_corrected_profile_configs",
+      "command": "materialize corrected profile configs and run checks without training"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1207-paper-route-corrected-profile-config-generation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "docs/m1206-paper-route-corrected-profile-pilot-design.md"
+  ],
+  "decision_rule": "M1207 passes if corrected configs are materialized and checked without training, tuning, promotion, private holdout, or claim expansion.",
+  "next_blocker": "m1207-paper-route-corrected-profile-config-generation"
+}

@@ -148,5 +148,5 @@
     "docs/m1204-paper-route-profile-control-repair-smoke-run.md"
   ],
   "decision_rule": "M1206 passes if it pre-registers the corrected public pilot without training, tuning, promotion, private holdout, or claim expansion.",
-  "next_blocker": "m1206-paper-route-corrected-profile-pilot-design"
+  "next_blocker": "m1207-paper-route-corrected-profile-config-generation"
 }

@@ -17268,3 +17268,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1206-paper-route-corrected-profile-pilot-design.json`.
 - decision: `continue_to_corrected_profile_pilot_design`
 - next: `m1206-paper-route-corrected-profile-pilot-design`
+
+## 20260528T060313Z - m1206-paper-route-corrected-profile-pilot-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1206-paper-route-corrected-profile-pilot-design.md`
+- result: designs the corrected public pilot after M1205 synthesis without training or PPO.
+- profile set: `L0_current_masked`, `L1_one_step`, `L2_window_13`, `L2_window_13_current_tiled`, `L2_window_25`, `L2_window_25_current_tiled`, `L3_online_gru`, and `L3_reset_control_corrected`.
+- budget: three training seeds per profile, seed base `110600`, `8192` steps per seed, `4` envs, `128` rollout steps, `2` update epochs, minibatch `256`, CPU/sync vector.
+- eval: public seed base `120600`, `64` eval episodes per checkpoint, same public seeds for every profile.
+- required semantics: current-tiled controls train/eval through current-tiled transform; corrected reset-control eval resets hidden before every action.
+- guardrail: no training, PPO, candidate replay, promotion, private holdout, per-profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1207-paper-route-corrected-profile-config-generation.json`.
+- decision: `corrected_profile_pilot_design_admit_config_generation`
+- next: `m1207-paper-route-corrected-profile-config-generation`
