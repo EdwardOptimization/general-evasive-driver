@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M1360 exact metrics beat M1355 and preserve M267 success-drop count but fail M267 margin-gap retention by 0.0012517729",
+  "failure_criteria": [
+    "summary artifact is missing",
+    "M1358 combined anchor is not used",
+    "mutation or actor contract checks are missing",
+    "exact metrics are missing",
+    "M267/M264 is skipped before M183/M170",
+    "PPO, private holdout, promotion, threshold relaxation, full replay, or actor-input expansion occurs"
+  ],
+  "failure_types": [
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax thresholds",
+    "do not skip mutation checks",
+    "do not skip exact metrics",
+    "do not skip M267/M264 before M183/M170",
+    "do not run full public replay",
+    "do not claim driver performance",
+    "do not claim strong self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260528T203015Z",
+  "hypothesis": "The M1358 combined anchor can reduce the M1355 wrong-branch proof washout while still improving exact source-history metrics in one bounded no-PPO update.",
+  "lineage": {
+    "blocked_by": [
+      "M1359 designs the probe but no implementation has been run"
+    ],
+    "derived_from": [
+      "m1359-paper-route-bidirectional-active-set-probe-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1359-paper-route-bidirectional-active-set-probe-design.json",
+      "configs/m121_human_view_zero_obstacle_relvel.json"
+    ],
+    "parent_dataset": [
+      "docs/m1359-paper-route-bidirectional-active-set-probe-design.md",
+      "runs/m1358_bidirectional_active_set_anchor_export/combined_recovery_rejected_anchor.npz",
+      "runs/m1336_materialized_source_history_objective_corpus_export"
+    ],
+    "parent_objective": [
+      "run exactly one no-PPO bidirectional active-set probe using the M1358 combined anchor"
+    ],
+    "supersedes": [
+      "direct PPO after M1359",
+      "direct promotion after anchor export",
+      "normal-only retention coefficient tuning"
+    ]
+  },
+  "milestone": "m1360-paper-route-bidirectional-active-set-probe-implementation",
+  "next_blocker": "m1361-paper-route-bidirectional-active-set-probe-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bidirectional_active_set_probe_m267_margin_gap_washout_route_to_result_audit",
+  "public_gates": [
+    "M1360 must not run PPO",
+    "M1360 must not use private holdout",
+    "M1360 must not promote",
+    "M1360 must preserve actor input contract",
+    "M1360 must use the M1358 combined anchor",
+    "M1360 must verify mutation scope",
+    "M1360 must evaluate exact source-history metrics before replay",
+    "M1360 must run M267/M264 before M183/M170"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1360_bidirectional_active_set_probe/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "bidirectional_active_set_probe_m267_margin_gap_washout_route_to_result_audit",
+    "milestone": "m1360-paper-route-bidirectional-active-set-probe-implementation",
+    "reason": "M1360 exact metrics beat M1355 and preserve M267 success-drop count but fail M267 margin-gap retention by 0.0012517729",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1360_bidirectional_active_set_probe/summary.json exists",
+    "summary records use of runs/m1358_bidirectional_active_set_anchor_export/combined_recovery_rejected_anchor.npz",
+    "summary records mutation scope and actor input contract checks",
+    "summary records exact source-history metrics versus M1154 and M1355",
+    "summary records M267/M264 and conditional M183/M170 replay outcomes",
+    "no PPO, promotion, private holdout, threshold relaxation, full replay, or actor-input expansion occurs"
+  ],
+  "type": "infrastructure"
+}

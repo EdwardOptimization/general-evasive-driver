@@ -4,7 +4,7 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "proof_washout"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -166,6 +166,38 @@
     "runs/m1358_bidirectional_active_set_anchor_export/combined_recovery_rejected_anchor.npz",
     "runs/m1355_materialized_source_history_replay_aware_retention_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1360_bidirectional_active_set_probe/summary.json",
+    "document": "docs/m1360-paper-route-bidirectional-active-set-probe-implementation.md",
+    "decision": "bidirectional_active_set_probe_m267_margin_gap_washout_route_to_result_audit",
+    "result_class": "materialized_source_history_bidirectional_active_set_m267_proof_washout",
+    "failure_type": "proof_washout",
+    "checkpoint_out": "runs/m1360_bidirectional_active_set_probe/checkpoints/raw_bidirectional_active_set_update.pt",
+    "combined_loss_delta": -4.720626368826161,
+    "full_group_min_joint_margin_delta": 5.349434823490853,
+    "eval_fold_group_min_joint_margin_delta": 4.926713918572041,
+    "beat_alpha005_exact_lift": true,
+    "beat_m1355_exact_lift": true,
+    "m267_m264_gate_pass": false,
+    "m267_m264_normal_success_delta": 0.0,
+    "m267_m264_normal_margin_mean_delta": -0.002869571901806549,
+    "m267_m264_success_drop_count_delta": 0,
+    "m267_m264_margin_gap_mean_delta": -0.0012517728578869385,
+    "m267_m264_wrong_safe_required_row_ids": [],
+    "m183_m170_ran": false,
+    "forbidden_parameter_mutation_detected": false,
+    "log_std_l2": 0.0,
+    "training_started": true,
+    "objective_update_started": true,
+    "actor_update_used": true,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "next_manifest": "experiments/manifests/m1361-paper-route-bidirectional-active-set-probe-result-audit.json"
+  },
   "decision_rule": "M1360 may run exactly one no-PPO bidirectional active-set probe; it cannot promote and must route to result audit after summary classification.",
-  "next_blocker": "m1360-paper-route-bidirectional-active-set-probe-implementation"
+  "next_blocker": "m1361-paper-route-bidirectional-active-set-probe-result-audit"
 }

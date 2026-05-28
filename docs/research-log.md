@@ -19967,3 +19967,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, replay run, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, actor/Gym integration, or closed-loop self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1360-paper-route-bidirectional-active-set-probe-implementation.json`.
 - next: `m1360-paper-route-bidirectional-active-set-probe-implementation`
+
+## 20260528T202120Z - m1360-paper-route-bidirectional-active-set-probe-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1360_bidirectional_active_set_probe/summary.json`
+- document: `docs/m1360-paper-route-bidirectional-active-set-probe-implementation.md`
+- decision: `bidirectional_active_set_probe_m267_margin_gap_washout_route_to_result_audit`
+- failure taxonomy: `proof_washout`
+- implementation: added `autodrift.materialized_source_history_bidirectional_active_set_probe` and focused tests.
+- numerical fix: trajectory action anchor radius hinge now clamps `action_mse` at `1.0e-12` before `sqrt` to avoid non-finite gradients on exact-zero anchor rows.
+- exact metrics: combined loss delta `-4.7206263688`, group-min joint margin delta `+5.3494348235`, eval-fold delta `+4.9267139186`, beating both M1352 alpha `0.005` and M1355 exact lift.
+- mutation checks: `forbidden_parameter_mutation_detected=false`, `log_std_l2=0.0`, changed only `actor_mean.*` and `response_context_fusion.0.*`.
+- M267/M264 replay: failed; normal success delta `0.0`, normal margin delta `-0.0028695719`, success-drop count delta `0`, wrong safe required rows `[]`, but margin-gap mean delta `-0.0012517729` exceeds the allowed `-0.001`.
+- M183/M170 replay: skipped by pre-registered order because M267/M264 failed first.
+- interpretation: bidirectional anchor fixes M1355 wrong-history success-drop washout, but not the tighter margin-gap retention threshold.
+- guardrail: no PPO, promotion, private holdout, full replay, threshold relaxation, actor-input expansion, high-fidelity claim, paper-level claim, or closed-loop self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1361-paper-route-bidirectional-active-set-probe-result-audit.json`.
+- next: `m1361-paper-route-bidirectional-active-set-probe-result-audit`

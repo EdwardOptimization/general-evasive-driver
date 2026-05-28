@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1369,
+    "completed": 1370,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1359-paper-route-bidirectional-active-set-probe-design.md",
+    "command_log": "runs/m1360_bidirectional_active_set_probe/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1359-paper-route-bidirectional-active-set-probe-design.md",
+    "run_dir": "runs/m1360_bidirectional_active_set_probe",
     "status": "completed",
-    "task_id": "m1359-paper-route-bidirectional-active-set-probe-design"
+    "task_id": "m1360-paper-route-bidirectional-active-set-probe-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1360-paper-route-bidirectional-active-set-probe-implementation.json",
-    "hypothesis": "Run one no-PPO bidirectional active-set probe using the M1358 combined anchor",
-    "id": "m1360-paper-route-bidirectional-active-set-probe-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement/run exactly one no-PPO probe; exact metrics before M267/M264 and M183/M170 conditional replay; no PPO promotion private holdout full replay or actor input change",
-    "priority": 13550,
+    "command": "see experiments/manifests/m1361-paper-route-bidirectional-active-set-probe-result-audit.json",
+    "hypothesis": "Audit M1360 exact-positive but M267 margin-gap-negative bidirectional active-set result",
+    "id": "m1361-paper-route-bidirectional-active-set-probe-result-audit",
+    "kind": "gate",
+    "notes": "Pending: classify whether M1360 is interpolation-addressable or needs a gap-aware active-set term; no training PPO replay promotion private holdout or actor input change",
+    "priority": 13560,
     "status": "pending",
-    "success_artifact": "runs/m1360_bidirectional_active_set_probe/summary.json"
+    "success_artifact": "docs/m1361-paper-route-bidirectional-active-set-probe-result-audit.md"
   },
-  "updated_at_utc": "20260528T201115Z"
+  "updated_at_utc": "20260528T202120Z"
 }

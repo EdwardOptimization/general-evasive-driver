@@ -688,10 +688,41 @@ def test_exact_trajectory_action_anchor_loss_uses_radius_hinge(tmp_path):
         dist, _, _ = model.forward_recurrent(trajectory_anchor.observation, trajectory_anchor.hidden)
         action = torch.tanh(dist.mean)
         action_mse = torch.square(action - trajectory_anchor.reference_action).mean(dim=-1)
-        distance = torch.sqrt(torch.clamp(action_mse, min=0.0))
+        distance = torch.sqrt(torch.clamp(action_mse, min=1.0e-12))
         expected = torch.square(torch.clamp(distance - trajectory_anchor.radius, min=0.0))
         expected = (expected * trajectory_anchor.weight).sum() / trajectory_anchor.weight.sum()
     assert torch.isclose(loss, expected)
+
+
+def test_exact_trajectory_action_anchor_loss_has_finite_gradient_at_zero_error(tmp_path):
+    model = _TinyRecurrentPolicy()
+    observation = np.zeros((3, 72), dtype=np.float32)
+    hidden = _preference_arrays()["rejected_hidden"]
+    with torch.no_grad():
+        dist, _, _ = model.forward_recurrent(torch.as_tensor(observation), torch.as_tensor(hidden))
+        reference_action = torch.tanh(dist.mean).numpy().astype(np.float32)
+    trajectory_npz = tmp_path / "trajectory_anchor_zero_error.npz"
+    _write_trajectory_anchor_npz(
+        trajectory_npz,
+        observation=observation,
+        hidden=hidden,
+        reference_action=reference_action,
+        radius=np.zeros(3, dtype=np.float32),
+    )
+    trajectory_anchor = load_trajectory_action_anchor(
+        trajectory_npz,
+        device=torch.device("cpu"),
+        obs_dim=72,
+        hidden_size=4,
+        act_dim=3,
+    )
+
+    loss = exact_trajectory_action_anchor_loss(model, trajectory_anchor)
+    loss.backward()
+
+    assert torch.isfinite(loss)
+    assert model.proj.weight.grad is not None
+    assert torch.isfinite(model.proj.weight.grad).all()
 
 
 def test_trajectory_anchor_loss_by_source_matches_weighted_rows(tmp_path):

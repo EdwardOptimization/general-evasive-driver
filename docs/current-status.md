@@ -16,14 +16,25 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1359-paper-route-bidirectional-active-set-probe-design
+m1360-paper-route-bidirectional-active-set-probe-implementation
 ```
 
 Current next task:
 
 ```text
-m1360-paper-route-bidirectional-active-set-probe-implementation
+m1361-paper-route-bidirectional-active-set-probe-result-audit
 ```
+
+M1360 implemented and ran the no-PPO bidirectional active-set probe. The result
+is exact-positive but still a public proof failure: exact metrics beat both
+M1352 alpha `0.005` and M1355 (`combined_loss_delta=-4.7206263688`,
+`group_min_delta=+5.3494348235`, eval-fold delta `+4.9267139186`), mutation
+checks pass, M267/M264 normal success is retained, and M267/M264 success-drop
+count is retained. The remaining failure is narrower than M1355: no wrong-history
+required rows became safe, but `margin_gap_mean_delta=-0.0012517729` exceeds the
+allowed `-0.001` regression. M183/M170 was skipped by the pre-registered order.
+M1361 should audit whether this is interpolation-addressable or requires a
+gap-aware active-set term.
 
 M1359 designs the next implementation step: exactly one no-PPO bidirectional
 active-set probe that consumes the M1358 combined anchor, evaluates exact

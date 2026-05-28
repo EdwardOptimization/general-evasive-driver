@@ -139,7 +139,7 @@ def trajectory_action_anchor_errors(
     action = torch.tanh(dist.mean)
     action_mse = torch.square(action - anchor.reference_action.detach()).mean(dim=-1)
     if anchor.radius is not None:
-        action_distance = torch.sqrt(torch.clamp(action_mse, min=0.0))
+        action_distance = torch.sqrt(torch.clamp(action_mse, min=1.0e-12))
         error = torch.square(torch.clamp(action_distance - anchor.radius.detach(), min=0.0))
     else:
         error = action_mse
