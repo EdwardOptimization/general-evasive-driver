@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M1182a records the publication route: compare L0/L1/L2/L3 current feedback finite-window and GRU controllers before recurrent-belief claims and audit historical gates before demotion",
+  "failure_criteria": [
+    "plan claims GRU superiority without finite-window baselines",
+    "plan changes actor inputs",
+    "plan removes historical gates without an audit",
+    "mining, replay, actor training, PPO, promotion, private holdout, or actor-input change starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source-rich mining",
+    "do not run full replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not claim recurrent belief without finite-window baselines",
+    "do not demote gates without a future utility audit"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T033524Z",
+  "hypothesis": "A paper-route plan that separates current feedback, finite-window history, and GRU recurrent belief will prevent premature recurrent self-identification claims and guide the next experiments toward publishable evidence.",
+  "lineage": {
+    "blocked_by": [
+      "current self-ID evidence does not yet separate current-response feedback from finite-window history or GRU recurrent belief",
+      "historical proof gates may over-constrain the paper route without a utility audit"
+    ],
+    "derived_from": [
+      "m1181-v4-public-base-source-rich-route-compatibility-audit",
+      "finite-window vs GRU route review"
+    ],
+    "invalidates": [
+      "claiming recurrent-belief advantage before L0/L1/L2/L3 comparison",
+      "claiming source-rich adapter output as paper evidence before controlled baselines"
+    ],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1181-v4-public-base-source-rich-route-compatibility-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md",
+      "docs/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md",
+      "docs/m1181-v4-public-base-source-rich-route-compatibility-audit.md",
+      "ChatGPT share 6a17b4a0 public snapshot finite-window vs GRU discussion"
+    ],
+    "parent_objective": [
+      "reframe the next phase as paper-quality evidence separating current feedback, finite-window history, and GRU recurrent belief"
+    ],
+    "supersedes": [
+      "unqualified GRU-first paper route",
+      "treating all historical proof rows as permanent active training blockers without audit"
+    ]
+  },
+  "milestone": "m1182a-v4-public-base-paper-route-finite-window-gru-plan",
+  "next_blocker": "m1182-v4-public-base-no-residual-source-rich-adapter-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "paper_route_plan_recorded_continue_with_source_rich_adapter_as_infrastructure_only",
+  "public_gates": [
+    "M1182a may write paper-route planning documents only",
+    "M1182a must not train actor weights",
+    "M1182a must not run PPO",
+    "M1182a must not run source-rich mining or full replay",
+    "M1182a must not promote a checkpoint",
+    "M1182a must not use private holdout",
+    "M1182a must not change actor inputs",
+    "M1182a must not claim GRU superiority or finite-window superiority"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/paper-route-finite-window-vs-gru-plan.md",
+    "clearance_margin_mean": "",
+    "decision": "paper_route_plan_recorded_continue_with_source_rich_adapter_as_infrastructure_only",
+    "milestone": "m1182a-v4-public-base-paper-route-finite-window-gru-plan",
+    "reason": "M1182a records the publication route: compare L0/L1/L2/L3 current feedback finite-window and GRU controllers before recurrent-belief claims and audit historical gates before demotion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "paper-route plan exists",
+    "route decision rules are documented",
+    "L0/L1/L2/L3 comparison is specified",
+    "gate utility audit is specified before historical gate demotion",
+    "M1182 no-residual adapter remains scoped as infrastructure only",
+    "no mining, replay, actor training, PPO, promotion, private holdout, or actor-input change occurs"
+  ],
+  "type": "gate"
+}

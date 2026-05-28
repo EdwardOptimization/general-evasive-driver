@@ -16850,3 +16850,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no mining, replay, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
 - decision: `source_rich_route_compatibility_audit_route_to_no_residual_adapter_implementation`
 - next: `m1182-v4-public-base-no-residual-source-rich-adapter-implementation`
+
+## 20260528T045500Z - m1182a-v4-public-base-paper-route-finite-window-gru-plan
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1182a-v4-public-base-paper-route-finite-window-gru-plan.md`
+- governing plan: `docs/paper-route-finite-window-vs-gru-plan.md`
+- result: records a paper-route plan that separates current-response feedback, finite-window history, and GRU recurrent belief before stronger publication claims.
+- core decision: future GRU claims require fair L0/L1/L2/L3 comparison against current-only, one-step, finite-window, and GRU controllers under the same deployable actor contract.
+- experiment route: reactive tasks, same-current same-recent-window different-older-history tasks, active diagnostic warmup, variable diagnostic delay, and source-rich extreme dynamics.
+- gate route: run a gate utility audit before keeping all historical row-specific and proof-surface gates as active training blockers.
+- scope: M1182 no-residual source-rich adapter remains useful infrastructure, but source-rich rows alone do not establish recurrent-belief or paper-level claims.
+- guardrail: no mining, replay, actor training, PPO, promotion, private holdout, gate demotion, or actor-input change occurred.
+- decision: `paper_route_plan_recorded_continue_with_source_rich_adapter_as_infrastructure_only`
+- next: `m1182-v4-public-base-no-residual-source-rich-adapter-implementation`

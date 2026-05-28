@@ -81,6 +81,37 @@ Status: M568 scaled BC L3 checkpoint selected by M569 and used for M570-M752
 diagnostics. It is not the public-gate base and is not promoted as the current
 driver checkpoint.
 
+## Paper-Route Governance Update
+
+M1182a records a paper-oriented route plan:
+
+```text
+docs/paper-route-finite-window-vs-gru-plan.md
+```
+
+The project should not assume `GRU > finite-window`. Future publication claims
+must compare:
+
+```text
+L0-current
+L1-one-step feedback
+L2-finite-window command-response history
+L3-GRU recurrent belief
+```
+
+The paper route now separates:
+
+- engineering feedback-driver performance;
+- history-conditioned output feedback;
+- conditional recurrent-belief advantage;
+- strong self-identification evidence.
+
+M1182 no-residual source-rich adapter remains the next infrastructure blocker,
+but it is scoped as data-generation support. It does not by itself justify a
+GRU recurrent-belief claim, a paper-level result, PPO readiness, or promotion.
+Historical proof gates and row-specific repair logic should be audited with a
+gate utility matrix before remaining permanent active training blockers.
+
 ## Current Blocker
 
 ```text

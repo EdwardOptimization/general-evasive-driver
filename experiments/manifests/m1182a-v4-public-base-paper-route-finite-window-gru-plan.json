@@ -1,0 +1,182 @@
+{
+  "id": "m1182a-v4-public-base-paper-route-finite-window-gru-plan",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md",
+      "docs/m1180-v4-public-base-source-rich-extreme-scenario-refresh-design.md",
+      "docs/m1181-v4-public-base-source-rich-route-compatibility-audit.md",
+      "ChatGPT share 6a17b4a0 public snapshot finite-window vs GRU discussion"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1181-v4-public-base-source-rich-route-compatibility-audit.json"
+    ],
+    "parent_objective": [
+      "reframe the next phase as paper-quality evidence separating current feedback, finite-window history, and GRU recurrent belief"
+    ],
+    "derived_from": [
+      "m1181-v4-public-base-source-rich-route-compatibility-audit",
+      "finite-window vs GRU route review"
+    ],
+    "blocked_by": [
+      "current self-ID evidence does not yet separate current-response feedback from finite-window history or GRU recurrent belief",
+      "historical proof gates may over-constrain the paper route without a utility audit"
+    ],
+    "supersedes": [
+      "unqualified GRU-first paper route",
+      "treating all historical proof rows as permanent active training blockers without audit"
+    ],
+    "invalidates": [
+      "claiming recurrent-belief advantage before L0/L1/L2/L3 comparison",
+      "claiming source-rich adapter output as paper evidence before controlled baselines"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1182a-v4-public-base-paper-route-finite-window-gru-plan.md",
+  "public_gates": [
+    "M1182a may write paper-route planning documents only",
+    "M1182a must not train actor weights",
+    "M1182a must not run PPO",
+    "M1182a must not run source-rich mining or full replay",
+    "M1182a must not promote a checkpoint",
+    "M1182a must not use private holdout",
+    "M1182a must not change actor inputs",
+    "M1182a must not claim GRU superiority or finite-window superiority"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source-rich mining",
+    "do not run full replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not claim recurrent belief without finite-window baselines",
+    "do not demote gates without a future utility audit"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_finite_window_gru_evidence",
+    "evidence_axis": "G_paper_route: distinguish current feedback, finite-window history, and recurrent belief",
+    "evidence_increment": "records a paper-route plan and decision rules before continuing source-rich infrastructure and future training",
+    "claim_scope": "process and planning only; no controller performance, self-identification, PPO, promotion, or paper result claim",
+    "stop_condition": [
+      "stop if the plan changes deployable actor inputs",
+      "stop if the plan claims GRU advantage before finite-window comparison",
+      "stop if the plan treats historical proof gates as deprecated without an audit",
+      "stop if the plan starts mining, replay, training, PPO, or promotion"
+    ],
+    "fallback_plan": [
+      "if the plan is too broad, split it into gate-utility and L0/L1/L2/L3 design milestones",
+      "if source-rich adapter work is still needed, keep it as infrastructure only under the paper-route plan",
+      "if finite-window baselines dominate, route the engineering pipeline to finite-window while keeping GRU as research-only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "finite-window vs GRU review reframes the publication route and calls for gate simplification before stronger claims",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/paper-route-finite-window-vs-gru-plan.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "define the paper-route evidence program before further infrastructure or training milestones",
+    "admission_evidence": [
+      "M1170-M1179 show same-shape and artifact-only wrong-history construction collapsed to old active sets",
+      "M1180-M1181 show source-rich data generation needs no-residual current-base tooling",
+      "finite-window vs GRU review identifies that current-response feedback and finite-window baselines must be tested before recurrent-belief claims"
+    ],
+    "blocked_shortcuts": [
+      "do not enter guarded_rl",
+      "do not run source-rich mining",
+      "do not run PPO",
+      "do not promote",
+      "do not use private holdout"
+    ],
+    "allowed_updates": [
+      "planning docs",
+      "manifest",
+      "queue/status/log/scoreboard updates",
+      "review artifact"
+    ],
+    "next_stage_criteria": [
+      "paper-route plan exists",
+      "route decision rules exist",
+      "L0/L1/L2/L3 comparison is required before GRU claims",
+      "gate utility audit is scheduled before demoting historical gates"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1182a explicitly recognizes that current ego-response feedback can substitute for history in many scenarios and therefore requires finite-window baselines before recurrent-belief claims.",
+    "history_necessity_tests": [
+      "future same-current same-recent-window different-older-history test",
+      "future L0/L1/L2/L3 comparison",
+      "future variable diagnostic delay comparison"
+    ],
+    "temporal_evidence_window": "M1182a is a planning milestone only; future evidence windows must include finite-window lengths and GRU hidden-state controls.",
+    "negative_result_policy": "If finite-window matches GRU, report a history-conditioned output-feedback result instead of forcing a recurrent-belief claim.",
+    "allowed_claims": [
+      "paper-route planning",
+      "finite-window comparison required",
+      "no self-identification, driver capability, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "A paper-route plan that separates current feedback, finite-window history, and GRU recurrent belief will prevent premature recurrent self-identification claims and guide the next experiments toward publishable evidence.",
+  "success_criteria": [
+    "paper-route plan exists",
+    "route decision rules are documented",
+    "L0/L1/L2/L3 comparison is specified",
+    "gate utility audit is specified before historical gate demotion",
+    "M1182 no-residual adapter remains scoped as infrastructure only",
+    "no mining, replay, actor training, PPO, promotion, private holdout, or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "plan claims GRU superiority without finite-window baselines",
+    "plan changes actor inputs",
+    "plan removes historical gates without an audit",
+    "mining, replay, actor training, PPO, promotion, private holdout, or actor-input change starts"
+  ],
+  "commands": [
+    {
+      "name": "write_paper_route_plan",
+      "command": "write docs/paper-route-finite-window-vs-gru-plan.md and docs/m1182a-v4-public-base-paper-route-finite-window-gru-plan.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/paper-route-finite-window-vs-gru-plan.md",
+      "type": "md"
+    },
+    {
+      "path": "docs/m1182a-v4-public-base-paper-route-finite-window-gru-plan.md",
+      "type": "md"
+    },
+    {
+      "path": "docs/reviews/m1182a-v4-public-base-paper-route-finite-window-gru-plan.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1179-v4-public-base-stronger-wrong-history-construction-synthesis.md",
+    "docs/m1181-v4-public-base-source-rich-route-compatibility-audit.md"
+  ],
+  "decision_rule": "M1182a passes if it records a paper-route plan that requires finite-window baselines before recurrent-belief claims, keeps actor inputs unchanged, and schedules gate utility audit before demoting historical proof gates.",
+  "next_blocker": "m1182-v4-public-base-no-residual-source-rich-adapter-implementation"
+}
