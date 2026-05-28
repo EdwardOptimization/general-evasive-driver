@@ -151,5 +151,5 @@
     "docs/m1182-v4-public-base-no-residual-source-rich-adapter-implementation.md"
   ],
   "decision_rule": "M1183 passes only if the adapter smoke writes metadata artifacts without residual-head dependency and without training, PPO, promotion, private holdout, proof conversion, or actor-input changes.",
-  "next_blocker": "m1183-v4-public-base-no-residual-source-rich-smoke-run"
+  "next_blocker": "m1184-paper-route-gate-utility-audit-design"
 }

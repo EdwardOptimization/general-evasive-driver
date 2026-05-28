@@ -115,28 +115,45 @@ gate utility matrix before remaining permanent active training blockers.
 ## Current Blocker
 
 ```text
-m1183-v4-public-base-no-residual-source-rich-smoke-run
+m1184-paper-route-gate-utility-audit-design
 ```
+
+M1183 ran the bounded source-rich adapter metadata smoke:
+
+```text
+run: runs/m1183_current_base_no_residual_source_rich_smoke/summary.json
+result_class: current_base_source_rich_adapter_metadata_ready
+required_metadata_pass: true
+missing_required_metadata_fields: []
+source_group_rows: 2
+source_result_rows: 2
+boundary_search_plan_rows: 4
+residual_head_required: false
+actor_backbone_changed: false
+training_started: false
+optimizer_started: false
+ppo_used: false
+promoted: false
+checkpoint_promoted: false
+```
+
+This confirms the no-residual adapter can emit source-rich metadata for the
+current public-gate actor. It is infrastructure evidence only and does not
+claim source-rich proof, driver performance, recurrent-belief evidence, PPO
+readiness, promotion, or paper-level results.
+
+Given M1182a's paper route, the next blocker is M1184: design the gate utility
+audit that will classify historical gates, corpora, repair/projection tools,
+and row-specific proof rows as `core`, `research-only`, `extended-regression`,
+`legacy`, or `deprecated` before broad training, gate demotion, or paper-level
+claims.
 
 M1182 implemented the current-base no-residual source-rich adapter:
 
 ```text
 source: src/autodrift/current_base_source_rich_adapter.py
 tests: tests/test_current_base_source_rich_adapter.py
-follow-up: experiments/manifests/m1183-v4-public-base-no-residual-source-rich-smoke-run.json
 ```
-
-The adapter directly evaluates the loaded current public-base actor and
-intentionally does not accept `--residual-head`. It emits source-rich metadata
-fields for source/target obstacle geometry, fault family/fidelity/onset,
-warmup/probe mode, source outcome, and later current-frame/action-divergence
-stages. This is infrastructure only and does not claim source-rich proof,
-driver performance, recurrent-belief evidence, PPO readiness, promotion, or
-paper-level results.
-
-M1183 should run a bounded metadata smoke only. No full source-rich mining,
-proof conversion, actor training, PPO, promotion, private holdout, or
-actor-input change should happen in M1183.
 
 M1181 audited existing source-rich v4 tooling:
 
