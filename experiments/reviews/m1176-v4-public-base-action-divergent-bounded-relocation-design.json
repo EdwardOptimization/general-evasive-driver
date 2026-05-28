@@ -1,0 +1,79 @@
+{
+  "decision_reason": "M1176 may only design a bounded relocation replay and pre-register the run. It cannot execute relocation replay, run mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
+  "failure_criteria": [
+    "design requires broad unbounded replay",
+    "design cannot use M1175 exported candidates",
+    "success criteria are missing",
+    "replay, mining, actor training, PPO, promotion, private holdout, conversion, or actor-input change starts"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run relocation replay",
+    "do not run mining",
+    "do not train actor weights",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not convert rows into a proof corpus",
+    "do not weaken M1175 diversity thresholds after seeing replay results"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260528T021530Z",
+  "hypothesis": "A bounded relocation replay design can test whether M1175 action-divergent candidates produce source-diverse wrong-history boundary rows without rerunning broad mining or changing actor inputs.",
+  "lineage": {
+    "blocked_by": [
+      "M1175 exports candidates but does not produce success-drop proof rows"
+    ],
+    "derived_from": [
+      "m1175-v4-public-base-action-divergent-candidate-export-run"
+    ],
+    "invalidates": [
+      "direct proof conversion from M1175 candidate_outcomes.csv",
+      "broad relocation rerun before a bounded design",
+      "actor update from action-divergent candidates before relocation proof"
+    ],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1175-v4-public-base-action-divergent-candidate-export-run.json"
+    ],
+    "parent_dataset": [
+      "docs/m1175-v4-public-base-action-divergent-candidate-export-run.md",
+      "runs/m1175_action_divergent_candidate_export/candidate_outcomes.csv",
+      "runs/m1175_action_divergent_candidate_export/summary.json"
+    ],
+    "parent_objective": [
+      "design a bounded relocation replay over source-diverse action-divergent candidates"
+    ],
+    "supersedes": []
+  },
+  "milestone": "m1176-v4-public-base-action-divergent-bounded-relocation-design",
+  "next_blocker": "m1176-v4-public-base-action-divergent-bounded-relocation-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M1176 may design a bounded relocation replay only",
+    "M1176 must not run relocation replay",
+    "M1176 must not run mining",
+    "M1176 must not train actor weights",
+    "M1176 must not run PPO",
+    "M1176 must not promote",
+    "M1176 must not use private holdout",
+    "M1176 must preserve actor inputs",
+    "M1176 must not convert rows into a proof corpus"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "design document exists",
+    "next run manifest exists",
+    "run command consumes runs/m1175_action_divergent_candidate_export/candidate_outcomes.csv",
+    "resource bounds are explicit",
+    "success and failure criteria are explicit",
+    "no relocation replay, mining, actor training, PPO, promotion, private holdout, conversion, or actor-input change occurs"
+  ],
+  "type": "gate"
+}

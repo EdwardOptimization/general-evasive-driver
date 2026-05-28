@@ -84,24 +84,29 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1175-v4-public-base-action-divergent-candidate-export-run
+m1176-v4-public-base-action-divergent-bounded-relocation-design
 ```
 
-M1174 implemented deterministic action-divergent candidate export tooling:
+M1175 ran the M1174 deterministic action-divergent candidate exporter on the
+M1161 outcome artifact:
 
 ```text
-module: src/autodrift/action_divergent_candidate_export.py
-tests: tests/test_action_divergent_candidate_export.py
-focused tests: 3 passed
-outputs:
-  candidate_pool.csv
-  candidate_outcomes.csv
-  rejected_candidates.csv
-  summary.json
+summary: runs/m1175_action_divergent_candidate_export/summary.json
+candidate_outcomes: runs/m1175_action_divergent_candidate_export/candidate_outcomes.csv
+candidate_pool_rows: 343
+selected_rows: 240
+selected_physical_pairs: 17
+selected_left_steps: 9
+selected_targets: 3
+selected_checkpoints: 6
+max_selected_pair_fraction: 0.0625
+decision: action_divergent_candidates_ready
 ```
 
-M1175 should run the exporter on the M1161 outcome artifacts and audit source
-diversity before any bounded relocation replay.
+This is not a proof corpus: `success_drop_rows` is `0`, so the next step is
+M1176 design for a bounded relocation replay over `candidate_outcomes.csv`.
+No replay, mining, actor training, PPO, promotion, private holdout, row
+conversion, or actor-input change has occurred.
 
 M1127 completed the expanded full public gate for the row15 projection
 candidate:

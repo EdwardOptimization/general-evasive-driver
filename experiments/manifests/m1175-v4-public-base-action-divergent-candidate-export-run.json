@@ -161,6 +161,48 @@
   "baseline_artifacts": [
     "docs/m1174-v4-public-base-action-divergent-candidate-export-tooling.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1175-v4-public-base-action-divergent-candidate-export-run.md",
+    "summary": "runs/m1175_action_divergent_candidate_export/summary.json",
+    "candidate_pool_csv": "runs/m1175_action_divergent_candidate_export/candidate_pool.csv",
+    "candidate_outcomes_csv": "runs/m1175_action_divergent_candidate_export/candidate_outcomes.csv",
+    "decision": "action_divergent_candidates_ready_route_to_bounded_relocation_design",
+    "result_class": "action_divergent_candidate_export_pass",
+    "failure_types": [
+      "none"
+    ],
+    "input_rows": 27510,
+    "wrong_history_rows": 4585,
+    "candidate_pool_rows": 343,
+    "selected_rows": 240,
+    "selected_physical_pairs": 17,
+    "selected_left_steps": 9,
+    "selected_targets": 3,
+    "selected_checkpoints": 6,
+    "max_selected_rows_per_physical_pair": 15,
+    "max_selected_pair_fraction": 0.0625,
+    "success_drop_rows": 0,
+    "normal_better_rows": 30,
+    "margin_gap_mean": 0.00890049926676059,
+    "margin_gap_p90": 0.0201612120746337,
+    "first_action_distance_mean": 0.18874258954698842,
+    "first_action_distance_p90": 0.280228853225708,
+    "action_trajectory_distance_mean": 0.14410201851278542,
+    "action_trajectory_distance_p90": 0.2938849627971649,
+    "source_obstacle_bucket_unique_count": 1,
+    "source_obstacle_bucket_caveat": "M1161 outcome rows do not contain obstacle geometry columns, so source_obstacle_bucket is x=nan|y=nan for all selected rows; diversity claim is physical-pair, checkpoint, target, and left-step scoped.",
+    "replay_started": false,
+    "mining_started": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "surface_conversion_started": false,
+    "admitted_next": "bounded_action_divergent_relocation_replay_design",
+    "next_milestone": "m1176-v4-public-base-action-divergent-bounded-relocation-design"
+  },
   "decision_rule": "M1175 may only run the candidate exporter and document the export. It cannot run relocation replay, run mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
-  "next_blocker": "m1175-v4-public-base-action-divergent-candidate-export-run"
+  "next_blocker": "m1176-v4-public-base-action-divergent-bounded-relocation-design"
 }

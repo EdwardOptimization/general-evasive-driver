@@ -16740,3 +16740,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no relocation replay, mining, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
 - decision: `action_divergent_candidate_export_tooling_admit_real_export_run`
 - next: `m1175-v4-public-base-action-divergent-candidate-export-run`
+
+## 20260528T030800Z - m1175-v4-public-base-action-divergent-candidate-export-run
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `docs/m1175-v4-public-base-action-divergent-candidate-export-run.md`
+- result: exporter selected a source-diverse action-divergent candidate CSV for later bounded relocation replay.
+- input rows: `27510`; wrong-history rows: `4585`; candidate pool rows: `343`.
+- selected rows: `240` across `17` physical pairs, `9` left steps, `3` targets, and `6` checkpoints.
+- balance: max selected rows per physical pair `15`; max selected pair fraction `0.0625`.
+- action divergence: first-action distance mean `0.188743`, p90 `0.280229`; trajectory-action distance mean `0.144102`, p90 `0.293885`.
+- margin sensitivity: margin-gap mean `0.008900`, p90 `0.020161`.
+- caveat: selected rows have `0` direct success-drop rows, so M1175 is not a proof corpus or self-ID evidence claim.
+- source-bucket caveat: M1161 outcome rows lack obstacle geometry columns, so selected `source_obstacle_bucket` is `x=nan|y=nan`; diversity is physical-pair, checkpoint, target, and left-step scoped.
+- guardrail: no relocation replay, mining, actor training, PPO, promotion, private holdout, conversion, threshold weakening, or actor-input change occurred.
+- decision: `action_divergent_candidates_ready_route_to_bounded_relocation_design`
+- next: `m1176-v4-public-base-action-divergent-bounded-relocation-design`

@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T021022Z
+- Generated at UTC: 20260528T021509Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M1175 may only run the candidate exporter and document the export. It cannot run relocation replay, run mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.
+- Promotion decision: action_divergent_candidates_ready_route_to_bounded_relocation_design
+- Decision reason: M1175 exports 240 action-divergent rows across 17 physical pairs 9 left steps 3 targets and 6 checkpoints with max pair fraction 0.0625 but no direct success-drop proof rows
 
 ## Hypothesis
 
@@ -78,8 +78,19 @@ The M1174 exporter will produce a source-diverse action-divergent candidate CSV 
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1175-v4-public-base-action-divergent-candidate-export-run
+- type: infrastructure
+- checkpoint: runs/m1175_action_divergent_candidate_export/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: action_divergent_candidates_ready_route_to_bounded_relocation_design
+- reason: M1175 exports 240 action-divergent rows across 17 physical pairs 9 left steps 3 targets and 6 checkpoints with max pair fraction 0.0625 but no direct success-drop proof rows
 
 ## Next Blocker
 
-m1175-v4-public-base-action-divergent-candidate-export-run
+m1176-v4-public-base-action-divergent-bounded-relocation-design

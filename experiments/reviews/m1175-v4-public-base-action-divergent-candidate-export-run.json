@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1175 may only run the candidate exporter and document the export. It cannot run relocation replay, run mining, train actor weights, run PPO, promote, use private holdout, change actor inputs, or convert rows into a proof corpus.",
+  "decision_reason": "M1175 exports 240 action-divergent rows across 17 physical pairs 9 left steps 3 targets and 6 checkpoints with max pair fraction 0.0625 but no direct success-drop proof rows",
   "failure_criteria": [
     "summary artifact is missing",
     "candidate_outcomes.csv is missing",
@@ -22,7 +22,7 @@
     "do not manually edit candidate CSVs"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260528T021022Z",
+  "generated_at_utc": "20260528T021509Z",
   "hypothesis": "The M1174 exporter will produce a source-diverse action-divergent candidate CSV from M1161 outcome rows under the M1173 gates.",
   "lineage": {
     "blocked_by": [
@@ -52,9 +52,9 @@
     "supersedes": []
   },
   "milestone": "m1175-v4-public-base-action-divergent-candidate-export-run",
-  "next_blocker": "m1175-v4-public-base-action-divergent-candidate-export-run",
+  "next_blocker": "m1176-v4-public-base-action-divergent-bounded-relocation-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "action_divergent_candidates_ready_route_to_bounded_relocation_design",
   "public_gates": [
     "M1175 may run only the M1174 exporter command",
     "M1175 must not run relocation replay",
@@ -66,7 +66,20 @@
     "M1175 must preserve actor inputs",
     "M1175 must not convert rows into a proof corpus"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m1175_action_divergent_candidate_export/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "action_divergent_candidates_ready_route_to_bounded_relocation_design",
+    "milestone": "m1175-v4-public-base-action-divergent-candidate-export-run",
+    "reason": "M1175 exports 240 action-divergent rows across 17 physical pairs 9 left steps 3 targets and 6 checkpoints with max pair fraction 0.0625 but no direct success-drop proof rows",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "summary artifact exists",
     "candidate_outcomes.csv exists",
