@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1235 designs normal-survival-first timing horizon source-window repair with target normal_surviving_fraction >= 0.35 and admits bounded no-training M1236 smoke",
+  "failure_criteria": [
+    "M1235 trains or tunes profiles",
+    "private holdout is used",
+    "repair design depends on hidden labels as actor inputs",
+    "normal-survival gates are left vague",
+    "next route is left vague"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add hidden fault labels or hidden parameters to actor inputs",
+    "do not weaken proof thresholds to count reset-only rows as positives",
+    "do not claim true per-wheel or asymmetric fault physics"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260528T083240Z",
+  "hypothesis": "A normal-survival-first timing/horizon repair is higher leverage than scaling M1233 because most rejected source rows fail under normal history.",
+  "lineage": {
+    "blocked_by": [
+      "M1233 rejected rows are dominated by normal_failed_rejected",
+      "M1233 reset-only rows are seed-collapsed and cannot be used as proof"
+    ],
+    "derived_from": [
+      "m1234-paper-route-extreme-fault-source-smoke-audit"
+    ],
+    "invalidates": [
+      "training from reset-only M1233 rows"
+    ],
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1234-paper-route-extreme-fault-source-smoke-audit.json",
+      "configs/m990_capability_step_fault_scenarios.json"
+    ],
+    "parent_dataset": [
+      "runs/m1233_paper_route_extreme_fault_source_smoke/summary.json",
+      "docs/m1234-paper-route-extreme-fault-source-smoke-audit.md"
+    ],
+    "parent_objective": [
+      "design timing/horizon/normal-success repair for extreme/fault source generation"
+    ],
+    "supersedes": [
+      "directly scaling the current M1233 smoke config"
+    ]
+  },
+  "milestone": "m1235-paper-route-extreme-fault-timing-repair-design",
+  "next_blocker": "m1236-paper-route-extreme-fault-timing-repair-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "extreme_fault_timing_repair_design_admit_smoke",
+  "public_gates": [
+    "M1235 may design source timing repair only",
+    "M1235 must preserve actor input contract",
+    "M1235 must not train controllers",
+    "M1235 must not run PPO",
+    "M1235 must not use private holdout",
+    "M1235 must not promote",
+    "M1235 must define normal-survival gates before accepted-row gates",
+    "M1235 must select a bounded first repair implementation step"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1235-paper-route-extreme-fault-timing-repair-design.md",
+    "clearance_margin_mean": "",
+    "decision": "extreme_fault_timing_repair_design_admit_smoke",
+    "milestone": "m1235-paper-route-extreme-fault-timing-repair-design",
+    "reason": "M1235 designs normal-survival-first timing horizon source-window repair with target normal_surviving_fraction >= 0.35 and admits bounded no-training M1236 smoke",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1235-paper-route-extreme-fault-timing-repair-design.md exists",
+    "normal-survival repair levers are specified",
+    "source-shape gates are specified",
+    "first bounded repair implementation step is selected",
+    "private holdout remains unused",
+    "no training, PPO, promotion, private holdout, profile tuning, or actor-input contract expansion occurs"
+  ],
+  "type": "gate"
+}

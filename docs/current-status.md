@@ -115,7 +115,37 @@ remain permanent active training blockers or are demoted.
 ## Current Blocker
 
 ```text
-m1235-paper-route-extreme-fault-timing-repair-design
+m1236-paper-route-extreme-fault-timing-repair-smoke
+```
+
+M1235 completed extreme/fault timing repair design:
+
+```text
+artifact: docs/m1235-paper-route-extreme-fault-timing-repair-design.md
+decision: extreme_fault_timing_repair_design_admit_smoke
+baseline normal_surviving_fraction: 0.171875
+target normal_surviving_fraction: 0.35
+```
+
+M1235 selected a normal-survival-first repair:
+
+```text
+max_continuation_steps: 36 -> 18
+max_snapshots_per_scenario: 4 -> 5
+obstacle_longitudinal_min: -8.0 -> -4.0
+obstacle_longitudinal_max: 80.0 -> 95.0
+fault families unchanged
+```
+
+Next task:
+
+```text
+artifact: runs/m1236_extreme_fault_timing_repair_smoke/summary.json
+manifest: experiments/manifests/m1236-paper-route-extreme-fault-timing-repair-smoke.json
+goal: create repaired source config and run no-training timing repair smoke
+      with normal-survival gate before accepted-row claims
+blocked: training, PPO, promotion, private holdout, actor-input expansion,
+         self-identification or paper-level claims
 ```
 
 M1234 completed extreme/fault source smoke audit:

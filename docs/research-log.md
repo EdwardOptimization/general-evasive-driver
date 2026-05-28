@@ -17758,3 +17758,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1235-paper-route-extreme-fault-timing-repair-design.json`.
 - decision: `extreme_fault_source_smoke_audit_route_to_timing_repair_design`
 - next: `m1235-paper-route-extreme-fault-timing-repair-design`
+
+## 20260528T083640Z - m1235-paper-route-extreme-fault-timing-repair-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1235-paper-route-extreme-fault-timing-repair-design.md`
+- result: designs a normal-survival-first timing/horizon/source-window repair after M1233 showed only `132 / 768` normal-surviving rows.
+- baseline: M1233 normal-surviving fraction was `0.171875`.
+- selected levers: reduce `max_continuation_steps` from `36` to `18`, increase `max_snapshots_per_scenario` from `4` to `5`, narrow `obstacle_longitudinal_min` from `-8.0` to `-4.0`, widen `obstacle_longitudinal_max` from `80.0` to `95.0`, and keep fault families unchanged.
+- M1236 gate: core artifacts plus `matched fault-family pairs >= 10`, `matched seeds >= 12`, `normal_surviving_fraction >= 0.35`, stable actor checksum, no training/PPO/promotion, and model-fidelity notes.
+- accepted wrong-history rows remain diagnostic only at M1236 scale and are not required for the timing-repair smoke.
+- guardrail: no training, PPO, checkpoint repair, promotion, private holdout, profile tuning, actor-input expansion, self-identification claim, or paper-level claim occurred.
+- follow-up manifest: `experiments/manifests/m1236-paper-route-extreme-fault-timing-repair-smoke.json`.
+- decision: `extreme_fault_timing_repair_design_admit_smoke`
+- next: `m1236-paper-route-extreme-fault-timing-repair-smoke`

@@ -148,6 +148,20 @@
     "runs/m1233_paper_route_extreme_fault_source_smoke/summary.json",
     "docs/m1234-paper-route-extreme-fault-source-smoke-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1235-paper-route-extreme-fault-timing-repair-design.md",
+    "decision": "extreme_fault_timing_repair_design_admit_smoke",
+    "selected_next_manifest": "experiments/manifests/m1236-paper-route-extreme-fault-timing-repair-smoke.json",
+    "baseline_normal_surviving_fraction": 0.171875,
+    "target_normal_surviving_fraction": 0.35,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false
+  },
+  "decision": "extreme_fault_timing_repair_design_admit_smoke",
   "decision_rule": "M1235 passes if it defines a bounded normal-survival-first timing repair route with actor-input guardrails and a concrete first implementation step.",
-  "next_blocker": "m1235-paper-route-extreme-fault-timing-repair-design"
+  "next_blocker": "m1236-paper-route-extreme-fault-timing-repair-smoke"
 }

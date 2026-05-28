@@ -1,0 +1,176 @@
+{
+  "id": "m1236-paper-route-extreme-fault-timing-repair-smoke",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1233_paper_route_extreme_fault_source_smoke/summary.json",
+      "docs/m1235-paper-route-extreme-fault-timing-repair-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1235-paper-route-extreme-fault-timing-repair-design.json",
+      "configs/m990_capability_step_fault_scenarios.json"
+    ],
+    "parent_objective": [
+      "run bounded normal-survival-first timing repair smoke for extreme/fault source generation"
+    ],
+    "derived_from": [
+      "m1235-paper-route-extreme-fault-timing-repair-design"
+    ],
+    "blocked_by": [
+      "M1233 normal-surviving fraction is only 0.171875"
+    ],
+    "supersedes": [
+      "scaling M1233 without normal-survival repair"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1236-paper-route-extreme-fault-timing-repair-smoke.md",
+  "public_gates": [
+    "M1236 must preserve actor input contract",
+    "M1236 must keep hidden fault labels as logging/pairing metadata only",
+    "M1236 must write model fidelity limits",
+    "M1236 must not train controllers",
+    "M1236 must not run PPO",
+    "M1236 must not use private holdout",
+    "M1236 must not promote",
+    "M1236 must evaluate normal-survival before accepted-row claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote",
+    "do not add fault labels or hidden parameters to actor inputs",
+    "do not claim reset-only rows as self-identification proof",
+    "do not claim true per-wheel or asymmetric fault physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_extreme_fault_source_generation",
+    "evidence_axis": "S_extreme_fault_timing_repair_smoke",
+    "evidence_increment": "tests whether a shorter continuation and safer obstacle window repair M1233's normal-branch failure before source-positive claims",
+    "claim_scope": "infrastructure/source-shape smoke only; no training, promotion, private-holdout, paper-level, recurrent-belief, or self-identification claim",
+    "stop_condition": [
+      "stop if normal-survival fraction remains below threshold",
+      "stop if actor checksum changes",
+      "stop if hidden labels enter actor observation",
+      "stop if artifacts are missing"
+    ],
+    "fallback_plan": [
+      "if normal survival remains low, audit and design narrower family or shorter horizon repair",
+      "if normal survival improves but wrong-history remains zero, route to sequence intervention source design",
+      "if accepted rows appear, route to source-diversity audit before objective work"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1235 admits a bounded normal-survival-first repair smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "normal-survival timing repair smoke",
+    "admission_evidence": [
+      "M1235 defines timing/horizon levers and normal-survival gates",
+      "M1233 normal-survival fraction was too low for proof rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train controllers",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote"
+    ],
+    "allowed_updates": [
+      "configs/m1236_extreme_fault_timing_repair_smoke.json",
+      "M1236 run artifacts",
+      "M1236 result docs",
+      "status, queue, scoreboard, research log, and review"
+    ],
+    "next_stage_criteria": [
+      "core artifacts exist",
+      "normal-surviving fraction is computed",
+      "source shape is classified without proof overclaim"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M1236 is a timing-repair smoke and does not prove history necessity.",
+    "history_necessity_tests": [
+      "generate wrong-history and reset-hidden diagnostics only after normal-history viability is repaired",
+      "do not count reset-only rows as self-ID proof"
+    ],
+    "temporal_evidence_window": "Self-ID evidence remains blocked until future source-diverse wrong-history or sequence outcome gates pass after repair.",
+    "negative_result_policy": "If normal survival improves but wrong-history remains zero, record the negative and route to sequence-level intervention instead of PPO.",
+    "allowed_claims": [
+      "timing-repair source-shape smoke",
+      "no recurrent-belief, strong self-identification, promotion, private-holdout, real-vehicle, or paper-result claim"
+    ]
+  },
+  "hypothesis": "Reducing continuation horizon and widening the earlier obstacle source window will improve normal-history survivability enough to make later fault-source intervention tests interpretable.",
+  "success_criteria": [
+    "configs/m1236_extreme_fault_timing_repair_smoke.json exists",
+    "runs/m1236_extreme_fault_timing_repair_smoke/summary.json exists",
+    "scenario_count > 0",
+    "snapshot_count > 0",
+    "matched_pair_count > 0",
+    "matched fault-family pairs >= 10",
+    "matched seeds >= 12",
+    "normal_surviving_fraction >= 0.35",
+    "model_fidelity_limits.md exists",
+    "actor_parameters_changed == false",
+    "training_started == false",
+    "ppo_used == false",
+    "promoted == false",
+    "private holdout remains unused",
+    "no actor-input contract expansion occurs"
+  ],
+  "failure_criteria": [
+    "checkpoint/config observation compatibility fails",
+    "no snapshots or matched pairs are produced",
+    "normal_surviving_fraction remains below 0.35",
+    "actor parameters change",
+    "hidden fault/event labels enter actor observations",
+    "model fidelity boundary is missing",
+    "training or PPO starts",
+    "promotion occurs"
+  ],
+  "commands": [
+    {
+      "name": "write_config",
+      "command": "write configs/m1236_extreme_fault_timing_repair_smoke.json from configs/m990_capability_step_fault_scenarios.json with only timing/horizon/source-window changes"
+    },
+    {
+      "name": "smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt --config configs/m1236_extreme_fault_timing_repair_smoke.json --pairing-mode cross_fault --seed-start 123600 --seed-count 64 --device auto --run-dir runs/m1236_extreme_fault_timing_repair_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "configs/m1236_extreme_fault_timing_repair_smoke.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1236_extreme_fault_timing_repair_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1236-paper-route-extreme-fault-timing-repair-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1212_corrected_profile_repeat/profile_runs/L3_online_gru/seed_111602/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1233_paper_route_extreme_fault_source_smoke/summary.json",
+    "docs/m1235-paper-route-extreme-fault-timing-repair-design.md"
+  ],
+  "decision_rule": "M1236 passes as a timing-repair smoke if it produces core artifacts and improves normal-surviving fraction to at least 0.35 without actor mutation, training, PPO, promotion, private holdout, or actor-input expansion.",
+  "next_blocker": "m1236-paper-route-extreme-fault-timing-repair-smoke"
+}

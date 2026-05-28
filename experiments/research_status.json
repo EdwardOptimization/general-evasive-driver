@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1244,
+    "completed": 1245,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1234-paper-route-extreme-fault-source-smoke-audit.md",
+    "command_log": "docs/m1235-paper-route-extreme-fault-timing-repair-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1234-paper-route-extreme-fault-source-smoke-audit"
+    "task_id": "m1235-paper-route-extreme-fault-timing-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1235-paper-route-extreme-fault-timing-repair-design.json",
-    "hypothesis": "Design normal-survival-first extreme/fault timing repair",
-    "id": "m1235-paper-route-extreme-fault-timing-repair-design",
+    "command": "see experiments/manifests/m1236-paper-route-extreme-fault-timing-repair-smoke.json",
+    "hypothesis": "Run normal-survival-first extreme/fault timing repair smoke",
+    "id": "m1236-paper-route-extreme-fault-timing-repair-smoke",
     "kind": "gate",
-    "notes": "Pending: define timing/horizon/source-window repair because M1233 was normal-failure dominated and reset-only",
-    "priority": 12300,
+    "notes": "Pending: create repaired config and run no-training smoke targeting normal_surviving_fraction >= 0.35 before accepted-row claims",
+    "priority": 12310,
     "status": "pending",
-    "success_artifact": "docs/m1235-paper-route-extreme-fault-timing-repair-design.md"
+    "success_artifact": "runs/m1236_extreme_fault_timing_repair_smoke/summary.json"
   },
-  "updated_at_utc": "20260528T083250Z"
+  "updated_at_utc": "20260528T083640Z"
 }
