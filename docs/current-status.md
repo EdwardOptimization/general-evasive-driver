@@ -16,18 +16,17 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1374-paper-route-promoted-base-source-rich-smoke-result-audit
+m1375-paper-route-promoted-base-source-rich-public-wave
 ```
 
 Current next task:
 
 ```text
-m1375-paper-route-promoted-base-source-rich-public-wave
+m1376-paper-route-promoted-base-source-rich-public-wave-result-audit
 ```
 
-M1374 audits M1373 as a structurally clean source-rich smoke with sparse
-wrong-history positives and broad reset-hidden sensitivity. The current
-public-gate base remains M1362 alpha `0.1`:
+M1375 ran the larger no-training promoted-base source-rich public wave. The
+current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
@@ -61,12 +60,32 @@ source-rich wave using `configs/m991_capability_step_fault_source_wave.json`,
 seed start `137500`, seed count `256`, and run dir
 `runs/m1375_promoted_base_source_rich_public_wave`.
 
-M1375 is still public evaluation only. It must not train, run PPO, promote, use
-private holdout, change actor inputs, relax thresholds after results, or claim
-high-fidelity per-wheel physics. Its purpose is to test whether the sparse
-M1373 wrong-history positives repeat under broader fresh coverage; if they do
-not, the next route should be temporal/sequence intervention or source
-distribution redesign, not threshold relaxation.
+M1375 used `configs/m991_capability_step_fault_source_wave.json`, seed start
+`137500`, seed count `256`, and run dir
+`runs/m1375_promoted_base_source_rich_public_wave`. Result:
+
+```text
+result_class: cross_fault_wrong_sparse
+scenario_count: 3328
+snapshot_count: 16257
+matched_pair_count: 4096
+accepted_rows: 3
+reset_only_rows: 1281
+rejected_rows: 2812
+actor_parameters_changed: false
+training_started: false
+ppo_used: false
+promoted: false
+```
+
+M1375 passes structurally but fails the pre-registered source-positive
+interpretation thresholds: `3` accepted rows versus threshold `40`, `2`
+accepted preferred fault families versus threshold `4`, and `2` accepted seeds
+versus threshold `24`. It strongly confirms reset-hidden sensitivity with
+`1281` reset-only rows across `12 / 15` fault-family pair groups. M1376 should
+audit this before any temporal/sequence intervention design, source
+distribution redesign, L0/L1/L2/L3 comparison refresh, PPO continuation,
+promotion, or private-holdout use.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true

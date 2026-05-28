@@ -20219,3 +20219,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, high-fidelity claim, paper-level claim, finite-window-vs-GRU claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1375-paper-route-promoted-base-source-rich-public-wave.json`.
 - next: `m1375-paper-route-promoted-base-source-rich-public-wave`
+
+## 20260528T224000Z - m1375-paper-route-promoted-base-source-rich-public-wave
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `generalization`
+- artifact: `runs/m1375_promoted_base_source_rich_public_wave/summary.json`
+- decision: `promoted_base_source_rich_public_wave_pass_sparse_source_route_to_audit`
+- command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m991_capability_step_fault_source_wave.json --pairing-mode cross_fault --seed-start 137500 --seed-count 256 --device auto --run-dir runs/m1375_promoted_base_source_rich_public_wave`
+- result class: `cross_fault_wrong_sparse`
+- counts: `3328` scenarios, `16257` snapshots, `4096` matched pairs, `3` accepted wrong-history rows, `1281` reset-only rows, `2812` rejected rows.
+- source-positive thresholds: failed (`3` accepted rows versus threshold `40`, `2` accepted preferred fault families versus threshold `4`, `2` accepted seeds versus threshold `24`).
+- reset-only signal: `1281` reset-history action-critical rows across `12 / 15` fault-family pair groups.
+- guardrail: `actor_parameters_changed=false`, `training_started=false`, `ppo_used=false`, `promoted=false`; no private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, finite-window-vs-GRU claim, or level3 self-ID claim occurred.
+- interpretation: larger public coverage mostly scales reset-only rows, not cross-fault wrong-history accepted rows.
+- follow-up manifest: `experiments/manifests/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.json`.
+- next: `m1376-paper-route-promoted-base-source-rich-public-wave-result-audit`

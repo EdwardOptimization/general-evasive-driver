@@ -1,0 +1,154 @@
+{
+  "id": "m1376-paper-route-promoted-base-source-rich-public-wave-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1375_promoted_base_source_rich_public_wave/summary.json",
+      "docs/m1375-paper-route-promoted-base-source-rich-public-wave.md",
+      "configs/m991_capability_step_fault_source_wave.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1375-paper-route-promoted-base-source-rich-public-wave.json"
+    ],
+    "parent_objective": [
+      "audit larger public source-rich wave result and decide route after sparse wrong-history positives and broad reset-only sensitivity"
+    ],
+    "derived_from": [
+      "m1375-paper-route-promoted-base-source-rich-public-wave"
+    ],
+    "blocked_by": [
+      "M1375 larger wave passes structurally but accepted wrong-history rows remain far below source-positive thresholds"
+    ],
+    "supersedes": [
+      "training from sparse M1375 accepted rows",
+      "treating reset-only sensitivity as wrong-history proof",
+      "relaxing source-positive thresholds after results"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.md",
+  "public_gates": [
+    "M1376 must audit M1375 against the pre-registered source-positive thresholds",
+    "M1376 must classify sparse accepted rows and reset-only sensitivity separately",
+    "M1376 must choose the next source-rich route without private holdout, training, PPO, or promotion",
+    "M1376 must keep high-fidelity proxy claim boundaries intact"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new evaluation",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not relax source-positive thresholds",
+    "do not claim source-diverse cross-fault proof from sparse accepted rows",
+    "do not claim true high-fidelity per-wheel physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_promoted_base_source_rich_comparison_readiness",
+    "evidence_axis": "G_source_rich_public_wave_audit",
+    "evidence_increment": "audits larger source-rich wave and decides whether source-rich branch should pivot to temporal/sequence interventions or source redesign",
+    "claim_scope": "result audit only; no training, PPO, promotion, private holdout, high-fidelity, L0/L1/L2/L3, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if M1375 artifacts are incomplete",
+      "stop if sparse accepted rows are overclaimed",
+      "stop if reset-only rows are treated as wrong-history proof",
+      "stop if thresholds are changed after seeing M1375 results"
+    ],
+    "fallback_plan": [
+      "if source-positive thresholds passed, route to source-positive audit before objective work",
+      "if accepted rows remain sparse and reset-only is high, route to temporal/sequence intervention design",
+      "if both accepted and reset-only are weak, route to source-distribution redesign",
+      "if claim boundary is unclear, route to source-rich claim-boundary audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1375 completes larger public source-rich wave",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-rich public wave result audit",
+    "admission_evidence": [
+      "M1375 source-rich public wave passes structurally",
+      "M1375 accepted_rows is 3 versus source-positive threshold 40",
+      "M1375 reset_only_rows is 1281"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1376 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "M1375 source-positive threshold result is audited",
+      "accepted-row sparsity is classified",
+      "reset-only signal is classified",
+      "next source-rich route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1376 audits M1375 only and must not upgrade sparse/reset-only evidence to level3 self-identification.",
+    "history_necessity_tests": [
+      "separate accepted wrong-history rows from reset-only rows",
+      "classify reset-only rows as recurrent-state sensitivity, not wrong-history belief proof",
+      "decide whether temporal/sequence interventions are the next better history-necessity test"
+    ],
+    "temporal_evidence_window": "M1375 promoted-base larger capability-step source-rich public wave artifacts.",
+    "negative_result_policy": "If source-positive thresholds are not met, record the negative result and route explicitly instead of threshold relaxation.",
+    "allowed_claims": [
+      "M1375 result audit and next route decision",
+      "no promotion, private-holdout, high-fidelity, paper-level, L0/L1/L2/L3, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1375 can be audited as structurally passing but not source-positive, with broad reset-only sensitivity requiring a routed next step.",
+  "success_criteria": [
+    "docs/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.md exists",
+    "audit summarizes M1375 scenario, snapshot, matched-pair, accepted, reset-only, rejected, and fidelity results",
+    "audit evaluates the pre-registered source-positive thresholds",
+    "audit chooses a next route without private holdout, training, PPO, promotion, actor-input change, or high-fidelity overclaim"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit overclaims sparse accepted rows as source-diverse proof",
+    "audit treats reset-only rows as wrong-history proof",
+    "audit changes thresholds after seeing M1375 results",
+    "audit routes directly to training, PPO, promotion, private holdout, or high-fidelity claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.md from M1375 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1375_promoted_base_source_rich_public_wave/summary.json",
+    "docs/m1375-paper-route-promoted-base-source-rich-public-wave.md"
+  ],
+  "decision_rule": "M1376 passes if it audits M1375 source-rich public wave without overclaiming sparse/reset-only evidence and chooses the next public source-rich route before any training, PPO, promotion, or private holdout.",
+  "next_blocker": "m1376-paper-route-promoted-base-source-rich-public-wave-result-audit"
+}

@@ -2,7 +2,7 @@
   "id": "m1375-paper-route-promoted-base-source-rich-public-wave",
   "type": "gate",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -175,6 +175,39 @@
     "runs/m1373_promoted_base_source_rich_smoke/summary.json",
     "configs/m991_capability_step_fault_source_wave.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1375_promoted_base_source_rich_public_wave/summary.json",
+    "doc": "docs/m1375-paper-route-promoted-base-source-rich-public-wave.md",
+    "decision": "promoted_base_source_rich_public_wave_pass_sparse_source_route_to_audit",
+    "result_class": "cross_fault_wrong_sparse",
+    "scenario_count": 3328,
+    "snapshot_count": 16257,
+    "matched_pair_count": 4096,
+    "unmatched_rows": 1,
+    "accepted_rows": 3,
+    "reset_only_rows": 1281,
+    "rejected_rows": 2812,
+    "normal_failed_rejected": 936,
+    "history_insensitive_rejected": 1876,
+    "history_action_critical_rows": 1284,
+    "wrong_history_action_critical_rows": 3,
+    "reset_history_action_critical_rows": 1281,
+    "unique_accepted_fault_families": 2,
+    "unique_accepted_wrong_fault_families": 2,
+    "unique_accepted_severities": 1,
+    "unique_accepted_seeds": 2,
+    "source_positive_thresholds_passed": false,
+    "actor_parameters_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "extreme_source_positive": false,
+    "wrong_history_source_positive": false,
+    "next_manifest": "experiments/manifests/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.json"
+  },
+  "decision": "promoted_base_source_rich_public_wave_pass_sparse_source_route_to_audit",
   "decision_rule": "M1375 passes as a public source-rich wave if it produces clean no-training cross-fault artifacts with unchanged actor/checkpoint contract and reports accepted/reset-only signals against the pre-registered thresholds.",
-  "next_blocker": "m1375-paper-route-promoted-base-source-rich-public-wave"
+  "next_blocker": "m1376-paper-route-promoted-base-source-rich-public-wave-result-audit"
 }

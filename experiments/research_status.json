@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1384,
+    "completed": 1385,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1374-paper-route-promoted-base-source-rich-smoke-result-audit.md",
+    "command_log": "runs/m1375_promoted_base_source_rich_public_wave/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1374-paper-route-promoted-base-source-rich-smoke-result-audit.md",
+    "run_dir": "runs/m1375_promoted_base_source_rich_public_wave",
     "status": "completed",
-    "task_id": "m1374-paper-route-promoted-base-source-rich-smoke-result-audit"
+    "task_id": "m1375-paper-route-promoted-base-source-rich-public-wave"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1375-paper-route-promoted-base-source-rich-public-wave.json",
-    "hypothesis": "A larger promoted-base public source-rich wave can determine whether the sparse M1373 wrong-history positives repeat under fresh broader coverage",
-    "id": "m1375-paper-route-promoted-base-source-rich-public-wave",
+    "command": "see experiments/manifests/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.json",
+    "hypothesis": "M1375 can be audited as structurally passing but not source-positive with broad reset-only sensitivity requiring a routed next step",
+    "id": "m1376-paper-route-promoted-base-source-rich-public-wave-result-audit",
     "kind": "gate",
-    "notes": "Pending: run no-training larger public source-rich wave from M1362 using M991 config; accepted/reset-only signals are interpreted by pre-registered thresholds",
-    "priority": 13700,
+    "notes": "Pending: audit M1375 larger wave; classify 3 accepted rows 1281 reset-only rows and choose temporal/sequence source redesign or other next route without training",
+    "priority": 13710,
     "status": "pending",
-    "success_artifact": "runs/m1375_promoted_base_source_rich_public_wave/summary.json"
+    "success_artifact": "docs/m1376-paper-route-promoted-base-source-rich-public-wave-result-audit.md"
   },
-  "updated_at_utc": "20260528T223000Z"
+  "updated_at_utc": "20260528T224000Z"
 }
