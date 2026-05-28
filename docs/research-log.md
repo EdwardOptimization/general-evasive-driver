@@ -18846,3 +18846,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m1300-paper-route-source-history-trainable-scope-result-audit.json`.
 - decision: `source_history_trainable_scope_strong_route_to_result_audit`
 - next: `m1300-paper-route-source-history-trainable-scope-result-audit`
+
+## 20260528T150456Z - m1300-paper-route-source-history-trainable-scope-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1300-paper-route-source-history-trainable-scope-result-audit.md`
+- audited result: M1299 is accepted as `source_history_trainable_scope_strong`.
+- best scope: `fusion_head`.
+- positive evidence: full metrics improve to `46/152` both-positive rows and `23/76` all-rows-both-positive groups.
+- caveat: eval row/group fractions are exactly `0.25`, so there is no split-eval slack.
+- mutation guard: clean; `fusion_head` changes only `actor_mean` and `response_context_fusion`.
+- supported claim: actor_mean-only was underpowered and fusion/head can decode fixed source-history hidden signal better.
+- blocked claim: PPO continuation, promotion, closed-loop driver performance, and strong self-ID remain unproven.
+- routing: repeat/split robustness design before any proof-retention or PPO work.
+- guardrail: no training, PPO, promotion, private holdout, actor-input expansion, threshold relaxation, high-fidelity claim, paper-level claim, or self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1301-paper-route-source-history-trainable-scope-repeat-design.json`.
+- decision: `source_history_trainable_scope_audit_strong_route_to_repeat_design`
+- next: `m1301-paper-route-source-history-trainable-scope-repeat-design`

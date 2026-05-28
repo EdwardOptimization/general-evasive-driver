@@ -153,6 +153,28 @@
     "docs/m1299-paper-route-source-history-trainable-scope-probe.md",
     "runs/m1299_source_history_trainable_scope_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1300-paper-route-source-history-trainable-scope-result-audit.md",
+    "decision": "source_history_trainable_scope_audit_strong_route_to_repeat_design",
+    "m1299_result_class": "source_history_trainable_scope_strong",
+    "m1299_best_scope": "fusion_head",
+    "m1299_best_eval_both_directional_fraction": 0.25,
+    "m1299_best_eval_group_all_rows_both_positive_fraction": 0.25,
+    "m1299_best_full_both_positive_count": 46,
+    "m1299_best_full_group_all_rows_both_positive_count": 23,
+    "boundary_threshold_caveat": true,
+    "repeat_required_before_proof_retention_or_ppo": true,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "accepted_thresholds_relaxed": false,
+    "high_fidelity_validation_claimed": false,
+    "next_manifest": "experiments/manifests/m1301-paper-route-source-history-trainable-scope-repeat-design.json"
+  },
+  "decision": "source_history_trainable_scope_audit_strong_route_to_repeat_design",
   "decision_rule": "M1300 passes if it audits M1299 as strong diagnostic evidence while keeping PPO and promotion blocked.",
-  "next_blocker": "m1300-paper-route-source-history-trainable-scope-result-audit"
+  "next_blocker": "m1301-paper-route-source-history-trainable-scope-repeat-design"
 }

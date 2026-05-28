@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1299-paper-route-source-history-trainable-scope-probe
+m1300-paper-route-source-history-trainable-scope-result-audit
 ```
 
 Current next task:
 
 ```text
-m1300-paper-route-source-history-trainable-scope-result-audit
+m1301-paper-route-source-history-trainable-scope-repeat-design
 ```
 
 M1271 produced `108` strict accepted four-wheel capability-separable source
@@ -120,8 +120,11 @@ parameter-group mutation guards. M1299 produced a strong diagnostic result:
 `eval_group_all_rows_both_positive_fraction=0.25`, `46/152` full both-positive
 rows, and `23/76` full all-rows-both-positive groups with no forbidden mutation.
 The active blocker is M1300: audit this strong but boundary-threshold diagnostic
-before any repeat, proof-retention, PPO, or promotion decision. PPO and
-promotion remain blocked.
+before any repeat, proof-retention, PPO, or promotion decision. M1300 accepted
+M1299 as meaningful positive diagnostic evidence, but kept escalation blocked
+because the eval thresholds are met exactly at `0.25` on a small public split.
+The active blocker is M1301: design repeat/split robustness for the `fusion_head`
+signal. PPO and promotion remain blocked.
 
 ## Actor Contract
 

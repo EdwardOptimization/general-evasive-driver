@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1309,
+    "completed": 1310,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1299-paper-route-source-history-trainable-scope-probe.md",
+    "command_log": "docs/m1300-paper-route-source-history-trainable-scope-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1299_source_history_trainable_scope_probe",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1299-paper-route-source-history-trainable-scope-probe"
+    "task_id": "m1300-paper-route-source-history-trainable-scope-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1300-paper-route-source-history-trainable-scope-result-audit.json",
-    "hypothesis": "Audit M1299 strong but boundary-threshold trainable-scope diagnostic before repeat proof-retention or PPO decisions",
-    "id": "m1300-paper-route-source-history-trainable-scope-result-audit",
+    "command": "see experiments/manifests/m1301-paper-route-source-history-trainable-scope-repeat-design.json",
+    "hypothesis": "Design repeat/split robustness probe for M1299 fusion_head signal before any proof-retention or PPO work",
+    "id": "m1301-paper-route-source-history-trainable-scope-repeat-design",
     "kind": "gate",
-    "notes": "Pending: audit strong diagnostic result; PPO and promotion remain blocked",
-    "priority": 12950,
+    "notes": "Pending: design repeat/split robustness; PPO and promotion remain blocked",
+    "priority": 12960,
     "status": "pending",
-    "success_artifact": "docs/m1300-paper-route-source-history-trainable-scope-result-audit.md"
+    "success_artifact": "docs/m1301-paper-route-source-history-trainable-scope-repeat-design.md"
   },
-  "updated_at_utc": "20260528T150158Z"
+  "updated_at_utc": "20260528T150456Z"
 }
