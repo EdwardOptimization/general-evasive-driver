@@ -16573,3 +16573,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no mining, replay, actor training, PPO, promotion, private holdout, actor-input change, threshold weakening, or failed-surface conversion occurred.
 - decision: `row15_promoted_margin_slack_failure_audit_route_to_relocation_expansion_design`
 - next: `m1163-v4-public-base-row15-promoted-relocation-expansion-design`
+
+## 20260528T011600Z - m1163-v4-public-base-row15-promoted-relocation-expansion-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1163-v4-public-base-row15-promoted-relocation-expansion-design.md`
+- result: designs a bounded relocation-expansion diagnostic over existing M1161 outcome rows.
+- input: `runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv`.
+- expansion: `1600` candidates, max `12` per physical pair, max `256` per checkpoint-target, body longitudinal offsets `-1.0,0.0,1.0`, body lateral offsets `-0.3,0.0,0.3`, half-width inflation `0`.
+- thresholds: M1160 acceptance thresholds are preserved; no weaker margin-slack criteria.
+- guardrail: no mining, relocation, actor training, PPO, promotion, private holdout, actor-input change, threshold weakening, or failed-surface conversion occurred.
+- decision: `row15_promoted_relocation_expansion_design_admit_run`
+- next: `m1164-v4-public-base-row15-promoted-relocation-expansion-run`

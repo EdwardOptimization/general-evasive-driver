@@ -156,6 +156,45 @@
     "docs/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.md",
     "runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1163-v4-public-base-row15-promoted-relocation-expansion-design.md",
+    "decision": "row15_promoted_relocation_expansion_design_admit_run",
+    "result_class": "row15_promoted_relocation_expansion_design_complete",
+    "failure_types": [
+      "none"
+    ],
+    "uses_existing_outcome_csv": true,
+    "rerun_matched_current_mining": false,
+    "rerun_outcome_gate": false,
+    "max_candidates": 1600,
+    "max_candidates_per_physical_pair": 12,
+    "max_candidates_per_checkpoint_target": 256,
+    "body_longitudinal_offsets": [
+      -1.0,
+      0.0,
+      1.0
+    ],
+    "body_lateral_offsets": [
+      -0.3,
+      0.0,
+      0.3
+    ],
+    "half_width_inflations": [
+      0.0
+    ],
+    "m1160_acceptance_thresholds_preserved": true,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "relocation_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "thresholds_weakened": false,
+    "admitted_next": "relocation_expansion_run",
+    "next_milestone": "m1164-v4-public-base-row15-promoted-relocation-expansion-run"
+  },
   "decision_rule": "M1163 may only design the relocation-expansion diagnostic. It cannot run mining, relocation, actor training, PPO, promotion, private holdout, actor-input changes, threshold weakening, or failed-surface conversion.",
-  "next_blocker": "m1163-v4-public-base-row15-promoted-relocation-expansion-design"
+  "next_blocker": "m1164-v4-public-base-row15-promoted-relocation-expansion-run"
 }

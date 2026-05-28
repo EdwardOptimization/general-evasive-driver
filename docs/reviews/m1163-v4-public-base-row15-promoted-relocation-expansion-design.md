@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260528T003148Z
+- Generated at UTC: 20260528T003533Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1163 may only design the relocation-expansion diagnostic. It cannot run mining, relocation, actor training, PPO, promotion, private holdout, actor-input changes, threshold weakening, or failed-surface conversion.
+- Promotion decision: row15_promoted_relocation_expansion_design_admit_run
+- Decision reason: M1163 designs a bounded relocation expansion over existing M1161 outcome rows with body-frame offsets and unchanged M1160 acceptance thresholds
 
 ## Hypothesis
 
@@ -74,8 +74,19 @@ A bounded relocation expansion over existing M1161 outcomes can test whether the
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1163-v4-public-base-row15-promoted-relocation-expansion-design
+- type: gate
+- checkpoint: docs/m1163-v4-public-base-row15-promoted-relocation-expansion-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_relocation_expansion_design_admit_run
+- reason: M1163 designs a bounded relocation expansion over existing M1161 outcome rows with body-frame offsets and unchanged M1160 acceptance thresholds
 
 ## Next Blocker
 
-m1163-v4-public-base-row15-promoted-relocation-expansion-design
+m1164-v4-public-base-row15-promoted-relocation-expansion-run

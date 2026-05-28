@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1163 may only design the relocation-expansion diagnostic. It cannot run mining, relocation, actor training, PPO, promotion, private holdout, actor-input changes, threshold weakening, or failed-surface conversion.",
+  "decision_reason": "M1163 designs a bounded relocation expansion over existing M1161 outcome rows with body-frame offsets and unchanged M1160 acceptance thresholds",
   "failure_criteria": [
     "design artifact is missing",
     "threshold preservation is ambiguous",
@@ -21,7 +21,7 @@
     "do not convert the M1161 failed surface"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260528T003148Z",
+  "generated_at_utc": "20260528T003533Z",
   "hypothesis": "A bounded relocation expansion over existing M1161 outcomes can test whether the failed margin-slack surface was caused by too narrow a relocation search rather than absent wrong-history sensitivity.",
   "lineage": {
     "blocked_by": [
@@ -52,9 +52,9 @@
     "supersedes": []
   },
   "milestone": "m1163-v4-public-base-row15-promoted-relocation-expansion-design",
-  "next_blocker": "m1163-v4-public-base-row15-promoted-relocation-expansion-design",
+  "next_blocker": "m1164-v4-public-base-row15-promoted-relocation-expansion-run",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "row15_promoted_relocation_expansion_design_admit_run",
   "public_gates": [
     "M1163 must design the relocation-expansion diagnostic only",
     "M1163 must reuse existing M1161 outcome rows for the next run",
@@ -67,7 +67,20 @@
     "M1163 must not use private holdout",
     "M1163 must preserve actor inputs"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1163-v4-public-base-row15-promoted-relocation-expansion-design.md",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_relocation_expansion_design_admit_run",
+    "milestone": "m1163-v4-public-base-row15-promoted-relocation-expansion-design",
+    "reason": "M1163 designs a bounded relocation expansion over existing M1161 outcome rows with body-frame offsets and unchanged M1160 acceptance thresholds",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "design artifact exists",
     "relocation-expansion command is explicit",

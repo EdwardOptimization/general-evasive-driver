@@ -84,7 +84,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1163-v4-public-base-row15-promoted-relocation-expansion-design
+m1164-v4-public-base-row15-promoted-relocation-expansion-run
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -601,6 +601,19 @@ failure: relocation active-set collapse plus wrong-history scarcity
 The next step is M1163: design a bounded relocation-expansion diagnostic using
 the existing M1161 outcome CSV. It should expand relocation search dimensions
 without rerunning source mining or weakening M1160 acceptance thresholds.
+
+M1163 completed that design. M1164 should run only the bounded relocation
+expansion over:
+
+```text
+runs/m1161_row15_promoted_margin_slack_outcome_seed116100/outcome_interventions.csv
+```
+
+The expansion uses `1600` candidates, body longitudinal offsets
+`-1.0,0.0,1.0`, body lateral offsets `-0.3,0.0,0.3`, and unchanged M1160
+acceptance thresholds. It must not rerun mining or the outcome gate, train,
+run PPO, promote, use private holdout, change actor inputs, weaken thresholds,
+or convert the surface in the same milestone.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,

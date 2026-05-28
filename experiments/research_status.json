@@ -1,29 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1171,
+    "completed": 1172,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit",
+    "task_id": "m1163-v4-public-base-row15-promoted-relocation-expansion-design",
     "status": "completed",
     "returncode": 0,
-    "command_log": "docs/m1162-v4-public-base-row15-promoted-margin-slack-surface-refresh-failure-audit.md",
-    "result_class": "relocation_active_set_collapse_wrong_history_scarcity",
-    "decision": "row15_promoted_margin_slack_failure_audit_route_to_relocation_expansion_design"
+    "command_log": "docs/m1163-v4-public-base-row15-promoted-relocation-expansion-design.md",
+    "result_class": "row15_promoted_relocation_expansion_design_complete",
+    "decision": "row15_promoted_relocation_expansion_design_admit_run"
   },
   "next_task": {
-    "id": "m1163-v4-public-base-row15-promoted-relocation-expansion-design",
+    "id": "m1164-v4-public-base-row15-promoted-relocation-expansion-run",
     "status": "pending",
-    "priority": 11580,
+    "priority": 11590,
     "kind": "gate",
-    "hypothesis": "A bounded relocation expansion over existing M1161 outcomes can test whether the failed margin-slack surface was caused by too narrow a relocation search rather than absent wrong-history sensitivity",
-    "command": "see experiments/manifests/m1163-v4-public-base-row15-promoted-relocation-expansion-design.json",
-    "success_artifact": "docs/m1163-v4-public-base-row15-promoted-relocation-expansion-design.md",
-    "notes": "Pending: design relocation-expansion diagnostic only; no mining relocation actor training PPO promotion private holdout or actor-input change"
+    "hypothesis": "Bounded body-frame relocation expansion over existing M1161 outcomes can recover a source-diverse wrong-history margin-slack surface without weakening acceptance thresholds",
+    "command": "see experiments/manifests/m1164-v4-public-base-row15-promoted-relocation-expansion-run.json",
+    "success_artifact": "docs/m1164-v4-public-base-row15-promoted-relocation-expansion-run.md",
+    "notes": "Pending: run bounded relocation expansion only; no mining/outcome rerun actor training PPO promotion private holdout or actor-input change"
   },
-  "updated_at_utc": "20260528T010400Z"
+  "updated_at_utc": "20260528T011600Z"
 }
