@@ -2,7 +2,7 @@
   "id": "m1371-paper-route-post-public-base-promotion-synthesis",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -73,8 +73,26 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1370 promotes a new public-gate base",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1371-paper-route-post-public-base-promotion-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
+  "synthesis_artifact": "docs/m1371-paper-route-post-public-base-promotion-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
   "training_stage": {
     "stage": "process",
     "stage_objective": "post-public-base-promotion synthesis",
@@ -150,6 +168,25 @@
     "docs/m1370-paper-route-public-base-promotion-audit.md",
     "runs/m1369_public_base_promotion_generalization_gate/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1371-paper-route-post-public-base-promotion-synthesis.md",
+    "decision": "post_public_base_promotion_synthesis_promote_to_source_rich_comparison_readiness",
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "paper_route_public_base_promotion_generalization",
+    "opened_branch": "paper_route_promoted_base_source_rich_comparison_readiness",
+    "current_public_gate_base": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "previous_public_gate_base": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "public_gate_overfit_risk": "medium",
+    "training_started": false,
+    "replay_run_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "next_manifest": "experiments/manifests/m1372-paper-route-promoted-base-source-rich-generalization-design.json"
+  },
+  "decision": "post_public_base_promotion_synthesis_promote_to_source_rich_comparison_readiness",
   "decision_rule": "M1371 passes if it closes or continues the promotion/generalization branch with explicit claim boundaries and a next evidence branch before PPO or private holdout.",
-  "next_blocker": "m1371-paper-route-post-public-base-promotion-synthesis"
+  "next_blocker": "m1372-paper-route-promoted-base-source-rich-generalization-design"
 }

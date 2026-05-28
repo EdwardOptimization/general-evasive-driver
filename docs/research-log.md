@@ -20151,3 +20151,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new replay, new evaluation, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, or claim expansion occurred.
 - follow-up manifest: `experiments/manifests/m1371-paper-route-post-public-base-promotion-synthesis.json`.
 - next: `m1371-paper-route-post-public-base-promotion-synthesis`
+
+## 20260528T220000Z - m1371-paper-route-post-public-base-promotion-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1371-paper-route-post-public-base-promotion-synthesis.md`
+- decision: `post_public_base_promotion_synthesis_promote_to_source_rich_comparison_readiness`
+- synthesis decision: `promote_to_next_branch`
+- closed branch: `paper_route_public_base_promotion_generalization`
+- opened branch: `paper_route_promoted_base_source_rich_comparison_readiness`
+- current public-gate base: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`.
+- supported claim: M1362 alpha `0.1` is a valid public-gate base successor to M1154.
+- missing claims: private holdout, source-rich extreme validation, high-fidelity, PPO continuation, paper-level evidence, L0/L1/L2/L3 comparison, and level3 self-ID remain pending.
+- public-gate overfit risk: `medium`.
+- guardrail: no training, PPO, replay, evaluation, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, source-rich run, high-fidelity claim, paper-level claim, finite-window-vs-GRU claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1372-paper-route-promoted-base-source-rich-generalization-design.json`.
+- next: `m1372-paper-route-promoted-base-source-rich-generalization-design`

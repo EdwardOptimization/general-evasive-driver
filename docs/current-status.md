@@ -16,14 +16,28 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1370-paper-route-public-base-promotion-audit
+m1371-paper-route-post-public-base-promotion-synthesis
 ```
 
 Current next task:
 
 ```text
-m1371-paper-route-post-public-base-promotion-synthesis
+m1372-paper-route-promoted-base-source-rich-generalization-design
 ```
+
+M1371 closes `paper_route_public_base_promotion_generalization` and opens
+`paper_route_promoted_base_source_rich_comparison_readiness`. The current
+public-gate base remains M1362 alpha `0.1`:
+
+```text
+runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
+```
+
+The next branch should design promoted-base source-rich public generalization
+first, with explicit current-model fault versus proxy/future-only fault claim
+boundaries. L0/L1/L2/L3 fair comparison refresh and guarded PPO readiness remain
+later evidence steps and must not borrow claim strength from the public-base
+promotion.
 
 M1370 promotes M1362 alpha `0.1` as the official public-gate base:
 

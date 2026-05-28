@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1380,
+    "completed": 1381,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1370-paper-route-public-base-promotion-audit.md",
+    "command_log": "docs/m1371-paper-route-post-public-base-promotion-synthesis.md",
     "returncode": 0,
-    "run_dir": "docs/m1370-paper-route-public-base-promotion-audit.md",
+    "run_dir": "docs/m1371-paper-route-post-public-base-promotion-synthesis.md",
     "status": "completed",
-    "task_id": "m1370-paper-route-public-base-promotion-audit"
+    "task_id": "m1371-paper-route-post-public-base-promotion-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1371-paper-route-post-public-base-promotion-synthesis.json",
-    "hypothesis": "The M1368-M1370 promotion branch can be closed with M1362 alpha 0.1 as the public-gate base and a clear next evidence branch",
-    "id": "m1371-paper-route-post-public-base-promotion-synthesis",
+    "command": "see experiments/manifests/m1372-paper-route-promoted-base-source-rich-generalization-design.json",
+    "hypothesis": "A promoted-base source-rich public generalization gate can be designed without private holdout proxy-physics overclaiming or PPO",
+    "id": "m1372-paper-route-promoted-base-source-rich-generalization-design",
     "kind": "gate",
-    "notes": "Pending: synthesize post-promotion state and choose next branch; no training PPO private holdout source-rich run or L0-L3 comparison",
-    "priority": 13660,
+    "notes": "Pending: design source-rich public generalization gate for promoted M1362 base; no training PPO private holdout evaluation or claim expansion",
+    "priority": 13670,
     "status": "pending",
-    "success_artifact": "docs/m1371-paper-route-post-public-base-promotion-synthesis.md"
+    "success_artifact": "docs/m1372-paper-route-promoted-base-source-rich-generalization-design.md"
   },
-  "updated_at_utc": "20260528T215000Z"
+  "updated_at_utc": "20260528T220000Z"
 }
