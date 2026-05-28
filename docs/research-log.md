@@ -20186,3 +20186,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, source-rich evaluation, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, high-fidelity claim, paper-level claim, finite-window-vs-GRU claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1373-paper-route-promoted-base-source-rich-smoke.json`.
 - next: `m1373-paper-route-promoted-base-source-rich-smoke`
+
+## 20260528T222000Z - m1373-paper-route-promoted-base-source-rich-smoke
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `generalization`
+- artifact: `runs/m1373_promoted_base_source_rich_smoke/summary.json`
+- decision: `promoted_base_source_rich_smoke_pass_sparse_source_route_to_audit`
+- command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.extreme_dynamics_scenario_corpus --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m990_capability_step_fault_scenarios.json --pairing-mode cross_fault --seed-start 137300 --seed-count 64 --device auto --run-dir runs/m1373_promoted_base_source_rich_smoke`
+- result class: `cross_fault_wrong_sparse`
+- counts: `832` scenarios, `3289` snapshots, `768` matched pairs, `2` accepted wrong-history rows, `174` reset-only rows, `592` rejected rows.
+- accepted-row diversity: `2` preferred fault families, `2` wrong fault families, `2` severities, but only `1` accepted seed; no source-diverse cross-fault proof.
+- reset-only signal: `174` reset-history action-critical rows across `11 / 15` fault-family pair groups.
+- guardrail: `actor_parameters_changed=false`, `training_started=false`, `ppo_used=false`, `promoted=false`; no private holdout, actor-input expansion, high-fidelity claim, paper-level claim, finite-window-vs-GRU claim, or level3 self-ID claim occurred.
+- interpretation: source-rich smoke passes structurally and shows broad reset sensitivity, but wrong-history source-positive evidence remains sparse.
+- follow-up manifest: `experiments/manifests/m1374-paper-route-promoted-base-source-rich-smoke-result-audit.json`.
+- next: `m1374-paper-route-promoted-base-source-rich-smoke-result-audit`

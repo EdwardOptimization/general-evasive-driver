@@ -2,7 +2,7 @@
   "id": "m1373-paper-route-promoted-base-source-rich-smoke",
   "type": "gate",
   "gate_tier": "generalization",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -174,6 +174,37 @@
     "docs/m1372-paper-route-promoted-base-source-rich-generalization-design.md",
     "configs/m990_capability_step_fault_scenarios.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1373_promoted_base_source_rich_smoke/summary.json",
+    "doc": "docs/m1373-paper-route-promoted-base-source-rich-smoke.md",
+    "decision": "promoted_base_source_rich_smoke_pass_sparse_source_route_to_audit",
+    "result_class": "cross_fault_wrong_sparse",
+    "scenario_count": 832,
+    "snapshot_count": 3289,
+    "matched_pair_count": 768,
+    "accepted_rows": 2,
+    "reset_only_rows": 174,
+    "rejected_rows": 592,
+    "normal_failed_rejected": 184,
+    "history_insensitive_rejected": 408,
+    "history_action_critical_rows": 176,
+    "wrong_history_action_critical_rows": 2,
+    "reset_history_action_critical_rows": 174,
+    "unique_accepted_fault_families": 2,
+    "unique_accepted_wrong_fault_families": 2,
+    "unique_accepted_severities": 2,
+    "unique_accepted_seeds": 1,
+    "actor_parameters_changed": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "extreme_source_positive": false,
+    "wrong_history_source_positive": false,
+    "next_manifest": "experiments/manifests/m1374-paper-route-promoted-base-source-rich-smoke-result-audit.json"
+  },
+  "decision": "promoted_base_source_rich_smoke_pass_sparse_source_route_to_audit",
   "decision_rule": "M1373 passes as source-rich public smoke if it produces clean no-training cross-fault artifacts with unchanged actor/checkpoint contract and no private-holdout or high-fidelity overclaim.",
-  "next_blocker": "m1373-paper-route-promoted-base-source-rich-smoke"
+  "next_blocker": "m1374-paper-route-promoted-base-source-rich-smoke-result-audit"
 }

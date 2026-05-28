@@ -1,0 +1,152 @@
+{
+  "id": "m1374-paper-route-promoted-base-source-rich-smoke-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1373_promoted_base_source_rich_smoke/summary.json",
+      "docs/m1373-paper-route-promoted-base-source-rich-smoke.md",
+      "configs/m990_capability_step_fault_scenarios.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1373-paper-route-promoted-base-source-rich-smoke.json"
+    ],
+    "parent_objective": [
+      "audit sparse wrong-history positives and broad reset-only sensitivity from promoted-base source-rich smoke"
+    ],
+    "derived_from": [
+      "m1373-paper-route-promoted-base-source-rich-smoke"
+    ],
+    "blocked_by": [
+      "M1373 smoke passes structurally but source-positive cross-fault evidence remains sparse"
+    ],
+    "supersedes": [
+      "routing directly from smoke to training",
+      "treating sparse accepted rows as source-positive proof",
+      "ignoring broad reset-only signal"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1374-paper-route-promoted-base-source-rich-smoke-result-audit.md",
+  "public_gates": [
+    "M1374 must audit M1373 artifacts before larger public source-rich waves",
+    "M1374 must classify accepted-row sparsity and reset-only sensitivity separately",
+    "M1374 must choose the next source-rich route without private holdout, training, PPO, or promotion",
+    "M1374 must keep high-fidelity proxy claim boundaries intact"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run new evaluation",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not claim source-diverse cross-fault proof from two accepted rows",
+    "do not claim true high-fidelity per-wheel physics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_promoted_base_source_rich_comparison_readiness",
+    "evidence_axis": "G_source_rich_smoke_audit",
+    "evidence_increment": "audits whether the first promoted-base source-rich smoke routes to larger public wave, temporal/reset intervention work, or tooling changes",
+    "claim_scope": "result audit only; no training, PPO, promotion, private holdout, high-fidelity, L0/L1/L2/L3, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if M1373 artifacts are incomplete",
+      "stop if sparse accepted rows are overclaimed",
+      "stop if reset-only rows are treated as cross-fault proof",
+      "stop if private holdout or training is proposed before public source-rich route decision"
+    ],
+    "fallback_plan": [
+      "if M1373 artifacts are clean but source-positive evidence is sparse, route to larger public source-rich wave or temporal/reset design",
+      "if artifacts are malformed, route to source-rich tooling repair",
+      "if claim boundary is unclear, route to source-rich claim-boundary audit",
+      "if signal is sufficient only as stress compatibility, keep L0/L1/L2/L3 comparison blocked until distribution is fixed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1373 completes the first promoted-base source-rich smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-rich smoke result audit",
+    "admission_evidence": [
+      "M1373 source-rich smoke passes structurally",
+      "M1373 result_class is cross_fault_wrong_sparse",
+      "M1373 finds two accepted wrong-history rows and 174 reset-only rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1374 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "M1373 smoke pass/fail is audited",
+      "accepted-row sparsity is classified",
+      "reset-only signal is classified",
+      "next source-rich route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1374 audits M1373 only and must not upgrade sparse/reset-only evidence to level3 self-identification.",
+    "history_necessity_tests": [
+      "separate accepted wrong-history rows from reset-only rows",
+      "classify reset-only rows as recurrent-state sensitivity, not wrong-history belief proof",
+      "route to temporal or larger source-rich tests if stronger history necessity evidence is needed"
+    ],
+    "temporal_evidence_window": "M1373 promoted-base capability-step source-rich smoke artifacts.",
+    "negative_result_policy": "Sparse accepted rows must be recorded as source-sampling evidence and routed explicitly rather than hidden by threshold relaxation.",
+    "allowed_claims": [
+      "M1373 result audit and next route decision",
+      "no promotion, private-holdout, high-fidelity, paper-level, L0/L1/L2/L3, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1373 can be audited as a structurally passing source-rich smoke with sparse wrong-history positives and broad reset sensitivity before choosing the next public source-rich route.",
+  "success_criteria": [
+    "docs/m1374-paper-route-promoted-base-source-rich-smoke-result-audit.md exists",
+    "audit summarizes M1373 scenario, snapshot, matched-pair, accepted, reset-only, rejected, and fidelity results",
+    "audit classifies sparse accepted rows and reset-only rows separately",
+    "audit chooses a next route without private holdout, training, PPO, promotion, actor-input change, or high-fidelity overclaim"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit overclaims sparse accepted rows as source-diverse proof",
+    "audit treats reset-only rows as cross-fault wrong-history proof",
+    "audit routes directly to training, PPO, promotion, private holdout, or high-fidelity claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1374-paper-route-promoted-base-source-rich-smoke-result-audit.md from M1373 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1374-paper-route-promoted-base-source-rich-smoke-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1373_promoted_base_source_rich_smoke/summary.json",
+    "docs/m1373-paper-route-promoted-base-source-rich-smoke.md"
+  ],
+  "decision_rule": "M1374 passes if it audits M1373 source-rich smoke without overclaiming sparse/reset-only evidence and chooses the next public source-rich route before any training, PPO, promotion, or private holdout.",
+  "next_blocker": "m1374-paper-route-promoted-base-source-rich-smoke-result-audit"
+}

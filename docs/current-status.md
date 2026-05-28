@@ -16,30 +16,48 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1372-paper-route-promoted-base-source-rich-generalization-design
+m1373-paper-route-promoted-base-source-rich-smoke
 ```
 
 Current next task:
 
 ```text
-m1373-paper-route-promoted-base-source-rich-smoke
+m1374-paper-route-promoted-base-source-rich-smoke-result-audit
 ```
 
-M1372 designs the promoted-base source-rich public generalization gate and
-admits M1373 as a no-training source-rich smoke. The current public-gate base
-remains M1362 alpha `0.1`:
+M1373 ran the no-training promoted-base source-rich public smoke. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1373 should run this checkpoint through the public capability-step cross-fault
-harness using `configs/m990_capability_step_fault_scenarios.json` and
+M1373 used `configs/m990_capability_step_fault_scenarios.json` and
 `src/autodrift/extreme_dynamics_scenario_corpus.py`, writing
-`runs/m1373_promoted_base_source_rich_smoke/summary.json`. This is a public
-source-rich smoke only: no training, PPO, promotion, private holdout, actor-input
-change, high-fidelity physical claim, paper-level claim, L0/L1/L2/L3 conclusion,
-or level3 self-identification claim.
+`runs/m1373_promoted_base_source_rich_smoke/summary.json`. The run passed as a
+structural public source-rich smoke:
+
+```text
+result_class: cross_fault_wrong_sparse
+scenario_count: 832
+snapshot_count: 3289
+matched_pair_count: 768
+accepted_rows: 2
+reset_only_rows: 174
+rejected_rows: 592
+actor_parameters_changed: false
+training_started: false
+ppo_used: false
+promoted: false
+```
+
+The source-rich smoke supports harness compatibility and broad reset-hidden
+sensitivity under capability-step faults. It does not yet support source-diverse
+cross-fault wrong-history self-identification: the two accepted rows cover only
+one seed and are diagnostic margin/action-critical rows, not collision
+success-drop rows. M1374 should audit this result before any larger public
+source-rich wave, L0/L1/L2/L3 comparison refresh, PPO continuation, promotion,
+or private-holdout use.
 
 M1372 keeps the source-rich claim boundary explicit. Current single-track and
 axle-level capability faults/proxies are allowed as stress coverage, but true
