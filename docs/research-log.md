@@ -16485,3 +16485,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - caveat: M1154 still showed row15-promoted materialized wrong-history margin max `-0.000000497`, so this is not direct promotion.
 - decision: `row15_promoted_projection_expanded_diagnostic_pass_route_to_result_audit`
 - next: `m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit`
+
+## 20260528T000300Z - m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit.md`
+- result: M1157 audits the M1156 result as internally consistent and sufficient to admit a separate promotion audit.
+- evidence: M1156 preserves exact M1144 delta `-0.000378400` and passes exact, proof, family-intersection, source-diverse, generalization, and behavior tiers.
+- near-boundary caveat: M1154 selected alpha still has row15-promoted materialized wrong-history margin max `-0.000000497`.
+- scope: the admitted next step is a public proof-base hardening promotion audit only.
+- blocked claims: direct promotion from M1156, PPO readiness, private-holdout generalization, driver-performance improvement, paper-level evidence, and level3 self-identification.
+- guardrail: no actor training, PPO, replay, mining, promotion, private holdout, or actor-input change occurred.
+- decision: `row15_promoted_projection_result_audit_admit_promotion_audit`
+- next: `m1158-v4-public-base-row15-promoted-projection-promotion-audit`

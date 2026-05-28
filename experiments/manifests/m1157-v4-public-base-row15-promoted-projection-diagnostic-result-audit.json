@@ -162,6 +162,37 @@
     "docs/m1156-v4-public-base-row15-promoted-projection-family-behavior-run.md",
     "runs/m1156_row15_promoted_projection_expanded_public_diagnostic/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit.md",
+    "decision": "row15_promoted_projection_result_audit_admit_promotion_audit",
+    "result_class": "row15_promoted_projection_public_diagnostic_pass_audit_complete",
+    "failure_types": [
+      "none"
+    ],
+    "m1156_evidence_internally_consistent": true,
+    "m1144_exact_delta": -0.0003784,
+    "expanded_diagnostic_all_pass": true,
+    "old_public_replay_gates_passed": 6,
+    "family_intersection_replay_gates_passed": 3,
+    "source_diverse_replay_gates_passed": 3,
+    "generalization_regression": false,
+    "behavior_regression": false,
+    "near_boundary_wrong_history_margin_risk": true,
+    "row15_promoted_materialized_wrong_history_margin_max": -0.000000497,
+    "direct_promotion_admitted": false,
+    "promotion_audit_admitted": true,
+    "medium_ppo_admitted": false,
+    "private_holdout_admitted": false,
+    "actor_training_started": false,
+    "ppo_used": false,
+    "replay_started": false,
+    "mining_started": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_inputs_changed": false,
+    "next_milestone": "m1158-v4-public-base-row15-promoted-projection-promotion-audit"
+  },
   "decision_rule": "M1157 may only audit existing M1154 and M1156 artifacts. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, or treat M1156 as automatic promotion. If the evidence is internally consistent and no missing public diagnostic is identified, route to a separate promotion-audit design.",
-  "next_blocker": "m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit"
+  "next_blocker": "m1158-v4-public-base-row15-promoted-projection-promotion-audit"
 }

@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1157 may only audit existing M1154 and M1156 artifacts. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, or treat M1156 as automatic promotion. If the evidence is internally consistent and no missing public diagnostic is identified, route to a separate promotion-audit design.",
+  "decision_reason": "M1157 audits M1156 as internally consistent and routes alpha_0_05 to a separate proof-base hardening promotion audit while preserving the near-zero wrong-history margin caveat",
   "failure_criteria": [
     "audit artifact is missing",
     "M1156 evidence remains ambiguous",
@@ -22,7 +22,7 @@
     "do not ignore the near-zero row15-promoted wrong-history margin"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260527T235809Z",
+  "generated_at_utc": "20260528T000130Z",
   "hypothesis": "M1156's all-pass public diagnostic result is sufficient to admit a separate promotion-audit design for alpha_0_05, but not sufficient for direct promotion because the selected projection remains near the wrong-history unsafe-margin boundary.",
   "lineage": {
     "blocked_by": [
@@ -58,9 +58,9 @@
     "supersedes": []
   },
   "milestone": "m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit",
-  "next_blocker": "m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit",
+  "next_blocker": "m1158-v4-public-base-row15-promoted-projection-promotion-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "row15_promoted_projection_result_audit_admit_promotion_audit",
   "public_gates": [
     "M1157 must audit existing M1154 and M1156 artifacts only",
     "M1157 must not train actor weights",
@@ -71,7 +71,20 @@
     "M1157 must not use private holdout",
     "M1157 must preserve actor inputs"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "row15_promoted_projection_result_audit_admit_promotion_audit",
+    "milestone": "m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit",
+    "reason": "M1157 audits M1156 as internally consistent and routes alpha_0_05 to a separate proof-base hardening promotion audit while preserving the near-zero wrong-history margin caveat",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "audit artifact exists",
     "M1156 exact, proof, family, generalization, and behavior evidence is summarized",

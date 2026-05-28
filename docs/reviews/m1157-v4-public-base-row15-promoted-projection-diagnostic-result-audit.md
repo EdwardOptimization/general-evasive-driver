@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260527T235809Z
+- Generated at UTC: 20260528T000130Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1157 may only audit existing M1154 and M1156 artifacts. It cannot train actor weights, run PPO, run replay, mine rows, promote, use private holdout, change actor inputs, or treat M1156 as automatic promotion. If the evidence is internally consistent and no missing public diagnostic is identified, route to a separate promotion-audit design.
+- Promotion decision: row15_promoted_projection_result_audit_admit_promotion_audit
+- Decision reason: M1157 audits M1156 as internally consistent and routes alpha_0_05 to a separate proof-base hardening promotion audit while preserving the near-zero wrong-history margin caveat
 
 ## Hypothesis
 
@@ -72,8 +72,19 @@ M1156's all-pass public diagnostic result is sufficient to admit a separate prom
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit
+- type: gate
+- checkpoint: docs/m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: row15_promoted_projection_result_audit_admit_promotion_audit
+- reason: M1157 audits M1156 as internally consistent and routes alpha_0_05 to a separate proof-base hardening promotion audit while preserving the near-zero wrong-history margin caveat
 
 ## Next Blocker
 
-m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit
+m1158-v4-public-base-row15-promoted-projection-promotion-audit

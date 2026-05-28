@@ -79,7 +79,7 @@ driver checkpoint.
 ## Current Blocker
 
 ```text
-m1157-v4-public-base-row15-promoted-projection-diagnostic-result-audit
+m1158-v4-public-base-row15-promoted-projection-promotion-audit
 ```
 
 M1127 completed the expanded full public gate for the row15 projection
@@ -477,6 +477,22 @@ M1157 should audit the M1156 result and decide whether `alpha_0_05` is ready
 for a separate promotion-audit design or needs additional margin-slack
 diagnostics. M1157 must not train, run PPO, run replay, mine rows, promote, use
 private holdout, or change actor inputs.
+
+M1157 completed that audit. It found the M1156 evidence internally consistent
+and sufficient to admit a separate promotion audit:
+
+```text
+M1156 exact/proof/family/source/generalization/behavior all-pass: true
+near-boundary caveat preserved: true
+direct promotion from M1156: blocked
+promotion audit admitted: true
+PPO/private-holdout/driver-performance claim: blocked
+```
+
+The next milestone is M1158: decide whether `alpha_0_05` should replace
+`alpha_0_15` as the current public-gate base for proof-base hardening only.
+M1158 must preserve the near-zero wrong-history margin caveat and must not run
+training, PPO, replay, mining, private holdout, or actor-input changes.
 
 M1049 and M1050 now give three 4096-step guarded PPO public-gate passes from
 the current public-gate base. Each raw checkpoint passed exact, proof,
