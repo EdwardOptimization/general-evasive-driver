@@ -10,7 +10,7 @@ from typing import Any, Callable, Mapping, Sequence
 
 import torch
 
-from autodrift.artifacts import write_csv_rows, write_json
+from autodrift.artifacts import to_jsonable, write_csv_rows, write_json
 from autodrift.clean_active_set_contour_mapper import read_csv_rows
 from autodrift.contour_aware_exact_objective_projection_repair import (
     DEFAULT_BACKTRACKING_FACTORS,
@@ -53,6 +53,26 @@ MIN_CANDIDATE_REDUCTION_RATIO = 0.25
 
 
 RepairFunction = Callable[..., dict[str, Any]]
+
+
+def _save_checkpoint_artifact(
+    *,
+    model: Any,
+    source_checkpoint: Path,
+    destination: Path,
+    metadata: Mapping[str, Any],
+) -> None:
+    source = torch.load(source_checkpoint, map_location="cpu")
+    output = dict(source)
+    config = dict(output.get("config", {}))
+    config["objective"] = "fusion_actor_checkpoint_artifact"
+    output["config"] = config
+    source_metadata = dict(output.get("metadata") or {})
+    source_metadata.update(to_jsonable(metadata))
+    output["metadata"] = source_metadata
+    output["model_state"] = {name: tensor.detach().cpu() for name, tensor in model.state_dict().items()}
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    torch.save(output, destination)
 
 
 def _excluded_delta_max(model: Any, snapshots: Mapping[str, torch.Tensor], trainable_names: Sequence[str]) -> float:
@@ -175,6 +195,9 @@ def run_fusion_actor_candidate_repair(
     max_projection_steps: int = DEFAULT_MAX_PROJECTION_STEPS,
     initial_step_fraction: float = DEFAULT_INITIAL_STEP_FRACTION,
     backtracking_factors: Sequence[float] = DEFAULT_BACKTRACKING_FACTORS,
+    checkpoint_artifact_path: Path | str | None = None,
+    checkpoint_artifacts_allowed: bool = False,
+    checkpoint_metadata: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Run no-checkpoint in-memory fusion_actor repair for one proposal."""
 
@@ -336,16 +359,38 @@ def run_fusion_actor_candidate_repair(
     repaired_l2_to_base = float(current_l2_to_base)
     reduction = initial_metrics["exact_residual_mean"] - repaired_metrics["exact_residual_mean"]
     reduction_ratio = reduction / initial_metrics["exact_residual_mean"] if initial_metrics["exact_residual_mean"] > 0.0 else 0.0
+    artifact_path = Path(checkpoint_artifact_path) if checkpoint_artifact_path is not None else None
+    if artifact_path is not None:
+        _save_checkpoint_artifact(
+            model=candidate,
+            source_checkpoint=proposal_path,
+            destination=artifact_path,
+            metadata={
+                "artifact_kind": "objective_sanity_artifact_only",
+                "candidate_id": candidate_id,
+                "alpha": float(alpha),
+                "base_checkpoint": str(base_path),
+                "proposal_checkpoint": str(proposal_path),
+                "feature_mode": FEATURE_MODE_DIFFERENTIABLE,
+                "trainable_scope": FUSION_ACTOR_SCOPE,
+                "initial_positive_exact_residual_mean": initial_metrics["exact_residual_mean"],
+                "repaired_positive_exact_residual_mean": repaired_metrics["exact_residual_mean"],
+                "positive_exact_residual_reduction_ratio": reduction_ratio,
+                "accepted_backtracking_step_count": int(accepted_step_count),
+                **dict(checkpoint_metadata or {}),
+            },
+        )
     _restore_snapshot(candidate, initial_snapshots)
     max_delta_after_restore = _max_delta_to_snapshot(candidate, initial_snapshots)
     model_restored_after_probe = bool(max_delta_after_restore == 0.0)
-    checkpoint_artifact_written = bool(list(output.rglob("*.pt")) or list(output.rglob("*.pth")))
+    checkpoint_artifact_written = bool(artifact_path.exists()) if artifact_path is not None else bool(list(output.rglob("*.pt")) or list(output.rglob("*.pth")))
     base_checksum_after = _sha256(base_path)
     proposal_checksum_after = _sha256(proposal_path)
     diagnostic_rows_used_as_positive = _diagnostics_used_as_positive(diagnostic_rows)
     widened_beyond_fusion_actor = any(_parameter_group(name) not in {"actor_mean", "response_context_fusion"} for name in trainable_names)
     guardrail_values = {
         "checkpoint_artifact_written": checkpoint_artifact_written,
+        "checkpoint_artifacts_allowed": bool(checkpoint_artifacts_allowed),
         "base_interpolation_used_for_repair": False,
         "used_frozen_features_for_repair": False,
         "widened_beyond_fusion_actor": bool(widened_beyond_fusion_actor),
@@ -361,11 +406,16 @@ def run_fusion_actor_candidate_repair(
         "actor_input_contract_changed": False,
         "level3_self_id_claim_made": False,
     }
-    guardrail_violation_count = sum(
-        1
-        for key, value in guardrail_values.items()
-        if (key == "model_restored_after_probe" and not _bool(value)) or (key != "model_restored_after_probe" and bool(value))
-    )
+    guardrail_violation_count = 0
+    for key, value in guardrail_values.items():
+        if key == "model_restored_after_probe":
+            guardrail_violation_count += 0 if _bool(value) else 1
+        elif key == "checkpoint_artifact_written":
+            guardrail_violation_count += 1 if bool(value) and not bool(checkpoint_artifacts_allowed) else 0
+        elif key == "checkpoint_artifacts_allowed":
+            guardrail_violation_count += 0
+        else:
+            guardrail_violation_count += 1 if bool(value) else 0
     candidate_pass = (
         len(positive_rows) > 0
         and initial_metrics["exact_residual_mean"] > MIN_INITIAL_EXACT_RESIDUAL
@@ -408,6 +458,8 @@ def run_fusion_actor_candidate_repair(
         "feature_mode": FEATURE_MODE_DIFFERENTIABLE,
         "trainable_scope": FUSION_ACTOR_SCOPE,
         "trainable_parameter_names": ";".join(trainable_names),
+        "checkpoint_artifact_path": "" if artifact_path is None else str(artifact_path),
+        "checkpoint_artifacts_allowed": bool(checkpoint_artifacts_allowed),
         "initial_positive_exact_residual_mean": initial_metrics["exact_residual_mean"],
         "repaired_positive_exact_residual_mean": repaired_metrics["exact_residual_mean"],
         "positive_exact_residual_reduction": reduction,
