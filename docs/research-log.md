@@ -22625,3 +22625,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1511 runner plumbing works, but the source specs are too safe and lack intervention margins, so direct T4/T5 materialization would be a metric artifact.
 - follow-up manifest: `experiments/manifests/m1513-paper-route-decisive-history-source-retarget-design.json`.
 - next: `m1513-paper-route-decisive-history-source-retarget-design`
+
+## M1513 Paper-Route Decisive History Source Retarget Design
+
+- status: completed
+- decision: `decisive_history_source_retarget_design_admit_implementation`
+- artifact: `docs/m1513-paper-route-decisive-history-source-retarget-design.md`
+- retarget modes defined: `close_wide`, `low_mu_close`, `late_reveal_high_speed`, `wide_low_brake`, `drift_required_focus`
+- source family count: 6
+- retarget modes per family cap: 4
+- max specs: 24
+- max rollout steps: 128
+- checkpoint: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`
+- trace/candidate separation defined: true
+- baseline margin comparison defined: true
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1513 designs a bounded source-retarget smoke that should reduce M1511 margins and improve label diversity without claiming self-ID or materializing candidates.
+- follow-up manifest: `experiments/manifests/m1514-paper-route-decisive-history-source-retarget-implementation.json`.
+- next: `m1514-paper-route-decisive-history-source-retarget-implementation`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1521,
+    "completed": 1522,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md",
+    "command_log": "docs/m1513-paper-route-decisive-history-source-retarget-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md",
+    "run_dir": "docs/m1513-paper-route-decisive-history-source-retarget-design.md",
     "status": "completed",
-    "task_id": "m1512-paper-route-decisive-history-bounded-runner-result-audit"
+    "task_id": "m1513-paper-route-decisive-history-source-retarget-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1513-paper-route-decisive-history-source-retarget-design.json",
-    "hypothesis": "A bounded retarget plan can turn the M1511 source families from safe trace plumbing into near-boundary public source traces suitable for later measured interventions.",
-    "id": "m1513-paper-route-decisive-history-source-retarget-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded public source retargeting after M1512 found current traces too safe for materialization",
-    "priority": 15080,
+    "command": "see experiments/manifests/m1514-paper-route-decisive-history-source-retarget-implementation.json",
+    "hypothesis": "Bounded retargeted source specs can reduce margins and improve label diversity relative to M1511 while keeping the P0 actor contract and no-training guardrails.",
+    "id": "m1514-paper-route-decisive-history-source-retarget-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded public source retargeting and run small fixed-policy smoke",
+    "priority": 15090,
     "status": "pending",
-    "success_artifact": "docs/m1513-paper-route-decisive-history-source-retarget-design.md"
+    "success_artifact": "runs/m1514_decisive_history_source_retarget_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T090727Z"
+  "updated_at_utc": "20260529T091108Z"
 }

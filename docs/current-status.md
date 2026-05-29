@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1512-paper-route-decisive-history-bounded-runner-result-audit
+m1513-paper-route-decisive-history-source-retarget-design
 ```
 
 Current next task:
 
 ```text
-m1513-paper-route-decisive-history-source-retarget-design
+m1514-paper-route-decisive-history-source-retarget-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -61,12 +61,39 @@ M1499-M1508 and promoted the work to a bounded fixed-policy runner branch.
 M1510 designed the bounded fixed-policy source trace runner. M1511 implemented
 that runner and produced bounded public source traces for all six source
 families. M1512 audited those traces as plumbing-positive but too safe for
-candidate materialization. The current public-gate base remains M1362 alpha
-`0.1`:
+candidate materialization. M1513 designed a bounded public retarget route. The
+current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1513 decisive history source retarget design:
+
+```text
+decision: decisive_history_source_retarget_design_admit_implementation
+artifact: docs/m1513-paper-route-decisive-history-source-retarget-design.md
+retarget_modes:
+  close_wide
+  low_mu_close
+  late_reveal_high_speed
+  wide_low_brake
+  drift_required_focus
+source_family_count: 6
+retarget_modes_per_family_cap: 4
+max_specs: 24
+max_rollout_steps: 128
+trace_candidate_separation_defined: true
+baseline_margin_comparison_defined: true
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1514-paper-route-decisive-history-source-retarget-implementation
+```
+
+M1513 is design only. Next is a small public retarget smoke that compares
+retargeted margins to M1511 and still blocks candidate materialization.
 
 M1512 decisive history bounded runner result audit:
 

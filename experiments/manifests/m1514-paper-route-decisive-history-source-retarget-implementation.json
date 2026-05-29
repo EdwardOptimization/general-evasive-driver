@@ -1,0 +1,167 @@
+{
+  "id": "m1514-paper-route-decisive-history-source-retarget-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1513-paper-route-decisive-history-source-retarget-design.md",
+      "runs/m1511_decisive_history_bounded_runner_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1513-paper-route-decisive-history-source-retarget-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded public source retargeting after M1513 design"
+    ],
+    "derived_from": [
+      "m1513-paper-route-decisive-history-source-retarget-design"
+    ],
+    "blocked_by": [
+      "retargeted source traces are needed before measured intervention or candidate materialization"
+    ],
+    "supersedes": [
+      "manual retargeting or unbounded random search"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1514-paper-route-decisive-history-source-retarget-implementation.md",
+  "public_gates": [
+    "M1514 must implement bounded retarget spec generation",
+    "M1514 must run a small public retarget smoke with fixed checkpoint",
+    "M1514 must write retarget spec trace snapshot summary and guardrail artifacts",
+    "M1514 must compare retarget margins against M1511 baseline margins",
+    "M1514 must not materialize candidates or export a training corpus",
+    "M1514 must not train run PPO promote use private holdout or alter actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not run unbounded random search",
+    "do not claim self-identification from retargeted traces"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_decisive_history_bounded_runner",
+    "evidence_axis": "G_decisive_history_source_retarget_runtime",
+    "evidence_increment": "implements bounded source retargeting and a small public fixed-policy smoke after M1513 design",
+    "claim_scope": "retarget implementation and public trace movement only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if retarget generation violates P0 actor contract",
+      "stop if smoke cannot remain bounded to <=24 specs",
+      "stop if artifacts cannot compare retarget margins against M1511 baseline",
+      "stop if implementation would materialize candidates or export a corpus"
+    ],
+    "fallback_plan": [
+      "if retarget smoke is too easy, route to retarget result audit and source repair",
+      "if retarget smoke is too hard, route to cap tuning audit",
+      "if retarget smoke produces near-boundary traces, route to trace audit before measured interventions"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1513 admitted bounded retarget implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "bounded source retarget implementation",
+    "admission_evidence": [
+      "M1513 designed bounded retarget axes and caps after M1512 found the first traces too safe"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "source retarget module and tests",
+      "small public retarget smoke artifacts",
+      "status queue scoreboard research log and review",
+      "one follow-up retarget audit or blocker manifest"
+    ],
+    "next_stage_criteria": [
+      "retarget artifacts are complete",
+      "guardrails remain false",
+      "margin movement vs M1511 is explicit",
+      "next audit or blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1514 may create harder scenarios but still does not test history necessity.",
+    "history_necessity_tests": [
+      "retargeted traces must preserve reveal decision and post-decision windows for later interventions",
+      "do not claim history necessity without measured wrong/delayed/current-tiled margins"
+    ],
+    "temporal_evidence_window": "bounded retargeted public source traces only.",
+    "negative_result_policy": "If retargeted traces remain too safe or too hard, route to audit or repair rather than materializing weak candidates.",
+    "allowed_claims": [
+      "M1514 implements bounded source retargeting",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Bounded retargeted source specs can reduce margins and improve label diversity relative to M1511 while keeping the P0 actor contract and no-training guardrails.",
+  "success_criteria": [
+    "src/autodrift/decisive_history_source_retarget.py exists",
+    "tests/test_decisive_history_source_retarget.py exists and passes",
+    "runs/m1514_decisive_history_source_retarget_smoke/summary.json exists",
+    "retarget smoke attempts <=24 specs and all six source families",
+    "retarget summary compares margins against M1511 baseline",
+    "guardrail_violation_count equals zero",
+    "candidate_materialized training replay PPO promotion private holdout and actor-input changes remain false"
+  ],
+  "failure_criteria": [
+    "retarget module or tests are missing",
+    "retarget smoke is unbounded or uses private holdout",
+    "retarget artifacts cannot compare margins against M1511",
+    "candidate materialization corpus export training PPO promotion private holdout or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_decisive_history_source_retarget.py -q"
+    },
+    {
+      "name": "retarget-smoke",
+      "command": "PYTHONPATH=src python -m autodrift.decisive_history_source_retarget --run-dir runs/m1514_decisive_history_source_retarget_smoke --max-rollout-steps 128 --seed-count 1 --source-family-cap 4 --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/decisive_history_source_retarget.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_decisive_history_source_retarget.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m1514_decisive_history_source_retarget_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1513-paper-route-decisive-history-source-retarget-design.md",
+    "runs/m1511_decisive_history_bounded_runner_smoke/summary.json"
+  ],
+  "decision_rule": "M1514 passes if bounded retargeting runs a small public fixed-policy smoke with complete artifacts and all guardrails false.",
+  "next_blocker": "m1514-paper-route-decisive-history-source-retarget-implementation"
+}

@@ -147,6 +147,38 @@
     "docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md",
     "runs/m1511_decisive_history_bounded_runner_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1513-paper-route-decisive-history-source-retarget-design.md",
+    "decision": "decisive_history_source_retarget_design_admit_implementation",
+    "retarget_modes_defined": [
+      "close_wide",
+      "low_mu_close",
+      "late_reveal_high_speed",
+      "wide_low_brake",
+      "drift_required_focus"
+    ],
+    "max_specs": 24,
+    "source_family_count": 6,
+    "retarget_modes_per_family_cap": 4,
+    "max_rollout_steps": 128,
+    "checkpoint": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "trace_candidate_separation_defined": true,
+    "baseline_margin_comparison_defined": true,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1514-paper-route-decisive-history-source-retarget-implementation.json"
+  },
+  "decision": "decisive_history_source_retarget_design_admit_implementation",
   "decision_rule": "M1513 passes if it designs bounded public source retargeting without broad search, candidate materialization, training, or self-ID claims.",
-  "next_blocker": "m1513-paper-route-decisive-history-source-retarget-design"
+  "next_blocker": "m1514-paper-route-decisive-history-source-retarget-implementation"
 }
