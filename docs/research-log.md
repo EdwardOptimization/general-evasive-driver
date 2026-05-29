@@ -26552,3 +26552,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: fusion_actor repair result, checkpoint artifact generation, replay improvement, behavior retention, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1659-paper-route-proposal-projection-repair-branch-synthesis.json`
 - next: `m1659-paper-route-proposal-projection-repair-branch-synthesis`
+
+## M1659 Paper-Route Proposal Projection Repair Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `continue_to_fusion_actor_repair_implementation`
+- artifact: `docs/m1659-paper-route-proposal-projection-repair-branch-synthesis.md`
+- failure taxonomy summary: M1653/M1654 `training_instability` for actor_mean-only projection/scope insufficiency; all other M1649-M1658 milestones `none`
+- evidence summary: branch progressed from proposal-source metadata to clean actor_mean-only failure and then differentiable `fusion_actor` scope-sensitivity pass
+- supported: `fusion_actor` is the minimal justified wider scope for one no-checkpoint selected-proposal exact repair implementation
+- falsified or rejected: actor_mean-only repair is enough; frozen-feature objective tests wider scopes; one-step sensitivity is full repair or checkpoint evidence; larger scopes are justified before testing fusion_actor
+- public-gate overfit risk: high because evidence remains fixed public exact-tensor objective-sanity over three selected same-line proposals
+- next decision: continue to exactly one no-checkpoint `fusion_actor` repair implementation
+- follow-up manifest: `experiments/manifests/m1660-paper-route-fusion-actor-proposal-repair-implementation.json`
+- next: `m1660-paper-route-fusion-actor-proposal-repair-implementation`

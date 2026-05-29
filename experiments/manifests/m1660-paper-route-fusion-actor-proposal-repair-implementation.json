@@ -1,0 +1,193 @@
+{
+  "id": "m1660-paper-route-fusion-actor-proposal-repair-implementation",
+  "type": "objective_sanity",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_2.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_4.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_1_0.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1659-paper-route-proposal-projection-repair-branch-synthesis.md",
+      "docs/m1658-paper-route-fusion-actor-proposal-repair-design.md",
+      "runs/m1656_selected_proposal_scope_sensitivity/summary.json",
+      "runs/m1656_selected_proposal_scope_sensitivity/scope_summary.csv",
+      "runs/m1630_contour_aware_full_target_materialization/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1659-paper-route-proposal-projection-repair-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "implement no-checkpoint differentiable-feature fusion_actor selected-proposal repair after synthesis"
+    ],
+    "derived_from": [
+      "m1659-paper-route-proposal-projection-repair-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1659 synthesis admits exactly one no-checkpoint fusion_actor repair implementation"
+    ],
+    "supersedes": [
+      "direct checkpoint artifact after M1659",
+      "direct replay gate after M1659",
+      "direct PPO after M1659",
+      "direct promotion after M1659"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1660-paper-route-fusion-actor-proposal-repair-implementation.md",
+  "public_gates": [
+    "M1660 must use differentiable features and fusion_actor scope only",
+    "M1660 must run selected alpha 0.2 0.4 and 1.0 proposals",
+    "M1660 must write metrics and no checkpoint artifacts",
+    "M1660 must restore model state after temporary in-memory repair",
+    "M1660 must keep excluded parameter deltas zero",
+    "M1660 must keep diagnostics zero-weight and donor-plus actions excluded from loss",
+    "M1660 must route to result audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not write checkpoint artifacts",
+    "do not widen beyond fusion_actor",
+    "do not base-interpolate repair candidates",
+    "do not run a training loop",
+    "do not run PPO",
+    "do not run closed-loop evaluation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_ppo_proposal_projection_repair",
+    "evidence_axis": "E_fusion_actor_repair_implementation",
+    "evidence_increment": "tests whether the minimal wider differentiable fusion_actor scope can multi-step repair selected proposal residuals without checkpoint artifacts after synthesis",
+    "claim_scope": "objective-sanity implementation only; no PPO, training, checkpoint artifact, closed-loop gate, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if checkpoint artifacts are written",
+      "stop if implementation widens beyond fusion_actor",
+      "stop if model state is not restored after temporary repair",
+      "stop if excluded parameter deltas are nonzero",
+      "stop after implementation for mandatory result audit"
+    ],
+    "fallback_plan": [
+      "route to result audit whether implementation passes or fails",
+      "if primary alpha 0.2 passes, audit before checkpoint artifact or replay design",
+      "if primary alpha 0.2 fails, audit before any wider scope or retuned rule"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1659 synthesis continues the branch to one fusion_actor repair implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run no-checkpoint fusion_actor selected-proposal repair metrics",
+    "admission_evidence": [
+      "M1656 scope-sensitivity pass",
+      "M1657 audit selects fusion_actor as minimal wider scope",
+      "M1658 designs no-checkpoint fusion_actor repair",
+      "M1659 synthesis admits one implementation"
+    ],
+    "blocked_shortcuts": [
+      "do not write checkpoint artifacts",
+      "do not widen beyond fusion_actor",
+      "do not run PPO",
+      "do not train",
+      "do not run closed-loop evaluation",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "fusion_actor repair module or extension and focused tests",
+      "M1660 run artifacts",
+      "M1660 docs status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "fusion_actor repair metrics are written",
+      "no checkpoint artifact is written",
+      "result audit route is explicit before checkpoint artifact or replay route"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1660 tests fixed-tensor fusion_actor exact repair and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "evaluates exact correct/wrong hidden residual repair only; no new closed-loop history intervention"
+    ],
+    "temporal_evidence_window": "M1362, M1630, M1650-M1659 public artifacts only.",
+    "negative_result_policy": "If fusion_actor repair fails, classify scope/objective failure and audit before rerun or wider scope.",
+    "allowed_claims": [
+      "bounded no-checkpoint fusion_actor selected-proposal exact repair result",
+      "no PPO, no training, no checkpoint artifact, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Differentiable-feature fusion_actor repair can reduce the primary alpha 0.2 selected-proposal exact residual by at least 25 percent with clean no-checkpoint guardrails.",
+  "success_criteria": [
+    "runs/m1660_fusion_actor_proposal_repair/summary.json exists",
+    "selected_candidate_count == 3",
+    "measurable_initial_residual_count == 3",
+    "candidate_public_pass_count >= 1",
+    "primary_alpha_0_2_pass == true",
+    "checkpoint_artifact_count == 0",
+    "excluded_parameter_delta_violation_count == 0",
+    "model_restored_after_probe_count == selected_candidate_count",
+    "diagnostic_rows_used_as_positive_count donor_plus_action_used_as_loss_target_count training_started_count ppo_used_count promoted_count private_holdout_used_count actor_input_contract_changed_count level3_self_id_claim_count are 0"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "selected proposal candidates differ from design without audit",
+    "implementation uses frozen features for repair",
+    "implementation widens beyond fusion_actor",
+    "primary alpha 0.2 is not measurable or cannot be improved by at least 25 percent",
+    "model state is not restored after temporary repair",
+    "any checkpoint artifact is written",
+    "diagnostics or donor-plus actions enter the loss target",
+    "PPO promotion private holdout actor-input changes or level3 claims are produced"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_fusion_actor_proposal_repair.py"
+    },
+    {
+      "name": "run_repair",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.fusion_actor_proposal_repair --base-checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --candidate-summary runs/m1650_proposal_source_preflight/candidate_summary.csv --materialization-run-dir runs/m1630_contour_aware_full_target_materialization --run-dir runs/m1660_fusion_actor_proposal_repair --selected-alphas 0.2,0.4,1.0"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1660_fusion_actor_proposal_repair/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1660_fusion_actor_proposal_repair/candidate_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1660_fusion_actor_proposal_repair/guardrail_summary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1659-paper-route-proposal-projection-repair-branch-synthesis.md",
+    "docs/m1658-paper-route-fusion-actor-proposal-repair-design.md",
+    "runs/m1656_selected_proposal_scope_sensitivity/summary.json",
+    "runs/m1630_contour_aware_full_target_materialization/summary.json"
+  ],
+  "decision_rule": "M1660 passes if differentiable-feature fusion_actor repair improves primary alpha 0.2 by at least 25 percent with clean no-checkpoint guardrails.",
+  "next_blocker": "m1660-paper-route-fusion-actor-proposal-repair-implementation"
+}

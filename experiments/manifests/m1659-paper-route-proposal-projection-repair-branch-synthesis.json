@@ -191,6 +191,20 @@
     "runs/m1656_selected_proposal_scope_sensitivity/summary.json",
     "runs/m1653_selected_proposal_repair/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1659-paper-route-proposal-projection-repair-branch-synthesis.md",
+    "decision": "continue_to_fusion_actor_repair_implementation",
+    "workflow_synthesis_decision": "continue",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "evidence_summary": "M1649-M1658 moved from same-line proposal source metadata to a clean actor_mean-only failure and then a differentiable fusion_actor scope-sensitivity pass.",
+    "supported_claim": "fusion_actor is the minimal justified wider scope for one no-checkpoint selected-proposal exact repair implementation.",
+    "unsupported_claim_boundary": "no checkpoint artifact, replay behavior, PPO continuation, promotion, private-holdout, paper-level, or level3 self-ID claim.",
+    "public_gate_overfit_risk": "high because evidence remains fixed public exact-tensor objective-sanity evidence over three selected same-line proposals.",
+    "next_manifest": "experiments/manifests/m1660-paper-route-fusion-actor-proposal-repair-implementation.json"
+  },
   "decision_rule": "M1659 passes if it synthesizes the branch and chooses a route before fusion_actor implementation checkpoint artifact PPO replay or promotion.",
-  "next_blocker": "m1659-paper-route-proposal-projection-repair-branch-synthesis"
+  "next_blocker": "m1660-paper-route-fusion-actor-proposal-repair-implementation"
 }

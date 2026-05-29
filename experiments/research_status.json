@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1667,
+    "completed": 1668,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1658-paper-route-fusion-actor-proposal-repair-design.md",
+      "command_log": "docs/m1659-paper-route-proposal-projection-repair-branch-synthesis.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1658-paper-route-fusion-actor-proposal-repair-design"
+      "task_id": "m1659-paper-route-proposal-projection-repair-branch-synthesis"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1659-paper-route-proposal-projection-repair-branch-synthesis.json",
-      "hypothesis": "The M1649-M1658 proposal projection repair branch is sufficient to decide whether one no-checkpoint fusion_actor repair implementation is justified.",
-      "id": "m1659-paper-route-proposal-projection-repair-branch-synthesis",
-      "kind": "gate",
-      "notes": "Pending: synthesize proposal projection repair branch before any fusion_actor implementation",
-      "priority": 16540,
+      "command": "see experiments/manifests/m1660-paper-route-fusion-actor-proposal-repair-implementation.json",
+      "hypothesis": "Differentiable-feature fusion_actor repair can reduce the primary alpha 0.2 selected-proposal exact residual by at least 25 percent with clean no-checkpoint guardrails.",
+      "id": "m1660-paper-route-fusion-actor-proposal-repair-implementation",
+      "kind": "objective_sanity",
+      "notes": "Pending: implement no-checkpoint fusion_actor selected-proposal repair metrics after branch synthesis",
+      "priority": 16550,
       "status": "pending",
-      "success_artifact": "docs/m1659-paper-route-proposal-projection-repair-branch-synthesis.md"
+      "success_artifact": "runs/m1660_fusion_actor_proposal_repair/summary.json"
     },
-    "updated_at_utc": "20260529T213904Z"
+    "updated_at_utc": "20260529T214420Z"
 }

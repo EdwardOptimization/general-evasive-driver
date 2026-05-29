@@ -16,22 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1658-paper-route-fusion-actor-proposal-repair-design
+m1659-paper-route-proposal-projection-repair-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1659-paper-route-proposal-projection-repair-branch-synthesis
+m1660-paper-route-fusion-actor-proposal-repair-implementation
 ```
 
-M1658 designed the minimal wider-scope repair route after M1657. The next
-repair implementation must use differentiable features and only the
-`fusion_actor` scope: `response_context_fusion.0.*` plus `actor_mean.*`.
-However, the workflow synthesis cadence has been reached. The current next task
-is M1659 branch synthesis over M1649-M1658 before any implementation. Checkpoint
-artifacts, replay gates, PPO, training, promotion, private holdout, actor-input
-changes, paper-level claims, and level3 self-ID claims remain blocked.
+M1659 synthesized the M1649-M1658 proposal projection repair branch. The
+synthesis decision is `continue`: M1660 may run exactly one no-checkpoint
+differentiable-feature `fusion_actor` repair implementation over the selected
+same-line proposal tensors. The branch evidence supports only objective-sanity:
+actor_mean-only repair failed, frozen-feature repair is structurally
+actor_mean-only, and differentiable `fusion_actor` has useful one-step signal.
+Checkpoint artifacts, replay gates, PPO, training, promotion, private holdout,
+actor-input changes, paper-level claims, and level3 self-ID claims remain
+blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
