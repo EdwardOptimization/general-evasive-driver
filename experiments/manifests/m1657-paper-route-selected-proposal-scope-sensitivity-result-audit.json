@@ -170,6 +170,23 @@
     "runs/m1656_selected_proposal_scope_sensitivity/guardrail_summary.csv",
     "docs/m1656-paper-route-selected-proposal-scope-sensitivity-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.md",
+    "decision": "scope_sensitivity_audit_admit_fusion_actor_repair_design",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "audited_run": "runs/m1656_selected_proposal_scope_sensitivity",
+    "frozen_feature_upstream_grad_zero": true,
+    "primary_alpha_0_2_wider_scope_nonzero_grad_count": 4,
+    "primary_alpha_0_2_wider_scope_reduction_count": 4,
+    "selected_next_scope": "fusion_actor",
+    "fusion_actor_primary_alpha_0_2_reduction_ratio": 0.40519785496674926,
+    "guardrail_violation_count": 0,
+    "route": "admit design-only fusion_actor no-checkpoint repair planning",
+    "next_manifest": "experiments/manifests/m1658-paper-route-fusion-actor-proposal-repair-design.json"
+  },
   "decision_rule": "M1657 passes if it audits M1656 and chooses a safe next route before wider-scope repair checkpoint artifact or replay gate.",
-  "next_blocker": "m1657-paper-route-selected-proposal-scope-sensitivity-result-audit"
+  "next_blocker": "m1658-paper-route-fusion-actor-proposal-repair-design"
 }

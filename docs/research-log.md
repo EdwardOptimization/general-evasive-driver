@@ -26516,3 +26516,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: wider-scope repair works, checkpoint artifact generation, closed-loop replay improvement, behavior retention, PPO-proposal repair, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.json`
 - next: `m1657-paper-route-selected-proposal-scope-sensitivity-result-audit`
+
+## M1657 Paper-Route Selected Proposal Scope Sensitivity Result Audit
+
+- status: completed
+- decision: `scope_sensitivity_audit_admit_fusion_actor_repair_design`
+- artifact: `docs/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.md`
+- audited run: `runs/m1656_selected_proposal_scope_sensitivity`
+- failure taxonomy: `none`
+- frozen-feature upstream grad zero: `true`
+- primary alpha `0.2` wider-scope nonzero grad count: `4`
+- primary alpha `0.2` wider-scope reduction count: `4`
+- selected next scope: `fusion_actor`
+- fusion actor primary alpha `0.2` reduction ratio: `0.40519785496674926`
+- guardrail violation count: `0`
+- supported: M1656 is valid objective-sanity evidence that differentiable wider scope has useful selected-proposal residual signal
+- unsupported: full fusion_actor repair works, checkpoint artifact generation, replay improvement, behavior retention, PPO-proposal repair, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- route decision: admit M1658 design-only no-checkpoint `fusion_actor` selected-proposal repair planning
+- follow-up manifest: `experiments/manifests/m1658-paper-route-fusion-actor-proposal-repair-design.json`
+- next: `m1658-paper-route-fusion-actor-proposal-repair-design`

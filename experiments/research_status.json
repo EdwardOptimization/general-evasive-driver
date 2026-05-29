@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1665,
+    "completed": 1666,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1656-paper-route-selected-proposal-scope-sensitivity-implementation.md",
+      "command_log": "docs/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1656_selected_proposal_scope_sensitivity",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1656-paper-route-selected-proposal-scope-sensitivity-implementation"
+      "task_id": "m1657-paper-route-selected-proposal-scope-sensitivity-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.json",
-      "hypothesis": "The M1656 positive scope-sensitivity result can be audited as valid objective-sanity evidence while keeping full repair checkpoint and replay claims blocked.",
-      "id": "m1657-paper-route-selected-proposal-scope-sensitivity-result-audit",
+      "command": "see experiments/manifests/m1658-paper-route-fusion-actor-proposal-repair-design.json",
+      "hypothesis": "A design-only fusion_actor repair route is the minimal justified next step after M1656 showed wider differentiable-feature scope signal.",
+      "id": "m1658-paper-route-fusion-actor-proposal-repair-design",
       "kind": "gate",
-      "notes": "Pending: audit positive scope-sensitivity result before wider repair design or checkpoint route",
-      "priority": 16520,
+      "notes": "Pending: design no-checkpoint fusion_actor selected-proposal repair before implementation or checkpoint route",
+      "priority": 16530,
       "status": "pending",
-      "success_artifact": "docs/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.md"
+      "success_artifact": "docs/m1658-paper-route-fusion-actor-proposal-repair-design.md"
     },
-    "updated_at_utc": "20260529T213326Z"
+    "updated_at_utc": "20260529T213641Z"
 }
