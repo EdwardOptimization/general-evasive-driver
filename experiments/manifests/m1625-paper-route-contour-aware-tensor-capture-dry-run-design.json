@@ -157,5 +157,5 @@
     "docs/m1624-paper-route-contour-aware-policy-target-traceability-result-audit.md"
   ],
   "decision_rule": "M1625 passes if it designs a bounded tensor-capture dry run while keeping full materialization and training blocked.",
-  "next_blocker": "m1625-paper-route-contour-aware-tensor-capture-dry-run-design"
+  "next_blocker": "m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation"
 }

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1633,
+    "completed": 1634,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1624-paper-route-contour-aware-policy-target-traceability-result-audit.md",
+      "command_log": "docs/m1625-paper-route-contour-aware-tensor-capture-dry-run-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1624-paper-route-contour-aware-policy-target-traceability-result-audit"
+      "task_id": "m1625-paper-route-contour-aware-tensor-capture-dry-run-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1625-paper-route-contour-aware-tensor-capture-dry-run-design.json",
-      "hypothesis": "A design-only dry run can specify the minimal tensor-capture subset and guardrails before implementation.",
-      "id": "m1625-paper-route-contour-aware-tensor-capture-dry-run-design",
-      "kind": "gate",
-      "notes": "Pending: design dry-run subset and tensor schema only; no implementation full materialization objective update PPO promotion or private holdout",
-      "priority": 16200,
+      "command": "see experiments/manifests/m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation.json",
+      "hypothesis": "A bounded four-row dry run can verify deterministic observation hidden and action tensor capture before full target materialization.",
+      "id": "m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation",
+      "kind": "infrastructure",
+      "notes": "Pending: dry-run capture only; no full materialization objective update PPO promotion or private holdout",
+      "priority": 16210,
       "status": "pending",
-      "success_artifact": "docs/m1625-paper-route-contour-aware-tensor-capture-dry-run-design.md"
+      "success_artifact": "runs/m1626_contour_aware_tensor_capture_dry_run/summary.json"
     },
-    "updated_at_utc": "20260529T185025Z"
+    "updated_at_utc": "20260529T185257Z"
 }

@@ -25863,3 +25863,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: tensor target materialization, objective update, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
 - follow-up manifest: `experiments/manifests/m1625-paper-route-contour-aware-tensor-capture-dry-run-design.json`
 - next: `m1625-paper-route-contour-aware-tensor-capture-dry-run-design`
+
+## M1625 Paper-Route Contour-Aware Tensor Capture Dry-Run Design
+
+- status: completed
+- decision: `contour_aware_tensor_capture_dry_run_design_admit_implementation`
+- artifact: `docs/m1625-paper-route-contour-aware-tensor-capture-dry-run-design.md`
+- failure taxonomy: `none`
+- dry-run subset: 2 positive rows and 2 diagnostic rows across `m1592_clean_repair`, `m1595_balanced_repair`, and `m1588_selector`
+- capture tensors required: observation `[4,72]`, correct/wrong hidden, preferred/wrong/donor-plus-hidden actions `[4,3]`
+- guardrails: no full target corpus, no objective/loss config, no actor update, no PPO, diagnostics remain non-positive
+- supported: exactly one bounded dry-run implementation is admitted
+- unsupported: full target materialization, objective update, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- follow-up manifest: `experiments/manifests/m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation.json`
+- next: `m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation`

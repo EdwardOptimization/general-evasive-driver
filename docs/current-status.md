@@ -16,21 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1624-paper-route-contour-aware-policy-target-traceability-result-audit
+m1625-paper-route-contour-aware-tensor-capture-dry-run-design
 ```
 
 Current next task:
 
 ```text
-m1625-paper-route-contour-aware-tensor-capture-dry-run-design
+m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation
 ```
 
-M1624 audited the M1623 traceability pass. Source/variant traceability is no
-longer the blocker, but deterministic tensor capture has not been proven. The
-next task is M1625: design a minimal source-diverse tensor-capture dry run
-before any full target materialization. Tensor target materialization,
-loss/objective config construction, objective update, actor update, training,
-PPO, promotion, private holdout, actor-input changes,
+M1625 designed a four-row source-diverse deterministic tensor-capture dry run:
+two positive rows and two diagnostic rows spanning `m1592_clean_repair`,
+`m1595_balanced_repair`, and `m1588_selector`. The next task is M1626:
+implement only this dry-run capture, with observation `[4,72]`, hidden tensors,
+and action tensors `[4,3]` plus shape/finite/mutation guards. Full target
+materialization, loss/objective config construction, objective update, actor
+update, training, PPO, promotion, private holdout, actor-input changes,
 diagnostics-as-positive-candidates, and level3 self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474

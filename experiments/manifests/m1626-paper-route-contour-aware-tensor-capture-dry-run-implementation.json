@@ -1,0 +1,181 @@
+{
+  "id": "m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1625-paper-route-contour-aware-tensor-capture-dry-run-design.md",
+      "runs/m1623_contour_aware_policy_target_traceability_preflight/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1625-paper-route-contour-aware-tensor-capture-dry-run-design.json"
+    ],
+    "parent_objective": [
+      "bounded deterministic tensor-capture dry run"
+    ],
+    "derived_from": [
+      "m1625-paper-route-contour-aware-tensor-capture-dry-run-design"
+    ],
+    "blocked_by": [
+      "M1625 admits exactly one dry-run implementation and blocks full materialization/objective update"
+    ],
+    "supersedes": [
+      "direct full target materialization from M1624",
+      "direct objective update from M1624",
+      "direct PPO after M1624"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation.md",
+  "public_gates": [
+    "M1626 must capture only the four dry-run rows",
+    "M1626 must verify canonical 72-dim observations and hidden/action tensor shapes",
+    "M1626 must keep diagnostics non-positive",
+    "M1626 must not materialize the full target corpus",
+    "M1626 must route to result audit before full materialization or objective update"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not materialize full target corpus",
+    "do not construct a loss",
+    "do not construct an objective config",
+    "do not train",
+    "do not run PPO",
+    "do not run actor update",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not claim level3 self-identification",
+    "do not treat diagnostics as positive targets"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_tensor_capture_dry_run",
+    "evidence_increment": "implements minimal source-diverse tensor-capture dry run before full target materialization",
+    "claim_scope": "infrastructure dry run only; no full target corpus materialization, loss/objective construction, actor update, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if canonical observation shape is not 72",
+      "stop if hidden/action tensors cannot be captured",
+      "stop if diagnostics enter positive rows",
+      "stop after dry run for result audit before full materialization"
+    ],
+    "fallback_plan": [
+      "route to result audit if dry run passes",
+      "pivot to runner instrumentation design if hidden capture fails",
+      "pivot to source-artifact discovery if traceability unexpectedly fails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1625 admits one bounded tensor-capture dry-run implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "bounded deterministic tensor-capture dry run",
+    "admission_evidence": [
+      "M1623 passes source and variant traceability",
+      "M1624 audits traceability as sufficient for dry-run design",
+      "M1625 designs the dry-run subset and tensor schema"
+    ],
+    "blocked_shortcuts": [
+      "do not materialize full target corpus",
+      "do not construct a loss",
+      "do not construct an objective config",
+      "do not train",
+      "do not run PPO",
+      "do not run actor update",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "tensor-capture dry-run module and focused tests",
+      "M1626 run artifacts",
+      "M1626 docs status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "four-row dry-run artifacts are written",
+      "tensor shapes and finite values are verified",
+      "checkpoint mutation guard is false",
+      "full materialization remains blocked pending audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1626 is tensor-capture plumbing only and cannot strengthen self-ID claims.",
+    "history_necessity_tests": [
+      "captured correct/wrong hidden tensors"
+    ],
+    "temporal_evidence_window": "four public dry-run rows only.",
+    "negative_result_policy": "If tensor capture fails, write missing-capture artifacts and pivot to runner instrumentation design.",
+    "allowed_claims": [
+      "tensor-capture dry-run result",
+      "no full materialization, objective update, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded four-row dry run can verify deterministic observation hidden and action tensor capture before full target materialization.",
+  "success_criteria": [
+    "runs/m1626_contour_aware_tensor_capture_dry_run/summary.json exists",
+    "dry_run_row_count == 4",
+    "positive_capture_count == 2",
+    "diagnostic_capture_count == 2",
+    "observation_shape is [4, 72]",
+    "action shapes are [4, 3]",
+    "hidden shapes are present and finite",
+    "diagnostic_rows_used_as_positive is false",
+    "full_target_corpus_materialized is false",
+    "checkpoint_weights_mutated is false",
+    "training_started ppo_used promoted private_holdout_used actor_input_contract_changed labels_enter_actor_input level3_self_id_claim_made are false"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "tensor shapes are missing or nonfinite",
+    "full target corpus loss/objective config training PPO promotion private holdout or actor-input changes are produced",
+    "diagnostics become positive targets"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_contour_aware_tensor_capture_dry_run.py"
+    },
+    {
+      "name": "run_dry_run",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.contour_aware_tensor_capture_dry_run --candidate-run-dir runs/m1615_contour_aware_candidate_corpus --replay-run-dir runs/m1609_diagnostic_complete_bounded_replay --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --run-dir runs/m1626_contour_aware_tensor_capture_dry_run"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1626_contour_aware_tensor_capture_dry_run/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1626_contour_aware_tensor_capture_dry_run/captured_target_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1626_contour_aware_tensor_capture_dry_run/captured_targets.npz",
+      "type": "npz"
+    },
+    {
+      "path": "runs/m1626_contour_aware_tensor_capture_dry_run/shape_summary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1625-paper-route-contour-aware-tensor-capture-dry-run-design.md",
+    "runs/m1623_contour_aware_policy_target_traceability_preflight/summary.json"
+  ],
+  "decision_rule": "M1626 passes if the four-row dry run captures finite tensors without full materialization or training artifacts.",
+  "next_blocker": "m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation"
+}
