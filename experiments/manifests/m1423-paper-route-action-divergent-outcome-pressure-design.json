@@ -151,6 +151,27 @@
     "docs/m1422-paper-route-m1419-outcome-result-audit.md",
     "runs/m1421_m1419_source_collision_stratified_outcome_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1423-paper-route-action-divergent-outcome-pressure-design.md",
+    "decision": "action_divergent_outcome_pressure_design_admit_source_constructor_implementation",
+    "new_evidence_axis": "matched_current_action_divergent_terminal_margin_sensitive_source_design",
+    "m1421_action_critical_rows": 1524,
+    "m1421_warmup_history_positive_rows": 0,
+    "selected_route": "no_training_source_constructor_implementation",
+    "source_smoke_started": false,
+    "outcome_probe_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.json"
+  },
+  "decision": "action_divergent_outcome_pressure_design_admit_source_constructor_implementation",
   "decision_rule": "M1423 passes if it defines a new no-training action-divergent outcome-pressure route with gates before implementation.",
-  "next_blocker": "m1423-paper-route-action-divergent-outcome-pressure-design"
+  "next_blocker": "m1424-paper-route-action-divergent-outcome-pressure-source-implementation"
 }

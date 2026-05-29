@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1432,
+    "completed": 1433,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1422-paper-route-m1419-outcome-result-audit.md",
+    "command_log": "docs/m1423-paper-route-action-divergent-outcome-pressure-design.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1422-paper-route-m1419-outcome-result-audit"
+    "task_id": "m1423-paper-route-action-divergent-outcome-pressure-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1423-paper-route-action-divergent-outcome-pressure-design.json",
-    "hypothesis": "A design that explicitly targets matched-current action-divergent and terminal-margin-sensitive cases is a better next evidence axis than further staged warmup geometry retuning.",
-    "id": "m1423-paper-route-action-divergent-outcome-pressure-design",
-    "kind": "gate",
-    "notes": "Pending: design a new no-training action-divergent outcome-pressure route after M1421 negative result",
-    "priority": 14180,
+    "command": "see experiments/manifests/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.json",
+    "hypothesis": "A no-training source constructor can separate action-critical from outcome-critical history variants and emit source-diverse outcome-pressure rows for later evaluation.",
+    "id": "m1424-paper-route-action-divergent-outcome-pressure-source-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-training action-divergent outcome-pressure source constructor and focused tests",
+    "priority": 14190,
     "status": "pending",
-    "success_artifact": "docs/m1423-paper-route-action-divergent-outcome-pressure-design.md"
+    "success_artifact": "docs/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.md"
   },
-  "updated_at_utc": "20260529T063000Z"
+  "updated_at_utc": "20260529T064000Z"
 }

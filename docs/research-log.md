@@ -21020,3 +21020,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1423-paper-route-action-divergent-outcome-pressure-design.json`.
 - next: `m1423-paper-route-action-divergent-outcome-pressure-design`
+
+## 20260529T064000Z - m1423-paper-route-action-divergent-outcome-pressure-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1423-paper-route-action-divergent-outcome-pressure-design.md`
+- decision: `action_divergent_outcome_pressure_design_admit_source_constructor_implementation`
+- new evidence axis: `matched_current_action_divergent_terminal_margin_sensitive_source_design`
+- problem addressed: M1421 had `1524` action-critical rows but `0` warmup-history-positive outcome rows, so action divergence was not terminal-margin sensitive.
+- design: implement a no-training constructor that selects matched-current action-divergent candidates, applies small terminal-margin pressure by obstacle/body-frame relocation or half-width inflation, and counts only history variants as history-positive.
+- gates: require source-diverse outcome-pressure rows, separate wrong/same-recent history variants from reset/zero-current controls, and keep contract flags explicit.
+- guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.json`.
+- next: `m1424-paper-route-action-divergent-outcome-pressure-source-implementation`

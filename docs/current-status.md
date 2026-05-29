@@ -16,21 +16,37 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1422-paper-route-m1419-outcome-result-audit
+m1423-paper-route-action-divergent-outcome-pressure-design
 ```
 
 Current next task:
 
 ```text
-m1423-paper-route-action-divergent-outcome-pressure-design
+m1424-paper-route-action-divergent-outcome-pressure-source-implementation
 ```
 
-M1422 audited the negative M1421 outcome result. The current public-gate base
-remains M1362 alpha `0.1`:
+M1423 designed the next action-divergent outcome-pressure route. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1423 result:
+
+```text
+decision: action_divergent_outcome_pressure_design_admit_source_constructor_implementation
+new_evidence_axis: matched_current_action_divergent_terminal_margin_sensitive_source_design
+M1421 action_critical_rows: 1524
+M1421 warmup_history_positive_rows: 0
+selected route: no-training source constructor implementation
+next: m1424-paper-route-action-divergent-outcome-pressure-source-implementation
+```
+
+M1424 should implement a constructor that separates action-critical from
+outcome-critical rows and uses terminal-margin pressure to search for
+source-diverse history-positive cases. It must not run full source smoke,
+train, export a corpus, promote, use private holdout, or change actor inputs.
 
 M1422 result:
 

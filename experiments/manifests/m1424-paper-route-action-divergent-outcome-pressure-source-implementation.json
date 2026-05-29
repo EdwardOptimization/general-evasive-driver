@@ -1,0 +1,166 @@
+{
+  "id": "m1424-paper-route-action-divergent-outcome-pressure-source-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1423-paper-route-action-divergent-outcome-pressure-design.md",
+      "runs/m1421_m1419_source_collision_stratified_outcome_probe/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1423-paper-route-action-divergent-outcome-pressure-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training action-divergent outcome-pressure source constructor and focused tests"
+    ],
+    "derived_from": [
+      "m1423-paper-route-action-divergent-outcome-pressure-design"
+    ],
+    "blocked_by": [
+      "M1423 admits implementation only after defining a new evidence axis and gates"
+    ],
+    "supersedes": [
+      "another staged warmup geometry retune",
+      "another direct M1419 outcome probe",
+      "training from M1421 rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.md",
+  "public_gates": [
+    "M1424 must implement a no-training source constructor only",
+    "M1424 must include focused tests for candidate selection history-positive counting and contract flags",
+    "M1424 must not run full source smoke outcome interventions train run PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run full source smoke",
+    "do not run outcome interventions beyond focused fixtures",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not count zero-current as history-positive",
+    "do not count action divergence as outcome evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_action_divergent_outcome_pressure_design",
+    "evidence_axis": "I_action_divergent_outcome_pressure_source_constructor",
+    "evidence_increment": "implements the no-training constructor designed in M1423 without claiming outcome evidence yet",
+    "claim_scope": "infrastructure implementation only; no full source smoke outcome intervention training PPO promotion private holdout corpus export paper-level or strong self-identification claim",
+    "stop_condition": [
+      "stop if implementation changes actor inputs",
+      "stop if constructor cannot separate action-critical from outcome-critical rows",
+      "stop if history-positive accounting includes zero-current controls",
+      "stop if full source smoke is run before a separate manifest"
+    ],
+    "fallback_plan": [
+      "fall back to a simpler candidate/export-only smoke if relocation is too large for one milestone",
+      "route to design audit if implementation exposes infeasible assumptions",
+      "admit source smoke only after tests pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_new_branch_after_m1422_pivot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "action-divergent outcome-pressure source constructor implementation",
+    "admission_evidence": [
+      "M1423 defines the new evidence axis and gates",
+      "M1421 had many action-critical rows but no warmup-history-positive outcome rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run full source smoke",
+      "do not run outcome interventions except focused tests",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "src/autodrift/action_divergent_outcome_pressure.py",
+      "tests/test_action_divergent_outcome_pressure.py",
+      "M1424 implementation document",
+      "status queue scoreboard research log and review",
+      "one follow-up source-smoke manifest if implementation passes"
+    ],
+    "next_stage_criteria": [
+      "constructor CLI exists",
+      "focused tests pass",
+      "contract flags are emitted",
+      "next source-smoke route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1424 is infrastructure and must not claim history necessity.",
+    "history_necessity_tests": [
+      "fixture-level history-positive accounting",
+      "wrong-history and same-recent wrong-history accounting",
+      "reset and zero-current control separation",
+      "terminal-margin-sensitive output schema"
+    ],
+    "temporal_evidence_window": "M1423 design; no full source run in M1424.",
+    "negative_result_policy": "If implementation cannot preserve the accounting contract, record it and audit before source smoke.",
+    "allowed_claims": [
+      "action-divergent outcome-pressure constructor implementation result",
+      "no promotion corpus export training PPO private-holdout high-fidelity paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-training source constructor can separate action-critical from outcome-critical history variants and emit source-diverse outcome-pressure rows for later evaluation.",
+  "success_criteria": [
+    "src/autodrift/action_divergent_outcome_pressure.py exists",
+    "tests/test_action_divergent_outcome_pressure.py exists",
+    "focused tests cover history-positive versus reset/zero-current accounting",
+    "focused tests cover output summary schema and contract flags",
+    "docs/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.md exists",
+    "implementation chooses next route without full source smoke outcome intervention training PPO promotion private holdout corpus export or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "constructor implementation is missing",
+    "tests are missing",
+    "history-positive accounting counts reset or zero-current controls",
+    "implementation changes actor inputs",
+    "implementation runs full source smoke or routes directly to training PPO promotion private holdout corpus export or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "implement no-training action-divergent outcome-pressure source constructor with focused tests"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/action_divergent_outcome_pressure.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_action_divergent_outcome_pressure.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1423-paper-route-action-divergent-outcome-pressure-design.md"
+  ],
+  "decision_rule": "M1424 passes if it implements and tests the no-training constructor without running the full source smoke.",
+  "next_blocker": "m1424-paper-route-action-divergent-outcome-pressure-source-implementation"
+}
