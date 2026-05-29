@@ -163,6 +163,50 @@
     "runs/m1605_contour_aware_bounded_replay/summary.json",
     "docs/m1606-paper-route-contour-aware-bounded-replay-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1607-paper-route-diagnostic-complete-bounded-replay-design.md",
+    "decision": "diagnostic_complete_bounded_replay_design_route_to_branch_synthesis_before_implementation",
+    "failure_taxonomy": [
+      "scenario_sampling_failure",
+      "objective_overfit"
+    ],
+    "primary_input": "runs/m1602_contour_aware_source_rule/primary_rule_rows.csv",
+    "diagnostic_input": "runs/m1602_contour_aware_source_rule/diagnostic_rule_rows.csv",
+    "primary_replay_directed_pair_target": 144,
+    "diagnostic_replay_directed_pair_target": 232,
+    "diagnostic_per_reason_cap": 999,
+    "label_based_selection_forbidden": true,
+    "expected_intervention_row_count": 3008,
+    "next_manifest": "experiments/manifests/m1608-paper-route-clean-active-set-contour-mapping-branch-synthesis.json",
+    "supported_claims": [
+      "M1605 failure can be tested by removing the diagnostic cap",
+      "label-blind full diagnostic replay is pre-registered",
+      "one configured implementation is designed but workflow cadence requires branch synthesis before execution"
+    ],
+    "unsupported_claims": [
+      "diagnostic-complete replay has passed",
+      "candidate materialization",
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "paper-level self-identification",
+      "level3 anticipatory self-identification"
+    ],
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1607 passes if it designs a label-blind diagnostic-complete replay without executing replay or weakening gates.",
-  "next_blocker": "m1607-paper-route-diagnostic-complete-bounded-replay-design"
+  "next_blocker": "m1608-paper-route-clean-active-set-contour-mapping-branch-synthesis"
 }

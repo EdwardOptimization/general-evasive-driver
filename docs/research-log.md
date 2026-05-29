@@ -25439,3 +25439,54 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1607-paper-route-diagnostic-complete-bounded-replay-design.json`
 - next: `m1607-paper-route-diagnostic-complete-bounded-replay-design`
+
+## M1607 Paper-Route Diagnostic-Complete Bounded Replay Design
+
+- status: completed
+- decision: `diagnostic_complete_bounded_replay_design_route_to_branch_synthesis_before_implementation`
+- artifact: `docs/m1607-paper-route-diagnostic-complete-bounded-replay-design.md`
+- failure taxonomy: `scenario_sampling_failure`, `objective_overfit`
+- primary input: `runs/m1602_contour_aware_source_rule/primary_rule_rows.csv`
+- diagnostic input: `runs/m1602_contour_aware_source_rule/diagnostic_rule_rows.csv`
+- primary replay directed-pair target: 144
+- diagnostic replay directed-pair target: 232
+- diagnostic per reason cap: 999
+- label-based diagnostic selection forbidden: true
+- expected intervention row count: 3008
+- route decision: diagnostic-complete replay is designed, but workflow cadence requires M1608 branch synthesis before execution
+- replay started: false in M1607
+- history interventions executed: false in M1607
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1608-paper-route-clean-active-set-contour-mapping-branch-synthesis.json`
+- next: `m1608-paper-route-clean-active-set-contour-mapping-branch-synthesis`
+
+## M1608 Paper-Route Clean Active-Set Contour Mapping Branch Synthesis
+
+- status: completed
+- decision: `clean_active_set_contour_mapping_synthesis_continue_to_diagnostic_complete_replay`
+- artifact: `docs/m1608-paper-route-clean-active-set-contour-mapping-branch-synthesis.md`
+- synthesis decision: `continue`
+- synthesized range: M1598-M1607
+- failure taxonomy summary: `scenario_sampling_failure`, `objective_overfit`, `metric_artifact`
+- public-gate overfit risk: `medium_high`
+- evidence summary:
+  - M1599 mapped 528 enriched rows, 51 clean rows, and identified `clean_edge_window`
+  - M1602 selected 144 primary rows with 39 clean rows and 232 diagnostics
+  - M1605 preserved the primary contour under replay but failed diagnostic control evidence with 35 dominated/control diagnostics
+  - M1607 pre-registered a label-blind full diagnostic replay with 232 diagnostics and 3008 expected intervention rows
+- supported: `clean_edge_window` is a useful public contour selector; primary contour replay is preserved; diagnostic completeness is the next smallest test
+- unsupported: candidate materialization, corpus export, PPO, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- route decision: continue to exactly one label-blind diagnostic-complete bounded replay, then audit regardless of pass or fail
+- replay started: false in M1608
+- history interventions executed: false in M1608
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1609-paper-route-diagnostic-complete-bounded-replay-implementation.json`
+- next: `m1609-paper-route-diagnostic-complete-bounded-replay-implementation`

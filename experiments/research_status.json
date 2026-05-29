@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1615,
+    "completed": 1617,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1606-paper-route-contour-aware-bounded-replay-result-audit.md",
-    "returncode": 0,
-    "run_dir": "docs",
-    "status": "completed",
-    "task_id": "m1606-paper-route-contour-aware-bounded-replay-result-audit"
-  },
-  "next_task": {
-    "command": "see experiments/manifests/m1607-paper-route-diagnostic-complete-bounded-replay-design.json",
-    "hypothesis": "A label-blind diagnostic-complete replay design can test whether M1605's diagnostic failure was caused by the 96-row cap.",
-    "id": "m1607-paper-route-diagnostic-complete-bounded-replay-design",
-    "kind": "gate",
-    "notes": "Pending: design full diagnostic replay without executing replay or selecting by label",
-    "priority": 16020,
-    "status": "pending",
-    "success_artifact": "docs/m1607-paper-route-diagnostic-complete-bounded-replay-design.md"
-  },
-  "updated_at_utc": "20260529T173809Z"
+      "command_log": "docs/m1608-paper-route-clean-active-set-contour-mapping-branch-synthesis.md",
+      "returncode": 0,
+      "run_dir": "docs",
+      "status": "completed",
+      "task_id": "m1608-paper-route-clean-active-set-contour-mapping-branch-synthesis"
+    },
+    "next_task": {
+      "command": "see experiments/manifests/m1609-paper-route-diagnostic-complete-bounded-replay-implementation.json",
+      "hypothesis": "Full label-blind diagnostic replay can preserve negative/control evidence while primary clean contour remains intact.",
+      "id": "m1609-paper-route-diagnostic-complete-bounded-replay-implementation",
+      "kind": "infrastructure",
+      "notes": "Pending: run configured full diagnostic replay and route to audit",
+      "priority": 16040,
+      "status": "pending",
+      "success_artifact": "runs/m1609_diagnostic_complete_bounded_replay/summary.json"
+    },
+    "updated_at_utc": "20260529T174647Z"
 }

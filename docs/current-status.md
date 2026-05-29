@@ -16,21 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1606-paper-route-contour-aware-bounded-replay-result-audit
+m1608-paper-route-clean-active-set-contour-mapping-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1607-paper-route-diagnostic-complete-bounded-replay-design
+m1609-paper-route-diagnostic-complete-bounded-replay-implementation
 ```
 
-M1606 audited M1605 as a split result: the stable replay id fix is required and
-applied; primary replay preserved `39` clean rows; the 96-row diagnostic sample
-failed with dominated/control count `35 < 50`. The next task is M1607
-diagnostic-complete replay design. Candidate materialization, training-corpus
-export, training, PPO, promotion, private holdout, actor-input changes, replay
-rerun, and threshold relaxation remain blocked until the design is complete.
+M1608 synthesized the M1598-M1607 clean active-set contour mapping branch after
+the workflow cadence fired. The synthesis continues to exactly one label-blind
+diagnostic-complete bounded replay, using all `144` primary rows and all `232`
+diagnostic rows with `--diagnostic-per-reason-cap 999`. M1609 must route to
+audit whether it passes or fails. Candidate materialization, training-corpus
+export, training, PPO, promotion, private holdout, actor-input changes,
+threshold relaxation, label-selected diagnostics, and level3 self-ID claims
+remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
