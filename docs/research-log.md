@@ -27007,3 +27007,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, rollout task quality at full scale, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1687-paper-route-controller-family-measured-routing-smoke-result-audit.json`
 - next: `m1687-paper-route-controller-family-measured-routing-smoke-result-audit`
+
+## M1687 Paper-Route Controller-Family Measured Routing Smoke Result Audit
+
+- status: completed
+- decision: `routing_smoke_audit_pass_route_to_full_rollout_design`
+- artifact: `docs/m1687-paper-route-controller-family-measured-routing-smoke-result-audit.md`
+- audited artifact: `runs/m1686_controller_family_measured_routing_smoke/summary.json`
+- audit verdict: M1686 is a clean routing-smoke pass
+- counts: episode/profile/spec `48` / `12` / `4`
+- selected metrics finite / all episodes completed / guardrail violations: `true` / `true` / `0`
+- selected-spec coverage: 2 T4 and 2 T5 executable public specs
+- supported: measured-routing runner and artifact schema are sufficient to design a larger public measured rollout
+- unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, full-distribution rollout task quality, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1688-paper-route-controller-family-full-measured-rollout-design.json`
+- next: `m1688-paper-route-controller-family-full-measured-rollout-design`

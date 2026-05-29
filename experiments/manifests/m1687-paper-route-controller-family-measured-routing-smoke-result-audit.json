@@ -157,6 +157,27 @@
     "runs/m1686_controller_family_measured_routing_smoke/profile_aggregate.csv",
     "runs/m1686_controller_family_measured_routing_smoke/spec_aggregate.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1687-paper-route-controller-family-measured-routing-smoke-result-audit.md",
+    "decision": "routing_smoke_audit_pass_route_to_full_rollout_design",
+    "audited_summary": "runs/m1686_controller_family_measured_routing_smoke/summary.json",
+    "episode_count": 48,
+    "profile_count": 12,
+    "spec_count": 4,
+    "all_selected_metrics_finite": true,
+    "all_episodes_completed": true,
+    "guardrail_violation_count": 0,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "controller_family_ranking_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1688-paper-route-controller-family-full-measured-rollout-design.json"
+  },
   "decision_rule": "M1687 passes if it audits M1686 as complete clean routing-smoke evidence and routes explicitly to full-rollout design or repair.",
-  "next_blocker": "m1687-paper-route-controller-family-measured-routing-smoke-result-audit"
+  "next_blocker": "m1688-paper-route-controller-family-full-measured-rollout-design"
 }

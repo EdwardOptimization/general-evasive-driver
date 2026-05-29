@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1695,
+    "completed": 1696,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1686_controller_family_measured_routing_smoke/summary.json",
+    "command_log": "docs/m1687-paper-route-controller-family-measured-routing-smoke-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1686_controller_family_measured_routing_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1686-paper-route-controller-family-measured-routing-smoke"
+    "task_id": "m1687-paper-route-controller-family-measured-routing-smoke-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1687-paper-route-controller-family-measured-routing-smoke-result-audit.json",
-    "hypothesis": "M1686 is a clean routing-smoke pass that can safely admit a separately designed full public measured rollout.",
-    "id": "m1687-paper-route-controller-family-measured-routing-smoke-result-audit",
+    "command": "see experiments/manifests/m1688-paper-route-controller-family-full-measured-rollout-design.json",
+    "hypothesis": "A complete design for the 864-cell public measured rollout can be specified from the M1683 workload and M1686 routing-smoke runner without executing or interpreting the rollout yet.",
+    "id": "m1688-paper-route-controller-family-full-measured-rollout-design",
     "kind": "gate",
-    "notes": "Pending: audit M1686 before full rollout or repair route",
-    "priority": 16820,
+    "notes": "Pending: design full measured rollout before execution",
+    "priority": 16830,
     "status": "pending",
-    "success_artifact": "docs/m1687-paper-route-controller-family-measured-routing-smoke-result-audit.md"
+    "success_artifact": "docs/m1688-paper-route-controller-family-full-measured-rollout-design.md"
   },
-  "updated_at_utc": "20260529T234118Z"
+  "updated_at_utc": "20260529T234505Z"
 }

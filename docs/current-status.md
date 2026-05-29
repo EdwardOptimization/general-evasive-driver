@@ -10675,5 +10675,7 @@ proof. Do not tune PPO separately for one profile and compare it directly.
 - Claim boundary: routing/plumbing evidence only. No controller-family ranking,
   no paper-level evidence, no private-holdout evidence, no promotion, and no
   level3 self-identification claim.
-- Next blocker:
-  `m1687-paper-route-controller-family-measured-routing-smoke-result-audit`.
+- M1687 audits M1686 as a clean routing-smoke pass and routes to full measured
+  rollout design rather than direct execution.
+- Current next blocker:
+  `m1688-paper-route-controller-family-full-measured-rollout-design`.

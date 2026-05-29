@@ -1,0 +1,155 @@
+{
+  "id": "m1688-paper-route-controller-family-full-measured-rollout-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1687-paper-route-controller-family-measured-routing-smoke-result-audit.md",
+      "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv",
+      "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1687-paper-route-controller-family-measured-routing-smoke-result-audit.json"
+    ],
+    "parent_objective": [
+      "design full public measured rollout after M1686 routing-smoke audit pass"
+    ],
+    "derived_from": [
+      "m1687-paper-route-controller-family-measured-routing-smoke-result-audit"
+    ],
+    "blocked_by": [
+      "need full rollout design before executing the 864-cell public workload"
+    ],
+    "supersedes": [
+      "direct full rollout execution after M1687",
+      "direct private holdout after M1687",
+      "direct controller-family ranking after M1687"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1688-paper-route-controller-family-full-measured-rollout-design.md",
+  "public_gates": [
+    "M1688 must design but not execute the full 864-cell public rollout",
+    "M1688 must preserve the same 12 M1674 profile checkpoints",
+    "M1688 must specify exact artifacts and failure handling for the full rollout",
+    "M1688 must not train replay PPO promote use private holdout or change actor inputs",
+    "M1688 must not claim controller-family ranking paper-level evidence or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute full rollout in M1688",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use profile-specific tuning",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "F_full_measured_rollout_design",
+    "evidence_increment": "designs the full public measured rollout after routing-smoke audit pass without executing it",
+    "claim_scope": "design only; no new rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if workload size or source mapping is ambiguous",
+      "stop if artifact schema cannot preserve profile/spec aggregates and comparison controls",
+      "stop if runner scaling would require profile-specific tuning or input contract changes"
+    ],
+    "fallback_plan": [
+      "route to runner repair if M1686 runner is insufficient for full rollout",
+      "route to workload redesign if M1683 workload cannot be executable",
+      "route to full rollout execution only if design is complete"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1687 admits full measured rollout design after routing-smoke pass",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design full public measured rollout",
+    "admission_evidence": [
+      "M1687 audits M1686 as a complete clean 48-episode routing-smoke pass"
+    ],
+    "blocked_shortcuts": [
+      "do not execute full rollout in M1688",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1688 design document",
+      "M1688 status queue scoreboard research log and review",
+      "one follow-up execution or repair manifest"
+    ],
+    "next_stage_criteria": [
+      "full workload and artifacts are specified",
+      "failure handling and claim boundary are explicit",
+      "next execution or repair route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1688 is design-only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "design must preserve L1, L2-current-tiled, and L3-reset controls in the full rollout"
+    ],
+    "temporal_evidence_window": "M1683 workload protocol and M1686 routing smoke only.",
+    "negative_result_policy": "If full rollout design is incomplete, record process blocker and do not execute the workload.",
+    "allowed_claims": [
+      "full measured rollout design",
+      "no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A complete design for the 864-cell public measured rollout can be specified from the M1683 workload and M1686 routing-smoke runner without executing or interpreting the rollout yet.",
+  "success_criteria": [
+    "docs/m1688-paper-route-controller-family-full-measured-rollout-design.md exists",
+    "design specifies the 72 spec x 12 profile public workload",
+    "design specifies output artifacts and finite metric checks",
+    "design specifies profile/spec/control comparison boundaries",
+    "design specifies failure handling and no-ranking claim boundary",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design omits workload size or artifact schema",
+    "design allows full rollout execution before execution manifest",
+    "design claims controller-family ranking or level3 self-ID",
+    "training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write full public measured rollout design without executing it"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1688-paper-route-controller-family-full-measured-rollout-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m1687-paper-route-controller-family-measured-routing-smoke-result-audit.md",
+    "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv",
+    "runs/m1686_controller_family_measured_routing_smoke/summary.json"
+  ],
+  "decision_rule": "M1688 passes if it writes a complete full-rollout design and routes to a separate execution or repair manifest.",
+  "next_blocker": "m1688-paper-route-controller-family-full-measured-rollout-design"
+}
