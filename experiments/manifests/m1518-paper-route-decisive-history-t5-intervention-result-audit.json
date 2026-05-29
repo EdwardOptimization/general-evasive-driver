@@ -1,0 +1,154 @@
+{
+  "id": "m1518-paper-route-decisive-history-t5-intervention-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1517_decisive_history_t5_intervention_smoke/summary.json",
+      "runs/m1517_decisive_history_t5_intervention_smoke/intervention_rows.csv",
+      "runs/m1517_decisive_history_t5_intervention_smoke/intervention_pair_summary.csv",
+      "docs/m1517-paper-route-decisive-history-t5-intervention-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1517-paper-route-decisive-history-t5-intervention-implementation.json"
+    ],
+    "parent_objective": [
+      "audit bounded measured intervention effects before candidate materialization or intervention repair"
+    ],
+    "derived_from": [
+      "m1517-paper-route-decisive-history-t5-intervention-implementation"
+    ],
+    "blocked_by": [
+      "M1517 measured intervention smoke produced null/weak gaps that must be interpreted before any follow-up branch"
+    ],
+    "supersedes": [
+      "direct candidate materialization or training from M1517 intervention plumbing"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1518-paper-route-decisive-history-t5-intervention-result-audit.md",
+  "public_gates": [
+    "M1518 must audit M1517 intervention rows and pair summary",
+    "M1518 must classify the null/weak intervention result without weakening the self-ID standard",
+    "M1518 must decide whether to repair timing, retarget closer to boundary, compare finite-window/current-response controls, or close the subset",
+    "M1518 must not materialize candidates or export a training corpus",
+    "M1518 must not train run PPO promote use private holdout or alter actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates during the audit",
+    "do not claim self-identification from null or sub-threshold intervention effects"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_decisive_history_bounded_runner",
+    "evidence_axis": "G_t5_measured_intervention_audit",
+    "evidence_increment": "audits the first bounded measured interventions for the admitted T5 high-speed subset",
+    "claim_scope": "intervention result audit only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if M1517 artifacts are missing or malformed",
+      "stop if the audit treats sub-threshold gaps as self-identification evidence",
+      "stop if the audit routes directly to candidate materialization or training",
+      "stop if the audit ignores current-frame substitution risk"
+    ],
+    "fallback_plan": [
+      "if the null result is due to late intervention timing, route to timing-amplified intervention design",
+      "if rows are too safe, route to tighter terminal-boundary retargeting",
+      "if current observation dominates, route to finite-window/current-response comparison",
+      "if the subset is not useful for history necessity, close the subset and synthesize the branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1517 produced complete bounded intervention artifacts with null/weak effects",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "T5 intervention result audit",
+    "admission_evidence": [
+      "M1517 completed 28 bounded intervention rows for four T5 high-speed targets with zero replay failures and guardrails false"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "M1518 audit document",
+      "status queue scoreboard research log and review",
+      "one follow-up timing repair, retarget repair, finite-window comparison, subset-close, or branch synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "null/weak result interpretation is explicit",
+      "candidate materialization remains blocked or the subset is closed",
+      "follow-up route is explicit",
+      "failure taxonomy is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1518 audits a null/weak intervention result; current ego response and scene geometry may dominate the selected rows, so sub-threshold ablations cannot support level3 self-identification.",
+    "history_necessity_tests": [
+      "audit normal vs reset/zero/delayed/wrong-donor margin gaps",
+      "separate intervention-plumbing success from history-necessity evidence",
+      "record null effects as task/intervention evidence rather than lowering the claim threshold"
+    ],
+    "temporal_evidence_window": "M1517 T5 high-speed intervention rows and 64-step continuations only.",
+    "negative_result_policy": "If no outcome-relevant gap appears, record the null result and choose a repair, closure, or synthesis route instead of materializing weak candidates.",
+    "allowed_claims": [
+      "M1518 audits M1517 measured intervention effects",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1517 null/weak measured-intervention result can be audited to choose the next highest-leverage route without over-claiming self-identification.",
+  "success_criteria": [
+    "docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md exists",
+    "audit summarizes M1517 row counts, margin gaps, success drops, and guardrails",
+    "audit classifies the result as candidate-materialization admissible, repair-needed, subset-closed, or branch-synthesis-needed",
+    "audit keeps candidate materialization training PPO promotion private holdout actor-input changes corpus export and self-ID claims blocked unless future measured evidence justifies a separate manifest"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats null or sub-threshold gaps as self-identification evidence",
+    "audit ignores current-frame substitution risk",
+    "audit starts candidate materialization training PPO promotion private holdout or corpus export"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1517_decisive_history_t5_intervention_smoke/summary.json",
+    "runs/m1517_decisive_history_t5_intervention_smoke/intervention_rows.csv",
+    "runs/m1517_decisive_history_t5_intervention_smoke/intervention_pair_summary.csv"
+  ],
+  "decision_rule": "M1518 passes if it audits the M1517 null/weak intervention result and chooses a follow-up route without materializing candidates or claiming self-identification.",
+  "next_blocker": "m1518-paper-route-decisive-history-t5-intervention-result-audit"
+}

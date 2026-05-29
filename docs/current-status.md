@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1516-paper-route-decisive-history-t5-intervention-design
+m1517-paper-route-decisive-history-t5-intervention-implementation
 ```
 
 Current next task:
 
 ```text
-m1517-paper-route-decisive-history-t5-intervention-implementation
+m1518-paper-route-decisive-history-t5-intervention-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -65,12 +65,47 @@ candidate materialization. M1513 designed a bounded public retarget route.
 M1514 implemented it and produced near-boundary retarget traces with explicit
 failures. M1515 admitted only the T5 high-speed subset to measured-intervention
 design and kept candidate materialization blocked. M1516 designed bounded T5
-intervention variants and artifacts. The current public-gate base remains M1362
+intervention variants and artifacts. M1517 implemented and ran the bounded T5
+intervention smoke; intervention plumbing worked but measured effects were
+null/weak, with max margin gap `0.0165` below the pre-registered `0.02`
+threshold and zero success drops. The current public-gate base remains M1362
 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1517 decisive history T5 intervention implementation:
+
+```text
+decision: t5_intervention_smoke_complete_null_effect_route_to_audit
+artifact: runs/m1517_decisive_history_t5_intervention_smoke/summary.json
+doc: docs/m1517-paper-route-decisive-history-t5-intervention-implementation.md
+code: src/autodrift/decisive_history_t5_interventions.py
+eligible_source_family: t5_high_speed_close_obstacle
+eligible_target_count: 4
+variant_count: 7
+intervention_row_count: 28
+normal/ablation/wrong-history row count: 4/24/4
+target/donor replay failure count: 0/0
+max_margin_gap_from_normal: 0.016497911642290308
+outcome_relevant_variant_count: 0
+success_drop_count: 0
+guardrail_violation_count: 0
+continuation_steps: 64
+wrong_history_scope: donor hidden diagnostic only, not same-current T4 proof
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1518-paper-route-decisive-history-t5-intervention-result-audit
+```
+
+M1517 is a clean intervention-plumbing result and a null/weak self-ID probe for
+this subset. Candidate materialization and level3 self-ID claims remain blocked
+until M1518 audits whether to repair timing, retarget closer to the terminal
+boundary, compare finite-window/current-response controls, or close this T5
+subset.
 
 M1516 decisive history T5 intervention design:
 
@@ -102,9 +137,8 @@ actor_input_contract_changed: false
 next: m1517-paper-route-decisive-history-t5-intervention-implementation
 ```
 
-M1516 is design only. Next is the bounded T5 intervention smoke; candidate
-materialization and level3 self-ID claims remain blocked until measured gaps are
-audited.
+M1516 was design only. M1517 implemented the smoke and routes to a result audit
+because the measured gaps are sub-threshold.
 
 M1515 decisive history source retarget result audit:
 

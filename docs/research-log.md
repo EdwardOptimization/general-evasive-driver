@@ -22723,3 +22723,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1516 designs the first measured intervention smoke for the admitted T5 subset while explicitly blocking candidate materialization and level3 self-ID claims.
 - follow-up manifest: `experiments/manifests/m1517-paper-route-decisive-history-t5-intervention-implementation.json`.
 - next: `m1517-paper-route-decisive-history-t5-intervention-implementation`
+
+## M1517 Paper-Route Decisive History T5 Intervention Implementation
+
+- status: completed
+- decision: `t5_intervention_smoke_complete_null_effect_route_to_audit`
+- artifact: `runs/m1517_decisive_history_t5_intervention_smoke/summary.json`
+- doc: `docs/m1517-paper-route-decisive-history-t5-intervention-implementation.md`
+- code paths: `src/autodrift/decisive_history_t5_interventions.py`, `tests/test_decisive_history_t5_interventions.py`
+- checkpoint: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`
+- focused tests: `PYTHONPATH=src python -m pytest tests/test_decisive_history_t5_interventions.py -q`
+- focused test result: 6 passed
+- smoke command: `PYTHONPATH=src python -m autodrift.decisive_history_t5_interventions --run-dir runs/m1517_decisive_history_t5_intervention_smoke --continuation-steps 64 --device cpu`
+- eligible source family: `t5_high_speed_close_obstacle`
+- eligible target count: 4
+- variant count: 7
+- intervention row count: 28
+- normal/ablation/wrong-history row count: 4/24/4
+- target/donor replay failure count: 0/0
+- max margin gap from normal: 0.016497911642290308
+- outcome-relevant variant count: 0
+- success drop count: 0
+- guardrail violation count: 0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1517 proves the bounded intervention measurement plumbing works, but the admitted T5 subset produced only null/weak intervention effects below the pre-registered 0.02 margin-gap threshold and no success drops.
+- follow-up manifest: `experiments/manifests/m1518-paper-route-decisive-history-t5-intervention-result-audit.json`.
+- next: `m1518-paper-route-decisive-history-t5-intervention-result-audit`
