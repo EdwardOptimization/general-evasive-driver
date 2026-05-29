@@ -1,0 +1,181 @@
+{
+  "id": "m1674-paper-route-controller-family-one-seed-public-pilot-implementation",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_public_pilot"
+    ],
+    "parent_dataset": [
+      "docs/m1673-paper-route-controller-family-one-seed-public-pilot-design.md",
+      "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1673-paper-route-controller-family-one-seed-public-pilot-design.json",
+      "configs/paper_route_corrected_profiles"
+    ],
+    "parent_objective": [
+      "run one public seed across all 12 corrected controller-family profiles"
+    ],
+    "derived_from": [
+      "m1673-paper-route-controller-family-one-seed-public-pilot-design"
+    ],
+    "blocked_by": [
+      "pilot result must be audited before interpretation or scaling"
+    ],
+    "supersedes": [
+      "direct three-seed matrix before one-seed plumbing",
+      "direct private holdout before public plumbing",
+      "direct decisive clean-package benchmark before mapping"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1674-paper-route-controller-family-one-seed-public-pilot-implementation.md",
+  "public_gates": [
+    "M1674 must run all 12 corrected profile configs with seed offset 0",
+    "M1674 must use equal committed profile budgets and no profile-specific tuning",
+    "M1674 must write summary protocol profile_seed_rows profile_aggregate and eval_rows artifacts",
+    "M1674 must keep private holdout promotion actor-input changes paper-level claims and level3 claims blocked",
+    "M1674 must route to audit before interpretation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use private holdout",
+    "do not promote a checkpoint",
+    "do not add actor inputs",
+    "do not repair the M1663 artifact",
+    "do not execute decisive clean-package benchmark",
+    "do not tune one profile separately",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_decisive_evidence_matrix",
+    "evidence_axis": "C_one_seed_public_pilot_plumbing",
+    "evidence_increment": "runs the first one-seed public standard-layer plumbing pilot for all 12 controller profiles",
+    "claim_scope": "public plumbing benchmark only; no promotion, private holdout, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if any profile is omitted",
+      "stop if profile-specific tuning is used",
+      "stop if private holdout or promotion is attempted",
+      "stop if one-seed results are interpreted without audit"
+    ],
+    "fallback_plan": [
+      "route to runner repair if any profile fails",
+      "route to metric audit if non-finite values appear",
+      "route to result audit if all public plumbing gates pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1673 admits one implementation of the one-seed public pilot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "one-seed public corrected-profile train/eval pilot",
+    "admission_evidence": [
+      "M1673 pre-registers the command and metrics",
+      "M1671 protocol preflight verified the profile configs"
+    ],
+    "allowed_training": [
+      "PPO training inside autodrift.corrected_profile_pilot for seed offset 0 only"
+    ],
+    "blocked_shortcuts": [
+      "do not use private holdout",
+      "do not promote a checkpoint",
+      "do not change actor inputs",
+      "do not claim controller-family ranking",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "runs/m1674_controller_family_one_seed_public_pilot artifacts",
+      "M1674 status queue scoreboard research log and review",
+      "one follow-up audit manifest"
+    ],
+    "next_stage_criteria": [
+      "all 12 seed runs complete",
+      "all selected metrics finite",
+      "result routes to audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1674 includes L1 and L2 current-tiled controls but one seed is diagnostic only.",
+    "history_necessity_tests": [
+      "run L2 normal and current-tiled controls under the same one-seed protocol",
+      "run L3 online and corrected reset controls under the same one-seed protocol",
+      "do not claim history necessity from one seed"
+    ],
+    "temporal_evidence_window": "one public seed under standard corrected profile layer only.",
+    "negative_result_policy": "Any negative or surprising result must be audited before changing the protocol.",
+    "allowed_claims": [
+      "public plumbing pilot result only",
+      "no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "All 12 corrected controller-family profiles can complete one public train/eval seed with finite metrics under the same committed budget.",
+  "success_criteria": [
+    "runs/m1674_controller_family_one_seed_public_pilot/summary.json exists",
+    "profile_count == 12",
+    "total_seed_runs == 12",
+    "completed_seed_runs == 12",
+    "failed_seed_runs == 0",
+    "all_selected_profile_seed_runs_complete == true",
+    "all_eval_metrics_finite == true",
+    "private_holdout_used == false",
+    "profile_specific_tuning == false",
+    "actor_input_contract_changed == false",
+    "promoted == false",
+    "self_identification_claimed == false",
+    "paper_level_claimed == false"
+  ],
+  "failure_criteria": [
+    "any profile run fails",
+    "any selected metric is non-finite",
+    "profile-specific tuning occurs",
+    "private holdout or promotion occurs",
+    "actor input contract changes",
+    "one-seed result is claimed as controller-family ranking"
+  ],
+  "commands": [
+    {
+      "name": "one_seed_public_pilot",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.corrected_profile_pilot --config-dir configs/paper_route_corrected_profiles --config-glob 'm1207_*.json' --run-dir runs/m1674_controller_family_one_seed_public_pilot --training-seed-base 167400 --seed-offsets 0 --eval-seed-base 167500 --eval-episodes 64 --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1674_controller_family_one_seed_public_pilot/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1674_controller_family_one_seed_public_pilot/protocol.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1674_controller_family_one_seed_public_pilot/profile_seed_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1674_controller_family_one_seed_public_pilot/profile_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1674_controller_family_one_seed_public_pilot/eval_rows.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_public_pilot"
+  ],
+  "baseline_artifacts": [
+    "docs/m1673-paper-route-controller-family-one-seed-public-pilot-design.md",
+    "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json"
+  ],
+  "decision_rule": "M1674 passes if all 12 profiles complete the one-seed public pilot with finite metrics and blocked shortcuts remain false.",
+  "next_blocker": "m1674-paper-route-controller-family-one-seed-public-pilot-implementation"
+}

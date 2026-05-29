@@ -26805,3 +26805,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, direct M1615 benchmark validity, pilot execution, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1673-paper-route-controller-family-one-seed-public-pilot-design.json`
 - next: `m1673-paper-route-controller-family-one-seed-public-pilot-design`
+
+## M1673 Paper-Route Controller-Family One-Seed Public Pilot Design
+
+- status: completed
+- decision: `one_seed_public_pilot_design_admit_standard_layer_implementation`
+- artifact: `docs/m1673-paper-route-controller-family-one-seed-public-pilot-design.md`
+- task-layer policy: standard corrected-profile layer only; M1615 remains diagnostic-only
+- controller profiles: all 12 corrected profiles including L2 current-tiled controls and L3 corrected reset control
+- command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.corrected_profile_pilot --config-dir configs/paper_route_corrected_profiles --config-glob 'm1207_*.json' --run-dir runs/m1674_controller_family_one_seed_public_pilot --training-seed-base 167400 --seed-offsets 0 --eval-seed-base 167500 --eval-episodes 64 --device cpu`
+- success scope: plumbing only, all 12 profile runs complete with finite metrics and no private holdout/profile-specific tuning/contract changes
+- unsupported: architecture ranking, decisive-history benchmark result, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1674-paper-route-controller-family-one-seed-public-pilot-implementation.json`
+- next: `m1674-paper-route-controller-family-one-seed-public-pilot-implementation`

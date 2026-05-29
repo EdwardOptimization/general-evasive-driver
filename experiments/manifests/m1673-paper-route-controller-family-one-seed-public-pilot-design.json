@@ -157,6 +157,13 @@
     "runs/m1671_controller_family_decisive_matrix_protocol/summary.json",
     "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1673-paper-route-controller-family-one-seed-public-pilot-design.md",
+    "decision": "one_seed_public_pilot_design_admit_standard_layer_implementation",
+    "task_layer_policy": "standard_corrected_profile_layer_only_m1615_diagnostic_only",
+    "next_manifest": "experiments/manifests/m1674-paper-route-controller-family-one-seed-public-pilot-implementation.json"
+  },
   "decision_rule": "M1673 passes if it designs the one-seed public pilot and chooses a next route before any execution, training, replay, PPO, promotion, or private holdout.",
-  "next_blocker": "m1673-paper-route-controller-family-one-seed-public-pilot-design"
+  "next_blocker": "m1674-paper-route-controller-family-one-seed-public-pilot-implementation"
 }

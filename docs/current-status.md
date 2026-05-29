@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit
+m1673-paper-route-controller-family-one-seed-public-pilot-design
 ```
 
 Current next task:
 
 ```text
-m1673-paper-route-controller-family-one-seed-public-pilot-design
+m1674-paper-route-controller-family-one-seed-public-pilot-implementation
 ```
 
-M1672 audited the M1671 protocol preflight as a pass and preserved the key
-caveat that M1615 is a public diagnostic/clean active-set package, not yet a
-direct controller-family benchmark. The next task is M1673 one-seed public
-pilot design; it must resolve or block M1615 mapping and still avoid executing
-the pilot.
+M1673 designed the one-seed public plumbing pilot. It keeps M1615 diagnostic
+only, runs the standard corrected-profile layer across all 12 profiles, and
+admits exactly one M1674 implementation using `autodrift.corrected_profile_pilot`
+with seed offset `0`. The result must still be audited before any ranking or
+scaling.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
