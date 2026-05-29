@@ -22087,3 +22087,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1486-paper-route-neighbor-viability-preflight-design.json`.
 - next: `m1486-paper-route-neighbor-viability-preflight-design`
+
+## M1486 Paper-Route Neighbor Viability Preflight Design
+
+- status: completed
+- decision: `neighbor_viability_preflight_design_admit_smoke`
+- artifact: `docs/m1486-paper-route-neighbor-viability-preflight-design.md`
+- candidate source: `runs/m1485_neighbor_viability_calibration_proposal_smoke/neighbor_viability_candidate_rows.csv`
+- required preservation: `candidate_step_column == source_step`
+- designed preflight run dir: `runs/m1487_neighbor_viability_preflight_smoke`
+- designed max candidate rows: 112
+- designed pass gates: geometry-pass rows >= 64, selected rows >= 64, >=3 seeds, >=4 capability pairs, >=3 reveal buckets, clipped share <= 0.10, and no replay/training/PPO/promotion/corpus export.
+- synthesis discipline: if M1487 passes, route to branch synthesis before any replay design.
+- guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1487-paper-route-neighbor-viability-preflight-smoke.json`.
+- next: `m1487-paper-route-neighbor-viability-preflight-smoke`

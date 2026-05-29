@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1494,
+    "completed": 1495,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1485-paper-route-neighbor-viability-calibration-proposal-smoke.md",
+    "command_log": "docs/m1486-paper-route-neighbor-viability-preflight-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1485_neighbor_viability_calibration_proposal_smoke",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1485-paper-route-neighbor-viability-calibration-proposal-smoke"
+    "task_id": "m1486-paper-route-neighbor-viability-preflight-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1486-paper-route-neighbor-viability-preflight-design.json",
-    "hypothesis": "A source-step preflight-only design over M1485 calibrated candidates can validate geometry viability before another bounded replay attempt.",
-    "id": "m1486-paper-route-neighbor-viability-preflight-design",
-    "kind": "gate",
-    "notes": "Pending: design source-step preflight-only validation over M1485 calibrated candidates before replay or training",
-    "priority": 14810,
+    "command": "see experiments/manifests/m1487-paper-route-neighbor-viability-preflight-smoke.json",
+    "hypothesis": "M1485 calibrated neighbor-viability candidates will pass geometry preflight without clipping or diversity collapse.",
+    "id": "m1487-paper-route-neighbor-viability-preflight-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: run preflight-only validation over M1485 calibrated candidates without replay training PPO promotion or corpus export",
+    "priority": 14820,
     "status": "pending",
-    "success_artifact": "docs/m1486-paper-route-neighbor-viability-preflight-design.md"
+    "success_artifact": "runs/m1487_neighbor_viability_preflight_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T061000Z"
+  "updated_at_utc": "20260529T063430Z"
 }

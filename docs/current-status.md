@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1485-paper-route-neighbor-viability-calibration-proposal-smoke
+m1486-paper-route-neighbor-viability-preflight-design
 ```
 
 Current next task:
 
 ```text
-m1486-paper-route-neighbor-viability-preflight-design
+m1487-paper-route-neighbor-viability-preflight-smoke
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -32,12 +32,28 @@ source-diverse pressure validation. M1478 designed the preflight-only smoke,
 M1479 ran it, M1480 designed bounded replay, M1481 ran replay, M1482 audited the
 source-singleton result, M1483 designed neighbor viability calibration, and
 M1484 implemented the generator. M1485 ran proposal generation and selected a
-calibrated source-step candidate set. The current public-gate base remains
-M1362 alpha `0.1`:
+calibrated source-step candidate set. M1486 designed source-step preflight-only
+validation for those candidates. The current public-gate base remains M1362
+alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1486 preflight design:
+
+```text
+decision: neighbor_viability_preflight_design_admit_smoke
+candidate source: runs/m1485_neighbor_viability_calibration_proposal_smoke/neighbor_viability_candidate_rows.csv
+candidate_step_column: source_step
+max_candidate_rows: 112
+preflight run dir: runs/m1487_neighbor_viability_preflight_smoke
+next: m1487-paper-route-neighbor-viability-preflight-smoke
+```
+
+M1487 should run preflight-only validation. It must not run replay, train, run
+PPO, promote, use private holdout, export corpus, or change actor inputs. If it
+passes, route to branch synthesis before any replay design.
 
 M1485 proposal smoke:
 
@@ -55,15 +71,6 @@ duplicate neighbor_viability_key rows: 0
 candidate_step_column: source_step
 next: m1486-paper-route-neighbor-viability-preflight-design
 ```
-
-M1486 should design source-step preflight-only validation over:
-
-```text
-runs/m1485_neighbor_viability_calibration_proposal_smoke/neighbor_viability_candidate_rows.csv
-```
-
-It must not run preflight, replay, train, run PPO, promote, use private holdout,
-export corpus, or change actor inputs.
 
 M1484 implementation:
 
