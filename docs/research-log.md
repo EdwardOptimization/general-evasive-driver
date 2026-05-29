@@ -24426,3 +24426,47 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation.json`
 - next: `m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation`
+
+## M1573 Paper-Route Source-Diverse Flip-Anchor History-Intervention Implementation
+
+- status: completed
+- decision: `source_diverse_history_intervention_smoke_public_pass_evidence_narrow_route_to_audit`
+- artifact: `runs/m1573_source_diverse_flip_anchor_history_intervention_smoke/summary.json`
+- doc: `docs/m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation.md`
+- code: `src/autodrift/source_diverse_flip_anchor_history_interventions.py`
+- tests: `tests/test_source_diverse_flip_anchor_history_interventions.py`
+- focused test result: `3 passed`
+- target anchor count: 14
+- diagnostic late anchor count: 8
+- all target anchor count: 22
+- target source family count: 3
+- target window count: 4
+- high-speed target anchor count: 4
+- donor pair count: 44
+- intervention row count: 484
+- anchor replay failure count: 0
+- wrong history row count: 44
+- donor response/action row count: 88
+- reset/zero control row count: 220
+- max wrong-history margin gap: 0.388129872572502
+- max donor response/action margin gap: 0.3871693514623984
+- max history margin gap: 0.388129872572502
+- max control margin gap: 0.08767311490103724
+- control-to-history gap ratio: 0.22588602706600497
+- history success drop count: 3
+- history positive source family count: 1
+- high-speed history positive count: 0
+- late-reveal history positive count: 0
+- passes public smoke gates: true
+- passes evidence quality targets: false
+- null result classification: `late_reveal_family_null`
+- guardrail violation count: 0
+- history interventions executed: true
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1573 proves the intervention harness is live, but the history-positive signal is source-narrow and not present on the high-speed third-source anchors; route to audit, not materialization or training.
+- follow-up manifest: `experiments/manifests/m1574-paper-route-source-diverse-history-intervention-result-audit.json`
+- next: `m1574-paper-route-source-diverse-history-intervention-result-audit`

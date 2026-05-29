@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -162,6 +162,51 @@
     "runs/m1570_targeted_third_source_flip_anchor_smoke/flip_anchor_rows.csv",
     "docs/m1572-paper-route-source-diverse-flip-anchor-history-intervention-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1573_source_diverse_flip_anchor_history_intervention_smoke/summary.json",
+    "doc": "docs/m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation.md",
+    "decision": "source_diverse_history_intervention_smoke_public_pass_evidence_narrow_route_to_audit",
+    "failure_taxonomy": [
+      "scenario_sampling_failure"
+    ],
+    "target_anchor_count": 14,
+    "diagnostic_late_anchor_count": 8,
+    "all_target_anchor_count": 22,
+    "target_source_family_count": 3,
+    "target_window_count": 4,
+    "high_speed_target_anchor_count": 4,
+    "late_reveal_diagnostic_anchor_count": 8,
+    "donor_pair_count": 44,
+    "intervention_row_count": 484,
+    "anchor_replay_failure_count": 0,
+    "max_wrong_history_margin_gap": 0.388129872572502,
+    "max_donor_response_action_margin_gap": 0.3871693514623984,
+    "max_history_margin_gap": 0.388129872572502,
+    "max_control_margin_gap": 0.08767311490103724,
+    "control_to_history_gap_ratio": 0.22588602706600497,
+    "history_success_drop_count": 3,
+    "history_positive_source_family_count": 1,
+    "high_speed_history_positive_count": 0,
+    "late_reveal_history_positive_count": 0,
+    "passes_public_smoke_gates": true,
+    "passes_evidence_quality_targets": false,
+    "null_result_classification": "late_reveal_family_null",
+    "guardrail_violation_count": 0,
+    "history_interventions_executed": true,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": true,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1574-paper-route-source-diverse-history-intervention-result-audit.json"
+  },
   "decision_rule": "M1573 passes as implementation if it runs bounded interventions with clean guardrails and writes the required metrics; it must still route to audit before materialization.",
-  "next_blocker": "m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation"
+  "next_blocker": "m1574-paper-route-source-diverse-history-intervention-result-audit"
 }

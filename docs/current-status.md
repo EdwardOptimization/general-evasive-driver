@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1572-paper-route-source-diverse-flip-anchor-history-intervention-design
+m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation
 ```
 
 Current next task:
 
 ```text
-m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation
+m1574-paper-route-source-diverse-history-intervention-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -391,6 +391,16 @@ must implement normal, wrong-history donor hidden, donor response/action stream,
 donor response/action plus hidden, delayed hidden, reset hidden, zero-current,
 zero-action-history, and zero-all controls. Even if M1573 is positive, it still
 routes to audit before materialization or corpus export.
+M1573 implemented and ran that bounded intervention smoke. Public gates passed:
+`14` primary anchors, `8` late-reveal diagnostics, `44` donor pairs, `484`
+intervention rows, `0` anchor replay failures, and clean guardrails.
+Wrong-history/donor-plus-hidden produced large effects (`max_history_margin_gap`
+`0.388129872572502`, donor-plus-hidden max `0.3871693514623984`) and `3`
+history success drops. Evidence-quality still failed because positives were
+source-narrow: `history_positive_source_family_count` was `1`, all positive
+history evidence concentrated in `t5_near_boundary_warmup`, while high-speed
+third-source and late-reveal stayed history-null. M1574 must audit before any
+repair, materialization, corpus export, or training.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
