@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1625,
+    "completed": 1626,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.md",
+      "command_log": "docs/m1617-paper-route-contour-aware-candidate-objective-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1616-paper-route-contour-aware-candidate-corpus-export-result-audit"
+      "task_id": "m1617-paper-route-contour-aware-candidate-objective-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1617-paper-route-contour-aware-candidate-objective-design.json",
-      "hypothesis": "A design-only objective can define lexicographic candidate and diagnostic roles before any objective construction or training.",
-      "id": "m1617-paper-route-contour-aware-candidate-objective-design",
+      "command": "see experiments/manifests/m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis.json",
+      "hypothesis": "A post-design audit can confirm M1617's objective semantics and branch cadence before any evaluator implementation.",
+      "id": "m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis",
       "kind": "gate",
-      "notes": "Pending: design objective semantics without constructing objective",
-      "priority": 16120,
+      "notes": "Pending: audit design and branch cadence; no evaluator implementation optimizer actor update PPO promotion or private holdout",
+      "priority": 16130,
       "status": "pending",
-      "success_artifact": "docs/m1617-paper-route-contour-aware-candidate-objective-design.md"
+      "success_artifact": "docs/m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis.md"
     },
-    "updated_at_utc": "20260529T181728Z"
+    "updated_at_utc": "20260529T182313Z"
 }

@@ -25718,3 +25718,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - actor input contract changed: false
 - follow-up manifest: `experiments/manifests/m1617-paper-route-contour-aware-candidate-objective-design.json`
 - next: `m1617-paper-route-contour-aware-candidate-objective-design`
+
+## M1617 Paper-Route Contour-Aware Candidate Objective Design
+
+- status: completed
+- decision: `contour_aware_candidate_objective_design_admit_audit_and_synthesis`
+- artifact: `docs/m1617-paper-route-contour-aware-candidate-objective-design.md`
+- failure taxonomy: `none`
+- positive candidate target: 39
+- diagnostic guardrail target: 232
+- objective semantics: lexicographic role/metadata integrity first, positive candidate exact evaluator second, objective update/training blocked
+- diagnostic guardrails: never positive targets, diagnostic positive weight must remain `0.0`
+- next scope: post-design audit and branch synthesis before evaluator implementation
+- supported: candidate objective semantics can be defined over the public package while keeping positive and diagnostic roles separated; the route can be audited before implementation
+- unsupported: loss/objective config construction, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- cadence note: M1618 is a required audit/synthesis milestone before any further narrow objective/update step
+- follow-up manifest: `experiments/manifests/m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis.json`
+- next: `m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis`

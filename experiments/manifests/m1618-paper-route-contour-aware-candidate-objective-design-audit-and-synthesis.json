@@ -1,0 +1,176 @@
+{
+  "id": "m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1615_contour_aware_candidate_corpus/summary.json",
+      "runs/m1615_contour_aware_candidate_corpus/corpus_manifest.json",
+      "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "runs/m1615_contour_aware_candidate_corpus/diagnostic_guardrail_rows.csv",
+      "docs/m1617-paper-route-contour-aware-candidate-objective-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1617-paper-route-contour-aware-candidate-objective-design.json"
+    ],
+    "parent_objective": [
+      "audit objective design before any evaluator implementation"
+    ],
+    "derived_from": [
+      "m1617-paper-route-contour-aware-candidate-objective-design"
+    ],
+    "blocked_by": [
+      "M1617 public gates require audit before implementation; branch cadence also requires synthesis before further narrow work"
+    ],
+    "supersedes": [
+      "direct evaluator implementation from M1617",
+      "direct objective construction from M1615",
+      "direct actor update from M1615",
+      "direct PPO after M1615"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis.md",
+  "public_gates": [
+    "M1618 must audit that M1617 did not construct or run a loss/objective",
+    "M1618 must audit that positive candidates and diagnostic guardrails remain lexicographically separated",
+    "M1618 must audit that exact full-corpus checks are explicit before any update",
+    "M1618 must make an explicit synthesis decision for the current branch",
+    "M1618 must keep training PPO promotion private holdout and actor-input changes blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not construct a loss",
+    "do not construct an objective",
+    "do not implement the evaluator",
+    "do not run implementation smoke",
+    "do not train",
+    "do not run PPO",
+    "do not run actor update",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not claim level3 self-identification",
+    "do not treat diagnostic guardrails as positive rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_candidate_objective_design_audit",
+    "evidence_increment": "audits M1617 objective design and synthesizes the contour-mapping branch before further implementation",
+    "claim_scope": "process audit and synthesis only; no evaluator implementation, optimizer, actor update, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if M1617 accidentally constructed a loss or objective",
+      "stop if diagnostics are treated as positive candidates",
+      "stop if branch evidence is too public/narrow to justify an evaluator",
+      "stop if no safe no-update evaluator route remains"
+    ],
+    "fallback_plan": [
+      "admit no-update evaluator implementation only if audit and synthesis support it",
+      "pivot to broader candidate refresh if public-overfit risk is too high",
+      "stop objective route if lexicographic semantics are insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1618 is the tenth non-synthesis milestone since M1608 in this branch and M1617 requires audit before implementation",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M1617 objective design and synthesize branch route",
+    "admission_evidence": [
+      "M1615 exports a valid public candidate package with 39 positives and 232 diagnostics",
+      "M1616 audits the package as valid but not training-ready",
+      "M1617 designs objective semantics but its manifest requires audit before implementation"
+    ],
+    "blocked_shortcuts": [
+      "do not implement the evaluator",
+      "do not construct a loss",
+      "do not construct an objective",
+      "do not train",
+      "do not run PPO",
+      "do not run actor update",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1618 audit and synthesis document",
+      "M1618 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits implementation, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "M1617 design guardrails are audited",
+      "branch evidence and overfit risk are synthesized",
+      "next branch decision is explicit",
+      "training/objective/loss implementation remains blocked until after audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1618 is process audit/synthesis over public candidate-package design and cannot strengthen self-ID claims.",
+    "history_necessity_tests": [
+      "M1615 positive candidate rows",
+      "M1615 diagnostic guardrail rows"
+    ],
+    "temporal_evidence_window": "M1615 candidate corpus package and M1617 design only.",
+    "negative_result_policy": "If objective design cannot be safely audited, classify the route as process failure or public-overfit risk and pivot before implementation.",
+    "allowed_claims": [
+      "design audit and branch synthesis",
+      "no promotion, evaluator implementation, objective construction, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A post-design audit can confirm M1617's objective semantics and branch cadence before any evaluator implementation.",
+  "success_criteria": [
+    "docs/m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis.md exists",
+    "audit records whether M1617 constructed any loss/objective",
+    "positive candidate and diagnostic guardrail separation is audited",
+    "public-gate overfit risk is audited",
+    "synthesis questions are answered",
+    "next branch decision is explicit",
+    "evaluator implementation objective construction training PPO promotion private holdout and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit skips synthesis questions",
+    "audit routes directly to training PPO promotion private holdout objective construction or actor-input changes",
+    "audit treats diagnostics as positive candidates"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1617-paper-route-contour-aware-candidate-objective-design.md",
+    "runs/m1615_contour_aware_candidate_corpus/summary.json",
+    "docs/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.md"
+  ],
+  "decision_rule": "M1618 passes if it audits M1617 and synthesizes the branch before admitting any no-update evaluator implementation.",
+  "next_blocker": "m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis"
+}
