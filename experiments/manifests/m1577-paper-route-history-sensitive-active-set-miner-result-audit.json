@@ -155,6 +155,41 @@
     "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json",
     "docs/m1576-paper-route-history-sensitive-active-set-miner-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1577-paper-route-history-sensitive-active-set-miner-result-audit.md",
+    "decision": "history_sensitive_active_set_miner_audit_admit_high_speed_late_history_source_repair_design",
+    "failure_taxonomy": [
+      "scenario_sampling_failure"
+    ],
+    "m1576_public_pass": false,
+    "m1576_evidence_quality_pass": false,
+    "history_sensitive_anchor_count": 32,
+    "clean_history_sensitive_anchor_count": 30,
+    "history_sensitive_source_family_count": 2,
+    "history_sensitive_window_count": 5,
+    "high_speed_history_sensitive_count": 0,
+    "late_reveal_history_sensitive_count": 0,
+    "control_substitution_dominated_share": 0.083984375,
+    "high_speed_primary_history_gap_max": 0.006224602548898783,
+    "high_speed_control_gap_max": 0.31220594475079233,
+    "late_reveal_primary_history_gap_max": 0.009707924566951132,
+    "late_reveal_control_gap_max": 0.2646042118514824,
+    "next_manifest": "experiments/manifests/m1578-paper-route-high-speed-late-history-source-repair-design.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "m1576_gate_relaxed": false
+  },
   "decision_rule": "M1577 passes if it audits M1576 and chooses the next route before any repair, materialization, or training.",
-  "next_blocker": "m1577-paper-route-history-sensitive-active-set-miner-result-audit"
+  "next_blocker": "m1578-paper-route-high-speed-late-history-source-repair-design"
 }

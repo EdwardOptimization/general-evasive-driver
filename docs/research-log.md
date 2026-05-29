@@ -24560,3 +24560,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1577-paper-route-history-sensitive-active-set-miner-result-audit.json`
 - next: `m1577-paper-route-history-sensitive-active-set-miner-result-audit`
+
+## M1577 Paper-Route History-Sensitive Active-Set Miner Result Audit
+
+- status: completed
+- decision: `history_sensitive_active_set_miner_audit_admit_high_speed_late_history_source_repair_design`
+- artifact: `docs/m1577-paper-route-history-sensitive-active-set-miner-result-audit.md`
+- failure taxonomy: `scenario_sampling_failure`
+- M1576 public pass: false
+- M1576 evidence-quality pass: false
+- history-sensitive anchor count: 32
+- clean history-sensitive anchor count: 30
+- history-sensitive source family count: 2
+- history-sensitive window count: 5
+- high-speed history-sensitive count: 0
+- late-reveal history-sensitive count: 0
+- control-substitution dominated share: 0.083984375
+- high-speed primary history gap max: 0.006224602548898783
+- high-speed control gap max: 0.31220594475079233
+- late-reveal primary history gap max: 0.009707924566951132
+- late-reveal control gap max: 0.2646042118514824
+- interpretation: M1576 is a valid implementation and partial positive, but the high-speed/late null remains a scenario-sampling blocker rather than a training-ready source-diverse proof
+- route decision: admit one design-only high-speed/late history-source repair with current-frame controls and synthesis fallback
+- history interventions executed: false in M1577
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- M1576 gates relaxed: false
+- follow-up manifest: `experiments/manifests/m1578-paper-route-high-speed-late-history-source-repair-design.json`
+- next: `m1578-paper-route-high-speed-late-history-source-repair-design`

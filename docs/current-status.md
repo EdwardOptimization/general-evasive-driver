@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1576-paper-route-history-sensitive-active-set-miner-implementation
+m1577-paper-route-history-sensitive-active-set-miner-result-audit
 ```
 
 Current next task:
 
 ```text
-m1577-paper-route-history-sensitive-active-set-miner-result-audit
+m1578-paper-route-high-speed-late-history-source-repair-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -418,6 +418,12 @@ control-substitution domination. The public gate still failed because
 `t5_high_speed_close_obstacle` and `late_reveal_boundary` both had zero clean
 history-sensitive anchors. M1577 must audit this high-speed/late null before
 any source repair, materialization, corpus export, PPO, or promotion.
+M1577 audited M1576 as a valid partial positive, not a promotable result.
+High-speed and late-reveal donor distances were not weak, but their primary
+history gaps stayed below threshold while current-frame controls were strong.
+The next route is exactly one design-only high-speed/late history-source repair
+with synthesis fallback; no gate relaxation, materialization, or training is
+admitted.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

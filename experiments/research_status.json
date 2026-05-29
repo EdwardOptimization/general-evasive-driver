@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1585,
+    "completed": 1586,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1576-paper-route-history-sensitive-active-set-miner-implementation.md",
+    "command_log": "docs/m1577-paper-route-history-sensitive-active-set-miner-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1576_history_sensitive_active_set_miner_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1576-paper-route-history-sensitive-active-set-miner-implementation"
+    "task_id": "m1577-paper-route-history-sensitive-active-set-miner-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1577-paper-route-history-sensitive-active-set-miner-result-audit.json",
-    "hypothesis": "M1576's partial positive result can be audited into a defensible next route without overstating source-diverse self-identification evidence.",
-    "id": "m1577-paper-route-history-sensitive-active-set-miner-result-audit",
+    "command": "see experiments/manifests/m1578-paper-route-high-speed-late-history-source-repair-design.json",
+    "hypothesis": "A bounded source repair can be designed to generate high-speed or late-reveal anchors where wrong-history interventions affect closed-loop outcome.",
+    "id": "m1578-paper-route-high-speed-late-history-source-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit M1576 clean history-sensitive positives and high-speed/late null",
-    "priority": 15720,
+    "notes": "Pending: design high-speed/late history-source repair after M1576 null",
+    "priority": 15730,
     "status": "pending",
-    "success_artifact": "docs/m1577-paper-route-history-sensitive-active-set-miner-result-audit.md"
+    "success_artifact": "docs/m1578-paper-route-high-speed-late-history-source-repair-design.md"
   },
-  "updated_at_utc": "20260529T150526Z"
+  "updated_at_utc": "20260529T150901Z"
 }
