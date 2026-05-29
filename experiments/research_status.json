@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1434,
+    "completed": 1435,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.md",
+    "command_log": "runs/m1425_action_divergent_outcome_pressure_source_smoke/summary.json",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1424-paper-route-action-divergent-outcome-pressure-source-implementation"
+    "task_id": "m1425-paper-route-action-divergent-outcome-pressure-source-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1425-paper-route-action-divergent-outcome-pressure-source-smoke.json",
-    "hypothesis": "The M1424 constructor can find enough source-diverse action-divergent proxy pressure rows in M1421 public outcome artifacts to justify a later replay probe.",
-    "id": "m1425-paper-route-action-divergent-outcome-pressure-source-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: run no-training constructor source smoke on public M1421 outcome rows; no replay training promotion or corpus export",
-    "priority": 14200,
+    "command": "see experiments/manifests/m1426-paper-route-action-divergent-pressure-result-audit.json",
+    "hypothesis": "M1425's zero history-positive result is likely caused by near-zero terminal margin gaps under a shared-margin proxy, so the next route must be audited before any replay or training.",
+    "id": "m1426-paper-route-action-divergent-pressure-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1425 zero history-positive proxy result before replay training or corpus export",
+    "priority": 14210,
     "status": "pending",
-    "success_artifact": "runs/m1425_action_divergent_outcome_pressure_source_smoke/summary.json"
+    "success_artifact": "docs/m1426-paper-route-action-divergent-pressure-result-audit.md"
   },
-  "updated_at_utc": "20260529T020341Z"
+  "updated_at_utc": "20260529T020808Z"
 }

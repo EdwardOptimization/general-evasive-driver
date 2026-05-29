@@ -4,7 +4,7 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -167,6 +167,43 @@
     "runs/m1421_m1419_source_collision_stratified_outcome_probe/outcome_rows.csv",
     "docs/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1425_action_divergent_outcome_pressure_source_smoke/summary.json",
+    "decision": "action_divergent_outcome_pressure_proxy_no_history_positive_route_to_audit",
+    "result_class": "action_divergent_outcome_pressure_proxy_no_history_positive",
+    "input_rows": 2016,
+    "candidate_pool_rows": 625,
+    "candidate_rows": 256,
+    "outcome_pressure_rows": 846,
+    "history_positive_rows": 0,
+    "control_action_divergent_rows": 490,
+    "candidate_unique_source_seeds": 12,
+    "candidate_unique_capability_pairs": 16,
+    "candidate_unique_reveal_buckets": 52,
+    "outcome_pressure_unique_source_seeds": 7,
+    "outcome_pressure_unique_capability_pairs": 16,
+    "outcome_pressure_unique_reveal_buckets": 31,
+    "candidate_margin_gap_max": 0.016403,
+    "candidate_margin_gap_p95": 0.003603,
+    "outcome_pressure_margin_gap_max": 0.002712,
+    "outcome_pressure_margin_gap_p95": 0.000535,
+    "proxy_only": true,
+    "requires_replay": true,
+    "source_smoke_started": false,
+    "outcome_probe_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1426-paper-route-action-divergent-pressure-result-audit.json"
+  },
+  "decision": "action_divergent_outcome_pressure_proxy_no_history_positive_route_to_audit",
   "decision_rule": "M1425 passes if the no-training constructor emits source-diverse proxy pressure rows without crossing any forbidden shortcut.",
-  "next_blocker": "m1425-paper-route-action-divergent-outcome-pressure-source-smoke"
+  "next_blocker": "m1426-paper-route-action-divergent-pressure-result-audit"
 }

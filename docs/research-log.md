@@ -21051,3 +21051,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no full source smoke, closed-loop replay, outcome intervention run, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1425-paper-route-action-divergent-outcome-pressure-source-smoke.json`.
 - next: `m1425-paper-route-action-divergent-outcome-pressure-source-smoke`
+
+## 20260529T020808Z - m1425-paper-route-action-divergent-outcome-pressure-source-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1425_action_divergent_outcome_pressure_source_smoke/summary.json`
+- decision: `action_divergent_outcome_pressure_proxy_no_history_positive_route_to_audit`
+- result class: `action_divergent_outcome_pressure_proxy_no_history_positive`
+- counts: input rows `2016`, candidate pool rows `625`, selected candidates `256`, proxy pressure rows `846`, history-positive rows `0`, control action-divergent rows `490`.
+- diversity: candidate rows span `12` seeds, `16` capability pairs, and `52` reveal buckets; pressure rows span `7` seeds, `16` capability pairs, and `31` reveal buckets.
+- margin diagnostic: candidate margin-gap max `0.016403` and p95 `0.003603`; pressure-row margin-gap max `0.002712` and p95 `0.000535`, below the pre-registered `0.02` threshold.
+- interpretation: action divergence and proxy pressure are source-diverse, but shared-margin proxy pressure produces no history-positive terminal-margin separation.
+- classification: `scenario_sampling_failure`.
+- guardrail: no closed-loop replay, outcome intervention run, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1426-paper-route-action-divergent-pressure-result-audit.json`.
+- next: `m1426-paper-route-action-divergent-pressure-result-audit`

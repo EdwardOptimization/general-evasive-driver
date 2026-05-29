@@ -16,21 +16,45 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1424-paper-route-action-divergent-outcome-pressure-source-implementation
+m1425-paper-route-action-divergent-outcome-pressure-source-smoke
 ```
 
 Current next task:
 
 ```text
-m1425-paper-route-action-divergent-outcome-pressure-source-smoke
+m1426-paper-route-action-divergent-pressure-result-audit
 ```
 
-M1424 implemented the no-training action-divergent outcome-pressure constructor
-and focused tests. The current public-gate base remains M1362 alpha `0.1`:
+M1425 ran the no-training constructor on public M1421 outcome rows. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1425 result:
+
+```text
+decision: action_divergent_outcome_pressure_proxy_no_history_positive_route_to_audit
+result_class: action_divergent_outcome_pressure_proxy_no_history_positive
+candidate_rows: 256
+outcome_pressure_rows: 846
+history_positive_rows: 0
+candidate_unique_source_seeds: 12
+candidate_unique_capability_pairs: 16
+candidate_unique_reveal_buckets: 52
+outcome_pressure_unique_source_seeds: 7
+outcome_pressure_unique_capability_pairs: 16
+outcome_pressure_unique_reveal_buckets: 31
+candidate_margin_gap_max: 0.016403
+outcome_pressure_margin_gap_max: 0.002712
+next: m1426-paper-route-action-divergent-pressure-result-audit
+```
+
+M1425 shows source-diverse action divergence and proxy pressure rows, but no
+history-positive terminal-margin separation under the shared-margin proxy. M1426
+must audit whether this is a source limitation or a proxy limitation before any
+closed-loop replay, training, corpus export, or claim expansion.
 
 M1424 result:
 
@@ -45,11 +69,6 @@ source_smoke_started: false
 training_started: false
 next: m1425-paper-route-action-divergent-outcome-pressure-source-smoke
 ```
-
-M1425 should run the constructor once on public M1421 outcome rows and check
-whether source-diverse proxy pressure rows exist. It must not run closed-loop
-replay, train, export a corpus, promote, use private holdout, or change actor
-inputs.
 
 M1423 result:
 
