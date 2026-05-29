@@ -26490,3 +26490,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: wider-scope repair works, checkpoint artifact generation, replay improvement, behavior retention, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1656-paper-route-selected-proposal-scope-sensitivity-implementation.json`
 - next: `m1656-paper-route-selected-proposal-scope-sensitivity-implementation`
+
+## M1656 Paper-Route Selected Proposal Scope Sensitivity Implementation
+
+- status: completed
+- decision: `selected_proposal_scope_sensitivity_public_pass_route_to_audit`
+- artifact: `runs/m1656_selected_proposal_scope_sensitivity/summary.json`
+- doc: `docs/m1656-paper-route-selected-proposal-scope-sensitivity-implementation.md`
+- code: `src/autodrift/selected_proposal_scope_sensitivity.py`
+- tests: `tests/test_selected_proposal_scope_sensitivity.py`
+- focused tests: `3 passed in 2.06s`
+- selected candidate count: `3`
+- scope count: `5`
+- feature mode count: `2`
+- scope row count: `30`
+- frozen feature upstream grad zero: `true`
+- differentiable feature measurable scope count: `5`
+- primary alpha `0.2` wider-scope nonzero grad count: `4`
+- primary alpha `0.2` wider-scope reduction count: `4`
+- model restored after probe count: `15`
+- passes public smoke gates: `true`
+- null result classification: `selected_proposal_scope_sensitivity_public_pass`
+- guardrail counts: checkpoint artifact, diagnostics-as-positive, donor-plus target, training, PPO, promotion, private holdout, actor-input change, level3 claim are all `0`
+- supported: frozen-feature objective path is structurally actor_mean-only; differentiable wider scopes expose upstream gradient and one-step residual reductions on the primary alpha `0.2` proposal
+- unsupported: wider-scope repair works, checkpoint artifact generation, closed-loop replay improvement, behavior retention, PPO-proposal repair, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.json`
+- next: `m1657-paper-route-selected-proposal-scope-sensitivity-result-audit`

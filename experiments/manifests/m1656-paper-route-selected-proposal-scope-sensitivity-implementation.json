@@ -185,6 +185,39 @@
     "runs/m1653_selected_proposal_repair/candidate_summary.csv",
     "runs/m1630_contour_aware_full_target_materialization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1656_selected_proposal_scope_sensitivity/summary.json",
+    "doc": "docs/m1656-paper-route-selected-proposal-scope-sensitivity-implementation.md",
+    "code": "src/autodrift/selected_proposal_scope_sensitivity.py",
+    "tests": "tests/test_selected_proposal_scope_sensitivity.py",
+    "decision": "selected_proposal_scope_sensitivity_public_pass_route_to_audit",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "focused_test_result": "3 passed",
+    "selected_candidate_count": 3,
+    "scope_count": 5,
+    "feature_mode_count": 2,
+    "scope_row_count": 30,
+    "frozen_feature_upstream_grad_zero": true,
+    "differentiable_feature_scope_measurable_count": 5,
+    "primary_alpha_0_2_wider_scope_nonzero_grad_count": 4,
+    "primary_alpha_0_2_wider_scope_reduction_count": 4,
+    "model_restored_after_probe_count": 15,
+    "checkpoint_artifact_count": 0,
+    "diagnostic_rows_used_as_positive_count": 0,
+    "donor_plus_action_used_as_loss_target_count": 0,
+    "training_started_count": 0,
+    "ppo_used_count": 0,
+    "promoted_count": 0,
+    "private_holdout_used_count": 0,
+    "actor_input_contract_changed_count": 0,
+    "level3_self_id_claim_count": 0,
+    "passes_public_smoke_gates": true,
+    "null_result_classification": "selected_proposal_scope_sensitivity_public_pass",
+    "next_manifest": "experiments/manifests/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.json"
+  },
   "decision_rule": "M1656 passes if differentiable wider scopes expose nonzero primary alpha 0.2 gradient and at least one one-step residual reduction with clean no-checkpoint guardrails.",
-  "next_blocker": "m1656-paper-route-selected-proposal-scope-sensitivity-implementation"
+  "next_blocker": "m1657-paper-route-selected-proposal-scope-sensitivity-result-audit"
 }

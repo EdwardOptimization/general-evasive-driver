@@ -1,0 +1,175 @@
+{
+  "id": "m1657-paper-route-selected-proposal-scope-sensitivity-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_2.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_4.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_1_0.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1656_selected_proposal_scope_sensitivity/summary.json",
+      "runs/m1656_selected_proposal_scope_sensitivity/scope_summary.csv",
+      "runs/m1656_selected_proposal_scope_sensitivity/guardrail_summary.csv",
+      "docs/m1656-paper-route-selected-proposal-scope-sensitivity-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1656-paper-route-selected-proposal-scope-sensitivity-implementation.json"
+    ],
+    "parent_objective": [
+      "audit positive no-checkpoint selected-proposal scope-sensitivity result before wider-scope repair design"
+    ],
+    "derived_from": [
+      "m1656-paper-route-selected-proposal-scope-sensitivity-implementation"
+    ],
+    "blocked_by": [
+      "M1656 is scope-sensitivity metrics only and cannot directly admit checkpoint artifacts or replay gates"
+    ],
+    "supersedes": [
+      "direct wider-scope repair implementation after M1656",
+      "direct checkpoint artifact after M1656",
+      "direct replay gate after M1656",
+      "direct PPO after M1656",
+      "direct promotion after M1656"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.md",
+  "public_gates": [
+    "M1657 must audit the M1656 positive scope-sensitivity result",
+    "M1657 must verify frozen-feature upstream gradients are zero",
+    "M1657 must verify differentiable wider-scope primary alpha 0.2 gradients and one-step reductions",
+    "M1657 must verify no checkpoint training PPO replay promotion private holdout or actor-input guardrail violation",
+    "M1657 must decide wider-scope repair design, alternate objective design, pivot, or stop",
+    "M1657 must keep promotion private holdout actor-input changes and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun scope sensitivity",
+    "do not tune one-step factors",
+    "do not run repair",
+    "do not run projection",
+    "do not run PPO",
+    "do not train",
+    "do not run closed-loop evaluation",
+    "do not write checkpoint artifacts",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_ppo_proposal_projection_repair",
+    "evidence_axis": "E_selected_proposal_scope_sensitivity_result_audit",
+    "evidence_increment": "audits positive scope-sensitivity metrics before any wider-scope repair design",
+    "claim_scope": "process audit only; no PPO, training, projection rerun, checkpoint artifact, closed-loop gate, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats one-step sensitivity as full repair",
+      "stop if audit routes directly to checkpoint artifact or replay gates",
+      "stop if audit ignores frozen-feature sanity",
+      "stop if audit ignores public-row overfit risk",
+      "stop if guardrail violations are present"
+    ],
+    "fallback_plan": [
+      "admit wider-scope repair design if audit concludes scope signal is sufficient",
+      "admit alternative objective design if one-step signal is too public-tensor-specific",
+      "pivot away from proposal repair if fixed exact tensors are no longer useful",
+      "synthesize branch if cadence or public-overfit risk requires it"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1656 writes positive scope-sensitivity artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit selected-proposal scope-sensitivity result",
+    "admission_evidence": [
+      "M1656 focused tests passed",
+      "M1656 official run wrote summary scope and guardrail artifacts",
+      "M1656 passed public smoke gates with clean guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun scope sensitivity",
+      "do not tune one-step factors",
+      "do not run PPO",
+      "do not train",
+      "do not write checkpoint artifacts",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1657 audit document",
+      "M1657 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits wider-scope design alternative objective design pivot synthesis or stop"
+    ],
+    "next_stage_criteria": [
+      "M1656 result is audited",
+      "supported and unsupported claims are explicit",
+      "next route is explicit",
+      "promotion and private holdout remain blocked unless a later design admits them"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1657 audits fixed-tensor scope sensitivity and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "audits exact correct/wrong hidden residual sensitivity only; no new closed-loop history intervention"
+    ],
+    "temporal_evidence_window": "M1362, M1630, M1650-M1656 public artifacts only.",
+    "negative_result_policy": "If audit rejects the route, classify whether the blocker is public tensor overfit, objective scope, or proposal-source limitation.",
+    "allowed_claims": [
+      "selected-proposal scope-sensitivity result audit and route decision",
+      "no training, no PPO, no projection rerun, no checkpoint artifact, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1656 positive scope-sensitivity result can be audited as valid objective-sanity evidence while keeping full repair checkpoint and replay claims blocked.",
+  "success_criteria": [
+    "docs/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.md exists",
+    "audit records frozen-feature and differentiable-feature findings",
+    "audit verifies zero checkpoint training PPO replay promotion private holdout actor-input and level3 guardrail violations",
+    "audit states supported and unsupported claims",
+    "audit explicitly routes next step",
+    "promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats one-step sensitivity as full repair or checkpoint evidence",
+    "audit reruns or tunes scope sensitivity",
+    "audit routes directly to checkpoint artifact replay promotion private holdout actor-input changes or closed-loop evidence",
+    "audit claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1656_selected_proposal_scope_sensitivity/summary.json",
+    "runs/m1656_selected_proposal_scope_sensitivity/scope_summary.csv",
+    "runs/m1656_selected_proposal_scope_sensitivity/guardrail_summary.csv",
+    "docs/m1656-paper-route-selected-proposal-scope-sensitivity-implementation.md"
+  ],
+  "decision_rule": "M1657 passes if it audits M1656 and chooses a safe next route before wider-scope repair checkpoint artifact or replay gate.",
+  "next_blocker": "m1657-paper-route-selected-proposal-scope-sensitivity-result-audit"
+}

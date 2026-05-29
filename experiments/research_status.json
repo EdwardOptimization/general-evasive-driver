@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1664,
+    "completed": 1665,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1655-paper-route-selected-proposal-scope-sensitivity-design.md",
+      "command_log": "docs/m1656-paper-route-selected-proposal-scope-sensitivity-implementation.md",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1656_selected_proposal_scope_sensitivity",
       "status": "completed",
-      "task_id": "m1655-paper-route-selected-proposal-scope-sensitivity-design"
+      "task_id": "m1656-paper-route-selected-proposal-scope-sensitivity-implementation"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1656-paper-route-selected-proposal-scope-sensitivity-implementation.json",
-      "hypothesis": "Differentiable-feature wider deterministic actor scopes expose measurable gradient and at least one one-step residual reduction on the primary alpha 0.2 proposal where actor_mean-only repair failed.",
-      "id": "m1656-paper-route-selected-proposal-scope-sensitivity-implementation",
-      "kind": "objective_sanity",
-      "notes": "Pending: implement no-checkpoint two-mode selected-proposal scope-sensitivity metrics",
-      "priority": 16510,
+      "command": "see experiments/manifests/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.json",
+      "hypothesis": "The M1656 positive scope-sensitivity result can be audited as valid objective-sanity evidence while keeping full repair checkpoint and replay claims blocked.",
+      "id": "m1657-paper-route-selected-proposal-scope-sensitivity-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit positive scope-sensitivity result before wider repair design or checkpoint route",
+      "priority": 16520,
       "status": "pending",
-      "success_artifact": "runs/m1656_selected_proposal_scope_sensitivity/summary.json"
+      "success_artifact": "docs/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.md"
     },
-    "updated_at_utc": "20260529T212610Z"
+    "updated_at_utc": "20260529T213326Z"
 }

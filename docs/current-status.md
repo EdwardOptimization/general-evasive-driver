@@ -16,25 +16,27 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1655-paper-route-selected-proposal-scope-sensitivity-design
+m1656-paper-route-selected-proposal-scope-sensitivity-implementation
 ```
 
 Current next task:
 
 ```text
-m1656-paper-route-selected-proposal-scope-sensitivity-implementation
+m1657-paper-route-selected-proposal-scope-sensitivity-result-audit
 ```
 
-M1655 designed the selected-proposal scope-sensitivity preflight after the
-M1653 actor_mean-only repair failure. The important design point is that the
-M1640-M1653 exact objective path is feature-frozen: recurrent policy features
-are computed under `no_grad` and detached, so wider upstream scopes cannot be
-tested by merely setting more parameters trainable. M1656 must compare
-frozen-feature and differentiable-feature modes across `actor_mean`,
-`fusion_actor`, `context_fusion_actor`, `response_fusion_actor`, and
-`full_policy_actor`, writing metrics only and keeping checkpoint artifacts,
-training, PPO, replay, promotion, private holdout, actor-input changes, and
-level3 claims blocked.
+M1656 implemented the selected-proposal scope-sensitivity preflight and passed
+the public objective-sanity gates. Frozen-feature mode had zero upstream
+gradient, confirming the M1640-M1653 path was structurally actor_mean-only.
+Differentiable-feature mode exposed nonzero upstream gradients, and all four
+wider scopes reduced the primary alpha `0.2` exact residual in a temporary
+one-step probe. For alpha `0.2`, `fusion_actor` reduced by
+`0.40519785496674926`, `context_fusion_actor` by `0.4053135063761288`,
+`response_fusion_actor` by `0.4005220459560401`, and `full_policy_actor` by
+`0.40066576536168946`. This is still metrics-only, not repair or checkpoint
+evidence. The next task is M1657 audit before any wider-scope repair design,
+checkpoint artifact, replay gate, PPO, promotion, private holdout, actor-input
+change, or level3 claim.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
