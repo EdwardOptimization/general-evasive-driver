@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1553,
+    "completed": 1554,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/summary.json",
+    "command_log": "docs/m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1544_terminal_boundary_task_sampling_calibration_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation"
+    "task_id": "m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit.json",
-    "hypothesis": "M1544's calibrated rows are source-diverse and near-boundary enough to admit a calibrated terminal-boundary history-intervention design without materialization or training.",
-    "id": "m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit",
+    "command": "see experiments/manifests/m1546-paper-route-calibrated-terminal-boundary-history-intervention-design.json",
+    "hypothesis": "A calibrated terminal-boundary history-intervention design can test whether wrong-history or donor response/action history changes outcome on actual near-boundary rows while preserving controls and guardrails.",
+    "id": "m1546-paper-route-calibrated-terminal-boundary-history-intervention-design",
     "kind": "gate",
-    "notes": "Pending: audit M1544 calibrated terminal-boundary rows before interventions",
-    "priority": 15400,
+    "notes": "Pending: design calibrated measured-pair terminal-boundary history interventions",
+    "priority": 15410,
     "status": "pending",
-    "success_artifact": "docs/m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit.md"
+    "success_artifact": "docs/m1546-paper-route-calibrated-terminal-boundary-history-intervention-design.md"
   },
-  "updated_at_utc": "20260529T120120Z"
+  "updated_at_utc": "20260529T120430Z"
 }

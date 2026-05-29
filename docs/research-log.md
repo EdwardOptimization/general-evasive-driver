@@ -23532,3 +23532,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1544 repairs the M1541 source-window blocker by generating actual near-boundary terminal rows with source diversity. It still does not test history necessity and must route to audit before any calibrated intervention design.
 - follow-up manifest: `experiments/manifests/m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit.json`.
 - next: `m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit`
+
+## M1545 Paper-Route Terminal-Boundary Task-Sampling Calibration Result Audit
+
+- status: completed
+- decision: `terminal_boundary_calibration_audit_pass_admit_calibrated_intervention_design`
+- artifact: `docs/m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit.md`
+- audited artifact: `runs/m1544_terminal_boundary_task_sampling_calibration_smoke/summary.json`
+- source-window verdict: `pass`
+- source-diversity verdict: `bounded_public_pass`
+- near-boundary quality verdict: `pass_with_caveats`
+- data-sufficiency verdict: `admit_design_only`
+- materialization verdict: `blocked`
+- terminal base source rows: 10
+- terminal family count: 5
+- calibration spec count: 100
+- terminal target trace count: 57
+- accepted calibrated row count: 8
+- accepted terminal family count: 4
+- decision window hit count: 4
+- post-decision window hit count: 5
+- preferred decision window hit count: 0
+- terminal window hit count: 5
+- max single terminal family share: 0.25
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1545 admits a calibrated intervention design because M1544 fixed the near-boundary source-window blocker, but it blocks materialization and requires measured response/context snapshots and matched pairs before interventions.
+- follow-up manifest: `experiments/manifests/m1546-paper-route-calibrated-terminal-boundary-history-intervention-design.json`.
+- next: `m1546-paper-route-calibrated-terminal-boundary-history-intervention-design`

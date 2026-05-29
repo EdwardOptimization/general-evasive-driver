@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation
+m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit
 ```
 
 Current next task:
 
 ```text
-m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit
+m1546-paper-route-calibrated-terminal-boundary-history-intervention-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -178,6 +178,12 @@ share `0.25`. Decision-window hits were `4`, post-decision-window hits were `5`,
 and all calibration/source/quality gates passed with zero guardrail violations.
 The next task is an audit before any calibrated history-intervention design or
 materialization.
+M1545 audited M1544 as a source-window calibration pass with caveats: accepted
+rows are enough for a design-only calibrated intervention probe, but the set is
+small, lacks `late_reveal_boundary`, has zero preferred-decision-window hits,
+and includes collision/post-decision rows. The next task is a calibrated
+terminal-boundary history-intervention design that first reconstructs measured
+response/context snapshots and matched pairs.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

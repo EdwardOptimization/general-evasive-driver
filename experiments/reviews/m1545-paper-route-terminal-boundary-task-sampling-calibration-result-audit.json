@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M1545 audits M1544 as calibrated source-window pass with caveats and admits design-only calibrated history interventions while blocking materialization and training",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats calibration as history-necessity evidence",
+    "audit routes directly to training promotion private holdout or materialization",
+    "audit changes actor inputs or weakens source-diversity standards"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T120527Z",
+  "hypothesis": "M1544's calibrated rows are source-diverse and near-boundary enough to admit a calibrated terminal-boundary history-intervention design without materialization or training.",
+  "lineage": {
+    "blocked_by": [
+      "history interventions have not yet been run on calibrated terminal-boundary rows"
+    ],
+    "derived_from": [
+      "m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/summary.json",
+      "docs/m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation.md"
+    ],
+    "parent_objective": [
+      "audit calibrated terminal-boundary near-boundary rows before history interventions"
+    ],
+    "supersedes": [
+      "direct conversion of calibrated rows into a training corpus"
+    ]
+  },
+  "milestone": "m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit",
+  "next_blocker": "m1546-paper-route-calibrated-terminal-boundary-history-intervention-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "terminal_boundary_calibration_audit_pass_admit_calibrated_intervention_design",
+  "public_gates": [
+    "M1545 must audit M1544 before interventions or materialization",
+    "M1545 must decide whether calibrated terminal rows are source-diverse enough for a history-intervention design",
+    "M1545 must preserve P0 actor input contract",
+    "M1545 must keep materialization and training blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "terminal_boundary_calibration_audit_pass_admit_calibrated_intervention_design",
+    "milestone": "m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit",
+    "reason": "M1545 audits M1544 as calibrated source-window pass with caveats and admits design-only calibrated history interventions while blocking materialization and training",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit.md exists",
+    "M1544 calibration source diversity and window-hit metrics are audited",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "type": "gate"
+}
