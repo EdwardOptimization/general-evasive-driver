@@ -24870,3 +24870,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1587-paper-route-history-vs-control-active-set-selector-design.json`
 - next: `m1587-paper-route-history-vs-control-active-set-selector-design`
+
+## M1587 Paper-Route History-vs-Control Active-Set Selector Design
+
+- status: completed
+- decision: `history_vs_control_active_set_selector_design_admit_selector_only_implementation`
+- artifact: `docs/m1587-paper-route-history-vs-control-active-set-selector-design.md`
+- failure taxonomy: `none`
+- primary input: `runs/m1585_source_diverse_pairability_history_intervention_smoke/intervention_rows.csv`
+- clean label: `history_control_separated`
+- dominated label: `history_positive_control_dominated`
+- null labels: `control_only_positive`, `history_null_all_controls_null`
+- invalid label: `replay_or_metric_invalid`
+- history gap threshold: 0.02
+- control ratio threshold: 0.75
+- hidden-specific gap threshold: 0.01
+- expected clean directed pair count: 7
+- expected clean source-edge count: 4
+- route decision: admit selector-only implementation without simulator rerun before any source-generation repair
+- history interventions executed: false in M1587
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1588-paper-route-history-vs-control-active-set-selector-implementation.json`
+- next: `m1588-paper-route-history-vs-control-active-set-selector-implementation`

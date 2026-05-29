@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1595,
+    "completed": 1596,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1586-paper-route-source-diverse-pairability-intervention-result-audit.md",
+    "command_log": "docs/m1587-paper-route-history-vs-control-active-set-selector-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1586-paper-route-source-diverse-pairability-intervention-result-audit"
+    "task_id": "m1587-paper-route-history-vs-control-active-set-selector-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1587-paper-route-history-vs-control-active-set-selector-design.json",
-    "hypothesis": "A history-vs-control active-set selector can turn M1585's control-dominated result into a cleaner next source-generation objective.",
-    "id": "m1587-paper-route-history-vs-control-active-set-selector-design",
-    "kind": "gate",
-    "notes": "Pending: design history-vs-control active-set selector after M1586 audit",
-    "priority": 15820,
+    "command": "see experiments/manifests/m1588-paper-route-history-vs-control-active-set-selector-implementation.json",
+    "hypothesis": "A selector-only classifier can make M1585's clean history-vs-control sub-surface explicit and decide whether source-generation repair is needed.",
+    "id": "m1588-paper-route-history-vs-control-active-set-selector-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement selector-only history-vs-control active-set classifier over M1585 rows",
+    "priority": 15830,
     "status": "pending",
-    "success_artifact": "docs/m1587-paper-route-history-vs-control-active-set-selector-design.md"
+    "success_artifact": "runs/m1588_history_vs_control_active_set_selector/summary.json"
   },
-  "updated_at_utc": "20260529T160355Z"
+  "updated_at_utc": "20260529T160658Z"
 }

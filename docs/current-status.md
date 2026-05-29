@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1586-paper-route-source-diverse-pairability-intervention-result-audit
+m1587-paper-route-history-vs-control-active-set-selector-design
 ```
 
 Current next task:
 
 ```text
-m1587-paper-route-history-vs-control-active-set-selector-design
+m1588-paper-route-history-vs-control-active-set-selector-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -482,6 +482,13 @@ across `4` source edges, while `16` history-positive pairs are control-dominated
 and `121` directed pairs are history-null. The next step is M1587 design:
 turn history-vs-control separation into the active-set selector objective before
 any further implementation.
+M1587 designed that selector-only step. M1588 should classify existing M1585
+directed pairs without rerunning the simulator: labels are
+`history_control_separated`, `history_positive_control_dominated`,
+`control_only_positive`, `history_null_all_controls_null`, and
+`replay_or_metric_invalid`. Expected clean count is `7`, so M1588 may pass
+public diagnostic gates while failing evidence-quality targets; it must route to
+audit before source repair or any materialization.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

@@ -1,0 +1,164 @@
+{
+  "id": "m1588-paper-route-history-vs-control-active-set-selector-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1585_source_diverse_pairability_history_intervention_smoke/intervention_rows.csv",
+      "docs/m1587-paper-route-history-vs-control-active-set-selector-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1587-paper-route-history-vs-control-active-set-selector-design.json"
+    ],
+    "parent_objective": [
+      "implement selector-only history-vs-control active-set classification over M1585 rows"
+    ],
+    "derived_from": [
+      "m1587-paper-route-history-vs-control-active-set-selector-design"
+    ],
+    "blocked_by": [
+      "M1587 design has not yet been implemented"
+    ],
+    "supersedes": [
+      "another source-diverse intervention implementation before selector audit",
+      "candidate materialization after M1585"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1588-paper-route-history-vs-control-active-set-selector-implementation.md",
+  "public_gates": [
+    "M1588 must classify M1585 directed pairs into clean dominated null and invalid labels",
+    "M1588 must not rerun simulator or interventions",
+    "M1588 must report source-edge and source-family diversity of clean rows",
+    "M1588 must report whether clean count is sufficient or a source-generation repair is needed",
+    "M1588 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke that reruns simulator",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_pairability_source_generation",
+    "evidence_axis": "O_history_vs_control_active_set_selector_implementation",
+    "evidence_increment": "implements selector-only clean/dominated/null classification after M1587 design",
+    "claim_scope": "selector-only public diagnostic implementation; no simulator rerun, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop after selector implementation and route to audit",
+      "stop if implementation reruns simulator or interventions",
+      "stop if implementation exports training corpus",
+      "stop if implementation treats clean rows as enough for materialization"
+    ],
+    "fallback_plan": [
+      "route to audit whether clean count passes or fails",
+      "if clean surface is too small, audit source-generation repair",
+      "if clean surface is source-singleton, audit source diversity repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1587 admits selector-only implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "history-vs-control active-set selector implementation",
+    "admission_evidence": [
+      "M1587 pre-registers clean, dominated, null, and invalid labels"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "selector implementation module and focused tests",
+      "selector-only public artifacts",
+      "M1588 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "classified directed pair rows are written",
+      "clean/dominated/null summaries are written",
+      "guardrails remain clean",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1588 is selector-only over M1585 control diagnostics; it cannot strengthen the self-ID claim.",
+    "history_necessity_tests": [
+      "classify history-vs-control separation",
+      "classify control-dominated rows",
+      "classify null rows"
+    ],
+    "temporal_evidence_window": "M1585 intervention rows.",
+    "negative_result_policy": "If clean rows remain below target, record it and route to audit instead of weakening standards.",
+    "allowed_claims": [
+      "public selector diagnostic evidence",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A selector-only classifier can make M1585's clean history-vs-control sub-surface explicit and decide whether source-generation repair is needed.",
+  "success_criteria": [
+    "selector implementation module exists",
+    "focused tests cover clean/dominated/null labels and summary gates",
+    "runs/m1588_history_vs_control_active_set_selector/summary.json exists",
+    "classified and clean row artifacts exist",
+    "no simulator rerun or history intervention is executed",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "implementation reruns simulator or history interventions",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_history_vs_control_active_set_selector.py -q"
+    },
+    {
+      "name": "selector_smoke",
+      "command": "PYTHONPATH=src python -m autodrift.history_vs_control_active_set_selector --input-rows runs/m1585_source_diverse_pairability_history_intervention_smoke/intervention_rows.csv --output-dir runs/m1588_history_vs_control_active_set_selector"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1588_history_vs_control_active_set_selector/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1585_source_diverse_pairability_history_intervention_smoke/intervention_rows.csv",
+    "docs/m1587-paper-route-history-vs-control-active-set-selector-design.md"
+  ],
+  "decision_rule": "M1588 passes as selector implementation if it classifies existing rows with clean guardrails and routes to audit before any repair, materialization, or training.",
+  "next_blocker": "m1588-paper-route-history-vs-control-active-set-selector-implementation"
+}

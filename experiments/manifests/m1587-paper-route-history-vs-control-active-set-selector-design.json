@@ -157,6 +157,36 @@
     "runs/m1585_source_diverse_pairability_history_intervention_smoke/intervention_rows.csv",
     "docs/m1586-paper-route-source-diverse-pairability-intervention-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1587-paper-route-history-vs-control-active-set-selector-design.md",
+    "decision": "history_vs_control_active_set_selector_design_admit_selector_only_implementation",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "primary_input": "runs/m1585_source_diverse_pairability_history_intervention_smoke/intervention_rows.csv",
+    "clean_label": "history_control_separated",
+    "dominated_label": "history_positive_control_dominated",
+    "null_label": "history_null_or_control_only",
+    "history_gap_threshold": 0.02,
+    "control_ratio_threshold": 0.75,
+    "hidden_specific_gap_threshold": 0.01,
+    "expected_clean_directed_pair_count": 7,
+    "expected_clean_source_edge_count": 4,
+    "next_manifest": "experiments/manifests/m1588-paper-route-history-vs-control-active-set-selector-implementation.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1587 passes if it designs the next history-vs-control active-set route before any replay, materialization, or training.",
-  "next_blocker": "m1587-paper-route-history-vs-control-active-set-selector-design"
+  "next_blocker": "m1588-paper-route-history-vs-control-active-set-selector-implementation"
 }
