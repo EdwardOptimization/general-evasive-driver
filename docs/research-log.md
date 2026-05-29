@@ -25135,3 +25135,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1596-paper-route-selector-balanced-repair-result-audit.json`
 - next: `m1596-paper-route-selector-balanced-repair-result-audit`
+
+## M1596 Paper-Route Selector-Balanced Repair Result Audit
+
+- status: completed
+- decision: `selector_balanced_repair_audit_route_to_branch_synthesis_before_further_repair`
+- artifact: `docs/m1596-paper-route-selector-balanced-repair-result-audit.md`
+- failure taxonomy: `scenario_sampling_failure`, `objective_overfit`
+- M1592 clean directed pair count: 34
+- M1592 clean source-edge count: 5
+- M1592 max clean source-edge share: 0.35294117647058826
+- M1595 selected source-edge count: 24
+- M1595 clean directed pair count: 10
+- M1595 clean source-edge count: 4
+- M1595 null result classification: `clean_count_shortfall`
+- interpretation: broad source-edge round-robin diluted clean signal; further local cap tuning risks public-row overfit
+- route decision: branch synthesis before any further repair
+- history interventions executed: false in M1596
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1597-paper-route-clean-source-repair-branch-synthesis.json`
+- next: `m1597-paper-route-clean-source-repair-branch-synthesis`

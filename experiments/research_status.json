@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1604,
+    "completed": 1605,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1595-paper-route-selector-balanced-clean-source-repair-implementation.md",
+    "command_log": "docs/m1596-paper-route-selector-balanced-repair-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1595_selector_balanced_clean_source_repair_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1595-paper-route-selector-balanced-clean-source-repair-implementation"
+    "task_id": "m1596-paper-route-selector-balanced-repair-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1596-paper-route-selector-balanced-repair-result-audit.json",
-    "hypothesis": "M1595's over-balanced clean-count shortfall can clarify whether the branch should stop, synthesize, or design a more selective active-set contour.",
-    "id": "m1596-paper-route-selector-balanced-repair-result-audit",
+    "command": "see experiments/manifests/m1597-paper-route-clean-source-repair-branch-synthesis.json",
+    "hypothesis": "After M1595, the clean-source repair sub-branch needs synthesis before any further implementation or design.",
+    "id": "m1597-paper-route-clean-source-repair-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M1595 over-balanced negative result",
-    "priority": 15910,
+    "notes": "Pending: synthesize M1591-M1596 before any further repair",
+    "priority": 15920,
     "status": "pending",
-    "success_artifact": "docs/m1596-paper-route-selector-balanced-repair-result-audit.md"
+    "success_artifact": "docs/m1597-paper-route-clean-source-repair-branch-synthesis.md"
   },
-  "updated_at_utc": "20260529T164647Z"
+  "updated_at_utc": "20260529T164950Z"
 }

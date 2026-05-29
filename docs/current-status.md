@@ -16,19 +16,19 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1595-paper-route-selector-balanced-clean-source-repair-implementation
+m1596-paper-route-selector-balanced-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m1596-paper-route-selector-balanced-repair-result-audit
+m1597-paper-route-clean-source-repair-branch-synthesis
 ```
 
-M1595 implemented the selector-balanced cap repair. It over-balanced the
-selection: selected source edges rose to `24`, but clean directed pairs dropped
-to `10` and clean source edges to `4`. This is a negative clean-count shortfall.
-The next task is M1596 audit; do not run another cap tweak before the audit.
+M1596 audited M1595 against M1592. M1592 remains the best near-pass clean-source
+diagnostic; M1595 is a valid negative showing that broad source-edge round-robin
+dilutes the clean active set. The next task is M1597 branch synthesis before any
+further repair design or implementation.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

@@ -155,6 +155,52 @@
     "runs/m1595_selector_balanced_clean_source_repair_smoke/summary.json",
     "docs/m1595-paper-route-selector-balanced-clean-source-repair-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1596-paper-route-selector-balanced-repair-result-audit.md",
+    "decision": "selector_balanced_repair_audit_route_to_branch_synthesis_before_further_repair",
+    "failure_taxonomy": [
+      "scenario_sampling_failure",
+      "objective_overfit"
+    ],
+    "m1592_clean_directed_pair_count": 34,
+    "m1592_clean_source_edge_count": 5,
+    "m1592_max_clean_source_edge_share": 0.35294117647058826,
+    "m1595_clean_directed_pair_count": 10,
+    "m1595_clean_source_edge_count": 4,
+    "m1595_selected_source_edge_count": 24,
+    "m1595_null_result_classification": "clean_count_shortfall",
+    "next_manifest": "experiments/manifests/m1597-paper-route-clean-source-repair-branch-synthesis.json",
+    "supported_claims": [
+      "M1592 remains the best clean-source diagnostic result in this branch",
+      "M1595 is a valid negative result",
+      "source-edge balance must be active-set aware rather than broad pairability round-robin",
+      "the branch needs synthesis before any further repair"
+    ],
+    "unsupported_claims": [
+      "M1595 pass",
+      "candidate materialization",
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "paper-level self-identification",
+      "level3 anticipatory self-identification",
+      "another immediate cap tweak"
+    ],
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1596 passes if it audits M1595 without weakening gates and chooses the next route before another implementation.",
-  "next_blocker": "m1596-paper-route-selector-balanced-repair-result-audit"
+  "next_blocker": "m1597-paper-route-clean-source-repair-branch-synthesis"
 }

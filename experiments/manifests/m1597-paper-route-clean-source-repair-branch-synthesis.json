@@ -1,0 +1,187 @@
+{
+  "id": "m1597-paper-route-clean-source-repair-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json",
+      "runs/m1595_selector_balanced_clean_source_repair_smoke/summary.json",
+      "docs/m1596-paper-route-selector-balanced-repair-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1591-paper-route-history-pairability-source-generation-branch-synthesis.json",
+      "experiments/manifests/m1596-paper-route-selector-balanced-repair-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize clean-source repair sub-branch after near-pass and over-balanced negative"
+    ],
+    "derived_from": [
+      "m1591-paper-route-history-pairability-source-generation-branch-synthesis",
+      "m1596-paper-route-selector-balanced-repair-result-audit"
+    ],
+    "blocked_by": [
+      "M1592 was near-pass source-concentrated",
+      "M1595 over-balanced selection dropped clean count to 10",
+      "further local cap tuning risks public-row overfit"
+    ],
+    "supersedes": [
+      "another cap-tuning implementation without synthesis",
+      "candidate materialization after M1592 or M1595",
+      "training corpus export from clean-source public rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1597-paper-route-clean-source-repair-branch-synthesis.md",
+  "public_gates": [
+    "M1597 must synthesize M1591-M1596 clean-source repair evidence",
+    "M1597 must compare M1592 near-pass and M1595 negative result",
+    "M1597 must assess public-gate overfit risk",
+    "M1597 must choose continue, pivot, stop, or promote_to_next_branch",
+    "M1597 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not relax clean selector thresholds",
+    "do not relax the max clean source-edge share threshold",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_pairability_source_generation",
+    "evidence_axis": "S_clean_source_repair_branch_synthesis_after_overbalanced_negative",
+    "evidence_increment": "synthesizes M1591-M1596 after clean-source near-pass and selector-balanced negative",
+    "claim_scope": "branch synthesis only; no implementation smoke, simulator rerun, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats M1592 near-pass as a pass",
+      "stop if synthesis ignores M1595 negative result",
+      "stop if synthesis routes directly to materialization, training, PPO, promotion, or private holdout"
+    ],
+    "fallback_plan": [
+      "pivot to a new active-set contour branch if local cap tuning is exhausted",
+      "stop if clean-source repair evidence is too public-row-specific",
+      "preserve M1592/M1595 as diagnostic evidence if no safe next branch exists"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1596 routes to synthesis after M1592 near-pass and M1595 over-balanced negative",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m1597-paper-route-clean-source-repair-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1597-paper-route-clean-source-repair-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "clean-source repair branch synthesis",
+    "admission_evidence": [
+      "M1592 near-pass produced 34 clean rows but failed source-share gate",
+      "M1595 over-balanced repair selected 24 edges but dropped clean rows to 10",
+      "M1596 routes to synthesis before more public-row tuning"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run implementation smoke",
+      "do not use private holdout",
+      "do not promote a checkpoint",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not relax thresholds",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1597 synthesis document",
+      "M1597 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis pivots to a new branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis decision is explicit",
+      "supported and unsupported claims are explicit",
+      "public-gate overfit risk is explicit",
+      "next branch is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1597 synthesizes public selector evidence where control-only and dominated rows remain substantial.",
+    "history_necessity_tests": [
+      "M1592 clean-source repair",
+      "M1595 selector-balanced negative",
+      "M1596 audit comparison"
+    ],
+    "temporal_evidence_window": "M1591-M1596 clean-source repair sub-branch.",
+    "negative_result_policy": "If synthesis cannot justify a new branch without public-row overfit, stop or preserve diagnostics.",
+    "allowed_claims": [
+      "branch synthesis and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "After M1595, the clean-source repair sub-branch needs synthesis before any further implementation or design.",
+  "success_criteria": [
+    "docs/m1597-paper-route-clean-source-repair-branch-synthesis.md exists",
+    "synthesis summarizes M1591-M1596 evidence",
+    "supported and unsupported claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis treats M1592 or M1595 as level3 self-ID evidence",
+    "synthesis ignores M1595 negative result",
+    "synthesis routes directly to training PPO promotion private holdout corpus export actor-input changes or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1597-paper-route-clean-source-repair-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1597-paper-route-clean-source-repair-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json",
+    "runs/m1595_selector_balanced_clean_source_repair_smoke/summary.json",
+    "docs/m1596-paper-route-selector-balanced-repair-result-audit.md"
+  ],
+  "decision_rule": "M1597 passes if it synthesizes M1591-M1596 and chooses the next route before another implementation milestone.",
+  "next_blocker": "m1597-paper-route-clean-source-repair-branch-synthesis"
+}
