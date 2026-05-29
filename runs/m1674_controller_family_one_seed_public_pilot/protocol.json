@@ -1,0 +1,35 @@
+{
+  "claim_scope": "public pilot trend only",
+  "config_dir": "configs/paper_route_corrected_profiles",
+  "config_glob": "m1207_*.json",
+  "device": "cpu",
+  "eval_episodes": 64,
+  "eval_seed_base": 167500,
+  "main_profiles": [
+    "L0_current_masked",
+    "L1_one_step",
+    "L2_window_100",
+    "L2_window_13",
+    "L2_window_25",
+    "L2_window_50",
+    "L3_online_gru"
+  ],
+  "profiles": [
+    "L0_current_masked",
+    "L1_one_step",
+    "L2_window_100",
+    "L2_window_100_current_tiled",
+    "L2_window_13",
+    "L2_window_13_current_tiled",
+    "L2_window_25",
+    "L2_window_25_current_tiled",
+    "L2_window_50",
+    "L2_window_50_current_tiled",
+    "L3_online_gru",
+    "L3_reset_control_corrected"
+  ],
+  "training_seed_base": 167400,
+  "training_seed_offsets": [
+    0
+  ]
+}

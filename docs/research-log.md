@@ -26818,3 +26818,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: architecture ranking, decisive-history benchmark result, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1674-paper-route-controller-family-one-seed-public-pilot-implementation.json`
 - next: `m1674-paper-route-controller-family-one-seed-public-pilot-implementation`
+
+## M1674 Paper-Route Controller-Family One-Seed Public Pilot Implementation
+
+- status: completed
+- decision: `one_seed_public_pilot_completed_route_to_result_audit`
+- artifact: `runs/m1674_controller_family_one_seed_public_pilot/summary.json`
+- result class: `corrected_profile_pilot_completed`
+- profile count / total seed runs / completed seed runs / failed seed runs: `12` / `12` / `12` / `0`
+- all selected profile seed runs complete: `true`
+- all eval metrics finite: `true`
+- private holdout / promotion / profile-specific tuning / actor input contract changed: `false` / `false` / `false` / `false`
+- one-seed aggregate: L0 success/collision/margin `0.156250` / `0.843750` / `0.020294`; L1 `0.234375` / `0.765625` / `0.083796`; L2 normal windows all `0.250000` / `0.328125` / about `1.186577`; L2 current-tiled windows all `0.250000` / `0.328125` / about `1.16436`; L3 online `0.296875` / `0.703125` / `0.118231`; L3 reset `0.343750` / `0.656250` / `0.162992`
+- diagnostic interpretation: plumbing pass only; one seed does not support controller-family ranking; L2 current-tiled parity and L3 reset superiority must be audited
+- follow-up manifest: `experiments/manifests/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.json`
+- next: `m1675-paper-route-controller-family-one-seed-public-pilot-result-audit`

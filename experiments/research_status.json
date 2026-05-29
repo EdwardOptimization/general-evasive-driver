@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1682,
+    "completed": 1683,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1673-paper-route-controller-family-one-seed-public-pilot-design.md",
+      "command_log": "runs/m1674_controller_family_one_seed_public_pilot/summary.json",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1674_controller_family_one_seed_public_pilot",
       "status": "completed",
-      "task_id": "m1673-paper-route-controller-family-one-seed-public-pilot-design"
+      "task_id": "m1674-paper-route-controller-family-one-seed-public-pilot-implementation"
     },
     "next_task": {
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.corrected_profile_pilot --config-dir configs/paper_route_corrected_profiles --config-glob 'm1207_*.json' --run-dir runs/m1674_controller_family_one_seed_public_pilot --training-seed-base 167400 --seed-offsets 0 --eval-seed-base 167500 --eval-episodes 64 --device cpu",
-      "hypothesis": "All 12 corrected controller-family profiles can complete one public train/eval seed with finite metrics under the same committed budget.",
-      "id": "m1674-paper-route-controller-family-one-seed-public-pilot-implementation",
-      "kind": "benchmark",
-      "notes": "Pending: run one-seed public standard-layer plumbing pilot across all 12 profiles",
-      "priority": 16690,
+      "command": "see experiments/manifests/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.json",
+      "hypothesis": "M1674 can be audited as a plumbing pass while keeping controller-family interpretation blocked.",
+      "id": "m1675-paper-route-controller-family-one-seed-public-pilot-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit one-seed public pilot before repeat, mapping, or interpretation",
+      "priority": 16700,
       "status": "pending",
-      "success_artifact": "runs/m1674_controller_family_one_seed_public_pilot/summary.json"
+      "success_artifact": "docs/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.md"
     },
-    "updated_at_utc": "20260529T224443Z"
+    "updated_at_utc": "20260529T224919Z"
 }

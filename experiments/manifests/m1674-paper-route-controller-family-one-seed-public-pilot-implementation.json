@@ -176,6 +176,25 @@
     "docs/m1673-paper-route-controller-family-one-seed-public-pilot-design.md",
     "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1674_controller_family_one_seed_public_pilot/summary.json",
+    "decision": "one_seed_public_pilot_completed_route_to_result_audit",
+    "result_class": "corrected_profile_pilot_completed",
+    "profile_count": 12,
+    "total_seed_runs": 12,
+    "completed_seed_runs": 12,
+    "failed_seed_runs": 0,
+    "all_selected_profile_seed_runs_complete": true,
+    "all_eval_metrics_finite": true,
+    "private_holdout_used": false,
+    "profile_specific_tuning": false,
+    "actor_input_contract_changed": false,
+    "promoted": false,
+    "self_identification_claimed": false,
+    "paper_level_claimed": false,
+    "next_manifest": "experiments/manifests/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.json"
+  },
   "decision_rule": "M1674 passes if all 12 profiles complete the one-seed public pilot with finite metrics and blocked shortcuts remain false.",
-  "next_blocker": "m1674-paper-route-controller-family-one-seed-public-pilot-implementation"
+  "next_blocker": "m1675-paper-route-controller-family-one-seed-public-pilot-result-audit"
 }

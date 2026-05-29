@@ -1,0 +1,66 @@
+{
+  "actor_input_contract_changed": false,
+  "all_eval_metrics_finite": true,
+  "all_selected_profile_seed_runs_complete": true,
+  "artifacts": {
+    "eval_rows_csv": "runs/m1674_controller_family_one_seed_public_pilot/eval_rows.csv",
+    "profile_aggregate_csv": "runs/m1674_controller_family_one_seed_public_pilot/profile_aggregate.csv",
+    "profile_seed_rows_csv": "runs/m1674_controller_family_one_seed_public_pilot/profile_seed_rows.csv",
+    "protocol_json": "runs/m1674_controller_family_one_seed_public_pilot/protocol.json"
+  },
+  "candidate_replay_started": false,
+  "claim_scope": "public pilot trend only",
+  "completed_seed_runs": 12,
+  "diagnostic_profile_count": 5,
+  "failed_seed_runs": 0,
+  "generated_at_utc": "20260529T224857Z",
+  "main_profile_count": 7,
+  "paper_level_claimed": false,
+  "private_holdout_used": false,
+  "profile_count": 12,
+  "profile_specific_tuning": false,
+  "profile_superiority_claimed": false,
+  "promoted": false,
+  "protocol": {
+    "claim_scope": "public pilot trend only",
+    "config_dir": "configs/paper_route_corrected_profiles",
+    "config_glob": "m1207_*.json",
+    "device": "cpu",
+    "eval_episodes": 64,
+    "eval_seed_base": 167500,
+    "main_profiles": [
+      "L0_current_masked",
+      "L1_one_step",
+      "L2_window_100",
+      "L2_window_13",
+      "L2_window_25",
+      "L2_window_50",
+      "L3_online_gru"
+    ],
+    "profiles": [
+      "L0_current_masked",
+      "L1_one_step",
+      "L2_window_100",
+      "L2_window_100_current_tiled",
+      "L2_window_13",
+      "L2_window_13_current_tiled",
+      "L2_window_25",
+      "L2_window_25_current_tiled",
+      "L2_window_50",
+      "L2_window_50_current_tiled",
+      "L3_online_gru",
+      "L3_reset_control_corrected"
+    ],
+    "training_seed_base": 167400,
+    "training_seed_offsets": [
+      0
+    ]
+  },
+  "result_class": "corrected_profile_pilot_completed",
+  "runtime_seconds": 89.94460060913116,
+  "seed_offsets": [
+    0
+  ],
+  "self_identification_claimed": false,
+  "total_seed_runs": 12
+}
