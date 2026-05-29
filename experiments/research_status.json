@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1642,
+    "completed": 1643,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1633-paper-route-contour-aware-policy-target-exact-evaluator-implementation.md",
+      "command_log": "docs/m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1633_contour_aware_policy_target_exact_evaluator",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1633-paper-route-contour-aware-policy-target-exact-evaluator-implementation"
+      "task_id": "m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit.json",
-      "hypothesis": "The M1633 exact evaluator result is clean enough to decide whether objective-only actor-update design can be admitted.",
-      "id": "m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit",
+      "command": "see experiments/manifests/m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design.json",
+      "hypothesis": "The zero-residual exact evaluator can be turned into a useful retention/projection test by comparing the base checkpoint with controlled perturbed candidates.",
+      "id": "m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design",
       "kind": "gate",
-      "notes": "Pending: audit exact evaluator result before actor-update design; no PPO promotion or private holdout",
-      "priority": 16290,
+      "notes": "Pending: design sensitivity/projection probe only; no actor update training PPO promotion or private holdout",
+      "priority": 16300,
       "status": "pending",
-      "success_artifact": "docs/m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit.md"
+      "success_artifact": "docs/m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design.md"
     },
-    "updated_at_utc": "20260529T194001Z"
+    "updated_at_utc": "20260529T194312Z"
 }

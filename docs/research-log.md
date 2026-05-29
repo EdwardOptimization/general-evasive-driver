@@ -26030,3 +26030,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
 - follow-up manifest: `experiments/manifests/m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit.json`
 - next: `m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit`
+
+## M1634 Paper-Route Contour-Aware Policy Target Exact Evaluator Result Audit
+
+- status: completed
+- decision: `contour_aware_exact_evaluator_audit_admit_sensitivity_probe_design`
+- artifact: `docs/m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit.md`
+- failure taxonomy: `none`
+- audited result: M1633 exact evaluator public pass with zero positive residual, diagnostics zero-weight, donor-plus excluded from loss, checkpoint unmutated, and clean guardrails
+- key limitation: direct objective-only update from the M1630 base would be uninformative because base residual is zero
+- supported: exact evaluator can be used as a retention/projection metric
+- unsupported: actor update usefulness, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- route decision: admit design-only sensitivity/projection probe before any update implementation
+- follow-up manifest: `experiments/manifests/m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design.json`
+- next: `m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design`
