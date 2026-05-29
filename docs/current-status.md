@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1540-paper-route-terminal-boundary-history-positive-source-repair-design
+m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation
 ```
 
 Current next task:
 
 ```text
-m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation
+m1542-paper-route-terminal-boundary-source-repair-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -149,8 +149,17 @@ M1540 designed that repair route. It targets `t5_near_boundary_warmup`,
 `t5_high_speed_close_obstacle`, `t5_boundary_axis_retarget`,
 `late_reveal_boundary`, and `curved_boundary_obstacle`, with margin compression,
 anchor timing sweep, capability contrast, and boundary-geometry retargeting. The
-next task is a bounded public repair planner implementation; materialization and
-training remain blocked.
+next task was a bounded public repair planner implementation; materialization
+and training remain blocked.
+M1541 implemented that terminal-boundary repair planner and ran a bounded public
+smoke. The run produced `35` source specs, `20` terminal target traces, `11`
+accepted terminal pairs, `8` accepted source-family edges, and `880` clean
+intervention replay rows with zero guardrail violations. It is nevertheless a
+negative/control-dominated result: `terminal_target_near_boundary_count` was
+`0`, terminal wrong-history and donor-plus-hidden positive target sides were
+both `0`, max history margin gap was only `0.0040`, and max reset/zero-control
+gap was `0.1485` with a control-to-history ratio of `36.89`. The next task is a
+result audit before any candidate materialization or training.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

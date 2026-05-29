@@ -139,6 +139,8 @@ def anchor_step_for(row: FreshAmbiguitySourceRow, anchor_name: str) -> int:
         return decision
     if anchor_name == "decision_minus_8":
         return max(reveal, decision - 8)
+    if anchor_name == "decision_minus_16":
+        return max(reveal, decision - 16)
     if anchor_name == "reveal_plus_4":
         return min(decision - 1, reveal + 4)
     raise ValueError(f"unknown anchor: {anchor_name}")
@@ -452,24 +454,28 @@ def finalize_rows(rows: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
         item = dict(row)
         normal = normal_by_key.get(_group_key(row))
         if normal is not None and row.get("target_replay_status") == "ok":
-            action = np.asarray(
-                [
-                    float(row.get("first_action_steer", 0.0)),
-                    float(row.get("first_action_throttle", 0.0)),
-                    float(row.get("first_action_brake", 0.0)),
-                ],
-                dtype=np.float64,
-            )
-            normal_action = np.asarray(
-                [
-                    float(normal.get("first_action_steer", 0.0)),
-                    float(normal.get("first_action_throttle", 0.0)),
-                    float(normal.get("first_action_brake", 0.0)),
-                ],
-                dtype=np.float64,
-            )
-            normal_margin = float(normal.get("terminal_margin", float("nan")))
-            terminal_margin = float(row.get("terminal_margin", float("nan")))
+            try:
+                action = np.asarray(
+                    [
+                        float(row.get("first_action_steer", 0.0)),
+                        float(row.get("first_action_throttle", 0.0)),
+                        float(row.get("first_action_brake", 0.0)),
+                    ],
+                    dtype=np.float64,
+                )
+                normal_action = np.asarray(
+                    [
+                        float(normal.get("first_action_steer", 0.0)),
+                        float(normal.get("first_action_throttle", 0.0)),
+                        float(normal.get("first_action_brake", 0.0)),
+                    ],
+                    dtype=np.float64,
+                )
+                normal_margin = float(normal.get("terminal_margin", float("nan")))
+                terminal_margin = float(row.get("terminal_margin", float("nan")))
+            except (TypeError, ValueError):
+                finalized.append(item)
+                continue
             item["normal_first_action_l2"] = float(np.linalg.norm(action - normal_action))
             item["normal_terminal_margin"] = normal_margin
             item["terminal_margin_gap_from_normal"] = normal_margin - terminal_margin

@@ -23388,3 +23388,45 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1540 turns M1539's T5 gap into a concrete bounded public repair planner with margin compression anchor timing sweep capability contrast and boundary-geometry retargeting. It still blocks materialization and training.
 - follow-up manifest: `experiments/manifests/m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation.json`.
 - next: `m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation`
+
+## M1541 Paper-Route Terminal-Boundary History-Positive Source Repair Implementation
+
+- status: completed
+- decision: `terminal_boundary_source_repair_smoke_complete_null_control_dominated_route_to_audit`
+- artifact: `runs/m1541_terminal_boundary_source_repair_smoke/summary.json`
+- doc: `docs/m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation.md`
+- code: `src/autodrift/terminal_boundary_source_repair.py`
+- tests: `tests/test_terminal_boundary_source_repair.py`
+- focused test result: `17 passed`
+- terminal source spec count: 35
+- terminal target source spec count: 20
+- terminal target trace count: 20
+- terminal target near-boundary count: 0
+- accepted terminal pair count: 11
+- accepted terminal source-edge count: 8
+- intervention row count: 880
+- target side count: 88
+- variant count: 10
+- anchor count: 4
+- anchor replay failure count: 0
+- terminal wrong-history positive target sides: 0
+- terminal donor-plus-hidden positive target sides: 0
+- terminal donor stream positive target sides: 0
+- terminal wrong-or-donor success drop count: 0
+- terminal max history margin gap: 0.0040251709543639436
+- terminal max control margin gap: 0.14847354874699903
+- terminal control-to-history gap ratio: 36.88627152246277
+- passes terminal source gates: false
+- passes terminal history gates: false
+- passes control gate: false
+- passes public smoke gates: false
+- passes evidence quality targets: false
+- guardrail violation count: 0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1541 implements the bounded terminal-boundary repair plumbing and proves the replay harness is stable on accepted terminal pairs, but the result is not positive evidence. The terminal target traces missed the near-boundary decision window, history interventions stayed below threshold, and reset/zero-current controls dominated. Materialization and training remain blocked.
+- follow-up manifest: `experiments/manifests/m1542-paper-route-terminal-boundary-source-repair-result-audit.json`.
+- next: `m1542-paper-route-terminal-boundary-source-repair-result-audit`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1549,
+    "completed": 1550,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.md",
+    "command_log": "runs/m1541_terminal_boundary_source_repair_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1541_terminal_boundary_source_repair_smoke",
     "status": "completed",
-    "task_id": "m1540-paper-route-terminal-boundary-history-positive-source-repair-design"
+    "task_id": "m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation.json",
-    "hypothesis": "A bounded terminal-boundary repair planner can find or falsify T5/terminal-boundary history-positive intervention rows without changing actor inputs or training.",
-    "id": "m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded terminal-boundary source repair planner and public smoke",
-    "priority": 15360,
+    "command": "see experiments/manifests/m1542-paper-route-terminal-boundary-source-repair-result-audit.json",
+    "hypothesis": "M1541's negative result can be classified cleanly enough to choose between terminal-boundary task sampling repair and branch synthesis without training or materialization.",
+    "id": "m1542-paper-route-terminal-boundary-source-repair-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1541 terminal-boundary source-window miss and control-dominated null result",
+    "priority": 15370,
     "status": "pending",
-    "success_artifact": "runs/m1541_terminal_boundary_source_repair_smoke/summary.json"
+    "success_artifact": "docs/m1542-paper-route-terminal-boundary-source-repair-result-audit.md"
   },
-  "updated_at_utc": "20260529T113157Z"
+  "updated_at_utc": "20260529T114721Z"
 }

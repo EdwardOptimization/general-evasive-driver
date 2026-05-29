@@ -1,0 +1,153 @@
+{
+  "id": "m1542-paper-route-terminal-boundary-source-repair-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1541_terminal_boundary_source_repair_smoke/summary.json",
+      "docs/m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation.json"
+    ],
+    "parent_objective": [
+      "audit the terminal-boundary source repair smoke before any candidate materialization or training"
+    ],
+    "derived_from": [
+      "m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation"
+    ],
+    "blocked_by": [
+      "terminal_target_near_boundary_count is zero",
+      "terminal history-positive target sides are zero",
+      "control intervention margin gaps dominate history-intervention gaps"
+    ],
+    "supersedes": [
+      "direct continuation from M1541 implementation to materialization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1542-paper-route-terminal-boundary-source-repair-result-audit.md",
+  "public_gates": [
+    "M1542 must audit M1541 before any materialization or training",
+    "M1542 must classify the source-window miss and control-dominated effects",
+    "M1542 must decide whether the next route is task sampling repair, branch synthesis, or stop",
+    "M1542 must preserve the P0 actor input contract"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "G_terminal_boundary_history_positive_repair_audit",
+    "evidence_increment": "audits whether M1541 terminal-boundary repair produced usable history-positive evidence or only a source-window/control artifact",
+    "claim_scope": "process audit only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if M1541 is control-dominated",
+      "stop if terminal target rows do not enter the near-boundary window",
+      "stop if the audit would require changing actor inputs or exporting a training corpus",
+      "stop after selecting the next route"
+    ],
+    "fallback_plan": [
+      "route to terminal-boundary task sampling repair if source-window miss is the dominant blocker",
+      "route to branch synthesis if another narrow repair would exceed the branch cadence or repeat the same failure",
+      "route to stop if terminal-boundary history interventions remain null after clean task sampling"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1541 completed a repair smoke with failed public/evidence gates",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "terminal-boundary source repair result audit",
+    "admission_evidence": [
+      "M1541 wrote bounded public repair artifacts with clean guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1542 audit document",
+      "M1542 status queue scoreboard research log and review",
+      "one follow-up manifest if the audit admits a route"
+    ],
+    "next_stage_criteria": [
+      "M1541 source-window and control-dominance failures are classified",
+      "candidate materialization remains blocked",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1542 is an audit; it must not upgrade M1541's control-dominated public result into history necessity.",
+    "history_necessity_tests": [
+      "wrong_history_donor_hidden_at_anchor",
+      "donor_response_action_plus_hidden_from_anchor",
+      "donor_response_action_stream_from_anchor",
+      "delayed hidden variants",
+      "reset and zero-current controls"
+    ],
+    "temporal_evidence_window": "M1541 bounded terminal-boundary public smoke only.",
+    "negative_result_policy": "Preserve M1541 as a negative result and route to task sampling repair or synthesis instead of weakening thresholds.",
+    "allowed_claims": [
+      "M1542 audits M1541",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1541's negative result can be classified cleanly enough to choose between terminal-boundary task sampling repair and branch synthesis without training or materialization.",
+  "success_criteria": [
+    "docs/m1542-paper-route-terminal-boundary-source-repair-result-audit.md exists",
+    "M1541 near-boundary, history-positive, control, and guardrail metrics are audited",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1541 as positive terminal-boundary self-ID evidence",
+    "audit routes directly to training promotion private holdout or materialization",
+    "audit changes actor inputs or weakens the evidence standard"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1542-paper-route-terminal-boundary-source-repair-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1542-paper-route-terminal-boundary-source-repair-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1541_terminal_boundary_source_repair_smoke/summary.json",
+    "docs/m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation.md"
+  ],
+  "decision_rule": "M1542 passes if it classifies the M1541 result and selects the next route while preserving all no-materialization guardrails.",
+  "next_blocker": "m1542-paper-route-terminal-boundary-source-repair-result-audit"
+}

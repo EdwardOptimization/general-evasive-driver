@@ -78,6 +78,40 @@ def test_finalize_rows_attaches_normal_comparisons():
     assert finalized[1]["success_drop_from_normal"] is True
 
 
+def test_finalize_rows_leaves_missing_action_failure_rows_unchanged():
+    rows = [
+        {
+            "pair_id": "pair",
+            "target_side": "left",
+            "anchor_name": "reveal_plus_4",
+            "variant": "normal",
+            "target_replay_status": "ok",
+            "first_action_steer": 0.0,
+            "first_action_throttle": 0.0,
+            "first_action_brake": 0.0,
+            "terminal_margin": 1.0,
+            "success": True,
+        },
+        {
+            "pair_id": "pair",
+            "target_side": "left",
+            "anchor_name": "reveal_plus_4",
+            "variant": "delayed_hidden_16_at_anchor",
+            "target_replay_status": "ok",
+            "first_action_steer": "",
+            "first_action_throttle": "",
+            "first_action_brake": "",
+            "terminal_margin": "",
+            "success": False,
+        },
+    ]
+
+    finalized = finalize_rows(rows)
+
+    assert finalized[1]["first_action_steer"] == ""
+    assert finalized[1].get("terminal_margin_gap_from_normal") is None
+
+
 def test_pair_and_variant_summaries_separate_channels():
     rows = finalize_rows(
         [

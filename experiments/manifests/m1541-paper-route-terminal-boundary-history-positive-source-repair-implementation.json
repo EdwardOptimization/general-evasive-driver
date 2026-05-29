@@ -4,7 +4,8 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure",
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -152,6 +153,52 @@
     "docs/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.md",
     "docs/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1541_terminal_boundary_source_repair_smoke/summary.json",
+    "doc": "docs/m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation.md",
+    "decision": "terminal_boundary_source_repair_smoke_complete_null_control_dominated_route_to_audit",
+    "focused_tests": "PYTHONPATH=src python -m pytest tests/test_fresh_ambiguity_measured_mining.py tests/test_fresh_ambiguity_history_interventions.py tests/test_terminal_boundary_source_repair.py -q",
+    "focused_test_result": "17 passed",
+    "smoke_command": "PYTHONPATH=src python -m autodrift.terminal_boundary_source_repair --output-dir runs/m1541_terminal_boundary_source_repair_smoke --seed 1731 --seed-count 3 --max-repair-source-specs 72 --max-pair-candidates 128 --max-intervention-pairs 24",
+    "terminal_source_spec_count": 35,
+    "terminal_target_source_spec_count": 20,
+    "terminal_target_trace_count": 20,
+    "terminal_target_near_boundary_count": 0,
+    "accepted_terminal_pair_count": 11,
+    "accepted_terminal_source_edge_count": 8,
+    "intervention_row_count": 880,
+    "target_side_count": 88,
+    "variant_count": 10,
+    "anchor_count": 4,
+    "anchor_replay_failure_count": 0,
+    "terminal_wrong_history_positive_target_sides": 0,
+    "terminal_donor_plus_hidden_positive_target_sides": 0,
+    "terminal_donor_stream_positive_target_sides": 0,
+    "terminal_wrong_or_donor_success_drop_count": 0,
+    "terminal_max_history_margin_gap": 0.0040251709543639436,
+    "terminal_max_control_margin_gap": 0.14847354874699903,
+    "terminal_control_to_history_gap_ratio": 36.88627152246277,
+    "passes_terminal_source_gates": false,
+    "passes_terminal_history_gates": false,
+    "passes_control_gate": false,
+    "passes_public_smoke_gates": false,
+    "passes_evidence_quality_targets": false,
+    "guardrail_violation_count": 0,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1542-paper-route-terminal-boundary-source-repair-result-audit.json"
+  },
+  "decision": "terminal_boundary_source_repair_smoke_complete_null_control_dominated_route_to_audit",
   "decision_rule": "M1541 passes if terminal-boundary repair artifacts are written and no-materialization guardrails remain clean.",
-  "next_blocker": "m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation"
+  "next_blocker": "m1542-paper-route-terminal-boundary-source-repair-result-audit"
 }
