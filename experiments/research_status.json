@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1429,
+    "completed": 1430,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke.md",
+    "command_log": "docs/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "runs/m1419_warmup_gate_invasiveness_retune_source_smoke",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke"
+    "task_id": "m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.json",
-    "hypothesis": "M1410-M1419 staged warmup gate evidence can be synthesized into a clear next route after M1419 reduced warmup invasiveness but missed one matched/bucketed seed-diversity gate.",
-    "id": "m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize staged warmup gate branch before outcome probing or another retune",
-    "priority": 14150,
+    "command": "see experiments/manifests/m1421-paper-route-m1419-source-collision-stratified-outcome-probe.json",
+    "hypothesis": "The less invasive M1419 source rows will reveal whether staged warmup command-response history interventions produce more source-diverse outcome-critical effects than M1412.",
+    "id": "m1421-paper-route-m1419-source-collision-stratified-outcome-probe",
+    "kind": "infrastructure",
+    "notes": "Pending: run one no-training collision-stratified outcome probe on M1419 matched/bucketed rows",
+    "priority": 14160,
     "status": "pending",
-    "success_artifact": "docs/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.md"
+    "success_artifact": "runs/m1421_m1419_source_collision_stratified_outcome_probe/summary.json"
   },
-  "updated_at_utc": "20260529T060000Z"
+  "updated_at_utc": "20260529T061000Z"
 }

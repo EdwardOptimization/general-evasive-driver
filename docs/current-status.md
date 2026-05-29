@@ -16,21 +16,41 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke
+m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis
+m1421-paper-route-m1419-source-collision-stratified-outcome-probe
 ```
 
-M1419 ran the warmup-gate invasiveness retune source smoke. The current
-public-gate base remains M1362 alpha `0.1`:
+M1420 synthesized the staged warmup retune branch. The current public-gate base
+remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1420 result:
+
+```text
+decision: warmup_reveal_pressure_retune_synthesis_promote_to_staged_warmup_outcome_validation
+synthesis_decision: promote_to_next_branch
+closed_branch: paper_route_warmup_reveal_pressure_redesign
+new_branch: paper_route_staged_warmup_outcome_validation
+M1419 matched/bucketed rows: 252
+M1419 matched/bucketed unique_source_seeds: 27  # one below source gate
+M1419 matched/bucketed collision share: 0.293651
+M1419 clear + clear_low rows: 178
+selected route: one no-training collision-stratified outcome probe
+next: m1421-paper-route-m1419-source-collision-stratified-outcome-probe
+```
+
+M1421 should run a no-training outcome probe over M1419 matched/bucketed rows.
+The one-seed diversity miss is acceptable only for diagnostic public outcome
+probing, not for training, corpus export, promotion, paper-level claims, or
+level3 self-identification.
 
 M1419 result:
 

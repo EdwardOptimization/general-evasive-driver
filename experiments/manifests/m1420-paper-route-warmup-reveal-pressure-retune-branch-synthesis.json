@@ -81,7 +81,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1419 is the tenth non-synthesis milestone after M1409 continue synthesis",
-    "synthesis_decision": "continue",
+    "synthesis_decision": "promote_to_next_branch",
     "synthesis_artifact": "docs/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -181,6 +181,38 @@
     "runs/m1419_warmup_gate_invasiveness_retune_source_smoke/summary.json",
     "docs/m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.md",
+    "decision": "warmup_reveal_pressure_retune_synthesis_promote_to_staged_warmup_outcome_validation",
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "paper_route_warmup_reveal_pressure_redesign",
+    "new_branch": "paper_route_staged_warmup_outcome_validation",
+    "m1419_source_rows": 1714,
+    "m1419_matched_or_bucketed_reveal_rows": 252,
+    "m1419_matched_or_bucketed_unique_source_seeds": 27,
+    "m1419_matched_or_bucketed_unique_capability_pairs": 16,
+    "m1419_matched_or_bucketed_unique_reveal_buckets": 101,
+    "m1419_matched_or_bucketed_warmup_response_history_l2_p95": 0.05034439749997964,
+    "m1419_matched_or_bucketed_warmup_action_history_l2_p95": 0.01933163173762596,
+    "m1419_matched_or_bucketed_warmup_gate_collision_share": 0.29365079365079366,
+    "m1419_matched_or_bucketed_clear_plus_low_rows": 178,
+    "m1419_one_seed_miss_accepted_for_no_training_outcome_probe": true,
+    "public_gate_overfit_risk": "medium",
+    "selected_route": "one_no_training_collision_stratified_outcome_probe",
+    "source_smoke_started": false,
+    "outcome_probe_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1421-paper-route-m1419-source-collision-stratified-outcome-probe.json"
+  },
+  "decision": "warmup_reveal_pressure_retune_synthesis_promote_to_staged_warmup_outcome_validation",
   "decision_rule": "M1420 passes if it synthesizes M1410-M1419 with explicit supported/unsupported claims and chooses the next route before any source smoke outcome probe training PPO promotion private holdout corpus export or actor-input expansion.",
-  "next_blocker": "m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis"
+  "next_blocker": "m1421-paper-route-m1419-source-collision-stratified-outcome-probe"
 }

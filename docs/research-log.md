@@ -20964,3 +20964,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.json`.
 - next: `m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis`
+
+## 20260529T061000Z - m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.md`
+- decision: `warmup_reveal_pressure_retune_synthesis_promote_to_staged_warmup_outcome_validation`
+- synthesis decision: `promote_to_next_branch`
+- closed branch: `paper_route_warmup_reveal_pressure_redesign`
+- new branch: `paper_route_staged_warmup_outcome_validation`
+- evidence summary: M1410/M1417/M1419 show staged warmup source viability; M1412 shows sparse nonzero warmup-history outcome effects; M1419 fixes invasiveness but misses matched/bucketed seed diversity by one.
+- supported claim: M1419 is good enough for one no-training public outcome probe with stratified reporting.
+- unsupported claim: M1419 is not a fully clean source pass, not training/corpus material, and not self-identification evidence by itself.
+- overfit risk: medium because M1410-M1419 involved public source retunes and M1412 remained seed-thin/wrong-warmup-negative.
+- route: run one no-training collision-stratified outcome probe on M1419 matched/bucketed rows, then audit before any further experiment.
+- guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1421-paper-route-m1419-source-collision-stratified-outcome-probe.json`.
+- next: `m1421-paper-route-m1419-source-collision-stratified-outcome-probe`
