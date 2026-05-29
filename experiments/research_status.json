@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1485,
+    "completed": 1486,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1476-paper-route-source-diverse-pressure-proposal-smoke.md",
+    "command_log": "docs/m1477-paper-route-boundary-retarget-validation-synthesis.md",
     "returncode": 0,
-    "run_dir": "runs/m1476_source_diverse_pressure_proposal_smoke",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1476-paper-route-source-diverse-pressure-proposal-smoke"
+    "task_id": "m1477-paper-route-boundary-retarget-validation-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1477-paper-route-boundary-retarget-validation-synthesis.json",
-    "hypothesis": "After M1476, the branch should synthesize evidence and likely promote to a source-diverse pressure validation branch before preflight.",
-    "id": "m1477-paper-route-boundary-retarget-validation-synthesis",
+    "command": "see experiments/manifests/m1478-paper-route-source-diverse-pressure-preflight-design.json",
+    "hypothesis": "A preflight-only validation can test M1476 source-diverse pressure candidates before any bounded replay.",
+    "id": "m1478-paper-route-source-diverse-pressure-preflight-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1467-M1476 before any preflight replay training PPO promotion or corpus export",
-    "priority": 14720,
+    "notes": "Pending: design preflight-only validation for M1476 candidates without running preflight replay training PPO promotion or corpus export",
+    "priority": 14730,
     "status": "pending",
-    "success_artifact": "docs/m1477-paper-route-boundary-retarget-validation-synthesis.md"
+    "success_artifact": "docs/m1478-paper-route-source-diverse-pressure-preflight-design.md"
   },
-  "updated_at_utc": "20260529T070500Z"
+  "updated_at_utc": "20260529T071000Z"
 }

@@ -21925,3 +21925,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1477-paper-route-boundary-retarget-validation-synthesis.json`.
 - next: `m1477-paper-route-boundary-retarget-validation-synthesis`
+
+## 20260529T071000Z - m1477-paper-route-boundary-retarget-validation-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1477-paper-route-boundary-retarget-validation-synthesis.md`
+- decision: `boundary_retarget_validation_synthesis_promote_to_source_diverse_pressure_validation`
+- synthesis decision: `promote_to_next_branch`
+- closed branch: `paper_route_source_step_boundary_retarget_validation`
+- new branch: `paper_route_source_diverse_pressure_validation`
+- evidence summary: M1467-M1476 repaired duplicate keys, found local replay positives, blocked corpus export due source-singleton replay positives, implemented source-diverse pressure, and produced 120 selected proposal candidates with 96 neighbor-source rows.
+- supported claim: source-diverse pressure candidates exist at proposal level.
+- unsupported claim: source-diverse replay positives or corpus readiness.
+- public gate overfit risk: `medium_high`
+- guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1478-paper-route-source-diverse-pressure-preflight-design.json`.
+- next: `m1478-paper-route-source-diverse-pressure-preflight-design`

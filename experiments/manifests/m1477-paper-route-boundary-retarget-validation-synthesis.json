@@ -159,6 +159,36 @@
   "baseline_artifacts": [
     "docs/m1476-paper-route-source-diverse-pressure-proposal-smoke.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1477-paper-route-boundary-retarget-validation-synthesis.md",
+    "decision": "boundary_retarget_validation_synthesis_promote_to_source_diverse_pressure_validation",
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "paper_route_source_step_boundary_retarget_validation",
+    "new_branch": "paper_route_source_diverse_pressure_validation",
+    "m1472_history_positive_rows": 8,
+    "m1472_history_positive_unique_relocation_keys": 7,
+    "m1472_history_positive_unique_source_seeds": 1,
+    "m1476_selected_candidate_rows": 120,
+    "m1476_selected_neighbor_source_rows": 96,
+    "m1476_selected_unique_source_seeds": 5,
+    "m1476_selected_unique_capability_pairs": 7,
+    "m1476_duplicate_pressure_key_rows": 0,
+    "public_gate_overfit_risk": "medium_high",
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1478-paper-route-source-diverse-pressure-preflight-design.json"
+  },
+  "decision": "boundary_retarget_validation_synthesis_promote_to_source_diverse_pressure_validation",
   "decision_rule": "M1477 passes if it synthesizes M1467-M1476 and chooses the next branch before preflight or replay.",
-  "next_blocker": "m1477-paper-route-boundary-retarget-validation-synthesis"
+  "next_blocker": "m1478-paper-route-source-diverse-pressure-preflight-design"
 }

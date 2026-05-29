@@ -1,0 +1,147 @@
+{
+  "id": "m1478-paper-route-source-diverse-pressure-preflight-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1476_source_diverse_pressure_proposal_smoke/source_diverse_pressure_candidate_rows.csv",
+      "runs/m1476_source_diverse_pressure_proposal_smoke/summary.json",
+      "docs/m1477-paper-route-boundary-retarget-validation-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1477-paper-route-boundary-retarget-validation-synthesis.json"
+    ],
+    "parent_objective": [
+      "design preflight-only validation for source-diverse pressure candidates"
+    ],
+    "derived_from": [
+      "m1477-paper-route-boundary-retarget-validation-synthesis"
+    ],
+    "blocked_by": [
+      "source-diverse pressure candidates require geometry preflight before replay"
+    ],
+    "supersedes": [
+      "direct bounded replay from M1476 proposal rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1478-paper-route-source-diverse-pressure-preflight-design.md",
+  "public_gates": [
+    "M1478 must design preflight only",
+    "M1478 must use M1476 source-diverse pressure candidate rows with --candidate-step-column source_step",
+    "M1478 must block replay training PPO promotion private holdout corpus export and actor-input changes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight in this design milestone",
+    "do not run bounded replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat proposal-level candidates as replay evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_diverse_pressure_validation",
+    "evidence_axis": "S_source_diverse_pressure_preflight_design",
+    "evidence_increment": "designs preflight-only validation for M1476 source-diverse pressure candidates after branch promotion",
+    "claim_scope": "preflight design only; no preflight run, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design starts replay before preflight",
+      "stop if design drops candidate_step_column source_step",
+      "stop if design mixes control diagnostics into history-positive criteria"
+    ],
+    "fallback_plan": [
+      "route to source-diverse pressure preflight smoke if design passes",
+      "route to branch audit if preflight cannot be specified without overfitting"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1477 promotes to paper_route_source_diverse_pressure_validation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-diverse pressure preflight design",
+    "admission_evidence": [
+      "M1477 promoted to source-diverse pressure validation branch",
+      "M1476 produced 120 selected source-diverse pressure candidates"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run preflight in this design milestone",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1478 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up preflight smoke manifest"
+    ],
+    "next_stage_criteria": [
+      "preflight command is explicit",
+      "guardrails are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1478 is design and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future replay must test generated source-diverse candidates under normal history, warmup interventions, reset hidden, and zero-current controls"
+    ],
+    "temporal_evidence_window": "M1476 source-diverse pressure proposal smoke.",
+    "negative_result_policy": "If preflight fails, audit geometry pressure before any replay or corpus export.",
+    "allowed_claims": [
+      "source-diverse pressure preflight design",
+      "no preflight result, replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A preflight-only validation can test M1476 source-diverse pressure candidates before any bounded replay.",
+  "success_criteria": [
+    "docs/m1478-paper-route-source-diverse-pressure-preflight-design.md exists",
+    "design uses runs/m1476_source_diverse_pressure_proposal_smoke/source_diverse_pressure_candidate_rows.csv",
+    "design uses candidate_step_column source_step",
+    "design blocks replay training PPO promotion private holdout corpus export and actor-input changes",
+    "design routes to preflight smoke or audit"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design starts preflight or replay",
+    "design does not use source_step",
+    "design starts training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1478-paper-route-source-diverse-pressure-preflight-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1478-paper-route-source-diverse-pressure-preflight-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1477-paper-route-boundary-retarget-validation-synthesis.md"
+  ],
+  "decision_rule": "M1478 passes if it designs preflight-only validation for M1476 candidates without running preflight or replay.",
+  "next_blocker": "m1478-paper-route-source-diverse-pressure-preflight-design"
+}
