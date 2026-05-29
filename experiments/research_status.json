@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1418,
+    "completed": 1419,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "tests/test_env.py",
+    "command_log": "docs/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "src",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1408-paper-route-staged-obstacle-warmup-api-implementation"
+    "task_id": "m1409-paper-route-warmup-reveal-pressure-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.json",
-    "hypothesis": "The M1399-M1408 warmup/reveal pressure evidence can be synthesized into a clear next route after M1408 adds staged warmup gate infrastructure.",
-    "id": "m1409-paper-route-warmup-reveal-pressure-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize branch before staged source smoke due workflow cadence",
-    "priority": 14040,
+    "command": "see experiments/manifests/m1410-paper-route-staged-warmup-gate-source-smoke.json",
+    "hypothesis": "The staged warmup gate API can materialize source-diverse matched/bucketed reveal rows with measurable warmup command-response evidence without actor-input changes.",
+    "id": "m1410-paper-route-staged-warmup-gate-source-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: add source-smoke warmup diagnostics create staged configs and run no-training source smoke",
+    "priority": 14050,
     "status": "pending",
-    "success_artifact": "docs/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.md"
+    "success_artifact": "runs/m1410_staged_warmup_gate_source_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T041000Z"
+  "updated_at_utc": "20260529T042000Z"
 }

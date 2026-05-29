@@ -180,6 +180,33 @@
     "docs/m1408-paper-route-staged-obstacle-warmup-api-implementation.md",
     "runs/m1405_mild_warmup_stimulus_outcome_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.md",
+    "decision": "warmup_reveal_pressure_synthesis_continue_to_staged_warmup_source_smoke",
+    "synthesis_decision": "continue",
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "m1400_matched_or_bucketed_rows": 256,
+    "m1401_warmup_history_positive_rows": 0,
+    "m1404_matched_or_bucketed_rows": 282,
+    "m1405_preferred_near_boundary_candidate_rows": 26,
+    "m1405_warmup_history_positive_rows": 0,
+    "m1408_full_tests": "1387 passed, 4 warnings",
+    "public_gate_overfit_risk": "medium_to_high_without_new_staged_source_axis",
+    "selected_route": "staged_warmup_gate_source_smoke",
+    "source_smoke_started": false,
+    "outcome_probe_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1410-paper-route-staged-warmup-gate-source-smoke.json"
+  },
+  "decision": "warmup_reveal_pressure_synthesis_continue_to_staged_warmup_source_smoke",
   "decision_rule": "M1409 passes if it synthesizes M1399-M1408 with explicit supported/unsupported claims and chooses the next route before any source smoke, training, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
-  "next_blocker": "m1409-paper-route-warmup-reveal-pressure-branch-synthesis"
+  "next_blocker": "m1410-paper-route-staged-warmup-gate-source-smoke"
 }

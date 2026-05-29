@@ -16,21 +16,38 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1408-paper-route-staged-obstacle-warmup-api-implementation
+m1409-paper-route-warmup-reveal-pressure-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1409-paper-route-warmup-reveal-pressure-branch-synthesis
+m1410-paper-route-staged-warmup-gate-source-smoke
 ```
 
-M1408 implemented the disabled-by-default staged warmup gate API selected by
-M1407. The current public-gate base remains M1362 alpha `0.1`:
+M1409 synthesized the M1399-M1408 warmup/reveal pressure branch. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1409 result:
+
+```text
+decision: warmup_reveal_pressure_synthesis_continue_to_staged_warmup_source_smoke
+synthesis_decision: continue
+M1400/M1404 source materialization: supported
+M1401/M1405 warmup-history outcome necessity: unsupported
+M1405 preferred_near_boundary_candidate_rows: 26
+M1408 staged warmup API tests: 1387 passed, 4 warnings
+next: m1410-paper-route-staged-warmup-gate-source-smoke
+```
+
+M1410 should add warmup diagnostics to source smoke, create staged warmup gate
+configs, and run no-training source smoke. It must not run outcome
+interventions, corpus export, PPO, training, private holdout, promotion, or
+claim expansion.
 
 M1408 result:
 

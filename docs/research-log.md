@@ -20786,3 +20786,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.json`.
 - next: `m1409-paper-route-warmup-reveal-pressure-branch-synthesis`
+
+## 20260529T042000Z - m1409-paper-route-warmup-reveal-pressure-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.md`
+- decision: `warmup_reveal_pressure_synthesis_continue_to_staged_warmup_source_smoke`
+- synthesis decision: `continue`
+- evidence summary: M1400/M1404 source materialization passed, M1401 was action-only, M1405 fixed preferred near-boundary sparsity but remained reset-only, and M1408 added a tested staged warmup gate API.
+- supported claims: source rows and near-boundary task pressure are achievable; staged warmup API is available without actor-input changes.
+- unsupported claims: no warmup-history outcome necessity or level3 self-ID evidence is supported yet.
+- public overfit risk: medium-to-high without the new staged source axis; acceptable for one source smoke with warmup diagnostics and no outcome/training.
+- guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1410-paper-route-staged-warmup-gate-source-smoke.json`.
+- next: `m1410-paper-route-staged-warmup-gate-source-smoke`
