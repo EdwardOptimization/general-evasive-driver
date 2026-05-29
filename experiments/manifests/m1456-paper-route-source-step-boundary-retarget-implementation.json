@@ -138,6 +138,32 @@
   "baseline_artifacts": [
     "docs/m1455-paper-route-forward-source-preflight-validation-branch-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1456-paper-route-source-step-boundary-retarget-implementation.md",
+    "decision": "source_step_boundary_retarget_generator_implemented_admit_proposal_smoke",
+    "implementation": "src/autodrift/source_step_replay_boundary_retarget.py",
+    "tests": "tests/test_source_step_replay_boundary_retarget.py",
+    "focused_test_result": "4 passed in 0.91s",
+    "retarget_classes": [
+      "normal_boundary",
+      "too_easy",
+      "too_hard"
+    ],
+    "candidate_step_column": "source_step",
+    "source_preflight_started": false,
+    "replay_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1457-paper-route-source-step-boundary-retarget-smoke.json"
+  },
+  "decision": "source_step_boundary_retarget_generator_implemented_admit_proposal_smoke",
   "decision_rule": "M1456 passes if retarget proposal generation is implemented with focused tests and no preflight or replay run.",
-  "next_blocker": "m1456-paper-route-source-step-boundary-retarget-implementation"
+  "next_blocker": "m1457-paper-route-source-step-boundary-retarget-smoke"
 }

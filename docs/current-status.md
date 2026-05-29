@@ -16,22 +16,42 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1455-paper-route-forward-source-preflight-validation-branch-synthesis
+m1456-paper-route-source-step-boundary-retarget-implementation
 ```
 
 Current next task:
 
 ```text
-m1456-paper-route-source-step-boundary-retarget-implementation
+m1457-paper-route-source-step-boundary-retarget-smoke
 ```
 
-M1455 synthesized the forward source preflight validation branch and opened the
-source-step boundary retarget validation branch. The current public-gate base
-remains M1362 alpha `0.1`:
+M1456 implemented the source-step boundary retarget proposal generator. The
+current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1456 result:
+
+```text
+decision: source_step_boundary_retarget_generator_implemented_admit_proposal_smoke
+implementation: src/autodrift/source_step_replay_boundary_retarget.py
+tests: tests/test_source_step_replay_boundary_retarget.py
+focused_test_result: 4 passed in 0.91s
+retarget classes: normal_boundary / too_easy / too_hard
+candidate_step_column: source_step
+next: m1457-paper-route-source-step-boundary-retarget-smoke
+```
+
+M1457 should run proposal generation only on:
+
+```text
+runs/m1452_source_step_bounded_replay_smoke/actual_replay_rows.csv
+```
+
+It must not run preflight, replay, training, PPO, promotion, private holdout,
+corpus export, or actor-input changes.
 
 M1455 result:
 

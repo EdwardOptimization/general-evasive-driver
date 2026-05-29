@@ -21558,3 +21558,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1456-paper-route-source-step-boundary-retarget-implementation.json`.
 - next: `m1456-paper-route-source-step-boundary-retarget-implementation`
+
+## 20260529T051000Z - m1456-paper-route-source-step-boundary-retarget-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1456-paper-route-source-step-boundary-retarget-implementation.md`
+- decision: `source_step_boundary_retarget_generator_implemented_admit_proposal_smoke`
+- implementation: `src/autodrift/source_step_replay_boundary_retarget.py`
+- tests: `tests/test_source_step_replay_boundary_retarget.py`
+- focused result: `4 passed in 0.91s`
+- behavior: consumes M1452 actual replay rows, classifies history-variant groups as `normal_boundary`, `too_easy`, or `too_hard`, and emits source-step retarget proposals without preflight or replay.
+- guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1457-paper-route-source-step-boundary-retarget-smoke.json`.
+- next: `m1457-paper-route-source-step-boundary-retarget-smoke`

@@ -1,0 +1,158 @@
+{
+  "id": "m1457-paper-route-source-step-boundary-retarget-smoke",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1452_source_step_bounded_replay_smoke/actual_replay_rows.csv",
+      "docs/m1456-paper-route-source-step-boundary-retarget-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1456-paper-route-source-step-boundary-retarget-implementation.json"
+    ],
+    "parent_objective": [
+      "run retarget proposal generator on M1452 replay rows"
+    ],
+    "derived_from": [
+      "m1456-paper-route-source-step-boundary-retarget-implementation"
+    ],
+    "blocked_by": [
+      "retarget generator has not yet been run on public M1452 replay rows"
+    ],
+    "supersedes": [
+      "manual retarget candidate generation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1457-paper-route-source-step-boundary-retarget-smoke.md",
+  "public_gates": [
+    "M1457 must run retarget proposal generation only",
+    "M1457 must not run preflight replay train PPO promote use private holdout export corpus or change actor inputs",
+    "M1457 must report proposal rows selected retarget rows class counts and diversity"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run preflight",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_step_boundary_retarget_validation",
+    "evidence_axis": "S_boundary_retarget_proposal_smoke",
+    "evidence_increment": "runs proposal generator on M1452 replay rows before preflight or replay rerun",
+    "claim_scope": "proposal-generation smoke only; no preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if selected_retarget_rows < 64",
+      "stop if candidate_step_column is not source_step",
+      "stop if selected diversity collapses to one seed or one class",
+      "stop if run starts preflight replay or training"
+    ],
+    "fallback_plan": [
+      "route to retarget proposal audit if selected rows are sparse",
+      "route to source-step retarget preflight design if proposal gates pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1456 implements retarget proposal generator",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "boundary retarget proposal smoke",
+    "admission_evidence": [
+      "M1456 implementation and focused tests passed"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "runs/m1457_source_step_boundary_retarget_smoke",
+      "M1457 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up preflight design or audit manifest"
+    ],
+    "next_stage_criteria": [
+      "proposal counts and class counts are recorded",
+      "selected diversity is recorded",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1457 is proposal generation and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future retargeted preflight/replay must test normal history against history interventions"
+    ],
+    "temporal_evidence_window": "M1456 retarget generator.",
+    "negative_result_policy": "If proposal generation is sparse, audit proposal logic rather than lowering replay standards.",
+    "allowed_claims": [
+      "retarget proposal smoke counts",
+      "no replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1456 retarget generator can produce a diverse source-step retarget candidate pool from M1452 replay diagnostics.",
+  "success_criteria": [
+    "runs/m1457_source_step_boundary_retarget_smoke/summary.json exists",
+    "proposal_rows >= 64",
+    "selected_retarget_rows >= 64",
+    "selected_diversity.unique_source_seeds >= 4",
+    "selected_diversity.unique_capability_pairs >= 6",
+    "candidate_step_column equals source_step",
+    "source_preflight_started false",
+    "replay_started false",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "failure_criteria": [
+    "summary missing",
+    "selected retarget rows are sparse",
+    "candidate_step_column is not source_step",
+    "run starts preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "retarget_proposal_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_step_replay_boundary_retarget --actual-replay-rows runs/m1452_source_step_bounded_replay_smoke/actual_replay_rows.csv --max-candidates 128 --per-class-cap 64 --per-seed-cap 32 --per-capability-pair-cap 24 --per-variant-cap 64 --run-dir runs/m1457_source_step_boundary_retarget_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1457_source_step_boundary_retarget_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1457-paper-route-source-step-boundary-retarget-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1456-paper-route-source-step-boundary-retarget-implementation.md"
+  ],
+  "decision_rule": "M1457 passes if retarget proposal generation produces diverse source-step candidates without preflight or replay.",
+  "next_blocker": "m1457-paper-route-source-step-boundary-retarget-smoke"
+}
