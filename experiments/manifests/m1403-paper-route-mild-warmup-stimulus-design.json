@@ -1,0 +1,154 @@
+{
+  "id": "m1403-paper-route-mild-warmup-stimulus-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.md",
+      "runs/m1401_warmup_reveal_pressure_outcome_probe/summary.json",
+      "runs/m1401_warmup_reveal_pressure_outcome_probe/normal_margin_band_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.json"
+    ],
+    "parent_objective": [
+      "design mild warmup stimulus and near-boundary reveal task route after late reveal alone is action-only"
+    ],
+    "derived_from": [
+      "m1402-paper-route-warmup-reveal-pressure-outcome-result-audit"
+    ],
+    "blocked_by": [
+      "M1401 action-only result shows late reveal alone does not create near-boundary outcome gaps"
+    ],
+    "supersedes": [
+      "running another late-reveal grid without a new evidence axis",
+      "training from action-only M1401 rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1403-paper-route-mild-warmup-stimulus-design.md",
+  "public_gates": [
+    "M1403 must design a mild warmup stimulus task route before implementation",
+    "M1403 must define how warmup evidence is created without actor-input oracle labels",
+    "M1403 must define near-boundary reveal and current/recent substitution controls",
+    "M1403 must not train, run PPO, run a source sweep, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run a new source sweep",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not add oracle mode/reference labels to actor observation",
+    "do not count action-only evidence as self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "G_mild_warmup_stimulus_design",
+    "evidence_increment": "designs a new task route that adds mild pre-emergency stimulus and near-boundary reveal pressure after late reveal alone is action-only",
+    "claim_scope": "task/source design only; no training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if design requires actor oracle labels",
+      "stop if warmup stimulus becomes a scripted controller mode",
+      "stop if near-boundary reveal criteria are omitted",
+      "stop if design routes directly to training"
+    ],
+    "fallback_plan": [
+      "route to simulator/task API extension if existing config cannot express warmup stimulus",
+      "route to branch synthesis if no non-oracle stimulus route is available",
+      "route to another task family if near-boundary reveal cannot be produced"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "mild warmup stimulus task design",
+    "admission_evidence": [
+      "M1401 found action sensitivity but zero accepted outcome rows",
+      "M1401 found zero preferred near-boundary candidates",
+      "M1402 routes away from another late-reveal grid"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1403 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "warmup stimulus route is specified",
+      "near-boundary reveal criteria are specified",
+      "current/recent substitution controls are specified",
+      "next implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1403 must design controls that prevent current/recent observations from replacing warmup history evidence.",
+    "history_necessity_tests": [
+      "mild_warmup_stimulus_without_actor_oracle",
+      "near_boundary_reveal_margin_window",
+      "wrong_warmup_history_same_reveal",
+      "delayed_or_removed_warmup_history",
+      "zero_current_response_positive_control"
+    ],
+    "temporal_evidence_window": "Task/source design following M1402 action-only audit.",
+    "negative_result_policy": "If mild warmup stimulus cannot be designed without oracle input or scripted control, record the blocker and route to simulator/task extension or synthesis before training.",
+    "allowed_claims": [
+      "mild warmup stimulus task/source design",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A mild warmup stimulus design can create deployable command-response evidence and near-boundary reveals without adding oracle actor inputs.",
+  "success_criteria": [
+    "docs/m1403-paper-route-mild-warmup-stimulus-design.md exists",
+    "design specifies warmup stimulus, near-boundary reveal criteria, current/recent controls, source-diversity thresholds, and next implementation route",
+    "design does not route directly to training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores M1401 action-only result",
+    "design adds actor oracle labels or scripted controller mode",
+    "design omits near-boundary or current/recent controls",
+    "design routes directly to training or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1403-paper-route-mild-warmup-stimulus-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1403-paper-route-mild-warmup-stimulus-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.md",
+    "runs/m1401_warmup_reveal_pressure_outcome_probe/summary.json"
+  ],
+  "decision_rule": "M1403 passes if it designs a non-oracle mild warmup stimulus and near-boundary reveal route before implementation or training.",
+  "next_blocker": "m1403-paper-route-mild-warmup-stimulus-design"
+}

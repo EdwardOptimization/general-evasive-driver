@@ -16,21 +16,38 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1401-paper-route-warmup-reveal-pressure-outcome-probe
+m1402-paper-route-warmup-reveal-pressure-outcome-result-audit
 ```
 
 Current next task:
 
 ```text
-m1402-paper-route-warmup-reveal-pressure-outcome-result-audit
+m1403-paper-route-mild-warmup-stimulus-design
 ```
 
-M1401 ran the no-training margin-banded outcome probe over M1400 late-reveal
-matched/bucketed rows. The current public-gate base remains M1362 alpha `0.1`:
+M1402 audited the M1401 action-only late-reveal outcome result. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1402 result:
+
+```text
+decision: late_reveal_outcome_audit_pivot_to_mild_warmup_stimulus_design
+classification: action_only_insufficient_outcome_pressure
+M1401 action_critical_rows: 1464
+M1401 accepted_outcome_rows: 0
+M1401 preferred_near_boundary_candidate_rows: 0
+next: m1403-paper-route-mild-warmup-stimulus-design
+```
+
+M1402 concludes that late reveal alone is exhausted: it changes actions but does
+not create outcome gaps or preferred near-boundary candidates. M1403 should
+design a non-oracle mild warmup stimulus plus near-boundary reveal route before
+any implementation, corpus export, PPO, training, private holdout, promotion, or
+claim expansion.
 
 M1401 result:
 

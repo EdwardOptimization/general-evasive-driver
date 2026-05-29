@@ -20685,3 +20685,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: `actor_parameters_changed=false`, `training_started=false`, `evaluation_started=false`, `ppo_used=false`, `promoted=false`, `private_holdout_used=false`, `training_corpus_exported=false`, `actor_input_contract_changed=false`.
 - follow-up manifest: `experiments/manifests/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.json`.
 - next: `m1402-paper-route-warmup-reveal-pressure-outcome-result-audit`
+
+## 20260529T031000Z - m1402-paper-route-warmup-reveal-pressure-outcome-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.md`
+- decision: `late_reveal_outcome_audit_pivot_to_mild_warmup_stimulus_design`
+- classification: `action_only_insufficient_outcome_pressure`
+- evidence: M1401 has `1464` action-critical rows but `0` accepted outcome rows, `16` broad near-boundary candidates, and `0` preferred near-boundary candidates.
+- interpretation: late reveal alone is nearly exhausted; steps 64/72/80 are reconstructable but too easy or outcome-insensitive, while 88/96 are too sparse.
+- next route: design a non-oracle mild warmup stimulus and near-boundary reveal task route before implementation.
+- guardrail: no training, PPO, new source sweep, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1403-paper-route-mild-warmup-stimulus-design.json`.
+- next: `m1403-paper-route-mild-warmup-stimulus-design`
