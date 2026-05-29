@@ -153,5 +153,5 @@
     "docs/m1621-paper-route-contour-aware-policy-target-materialization-design.md"
   ],
   "decision_rule": "M1622 passes if it audits M1621 and chooses a bounded next route without admitting training/PPO/promotion.",
-  "next_blocker": "m1622-paper-route-contour-aware-policy-target-materialization-design-audit"
+  "next_blocker": "m1623-paper-route-contour-aware-policy-target-traceability-preflight"
 }

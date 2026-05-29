@@ -25813,3 +25813,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: implementation, objective update, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
 - follow-up manifest: `experiments/manifests/m1622-paper-route-contour-aware-policy-target-materialization-design-audit.json`
 - next: `m1622-paper-route-contour-aware-policy-target-materialization-design-audit`
+
+## M1622 Paper-Route Contour-Aware Policy Target Materialization Design Audit
+
+- status: completed
+- decision: `contour_aware_policy_target_materialization_audit_admit_traceability_preflight`
+- artifact: `docs/m1622-paper-route-contour-aware-policy-target-materialization-design-audit.md`
+- failure taxonomy: `none`
+- audit result: M1621 schemas and traceability direction are valid but direct tensor materialization is not safe before source/variant availability is measured
+- main risks: source-run aliases, diagnostic variant coverage, missing hidden/observation tensors, public overfit
+- supported: one bounded traceability preflight is admitted
+- unsupported: tensor materialization, objective update, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- follow-up manifest: `experiments/manifests/m1623-paper-route-contour-aware-policy-target-traceability-preflight.json`
+- next: `m1623-paper-route-contour-aware-policy-target-traceability-preflight`

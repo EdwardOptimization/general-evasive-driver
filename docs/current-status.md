@@ -16,25 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1621-paper-route-contour-aware-policy-target-materialization-design
+m1622-paper-route-contour-aware-policy-target-materialization-design-audit
 ```
 
 Current next task:
 
 ```text
-m1622-paper-route-contour-aware-policy-target-materialization-design-audit
+m1623-paper-route-contour-aware-policy-target-traceability-preflight
 ```
 
-M1621 designed traceable policy-side target materialization. The design found
-that existing source CSVs can trace M1615 rows back to `m1592_clean_repair`,
-`m1595_balanced_repair`, and M1609 replay artifacts, but they store only first
-actions, margins, and hidden norms rather than full observation/hidden tensors.
-Therefore future materialization must rerun deterministic fixed-policy tensor
-capture before any actor objective can be built. The next task is M1622: audit
-the design before implementation. Implementation, loss/objective config
-construction, objective update, actor update, training, PPO, promotion, private
-holdout, actor-input changes, diagnostics-as-positive-candidates, and level3
-self-ID claims remain blocked.
+M1622 audited the M1621 policy-target materialization design. It accepts the
+target schemas and traceability direction, but does not admit full tensor
+materialization yet: source-run aliases, diagnostic variant coverage, and
+missing observation/hidden tensors must be measured first. The next task is
+M1623: run a bounded source/variant traceability preflight over M1615 and M1609
+artifacts. Tensor target materialization, loss/objective config construction,
+objective update, actor update, training, PPO, promotion, private holdout,
+actor-input changes, diagnostics-as-positive-candidates, and level3 self-ID
+claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
