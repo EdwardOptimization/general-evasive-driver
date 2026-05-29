@@ -1,0 +1,171 @@
+{
+  "id": "m1521-paper-route-t5-timing-amplified-intervention-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md",
+      "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md",
+      "runs/m1517_decisive_history_t5_intervention_smoke/intervention_rows.csv",
+      "runs/m1517_decisive_history_t5_intervention_smoke/intervention_pair_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1520-paper-route-decisive-history-bounded-runner-synthesis.json"
+    ],
+    "parent_objective": [
+      "implement the bounded earlier-window T5 timing-amplified intervention smoke admitted by M1520"
+    ],
+    "derived_from": [
+      "m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design",
+      "m1520-paper-route-decisive-history-bounded-runner-synthesis"
+    ],
+    "blocked_by": [
+      "timing-amplified runtime evidence is needed before closing, retargeting, or materializing the T5 subset"
+    ],
+    "supersedes": [
+      "decision-step-only intervention implementation for timing diagnosis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1521-paper-route-t5-timing-amplified-intervention-implementation.md",
+  "public_gates": [
+    "M1521 must implement bounded timing-amplified intervention smoke",
+    "M1521 must attempt the four eligible T5 high-speed targets",
+    "M1521 must write row, pair-summary, anchor-summary, guardrail, and summary artifacts",
+    "M1521 must keep candidate materialization and corpus export false",
+    "M1521 must not train run PPO promote use private holdout or alter actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not claim self-identification from timing-amplified plumbing"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_t5_timing_amplified_intervention",
+    "evidence_axis": "G_t5_timing_amplified_intervention_runtime",
+    "evidence_increment": "implements the earlier-window intervention smoke designed in M1519 and admitted by M1520 synthesis",
+    "claim_scope": "intervention runtime evidence only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if deterministic replay cannot reach configured anchor windows",
+      "stop if implementation requires actor-input contract changes",
+      "stop if implementation mutates hidden simulator state directly",
+      "stop if implementation would materialize candidates or export corpus"
+    ],
+    "fallback_plan": [
+      "if all anchors are too broad, narrow to reveal and decision_minus_8",
+      "if donor hidden fails, keep reset/zero/delayed evidence and log wrong-history repair",
+      "if artifacts are written, route to mandatory timing-amplified result audit",
+      "if implementation is null and uninformative, route to subset closure or terminal-boundary retargeting"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1520 promoted the route to a new timing-amplified intervention branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "T5 timing-amplified intervention implementation",
+    "admission_evidence": [
+      "M1520 synthesis promoted M1519 timing-amplified design to a new bounded implementation branch"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "timing-amplified intervention module and tests",
+      "bounded public timing-intervention smoke artifacts",
+      "status queue scoreboard research log and review",
+      "one mandatory follow-up timing-amplified audit manifest"
+    ],
+    "next_stage_criteria": [
+      "intervention artifacts are complete",
+      "guardrails remain false",
+      "action/state/outcome gaps are measurable or failures explicit",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1521 can measure earlier-window effects but cannot alone prove level3 self-ID because diverging physical trajectories are not same-current hidden-state interventions.",
+    "history_necessity_tests": [
+      "normal vs reset/zero/delayed/wrong-history effects must be measured by anchor",
+      "same-current decision diagnostics must be separated from diverging-trajectory earlier-window diagnostics",
+      "null effects must route to audit or synthesis instead of lowering the claim threshold"
+    ],
+    "temporal_evidence_window": "eligible T5 high-speed retarget rows from reveal through terminal.",
+    "negative_result_policy": "If timing-amplified interventions do not change action, state, or outcome, record the null result and route to synthesis, subset closure, or terminal-boundary retargeting.",
+    "allowed_claims": [
+      "M1521 implements bounded T5 timing-amplified intervention measurement",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded timing-amplified intervention smoke can reveal whether earlier history perturbations produce action, state, or outcome gaps on the admitted T5 high-speed rows.",
+  "success_criteria": [
+    "src/autodrift/decisive_history_t5_timing_interventions.py exists",
+    "tests/test_decisive_history_t5_timing_interventions.py exists and passes",
+    "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json exists",
+    "all four eligible T5 high-speed targets are attempted",
+    "row pair anchor guardrail and summary artifacts are written",
+    "guardrail_violation_count equals zero",
+    "candidate_materialized training replay PPO promotion private holdout and actor-input changes remain false"
+  ],
+  "failure_criteria": [
+    "timing-amplified module or tests are missing",
+    "target or donor replay failures are hidden",
+    "anchor/variant/artifact schema is incomplete",
+    "candidate materialization corpus export training PPO promotion private holdout or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_decisive_history_t5_timing_interventions.py -q"
+    },
+    {
+      "name": "timing-intervention-smoke",
+      "command": "PYTHONPATH=src python -m autodrift.decisive_history_t5_timing_interventions --run-dir runs/m1521_t5_timing_amplified_intervention_smoke --continuation-steps 64 --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/decisive_history_t5_timing_interventions.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_decisive_history_t5_timing_interventions.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md",
+    "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md",
+    "runs/m1517_decisive_history_t5_intervention_smoke/summary.json"
+  ],
+  "decision_rule": "M1521 passes if bounded timing-amplified T5 interventions run or fail explicitly with artifacts and all guardrails false.",
+  "next_blocker": "m1521-paper-route-t5-timing-amplified-intervention-implementation"
+}

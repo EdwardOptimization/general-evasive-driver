@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design
+m1520-paper-route-decisive-history-bounded-runner-synthesis
 ```
 
 Current next task:
 
 ```text
-m1520-paper-route-decisive-history-bounded-runner-synthesis
+m1521-paper-route-t5-timing-amplified-intervention-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -71,13 +71,43 @@ null/weak, with max margin gap `0.0165` below the pre-registered `0.02`
 threshold and zero success drops. M1518 audited that result as clean plumbing
 but not history-necessity evidence, kept candidate materialization blocked, and
 routes to timing-amplified earlier-window intervention design. M1519 designed
-that timing-amplified smoke, but workflow cadence now requires M1520 branch
-synthesis before another implementation milestone. The current public-gate base
-remains M1362 alpha `0.1`:
+that timing-amplified smoke, and M1520 synthesized the branch before further
+implementation. The next branch is `paper_route_t5_timing_amplified_intervention`.
+The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1520 decisive history bounded runner synthesis:
+
+```text
+decision: decisive_history_bounded_runner_synthesis_promote_to_timing_amplified_branch
+synthesis_decision: promote_to_next_branch
+artifact: docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md
+synthesized_range: M1510-M1519
+supported_claims:
+  bounded trace collection works
+  retargeting can move scenarios toward near-boundary/failure conditions
+  T5 rows can be replayed for measured interventions
+  decision-step intervention plumbing records null effects cleanly
+unsupported_claims:
+  M1511 default traces are decisive-history candidates
+  M1517 decision-step interventions prove history necessity
+  T5 subset is ready for materialization
+  level3 self-identification
+public_gate_overfit_risk: medium_high
+failure_types: scenario_sampling_failure, metric_artifact
+next_branch: paper_route_t5_timing_amplified_intervention
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1521-paper-route-t5-timing-amplified-intervention-implementation
+```
+
+M1520 closes the bounded-runner branch. The next work is exactly one bounded
+timing-amplified implementation followed by a mandatory audit.
 
 M1519 decisive history T5 timing-amplified intervention design:
 

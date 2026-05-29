@@ -22804,3 +22804,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1519 designs earlier-window intervention implementation boundaries, but workflow cadence requires branch synthesis before another implementation milestone; no self-ID claim is allowed from design or plumbing alone.
 - follow-up manifest: `experiments/manifests/m1520-paper-route-decisive-history-bounded-runner-synthesis.json`.
 - next: `m1520-paper-route-decisive-history-bounded-runner-synthesis`
+
+## M1520 Paper-Route Decisive History Bounded Runner Synthesis
+
+- status: completed
+- decision: `decisive_history_bounded_runner_synthesis_promote_to_timing_amplified_branch`
+- synthesis decision: `promote_to_next_branch`
+- artifact: `docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md`
+- synthesized range: M1510-M1519
+- supported claims: bounded trace collection works; retargeting can move scenarios toward near-boundary/failure conditions; T5 high-speed rows can be replayed for measured interventions; decision-step intervention plumbing records null effects cleanly; M1519 defines a feasible earlier-window implementation.
+- unsupported claims: M1511 default traces are decisive-history candidates; M1517 decision-step interventions prove history necessity; wrong-donor hidden at decision causes outcome degradation; T5 subset is ready for materialization; level3 self-identification.
+- public gate overfit risk: `medium_high`
+- failure taxonomy: `scenario_sampling_failure`, `metric_artifact`
+- next branch: `paper_route_t5_timing_amplified_intervention`
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1520 closes the bounded-runner branch and promotes exactly one bounded timing-amplified implementation branch before mandatory audit.
+- follow-up manifest: `experiments/manifests/m1521-paper-route-t5-timing-amplified-intervention-implementation.json`.
+- next: `m1521-paper-route-t5-timing-amplified-intervention-implementation`

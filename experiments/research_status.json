@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1528,
+    "completed": 1529,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md",
+    "command_log": "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md",
     "returncode": 0,
-    "run_dir": "docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md",
+    "run_dir": "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md",
     "status": "completed",
-    "task_id": "m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design"
+    "task_id": "m1520-paper-route-decisive-history-bounded-runner-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1520-paper-route-decisive-history-bounded-runner-synthesis.json",
-    "hypothesis": "After M1519, the bounded-runner branch should synthesize evidence before any timing-amplified implementation continues.",
-    "id": "m1520-paper-route-decisive-history-bounded-runner-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M1510-M1519 bounded-runner branch before further implementation",
-    "priority": 15150,
+    "command": "see experiments/manifests/m1521-paper-route-t5-timing-amplified-intervention-implementation.json",
+    "hypothesis": "A bounded timing-amplified intervention smoke can reveal whether earlier history perturbations produce action, state, or outcome gaps on the admitted T5 high-speed rows.",
+    "id": "m1521-paper-route-t5-timing-amplified-intervention-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded timing-amplified T5 intervention smoke in new branch",
+    "priority": 15160,
     "status": "pending",
-    "success_artifact": "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md"
+    "success_artifact": "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T094338Z"
+  "updated_at_utc": "20260529T095036Z"
 }

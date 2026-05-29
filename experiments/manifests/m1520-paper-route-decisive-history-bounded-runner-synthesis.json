@@ -173,6 +173,42 @@
     "docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md",
     "runs/m1517_decisive_history_t5_intervention_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md",
+    "decision": "decisive_history_bounded_runner_synthesis_promote_to_timing_amplified_branch",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesized_range": "M1510-M1519",
+    "supported_claims": [
+      "bounded fixed-policy trace collection works",
+      "retargeting can move scenarios toward near-boundary or failure conditions",
+      "the T5 high-speed subset can be deterministically replayed for measured interventions",
+      "decision-step intervention plumbing works and records null effects cleanly",
+      "M1519 defines a feasible earlier-window intervention implementation"
+    ],
+    "unsupported_claims": [
+      "M1511 default traces are decisive-history candidates",
+      "M1517 decision-step interventions prove history necessity",
+      "wrong-donor hidden at decision causes outcome degradation",
+      "the T5 subset is ready for candidate materialization",
+      "level3 anticipatory self-identification"
+    ],
+    "public_gate_overfit_risk": "medium_high",
+    "next_branch": "paper_route_t5_timing_amplified_intervention",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1521-paper-route-t5-timing-amplified-intervention-implementation.json"
+  },
+  "decision": "decisive_history_bounded_runner_synthesis_promote_to_timing_amplified_branch",
   "decision_rule": "M1520 passes if it synthesizes M1510-M1519 and chooses the next route before more bounded-runner implementation work.",
-  "next_blocker": "m1520-paper-route-decisive-history-bounded-runner-synthesis"
+  "next_blocker": "m1521-paper-route-t5-timing-amplified-intervention-implementation"
 }

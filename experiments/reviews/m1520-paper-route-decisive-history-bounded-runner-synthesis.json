@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1520 synthesizes M1510-M1519 and promotes to a new timing-amplified intervention branch while preserving no-training and no-materialization guardrails",
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis treats intervention plumbing or sub-threshold effects as self-ID evidence",
+    "synthesis ignores public-gate overfit risk",
+    "synthesis routes directly to training, PPO, promotion, private holdout, corpus export, actor-input changes, or candidate materialization"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T095243Z",
+  "hypothesis": "After M1519, the bounded-runner branch should synthesize evidence before any timing-amplified implementation continues.",
+  "lineage": {
+    "blocked_by": [
+      "workflow synthesis cadence reached after 10 non-synthesis bounded-runner milestones"
+    ],
+    "derived_from": [
+      "m1510-paper-route-decisive-history-bounded-runner-design",
+      "m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1510-paper-route-decisive-history-bounded-runner-design.md",
+      "docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md",
+      "docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md",
+      "runs/m1517_decisive_history_t5_intervention_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "synthesize M1510-M1519 bounded-runner evidence before any further implementation"
+    ],
+    "supersedes": [
+      "direct timing-amplified implementation without branch synthesis"
+    ]
+  },
+  "milestone": "m1520-paper-route-decisive-history-bounded-runner-synthesis",
+  "next_blocker": "m1521-paper-route-t5-timing-amplified-intervention-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "decisive_history_bounded_runner_synthesis_promote_to_timing_amplified_branch",
+  "public_gates": [
+    "M1520 must synthesize M1510-M1519 before the bounded-runner branch continues",
+    "M1520 must separate trace plumbing, retargeting, decision-step interventions, and timing-amplified design evidence",
+    "M1520 must state supported and falsified claims",
+    "M1520 must assess public-gate overfit risk",
+    "M1520 must choose continue, pivot, stop, or promote_to_next_branch"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "decisive_history_bounded_runner_synthesis_promote_to_timing_amplified_branch",
+    "milestone": "m1520-paper-route-decisive-history-bounded-runner-synthesis",
+    "reason": "M1520 synthesizes M1510-M1519 and promotes to a new timing-amplified intervention branch while preserving no-training and no-materialization guardrails",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md exists",
+    "synthesis summarizes M1510-M1519 evidence",
+    "supported and falsified claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "training, PPO, promotion, private holdout, corpus export, materialization, and self-ID claims remain blocked"
+  ],
+  "type": "gate"
+}
