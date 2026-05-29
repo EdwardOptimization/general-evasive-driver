@@ -23463,3 +23463,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1542 preserves M1541 as clean terminal-boundary plumbing but blocks candidate materialization and training. The next useful route is not another intervention rerun; it is task-sampling calibration that targets actual simulator decision/post-decision terminal margins.
 - follow-up manifest: `experiments/manifests/m1543-paper-route-terminal-boundary-task-sampling-calibration-design.json`.
 - next: `m1543-paper-route-terminal-boundary-task-sampling-calibration-design`
+
+## M1543 Paper-Route Terminal-Boundary Task-Sampling Calibration Design
+
+- status: completed
+- decision: `terminal_boundary_task_sampling_calibration_design_admit_bounded_implementation`
+- artifact: `docs/m1543-paper-route-terminal-boundary-task-sampling-calibration-design.md`
+- target families: `t5_near_boundary_warmup`, `t5_high_speed_close_obstacle`, `t5_boundary_axis_retarget`, `late_reveal_boundary`, `curved_boundary_obstacle`
+- source seed: 1843
+- source seed count: 2
+- max base rows: 20
+- max calibration specs: 160
+- max rollout steps: 128
+- decision margin window: `[-0.03, 0.12]`
+- preferred decision margin window: `[-0.01, 0.06]`
+- post-decision margin window: `[-0.05, 0.10]`
+- terminal margin window: `[-0.05, 0.12]`
+- accepted calibrated row count min: 8
+- accepted terminal family count min: 3
+- decision window hit count min: 4
+- post-decision window hit count min: 4
+- max single terminal family share: 0.5
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1543 turns M1542's source-window miss into a bounded calibration route over actual fixed-policy simulator margins. It blocks direct intervention reruns until calibrated terminal target rows exist.
+- follow-up manifest: `experiments/manifests/m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation.json`.
+- next: `m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation`

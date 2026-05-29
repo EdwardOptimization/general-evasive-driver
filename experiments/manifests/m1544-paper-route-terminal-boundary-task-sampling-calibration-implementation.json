@@ -1,0 +1,153 @@
+{
+  "id": "m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1543-paper-route-terminal-boundary-task-sampling-calibration-design.md",
+      "docs/m1542-paper-route-terminal-boundary-source-repair-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1543-paper-route-terminal-boundary-task-sampling-calibration-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded terminal-boundary task-sampling calibration before history interventions"
+    ],
+    "derived_from": [
+      "m1543-paper-route-terminal-boundary-task-sampling-calibration-design"
+    ],
+    "blocked_by": [
+      "M1541 terminal target traces missed the near-boundary decision window"
+    ],
+    "supersedes": [
+      "direct rerun of terminal-boundary history interventions on uncalibrated rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation.md",
+  "public_gates": [
+    "M1544 must implement bounded calibration before interventions",
+    "M1544 must measure actual simulator decision/post-decision margins",
+    "M1544 must preserve P0 actor input contract",
+    "M1544 must keep materialization and training blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "G_terminal_boundary_task_sampling_calibration_implementation",
+    "evidence_increment": "implements a bounded calibration smoke to test whether actual near-boundary terminal rows can be generated",
+    "claim_scope": "infrastructure and bounded calibration smoke only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if calibration would require actor-input changes",
+      "stop if calibration exports a training corpus or materializes candidates",
+      "stop after calibration smoke and route to audit"
+    ],
+    "fallback_plan": [
+      "route to audit after any completed calibration smoke",
+      "route to branch synthesis if near-boundary calibrated rows remain absent",
+      "route to calibrated intervention design only if source and near-boundary gates pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1543 admits bounded calibration implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "terminal-boundary task sampling calibration implementation",
+    "admission_evidence": [
+      "M1543 pre-registered calibration variables, windows, artifacts, and pass/fail thresholds"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "terminal-boundary calibration module and tests",
+      "bounded public calibration smoke artifacts",
+      "M1544 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "calibration artifacts are written",
+      "actual decision/post-decision margin windows are reported",
+      "guardrails are clean or failures explicit",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1544 only calibrates task sampling and must not claim history necessity.",
+    "history_necessity_tests": [
+      "not_applicable_to_calibration",
+      "future calibrated wrong-history and donor-stream tests must be designed separately"
+    ],
+    "temporal_evidence_window": "M1544 bounded calibration smoke only.",
+    "negative_result_policy": "If calibrated near-boundary rows cannot be produced, record the blocker and audit before another narrow repair.",
+    "allowed_claims": [
+      "M1544 implements task-sampling calibration",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded calibration implementation can generate actual fixed-policy terminal target rows in decision/post-decision near-boundary windows without changing actor inputs or materializing candidates.",
+  "success_criteria": [
+    "terminal-boundary task-sampling calibration module exists",
+    "focused tests cover calibration grid guardrails and summary schema",
+    "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/summary.json exists",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "calibration module or smoke artifacts are missing",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation materializes candidates exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_terminal_boundary_task_sampling_calibration.py -q"
+    },
+    {
+      "name": "smoke",
+      "command": "PYTHONPATH=src python -m autodrift.terminal_boundary_task_sampling_calibration --output-dir runs/m1544_terminal_boundary_task_sampling_calibration_smoke --seed 1843 --seed-count 2 --max-base-rows 20 --max-calibration-specs 160"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1543-paper-route-terminal-boundary-task-sampling-calibration-design.md",
+    "docs/m1542-paper-route-terminal-boundary-source-repair-result-audit.md"
+  ],
+  "decision_rule": "M1544 passes if calibration artifacts are written and all no-materialization/no-training guardrails remain clean.",
+  "next_blocker": "m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation"
+}

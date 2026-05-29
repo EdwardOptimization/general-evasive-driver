@@ -146,6 +146,45 @@
     "docs/m1542-paper-route-terminal-boundary-source-repair-result-audit.md",
     "runs/m1541_terminal_boundary_source_repair_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1543-paper-route-terminal-boundary-task-sampling-calibration-design.md",
+    "decision": "terminal_boundary_task_sampling_calibration_design_admit_bounded_implementation",
+    "target_source_families": [
+      "t5_near_boundary_warmup",
+      "t5_high_speed_close_obstacle",
+      "t5_boundary_axis_retarget",
+      "late_reveal_boundary",
+      "curved_boundary_obstacle"
+    ],
+    "source_seed": 1843,
+    "source_seed_count": 2,
+    "max_base_rows": 20,
+    "max_calibration_specs": 160,
+    "max_rollout_steps": 128,
+    "decision_margin_window": "-0.03|0.12",
+    "preferred_decision_margin_window": "-0.01|0.06",
+    "post_decision_margin_window": "-0.05|0.10",
+    "terminal_margin_window": "-0.05|0.12",
+    "accepted_calibrated_row_count_min": 8,
+    "accepted_terminal_family_count_min": 3,
+    "decision_window_hit_count_min": 4,
+    "post_decision_window_hit_count_min": 4,
+    "max_single_terminal_family_share": 0.5,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation.json"
+  },
+  "decision": "terminal_boundary_task_sampling_calibration_design_admit_bounded_implementation",
   "decision_rule": "M1543 passes if it designs a bounded calibration route for actual near-boundary terminal rows without weakening guardrails.",
-  "next_blocker": "m1543-paper-route-terminal-boundary-task-sampling-calibration-design"
+  "next_blocker": "m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation"
 }

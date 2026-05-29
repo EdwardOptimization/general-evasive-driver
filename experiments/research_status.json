@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1551,
+    "completed": 1552,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1542-paper-route-terminal-boundary-source-repair-result-audit.md",
+    "command_log": "docs/m1543-paper-route-terminal-boundary-task-sampling-calibration-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1542-paper-route-terminal-boundary-source-repair-result-audit"
+    "task_id": "m1543-paper-route-terminal-boundary-task-sampling-calibration-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1543-paper-route-terminal-boundary-task-sampling-calibration-design.json",
-    "hypothesis": "A bounded task-sampling calibration design can repair M1541's source-window miss by targeting actual fixed-policy terminal margins before another history-intervention run.",
-    "id": "m1543-paper-route-terminal-boundary-task-sampling-calibration-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded terminal-boundary task sampling calibration before interventions",
-    "priority": 15380,
+    "command": "see experiments/manifests/m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation.json",
+    "hypothesis": "A bounded calibration implementation can generate actual fixed-policy terminal target rows in decision/post-decision near-boundary windows without changing actor inputs or materializing candidates.",
+    "id": "m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded terminal-boundary task sampling calibration smoke",
+    "priority": 15390,
     "status": "pending",
-    "success_artifact": "docs/m1543-paper-route-terminal-boundary-task-sampling-calibration-design.md"
+    "success_artifact": "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T115127Z"
+  "updated_at_utc": "20260529T115430Z"
 }

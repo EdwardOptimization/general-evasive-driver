@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1542-paper-route-terminal-boundary-source-repair-result-audit
+m1543-paper-route-terminal-boundary-task-sampling-calibration-design
 ```
 
 Current next task:
 
 ```text
-m1543-paper-route-terminal-boundary-task-sampling-calibration-design
+m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -166,6 +166,11 @@ materialization because the target traces did not enter the intended
 near-boundary active set. The next route is a bounded task-sampling calibration
 design that targets actual fixed-policy decision/post-decision margins before
 another history-intervention run.
+M1543 designed that calibration route. It requires bounded public task
+retargeting to target actual simulator decision/post-decision margins, with
+separate decision and post-decision windows, terminal-family coverage gates, and
+explicit no-materialization/no-training guardrails. The next task is the M1544
+calibration implementation smoke.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

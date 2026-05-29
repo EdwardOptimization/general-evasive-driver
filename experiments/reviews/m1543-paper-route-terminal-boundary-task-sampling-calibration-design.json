@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1543 designs bounded terminal-boundary task calibration targeting actual fixed-policy decision/post-decision margins before another history-intervention smoke",
+  "failure_criteria": [
+    "design document is missing",
+    "design routes directly to interventions without calibrating actual margins",
+    "design changes actor inputs or weakens self-ID evidence standards",
+    "design routes directly to training promotion private holdout or materialization"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T115521Z",
+  "hypothesis": "A bounded task-sampling calibration design can repair M1541's source-window miss by targeting actual fixed-policy terminal margins before another history-intervention run.",
+  "lineage": {
+    "blocked_by": [
+      "M1541 terminal_target_near_boundary_count is zero",
+      "M1541 history interventions are null and control dominated"
+    ],
+    "derived_from": [
+      "m1542-paper-route-terminal-boundary-source-repair-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1542-paper-route-terminal-boundary-source-repair-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1542-paper-route-terminal-boundary-source-repair-result-audit.md",
+      "runs/m1541_terminal_boundary_source_repair_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "design task-sampling calibration for terminal-boundary near-boundary rows before interventions"
+    ],
+    "supersedes": [
+      "rerunning terminal-boundary interventions on uncalibrated source rows"
+    ]
+  },
+  "milestone": "m1543-paper-route-terminal-boundary-task-sampling-calibration-design",
+  "next_blocker": "m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "terminal_boundary_task_sampling_calibration_design_admit_bounded_implementation",
+  "public_gates": [
+    "M1543 must design calibration before rerunning interventions",
+    "M1543 must target actual simulator decision/post-decision margins",
+    "M1543 must preserve the P0 actor input contract",
+    "M1543 must keep materialization and training blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1543-paper-route-terminal-boundary-task-sampling-calibration-design.md",
+    "clearance_margin_mean": "",
+    "decision": "terminal_boundary_task_sampling_calibration_design_admit_bounded_implementation",
+    "milestone": "m1543-paper-route-terminal-boundary-task-sampling-calibration-design",
+    "reason": "M1543 designs bounded terminal-boundary task calibration targeting actual fixed-policy decision/post-decision margins before another history-intervention smoke",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1543-paper-route-terminal-boundary-task-sampling-calibration-design.md exists",
+    "design defines calibration variables and pass/fail thresholds",
+    "design separates decision-window and post-decision margin targets",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up implementation manifest exists"
+  ],
+  "type": "gate"
+}
