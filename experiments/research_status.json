@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1612,
+    "completed": 1613,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1603-paper-route-contour-aware-source-rule-result-audit.md",
+    "command_log": "docs/m1604-paper-route-contour-aware-bounded-replay-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1603-paper-route-contour-aware-source-rule-result-audit"
+    "task_id": "m1604-paper-route-contour-aware-bounded-replay-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1604-paper-route-contour-aware-bounded-replay-design.json",
-    "hypothesis": "M1602 primary and diagnostic rows can define a bounded replay design without public-row overfit shortcuts.",
-    "id": "m1604-paper-route-contour-aware-bounded-replay-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded replay without executing replay",
-    "priority": 15990,
+    "command": "see experiments/manifests/m1605-paper-route-contour-aware-bounded-replay-implementation.json",
+    "hypothesis": "A bounded replay over M1602 primary rows can preserve the clean history-vs-control contour while diagnostic controls remain non-primary.",
+    "id": "m1605-paper-route-contour-aware-bounded-replay-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: replay public primary rows with diagnostic controls and route to audit",
+    "priority": 16000,
     "status": "pending",
-    "success_artifact": "docs/m1604-paper-route-contour-aware-bounded-replay-design.md"
+    "success_artifact": "runs/m1605_contour_aware_bounded_replay/summary.json"
   },
-  "updated_at_utc": "20260529T172157Z"
+  "updated_at_utc": "20260529T172528Z"
 }

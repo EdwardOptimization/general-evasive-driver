@@ -25351,3 +25351,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1604-paper-route-contour-aware-bounded-replay-design.json`
 - next: `m1604-paper-route-contour-aware-bounded-replay-design`
+
+## M1604 Paper-Route Contour-Aware Bounded Replay Design
+
+- status: completed
+- decision: `contour_aware_bounded_replay_design_admit_one_implementation`
+- artifact: `docs/m1604-paper-route-contour-aware-bounded-replay-design.md`
+- failure taxonomy: `scenario_sampling_failure`, `objective_overfit`
+- primary input: `runs/m1602_contour_aware_source_rule/primary_rule_rows.csv`
+- diagnostic input: `runs/m1602_contour_aware_source_rule/diagnostic_rule_rows.csv`
+- primary replay directed-pair target: 144
+- diagnostic replay directed-pair minimum: 72
+- diagnostic reason minimum: 3
+- required variants: normal, wrong_history_hidden, donor_response_action_plus_hidden, donor_response_action_only, reset_hidden, zero_current_response, zero_action_history, zero_all_response
+- route decision: admit one bounded replay implementation and require audit after execution
+- replay started: false in M1604
+- history interventions executed: false in M1604
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1605-paper-route-contour-aware-bounded-replay-implementation.json`
+- next: `m1605-paper-route-contour-aware-bounded-replay-implementation`

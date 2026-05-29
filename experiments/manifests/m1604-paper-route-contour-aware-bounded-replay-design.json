@@ -158,6 +158,58 @@
     "runs/m1602_contour_aware_source_rule/summary.json",
     "docs/m1603-paper-route-contour-aware-source-rule-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1604-paper-route-contour-aware-bounded-replay-design.md",
+    "decision": "contour_aware_bounded_replay_design_admit_one_implementation",
+    "failure_taxonomy": [
+      "scenario_sampling_failure",
+      "objective_overfit"
+    ],
+    "primary_input": "runs/m1602_contour_aware_source_rule/primary_rule_rows.csv",
+    "diagnostic_input": "runs/m1602_contour_aware_source_rule/diagnostic_rule_rows.csv",
+    "primary_replay_directed_pair_target": 144,
+    "diagnostic_replay_directed_pair_minimum": 72,
+    "diagnostic_reason_minimum": 3,
+    "required_variants": [
+      "normal",
+      "wrong_history_hidden",
+      "donor_response_action_plus_hidden",
+      "donor_response_action_only",
+      "reset_hidden",
+      "zero_current_response",
+      "zero_action_history",
+      "zero_all_response"
+    ],
+    "next_manifest": "experiments/manifests/m1605-paper-route-contour-aware-bounded-replay-implementation.json",
+    "supported_claims": [
+      "bounded replay inputs can be defined from M1602 primary rows",
+      "diagnostic controls can be pre-registered from M1602 diagnostic rows",
+      "one bounded replay implementation is justified before audit"
+    ],
+    "unsupported_claims": [
+      "replay has passed",
+      "candidate materialization",
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "paper-level self-identification",
+      "level3 anticipatory self-identification"
+    ],
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1604 passes if it designs a bounded replay experiment without executing replay or weakening gates.",
-  "next_blocker": "m1604-paper-route-contour-aware-bounded-replay-design"
+  "next_blocker": "m1605-paper-route-contour-aware-bounded-replay-implementation"
 }
