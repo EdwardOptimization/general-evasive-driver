@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1472,
+    "completed": 1473,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1463-paper-route-positive-neighborhood-expansion-design.md",
+    "command_log": "docs/m1464-paper-route-positive-neighborhood-expansion-implementation.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1463-paper-route-positive-neighborhood-expansion-design"
+    "task_id": "m1464-paper-route-positive-neighborhood-expansion-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1464-paper-route-positive-neighborhood-expansion-implementation.json",
-    "hypothesis": "A no-training generator can expand M1461's live history-positive boundary into a source-step anchored candidate pool while keeping controls separate.",
-    "id": "m1464-paper-route-positive-neighborhood-expansion-implementation",
+    "command": "see experiments/manifests/m1465-paper-route-positive-neighborhood-expansion-smoke.json",
+    "hypothesis": "The M1464 generator can expand M1461's live singleton boundary into a source-step anchored candidate pool with controls separated.",
+    "id": "m1465-paper-route-positive-neighborhood-expansion-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: implement no-training positive-neighborhood expansion generator with focused tests and no preflight replay training or corpus export",
-    "priority": 14590,
+    "notes": "Pending: run proposal generator around M1461 live positive neighborhood without preflight replay training or corpus export",
+    "priority": 14600,
     "status": "pending",
-    "success_artifact": "docs/m1464-paper-route-positive-neighborhood-expansion-implementation.md"
+    "success_artifact": "docs/m1465-paper-route-positive-neighborhood-expansion-smoke.md"
   },
-  "updated_at_utc": "20260529T055000Z"
+  "updated_at_utc": "20260529T060000Z"
 }

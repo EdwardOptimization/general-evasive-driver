@@ -16,30 +16,33 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1463-paper-route-positive-neighborhood-expansion-design
+m1464-paper-route-positive-neighborhood-expansion-implementation
 ```
 
 Current next task:
 
 ```text
-m1464-paper-route-positive-neighborhood-expansion-implementation
+m1465-paper-route-positive-neighborhood-expansion-smoke
 ```
 
-M1463 designed positive-neighborhood expansion after the M1461/M1462 singleton
-positive audit. The current public-gate base remains M1362 alpha `0.1`:
+M1464 implemented the positive-neighborhood expansion generator. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1463 design:
+M1464 result:
 
 ```text
-decision: positive_neighborhood_expansion_design_admit_implementation
-anchor source: runs/m1461_retargeted_source_step_bounded_replay_smoke/history_positive_rows.csv
-control source: runs/m1461_retargeted_source_step_bounded_replay_smoke/control_positive_rows.csv
-candidate pool: runs/m1459_retargeted_source_step_preflight_smoke/selected_candidate_rows.csv
-next: m1464-paper-route-positive-neighborhood-expansion-implementation
+decision: positive_neighborhood_expansion_generator_implemented_admit_proposal_smoke
+implementation: src/autodrift/positive_neighborhood_expansion.py
+tests: tests/test_positive_neighborhood_expansion.py
+focused_test_result: 30 passed in 0.89s
+candidate_step_column: source_step
+control_positive_separation: true
+source_diversity_caps: true
+next: m1465-paper-route-positive-neighborhood-expansion-smoke
 ```
 
 M1462 audit:
@@ -50,9 +53,9 @@ control_positive_rows: 8
 interpretation: live positive neighborhood exists but is source-singleton and control-sensitive
 ```
 
-M1464 should implement the candidate generator only. It must not run preflight,
-bounded replay, training, PPO, promotion, private holdout, corpus export, or
-actor-input changes.
+M1465 should run proposal generation only around the M1461 live positive
+neighborhood. It must not run preflight, bounded replay, training, PPO,
+promotion, private holdout, corpus export, or actor-input changes.
 
 M1455 result:
 

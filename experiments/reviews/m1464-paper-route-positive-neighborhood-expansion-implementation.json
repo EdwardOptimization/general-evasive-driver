@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M1464 implements no-training positive-neighborhood candidate expansion with source_step preservation control separation and focused tests",
+  "failure_criteria": [
+    "implementation is missing",
+    "tests do not cover source_step or control separation",
+    "implementation starts preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run bounded replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not replay singleton positives directly"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260529T050419Z",
+  "hypothesis": "A no-training generator can expand M1461's live history-positive boundary into a source-step anchored candidate pool while keeping controls separate.",
+  "lineage": {
+    "blocked_by": [
+      "positive-neighborhood expansion generator is not yet implemented"
+    ],
+    "derived_from": [
+      "m1463-paper-route-positive-neighborhood-expansion-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1463-paper-route-positive-neighborhood-expansion-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1463-paper-route-positive-neighborhood-expansion-design.md",
+      "runs/m1461_retargeted_source_step_bounded_replay_smoke/history_positive_rows.csv",
+      "runs/m1461_retargeted_source_step_bounded_replay_smoke/control_positive_rows.csv",
+      "runs/m1459_retargeted_source_step_preflight_smoke/selected_candidate_rows.csv"
+    ],
+    "parent_objective": [
+      "implement no-training positive-neighborhood candidate expansion generator"
+    ],
+    "supersedes": [
+      "manual expansion of M1461 singleton positive rows"
+    ]
+  },
+  "milestone": "m1464-paper-route-positive-neighborhood-expansion-implementation",
+  "next_blocker": "m1465-paper-route-positive-neighborhood-expansion-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "positive_neighborhood_expansion_generator_implemented_admit_proposal_smoke",
+  "public_gates": [
+    "M1464 must implement candidate expansion only",
+    "M1464 must preserve source_step and keep zero-current control positives separate",
+    "M1464 must not run preflight replay train PPO promote use private holdout export corpus or change actor inputs",
+    "M1464 must add focused tests for anchor grid source-diverse selection control separation and source_step preservation"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1464-paper-route-positive-neighborhood-expansion-implementation.md",
+    "clearance_margin_mean": "",
+    "decision": "positive_neighborhood_expansion_generator_implemented_admit_proposal_smoke",
+    "milestone": "m1464-paper-route-positive-neighborhood-expansion-implementation",
+    "reason": "M1464 implements no-training positive-neighborhood candidate expansion with source_step preservation control separation and focused tests",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "positive-neighborhood generator is implemented",
+    "focused tests pass for anchor-grid generation",
+    "focused tests pass for source_step preservation",
+    "focused tests pass for control-positive separation",
+    "focused tests pass for source-diverse selection caps",
+    "docs/m1464-paper-route-positive-neighborhood-expansion-implementation.md exists",
+    "no preflight replay training PPO promotion private holdout corpus export or actor-input change occurs"
+  ],
+  "type": "infrastructure"
+}

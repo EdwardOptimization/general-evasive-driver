@@ -1,0 +1,165 @@
+{
+  "id": "m1465-paper-route-positive-neighborhood-expansion-smoke",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1461_retargeted_source_step_bounded_replay_smoke/history_positive_rows.csv",
+      "runs/m1461_retargeted_source_step_bounded_replay_smoke/control_positive_rows.csv",
+      "runs/m1459_retargeted_source_step_preflight_smoke/selected_candidate_rows.csv",
+      "docs/m1464-paper-route-positive-neighborhood-expansion-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1464-paper-route-positive-neighborhood-expansion-implementation.json"
+    ],
+    "parent_objective": [
+      "run positive-neighborhood expansion proposal generator"
+    ],
+    "derived_from": [
+      "m1464-paper-route-positive-neighborhood-expansion-implementation"
+    ],
+    "blocked_by": [
+      "positive-neighborhood expansion generator has not yet been run"
+    ],
+    "supersedes": [
+      "manual expansion of M1461 singleton positive rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1465-paper-route-positive-neighborhood-expansion-smoke.md",
+  "public_gates": [
+    "M1465 must run proposal generation only",
+    "M1465 must preserve source_step and keep zero-current controls separate",
+    "M1465 must not run preflight replay train PPO promote use private holdout export corpus or change actor inputs",
+    "M1465 must report proposal rows selected rows source groups and diversity"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run bounded replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat proposal rows as replay evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_step_boundary_retarget_validation",
+    "evidence_axis": "S_positive_neighborhood_expansion_smoke",
+    "evidence_increment": "runs no-training candidate expansion around M1461 live positive neighborhood",
+    "claim_scope": "proposal-generation smoke only; no preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if selected_candidate_rows < 64",
+      "stop if candidate_step_column is not source_step",
+      "stop if selected diversity collapses to one source",
+      "stop if control positives are mixed into anchor rows",
+      "stop if run starts preflight replay or training"
+    ],
+    "fallback_plan": [
+      "route to expansion result audit if selected rows are sparse or singleton",
+      "route to branch synthesis if cadence requires synthesis before more replay",
+      "route to expansion preflight design only if proposal gates pass and cadence permits"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1464 implements positive-neighborhood expansion generator",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "positive-neighborhood proposal smoke",
+    "admission_evidence": [
+      "M1464 implementation and focused tests passed"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "runs/m1465_positive_neighborhood_expansion_smoke",
+      "M1465 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up audit or synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "proposal generation completed",
+      "source group counts and diversity are recorded",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1465 is proposal generation and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future expansion replay must separate normal history, warmup history interventions, reset-hidden, and zero-current controls"
+    ],
+    "temporal_evidence_window": "M1464 generator.",
+    "negative_result_policy": "If expansion remains singleton, route to synthesis or source mining rather than corpus export.",
+    "allowed_claims": [
+      "positive-neighborhood proposal smoke counts",
+      "no preflight result, replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1464 generator can expand M1461's live singleton boundary into a source-step anchored candidate pool with controls separated.",
+  "success_criteria": [
+    "runs/m1465_positive_neighborhood_expansion_smoke/summary.json exists",
+    "proposal_rows >= 64",
+    "selected_candidate_rows >= 64",
+    "selected_diversity.unique_source_seeds >= 2",
+    "selected_diversity.unique_capability_pairs >= 2",
+    "candidate_step_column equals source_step",
+    "source_preflight_started false",
+    "replay_started false",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "failure_criteria": [
+    "summary missing",
+    "selected candidate rows are sparse or singleton",
+    "candidate_step_column is not source_step",
+    "run starts preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "positive_neighborhood_expansion_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.positive_neighborhood_expansion --history-positive-rows runs/m1461_retargeted_source_step_bounded_replay_smoke/history_positive_rows.csv --control-positive-rows runs/m1461_retargeted_source_step_bounded_replay_smoke/control_positive_rows.csv --candidate-pool runs/m1459_retargeted_source_step_preflight_smoke/selected_candidate_rows.csv --max-candidates 192 --per-seed-cap 48 --per-capability-pair-cap 32 --per-anchor-cap 96 --per-variant-cap 96 --run-dir runs/m1465_positive_neighborhood_expansion_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1465_positive_neighborhood_expansion_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1465-paper-route-positive-neighborhood-expansion-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1464-paper-route-positive-neighborhood-expansion-implementation.md"
+  ],
+  "decision_rule": "M1465 passes if proposal generation produces source-diverse source-step candidates without preflight or replay.",
+  "next_blocker": "m1465-paper-route-positive-neighborhood-expansion-smoke"
+}

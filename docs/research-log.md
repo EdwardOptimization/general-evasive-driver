@@ -21696,3 +21696,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, preflight, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1464-paper-route-positive-neighborhood-expansion-implementation.json`.
 - next: `m1464-paper-route-positive-neighborhood-expansion-implementation`
+
+## 20260529T060000Z - m1464-paper-route-positive-neighborhood-expansion-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1464-paper-route-positive-neighborhood-expansion-implementation.md`
+- decision: `positive_neighborhood_expansion_generator_implemented_admit_proposal_smoke`
+- implementation: `src/autodrift/positive_neighborhood_expansion.py`
+- tests: `tests/test_positive_neighborhood_expansion.py`
+- focused result: `30 passed in 0.89s`
+- behavior: filters history-positive anchors, keeps zero-current control positives separate, maps source-diverse candidates into the anchor body-frame neighborhood, preserves `source_step`, and applies seed/pair/anchor/variant caps.
+- guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1465-paper-route-positive-neighborhood-expansion-smoke.json`.
+- next: `m1465-paper-route-positive-neighborhood-expansion-smoke`
