@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1515-paper-route-decisive-history-source-retarget-result-audit
+m1516-paper-route-decisive-history-t5-intervention-design
 ```
 
 Current next task:
 
 ```text
-m1516-paper-route-decisive-history-t5-intervention-design
+m1517-paper-route-decisive-history-t5-intervention-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -64,12 +64,47 @@ families. M1512 audited those traces as plumbing-positive but too safe for
 candidate materialization. M1513 designed a bounded public retarget route.
 M1514 implemented it and produced near-boundary retarget traces with explicit
 failures. M1515 admitted only the T5 high-speed subset to measured-intervention
-design and kept candidate materialization blocked. The current public-gate base
-remains M1362 alpha `0.1`:
+design and kept candidate materialization blocked. M1516 designed bounded T5
+intervention variants and artifacts. The current public-gate base remains M1362
+alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1516 decisive history T5 intervention design:
+
+```text
+decision: t5_intervention_design_admit_bounded_implementation
+artifact: docs/m1516-paper-route-decisive-history-t5-intervention-design.md
+eligible_source_family: t5_high_speed_close_obstacle
+eligible_target_count: 4
+eligible_modes:
+  close_wide
+  low_mu_close
+  late_reveal_high_speed
+  drift_required_focus
+intervention_variants:
+  normal
+  reset_hidden_once
+  reset_hidden_every_step
+  zero_current_response
+  zero_action_history
+  delayed_hidden_8
+  wrong_history_donor_hidden
+continuation_steps: 64
+deterministic_replay_boundary_defined: true
+wrong_history_scope: donor hidden diagnostic only, not same-current T4 proof
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1517-paper-route-decisive-history-t5-intervention-implementation
+```
+
+M1516 is design only. Next is the bounded T5 intervention smoke; candidate
+materialization and level3 self-ID claims remain blocked until measured gaps are
+audited.
 
 M1515 decisive history source retarget result audit:
 

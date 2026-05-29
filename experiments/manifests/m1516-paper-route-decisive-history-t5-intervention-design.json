@@ -146,6 +146,45 @@
     "docs/m1515-paper-route-decisive-history-source-retarget-result-audit.md",
     "runs/m1514_decisive_history_source_retarget_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1516-paper-route-decisive-history-t5-intervention-design.md",
+    "decision": "t5_intervention_design_admit_bounded_implementation",
+    "eligible_source_family": "t5_high_speed_close_obstacle",
+    "eligible_target_count": 4,
+    "eligible_modes": [
+      "close_wide",
+      "low_mu_close",
+      "late_reveal_high_speed",
+      "drift_required_focus"
+    ],
+    "intervention_variants": [
+      "normal",
+      "reset_hidden_once",
+      "reset_hidden_every_step",
+      "zero_current_response",
+      "zero_action_history",
+      "delayed_hidden_8",
+      "wrong_history_donor_hidden"
+    ],
+    "continuation_steps": 64,
+    "deterministic_replay_boundary_defined": true,
+    "wrong_history_scope": "donor hidden diagnostic only; not same-current T4 proof",
+    "artifact_schema_defined": true,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1517-paper-route-decisive-history-t5-intervention-implementation.json"
+  },
+  "decision": "t5_intervention_design_admit_bounded_implementation",
   "decision_rule": "M1516 passes if it designs bounded T5 measured interventions without materializing candidates, training, or claiming self-identification.",
-  "next_blocker": "m1516-paper-route-decisive-history-t5-intervention-design"
+  "next_blocker": "m1517-paper-route-decisive-history-t5-intervention-implementation"
 }

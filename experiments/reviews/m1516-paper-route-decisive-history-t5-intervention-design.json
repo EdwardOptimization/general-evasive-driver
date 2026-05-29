@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M1516 designs bounded normal reset zero delayed and donor-hidden interventions for the admitted T5 high-speed subset while blocking materialization and self-ID claims",
+  "failure_criteria": [
+    "design document is missing",
+    "intervention scope or eligible rows are ambiguous",
+    "design changes actor inputs or uses private holdout",
+    "design materializes candidates or starts training PPO promotion corpus export"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates during design",
+    "do not claim self-identification before measured intervention gaps"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T092817Z",
+  "hypothesis": "A bounded measured-intervention design can test whether the eligible T5 high-speed retarget rows show outcome-relevant sensitivity to history and response ablations.",
+  "lineage": {
+    "blocked_by": [
+      "intervention continuations must be designed before any T5 candidate materialization"
+    ],
+    "derived_from": [
+      "m1515-paper-route-decisive-history-source-retarget-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1515-paper-route-decisive-history-source-retarget-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1515-paper-route-decisive-history-source-retarget-result-audit.md",
+      "runs/m1514_decisive_history_source_retarget_smoke/retarget_trace_rows.csv",
+      "runs/m1514_decisive_history_source_retarget_smoke/retarget_source_family_summary.csv"
+    ],
+    "parent_objective": [
+      "design measured intervention probe for the eligible t5_high_speed_close_obstacle subset"
+    ],
+    "supersedes": [
+      "candidate materialization directly from retargeted near-boundary traces"
+    ]
+  },
+  "milestone": "m1516-paper-route-decisive-history-t5-intervention-design",
+  "next_blocker": "m1517-paper-route-decisive-history-t5-intervention-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "t5_intervention_design_admit_bounded_implementation",
+  "public_gates": [
+    "M1516 must design bounded measured interventions for t5_high_speed_close_obstacle only",
+    "M1516 must define normal reset-hidden zero-response zero-action delayed and wrong-history handling scope",
+    "M1516 must preserve P0 actor contract and fixed checkpoint",
+    "M1516 must not materialize candidates or export training corpus",
+    "M1516 must not train run PPO promote use private holdout or alter actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1516-paper-route-decisive-history-t5-intervention-design.md",
+    "clearance_margin_mean": "",
+    "decision": "t5_intervention_design_admit_bounded_implementation",
+    "milestone": "m1516-paper-route-decisive-history-t5-intervention-design",
+    "reason": "M1516 designs bounded normal reset zero delayed and donor-hidden interventions for the admitted T5 high-speed subset while blocking materialization and self-ID claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1516-paper-route-decisive-history-t5-intervention-design.md exists",
+    "design names eligible rows and excluded rows",
+    "design defines intervention variants horizons metrics and artifact schema",
+    "design keeps candidate materialization training PPO promotion private holdout actor-input changes and corpus export blocked",
+    "design routes to implementation or records a blocker"
+  ],
+  "type": "gate"
+}

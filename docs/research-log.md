@@ -22701,3 +22701,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1515 admits only a narrow T5 high-speed subset to measured intervention design and keeps all materialization/self-ID claims blocked.
 - follow-up manifest: `experiments/manifests/m1516-paper-route-decisive-history-t5-intervention-design.json`.
 - next: `m1516-paper-route-decisive-history-t5-intervention-design`
+
+## M1516 Paper-Route Decisive History T5 Intervention Design
+
+- status: completed
+- decision: `t5_intervention_design_admit_bounded_implementation`
+- artifact: `docs/m1516-paper-route-decisive-history-t5-intervention-design.md`
+- eligible source family: `t5_high_speed_close_obstacle`
+- eligible target count: 4
+- eligible modes: `close_wide`, `low_mu_close`, `late_reveal_high_speed`, `drift_required_focus`
+- intervention variants: `normal`, `reset_hidden_once`, `reset_hidden_every_step`, `zero_current_response`, `zero_action_history`, `delayed_hidden_8`, `wrong_history_donor_hidden`
+- continuation steps: 64
+- deterministic replay boundary defined: true
+- wrong-history scope: donor-hidden diagnostic only; not same-current T4 proof
+- artifact schema defined: true
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1516 designs the first measured intervention smoke for the admitted T5 subset while explicitly blocking candidate materialization and level3 self-ID claims.
+- follow-up manifest: `experiments/manifests/m1517-paper-route-decisive-history-t5-intervention-implementation.json`.
+- next: `m1517-paper-route-decisive-history-t5-intervention-implementation`

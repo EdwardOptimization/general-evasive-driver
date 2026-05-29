@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1524,
+    "completed": 1525,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1515-paper-route-decisive-history-source-retarget-result-audit.md",
+    "command_log": "docs/m1516-paper-route-decisive-history-t5-intervention-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1515-paper-route-decisive-history-source-retarget-result-audit.md",
+    "run_dir": "docs/m1516-paper-route-decisive-history-t5-intervention-design.md",
     "status": "completed",
-    "task_id": "m1515-paper-route-decisive-history-source-retarget-result-audit"
+    "task_id": "m1516-paper-route-decisive-history-t5-intervention-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1516-paper-route-decisive-history-t5-intervention-design.json",
-    "hypothesis": "A bounded measured-intervention design can test whether the eligible T5 high-speed retarget rows show outcome-relevant sensitivity to history and response ablations.",
-    "id": "m1516-paper-route-decisive-history-t5-intervention-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded measured interventions for the admitted T5 high-speed subset",
-    "priority": 15110,
+    "command": "see experiments/manifests/m1517-paper-route-decisive-history-t5-intervention-implementation.json",
+    "hypothesis": "A bounded intervention smoke can produce measured margin gaps or explicit null results for the eligible T5 high-speed retarget rows.",
+    "id": "m1517-paper-route-decisive-history-t5-intervention-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded T5 measured intervention smoke",
+    "priority": 15120,
     "status": "pending",
-    "success_artifact": "docs/m1516-paper-route-decisive-history-t5-intervention-design.md"
+    "success_artifact": "runs/m1517_decisive_history_t5_intervention_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T092215Z"
+  "updated_at_utc": "20260529T092709Z"
 }
