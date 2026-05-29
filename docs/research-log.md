@@ -24283,3 +24283,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1567 admits exactly one targeted third-source design because high-speed and late-reveal families have strong recoverable anchors but zero flips. If that targeted route fails, synthesize before more implementation.
 - follow-up manifest: `experiments/manifests/m1568-paper-route-targeted-third-source-flip-anchor-design.json`.
 - next: `m1568-paper-route-targeted-third-source-flip-anchor-design`
+
+## M1568 Paper-Route Targeted Third-Source Flip-Anchor Design
+
+- status: completed
+- decision: `targeted_third_source_flip_anchor_design_route_to_mandatory_branch_synthesis`
+- artifact: `docs/m1568-paper-route-targeted-third-source-flip-anchor-design.md`
+- target families: `t5_high_speed_close_obstacle`, `late_reveal_boundary`
+- diagnostic bonus family: `curved_boundary_obstacle`
+- minimum distinct collision flip anchors: 8
+- minimum distinct success flip anchors: 8
+- minimum flip source families: 3
+- minimum third-source flip anchors: 1
+- minimum targeted-family flip anchors: 1
+- hard stop after proposed implementation: branch synthesis if `flip_anchor_source_family_count < 3`
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1568 records the targeted high-speed/late-reveal repair design, but branch cadence is due, so the next milestone must synthesize M1559-M1568 before any implementation.
+- follow-up manifest: `experiments/manifests/m1569-paper-route-recoverable-active-set-generation-branch-synthesis.json`.
+- next: `m1569-paper-route-recoverable-active-set-generation-branch-synthesis`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1576,
+    "completed": 1577,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1567-paper-route-flip-anchor-repair-result-audit.md",
+    "command_log": "docs/m1568-paper-route-targeted-third-source-flip-anchor-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1567-paper-route-flip-anchor-repair-result-audit"
+    "task_id": "m1568-paper-route-targeted-third-source-flip-anchor-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1568-paper-route-targeted-third-source-flip-anchor-design.json",
-    "hypothesis": "A targeted design can focus the next source-generation repair on high_speed and late_reveal third-source flip anchors without weakening the evidence standard.",
-    "id": "m1568-paper-route-targeted-third-source-flip-anchor-design",
+    "command": "see experiments/manifests/m1569-paper-route-recoverable-active-set-generation-branch-synthesis.json",
+    "hypothesis": "After M1568, the recoverable active-set generation branch has enough positive and negative evidence to require synthesis before any further implementation milestone.",
+    "id": "m1569-paper-route-recoverable-active-set-generation-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: design targeted high-speed and late-reveal repair before any further implementation",
-    "priority": 15630,
+    "notes": "Pending: mandatory synthesis before targeted third-source implementation",
+    "priority": 15640,
     "status": "pending",
-    "success_artifact": "docs/m1568-paper-route-targeted-third-source-flip-anchor-design.md"
+    "success_artifact": "docs/m1569-paper-route-recoverable-active-set-generation-branch-synthesis.md"
   },
-  "updated_at_utc": "20260529T140524Z"
+  "updated_at_utc": "20260529T140933Z"
 }

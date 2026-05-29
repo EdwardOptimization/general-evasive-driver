@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1567-paper-route-flip-anchor-repair-result-audit
+m1568-paper-route-targeted-third-source-flip-anchor-design
 ```
 
 Current next task:
 
 ```text
-m1568-paper-route-targeted-third-source-flip-anchor-design
+m1569-paper-route-recoverable-active-set-generation-branch-synthesis
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -352,6 +352,14 @@ already have many recoverable/strong anchors but zero flip anchors, so M1568
 will design a targeted repair for those families. If the next implementation
 still lacks a third flip source family, the branch must synthesize before more
 implementation.
+M1568 designed that final targeted repair, but workflow cadence is now due.
+The immediate next milestone is M1569 branch synthesis, not implementation.
+The proposed targeted implementation would target high-speed and late-reveal
+flip anchors and report `third_source_flip_anchor_count` and
+`targeted_family_flip_anchor_count`, but synthesis must first decide whether to
+continue, pivot, stop, or promote the branch. History interventions,
+materialization, training-corpus export, PPO, promotion, private holdout, and
+level3 self-ID claims remain blocked.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

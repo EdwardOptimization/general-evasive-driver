@@ -149,5 +149,37 @@
     "docs/m1567-paper-route-flip-anchor-repair-result-audit.md"
   ],
   "decision_rule": "M1568 passes if it designs a targeted third-source repair and mandatory synthesis fallback while preserving all no-materialization guardrails.",
-  "next_blocker": "m1568-paper-route-targeted-third-source-flip-anchor-design"
+  "next_blocker": "m1569-paper-route-recoverable-active-set-generation-branch-synthesis",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1568-paper-route-targeted-third-source-flip-anchor-design.md",
+    "decision": "targeted_third_source_flip_anchor_design_route_to_mandatory_branch_synthesis",
+    "target_families": [
+      "t5_high_speed_close_obstacle",
+      "late_reveal_boundary"
+    ],
+    "diagnostic_bonus_family": "curved_boundary_obstacle",
+    "min_distinct_collision_flip_anchor_count": 8,
+    "min_distinct_success_flip_anchor_count": 8,
+    "min_flip_anchor_source_family_count": 3,
+    "min_third_source_flip_anchor_count": 1,
+    "min_targeted_family_flip_anchor_count": 1,
+    "hard_stop_after_next_implementation": "branch_synthesis_if_flip_anchor_source_family_count_below_3",
+    "admitted_route": "mandatory_recoverable_active_set_generation_branch_synthesis",
+    "proposed_after_synthesis_route": "bounded_targeted_third_source_flip_anchor_implementation",
+    "next_manifest": "experiments/manifests/m1569-paper-route-recoverable-active-set-generation-branch-synthesis.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
+  "decision": "targeted_third_source_flip_anchor_design_route_to_mandatory_branch_synthesis"
 }
