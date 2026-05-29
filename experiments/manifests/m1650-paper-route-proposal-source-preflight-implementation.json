@@ -1,0 +1,190 @@
+{
+  "id": "m1650-paper-route-proposal-source-preflight-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1649-paper-route-ppo-proposal-damped-projection-repair-design.md",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/candidate_checkpoints.csv",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/alpha_summary.csv",
+      "runs/m1630_contour_aware_full_target_materialization/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1649-paper-route-ppo-proposal-damped-projection-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement no-checkpoint proposal-source preflight before proposal repair"
+    ],
+    "derived_from": [
+      "m1649-paper-route-ppo-proposal-damped-projection-repair-design"
+    ],
+    "blocked_by": [
+      "M1649 requires proposal-source preflight before any proposal repair or checkpoint artifact"
+    ],
+    "supersedes": [
+      "direct proposal repair after M1649",
+      "direct checkpoint artifact after M1649",
+      "direct PPO after M1649",
+      "direct promotion after M1649"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1650-paper-route-proposal-source-preflight-implementation.md",
+  "public_gates": [
+    "M1650 must evaluate proposal-source availability without repair",
+    "M1650 must include M1362 base anchor smaller controls and larger proposal alphas",
+    "M1650 must compute exact contour-aware residual metrics for compatible candidates",
+    "M1650 must select at least one repair candidate as metadata if available",
+    "M1650 must write no checkpoint artifacts and run no projection",
+    "M1650 must route to result audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run PPO",
+    "do not train",
+    "do not repair a proposal",
+    "do not run projection",
+    "do not run closed-loop evaluation",
+    "do not write checkpoint artifacts",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_ppo_proposal_projection_repair",
+    "evidence_axis": "E_proposal_source_preflight_implementation",
+    "evidence_increment": "implements no-checkpoint proposal-source preflight before any repair run",
+    "claim_scope": "infrastructure preflight only; no PPO, training, projection, proposal repair, checkpoint artifact, closed-loop gate, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if no compatible proposal candidates exist",
+      "stop if source preflight writes checkpoint artifacts",
+      "stop if preflight runs projection or repair",
+      "stop if actor input contract changes",
+      "stop after implementation for mandatory result audit"
+    ],
+    "fallback_plan": [
+      "route to result audit whether preflight passes or fails",
+      "if no compatible proposal exists, design branch-local PPO proposal generation later",
+      "if candidates exist but exact residuals are null, audit and pivot to proposal construction or objective refresh",
+      "if preflight passes, design selected-proposal no-checkpoint repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1649 admits one no-checkpoint source preflight implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run proposal-source preflight",
+    "admission_evidence": [
+      "M1649 design selects no-checkpoint proposal-source preflight before repair",
+      "M1362 candidate checkpoint table exists",
+      "M1630 contour-aware materialized target tensors exist"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO",
+      "do not train",
+      "do not run projection",
+      "do not repair a proposal",
+      "do not write checkpoint artifacts",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "preflight module or extension and focused tests",
+      "M1650 run artifacts",
+      "M1650 docs status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "proposal candidates are enumerated",
+      "exact residual metrics are written",
+      "selected repair candidates are metadata only",
+      "no projection or checkpoint artifact is produced",
+      "audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1650 evaluates fixed proposal sources against fixed tensors and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "evaluates exact correct/wrong hidden residual metrics only; no new closed-loop history intervention"
+    ],
+    "temporal_evidence_window": "M1362 and M1630 public artifacts only.",
+    "negative_result_policy": "If no compatible proposal candidates or measurable residuals exist, route to audit before designing PPO generation or repair.",
+    "allowed_claims": [
+      "proposal-source preflight result",
+      "no training, no PPO, no projection, no checkpoint artifact, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1362 same-line interpolation candidates provide branch-compatible proposal sources for a later no-checkpoint damped projection repair probe.",
+  "success_criteria": [
+    "runs/m1650_proposal_source_preflight/summary.json exists",
+    "candidate_summary.csv exists",
+    "guardrail_summary.csv exists",
+    "source_candidate_count >= 9",
+    "branch_compatible_candidate_count >= 5",
+    "base_anchor_count == 1",
+    "larger_proposal_candidate_count >= 5",
+    "selected_repair_candidate_count >= 1",
+    "checkpoint_artifact_count == 0",
+    "projection_used_count == 0",
+    "training_started_count ppo_used_count promoted_count private_holdout_used_count actor_input_contract_changed_count level3_self_id_claim_count are 0"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "candidate source table is missing or incomplete",
+    "no branch-compatible proposal candidates are found",
+    "no selected repair candidate is identified",
+    "projection or repair is run",
+    "any checkpoint artifact is written",
+    "PPO promotion private holdout actor-input changes or level3 claims are produced"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_proposal_source_preflight.py"
+    },
+    {
+      "name": "run_preflight",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.proposal_source_preflight --base-checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --candidate-checkpoints runs/m1362_bidirectional_active_set_interpolation_preflight/candidate_checkpoints.csv --alpha-summary runs/m1362_bidirectional_active_set_interpolation_preflight/alpha_summary.csv --materialization-run-dir runs/m1630_contour_aware_full_target_materialization --run-dir runs/m1650_proposal_source_preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1650_proposal_source_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1650_proposal_source_preflight/candidate_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1650_proposal_source_preflight/guardrail_summary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1649-paper-route-ppo-proposal-damped-projection-repair-design.md",
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/candidate_checkpoints.csv",
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/alpha_summary.csv",
+    "runs/m1630_contour_aware_full_target_materialization/summary.json"
+  ],
+  "decision_rule": "M1650 passes if it identifies branch-compatible proposal sources and selected repair candidates without projection repair PPO or checkpoint artifacts.",
+  "next_blocker": "m1650-paper-route-proposal-source-preflight-implementation"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1657,
+    "completed": 1658,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1648-paper-route-contour-aware-damped-projection-branch-synthesis.md",
+      "command_log": "docs/m1649-paper-route-ppo-proposal-damped-projection-repair-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1648-paper-route-contour-aware-damped-projection-branch-synthesis"
+      "task_id": "m1649-paper-route-ppo-proposal-damped-projection-repair-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1649-paper-route-ppo-proposal-damped-projection-repair-design.json",
-      "hypothesis": "The damped projection rule can be designed as a post-proposal feasibility restoration step while keeping exact public objectives separate from replay and promotion evidence.",
-      "id": "m1649-paper-route-ppo-proposal-damped-projection-repair-design",
-      "kind": "gate",
-      "notes": "Pending: design bounded PPO proposal damped projection repair route without running PPO projection or writing checkpoint artifacts",
-      "priority": 16440,
+      "command": "see experiments/manifests/m1650-paper-route-proposal-source-preflight-implementation.json",
+      "hypothesis": "M1362 same-line interpolation candidates provide branch-compatible proposal sources for a later no-checkpoint damped projection repair probe.",
+      "id": "m1650-paper-route-proposal-source-preflight-implementation",
+      "kind": "infrastructure",
+      "notes": "Pending: implement no-checkpoint proposal-source preflight before any repair projection or checkpoint artifact",
+      "priority": 16450,
       "status": "pending",
-      "success_artifact": "docs/m1649-paper-route-ppo-proposal-damped-projection-repair-design.md"
+      "success_artifact": "runs/m1650_proposal_source_preflight/summary.json"
     },
-    "updated_at_utc": "20260529T205113Z"
+    "updated_at_utc": "20260529T205612Z"
 }

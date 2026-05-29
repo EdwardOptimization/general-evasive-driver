@@ -16,24 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1648-paper-route-contour-aware-damped-projection-branch-synthesis
+m1649-paper-route-ppo-proposal-damped-projection-repair-design
 ```
 
 Current next task:
 
 ```text
-m1649-paper-route-ppo-proposal-damped-projection-repair-design
+m1650-paper-route-proposal-source-preflight-implementation
 ```
 
-M1648 synthesized the M1640-M1647 damped projection branch and closed local
-projection rolling. The branch supports damped full-batch projection as stable
-public exact-tensor infrastructure: M1646 had 9/9 controlled perturbation
-candidates reduce residual with min/median/max reduction ratios
-`0.7070986860856349` / `0.7420973915926545` / `0.8632753818236488` and clean
-checkpoint/role/contract guardrails. It does not support checkpoint artifacts,
-PPO-proposal repair, closed-loop behavior retention, promotion, private-holdout
-evidence, paper-level evidence, or level3 self-ID. The next task is M1649
-design-only PPO-proposal damped projection repair planning.
+M1649 designed the proposal-repair route after M1648 closed local projection
+rolling. Because no branch-local PPO proposal is currently selected, M1649 does
+not admit direct repair or checkpoint artifacts. The next task is M1650
+no-checkpoint proposal-source preflight over branch-compatible M1362
+interpolation candidates: alpha `0.1` as base anchor, smaller passing controls,
+and larger same-line rejected proposals. M1650 should enumerate candidates,
+compute contour-aware exact residual metrics, and select repair candidates as
+metadata only; it must not run PPO, projection, repair, closed-loop evaluation,
+promotion, private holdout, actor-input changes, or level3 self-ID claims.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

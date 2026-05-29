@@ -26338,3 +26338,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next branch: `paper_route_ppo_proposal_projection_repair`
 - follow-up manifest: `experiments/manifests/m1649-paper-route-ppo-proposal-damped-projection-repair-design.json`
 - next: `m1649-paper-route-ppo-proposal-damped-projection-repair-design`
+
+## M1649 Paper-Route PPO-Proposal Damped Projection Repair Design
+
+- status: completed
+- decision: `proposal_repair_design_admit_no_checkpoint_source_preflight`
+- artifact: `docs/m1649-paper-route-ppo-proposal-damped-projection-repair-design.md`
+- failure taxonomy: `none`
+- base anchor: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`
+- proposal source table: `runs/m1362_bidirectional_active_set_interpolation_preflight/candidate_checkpoints.csv`
+- alpha summary: `runs/m1362_bidirectional_active_set_interpolation_preflight/alpha_summary.csv`
+- materialization source: `runs/m1630_contour_aware_full_target_materialization`
+- proposal source policy: use branch-compatible M1362 same-line interpolation candidates first; future PPO proposals require explicit parent-base lineage
+- candidate roles: alpha `0.1` base anchor; alpha `0.005` to `0.05` controls; alpha `0.2` to `1.0` larger proposal stressors
+- first implementation route: no-checkpoint proposal-source preflight
+- blocked: PPO, training, projection, proposal repair, checkpoint artifact, closed-loop evaluation, promotion, private holdout, actor-input changes, paper-level and level3 self-ID claims
+- follow-up manifest: `experiments/manifests/m1650-paper-route-proposal-source-preflight-implementation.json`
+- next: `m1650-paper-route-proposal-source-preflight-implementation`

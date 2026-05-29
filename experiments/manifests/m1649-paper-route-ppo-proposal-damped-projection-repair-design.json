@@ -160,6 +160,22 @@
     "docs/m1648-paper-route-contour-aware-damped-projection-branch-synthesis.md",
     "runs/m1646_contour_aware_damped_projection_stress_test/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1649-paper-route-ppo-proposal-damped-projection-repair-design.md",
+    "decision": "proposal_repair_design_admit_no_checkpoint_source_preflight",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "proposal_source_policy": "use branch-compatible M1362 same-line interpolation candidates first; future PPO proposals require explicit parent base lineage",
+    "first_implementation_route": "no-checkpoint proposal-source preflight",
+    "base_anchor": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "proposal_source_table": "runs/m1362_bidirectional_active_set_interpolation_preflight/candidate_checkpoints.csv",
+    "alpha_summary": "runs/m1362_bidirectional_active_set_interpolation_preflight/alpha_summary.csv",
+    "materialization_run_dir": "runs/m1630_contour_aware_full_target_materialization",
+    "selected_next_manifest": "experiments/manifests/m1650-paper-route-proposal-source-preflight-implementation.json",
+    "unsupported_claim_boundary": "no PPO, training, projection run, proposal repair, checkpoint artifact, closed-loop gate, promotion, private holdout, paper-level, or level3 self-ID claim"
+  },
   "decision_rule": "M1649 passes if it designs a bounded proposal-repair route without running PPO projection closed-loop gates or writing checkpoints.",
-  "next_blocker": "m1649-paper-route-ppo-proposal-damped-projection-repair-design"
+  "next_blocker": "m1650-paper-route-proposal-source-preflight-implementation"
 }
