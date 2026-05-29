@@ -22270,3 +22270,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1496-paper-route-go-no-go-one-seed-result-audit.json`.
 - next: `m1496-paper-route-go-no-go-one-seed-result-audit`
+
+## M1496 Paper-Route Go/No-Go One-Seed Result Audit
+
+- status: completed
+- decision: `go_no_go_one_seed_audit_clean_plumbing_admit_three_seed_public_pilot`
+- artifact: `docs/m1496-paper-route-go-no-go-one-seed-result-audit.md`
+- plumbing completion: pass
+- profile ranking evidence: not allowed
+- finite-window history necessity: not supported by one seed
+- online-GRU hidden advantage: not supported by one seed
+- current-frame substitution risk: high
+- three-seed public pilot admission: allowed with stop rule
+- stop rule: if M1497 repeats L2 current-tiled parity and L3 online does not beat corrected reset-control, M1498 must stop standard profile-scaling and route to decisive T4/T5 task evidence, L3 recipe repair, or a negative/conditional profile verdict.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1497-paper-route-go-no-go-profile-three-seed-public-pilot.json`.
+- next: `m1497-paper-route-go-no-go-profile-three-seed-public-pilot`

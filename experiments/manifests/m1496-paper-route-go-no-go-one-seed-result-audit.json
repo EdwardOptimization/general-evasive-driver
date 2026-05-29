@@ -143,6 +143,27 @@
     "runs/m1495_go_no_go_profile_one_seed_smoke/summary.json",
     "runs/m1495_go_no_go_profile_one_seed_smoke/profile_aggregate.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1496-paper-route-go-no-go-one-seed-result-audit.md",
+    "decision": "go_no_go_one_seed_audit_clean_plumbing_admit_three_seed_public_pilot",
+    "plumbing_completion": "pass",
+    "profile_ranking_evidence": "not_allowed",
+    "finite_window_history_necessity": "not_supported_by_one_seed",
+    "online_gru_hidden_advantage": "not_supported_by_one_seed",
+    "current_frame_substitution_risk": "high",
+    "three_seed_public_pilot_admission": "allowed_with_stop_rule",
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1497-paper-route-go-no-go-profile-three-seed-public-pilot.json"
+  },
+  "decision": "go_no_go_one_seed_audit_clean_plumbing_admit_three_seed_public_pilot",
   "decision_rule": "M1496 passes if it audits M1495 and routes the matrix branch without overclaiming one-seed trends.",
-  "next_blocker": "m1496-paper-route-go-no-go-one-seed-result-audit"
+  "next_blocker": "m1497-paper-route-go-no-go-profile-three-seed-public-pilot"
 }

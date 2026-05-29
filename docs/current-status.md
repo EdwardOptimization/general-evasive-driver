@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1495-paper-route-go-no-go-profile-one-seed-smoke
+m1496-paper-route-go-no-go-one-seed-result-audit
 ```
 
 Current next task:
 
 ```text
-m1496-paper-route-go-no-go-one-seed-result-audit
+m1497-paper-route-go-no-go-profile-three-seed-public-pilot
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -41,12 +41,31 @@ source-singleton/control-sensitive. M1491 audited that result and applied the
 M1488 hard stop. M1492 designed the L0/L1/L2/L3 self-ID go/no-go matrix. M1493
 refreshed the config layer to the full 12-profile matrix. M1494 passed
 no-training runtime smoke for all 12 configs. M1495 completed one fixed-budget
-train/eval seed per profile. The current public-gate base remains M1362 alpha
+train/eval seed per profile. M1496 audited M1495 and admits exactly one 3-seed
+public pilot with a stop rule. The current public-gate base remains M1362 alpha
 `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1496 one-seed audit:
+
+```text
+decision: go_no_go_one_seed_audit_clean_plumbing_admit_three_seed_public_pilot
+plumbing_completion: pass
+profile_ranking_evidence: not_allowed
+finite_window_history_necessity: not_supported_by_one_seed
+online_gru_hidden_advantage: not_supported_by_one_seed
+current_frame_substitution_risk: high
+next: m1497-paper-route-go-no-go-profile-three-seed-public-pilot
+```
+
+M1497 may run exactly one 3-seed public profile pilot. If it repeats L2
+current-tiled parity and L3 online does not beat corrected reset-control, M1498
+must stop standard profile-scaling and route to decisive T4/T5 task evidence,
+L3 recipe repair, or a negative/conditional standard-distribution profile
+verdict.
 
 M1495 one-seed smoke:
 

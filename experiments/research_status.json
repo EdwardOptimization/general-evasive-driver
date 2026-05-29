@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1504,
+    "completed": 1505,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1495-paper-route-go-no-go-profile-one-seed-smoke.md",
+    "command_log": "docs/m1496-paper-route-go-no-go-one-seed-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1495_go_no_go_profile_one_seed_smoke",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1495-paper-route-go-no-go-profile-one-seed-smoke"
+    "task_id": "m1496-paper-route-go-no-go-one-seed-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1496-paper-route-go-no-go-one-seed-result-audit.json",
-    "hypothesis": "M1495 should be treated as a clean plumbing pass with non-conclusive but important L2 current-tiled and L3 reset-control trends.",
-    "id": "m1496-paper-route-go-no-go-one-seed-result-audit",
+    "command": "see experiments/manifests/m1497-paper-route-go-no-go-profile-three-seed-public-pilot.json",
+    "hypothesis": "The full 12-profile go/no-go matrix can complete a three-seed public pilot and clarify whether standard distribution trends remain negative for older-history necessity.",
+    "id": "m1497-paper-route-go-no-go-profile-three-seed-public-pilot",
     "kind": "gate",
-    "notes": "Pending: audit M1495 one-seed completion and non-conclusive L2 current-tiled and L3 reset trends before any 3-seed pilot",
-    "priority": 14910,
+    "notes": "Pending: run exactly one 3-seed public profile pilot for the full 12-profile matrix",
+    "priority": 14920,
     "status": "pending",
-    "success_artifact": "docs/m1496-paper-route-go-no-go-one-seed-result-audit.md"
+    "success_artifact": "runs/m1497_go_no_go_profile_three_seed_public_pilot/summary.json"
   },
-  "updated_at_utc": "20260529T071837Z"
+  "updated_at_utc": "20260529T072410Z"
 }
