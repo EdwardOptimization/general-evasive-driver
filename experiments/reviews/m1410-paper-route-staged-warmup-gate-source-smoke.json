@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1410 structurally passes with 1690 source rows 298 matched/bucketed rows 31 matched/bucketed seeds and warmup command-response evidence but high gate collision diagnostics require audit before outcome probing",
+  "failure_criteria": [
+    "source smoke artifact is missing",
+    "warmup gate diagnostics are missing",
+    "matching or source-diversity metrics are missing",
+    "result routes directly to training or claim expansion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not add actor oracle labels",
+    "do not claim self-identification from source materialization"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260529T004454Z",
+  "hypothesis": "The staged warmup gate API can materialize source-diverse matched/bucketed reveal rows with measurable warmup command-response evidence without actor-input changes.",
+  "lineage": {
+    "blocked_by": [
+      "M1409 synthesis continues the branch only to staged warmup gate source smoke"
+    ],
+    "derived_from": [
+      "m1409-paper-route-warmup-reveal-pressure-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.md",
+      "docs/m1408-paper-route-staged-obstacle-warmup-api-implementation.md"
+    ],
+    "parent_objective": [
+      "create staged warmup gate configs, add source smoke warmup diagnostics, and run no-training source smoke"
+    ],
+    "supersedes": [
+      "running figure-eight-only source smoke again",
+      "running outcome interventions before staged warmup source viability is known"
+    ]
+  },
+  "milestone": "m1410-paper-route-staged-warmup-gate-source-smoke",
+  "next_blocker": "m1411-paper-route-staged-warmup-gate-source-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "staged_warmup_gate_source_structural_pass_route_to_result_audit",
+  "public_gates": [
+    "M1410 must run no-training source smoke for staged warmup gate before outcome interventions",
+    "M1410 must report source diversity and matched/bucketed current rows",
+    "M1410 must report warmup gate diagnostics and warmup command-response evidence metrics",
+    "M1410 must not run outcome interventions, train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1410_staged_warmup_gate_source_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "staged_warmup_gate_source_structural_pass_route_to_result_audit",
+    "milestone": "m1410-paper-route-staged-warmup-gate-source-smoke",
+    "reason": "M1410 structurally passes with 1690 source rows 298 matched/bucketed rows 31 matched/bucketed seeds and warmup command-response evidence but high gate collision diagnostics require audit before outcome probing",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "staged warmup source-smoke configs exist",
+    "runs/m1410_staged_warmup_gate_source_smoke/summary.json exists",
+    "matching, source-diversity, and warmup gate diagnostic metrics are reported",
+    "result chooses next route without outcome intervention, training, PPO, promotion, private holdout, training corpus export, or actor-input expansion"
+  ],
+  "type": "infrastructure"
+}

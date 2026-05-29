@@ -1,0 +1,153 @@
+{
+  "id": "m1411-paper-route-staged-warmup-gate-source-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1410_staged_warmup_gate_source_smoke/summary.json",
+      "docs/m1410-paper-route-staged-warmup-gate-source-smoke.md"
+    ],
+    "parent_config": [
+      "configs/ppo_m1410_staged_warmup_gate_figure_eight.json",
+      "configs/m1410_staged_warmup_gate_source_wave.json",
+      "experiments/manifests/m1410-paper-route-staged-warmup-gate-source-smoke.json"
+    ],
+    "parent_objective": [
+      "audit whether M1410 source viability justifies an outcome probe despite high warmup gate collision diagnostics"
+    ],
+    "derived_from": [
+      "m1410-paper-route-staged-warmup-gate-source-smoke"
+    ],
+    "blocked_by": [
+      "M1410 structurally passed but warmup gate collision diagnostics are high"
+    ],
+    "supersedes": [
+      "running M1410 outcome interventions without auditing source invasiveness",
+      "exporting M1410 rows as training data from source materialization alone"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1411-paper-route-staged-warmup-gate-source-result-audit.md",
+  "public_gates": [
+    "M1411 must audit M1410 source diversity, warmup evidence, and warmup gate collision pressure",
+    "M1411 must decide whether the next step is outcome probe, gate retune, split strong/mild variants, or branch synthesis",
+    "M1411 must not run outcome interventions, train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim self-identification from source materialization",
+    "do not ignore high warmup gate collision diagnostics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "A_staged_warmup_gate_source_audit",
+    "evidence_increment": "audits whether M1410 source materialization is usable for an outcome probe or needs gate-parameter retuning first",
+    "claim_scope": "process audit only; no outcome intervention, training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if source viability is mistaken for self-ID evidence",
+      "stop if high warmup gate collision pressure is ignored",
+      "stop if audit routes directly to training or corpus export",
+      "stop if actor input changes are proposed for this branch"
+    ],
+    "fallback_plan": [
+      "admit no-training outcome probe if source diversity and diagnostic strength outweigh invasiveness risk",
+      "retune warmup gate if collision pressure makes outcome interpretation ambiguous",
+      "split strong-gate and mild-gate variants if both route types are scientifically useful"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_after_m1409_continue_synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "staged warmup gate source result audit",
+    "admission_evidence": [
+      "M1410 structurally passed with 1690 source rows and 298 matched/bucketed rows",
+      "M1410 produced warmup command-response evidence on all source rows",
+      "M1410 also produced high warmup gate collision diagnostics that need interpretation before outcome probing"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1411 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest if the audit admits it"
+    ],
+    "next_stage_criteria": [
+      "M1410 source viability is classified",
+      "warmup gate collision pressure is classified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1411 is an audit of source materialization and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "audit matched/bucketed current reveal metrics",
+      "audit warmup gate command-response diagnostics",
+      "audit warmup gate collision pressure",
+      "decide whether outcome intervention is justified"
+    ],
+    "temporal_evidence_window": "M1410 no-training staged warmup source smoke artifacts.",
+    "negative_result_policy": "If warmup gate invasiveness makes interpretation ambiguous, route to gate retune or split strong/mild variants before outcome probing.",
+    "allowed_claims": [
+      "staged warmup gate source result audit",
+      "no outcome intervention, promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1410 source result can be classified into a safe next route by separating source viability from warmup-gate invasiveness risk.",
+  "success_criteria": [
+    "docs/m1411-paper-route-staged-warmup-gate-source-result-audit.md exists",
+    "audit records M1410 source diversity and matched/bucketed counts",
+    "audit records warmup command-response evidence metrics",
+    "audit records warmup gate collision pressure",
+    "audit chooses outcome probe, gate retune, split variants, or synthesis without training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1410 source materialization as self-ID evidence",
+    "audit ignores warmup gate collision diagnostics",
+    "audit routes directly to training, PPO, promotion, private holdout, corpus export, or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1411-paper-route-staged-warmup-gate-source-result-audit.md from M1410 source artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1411-paper-route-staged-warmup-gate-source-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1410_staged_warmup_gate_source_smoke/summary.json"
+  ],
+  "decision_rule": "M1411 passes if it classifies M1410 source viability and warmup-gate invasiveness into an explicit next route before any outcome probing or training.",
+  "next_blocker": "m1411-paper-route-staged-warmup-gate-source-result-audit"
+}

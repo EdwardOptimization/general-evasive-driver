@@ -10,6 +10,7 @@ from autodrift.warmup_latched_config_smoke import (
     parse_int_list,
     reveal_bucket_key,
     source_diversity,
+    warmup_gate_diagnostics,
 )
 
 
@@ -90,3 +91,43 @@ def test_classify_warmup_smoke_result_requires_structural_thresholds():
         )
         == "warmup_latched_structural_sparse"
     )
+
+
+def test_warmup_gate_diagnostics_counts_visible_evidence_rows():
+    rows = [
+        {
+            "preferred_warmup_gate_visible_steps": 3,
+            "wrong_warmup_gate_visible_steps": 0,
+            "preferred_warmup_gate_collision": False,
+            "wrong_warmup_gate_collision": False,
+            "preferred_warmup_gate_passed": True,
+            "wrong_warmup_gate_passed": False,
+            "warmup_response_history_l2": 0.12,
+            "warmup_action_history_l2": 0.0,
+            "warmup_context_history_l2": 0.2,
+            "preferred_warmup_gate_clearance_margin": 1.0,
+            "wrong_warmup_gate_clearance_margin": 0.8,
+        },
+        {
+            "preferred_warmup_gate_visible_steps": 0,
+            "wrong_warmup_gate_visible_steps": 0,
+            "preferred_warmup_gate_collision": True,
+            "wrong_warmup_gate_collision": False,
+            "preferred_warmup_gate_passed": False,
+            "wrong_warmup_gate_passed": False,
+            "warmup_response_history_l2": 0.0,
+            "warmup_action_history_l2": 0.0,
+            "warmup_context_history_l2": 0.0,
+            "preferred_warmup_gate_clearance_margin": -0.1,
+            "wrong_warmup_gate_clearance_margin": 0.0,
+        },
+    ]
+
+    summary = warmup_gate_diagnostics(rows)
+
+    assert summary["rows"] == 2
+    assert summary["warmup_gate_visible_rows"] == 1
+    assert summary["warmup_evidence_rows"] == 1
+    assert summary["warmup_gate_collision_rows"] == 1
+    assert summary["preferred_warmup_gate_passed_rows"] == 1
+    assert summary["warmup_response_history_l2"]["max"] == 0.12

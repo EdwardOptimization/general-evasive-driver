@@ -20802,3 +20802,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1410-paper-route-staged-warmup-gate-source-smoke.json`.
 - next: `m1410-paper-route-staged-warmup-gate-source-smoke`
+
+## 20260529T043000Z - m1410-paper-route-staged-warmup-gate-source-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1410_staged_warmup_gate_source_smoke/summary.json`
+- result doc: `docs/m1410-paper-route-staged-warmup-gate-source-smoke.md`
+- decision: `staged_warmup_gate_source_structural_pass_route_to_result_audit`
+- result class: `warmup_latched_structural_pass`
+- counts: `1690` source rows, `122` matched-current rows, `228` bucketed-current rows, `298` matched/bucketed rows, `1690` finite metric rows, `3206` rejected rows.
+- source diversity: `34` source seeds, `16` capability pairs, `500` reveal buckets; matched/bucketed diversity: `31` source seeds, `16` capability pairs, `105` reveal buckets.
+- warmup diagnostics: all source rows and matched/bucketed rows have warmup gate visibility and measurable warmup command-response evidence; all-source warmup response/action history L2 p95 are `0.124635` and `0.056336`.
+- risk: warmup gate collision diagnostics are high (`1070/1690` all rows, `190/298` matched/bucketed rows), so M1410 admits an audit before outcome probing rather than direct corpus export or training.
+- guardrail: no outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1411-paper-route-staged-warmup-gate-source-result-audit.json`.
+- next: `m1411-paper-route-staged-warmup-gate-source-result-audit`

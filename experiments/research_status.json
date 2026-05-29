@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1419,
+    "completed": 1420,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.md",
+    "command_log": "docs/m1410-paper-route-staged-warmup-gate-source-smoke.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1410_staged_warmup_gate_source_smoke",
     "status": "completed",
-    "task_id": "m1409-paper-route-warmup-reveal-pressure-branch-synthesis"
+    "task_id": "m1410-paper-route-staged-warmup-gate-source-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1410-paper-route-staged-warmup-gate-source-smoke.json",
-    "hypothesis": "The staged warmup gate API can materialize source-diverse matched/bucketed reveal rows with measurable warmup command-response evidence without actor-input changes.",
-    "id": "m1410-paper-route-staged-warmup-gate-source-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: add source-smoke warmup diagnostics create staged configs and run no-training source smoke",
-    "priority": 14050,
+    "command": "see experiments/manifests/m1411-paper-route-staged-warmup-gate-source-result-audit.json",
+    "hypothesis": "The M1410 source result can be classified into a safe next route by separating source viability from warmup-gate invasiveness risk.",
+    "id": "m1411-paper-route-staged-warmup-gate-source-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1410 source diversity warmup command-response evidence and high warmup gate collision diagnostics before outcome probing",
+    "priority": 14060,
     "status": "pending",
-    "success_artifact": "runs/m1410_staged_warmup_gate_source_smoke/summary.json"
+    "success_artifact": "docs/m1411-paper-route-staged-warmup-gate-source-result-audit.md"
   },
-  "updated_at_utc": "20260529T042000Z"
+  "updated_at_utc": "20260529T043000Z"
 }

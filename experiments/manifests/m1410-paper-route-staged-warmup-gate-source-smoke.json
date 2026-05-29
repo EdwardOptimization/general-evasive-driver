@@ -2,7 +2,7 @@
   "id": "m1410-paper-route-staged-warmup-gate-source-smoke",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -142,6 +142,18 @@
     {
       "path": "runs/m1410_staged_warmup_gate_source_smoke/summary.json",
       "type": "json"
+    },
+    {
+      "path": "configs/ppo_m1410_staged_warmup_gate_figure_eight.json",
+      "type": "json"
+    },
+    {
+      "path": "configs/m1410_staged_warmup_gate_source_wave.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1410-paper-route-staged-warmup-gate-source-smoke.md",
+      "type": "md"
     }
   ],
   "baseline_checkpoints": [
@@ -150,6 +162,48 @@
   "baseline_artifacts": [
     "docs/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1410_staged_warmup_gate_source_smoke/summary.json",
+    "result_doc": "docs/m1410-paper-route-staged-warmup-gate-source-smoke.md",
+    "decision": "staged_warmup_gate_source_structural_pass_route_to_result_audit",
+    "result_class": "warmup_latched_structural_pass",
+    "source_rows": 1690,
+    "matched_current_rows": 122,
+    "bucketed_current_rows": 228,
+    "matched_or_bucketed_reveal_rows": 298,
+    "finite_metric_rows": 1690,
+    "rejected_rows": 3206,
+    "unique_source_seeds": 34,
+    "unique_capability_pairs": 16,
+    "unique_reveal_buckets": 500,
+    "matched_or_bucketed_unique_source_seeds": 31,
+    "matched_or_bucketed_unique_capability_pairs": 16,
+    "matched_or_bucketed_unique_reveal_buckets": 105,
+    "warmup_gate_visible_rows": 1690,
+    "warmup_evidence_rows": 1690,
+    "warmup_gate_collision_rows": 1070,
+    "matched_or_bucketed_warmup_gate_visible_rows": 298,
+    "matched_or_bucketed_warmup_evidence_rows": 298,
+    "matched_or_bucketed_warmup_gate_collision_rows": 190,
+    "warmup_response_history_l2_mean": 0.05847613977090353,
+    "warmup_response_history_l2_p95": 0.12463502410906013,
+    "warmup_action_history_l2_mean": 0.018807554118895946,
+    "warmup_action_history_l2_p95": 0.05633558963005233,
+    "current_hidden_l2_mean": 0.1940158043455743,
+    "current_hidden_l2_p95": 0.5288453387732265,
+    "training_started": false,
+    "evaluation_started": false,
+    "outcome_probe_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1411-paper-route-staged-warmup-gate-source-result-audit.json"
+  },
+  "decision": "staged_warmup_gate_source_structural_pass_route_to_result_audit",
   "decision_rule": "M1410 passes structurally if it materializes or cleanly rejects staged warmup source rows with matching, diversity, and warmup diagnostic metrics before outcome probing.",
-  "next_blocker": "m1410-paper-route-staged-warmup-gate-source-smoke"
+  "next_blocker": "m1411-paper-route-staged-warmup-gate-source-result-audit"
 }

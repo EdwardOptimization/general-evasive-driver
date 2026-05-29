@@ -16,21 +16,49 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1409-paper-route-warmup-reveal-pressure-branch-synthesis
+m1410-paper-route-staged-warmup-gate-source-smoke
 ```
 
 Current next task:
 
 ```text
-m1410-paper-route-staged-warmup-gate-source-smoke
+m1411-paper-route-staged-warmup-gate-source-result-audit
 ```
 
-M1409 synthesized the M1399-M1408 warmup/reveal pressure branch. The current
-public-gate base remains M1362 alpha `0.1`:
+M1410 ran the first no-training source smoke for the staged slot0 warmup gate
+route admitted by M1409. The current public-gate base remains M1362 alpha
+`0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1410 result:
+
+```text
+decision: staged_warmup_gate_source_structural_pass_route_to_result_audit
+result_class: warmup_latched_structural_pass
+source_rows: 1690
+matched_or_bucketed_reveal_rows: 298
+matched/bucketed unique_source_seeds: 31
+matched/bucketed unique_capability_pairs: 16
+matched/bucketed unique_reveal_buckets: 105
+warmup_gate_visible_rows: 1690 / 1690
+warmup_evidence_rows: 1690 / 1690
+warmup_response_history_l2_p95: 0.124635
+warmup_action_history_l2_p95: 0.056336
+warmup_gate_collision_rows: 1070 / 1690
+matched/bucketed warmup_gate_collision_rows: 190 / 298
+actor_input_contract_changed: false
+next: m1411-paper-route-staged-warmup-gate-source-result-audit
+```
+
+M1411 should audit M1410 before outcome probing. The source viability is
+structurally positive, but the warmup gate collision diagnostics are high, so
+the next decision must separate usable strong-gate source evidence from a
+possible need to retune or split mild/strong gate variants. M1411 must not run
+outcome interventions, corpus export, PPO, training, private holdout,
+promotion, or claim expansion.
 
 M1409 result:
 
@@ -44,11 +72,6 @@ M1408 staged warmup API tests: 1387 passed, 4 warnings
 next: m1410-paper-route-staged-warmup-gate-source-smoke
 ```
 
-M1410 should add warmup diagnostics to source smoke, create staged warmup gate
-configs, and run no-training source smoke. It must not run outcome
-interventions, corpus export, PPO, training, private holdout, promotion, or
-claim expansion.
-
 M1408 result:
 
 ```text
@@ -61,10 +84,8 @@ source_smoke_started: false
 next: m1409-paper-route-warmup-reveal-pressure-branch-synthesis
 ```
 
-M1409 should synthesize the M1399-M1408 warmup/reveal pressure branch before
-staged source smoke, because the workflow cadence has fired. It must not run
-source smoke, outcome interventions, corpus export, PPO, training, private
-holdout, promotion, or claim expansion before the synthesis decision.
+M1409 synthesized the M1399-M1408 warmup/reveal pressure branch before staged
+source smoke because the workflow cadence had fired.
 
 M1407 result:
 

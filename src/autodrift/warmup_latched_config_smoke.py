@@ -119,6 +119,124 @@ def source_diversity(rows: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def _trace_bool_count(trace: list[Any], key: str) -> int:
+    return int(sum(1 for point in trace if bool(point.info.get(key, False))))
+
+
+def _trace_bool_any(trace: list[Any], key: str) -> bool:
+    return bool(any(bool(point.info.get(key, False)) for point in trace))
+
+
+def _trace_current_value(trace: list[Any], key: str) -> float:
+    if not trace:
+        return float("nan")
+    value = trace[-1].info.get(key, float("nan"))
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return float("nan")
+
+
+def _history_segment_l2(
+    left_trace: list[Any],
+    right_trace: list[Any],
+    start: int,
+    stop: int | None,
+) -> float:
+    left = [np.asarray(point.observation, dtype=np.float32).reshape(-1)[start:stop] for point in left_trace]
+    right = [np.asarray(point.observation, dtype=np.float32).reshape(-1)[start:stop] for point in right_trace]
+    return history_window_l2(left, right)
+
+
+def warmup_gate_pair_metrics(preferred_trace: list[Any], wrong_trace: list[Any]) -> dict[str, Any]:
+    preferred_history = preferred_trace[:-1]
+    wrong_history = wrong_trace[:-1]
+    preferred_visible_steps = _trace_bool_count(preferred_history, "warmup_gate_visible")
+    wrong_visible_steps = _trace_bool_count(wrong_history, "warmup_gate_visible")
+    return {
+        "warmup_response_history_l2": _history_segment_l2(preferred_history, wrong_history, 0, 9),
+        "warmup_action_history_l2": _history_segment_l2(preferred_history, wrong_history, 9, 12),
+        "warmup_context_history_l2": _history_segment_l2(preferred_history, wrong_history, 12, None),
+        "preferred_warmup_gate_active_steps": _trace_bool_count(preferred_history, "warmup_gate_active"),
+        "wrong_warmup_gate_active_steps": _trace_bool_count(wrong_history, "warmup_gate_active"),
+        "preferred_warmup_gate_visible_steps": preferred_visible_steps,
+        "wrong_warmup_gate_visible_steps": wrong_visible_steps,
+        "warmup_gate_visible_step_delta": int(preferred_visible_steps - wrong_visible_steps),
+        "preferred_warmup_gate_passed": _trace_bool_any(preferred_trace, "warmup_gate_passed"),
+        "wrong_warmup_gate_passed": _trace_bool_any(wrong_trace, "warmup_gate_passed"),
+        "preferred_warmup_gate_collision": _trace_bool_any(preferred_trace, "warmup_gate_collision"),
+        "wrong_warmup_gate_collision": _trace_bool_any(wrong_trace, "warmup_gate_collision"),
+        "preferred_warmup_gate_clearance_margin": _trace_current_value(preferred_trace, "warmup_gate_clearance_margin"),
+        "wrong_warmup_gate_clearance_margin": _trace_current_value(wrong_trace, "warmup_gate_clearance_margin"),
+        "preferred_warmup_gate_min_clearance": _trace_current_value(preferred_trace, "warmup_gate_min_clearance"),
+        "wrong_warmup_gate_min_clearance": _trace_current_value(wrong_trace, "warmup_gate_min_clearance"),
+        "preferred_current_active_obstacle_body_x": _trace_current_value(preferred_trace, "active_obstacle_body_x"),
+        "wrong_current_active_obstacle_body_x": _trace_current_value(wrong_trace, "active_obstacle_body_x"),
+    }
+
+
+def warmup_gate_diagnostics(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    if not rows:
+        return {
+            "rows": 0,
+            "warmup_gate_visible_rows": 0,
+            "warmup_evidence_rows": 0,
+            "warmup_gate_collision_rows": 0,
+            "warmup_response_history_l2": numeric_summary([]),
+            "warmup_action_history_l2": numeric_summary([]),
+        }
+    visible_rows = [
+        row
+        for row in rows
+        if int(row.get("preferred_warmup_gate_visible_steps", 0)) > 0
+        or int(row.get("wrong_warmup_gate_visible_steps", 0)) > 0
+    ]
+    evidence_rows = [
+        row
+        for row in visible_rows
+        if float(row.get("warmup_response_history_l2", 0.0)) > 0.0
+        or float(row.get("warmup_action_history_l2", 0.0)) > 0.0
+    ]
+    collision_rows = [
+        row
+        for row in rows
+        if bool(row.get("preferred_warmup_gate_collision", False)) or bool(row.get("wrong_warmup_gate_collision", False))
+    ]
+    return {
+        "rows": int(len(rows)),
+        "warmup_gate_visible_rows": int(len(visible_rows)),
+        "warmup_evidence_rows": int(len(evidence_rows)),
+        "warmup_gate_collision_rows": int(len(collision_rows)),
+        "preferred_warmup_gate_passed_rows": int(
+            sum(1 for row in rows if bool(row.get("preferred_warmup_gate_passed", False)))
+        ),
+        "wrong_warmup_gate_passed_rows": int(
+            sum(1 for row in rows if bool(row.get("wrong_warmup_gate_passed", False)))
+        ),
+        "warmup_response_history_l2": numeric_summary(
+            [float(row.get("warmup_response_history_l2", float("nan"))) for row in rows]
+        ),
+        "warmup_action_history_l2": numeric_summary(
+            [float(row.get("warmup_action_history_l2", float("nan"))) for row in rows]
+        ),
+        "warmup_context_history_l2": numeric_summary(
+            [float(row.get("warmup_context_history_l2", float("nan"))) for row in rows]
+        ),
+        "preferred_warmup_gate_visible_steps": numeric_summary(
+            [float(row.get("preferred_warmup_gate_visible_steps", float("nan"))) for row in rows]
+        ),
+        "wrong_warmup_gate_visible_steps": numeric_summary(
+            [float(row.get("wrong_warmup_gate_visible_steps", float("nan"))) for row in rows]
+        ),
+        "preferred_warmup_gate_clearance_margin": numeric_summary(
+            [float(row.get("preferred_warmup_gate_clearance_margin", float("nan"))) for row in rows]
+        ),
+        "wrong_warmup_gate_clearance_margin": numeric_summary(
+            [float(row.get("wrong_warmup_gate_clearance_margin", float("nan"))) for row in rows]
+        ),
+    }
+
+
 def summarize_groups(rows: list[dict[str, Any]], keys: tuple[str, ...]) -> list[dict[str, Any]]:
     if not rows:
         return []
@@ -137,6 +255,14 @@ def summarize_groups(rows: list[dict[str, Any]], keys: tuple[str, ...]) -> list[
                 "unique_seeds": int(group["seed"].nunique()),
                 "unique_reveal_buckets": int(group["preferred_reveal_bucket"].nunique()),
                 "warmup_history_l2_mean": float(group["warmup_history_l2"].astype(float).mean()),
+                "warmup_response_history_l2_mean": float(group["warmup_response_history_l2"].astype(float).mean()),
+                "warmup_action_history_l2_mean": float(group["warmup_action_history_l2"].astype(float).mean()),
+                "warmup_gate_visible_rows": int(
+                    (
+                        (group["preferred_warmup_gate_visible_steps"].astype(int) > 0)
+                        | (group["wrong_warmup_gate_visible_steps"].astype(int) > 0)
+                    ).sum()
+                ),
                 "current_hidden_l2_mean": float(group["current_hidden_l2"].astype(float).mean()),
             }
         )
@@ -292,6 +418,7 @@ def run_warmup_latched_config_smoke(
                     "matched_or_bucketed_reveal_pass": bool(matched_current or bucketed_current),
                     "warmup_history_l2": warmup_history_l2,
                     "current_hidden_l2": hidden_l2(preferred_current.hidden, wrong_current.hidden),
+                    **warmup_gate_pair_metrics(preferred_trace, wrong_trace),
                     **current_metrics,
                 }
                 source_rows.append(row)
@@ -317,6 +444,8 @@ def run_warmup_latched_config_smoke(
                 "obstacle_position_l2",
                 "road_boundary_l2",
                 "warmup_history_l2",
+                "warmup_response_history_l2",
+                "warmup_action_history_l2",
                 "current_hidden_l2",
             )
         )
@@ -342,6 +471,9 @@ def run_warmup_latched_config_smoke(
         "scene_context_l2",
         "full_observation_l2",
         "warmup_history_l2",
+        "warmup_response_history_l2",
+        "warmup_action_history_l2",
+        "warmup_context_history_l2",
         "current_hidden_l2",
     ]
     distance_summary = [
@@ -351,6 +483,8 @@ def run_warmup_latched_config_smoke(
     capability_pair_summary = summarize_groups(source_rows, ("capability_pair",))
     reveal_step_summary = summarize_groups(source_rows, ("reveal_step",))
     reveal_bucket_summary = summarize_groups(source_rows, ("preferred_reveal_bucket",))
+    warmup_diagnostics = warmup_gate_diagnostics(source_rows)
+    matched_warmup_diagnostics = warmup_gate_diagnostics(matched_or_bucketed_rows)
 
     write_csv_rows(run_dir / "warmup_reveal_rows.csv", source_rows)
     write_csv_rows(run_dir / "matched_or_bucketed_rows.csv", matched_or_bucketed_rows)
@@ -378,6 +512,8 @@ def run_warmup_latched_config_smoke(
         "source_diversity": diversity,
         "matched_or_bucketed_diversity": matched_diversity,
         "distance_summary": distance_summary,
+        "warmup_gate_diagnostics": warmup_diagnostics,
+        "matched_or_bucketed_warmup_gate_diagnostics": matched_warmup_diagnostics,
         "result_class": result_class,
         "structural_smoke_pass": result_class == "warmup_latched_structural_pass",
         "actor_parameters_changed": actor_parameters_changed,
