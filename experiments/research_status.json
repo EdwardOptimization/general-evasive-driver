@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1543,
+    "completed": 1544,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json",
+    "command_log": "docs/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1534_fresh_ambiguity_history_intervention_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1534-paper-route-fresh-ambiguity-history-intervention-implementation"
+    "task_id": "m1535-paper-route-fresh-ambiguity-history-intervention-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.json",
-    "hypothesis": "M1534 provides promising but source-small wrong-history and donor-response evidence that should route to audited repeat or expansion rather than direct self-ID claims.",
-    "id": "m1535-paper-route-fresh-ambiguity-history-intervention-result-audit",
+    "command": "see experiments/manifests/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.json",
+    "hypothesis": "A source-expanded repeat can test whether M1534 wrong-history and donor-response positives survive more measured pairs and broader source families before any materialization.",
+    "id": "m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design",
     "kind": "gate",
-    "notes": "Pending: audit M1534 positive history-intervention smoke before any materialization or self-ID claim",
-    "priority": 15300,
+    "notes": "Pending: design source-expanded repeat after M1535 audits M1534 as positive but source-small and control-sensitive",
+    "priority": 15310,
     "status": "pending",
-    "success_artifact": "docs/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.md"
+    "success_artifact": "docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md"
   },
-  "updated_at_utc": "20260529T110337Z"
+  "updated_at_utc": "20260529T110801Z"
 }

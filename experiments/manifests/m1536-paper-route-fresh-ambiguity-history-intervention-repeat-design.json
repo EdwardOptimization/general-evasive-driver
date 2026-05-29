@@ -1,0 +1,155 @@
+{
+  "id": "m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json",
+      "docs/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a source-expanded repeat for fresh ambiguity history interventions after M1535 audit"
+    ],
+    "derived_from": [
+      "m1535-paper-route-fresh-ambiguity-history-intervention-result-audit"
+    ],
+    "blocked_by": [
+      "M1534 positives are source-small T4-only and reset/zero-current controls dominate max gap"
+    ],
+    "supersedes": [
+      "direct candidate materialization from M1534"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md",
+  "public_gates": [
+    "M1536 must design a source-expanded repeat before any candidate materialization",
+    "M1536 must preserve all intervention channel separations from M1534",
+    "M1536 must pre-register source-diversity and T5 inclusion checks",
+    "M1536 must not run training PPO promotion private holdout or new candidate export"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not run the repeat during design",
+    "do not claim level3 self-identification from M1534 or M1536 design"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "G_fresh_ambiguity_history_intervention_repeat_design",
+    "evidence_increment": "pre-registers a source-expanded repeat design for M1534 promising but source-small history-intervention positives",
+    "claim_scope": "design only; no repeat run, candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if the repeat design does not increase source scope beyond M1534",
+      "stop if it omits reset zero-current or donor response/action controls",
+      "stop if it routes directly to candidate materialization",
+      "stop if it changes actor input contract"
+    ],
+    "fallback_plan": [
+      "route to pair repair if source-expanded mining cannot produce accepted pairs",
+      "route to task generation if T5 terminal-boundary rows remain absent",
+      "route to branch synthesis if repeated controls dominate history interventions"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1535 admitted repeat design after source-small positive smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fresh ambiguity history-intervention repeat design",
+    "admission_evidence": [
+      "M1535 audited M1534 as positive but source-small and blocked materialization"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not run the repeat during design",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1536 repeat design document",
+      "status queue scoreboard research log and review",
+      "one follow-up implementation manifest if design passes"
+    ],
+    "next_stage_criteria": [
+      "source-expanded repeat scope is explicit",
+      "pass and fail thresholds are explicit",
+      "T5 inclusion or absence handling is explicit",
+      "candidate materialization remains blocked until repeat audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1536 must design repeat controls that keep reset zero-current and donor response/action channels separate because M1534 controls dominated the max gap.",
+    "history_necessity_tests": [
+      "wrong_history_donor_hidden_at_anchor",
+      "donor_response_action_stream_from_anchor",
+      "donor_response_action_plus_hidden_from_anchor",
+      "delayed hidden variants",
+      "reset and zero-current controls"
+    ],
+    "temporal_evidence_window": "Design only for a later source-expanded public repeat.",
+    "negative_result_policy": "If the later repeat is null or controls dominate, record the negative result and route to pair repair or branch synthesis instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "M1536 designs a repeat protocol",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A source-expanded repeat can test whether M1534 wrong-history and donor-response positives survive more measured pairs and broader source families before any materialization.",
+  "success_criteria": [
+    "docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md exists",
+    "design increases source scope beyond the 3 accepted M1534 pairs",
+    "design preserves wrong-history donor-response delayed reset zero-current channels",
+    "design pre-registers source-diversity pass criteria and T5 inclusion handling",
+    "candidate materialization training PPO promotion private holdout actor-input changes and corpus export remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design only repeats the same 3 M1534 pairs",
+    "design ignores reset/zero-current controls",
+    "design routes directly to training promotion private holdout or materialization",
+    "design claims level3 self-identification"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json",
+    "docs/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.md"
+  ],
+  "decision_rule": "M1536 passes if it pre-registers a source-expanded repeat protocol without running the repeat or weakening guardrails.",
+  "next_blocker": "m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design"
+}

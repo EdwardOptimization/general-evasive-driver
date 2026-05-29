@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1534-paper-route-fresh-ambiguity-history-intervention-implementation
+m1535-paper-route-fresh-ambiguity-history-intervention-result-audit
 ```
 
 Current next task:
 
 ```text
-m1535-paper-route-fresh-ambiguity-history-intervention-result-audit
+m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -113,6 +113,12 @@ pairs, 0 anchor failures, wrong-history max margin gap `0.0285`,
 donor-response/action max gap `0.0402`, public and evidence-quality gates
 passed. The result is promising but source-small and must be audited before any
 materialization or self-ID claim.
+M1535 audited M1534 as a meaningful positive smoke but not a materializable or
+level3 self-ID result. Wrong-history hidden injection reached max margin gap
+`0.0285`, donor response/action plus hidden reached `0.0402`, but all accepted
+pairs were T4, success drops were zero, and reset/zero-current controls were
+stronger than the history interventions. Candidate materialization remains
+blocked. The next task is a source-expanded repeat design.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

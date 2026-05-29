@@ -23205,3 +23205,41 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1534 is a promising bounded public smoke with positive wrong-history and donor-response/action margin gaps, but it remains source-small and must be audited before materialization or self-ID claims.
 - follow-up manifest: `experiments/manifests/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.json`.
 - next: `m1535-paper-route-fresh-ambiguity-history-intervention-result-audit`
+
+## M1535 Paper-Route Fresh Ambiguity History-Intervention Result Audit
+
+- status: completed
+- decision: `fresh_ambiguity_history_intervention_audit_positive_source_small_admit_repeat_design`
+- artifact: `docs/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.md`
+- audited run: `runs/m1534_fresh_ambiguity_history_intervention_smoke`
+- accepted pair count: 3
+- target side count: 6
+- variant count: 10
+- intervention row count: 60
+- anchor replay success count: 60
+- anchor replay failure count: 0
+- wrong-history row count: 6
+- donor response/action row count: 12
+- reset/zero-control row count: 24
+- max margin gap from normal: 0.18265487369979994
+- max wrong-history margin gap: 0.02848063419634883
+- max donor response/action margin gap: 0.040193069514796065
+- donor response/action stream max gap: 0.006656528888189683
+- donor response/action plus hidden max gap: 0.040193069514796065
+- reset hidden every step max gap: 0.18265487369979994
+- zero action history max gap: 0.10665914868873116
+- zero current response max gap: 0.02174461234102054
+- success drop count: 0
+- wrong-history verdict: `preliminary_positive_source_small`
+- donor response verdict: `partial_positive_plus_hidden_response_only_weak`
+- reset/zero-current verdict: `stronger_than_wrong_history`
+- source scope verdict: `source_small_t4_only_public_dev_rows`
+- materialization verdict: `blocked`
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1535 admits source-expanded repeat design only. M1534 is a meaningful positive smoke but too source-small and control-sensitive for candidate export or level3 self-ID claims.
+- follow-up manifest: `experiments/manifests/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.json`.
+- next: `m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design`
