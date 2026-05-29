@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1507,
+    "completed": 1508,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1498-paper-route-go-no-go-three-seed-result-audit.md",
+    "command_log": "docs/m1499-paper-route-decisive-history-task-matrix-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1498-paper-route-go-no-go-three-seed-result-audit"
+    "task_id": "m1499-paper-route-decisive-history-task-matrix-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1499-paper-route-decisive-history-task-matrix-design.json",
-    "hypothesis": "After the standard profile stop rule, the correct next paper route is to design decisive T4/T5 tasks that make older action-response history necessary under fair controls.",
-    "id": "m1499-paper-route-decisive-history-task-matrix-design",
-    "kind": "gate",
-    "notes": "Pending: design T4/T5 task matrix where current frame and short recent windows should be insufficient under fair controls",
-    "priority": 14940,
+    "command": "see experiments/manifests/m1500-paper-route-decisive-history-task-harness-implementation.json",
+    "hypothesis": "The M1499 T4/T5 decisive-history task design can be implemented as a no-training harness with matching diagnostics, intervention labels, and source-diversity summaries.",
+    "id": "m1500-paper-route-decisive-history-task-harness-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-training T4/T5 task harness scaffolding with matching diagnostics and source-diversity summaries",
+    "priority": 14950,
     "status": "pending",
-    "success_artifact": "docs/m1499-paper-route-decisive-history-task-matrix-design.md"
+    "success_artifact": "docs/m1500-paper-route-decisive-history-task-harness-implementation.md"
   },
-  "updated_at_utc": "20260529T074200Z"
+  "updated_at_utc": "20260529T075000Z"
 }

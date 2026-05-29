@@ -22329,3 +22329,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1499-paper-route-decisive-history-task-matrix-design.json`.
 - next: `m1499-paper-route-decisive-history-task-matrix-design`
+
+## M1499 Paper-Route Decisive History Task Matrix Design
+
+- status: completed
+- decision: `decisive_history_task_matrix_design_admit_task_harness_implementation`
+- artifact: `docs/m1499-paper-route-decisive-history-task-matrix-design.md`
+- task families: T4 same-current same-recent-window different-older-history; T5 terminal-boundary near-constraint avoidance
+- controller families: L0/L1/L2/L2-current-tiled/L3/reset controls from the corrected go/no-go profile matrix
+- public development first: true
+- private holdout used: false
+- promoted: false
+- actor input contract changed: false
+- interpretation: decisive tasks must make older-history necessity a construction and measurement question rather than another weak standard-distribution trend.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1500-paper-route-decisive-history-task-harness-implementation.json`.
+- next: `m1500-paper-route-decisive-history-task-harness-implementation`

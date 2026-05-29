@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1498-paper-route-go-no-go-three-seed-result-audit
+m1499-paper-route-decisive-history-task-matrix-design
 ```
 
 Current next task:
 
 ```text
-m1499-paper-route-decisive-history-task-matrix-design
+m1500-paper-route-decisive-history-task-harness-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -45,12 +45,32 @@ train/eval seed per profile. M1496 audited M1495 and admits exactly one 3-seed
 public pilot with a stop rule. M1497 completed that three-seed public pilot with
 all 36 profile seed runs finite. M1498 audited the result, stopped standard
 profile scaling, and pivoted the paper route to decisive T4/T5
-history-necessity task design. The current public-gate base remains M1362 alpha
-`0.1`:
+history-necessity task design. M1499 designed that task matrix and admits a
+no-training task harness implementation. The current public-gate base remains
+M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1499 decisive history task matrix design:
+
+```text
+decision: decisive_history_task_matrix_design_admit_task_harness_implementation
+artifact: docs/m1499-paper-route-decisive-history-task-matrix-design.md
+task_families:
+  T4 same-current same-recent-window different-older-history
+  T5 terminal-boundary near-constraint avoidance
+public_development_first: true
+private_holdout_used: false
+promoted: false
+actor_input_contract_changed: false
+next: m1500-paper-route-decisive-history-task-harness-implementation
+```
+
+M1499 defines the next branch as no-training T4/T5 task harness work. The next
+step is not controller training; it is task schemas, current/recent matching
+diagnostics, intervention labels, source-diversity summaries, and focused tests.
 
 M1498 three-seed result audit:
 
