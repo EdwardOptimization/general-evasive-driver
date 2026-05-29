@@ -22173,3 +22173,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1491-paper-route-neighbor-viability-replay-result-audit.json`.
 - next: `m1491-paper-route-neighbor-viability-replay-result-audit`
+
+## M1491 Paper-Route Neighbor Viability Replay Result Audit
+
+- status: completed
+- decision: `neighbor_viability_replay_audit_source_singleton_control_sensitive_pivot_to_go_no_go_matrix`
+- failure type: `scenario_sampling_failure`
+- audited run: `runs/m1490_neighbor_viability_bounded_replay_smoke`
+- actual replay rows: 204
+- actual replay diversity: 5 seeds, 6 capability pairs, 6 reveal buckets, 5 variants
+- history positive rows: 7
+- history positive diversity: 1 seed, 1 capability pair, 1 reveal bucket, 1 variant
+- history positive family: seed 141901, source index 24, `brake_authority_drop->mass_cg_shift`, `vx6|yaw-2|steer-4|ox0|oy0`, `warmup_removed`
+- control positive rows: 12
+- control positive diversity: 1 seed, 1 capability pair, 1 reveal bucket, variants `reset_hidden` and `zero_current_response`
+- interpretation: M1490 is replay-positive and local-boundary-live, but it is not source-diverse corpus evidence and does not support level3 self-ID.
+- hard stop: M1488 stop condition is applied because positives remain source-singleton/control-sensitive.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1492-paper-route-self-id-go-no-go-matrix-design.json`.
+- next: `m1492-paper-route-self-id-go-no-go-matrix-design`

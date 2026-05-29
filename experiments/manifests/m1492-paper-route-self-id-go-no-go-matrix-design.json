@@ -1,0 +1,151 @@
+{
+  "id": "m1492-paper-route-self-id-go-no-go-matrix-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1491-paper-route-neighbor-viability-replay-result-audit.md",
+      "runs/m1490_neighbor_viability_bounded_replay_smoke/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1491-paper-route-neighbor-viability-replay-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a fair self-ID go/no-go controller matrix after the source-diverse pressure hard stop"
+    ],
+    "derived_from": [
+      "m1491-paper-route-neighbor-viability-replay-result-audit"
+    ],
+    "blocked_by": [
+      "source-diverse pressure replay positives remain source-singleton and control-sensitive"
+    ],
+    "supersedes": [
+      "another source-diverse pressure replay loop without controller-family go/no-go comparison"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1492-paper-route-self-id-go-no-go-matrix-design.md",
+  "public_gates": [
+    "M1492 must design the L0/L1/L2/L3 fair controller matrix before new training or replay",
+    "M1492 must preserve the deployable human-view/no-privileged actor input contract",
+    "M1492 must pre-register shared budgets, seeds, task families, metrics, and falsification criteria",
+    "M1492 must block private holdout tuning, promotion, corpus export, PPO, and actor-input changes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim recurrent self-identification from M1490 source-singleton positives",
+    "do not compare controller families with different budgets or tuning recipes"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_self_id_go_no_go_matrix",
+    "evidence_axis": "G_controller_family_go_no_go_design",
+    "evidence_increment": "turns the M1491 source-diverse pressure hard stop into a fair L0/L1/L2/L3 controller-family design",
+    "claim_scope": "design only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if the matrix gives one family a larger budget, different seed set, or extra actor inputs",
+      "stop if finite-window and GRU controllers are not separated from capacity controls",
+      "stop if private holdout is used for tuning",
+      "stop if design attempts to promote a checkpoint"
+    ],
+    "fallback_plan": [
+      "if the matrix cannot be made fair with current tooling, add a small infrastructure design milestone for missing loaders or config validators",
+      "if current-sim task families are underspecified, first write task-family manifests without training"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new branch opened after M1491 hard stop",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "self-ID go/no-go matrix design",
+    "admission_evidence": [
+      "M1491 applies the M1488 hard stop because M1490 positives remain source-singleton and control-sensitive",
+      "docs/self-id-go-no-go-paper-route-plan.md defines L0/L1/L2/L3 controller families and task families"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1492 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up implementation or manifest route for the matrix"
+    ],
+    "next_stage_criteria": [
+      "controller families are explicitly defined",
+      "task families are explicitly defined",
+      "fairness and falsification criteria are pre-registered",
+      "next implementation or experiment route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1492 is a design milestone whose purpose is to test whether current-frame response, finite-window history, or recurrent hidden state actually explains behavior.",
+    "history_necessity_tests": [
+      "pre-register L0-current, L1-one-step, L2-finite-window, L2-current-tiled, L3-online-GRU, and L3-reset/truncated controls",
+      "pre-register wrong, delayed, removed, and truncated history interventions as evaluation criteria rather than assumptions"
+    ],
+    "temporal_evidence_window": "design only; no new temporal evidence generated.",
+    "negative_result_policy": "If current-response or finite-window controllers match GRU under fair budgets, treat recurrent self-ID as negative or conditional instead of weakening the claim standard.",
+    "allowed_claims": [
+      "M1492 designs a fair self-ID go/no-go matrix",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The correct next step after the source-diverse pressure hard stop is a fair L0/L1/L2/L3 controller-family go/no-go matrix, not another replay retargeting loop.",
+  "success_criteria": [
+    "docs/m1492-paper-route-self-id-go-no-go-matrix-design.md exists",
+    "design defines L0-current L1-one-step L2-finite-window L2-current-tiled L3-online-GRU and L3-reset/truncated controllers",
+    "design defines T1 through T5 decisive task families",
+    "design pre-registers shared budgets seeds metrics and falsification criteria",
+    "design blocks training PPO replay promotion private holdout corpus export and actor-input changes"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "controller families have unequal budgets or hidden extra inputs",
+    "finite-window and GRU capacity controls are omitted",
+    "design uses private holdout for tuning",
+    "design starts training replay PPO promotion corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1492-paper-route-self-id-go-no-go-matrix-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1492-paper-route-self-id-go-no-go-matrix-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1491-paper-route-neighbor-viability-replay-result-audit.md",
+    "docs/self-id-go-no-go-paper-route-plan.md"
+  ],
+  "decision_rule": "M1492 passes if it registers a fair controller-family go/no-go design before any new training or replay.",
+  "next_blocker": "m1492-paper-route-self-id-go-no-go-matrix-design"
+}

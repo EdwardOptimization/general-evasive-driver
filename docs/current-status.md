@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1490-paper-route-neighbor-viability-bounded-replay-smoke
+m1491-paper-route-neighbor-viability-replay-result-audit
 ```
 
 Current next task:
 
 ```text
-m1491-paper-route-neighbor-viability-replay-result-audit
+m1492-paper-route-self-id-go-no-go-matrix-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -44,6 +44,28 @@ alpha `0.1`:
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
+M1491 audit:
+
+```text
+decision: neighbor_viability_replay_audit_source_singleton_control_sensitive_pivot_to_go_no_go_matrix
+failure_type: scenario_sampling_failure
+audited_run: runs/m1490_neighbor_viability_bounded_replay_smoke
+actual_replay_rows: 204
+actual replay diversity: 5 seeds / 6 capability pairs / 6 reveal buckets / 5 variants
+history_positive_rows: 7
+history positive diversity: 1 seed / 1 capability pair / 1 reveal bucket / 1 variant
+control_positive_rows: 12
+control positive diversity: 1 seed / 1 capability pair / 1 reveal bucket / 2 variants
+hard_stop_applied: true
+next: m1492-paper-route-self-id-go-no-go-matrix-design
+```
+
+M1491 applies the M1488 hard-stop logic. M1490 is replay-positive, but its
+positives remain source-singleton and same-family controls are live. This blocks
+corpus export, training, PPO, promotion, paper-level recurrent belief claims,
+and level3 self-identification claims from this branch. The next route is the
+L0/L1/L2/L3 go/no-go matrix rather than another source-diverse pressure replay.
+
 M1490 bounded replay:
 
 ```text
@@ -59,12 +81,6 @@ history positive diversity: 1 seed / 1 capability pair / 1 reveal bucket / 1 var
 control positive diversity: 1 seed / 1 capability pair
 next: m1491-paper-route-neighbor-viability-replay-result-audit
 ```
-
-M1491 must audit M1490 before any further replay or training. Current evidence
-already triggers the M1488 hard-stop logic: positives remain source-singleton
-and controls are same-family. The likely next route is pivoting this branch to
-the L0/L1/L2/L3 go/no-go matrix rather than continuing source-diverse pressure
-replay.
 
 M1489 bounded replay design:
 

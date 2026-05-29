@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1499,
+    "completed": 1500,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1490-paper-route-neighbor-viability-bounded-replay-smoke.md",
+    "command_log": "docs/m1491-paper-route-neighbor-viability-replay-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1490_neighbor_viability_bounded_replay_smoke",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1490-paper-route-neighbor-viability-bounded-replay-smoke"
+    "task_id": "m1491-paper-route-neighbor-viability-replay-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1491-paper-route-neighbor-viability-replay-result-audit.json",
-    "hypothesis": "M1490 should be treated as replay-positive but not source-diverse corpus-ready, and the source-diverse pressure loop should pivot to the self-ID go/no-go matrix.",
-    "id": "m1491-paper-route-neighbor-viability-replay-result-audit",
+    "command": "see experiments/manifests/m1492-paper-route-self-id-go-no-go-matrix-design.json",
+    "hypothesis": "The correct next step after the source-diverse pressure hard stop is a fair L0/L1/L2/L3 controller-family go/no-go matrix, not another replay retargeting loop.",
+    "id": "m1492-paper-route-self-id-go-no-go-matrix-design",
     "kind": "gate",
-    "notes": "Pending: audit M1490 source-singleton/control-sensitive positives and apply hard stop before any further replay or training",
-    "priority": 14860,
+    "notes": "Pending: design fair L0/L1/L2/L3 controller-family matrix before any further training replay or promotion",
+    "priority": 14870,
     "status": "pending",
-    "success_artifact": "docs/m1491-paper-route-neighbor-viability-replay-result-audit.md"
+    "success_artifact": "docs/m1492-paper-route-self-id-go-no-go-matrix-design.md"
   },
-  "updated_at_utc": "20260529T064850Z"
+  "updated_at_utc": "20260529T065428Z"
 }
