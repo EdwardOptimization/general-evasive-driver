@@ -25583,3 +25583,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1612-paper-route-contour-aware-candidate-materialization-implementation.json`
 - next: `m1612-paper-route-contour-aware-candidate-materialization-implementation`
+
+## M1612 Paper-Route Contour-Aware Candidate Materialization Implementation
+
+- status: completed
+- decision: `contour_aware_candidate_materialization_public_pass_route_to_audit`
+- artifact: `runs/m1612_contour_aware_candidate_materialization/summary.json`
+- doc: `docs/m1612-paper-route-contour-aware-candidate-materialization-implementation.md`
+- focused tests: `3 passed in 2.05s`
+- primary input directed pairs: 144
+- diagnostic input directed pairs: 232
+- candidate directed pairs: 39
+- candidate source-edge count: 4
+- max candidate source-edge share: 0.3333333333333333
+- candidate rows from primary only: true
+- candidate rows all clean: true
+- candidate rows missing variants count: 0
+- candidate pair ids unique: true
+- diagnostic guardrail directed pairs: 232
+- diagnostic reason count: 3
+- diagnostic dominated/control count: 81
+- diagnostic clean share: 0.008620689655172414
+- diagnostic rows enter candidate rows: false
+- candidate materialized: true
+- candidate materialization only: true
+- training corpus exported: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- guardrail violation count: 0
+- passes public smoke gates: true
+- null result classification: `contour_aware_candidate_materialization_public_pass`
+- supported: candidate artifacts can be materialized from M1609 primary clean rows; diagnostic guardrails remain separate; materialization is offline without corpus export or training
+- unsupported: training corpus export, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- follow-up manifest: `experiments/manifests/m1613-paper-route-contour-aware-candidate-materialization-result-audit.json`
+- next: `m1613-paper-route-contour-aware-candidate-materialization-result-audit`

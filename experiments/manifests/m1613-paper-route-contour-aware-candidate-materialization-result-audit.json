@@ -1,0 +1,157 @@
+{
+  "id": "m1613-paper-route-contour-aware-candidate-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1612_contour_aware_candidate_materialization/summary.json",
+      "runs/m1612_contour_aware_candidate_materialization/candidate_rows.csv",
+      "runs/m1612_contour_aware_candidate_materialization/diagnostic_guardrail_rows.csv",
+      "docs/m1612-paper-route-contour-aware-candidate-materialization-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1612-paper-route-contour-aware-candidate-materialization-implementation.json"
+    ],
+    "parent_objective": [
+      "audit offline candidate materialization before any training corpus export or training"
+    ],
+    "derived_from": [
+      "m1612-paper-route-contour-aware-candidate-materialization-implementation"
+    ],
+    "blocked_by": [
+      "M1612 public pass still requires audit before corpus export or training design"
+    ],
+    "supersedes": [
+      "direct training-corpus export from M1612",
+      "direct PPO after M1612",
+      "direct promotion after M1612"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1613-paper-route-contour-aware-candidate-materialization-result-audit.md",
+  "public_gates": [
+    "M1613 must audit M1612 candidate artifacts and diagnostic guardrails separately",
+    "M1613 must decide whether candidate artifacts admit corpus-design, another diagnostic, synthesis, pivot, or stop",
+    "M1613 must keep training corpus export, training, PPO, promotion, and private holdout blocked during the audit",
+    "M1613 must not claim level3 self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not export a training corpus",
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun replay",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not include diagnostic rows in candidate rows",
+    "do not relax clean selector thresholds",
+    "do not relax the max clean source-edge share threshold",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "A_contour_aware_candidate_materialization_result_audit",
+    "evidence_increment": "audits M1612 offline candidate artifacts before corpus design or training",
+    "claim_scope": "audit only; no corpus export, replay rerun, simulator rerun, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats M1612 as sufficient for training or promotion",
+      "stop if audit ignores diagnostic guardrails",
+      "stop if audit routes directly to PPO"
+    ],
+    "fallback_plan": [
+      "admit corpus-design only if candidate and diagnostic artifacts are intact",
+      "pivot if candidate artifacts are too narrow for training design",
+      "stop if no next step can preserve guardrails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1612 passes offline materialization and requires audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "contour-aware candidate materialization result audit",
+    "admission_evidence": [
+      "M1612 passes public gates with 39 candidate rows and 232 diagnostic guardrail rows"
+    ],
+    "blocked_shortcuts": [
+      "do not export a training corpus",
+      "do not train",
+      "do not run PPO",
+      "do not run implementation smoke",
+      "do not use private holdout",
+      "do not promote a checkpoint",
+      "do not change actor inputs",
+      "do not relax thresholds",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1613 audit document",
+      "M1613 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits design, synthesis, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "M1612 materialization interpretation is explicit",
+      "supported and unsupported claims are explicit",
+      "public-gate overfit risk is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1613 audits public materialized artifacts; broad self-identification and level3 claims remain unsupported.",
+    "history_necessity_tests": [
+      "M1612 candidate rows",
+      "M1612 diagnostic guardrails"
+    ],
+    "temporal_evidence_window": "M1612 materialized candidate artifacts.",
+    "negative_result_policy": "If audit finds the artifacts too narrow, preserve them as public proof artifacts instead of designing a corpus.",
+    "allowed_claims": [
+      "M1612 materialization audit and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1612's candidate artifacts should be audited before any corpus-design, training, or PPO decision.",
+  "success_criteria": [
+    "docs/m1613-paper-route-contour-aware-candidate-materialization-result-audit.md exists",
+    "audit records candidate and diagnostic guardrail outcomes separately",
+    "supported and unsupported claims are explicit",
+    "public-gate overfit risk is explicit",
+    "next route is explicit",
+    "training PPO promotion private holdout corpus export and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1612 as promotion or training evidence",
+    "audit routes directly to training PPO promotion private holdout corpus export actor-input changes"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1613-paper-route-contour-aware-candidate-materialization-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1613-paper-route-contour-aware-candidate-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1612_contour_aware_candidate_materialization/summary.json",
+    "docs/m1612-paper-route-contour-aware-candidate-materialization-implementation.md"
+  ],
+  "decision_rule": "M1613 passes if it audits M1612 and chooses the next route before corpus export, training, PPO, or promotion.",
+  "next_blocker": "m1613-paper-route-contour-aware-candidate-materialization-result-audit"
+}

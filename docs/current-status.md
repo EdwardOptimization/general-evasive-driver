@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1611-paper-route-contour-aware-candidate-materialization-design
+m1612-paper-route-contour-aware-candidate-materialization-implementation
 ```
 
 Current next task:
 
 ```text
-m1612-paper-route-contour-aware-candidate-materialization-implementation
+m1613-paper-route-contour-aware-candidate-materialization-result-audit
 ```
 
-M1611 designed contour-aware candidate materialization from the M1609 public
-pass. Candidate rows must come only from the 39 primary clean rows, diagnostics
-must remain separate guardrails, and exact replay ids/source-edge accounting
-must be preserved. The next task is M1612 offline materialization of candidate
-artifacts only. Training-corpus export, training, PPO, promotion, private
-holdout, actor-input changes, threshold relaxation, label-selected diagnostics,
-and level3 self-ID claims remain blocked.
+M1612 implemented offline contour-aware candidate materialization. It wrote 39
+candidate rows from primary clean rows and 232 diagnostic guardrail rows,
+preserved source-edge balance (`max_candidate_source_edge_share=0.3333333333333333`),
+and did not export a training corpus. The next task is M1613 result audit.
+Training-corpus export, training, PPO, promotion, private holdout,
+actor-input changes, threshold relaxation, label-selected diagnostics, and
+level3 self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
