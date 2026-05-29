@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation
+m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit
 ```
 
 Current next task:
 
 ```text
-m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit
+m1540-paper-route-terminal-boundary-history-positive-source-repair-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -141,6 +141,10 @@ gap was `0.1224`, donor-response/action-plus-hidden max gap was `0.1260`, and
 the max reset/zero-control gap was `0.0933`. This is source-expanded positive
 evidence, but T5/terminal-boundary history-positive target sides remain `0`, so
 the next task is an audit before any materialization.
+M1539 audited that result as source-expanded non-terminal positive evidence.
+Materialization remains blocked because T5/terminal-boundary history-positive
+target sides are still `0` and donor response/action stream alone remains below
+threshold. The next task is terminal-boundary source repair design.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

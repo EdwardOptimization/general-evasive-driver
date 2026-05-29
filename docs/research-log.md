@@ -23332,3 +23332,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1538 is a source-expanded positive repeat for wrong-history and donor-plus-hidden margin sensitivity, but it still lacks T5/terminal-boundary history-positive evidence and direct donor response/action stream sensitivity. It must route to audit before materialization.
 - follow-up manifest: `experiments/manifests/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.json`.
 - next: `m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit`
+
+## M1539 Paper-Route Fresh Ambiguity History-Intervention Repeat Result Audit
+
+- status: completed
+- decision: `fresh_ambiguity_repeat_audit_positive_nonterminal_route_terminal_boundary_repair`
+- artifact: `docs/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.md`
+- source-diversity verdict: `pass`
+- history-sensitivity verdict: `positive_source_expanded_nonterminal`
+- control-dominance verdict: `not_dominant_by_max_gap`
+- T5/terminal-boundary verdict: `blocked_absent_history_positive`
+- donor response/action stream verdict: `weak_below_threshold`
+- materialization verdict: `blocked`
+- accepted measured pair count: 13
+- accepted source-family edge count: 11
+- T5/terminal-boundary accepted pair count: 5
+- wrong-history positive target sides/source edges: 4/3
+- donor-plus-hidden positive target sides/source edges: 4/3
+- T5/terminal-boundary history-positive target sides: 0
+- donor response/action stream positive target sides: 0
+- control-to-history gap ratio: 0.7401849433631154
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1539 keeps M1538 as a useful public diagnostic surface but blocks corpus export and training. The next route must target terminal-boundary source repair instead of treating non-terminal positives as sufficient.
+- follow-up manifest: `experiments/manifests/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.json`.
+- next: `m1540-paper-route-terminal-boundary-history-positive-source-repair-design`

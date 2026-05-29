@@ -1,0 +1,151 @@
+{
+  "id": "m1540-paper-route-terminal-boundary-history-positive-source-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.md",
+      "runs/m1538_fresh_ambiguity_history_intervention_repeat/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.json"
+    ],
+    "parent_objective": [
+      "design terminal-boundary source repair after M1539 audits T5 history-positive absence"
+    ],
+    "derived_from": [
+      "m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit"
+    ],
+    "blocked_by": [
+      "M1538 is source-expanded positive overall but has zero T5 or terminal-boundary history-positive target sides"
+    ],
+    "supersedes": [
+      "direct materialization of M1538 non-terminal positives"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.md",
+  "public_gates": [
+    "M1540 must design terminal-boundary source or pair repair before new implementation",
+    "M1540 must preserve the P0 actor input contract",
+    "M1540 must define T5/terminal-boundary pass and fail thresholds",
+    "M1540 must not train run PPO promote use private holdout or materialize candidates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "G_terminal_boundary_history_positive_repair_design",
+    "evidence_increment": "designs a repair route for the missing terminal-boundary history-positive evidence identified by M1539",
+    "claim_scope": "design only; no implementation, candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design treats M1538 non-terminal positives as terminal-boundary evidence",
+      "stop if design weakens T5 history-positive thresholds",
+      "stop if design routes directly to training or materialization",
+      "stop if design changes actor inputs"
+    ],
+    "fallback_plan": [
+      "route to terminal-boundary source repair implementation if design is concrete",
+      "route to task generation if existing T5 sources cannot produce accepted pairs",
+      "route to branch synthesis if terminal-boundary repair is not feasible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1539 audit identifies T5 history-positive absence as the current blocker",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "terminal-boundary source repair design",
+    "admission_evidence": [
+      "M1539 blocks materialization and routes to terminal-boundary repair"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1540 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up implementation manifest"
+    ],
+    "next_stage_criteria": [
+      "terminal-boundary source set is explicit",
+      "pair repair knobs are explicit",
+      "pass and fail thresholds are explicit",
+      "materialization remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1540 must design terminal-boundary tests that separate history effects from current response controls.",
+    "history_necessity_tests": [
+      "wrong_history_donor_hidden_at_anchor",
+      "donor_response_action_plus_hidden_from_anchor",
+      "donor_response_action_stream_from_anchor",
+      "delayed hidden variants",
+      "reset and zero-current controls"
+    ],
+    "temporal_evidence_window": "Design only for a later terminal-boundary repair run.",
+    "negative_result_policy": "If terminal-boundary repair cannot find history-positive rows, record that as a task-design blocker and synthesize rather than training.",
+    "allowed_claims": [
+      "M1540 designs terminal-boundary repair",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A targeted terminal-boundary source repair design can address the M1538 gap where T5 pairs were accepted but history-positive target sides remained zero.",
+  "success_criteria": [
+    "docs/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.md exists",
+    "design targets terminal-boundary source families and retarget knobs",
+    "design defines history-positive T5 pass thresholds and stop conditions",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design treats M1538 non-terminal positives as sufficient",
+    "design weakens the self-ID evidence standard",
+    "design routes directly to training promotion private holdout or materialization"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.md",
+    "runs/m1538_fresh_ambiguity_history_intervention_repeat/summary.json"
+  ],
+  "decision_rule": "M1540 passes if it pre-registers a terminal-boundary repair route without weakening guardrails.",
+  "next_blocker": "m1540-paper-route-terminal-boundary-history-positive-source-repair-design"
+}

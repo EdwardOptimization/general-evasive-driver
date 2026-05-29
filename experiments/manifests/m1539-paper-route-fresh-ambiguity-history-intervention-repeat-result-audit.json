@@ -4,7 +4,8 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure",
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -150,6 +151,40 @@
     "runs/m1538_fresh_ambiguity_history_intervention_repeat/summary.json",
     "docs/m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.md",
+    "decision": "fresh_ambiguity_repeat_audit_positive_nonterminal_route_terminal_boundary_repair",
+    "source_diversity_verdict": "pass",
+    "history_sensitivity_verdict": "positive_source_expanded_nonterminal",
+    "control_dominance_verdict": "not_dominant_by_max_gap",
+    "t5_terminal_boundary_verdict": "blocked_absent_history_positive",
+    "donor_response_action_stream_verdict": "weak_below_threshold",
+    "materialization_verdict": "blocked",
+    "accepted_measured_pair_count": 13,
+    "accepted_source_family_edge_count": 11,
+    "t5_or_terminal_boundary_accepted_pair_count": 5,
+    "wrong_history_positive_target_sides": 4,
+    "wrong_history_positive_source_edges": 3,
+    "donor_plus_hidden_positive_target_sides": 4,
+    "donor_plus_hidden_positive_source_edges": 3,
+    "t5_or_terminal_boundary_history_positive_target_sides": 0,
+    "donor_response_action_stream_positive_target_sides": 0,
+    "control_to_history_gap_ratio": 0.7401849433631154,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.json"
+  },
+  "decision": "fresh_ambiguity_repeat_audit_positive_nonterminal_route_terminal_boundary_repair",
   "decision_rule": "M1539 passes if it audits M1538 and chooses the next route without overclaiming or materializing candidates.",
-  "next_blocker": "m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit"
+  "next_blocker": "m1540-paper-route-terminal-boundary-history-positive-source-repair-design"
 }

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1547,
+    "completed": 1548,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1538_fresh_ambiguity_history_intervention_repeat/summary.json",
+    "command_log": "docs/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1538_fresh_ambiguity_history_intervention_repeat",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation"
+    "task_id": "m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.json",
-    "hypothesis": "M1538 is source-expanded and history-positive overall but its T5 absence and donor-stream weakness must be audited before any materialization route.",
-    "id": "m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit",
+    "command": "see experiments/manifests/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.json",
+    "hypothesis": "A targeted terminal-boundary source repair design can address the M1538 gap where T5 pairs were accepted but history-positive target sides remained zero.",
+    "id": "m1540-paper-route-terminal-boundary-history-positive-source-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit M1538 source-expanded positive repeat before materialization or self-ID claims",
-    "priority": 15340,
+    "notes": "Pending: design terminal-boundary source repair after M1539 blocks materialization on T5 history-positive absence",
+    "priority": 15350,
     "status": "pending",
-    "success_artifact": "docs/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.md"
+    "success_artifact": "docs/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.md"
   },
-  "updated_at_utc": "20260529T112512Z"
+  "updated_at_utc": "20260529T112847Z"
 }
