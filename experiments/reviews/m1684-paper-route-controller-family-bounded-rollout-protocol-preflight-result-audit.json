@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1684 audits M1683 as complete no-rollout protocol and routes to measured-execution design without execution",
+  "failure_criteria": [
+    "audit document is missing",
+    "M1683 workload strata or leakage status is not checked",
+    "audit routes directly to rollout execution private holdout promotion or paper evidence",
+    "audit claims controller-family ranking or level3 self-ID"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not run environment rollout",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use M1615 hidden tensors or actions as benchmark targets",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T233028Z",
+  "hypothesis": "M1683's no-rollout protocol is complete enough to admit measured-execution design while preserving strata and controller controls.",
+  "lineage": {
+    "blocked_by": [
+      "M1683 protocol must be audited before any measured rollout design or execution"
+    ],
+    "derived_from": [
+      "m1683-paper-route-controller-family-bounded-rollout-protocol-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_rollout_protocol_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1683-paper-route-controller-family-bounded-rollout-protocol-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m1683_controller_family_bounded_rollout_protocol_preflight/summary.json",
+      "runs/m1683_controller_family_bounded_rollout_protocol_preflight/rollout_protocol.json",
+      "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv",
+      "docs/m1683-paper-route-controller-family-bounded-rollout-protocol-preflight.md"
+    ],
+    "parent_objective": [
+      "audit no-rollout protocol preflight before measured execution design"
+    ],
+    "supersedes": [
+      "direct measured execution after M1683",
+      "direct private holdout after M1683",
+      "direct controller-family ranking after M1683"
+    ]
+  },
+  "milestone": "m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit",
+  "next_blocker": "m1685-paper-route-controller-family-measured-execution-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "rollout_protocol_preflight_audit_pass_route_to_measured_execution_design",
+  "public_gates": [
+    "M1684 must audit M1683 summary protocol and workload_matrix artifacts",
+    "M1684 must verify workload cell count strata and zero rollout count",
+    "M1684 must verify hidden/action target leakage remains zero",
+    "M1684 must choose measured-execution design, protocol repair, or branch synthesis route",
+    "M1684 must keep private holdout promotion actor-input changes paper-level claims and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "rollout_protocol_preflight_audit_pass_route_to_measured_execution_design",
+    "milestone": "m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit",
+    "reason": "M1684 audits M1683 as complete no-rollout protocol and routes to measured-execution design without execution",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.md exists",
+    "M1683 summary protocol and workload_matrix are audited",
+    "workload cell count strata leakage and rollout-count status are explicit",
+    "next measured-execution design repair or synthesis route is explicit",
+    "environment rollout training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

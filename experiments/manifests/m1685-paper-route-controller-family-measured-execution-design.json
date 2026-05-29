@@ -1,0 +1,157 @@
+{
+  "id": "m1685-paper-route-controller-family-measured-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_measured_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.md",
+      "runs/m1683_controller_family_bounded_rollout_protocol_preflight/summary.json",
+      "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.json"
+    ],
+    "parent_objective": [
+      "design staged measured execution route after no-rollout protocol audit"
+    ],
+    "derived_from": [
+      "m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit"
+    ],
+    "blocked_by": [
+      "must design measured execution scope and guardrails before any environment rollout"
+    ],
+    "supersedes": [
+      "direct measured rollout execution after M1684",
+      "direct private holdout after M1684",
+      "direct controller-family ranking after M1684"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1685-paper-route-controller-family-measured-execution-design.md",
+  "public_gates": [
+    "M1685 must design measured execution without executing rollout",
+    "M1685 must choose small smoke full rollout or staged smoke-to-full route",
+    "M1685 must preserve all_72 and explicit-window strata",
+    "M1685 must preserve L1 L2-current-tiled and L3-reset controls",
+    "M1685 must keep private holdout promotion actor-input changes paper-level claims and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not run environment rollout",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use M1615 hidden tensors or actions as benchmark targets",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "F_measured_execution_design",
+    "evidence_increment": "designs measured execution route after protocol audit before any rollout",
+    "claim_scope": "design only; no rollout, training, replay, PPO, promotion, private holdout, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if design executes rollout",
+      "stop if design drops strata or control-substitution profiles",
+      "stop if profile-specific tuning is allowed",
+      "stop if private holdout or paper-level claim is admitted"
+    ],
+    "fallback_plan": [
+      "route to measured execution preflight if design is feasible",
+      "route to protocol repair if measured execution cannot preserve controls",
+      "route to branch synthesis if execution route is too large for current cadence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1684 audits no-rollout protocol and admits measured-execution design only",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "measured execution design",
+    "admission_evidence": [
+      "M1684 audits M1683 as complete no-rollout protocol with 864 workload cells zero leakage and zero execution"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not run environment rollout",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1685 design document",
+      "M1685 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution preflight, protocol repair, or branch synthesis"
+    ],
+    "next_stage_criteria": [
+      "execution scope is explicit",
+      "strata and controls are explicit",
+      "execution remains blocked",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; execution design must preserve L1, L2-current-tiled, and L3-reset controls.",
+    "history_necessity_tests": [
+      "design must require current-substitution metrics",
+      "design must not claim history necessity before measured execution"
+    ],
+    "temporal_evidence_window": "M1683 protocol audit only.",
+    "negative_result_policy": "If measured execution shows controls solve tasks, record a valid reactive/finite-window result rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "measured execution design",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A staged public measured execution route can be designed from the M1683 protocol without executing rollout or weakening controller-family controls.",
+  "success_criteria": [
+    "docs/m1685-paper-route-controller-family-measured-execution-design.md exists",
+    "design chooses smoke full or staged execution scope",
+    "design preserves all_72 explicit-window L1 L2-current-tiled and L3-reset controls",
+    "design chooses one execution preflight repair or synthesis route",
+    "environment rollout training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design omits strata or control-substitution profiles",
+    "design allows profile-specific tuning",
+    "design routes directly to rollout execution private holdout promotion or paper evidence",
+    "design claims controller-family ranking or level3 self-ID"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1685-paper-route-controller-family-measured-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1685-paper-route-controller-family-measured-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_measured_execution_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.md",
+    "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv"
+  ],
+  "decision_rule": "M1685 passes if it designs measured execution and keeps execution blocked.",
+  "next_blocker": "m1685-paper-route-controller-family-measured-execution-design"
+}

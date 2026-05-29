@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1692,
+    "completed": 1693,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "runs/m1683_controller_family_bounded_rollout_protocol_preflight/summary.json",
+      "command_log": "docs/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1683_controller_family_bounded_rollout_protocol_preflight",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1683-paper-route-controller-family-bounded-rollout-protocol-preflight"
+      "task_id": "m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.json",
-      "hypothesis": "M1683's no-rollout protocol is complete enough to admit measured-execution design while preserving strata and controller controls.",
-      "id": "m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit",
+      "command": "see experiments/manifests/m1685-paper-route-controller-family-measured-execution-design.json",
+      "hypothesis": "A staged public measured execution route can be designed from the M1683 protocol without executing rollout or weakening controller-family controls.",
+      "id": "m1685-paper-route-controller-family-measured-execution-design",
       "kind": "gate",
-      "notes": "Pending: audit M1683 protocol before measured-execution design",
-      "priority": 16790,
+      "notes": "Pending: design measured execution scope before any rollout",
+      "priority": 16800,
       "status": "pending",
-      "success_artifact": "docs/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.md"
+      "success_artifact": "docs/m1685-paper-route-controller-family-measured-execution-design.md"
     },
-    "updated_at_utc": "20260529T232642Z"
+    "updated_at_utc": "20260529T232939Z"
 }

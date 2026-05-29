@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1683-paper-route-controller-family-bounded-rollout-protocol-preflight
+m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit
 ```
 
 Current next task:
 
 ```text
-m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit
+m1685-paper-route-controller-family-measured-execution-design
 ```
 
-M1683 materialized the no-rollout rollout protocol. It produced a complete
-72-spec x 12-profile workload matrix with 864 cells, `all_72_specs` and
-`explicit_window_subset` strata, zero hidden/action key leakage, and zero
-rollout/training/PPO. The next task is M1684 audit before measured-execution
-design.
+M1684 audited the no-rollout protocol as complete enough to design measured
+execution. It keeps execution blocked and preserves the required 72-spec,
+12-profile, 864-cell public protocol with `all_72_specs` and
+`explicit_window_subset` strata. The next task is M1685 measured-execution
+design, still without running rollout.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

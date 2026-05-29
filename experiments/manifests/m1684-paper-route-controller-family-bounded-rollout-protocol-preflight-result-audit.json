@@ -152,6 +152,20 @@
     "runs/m1683_controller_family_bounded_rollout_protocol_preflight/rollout_protocol.json",
     "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.md",
+    "decision": "rollout_protocol_preflight_audit_pass_route_to_measured_execution_design",
+    "audited_result_class": "controller_family_bounded_rollout_protocol_preflight_pass",
+    "spec_count": 72,
+    "profile_count": 12,
+    "workload_cell_count": 864,
+    "explicit_window_subset_count": 33,
+    "mapping_window_unspecified_count": 39,
+    "hidden_action_target_key_violation_count": 0,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1685-paper-route-controller-family-measured-execution-design.json"
+  },
   "decision_rule": "M1684 passes if it audits M1683 and admits only measured-execution design, repair, or synthesis.",
-  "next_blocker": "m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit"
+  "next_blocker": "m1685-paper-route-controller-family-measured-execution-design"
 }

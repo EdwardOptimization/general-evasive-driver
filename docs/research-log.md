@@ -26966,3 +26966,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: rollout task quality, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.json`
 - next: `m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit`
+
+## M1684 Paper-Route Controller-Family Bounded Rollout Protocol Preflight Result Audit
+
+- status: completed
+- decision: `rollout_protocol_preflight_audit_pass_route_to_measured_execution_design`
+- artifact: `docs/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.md`
+- audited M1683 result: pass with 72 specs, 12 profiles, 864 workload cells, required strata, zero hidden/action leakage, and zero rollout/training/PPO
+- supported: the public no-rollout protocol layer is complete enough to design measured execution
+- unsupported: rollout task quality, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1685-paper-route-controller-family-measured-execution-design.json`
+- next: `m1685-paper-route-controller-family-measured-execution-design`
