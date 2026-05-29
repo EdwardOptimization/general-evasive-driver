@@ -24496,3 +24496,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1575-paper-route-history-sensitive-active-set-mining-design.json`
 - next: `m1575-paper-route-history-sensitive-active-set-mining-design`
+
+## M1575 Paper-Route History-Sensitive Active-Set Mining Design
+
+- status: completed
+- decision: `history_sensitive_active_set_mining_design_admit_bounded_implementation`
+- artifact: `docs/m1575-paper-route-history-sensitive-active-set-mining-design.md`
+- failure taxonomy: `none`
+- design scope: no-training public miner
+- primary acceptance criterion: wrong-history or donor-plus-hidden outcome degradation relative to normal continuation and current-frame controls
+- source families: public P0-compatible source families including near-boundary, boundary-axis, high-speed, late-reveal, curved, low-authority, and AEB-infeasible variants exposed by current hooks
+- required controls: donor response/action stream only, reset hidden once/every step, zero current response, zero action history, zero all response
+- public gates: source specs >= 240, replay-ok anchors >= 96, donor pairs >= 128, intervention rows >= 768, history-sensitive anchors >= 12, clean anchors >= 8, source families >= 2, windows >= 3, non-near positives >= 4, high-speed positives >= 1, clean guardrails
+- evidence-quality targets: history-sensitive anchors >= 24, clean anchors >= 16, source families >= 3, windows >= 4, max single-family share <= 0.50, control-substitution dominated share <= 0.40
+- null taxonomy: no history signal, source-singleton history signal, control-substitution dominated, high-speed/late null, donor mismatch likely, guardrail/contract failure, source-diverse history-sensitive pass
+- history interventions executed: false in M1575
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1576-paper-route-history-sensitive-active-set-miner-implementation.json`
+- next: `m1576-paper-route-history-sensitive-active-set-miner-implementation`

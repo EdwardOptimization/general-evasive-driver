@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1574-paper-route-source-diverse-history-intervention-result-audit
+m1575-paper-route-history-sensitive-active-set-mining-design
 ```
 
 Current next task:
 
 ```text
-m1575-paper-route-history-sensitive-active-set-mining-design
+m1576-paper-route-history-sensitive-active-set-miner-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -407,6 +407,11 @@ because high-speed donor hidden/response distances are larger than the positive
 near-boundary cases. The next route is M1575 design: mine active-set rows using
 history intervention outcome degradation as the primary acceptance criterion,
 rather than assuming local forced-control flip anchors are history-sensitive.
+M1575 designed that miner. The next implementation must accept anchors only
+when wrong-history or donor-plus-hidden interventions degrade closed-loop
+outcome or terminal margin more than current-frame controls, and it must report
+source-family, window, high-speed, late-reveal, and control-substitution
+summaries before any materialization or training.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

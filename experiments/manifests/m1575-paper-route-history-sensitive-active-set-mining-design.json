@@ -152,6 +152,29 @@
     "runs/m1573_source_diverse_flip_anchor_history_intervention_smoke/summary.json",
     "docs/m1574-paper-route-source-diverse-history-intervention-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1575-paper-route-history-sensitive-active-set-mining-design.md",
+    "decision": "history_sensitive_active_set_mining_design_admit_bounded_implementation",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "primary_acceptance_criterion": "wrong-history or donor-plus-hidden outcome degradation relative to normal and current-frame controls",
+    "public_miner_implementation_admitted": true,
+    "implementation_manifest": "experiments/manifests/m1576-paper-route-history-sensitive-active-set-miner-implementation.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1575 passes if it designs a bounded history-sensitive active-set miner before implementation.",
-  "next_blocker": "m1575-paper-route-history-sensitive-active-set-mining-design"
+  "next_blocker": "m1576-paper-route-history-sensitive-active-set-miner-implementation"
 }

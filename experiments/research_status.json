@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1583,
+    "completed": 1584,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1574-paper-route-source-diverse-history-intervention-result-audit.md",
+    "command_log": "docs/m1575-paper-route-history-sensitive-active-set-mining-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1574-paper-route-source-diverse-history-intervention-result-audit"
+    "task_id": "m1575-paper-route-history-sensitive-active-set-mining-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1575-paper-route-history-sensitive-active-set-mining-design.json",
-    "hypothesis": "A history-sensitive active-set miner can be designed to find source-diverse anchors where policy history interventions change closed-loop outcome.",
-    "id": "m1575-paper-route-history-sensitive-active-set-mining-design",
-    "kind": "gate",
-    "notes": "Pending: design history-sensitive active-set miner after M1573 source-narrow intervention result",
-    "priority": 15700,
+    "command": "see experiments/manifests/m1576-paper-route-history-sensitive-active-set-miner-implementation.json",
+    "hypothesis": "A bounded public miner can find source-diverse anchors where wrong-history or donor-plus-hidden interventions degrade closed-loop outcome more than current-frame controls.",
+    "id": "m1576-paper-route-history-sensitive-active-set-miner-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded history-sensitive active-set miner after M1575 design",
+    "priority": 15710,
     "status": "pending",
-    "success_artifact": "docs/m1575-paper-route-history-sensitive-active-set-mining-design.md"
+    "success_artifact": "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T145012Z"
+  "updated_at_utc": "20260529T145454Z"
 }
