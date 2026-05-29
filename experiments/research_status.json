@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1412,
+    "completed": 1413,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.md",
+    "command_log": "docs/m1403-paper-route-mild-warmup-stimulus-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1402-paper-route-warmup-reveal-pressure-outcome-result-audit"
+    "task_id": "m1403-paper-route-mild-warmup-stimulus-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1403-paper-route-mild-warmup-stimulus-design.json",
-    "hypothesis": "A mild warmup stimulus design can create deployable command-response evidence and near-boundary reveals without adding oracle actor inputs.",
-    "id": "m1403-paper-route-mild-warmup-stimulus-design",
-    "kind": "gate",
-    "notes": "Pending: design mild warmup stimulus and near-boundary reveal route before implementation or training",
-    "priority": 13980,
+    "command": "see experiments/manifests/m1404-paper-route-mild-warmup-stimulus-source-smoke.json",
+    "hypothesis": "A figure-eight mild warmup stimulus config can materialize source-diverse matched/bucketed reveal rows without actor-input changes.",
+    "id": "m1404-paper-route-mild-warmup-stimulus-source-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: create mild warmup stimulus configs and run source smoke before outcome probing",
+    "priority": 13990,
     "status": "pending",
-    "success_artifact": "docs/m1403-paper-route-mild-warmup-stimulus-design.md"
+    "success_artifact": "runs/m1404_mild_warmup_stimulus_source_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T031000Z"
+  "updated_at_utc": "20260529T032000Z"
 }

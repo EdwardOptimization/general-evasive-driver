@@ -2,7 +2,7 @@
   "id": "m1403-paper-route-mild-warmup-stimulus-design",
   "type": "gate",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -149,6 +149,27 @@
     "docs/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.md",
     "runs/m1401_warmup_reveal_pressure_outcome_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1403-paper-route-mild-warmup-stimulus-design.md",
+    "decision": "mild_warmup_stimulus_design_admit_config_source_smoke",
+    "stimulus_route": "figure_eight_mild_curvature_plus_near_boundary_obstacle_pressure",
+    "actor_input_contract_changed": false,
+    "source_smoke_required_before_outcome_probe": true,
+    "config_files_planned": [
+      "configs/ppo_m1404_mild_warmup_figure_eight.json",
+      "configs/m1404_mild_warmup_stimulus_source_wave.json"
+    ],
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1404-paper-route-mild-warmup-stimulus-source-smoke.json"
+  },
+  "decision": "mild_warmup_stimulus_design_admit_config_source_smoke",
   "decision_rule": "M1403 passes if it designs a non-oracle mild warmup stimulus and near-boundary reveal route before implementation or training.",
-  "next_blocker": "m1403-paper-route-mild-warmup-stimulus-design"
+  "next_blocker": "m1404-paper-route-mild-warmup-stimulus-source-smoke"
 }

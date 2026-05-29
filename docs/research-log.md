@@ -20700,3 +20700,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new source sweep, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1403-paper-route-mild-warmup-stimulus-design.json`.
 - next: `m1403-paper-route-mild-warmup-stimulus-design`
+
+## 20260529T032000Z - m1403-paper-route-mild-warmup-stimulus-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1403-paper-route-mild-warmup-stimulus-design.md`
+- decision: `mild_warmup_stimulus_design_admit_config_source_smoke`
+- blocker addressed: M1401 late reveal changed actions but produced `0` accepted outcome rows and `0` preferred near-boundary candidates.
+- design route: use non-oracle figure-eight road geometry plus tighter obstacle pressure as mild warmup stimulus; actor input remains P0 human-view and no scripted controller mode is added.
+- planned configs: `configs/ppo_m1404_mild_warmup_figure_eight.json` and `configs/m1404_mild_warmup_stimulus_source_wave.json`.
+- source smoke plan: reveal steps `48,56,64,72,80`, history length `56`, minimum warmup evidence `16`, seed count `48`, max source rows `6144`.
+- guardrail: no training, PPO, new source sweep, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1404-paper-route-mild-warmup-stimulus-source-smoke.json`.
+- next: `m1404-paper-route-mild-warmup-stimulus-source-smoke`

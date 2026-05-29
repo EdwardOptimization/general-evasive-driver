@@ -16,21 +16,37 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1402-paper-route-warmup-reveal-pressure-outcome-result-audit
+m1403-paper-route-mild-warmup-stimulus-design
 ```
 
 Current next task:
 
 ```text
-m1403-paper-route-mild-warmup-stimulus-design
+m1404-paper-route-mild-warmup-stimulus-source-smoke
 ```
 
-M1402 audited the M1401 action-only late-reveal outcome result. The current
-public-gate base remains M1362 alpha `0.1`:
+M1403 designed the mild warmup stimulus route after M1402 rejected another
+late-reveal grid. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1403 result:
+
+```text
+decision: mild_warmup_stimulus_design_admit_config_source_smoke
+stimulus_route: figure_eight_mild_curvature_plus_near_boundary_obstacle_pressure
+actor_input_contract_changed: false
+planned configs:
+  configs/ppo_m1404_mild_warmup_figure_eight.json
+  configs/m1404_mild_warmup_stimulus_source_wave.json
+next: m1404-paper-route-mild-warmup-stimulus-source-smoke
+```
+
+M1404 should create the figure-eight mild warmup configs and run a no-training
+source smoke before any outcome intervention, corpus export, PPO, training,
+private holdout, promotion, or claim expansion.
 
 M1402 result:
 
