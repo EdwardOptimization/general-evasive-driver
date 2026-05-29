@@ -24196,3 +24196,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1564 treats M1563 as a clean selector/source-balance pass but not a materializable active set. The five flip anchors are all `t5_boundary_axis_retarget`, so the blocker is distinct source-diverse flip-anchor generation.
 - follow-up manifest: `experiments/manifests/m1565-paper-route-flip-anchor-source-generation-repair-design.json`.
 - next: `m1565-paper-route-flip-anchor-source-generation-repair-design`
+
+## M1565 Paper-Route Flip-Anchor Source-Generation Repair Design
+
+- status: completed
+- decision: `flip_anchor_source_generation_repair_design_admit_bounded_generator`
+- artifact: `docs/m1565-paper-route-flip-anchor-source-generation-repair-design.md`
+- repair target: source-diverse distinct collision/success flip anchors
+- minimum distinct collision flip anchors: 8
+- minimum distinct success flip anchors: 8
+- minimum flip anchor source families: 3
+- minimum flip anchor windows: 3
+- max single flip source family share: 0.60
+- allowed next implementation: bounded public source-generation repair smoke
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1565 keeps M1563's selector but repairs the upstream source-generation distribution. M1566 may rerun public simulator traces for source generation only; it must not run history interventions or export a training corpus.
+- follow-up manifest: `experiments/manifests/m1566-paper-route-flip-anchor-source-generation-repair-implementation.json`.
+- next: `m1566-paper-route-flip-anchor-source-generation-repair-implementation`

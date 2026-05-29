@@ -150,5 +150,31 @@
     "docs/m1564-paper-route-source-balanced-selector-result-audit.md"
   ],
   "decision_rule": "M1565 passes if it designs a bounded source-generation repair while preserving all no-materialization guardrails.",
-  "next_blocker": "m1565-paper-route-flip-anchor-source-generation-repair-design"
+  "next_blocker": "m1566-paper-route-flip-anchor-source-generation-repair-implementation",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1565-paper-route-flip-anchor-source-generation-repair-design.md",
+    "decision": "flip_anchor_source_generation_repair_design_admit_bounded_generator",
+    "repair_target": "source-diverse distinct collision/success flip anchors",
+    "min_distinct_collision_flip_anchor_count": 8,
+    "min_distinct_success_flip_anchor_count": 8,
+    "min_flip_anchor_source_family_count": 3,
+    "min_flip_anchor_window_count": 3,
+    "max_single_flip_source_family_share": 0.60,
+    "admitted_route": "bounded_flip_anchor_source_generation_repair_implementation",
+    "next_manifest": "experiments/manifests/m1566-paper-route-flip-anchor-source-generation-repair-implementation.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
+  "decision": "flip_anchor_source_generation_repair_design_admit_bounded_generator"
 }

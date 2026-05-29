@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1564-paper-route-source-balanced-selector-result-audit
+m1565-paper-route-flip-anchor-source-generation-repair-design
 ```
 
 Current next task:
 
 ```text
-m1565-paper-route-flip-anchor-source-generation-repair-design
+m1566-paper-route-flip-anchor-source-generation-repair-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -333,6 +333,12 @@ source-diverse distinct anchors. M1564 admits a design-only source-generation
 repair for source-diverse collision/success flip anchors. History interventions,
 materialization, training, PPO, promotion, private holdout, and level3 self-ID
 claims remain blocked.
+M1565 designed that repair. M1566 may rerun bounded public source-generation
+simulation, but only to generate active-set diagnostics. It targets at least `8`
+distinct collision-flip anchors, `8` distinct success-flip anchors, `3` flip
+source families, and `3` flip windows while preserving the P0 actor contract and
+blocking history interventions, training-corpus export, materialization,
+training, PPO, promotion, private holdout, and level3 self-ID claims.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

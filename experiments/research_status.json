@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1573,
+    "completed": 1574,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1564-paper-route-source-balanced-selector-result-audit.md",
+    "command_log": "docs/m1565-paper-route-flip-anchor-source-generation-repair-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1564-paper-route-source-balanced-selector-result-audit"
+    "task_id": "m1565-paper-route-flip-anchor-source-generation-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1565-paper-route-flip-anchor-source-generation-repair-design.json",
-    "hypothesis": "Design a bounded source-generation repair for source-diverse distinct collision/success flip anchors before history interventions.",
-    "id": "m1565-paper-route-flip-anchor-source-generation-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design repair that increases distinct flip anchors without materialization or history interventions",
-    "priority": 15600,
+    "command": "see experiments/manifests/m1566-paper-route-flip-anchor-source-generation-repair-implementation.json",
+    "hypothesis": "A bounded repair implementation can increase source-diverse distinct collision/success flip anchors without history interventions or actor input changes.",
+    "id": "m1566-paper-route-flip-anchor-source-generation-repair-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement repair smoke with distinct flip-anchor metrics and no history interventions",
+    "priority": 15610,
     "status": "pending",
-    "success_artifact": "docs/m1565-paper-route-flip-anchor-source-generation-repair-design.md"
+    "success_artifact": "runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T135010Z"
+  "updated_at_utc": "20260529T135409Z"
 }

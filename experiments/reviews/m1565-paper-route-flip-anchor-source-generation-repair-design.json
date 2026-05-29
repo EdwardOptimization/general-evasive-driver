@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M1565 designs bounded source-generation repair targeting source-diverse distinct collision/success flip anchors before history interventions",
+  "failure_criteria": [
+    "design document is missing",
+    "design reinterprets variant counts as independent anchors",
+    "design routes directly to history interventions training promotion private holdout or materialization",
+    "design changes actor inputs or weakens the evidence standard"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T135438Z",
+  "hypothesis": "A bounded source-generation repair can be designed to produce more source-diverse distinct collision/success flip anchors before any history-intervention replay.",
+  "lineage": {
+    "blocked_by": [
+      "M1563 selector has enough balanced recoverable anchors but only 5 distinct collision/success flip anchors from one source family"
+    ],
+    "derived_from": [
+      "m1564-paper-route-source-balanced-selector-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1564-paper-route-source-balanced-selector-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json",
+      "docs/m1564-paper-route-source-balanced-selector-result-audit.md"
+    ],
+    "parent_objective": [
+      "design a bounded source-generation repair that increases source-diverse distinct flip anchors before history interventions"
+    ],
+    "supersedes": [
+      "direct history interventions over M1563 selected set",
+      "silent reinterpretation of local variant counts as independent flip anchors"
+    ]
+  },
+  "milestone": "m1565-paper-route-flip-anchor-source-generation-repair-design",
+  "next_blocker": "m1566-paper-route-flip-anchor-source-generation-repair-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "flip_anchor_source_generation_repair_design_admit_bounded_generator",
+  "public_gates": [
+    "M1565 must design a bounded source-generation repair for distinct flip anchors",
+    "M1565 must not reinterpret local variant counts as independent anchors",
+    "M1565 must not run simulator or history interventions",
+    "M1565 must preserve P0 actor input contract",
+    "M1565 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1565-paper-route-flip-anchor-source-generation-repair-design.md",
+    "clearance_margin_mean": "",
+    "decision": "flip_anchor_source_generation_repair_design_admit_bounded_generator",
+    "milestone": "m1565-paper-route-flip-anchor-source-generation-repair-design",
+    "reason": "M1565 designs bounded source-generation repair targeting source-diverse distinct collision/success flip anchors before history interventions",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1565-paper-route-flip-anchor-source-generation-repair-design.md exists",
+    "design targets distinct flip anchors rather than local variant counts",
+    "design includes source-family and window diversity gates",
+    "design keeps history interventions materialization training PPO promotion private holdout actor-input changes and training-corpus export blocked",
+    "the next route is explicit"
+  ],
+  "type": "gate"
+}

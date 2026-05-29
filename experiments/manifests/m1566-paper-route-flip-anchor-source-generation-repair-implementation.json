@@ -1,0 +1,158 @@
+{
+  "id": "m1566-paper-route-flip-anchor-source-generation-repair-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1565-paper-route-flip-anchor-source-generation-repair-design.md",
+      "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1565-paper-route-flip-anchor-source-generation-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded source-generation repair targeting source-diverse distinct flip anchors"
+    ],
+    "derived_from": [
+      "m1565-paper-route-flip-anchor-source-generation-repair-design"
+    ],
+    "blocked_by": [
+      "flip-anchor source-generation repair has not yet been implemented"
+    ],
+    "supersedes": [
+      "history interventions over the M1563 source-singleton flip-anchor set"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1566-paper-route-flip-anchor-source-generation-repair-implementation.md",
+  "public_gates": [
+    "M1566 must implement a bounded source-generation repair for distinct flip anchors",
+    "M1566 may rerun simulator traces only for public source generation",
+    "M1566 must not run history interventions",
+    "M1566 must not export a training corpus or materialize candidates",
+    "M1566 must preserve P0 actor input contract",
+    "M1566 must keep training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_recoverable_active_set_generation",
+    "evidence_axis": "G_distinct_flip_anchor_source_generation_repair_implementation",
+    "evidence_increment": "implements the bounded source-generation repair designed in M1565",
+    "claim_scope": "infrastructure and public source-generation smoke only; no history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop after one bounded repair implementation smoke and route to audit",
+      "stop if output is still source-singleton on flip anchors",
+      "stop if implementation writes history intervention rows or training corpus"
+    ],
+    "fallback_plan": [
+      "route to audit if source-diverse flip-anchor gates fail",
+      "route to history-intervention design only if source-diverse flip-anchor repair passes and a later audit admits it",
+      "route to branch synthesis if repair cannot produce source-diverse distinct flip anchors"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1565 admits one bounded flip-anchor source-generation repair implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "flip-anchor source-generation repair implementation",
+    "admission_evidence": [
+      "M1565 pre-registered distinct flip-anchor source-diversity gates"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "repair module and tests",
+      "bounded public repair smoke artifacts",
+      "M1566 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "distinct flip-anchor metrics are reported",
+      "source-family and window diversity metrics are reported",
+      "history interventions remain blocked",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1566 source generation cannot claim history necessity.",
+    "history_necessity_tests": [
+      "none in M1566; history interventions remain blocked until repaired active set passes and is audited"
+    ],
+    "temporal_evidence_window": "M1566 public fixed-policy source-generation smoke.",
+    "negative_result_policy": "If repair fails, record scenario_sampling_failure and audit before another generator implementation.",
+    "allowed_claims": [
+      "source-generation repair implementation and public active-set artifacts",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded repair implementation can increase source-diverse distinct collision/success flip anchors without history interventions or actor input changes.",
+  "success_criteria": [
+    "repair module exists",
+    "focused tests cover flip-anchor counting and summary gates",
+    "runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json exists",
+    "history interventions are not run",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "implementation runs history interventions",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_flip_anchor_source_generation_repair.py -q"
+    },
+    {
+      "name": "repair_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.flip_anchor_source_generation_repair --output-dir runs/m1566_flip_anchor_source_generation_repair_smoke --seed 1843 --seed-count 4 --max-source-specs 320 --max-anchors 320"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1565-paper-route-flip-anchor-source-generation-repair-design.md",
+    "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json"
+  ],
+  "decision_rule": "M1566 passes as an implementation milestone if it runs a bounded public repair smoke with clean guardrails and explicit distinct flip-anchor metrics.",
+  "next_blocker": "m1566-paper-route-flip-anchor-source-generation-repair-implementation"
+}
