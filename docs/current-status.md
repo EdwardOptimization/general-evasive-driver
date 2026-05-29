@@ -16,23 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design
+m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation
 ```
 
 Current next task:
 
 ```text
-m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation
+m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit
 ```
 
-M1635 designed the exact-objective sensitivity probe. The next implementation
-will evaluate the zero-residual base and in-memory perturbed copies that modify
-only `actor_mean.weight` and `actor_mean.bias` at scales `0.0`, `1e-4`,
-`3e-4`, and `1e-3`. Perturbed checkpoints must not be written. The probe only
-tests whether the M1633 exact objective detects controlled deterministic
-policy-output drift before any repair/update design. Actor update, training,
-PPO, promotion, private holdout, actor-input changes, and level3 self-ID claims
-remain blocked.
+M1636 implemented the no-update exact-objective sensitivity probe. The base
+stayed at zero residual, while in-memory `actor_mean` perturbations produced
+measurable residuals: max positive exact residual mean `0.0003143580689195087`
+and max positive action residual L2 `0.015652681982969475`. No perturbed
+checkpoint was written, and actor update/training/PPO/promotion/private-holdout
+guardrails stayed false. The next task is M1637: audit this sensitivity result
+before any repair/projection design. Actor update, training, PPO, promotion,
+private holdout, actor-input changes, and level3 self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

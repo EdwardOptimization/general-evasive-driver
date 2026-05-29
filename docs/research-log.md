@@ -26061,3 +26061,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repair/update usefulness, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
 - follow-up manifest: `experiments/manifests/m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation.json`
 - next: `m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation`
+
+## M1636 Paper-Route Contour-Aware Exact Objective Sensitivity Probe Implementation
+
+- status: completed
+- decision: `contour_aware_exact_objective_sensitivity_probe_public_pass_route_to_audit`
+- artifact: `runs/m1636_contour_aware_exact_objective_sensitivity_probe/summary.json`
+- doc: `docs/m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation.md`
+- focused tests: `2 passed in 2.05s`
+- candidate count: 4
+- base positive exact residual mean: `0.0`
+- base positive action residual L2 max: `0.0`
+- max perturbed positive exact residual mean: `0.0003143580689195087`
+- max perturbed positive action residual L2 max: `0.015652681982969475`
+- measurable perturbation residual: true
+- perturbed checkpoint written: false
+- checkpoint weights mutated: false
+- actor update/training/PPO/promotion/private holdout: false
+- passes public smoke gates: true
+- null result classification: `contour_aware_exact_objective_sensitivity_probe_public_pass`
+- supported: exact objective detects controlled actor_mean policy-output drift
+- unsupported: repair/update usefulness, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- follow-up manifest: `experiments/manifests/m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit.json`
+- next: `m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit`

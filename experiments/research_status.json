@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1644,
+    "completed": 1645,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design.md",
+      "command_log": "docs/m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation.md",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1636_contour_aware_exact_objective_sensitivity_probe",
       "status": "completed",
-      "task_id": "m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design"
+      "task_id": "m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation.json",
-      "hypothesis": "Controlled in-memory perturbations of actor_mean parameters will produce measurable exact-objective residual while the base remains zero-residual.",
-      "id": "m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation",
-      "kind": "infrastructure",
-      "notes": "Pending: implement no-update sensitivity probe only; no checkpoint write actor update training PPO promotion or private holdout",
-      "priority": 16310,
+      "command": "see experiments/manifests/m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit.json",
+      "hypothesis": "The M1636 sensitivity result is clean enough to decide whether repair/projection design can be admitted.",
+      "id": "m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit sensitivity result before repair/projection design; no actor update PPO promotion or private holdout",
+      "priority": 16320,
       "status": "pending",
-      "success_artifact": "runs/m1636_contour_aware_exact_objective_sensitivity_probe/summary.json"
+      "success_artifact": "docs/m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit.md"
     },
-    "updated_at_utc": "20260529T194619Z"
+    "updated_at_utc": "20260529T195055Z"
 }
