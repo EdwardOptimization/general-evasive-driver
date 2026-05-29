@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1629,
+    "completed": 1630,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit.md",
+      "command_log": "docs/m1621-paper-route-contour-aware-policy-target-materialization-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit"
+      "task_id": "m1621-paper-route-contour-aware-policy-target-materialization-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1621-paper-route-contour-aware-policy-target-materialization-design.json",
-      "hypothesis": "A design-only materialization plan can specify how to convert contour-aware candidate rows into policy-side target artifacts before any optimizer is built.",
-      "id": "m1621-paper-route-contour-aware-policy-target-materialization-design",
+      "command": "see experiments/manifests/m1622-paper-route-contour-aware-policy-target-materialization-design-audit.json",
+      "hypothesis": "A post-design audit can decide whether contour-aware policy target materialization is safe to implement.",
+      "id": "m1622-paper-route-contour-aware-policy-target-materialization-design-audit",
       "kind": "gate",
-      "notes": "Pending: design traceability and target schemas only; no implementation objective update PPO promotion or private holdout",
-      "priority": 16160,
+      "notes": "Pending: audit traceability and schema risk; no implementation objective update PPO promotion or private holdout",
+      "priority": 16170,
       "status": "pending",
-      "success_artifact": "docs/m1621-paper-route-contour-aware-policy-target-materialization-design.md"
+      "success_artifact": "docs/m1622-paper-route-contour-aware-policy-target-materialization-design-audit.md"
     },
-    "updated_at_utc": "20260529T183656Z"
+    "updated_at_utc": "20260529T183951Z"
 }

@@ -25798,3 +25798,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: pivot to design-only policy-side target materialization before any objective update
 - follow-up manifest: `experiments/manifests/m1621-paper-route-contour-aware-policy-target-materialization-design.json`
 - next: `m1621-paper-route-contour-aware-policy-target-materialization-design`
+
+## M1621 Paper-Route Contour-Aware Policy Target Materialization Design
+
+- status: completed
+- decision: `contour_aware_policy_target_materialization_design_admit_audit`
+- artifact: `docs/m1621-paper-route-contour-aware-policy-target-materialization-design.md`
+- failure taxonomy: `none`
+- positive source runs: `m1592_clean_repair` 29 rows; `m1595_balanced_repair` 10 rows
+- positive source edges: 4
+- design finding: existing source CSVs contain first actions margins and hidden norms but not full observation/hidden tensors
+- materialization requirement: trace M1615 rows to source artifacts and rerun deterministic tensor capture before any actor objective can be built
+- supported: target schemas and traceability requirements are explicit
+- unsupported: implementation, objective update, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- follow-up manifest: `experiments/manifests/m1622-paper-route-contour-aware-policy-target-materialization-design-audit.json`
+- next: `m1622-paper-route-contour-aware-policy-target-materialization-design-audit`

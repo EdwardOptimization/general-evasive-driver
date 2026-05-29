@@ -1,0 +1,157 @@
+{
+  "id": "m1622-paper-route-contour-aware-policy-target-materialization-design-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1621-paper-route-contour-aware-policy-target-materialization-design.md",
+      "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "runs/m1615_contour_aware_candidate_corpus/diagnostic_guardrail_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1621-paper-route-contour-aware-policy-target-materialization-design.json"
+    ],
+    "parent_objective": [
+      "audit policy-side target materialization design before implementation"
+    ],
+    "derived_from": [
+      "m1621-paper-route-contour-aware-policy-target-materialization-design"
+    ],
+    "blocked_by": [
+      "M1621 designs materialization only and requires audit before implementation"
+    ],
+    "supersedes": [
+      "direct materialization implementation from M1621",
+      "direct objective update from M1621",
+      "direct PPO after M1621"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1622-paper-route-contour-aware-policy-target-materialization-design-audit.md",
+  "public_gates": [
+    "M1622 must audit M1621 traceability and target schemas",
+    "M1622 must decide whether implementation is safe or whether source-artifact discovery is required",
+    "M1622 must keep diagnostics non-positive",
+    "M1622 must keep objective update training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not implement materialization",
+    "do not construct a loss",
+    "do not construct an objective config",
+    "do not train",
+    "do not run PPO",
+    "do not run actor update",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not claim level3 self-identification",
+    "do not treat diagnostic guardrails as positive rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_policy_target_materialization_design_audit",
+    "evidence_increment": "audits traceability and schemas before any target materialization implementation",
+    "claim_scope": "process audit only; no implementation, loss/objective construction, actor update, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if traceability requirements are incomplete",
+      "stop if tensor capture would require actor input changes",
+      "stop if diagnostics become positive targets",
+      "stop if implementation risk requires source-artifact discovery first"
+    ],
+    "fallback_plan": [
+      "admit bounded implementation only if traceability and schema are complete",
+      "pivot to source-artifact discovery audit if tensor capture sources are uncertain",
+      "pivot to broader candidate refresh if traceability is too narrow"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1621 requires audit before implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit contour-aware policy-side target materialization design",
+    "admission_evidence": [
+      "M1621 is design-only",
+      "M1620 requires policy-side targets before objective update",
+      "M1619 evaluator residual is metadata/row-metric only"
+    ],
+    "blocked_shortcuts": [
+      "do not implement materialization",
+      "do not construct a loss",
+      "do not construct an objective config",
+      "do not train",
+      "do not run PPO",
+      "do not run actor update",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1622 audit document",
+      "M1622 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits implementation, discovery, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "traceability audit is explicit",
+      "target schema audit is explicit",
+      "next route is explicit",
+      "objective update and training remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1622 is process audit only and cannot strengthen self-ID claims.",
+    "history_necessity_tests": [
+      "future materialized policy targets"
+    ],
+    "temporal_evidence_window": "M1621 design only.",
+    "negative_result_policy": "If source traceability is incomplete, route to source-artifact discovery or broader candidate refresh instead of implementation.",
+    "allowed_claims": [
+      "design audit and route decision",
+      "no promotion, objective update, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A post-design audit can decide whether contour-aware policy target materialization is safe to implement.",
+  "success_criteria": [
+    "docs/m1622-paper-route-contour-aware-policy-target-materialization-design-audit.md exists",
+    "audit records source traceability risks",
+    "audit records target schema risks",
+    "next route is explicit",
+    "implementation objective update training PPO promotion private holdout and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores source traceability",
+    "audit routes directly to objective update training PPO promotion private holdout or actor-input changes",
+    "audit treats diagnostics as positive targets"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1622-paper-route-contour-aware-policy-target-materialization-design-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1622-paper-route-contour-aware-policy-target-materialization-design-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1621-paper-route-contour-aware-policy-target-materialization-design.md"
+  ],
+  "decision_rule": "M1622 passes if it audits M1621 and chooses a bounded next route without admitting training/PPO/promotion.",
+  "next_blocker": "m1622-paper-route-contour-aware-policy-target-materialization-design-audit"
+}
