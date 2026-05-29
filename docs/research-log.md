@@ -21312,3 +21312,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no public source materialization run, source mining, source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1441-paper-route-geometry-first-action-divergence-enrichment-design.json`.
 - next: `m1441-paper-route-geometry-first-action-divergence-enrichment-design`
+
+## 20260529T033559Z - m1441-paper-route-geometry-first-action-divergence-enrichment-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1441-paper-route-geometry-first-action-divergence-enrichment-design.md`
+- decision: `geometry_first_action_divergence_enrichment_design_admit_implementation`
+- design: enrich M1440 source geometry rows with source-step history variants and action-distance metrics only after geometry filtering.
+- ordering: trace-backed source geometry -> geometry-pass filtering -> source-step history-variant action enrichment -> M1438 row-level miner.
+- metrics: `first_action_l2`, `sequence_action_l2_mean`, `sequence_action_l2_max`, `sequence_action_l2_rms`.
+- blocked shortcut: do not reuse M1425 reveal-step pressure metrics as source-step evidence.
+- boundary: no terminal outcome, collision, clearance margin, or obstacle-completion classification is admitted in enrichment; that remains bounded replay work.
+- guardrail: no public source materialization run, source enrichment run, source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1442-paper-route-geometry-first-action-divergence-enrichment-implementation.json`.
+- next: `m1442-paper-route-geometry-first-action-divergence-enrichment-implementation`

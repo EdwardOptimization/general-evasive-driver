@@ -147,6 +147,42 @@
   "baseline_artifacts": [
     "docs/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1441-paper-route-geometry-first-action-divergence-enrichment-design.md",
+    "decision": "geometry_first_action_divergence_enrichment_design_admit_implementation",
+    "ordering": "trace-backed source geometry -> geometry-pass filtering -> source-step history-variant action enrichment -> M1438 row-level miner",
+    "variant_time_anchor": "source_step",
+    "forbidden_metric_reuse": [
+      "M1425 reveal-step outcome_pressure_rows.csv first_action_l2",
+      "M1425 reveal-step outcome_pressure_rows.csv sequence_action_l2_mean",
+      "M1425 reveal-step proxy margin fields"
+    ],
+    "metrics": [
+      "first_action_l2",
+      "sequence_action_l2_mean",
+      "sequence_action_l2_max",
+      "sequence_action_l2_rms"
+    ],
+    "outcome_classification_admitted": false,
+    "direct_source_smoke_admitted": false,
+    "source_materialization_run_started": false,
+    "source_mining_started": false,
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1442-paper-route-geometry-first-action-divergence-enrichment-implementation.json"
+  },
+  "decision": "geometry_first_action_divergence_enrichment_design_admit_implementation",
   "decision_rule": "M1441 passes if it designs geometry-first source-step action-divergence enrichment before implementation or run.",
-  "next_blocker": "m1441-paper-route-geometry-first-action-divergence-enrichment-design"
+  "next_blocker": "m1442-paper-route-geometry-first-action-divergence-enrichment-implementation"
 }

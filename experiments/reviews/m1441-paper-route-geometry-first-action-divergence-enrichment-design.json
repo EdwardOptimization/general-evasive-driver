@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M1441 designs source-step action-divergence enrichment after trace-backed geometry filtering and blocks stale M1425 reveal-step metric reuse",
+  "failure_criteria": [
+    "design document is missing",
+    "design scores action divergence before geometry",
+    "design uses stale M1425 reveal-step pressure metrics as source-step evidence",
+    "design routes directly to source smoke replay training PPO promotion private holdout corpus export or claim expansion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source materialization on public data",
+    "do not run source mining",
+    "do not run source preflight",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not use M1425 reveal-step pressure metrics as source-step action evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T033817Z",
+  "hypothesis": "Trace-backed source geometry rows can be enriched with source-step history variants and action-divergence metrics after geometry filtering, without using stale reveal-step pressure metrics.",
+  "lineage": {
+    "blocked_by": [
+      "M1440 materializes source geometry but does not compute source-step history variants or action-divergence metrics required by M1438 selection"
+    ],
+    "derived_from": [
+      "m1440-paper-route-trace-backed-source-geometry-materialization-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.md",
+      "src/autodrift/trace_source_geometry_materializer.py"
+    ],
+    "parent_objective": [
+      "design source-step action-divergence enrichment after trace-backed geometry materialization"
+    ],
+    "supersedes": [
+      "using M1425 reveal-step pressure metrics as source-step action evidence"
+    ]
+  },
+  "milestone": "m1441-paper-route-geometry-first-action-divergence-enrichment-design",
+  "next_blocker": "m1442-paper-route-geometry-first-action-divergence-enrichment-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "geometry_first_action_divergence_enrichment_design_admit_implementation",
+  "public_gates": [
+    "M1441 must design geometry-first source-step action-divergence enrichment before implementation or run",
+    "M1441 must keep trace-backed source geometry ahead of action scoring",
+    "M1441 must not run source materialization source mining source preflight replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1441-paper-route-geometry-first-action-divergence-enrichment-design.md",
+    "clearance_margin_mean": "",
+    "decision": "geometry_first_action_divergence_enrichment_design_admit_implementation",
+    "milestone": "m1441-paper-route-geometry-first-action-divergence-enrichment-design",
+    "reason": "M1441 designs source-step action-divergence enrichment after trace-backed geometry filtering and blocks stale M1425 reveal-step metric reuse",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1441-paper-route-geometry-first-action-divergence-enrichment-design.md exists",
+    "design specifies source-step action divergence metrics",
+    "design specifies history variant expansion",
+    "design chooses a non-training next route without source materialization run source preflight replay PPO promotion private holdout corpus export or actor-input changes"
+  ],
+  "type": "gate"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1450,
+    "completed": 1451,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.md",
+    "command_log": "docs/m1441-paper-route-geometry-first-action-divergence-enrichment-design.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1440-paper-route-trace-backed-source-geometry-materialization-implementation"
+    "task_id": "m1441-paper-route-geometry-first-action-divergence-enrichment-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1441-paper-route-geometry-first-action-divergence-enrichment-design.json",
-    "hypothesis": "Trace-backed source geometry rows can be enriched with source-step history variants and action-divergence metrics after geometry filtering, without using stale reveal-step pressure metrics.",
-    "id": "m1441-paper-route-geometry-first-action-divergence-enrichment-design",
-    "kind": "gate",
-    "notes": "Pending: design source-step action-divergence enrichment after trace-backed geometry materialization",
-    "priority": 14360,
+    "command": "see experiments/manifests/m1442-paper-route-geometry-first-action-divergence-enrichment-implementation.json",
+    "hypothesis": "Source-step action-divergence enrichment can be implemented after trace-backed geometry filtering and can emit M1438-compatible rows without stale reveal-step metric reuse.",
+    "id": "m1442-paper-route-geometry-first-action-divergence-enrichment-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement source-step action-divergence enrichment and focused tests only",
+    "priority": 14370,
     "status": "pending",
-    "success_artifact": "docs/m1441-paper-route-geometry-first-action-divergence-enrichment-design.md"
+    "success_artifact": "docs/m1442-paper-route-geometry-first-action-divergence-enrichment-implementation.md"
   },
-  "updated_at_utc": "20260529T033159Z"
+  "updated_at_utc": "20260529T033559Z"
 }

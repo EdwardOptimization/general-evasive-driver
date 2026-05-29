@@ -16,21 +16,39 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1440-paper-route-trace-backed-source-geometry-materialization-implementation
+m1441-paper-route-geometry-first-action-divergence-enrichment-design
 ```
 
 Current next task:
 
 ```text
-m1441-paper-route-geometry-first-action-divergence-enrichment-design
+m1442-paper-route-geometry-first-action-divergence-enrichment-implementation
 ```
 
-M1440 implemented trace-backed source geometry materialization. The current
+M1441 designed geometry-first source-step action-divergence enrichment. The current
 public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1441 result:
+
+```text
+decision: geometry_first_action_divergence_enrichment_design_admit_implementation
+ordering: trace-backed source geometry -> geometry-pass filtering -> source-step history-variant action enrichment -> M1438 row-level miner
+variant_time_anchor: source_step
+forbidden metric reuse: M1425 reveal-step action and proxy margin metrics
+metrics: first_action_l2, sequence_action_l2_mean, sequence_action_l2_max, sequence_action_l2_rms
+outcome_classification_admitted: false
+direct_source_smoke_admitted: false
+next: m1442-paper-route-geometry-first-action-divergence-enrichment-implementation
+```
+
+M1442 should implement source-step action-divergence enrichment and focused
+tests only. It must not run public source materialization, source enrichment,
+source preflight, replay, training, PPO, promotion, private holdout, corpus
+export, or actor-input changes.
 
 M1440 result:
 
@@ -46,8 +64,9 @@ direct_source_smoke_admitted: false
 next: m1441-paper-route-geometry-first-action-divergence-enrichment-design
 ```
 
-M1441 should design source-step action-divergence enrichment after trace-backed
-geometry materialization and before any public source smoke.
+M1440 implemented trace-backed source geometry materialization and exposed the
+next missing layer: source-step action-divergence enrichment. M1441 completed
+that design.
 
 M1439 result:
 
