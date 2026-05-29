@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1636,
+    "completed": 1637,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit.md",
+      "command_log": "docs/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit"
+      "task_id": "m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.json",
-      "hypothesis": "The M1619-M1627 branch evidence is sufficient to decide whether full target materialization design should be the next step.",
-      "id": "m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis",
+      "command": "see experiments/manifests/m1629-paper-route-contour-aware-full-target-materialization-design.json",
+      "hypothesis": "A full policy-target materialization design can safely scale the M1626 capture path to all 39 positive and 232 diagnostic public rows while preserving role integrity.",
+      "id": "m1629-paper-route-contour-aware-full-target-materialization-design",
       "kind": "gate",
-      "notes": "Pending: synthesize M1619-M1627 before any full materialization design or implementation",
-      "priority": 16230,
+      "notes": "Pending: design full target materialization only; no implementation objective update training PPO promotion or private holdout",
+      "priority": 16240,
       "status": "pending",
-      "success_artifact": "docs/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.md"
+      "success_artifact": "docs/m1629-paper-route-contour-aware-full-target-materialization-design.md"
     },
-    "updated_at_utc": "20260529T191900Z"
+    "updated_at_utc": "20260529T192900Z"
 }

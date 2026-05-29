@@ -1,0 +1,164 @@
+{
+  "id": "m1629-paper-route-contour-aware-full-target-materialization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.md",
+      "runs/m1626_contour_aware_tensor_capture_dry_run/summary.json",
+      "runs/m1623_contour_aware_policy_target_traceability_preflight/summary.json",
+      "runs/m1615_contour_aware_candidate_corpus/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design full contour-aware policy-target materialization"
+    ],
+    "derived_from": [
+      "m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1628 admits design-only full target materialization and blocks implementation until design is explicit"
+    ],
+    "supersedes": [
+      "direct full target materialization implementation after M1628",
+      "direct objective update after M1628",
+      "direct PPO after M1628"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1629-paper-route-contour-aware-full-target-materialization-design.md",
+  "public_gates": [
+    "M1629 must design full 39-positive 232-diagnostic tensor materialization",
+    "M1629 must specify metadata and NPZ tensor schemas",
+    "M1629 must require diagnostics to stay zero-weight and non-positive",
+    "M1629 must require full materialization audit before any loss/objective construction",
+    "M1629 must keep training PPO promotion private holdout and actor-input changes blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not implement full materialization",
+    "do not construct a loss",
+    "do not construct an objective config",
+    "do not train",
+    "do not run PPO",
+    "do not run actor update",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not claim level3 self-identification",
+    "do not treat diagnostics as positive targets"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_full_policy_target_materialization_design",
+    "evidence_increment": "designs full target materialization after M1628 synthesis and M1626 dry-run tensor capture pass",
+    "claim_scope": "design only; no full materialization implementation, loss/objective construction, actor update, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if full materialization design cannot preserve diagnostic zero-weight roles",
+      "stop if canonical 72-dim observation and 128-dim hidden tensor assumptions are not enforceable",
+      "stop if design routes directly to objective update or training",
+      "stop if expected full-package artifacts would be training-ready without audit"
+    ],
+    "fallback_plan": [
+      "admit exactly one full materialization implementation if schema and guardrails are explicit",
+      "pivot to capture-tool refactor if design exposes duplication or missing instrumentation",
+      "return to synthesis if full materialization appears to increase public overfit without useful audit value"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1628 synthesis continues the branch to full target materialization design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design full policy-target materialization",
+    "admission_evidence": [
+      "M1623 traceability preflight passed for all 39 positives and 232 diagnostics",
+      "M1626 dry-run tensor capture passed on a source-diverse four-row subset",
+      "M1628 synthesis continued to full materialization design"
+    ],
+    "blocked_shortcuts": [
+      "do not implement full materialization",
+      "do not construct a loss",
+      "do not construct an objective config",
+      "do not train",
+      "do not run PPO",
+      "do not run actor update",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification",
+      "do not treat diagnostics as positive targets"
+    ],
+    "allowed_updates": [
+      "M1629 design document",
+      "M1629 status queue scoreboard research log and review",
+      "one follow-up manifest if design admits implementation, pivot, synthesis, or stop"
+    ],
+    "next_stage_criteria": [
+      "full materialization schema is explicit",
+      "expected success/failure gates are explicit",
+      "diagnostic guardrails remain non-positive",
+      "audit-before-objective route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1629 is materialization design only and cannot strengthen self-ID claims.",
+    "history_necessity_tests": [
+      "future full correct/wrong hidden tensor materialization"
+    ],
+    "temporal_evidence_window": "M1626 four-row dry-run and M1623 traceability only.",
+    "negative_result_policy": "If full materialization cannot be designed cleanly, record the stop/pivot and do not implement.",
+    "allowed_claims": [
+      "full materialization design and route decision",
+      "no implementation, objective update, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A full policy-target materialization design can safely scale the M1626 capture path to all 39 positive and 232 diagnostic public rows while preserving role integrity.",
+  "success_criteria": [
+    "docs/m1629-paper-route-contour-aware-full-target-materialization-design.md exists",
+    "full positive and diagnostic metadata schemas are specified",
+    "full NPZ tensor schemas are specified",
+    "success and failure gates are explicit",
+    "diagnostics remain used_as_positive false and role_weight 0.0",
+    "implementation objective update training PPO promotion private holdout and actor-input changes remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design skips full-package schema or guardrails",
+    "design routes directly to objective update training PPO promotion private holdout or actor-input changes",
+    "design treats diagnostics as positive targets",
+    "design claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1629-paper-route-contour-aware-full-target-materialization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1629-paper-route-contour-aware-full-target-materialization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.md",
+    "runs/m1626_contour_aware_tensor_capture_dry_run/summary.json",
+    "runs/m1623_contour_aware_policy_target_traceability_preflight/summary.json"
+  ],
+  "decision_rule": "M1629 passes if it designs full materialization without implementing it or admitting objective/training shortcuts.",
+  "next_blocker": "m1629-paper-route-contour-aware-full-target-materialization-design"
+}

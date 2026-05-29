@@ -25917,3 +25917,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: run branch synthesis before full target materialization design, because M1619-M1627 form another implementation/audit sequence after the M1618 synthesis
 - follow-up manifest: `experiments/manifests/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.json`
 - next: `m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis`
+
+## M1628 Paper-Route Contour-Aware Policy Target Materialization Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- artifact: `docs/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.md`
+- failure taxonomy: `none`
+- evidence summary: M1619 no-update evaluator passed but was metadata-only; M1623 full-package traceability passed; M1626 four-row tensor-capture dry run passed with observation `[4,72]`, hidden `[4,128]`, action tensors `[4,3]`, exact source-action reproduction, no missing capture rows, diagnostics non-positive, and clean guardrails
+- supported: role integrity, full-package traceability, dry-run tensor capture, canonical P0 actor contract preservation, and diagnostic zero-weight preservation
+- rejected: row-metric residuals alone are training-ready; dry-run subset equals full materialization; current artifacts support objective update, PPO, promotion, private holdout, paper-level validation, or level3 self-ID
+- public-gate overfit risk: high but manageable; next step must remain design-only and keep audit-before-objective discipline
+- route decision: continue to full target materialization design
+- follow-up manifest: `experiments/manifests/m1629-paper-route-contour-aware-full-target-materialization-design.json`
+- next: `m1629-paper-route-contour-aware-full-target-materialization-design`
