@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1575-paper-route-history-sensitive-active-set-mining-design
+m1576-paper-route-history-sensitive-active-set-miner-implementation
 ```
 
 Current next task:
 
 ```text
-m1576-paper-route-history-sensitive-active-set-miner-implementation
+m1577-paper-route-history-sensitive-active-set-miner-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -412,6 +412,12 @@ when wrong-history or donor-plus-hidden interventions degrade closed-loop
 outcome or terminal margin more than current-frame controls, and it must report
 source-family, window, high-speed, late-reveal, and control-substitution
 summaries before any materialization or training.
+M1576 implemented and ran the miner. It found `32` history-sensitive anchors and
+`30` clean anchors across `2` source families and `5` windows, with low overall
+control-substitution domination. The public gate still failed because
+`t5_high_speed_close_obstacle` and `late_reveal_boundary` both had zero clean
+history-sensitive anchors. M1577 must audit this high-speed/late null before
+any source repair, materialization, corpus export, PPO, or promotion.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1576 finds 32 history-sensitive anchors and 30 clean anchors across 2 families and 5 windows but high-speed and late-reveal remain null so public gates fail",
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification",
+    "current-frame substitution controls are missing"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T150739Z",
+  "hypothesis": "A bounded public miner can find source-diverse anchors where wrong-history or donor-plus-hidden interventions degrade closed-loop outcome more than current-frame controls.",
+  "lineage": {
+    "blocked_by": [
+      "M1575 design has not yet been implemented"
+    ],
+    "derived_from": [
+      "m1575-paper-route-history-sensitive-active-set-mining-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1575-paper-route-history-sensitive-active-set-mining-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1575-paper-route-history-sensitive-active-set-mining-design.md",
+      "runs/m1573_source_diverse_flip_anchor_history_intervention_smoke/summary.json",
+      "runs/m1573_source_diverse_flip_anchor_history_intervention_smoke/history_intervention_rows.csv"
+    ],
+    "parent_objective": [
+      "implement bounded history-sensitive active-set miner using history-intervention outcome degradation as acceptance criterion"
+    ],
+    "supersedes": [
+      "local forced-control flip-anchor-only source selection"
+    ]
+  },
+  "milestone": "m1576-paper-route-history-sensitive-active-set-miner-implementation",
+  "next_blocker": "m1577-paper-route-history-sensitive-active-set-miner-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "history_sensitive_active_set_miner_smoke_partial_pass_high_speed_late_null_route_to_audit",
+  "public_gates": [
+    "M1576 must implement bounded no-training history-sensitive active-set miner",
+    "M1576 must run only public smoke mining with the fixed P0 actor",
+    "M1576 must use wrong-history/donor-plus-hidden outcome degradation as acceptance criterion",
+    "M1576 must include current-frame substitution controls",
+    "M1576 must report source-family, window, variant, and control-substitution summaries",
+    "M1576 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "history_sensitive_active_set_miner_smoke_partial_pass_high_speed_late_null_route_to_audit",
+    "milestone": "m1576-paper-route-history-sensitive-active-set-miner-implementation",
+    "reason": "M1576 finds 32 history-sensitive anchors and 30 clean anchors across 2 families and 5 windows but high-speed and late-reveal remain null so public gates fail",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "history-sensitive miner module exists",
+    "focused tests cover acceptance criteria and summary gates",
+    "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json exists",
+    "history_interventions_executed is true",
+    "current-frame substitution controls are included",
+    "source-family and high-speed/late-reveal metrics are reported",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "type": "infrastructure"
+}

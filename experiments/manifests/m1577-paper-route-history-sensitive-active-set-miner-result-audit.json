@@ -1,0 +1,160 @@
+{
+  "id": "m1577-paper-route-history-sensitive-active-set-miner-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json",
+      "docs/m1576-paper-route-history-sensitive-active-set-miner-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1576-paper-route-history-sensitive-active-set-miner-implementation.json"
+    ],
+    "parent_objective": [
+      "audit bounded history-sensitive active-set miner partial pass and high-speed/late null"
+    ],
+    "derived_from": [
+      "m1576-paper-route-history-sensitive-active-set-miner-implementation"
+    ],
+    "blocked_by": [
+      "M1576 found clean history-sensitive anchors but high-speed and late-reveal counts are zero"
+    ],
+    "supersedes": [
+      "direct materialization after M1576",
+      "threshold relaxation after M1576",
+      "direct training after M1576"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1577-paper-route-history-sensitive-active-set-miner-result-audit.md",
+  "public_gates": [
+    "M1577 must audit M1576 implementation and public-gate failure",
+    "M1577 must separate clean positive anchors from high-speed/late source-family nulls",
+    "M1577 must classify whether the next step is high-speed/late source repair, branch synthesis, or stop",
+    "M1577 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not relax M1576 gates after seeing the result",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_recoverable_active_set_generation",
+    "evidence_axis": "A_history_sensitive_active_set_miner_result_audit",
+    "evidence_increment": "audits M1576 clean history-sensitive anchors and high-speed/late null before deciding next branch step",
+    "claim_scope": "audit only; no simulator run, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats M1576 as high-speed history evidence",
+      "stop if audit relaxes high-speed/late gates after seeing the result",
+      "stop if audit routes directly to materialization, training, PPO, promotion, or private holdout"
+    ],
+    "fallback_plan": [
+      "design one bounded high-speed/late source repair if audit finds a concrete sampling gap",
+      "route to branch synthesis if another narrow repair would chase public gates",
+      "keep M1576 as public diagnostic evidence if source repair is not justified"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1576 completed bounded implementation and requires result audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "history-sensitive active-set miner result audit",
+    "admission_evidence": [
+      "M1576 implementation wrote required artifacts",
+      "M1576 found clean history-sensitive anchors but failed high-speed/late public gate"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not relax gates after result",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1577 audit document",
+      "M1577 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits it"
+    ],
+    "next_stage_criteria": [
+      "source-family null is classified",
+      "control-substitution status is classified",
+      "next route is explicit",
+      "guardrails remain clean"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1576 includes controls and finds low overall control-substitution share, but high-speed/late remain null.",
+    "history_necessity_tests": [
+      "audit wrong-history/donor-plus-hidden positives",
+      "audit donor response/action stream controls",
+      "audit reset/zero controls",
+      "audit high-speed and late-reveal nulls"
+    ],
+    "temporal_evidence_window": "M1576 public history-sensitive active-set miner smoke.",
+    "negative_result_policy": "Record high-speed/late nulls and route to repair or synthesis rather than weakening source-diversity standards.",
+    "allowed_claims": [
+      "public bounded miner audit",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1576's partial positive result can be audited into a defensible next route without overstating source-diverse self-identification evidence.",
+  "success_criteria": [
+    "docs/m1577-paper-route-history-sensitive-active-set-miner-result-audit.md exists",
+    "audit summarizes M1576 implementation and gate result",
+    "audit separates clean positives from high-speed/late nulls",
+    "audit chooses the next route",
+    "training PPO promotion private holdout corpus export materialization gate relaxation and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1576 as level3 self-ID evidence",
+    "audit ignores high-speed/late nulls",
+    "audit relaxes M1576 public gates after result",
+    "audit routes directly to training PPO promotion private holdout corpus export actor-input changes or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1577-paper-route-history-sensitive-active-set-miner-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1577-paper-route-history-sensitive-active-set-miner-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json",
+    "docs/m1576-paper-route-history-sensitive-active-set-miner-implementation.md"
+  ],
+  "decision_rule": "M1577 passes if it audits M1576 and chooses the next route before any repair, materialization, or training.",
+  "next_blocker": "m1577-paper-route-history-sensitive-active-set-miner-result-audit"
+}

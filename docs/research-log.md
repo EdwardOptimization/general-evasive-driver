@@ -24518,3 +24518,45 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1576-paper-route-history-sensitive-active-set-miner-implementation.json`
 - next: `m1576-paper-route-history-sensitive-active-set-miner-implementation`
+
+## M1576 Paper-Route History-Sensitive Active-Set Miner Implementation
+
+- status: completed
+- decision: `history_sensitive_active_set_miner_smoke_partial_pass_high_speed_late_null_route_to_audit`
+- artifact: `runs/m1576_history_sensitive_active_set_miner_smoke/summary.json`
+- doc: `docs/m1576-paper-route-history-sensitive-active-set-miner-implementation.md`
+- code: `src/autodrift/history_sensitive_active_set_miner.py`
+- tests: `tests/test_history_sensitive_active_set_miner.py`
+- focused test result: `3 passed`
+- source spec count: 360
+- anchor candidate count: 512
+- replay-ok anchor count: 407
+- target anchor count: 256
+- donor pair count: 512
+- intervention row count: 5632
+- history positive pair count: 44
+- clean history-sensitive pair count: 40
+- history-sensitive anchor count: 32
+- clean history-sensitive anchor count: 30
+- history-sensitive source family count: 2
+- history-sensitive window count: 5
+- non-near family history-sensitive count: 11
+- high-speed history-sensitive count: 0
+- late-reveal history-sensitive count: 0
+- max primary history gap: 0.27718254452797986
+- max control gap: 0.31220594475079233
+- max hidden-specific gap: 0.22036055188987191
+- control-substitution dominated share: 0.083984375
+- passes public smoke gates: false
+- passes evidence-quality targets: false
+- null result classification: `high_speed_late_null`
+- guardrail violation count: 0
+- interpretation: miner is live and finds many clean history-sensitive anchors across two families and five windows, but high-speed and late-reveal remain null so it cannot support source-diverse self-ID evidence
+- history interventions executed: true
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1577-paper-route-history-sensitive-active-set-miner-result-audit.json`
+- next: `m1577-paper-route-history-sensitive-active-set-miner-result-audit`

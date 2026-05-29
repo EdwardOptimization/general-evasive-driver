@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1584,
+    "completed": 1585,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1575-paper-route-history-sensitive-active-set-mining-design.md",
+    "command_log": "docs/m1576-paper-route-history-sensitive-active-set-miner-implementation.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1576_history_sensitive_active_set_miner_smoke",
     "status": "completed",
-    "task_id": "m1575-paper-route-history-sensitive-active-set-mining-design"
+    "task_id": "m1576-paper-route-history-sensitive-active-set-miner-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1576-paper-route-history-sensitive-active-set-miner-implementation.json",
-    "hypothesis": "A bounded public miner can find source-diverse anchors where wrong-history or donor-plus-hidden interventions degrade closed-loop outcome more than current-frame controls.",
-    "id": "m1576-paper-route-history-sensitive-active-set-miner-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded history-sensitive active-set miner after M1575 design",
-    "priority": 15710,
+    "command": "see experiments/manifests/m1577-paper-route-history-sensitive-active-set-miner-result-audit.json",
+    "hypothesis": "M1576's partial positive result can be audited into a defensible next route without overstating source-diverse self-identification evidence.",
+    "id": "m1577-paper-route-history-sensitive-active-set-miner-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1576 clean history-sensitive positives and high-speed/late null",
+    "priority": 15720,
     "status": "pending",
-    "success_artifact": "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json"
+    "success_artifact": "docs/m1577-paper-route-history-sensitive-active-set-miner-result-audit.md"
   },
-  "updated_at_utc": "20260529T145454Z"
+  "updated_at_utc": "20260529T150526Z"
 }
