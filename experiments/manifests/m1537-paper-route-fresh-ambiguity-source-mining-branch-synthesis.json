@@ -174,6 +174,49 @@
     "runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json",
     "docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+    "decision": "fresh_ambiguity_source_mining_synthesis_continue_to_source_expanded_repeat",
+    "synthesis_decision": "continue",
+    "synthesized_range": "M1527-M1536",
+    "supported_claims": [
+      "fresh ambiguity source planning covers all intended public source families",
+      "fixed-policy measured mining can find accepted matched pairs",
+      "bounded history intervention replay is deterministic enough for public probes",
+      "M1534 has preliminary positive wrong-history and donor-response-plus-hidden margin sensitivity",
+      "M1536 defines a conservative source-expanded repeat"
+    ],
+    "unsupported_claims": [
+      "source-expanded history-sensitivity repeat",
+      "T5 or terminal-boundary history-sensitivity evidence",
+      "success-drop evidence",
+      "candidate materialization",
+      "training corpus export",
+      "paper-level evidence",
+      "level3 anticipatory self-identification",
+      "policy superiority"
+    ],
+    "failure_taxonomy_summary": [
+      "scenario_sampling_failure",
+      "metric_artifact"
+    ],
+    "public_gate_overfit_risk": "high",
+    "next_branch": "paper_route_fresh_ambiguity_source_mining",
+    "next_manifest": "experiments/manifests/m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
+  "decision": "fresh_ambiguity_source_mining_synthesis_continue_to_source_expanded_repeat",
   "decision_rule": "M1537 passes if it synthesizes M1527-M1536 and chooses the next route before another implementation milestone.",
-  "next_blocker": "m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis"
+  "next_blocker": "m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation"
 }

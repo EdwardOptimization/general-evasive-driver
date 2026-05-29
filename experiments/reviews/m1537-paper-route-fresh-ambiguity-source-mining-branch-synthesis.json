@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1537 synthesizes M1527-M1536 as promising but public source-small and continues only to one source-expanded repeat implementation",
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis treats source-small positives as level3 self-ID evidence",
+    "synthesis ignores control dominance",
+    "synthesis routes directly to training PPO promotion private holdout corpus export actor-input changes or candidate materialization"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T112227Z",
+  "hypothesis": "After M1536, the fresh ambiguity source-mining branch should synthesize evidence before running a source-expanded repeat implementation.",
+  "lineage": {
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1536"
+    ],
+    "derived_from": [
+      "m1527-paper-route-fresh-ambiguity-source-mining-design",
+      "m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md",
+      "runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json",
+      "runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json",
+      "docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md"
+    ],
+    "parent_objective": [
+      "synthesize M1527-M1536 fresh ambiguity/source-mining branch before another implementation milestone"
+    ],
+    "supersedes": [
+      "direct M1537 repeat implementation without branch synthesis"
+    ]
+  },
+  "milestone": "m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis",
+  "next_blocker": "m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "fresh_ambiguity_source_mining_synthesis_continue_to_source_expanded_repeat",
+  "public_gates": [
+    "M1537 must synthesize M1527-M1536 before repeat implementation",
+    "M1537 must separate source-planning measured-pair plumbing intervention positives and control dominance",
+    "M1537 must state supported and unsupported claims",
+    "M1537 must assess public-gate overfit risk",
+    "M1537 must choose continue pivot stop or promote_to_next_branch"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "fresh_ambiguity_source_mining_synthesis_continue_to_source_expanded_repeat",
+    "milestone": "m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis",
+    "reason": "M1537 synthesizes M1527-M1536 as promising but public source-small and continues only to one source-expanded repeat implementation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md exists",
+    "synthesis summarizes M1527-M1536 evidence",
+    "supported and unsupported claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked"
+  ],
+  "type": "gate"
+}

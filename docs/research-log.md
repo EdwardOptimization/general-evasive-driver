@@ -23270,3 +23270,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1536 converts M1535's source-small positive audit into a source-expanded public repeat protocol. It requires fresh measured mining before interventions and treats absent T5 rows or control dominance as blockers rather than reasons to weaken self-ID standards.
 - follow-up manifest: `experiments/manifests/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.json`.
 - next: `m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis`
+
+## M1537 Paper-Route Fresh Ambiguity Source-Mining Branch Synthesis
+
+- status: completed
+- decision: `fresh_ambiguity_source_mining_synthesis_continue_to_source_expanded_repeat`
+- synthesis decision: `continue`
+- artifact: `docs/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md`
+- synthesized range: M1527-M1536
+- supported claims: source planning covers all intended public source families; measured mining can find accepted matched pairs; bounded history intervention replay is deterministic enough for public probes; M1534 has preliminary wrong-history and donor-plus-hidden margin sensitivity; M1536 defines a conservative source-expanded repeat
+- unsupported claims: source-expanded repeat evidence; T5 or terminal-boundary history-sensitivity; success drops; candidate materialization; training corpus export; paper-level evidence; level3 anticipatory self-identification; policy superiority
+- failure taxonomy summary: `scenario_sampling_failure`, `metric_artifact`
+- public-gate overfit risk: high
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1537 resets the workflow cadence and admits exactly one bounded source-expanded repeat implementation. If the repeat is source-poor, T5-absent, or control-dominated, the follow-up audit must route to pair repair, task generation, or synthesis rather than training.
+- follow-up manifest: `experiments/manifests/m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation.json`.
+- next: `m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation`

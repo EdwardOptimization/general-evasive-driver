@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1545,
+    "completed": 1546,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md",
+    "command_log": "docs/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design"
+    "task_id": "m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.json",
-    "hypothesis": "After M1536, the fresh ambiguity source-mining branch should synthesize evidence before running a source-expanded repeat implementation.",
-    "id": "m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: mandatory workflow synthesis after M1536 cadence trigger before repeat implementation",
-    "priority": 15320,
+    "command": "see experiments/manifests/m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation.json",
+    "hypothesis": "M1534 wrong-history and donor-response positives should either repeat across more source-diverse public pairs or expose a source-pairing/control-dominance blocker.",
+    "id": "m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: run bounded source-expanded measured-mining and history-intervention repeat admitted by M1537 synthesis",
+    "priority": 15330,
     "status": "pending",
-    "success_artifact": "docs/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md"
+    "success_artifact": "runs/m1538_fresh_ambiguity_history_intervention_repeat/summary.json"
   },
-  "updated_at_utc": "20260529T111109Z"
+  "updated_at_utc": "20260529T111649Z"
 }

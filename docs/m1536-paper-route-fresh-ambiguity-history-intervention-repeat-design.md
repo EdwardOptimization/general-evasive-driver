@@ -41,7 +41,7 @@ logic.
 
 ## Repeat Scope
 
-M1537 should run a two-stage bounded repeat:
+The post-synthesis implementation should run a two-stage bounded repeat:
 
 ```text
 Stage A: source-expanded measured mining
@@ -62,14 +62,14 @@ The implementation command should be:
 
 ```text
 PYTHONPATH=src python -m autodrift.fresh_ambiguity_measured_mining \
-  --output-dir runs/m1537_fresh_ambiguity_measured_mining_repeat \
+  --output-dir runs/m1538_fresh_ambiguity_measured_mining_repeat \
   --seed 1631 \
   --seed-count 2 \
   --max-pair-candidates 128
 
 PYTHONPATH=src python -m autodrift.fresh_ambiguity_history_interventions \
-  --output-dir runs/m1537_fresh_ambiguity_history_intervention_repeat \
-  --pair-candidates runs/m1537_fresh_ambiguity_measured_mining_repeat/measured_pair_candidates.csv \
+  --output-dir runs/m1538_fresh_ambiguity_history_intervention_repeat \
+  --pair-candidates runs/m1538_fresh_ambiguity_measured_mining_repeat/measured_pair_candidates.csv \
   --source-seed 1631 \
   --source-seed-count 2 \
   --continuation-steps 64
@@ -105,7 +105,7 @@ success-drop or collision outcome changes
 
 ## Source-Diversity Gates
 
-M1537 repeat artifacts should pass these public repeat gates before any stronger
+The repeat artifacts should pass these public repeat gates before any stronger
 route is considered:
 
 ```text
@@ -125,7 +125,7 @@ not materialization.
 
 ## T5 / Terminal-Boundary Handling
 
-M1534 accepted only T4 pairs. M1537 must report:
+M1534 accepted only T4 pairs. The repeat must report:
 
 ```text
 t5_or_terminal_boundary_accepted_pair_count
@@ -140,7 +140,7 @@ t5_or_terminal_boundary_accepted_pair_count >= 1
 ```
 
 If no T5 or terminal-boundary pair is accepted but other source-diversity gates
-pass, M1537 may still be a source-expanded T4 repeat. It cannot support
+pass, the run may still be a source-expanded T4 repeat. It cannot support
 candidate materialization. The follow-up audit must choose between:
 
 ```text
@@ -180,7 +180,7 @@ only. They do not admit materialization.
 ## Control-Dominance Rule
 
 M1534 showed stronger reset/zero-current effects than wrong-history effects.
-M1537 must therefore compute:
+The repeat must therefore compute:
 
 ```text
 max_reset_zero_margin_gap
@@ -217,7 +217,7 @@ anti-overfitting controls
 
 ## Failure Taxonomy
 
-Use these labels in the M1537/M1538 audit:
+Use these labels in the repeat implementation and follow-up audit:
 
 ```text
 none
@@ -231,8 +231,9 @@ metric_artifact
 contract_violation
 ```
 
-If the validator does not yet allow a needed label, M1537 must either use the
-nearest existing label or extend the taxonomy with tests before relying on it.
+If the validator does not yet allow a needed label, the implementation must
+either use the nearest existing label or extend the taxonomy with tests before
+relying on it.
 
 ## Guardrails
 

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design
+m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1537-paper-route-fresh-ambiguity-history-intervention-repeat-implementation
+m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -127,6 +127,12 @@ history-sensitivity, and control-dominance gates. It still blocks candidate
 materialization, training, PPO, private holdout, promotion, and level3 self-ID
 claims. The workflow cadence now requires a branch synthesis before the bounded
 repeat implementation.
+M1537 synthesized M1527-M1536. The branch is worth continuing because source
+planning, measured mining, deterministic intervention replay, and preliminary
+M1534 wrong-history/donor-plus-hidden positives are all present. The evidence is
+still public, source-small, T4-only, and control-sensitive, so M1537 admits
+exactly one source-expanded repeat implementation and keeps materialization,
+training, PPO, private holdout, promotion, and level3 self-ID claims blocked.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

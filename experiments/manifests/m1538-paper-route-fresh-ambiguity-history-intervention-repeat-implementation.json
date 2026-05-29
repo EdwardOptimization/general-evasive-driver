@@ -1,0 +1,167 @@
+{
+  "id": "m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md",
+      "docs/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "run the bounded source-expanded measured-mining and history-intervention repeat admitted by M1537 synthesis"
+    ],
+    "derived_from": [
+      "m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1537 synthesis admits exactly one source-expanded repeat implementation before audit"
+    ],
+    "supersedes": [
+      "M1534 source-small T4-only intervention smoke"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation.md",
+  "public_gates": [
+    "M1538 must run source-expanded measured mining with source_seed_count 2",
+    "M1538 must run the same intervention channels over the new accepted pairs",
+    "M1538 must report source diversity T5 handling history sensitivity and control dominance",
+    "M1538 must not train promote use private holdout export training corpus or materialize candidates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification from repeat implementation"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "G_fresh_ambiguity_history_intervention_repeat_implementation",
+    "evidence_increment": "runs the source-expanded public repeat designed by M1536 and admitted by M1537 synthesis",
+    "claim_scope": "bounded public repeat implementation only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if measured mining cannot expand beyond M1534 source scope",
+      "stop if anchor replay failures exceed tolerance",
+      "stop if guardrails are violated",
+      "stop after repeat artifacts and route to audit"
+    ],
+    "fallback_plan": [
+      "route to result audit after any completed repeat",
+      "route to pair repair if source-diversity gates fail",
+      "route to task generation if T5 terminal-boundary rows remain absent"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1537 synthesis admitted bounded source-expanded repeat implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "fresh ambiguity source-expanded history-intervention repeat",
+    "admission_evidence": [
+      "M1537 synthesized M1527-M1536 and admitted exactly one source-expanded repeat implementation"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "bounded public measured mining repeat artifacts",
+      "bounded public history-intervention repeat artifacts",
+      "M1538 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "measured mining repeat summary is written",
+      "history intervention repeat summary is written",
+      "source-diversity and control-dominance metrics are reported",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1538 can only report intervention effects; audit must decide whether effects survive source expansion and are not dominated by current response controls.",
+    "history_necessity_tests": [
+      "wrong_history_donor_hidden_at_anchor",
+      "donor_response_action_stream_from_anchor",
+      "donor_response_action_plus_hidden_from_anchor",
+      "delayed hidden variants",
+      "reset and zero-current controls"
+    ],
+    "temporal_evidence_window": "M1538 source-expanded public repeat only.",
+    "negative_result_policy": "If repeat is null or control-dominated, document that and route to pair repair task generation or synthesis instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "M1538 implements a source-expanded public repeat",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1534 wrong-history and donor-response positives should either repeat across more source-diverse public pairs or expose a source-pairing/control-dominance blocker.",
+  "success_criteria": [
+    "runs/m1538_fresh_ambiguity_measured_mining_repeat/summary.json exists",
+    "runs/m1538_fresh_ambiguity_history_intervention_repeat/summary.json exists",
+    "implementation uses source_seed 1631 source_seed_count 2 and max_pair_candidates 128",
+    "implementation reports source-diversity T5 handling history-sensitivity and control-dominance metrics",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "repeat summaries are missing",
+    "implementation repeats only the original M1534 pair candidates",
+    "implementation ignores reset/zero-current controls",
+    "implementation routes directly to training promotion private holdout or materialization",
+    "implementation claims level3 self-identification"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_fresh_ambiguity_measured_mining.py tests/test_fresh_ambiguity_history_interventions.py -q"
+    },
+    {
+      "name": "measured_repeat",
+      "command": "PYTHONPATH=src python -m autodrift.fresh_ambiguity_measured_mining --output-dir runs/m1538_fresh_ambiguity_measured_mining_repeat --seed 1631 --seed-count 2 --max-pair-candidates 128"
+    },
+    {
+      "name": "intervention_repeat",
+      "command": "PYTHONPATH=src python -m autodrift.fresh_ambiguity_history_interventions --output-dir runs/m1538_fresh_ambiguity_history_intervention_repeat --pair-candidates runs/m1538_fresh_ambiguity_measured_mining_repeat/measured_pair_candidates.csv --source-seed 1631 --source-seed-count 2 --continuation-steps 64"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1538_fresh_ambiguity_measured_mining_repeat/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1538_fresh_ambiguity_history_intervention_repeat/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md",
+    "docs/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md"
+  ],
+  "decision_rule": "M1538 passes if it writes repeat artifacts and keeps all no-materialization/no-training guardrails clean, regardless of whether the repeat is positive or negative.",
+  "next_blocker": "m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation"
+}
