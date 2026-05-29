@@ -16,22 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1651-paper-route-proposal-source-preflight-result-audit
+m1652-paper-route-selected-proposal-repair-design
 ```
 
 Current next task:
 
 ```text
-m1652-paper-route-selected-proposal-repair-design
+m1653-paper-route-selected-proposal-repair-implementation
 ```
 
-M1651 audited the M1650 proposal-source preflight. The result is clean but
-strictly metadata-only: M1650 found `10` branch-compatible M1362 same-line
-sources, `1` base anchor, `5` larger proposal candidates, and selected alphas
-`0.2`, `0.4`, `0.6`, `0.8`, `1.0` as repair-candidate metadata. These are not
-PPO proposals and not repaired checkpoints. The next task is M1652
-selected-proposal no-checkpoint repair design before any repair run, checkpoint
-artifact, replay gate, promotion, private holdout, or level3 claim.
+M1652 designed the selected-proposal no-checkpoint repair probe. It selects
+alpha `0.2` as the primary same-line proposal, alpha `1.0` as the stress
+proposal, and alpha `0.4` as the intermediate proposal. The repair scope is
+`actor_mean.weight` and `actor_mean.bias` only, initialized from each proposal
+checkpoint, with base interpolation and checkpoint artifacts blocked. The next
+task is M1653 implementation, which may only write metrics and must not run
+PPO, replay gates, promotion, private holdout, actor-input changes, or level3
+self-ID claims.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

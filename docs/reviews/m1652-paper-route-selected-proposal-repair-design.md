@@ -1,0 +1,94 @@
+# m1652-paper-route-selected-proposal-repair-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260529T211120Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: selected_proposal_repair_design_admit_no_checkpoint_implementation
+- Decision reason: M1652 designs actor_mean-only no-checkpoint selected-proposal repair for alpha 0.2 primary alpha 1.0 stress and alpha 0.4 intermediate
+
+## Hypothesis
+
+A selected-proposal no-checkpoint repair design can safely test whether damped actor_mean projection repairs real same-line proposal deltas before checkpoint artifacts or replay gates.
+
+## Lineage
+
+- parent_checkpoint: runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
+- parent_dataset: docs/m1651-paper-route-proposal-source-preflight-result-audit.md, runs/m1650_proposal_source_preflight/summary.json, runs/m1650_proposal_source_preflight/candidate_summary.csv, runs/m1650_proposal_source_preflight/guardrail_summary.csv
+- parent_config: experiments/manifests/m1651-paper-route-proposal-source-preflight-result-audit.json
+- parent_objective: design selected-proposal no-checkpoint repair after M1650 source preflight
+- derived_from: m1651-paper-route-proposal-source-preflight-result-audit
+- blocked_by: M1651 audits M1650 as source-preflight only and admits design before repair
+- supersedes: direct selected-proposal repair after M1651, direct checkpoint artifact after M1651, direct PPO after M1651, direct promotion after M1651
+- invalidates: None
+
+## Success Criteria
+
+- docs/m1652-paper-route-selected-proposal-repair-design.md exists
+- design chooses selected proposal candidates from M1650
+- design defines no-checkpoint repair objective and trainable scope
+- design defines exact objective and guardrail acceptance criteria
+- design explicitly routes next step
+- PPO promotion private holdout actor-input changes and level3 claims remain blocked
+
+## Failure Criteria
+
+- design document is missing
+- design treats same-line proposals as PPO proposals
+- design runs projection or repair
+- design admits checkpoint artifacts before no-checkpoint repair
+- design routes directly to PPO promotion private holdout actor-input changes or closed-loop evidence
+- design claims paper-level or level3 self-identification evidence
+
+## Evidence Gates
+
+- M1652 must be design-only
+- M1652 must choose selected proposal candidates from M1650 metadata
+- M1652 must define no-checkpoint repair objective and trainable scope
+- M1652 must define exact objective and guardrail acceptance criteria
+- M1652 must decide one bounded implementation route or pivot
+- M1652 must keep promotion private holdout actor-input changes and level3 claims blocked
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run projection
+- do not repair a proposal
+- do not run PPO
+- do not train
+- do not run closed-loop evaluation
+- do not write checkpoint artifacts
+- do not promote a checkpoint
+- do not use private holdout
+- do not add actor inputs
+- do not treat diagnostics as positive targets
+- do not treat donor_plus_hidden_action as a loss target
+- do not claim paper-level evidence
+- do not claim level3 self-identification
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m1652-paper-route-selected-proposal-repair-design
+- type: gate
+- checkpoint: docs/m1652-paper-route-selected-proposal-repair-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: selected_proposal_repair_design_admit_no_checkpoint_implementation
+- reason: M1652 designs actor_mean-only no-checkpoint selected-proposal repair for alpha 0.2 primary alpha 1.0 stress and alpha 0.4 intermediate
+
+## Next Blocker
+
+m1653-paper-route-selected-proposal-repair-implementation

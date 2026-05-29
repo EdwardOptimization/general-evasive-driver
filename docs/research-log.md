@@ -26403,3 +26403,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: selected-proposal repair, PPO-proposal repair, checkpoint artifact generation, closed-loop improvement, behavior retention, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1652-paper-route-selected-proposal-repair-design.json`
 - next: `m1652-paper-route-selected-proposal-repair-design`
+
+## M1652 Paper-Route Selected Proposal Repair Design
+
+- status: completed
+- decision: `selected_proposal_repair_design_admit_no_checkpoint_implementation`
+- artifact: `docs/m1652-paper-route-selected-proposal-repair-design.md`
+- failure taxonomy: `none`
+- selected proposals: alpha `0.2`, alpha `0.4`, alpha `1.0`
+- primary candidate: alpha `0.2`
+- stress candidate: alpha `1.0`
+- intermediate candidate: alpha `0.4`
+- repair scope: `actor_mean.weight` and `actor_mean.bias` only
+- blocked: base interpolation, checkpoint artifact writes, PPO, training, replay gates, promotion, private holdout, actor-input changes, paper-level claims, level3 self-ID claims
+- public gate: primary alpha `0.2` must be measurable and improved; no checkpoint/role/contract guardrail violations
+- supported: one bounded no-checkpoint selected-proposal repair implementation is admitted
+- unsupported: repair result, checkpoint artifact generation, replay improvement, behavior retention, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1653-paper-route-selected-proposal-repair-implementation.json`
+- next: `m1653-paper-route-selected-proposal-repair-implementation`

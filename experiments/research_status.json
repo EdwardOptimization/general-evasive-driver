@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1660,
+    "completed": 1661,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1651-paper-route-proposal-source-preflight-result-audit.md",
+      "command_log": "docs/m1652-paper-route-selected-proposal-repair-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1651-paper-route-proposal-source-preflight-result-audit"
+      "task_id": "m1652-paper-route-selected-proposal-repair-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1652-paper-route-selected-proposal-repair-design.json",
-      "hypothesis": "A selected-proposal no-checkpoint repair design can safely test whether damped actor_mean projection repairs real same-line proposal deltas before checkpoint artifacts or replay gates.",
-      "id": "m1652-paper-route-selected-proposal-repair-design",
-      "kind": "gate",
-      "notes": "Pending: design no-checkpoint selected-proposal repair over audited M1650 candidates",
-      "priority": 16470,
+      "command": "see experiments/manifests/m1653-paper-route-selected-proposal-repair-implementation.json",
+      "hypothesis": "Actor_mean-only damped projection can reduce contour-aware exact residual on at least the smallest selected real same-line proposal delta without checkpoint artifacts.",
+      "id": "m1653-paper-route-selected-proposal-repair-implementation",
+      "kind": "objective_sanity",
+      "notes": "Pending: implement no-checkpoint selected-proposal actor_mean repair for alpha 0.2 0.4 and 1.0",
+      "priority": 16480,
       "status": "pending",
-      "success_artifact": "docs/m1652-paper-route-selected-proposal-repair-design.md"
+      "success_artifact": "runs/m1653_selected_proposal_repair/summary.json"
     },
-    "updated_at_utc": "20260529T210604Z"
+    "updated_at_utc": "20260529T210853Z"
 }

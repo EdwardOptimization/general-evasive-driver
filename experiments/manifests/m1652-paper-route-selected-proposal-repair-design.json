@@ -162,6 +162,26 @@
     "runs/m1650_proposal_source_preflight/summary.json",
     "runs/m1650_proposal_source_preflight/candidate_summary.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1652-paper-route-selected-proposal-repair-design.md",
+    "decision": "selected_proposal_repair_design_admit_no_checkpoint_implementation",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "selected_alphas": [
+      0.2,
+      0.4,
+      1.0
+    ],
+    "primary_alpha": 0.2,
+    "stress_alpha": 1.0,
+    "optional_intermediate_alpha": 0.4,
+    "repair_scope": "actor_mean.weight and actor_mean.bias only",
+    "checkpoint_artifacts_allowed": false,
+    "base_interpolation_allowed": false,
+    "next_manifest": "experiments/manifests/m1653-paper-route-selected-proposal-repair-implementation.json"
+  },
   "decision_rule": "M1652 passes if it designs a bounded no-checkpoint selected-proposal repair route without running repair PPO replay or writing checkpoints.",
-  "next_blocker": "m1652-paper-route-selected-proposal-repair-design"
+  "next_blocker": "m1653-paper-route-selected-proposal-repair-implementation"
 }

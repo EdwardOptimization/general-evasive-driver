@@ -1,0 +1,190 @@
+{
+  "id": "m1653-paper-route-selected-proposal-repair-implementation",
+  "type": "objective_sanity",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_2.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_4.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_1_0.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1652-paper-route-selected-proposal-repair-design.md",
+      "runs/m1650_proposal_source_preflight/candidate_summary.csv",
+      "runs/m1630_contour_aware_full_target_materialization/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1652-paper-route-selected-proposal-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement no-checkpoint selected-proposal actor_mean repair probe"
+    ],
+    "derived_from": [
+      "m1652-paper-route-selected-proposal-repair-design"
+    ],
+    "blocked_by": [
+      "M1652 admits exactly one no-checkpoint implementation before checkpoint artifact or replay gates"
+    ],
+    "supersedes": [
+      "direct checkpoint artifact after M1652",
+      "direct replay gate after M1652",
+      "direct PPO after M1652",
+      "direct promotion after M1652"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1653-paper-route-selected-proposal-repair-implementation.md",
+  "public_gates": [
+    "M1653 must run selected proposals alpha 0.2 and alpha 1.0, with alpha 0.4 optional if implemented as designed",
+    "M1653 must initialize from proposal checkpoints and not base-interpolate repair",
+    "M1653 must optimize actor_mean only",
+    "M1653 must write metrics and no checkpoint artifacts",
+    "M1653 must keep diagnostics zero-weight and donor-plus actions excluded from loss",
+    "M1653 must route to result audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not write checkpoint artifacts",
+    "do not base-interpolate repair candidates",
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop evaluation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_ppo_proposal_projection_repair",
+    "evidence_axis": "E_selected_proposal_repair_implementation",
+    "evidence_increment": "tests no-checkpoint actor_mean repair on selected same-line proposal deltas",
+    "claim_scope": "objective-sanity implementation only; no PPO, training, checkpoint artifact, closed-loop gate, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if primary alpha 0.2 cannot be improved",
+      "stop if checkpoint artifacts are written",
+      "stop if base interpolation is used for repair",
+      "stop if diagnostics or donor-plus guardrails fail",
+      "stop after implementation for mandatory result audit"
+    ],
+    "fallback_plan": [
+      "route to result audit whether implementation passes or fails",
+      "if actor_mean scope is insufficient, audit before any wider-scope design",
+      "if primary passes, audit before checkpoint artifact or replay design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1652 admits one selected-proposal repair implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run no-checkpoint selected-proposal repair",
+    "admission_evidence": [
+      "M1650 selected proposal candidates as metadata",
+      "M1651 audited source preflight",
+      "M1652 pre-registers candidate set and repair gates"
+    ],
+    "blocked_shortcuts": [
+      "do not write checkpoint artifacts",
+      "do not base-interpolate repair",
+      "do not train",
+      "do not run PPO",
+      "do not run closed-loop evaluation",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "selected-proposal repair module or extension and focused tests",
+      "M1653 run artifacts",
+      "M1653 docs status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "selected proposal repair metrics are written",
+      "no checkpoint artifact is written",
+      "audit route is explicit before checkpoint artifact or replay route"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1653 tests fixed-tensor selected-proposal repair and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "evaluates correct/wrong hidden exact residual repair only; no new closed-loop history intervention"
+    ],
+    "temporal_evidence_window": "M1362, M1630, M1650, M1651, and M1652 public artifacts only.",
+    "negative_result_policy": "If selected-proposal repair fails, classify scope/optimizer failure and audit before any rerun or wider scope.",
+    "allowed_claims": [
+      "bounded no-checkpoint selected-proposal exact repair result",
+      "no PPO, no promotion, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Actor_mean-only damped projection can reduce contour-aware exact residual on at least the smallest selected real same-line proposal delta without checkpoint artifacts.",
+  "success_criteria": [
+    "runs/m1653_selected_proposal_repair/summary.json exists",
+    "selected_candidate_count >= 2",
+    "measurable_initial_residual_count == selected_candidate_count",
+    "residual_reduced_count >= 1",
+    "candidate_public_pass_count >= 1",
+    "primary_alpha_0_2_pass == true",
+    "checkpoint_artifact_count == 0",
+    "base_interpolation_used_for_repair_count == 0",
+    "non_actor_mean_parameter_changed_count == 0",
+    "training_started_count ppo_used_count promoted_count private_holdout_used_count actor_input_contract_changed_count level3_self_id_claim_count are 0"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "selected proposal candidates differ from design without audit",
+    "primary alpha 0.2 is not measurable or cannot be improved",
+    "any checkpoint artifact is written",
+    "base interpolation is used for repair",
+    "diagnostics or donor-plus actions enter the loss target",
+    "PPO promotion private holdout actor-input changes or level3 claims are produced"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_selected_proposal_repair.py"
+    },
+    {
+      "name": "run_repair",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.selected_proposal_repair --base-checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --candidate-summary runs/m1650_proposal_source_preflight/candidate_summary.csv --materialization-run-dir runs/m1630_contour_aware_full_target_materialization --run-dir runs/m1653_selected_proposal_repair --selected-alphas 0.2,0.4,1.0"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1653_selected_proposal_repair/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1653_selected_proposal_repair/candidate_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1653_selected_proposal_repair/aggregate_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1653_selected_proposal_repair/guardrail_summary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1652-paper-route-selected-proposal-repair-design.md",
+    "runs/m1650_proposal_source_preflight/candidate_summary.csv",
+    "runs/m1630_contour_aware_full_target_materialization/summary.json"
+  ],
+  "decision_rule": "M1653 passes if the selected-proposal no-checkpoint repair reduces at least the primary alpha 0.2 exact residual with clean guardrails.",
+  "next_blocker": "m1653-paper-route-selected-proposal-repair-implementation"
+}
