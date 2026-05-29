@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1542,
+    "completed": 1543,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1533-paper-route-fresh-ambiguity-history-intervention-design.md",
+    "command_log": "runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1533-paper-route-fresh-ambiguity-history-intervention-design.md",
+    "run_dir": "runs/m1534_fresh_ambiguity_history_intervention_smoke",
     "status": "completed",
-    "task_id": "m1533-paper-route-fresh-ambiguity-history-intervention-design"
+    "task_id": "m1534-paper-route-fresh-ambiguity-history-intervention-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1534-paper-route-fresh-ambiguity-history-intervention-implementation.json",
-    "hypothesis": "A bounded intervention runner can execute wrong-history and donor-response diagnostics over M1531 accepted measured pairs without materializing candidates.",
-    "id": "m1534-paper-route-fresh-ambiguity-history-intervention-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded history interventions over M1531 accepted measured pairs",
-    "priority": 15290,
+    "command": "see experiments/manifests/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.json",
+    "hypothesis": "M1534 provides promising but source-small wrong-history and donor-response evidence that should route to audited repeat or expansion rather than direct self-ID claims.",
+    "id": "m1535-paper-route-fresh-ambiguity-history-intervention-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1534 positive history-intervention smoke before any materialization or self-ID claim",
+    "priority": 15300,
     "status": "pending",
-    "success_artifact": "runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json"
+    "success_artifact": "docs/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.md"
   },
-  "updated_at_utc": "20260529T105439Z"
+  "updated_at_utc": "20260529T110337Z"
 }

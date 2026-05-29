@@ -1,0 +1,154 @@
+{
+  "id": "m1535-paper-route-fresh-ambiguity-history-intervention-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json",
+      "docs/m1534-paper-route-fresh-ambiguity-history-intervention-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1534-paper-route-fresh-ambiguity-history-intervention-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M1534 history-intervention smoke before any candidate materialization or self-ID claim"
+    ],
+    "derived_from": [
+      "m1534-paper-route-fresh-ambiguity-history-intervention-implementation"
+    ],
+    "blocked_by": [
+      "M1534 produced positive wrong-history and donor-response gaps that need audit before any stronger claim"
+    ],
+    "supersedes": [
+      "direct self-ID claim from implementation smoke"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.md",
+  "public_gates": [
+    "M1535 must audit wrong-history donor-response reset and zero-current channels separately",
+    "M1535 must decide whether candidate materialization remains blocked",
+    "M1535 must not claim level3 self-ID from source-small public smoke",
+    "M1535 must choose next route: repeat/source expansion/pair repair/materialization design"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not run new interventions during audit",
+    "do not claim level3 self-identification from M1534 alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "G_fresh_ambiguity_history_intervention_audit",
+    "evidence_increment": "audits M1534 positive bounded history-intervention smoke and selects the next evidence step",
+    "claim_scope": "result audit only; no candidate materialization, new intervention run, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit overclaims source-small public positive smoke",
+      "stop if audit collapses reset/zero-current into self-ID evidence",
+      "stop if audit routes directly to training or promotion",
+      "stop if guardrails were violated"
+    ],
+    "fallback_plan": [
+      "route to source-expanded repeat if evidence is promising but too small",
+      "route to pair repair if positives are dominated by reset/zero-current",
+      "route to materialization design only if audit justifies it without self-ID overclaim"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1534 completed bounded history-intervention smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fresh ambiguity history-intervention result audit",
+    "admission_evidence": [
+      "M1534 ran bounded wrong-history and donor-response interventions over accepted measured pairs"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not run new interventions in audit",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1535 audit document",
+      "status queue scoreboard research log and review",
+      "one follow-up repeat/source-expansion/pair-repair/materialization-design manifest"
+    ],
+    "next_stage_criteria": [
+      "wrong-history verdict is explicit",
+      "donor-response verdict is explicit",
+      "reset/zero-current confound is explicit",
+      "materialization verdict is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1535 must audit whether reset/zero-current controls dominate M1534 effects before any self-ID claim.",
+    "history_necessity_tests": [
+      "wrong_history_donor_hidden_at_anchor",
+      "donor_response_action_stream_from_anchor",
+      "donor_response_action_plus_hidden_from_anchor",
+      "reset and zero-current controls"
+    ],
+    "temporal_evidence_window": "M1534 bounded public intervention smoke only.",
+    "negative_result_policy": "If positives are too source-small or dominated by controls, route to repeat/source expansion or pair repair instead of materialization.",
+    "allowed_claims": [
+      "M1535 audits M1534 intervention evidence",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1534 provides promising but source-small wrong-history and donor-response evidence that should route to audited repeat or expansion rather than direct self-ID claims.",
+  "success_criteria": [
+    "docs/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.md exists",
+    "audit reports wrong-history donor-response reset zero-current success-drop guardrail and source-size metrics",
+    "audit explicitly decides whether materialization remains blocked",
+    "audit routes to one follow-up repeat source-expansion pair-repair or materialization-design manifest",
+    "candidate materialization training PPO promotion private holdout actor-input changes and corpus export remain blocked unless a design-only follow-up is justified"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores reset/zero-current controls",
+    "audit routes directly to training promotion or private holdout",
+    "audit claims level3 self-identification from M1534 alone"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json",
+    "docs/m1534-paper-route-fresh-ambiguity-history-intervention-implementation.md"
+  ],
+  "decision_rule": "M1535 passes if it audits M1534 and chooses the next evidence route without overclaiming or materializing candidates.",
+  "next_blocker": "m1535-paper-route-fresh-ambiguity-history-intervention-result-audit"
+}

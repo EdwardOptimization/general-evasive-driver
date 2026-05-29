@@ -23170,3 +23170,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1533 defines the bounded intervention route over M1531 accepted measured pairs but does not execute interventions or claim self-ID.
 - follow-up manifest: `experiments/manifests/m1534-paper-route-fresh-ambiguity-history-intervention-implementation.json`.
 - next: `m1534-paper-route-fresh-ambiguity-history-intervention-implementation`
+
+## M1534 Paper-Route Fresh Ambiguity History-Intervention Implementation
+
+- status: completed
+- decision: `fresh_ambiguity_history_intervention_smoke_positive_route_to_audit`
+- artifact: `runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json`
+- doc: `docs/m1534-paper-route-fresh-ambiguity-history-intervention-implementation.md`
+- code paths: `src/autodrift/fresh_ambiguity_history_interventions.py`, `tests/test_fresh_ambiguity_history_interventions.py`
+- focused tests: `PYTHONPATH=src python -m pytest tests/test_fresh_ambiguity_history_interventions.py -q`
+- focused test result: 6 passed
+- smoke command: `PYTHONPATH=src python -m autodrift.fresh_ambiguity_history_interventions --output-dir runs/m1534_fresh_ambiguity_history_intervention_smoke --seed 1534`
+- accepted pair count: 3
+- target side count: 6
+- variant count: 10
+- intervention row count: 60
+- anchor replay success count: 60
+- anchor replay failure count: 0
+- wrong-history row count: 6
+- donor response/action row count: 12
+- reset/zero-control row count: 24
+- max margin gap from normal: 0.18265487369979994
+- max wrong-history margin gap: 0.02848063419634883
+- max donor response/action margin gap: 0.040193069514796065
+- success drop count: 0
+- passes public smoke gates: true
+- passes evidence quality targets: true
+- guardrail violation count: 0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1534 is a promising bounded public smoke with positive wrong-history and donor-response/action margin gaps, but it remains source-small and must be audited before materialization or self-ID claims.
+- follow-up manifest: `experiments/manifests/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.json`.
+- next: `m1535-paper-route-fresh-ambiguity-history-intervention-result-audit`

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1533-paper-route-fresh-ambiguity-history-intervention-design
+m1534-paper-route-fresh-ambiguity-history-intervention-implementation
 ```
 
 Current next task:
 
 ```text
-m1534-paper-route-fresh-ambiguity-history-intervention-implementation
+m1535-paper-route-fresh-ambiguity-history-intervention-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -108,11 +108,52 @@ bounded history-intervention design over the accepted measured pairs.
 M1533 designed those interventions over the 3 accepted measured pairs, keeping
 wrong-history, donor response/action, delayed hidden, reset, and zero-current
 channels separate.
+M1534 implemented and ran the bounded intervention smoke: 60 rows, 3 accepted
+pairs, 0 anchor failures, wrong-history max margin gap `0.0285`,
+donor-response/action max gap `0.0402`, public and evidence-quality gates
+passed. The result is promising but source-small and must be audited before any
+materialization or self-ID claim.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1534 fresh ambiguity history-intervention implementation:
+
+```text
+decision: fresh_ambiguity_history_intervention_smoke_positive_route_to_audit
+artifact: runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json
+doc: docs/m1534-paper-route-fresh-ambiguity-history-intervention-implementation.md
+code: src/autodrift/fresh_ambiguity_history_interventions.py
+tests: tests/test_fresh_ambiguity_history_interventions.py
+focused test result: 6 passed
+accepted_pair_count: 3
+target_side_count: 6
+variant_count: 10
+intervention_row_count: 60
+anchor_replay_success_count: 60
+anchor_replay_failure_count: 0
+wrong_history_row_count: 6
+donor_response_action_row_count: 12
+reset_zero_control_row_count: 24
+max_wrong_history_margin_gap: 0.02848063419634883
+max_donor_response_action_margin_gap: 0.040193069514796065
+success_drop_count: 0
+passes_public_smoke_gates: true
+passes_evidence_quality_targets: true
+guardrail_violation_count: 0
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1535-paper-route-fresh-ambiguity-history-intervention-result-audit
+```
+
+M1534 does not claim level3 self-identification. The next audit must separate
+wrong-history/donor-response positives from stronger reset/zero-current control
+effects and decide whether to repeat/expand or prepare a design-only
+materialization step.
 
 M1533 fresh ambiguity history-intervention design:
 
