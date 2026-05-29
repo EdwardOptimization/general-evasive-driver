@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -160,6 +160,41 @@
     "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv",
     "docs/m1428-paper-route-bounded-relocation-replay-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1429_bounded_relocation_replay_smoke/summary.json",
+    "decision": "bounded_relocation_replay_no_history_positive_route_to_geometry_audit",
+    "result_class": "bounded_relocation_replay_no_history_positive",
+    "selected_candidate_rows": 128,
+    "actual_replay_rows": 384,
+    "history_positive_rows": 0,
+    "control_positive_rows": 0,
+    "normal_failed_rows": 177,
+    "rejected_rows": 0,
+    "selected_unique_source_seeds": 3,
+    "selected_unique_capability_pairs": 13,
+    "selected_unique_reveal_buckets": 9,
+    "selected_unique_variants": 1,
+    "selected_max_single_seed_share": 0.75,
+    "normal_success_selected_groups": 69,
+    "normal_failed_selected_groups": 59,
+    "source_body_x_median": -1.67805,
+    "source_body_x_min": -2.971817,
+    "source_body_x_max": 3.865466,
+    "relocated_body_x_clipped_groups": 126,
+    "replay_started": true,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1430-paper-route-bounded-relocation-replay-result-audit.json"
+  },
+  "decision": "bounded_relocation_replay_no_history_positive_route_to_geometry_audit",
   "decision_rule": "M1429 passes only if actual replay, not proxy accounting, yields source-diverse history-positive rows without forbidden shortcuts.",
-  "next_blocker": "m1429-paper-route-bounded-relocation-replay-smoke"
+  "next_blocker": "m1430-paper-route-bounded-relocation-replay-result-audit"
 }

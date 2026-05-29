@@ -16,21 +16,44 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1428-paper-route-bounded-relocation-replay-implementation
+m1429-paper-route-bounded-relocation-replay-smoke
 ```
 
 Current next task:
 
 ```text
-m1429-paper-route-bounded-relocation-replay-smoke
+m1430-paper-route-bounded-relocation-replay-result-audit
 ```
 
-M1428 implemented the bounded relocation replay probe. The current public-gate
-base remains M1362 alpha `0.1`:
+M1429 ran the bounded relocation replay smoke. The current public-gate base
+remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1429 result:
+
+```text
+decision: bounded_relocation_replay_no_history_positive_route_to_geometry_audit
+result_class: bounded_relocation_replay_no_history_positive
+selected_candidate_rows: 128
+actual_replay_rows: 384
+history_positive_rows: 0
+control_positive_rows: 0
+normal_failed_rows: 177
+selected_unique_source_seeds: 3
+selected_unique_capability_pairs: 13
+selected_unique_reveal_buckets: 9
+selected_max_single_seed_share: 0.75
+source_body_x_median: -1.678050
+relocated_body_x_clipped_groups: 126
+next: m1430-paper-route-bounded-relocation-replay-result-audit
+```
+
+M1429 proves the replay tool is live, but the selected source rows are
+geometry-poor: most obstacles were behind the car and got clipped to the minimum
+forward distance. M1430 must audit before any replay retune or training.
 
 M1428 result:
 
@@ -43,10 +66,6 @@ public_replay_started: false
 training_started: false
 next: m1429-paper-route-bounded-relocation-replay-smoke
 ```
-
-M1429 should run the bounded relocation replay probe once on M1425 pressure
-rows. It must remain no-training, no-promotion, no private holdout, no corpus
-export, and no actor-input change.
 
 M1427 result:
 

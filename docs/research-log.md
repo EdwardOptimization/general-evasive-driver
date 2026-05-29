@@ -21115,3 +21115,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no public replay run, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1429-paper-route-bounded-relocation-replay-smoke.json`.
 - next: `m1429-paper-route-bounded-relocation-replay-smoke`
+
+## 20260529T023134Z - m1429-paper-route-bounded-relocation-replay-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `proof`
+- artifact: `runs/m1429_bounded_relocation_replay_smoke/summary.json`
+- decision: `bounded_relocation_replay_no_history_positive_route_to_geometry_audit`
+- result class: `bounded_relocation_replay_no_history_positive`
+- counts: selected candidates `128`, actual replay rows `384`, history-positive rows `0`, control-positive rows `0`, normal-failed rows `177`, rejected rows `0`.
+- diversity: selected candidates span `3` seeds, `13` capability pairs, `9` reveal buckets, and `1` history variant; max single seed share is `0.75`.
+- geometry diagnostic: selected source body-x median `-1.678050`; `126/128` selected groups were clipped to relocated body-x `2.0m`, so many selected rows had the obstacle behind the vehicle at the snapshot.
+- interpretation: replay tooling is live, but M1429 is a geometry-poor source selection negative, not strong evidence that history is unnecessary.
+- classification: `scenario_sampling_failure`.
+- guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1430-paper-route-bounded-relocation-replay-result-audit.json`.
+- next: `m1430-paper-route-bounded-relocation-replay-result-audit`

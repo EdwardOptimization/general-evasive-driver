@@ -1,0 +1,92 @@
+{
+  "decision_reason": "M1429 runs 384 actual replay rows with 0 history-positive rows and reveals source geometry clipping plus seed concentration so routes to audit",
+  "failure_criteria": [
+    "summary missing",
+    "selected or replay rows are sparse",
+    "history-positive rows are zero or not source-diverse",
+    "control positives are mixed into history positives",
+    "run starts training PPO promotion private holdout corpus export or actor-input changes"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not count proxy rows as replay evidence",
+    "do not count reset or zero-current controls as history-positive"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260529T023506Z",
+  "hypothesis": "Actual bounded relocation replay can reveal history-positive terminal-margin sensitivity that the M1425 shared-margin proxy could not show.",
+  "lineage": {
+    "blocked_by": [
+      "M1428 implementation must be exercised in a separately registered public replay smoke"
+    ],
+    "derived_from": [
+      "m1428-paper-route-bounded-relocation-replay-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1428-paper-route-bounded-relocation-replay-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv",
+      "docs/m1428-paper-route-bounded-relocation-replay-implementation.md"
+    ],
+    "parent_objective": [
+      "run no-training bounded relocation replay smoke on M1425 pressure rows"
+    ],
+    "supersedes": [
+      "proxy-only interpretation of M1425 rows"
+    ]
+  },
+  "milestone": "m1429-paper-route-bounded-relocation-replay-smoke",
+  "next_blocker": "m1430-paper-route-bounded-relocation-replay-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bounded_relocation_replay_no_history_positive_route_to_geometry_audit",
+  "public_gates": [
+    "M1429 must run no-training bounded relocation replay on public M1425 pressure rows",
+    "M1429 must count history-positive only from actual replay rows",
+    "M1429 must report reset and zero-current controls separately",
+    "M1429 must not train run PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1429_bounded_relocation_replay_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "bounded_relocation_replay_no_history_positive_route_to_geometry_audit",
+    "milestone": "m1429-paper-route-bounded-relocation-replay-smoke",
+    "reason": "M1429 runs 384 actual replay rows with 0 history-positive rows and reveals source geometry clipping plus seed concentration so routes to audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1429_bounded_relocation_replay_smoke/summary.json exists",
+    "selected_candidate_rows >= 64",
+    "actual_replay_rows >= 192",
+    "history_positive_rows >= 8",
+    "history_positive_unique_source_seeds >= 3",
+    "history_positive_unique_capability_pairs >= 3",
+    "history_positive_unique_reveal_buckets >= 2",
+    "control_positive_rows reported separately",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "type": "infrastructure"
+}

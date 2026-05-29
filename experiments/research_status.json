@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1438,
+    "completed": 1439,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1428-paper-route-bounded-relocation-replay-implementation.md",
+    "command_log": "runs/m1429_bounded_relocation_replay_smoke/summary.json",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1428-paper-route-bounded-relocation-replay-implementation"
+    "task_id": "m1429-paper-route-bounded-relocation-replay-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1429-paper-route-bounded-relocation-replay-smoke.json",
-    "hypothesis": "Actual bounded relocation replay can reveal history-positive terminal-margin sensitivity that the M1425 shared-margin proxy could not show.",
-    "id": "m1429-paper-route-bounded-relocation-replay-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: run no-training bounded relocation replay smoke on M1425 pressure rows",
-    "priority": 14240,
+    "command": "see experiments/manifests/m1430-paper-route-bounded-relocation-replay-result-audit.json",
+    "hypothesis": "M1429's zero history-positive result is dominated by geometry-poor source selection, so a source geometry audit must precede any replay retune or training.",
+    "id": "m1430-paper-route-bounded-relocation-replay-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1429 zero history-positive replay result and source geometry clipping",
+    "priority": 14250,
     "status": "pending",
-    "success_artifact": "runs/m1429_bounded_relocation_replay_smoke/summary.json"
+    "success_artifact": "docs/m1430-paper-route-bounded-relocation-replay-result-audit.md"
   },
-  "updated_at_utc": "20260529T022540Z"
+  "updated_at_utc": "20260529T023134Z"
 }
