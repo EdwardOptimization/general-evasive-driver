@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1441,
+    "completed": 1442,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1431-paper-route-geometry-aware-replay-selector-design.md",
+    "command_log": "docs/m1432-paper-route-geometry-aware-selector-implementation.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1431-paper-route-geometry-aware-replay-selector-design"
+    "task_id": "m1432-paper-route-geometry-aware-selector-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1432-paper-route-geometry-aware-selector-implementation.json",
-    "hypothesis": "The bounded relocation replay tool can be extended with a no-training geometry preflight selector that filters behind-vehicle and clipped rows before actual replay.",
-    "id": "m1432-paper-route-geometry-aware-selector-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement preflight filtering and tests without replay training PPO promotion corpus export or actor-input changes",
-    "priority": 14270,
+    "command": "see experiments/manifests/m1433-paper-route-action-divergent-geometry-branch-synthesis.json",
+    "hypothesis": "The M1423-M1432 branch can be synthesized into a clear next route before any geometry-aware source preflight or replay run.",
+    "id": "m1433-paper-route-action-divergent-geometry-branch-synthesis",
+    "kind": "gate",
+    "notes": "Pending: synthesize M1423-M1432 before source preflight replay training PPO promotion corpus export or actor-input changes",
+    "priority": 14280,
     "status": "pending",
-    "success_artifact": "docs/m1432-paper-route-geometry-aware-selector-implementation.md"
+    "success_artifact": "docs/m1433-paper-route-action-divergent-geometry-branch-synthesis.md"
   },
-  "updated_at_utc": "20260529T024436Z"
+  "updated_at_utc": "20260529T025219Z"
 }

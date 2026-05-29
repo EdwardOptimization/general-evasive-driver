@@ -16,21 +16,39 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1431-paper-route-geometry-aware-replay-selector-design
+m1432-paper-route-geometry-aware-selector-implementation
 ```
 
 Current next task:
 
 ```text
-m1432-paper-route-geometry-aware-selector-implementation
+m1433-paper-route-action-divergent-geometry-branch-synthesis
 ```
 
-M1431 designed the geometry-aware replay selector. The current public-gate base
+M1432 implemented the geometry-aware replay selector. The current public-gate base
 remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1432 result:
+
+```text
+decision: geometry_aware_selector_implemented_route_to_branch_synthesis
+implementation: src/autodrift/bounded_relocation_replay_probe.py
+tests: tests/test_bounded_relocation_replay_probe.py
+focused_test_result: 8 passed
+geometry-aware selector default enabled: false
+replay_started: false
+training_started: false
+next: m1433-paper-route-action-divergent-geometry-branch-synthesis
+```
+
+M1432 adds optional geometry-aware preflight for bounded relocation replay. It
+rejects too-close/behind source obstacles and clipped relocations, and adds
+source/variant diversity caps. M1433 must synthesize M1423-M1432 before any
+source preflight or replay run.
 
 M1431 result:
 
@@ -53,7 +71,8 @@ M1432 should implement preflight filtering and tests only. It must not run
 bounded replay, train, run PPO, promote, use private holdout, export a corpus,
 or change actor inputs. Because this branch is at the synthesis cadence limit,
 the next replay run after implementation should go through branch synthesis or
-an explicit cadence decision.
+an explicit cadence decision. M1432 completed the implementation and routed to
+M1433 synthesis.
 
 M1430 result:
 

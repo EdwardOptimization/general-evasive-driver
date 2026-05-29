@@ -1,0 +1,184 @@
+{
+  "id": "m1433-paper-route-action-divergent-geometry-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1425_action_divergent_outcome_pressure_source_smoke/summary.json",
+      "runs/m1429_bounded_relocation_replay_smoke/summary.json",
+      "docs/m1432-paper-route-geometry-aware-selector-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1432-paper-route-geometry-aware-selector-implementation.json"
+    ],
+    "parent_objective": [
+      "synthesize M1423-M1432 action-divergent outcome-pressure and geometry selector branch before any replay run"
+    ],
+    "derived_from": [
+      "m1423-paper-route-action-divergent-outcome-pressure-design",
+      "m1432-paper-route-geometry-aware-selector-implementation"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1432",
+      "M1425 proxy source had zero history-positive rows",
+      "M1429 replay had zero history-positive rows but geometry-poor source selection",
+      "M1432 implemented selector infrastructure but has not run a source preflight"
+    ],
+    "supersedes": [
+      "running geometry-aware replay smoke without branch synthesis",
+      "continuing local selector tuning without summarizing branch evidence",
+      "training from M1429 rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1433-paper-route-action-divergent-geometry-branch-synthesis.md",
+  "public_gates": [
+    "M1433 must synthesize M1423-M1432 before any geometry-aware source smoke or replay run",
+    "M1433 must separate selector infrastructure from actual replay evidence",
+    "M1433 must classify public-gate overfit and scenario-sampling risks",
+    "M1433 must choose continue pivot stop or promote-to-next-branch before replay training PPO promotion private holdout corpus export or actor-input expansion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not count M1429 zero history-positive as no-history evidence",
+    "do not continue local branch work without synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_action_divergent_outcome_pressure_design",
+    "evidence_axis": "S_action_divergent_geometry_branch_synthesis",
+    "evidence_increment": "synthesizes M1423-M1432 after action-divergent proxy source, bounded relocation replay, and geometry-aware selector implementation",
+    "claim_scope": "branch synthesis only; no source preflight, replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats M1429 geometry-poor zero positive as self-ID negative evidence",
+      "stop if synthesis ignores M1425 proxy limitation",
+      "stop if synthesis admits replay without first running selector preflight",
+      "stop if training or corpus export is proposed before a source-diverse geometry-aware public result"
+    ],
+    "fallback_plan": [
+      "continue to geometry-aware preflight smoke if branch evidence supports source-pool repair",
+      "pivot to source mining if M1425 rows are likely too geometry-poor",
+      "stop the branch if repeated source/outcome repairs remain non-diagnostic"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1432 reaches the 10-milestone workflow synthesis cadence for paper_route_action_divergent_outcome_pressure_design",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1433-paper-route-action-divergent-geometry-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1433-paper-route-action-divergent-geometry-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "action-divergent geometry branch synthesis",
+    "admission_evidence": [
+      "M1425 found action-divergent source rows but zero proxy history-positive rows",
+      "M1429 actual replay emitted rows but was geometry-poor",
+      "M1432 implemented geometry-aware selector infrastructure"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source preflight",
+      "do not run replay",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1433 synthesis document",
+      "status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits it"
+    ],
+    "next_stage_criteria": [
+      "evidence summary is explicit",
+      "supported and falsified claims are explicit",
+      "failure taxonomy and public overfit risk are summarized",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1433 must keep M1425-M1432 evidence below level3 because no source-diverse forward replay positive exists yet.",
+    "history_necessity_tests": [
+      "summarize M1425 proxy limitation",
+      "summarize M1429 geometry-poor replay negative",
+      "summarize M1432 selector infrastructure as no replay evidence",
+      "decide whether geometry-aware preflight is justified"
+    ],
+    "temporal_evidence_window": "M1423-M1432 action-divergent outcome-pressure branch artifacts.",
+    "negative_result_policy": "Selector and geometry failures must be recorded as sampling limitations before any no-history conclusion.",
+    "allowed_claims": [
+      "branch synthesis and next route decision",
+      "no replay result, promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1423-M1432 branch can be synthesized into a clear next route before any geometry-aware source preflight or replay run.",
+  "success_criteria": [
+    "docs/m1433-paper-route-action-divergent-geometry-branch-synthesis.md exists",
+    "synthesis summarizes M1423-M1432 evidence",
+    "synthesis lists supported and falsified claims",
+    "synthesis classifies failure taxonomy and public-gate overfit risk",
+    "synthesis chooses continue pivot stop or promote-to-next-branch before source preflight replay corpus export training PPO promotion private holdout or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis overclaims M1429 zero history-positive result",
+    "synthesis ignores geometry selector failure",
+    "synthesis routes directly to training PPO promotion private holdout or corpus export",
+    "synthesis continues branch without a cadence decision"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1433-paper-route-action-divergent-geometry-branch-synthesis.md from M1423-M1432 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1433-paper-route-action-divergent-geometry-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1425_action_divergent_outcome_pressure_source_smoke/summary.json",
+    "runs/m1429_bounded_relocation_replay_smoke/summary.json",
+    "docs/m1432-paper-route-geometry-aware-selector-implementation.md"
+  ],
+  "decision_rule": "M1433 passes if it synthesizes M1423-M1432 and chooses the next route before any source preflight, replay, training, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
+  "next_blocker": "m1433-paper-route-action-divergent-geometry-branch-synthesis"
+}

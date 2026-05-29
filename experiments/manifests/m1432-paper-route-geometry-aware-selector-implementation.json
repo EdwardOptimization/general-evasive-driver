@@ -153,6 +153,39 @@
     "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv",
     "docs/m1431-paper-route-geometry-aware-replay-selector-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1432-paper-route-geometry-aware-selector-implementation.md",
+    "decision": "geometry_aware_selector_implemented_route_to_branch_synthesis",
+    "implementation_files": [
+      "src/autodrift/bounded_relocation_replay_probe.py",
+      "tests/test_bounded_relocation_replay_probe.py"
+    ],
+    "implemented_functions": [
+      "classify_relocation_geometry",
+      "geometry_preflight_frame",
+      "select_geometry_aware_replay_candidates",
+      "build_geometry_preflight_summary",
+      "geometry_preflight_from_trace_candidates"
+    ],
+    "focused_tests": "tests/test_bounded_relocation_replay_probe.py",
+    "focused_test_result": "8 passed",
+    "geometry_aware_selector_default_enabled": false,
+    "source_body_x_min_gate": 4.0,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1433-paper-route-action-divergent-geometry-branch-synthesis.json"
+  },
+  "decision": "geometry_aware_selector_implemented_route_to_branch_synthesis",
   "decision_rule": "M1432 passes if it implements and tests geometry preflight without running replay or changing the actor contract.",
-  "next_blocker": "m1432-paper-route-geometry-aware-selector-implementation"
+  "next_blocker": "m1433-paper-route-action-divergent-geometry-branch-synthesis"
 }

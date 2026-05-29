@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import copy
+from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
@@ -41,6 +42,10 @@ DEFAULT_MIN_SEQUENCE_ACTION_L2 = 0.025
 DEFAULT_MIN_MARGIN_GAP = 0.02
 DEFAULT_MIN_BODY_X = 2.0
 DEFAULT_MIN_HALF_WIDTH = 0.05
+DEFAULT_MIN_SOURCE_BODY_X = 4.0
+DEFAULT_PER_SEED_CAP = 24
+DEFAULT_PER_REVEAL_BUCKET_CAP = 12
+DEFAULT_PER_VARIANT_CAP = 48
 
 
 def _finite(value: Any, default: float = float("nan")) -> float:
@@ -165,12 +170,18 @@ def bounded_relocation_geometry(
     min_body_x: float = DEFAULT_MIN_BODY_X,
     min_half_width: float = DEFAULT_MIN_HALF_WIDTH,
 ) -> dict[str, float]:
-    body_x = max(float(min_body_x), float(source_body_x) + float(body_longitudinal_offset))
-    half_width = max(float(min_half_width), float(source_half_width) + float(half_width_inflation))
+    raw_body_x = float(source_body_x) + float(body_longitudinal_offset)
+    raw_half_width = float(source_half_width) + float(half_width_inflation)
+    body_x = max(float(min_body_x), raw_body_x)
+    half_width = max(float(min_half_width), raw_half_width)
     return {
+        "raw_relocated_body_x": float(raw_body_x),
         "relocated_body_x": float(body_x),
         "relocated_body_y": float(source_body_y) + float(body_lateral_offset),
+        "raw_relocated_half_width": float(raw_half_width),
         "relocated_half_width": float(half_width),
+        "relocation_body_x_clipped": bool(raw_body_x <= float(min_body_x) + 1e-6),
+        "relocation_half_width_clipped": bool(raw_half_width <= float(min_half_width) + 1e-6),
     }
 
 
@@ -208,6 +219,227 @@ def classify_actual_replay_result(
         "outcome_critical": outcome_critical,
         "history_positive": history_positive,
         "control_positive": control_positive,
+    }
+
+
+def classify_relocation_geometry(
+    *,
+    source_body_x: float,
+    source_body_y: float,
+    source_half_width: float,
+    body_longitudinal_offset: float,
+    body_lateral_offset: float,
+    half_width_inflation: float,
+    min_source_body_x: float = DEFAULT_MIN_SOURCE_BODY_X,
+    min_body_x: float = DEFAULT_MIN_BODY_X,
+    min_half_width: float = DEFAULT_MIN_HALF_WIDTH,
+) -> dict[str, Any]:
+    geometry = bounded_relocation_geometry(
+        source_body_x=source_body_x,
+        source_body_y=source_body_y,
+        source_half_width=source_half_width,
+        body_longitudinal_offset=body_longitudinal_offset,
+        body_lateral_offset=body_lateral_offset,
+        half_width_inflation=half_width_inflation,
+        min_body_x=min_body_x,
+        min_half_width=min_half_width,
+    )
+    values = [
+        source_body_x,
+        source_body_y,
+        source_half_width,
+        body_longitudinal_offset,
+        body_lateral_offset,
+        half_width_inflation,
+        geometry["relocated_body_x"],
+        geometry["relocated_body_y"],
+        geometry["relocated_half_width"],
+    ]
+    finite_geometry = all(np.isfinite(float(value)) for value in values)
+    reasons: list[str] = []
+    if not finite_geometry:
+        reasons.append("nonfinite_geometry")
+    if finite_geometry and float(source_body_x) < float(min_source_body_x):
+        reasons.append("source_body_x_too_close")
+    if bool(geometry["relocation_body_x_clipped"]):
+        reasons.append("relocation_body_x_clipped")
+    if finite_geometry and float(source_half_width) < float(min_half_width):
+        reasons.append("source_half_width_too_small")
+    if bool(geometry["relocation_half_width_clipped"]):
+        reasons.append("relocation_half_width_clipped")
+    return {
+        "source_body_x": float(source_body_x),
+        "source_body_y": float(source_body_y),
+        "source_half_width": float(source_half_width),
+        **geometry,
+        "geometry_pass": not reasons,
+        "geometry_rejection_reason": "pass" if not reasons else "|".join(reasons),
+    }
+
+
+def geometry_preflight_frame(
+    frame: pd.DataFrame,
+    *,
+    min_source_body_x: float = DEFAULT_MIN_SOURCE_BODY_X,
+    min_body_x: float = DEFAULT_MIN_BODY_X,
+    min_half_width: float = DEFAULT_MIN_HALF_WIDTH,
+) -> pd.DataFrame:
+    _require_columns(frame, ("source_body_x", "source_body_y", "source_half_width"))
+    candidates = prepare_candidate_frame(frame)
+    for column in ("source_body_x", "source_body_y", "source_half_width"):
+        candidates[column] = pd.to_numeric(candidates[column], errors="coerce")
+    rows: list[dict[str, Any]] = []
+    for _, row in candidates.iterrows():
+        output = dict(row)
+        output.update(
+            classify_relocation_geometry(
+                source_body_x=_finite(row.get("source_body_x")),
+                source_body_y=_finite(row.get("source_body_y")),
+                source_half_width=_finite(row.get("source_half_width")),
+                body_longitudinal_offset=_finite(row.get("body_longitudinal_offset")),
+                body_lateral_offset=_finite(row.get("body_lateral_offset")),
+                half_width_inflation=_finite(row.get("half_width_inflation")),
+                min_source_body_x=min_source_body_x,
+                min_body_x=min_body_x,
+                min_half_width=min_half_width,
+            )
+        )
+        rows.append(output)
+    return pd.DataFrame(rows)
+
+
+def _cap_allows(counts: dict[Any, int], key: Any, cap: int) -> bool:
+    return int(cap) <= 0 or counts.get(key, 0) < int(cap)
+
+
+def select_geometry_aware_replay_candidates(
+    preflight: pd.DataFrame,
+    *,
+    max_candidate_rows: int,
+    per_seed_cap: int = DEFAULT_PER_SEED_CAP,
+    per_capability_pair_cap: int = 12,
+    per_reveal_bucket_cap: int = DEFAULT_PER_REVEAL_BUCKET_CAP,
+    per_variant_cap: int = DEFAULT_PER_VARIANT_CAP,
+    min_sequence_action_l2: float = DEFAULT_MIN_SEQUENCE_ACTION_L2,
+) -> pd.DataFrame:
+    if preflight.empty:
+        return preflight.copy()
+    frame = preflight.copy()
+    if "history_variant" not in frame.columns:
+        frame["history_variant"] = frame["variant"].astype(str).isin(WARMUP_HISTORY_VARIANTS)
+    frame["geometry_pass"] = frame["geometry_pass"].map(_bool_value)
+    frame["sequence_action_l2_mean"] = pd.to_numeric(frame["sequence_action_l2_mean"], errors="coerce")
+    candidates = frame[
+        frame["geometry_pass"]
+        & frame["history_variant"].astype(bool)
+        & (frame["sequence_action_l2_mean"] >= float(min_sequence_action_l2))
+    ].copy()
+    if candidates.empty:
+        return candidates
+    candidates["_preferred_proxy_rank"] = (
+        candidates["proxy_preferred_normal_margin"].map(_bool_value)
+        if "proxy_preferred_normal_margin" in candidates.columns
+        else False
+    )
+    candidates["_nonnegative_margin_gap_rank"] = pd.to_numeric(
+        candidates.get("margin_gap", 0.0), errors="coerce"
+    ).fillna(0.0) >= 0.0
+    candidates["_score"] = (
+        candidates["sequence_action_l2_mean"].fillna(0.0) / 0.10
+        + pd.to_numeric(candidates.get("margin_gap", 0.0), errors="coerce").fillna(0.0).clip(lower=0.0) / 0.02
+        + candidates["_preferred_proxy_rank"].astype(float)
+        + 0.25 * candidates["_nonnegative_margin_gap_rank"].astype(float)
+    )
+    candidates = candidates.sort_values(
+        ["_score", "source_body_x", "sequence_action_l2_mean", "seed", "reveal_step"],
+        ascending=[False, False, False, True, True],
+    )
+    selected_rows: list[dict[str, Any]] = []
+    seed_counts: dict[Any, int] = {}
+    pair_counts: dict[Any, int] = {}
+    bucket_counts: dict[Any, int] = {}
+    variant_counts: dict[Any, int] = {}
+    for _, row in candidates.iterrows():
+        seed = row.get("seed")
+        pair = row.get("capability_pair")
+        bucket = row.get("preferred_reveal_bucket")
+        variant = row.get("variant")
+        if not (
+            _cap_allows(seed_counts, seed, per_seed_cap)
+            and _cap_allows(pair_counts, pair, per_capability_pair_cap)
+            and _cap_allows(bucket_counts, bucket, per_reveal_bucket_cap)
+            and _cap_allows(variant_counts, variant, per_variant_cap)
+        ):
+            continue
+        selected_rows.append(dict(row))
+        seed_counts[seed] = seed_counts.get(seed, 0) + 1
+        pair_counts[pair] = pair_counts.get(pair, 0) + 1
+        bucket_counts[bucket] = bucket_counts.get(bucket, 0) + 1
+        variant_counts[variant] = variant_counts.get(variant, 0) + 1
+        if int(max_candidate_rows) > 0 and len(selected_rows) >= int(max_candidate_rows):
+            break
+    selected = pd.DataFrame(selected_rows)
+    if not selected.empty:
+        selected["selected_replay_rank"] = np.arange(len(selected), dtype=int)
+    return selected.reset_index(drop=True)
+
+
+def _numeric_summary(series: pd.Series) -> dict[str, float | None]:
+    numeric = pd.to_numeric(series, errors="coerce").dropna()
+    if numeric.empty:
+        return {"min": None, "p50": None, "p95": None}
+    return {
+        "min": float(numeric.min()),
+        "p50": float(numeric.quantile(0.50)),
+        "p95": float(numeric.quantile(0.95)),
+    }
+
+
+def build_geometry_preflight_summary(
+    *,
+    preflight_rows: list[dict[str, Any]],
+    selected_rows: list[dict[str, Any]],
+    rejected_rows: list[dict[str, Any]],
+) -> dict[str, Any]:
+    preflight = pd.DataFrame(preflight_rows)
+    selected = pd.DataFrame(selected_rows)
+    geometry_pass = preflight[preflight["geometry_pass"].astype(bool)] if "geometry_pass" in preflight else preflight
+    history_candidates = (
+        preflight[preflight["history_variant"].astype(bool)] if "history_variant" in preflight else preflight
+    )
+    clipped_share = (
+        float(selected["relocation_body_x_clipped"].astype(bool).mean())
+        if not selected.empty and "relocation_body_x_clipped" in selected
+        else 0.0
+    )
+    reason_counts = (
+        preflight["geometry_rejection_reason"].value_counts(dropna=False).to_dict()
+        if "geometry_rejection_reason" in preflight
+        else {}
+    )
+    source_body_x = _numeric_summary(selected["source_body_x"]) if "source_body_x" in selected else _numeric_summary(pd.Series(dtype=float))
+    return {
+        "run_type": "geometry_aware_replay_selector_preflight",
+        "input_rows": int(len(preflight_rows)),
+        "history_candidate_rows": int(len(history_candidates)),
+        "geometry_pass_rows": int(len(geometry_pass)),
+        "selected_candidate_rows": int(len(selected_rows)),
+        "rejected_rows": int(len(rejected_rows)),
+        "rejected_reason_counts": {str(key): int(value) for key, value in reason_counts.items()},
+        "selected_diversity": source_diversity(selected_rows),
+        "geometry_pass_diversity": source_diversity(_records(geometry_pass)),
+        "relocation_clipped_share": clipped_share,
+        "source_body_x_min": source_body_x["min"],
+        "source_body_x_p50": source_body_x["p50"],
+        "source_body_x_p95": source_body_x["p95"],
+        "replay_started": False,
+        "training_started": False,
+        "evaluation_started": False,
+        "ppo_used": False,
+        "promoted": False,
+        "private_holdout_used": False,
+        "training_corpus_exported": False,
+        "actor_input_contract_changed": False,
     }
 
 
@@ -267,6 +499,55 @@ def relocate_trace_point(
         "source_half_width": float(source_half_width),
         **geometry,
     }
+
+
+def geometry_preflight_from_trace_candidates(
+    candidates: pd.DataFrame,
+    *,
+    trace_for: Callable[[int, str, int], list[TracePoint]],
+    min_source_body_x: float = DEFAULT_MIN_SOURCE_BODY_X,
+    min_body_x: float = DEFAULT_MIN_BODY_X,
+    min_half_width: float = DEFAULT_MIN_HALF_WIDTH,
+) -> tuple[pd.DataFrame, list[dict[str, Any]]]:
+    preflight_rows: list[dict[str, Any]] = []
+    rejected_rows: list[dict[str, Any]] = []
+    for preflight_index, row in candidates.reset_index(drop=True).iterrows():
+        seed = int(row["seed"])
+        reveal_step = int(row["reveal_step"])
+        preferred_fault = str(row["preferred_fault"])
+        try:
+            preferred_trace = trace_for(seed, preferred_fault, reveal_step)
+            snapshot = _trace_to_outcome_snapshot(preferred_trace[-1])
+            source_x, source_y, source_half_width = obstacle_body_geometry(snapshot)
+            preflight = classify_relocation_geometry(
+                source_body_x=source_x,
+                source_body_y=source_y,
+                source_half_width=source_half_width,
+                body_longitudinal_offset=float(row["body_longitudinal_offset"]),
+                body_lateral_offset=float(row["body_lateral_offset"]),
+                half_width_inflation=float(row["half_width_inflation"]),
+                min_source_body_x=min_source_body_x,
+                min_body_x=min_body_x,
+                min_half_width=min_half_width,
+            )
+        except Exception as exc:  # pragma: no cover - surfaced in artifacts.
+            rejected_rows.append(
+                {
+                    "preflight_index": int(preflight_index),
+                    "seed": seed,
+                    "reveal_step": reveal_step,
+                    "preferred_fault": preferred_fault,
+                    "variant": str(row.get("variant", "")),
+                    "geometry_rejection_reason": "trace_or_geometry_failed",
+                    "error": str(exc),
+                }
+            )
+            continue
+        output = dict(row)
+        output["preflight_index"] = int(preflight_index)
+        output.update(preflight)
+        preflight_rows.append(output)
+    return pd.DataFrame(preflight_rows), rejected_rows
 
 
 def summarize_rows(rows: list[dict[str, Any]], key: str) -> list[dict[str, Any]]:
@@ -371,17 +652,26 @@ def run_bounded_relocation_replay_probe(
     max_continuation_steps: int,
     min_margin_gap: float,
     min_sequence_action_l2: float,
+    geometry_aware_selector: bool,
+    min_source_body_x: float,
+    per_seed_cap: int,
+    per_reveal_bucket_cap: int,
+    per_variant_cap: int,
     device: str,
     run_dir: Path,
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     frame = pd.read_csv(candidate_rows_path)
-    selected = select_replay_candidates(
-        frame,
-        max_candidate_rows=max_candidate_rows,
-        per_capability_pair_cap=per_capability_pair_cap,
-        min_sequence_action_l2=min_sequence_action_l2,
-    )
+    selected = pd.DataFrame()
+    preflight_frame = pd.DataFrame()
+    geometry_rejected_rows: list[dict[str, Any]] = []
+    if not geometry_aware_selector:
+        selected = select_replay_candidates(
+            frame,
+            max_candidate_rows=max_candidate_rows,
+            per_capability_pair_cap=per_capability_pair_cap,
+            min_sequence_action_l2=min_sequence_action_l2,
+        )
     config = load_scenario_config(config_path)
     env_config = load_env_config(Path(config.get("env_config", "configs/ppo_m541_matched_l3_variance_4096.json")))
     fault_by_name = fault_map_from_config(config)
@@ -405,6 +695,27 @@ def run_bounded_relocation_replay_probe(
                 device=resolved_device,
             )
         return trace_cache[key]
+
+    if geometry_aware_selector:
+        candidate_pool = prepare_candidate_frame(frame)
+        candidate_pool = candidate_pool[
+            candidate_pool["history_variant"]
+            & (candidate_pool["sequence_action_l2_mean"] >= float(min_sequence_action_l2))
+        ].copy()
+        preflight_frame, geometry_rejected_rows = geometry_preflight_from_trace_candidates(
+            candidate_pool,
+            trace_for=trace_for,
+            min_source_body_x=min_source_body_x,
+        )
+        selected = select_geometry_aware_replay_candidates(
+            preflight_frame,
+            max_candidate_rows=max_candidate_rows,
+            per_seed_cap=per_seed_cap,
+            per_capability_pair_cap=per_capability_pair_cap,
+            per_reveal_bucket_cap=per_reveal_bucket_cap,
+            per_variant_cap=per_variant_cap,
+            min_sequence_action_l2=min_sequence_action_l2,
+        )
 
     replay_rows: list[dict[str, Any]] = []
     rejected_rows: list[dict[str, Any]] = []
@@ -519,11 +830,13 @@ def run_bounded_relocation_replay_probe(
             )
 
     candidate_records = _records(selected)
+    preflight_records = _records(preflight_frame)
     history_positive = [row for row in replay_rows if bool(row.get("history_positive", False))]
     control_positive = [row for row in replay_rows if bool(row.get("control_positive", False))]
     variant_summary = summarize_rows(replay_rows, "variant")
     relocation_summary = summarize_rows(replay_rows, "relocation_key")
     source_diversity_summary = [
+        {"row_set": "geometry_preflight_rows", **source_diversity(preflight_records)},
         {"row_set": "selected_candidate_rows", **source_diversity(candidate_records)},
         {"row_set": "actual_replay_rows", **source_diversity(replay_rows)},
         {"row_set": "history_positive_rows", **source_diversity(history_positive)},
@@ -539,6 +852,17 @@ def run_bounded_relocation_replay_probe(
         min_margin_gap=min_margin_gap,
         min_sequence_action_l2=min_sequence_action_l2,
     )
+    summary["geometry_aware_selector"] = bool(geometry_aware_selector)
+    if geometry_aware_selector:
+        geometry_summary = build_geometry_preflight_summary(
+            preflight_rows=preflight_records,
+            selected_rows=candidate_records,
+            rejected_rows=geometry_rejected_rows,
+        )
+        summary["geometry_preflight"] = geometry_summary
+        summary["geometry_preflight_rows_csv"] = run_dir / "geometry_preflight_rows.csv"
+        summary["geometry_rejected_rows_csv"] = run_dir / "geometry_rejected_rows.csv"
+        summary["geometry_summary_json"] = run_dir / "geometry_summary.json"
     write_csv_rows(run_dir / "selected_candidate_rows.csv", candidate_records)
     write_csv_rows(run_dir / "actual_replay_rows.csv", replay_rows)
     write_csv_rows(run_dir / "history_positive_rows.csv", history_positive)
@@ -547,6 +871,10 @@ def run_bounded_relocation_replay_probe(
     write_csv_rows(run_dir / "source_diversity_summary.csv", source_diversity_summary)
     write_csv_rows(run_dir / "relocation_summary.csv", relocation_summary)
     write_csv_rows(run_dir / "rejected_rows.csv", rejected_rows)
+    if geometry_aware_selector:
+        write_csv_rows(run_dir / "geometry_preflight_rows.csv", preflight_records)
+        write_csv_rows(run_dir / "geometry_rejected_rows.csv", geometry_rejected_rows)
+        write_json(run_dir / "geometry_summary.json", summary["geometry_preflight"])
     write_json(run_dir / "summary.json", summary)
     return summary
 
@@ -563,6 +891,11 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--max-continuation-steps", type=int, default=48)
     parser.add_argument("--min-margin-gap", type=float, default=DEFAULT_MIN_MARGIN_GAP)
     parser.add_argument("--min-sequence-action-l2", type=float, default=DEFAULT_MIN_SEQUENCE_ACTION_L2)
+    parser.add_argument("--geometry-aware-selector", action="store_true")
+    parser.add_argument("--min-source-body-x", type=float, default=DEFAULT_MIN_SOURCE_BODY_X)
+    parser.add_argument("--per-seed-cap", type=int, default=DEFAULT_PER_SEED_CAP)
+    parser.add_argument("--per-reveal-bucket-cap", type=int, default=DEFAULT_PER_REVEAL_BUCKET_CAP)
+    parser.add_argument("--per-variant-cap", type=int, default=DEFAULT_PER_VARIANT_CAP)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
     parser.add_argument("--run-dir", type=Path, default=None)
     return parser
@@ -582,6 +915,11 @@ def main(argv: list[str] | None = None) -> None:
         max_continuation_steps=args.max_continuation_steps,
         min_margin_gap=args.min_margin_gap,
         min_sequence_action_l2=args.min_sequence_action_l2,
+        geometry_aware_selector=args.geometry_aware_selector,
+        min_source_body_x=args.min_source_body_x,
+        per_seed_cap=args.per_seed_cap,
+        per_reveal_bucket_cap=args.per_reveal_bucket_cap,
+        per_variant_cap=args.per_variant_cap,
         device=args.device,
         run_dir=run_dir,
     )

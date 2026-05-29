@@ -21164,3 +21164,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1432-paper-route-geometry-aware-selector-implementation.json`.
 - next: `m1432-paper-route-geometry-aware-selector-implementation`
+
+## 20260529T025219Z - m1432-paper-route-geometry-aware-selector-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1432-paper-route-geometry-aware-selector-implementation.md`
+- decision: `geometry_aware_selector_implemented_route_to_branch_synthesis`
+- implementation: `src/autodrift/bounded_relocation_replay_probe.py`
+- tests: `tests/test_bounded_relocation_replay_probe.py`
+- focused result: `8 passed`
+- capability: optional `--geometry-aware-selector` mode can preflight candidate rows, reject too-close/behind source obstacles and clipped relocations, cap by seed/capability pair/reveal bucket/history variant, and emit geometry preflight artifacts.
+- compatibility: default replay selection remains unchanged unless geometry-aware mode is explicitly enabled.
+- interpretation: selector infrastructure is ready, but no preflight or replay result exists yet; branch synthesis is required before running another source/replay smoke.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1433-paper-route-action-divergent-geometry-branch-synthesis.json`.
+- next: `m1433-paper-route-action-divergent-geometry-branch-synthesis`
