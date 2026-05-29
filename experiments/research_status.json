@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1469,
+    "completed": 1471,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1460-paper-route-retargeted-source-step-bounded-replay-design.md",
+    "command_log": "docs/m1462-paper-route-retargeted-bounded-replay-result-audit.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1460-paper-route-retargeted-source-step-bounded-replay-design"
+    "task_id": "m1462-paper-route-retargeted-bounded-replay-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1461-paper-route-retargeted-source-step-bounded-replay-smoke.json",
-    "hypothesis": "A bounded replay smoke over retargeted M1459 candidates can produce actual replay rows and possibly outcome-sensitive history-positive rows without training or actor changes.",
-    "id": "m1461-paper-route-retargeted-source-step-bounded-replay-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: run bounded replay on M1459 selected candidates without training PPO promotion corpus export or actor-input changes",
-    "priority": 14560,
+    "command": "see experiments/manifests/m1463-paper-route-positive-neighborhood-expansion-design.json",
+    "hypothesis": "A local positive-neighborhood expansion around M1461's live boundary can test whether history positives form a surface rather than a singleton.",
+    "id": "m1463-paper-route-positive-neighborhood-expansion-design",
+    "kind": "gate",
+    "notes": "Pending: design source-diverse expansion around M1461 live history-positive neighborhood while separating zero-current controls",
+    "priority": 14580,
     "status": "pending",
-    "success_artifact": "docs/m1461-paper-route-retargeted-source-step-bounded-replay-smoke.md"
+    "success_artifact": "docs/m1463-paper-route-positive-neighborhood-expansion-design.md"
   },
-  "updated_at_utc": "20260529T053000Z"
+  "updated_at_utc": "20260529T054000Z"
 }

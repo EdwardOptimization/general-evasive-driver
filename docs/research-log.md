@@ -21643,3 +21643,41 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1461-paper-route-retargeted-source-step-bounded-replay-smoke.json`.
 - next: `m1461-paper-route-retargeted-source-step-bounded-replay-smoke`
+
+## 20260529T054000Z - m1461-paper-route-retargeted-source-step-bounded-replay-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `proof`
+- artifact: `docs/m1461-paper-route-retargeted-source-step-bounded-replay-smoke.md`
+- run artifact: `runs/m1461_retargeted_source_step_bounded_replay_smoke/summary.json`
+- decision: `retargeted_source_step_bounded_replay_positive_route_to_audit`
+- result class: `bounded_relocation_replay_positive`
+- candidate step column: `source_step`
+- selected candidate rows: `52`
+- actual replay rows: `156`
+- history positive rows: `2`
+- control positive rows: `8`
+- normal failed rows: `78`
+- actual replay diversity: `5` seeds, `8` capability pairs, `8` reveal buckets, `5` variants.
+- history-positive diversity: `1` seed, `1` capability pair, `1` reveal bucket, `1` variant.
+- history-positive source: seed `141901`, step `24`, pair `brake_authority_drop->mass_cg_shift`, variant `warmup_removed`, relocations `x=15.589|y=-0.790|w=0.908` and `x=15.589|y=-0.790|w=1.108`.
+- interpretation: boundary retargeting found a live history-positive neighborhood, but it is source-singleton and control-sensitive.
+- guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1462-paper-route-retargeted-bounded-replay-result-audit.json`.
+- next: `m1462-paper-route-retargeted-bounded-replay-result-audit`
+
+## 20260529T054100Z - m1462-paper-route-retargeted-bounded-replay-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1462-paper-route-retargeted-bounded-replay-result-audit.md`
+- decision: `retargeted_bounded_replay_positive_singleton_route_to_neighborhood_expansion_design`
+- failure type: `scenario_sampling_failure`
+- supported claim: boundary retargeting found a live outcome-sensitive neighborhood.
+- unsupported claim: source-diverse history-necessity corpus is ready for training.
+- audit: M1461 positives are real but source-singleton; zero-current controls are also positive on the same source family, so the next step is positive-neighborhood expansion rather than corpus export.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1463-paper-route-positive-neighborhood-expansion-design.json`.
+- next: `m1463-paper-route-positive-neighborhood-expansion-design`

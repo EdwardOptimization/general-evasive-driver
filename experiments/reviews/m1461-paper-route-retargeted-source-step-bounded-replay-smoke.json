@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1461 produces 156 actual replay rows with 2 source-singleton history positives 8 zero-current control positives and no training or actor-input changes",
+  "failure_criteria": [
+    "summary missing",
+    "candidate_step_column is not source_step",
+    "actual_replay_rows is zero",
+    "run starts training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat a smoke positive as promotion evidence",
+    "do not claim level3 self-identification from one public replay smoke"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260529T045441Z",
+  "hypothesis": "A bounded replay smoke over retargeted M1459 candidates can produce actual replay rows and possibly outcome-sensitive history-positive rows without training or actor changes.",
+  "lineage": {
+    "blocked_by": [
+      "bounded replay has not yet been run on retargeted source-step preflight-pass candidates"
+    ],
+    "derived_from": [
+      "m1460-paper-route-retargeted-source-step-bounded-replay-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "configs/m1419_warmup_gate_invasiveness_retune_source_wave.json",
+      "experiments/manifests/m1460-paper-route-retargeted-source-step-bounded-replay-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m1459_retargeted_source_step_preflight_smoke/selected_candidate_rows.csv",
+      "docs/m1460-paper-route-retargeted-source-step-bounded-replay-design.md"
+    ],
+    "parent_objective": [
+      "run retargeted source-step bounded replay smoke on M1459 selected candidates"
+    ],
+    "supersedes": [
+      "preflight-only evidence as final outcome evidence"
+    ]
+  },
+  "milestone": "m1461-paper-route-retargeted-source-step-bounded-replay-smoke",
+  "next_blocker": "m1462-paper-route-retargeted-bounded-replay-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "retargeted_source_step_bounded_replay_positive_route_to_audit",
+  "public_gates": [
+    "M1461 must run bounded replay with --candidate-step-column source_step",
+    "M1461 must not train run PPO promote use private holdout export corpus or change actor inputs",
+    "M1461 must report selected candidate rows actual replay rows history positives control positives and normal failures"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1461_retargeted_source_step_bounded_replay_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "retargeted_source_step_bounded_replay_positive_route_to_audit",
+    "milestone": "m1461-paper-route-retargeted-source-step-bounded-replay-smoke",
+    "reason": "M1461 produces 156 actual replay rows with 2 source-singleton history positives 8 zero-current control positives and no training or actor-input changes",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1461_retargeted_source_step_bounded_replay_smoke/summary.json exists",
+    "summary candidate_step_column equals source_step",
+    "geometry_aware_selector true",
+    "selected_candidate_rows >= 32",
+    "actual_replay_rows > 0",
+    "replay_started true",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "type": "infrastructure"
+}

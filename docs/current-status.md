@@ -16,46 +16,50 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1460-paper-route-retargeted-source-step-bounded-replay-design
+m1462-paper-route-retargeted-bounded-replay-result-audit
 ```
 
 Current next task:
 
 ```text
-m1461-paper-route-retargeted-source-step-bounded-replay-smoke
+m1463-paper-route-positive-neighborhood-expansion-design
 ```
 
-M1459 ran retargeted source-step preflight and M1460 designed the next bounded
-replay smoke. The current public-gate base remains M1362 alpha `0.1`:
+M1461 ran the retargeted bounded replay smoke and M1462 audited the result. The
+current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1460 result:
+M1462 audit:
 
 ```text
-decision: retargeted_source_step_bounded_replay_design_admit_smoke
-source_candidates: runs/m1459_retargeted_source_step_preflight_smoke/selected_candidate_rows.csv
-candidate_step_column: source_step
-next: m1461-paper-route-retargeted-source-step-bounded-replay-smoke
+decision: retargeted_bounded_replay_positive_singleton_route_to_neighborhood_expansion_design
+failure_type: scenario_sampling_failure
+interpretation: boundary retargeting found a live outcome-sensitive neighborhood, but positives are source-singleton and control-sensitive
+next: m1463-paper-route-positive-neighborhood-expansion-design
 ```
 
-M1459 result:
+M1461 result:
 
 ```text
-decision: retargeted_source_step_preflight_pass_route_to_bounded_replay_design
-input_rows: 128
-geometry_pass_rows: 128
-selected_candidate_rows: 104
-relocation_clipped_share: 0.0
-selected diversity: 5 seeds / 9 capability pairs / 8 reveal buckets / 3 variants
+decision: retargeted_source_step_bounded_replay_positive_route_to_audit
+result_class: bounded_relocation_replay_positive
+selected_candidate_rows: 52
+actual_replay_rows: 156
+history_positive_rows: 2
+control_positive_rows: 8
+normal_failed_rows: 78
+actual replay diversity: 5 seeds / 8 capability pairs / 8 reveal buckets / 5 variants
+history-positive diversity: 1 seed / 1 capability pair / 1 reveal bucket / 1 variant
 candidate_step_column: source_step
 ```
 
-M1461 should run bounded replay on the M1459 selected candidates. It must not
-train, run PPO, promote, use private holdout, export corpus, or change actor
-inputs.
+M1463 should design positive-neighborhood expansion around the M1461 live
+history-positive surface while keeping source-diversity requirements explicit.
+It must not train, run PPO, promote, use private holdout, export corpus, or
+change actor inputs.
 
 M1455 result:
 

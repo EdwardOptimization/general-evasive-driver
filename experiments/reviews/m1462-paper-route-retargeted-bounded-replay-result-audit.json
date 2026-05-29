@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M1462 preserves M1461 as live positive evidence but blocks corpus export because positives are source-singleton and control-sensitive",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats singleton positives as source-diverse corpus",
+    "audit ignores zero-current control positives",
+    "audit starts replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim source-diverse history necessity from singleton positives"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T045449Z",
+  "hypothesis": "M1461's sparse positives should be treated as a live singleton boundary neighborhood, not as a source-diverse training corpus.",
+  "lineage": {
+    "blocked_by": [
+      "M1461 positives are source-singleton and control-sensitive"
+    ],
+    "derived_from": [
+      "m1461-paper-route-retargeted-source-step-bounded-replay-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1461-paper-route-retargeted-source-step-bounded-replay-smoke.json"
+    ],
+    "parent_dataset": [
+      "runs/m1461_retargeted_source_step_bounded_replay_smoke/summary.json",
+      "runs/m1461_retargeted_source_step_bounded_replay_smoke/history_positive_rows.csv",
+      "docs/m1461-paper-route-retargeted-source-step-bounded-replay-smoke.md"
+    ],
+    "parent_objective": [
+      "audit retargeted bounded replay positive result before corpus export or training"
+    ],
+    "supersedes": [
+      "direct corpus export from M1461 singleton positives"
+    ]
+  },
+  "milestone": "m1462-paper-route-retargeted-bounded-replay-result-audit",
+  "next_blocker": "m1463-paper-route-positive-neighborhood-expansion-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "retargeted_bounded_replay_positive_singleton_route_to_neighborhood_expansion_design",
+  "public_gates": [
+    "M1462 must audit M1461 before corpus export or training",
+    "M1462 must separate history positives from zero-current control positives",
+    "M1462 must block promotion PPO private holdout corpus export and actor-input changes"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1462-paper-route-retargeted-bounded-replay-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "retargeted_bounded_replay_positive_singleton_route_to_neighborhood_expansion_design",
+    "milestone": "m1462-paper-route-retargeted-bounded-replay-result-audit",
+    "reason": "M1462 preserves M1461 as live positive evidence but blocks corpus export because positives are source-singleton and control-sensitive",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1462-paper-route-retargeted-bounded-replay-result-audit.md exists",
+    "audit records history-positive and control-positive diversity",
+    "audit blocks corpus export training PPO promotion private holdout and actor-input changes",
+    "audit routes to positive-neighborhood expansion design"
+  ],
+  "type": "gate"
+}

@@ -1,0 +1,167 @@
+{
+  "id": "m1462-paper-route-retargeted-bounded-replay-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1461_retargeted_source_step_bounded_replay_smoke/summary.json",
+      "runs/m1461_retargeted_source_step_bounded_replay_smoke/history_positive_rows.csv",
+      "docs/m1461-paper-route-retargeted-source-step-bounded-replay-smoke.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1461-paper-route-retargeted-source-step-bounded-replay-smoke.json"
+    ],
+    "parent_objective": [
+      "audit retargeted bounded replay positive result before corpus export or training"
+    ],
+    "derived_from": [
+      "m1461-paper-route-retargeted-source-step-bounded-replay-smoke"
+    ],
+    "blocked_by": [
+      "M1461 positives are source-singleton and control-sensitive"
+    ],
+    "supersedes": [
+      "direct corpus export from M1461 singleton positives"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1462-paper-route-retargeted-bounded-replay-result-audit.md",
+  "public_gates": [
+    "M1462 must audit M1461 before corpus export or training",
+    "M1462 must separate history positives from zero-current control positives",
+    "M1462 must block promotion PPO private holdout corpus export and actor-input changes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim source-diverse history necessity from singleton positives"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_step_boundary_retarget_validation",
+    "evidence_axis": "S_retargeted_bounded_replay_result_audit",
+    "evidence_increment": "audits M1461 as positive but source-singleton before deciding next route",
+    "claim_scope": "result audit only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats singleton positives as training corpus",
+      "stop if audit ignores zero-current control positives",
+      "stop if audit admits promotion or corpus export"
+    ],
+    "fallback_plan": [
+      "route to positive-neighborhood expansion design if singleton positives are live",
+      "route to replay schema audit if positives are artifacts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1461 bounded replay finds sparse history-positive rows",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "retargeted bounded replay result audit",
+    "admission_evidence": [
+      "M1461 produced 2 history-positive rows and 8 zero-current control-positive rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1462 audit document",
+      "status queue scoreboard research log and review",
+      "one follow-up positive-neighborhood expansion design manifest"
+    ],
+    "next_stage_criteria": [
+      "positive rows are classified",
+      "control positives are reported separately",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1462 audits public replay rows and cannot claim level3 self-identification.",
+    "history_necessity_tests": [
+      "M1461 normal history versus warmup_removed produced two history-positive rows",
+      "M1461 zero_current_response produced control positives on the same source family"
+    ],
+    "temporal_evidence_window": "M1461 retargeted bounded replay smoke.",
+    "negative_result_policy": "Singleton positives are preserved as evidence but are not exported for training until source-diverse expansion is tested.",
+    "allowed_claims": [
+      "M1461 found a live singleton history-positive neighborhood",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1461's sparse positives should be treated as a live singleton boundary neighborhood, not as a source-diverse training corpus.",
+  "success_criteria": [
+    "docs/m1462-paper-route-retargeted-bounded-replay-result-audit.md exists",
+    "audit records history-positive and control-positive diversity",
+    "audit blocks corpus export training PPO promotion private holdout and actor-input changes",
+    "audit routes to positive-neighborhood expansion design"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats singleton positives as source-diverse corpus",
+    "audit ignores zero-current control positives",
+    "audit starts replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1462-paper-route-retargeted-bounded-replay-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1462-paper-route-retargeted-bounded-replay-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1461_retargeted_source_step_bounded_replay_smoke/summary.json"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1462-paper-route-retargeted-bounded-replay-result-audit.md",
+    "decision": "retargeted_bounded_replay_positive_singleton_route_to_neighborhood_expansion_design",
+    "failure_type": "scenario_sampling_failure",
+    "history_positive_rows": 2,
+    "history_positive_unique_source_seeds": 1,
+    "history_positive_unique_capability_pairs": 1,
+    "control_positive_rows": 8,
+    "control_positive_unique_source_seeds": 1,
+    "supported_claim": "boundary retargeting found a live outcome-sensitive neighborhood",
+    "unsupported_claim": "source-diverse history-necessity corpus is ready for training",
+    "replay_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1463-paper-route-positive-neighborhood-expansion-design.json"
+  },
+  "decision": "retargeted_bounded_replay_positive_singleton_route_to_neighborhood_expansion_design",
+  "decision_rule": "M1462 passes if it audits M1461 as positive-but-singleton and blocks corpus export or training.",
+  "next_blocker": "m1463-paper-route-positive-neighborhood-expansion-design"
+}
