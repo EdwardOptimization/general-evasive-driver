@@ -1,0 +1,342 @@
+{
+  "claim_rules": {
+    "finite_window_positive": "C2 normal beats current-tiled and matches or beats C3",
+    "reactive_negative": "C1 matches C2/C3 on decisive tasks",
+    "recurrent_advantage": "C3 beats best C2 and C3 reset on source-diverse decisive tasks",
+    "strong_self_id": "source-diverse wrong/delayed history interventions degrade terminal outcomes"
+  },
+  "claim_scope": "public protocol preflight only",
+  "controller_families": [
+    {
+      "actor_encoder": "mlp",
+      "config_path": "configs/paper_route_corrected_profiles/m1207_l0_current_masked.json",
+      "contract_violations": [],
+      "corrected_reset_control": false,
+      "current_tiled_history_control": false,
+      "level": "L0_current_observation",
+      "observation_dim": 72,
+      "profile_name": "L0_current_masked",
+      "reset_hidden_policy": "not_applicable",
+      "uses_finite_window": false,
+      "uses_recurrent_hidden": false,
+      "window_seconds": 0.02,
+      "window_steps": 1
+    },
+    {
+      "actor_encoder": "mlp",
+      "config_path": "configs/paper_route_corrected_profiles/m1207_l1_one_step.json",
+      "contract_violations": [],
+      "corrected_reset_control": false,
+      "current_tiled_history_control": false,
+      "level": "L1_one_step_feedback",
+      "observation_dim": 72,
+      "profile_name": "L1_one_step",
+      "reset_hidden_policy": "not_applicable",
+      "uses_finite_window": false,
+      "uses_recurrent_hidden": false,
+      "window_seconds": 0.02,
+      "window_steps": 1
+    },
+    {
+      "actor_encoder": "temporal_gru",
+      "config_path": "configs/paper_route_corrected_profiles/m1207_l2_window_13.json",
+      "contract_violations": [],
+      "corrected_reset_control": false,
+      "current_tiled_history_control": false,
+      "level": "L2_finite_window",
+      "observation_dim": 936,
+      "profile_name": "L2_window_13",
+      "reset_hidden_policy": "per_decision_window",
+      "uses_finite_window": true,
+      "uses_recurrent_hidden": false,
+      "window_seconds": 0.26,
+      "window_steps": 13
+    },
+    {
+      "actor_encoder": "temporal_gru",
+      "config_path": "configs/paper_route_corrected_profiles/m1207_l2_window_13_current_tiled.json",
+      "contract_violations": [],
+      "corrected_reset_control": false,
+      "current_tiled_history_control": true,
+      "level": "L2_finite_window_current_tiled_control",
+      "observation_dim": 936,
+      "profile_name": "L2_window_13_current_tiled",
+      "reset_hidden_policy": "per_decision_window",
+      "uses_finite_window": true,
+      "uses_recurrent_hidden": false,
+      "window_seconds": 0.26,
+      "window_steps": 13
+    },
+    {
+      "actor_encoder": "temporal_gru",
+      "config_path": "configs/paper_route_corrected_profiles/m1207_l2_window_25.json",
+      "contract_violations": [],
+      "corrected_reset_control": false,
+      "current_tiled_history_control": false,
+      "level": "L2_finite_window",
+      "observation_dim": 1800,
+      "profile_name": "L2_window_25",
+      "reset_hidden_policy": "per_decision_window",
+      "uses_finite_window": true,
+      "uses_recurrent_hidden": false,
+      "window_seconds": 0.5,
+      "window_steps": 25
+    },
+    {
+      "actor_encoder": "temporal_gru",
+      "config_path": "configs/paper_route_corrected_profiles/m1207_l2_window_25_current_tiled.json",
+      "contract_violations": [],
+      "corrected_reset_control": false,
+      "current_tiled_history_control": true,
+      "level": "L2_finite_window_current_tiled_control",
+      "observation_dim": 1800,
+      "profile_name": "L2_window_25_current_tiled",
+      "reset_hidden_policy": "per_decision_window",
+      "uses_finite_window": true,
+      "uses_recurrent_hidden": false,
+      "window_seconds": 0.5,
+      "window_steps": 25
+    },
+    {
+      "actor_encoder": "temporal_gru",
+      "config_path": "configs/paper_route_corrected_profiles/m1207_l2_window_50.json",
+      "contract_violations": [],
+      "corrected_reset_control": false,
+      "current_tiled_history_control": false,
+      "level": "L2_finite_window",
+      "observation_dim": 3600,
+      "profile_name": "L2_window_50",
+      "reset_hidden_policy": "per_decision_window",
+      "uses_finite_window": true,
+      "uses_recurrent_hidden": false,
+      "window_seconds": 1.0,
+      "window_steps": 50
+    },
+    {
+      "actor_encoder": "temporal_gru",
+      "config_path": "configs/paper_route_corrected_profiles/m1207_l2_window_50_current_tiled.json",
+      "contract_violations": [],
+      "corrected_reset_control": false,
+      "current_tiled_history_control": true,
+      "level": "L2_finite_window_current_tiled_control",
+      "observation_dim": 3600,
+      "profile_name": "L2_window_50_current_tiled",
+      "reset_hidden_policy": "per_decision_window",
+      "uses_finite_window": true,
+      "uses_recurrent_hidden": false,
+      "window_seconds": 1.0,
+      "window_steps": 50
+    },
+    {
+      "actor_encoder": "temporal_gru",
+      "config_path": "configs/paper_route_corrected_profiles/m1207_l2_window_100.json",
+      "contract_violations": [],
+      "corrected_reset_control": false,
+      "current_tiled_history_control": false,
+      "level": "L2_finite_window",
+      "observation_dim": 7200,
+      "profile_name": "L2_window_100",
+      "reset_hidden_policy": "per_decision_window",
+      "uses_finite_window": true,
+      "uses_recurrent_hidden": false,
+      "window_seconds": 2.0,
+      "window_steps": 100
+    },
+    {
+      "actor_encoder": "temporal_gru",
+      "config_path": "configs/paper_route_corrected_profiles/m1207_l2_window_100_current_tiled.json",
+      "contract_violations": [],
+      "corrected_reset_control": false,
+      "current_tiled_history_control": true,
+      "level": "L2_finite_window_current_tiled_control",
+      "observation_dim": 7200,
+      "profile_name": "L2_window_100_current_tiled",
+      "reset_hidden_policy": "per_decision_window",
+      "uses_finite_window": true,
+      "uses_recurrent_hidden": false,
+      "window_seconds": 2.0,
+      "window_steps": 100
+    },
+    {
+      "actor_encoder": "human_view_online_gru",
+      "config_path": "configs/paper_route_corrected_profiles/m1207_l3_online_gru.json",
+      "contract_violations": [],
+      "corrected_reset_control": false,
+      "current_tiled_history_control": false,
+      "level": "L3_online_gru",
+      "observation_dim": 72,
+      "profile_name": "L3_online_gru",
+      "reset_hidden_policy": "episode_persistent",
+      "uses_finite_window": false,
+      "uses_recurrent_hidden": true,
+      "window_seconds": 0.02,
+      "window_steps": 1
+    },
+    {
+      "actor_encoder": "human_view_online_gru",
+      "config_path": "configs/paper_route_corrected_profiles/m1207_l3_reset_control_corrected.json",
+      "contract_violations": [],
+      "corrected_reset_control": true,
+      "current_tiled_history_control": false,
+      "level": "L3_online_gru_reset_control_corrected",
+      "observation_dim": 72,
+      "profile_name": "L3_reset_control_corrected",
+      "reset_hidden_policy": "every_step_control",
+      "uses_finite_window": false,
+      "uses_recurrent_hidden": true,
+      "window_seconds": 0.02,
+      "window_steps": 1
+    }
+  ],
+  "evidence_layers": {
+    "artifact_route_regression_guardrail": {
+      "behavior_regression_count": 2,
+      "first_check_pass": false,
+      "m183_m170_first_check_pass": false,
+      "m267_m264_first_check_pass": false,
+      "proof_washout_count": 2,
+      "source": "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json"
+    },
+    "clean_active_set_package": {
+      "diagnostic_guardrail_count": 232,
+      "passes_evidence_quality_targets": true,
+      "passes_public_smoke_gates": true,
+      "positive_candidate_count": 39,
+      "source": "runs/m1615_contour_aware_candidate_corpus/summary.json"
+    },
+    "standard_profile_baseline": {
+      "aggregate_csv": "runs/m1497_go_no_go_profile_three_seed_public_pilot/profile_aggregate.csv",
+      "completed_seed_runs": 36,
+      "private_holdout_used": false,
+      "profile_aggregates": [
+        {
+          "collision": 0.71875,
+          "is_main_profile": true,
+          "mean_margin": 0.2605324064265778,
+          "parameter_count": 9095.0,
+          "profile_name": "L0_current_masked",
+          "success": 0.17708333333333334
+        },
+        {
+          "collision": 0.59375,
+          "is_main_profile": true,
+          "mean_margin": 0.412605736998194,
+          "parameter_count": 9095.0,
+          "profile_name": "L1_one_step",
+          "success": 0.296875
+        },
+        {
+          "collision": 0.7135416666666666,
+          "is_main_profile": true,
+          "mean_margin": 0.235935322992618,
+          "parameter_count": 29895.0,
+          "profile_name": "L2_window_100",
+          "success": 0.18229166666666666
+        },
+        {
+          "collision": 0.7708333333333334,
+          "is_main_profile": false,
+          "mean_margin": 0.1965389211876493,
+          "parameter_count": 29895.0,
+          "profile_name": "L2_window_100_current_tiled",
+          "success": 0.13020833333333334
+        },
+        {
+          "collision": 0.7395833333333334,
+          "is_main_profile": true,
+          "mean_margin": 0.14743181346167405,
+          "parameter_count": 29895.0,
+          "profile_name": "L2_window_13",
+          "success": 0.16666666666666666
+        },
+        {
+          "collision": 0.75,
+          "is_main_profile": false,
+          "mean_margin": 0.20355688673015862,
+          "parameter_count": 29895.0,
+          "profile_name": "L2_window_13_current_tiled",
+          "success": 0.15104166666666666
+        },
+        {
+          "collision": 0.7135416666666666,
+          "is_main_profile": true,
+          "mean_margin": 0.2359192757364081,
+          "parameter_count": 29895.0,
+          "profile_name": "L2_window_25",
+          "success": 0.18229166666666666
+        },
+        {
+          "collision": 0.7708333333333334,
+          "is_main_profile": false,
+          "mean_margin": 0.19653420807819097,
+          "parameter_count": 29895.0,
+          "profile_name": "L2_window_25_current_tiled",
+          "success": 0.13020833333333334
+        },
+        {
+          "collision": 0.7135416666666666,
+          "is_main_profile": true,
+          "mean_margin": 0.23593526266483356,
+          "parameter_count": 29895.0,
+          "profile_name": "L2_window_50",
+          "success": 0.18229166666666666
+        },
+        {
+          "collision": 0.7708333333333334,
+          "is_main_profile": false,
+          "mean_margin": 0.19653895645453123,
+          "parameter_count": 29895.0,
+          "profile_name": "L2_window_50_current_tiled",
+          "success": 0.13020833333333334
+        },
+        {
+          "collision": 0.640625,
+          "is_main_profile": true,
+          "mean_margin": 0.48048746537820725,
+          "parameter_count": 42311.0,
+          "profile_name": "L3_online_gru",
+          "success": 0.2864583333333333
+        },
+        {
+          "collision": 0.6041666666666666,
+          "is_main_profile": false,
+          "mean_margin": 0.5024082976373685,
+          "parameter_count": 42311.0,
+          "profile_name": "L3_reset_control_corrected",
+          "success": 0.3177083333333333
+        }
+      ],
+      "profile_count": 12,
+      "profile_specific_tuning": false,
+      "source": "runs/m1497_go_no_go_profile_three_seed_public_pilot/summary.json"
+    }
+  },
+  "generated_at_utc": "20260529T223848Z",
+  "guardrail_flags": {
+    "actor_input_contract_changed": false,
+    "artifact_repair_started": false,
+    "level3_self_id_claim_made": false,
+    "paper_level_claim_made": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "profile_specific_tuning_admitted": false,
+    "promoted": false,
+    "replay_started": false,
+    "training_started": false
+  },
+  "history_specific_comparisons": [
+    "L2_normal_minus_L2_current_tiled",
+    "L3_online_minus_L3_reset_control",
+    "L3_online_minus_best_L2_normal",
+    "L1_current_response_minus_history_families",
+    "normal_history_minus_wrong_or_delayed_history_where_applicable"
+  ],
+  "missing_profiles": [],
+  "protocol_name": "controller_family_decisive_evidence_matrix",
+  "stage_plan": [
+    "stage0_protocol_preflight",
+    "stage1_one_seed_public_plumbing_pilot",
+    "stage2_three_seed_public_decisive_matrix",
+    "stage3_source_diverse_holdout_design"
+  ]
+}

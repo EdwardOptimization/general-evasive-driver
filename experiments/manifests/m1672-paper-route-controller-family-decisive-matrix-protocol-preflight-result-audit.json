@@ -1,0 +1,157 @@
+{
+  "id": "m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_protocol_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1671-paper-route-controller-family-decisive-matrix-protocol-preflight.md",
+      "runs/m1671_controller_family_decisive_matrix_protocol/summary.json",
+      "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1671-paper-route-controller-family-decisive-matrix-protocol-preflight.json"
+    ],
+    "parent_objective": [
+      "audit no-training controller-family decisive matrix protocol preflight result before any one-seed pilot"
+    ],
+    "derived_from": [
+      "m1671-paper-route-controller-family-decisive-matrix-protocol-preflight"
+    ],
+    "blocked_by": [
+      "one-seed public pilot should not start until protocol preflight is audited"
+    ],
+    "supersedes": [
+      "direct one-seed pilot after M1671",
+      "direct training after M1671",
+      "direct private holdout after M1671"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.md",
+  "public_gates": [
+    "M1672 must audit M1671 summary and matrix_protocol artifacts",
+    "M1672 must decide whether one-seed public plumbing pilot design is admitted",
+    "M1672 must keep training replay PPO promotion private holdout actor-input changes and level3 claims blocked",
+    "M1672 must not treat public protocol preflight as controller-family performance evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not repair the M1663 artifact",
+    "do not run a one-seed pilot",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_decisive_evidence_matrix",
+    "evidence_axis": "C_matrix_protocol_preflight_result_audit",
+    "evidence_increment": "audits M1671 no-training protocol preflight before any pilot",
+    "claim_scope": "process audit only; no training, replay, PPO, promotion, private holdout, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1671 artifacts are missing",
+      "stop if protocol guardrails are violated",
+      "stop if public protocol preflight is treated as performance evidence",
+      "stop if one-seed pilot is admitted without addressing clean-package mapping risk"
+    ],
+    "fallback_plan": [
+      "route to protocol repair if config or artifact gaps are found",
+      "route to task-source mapping design if clean package is too L3-specific",
+      "route to one-seed pilot design only if protocol and mapping assumptions are acceptable"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1671 completed the no-training protocol preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "protocol preflight result audit",
+    "admission_evidence": [
+      "M1671 produced summary.json and matrix_protocol.json",
+      "M1671 reports 12 configs, zero contract violations, and zero guardrail violations"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1672 audit document",
+      "M1672 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits one-seed pilot design or protocol repair"
+    ],
+    "next_stage_criteria": [
+      "M1671 result is classified",
+      "clean-package mapping risk is assessed",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; audit must keep current-response and current-tiled controls as required future comparisons.",
+    "history_necessity_tests": [
+      "audit must confirm the protocol includes L2 current-tiled and L3 reset controls",
+      "audit must not infer history necessity from protocol preflight"
+    ],
+    "temporal_evidence_window": "M1671 protocol artifacts only.",
+    "negative_result_policy": "If protocol mapping is insufficient, route to repair or task-source regeneration rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "protocol result audit and route decision",
+      "no training, no replay, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1671 protocol preflight can be audited into a clear route decision before any one-seed public pilot.",
+  "success_criteria": [
+    "docs/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.md exists",
+    "audit records M1671 pass/fail result",
+    "audit verifies protocol and summary artifacts are present",
+    "audit assesses clean-package mapping risk",
+    "audit chooses one-seed pilot design, protocol repair, or task-source mapping design",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit skips M1671 artifacts",
+    "audit treats protocol preflight as controller-family ranking evidence",
+    "audit routes directly to training replay PPO promotion private holdout or paper evidence",
+    "audit claims level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_protocol_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1671-paper-route-controller-family-decisive-matrix-protocol-preflight.md",
+    "runs/m1671_controller_family_decisive_matrix_protocol/summary.json",
+    "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json"
+  ],
+  "decision_rule": "M1672 passes if it audits the M1671 protocol preflight and chooses a next route before any pilot, training, replay, PPO, promotion, or private holdout.",
+  "next_blocker": "m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit"
+}

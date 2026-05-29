@@ -26773,3 +26773,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1671-paper-route-controller-family-decisive-matrix-protocol-preflight.json`
 - next: `m1671-paper-route-controller-family-decisive-matrix-protocol-preflight`
+
+## M1671 Paper-Route Controller-Family Decisive Matrix Protocol Preflight
+
+- status: completed
+- decision: `controller_family_decisive_matrix_protocol_preflight_pass_route_to_audit`
+- artifact: `runs/m1671_controller_family_decisive_matrix_protocol/summary.json`
+- protocol: `runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json`
+- result class: `controller_family_decisive_matrix_protocol_preflight_pass`
+- profile config count: `12`
+- missing profile names: `[]`
+- contract violation count: `0`
+- guardrail violation count: `0`
+- standard profile summary: readable, `36` completed seed runs, `12` profiles, no private holdout, no profile-specific tuning
+- clean package summary: readable, `39` positive candidates and `232` diagnostic guardrails
+- artifact failure summary: readable, first-check pass `false`, proof washout count `2`, behavior regression count `2`
+- supported: no-training matrix protocol can be materialized from existing public evidence layers
+- unsupported: controller-family ranking, one-seed pilot result, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.json`
+- next: `m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit`

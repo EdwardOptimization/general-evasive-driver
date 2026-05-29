@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1679,
+    "completed": 1680,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1670-paper-route-controller-family-decisive-evidence-matrix-design.md",
+      "command_log": "runs/m1671_controller_family_decisive_matrix_protocol/summary.json",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1671_controller_family_decisive_matrix_protocol",
       "status": "completed",
-      "task_id": "m1670-paper-route-controller-family-decisive-evidence-matrix-design"
+      "task_id": "m1671-paper-route-controller-family-decisive-matrix-protocol-preflight"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1671-paper-route-controller-family-decisive-matrix-protocol-preflight.json",
-      "hypothesis": "A no-training preflight can materialize the controller-family decisive matrix protocol and verify required configs and artifacts before any costly run.",
-      "id": "m1671-paper-route-controller-family-decisive-matrix-protocol-preflight",
-      "kind": "infrastructure",
-      "notes": "Pending: materialize no-training controller-family decisive matrix protocol",
-      "priority": 16660,
+      "command": "see experiments/manifests/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.json",
+      "hypothesis": "M1671 protocol preflight can be audited into a clear route decision before any one-seed public pilot.",
+      "id": "m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit protocol preflight before one-seed pilot design or repair",
+      "priority": 16670,
       "status": "pending",
-      "success_artifact": "runs/m1671_controller_family_decisive_matrix_protocol/summary.json"
+      "success_artifact": "docs/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.md"
     },
-    "updated_at_utc": "20260529T223538Z"
+    "updated_at_utc": "20260529T223905Z"
 }

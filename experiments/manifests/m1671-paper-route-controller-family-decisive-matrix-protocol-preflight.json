@@ -150,6 +150,10 @@
   ],
   "required_artifacts": [
     {
+      "path": "docs/m1671-paper-route-controller-family-decisive-matrix-protocol-preflight.md",
+      "type": "md"
+    },
+    {
       "path": "runs/m1671_controller_family_decisive_matrix_protocol/summary.json",
       "type": "json"
     },
@@ -168,6 +172,16 @@
     "runs/m1615_contour_aware_candidate_corpus/summary.json",
     "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1671_controller_family_decisive_matrix_protocol/summary.json",
+    "decision": "controller_family_decisive_matrix_protocol_preflight_pass_route_to_audit",
+    "result_class": "controller_family_decisive_matrix_protocol_preflight_pass",
+    "profile_config_count": 12,
+    "contract_violation_count": 0,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.json"
+  },
   "decision_rule": "M1671 passes if it materializes the matrix protocol and verifies config/artifact availability without training, replay, PPO, promotion, private holdout, or actor-input changes.",
-  "next_blocker": "m1671-paper-route-controller-family-decisive-matrix-protocol-preflight"
+  "next_blocker": "m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit"
 }
