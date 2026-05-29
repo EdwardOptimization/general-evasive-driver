@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1571-paper-route-targeted-third-source-flip-anchor-result-audit
+m1572-paper-route-source-diverse-flip-anchor-history-intervention-design
 ```
 
 Current next task:
 
 ```text
-m1572-paper-route-source-diverse-flip-anchor-history-intervention-design
+m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -384,6 +384,13 @@ outcome degradation, no materialization, no training corpus, no PPO, no
 promotion, and no level3 self-ID claim. M1572 must design wrong-history,
 donor-history, delayed, reset, zero-current, zero-action-history, and zero-all
 controls, with high-speed and late-reveal reported separately.
+M1572 designed that bounded intervention layer. The implementation target is
+the 14 M1570 flip anchors across 3 source families and 4 windows, plus up to 8
+diagnostic late-reveal recoverable non-flip anchors reported separately. M1573
+must implement normal, wrong-history donor hidden, donor response/action stream,
+donor response/action plus hidden, delayed hidden, reset hidden, zero-current,
+zero-action-history, and zero-all controls. Even if M1573 is positive, it still
+routes to audit before materialization or corpus export.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

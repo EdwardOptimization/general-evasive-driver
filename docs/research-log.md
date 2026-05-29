@@ -24403,3 +24403,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1572-paper-route-source-diverse-flip-anchor-history-intervention-design.json`
 - next: `m1572-paper-route-source-diverse-flip-anchor-history-intervention-design`
+
+## M1572 Paper-Route Source-Diverse Flip-Anchor History-Intervention Design
+
+- status: completed
+- decision: `source_diverse_flip_anchor_history_intervention_design_admit_bounded_implementation`
+- artifact: `docs/m1572-paper-route-source-diverse-flip-anchor-history-intervention-design.md`
+- target anchor artifact: `runs/m1570_targeted_third_source_flip_anchor_smoke/flip_anchor_rows.csv`
+- target anchor count: 14
+- target source family count: 3
+- target window count: 4
+- high-speed target anchor count: 4
+- late-reveal diagnostic policy: track up to 8 strongest `late_reveal_boundary` recoverable non-flip anchors separately
+- required variants: normal, wrong-history donor hidden, donor response/action stream, donor response/action plus hidden, delayed hidden 8/16, reset hidden once/every, zero current response, zero action history, zero all response
+- public smoke gates for next implementation include: target anchors >= 12, source families >= 3, windows >= 3, high-speed anchors >= 4, intervention rows >= 240, wrong-history rows >= 20, donor-response/action rows >= 40, reset/zero controls >= 80, guardrail violations == 0
+- evidence-quality targets include: history/donor max gap >= 0.02 or history success drop >= 1; history-positive source families >= 2 or high-speed history-positive count >= 1; control-to-history gap ratio <= 6 unless history success drop occurs
+- history interventions executed: false in M1572
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation.json`
+- next: `m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation`

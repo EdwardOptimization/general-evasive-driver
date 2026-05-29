@@ -1,0 +1,167 @@
+{
+  "id": "m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1570_targeted_third_source_flip_anchor_smoke/summary.json",
+      "runs/m1570_targeted_third_source_flip_anchor_smoke/flip_anchor_rows.csv",
+      "docs/m1572-paper-route-source-diverse-flip-anchor-history-intervention-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1572-paper-route-source-diverse-flip-anchor-history-intervention-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded source-diverse history interventions over M1570 flip anchors"
+    ],
+    "derived_from": [
+      "m1572-paper-route-source-diverse-flip-anchor-history-intervention-design"
+    ],
+    "blocked_by": [
+      "source-diverse flip-anchor history-intervention runner has not been implemented"
+    ],
+    "supersedes": [
+      "candidate materialization before intervention evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation.md",
+  "public_gates": [
+    "M1573 must implement the M1572 bounded history-intervention design",
+    "M1573 must run only public bounded history interventions over M1570 anchors",
+    "M1573 must report source-family and window summaries",
+    "M1573 must report high-speed and late-reveal families separately",
+    "M1573 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_recoverable_active_set_generation",
+    "evidence_axis": "I_source_diverse_flip_anchor_history_intervention_implementation",
+    "evidence_increment": "implements the first history-intervention smoke over the M1570 source-diverse flip-anchor active set",
+    "claim_scope": "public bounded history-intervention implementation only; no candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop after one bounded implementation smoke and route to audit",
+      "stop if implementation changes actor inputs or writes training corpus",
+      "stop if implementation omits current-frame substitution controls",
+      "stop if late_reveal_boundary reporting is missing"
+    ],
+    "fallback_plan": [
+      "route to result audit whether gates pass or fail",
+      "if interventions are null, classify current-frame substitution, donor mismatch, or family-specific late-reveal null before adding generators",
+      "keep M1570/M1573 as public diagnostic evidence only until audited"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1572 admits one bounded source-diverse history-intervention implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source-diverse flip-anchor history-intervention implementation",
+    "admission_evidence": [
+      "M1572 pre-registers target anchors, donor pairing, intervention variants, metrics, artifacts, and gates"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "history-intervention module and focused tests",
+      "bounded public intervention smoke artifacts",
+      "M1573 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "intervention rows are written",
+      "source-family and window summaries are written",
+      "history/control/null metrics are reported",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1573 explicitly tests current-frame substitution via zero-current, zero-action-history, zero-all, and donor response/action controls.",
+    "history_necessity_tests": [
+      "wrong-history donor hidden",
+      "donor response/action plus hidden",
+      "delayed hidden",
+      "reset hidden",
+      "zero current response",
+      "zero action history",
+      "zero all response"
+    ],
+    "temporal_evidence_window": "M1570 source-diverse flip-anchor active set.",
+    "negative_result_policy": "If history interventions are null, classify the null before any new generator, corpus export, or training.",
+    "allowed_claims": [
+      "public bounded intervention evidence",
+      "at most level2 history-encoded reactive evidence if wrong-history or donor-plus-hidden produces outcome degradation and controls do not dominate",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded source-diverse intervention smoke can test whether M1570 flip-anchor behavior depends on history beyond current-frame controls.",
+  "success_criteria": [
+    "history-intervention module exists",
+    "focused tests cover donor pairing and summary gates",
+    "runs/m1573_source_diverse_flip_anchor_history_intervention_smoke/summary.json exists",
+    "history_interventions_executed is true",
+    "current-frame substitution controls are included",
+    "high-speed and late-reveal family metrics are reported",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification",
+    "current-frame substitution controls are missing"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_source_diverse_flip_anchor_history_interventions.py -q"
+    },
+    {
+      "name": "history_intervention_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_diverse_flip_anchor_history_interventions --output-dir runs/m1573_source_diverse_flip_anchor_history_intervention_smoke --continuation-steps 64"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1573_source_diverse_flip_anchor_history_intervention_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1570_targeted_third_source_flip_anchor_smoke/summary.json",
+    "runs/m1570_targeted_third_source_flip_anchor_smoke/flip_anchor_rows.csv",
+    "docs/m1572-paper-route-source-diverse-flip-anchor-history-intervention-design.md"
+  ],
+  "decision_rule": "M1573 passes as implementation if it runs bounded interventions with clean guardrails and writes the required metrics; it must still route to audit before materialization.",
+  "next_blocker": "m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation"
+}

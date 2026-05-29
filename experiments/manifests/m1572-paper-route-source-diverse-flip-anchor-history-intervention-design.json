@@ -160,6 +160,45 @@
     "runs/m1570_targeted_third_source_flip_anchor_smoke/flip_anchor_rows.csv",
     "docs/m1571-paper-route-targeted-third-source-flip-anchor-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1572-paper-route-source-diverse-flip-anchor-history-intervention-design.md",
+    "decision": "source_diverse_flip_anchor_history_intervention_design_admit_bounded_implementation",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "target_anchor_count": 14,
+    "target_source_family_count": 3,
+    "target_window_count": 4,
+    "high_speed_target_anchor_count": 4,
+    "late_reveal_diagnostic_policy": "track up to 8 strongest late_reveal_boundary recoverable non-flip anchors separately",
+    "required_variants": [
+      "normal",
+      "wrong_history_donor_hidden_at_anchor",
+      "donor_response_action_stream_from_anchor",
+      "donor_response_action_plus_hidden_from_anchor",
+      "delayed_hidden_8_at_anchor",
+      "delayed_hidden_16_at_anchor",
+      "reset_hidden_once_at_anchor",
+      "reset_hidden_every_step_from_anchor",
+      "zero_current_response_from_anchor",
+      "zero_action_history_from_anchor",
+      "zero_all_response_from_anchor"
+    ],
+    "next_manifest": "experiments/manifests/m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1572 passes if it designs bounded source-diverse history interventions and gates before any implementation.",
-  "next_blocker": "m1572-paper-route-source-diverse-flip-anchor-history-intervention-design"
+  "next_blocker": "m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation"
 }
