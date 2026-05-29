@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1524-paper-route-t5-response-mismatch-intervention-implementation
+m1525-paper-route-t5-response-mismatch-result-audit
 ```
 
 Current next task:
 
 ```text
-m1525-paper-route-t5-response-mismatch-result-audit
+m1526-paper-route-t5-timing-amplified-branch-synthesis
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -80,11 +80,40 @@ and routes to stricter response/action-history mismatch diagnostics. M1523
 designed those diagnostics while preserving target scene context and the
 deployed actor contract. M1524 implemented them: donor response mismatch strength
 was high, but donor variants were near-null and only zero-current control was
-outcome-relevant. The current public-gate base remains M1362 alpha `0.1`:
+outcome-relevant. M1525 audited this as sufficient to close the current T5
+wrong-history route and synthesize before a fresh ambiguity/source-mining pivot.
+The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1525 T5 response mismatch result audit:
+
+```text
+decision: t5_response_mismatch_audit_close_current_t5_wrong_history_route_to_branch_synthesis
+artifact: docs/m1525-paper-route-t5-response-mismatch-result-audit.md
+audited_run: runs/m1524_t5_response_mismatch_intervention_smoke
+max_donor_response_l2_mean: 0.4977846671714798
+max_margin_gap_from_normal: 0.021037607967195893
+outcome_relevant_variant_count: 2
+success_drop_count: 0
+donor_response_mismatch_result: near-null despite high mismatch strength
+zero_current_response_positive: true
+current_t5_wrong_history_route_verdict: close_as_insufficient
+candidate_materialization_verdict: blocked
+training_corpus_export_verdict: blocked
+failure_types: scenario_sampling_failure, metric_artifact
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1526-paper-route-t5-timing-amplified-branch-synthesis
+```
+
+M1525 blocks further T5 donor tweaks without synthesis. The expected pivot is
+fresh ambiguity/source mining for cases where hidden dynamics actually change
+the preferred action.
 
 M1524 T5 response mismatch intervention implementation:
 

@@ -22934,3 +22934,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1524 shows high-strength donor response/action mismatch does not meaningfully change behavior; only zero-current control remains outcome-relevant.
 - follow-up manifest: `experiments/manifests/m1525-paper-route-t5-response-mismatch-result-audit.json`.
 - next: `m1525-paper-route-t5-response-mismatch-result-audit`
+
+## M1525 Paper-Route T5 Response Mismatch Result Audit
+
+- status: completed
+- decision: `t5_response_mismatch_audit_close_current_t5_wrong_history_route_to_branch_synthesis`
+- artifact: `docs/m1525-paper-route-t5-response-mismatch-result-audit.md`
+- audited run: `runs/m1524_t5_response_mismatch_intervention_smoke`
+- max donor response L2 mean: 0.4977846671714798
+- max margin gap from normal: 0.021037607967195893
+- outcome-relevant variant count: 2
+- success drop count: 0
+- donor response mismatch result: near-null despite high mismatch strength
+- zero-current response positive: true
+- current T5 wrong-history route verdict: close as insufficient
+- candidate materialization verdict: blocked
+- training corpus export verdict: blocked
+- failure taxonomy: `scenario_sampling_failure`, `metric_artifact`
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1525 closes the current T5 wrong-history route and routes to synthesis before fresh ambiguity/source mining.
+- follow-up manifest: `experiments/manifests/m1526-paper-route-t5-timing-amplified-branch-synthesis.json`.
+- next: `m1526-paper-route-t5-timing-amplified-branch-synthesis`

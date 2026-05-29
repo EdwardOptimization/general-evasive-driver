@@ -1,0 +1,176 @@
+{
+  "id": "m1526-paper-route-t5-timing-amplified-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1521-paper-route-t5-timing-amplified-intervention-implementation.md",
+      "docs/m1524-paper-route-t5-response-mismatch-intervention-implementation.md",
+      "docs/m1525-paper-route-t5-response-mismatch-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1525-paper-route-t5-response-mismatch-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M1521-M1525 timing-amplified and response-mismatch evidence before pivoting"
+    ],
+    "derived_from": [
+      "m1521-paper-route-t5-timing-amplified-intervention-implementation",
+      "m1525-paper-route-t5-response-mismatch-result-audit"
+    ],
+    "blocked_by": [
+      "M1525 closed the current T5 wrong-history route as insufficient"
+    ],
+    "supersedes": [
+      "continuing with more narrow T5 donor mismatch tweaks"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1526-paper-route-t5-timing-amplified-branch-synthesis.md",
+  "public_gates": [
+    "M1526 must synthesize M1521-M1525 before a new route",
+    "M1526 must separate timing sensitivity from wrong-history self-ID evidence",
+    "M1526 must state supported and falsified claims",
+    "M1526 must assess public-gate overfit risk",
+    "M1526 must choose continue, pivot, stop, or promote_to_next_branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_t5_timing_amplified_intervention",
+    "evidence_axis": "S_t5_timing_amplified_branch_synthesis",
+    "evidence_increment": "synthesizes timing-amplified positive controls and response-mismatch negative results before pivoting to fresh ambiguity/source mining",
+    "claim_scope": "branch synthesis only; no candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats zero-current positives as self-ID",
+      "stop if synthesis ignores high-strength donor mismatch null result",
+      "stop if synthesis routes directly to training or materialization",
+      "stop if synthesis keeps tuning the same T5 rows without a new evidence axis"
+    ],
+    "fallback_plan": [
+      "promote to a fresh ambiguity/source-mining branch if current T5 route is closed",
+      "pivot to terminal-boundary retarget only if synthesis prioritizes response-removal evidence",
+      "stop the current T5 branch if neither route is justified"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1525 closes current T5 wrong-history route before cadence because evidence is decisive enough to pivot",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "T5 timing-amplified branch synthesis",
+    "admission_evidence": [
+      "M1521 produced timing-sensitive zero/reset positives; M1524 produced high-strength donor response mismatch nulls; M1525 closed current T5 wrong-history route"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1526 synthesis document",
+      "status queue scoreboard research log and review",
+      "one follow-up branch manifest"
+    ],
+    "next_stage_criteria": [
+      "synthesis decision is explicit",
+      "current T5 route verdict is explicit",
+      "next branch decision is explicit",
+      "public-gate overfit risk is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1526 must not convert timing sensitivity or zero-current positives into level3 self-ID claims.",
+    "history_necessity_tests": [
+      "synthesize reset/zero-current timing positives",
+      "synthesize donor hidden and donor response mismatch nulls",
+      "decide whether fresh ambiguity mining is required"
+    ],
+    "temporal_evidence_window": "M1521-M1525 timing-amplified T5 branch evidence.",
+    "negative_result_policy": "Strong donor mismatch nulls should close or pivot the current T5 route instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "branch synthesis and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1521-M1525 timing-amplified T5 branch should synthesize and pivot rather than keep tuning the same T5 rows.",
+  "success_criteria": [
+    "docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md exists",
+    "synthesis summarizes M1521-M1525 evidence",
+    "supported and falsified claims are explicit",
+    "current T5 route closure or continuation is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "training, PPO, promotion, private holdout, corpus export, materialization, and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis treats zero-current positives as self-ID evidence",
+    "synthesis ignores donor mismatch null results",
+    "synthesis routes directly to training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1521-paper-route-t5-timing-amplified-intervention-implementation.md",
+    "docs/m1524-paper-route-t5-response-mismatch-intervention-implementation.md",
+    "docs/m1525-paper-route-t5-response-mismatch-result-audit.md"
+  ],
+  "decision_rule": "M1526 passes if it synthesizes M1521-M1525 and chooses the next route without materialization or self-ID claims.",
+  "next_blocker": "m1526-paper-route-t5-timing-amplified-branch-synthesis"
+}

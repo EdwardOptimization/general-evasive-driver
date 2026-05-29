@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1533,
+    "completed": 1534,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1524_t5_response_mismatch_intervention_smoke/summary.json",
+    "command_log": "docs/m1525-paper-route-t5-response-mismatch-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1524_t5_response_mismatch_intervention_smoke/summary.json",
+    "run_dir": "docs/m1525-paper-route-t5-response-mismatch-result-audit.md",
     "status": "completed",
-    "task_id": "m1524-paper-route-t5-response-mismatch-intervention-implementation"
+    "task_id": "m1525-paper-route-t5-response-mismatch-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1525-paper-route-t5-response-mismatch-result-audit.json",
-    "hypothesis": "M1524 response-mismatch results can be audited to decide whether the current T5 route should continue, retarget, or close.",
-    "id": "m1525-paper-route-t5-response-mismatch-result-audit",
+    "command": "see experiments/manifests/m1526-paper-route-t5-timing-amplified-branch-synthesis.json",
+    "hypothesis": "The M1521-M1525 timing-amplified T5 branch should synthesize and pivot rather than keep tuning the same T5 rows.",
+    "id": "m1526-paper-route-t5-timing-amplified-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit donor response mismatch near-null result and zero-current positive control",
-    "priority": 15200,
+    "notes": "Pending: synthesize M1521-M1525 and pivot from current T5 wrong-history route",
+    "priority": 15210,
     "status": "pending",
-    "success_artifact": "docs/m1525-paper-route-t5-response-mismatch-result-audit.md"
+    "success_artifact": "docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md"
   },
-  "updated_at_utc": "20260529T101402Z"
+  "updated_at_utc": "20260529T101741Z"
 }

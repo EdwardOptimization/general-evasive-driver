@@ -4,7 +4,8 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure",
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -147,6 +148,39 @@
     "runs/m1524_t5_response_mismatch_intervention_smoke/summary.json",
     "runs/m1524_t5_response_mismatch_intervention_smoke/response_mismatch_variant_summary.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1525-paper-route-t5-response-mismatch-result-audit.md",
+    "decision": "t5_response_mismatch_audit_close_current_t5_wrong_history_route_to_branch_synthesis",
+    "audited_run": "runs/m1524_t5_response_mismatch_intervention_smoke",
+    "max_donor_response_l2_mean": 0.4977846671714798,
+    "max_margin_gap_from_normal": 0.021037607967195893,
+    "outcome_relevant_variant_count": 2,
+    "success_drop_count": 0,
+    "donor_response_mismatch_result": "near_null_despite_high_mismatch_strength",
+    "zero_current_response_positive": true,
+    "current_t5_wrong_history_route_verdict": "close_as_insufficient",
+    "candidate_materialization_verdict": "blocked",
+    "training_corpus_export_verdict": "blocked",
+    "failure_types": [
+      "scenario_sampling_failure",
+      "metric_artifact"
+    ],
+    "guardrail_violation_count": 0,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1526-paper-route-t5-timing-amplified-branch-synthesis.json"
+  },
+  "decision": "t5_response_mismatch_audit_close_current_t5_wrong_history_route_to_branch_synthesis",
   "decision_rule": "M1525 passes if it audits M1524 response mismatch results and chooses a follow-up route without materializing candidates or claiming self-identification.",
-  "next_blocker": "m1525-paper-route-t5-response-mismatch-result-audit"
+  "next_blocker": "m1526-paper-route-t5-timing-amplified-branch-synthesis"
 }
