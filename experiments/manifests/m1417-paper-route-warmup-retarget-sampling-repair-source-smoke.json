@@ -135,6 +135,18 @@
     {
       "path": "runs/m1417_warmup_retarget_sampling_repair_source_smoke/summary.json",
       "type": "json"
+    },
+    {
+      "path": "configs/ppo_m1417_warmup_retarget_sampling_repair_figure_eight.json",
+      "type": "json"
+    },
+    {
+      "path": "configs/m1417_warmup_retarget_sampling_repair_source_wave.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1417-paper-route-warmup-retarget-sampling-repair-source-smoke.md",
+      "type": "md"
     }
   ],
   "baseline_checkpoints": [
@@ -143,6 +155,47 @@
   "baseline_artifacts": [
     "docs/m1416-paper-route-warmup-retarget-sampling-repair-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1417_warmup_retarget_sampling_repair_source_smoke/summary.json",
+    "result_doc": "docs/m1417-paper-route-warmup-retarget-sampling-repair-source-smoke.md",
+    "decision": "warmup_retarget_sampling_repair_source_structural_pass_invasiveness_fail_route_to_audit",
+    "result_class": "warmup_latched_structural_pass",
+    "source_rows": 1630,
+    "matched_current_rows": 78,
+    "bucketed_current_rows": 198,
+    "matched_or_bucketed_reveal_rows": 250,
+    "finite_metric_rows": 1630,
+    "rejected_rows": 4898,
+    "unique_source_seeds": 38,
+    "unique_capability_pairs": 16,
+    "unique_reveal_buckets": 496,
+    "matched_or_bucketed_unique_source_seeds": 33,
+    "matched_or_bucketed_unique_capability_pairs": 16,
+    "matched_or_bucketed_unique_reveal_buckets": 90,
+    "matched_or_bucketed_warmup_gate_visible_rows": 250,
+    "matched_or_bucketed_warmup_evidence_rows": 250,
+    "matched_or_bucketed_warmup_response_history_l2_p95": 0.07058491292836587,
+    "matched_or_bucketed_warmup_action_history_l2_p95": 0.02076314618084917,
+    "matched_or_bucketed_warmup_gate_collision_share": 0.544,
+    "matched_or_bucketed_clear_rows": 100,
+    "matched_or_bucketed_clear_low_margin_rows": 14,
+    "matched_or_bucketed_collision_rows": 136,
+    "invasiveness_gate_passed": false,
+    "source_structural_gate_passed": true,
+    "warmup_evidence_gate_passed": true,
+    "training_started": false,
+    "evaluation_started": false,
+    "outcome_probe_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1418-paper-route-warmup-retarget-source-result-audit.json"
+  },
+  "decision": "warmup_retarget_sampling_repair_source_structural_pass_invasiveness_fail_route_to_audit",
   "decision_rule": "M1417 passes structurally if repaired source smoke materializes rows and reports warmup/collision diagnostics before any outcome probing.",
-  "next_blocker": "m1417-paper-route-warmup-retarget-sampling-repair-source-smoke"
+  "next_blocker": "m1418-paper-route-warmup-retarget-source-result-audit"
 }

@@ -20911,3 +20911,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1417-paper-route-warmup-retarget-sampling-repair-source-smoke.json`.
 - next: `m1417-paper-route-warmup-retarget-sampling-repair-source-smoke`
+
+## 20260529T054000Z - m1417-paper-route-warmup-retarget-sampling-repair-source-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1417_warmup_retarget_sampling_repair_source_smoke/summary.json`
+- result doc: `docs/m1417-paper-route-warmup-retarget-sampling-repair-source-smoke.md`
+- decision: `warmup_retarget_sampling_repair_source_structural_pass_invasiveness_fail_route_to_audit`
+- result class: `warmup_latched_structural_pass`
+- counts: `1630` source rows, `78` matched-current rows, `198` bucketed-current rows, `250` matched/bucketed rows, `1630` finite metric rows, `4898` rejected rows.
+- diversity: `38` source seeds and `16` capability pairs overall; `33` matched/bucketed seeds, `16` capability pairs, and `90` reveal buckets in matched/bucketed rows.
+- warmup evidence: matched/bucketed warmup response/action history L2 p95 are `0.070585` and `0.020763`, so warmup-evidence gates pass.
+- invasiveness: matched/bucketed collision share is `0.544`, clear rows are `100`, clear-low rows are `14`, and clear+low rows are `114`; this fails the pre-registered `<=0.50` collision share and `>=120` clear+low gates.
+- guardrail: no outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1418-paper-route-warmup-retarget-source-result-audit.json`.
+- next: `m1418-paper-route-warmup-retarget-source-result-audit`

@@ -16,21 +16,46 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1416-paper-route-warmup-retarget-sampling-repair-design
+m1417-paper-route-warmup-retarget-sampling-repair-source-smoke
 ```
 
 Current next task:
 
 ```text
-m1417-paper-route-warmup-retarget-sampling-repair-source-smoke
+m1418-paper-route-warmup-retarget-source-result-audit
 ```
 
-M1416 designed a repair for the M1415 no-row source smoke. The current
-public-gate base remains M1362 alpha `0.1`:
+M1417 ran the repaired warmup retarget source smoke. The current public-gate
+base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1417 result:
+
+```text
+decision: warmup_retarget_sampling_repair_source_structural_pass_invasiveness_fail_route_to_audit
+result_class: warmup_latched_structural_pass
+source_rows: 1630
+matched_or_bucketed_reveal_rows: 250
+matched/bucketed unique_source_seeds: 33
+matched/bucketed unique_capability_pairs: 16
+matched/bucketed unique_reveal_buckets: 90
+matched/bucketed warmup_response_history_l2_p95: 0.070585
+matched/bucketed warmup_action_history_l2_p95: 0.020763
+matched/bucketed warmup_gate_collision_share: 0.544
+matched/bucketed clear_rows: 100
+matched/bucketed clear_low_margin_rows: 14
+invasiveness_gate_passed: false
+actor_input_contract_changed: false
+next: m1418-paper-route-warmup-retarget-source-result-audit
+```
+
+M1418 should audit M1417 before outcome probing. M1417 restored source
+materialization and warmup evidence, but it failed the pre-registered
+matched/bucketed invasiveness gates. The next route is likely a focused warmup
+gate retune, not training or outcome probing yet.
 
 M1416 result:
 
@@ -42,11 +67,6 @@ repair: relax obstacle.half_width_range to [0.90, 1.65]
 repair: relax obstacle.max_threshold_score to 0.50
 next: m1417-paper-route-warmup-retarget-sampling-repair-source-smoke
 ```
-
-M1417 should create the repaired configs and run no-training source smoke only.
-It must report source diversity, warmup evidence, and collision share before
-any outcome probe. It must not train, run PPO, export a corpus, use private
-holdout, promote, change actor inputs, or claim level3 self-identification.
 
 M1415 result:
 

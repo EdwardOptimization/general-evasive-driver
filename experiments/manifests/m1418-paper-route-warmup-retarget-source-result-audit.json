@@ -1,0 +1,152 @@
+{
+  "id": "m1418-paper-route-warmup-retarget-source-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1417_warmup_retarget_sampling_repair_source_smoke/summary.json",
+      "docs/m1417-paper-route-warmup-retarget-sampling-repair-source-smoke.md"
+    ],
+    "parent_config": [
+      "configs/ppo_m1417_warmup_retarget_sampling_repair_figure_eight.json",
+      "configs/m1417_warmup_retarget_sampling_repair_source_wave.json",
+      "experiments/manifests/m1417-paper-route-warmup-retarget-sampling-repair-source-smoke.json"
+    ],
+    "parent_objective": [
+      "audit M1417 structural source pass with invasiveness gate failure before retuning or outcome probing"
+    ],
+    "derived_from": [
+      "m1417-paper-route-warmup-retarget-sampling-repair-source-smoke"
+    ],
+    "blocked_by": [
+      "M1417 passes source and warmup evidence gates but misses matched/bucketed collision-share and clear-row gates"
+    ],
+    "supersedes": [
+      "running outcome probe directly from M1417 despite failed invasiveness gate",
+      "training from M1417 source rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1418-paper-route-warmup-retarget-source-result-audit.md",
+  "public_gates": [
+    "M1418 must audit M1417 structural pass and invasiveness failure",
+    "M1418 must decide outcome probe, warmup-gate retune, branch synthesis, or stop",
+    "M1418 must not run outcome interventions, train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source smoke",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim self-identification from source materialization",
+    "do not ignore the matched/bucketed invasiveness gate failure"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "A_warmup_retarget_source_audit",
+    "evidence_increment": "audits M1417 repaired source smoke and decides whether a focused warmup-gate invasiveness retune is justified",
+    "claim_scope": "process audit only; no source smoke, outcome intervention, training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if source materialization is treated as self-ID evidence",
+      "stop if failed invasiveness gates are ignored",
+      "stop if audit routes directly to training or corpus export",
+      "stop if actor input changes are proposed"
+    ],
+    "fallback_plan": [
+      "admit a focused warmup-gate invasiveness retune if M1417 source and warmup evidence are otherwise strong",
+      "route to branch synthesis if another retune would be a narrow loop",
+      "stop or pivot if no non-overfit retune is credible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_after_m1409_continue_synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "warmup retarget source result audit",
+    "admission_evidence": [
+      "M1417 structurally passed with 1630 source rows and 250 matched/bucketed rows",
+      "M1417 preserved warmup command-response evidence",
+      "M1417 missed matched/bucketed collision-share and clear-row gates"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source smoke",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1418 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest if audit admits it"
+    ],
+    "next_stage_criteria": [
+      "M1417 result is classified",
+      "invasiveness failure is interpreted",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1418 is a source-result audit and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "audit source materialization and warmup evidence",
+      "audit collision/invasiveness source diagnostics",
+      "decide whether outcome probing is allowed"
+    ],
+    "temporal_evidence_window": "M1417 no-training repaired source smoke artifacts.",
+    "negative_result_policy": "If invasiveness gates fail, record that and retune or synthesize before outcome probing.",
+    "allowed_claims": [
+      "M1417 source-result audit and next-route decision",
+      "no source smoke, outcome intervention, promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1417 source materialization is strong enough to justify a focused warmup-gate invasiveness retune before outcome probing.",
+  "success_criteria": [
+    "docs/m1418-paper-route-warmup-retarget-source-result-audit.md exists",
+    "audit records M1417 source diversity, warmup evidence, and invasiveness metrics",
+    "audit chooses outcome probe, retune, synthesis, stop, or pivot without training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1417 source materialization as self-ID evidence",
+    "audit ignores the invasiveness gate failure",
+    "audit routes directly to training, PPO, promotion, private holdout, corpus export, or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1418-paper-route-warmup-retarget-source-result-audit.md from M1417 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1418-paper-route-warmup-retarget-source-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1417_warmup_retarget_sampling_repair_source_smoke/summary.json"
+  ],
+  "decision_rule": "M1418 passes if it classifies M1417 into an explicit non-training next route.",
+  "next_blocker": "m1418-paper-route-warmup-retarget-source-result-audit"
+}
