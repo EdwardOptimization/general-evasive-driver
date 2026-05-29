@@ -16,24 +16,66 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1444-paper-route-geometry-aware-preflight-validation-synthesis
+m1446-paper-route-source-step-preflight-support-design
 ```
 
 Current next task:
 
 ```text
-m1445-paper-route-forward-geometry-source-miner-smoke
+m1447-paper-route-source-step-preflight-support-implementation
 ```
 
-M1444 completed the required branch synthesis after M1443 reached the
-workflow-synthesis cadence. It promotes from
-`paper_route_geometry_aware_preflight_validation` to
-`paper_route_forward_source_preflight_validation`. The current public-gate base
-remains M1362 alpha `0.1`:
+M1446 completed the source-step preflight support design. M1445 passed the
+row-level forward source miner, but it exposed that the current bounded
+relocation preflight/replay tool reconstructs traces at `reveal_step` while the
+new candidate pool is intentionally anchored at `source_step`. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1446 result:
+
+```text
+decision: source_step_preflight_support_design_admit_implementation
+M1445 selected_candidate_rows: 128
+M1445 source_body_x_min: 5.065734
+required candidate step column: source_step
+default candidate step column: reveal_step
+next: m1447-paper-route-source-step-preflight-support-implementation
+```
+
+M1447 should implement explicit `--candidate-step-column` support in the
+bounded relocation preflight/replay probe:
+
+```text
+default: reveal_step
+M1445 follow-up: source_step
+```
+
+It must not run source preflight, bounded replay, outcome interventions,
+training, PPO, promotion, private holdout, corpus export, or actor-input
+changes.
+
+M1445 result:
+
+```text
+decision: forward_geometry_source_miner_pass_route_to_source_step_preflight_support_design
+source_rows: 96
+geometry_pass_rows: 3456
+selected_candidate_rows: 128
+relocation_clipped_share: 0.0
+source_body_x min / p50 / p95: 5.065734 / 11.133727 / 14.598930
+raw_relocated_body_x min / p50 / p95: 9.065734 / 15.133727 / 18.598930
+selected unique seeds / pairs / buckets / variants: 6 / 12 / 13 / 3
+selected max single seed / pair share: 0.1875 / 0.09375
+next: m1446-paper-route-source-step-preflight-support-design
+```
+
+M1445 validates the row-level forward candidate pool but does not run old
+preflight, because old preflight would use `reveal_step` instead of
+`source_step`.
 
 M1444 result:
 
@@ -49,7 +91,12 @@ public_gate_overfit_risk: medium
 next: m1445-paper-route-forward-geometry-source-miner-smoke
 ```
 
-M1445 should run the M1438 row-level forward geometry source miner on:
+M1444 completed the required branch synthesis after M1443 reached the
+workflow-synthesis cadence. It promotes from
+`paper_route_geometry_aware_preflight_validation` to
+`paper_route_forward_source_preflight_validation`.
+
+M1445 ran the M1438 row-level forward geometry source miner on:
 
 ```text
 runs/m1443_geometry_first_action_enrichment_smoke/selected_enriched_rows.csv

@@ -21380,3 +21380,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source preflight, replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1445-paper-route-forward-geometry-source-miner-smoke.json`.
 - next: `m1445-paper-route-forward-geometry-source-miner-smoke`
+
+## 20260529T041000Z - m1445-paper-route-forward-geometry-source-miner-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `proof`
+- artifact: `docs/m1445-paper-route-forward-geometry-source-miner-smoke.md`
+- run artifact: `runs/m1445_forward_geometry_source_miner_smoke/summary.json`
+- decision: `forward_geometry_source_miner_pass_route_to_source_step_preflight_support_design`
+- source rows: `96`
+- geometry pass rows: `3456`
+- selected candidate rows: `128`
+- rejected rows: `0`
+- relocation clipped share: `0.0`
+- source body-x min / p50 / p95: `5.065734` / `11.133727` / `14.598930`
+- raw relocated body-x min / p50 / p95: `9.065734` / `15.133727` / `18.598930`
+- selected diversity: `6` seeds, `12` capability pairs, `13` reveal buckets, `3` variants, max single seed share `0.1875`.
+- interpretation: row-level forward source mining passes, but old bounded relocation preflight/replay reconstructs at `reveal_step`; M1445 candidates are source-step anchored, so source-step support is required before preflight or replay.
+- guardrail: no source preflight, replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1446-paper-route-source-step-preflight-support-design.json`.
+- next: `m1446-paper-route-source-step-preflight-support-design`
+
+## 20260529T041200Z - m1446-paper-route-source-step-preflight-support-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1446-paper-route-source-step-preflight-support-design.md`
+- decision: `source_step_preflight_support_design_admit_implementation`
+- design: add explicit `--candidate-step-column` support to bounded relocation preflight and replay, defaulting to `reveal_step` for backward compatibility and using `source_step` for M1445 follow-up.
+- required artifact fields: preserve original `reveal_step`; add `candidate_step` and `candidate_step_column` to preflight and replay rows.
+- tests required: source-step preflight trace selection, source-step replay trace selection for preferred and wrong traces, default reveal-step compatibility, and clear error on missing candidate step column.
+- guardrail: no source preflight, replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1447-paper-route-source-step-preflight-support-implementation.json`.
+- next: `m1447-paper-route-source-step-preflight-support-implementation`

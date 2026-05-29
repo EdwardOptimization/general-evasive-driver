@@ -1,0 +1,173 @@
+{
+  "id": "m1446-paper-route-source-step-preflight-support-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1445_forward_geometry_source_miner_smoke/summary.json",
+      "docs/m1445-paper-route-forward-geometry-source-miner-smoke.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1445-paper-route-forward-geometry-source-miner-smoke.json"
+    ],
+    "parent_objective": [
+      "design source-step-aware preflight and replay support after M1445 selected source-step candidate rows"
+    ],
+    "derived_from": [
+      "m1445-paper-route-forward-geometry-source-miner-smoke"
+    ],
+    "blocked_by": [
+      "existing bounded relocation preflight and replay tools reconstruct at reveal_step while M1445 candidates are source_step anchored"
+    ],
+    "supersedes": [
+      "running old reveal-step preflight directly on M1445 selected candidates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1446-paper-route-source-step-preflight-support-design.md",
+  "public_gates": [
+    "M1446 must design source-step-aware preflight and replay support before any M1445 preflight or replay run",
+    "M1446 must preserve reveal_step lineage while allowing source_step as candidate_step",
+    "M1446 must not run preflight replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not overwrite reveal_step with source_step in artifacts",
+    "do not claim M1445 source rows are replay evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_forward_source_preflight_validation",
+    "evidence_axis": "S_source_step_preflight_support_design",
+    "evidence_increment": "identifies and designs the missing candidate-step column support before source-step candidates can enter preflight or replay",
+    "claim_scope": "design only; no source preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design would overwrite reveal_step lineage",
+      "stop if design admits running old reveal-step preflight on M1445 source-step candidates",
+      "stop if design requires actor input changes or checkpoint mutation"
+    ],
+    "fallback_plan": [
+      "implement candidate-step column support if design passes",
+      "route to audit if bounded relocation replay cannot safely support source_step",
+      "fall back to new source-step replay tool if adding a column would make the existing CLI ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1445 row-level miner passes but exposes source_step versus reveal_step mismatch before preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-step-aware preflight and replay support design",
+    "admission_evidence": [
+      "M1445 selected 128 forward unclipped candidates from source_step rows",
+      "bounded_relocation_replay_probe currently reconstructs traces at reveal_step"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1446 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up implementation manifest"
+    ],
+    "next_stage_criteria": [
+      "candidate-step column design is explicit",
+      "default reveal_step behavior is preserved",
+      "tests are specified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1446 is tooling design and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future source-step preflight and bounded replay must test whether M1445 selected history variants affect outcomes",
+      "source-step row selection cannot count as actual history-positive replay evidence"
+    ],
+    "temporal_evidence_window": "M1445 row-level forward source miner result.",
+    "negative_result_policy": "If source-step support cannot be implemented safely, route to audit rather than running reveal-step preflight on source-step candidates.",
+    "allowed_claims": [
+      "source-step preflight support design and next implementation route",
+      "no preflight result, replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1445 source-step candidates require explicit candidate-step column support before preflight or replay can produce meaningful evidence.",
+  "success_criteria": [
+    "docs/m1446-paper-route-source-step-preflight-support-design.md exists",
+    "design preserves reveal_step lineage while adding candidate_step support",
+    "design blocks old reveal-step preflight on M1445 source-step candidates",
+    "design lists focused implementation tests",
+    "no source preflight replay training PPO promotion private holdout corpus export or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design overwrites reveal_step",
+    "design routes directly to old reveal-step preflight",
+    "design starts preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1446-paper-route-source-step-preflight-support-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1446-paper-route-source-step-preflight-support-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1445_forward_geometry_source_miner_smoke/summary.json"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1446-paper-route-source-step-preflight-support-design.md",
+    "decision": "source_step_preflight_support_design_admit_implementation",
+    "m1445_selected_candidate_rows": 128,
+    "m1445_source_body_x_min": 5.065734,
+    "m1445_relocation_clipped_share": 0.0,
+    "required_candidate_step_column": "source_step",
+    "default_candidate_step_column": "reveal_step",
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1447-paper-route-source-step-preflight-support-implementation.json"
+  },
+  "decision": "source_step_preflight_support_design_admit_implementation",
+  "decision_rule": "M1446 passes if it designs explicit source-step candidate support before any M1445 preflight or replay run.",
+  "next_blocker": "m1447-paper-route-source-step-preflight-support-implementation"
+}

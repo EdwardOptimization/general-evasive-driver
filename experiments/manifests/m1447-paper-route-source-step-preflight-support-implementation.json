@@ -1,0 +1,146 @@
+{
+  "id": "m1447-paper-route-source-step-preflight-support-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1446-paper-route-source-step-preflight-support-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1446-paper-route-source-step-preflight-support-design.json"
+    ],
+    "parent_objective": [
+      "implement candidate-step column support in bounded relocation preflight and replay"
+    ],
+    "derived_from": [
+      "m1446-paper-route-source-step-preflight-support-design"
+    ],
+    "blocked_by": [
+      "source-step candidates cannot be preflighted or replayed until the tool can use source_step instead of reveal_step"
+    ],
+    "supersedes": [
+      "manual CSV mutation of reveal_step to source_step"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1447-paper-route-source-step-preflight-support-implementation.md",
+  "public_gates": [
+    "M1447 must implement candidate-step column support with default reveal_step compatibility",
+    "M1447 must add focused tests for source_step and reveal_step behavior",
+    "M1447 must not run source preflight bounded replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not mutate candidate CSVs to fake source_step support"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_forward_source_preflight_validation",
+    "evidence_axis": "S_source_step_preflight_support_implementation",
+    "evidence_increment": "implements candidate-step column support needed before M1445 source-step candidates can be preflighted or replayed",
+    "claim_scope": "implementation and focused tests only; no source preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if implementation breaks default reveal_step behavior",
+      "stop if tests cannot verify trace reconstruction uses source_step",
+      "stop if implementation requires actor input changes"
+    ],
+    "fallback_plan": [
+      "route to implementation audit if source-step support is unsafe",
+      "route to source-step preflight smoke if implementation and tests pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1446 admits source-step preflight support implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "candidate-step column support implementation",
+    "admission_evidence": [
+      "M1446 design requires source_step support before M1445 preflight"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "src/autodrift/bounded_relocation_replay_probe.py",
+      "focused tests",
+      "M1447 implementation document",
+      "status queue scoreboard research log and review",
+      "one follow-up source-step preflight smoke manifest"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "research validation passes",
+      "default reveal_step behavior is preserved",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1447 is infrastructure and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future source-step preflight and bounded replay must test M1445 candidates"
+    ],
+    "temporal_evidence_window": "M1446 source-step support design.",
+    "negative_result_policy": "If implementation fails, route to audit rather than mutating candidate rows or lowering geometry gates.",
+    "allowed_claims": [
+      "candidate-step support implementation and focused test result",
+      "no preflight result, replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The bounded relocation probe can support source_step candidates through an explicit candidate-step column without breaking reveal_step compatibility.",
+  "success_criteria": [
+    "candidate-step column support is implemented",
+    "focused tests pass for source_step and reveal_step behavior",
+    "docs/m1447-paper-route-source-step-preflight-support-implementation.md exists",
+    "no source preflight replay training PPO promotion private holdout corpus export or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "implementation is missing",
+    "default reveal_step behavior regresses",
+    "source_step behavior is untested",
+    "implementation starts source preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_bounded_relocation_replay_probe.py tests/test_research_validate.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1447-paper-route-source-step-preflight-support-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1446-paper-route-source-step-preflight-support-design.md"
+  ],
+  "decision_rule": "M1447 passes if source-step candidate support is implemented and focused tests pass without running preflight or replay.",
+  "next_blocker": "m1447-paper-route-source-step-preflight-support-implementation"
+}

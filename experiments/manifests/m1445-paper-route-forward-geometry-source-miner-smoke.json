@@ -63,7 +63,8 @@
     ],
     "fallback_plan": [
       "route to result audit if row-level miner gates fail",
-      "route to geometry-aware source preflight smoke if row-level miner passes",
+      "route to source-step preflight support design if row-level miner passes and existing preflight cannot preserve source_step",
+      "route to geometry-aware source preflight smoke only after source-step support exists",
       "route to branch synthesis if another missing layer appears"
     ],
     "synthesis_cadence": 10,
@@ -91,7 +92,7 @@
       "runs/m1445_forward_geometry_source_miner_smoke",
       "M1445 result document",
       "status queue scoreboard research log and review",
-      "one follow-up preflight smoke or audit manifest"
+      "one follow-up source-step preflight support design, preflight smoke, or audit manifest"
     ],
     "next_stage_criteria": [
       "forward geometry source rows are nonzero",
@@ -150,6 +151,43 @@
   "baseline_artifacts": [
     "docs/m1444-paper-route-geometry-aware-preflight-validation-synthesis.md"
   ],
-  "decision_rule": "M1445 passes if row-level forward geometry miner produces nonzero selected relocation candidates without running preflight or replay.",
-  "next_blocker": "m1445-paper-route-forward-geometry-source-miner-smoke"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1445-paper-route-forward-geometry-source-miner-smoke.md",
+    "summary": "runs/m1445_forward_geometry_source_miner_smoke/summary.json",
+    "decision": "forward_geometry_source_miner_pass_route_to_source_step_preflight_support_design",
+    "source_rows": 96,
+    "geometry_pass_rows": 3456,
+    "selected_candidate_rows": 128,
+    "rejected_rows": 0,
+    "relocation_clipped_share": 0.0,
+    "source_body_x_min": 5.0657344757795615,
+    "source_body_x_p50": 11.133727103776698,
+    "source_body_x_p95": 14.598930357562214,
+    "raw_relocated_body_x_min": 9.06573447577956,
+    "raw_relocated_body_x_p50": 15.133727103776698,
+    "raw_relocated_body_x_p95": 18.598930357562214,
+    "selected_unique_source_seeds": 6,
+    "selected_unique_capability_pairs": 12,
+    "selected_unique_reveal_buckets": 13,
+    "selected_unique_variants": 3,
+    "selected_max_single_seed_share": 0.1875,
+    "selected_max_single_capability_pair_share": 0.09375,
+    "missing_layer": "bounded relocation preflight and replay currently reconstruct at reveal_step while M1445 candidates are source_step anchored",
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1446-paper-route-source-step-preflight-support-design.json"
+  },
+  "decision": "forward_geometry_source_miner_pass_route_to_source_step_preflight_support_design",
+  "decision_rule": "M1445 passes if row-level forward geometry miner produces nonzero selected relocation candidates without running preflight or replay, then routes through source-step support before old preflight.",
+  "next_blocker": "m1446-paper-route-source-step-preflight-support-design"
 }

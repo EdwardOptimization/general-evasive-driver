@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1454,
+    "completed": 1456,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1444-paper-route-geometry-aware-preflight-validation-synthesis.md",
+    "command_log": "docs/m1446-paper-route-source-step-preflight-support-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1444-paper-route-geometry-aware-preflight-validation-synthesis"
+    "task_id": "m1446-paper-route-source-step-preflight-support-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1445-paper-route-forward-geometry-source-miner-smoke.json",
-    "hypothesis": "M1443 selected enriched rows can pass the M1438 row-level forward geometry source miner and produce selected relocation candidates for a later preflight smoke.",
-    "id": "m1445-paper-route-forward-geometry-source-miner-smoke",
+    "command": "see experiments/manifests/m1447-paper-route-source-step-preflight-support-implementation.json",
+    "hypothesis": "The bounded relocation probe can support source_step candidates through an explicit candidate-step column without breaking reveal_step compatibility.",
+    "id": "m1447-paper-route-source-step-preflight-support-implementation",
     "kind": "infrastructure",
-    "notes": "Pending: run M1438 row-level forward geometry source miner on M1443 selected enriched rows without preflight replay or training",
-    "priority": 14400,
+    "notes": "Pending: implement explicit candidate-step column support and focused tests without running source preflight replay or training",
+    "priority": 14420,
     "status": "pending",
-    "success_artifact": "docs/m1445-paper-route-forward-geometry-source-miner-smoke.md"
+    "success_artifact": "docs/m1447-paper-route-source-step-preflight-support-implementation.md"
   },
-  "updated_at_utc": "20260529T040000Z"
+  "updated_at_utc": "20260529T041200Z"
 }
