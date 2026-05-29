@@ -16,22 +16,44 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe
+m1413-paper-route-staged-warmup-outcome-result-audit
 ```
 
 Current next task:
 
 ```text
-m1413-paper-route-staged-warmup-outcome-result-audit
+m1414-paper-route-clear-near-boundary-warmup-retarget-design
 ```
 
-M1412 ran the collision-stratified no-training outcome probe over M1410 staged
-warmup matched/bucketed rows. The current public-gate base remains M1362 alpha
-`0.1`:
+M1413 audited the M1412 collision-stratified no-training outcome probe. The
+current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1413 result:
+
+```text
+decision: staged_warmup_outcome_audit_route_to_clear_near_boundary_retarget_design
+classification: history_sparse_not_collision_only_but_seed_thin_wrong_warmup_negative
+failure_type: scenario_sampling_failure
+M1412 warmup_history_positive_rows: 14
+M1412 accepted_history_unique_source_seeds: 3
+M1412 accepted_history_unique_capability_pairs: 7
+M1412 accepted_history_unique_reveal_buckets: 3
+M1412 clear_stratum_warmup_history_positive_rows: 10
+M1412 collision_stratum_warmup_history_positive_rows: 4
+M1412 wrong_warmup_history_same_reveal_positive_rows: 0
+selected route: clear near-boundary warmup retarget design
+next: m1414-paper-route-clear-near-boundary-warmup-retarget-design
+```
+
+M1414 should design a retargeted staged warmup source/outcome route with
+pre-registered source and outcome gates. It should preserve the non-collision
+signal while increasing near-boundary density and seed diversity. It must not
+run source smoke, outcome interventions, training, PPO, corpus export, private
+holdout, promotion, actor-input changes, or level3 claim expansion.
 
 M1412 result:
 
@@ -56,13 +78,6 @@ same_recent_wrong_warmup_history_positive_rows: 0
 actor_input_contract_changed: false
 next: m1413-paper-route-staged-warmup-outcome-result-audit
 ```
-
-M1412 is an improvement over M1405 because it finds sparse warmup-history
-positives, and they are not collision-only. It is still not enough for training,
-corpus export, promotion, or level3 self-identification: accepted rows are
-seed-thin, preferred near-boundary positives are only `2` rows from `1` seed,
-and wrong-warmup variants remain negative. M1413 must audit this before another
-run.
 
 M1411 result:
 

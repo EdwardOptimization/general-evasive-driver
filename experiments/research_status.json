@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1422,
+    "completed": 1423,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe.md",
+    "command_log": "docs/m1413-paper-route-staged-warmup-outcome-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1412_staged_warmup_gate_collision_stratified_outcome_probe",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe"
+    "task_id": "m1413-paper-route-staged-warmup-outcome-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1413-paper-route-staged-warmup-outcome-result-audit.json",
-    "hypothesis": "The M1412 sparse positive result can be audited into a safer retargeting decision without overclaiming self-identification or entering training.",
-    "id": "m1413-paper-route-staged-warmup-outcome-result-audit",
+    "command": "see experiments/manifests/m1414-paper-route-clear-near-boundary-warmup-retarget-design.json",
+    "hypothesis": "A retargeted staged warmup design can improve source-diverse near-boundary history positives without overfitting to the sparse M1412 accepted seeds.",
+    "id": "m1414-paper-route-clear-near-boundary-warmup-retarget-design",
     "kind": "gate",
-    "notes": "Pending: audit sparse M1412 history-positive rows collision strata and weak wrong-warmup evidence before retargeting",
-    "priority": 14080,
+    "notes": "Pending: design a clear near-boundary staged warmup retarget route with source/outcome thresholds before another run",
+    "priority": 14090,
     "status": "pending",
-    "success_artifact": "docs/m1413-paper-route-staged-warmup-outcome-result-audit.md"
+    "success_artifact": "docs/m1414-paper-route-clear-near-boundary-warmup-retarget-design.md"
   },
-  "updated_at_utc": "20260529T045000Z"
+  "updated_at_utc": "20260529T050000Z"
 }

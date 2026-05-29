@@ -1,0 +1,156 @@
+{
+  "id": "m1414-paper-route-clear-near-boundary-warmup-retarget-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1412_staged_warmup_gate_collision_stratified_outcome_probe/summary.json",
+      "docs/m1413-paper-route-staged-warmup-outcome-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1413-paper-route-staged-warmup-outcome-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a retargeted staged warmup source/outcome route after M1412 sparse positives"
+    ],
+    "derived_from": [
+      "m1413-paper-route-staged-warmup-outcome-result-audit"
+    ],
+    "blocked_by": [
+      "M1412 positives are sparse, seed-thin, and wrong-warmup-negative"
+    ],
+    "supersedes": [
+      "training from M1412 sparse positives",
+      "rerunning the same staged gate grid without retargeting",
+      "treating source materialization as self-ID evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1414-paper-route-clear-near-boundary-warmup-retarget-design.md",
+  "public_gates": [
+    "M1414 must design a retargeted public source/outcome route before another run",
+    "M1414 must preserve collision stratification and wrong-warmup diagnostics",
+    "M1414 must not train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source smoke",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not tune only the 3 M1412 accepted-history seeds",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "D_clear_near_boundary_warmup_retarget",
+    "evidence_increment": "designs the next retargeted staged warmup source/outcome experiment to improve seed diversity, near-boundary density, and wrong-warmup sensitivity",
+    "claim_scope": "design only; no source smoke, outcome intervention, training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if design would tune only M1412 accepted seeds",
+      "stop if design removes collision stratification",
+      "stop if design routes to training/export before source-diverse positives",
+      "stop if actor input changes are proposed"
+    ],
+    "fallback_plan": [
+      "route to mild-gate retune source smoke if a clean retarget is designed",
+      "route to branch synthesis if the retarget would be another narrow public loop",
+      "pivot away from staged gate if no non-overfit route is credible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_after_m1409_continue_synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "clear near-boundary staged warmup retarget design",
+    "admission_evidence": [
+      "M1412 has sparse warmup-history positives",
+      "M1412 positives are not collision-only",
+      "M1412 wrong-warmup variants remain negative",
+      "M1413 blocks training and routes to retarget design"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source smoke",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1414 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "retargeting strategy is explicit",
+      "source and outcome pass/fail thresholds are pre-registered",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1414 is design only and must not raise M1412 sparse positives to level3.",
+    "history_necessity_tests": [
+      "design wrong-warmup outcome diagnostics",
+      "design warmup-removed/shortened controls",
+      "design reset and zero-current controls",
+      "design collision and near-boundary strata"
+    ],
+    "temporal_evidence_window": "M1412 and M1413 artifacts.",
+    "negative_result_policy": "If no source-diverse retarget is credible, route to synthesis or pivot instead of weakening the evidence standard.",
+    "allowed_claims": [
+      "retargeted experiment design",
+      "no source smoke, outcome intervention, promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A retargeted staged warmup design can improve source-diverse near-boundary history positives without overfitting to the sparse M1412 accepted seeds.",
+  "success_criteria": [
+    "docs/m1414-paper-route-clear-near-boundary-warmup-retarget-design.md exists",
+    "design specifies source-smoke thresholds",
+    "design specifies outcome thresholds",
+    "design preserves collision stratification and wrong-warmup diagnostics",
+    "design chooses a next route without source smoke, outcome intervention, training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design overfits to M1412 accepted seeds",
+    "design omits collision stratification or wrong-warmup diagnostics",
+    "design routes directly to training, PPO, promotion, private holdout, corpus export, or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1414-paper-route-clear-near-boundary-warmup-retarget-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1414-paper-route-clear-near-boundary-warmup-retarget-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1412_staged_warmup_gate_collision_stratified_outcome_probe/summary.json",
+    "docs/m1413-paper-route-staged-warmup-outcome-result-audit.md"
+  ],
+  "decision_rule": "M1414 passes if it designs a non-training retargeted staged warmup route with pre-registered source/outcome gates and no claim expansion.",
+  "next_blocker": "m1414-paper-route-clear-near-boundary-warmup-retarget-design"
+}

@@ -20851,3 +20851,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1413-paper-route-staged-warmup-outcome-result-audit.json`.
 - next: `m1413-paper-route-staged-warmup-outcome-result-audit`
+
+## 20260529T050000Z - m1413-paper-route-staged-warmup-outcome-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1413-paper-route-staged-warmup-outcome-result-audit.md`
+- decision: `staged_warmup_outcome_audit_route_to_clear_near_boundary_retarget_design`
+- classification: `history_sparse_not_collision_only_but_seed_thin_wrong_warmup_negative`
+- failure type: `scenario_sampling_failure`
+- evidence: M1412 produced `14` warmup-history-positive rows, `10` from clear source strata and `4` from collision strata, so the signal is not collision-only.
+- blocker: accepted-history evidence has only `3` source seeds and `3` reveal buckets; preferred near-boundary positives have only `2` rows from `1` seed; wrong-warmup variants remain at `0`.
+- route: design a clear near-boundary staged warmup retarget with pre-registered source/outcome gates; do not train or export a corpus.
+- guardrail: no outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1414-paper-route-clear-near-boundary-warmup-retarget-design.json`.
+- next: `m1414-paper-route-clear-near-boundary-warmup-retarget-design`

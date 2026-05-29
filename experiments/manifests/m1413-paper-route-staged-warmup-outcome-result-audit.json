@@ -148,6 +148,33 @@
   "baseline_artifacts": [
     "runs/m1412_staged_warmup_gate_collision_stratified_outcome_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1413-paper-route-staged-warmup-outcome-result-audit.md",
+    "decision": "staged_warmup_outcome_audit_route_to_clear_near_boundary_retarget_design",
+    "classification": "history_sparse_not_collision_only_but_seed_thin_wrong_warmup_negative",
+    "failure_type": "scenario_sampling_failure",
+    "m1412_warmup_history_positive_rows": 14,
+    "m1412_accepted_history_unique_source_seeds": 3,
+    "m1412_accepted_history_unique_capability_pairs": 7,
+    "m1412_accepted_history_unique_reveal_buckets": 3,
+    "m1412_clear_stratum_warmup_history_positive_rows": 10,
+    "m1412_collision_stratum_warmup_history_positive_rows": 4,
+    "m1412_wrong_warmup_history_same_reveal_positive_rows": 0,
+    "m1412_same_recent_wrong_warmup_history_positive_rows": 0,
+    "selected_route": "clear_near_boundary_warmup_retarget_design",
+    "outcome_probe_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1414-paper-route-clear-near-boundary-warmup-retarget-design.json"
+  },
+  "decision": "staged_warmup_outcome_audit_route_to_clear_near_boundary_retarget_design",
   "decision_rule": "M1413 passes if it classifies M1412 sparse positives into an explicit non-training next route.",
-  "next_blocker": "m1413-paper-route-staged-warmup-outcome-result-audit"
+  "next_blocker": "m1414-paper-route-clear-near-boundary-warmup-retarget-design"
 }
