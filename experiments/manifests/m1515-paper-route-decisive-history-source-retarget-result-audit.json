@@ -147,6 +147,49 @@
     "runs/m1514_decisive_history_source_retarget_smoke/retarget_trace_rows.csv",
     "runs/m1514_decisive_history_source_retarget_smoke/retarget_source_family_summary.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1515-paper-route-decisive-history-source-retarget-result-audit.md",
+    "decision": "source_retarget_audit_admit_t5_high_speed_intervention_design_repair_others",
+    "near_boundary_subset_verdict": "admit_t5_high_speed_close_obstacle_to_measured_intervention_design",
+    "candidate_materialization_verdict": "blocked",
+    "eligible_source_family": "t5_high_speed_close_obstacle",
+    "eligible_modes": [
+      "close_wide",
+      "low_mu_close",
+      "late_reveal_high_speed",
+      "drift_required_focus"
+    ],
+    "global_min_margin": -0.042059208331689746,
+    "eligible_min_margin": 0.23423498489590822,
+    "near_boundary_proxy_count": 39,
+    "non_aeb_label_source_family_count": 2,
+    "rollout_failure_count": 5,
+    "failure_type_counts": {
+      "did_not_reach_decision_step": 1,
+      "reset_failure": 4
+    },
+    "repair_needed": [
+      "T4 source families remain high-margin and aeb_feasible",
+      "t5_near_boundary_warmup remains high-margin and aeb_feasible",
+      "t5_boundary_axis_retarget drift_required_focus collides before decision",
+      "drift_required_focus reset sampling fails for four source families"
+    ],
+    "guardrail_violation_count": 0,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1516-paper-route-decisive-history-t5-intervention-design.json"
+  },
+  "decision": "source_retarget_audit_admit_t5_high_speed_intervention_design_repair_others",
   "decision_rule": "M1515 passes if it audits retarget trace quality and chooses the next route without materializing candidates or claiming self-identification.",
-  "next_blocker": "m1515-paper-route-decisive-history-source-retarget-result-audit"
+  "next_blocker": "m1516-paper-route-decisive-history-t5-intervention-design"
 }

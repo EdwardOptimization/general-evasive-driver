@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1523,
+    "completed": 1524,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1514_decisive_history_source_retarget_smoke/summary.json",
+    "command_log": "docs/m1515-paper-route-decisive-history-source-retarget-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1514_decisive_history_source_retarget_smoke",
+    "run_dir": "docs/m1515-paper-route-decisive-history-source-retarget-result-audit.md",
     "status": "completed",
-    "task_id": "m1514-paper-route-decisive-history-source-retarget-implementation"
+    "task_id": "m1515-paper-route-decisive-history-source-retarget-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1515-paper-route-decisive-history-source-retarget-result-audit.json",
-    "hypothesis": "The M1514 retarget smoke produced enough near-boundary signal to audit whether a measured intervention subset should be designed next.",
-    "id": "m1515-paper-route-decisive-history-source-retarget-result-audit",
+    "command": "see experiments/manifests/m1516-paper-route-decisive-history-t5-intervention-design.json",
+    "hypothesis": "A bounded measured-intervention design can test whether the eligible T5 high-speed retarget rows show outcome-relevant sensitivity to history and response ablations.",
+    "id": "m1516-paper-route-decisive-history-t5-intervention-design",
     "kind": "gate",
-    "notes": "Pending: audit M1514 retarget traces before measured intervention design or repair",
-    "priority": 15100,
+    "notes": "Pending: design bounded measured interventions for the admitted T5 high-speed subset",
+    "priority": 15110,
     "status": "pending",
-    "success_artifact": "docs/m1515-paper-route-decisive-history-source-retarget-result-audit.md"
+    "success_artifact": "docs/m1516-paper-route-decisive-history-t5-intervention-design.md"
   },
-  "updated_at_utc": "20260529T091753Z"
+  "updated_at_utc": "20260529T092215Z"
 }

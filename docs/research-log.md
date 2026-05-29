@@ -22676,3 +22676,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: bounded retargeting moved traces toward near-boundary and non-AEB conditions, but failures and lack of interventions require an audit before candidate materialization.
 - follow-up manifest: `experiments/manifests/m1515-paper-route-decisive-history-source-retarget-result-audit.json`.
 - next: `m1515-paper-route-decisive-history-source-retarget-result-audit`
+
+## M1515 Paper-Route Decisive History Source Retarget Result Audit
+
+- status: completed
+- decision: `source_retarget_audit_admit_t5_high_speed_intervention_design_repair_others`
+- artifact: `docs/m1515-paper-route-decisive-history-source-retarget-result-audit.md`
+- audited run: `runs/m1514_decisive_history_source_retarget_smoke`
+- near-boundary subset verdict: admit `t5_high_speed_close_obstacle` to measured intervention design
+- candidate materialization verdict: blocked
+- eligible modes: `close_wide`, `low_mu_close`, `late_reveal_high_speed`, `drift_required_focus`
+- eligible minimum margin: 0.23423498489590822
+- global min margin: -0.042059208331689746
+- near-boundary proxy count: 39
+- non-aeb label source family count: 2
+- rollout failure count: 5
+- repair needed: T4 high-margin/aeb-feasible rows; `t5_near_boundary_warmup`; `t5_boundary_axis_retarget` drift focus collision; four drift-focus sampling failures
+- guardrail violation count: 0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1515 admits only a narrow T5 high-speed subset to measured intervention design and keeps all materialization/self-ID claims blocked.
+- follow-up manifest: `experiments/manifests/m1516-paper-route-decisive-history-t5-intervention-design.json`.
+- next: `m1516-paper-route-decisive-history-t5-intervention-design`

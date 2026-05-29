@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1514-paper-route-decisive-history-source-retarget-implementation
+m1515-paper-route-decisive-history-source-retarget-result-audit
 ```
 
 Current next task:
 
 ```text
-m1515-paper-route-decisive-history-source-retarget-result-audit
+m1516-paper-route-decisive-history-t5-intervention-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -63,11 +63,43 @@ that runner and produced bounded public source traces for all six source
 families. M1512 audited those traces as plumbing-positive but too safe for
 candidate materialization. M1513 designed a bounded public retarget route.
 M1514 implemented it and produced near-boundary retarget traces with explicit
-failures. The current public-gate base remains M1362 alpha `0.1`:
+failures. M1515 admitted only the T5 high-speed subset to measured-intervention
+design and kept candidate materialization blocked. The current public-gate base
+remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1515 decisive history source retarget result audit:
+
+```text
+decision: source_retarget_audit_admit_t5_high_speed_intervention_design_repair_others
+artifact: docs/m1515-paper-route-decisive-history-source-retarget-result-audit.md
+audited_run: runs/m1514_decisive_history_source_retarget_smoke
+near_boundary_subset_verdict: admit_t5_high_speed_close_obstacle_to_measured_intervention_design
+candidate_materialization_verdict: blocked
+eligible_modes:
+  close_wide
+  low_mu_close
+  late_reveal_high_speed
+  drift_required_focus
+eligible_min_margin: 0.23423498489590822
+global_min_margin: -0.042059208331689746
+near_boundary_proxy_count: 39
+non_aeb_label_source_family_count: 2
+rollout_failure_count: 5
+guardrail_violation_count: 0
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1516-paper-route-decisive-history-t5-intervention-design
+```
+
+M1515 does not admit a training corpus or candidate materialization. Next is
+designing measured normal/reset/zero/delayed/wrong-history continuations for
+the admitted T5 high-speed subset.
 
 M1514 decisive history source retarget implementation:
 
