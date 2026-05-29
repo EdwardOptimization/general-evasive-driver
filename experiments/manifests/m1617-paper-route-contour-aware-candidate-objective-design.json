@@ -1,0 +1,157 @@
+{
+  "id": "m1617-paper-route-contour-aware-candidate-objective-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1615_contour_aware_candidate_corpus/summary.json",
+      "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "runs/m1615_contour_aware_candidate_corpus/diagnostic_guardrail_rows.csv",
+      "docs/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.json"
+    ],
+    "parent_objective": [
+      "design contour-aware candidate objective without constructing it"
+    ],
+    "derived_from": [
+      "m1616-paper-route-contour-aware-candidate-corpus-export-result-audit"
+    ],
+    "blocked_by": [
+      "M1616 admits design-only objective planning but blocks objective construction and training"
+    ],
+    "supersedes": [
+      "direct objective construction from M1615",
+      "direct actor update from M1615",
+      "direct PPO after M1615"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1617-paper-route-contour-aware-candidate-objective-design.md",
+  "public_gates": [
+    "M1617 must design the objective without constructing or running it",
+    "M1617 must keep positive candidates and diagnostic guardrails lexicographically separated",
+    "M1617 must require exact full-corpus checks before any update",
+    "M1617 must require audit before implementation",
+    "M1617 must keep training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not construct a loss",
+    "do not construct an objective",
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_candidate_objective_design",
+    "evidence_increment": "designs objective semantics from candidate package without implementation",
+    "claim_scope": "design only; no loss/objective construction, actor update, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design constructs an objective config",
+      "stop if design treats diagnostics as positive candidates",
+      "stop if design routes directly to PPO"
+    ],
+    "fallback_plan": [
+      "admit objective implementation only if exact checks and audit route are explicit",
+      "pivot if public-overfit risk cannot be mitigated",
+      "stop if no safe objective semantics are available"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1616 admits design-only objective planning",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "contour-aware candidate objective design",
+    "admission_evidence": [
+      "M1615 candidate corpus package is valid but public and not training-ready",
+      "M1616 admits objective design only"
+    ],
+    "blocked_shortcuts": [
+      "do not construct a loss",
+      "do not construct an objective",
+      "do not train",
+      "do not run PPO",
+      "do not run implementation smoke",
+      "do not use private holdout",
+      "do not promote a checkpoint",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1617 design document",
+      "M1617 status queue scoreboard research log and review",
+      "one follow-up manifest if design admits implementation, synthesis, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "objective semantics are explicit",
+      "exact full-corpus checks are explicit",
+      "diagnostic guardrails are explicit",
+      "post-design audit/implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1617 is design-only over public candidate package and cannot strengthen self-ID claims.",
+    "history_necessity_tests": [
+      "M1615 positive candidates",
+      "M1615 diagnostic guardrails"
+    ],
+    "temporal_evidence_window": "M1615 candidate corpus package.",
+    "negative_result_policy": "If objective design cannot protect diagnostics and public-proof metadata, stop or pivot.",
+    "allowed_claims": [
+      "objective design and next route",
+      "no promotion, objective construction, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A design-only objective can define lexicographic candidate and diagnostic roles before any objective construction or training.",
+  "success_criteria": [
+    "docs/m1617-paper-route-contour-aware-candidate-objective-design.md exists",
+    "objective semantics are explicit",
+    "positive candidate and diagnostic guardrail roles are lexicographically separated",
+    "exact full-corpus check requirements are explicit",
+    "post-design audit or implementation route is explicit",
+    "training PPO promotion private holdout objective construction and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design constructs a loss or objective config",
+    "design treats diagnostics as positive candidates",
+    "design routes directly to training PPO promotion private holdout objective construction or actor-input changes"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1617-paper-route-contour-aware-candidate-objective-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1617-paper-route-contour-aware-candidate-objective-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1615_contour_aware_candidate_corpus/summary.json",
+    "docs/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.md"
+  ],
+  "decision_rule": "M1617 passes if it designs objective semantics while keeping objective construction, training, PPO, and promotion blocked.",
+  "next_blocker": "m1617-paper-route-contour-aware-candidate-objective-design"
+}

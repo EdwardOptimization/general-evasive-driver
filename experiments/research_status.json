@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1624,
+    "completed": 1625,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "runs/m1615_contour_aware_candidate_corpus/summary.json",
+      "command_log": "docs/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1615_contour_aware_candidate_corpus",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1615-paper-route-contour-aware-candidate-corpus-export-implementation"
+      "task_id": "m1616-paper-route-contour-aware-candidate-corpus-export-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.json",
-      "hypothesis": "M1615's candidate corpus package should be audited before any objective-design, actor-update, training, or PPO decision.",
-      "id": "m1616-paper-route-contour-aware-candidate-corpus-export-result-audit",
+      "command": "see experiments/manifests/m1617-paper-route-contour-aware-candidate-objective-design.json",
+      "hypothesis": "A design-only objective can define lexicographic candidate and diagnostic roles before any objective construction or training.",
+      "id": "m1617-paper-route-contour-aware-candidate-objective-design",
       "kind": "gate",
-      "notes": "Pending: audit package export before any objective design",
-      "priority": 16110,
+      "notes": "Pending: design objective semantics without constructing objective",
+      "priority": 16120,
       "status": "pending",
-      "success_artifact": "docs/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.md"
+      "success_artifact": "docs/m1617-paper-route-contour-aware-candidate-objective-design.md"
     },
-    "updated_at_utc": "20260529T181432Z"
+    "updated_at_utc": "20260529T181728Z"
 }

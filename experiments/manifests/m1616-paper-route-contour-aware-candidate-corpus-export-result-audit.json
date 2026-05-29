@@ -150,6 +150,50 @@
     "runs/m1615_contour_aware_candidate_corpus/summary.json",
     "docs/m1615-paper-route-contour-aware-candidate-corpus-export-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.md",
+    "decision": "contour_aware_candidate_corpus_export_audit_admit_objective_design",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "candidate_corpus_exported": true,
+    "training_corpus_exported": false,
+    "loss_constructed": false,
+    "objective_constructed": false,
+    "positive_candidate_count": 39,
+    "diagnostic_guardrail_count": 232,
+    "positive_rows_all_clean": true,
+    "diagnostic_rows_used_as_positive": false,
+    "public_proof_metadata_complete": true,
+    "requires_objective_design_before_training": true,
+    "training_ready": false,
+    "public_gate_overfit_risk": "high",
+    "supported_claims": [
+      "M1615 correctly exports a candidate corpus package",
+      "positive candidates and diagnostic guardrails remain separated",
+      "metadata blocks paper-level, level3, private-holdout, and training-ready claims",
+      "the package is eligible for design-only objective planning"
+    ],
+    "unsupported_claims": [
+      "objective construction",
+      "loss construction",
+      "actor update",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "paper-level self-identification",
+      "level3 anticipatory self-identification"
+    ],
+    "next_manifest": "experiments/manifests/m1617-paper-route-contour-aware-candidate-objective-design.json",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1616 passes if it audits M1615 and chooses the next route before objective construction, training, PPO, or promotion.",
-  "next_blocker": "m1616-paper-route-contour-aware-candidate-corpus-export-result-audit"
+  "next_blocker": "m1617-paper-route-contour-aware-candidate-objective-design"
 }
