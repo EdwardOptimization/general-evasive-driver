@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1458 designs a source-step preflight-only validation over M1457 retarget candidates before any bounded replay training promotion or corpus export",
+  "failure_criteria": [
+    "design document is missing",
+    "design uses reveal_step for source-step candidates",
+    "design claims retarget proposals are replay evidence",
+    "design starts source preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight in this design milestone",
+    "do not run bounded replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not count retarget proposals as replay evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T044555Z",
+  "hypothesis": "M1457 retarget candidates justify one preflight-only validation run before any bounded replay or corpus export.",
+  "lineage": {
+    "blocked_by": [
+      "retarget candidates have not yet been reconstructed by source-step preflight"
+    ],
+    "derived_from": [
+      "m1457-paper-route-source-step-boundary-retarget-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1457-paper-route-source-step-boundary-retarget-smoke.json"
+    ],
+    "parent_dataset": [
+      "runs/m1457_source_step_boundary_retarget_smoke/retarget_candidate_rows.csv",
+      "runs/m1457_source_step_boundary_retarget_smoke/summary.json",
+      "docs/m1457-paper-route-source-step-boundary-retarget-smoke.md"
+    ],
+    "parent_objective": [
+      "design retargeted source-step preflight smoke after M1457 proposal gate passes"
+    ],
+    "supersedes": [
+      "direct bounded replay from unvalidated retarget candidates"
+    ]
+  },
+  "milestone": "m1458-paper-route-retargeted-source-step-preflight-design",
+  "next_blocker": "m1459-paper-route-retargeted-source-step-preflight-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "retargeted_source_step_preflight_design_admit_smoke",
+  "public_gates": [
+    "M1458 must design preflight-only validation before bounded replay",
+    "M1458 must require candidate_step_column source_step",
+    "M1458 must block bounded replay training PPO promotion private holdout corpus export and actor-input changes"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1458-paper-route-retargeted-source-step-preflight-design.md",
+    "clearance_margin_mean": "",
+    "decision": "retargeted_source_step_preflight_design_admit_smoke",
+    "milestone": "m1458-paper-route-retargeted-source-step-preflight-design",
+    "reason": "M1458 designs a source-step preflight-only validation over M1457 retarget candidates before any bounded replay training promotion or corpus export",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1458-paper-route-retargeted-source-step-preflight-design.md exists",
+    "design command uses --candidate-step-column source_step",
+    "design blocks bounded replay training PPO promotion private holdout corpus export and actor-input changes",
+    "design routes to preflight result audit or bounded replay design depending on M1459 outcome"
+  ],
+  "type": "gate"
+}

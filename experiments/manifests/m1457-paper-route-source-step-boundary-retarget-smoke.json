@@ -153,6 +153,46 @@
   "baseline_artifacts": [
     "docs/m1456-paper-route-source-step-boundary-retarget-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1457-paper-route-source-step-boundary-retarget-smoke.md",
+    "summary": "runs/m1457_source_step_boundary_retarget_smoke/summary.json",
+    "decision": "source_step_boundary_retarget_smoke_pass_route_to_preflight_design",
+    "input_replay_rows": 192,
+    "history_variant_groups": 64,
+    "proposal_rows": 798,
+    "selected_retarget_rows": 128,
+    "proposal_class_counts": {
+      "normal_boundary": 90,
+      "too_easy": 228,
+      "too_hard": 480
+    },
+    "selected_class_counts": {
+      "normal_boundary": 32,
+      "too_easy": 32,
+      "too_hard": 64
+    },
+    "selected_unique_source_seeds": 5,
+    "selected_unique_capability_pairs": 9,
+    "selected_unique_reveal_buckets": 8,
+    "selected_unique_variants": 3,
+    "selected_max_single_seed_share": 0.25,
+    "selected_max_single_capability_pair_share": 0.1875,
+    "candidate_step_column": "source_step",
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1458-paper-route-retargeted-source-step-preflight-design.json"
+  },
+  "decision": "source_step_boundary_retarget_smoke_pass_route_to_preflight_design",
   "decision_rule": "M1457 passes if retarget proposal generation produces diverse source-step candidates without preflight or replay.",
-  "next_blocker": "m1457-paper-route-source-step-boundary-retarget-smoke"
+  "next_blocker": "m1458-paper-route-retargeted-source-step-preflight-design"
 }

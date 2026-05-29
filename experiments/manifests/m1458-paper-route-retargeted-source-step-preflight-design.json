@@ -1,0 +1,167 @@
+{
+  "id": "m1458-paper-route-retargeted-source-step-preflight-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1457_source_step_boundary_retarget_smoke/retarget_candidate_rows.csv",
+      "runs/m1457_source_step_boundary_retarget_smoke/summary.json",
+      "docs/m1457-paper-route-source-step-boundary-retarget-smoke.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1457-paper-route-source-step-boundary-retarget-smoke.json"
+    ],
+    "parent_objective": [
+      "design retargeted source-step preflight smoke after M1457 proposal gate passes"
+    ],
+    "derived_from": [
+      "m1457-paper-route-source-step-boundary-retarget-smoke"
+    ],
+    "blocked_by": [
+      "retarget candidates have not yet been reconstructed by source-step preflight"
+    ],
+    "supersedes": [
+      "direct bounded replay from unvalidated retarget candidates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1458-paper-route-retargeted-source-step-preflight-design.md",
+  "public_gates": [
+    "M1458 must design preflight-only validation before bounded replay",
+    "M1458 must require candidate_step_column source_step",
+    "M1458 must block bounded replay training PPO promotion private holdout corpus export and actor-input changes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight in this design milestone",
+    "do not run bounded replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not count retarget proposals as replay evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_step_boundary_retarget_validation",
+    "evidence_axis": "S_retargeted_source_step_preflight_design",
+    "evidence_increment": "designs preflight-only reconstruction for M1457 retarget candidates",
+    "claim_scope": "preflight design only; no preflight run, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design uses reveal_step instead of source_step",
+      "stop if design treats retarget proposals as replay or history-positive evidence",
+      "stop if design admits bounded replay before preflight"
+    ],
+    "fallback_plan": [
+      "route to retargeted preflight smoke if design passes",
+      "route to proposal audit if the preflight design cannot preserve source_step"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1457 retarget proposal smoke passes",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "retargeted source-step preflight smoke design",
+    "admission_evidence": [
+      "M1457 selected 128 source-step retarget candidates with source-diverse class coverage"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source preflight in this design milestone",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1458 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up preflight smoke manifest"
+    ],
+    "next_stage_criteria": [
+      "preflight command is explicit",
+      "candidate_step_column is source_step",
+      "pass/fail interpretation is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1458 is design and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future bounded replay must test normal history against selected history interventions"
+    ],
+    "temporal_evidence_window": "M1457 retarget candidates.",
+    "negative_result_policy": "If M1459 finds sparse geometry or diversity, route to audit instead of weakening history standards.",
+    "allowed_claims": [
+      "retargeted source-step preflight design",
+      "no preflight result, replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1457 retarget candidates justify one preflight-only validation run before any bounded replay or corpus export.",
+  "success_criteria": [
+    "docs/m1458-paper-route-retargeted-source-step-preflight-design.md exists",
+    "design command uses --candidate-step-column source_step",
+    "design blocks bounded replay training PPO promotion private holdout corpus export and actor-input changes",
+    "design routes to preflight result audit or bounded replay design depending on M1459 outcome"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design uses reveal_step for source-step candidates",
+    "design claims retarget proposals are replay evidence",
+    "design starts source preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1458-paper-route-retargeted-source-step-preflight-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1458-paper-route-retargeted-source-step-preflight-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1457_source_step_boundary_retarget_smoke/summary.json"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1458-paper-route-retargeted-source-step-preflight-design.md",
+    "decision": "retargeted_source_step_preflight_design_admit_smoke",
+    "source_candidates": "runs/m1457_source_step_boundary_retarget_smoke/retarget_candidate_rows.csv",
+    "candidate_step_column": "source_step",
+    "max_candidate_rows": 128,
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1459-paper-route-retargeted-source-step-preflight-smoke.json"
+  },
+  "decision": "retargeted_source_step_preflight_design_admit_smoke",
+  "decision_rule": "M1458 passes if it designs a source-step preflight-only smoke without running preflight or replay.",
+  "next_blocker": "m1459-paper-route-retargeted-source-step-preflight-smoke"
+}

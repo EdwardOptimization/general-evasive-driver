@@ -16,42 +16,47 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1456-paper-route-source-step-boundary-retarget-implementation
+m1458-paper-route-retargeted-source-step-preflight-design
 ```
 
 Current next task:
 
 ```text
-m1457-paper-route-source-step-boundary-retarget-smoke
+m1459-paper-route-retargeted-source-step-preflight-smoke
 ```
 
-M1456 implemented the source-step boundary retarget proposal generator. The
-current public-gate base remains M1362 alpha `0.1`:
+M1457 ran the source-step boundary retarget proposal smoke and M1458 designed
+the next retargeted preflight-only smoke. The current public-gate base remains
+M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1456 result:
+M1458 result:
 
 ```text
-decision: source_step_boundary_retarget_generator_implemented_admit_proposal_smoke
-implementation: src/autodrift/source_step_replay_boundary_retarget.py
-tests: tests/test_source_step_replay_boundary_retarget.py
-focused_test_result: 4 passed in 0.91s
-retarget classes: normal_boundary / too_easy / too_hard
+decision: retargeted_source_step_preflight_design_admit_smoke
+source_candidates: runs/m1457_source_step_boundary_retarget_smoke/retarget_candidate_rows.csv
 candidate_step_column: source_step
-next: m1457-paper-route-source-step-boundary-retarget-smoke
+next: m1459-paper-route-retargeted-source-step-preflight-smoke
 ```
 
-M1457 should run proposal generation only on:
+M1457 result:
 
 ```text
-runs/m1452_source_step_bounded_replay_smoke/actual_replay_rows.csv
+decision: source_step_boundary_retarget_smoke_pass_route_to_preflight_design
+proposal_rows: 798
+selected_retarget_rows: 128
+selected_class_counts: normal_boundary 32 / too_easy 32 / too_hard 64
+selected diversity: 5 seeds / 9 capability pairs / 8 reveal buckets / 3 variants
+candidate_step_column: source_step
 ```
 
-It must not run preflight, replay, training, PPO, promotion, private holdout,
-corpus export, or actor-input changes.
+M1459 should run `bounded_relocation_replay_probe --preflight-only` on the
+M1457 retarget candidates. It must not run bounded replay, outcome
+interventions, training, PPO, promotion, private holdout, corpus export, or
+actor-input changes.
 
 M1455 result:
 

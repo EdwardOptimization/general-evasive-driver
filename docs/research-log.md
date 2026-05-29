@@ -21573,3 +21573,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1457-paper-route-source-step-boundary-retarget-smoke.json`.
 - next: `m1457-paper-route-source-step-boundary-retarget-smoke`
+
+## 20260529T052000Z - m1457-paper-route-source-step-boundary-retarget-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `proof`
+- artifact: `docs/m1457-paper-route-source-step-boundary-retarget-smoke.md`
+- run artifact: `runs/m1457_source_step_boundary_retarget_smoke/summary.json`
+- decision: `source_step_boundary_retarget_smoke_pass_route_to_preflight_design`
+- input replay rows: `192`
+- history variant groups: `64`
+- proposal rows: `798`
+- selected retarget rows: `128`
+- proposal class counts: `90` normal-boundary, `228` too-easy, `480` too-hard.
+- selected class counts: `32` normal-boundary, `32` too-easy, `64` too-hard.
+- selected diversity: `5` seeds, `9` capability pairs, `8` reveal buckets, `3` variants.
+- candidate step column: `source_step`.
+- interpretation: proposal pool is large enough and diverse enough to justify one preflight-only validation; this is not replay evidence.
+- guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1458-paper-route-retargeted-source-step-preflight-design.json`.
+- next: `m1458-paper-route-retargeted-source-step-preflight-design`
+
+## 20260529T052100Z - m1458-paper-route-retargeted-source-step-preflight-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1458-paper-route-retargeted-source-step-preflight-design.md`
+- decision: `retargeted_source_step_preflight_design_admit_smoke`
+- candidate source: `runs/m1457_source_step_boundary_retarget_smoke/retarget_candidate_rows.csv`
+- required candidate step column: `source_step`
+- design: run `bounded_relocation_replay_probe --preflight-only` on M1457 retarget candidates before any bounded replay or corpus export.
+- guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1459-paper-route-retargeted-source-step-preflight-smoke.json`.
+- next: `m1459-paper-route-retargeted-source-step-preflight-smoke`
