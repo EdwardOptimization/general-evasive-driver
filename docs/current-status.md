@@ -16,31 +16,35 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1475-paper-route-source-diverse-pressure-implementation
+m1476-paper-route-source-diverse-pressure-proposal-smoke
 ```
 
 Current next task:
 
 ```text
-m1476-paper-route-source-diverse-pressure-proposal-smoke
+m1477-paper-route-boundary-retarget-validation-synthesis
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
-designed the source-diverse pressure route, and M1475 implemented the generator.
-The current public-gate base remains M1362 alpha `0.1`:
+designed the source-diverse pressure route, M1475 implemented the generator, and
+M1476 ran proposal generation. The current public-gate base remains M1362 alpha
+`0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1475 implementation:
+M1476 result:
 
 ```text
-decision: source_diverse_pressure_generator_implemented_admit_proposal_smoke
-implementation: src/autodrift/source_diverse_pressure.py
-tests: tests/test_source_diverse_pressure.py
-focused tests: 31 passed in 2.12s
-next: m1476-paper-route-source-diverse-pressure-proposal-smoke
+decision: source_diverse_pressure_proposal_smoke_pass_route_to_branch_synthesis
+source_audit_rows: 213
+proposal_rows: 1464
+selected_candidate_rows: 120
+selected_source_group_counts: 96 neighbor_source / 12 original_source / 12 control_diagnostic
+selected diversity: 5 seeds / 7 capability pairs / 7 reveal buckets / 4 variants
+duplicate pressure keys: 0
+next: m1477-paper-route-boundary-retarget-validation-synthesis
 ```
 
 M1472 result:
@@ -63,9 +67,9 @@ selected_duplicate_positive_neighborhood_key_rows: 0
 selected diversity: 5 seeds / 9 capability pairs / 8 reveal buckets / 3 variants
 ```
 
-M1476 should run proposal generation only. It must not run preflight, replay,
-train, run PPO, promote, use private holdout, export corpus, or change actor
-inputs.
+M1477 should synthesize M1467-M1476 before any preflight or replay continues.
+It must not run preflight, replay, train, run PPO, promote, use private holdout,
+export corpus, or change actor inputs.
 
 M1455 result:
 

@@ -1,0 +1,95 @@
+{
+  "decision_reason": "M1476 proposal smoke selected 120 source-diverse candidates including 96 neighbor-source rows across 5 seeds and 7 capability pairs with zero duplicate pressure keys",
+  "failure_criteria": [
+    "summary missing",
+    "selected_candidate_rows < 32",
+    "neighbor source candidates are missing",
+    "duplicate pressure keys remain",
+    "run starts preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run bounded replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat proposal counts as replay evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260529T053947Z",
+  "hypothesis": "The source-diverse pressure generator can produce a source-diverse candidate pool from M1472 artifacts without replay or training.",
+  "lineage": {
+    "blocked_by": [
+      "source-diverse pressure generator has not yet been run on M1472 artifacts"
+    ],
+    "derived_from": [
+      "m1475-paper-route-source-diverse-pressure-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1475-paper-route-source-diverse-pressure-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m1472_positive_neighborhood_bounded_replay_smoke/actual_replay_rows.csv",
+      "runs/m1472_positive_neighborhood_bounded_replay_smoke/history_positive_rows.csv",
+      "runs/m1472_positive_neighborhood_bounded_replay_smoke/control_positive_rows.csv",
+      "runs/m1470_positive_neighborhood_preflight_smoke/selected_candidate_rows.csv",
+      "docs/m1475-paper-route-source-diverse-pressure-implementation.md"
+    ],
+    "parent_objective": [
+      "run source-diverse pressure proposal smoke without preflight or replay"
+    ],
+    "supersedes": [
+      "implementation-only evidence as proposal-count evidence"
+    ]
+  },
+  "milestone": "m1476-paper-route-source-diverse-pressure-proposal-smoke",
+  "next_blocker": "m1477-paper-route-boundary-retarget-validation-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_diverse_pressure_proposal_smoke_pass_route_to_branch_synthesis",
+  "public_gates": [
+    "M1476 must run proposal generation only",
+    "M1476 must not run preflight replay train PPO promote use private holdout export corpus or change actor inputs",
+    "M1476 must report selected rows source-group counts source diversity duplicate pressure keys and guardrails"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1476_source_diverse_pressure_proposal_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "source_diverse_pressure_proposal_smoke_pass_route_to_branch_synthesis",
+    "milestone": "m1476-paper-route-source-diverse-pressure-proposal-smoke",
+    "reason": "M1476 proposal smoke selected 120 source-diverse candidates including 96 neighbor-source rows across 5 seeds and 7 capability pairs with zero duplicate pressure keys",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1476_source_diverse_pressure_proposal_smoke/summary.json exists",
+    "selected_candidate_rows >= 32",
+    "selected_source_group_counts.neighbor_source > 0",
+    "selected_duplicate_pressure_key_rows == 0",
+    "candidate_step_column == source_step",
+    "source_preflight_started false",
+    "replay_started false",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "type": "infrastructure"
+}

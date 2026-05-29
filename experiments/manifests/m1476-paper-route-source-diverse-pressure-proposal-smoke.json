@@ -159,6 +159,41 @@
   "baseline_artifacts": [
     "docs/m1475-paper-route-source-diverse-pressure-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1476-paper-route-source-diverse-pressure-proposal-smoke.md",
+    "summary": "runs/m1476_source_diverse_pressure_proposal_smoke/summary.json",
+    "decision": "source_diverse_pressure_proposal_smoke_pass_route_to_branch_synthesis",
+    "source_audit_rows": 213,
+    "pressure_candidate_source_rows": 63,
+    "proposal_rows": 1464,
+    "selected_candidate_rows": 120,
+    "selected_unique_pressure_keys": 120,
+    "selected_duplicate_pressure_key_rows": 0,
+    "selected_neighbor_source_rows": 96,
+    "selected_original_source_rows": 12,
+    "selected_control_diagnostic_rows": 12,
+    "selected_unique_source_seeds": 5,
+    "selected_unique_capability_pairs": 7,
+    "selected_unique_reveal_buckets": 7,
+    "selected_unique_variants": 4,
+    "max_single_seed_share": 0.2,
+    "max_single_capability_pair_share": 0.2,
+    "candidate_step_column": "source_step",
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1477-paper-route-boundary-retarget-validation-synthesis.json"
+  },
+  "decision": "source_diverse_pressure_proposal_smoke_pass_route_to_branch_synthesis",
   "decision_rule": "M1476 passes if source-diverse proposal generation produces nonempty neighbor-source candidates with no duplicate pressure keys and no preflight or replay.",
-  "next_blocker": "m1476-paper-route-source-diverse-pressure-proposal-smoke"
+  "next_blocker": "m1477-paper-route-boundary-retarget-validation-synthesis"
 }

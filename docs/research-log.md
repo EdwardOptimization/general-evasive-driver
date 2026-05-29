@@ -21904,3 +21904,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1476-paper-route-source-diverse-pressure-proposal-smoke.json`.
 - next: `m1476-paper-route-source-diverse-pressure-proposal-smoke`
+
+## 20260529T070500Z - m1476-paper-route-source-diverse-pressure-proposal-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1476-paper-route-source-diverse-pressure-proposal-smoke.md`
+- run artifact: `runs/m1476_source_diverse_pressure_proposal_smoke/summary.json`
+- decision: `source_diverse_pressure_proposal_smoke_pass_route_to_branch_synthesis`
+- source audit rows: `213`
+- pressure candidate source rows: `63`
+- proposal rows: `1464`
+- selected candidate rows: `120`
+- selected group counts: `96` neighbor-source, `12` original-source, `12` control-diagnostic.
+- selected diversity: `5` seeds, `7` capability pairs, `7` reveal buckets, `4` variants.
+- duplicate pressure keys: `0`
+- interpretation: proposal-level source diversity exists, but this is not replay evidence or corpus readiness.
+- cadence: M1467-M1476 reaches the 10-milestone synthesis cadence after M1466, so the next step is synthesis before any preflight or replay.
+- guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1477-paper-route-boundary-retarget-validation-synthesis.json`.
+- next: `m1477-paper-route-boundary-retarget-validation-synthesis`

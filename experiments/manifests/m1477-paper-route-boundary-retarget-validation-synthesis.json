@@ -1,0 +1,164 @@
+{
+  "id": "m1477-paper-route-boundary-retarget-validation-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1466-paper-route-boundary-retarget-validation-synthesis.md",
+      "docs/m1476-paper-route-source-diverse-pressure-proposal-smoke.md",
+      "runs/m1476_source_diverse_pressure_proposal_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1476-paper-route-source-diverse-pressure-proposal-smoke.json"
+    ],
+    "parent_objective": [
+      "synthesize M1467-M1476 boundary retarget validation evidence before preflight or replay continues"
+    ],
+    "derived_from": [
+      "m1476-paper-route-source-diverse-pressure-proposal-smoke"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1467-M1476"
+    ],
+    "supersedes": [
+      "directly starting source-diverse pressure preflight from proposal smoke"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1477-paper-route-boundary-retarget-validation-synthesis.md",
+  "public_gates": [
+    "M1477 must synthesize M1467-M1476 before preflight or replay continues",
+    "M1477 must separate proposal-level source diversity from replay-level history evidence",
+    "M1477 must choose continue pivot stop or promote-to-next-branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run preflight",
+    "do not run replay",
+    "do not promote checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_step_boundary_retarget_validation",
+    "evidence_axis": "S_boundary_retarget_validation_synthesis",
+    "evidence_increment": "synthesizes M1467-M1476 dedup, preflight, bounded replay, audit, source-diverse pressure design, implementation, and proposal smoke evidence",
+    "claim_scope": "branch synthesis only; no preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats proposal counts as replay evidence",
+      "stop if synthesis ignores source-singleton replay positives",
+      "stop if synthesis admits corpus export or training before source-diverse replay validation"
+    ],
+    "fallback_plan": [
+      "promote to source-diverse pressure validation branch if synthesis accepts proposal-level evidence",
+      "pivot to new source mining if proposal-level diversity is not enough to justify preflight"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1476 reaches the workflow synthesis cadence for paper_route_source_step_boundary_retarget_validation after the M1466 reset",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1477-paper-route-boundary-retarget-validation-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1477-paper-route-boundary-retarget-validation-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "boundary retarget validation branch synthesis",
+    "admission_evidence": [
+      "M1476 produced 120 selected source-diverse pressure candidates with 96 neighbor-source rows and no duplicate pressure keys"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote checkpoint",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1477 synthesis document",
+      "status queue scoreboard research log and review",
+      "one follow-up branch manifest"
+    ],
+    "next_stage_criteria": [
+      "synthesis decision is explicit",
+      "proposal-level versus replay-level claims are separated",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1477 is synthesis and makes no level3 self-identification claim.",
+    "history_necessity_tests": [
+      "M1472 produced local source-singleton history-positive replay rows",
+      "M1476 produced source-diverse pressure candidates that still require preflight and replay"
+    ],
+    "temporal_evidence_window": "M1467-M1476 boundary retarget validation branch.",
+    "negative_result_policy": "Treat source-diverse proposal evidence as necessary but insufficient for replay or corpus claims.",
+    "allowed_claims": [
+      "branch synthesis and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "After M1476, the branch should synthesize evidence and likely promote to a source-diverse pressure validation branch before preflight.",
+  "success_criteria": [
+    "docs/m1477-paper-route-boundary-retarget-validation-synthesis.md exists",
+    "synthesis summarizes M1467-M1476 evidence",
+    "synthesis decision is explicit",
+    "proposal-level claims remain separate from replay-level claims",
+    "training and corpus export remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis treats proposal counts as replay evidence",
+    "synthesis ignores source-singleton replay positives",
+    "synthesis routes directly to training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1477-paper-route-boundary-retarget-validation-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1477-paper-route-boundary-retarget-validation-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1476-paper-route-source-diverse-pressure-proposal-smoke.md"
+  ],
+  "decision_rule": "M1477 passes if it synthesizes M1467-M1476 and chooses the next branch before preflight or replay.",
+  "next_blocker": "m1477-paper-route-boundary-retarget-validation-synthesis"
+}
