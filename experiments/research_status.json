@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1544,
+    "completed": 1545,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.md",
+    "command_log": "docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1535-paper-route-fresh-ambiguity-history-intervention-result-audit"
+    "task_id": "m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.json",
-    "hypothesis": "A source-expanded repeat can test whether M1534 wrong-history and donor-response positives survive more measured pairs and broader source families before any materialization.",
-    "id": "m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design",
+    "command": "see experiments/manifests/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.json",
+    "hypothesis": "After M1536, the fresh ambiguity source-mining branch should synthesize evidence before running a source-expanded repeat implementation.",
+    "id": "m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: design source-expanded repeat after M1535 audits M1534 as positive but source-small and control-sensitive",
-    "priority": 15310,
+    "notes": "Pending: mandatory workflow synthesis after M1536 cadence trigger before repeat implementation",
+    "priority": 15320,
     "status": "pending",
-    "success_artifact": "docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md"
+    "success_artifact": "docs/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md"
   },
-  "updated_at_utc": "20260529T110801Z"
+  "updated_at_utc": "20260529T111109Z"
 }

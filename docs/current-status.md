@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1535-paper-route-fresh-ambiguity-history-intervention-result-audit
+m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design
 ```
 
 Current next task:
 
 ```text
-m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design
+m1537-paper-route-fresh-ambiguity-history-intervention-repeat-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -119,6 +119,14 @@ level3 self-ID result. Wrong-history hidden injection reached max margin gap
 pairs were T4, success drops were zero, and reset/zero-current controls were
 stronger than the history interventions. Candidate materialization remains
 blocked. The next task is a source-expanded repeat design.
+M1536 designed that repeat: rerun public measured mining with source seed `1631`,
+`source_seed_count=2`, all 14 source families, `max_pair_candidates=128`, then
+run the same ten history-intervention channels over the new accepted pairs. The
+design pre-registers source-diversity, T5/terminal-boundary handling,
+history-sensitivity, and control-dominance gates. It still blocks candidate
+materialization, training, PPO, private holdout, promotion, and level3 self-ID
+claims. The workflow cadence now requires a branch synthesis before the bounded
+repeat implementation.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

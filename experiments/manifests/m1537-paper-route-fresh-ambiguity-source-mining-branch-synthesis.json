@@ -1,0 +1,179 @@
+{
+  "id": "m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md",
+      "runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json",
+      "runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json",
+      "docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.json"
+    ],
+    "parent_objective": [
+      "synthesize M1527-M1536 fresh ambiguity/source-mining branch before another implementation milestone"
+    ],
+    "derived_from": [
+      "m1527-paper-route-fresh-ambiguity-source-mining-design",
+      "m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1536"
+    ],
+    "supersedes": [
+      "direct M1537 repeat implementation without branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+  "public_gates": [
+    "M1537 must synthesize M1527-M1536 before repeat implementation",
+    "M1537 must separate source-planning measured-pair plumbing intervention positives and control dominance",
+    "M1537 must state supported and unsupported claims",
+    "M1537 must assess public-gate overfit risk",
+    "M1537 must choose continue pivot stop or promote_to_next_branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "S_fresh_ambiguity_source_mining_branch_synthesis",
+    "evidence_increment": "synthesizes M1527-M1536 fresh ambiguity source planning measured mining and bounded intervention evidence before the source-expanded repeat implementation",
+    "claim_scope": "branch synthesis only; no implementation smoke, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats source-small T4-only positives as materializable self-ID evidence",
+      "stop if synthesis ignores reset/zero-current control dominance",
+      "stop if synthesis routes directly to training or candidate export",
+      "stop if synthesis fails to decide whether source-expanded repeat is still justified"
+    ],
+    "fallback_plan": [
+      "continue to source-expanded repeat implementation if M1536 design remains the highest-leverage next evidence step",
+      "pivot to task generation if T5/terminal-boundary absence dominates",
+      "pivot to pair repair if accepted pair diversity remains too low",
+      "stop the branch if history interventions remain control-dominated without a credible repeat route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1536 reaches the cadence limit for paper_route_fresh_ambiguity_source_mining",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fresh ambiguity source-mining branch synthesis",
+    "admission_evidence": [
+      "M1527-M1536 completed source design planner measured mining interventions audit and repeat design"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1537 synthesis document",
+      "status queue scoreboard research log and review",
+      "one follow-up branch manifest"
+    ],
+    "next_stage_criteria": [
+      "synthesis decision is explicit",
+      "supported and unsupported claims are explicit",
+      "next branch decision is explicit",
+      "public-gate overfit risk is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1537 must not convert M1534 source-small positives or reset/zero-current controls into level3 self-ID claims.",
+    "history_necessity_tests": [
+      "synthesize M1534 wrong-history and donor-response positives",
+      "synthesize M1534 reset/zero-current control dominance",
+      "decide whether source-expanded repeat is justified"
+    ],
+    "temporal_evidence_window": "M1527-M1536 fresh ambiguity/source-mining branch evidence.",
+    "negative_result_policy": "If synthesis judges evidence control-dominated or source-too-small, pivot or stop before another narrow implementation.",
+    "allowed_claims": [
+      "branch synthesis and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "After M1536, the fresh ambiguity source-mining branch should synthesize evidence before running a source-expanded repeat implementation.",
+  "success_criteria": [
+    "docs/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md exists",
+    "synthesis summarizes M1527-M1536 evidence",
+    "supported and unsupported claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis treats source-small positives as level3 self-ID evidence",
+    "synthesis ignores control dominance",
+    "synthesis routes directly to training PPO promotion private holdout corpus export actor-input changes or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md",
+    "runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json",
+    "runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json",
+    "docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md"
+  ],
+  "decision_rule": "M1537 passes if it synthesizes M1527-M1536 and chooses the next route before another implementation milestone.",
+  "next_blocker": "m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis"
+}

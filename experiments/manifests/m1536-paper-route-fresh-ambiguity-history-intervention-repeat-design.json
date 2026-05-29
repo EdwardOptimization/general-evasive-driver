@@ -150,6 +150,37 @@
     "runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json",
     "docs/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md",
+    "decision": "fresh_ambiguity_history_intervention_repeat_design_admit_bounded_implementation",
+    "source_seed": 1631,
+    "source_seed_count": 2,
+    "expected_source_row_count": 28,
+    "max_pair_candidates": 128,
+    "continuation_steps": 64,
+    "required_variant_count": 10,
+    "source_diversity_min_accepted_pairs": 6,
+    "source_diversity_min_accepted_edges": 5,
+    "max_accepted_source_family_share": 0.5,
+    "anchor_replay_failure_rate_max": 0.05,
+    "t5_or_terminal_boundary_preferred_min_pairs": 1,
+    "history_positive_margin_gap_threshold": 0.02,
+    "control_to_history_gap_ratio_limit": 4.0,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.json"
+  },
+  "decision": "fresh_ambiguity_history_intervention_repeat_design_admit_bounded_implementation",
   "decision_rule": "M1536 passes if it pre-registers a source-expanded repeat protocol without running the repeat or weakening guardrails.",
-  "next_blocker": "m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design"
+  "next_blocker": "m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis"
 }

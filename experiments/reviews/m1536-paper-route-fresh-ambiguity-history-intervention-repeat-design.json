@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M1536 designs source-expanded repeat with seed_count 2 source-diversity T5 handling history-sensitivity and control-dominance gates while blocking materialization",
+  "failure_criteria": [
+    "design document is missing",
+    "design only repeats the same 3 M1534 pairs",
+    "design ignores reset/zero-current controls",
+    "design routes directly to training promotion private holdout or materialization",
+    "design claims level3 self-identification"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not run the repeat during design",
+    "do not claim level3 self-identification from M1534 or M1536 design"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T111551Z",
+  "hypothesis": "A source-expanded repeat can test whether M1534 wrong-history and donor-response positives survive more measured pairs and broader source families before any materialization.",
+  "lineage": {
+    "blocked_by": [
+      "M1534 positives are source-small T4-only and reset/zero-current controls dominate max gap"
+    ],
+    "derived_from": [
+      "m1535-paper-route-fresh-ambiguity-history-intervention-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json",
+      "docs/m1535-paper-route-fresh-ambiguity-history-intervention-result-audit.md"
+    ],
+    "parent_objective": [
+      "design a source-expanded repeat for fresh ambiguity history interventions after M1535 audit"
+    ],
+    "supersedes": [
+      "direct candidate materialization from M1534"
+    ]
+  },
+  "milestone": "m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design",
+  "next_blocker": "m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "fresh_ambiguity_history_intervention_repeat_design_admit_bounded_implementation",
+  "public_gates": [
+    "M1536 must design a source-expanded repeat before any candidate materialization",
+    "M1536 must preserve all intervention channel separations from M1534",
+    "M1536 must pre-register source-diversity and T5 inclusion checks",
+    "M1536 must not run training PPO promotion private holdout or new candidate export"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md",
+    "clearance_margin_mean": "",
+    "decision": "fresh_ambiguity_history_intervention_repeat_design_admit_bounded_implementation",
+    "milestone": "m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design",
+    "reason": "M1536 designs source-expanded repeat with seed_count 2 source-diversity T5 handling history-sensitivity and control-dominance gates while blocking materialization",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md exists",
+    "design increases source scope beyond the 3 accepted M1534 pairs",
+    "design preserves wrong-history donor-response delayed reset zero-current channels",
+    "design pre-registers source-diversity pass criteria and T5 inclusion handling",
+    "candidate materialization training PPO promotion private holdout actor-input changes and corpus export remain blocked"
+  ],
+  "type": "gate"
+}

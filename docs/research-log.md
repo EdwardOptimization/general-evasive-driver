@@ -23243,3 +23243,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1535 admits source-expanded repeat design only. M1534 is a meaningful positive smoke but too source-small and control-sensitive for candidate export or level3 self-ID claims.
 - follow-up manifest: `experiments/manifests/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.json`.
 - next: `m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design`
+
+## M1536 Paper-Route Fresh Ambiguity History-Intervention Repeat Design
+
+- status: completed
+- decision: `fresh_ambiguity_history_intervention_repeat_design_admit_bounded_implementation`
+- artifact: `docs/m1536-paper-route-fresh-ambiguity-history-intervention-repeat-design.md`
+- source seed: 1631
+- source seed count: 2
+- expected source row count: 28
+- max pair candidates: 128
+- continuation steps: 64
+- required intervention variants: 10
+- source-diversity min accepted pairs: 6
+- source-diversity min accepted source-family edges: 5
+- max accepted source-family share: 0.5
+- anchor replay failure-rate max: 0.05
+- T5/terminal-boundary preferred min accepted pairs: 1
+- history-positive margin-gap threshold: 0.02
+- control-to-history gap-ratio limit: 4.0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1536 converts M1535's source-small positive audit into a source-expanded public repeat protocol. It requires fresh measured mining before interventions and treats absent T5 rows or control dominance as blockers rather than reasons to weaken self-ID standards.
+- follow-up manifest: `experiments/manifests/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.json`.
+- next: `m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis`
