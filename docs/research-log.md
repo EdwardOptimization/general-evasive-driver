@@ -22403,3 +22403,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: no-training source-plan planner scaffolding is ready for public metadata-scale smoke; this is not simulator rollout or self-ID evidence.
 - follow-up manifest: `experiments/manifests/m1503-paper-route-decisive-history-public-planner-smoke.json`.
 - next: `m1503-paper-route-decisive-history-public-planner-smoke`
+
+## M1503 Paper-Route Decisive History Public Planner Smoke
+
+- status: completed
+- decision: `decisive_history_public_planner_smoke_pass_admit_env_hook_design`
+- artifact: `docs/m1503-paper-route-decisive-history-public-planner-smoke.md`
+- run: `runs/m1503_decisive_history_public_planner_smoke`
+- summary: `runs/m1503_decisive_history_public_planner_smoke/summary.json`
+- generated candidate rows: 66
+- accepted count: 66
+- accepted T4/T5 count: 33/33
+- source plan count: 6
+- unique seeds/capability pairs/geometry/reveal steps/source keys: 66/8/12/12/66
+- max source share: 0.015151515151515152
+- validation error count: 0
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- interpretation: public metadata-scale planner smoke passes M1501 thresholds, but this is still not simulator rollout or self-ID evidence.
+- follow-up manifest: `experiments/manifests/m1504-paper-route-decisive-history-env-hook-design.json`.
+- next: `m1504-paper-route-decisive-history-env-hook-design`

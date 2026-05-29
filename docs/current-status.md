@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1502-paper-route-decisive-history-candidate-planner-implementation
+m1503-paper-route-decisive-history-public-planner-smoke
 ```
 
 Current next task:
 
 ```text
-m1503-paper-route-decisive-history-public-planner-smoke
+m1504-paper-route-decisive-history-env-hook-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -49,12 +49,35 @@ history-necessity task design. M1499 designed that task matrix and admits a
 no-training task harness implementation. M1500 implemented metadata-only
 T4/T5 harness scaffolding. M1501 designed the public no-training
 candidate-generation route. M1502 implemented the no-training source-plan
-planner and admits public metadata-scale planner smoke. The current public-gate
-base remains M1362 alpha `0.1`:
+planner. M1503 ran the public metadata-scale planner smoke and passed all
+pre-registered M1501 thresholds. The current public-gate base remains M1362
+alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1503 decisive history public planner smoke:
+
+```text
+decision: decisive_history_public_planner_smoke_pass_admit_env_hook_design
+artifact: docs/m1503-paper-route-decisive-history-public-planner-smoke.md
+run: runs/m1503_decisive_history_public_planner_smoke
+generated_candidate_rows: 66
+accepted_count: 66
+accepted_t4_count: 33
+accepted_t5_count: 33
+unique seeds/capability pairs/geometry/reveal steps/source keys: 66/8/12/12/66
+max_source_share: 0.015151515151515152
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1504-paper-route-decisive-history-env-hook-design
+```
+
+M1503 is metadata-only. It proves planner-scale candidate metadata coverage,
+not simulator rollout candidate existence or self-ID. Next is a no-training
+current-sim env-hook design before any rollout probe, replay, or training.
 
 M1502 decisive history candidate planner implementation:
 

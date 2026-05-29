@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1511,
+    "completed": 1512,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1502-paper-route-decisive-history-candidate-planner-implementation.md",
+    "command_log": "docs/m1503-paper-route-decisive-history-public-planner-smoke.md",
     "returncode": 0,
-    "run_dir": "runs/m1502_decisive_history_candidate_planner_smoke",
+    "run_dir": "runs/m1503_decisive_history_public_planner_smoke",
     "status": "completed",
-    "task_id": "m1502-paper-route-decisive-history-candidate-planner-implementation"
+    "task_id": "m1503-paper-route-decisive-history-public-planner-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1503-paper-route-decisive-history-public-planner-smoke.json",
-    "hypothesis": "The M1502 planner can satisfy M1501 public metadata-scale candidate thresholds with seed-count 11 while keeping all no-training guardrails true.",
-    "id": "m1503-paper-route-decisive-history-public-planner-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: run no-training planner smoke at public metadata scale with seed-count 11 and audit M1501 thresholds",
-    "priority": 14980,
+    "command": "see experiments/manifests/m1504-paper-route-decisive-history-env-hook-design.json",
+    "hypothesis": "The M1503 metadata planner pass can be translated into a concrete no-training current-sim env-hook design for T4/T5 candidate-generation probes.",
+    "id": "m1504-paper-route-decisive-history-env-hook-design",
+    "kind": "gate",
+    "notes": "Pending: design no-training current-sim env hooks before simulator rollout probes, replay, or training",
+    "priority": 14990,
     "status": "pending",
-    "success_artifact": "runs/m1503_decisive_history_public_planner_smoke/summary.json"
+    "success_artifact": "docs/m1504-paper-route-decisive-history-env-hook-design.md"
   },
-  "updated_at_utc": "20260529T082000Z"
+  "updated_at_utc": "20260529T081855Z"
 }
