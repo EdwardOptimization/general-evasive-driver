@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1491,
+    "completed": 1492,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1482-paper-route-source-diverse-pressure-replay-result-audit.md",
+    "command_log": "docs/m1483-paper-route-neighbor-viability-calibration-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1482-paper-route-source-diverse-pressure-replay-result-audit"
+    "task_id": "m1483-paper-route-neighbor-viability-calibration-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1483-paper-route-neighbor-viability-calibration-design.json",
-    "hypothesis": "A neighbor normal-viability calibration design can target source-diverse rows that are normal-viable and margin-gap-sensitive rather than replaying the original source surface.",
-    "id": "m1483-paper-route-neighbor-viability-calibration-design",
-    "kind": "gate",
-    "notes": "Pending: design neighbor normal-viability calibration before another replay or any corpus export training PPO promotion",
-    "priority": 14780,
+    "command": "see experiments/manifests/m1484-paper-route-neighbor-viability-calibration-implementation.json",
+    "hypothesis": "A no-training generator can calibrate M1481 neighbor rows into normal-viable source-diverse candidates while keeping controls separate.",
+    "id": "m1484-paper-route-neighbor-viability-calibration-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-training calibration generator and focused tests without preflight replay training PPO promotion or corpus export",
+    "priority": 14790,
     "status": "pending",
-    "success_artifact": "docs/m1483-paper-route-neighbor-viability-calibration-design.md"
+    "success_artifact": "docs/m1484-paper-route-neighbor-viability-calibration-implementation.md"
   },
-  "updated_at_utc": "20260529T073500Z"
+  "updated_at_utc": "20260529T074000Z"
 }

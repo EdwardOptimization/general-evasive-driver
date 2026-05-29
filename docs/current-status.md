@@ -16,39 +16,35 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1482-paper-route-source-diverse-pressure-replay-result-audit
+m1483-paper-route-neighbor-viability-calibration-design
 ```
 
 Current next task:
 
 ```text
-m1483-paper-route-neighbor-viability-calibration-design
+m1484-paper-route-neighbor-viability-calibration-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
 M1476 ran proposal generation. M1477 synthesized the branch and promoted to
 source-diverse pressure validation. M1478 designed the preflight-only smoke,
-M1479 ran it, M1480 designed bounded replay, M1481 ran replay, and M1482 audited
-the source-singleton result. The current public-gate base remains M1362 alpha
-`0.1`:
+M1479 ran it, M1480 designed bounded replay, M1481 ran replay, M1482 audited the
+source-singleton result, and M1483 designed neighbor viability calibration. The
+current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1482 audit:
+M1483 design:
 
 ```text
-decision: source_diverse_pressure_replay_audit_positive_source_singleton_route_to_neighbor_viability_calibration_design
-failure_type: scenario_sampling_failure
-neighbor_source_rows: 216
-neighbor_normal_viable_rows: 66
-neighbor_normal_failed_rows: 150
-neighbor_history_positive_rows: 0
-original_history_positive_rows: 12
-original_control_positive_rows: 15
-next: m1483-paper-route-neighbor-viability-calibration-design
+decision: neighbor_viability_calibration_design_admit_implementation
+target: src/autodrift/neighbor_viability_calibration.py
+neighbor classes: too_hard / near_boundary / too_easy
+must separate: original-source diagnostics / neighbor candidates / controls
+next: m1484-paper-route-neighbor-viability-calibration-implementation
 ```
 
 M1472 result:
@@ -71,8 +67,9 @@ selected_duplicate_positive_neighborhood_key_rows: 0
 selected diversity: 5 seeds / 9 capability pairs / 8 reveal buckets / 3 variants
 ```
 
-M1483 should design neighbor normal-viability calibration before another replay.
-M1481 is replay-positive but still source-singleton and control-sensitive.
+M1484 should implement the neighbor viability calibration generator and focused
+tests only. It must not run preflight, replay, train, run PPO, promote, use
+private holdout, export corpus, or change actor inputs.
 
 M1455 result:
 

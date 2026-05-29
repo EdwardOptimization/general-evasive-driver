@@ -140,6 +140,31 @@
   "baseline_artifacts": [
     "docs/m1482-paper-route-source-diverse-pressure-replay-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1483-paper-route-neighbor-viability-calibration-design.md",
+    "decision": "neighbor_viability_calibration_design_admit_implementation",
+    "failure_type": "none",
+    "design": "neighbor normal-viability calibration generator over M1481 replay rows",
+    "neighbor_classes": [
+      "too_hard",
+      "near_boundary",
+      "too_easy"
+    ],
+    "source_step_preservation_required": true,
+    "control_positive_separation_required": true,
+    "replay_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1484-paper-route-neighbor-viability-calibration-implementation.json"
+  },
+  "decision": "neighbor_viability_calibration_design_admit_implementation",
   "decision_rule": "M1483 passes if it designs neighbor normal-viability calibration without replay or training.",
-  "next_blocker": "m1483-paper-route-neighbor-viability-calibration-design"
+  "next_blocker": "m1484-paper-route-neighbor-viability-calibration-implementation"
 }

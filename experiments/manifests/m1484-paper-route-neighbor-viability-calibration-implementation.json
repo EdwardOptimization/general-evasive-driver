@@ -1,0 +1,153 @@
+{
+  "id": "m1484-paper-route-neighbor-viability-calibration-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1483-paper-route-neighbor-viability-calibration-design.md",
+      "runs/m1481_source_diverse_pressure_bounded_replay_smoke/actual_replay_rows.csv",
+      "runs/m1481_source_diverse_pressure_bounded_replay_smoke/history_positive_rows.csv",
+      "runs/m1481_source_diverse_pressure_bounded_replay_smoke/control_positive_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1483-paper-route-neighbor-viability-calibration-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training neighbor normal-viability calibration generator"
+    ],
+    "derived_from": [
+      "m1483-paper-route-neighbor-viability-calibration-design"
+    ],
+    "blocked_by": [
+      "neighbor normal-viability calibration generator is not yet implemented"
+    ],
+    "supersedes": [
+      "manual calibration of M1481 neighbor rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1484-paper-route-neighbor-viability-calibration-implementation.md",
+  "public_gates": [
+    "M1484 must implement candidate generation only",
+    "M1484 must separate original-source positives neighbor-source failures and controls",
+    "M1484 must preserve source_step and candidate_step_column == source_step",
+    "M1484 must not run preflight replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run bounded replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not replay original-source positives unchanged"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_diverse_pressure_validation",
+    "evidence_axis": "S_neighbor_viability_calibration_implementation",
+    "evidence_increment": "implements no-training generator for calibrated neighbor-source viability candidates after M1481 replay positives remain source-singleton",
+    "claim_scope": "implementation and focused tests only; no preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if implementation cannot separate original-source positives from neighbor rows",
+      "stop if implementation mixes controls into history-positive criteria",
+      "stop if implementation cannot preserve source_step",
+      "stop if implementation requires actor-input changes"
+    ],
+    "fallback_plan": [
+      "route to implementation audit if generator cannot satisfy guardrails",
+      "route to proposal smoke if implementation passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1483 admits neighbor viability calibration implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "neighbor viability calibration generator implementation",
+    "admission_evidence": [
+      "M1483 design passed and blocks replaying source-singleton positives unchanged"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "neighbor viability calibration generator code",
+      "focused tests",
+      "M1484 implementation document",
+      "status queue scoreboard research log and review",
+      "one follow-up proposal smoke manifest"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "research validation passes",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1484 is infrastructure and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future calibrated replay must test neighbor-source rows under normal history, warmup interventions, reset hidden, and zero-current controls"
+    ],
+    "temporal_evidence_window": "M1483 design.",
+    "negative_result_policy": "If implementation cannot produce calibrated source-diverse candidates, route to audit or synthesis rather than corpus export.",
+    "allowed_claims": [
+      "neighbor viability calibration generator implementation",
+      "no preflight result, replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-training generator can calibrate M1481 neighbor rows into normal-viable source-diverse candidates while keeping controls separate.",
+  "success_criteria": [
+    "neighbor viability calibration generator is implemented",
+    "focused tests pass for original-source separation",
+    "focused tests pass for too_hard near_boundary and too_easy classification",
+    "focused tests pass for source_step preservation",
+    "focused tests pass for control-positive separation",
+    "focused tests pass for source-diverse selection caps",
+    "docs/m1484-paper-route-neighbor-viability-calibration-implementation.md exists",
+    "no preflight replay training PPO promotion private holdout corpus export or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "implementation is missing",
+    "tests do not cover source_step or control separation",
+    "implementation starts preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_neighbor_viability_calibration.py tests/test_research_validate.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1484-paper-route-neighbor-viability-calibration-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1483-paper-route-neighbor-viability-calibration-design.md"
+  ],
+  "decision_rule": "M1484 passes if the neighbor viability calibration generator is implemented with focused tests and no preflight or replay run.",
+  "next_blocker": "m1484-paper-route-neighbor-viability-calibration-implementation"
+}

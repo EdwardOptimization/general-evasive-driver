@@ -22035,3 +22035,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1483-paper-route-neighbor-viability-calibration-design.json`.
 - next: `m1483-paper-route-neighbor-viability-calibration-design`
+
+## 20260529T074000Z - m1483-paper-route-neighbor-viability-calibration-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1483-paper-route-neighbor-viability-calibration-design.md`
+- decision: `neighbor_viability_calibration_design_admit_implementation`
+- design target: `src/autodrift/neighbor_viability_calibration.py`
+- diagnosis used: M1481 neighbor rows had `216` replay rows, only `66` normal viable rows, `150` normal failed rows, and `0` history positives.
+- classes: `too_hard`, `near_boundary`, `too_easy`
+- required preservation: `candidate_step_column == source_step`
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1484-paper-route-neighbor-viability-calibration-implementation.json`.
+- next: `m1484-paper-route-neighbor-viability-calibration-implementation`
