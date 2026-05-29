@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1583-paper-route-history-pairability-source-miner-result-audit
+m1584-paper-route-source-diverse-pairability-history-intervention-design
 ```
 
 Current next task:
 
 ```text
-m1584-paper-route-source-diverse-pairability-history-intervention-design
+m1585-paper-route-source-diverse-pairability-history-intervention-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -459,6 +459,14 @@ result. The capped top pair set is source-diverse, but it excludes
 late-reveal pairs only. M1584 is admitted as design only: source-edge/window
 capped history interventions over M1582 pair rows, with high-speed kept as an
 explicit caveat/diagnostic and materialization/training/PPO still blocked.
+M1584 designed that intervention route. M1585 should select up to `72` tier-A
+pairs from M1582 with source-edge/window/family caps, evaluate both directions,
+run `normal`, `wrong_history_hidden`, `donor_response_action_plus_hidden`,
+`donor_response_action_only`, `reset_hidden`, `zero_current_response`,
+`zero_action_history`, and `zero_all_response`, and report history-vs-control
+effects. Public gates target at least `64` selected pairs, `8` source edges, `6`
+endpoint families, `4` windows, and clean guardrails. High-speed endpoint
+coverage remains diagnostic only.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

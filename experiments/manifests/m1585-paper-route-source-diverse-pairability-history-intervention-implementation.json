@@ -1,0 +1,165 @@
+{
+  "id": "m1585-paper-route-source-diverse-pairability-history-intervention-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1582_history_pairability_source_miner_smoke/pairability_pair_rows.csv",
+      "docs/m1584-paper-route-source-diverse-pairability-history-intervention-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1584-paper-route-source-diverse-pairability-history-intervention-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded source-diverse pairability-grounded history interventions"
+    ],
+    "derived_from": [
+      "m1584-paper-route-source-diverse-pairability-history-intervention-design"
+    ],
+    "blocked_by": [
+      "M1584 design has not yet been implemented"
+    ],
+    "supersedes": [
+      "training or materialization before source-diverse public intervention evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1585-paper-route-source-diverse-pairability-history-intervention-implementation.md",
+  "public_gates": [
+    "M1585 must implement bounded source-edge/window capped pair selection over M1582 pair rows",
+    "M1585 must run the pre-registered intervention variants and current-frame controls",
+    "M1585 must report public gates, evidence-quality targets, and null taxonomy",
+    "M1585 must report high-speed endpoint coverage as diagnostic only",
+    "M1585 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_pairability_source_generation",
+    "evidence_axis": "L_source_diverse_pairability_history_intervention_implementation",
+    "evidence_increment": "implements bounded source-diverse history interventions after pairability-first public pass",
+    "claim_scope": "public bounded intervention implementation only; no candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop after one bounded implementation smoke and route to audit",
+      "stop if implementation exports training corpus or materializes candidates",
+      "stop if implementation changes actor inputs",
+      "stop if implementation treats high-speed absence as solved"
+    ],
+    "fallback_plan": [
+      "route to result audit whether public/evidence gates pass or fail",
+      "if selection balance fails, audit pair-row cap and source-edge constraints",
+      "if history is null or control-dominated, audit task/variant limitations before another implementation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1584 admits exactly one bounded implementation smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source-diverse pairability-grounded history-intervention implementation",
+    "admission_evidence": [
+      "M1584 pre-registers pair selection, intervention variants, controls, gates, and null taxonomy"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "intervention implementation module and focused tests",
+      "bounded public smoke artifacts",
+      "M1585 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "selected pair rows are written",
+      "intervention rows are written",
+      "variant/source-edge summaries are written",
+      "guardrails remain clean",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1585 includes current-frame substitution controls, but any result remains public bounded evidence and must be audited before stronger claims.",
+    "history_necessity_tests": [
+      "wrong_history_hidden",
+      "donor_response_action_plus_hidden",
+      "donor_response_action_only",
+      "reset_hidden",
+      "zero_current_response",
+      "zero_action_history",
+      "zero_all_response"
+    ],
+    "temporal_evidence_window": "M1582 pairable reveal and pre-decision anchor windows.",
+    "negative_result_policy": "If history interventions are null or control-dominated, record it and route to audit instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "public bounded intervention evidence",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Source-diverse matched-current hidden-divergent pairs can expose history-dependent closed-loop outcome changes beyond current-frame controls.",
+  "success_criteria": [
+    "intervention implementation module exists",
+    "focused tests cover pair selection and summary gates",
+    "runs/m1585_source_diverse_pairability_history_intervention_smoke/summary.json exists",
+    "selected pair and intervention artifacts exist",
+    "public gates and evidence-quality targets are reported",
+    "high-speed endpoint coverage is reported as diagnostic only",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification",
+    "implementation omits current-frame controls or high-speed caveat"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_source_diverse_pairability_history_interventions.py -q"
+    },
+    {
+      "name": "intervention_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_diverse_pairability_history_interventions --output-dir runs/m1585_source_diverse_pairability_history_intervention_smoke --pair-rows runs/m1582_history_pairability_source_miner_smoke/pairability_pair_rows.csv --seed 1901 --seed-count 6 --max-source-specs 480 --max-anchor-candidates 640 --target-pairs 72 --continuation-steps 64"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1585_source_diverse_pairability_history_intervention_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1582_history_pairability_source_miner_smoke/pairability_pair_rows.csv",
+    "docs/m1584-paper-route-source-diverse-pairability-history-intervention-design.md"
+  ],
+  "decision_rule": "M1585 passes as implementation if it runs bounded public interventions with clean guardrails and writes required metrics; it must still route to audit before materialization or training.",
+  "next_blocker": "m1585-paper-route-source-diverse-pairability-history-intervention-implementation"
+}

@@ -159,6 +159,51 @@
     "runs/m1582_history_pairability_source_miner_smoke/pairability_pair_rows.csv",
     "docs/m1583-paper-route-history-pairability-source-miner-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1584-paper-route-source-diverse-pairability-history-intervention-design.md",
+    "decision": "source_diverse_pairability_history_intervention_design_admit_bounded_implementation",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "pair_selection_source": "runs/m1582_history_pairability_source_miner_smoke/pairability_pair_rows.csv",
+    "target_pair_count": 72,
+    "max_pairs_per_source_edge": 4,
+    "max_pairs_per_endpoint_family": 20,
+    "max_pairs_per_anchor_window": 20,
+    "min_source_edge_count": 8,
+    "min_endpoint_family_count": 6,
+    "min_window_count": 4,
+    "planned_variants": [
+      "normal",
+      "wrong_history_hidden",
+      "donor_response_action_plus_hidden",
+      "donor_response_action_only",
+      "reset_hidden",
+      "zero_current_response",
+      "zero_action_history",
+      "zero_all_response"
+    ],
+    "planned_direction_count": 2,
+    "planned_max_intervention_rows": 1152,
+    "history_positive_margin_gap_threshold": 0.02,
+    "control_dominance_ratio_threshold": 0.75,
+    "high_speed_endpoint_required": false,
+    "high_speed_endpoint_diagnostic_only": true,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1585-paper-route-source-diverse-pairability-history-intervention-implementation.json"
+  },
   "decision_rule": "M1584 passes if it designs the source-diverse pairability-grounded intervention route before any replay, materialization, or training.",
-  "next_blocker": "m1584-paper-route-source-diverse-pairability-history-intervention-design"
+  "next_blocker": "m1585-paper-route-source-diverse-pairability-history-intervention-implementation"
 }

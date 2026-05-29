@@ -24764,3 +24764,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1584-paper-route-source-diverse-pairability-history-intervention-design.json`
 - next: `m1584-paper-route-source-diverse-pairability-history-intervention-design`
+
+## M1584 Paper-Route Source-Diverse Pairability History-Intervention Design
+
+- status: completed
+- decision: `source_diverse_pairability_history_intervention_design_admit_bounded_implementation`
+- artifact: `docs/m1584-paper-route-source-diverse-pairability-history-intervention-design.md`
+- failure taxonomy: `none`
+- pair selection source: `runs/m1582_history_pairability_source_miner_smoke/pairability_pair_rows.csv`
+- target pair count: 72
+- max pairs per source edge: 4
+- max pairs per endpoint family: 20
+- max pairs per anchor window: 20
+- minimum selected pair count: 64
+- minimum selected source-edge count: 8
+- minimum endpoint source-family count: 6
+- minimum window count: 4
+- planned directions: both pair directions when replayable
+- planned variants: `normal`, `wrong_history_hidden`, `donor_response_action_plus_hidden`, `donor_response_action_only`, `reset_hidden`, `zero_current_response`, `zero_action_history`, `zero_all_response`
+- planned max intervention rows: 1152
+- history positive margin gap threshold: 0.02
+- control dominance ratio threshold: 0.75
+- high-speed endpoint required: false
+- high-speed endpoint diagnostic only: true
+- interpretation: M1584 converts broad pairability into a bounded public intervention design while explicitly preserving current-frame controls and the high-speed caveat
+- history interventions executed: false in M1584
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1585-paper-route-source-diverse-pairability-history-intervention-implementation.json`
+- next: `m1585-paper-route-source-diverse-pairability-history-intervention-implementation`
