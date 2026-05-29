@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit
+m1540-paper-route-terminal-boundary-history-positive-source-repair-design
 ```
 
 Current next task:
 
 ```text
-m1540-paper-route-terminal-boundary-history-positive-source-repair-design
+m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -145,6 +145,12 @@ M1539 audited that result as source-expanded non-terminal positive evidence.
 Materialization remains blocked because T5/terminal-boundary history-positive
 target sides are still `0` and donor response/action stream alone remains below
 threshold. The next task is terminal-boundary source repair design.
+M1540 designed that repair route. It targets `t5_near_boundary_warmup`,
+`t5_high_speed_close_obstacle`, `t5_boundary_axis_retarget`,
+`late_reveal_boundary`, and `curved_boundary_obstacle`, with margin compression,
+anchor timing sweep, capability contrast, and boundary-geometry retargeting. The
+next task is a bounded public repair planner implementation; materialization and
+training remain blocked.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

@@ -23360,3 +23360,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1539 keeps M1538 as a useful public diagnostic surface but blocks corpus export and training. The next route must target terminal-boundary source repair instead of treating non-terminal positives as sufficient.
 - follow-up manifest: `experiments/manifests/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.json`.
 - next: `m1540-paper-route-terminal-boundary-history-positive-source-repair-design`
+
+## M1540 Paper-Route Terminal-Boundary History-Positive Source Repair Design
+
+- status: completed
+- decision: `terminal_boundary_history_positive_source_repair_design_admit_bounded_planner`
+- artifact: `docs/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.md`
+- target source families: `t5_near_boundary_warmup`, `t5_high_speed_close_obstacle`, `t5_boundary_axis_retarget`, `late_reveal_boundary`, `curved_boundary_obstacle`
+- source seed: 1731
+- source seed count: 3
+- max repair source specs: 72
+- max pair candidates: 128
+- max intervention pairs: 24
+- continuation steps: 64
+- terminal source spec min: 30
+- terminal target near-boundary count min: 8
+- accepted terminal pair min: 4
+- accepted terminal source-edge min: 3
+- terminal history-positive target sides min: 2
+- terminal margin-gap threshold: 0.02
+- terminal control-to-history ratio max: 4.0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1540 turns M1539's T5 gap into a concrete bounded public repair planner with margin compression anchor timing sweep capability contrast and boundary-geometry retargeting. It still blocks materialization and training.
+- follow-up manifest: `experiments/manifests/m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation.json`.
+- next: `m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation`

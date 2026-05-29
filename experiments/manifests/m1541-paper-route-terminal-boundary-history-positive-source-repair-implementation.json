@@ -1,0 +1,157 @@
+{
+  "id": "m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.md",
+      "docs/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement the bounded terminal-boundary source repair planner designed by M1540"
+    ],
+    "derived_from": [
+      "m1540-paper-route-terminal-boundary-history-positive-source-repair-design"
+    ],
+    "blocked_by": [
+      "M1539 identifies zero T5/terminal-boundary history-positive target sides"
+    ],
+    "supersedes": [
+      "direct materialization of M1538 non-terminal positives"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation.md",
+  "public_gates": [
+    "M1541 must implement bounded terminal-boundary repair without training",
+    "M1541 must preserve P0 actor input contract",
+    "M1541 must report terminal target pair history-positive and control metrics",
+    "M1541 must route to audit before materialization"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "G_terminal_boundary_history_positive_repair_implementation",
+    "evidence_increment": "implements bounded terminal-boundary source repair and runs a public smoke",
+    "claim_scope": "infrastructure and bounded public smoke only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if implementation changes actor input contract",
+      "stop if it exports a training corpus",
+      "stop if guardrails are violated",
+      "stop after repair smoke and route to audit"
+    ],
+    "fallback_plan": [
+      "route to audit after any completed repair smoke",
+      "route to task generation if terminal pairs cannot be accepted",
+      "route to synthesis if terminal repair is null or control-dominated"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1540 admitted bounded terminal-boundary repair implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "terminal-boundary source repair implementation",
+    "admission_evidence": [
+      "M1540 pre-registered terminal-boundary repair sources knobs thresholds and guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "terminal-boundary repair module and tests",
+      "bounded public repair smoke artifacts",
+      "M1541 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "terminal-boundary repair artifacts are written",
+      "terminal history-positive and control metrics are reported",
+      "guardrails are clean or failures explicit",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1541 can only report terminal-boundary intervention effects; audit must decide whether they support history necessity.",
+    "history_necessity_tests": [
+      "wrong_history_donor_hidden_at_anchor",
+      "donor_response_action_plus_hidden_from_anchor",
+      "donor_response_action_stream_from_anchor",
+      "delayed hidden variants",
+      "reset and zero-current controls"
+    ],
+    "temporal_evidence_window": "M1541 bounded terminal-boundary public smoke only.",
+    "negative_result_policy": "If repair cannot produce terminal history-positive rows, record the blocker and audit before training.",
+    "allowed_claims": [
+      "M1541 implements repair plumbing and public smoke",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded terminal-boundary repair planner can find or falsify T5/terminal-boundary history-positive intervention rows without changing actor inputs or training.",
+  "success_criteria": [
+    "terminal-boundary source repair module exists",
+    "focused tests cover repair source selection guardrails and summary schema",
+    "runs/m1541_terminal_boundary_source_repair_smoke/summary.json exists",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "repair module or smoke artifacts are missing",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation materializes candidates or starts training/replay/PPO",
+    "implementation claims level3 self-identification"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_terminal_boundary_source_repair.py -q"
+    },
+    {
+      "name": "smoke",
+      "command": "PYTHONPATH=src python -m autodrift.terminal_boundary_source_repair --output-dir runs/m1541_terminal_boundary_source_repair_smoke --seed 1731 --seed-count 3 --max-repair-source-specs 72 --max-pair-candidates 128 --max-intervention-pairs 24"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1541_terminal_boundary_source_repair_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.md",
+    "docs/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.md"
+  ],
+  "decision_rule": "M1541 passes if terminal-boundary repair artifacts are written and no-materialization guardrails remain clean.",
+  "next_blocker": "m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation"
+}

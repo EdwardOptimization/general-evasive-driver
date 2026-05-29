@@ -146,6 +146,44 @@
     "docs/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.md",
     "runs/m1538_fresh_ambiguity_history_intervention_repeat/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1540-paper-route-terminal-boundary-history-positive-source-repair-design.md",
+    "decision": "terminal_boundary_history_positive_source_repair_design_admit_bounded_planner",
+    "target_source_families": [
+      "t5_near_boundary_warmup",
+      "t5_high_speed_close_obstacle",
+      "t5_boundary_axis_retarget",
+      "late_reveal_boundary",
+      "curved_boundary_obstacle"
+    ],
+    "source_seed": 1731,
+    "source_seed_count": 3,
+    "max_repair_source_specs": 72,
+    "max_pair_candidates": 128,
+    "max_intervention_pairs": 24,
+    "continuation_steps": 64,
+    "terminal_source_spec_count_min": 30,
+    "terminal_target_near_boundary_count_min": 8,
+    "accepted_terminal_pair_count_min": 4,
+    "accepted_terminal_source_edge_count_min": 3,
+    "terminal_history_positive_target_sides_min": 2,
+    "terminal_margin_gap_threshold": 0.02,
+    "terminal_control_to_history_gap_ratio_max": 4.0,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation.json"
+  },
+  "decision": "terminal_boundary_history_positive_source_repair_design_admit_bounded_planner",
   "decision_rule": "M1540 passes if it pre-registers a terminal-boundary repair route without weakening guardrails.",
-  "next_blocker": "m1540-paper-route-terminal-boundary-history-positive-source-repair-design"
+  "next_blocker": "m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation"
 }
