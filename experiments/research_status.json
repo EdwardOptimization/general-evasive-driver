@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1639,
+    "completed": 1640,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1630-paper-route-contour-aware-full-target-materialization-implementation.md",
+      "command_log": "docs/m1631-paper-route-contour-aware-full-target-materialization-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1630_contour_aware_full_target_materialization",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1630-paper-route-contour-aware-full-target-materialization-implementation"
+      "task_id": "m1631-paper-route-contour-aware-full-target-materialization-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1631-paper-route-contour-aware-full-target-materialization-result-audit.json",
-      "hypothesis": "The M1630 full materialization result is sufficient to decide whether contour-aware objective design can be admitted.",
-      "id": "m1631-paper-route-contour-aware-full-target-materialization-result-audit",
+      "command": "see experiments/manifests/m1632-paper-route-contour-aware-policy-target-objective-design.json",
+      "hypothesis": "The M1630 materialized positive and diagnostic tensor bundles are sufficient to design a role-safe contour-aware policy-target objective.",
+      "id": "m1632-paper-route-contour-aware-policy-target-objective-design",
       "kind": "gate",
-      "notes": "Pending: audit full tensor artifacts before objective design; no training PPO promotion or private holdout",
-      "priority": 16260,
+      "notes": "Pending: design role-safe policy-target objective semantics only; no implementation training PPO promotion or private holdout",
+      "priority": 16270,
       "status": "pending",
-      "success_artifact": "docs/m1631-paper-route-contour-aware-full-target-materialization-result-audit.md"
+      "success_artifact": "docs/m1632-paper-route-contour-aware-policy-target-objective-design.md"
     },
-    "updated_at_utc": "20260529T192856Z"
+    "updated_at_utc": "20260529T193101Z"
 }

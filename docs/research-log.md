@@ -25978,3 +25978,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: objective/loss construction, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
 - follow-up manifest: `experiments/manifests/m1631-paper-route-contour-aware-full-target-materialization-result-audit.json`
 - next: `m1631-paper-route-contour-aware-full-target-materialization-result-audit`
+
+## M1631 Paper-Route Contour-Aware Full Target Materialization Result Audit
+
+- status: completed
+- decision: `contour_aware_full_target_materialization_audit_admit_objective_design`
+- artifact: `docs/m1631-paper-route-contour-aware-full-target-materialization-result-audit.md`
+- failure taxonomy: `none`
+- audited result: M1630 materialized 39 positive and 232 diagnostic policy-side tensor rows with canonical observations, hidden/action tensors, exact source-action reproduction, no missing capture rows, diagnostics zero-weight, checkpoint unmutated, and clean guardrails
+- supported: full public positive-target and diagnostic-guardrail tensor materialization is clean enough for objective-design planning
+- unsupported: loss/objective implementation, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- route decision: admit one design-only contour-aware policy-target objective milestone while keeping implementation and training blocked
+- follow-up manifest: `experiments/manifests/m1632-paper-route-contour-aware-policy-target-objective-design.json`
+- next: `m1632-paper-route-contour-aware-policy-target-objective-design`

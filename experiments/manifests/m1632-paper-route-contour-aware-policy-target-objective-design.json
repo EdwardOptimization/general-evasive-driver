@@ -1,0 +1,156 @@
+{
+  "id": "m1632-paper-route-contour-aware-policy-target-objective-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1630_contour_aware_full_target_materialization/summary.json",
+      "docs/m1631-paper-route-contour-aware-full-target-materialization-result-audit.md",
+      "docs/m1630-paper-route-contour-aware-full-target-materialization-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1631-paper-route-contour-aware-full-target-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design objective semantics over materialized contour-aware policy targets"
+    ],
+    "derived_from": [
+      "m1631-paper-route-contour-aware-full-target-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M1631 admits design-only objective planning and blocks implementation/training"
+    ],
+    "supersedes": [
+      "direct loss implementation from M1630",
+      "direct actor update from M1630",
+      "direct PPO after M1630"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1632-paper-route-contour-aware-policy-target-objective-design.md",
+  "public_gates": [
+    "M1632 must design objective semantics only",
+    "M1632 must keep positives and diagnostics role-separated",
+    "M1632 must define guardrails that prevent diagnostics from becoming positive targets",
+    "M1632 must define exact-evaluator admission criteria before any actor update",
+    "M1632 must keep training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not implement a loss",
+    "do not construct an objective config artifact",
+    "do not train",
+    "do not run PPO",
+    "do not run actor update",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_policy_target_objective_design",
+    "evidence_increment": "designs objective semantics over the clean M1630 full policy-target tensors before any implementation",
+    "claim_scope": "design only; no loss implementation, objective config artifact, actor update, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if diagnostics cannot remain zero-weight guardrails",
+      "stop if objective semantics require hidden/oracle actor inputs",
+      "stop if exact-evaluator criteria are not specified",
+      "stop before implementation and route to audit or synthesis as needed"
+    ],
+    "fallback_plan": [
+      "admit exact evaluator design if objective semantics are clean",
+      "pivot to materialization schema repair if objective semantics need missing fields",
+      "route to branch synthesis if objective design is ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1631 admits design-only objective planning",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design contour-aware policy-target objective semantics",
+    "admission_evidence": [
+      "M1630 full materialization public gates passed",
+      "M1631 audit admitted design-only objective planning"
+    ],
+    "blocked_shortcuts": [
+      "do not implement a loss",
+      "do not construct an objective config artifact",
+      "do not train",
+      "do not run PPO",
+      "do not run actor update",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1632 design document",
+      "M1632 status queue scoreboard research log and review",
+      "one follow-up manifest if design admits exact evaluator, repair, synthesis, or stop"
+    ],
+    "next_stage_criteria": [
+      "objective semantics are documented",
+      "diagnostic role guardrails are explicit",
+      "implementation admission or fallback is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1632 may design losses over hidden/action targets but cannot prove history necessity.",
+    "history_necessity_tests": [
+      "design must preserve correct/wrong hidden separation and later intervention-gate requirements"
+    ],
+    "temporal_evidence_window": "public M1630 materialized rows only.",
+    "negative_result_policy": "If a clean objective cannot be designed, record why and pivot before implementation.",
+    "allowed_claims": [
+      "objective semantics design over materialized public tensors",
+      "no implementation, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1630 materialized positive and diagnostic tensor bundles are sufficient to design a role-safe contour-aware policy-target objective.",
+  "success_criteria": [
+    "docs/m1632-paper-route-contour-aware-policy-target-objective-design.md exists",
+    "design defines positive-target terms and diagnostic guardrail terms separately",
+    "design defines exact-evaluator criteria before actor update",
+    "design states supported and unsupported claims",
+    "training PPO promotion and private holdout remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design treats diagnostics as positive targets",
+    "design requires new actor inputs or oracle labels",
+    "design routes directly to training PPO promotion private holdout or actor-input changes",
+    "design claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1632-paper-route-contour-aware-policy-target-objective-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1632-paper-route-contour-aware-policy-target-objective-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1630_contour_aware_full_target_materialization/summary.json",
+    "docs/m1631-paper-route-contour-aware-full-target-materialization-result-audit.md"
+  ],
+  "decision_rule": "M1632 passes if it designs a role-safe objective route and keeps implementation/training blocked.",
+  "next_blocker": "m1632-paper-route-contour-aware-policy-target-objective-design"
+}

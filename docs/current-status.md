@@ -16,25 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1630-paper-route-contour-aware-full-target-materialization-implementation
+m1631-paper-route-contour-aware-full-target-materialization-result-audit
 ```
 
 Current next task:
 
 ```text
-m1631-paper-route-contour-aware-full-target-materialization-result-audit
+m1632-paper-route-contour-aware-policy-target-objective-design
 ```
 
-M1630 implemented the full 39-positive / 232-diagnostic policy-target
-materialization using the M1626 capture path. Public gates passed:
-positive observation `[39,72]`, diagnostic observation `[232,72]`,
-correct/wrong hidden tensors with hidden dim `128`, preferred/wrong-history/
-donor-plus-hidden actions `[N,3]`, all tensors finite, source-action
-reproduction L2 max `0.0`, zero missing capture rows, diagnostic
-`used_as_positive=false` and `role_weight=0.0`, checkpoint unmutated, and no
+M1631 audited the clean M1630 full materialization result and admits exactly
+one design-only contour-aware policy-target objective planning step. The
+materialized public package has 39 positive rows and 232 diagnostic guardrails,
+canonical 72-dim observations, hidden dim `128`, action tensors `[N,3]`, finite
+tensors, exact source-action reproduction, zero missing rows, diagnostic
+`used_as_positive=false` and `role_weight=0.0`, and no
 loss/objective/training/PPO/promotion/private-holdout artifacts. The next task
-is M1631: audit the materialization result before any objective design.
-Loss/objective config, actor update, training, PPO, promotion, private holdout,
+is M1632: design role-safe objective semantics. Loss implementation, objective
+config artifacts, actor update, training, PPO, promotion, private holdout,
 actor-input changes, and level3 self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
