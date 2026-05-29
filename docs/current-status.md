@@ -16,50 +16,43 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1462-paper-route-retargeted-bounded-replay-result-audit
+m1463-paper-route-positive-neighborhood-expansion-design
 ```
 
 Current next task:
 
 ```text
-m1463-paper-route-positive-neighborhood-expansion-design
+m1464-paper-route-positive-neighborhood-expansion-implementation
 ```
 
-M1461 ran the retargeted bounded replay smoke and M1462 audited the result. The
-current public-gate base remains M1362 alpha `0.1`:
+M1463 designed positive-neighborhood expansion after the M1461/M1462 singleton
+positive audit. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
+M1463 design:
+
+```text
+decision: positive_neighborhood_expansion_design_admit_implementation
+anchor source: runs/m1461_retargeted_source_step_bounded_replay_smoke/history_positive_rows.csv
+control source: runs/m1461_retargeted_source_step_bounded_replay_smoke/control_positive_rows.csv
+candidate pool: runs/m1459_retargeted_source_step_preflight_smoke/selected_candidate_rows.csv
+next: m1464-paper-route-positive-neighborhood-expansion-implementation
+```
+
 M1462 audit:
 
 ```text
-decision: retargeted_bounded_replay_positive_singleton_route_to_neighborhood_expansion_design
-failure_type: scenario_sampling_failure
-interpretation: boundary retargeting found a live outcome-sensitive neighborhood, but positives are source-singleton and control-sensitive
-next: m1463-paper-route-positive-neighborhood-expansion-design
-```
-
-M1461 result:
-
-```text
-decision: retargeted_source_step_bounded_replay_positive_route_to_audit
-result_class: bounded_relocation_replay_positive
-selected_candidate_rows: 52
-actual_replay_rows: 156
 history_positive_rows: 2
 control_positive_rows: 8
-normal_failed_rows: 78
-actual replay diversity: 5 seeds / 8 capability pairs / 8 reveal buckets / 5 variants
-history-positive diversity: 1 seed / 1 capability pair / 1 reveal bucket / 1 variant
-candidate_step_column: source_step
+interpretation: live positive neighborhood exists but is source-singleton and control-sensitive
 ```
 
-M1463 should design positive-neighborhood expansion around the M1461 live
-history-positive surface while keeping source-diversity requirements explicit.
-It must not train, run PPO, promote, use private holdout, export corpus, or
-change actor inputs.
+M1464 should implement the candidate generator only. It must not run preflight,
+bounded replay, training, PPO, promotion, private holdout, corpus export, or
+actor-input changes.
 
 M1455 result:
 

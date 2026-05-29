@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M1463 designs no-training source-step positive-neighborhood expansion around M1461 live singleton positives with control separation and diversity caps",
+  "failure_criteria": [
+    "design document is missing",
+    "design only replays M1461 singleton rows",
+    "design mixes control positives into history-positive criteria",
+    "design starts replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat singleton positives as source-diverse evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T045815Z",
+  "hypothesis": "A local positive-neighborhood expansion around M1461's live boundary can test whether history positives form a surface rather than a singleton.",
+  "lineage": {
+    "blocked_by": [
+      "M1461 history positives are live but source-singleton"
+    ],
+    "derived_from": [
+      "m1462-paper-route-retargeted-bounded-replay-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1462-paper-route-retargeted-bounded-replay-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m1461_retargeted_source_step_bounded_replay_smoke/history_positive_rows.csv",
+      "runs/m1461_retargeted_source_step_bounded_replay_smoke/control_positive_rows.csv",
+      "docs/m1462-paper-route-retargeted-bounded-replay-result-audit.md"
+    ],
+    "parent_objective": [
+      "design source-diverse positive-neighborhood expansion after M1461 singleton positives"
+    ],
+    "supersedes": [
+      "direct corpus export from M1461 singleton positives"
+    ]
+  },
+  "milestone": "m1463-paper-route-positive-neighborhood-expansion-design",
+  "next_blocker": "m1464-paper-route-positive-neighborhood-expansion-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "positive_neighborhood_expansion_design_admit_implementation",
+  "public_gates": [
+    "M1463 must design positive-neighborhood expansion before any corpus export or training",
+    "M1463 must preserve source_step anchoring and report control positives separately",
+    "M1463 must block replay training PPO promotion private holdout corpus export and actor-input changes"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1463-paper-route-positive-neighborhood-expansion-design.md",
+    "clearance_margin_mean": "",
+    "decision": "positive_neighborhood_expansion_design_admit_implementation",
+    "milestone": "m1463-paper-route-positive-neighborhood-expansion-design",
+    "reason": "M1463 designs no-training source-step positive-neighborhood expansion around M1461 live singleton positives with control separation and diversity caps",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1463-paper-route-positive-neighborhood-expansion-design.md exists",
+    "design keeps source_step anchoring",
+    "design separates history positives and zero-current control positives",
+    "design blocks training PPO promotion private holdout corpus export and actor-input changes",
+    "design routes to implementation or branch synthesis"
+  ],
+  "type": "gate"
+}

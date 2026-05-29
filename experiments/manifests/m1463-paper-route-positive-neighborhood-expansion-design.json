@@ -139,6 +139,29 @@
   "baseline_artifacts": [
     "docs/m1462-paper-route-retargeted-bounded-replay-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1463-paper-route-positive-neighborhood-expansion-design.md",
+    "decision": "positive_neighborhood_expansion_design_admit_implementation",
+    "anchor_history_positive_rows": "runs/m1461_retargeted_source_step_bounded_replay_smoke/history_positive_rows.csv",
+    "control_positive_rows": "runs/m1461_retargeted_source_step_bounded_replay_smoke/control_positive_rows.csv",
+    "candidate_pool": "runs/m1459_retargeted_source_step_preflight_smoke/selected_candidate_rows.csv",
+    "candidate_step_column": "source_step",
+    "design_requires_control_positive_separation": true,
+    "design_requires_source_diversity_caps": true,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1464-paper-route-positive-neighborhood-expansion-implementation.json"
+  },
+  "decision": "positive_neighborhood_expansion_design_admit_implementation",
   "decision_rule": "M1463 passes if it designs a source-diverse positive-neighborhood expansion without replay or training.",
-  "next_blocker": "m1463-paper-route-positive-neighborhood-expansion-design"
+  "next_blocker": "m1464-paper-route-positive-neighborhood-expansion-implementation"
 }

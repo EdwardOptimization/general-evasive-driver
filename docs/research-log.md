@@ -21681,3 +21681,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1463-paper-route-positive-neighborhood-expansion-design.json`.
 - next: `m1463-paper-route-positive-neighborhood-expansion-design`
+
+## 20260529T055000Z - m1463-paper-route-positive-neighborhood-expansion-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1463-paper-route-positive-neighborhood-expansion-design.md`
+- decision: `positive_neighborhood_expansion_design_admit_implementation`
+- design: implement a no-training generator that uses M1461 history-positive rows as anchors, keeps zero-current control positives separate, maps source-diverse candidate bases into the anchor body-frame neighborhood, preserves `source_step`, and applies diversity caps.
+- positive anchor source: `runs/m1461_retargeted_source_step_bounded_replay_smoke/history_positive_rows.csv`
+- control source: `runs/m1461_retargeted_source_step_bounded_replay_smoke/control_positive_rows.csv`
+- candidate pool: `runs/m1459_retargeted_source_step_preflight_smoke/selected_candidate_rows.csv`
+- guardrail: no replay, preflight, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1464-paper-route-positive-neighborhood-expansion-implementation.json`.
+- next: `m1464-paper-route-positive-neighborhood-expansion-implementation`
