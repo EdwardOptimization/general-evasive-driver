@@ -6,8 +6,10 @@ from autodrift.warmup_latched_outcome_probe import (
     is_preferred_near_boundary,
     normal_margin_band,
     select_warmup_candidate_rows,
+    source_warmup_diagnostics,
     source_diversity,
     summarize_normal_margin_bands,
+    warmup_gate_clearance_margin_band,
 )
 
 
@@ -74,6 +76,42 @@ def test_normal_margin_band_and_near_boundary_flags():
     assert not is_broad_near_boundary(0.60)
     assert is_preferred_near_boundary(0.10)
     assert not is_preferred_near_boundary(0.40)
+
+
+def test_source_warmup_diagnostics_classifies_collision_strata():
+    collision = source_warmup_diagnostics(
+        pd.Series(
+            {
+                "preferred_warmup_gate_collision": "True",
+                "wrong_warmup_gate_collision": False,
+                "preferred_warmup_gate_clearance_margin": -0.2,
+                "wrong_warmup_gate_clearance_margin": 0.5,
+                "preferred_warmup_gate_visible_steps": 4,
+                "wrong_warmup_gate_visible_steps": 3,
+                "warmup_response_history_l2": 0.1,
+                "warmup_action_history_l2": 0.02,
+                "warmup_context_history_l2": 0.03,
+            }
+        )
+    )
+    low_margin = source_warmup_diagnostics(
+        pd.Series(
+            {
+                "preferred_warmup_gate_collision": False,
+                "wrong_warmup_gate_collision": False,
+                "preferred_warmup_gate_clearance_margin": 0.1,
+                "wrong_warmup_gate_clearance_margin": 0.4,
+            }
+        )
+    )
+
+    assert collision["warmup_gate_collision_source"] is True
+    assert collision["warmup_gate_collision_stratum"] == "collision"
+    assert collision["warmup_gate_clearance_margin_band"] == "collision_negative"
+    assert collision["preferred_warmup_gate_visible_steps"] == 4
+    assert low_margin["warmup_gate_collision_source"] is False
+    assert low_margin["warmup_gate_collision_stratum"] == "clear_low_margin"
+    assert warmup_gate_clearance_margin_band(1.2) == "clear_gt_1p00"
 
 
 def test_summarize_normal_margin_bands_counts_candidates_and_outcomes():

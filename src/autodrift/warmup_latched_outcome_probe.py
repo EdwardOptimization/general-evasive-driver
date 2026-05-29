@@ -94,6 +94,59 @@ def _first_action(result: dict[str, Any]) -> np.ndarray:
     )
 
 
+def _row_bool(row: pd.Series, key: str) -> bool:
+    value = row.get(key, False)
+    if isinstance(value, str):
+        return value.strip().lower() in {"1", "true", "yes"}
+    if pd.isna(value):
+        return False
+    return bool(value)
+
+
+def warmup_gate_clearance_margin_band(value: float) -> str:
+    margin = _finite(value)
+    if not np.isfinite(margin):
+        return "nonfinite"
+    if margin < 0.0:
+        return "collision_negative"
+    if margin < 0.25:
+        return "clear_0p00_0p25"
+    if margin < 1.0:
+        return "clear_0p25_1p00"
+    return "clear_gt_1p00"
+
+
+def source_warmup_diagnostics(row: pd.Series) -> dict[str, Any]:
+    preferred_margin = _finite(row.get("preferred_warmup_gate_clearance_margin"))
+    wrong_margin = _finite(row.get("wrong_warmup_gate_clearance_margin"))
+    finite_margins = [value for value in (preferred_margin, wrong_margin) if np.isfinite(value)]
+    min_margin = min(finite_margins) if finite_margins else float("nan")
+    preferred_collision = _row_bool(row, "preferred_warmup_gate_collision")
+    wrong_collision = _row_bool(row, "wrong_warmup_gate_collision")
+    collision_source = bool(preferred_collision or wrong_collision or (np.isfinite(min_margin) and min_margin < 0.0))
+    if collision_source:
+        collision_stratum = "collision"
+    elif np.isfinite(min_margin) and min_margin < 0.25:
+        collision_stratum = "clear_low_margin"
+    else:
+        collision_stratum = "clear"
+    return {
+        "warmup_gate_collision_source": collision_source,
+        "warmup_gate_collision_stratum": collision_stratum,
+        "warmup_gate_clearance_margin_min": min_margin,
+        "warmup_gate_clearance_margin_band": warmup_gate_clearance_margin_band(min_margin),
+        "preferred_warmup_gate_collision": preferred_collision,
+        "wrong_warmup_gate_collision": wrong_collision,
+        "preferred_warmup_gate_clearance_margin": preferred_margin,
+        "wrong_warmup_gate_clearance_margin": wrong_margin,
+        "preferred_warmup_gate_visible_steps": int(_finite(row.get("preferred_warmup_gate_visible_steps"), default=0.0)),
+        "wrong_warmup_gate_visible_steps": int(_finite(row.get("wrong_warmup_gate_visible_steps"), default=0.0)),
+        "warmup_response_history_l2": _finite(row.get("warmup_response_history_l2")),
+        "warmup_action_history_l2": _finite(row.get("warmup_action_history_l2")),
+        "warmup_context_history_l2": _finite(row.get("warmup_context_history_l2")),
+    }
+
+
 def _hidden_at_delay(trace: list[TracePoint], delay: int) -> torch.Tensor:
     index = max(0, len(trace) - 1 - int(delay))
     return trace[index].hidden.detach().clone()
@@ -401,6 +454,7 @@ def run_warmup_latched_outcome_probe(
         broad_near_boundary = is_broad_near_boundary(normal_margin)
         preferred_near_boundary = is_preferred_near_boundary(normal_margin)
         normal_viable = bool(normal_success and np.isfinite(normal_margin) and normal_margin >= 0.0)
+        source_diag = source_warmup_diagnostics(row)
         normal_margin_candidate_rows.append(
             {
                 "selected_index": int(selected_index),
@@ -422,6 +476,7 @@ def run_warmup_latched_outcome_probe(
                 "normal_margin_band": margin_band,
                 "normal_broad_near_boundary": broad_near_boundary,
                 "normal_preferred_near_boundary": preferred_near_boundary,
+                **source_diag,
             }
         )
         variant_hiddens = build_warmup_variant_hiddens(
@@ -492,6 +547,7 @@ def run_warmup_latched_outcome_probe(
                     "sequence_action_critical": sequence_action_critical,
                     "outcome_critical": outcome_critical,
                     "warmup_history_positive": warmup_history_positive,
+                    **source_diag,
                 }
             )
 
@@ -530,6 +586,12 @@ def run_warmup_latched_outcome_probe(
     reveal_bucket_summary = summarize_groups(outcome_rows, ("preferred_reveal_bucket",))
     reveal_step_summary = summarize_groups(outcome_rows, ("reveal_step",))
     strict_bucketed_summary = summarize_groups(outcome_rows, ("matched_current_pass", "bucketed_current_pass"))
+    warmup_gate_collision_summary = summarize_groups(outcome_rows, ("warmup_gate_collision_stratum",))
+    warmup_gate_collision_variant_summary = summarize_groups(
+        outcome_rows,
+        ("warmup_gate_collision_stratum", "variant"),
+    )
+    warmup_gate_clearance_band_summary = summarize_groups(outcome_rows, ("warmup_gate_clearance_margin_band",))
     normal_margin_band_summary = summarize_normal_margin_bands(normal_margin_candidate_rows, outcome_rows)
     broad_near_boundary_candidates = [
         row for row in normal_margin_candidate_rows if bool(row.get("normal_broad_near_boundary", False))
@@ -549,6 +611,9 @@ def run_warmup_latched_outcome_probe(
     write_csv_rows(run_dir / "reveal_bucket_summary.csv", reveal_bucket_summary)
     write_csv_rows(run_dir / "reveal_step_summary.csv", reveal_step_summary)
     write_csv_rows(run_dir / "strict_bucketed_summary.csv", strict_bucketed_summary)
+    write_csv_rows(run_dir / "warmup_gate_collision_summary.csv", warmup_gate_collision_summary)
+    write_csv_rows(run_dir / "warmup_gate_collision_variant_summary.csv", warmup_gate_collision_variant_summary)
+    write_csv_rows(run_dir / "warmup_gate_clearance_band_summary.csv", warmup_gate_clearance_band_summary)
     write_csv_rows(run_dir / "normal_margin_band_summary.csv", normal_margin_band_summary)
     summary = {
         "run_type": "warmup_latched_outcome_probe",
@@ -584,6 +649,9 @@ def run_warmup_latched_outcome_probe(
         "broad_near_boundary_candidate_diversity": source_diversity(broad_near_boundary_candidates),
         "preferred_near_boundary_candidate_diversity": source_diversity(preferred_near_boundary_candidates),
         "normal_margin_band_summary": normal_margin_band_summary,
+        "warmup_gate_collision_summary": warmup_gate_collision_summary,
+        "warmup_gate_collision_variant_summary": warmup_gate_collision_variant_summary,
+        "warmup_gate_clearance_band_summary": warmup_gate_clearance_band_summary,
         "variant_count": int(len({str(row.get("variant", "")) for row in outcome_rows})),
         "result_class": result_class,
         "actor_parameters_changed": actor_parameters_changed,
@@ -605,6 +673,9 @@ def run_warmup_latched_outcome_probe(
         "reveal_bucket_summary_csv": run_dir / "reveal_bucket_summary.csv",
         "reveal_step_summary_csv": run_dir / "reveal_step_summary.csv",
         "strict_bucketed_summary_csv": run_dir / "strict_bucketed_summary.csv",
+        "warmup_gate_collision_summary_csv": run_dir / "warmup_gate_collision_summary.csv",
+        "warmup_gate_collision_variant_summary_csv": run_dir / "warmup_gate_collision_variant_summary.csv",
+        "warmup_gate_clearance_band_summary_csv": run_dir / "warmup_gate_clearance_band_summary.csv",
         "normal_margin_band_summary_csv": run_dir / "normal_margin_band_summary.csv",
     }
     write_json(run_dir / "summary.json", summary)

@@ -16,21 +16,53 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1411-paper-route-staged-warmup-gate-source-result-audit
+m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe
 ```
 
 Current next task:
 
 ```text
-m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe
+m1413-paper-route-staged-warmup-outcome-result-audit
 ```
 
-M1411 audited the M1410 staged slot0 warmup gate source smoke. The current
-public-gate base remains M1362 alpha `0.1`:
+M1412 ran the collision-stratified no-training outcome probe over M1410 staged
+warmup matched/bucketed rows. The current public-gate base remains M1362 alpha
+`0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1412 result:
+
+```text
+decision: staged_warmup_gate_outcome_history_sparse_route_to_result_audit
+result_class: warmup_latched_outcome_history_sparse
+selected_candidate_rows: 298
+outcome_rows: 2384
+broad_near_boundary_candidate_rows: 53
+preferred_near_boundary_candidate_rows: 31
+accepted_outcome_rows: 21
+warmup_history_positive_rows: 14
+accepted_history_unique_source_seeds: 3
+accepted_history_unique_capability_pairs: 7
+accepted_history_unique_reveal_buckets: 3
+accepted_reset_rows: 4
+accepted_zero_current_rows: 3
+clear_stratum_warmup_history_positive_rows: 10
+collision_stratum_warmup_history_positive_rows: 4
+wrong_warmup_history_same_reveal_positive_rows: 0
+same_recent_wrong_warmup_history_positive_rows: 0
+actor_input_contract_changed: false
+next: m1413-paper-route-staged-warmup-outcome-result-audit
+```
+
+M1412 is an improvement over M1405 because it finds sparse warmup-history
+positives, and they are not collision-only. It is still not enough for training,
+corpus export, promotion, or level3 self-identification: accepted rows are
+seed-thin, preferred near-boundary positives are only `2` rows from `1` seed,
+and wrong-warmup variants remain negative. M1413 must audit this before another
+run.
 
 M1411 result:
 
@@ -47,12 +79,6 @@ M1410 matched/bucketed warmup_gate_collision_rows: 190 / 298
 selected route: collision-stratified no-training outcome probe
 next: m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe
 ```
-
-M1412 should extend the outcome probe so source warmup gate diagnostics are
-propagated into outcome rows, then run a no-training collision-stratified
-outcome probe over M1410 matched/bucketed rows. It must not train, run PPO,
-export a corpus, use private holdout, promote, change actor inputs, or claim
-level3 self-identification.
 
 M1410 result:
 

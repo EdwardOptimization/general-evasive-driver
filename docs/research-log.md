@@ -20834,3 +20834,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe.json`.
 - next: `m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe`
+
+## 20260529T045000Z - m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1412_staged_warmup_gate_collision_stratified_outcome_probe/summary.json`
+- result doc: `docs/m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe.md`
+- decision: `staged_warmup_gate_outcome_history_sparse_route_to_result_audit`
+- result class: `warmup_latched_outcome_history_sparse`
+- counts: `298` selected candidate rows, `2384` outcome rows, `53` broad near-boundary candidates, `31` preferred near-boundary candidates, `21` accepted outcome rows, `14` warmup-history-positive rows, `4` reset-hidden accepted rows, `3` zero-current accepted rows, `1739` action-critical rows.
+- accepted history diversity: `3` source seeds, `7` capability pairs, `3` reveal buckets, `3` variants; max single seed share is `0.714286`.
+- collision stratification: clear source rows contain `10` warmup-history-positive rows, collision rows contain `4`, and clear-low-margin rows contain `0`; positives are therefore not collision-only.
+- weak point: wrong-warmup variants remain negative (`0` wrong-warmup and `0` same-recent wrong-warmup positives), and preferred near-boundary positives are only `2` rows from `1` seed.
+- guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1413-paper-route-staged-warmup-outcome-result-audit.json`.
+- next: `m1413-paper-route-staged-warmup-outcome-result-audit`

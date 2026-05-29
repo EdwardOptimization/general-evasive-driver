@@ -145,6 +145,10 @@
     {
       "path": "runs/m1412_staged_warmup_gate_collision_stratified_outcome_probe/summary.json",
       "type": "json"
+    },
+    {
+      "path": "docs/m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe.md",
+      "type": "md"
     }
   ],
   "baseline_checkpoints": [
@@ -154,6 +158,45 @@
     "runs/m1410_staged_warmup_gate_source_smoke/matched_or_bucketed_rows.csv",
     "runs/m1410_staged_warmup_gate_source_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1412_staged_warmup_gate_collision_stratified_outcome_probe/summary.json",
+    "result_doc": "docs/m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe.md",
+    "decision": "staged_warmup_gate_outcome_history_sparse_route_to_result_audit",
+    "result_class": "warmup_latched_outcome_history_sparse",
+    "selected_candidate_rows": 298,
+    "outcome_rows": 2384,
+    "normal_margin_candidate_rows": 298,
+    "broad_near_boundary_candidate_rows": 53,
+    "preferred_near_boundary_candidate_rows": 31,
+    "accepted_outcome_rows": 21,
+    "warmup_history_positive_rows": 14,
+    "accepted_warmup_history_broad_near_boundary_rows": 4,
+    "accepted_warmup_history_preferred_near_boundary_rows": 2,
+    "accepted_reset_rows": 4,
+    "accepted_zero_current_rows": 3,
+    "action_critical_rows": 1739,
+    "normal_failed_rows": 872,
+    "accepted_history_unique_source_seeds": 3,
+    "accepted_history_unique_capability_pairs": 7,
+    "accepted_history_unique_reveal_buckets": 3,
+    "accepted_history_unique_variants": 3,
+    "clear_stratum_warmup_history_positive_rows": 10,
+    "clear_low_margin_stratum_warmup_history_positive_rows": 0,
+    "collision_stratum_warmup_history_positive_rows": 4,
+    "wrong_warmup_history_same_reveal_positive_rows": 0,
+    "same_recent_wrong_warmup_history_positive_rows": 0,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1413-paper-route-staged-warmup-outcome-result-audit.json"
+  },
+  "decision": "staged_warmup_gate_outcome_history_sparse_route_to_result_audit",
   "decision_rule": "M1412 passes structurally if it runs a no-training outcome probe with collision-stratified warmup diagnostics and no forbidden training or claim expansion.",
-  "next_blocker": "m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe"
+  "next_blocker": "m1413-paper-route-staged-warmup-outcome-result-audit"
 }

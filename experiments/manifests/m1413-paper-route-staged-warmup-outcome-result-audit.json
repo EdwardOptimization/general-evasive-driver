@@ -1,0 +1,153 @@
+{
+  "id": "m1413-paper-route-staged-warmup-outcome-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1412_staged_warmup_gate_collision_stratified_outcome_probe/summary.json",
+      "docs/m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe.md"
+    ],
+    "parent_config": [
+      "configs/m1410_staged_warmup_gate_source_wave.json",
+      "experiments/manifests/m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe.json"
+    ],
+    "parent_objective": [
+      "audit sparse M1412 warmup-history outcome positives before retargeting or training"
+    ],
+    "derived_from": [
+      "m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe"
+    ],
+    "blocked_by": [
+      "M1412 has sparse warmup-history positives with only 3 accepted-history seeds and weak wrong-warmup signal"
+    ],
+    "supersedes": [
+      "training from M1412 sparse positives",
+      "exporting M1412 as a corpus without source-diverse near-boundary repeats"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1413-paper-route-staged-warmup-outcome-result-audit.md",
+  "public_gates": [
+    "M1413 must audit M1412 sparse positives before any training or corpus export",
+    "M1413 must distinguish clear-stratum positives from collision-heavy positives",
+    "M1413 must decide retune, retarget, repeat, stop, or synthesize",
+    "M1413 must not train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim level3 self-identification from M1412 sparse positives",
+    "do not ignore weak wrong-warmup signal"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "A_staged_warmup_outcome_sparse_audit",
+    "evidence_increment": "audits sparse M1412 outcome positives and decides whether to retarget clear near-boundary source rows before another outcome probe",
+    "claim_scope": "process audit only; no outcome intervention, training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if sparse positives are treated as sufficient evidence",
+      "stop if audit routes to training or corpus export",
+      "stop if weak wrong-warmup signal is ignored",
+      "stop if actor input changes are proposed"
+    ],
+    "fallback_plan": [
+      "retune gate/source selection toward clear near-boundary rows if M1412 is promising but seed-thin",
+      "route to branch synthesis if retargeting would be another narrow loop",
+      "stop branch if M1412 does not justify a retargeted repeat"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_after_m1409_continue_synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "staged warmup outcome result audit",
+    "admission_evidence": [
+      "M1412 finds 14 warmup-history-positive rows but only 3 accepted-history seeds",
+      "M1412 positives are not collision-only but are still sparse",
+      "M1412 wrong-warmup variants produce zero positives"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1413 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest if the audit admits it"
+    ],
+    "next_stage_criteria": [
+      "M1412 result is classified",
+      "source/collision strata are interpreted",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1413 must keep M1412 below level3 because positives are sparse and wrong-warmup variants remain negative.",
+    "history_necessity_tests": [
+      "audit delayed_warmup_history_8",
+      "audit warmup_removed",
+      "audit warmup_shortened_8",
+      "audit wrong_warmup_history_same_reveal negative result",
+      "audit reset_hidden and zero_current_response controls"
+    ],
+    "temporal_evidence_window": "M1412 no-training outcome artifacts.",
+    "negative_result_policy": "Sparse positives and wrong-warmup negatives must be recorded as constraints before retargeting.",
+    "allowed_claims": [
+      "M1412 result audit and next-route decision",
+      "no outcome intervention, promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1412 sparse positive result can be audited into a safer retargeting decision without overclaiming self-identification or entering training.",
+  "success_criteria": [
+    "docs/m1413-paper-route-staged-warmup-outcome-result-audit.md exists",
+    "audit records M1412 accepted-history diversity and collision strata",
+    "audit records weak or negative wrong-warmup evidence",
+    "audit chooses retune, retarget, repeat, stop, or synthesis without training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1412 as public-positive self-ID evidence",
+    "audit ignores source diversity limitations",
+    "audit routes directly to training, PPO, promotion, private holdout, corpus export, or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1413-paper-route-staged-warmup-outcome-result-audit.md from M1412 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1413-paper-route-staged-warmup-outcome-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1412_staged_warmup_gate_collision_stratified_outcome_probe/summary.json"
+  ],
+  "decision_rule": "M1413 passes if it classifies M1412 sparse positives into an explicit non-training next route.",
+  "next_blocker": "m1413-paper-route-staged-warmup-outcome-result-audit"
+}
