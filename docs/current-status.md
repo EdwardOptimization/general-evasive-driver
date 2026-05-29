@@ -16,25 +16,26 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1629-paper-route-contour-aware-full-target-materialization-design
+m1630-paper-route-contour-aware-full-target-materialization-implementation
 ```
 
 Current next task:
 
 ```text
-m1630-paper-route-contour-aware-full-target-materialization-implementation
+m1631-paper-route-contour-aware-full-target-materialization-result-audit
 ```
 
-M1629 designed full 39-positive / 232-diagnostic policy-target materialization
-using the M1626 capture path. The design requires separate positive and
-diagnostic NPZ bundles, positive observation `[39,72]`, diagnostic observation
-`[232,72]`, hidden/action tensor shape and finite guards, source-action
-reproduction L2 <= `1e-6`, zero missing capture rows, diagnostic
-`used_as_positive=false` and `role_weight=0.0`, checkpoint mutation guard, and
-audit-before-objective discipline. The next task is M1630: implement
-materialization only. Loss/objective config, actor update, training, PPO,
-promotion, private holdout, actor-input changes, and level3 self-ID claims
-remain blocked.
+M1630 implemented the full 39-positive / 232-diagnostic policy-target
+materialization using the M1626 capture path. Public gates passed:
+positive observation `[39,72]`, diagnostic observation `[232,72]`,
+correct/wrong hidden tensors with hidden dim `128`, preferred/wrong-history/
+donor-plus-hidden actions `[N,3]`, all tensors finite, source-action
+reproduction L2 max `0.0`, zero missing capture rows, diagnostic
+`used_as_positive=false` and `role_weight=0.0`, checkpoint unmutated, and no
+loss/objective/training/PPO/promotion/private-holdout artifacts. The next task
+is M1631: audit the materialization result before any objective design.
+Loss/objective config, actor update, training, PPO, promotion, private holdout,
+actor-input changes, and level3 self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

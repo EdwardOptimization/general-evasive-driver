@@ -1,0 +1,93 @@
+# m1630-paper-route-contour-aware-full-target-materialization-implementation Research Review
+
+## Summary
+
+- Generated at UTC: 20260529T192806Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: contour_aware_full_target_materialization_public_pass_route_to_audit
+- Decision reason: M1630 materializes full public policy-target tensors with 39 positives 232 diagnostics observation 72 hidden 128 action tensors 3 exact source-action reproduction diagnostics zero-weight and no training artifact
+
+## Hypothesis
+
+The M1626 capture path can scale to all 39 positive and 232 diagnostic public rows while preserving role integrity and actor-contract guardrails.
+
+## Lineage
+
+- parent_checkpoint: runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
+- parent_dataset: docs/m1629-paper-route-contour-aware-full-target-materialization-design.md, runs/m1615_contour_aware_candidate_corpus/summary.json, runs/m1623_contour_aware_policy_target_traceability_preflight/summary.json, runs/m1626_contour_aware_tensor_capture_dry_run/summary.json
+- parent_config: experiments/manifests/m1629-paper-route-contour-aware-full-target-materialization-design.json
+- parent_objective: bounded full contour-aware policy-target materialization
+- derived_from: m1629-paper-route-contour-aware-full-target-materialization-design
+- blocked_by: M1629 admits exactly one full materialization implementation and blocks objective update/training
+- supersedes: direct objective update from M1629, direct PPO after M1629, direct checkpoint promotion after M1629
+- invalidates: None
+
+## Success Criteria
+
+- runs/m1630_contour_aware_full_target_materialization/summary.json exists
+- positive_policy_target_count == 39
+- diagnostic_policy_guardrail_count == 232
+- positive observation/action/hidden shapes are correct and finite
+- diagnostic observation/action/hidden shapes are correct and finite
+- missing_capture_row_count == 0
+- diagnostic_rows_used_as_positive is false
+- diagnostic_positive_weight_sum == 0.0
+- checkpoint_weights_mutated is false
+- training_ready training_corpus_exported loss_constructed objective_constructed training_started ppo_used promoted private_holdout_used actor_input_contract_changed labels_enter_actor_input level3_self_id_claim_made are false
+
+## Failure Criteria
+
+- summary artifact is missing
+- positive or diagnostic row counts mismatch
+- tensor shapes are missing or nonfinite
+- diagnostics become positive targets
+- loss/objective config training PPO promotion private holdout or actor-input changes are produced
+
+## Evidence Gates
+
+- M1630 must materialize exactly 39 positive and 232 diagnostic rows
+- M1630 must verify canonical 72-dim observations and hidden/action tensor shapes
+- M1630 must keep diagnostics zero-weight and non-positive
+- M1630 must not construct loss/objective config or train
+- M1630 must route to result audit before objective design
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not construct a loss
+- do not construct an objective config
+- do not train
+- do not run PPO
+- do not run actor update
+- do not promote a checkpoint
+- do not use private holdout
+- do not add actor inputs
+- do not claim level3 self-identification
+- do not treat diagnostics as positive targets
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m1630-paper-route-contour-aware-full-target-materialization-implementation
+- type: infrastructure
+- checkpoint: runs/m1630_contour_aware_full_target_materialization/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: contour_aware_full_target_materialization_public_pass_route_to_audit
+- reason: M1630 materializes full public policy-target tensors with 39 positives 232 diagnostics observation 72 hidden 128 action tensors 3 exact source-action reproduction diagnostics zero-weight and no training artifact
+
+## Next Blocker
+
+m1630-paper-route-contour-aware-full-target-materialization-implementation

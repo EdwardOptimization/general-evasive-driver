@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1638,
+    "completed": 1639,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1629-paper-route-contour-aware-full-target-materialization-design.md",
+      "command_log": "docs/m1630-paper-route-contour-aware-full-target-materialization-implementation.md",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1630_contour_aware_full_target_materialization",
       "status": "completed",
-      "task_id": "m1629-paper-route-contour-aware-full-target-materialization-design"
+      "task_id": "m1630-paper-route-contour-aware-full-target-materialization-implementation"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1630-paper-route-contour-aware-full-target-materialization-implementation.json",
-      "hypothesis": "The M1626 capture path can scale to all 39 positive and 232 diagnostic public rows while preserving role integrity and actor-contract guardrails.",
-      "id": "m1630-paper-route-contour-aware-full-target-materialization-implementation",
-      "kind": "infrastructure",
-      "notes": "Pending: implement full target materialization only; no loss objective training PPO promotion or private holdout",
-      "priority": 16250,
+      "command": "see experiments/manifests/m1631-paper-route-contour-aware-full-target-materialization-result-audit.json",
+      "hypothesis": "The M1630 full materialization result is sufficient to decide whether contour-aware objective design can be admitted.",
+      "id": "m1631-paper-route-contour-aware-full-target-materialization-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit full tensor artifacts before objective design; no training PPO promotion or private holdout",
+      "priority": 16260,
       "status": "pending",
-      "success_artifact": "runs/m1630_contour_aware_full_target_materialization/summary.json"
+      "success_artifact": "docs/m1631-paper-route-contour-aware-full-target-materialization-result-audit.md"
     },
-    "updated_at_utc": "20260529T193900Z"
+    "updated_at_utc": "20260529T192856Z"
 }

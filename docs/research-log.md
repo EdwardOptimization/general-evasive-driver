@@ -25947,3 +25947,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: objective/loss construction, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
 - follow-up manifest: `experiments/manifests/m1630-paper-route-contour-aware-full-target-materialization-implementation.json`
 - next: `m1630-paper-route-contour-aware-full-target-materialization-implementation`
+
+## M1630 Paper-Route Contour-Aware Full Target Materialization Implementation
+
+- status: completed
+- decision: `contour_aware_full_target_materialization_public_pass_route_to_audit`
+- artifact: `runs/m1630_contour_aware_full_target_materialization/summary.json`
+- doc: `docs/m1630-paper-route-contour-aware-full-target-materialization-implementation.md`
+- focused tests: `2 passed in 2.09s`
+- positive input row count: 39
+- diagnostic input row count: 232
+- positive policy target count: 39
+- diagnostic policy guardrail count: 232
+- positive observation shape: `[39, 72]`
+- diagnostic observation shape: `[232, 72]`
+- positive hidden shapes: correct `[39, 128]`, wrong `[39, 128]`
+- diagnostic hidden shapes: correct `[232, 128]`, wrong `[232, 128]`
+- positive action shapes: preferred/wrong-history/donor-plus-hidden `[39, 3]`
+- diagnostic action shapes: preferred/wrong-history/donor-plus-hidden `[232, 3]`
+- all tensor values finite: true
+- source action reproduction L2 max: positive `0.0`, diagnostic `0.0`
+- diagnostic rows used as positive: false
+- diagnostic positive weight sum: `0.0`
+- missing capture rows: 0
+- checkpoint weights mutated: false
+- guardrail violations: 0
+- passes public smoke gates: true
+- null result classification: `contour_aware_full_target_materialization_public_pass`
+- supported: full public positive-target and diagnostic-guardrail tensor materialization is available
+- unsupported: objective/loss construction, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- follow-up manifest: `experiments/manifests/m1631-paper-route-contour-aware-full-target-materialization-result-audit.json`
+- next: `m1631-paper-route-contour-aware-full-target-materialization-result-audit`

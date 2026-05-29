@@ -1,0 +1,155 @@
+{
+  "id": "m1631-paper-route-contour-aware-full-target-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1630_contour_aware_full_target_materialization/summary.json",
+      "docs/m1630-paper-route-contour-aware-full-target-materialization-implementation.md",
+      "docs/m1629-paper-route-contour-aware-full-target-materialization-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1630-paper-route-contour-aware-full-target-materialization-implementation.json"
+    ],
+    "parent_objective": [
+      "audit bounded full contour-aware policy-target materialization"
+    ],
+    "derived_from": [
+      "m1630-paper-route-contour-aware-full-target-materialization-implementation"
+    ],
+    "blocked_by": [
+      "M1630 materializes tensor bundles but blocks objective design until result audit"
+    ],
+    "supersedes": [
+      "direct objective update from M1630",
+      "direct PPO after M1630",
+      "direct checkpoint promotion after M1630"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1631-paper-route-contour-aware-full-target-materialization-result-audit.md",
+  "public_gates": [
+    "M1631 must audit the M1630 full materialization result",
+    "M1631 must verify role integrity and tensor shape/finite guards",
+    "M1631 must decide whether objective design is admitted or whether materialization repair is needed",
+    "M1631 must keep training PPO promotion and private holdout blocked",
+    "M1631 must not strengthen self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not construct a loss",
+    "do not construct an objective config",
+    "do not train",
+    "do not run PPO",
+    "do not run actor update",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_full_policy_target_materialization_result_audit",
+    "evidence_increment": "audits the 39-positive 232-diagnostic full policy-target materialization result before any objective design",
+    "claim_scope": "process audit only; no loss/objective construction, actor update, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if M1630 tensor artifacts are missing or nonfinite",
+      "stop if positive or diagnostic counts mismatch",
+      "stop if diagnostics became positive targets",
+      "stop if source-action reproduction or checkpoint mutation guards fail"
+    ],
+    "fallback_plan": [
+      "admit objective-design planning if M1630 artifacts are clean",
+      "pivot to materialization repair if any tensor or role-integrity guard fails",
+      "route to branch synthesis if objective-design admission is ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1630 writes full materialization artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit full policy-target materialization",
+    "admission_evidence": [
+      "M1630 produced positive and diagnostic NPZ bundles",
+      "M1630 reported shape finite role integrity and mutation guards"
+    ],
+    "blocked_shortcuts": [
+      "do not construct a loss",
+      "do not construct an objective config",
+      "do not train",
+      "do not run PPO",
+      "do not run actor update",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1631 audit document",
+      "M1631 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits objective design, repair, synthesis, or stop"
+    ],
+    "next_stage_criteria": [
+      "M1630 materialization is audited",
+      "objective-design admission or fallback is explicit",
+      "training and PPO remain blocked unless a later design admits them"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1631 audits tensor plumbing only and cannot strengthen self-ID claims.",
+    "history_necessity_tests": [
+      "audits captured correct/wrong hidden tensors and diagnostic role integrity"
+    ],
+    "temporal_evidence_window": "public M1615/M1609 rows only.",
+    "negative_result_policy": "If materialization is insufficient, record the blocker and pivot before objective design.",
+    "allowed_claims": [
+      "full policy-target materialization audit and route decision",
+      "no objective update, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1630 full materialization result is sufficient to decide whether contour-aware objective design can be admitted.",
+  "success_criteria": [
+    "docs/m1631-paper-route-contour-aware-full-target-materialization-result-audit.md exists",
+    "M1630 summary and tensor artifacts are audited",
+    "audit states supported and unsupported claims",
+    "audit explicitly routes next step",
+    "training PPO promotion and private holdout remain blocked unless a later design admits them"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit skips tensor shape role-integrity or guardrail review",
+    "audit routes directly to training PPO promotion private holdout or actor-input changes",
+    "audit claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1631-paper-route-contour-aware-full-target-materialization-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1631-paper-route-contour-aware-full-target-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1630_contour_aware_full_target_materialization/summary.json",
+    "docs/m1630-paper-route-contour-aware-full-target-materialization-implementation.md"
+  ],
+  "decision_rule": "M1631 passes if it audits the full materialization and chooses a safe next route before objective design.",
+  "next_blocker": "m1631-paper-route-contour-aware-full-target-materialization-result-audit"
+}
