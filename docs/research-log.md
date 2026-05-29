@@ -20928,3 +20928,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1418-paper-route-warmup-retarget-source-result-audit.json`.
 - next: `m1418-paper-route-warmup-retarget-source-result-audit`
+
+## 20260529T055000Z - m1418-paper-route-warmup-retarget-source-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1418-paper-route-warmup-retarget-source-result-audit.md`
+- decision: `warmup_retarget_source_audit_admit_warmup_gate_invasiveness_retune_source_smoke`
+- classification: `source_structural_pass_warmup_evidence_pass_invasiveness_gate_fail`
+- failure type: `scenario_sampling_failure`
+- evidence: M1417 source and warmup evidence gates pass with `1630` source rows, `250` matched/bucketed rows, `33` matched/bucketed seeds, `16` capability pairs, response-history p95 `0.070585`, and action-history p95 `0.020763`.
+- blocker: M1417 invasiveness gates fail narrowly with matched/bucketed collision share `0.544` and `114` clear+clear-low rows against thresholds `<=0.50` and `>=120`.
+- route: admit one focused no-training source smoke that preserves M1417 obstacle sampling and retunes only warmup-gate distance/lateral/width parameters.
+- guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke.json`.
+- next: `m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke`

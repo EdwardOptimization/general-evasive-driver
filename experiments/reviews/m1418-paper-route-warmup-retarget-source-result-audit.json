@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M1418 audits M1417 as source and warmup-evidence positive but invasiveness negative and admits one focused no-training warmup-gate retune source smoke before outcome probing",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1417 source materialization as self-ID evidence",
+    "audit ignores the invasiveness gate failure",
+    "audit routes directly to training, PPO, promotion, private holdout, corpus export, or claim expansion"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source smoke",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim self-identification from source materialization",
+    "do not ignore the matched/bucketed invasiveness gate failure"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T013159Z",
+  "hypothesis": "M1417 source materialization is strong enough to justify a focused warmup-gate invasiveness retune before outcome probing.",
+  "lineage": {
+    "blocked_by": [
+      "M1417 passes source and warmup evidence gates but misses matched/bucketed collision-share and clear-row gates"
+    ],
+    "derived_from": [
+      "m1417-paper-route-warmup-retarget-sampling-repair-source-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "configs/ppo_m1417_warmup_retarget_sampling_repair_figure_eight.json",
+      "configs/m1417_warmup_retarget_sampling_repair_source_wave.json",
+      "experiments/manifests/m1417-paper-route-warmup-retarget-sampling-repair-source-smoke.json"
+    ],
+    "parent_dataset": [
+      "runs/m1417_warmup_retarget_sampling_repair_source_smoke/summary.json",
+      "docs/m1417-paper-route-warmup-retarget-sampling-repair-source-smoke.md"
+    ],
+    "parent_objective": [
+      "audit M1417 structural source pass with invasiveness gate failure before retuning or outcome probing"
+    ],
+    "supersedes": [
+      "running outcome probe directly from M1417 despite failed invasiveness gate",
+      "training from M1417 source rows"
+    ]
+  },
+  "milestone": "m1418-paper-route-warmup-retarget-source-result-audit",
+  "next_blocker": "m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "warmup_retarget_source_audit_admit_warmup_gate_invasiveness_retune_source_smoke",
+  "public_gates": [
+    "M1418 must audit M1417 structural pass and invasiveness failure",
+    "M1418 must decide outcome probe, warmup-gate retune, branch synthesis, or stop",
+    "M1418 must not run outcome interventions, train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1418-paper-route-warmup-retarget-source-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "warmup_retarget_source_audit_admit_warmup_gate_invasiveness_retune_source_smoke",
+    "milestone": "m1418-paper-route-warmup-retarget-source-result-audit",
+    "reason": "M1418 audits M1417 as source and warmup-evidence positive but invasiveness negative and admits one focused no-training warmup-gate retune source smoke before outcome probing",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1418-paper-route-warmup-retarget-source-result-audit.md exists",
+    "audit records M1417 source diversity, warmup evidence, and invasiveness metrics",
+    "audit chooses outcome probe, retune, synthesis, stop, or pivot without training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "type": "gate"
+}

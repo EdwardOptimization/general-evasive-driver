@@ -16,20 +16,52 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1417-paper-route-warmup-retarget-sampling-repair-source-smoke
+m1418-paper-route-warmup-retarget-source-result-audit
 ```
 
 Current next task:
 
 ```text
-m1418-paper-route-warmup-retarget-source-result-audit
+m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke
 ```
 
-M1417 ran the repaired warmup retarget source smoke. The current public-gate
-base remains M1362 alpha `0.1`:
+M1418 audited the M1417 repaired warmup retarget source smoke. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
+```
+
+M1418 result:
+
+```text
+decision: warmup_retarget_source_audit_admit_warmup_gate_invasiveness_retune_source_smoke
+classification: source_structural_pass_warmup_evidence_pass_invasiveness_gate_fail
+failure_type: scenario_sampling_failure
+M1417 source_rows: 1630
+M1417 matched_or_bucketed_reveal_rows: 250
+M1417 matched/bucketed unique_source_seeds: 33
+M1417 matched/bucketed unique_capability_pairs: 16
+M1417 matched/bucketed unique_reveal_buckets: 90
+M1417 matched/bucketed warmup_response_history_l2_p95: 0.070585
+M1417 matched/bucketed warmup_action_history_l2_p95: 0.020763
+M1417 matched/bucketed warmup_gate_collision_share: 0.544
+M1417 matched/bucketed clear_rows: 100
+M1417 matched/bucketed clear_low_margin_rows: 14
+invasiveness_gate_passed: false
+selected route: one focused no-training warmup-gate retune source smoke
+next: m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke
+```
+
+M1419 should preserve M1417 obstacle sampling and retune only the warmup gate:
+
+```text
+preserve obstacle.distance_range: [4.0, 20.0]
+preserve obstacle.half_width_range: [0.90, 1.65]
+preserve obstacle.max_threshold_score: 0.50
+retune warmup_gate.distance_range: [12.0, 20.0]
+retune warmup_gate.lateral_offset_range: [-2.6, 2.6]
+retune warmup_gate.half_width_range: [0.20, 0.35]
 ```
 
 M1417 result:
@@ -52,10 +84,10 @@ actor_input_contract_changed: false
 next: m1418-paper-route-warmup-retarget-source-result-audit
 ```
 
-M1418 should audit M1417 before outcome probing. M1417 restored source
-materialization and warmup evidence, but it failed the pre-registered
-matched/bucketed invasiveness gates. The next route is likely a focused warmup
-gate retune, not training or outcome probing yet.
+M1418 audited M1417 before outcome probing. M1417 restored source
+materialization and warmup evidence, but failed the pre-registered
+matched/bucketed invasiveness gates. The selected next route is a focused
+warmup-gate retune source smoke, not training or outcome probing yet.
 
 M1416 result:
 

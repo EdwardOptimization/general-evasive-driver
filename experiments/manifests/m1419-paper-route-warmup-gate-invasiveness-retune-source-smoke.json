@@ -1,0 +1,185 @@
+{
+  "id": "m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1417_warmup_retarget_sampling_repair_source_smoke/summary.json",
+      "docs/m1418-paper-route-warmup-retarget-source-result-audit.md"
+    ],
+    "parent_config": [
+      "configs/ppo_m1417_warmup_retarget_sampling_repair_figure_eight.json",
+      "configs/m1417_warmup_retarget_sampling_repair_source_wave.json",
+      "experiments/manifests/m1418-paper-route-warmup-retarget-source-result-audit.json"
+    ],
+    "parent_objective": [
+      "run one focused no-training source smoke with only warmup-gate invasiveness retuned"
+    ],
+    "derived_from": [
+      "m1418-paper-route-warmup-retarget-source-result-audit"
+    ],
+    "blocked_by": [
+      "M1417 passes source and warmup evidence gates but misses matched/bucketed invasiveness gates narrowly"
+    ],
+    "supersedes": [
+      "running outcome probe from M1417 despite failed invasiveness gates",
+      "retuning obstacle sampling again before warmup-gate invasiveness is isolated",
+      "training from M1417 source rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke.md",
+  "public_gates": [
+    "M1419 must run no-training warmup-gate invasiveness retune source smoke only",
+    "M1419 must preserve M1417 obstacle sampling and retune only warmup_gate distance lateral offset and half width",
+    "M1419 must report source diversity warmup evidence and matched/bucketed invasiveness metrics",
+    "M1419 must not run outcome interventions train run PPO promote use private holdout export a training corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim self-identification from source materialization",
+    "do not change obstacle sampling from M1417",
+    "do not tune against private holdout",
+    "do not run another local retune after M1419 without branch synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "S_warmup_gate_invasiveness_retune_source",
+    "evidence_increment": "tests whether a less invasive warmup gate preserves M1417 source and warmup evidence while passing matched/bucketed invasiveness gates",
+    "claim_scope": "public no-training source smoke only; no outcome intervention training PPO promotion private holdout corpus export paper-level or strong self-identification claim",
+    "stop_condition": [
+      "stop if source materialization falls below M1416 structural gates",
+      "stop if warmup command-response evidence collapses",
+      "stop if matched/bucketed invasiveness gates still fail",
+      "stop if actor input changes are required",
+      "stop if another local retune would exceed synthesis cadence"
+    ],
+    "fallback_plan": [
+      "route to outcome-result audit only if source warmup evidence and invasiveness gates pass",
+      "route to branch synthesis if source or invasiveness gates fail",
+      "pivot to non-obstacle warmup stimulus if staged warmup gate remains too invasive"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "cadence_reached_after_m1419_so_next_non_synthesis_step_requires_synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "warmup-gate invasiveness retune source smoke",
+    "admission_evidence": [
+      "M1417 restored source materialization with 1630 rows and 250 matched/bucketed rows",
+      "M1417 matched/bucketed warmup response/action history p95 exceeded thresholds",
+      "M1417 narrowly missed invasiveness with 0.544 matched collision share and 114 clear+low rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1419 retuned source-smoke configs",
+      "M1419 source artifacts under runs/",
+      "M1419 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up synthesis or audit manifest"
+    ],
+    "next_stage_criteria": [
+      "source structural pass/fail is classified",
+      "warmup evidence and invasiveness gates are reported",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1419 is source smoke only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "source materialization with warmup evidence",
+      "matched/bucketed current reveal diagnostics",
+      "warmup-gate invasiveness diagnostics"
+    ],
+    "temporal_evidence_window": "No-training warmup-gate retuned source smoke following M1418 audit.",
+    "negative_result_policy": "If source or invasiveness gates fail, record the failure and synthesize before another local retune.",
+    "allowed_claims": [
+      "retuned staged warmup source-smoke result",
+      "no outcome intervention promotion corpus export training PPO private-holdout high-fidelity paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A less invasive warmup gate will preserve M1417 source materialization and warmup evidence while lowering matched/bucketed collision share enough to justify a later outcome probe.",
+  "success_criteria": [
+    "M1419 retuned source-smoke configs exist",
+    "runs/m1419_warmup_gate_invasiveness_retune_source_smoke/summary.json exists",
+    "source_rows >= 1024",
+    "matched_or_bucketed_reveal_rows >= 240",
+    "matched/bucketed unique_source_seeds >= 28",
+    "matched/bucketed unique_capability_pairs >= 12",
+    "matched/bucketed unique_reveal_buckets >= 64",
+    "finite_metric_rows == source_rows",
+    "matched/bucketed warmup_gate_visible_rows == matched_or_bucketed_reveal_rows",
+    "matched/bucketed warmup_evidence_rows == matched_or_bucketed_reveal_rows",
+    "matched/bucketed warmup_response_history_l2_p95 >= 0.035",
+    "matched/bucketed warmup_action_history_l2_p95 >= 0.008",
+    "matched/bucketed warmup_gate_collision_share <= 0.50",
+    "matched/bucketed clear + clear_low_margin rows >= 120",
+    "actor_parameters_changed == false",
+    "result chooses next route without outcome intervention training PPO promotion private holdout corpus export or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "source smoke artifact is missing",
+    "source rows are zero or metrics are missing",
+    "source diversity gates fail",
+    "warmup evidence gates fail",
+    "invasiveness gates fail",
+    "result routes directly to training PPO promotion private holdout corpus export or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "warmup_gate_invasiveness_retune_source_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.warmup_latched_config_smoke --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m1419_warmup_gate_invasiveness_retune_source_wave.json --seed-start 141900 --seed-count 48 --reveal-steps 48,56,64,72 --history-length 56 --min-warmup-evidence-steps 16 --max-source-rows 6144 --device cpu --run-dir runs/m1419_warmup_gate_invasiveness_retune_source_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1419_warmup_gate_invasiveness_retune_source_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "configs/ppo_m1419_warmup_gate_invasiveness_retune_figure_eight.json",
+      "type": "json"
+    },
+    {
+      "path": "configs/m1419_warmup_gate_invasiveness_retune_source_wave.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1418-paper-route-warmup-retarget-source-result-audit.md",
+    "runs/m1417_warmup_retarget_sampling_repair_source_smoke/summary.json"
+  ],
+  "decision_rule": "M1419 passes only if it preserves source and warmup evidence while passing matched/bucketed invasiveness gates before any outcome probing.",
+  "next_blocker": "m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke"
+}

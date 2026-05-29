@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1427,
+    "completed": 1428,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1417-paper-route-warmup-retarget-sampling-repair-source-smoke.md",
+    "command_log": "docs/m1418-paper-route-warmup-retarget-source-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1417_warmup_retarget_sampling_repair_source_smoke",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m1417-paper-route-warmup-retarget-sampling-repair-source-smoke"
+    "task_id": "m1418-paper-route-warmup-retarget-source-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1418-paper-route-warmup-retarget-source-result-audit.json",
-    "hypothesis": "M1417 source materialization is strong enough to justify a focused warmup-gate invasiveness retune before outcome probing.",
-    "id": "m1418-paper-route-warmup-retarget-source-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M1417 structural pass with invasiveness gate failure before retune or outcome probing",
-    "priority": 14130,
+    "command": "see experiments/manifests/m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke.json",
+    "hypothesis": "A less invasive warmup gate will preserve M1417 source materialization and warmup evidence while lowering matched/bucketed collision share enough to justify a later outcome probe.",
+    "id": "m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: run focused no-training warmup-gate invasiveness retune source smoke; no outcome, training, PPO, promotion, private holdout, or corpus export",
+    "priority": 14140,
     "status": "pending",
-    "success_artifact": "docs/m1418-paper-route-warmup-retarget-source-result-audit.md"
+    "success_artifact": "runs/m1419_warmup_gate_invasiveness_retune_source_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T054000Z"
+  "updated_at_utc": "20260529T055000Z"
 }

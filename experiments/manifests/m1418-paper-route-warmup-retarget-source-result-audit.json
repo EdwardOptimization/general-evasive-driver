@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -147,6 +147,43 @@
   "baseline_artifacts": [
     "runs/m1417_warmup_retarget_sampling_repair_source_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1418-paper-route-warmup-retarget-source-result-audit.md",
+    "decision": "warmup_retarget_source_audit_admit_warmup_gate_invasiveness_retune_source_smoke",
+    "classification": "source_structural_pass_warmup_evidence_pass_invasiveness_gate_fail",
+    "failure_type": "scenario_sampling_failure",
+    "m1417_source_rows": 1630,
+    "m1417_matched_or_bucketed_reveal_rows": 250,
+    "m1417_matched_or_bucketed_unique_source_seeds": 33,
+    "m1417_matched_or_bucketed_unique_capability_pairs": 16,
+    "m1417_matched_or_bucketed_unique_reveal_buckets": 90,
+    "m1417_matched_or_bucketed_warmup_response_history_l2_p95": 0.07058491292836587,
+    "m1417_matched_or_bucketed_warmup_action_history_l2_p95": 0.02076314618084917,
+    "m1417_matched_or_bucketed_warmup_gate_collision_share": 0.544,
+    "m1417_matched_or_bucketed_clear_rows": 100,
+    "m1417_matched_or_bucketed_clear_low_margin_rows": 14,
+    "m1417_invasiveness_gate_passed": false,
+    "selected_route": "focused_warmup_gate_invasiveness_retune_source_smoke",
+    "retune_preserve_obstacle_distance_range": [4.0, 20.0],
+    "retune_preserve_obstacle_half_width_range": [0.90, 1.65],
+    "retune_preserve_obstacle_max_threshold_score": 0.50,
+    "retune_warmup_gate_distance_range": [12.0, 20.0],
+    "retune_warmup_gate_lateral_offset_range": [-2.6, 2.6],
+    "retune_warmup_gate_half_width_range": [0.20, 0.35],
+    "source_smoke_started": false,
+    "outcome_probe_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke.json"
+  },
+  "decision": "warmup_retarget_source_audit_admit_warmup_gate_invasiveness_retune_source_smoke",
   "decision_rule": "M1418 passes if it classifies M1417 into an explicit non-training next route.",
-  "next_blocker": "m1418-paper-route-warmup-retarget-source-result-audit"
+  "next_blocker": "m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke"
 }
