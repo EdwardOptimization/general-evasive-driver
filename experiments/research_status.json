@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1550,
+    "completed": 1551,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1541_terminal_boundary_source_repair_smoke/summary.json",
+    "command_log": "docs/m1542-paper-route-terminal-boundary-source-repair-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1541_terminal_boundary_source_repair_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation"
+    "task_id": "m1542-paper-route-terminal-boundary-source-repair-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1542-paper-route-terminal-boundary-source-repair-result-audit.json",
-    "hypothesis": "M1541's negative result can be classified cleanly enough to choose between terminal-boundary task sampling repair and branch synthesis without training or materialization.",
-    "id": "m1542-paper-route-terminal-boundary-source-repair-result-audit",
+    "command": "see experiments/manifests/m1543-paper-route-terminal-boundary-task-sampling-calibration-design.json",
+    "hypothesis": "A bounded task-sampling calibration design can repair M1541's source-window miss by targeting actual fixed-policy terminal margins before another history-intervention run.",
+    "id": "m1543-paper-route-terminal-boundary-task-sampling-calibration-design",
     "kind": "gate",
-    "notes": "Pending: audit M1541 terminal-boundary source-window miss and control-dominated null result",
-    "priority": 15370,
+    "notes": "Pending: design bounded terminal-boundary task sampling calibration before interventions",
+    "priority": 15380,
     "status": "pending",
-    "success_artifact": "docs/m1542-paper-route-terminal-boundary-source-repair-result-audit.md"
+    "success_artifact": "docs/m1543-paper-route-terminal-boundary-task-sampling-calibration-design.md"
   },
-  "updated_at_utc": "20260529T114721Z"
+  "updated_at_utc": "20260529T115127Z"
 }

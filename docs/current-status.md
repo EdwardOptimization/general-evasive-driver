@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1541-paper-route-terminal-boundary-history-positive-source-repair-implementation
+m1542-paper-route-terminal-boundary-source-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m1542-paper-route-terminal-boundary-source-repair-result-audit
+m1543-paper-route-terminal-boundary-task-sampling-calibration-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -160,6 +160,12 @@ negative/control-dominated result: `terminal_target_near_boundary_count` was
 both `0`, max history margin gap was only `0.0040`, and max reset/zero-control
 gap was `0.1485` with a control-to-history ratio of `36.89`. The next task is a
 result audit before any candidate materialization or training.
+M1542 audited that result as a source-window miss plus control-dominated
+terminal-history null. It keeps M1541 as clean plumbing evidence, but blocks
+materialization because the target traces did not enter the intended
+near-boundary active set. The next route is a bounded task-sampling calibration
+design that targets actual fixed-policy decision/post-decision margins before
+another history-intervention run.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

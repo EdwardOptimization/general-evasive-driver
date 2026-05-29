@@ -23430,3 +23430,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1541 implements the bounded terminal-boundary repair plumbing and proves the replay harness is stable on accepted terminal pairs, but the result is not positive evidence. The terminal target traces missed the near-boundary decision window, history interventions stayed below threshold, and reset/zero-current controls dominated. Materialization and training remain blocked.
 - follow-up manifest: `experiments/manifests/m1542-paper-route-terminal-boundary-source-repair-result-audit.json`.
 - next: `m1542-paper-route-terminal-boundary-source-repair-result-audit`
+
+## M1542 Paper-Route Terminal-Boundary Source Repair Result Audit
+
+- status: completed
+- decision: `terminal_boundary_source_repair_audit_source_window_miss_route_to_task_sampling_calibration_design`
+- artifact: `docs/m1542-paper-route-terminal-boundary-source-repair-result-audit.md`
+- audited artifact: `runs/m1541_terminal_boundary_source_repair_smoke/summary.json`
+- source-window verdict: `scenario_sampling_failure`
+- history-sensitivity verdict: `history_effect_null_on_terminal_boundary_sources`
+- control-dominance verdict: `metric_artifact`
+- materialization verdict: `blocked`
+- terminal source spec count: 35
+- terminal target trace count: 20
+- terminal target near-boundary count: 0
+- accepted terminal pair count: 11
+- accepted terminal source-edge count: 8
+- intervention row count: 880
+- anchor replay failure count: 0
+- terminal wrong-history positive target sides: 0
+- terminal donor-plus-hidden positive target sides: 0
+- terminal donor stream positive target sides: 0
+- terminal wrong-or-donor success drop count: 0
+- terminal max history margin gap: 0.0040251709543639436
+- terminal max control margin gap: 0.14847354874699903
+- terminal control-to-history gap ratio: 36.88627152246277
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1542 preserves M1541 as clean terminal-boundary plumbing but blocks candidate materialization and training. The next useful route is not another intervention rerun; it is task-sampling calibration that targets actual simulator decision/post-decision terminal margins.
+- follow-up manifest: `experiments/manifests/m1543-paper-route-terminal-boundary-task-sampling-calibration-design.json`.
+- next: `m1543-paper-route-terminal-boundary-task-sampling-calibration-design`
