@@ -140,6 +140,26 @@
   "baseline_artifacts": [
     "docs/m1479-paper-route-source-diverse-pressure-preflight-smoke.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1480-paper-route-source-diverse-pressure-bounded-replay-design.md",
+    "decision": "source_diverse_pressure_bounded_replay_design_admit_smoke",
+    "candidate_source": "runs/m1479_source_diverse_pressure_preflight_smoke/selected_candidate_rows.csv",
+    "candidate_step_column": "source_step",
+    "max_candidate_rows": 96,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1481-paper-route-source-diverse-pressure-bounded-replay-smoke.json"
+  },
+  "decision": "source_diverse_pressure_bounded_replay_design_admit_smoke",
   "decision_rule": "M1480 passes if it designs bounded replay for M1479 candidates without running replay or training.",
-  "next_blocker": "m1480-paper-route-source-diverse-pressure-bounded-replay-design"
+  "next_blocker": "m1481-paper-route-source-diverse-pressure-bounded-replay-smoke"
 }

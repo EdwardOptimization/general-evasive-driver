@@ -21978,3 +21978,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1480-paper-route-source-diverse-pressure-bounded-replay-design.json`.
 - next: `m1480-paper-route-source-diverse-pressure-bounded-replay-design`
+
+## 20260529T072500Z - m1480-paper-route-source-diverse-pressure-bounded-replay-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1480-paper-route-source-diverse-pressure-bounded-replay-design.md`
+- decision: `source_diverse_pressure_bounded_replay_design_admit_smoke`
+- candidate source: `runs/m1479_source_diverse_pressure_preflight_smoke/selected_candidate_rows.csv`
+- required candidate step column: `source_step`
+- design: run bounded replay over 96 capped source-diverse preflight-pass candidates with source-group and control-positive diagnostics.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1481-paper-route-source-diverse-pressure-bounded-replay-smoke.json`.
+- next: `m1481-paper-route-source-diverse-pressure-bounded-replay-smoke`

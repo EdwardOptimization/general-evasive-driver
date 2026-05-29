@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1488,
+    "completed": 1489,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1479-paper-route-source-diverse-pressure-preflight-smoke.md",
+    "command_log": "docs/m1480-paper-route-source-diverse-pressure-bounded-replay-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1479_source_diverse_pressure_preflight_smoke",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1479-paper-route-source-diverse-pressure-preflight-smoke"
+    "task_id": "m1480-paper-route-source-diverse-pressure-bounded-replay-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1480-paper-route-source-diverse-pressure-bounded-replay-design.json",
-    "hypothesis": "A bounded replay smoke over M1479 preflight-pass source-diverse pressure candidates can test whether proposal/preflight diversity transfers to outcome-sensitive replay rows.",
-    "id": "m1480-paper-route-source-diverse-pressure-bounded-replay-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded replay over M1479 selected candidates without running replay training PPO promotion or corpus export",
-    "priority": 14750,
+    "command": "see experiments/manifests/m1481-paper-route-source-diverse-pressure-bounded-replay-smoke.json",
+    "hypothesis": "A bounded replay smoke over M1479 source-diverse pressure candidates can test whether proposal/preflight diversity transfers to outcome-sensitive replay rows.",
+    "id": "m1481-paper-route-source-diverse-pressure-bounded-replay-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: run bounded replay over M1479 selected candidates without training PPO promotion or corpus export",
+    "priority": 14760,
     "status": "pending",
-    "success_artifact": "docs/m1480-paper-route-source-diverse-pressure-bounded-replay-design.md"
+    "success_artifact": "runs/m1481_source_diverse_pressure_bounded_replay_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T072000Z"
+  "updated_at_utc": "20260529T072500Z"
 }

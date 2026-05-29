@@ -16,37 +16,34 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1479-paper-route-source-diverse-pressure-preflight-smoke
+m1480-paper-route-source-diverse-pressure-bounded-replay-design
 ```
 
 Current next task:
 
 ```text
-m1480-paper-route-source-diverse-pressure-bounded-replay-design
+m1481-paper-route-source-diverse-pressure-bounded-replay-smoke
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
 M1476 ran proposal generation. M1477 synthesized the branch and promoted to
-source-diverse pressure validation. M1478 designed the preflight-only smoke and
-M1479 ran it. The current public-gate base remains M1362 alpha `0.1`:
+source-diverse pressure validation. M1478 designed the preflight-only smoke,
+M1479 ran it, and M1480 designed bounded replay. The current public-gate base
+remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1479 result:
+M1480 design:
 
 ```text
-decision: source_diverse_pressure_preflight_pass_route_to_bounded_replay_design
-geometry_pass_rows: 108
-selected_candidate_rows: 108
-selected_source_group_counts: 96 neighbor_source / 12 original_source
-selected diversity: 5 seeds / 7 capability pairs / 7 reveal buckets / 3 variants
-relocation_clipped_share: 0.0
-duplicate pressure keys: 0
+decision: source_diverse_pressure_bounded_replay_design_admit_smoke
+candidate_source: runs/m1479_source_diverse_pressure_preflight_smoke/selected_candidate_rows.csv
 candidate_step_column: source_step
-next: m1480-paper-route-source-diverse-pressure-bounded-replay-design
+max_candidate_rows: 96
+next: m1481-paper-route-source-diverse-pressure-bounded-replay-smoke
 ```
 
 M1472 result:
@@ -69,8 +66,8 @@ selected_duplicate_positive_neighborhood_key_rows: 0
 selected diversity: 5 seeds / 9 capability pairs / 8 reveal buckets / 3 variants
 ```
 
-M1480 should design bounded replay only. It must not run replay, train, run PPO,
-promote, use private holdout, export corpus, or change actor inputs.
+M1481 should run bounded replay only. It must not train, run PPO, promote, use
+private holdout, export corpus, or change actor inputs.
 
 M1455 result:
 
