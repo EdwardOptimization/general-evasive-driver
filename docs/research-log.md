@@ -26630,3 +26630,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: replay gate, PPO, training curriculum, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1663-paper-route-fusion-actor-checkpoint-artifact-implementation.json`
 - next: `m1663-paper-route-fusion-actor-checkpoint-artifact-implementation`
+
+## M1663 Paper-Route Fusion Actor Checkpoint Artifact Implementation
+
+- status: completed
+- decision: `fusion_actor_checkpoint_artifact_public_pass_route_to_audit`
+- artifact: `docs/m1663-paper-route-fusion-actor-checkpoint-artifact-implementation.md`
+- summary: `runs/m1663_fusion_actor_checkpoint_artifact/summary.json`
+- checkpoint artifact: `runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt`
+- artifact sha256: `c7829fc0596bd6658440fd343282a4cbb2907a37b6b30424698c2e29d0b8c191`
+- git commit recorded in artifact metadata: `e1cfe2874cb6124f391c0994663732d8754ca781`
+- selected alpha: `0.2`
+- checkpoint artifact count: `1`
+- unexpected checkpoint artifact count: `0`
+- exact residual reduction ratio: `0.40519785496674926`
+- public smoke gates: `true`
+- result class: `fusion_actor_checkpoint_artifact_public_pass`
+- guardrails: replay/PPO/training/promotion/private-holdout/actor-input/level3 counts all `0`
+- supported: alpha `0.2` repaired candidate is materialized as one objective-sanity checkpoint artifact with metadata and checksums
+- unsupported: replay improvement, behavior retention, PPO-proposal repair, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit.json`
+- next: `m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit`

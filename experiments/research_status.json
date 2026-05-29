@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1671,
+    "completed": 1672,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1662-paper-route-fusion-actor-checkpoint-artifact-design.md",
+      "command_log": "docs/m1663-paper-route-fusion-actor-checkpoint-artifact-implementation.md",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1663_fusion_actor_checkpoint_artifact",
       "status": "completed",
-      "task_id": "m1662-paper-route-fusion-actor-checkpoint-artifact-design"
+      "task_id": "m1663-paper-route-fusion-actor-checkpoint-artifact-implementation"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1663-paper-route-fusion-actor-checkpoint-artifact-implementation.json",
-      "hypothesis": "The M1660 alpha 0.2 fusion_actor repaired policy can be materialized as one checkpoint artifact with complete lineage and checksums while keeping replay and promotion blocked.",
-      "id": "m1663-paper-route-fusion-actor-checkpoint-artifact-implementation",
-      "kind": "infrastructure",
-      "notes": "Pending: materialize exactly one alpha 0.2 objective-sanity artifact with metadata and checksums before audit",
-      "priority": 16580,
+      "command": "see experiments/manifests/m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit.json",
+      "hypothesis": "The M1663 checkpoint artifact can be audited as a clean objective-sanity artifact while keeping replay and promotion blocked.",
+      "id": "m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit alpha 0.2 artifact metadata checksums and guardrails before any replay design",
+      "priority": 16590,
       "status": "pending",
-      "success_artifact": "runs/m1663_fusion_actor_checkpoint_artifact/summary.json"
+      "success_artifact": "docs/m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit.md"
     },
-    "updated_at_utc": "20260529T215918Z"
+    "updated_at_utc": "20260529T220640Z"
 }
