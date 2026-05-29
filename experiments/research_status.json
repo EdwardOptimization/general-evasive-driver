@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1674,
+    "completed": 1675,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1665-paper-route-fusion-actor-artifact-replay-gate-design.md",
+      "command_log": "docs/m1666-paper-route-fusion-actor-artifact-replay-first-check.md",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1666_fusion_actor_artifact_replay_first_check",
       "status": "completed",
-      "task_id": "m1665-paper-route-fusion-actor-artifact-replay-gate-design"
+      "task_id": "m1666-paper-route-fusion-actor-artifact-replay-first-check"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1666-paper-route-fusion-actor-artifact-replay-first-check.json",
-      "hypothesis": "The M1663 artifact can pass checkpoint sanity and the first M183/M170 plus M267/M264 public proof replay checks before full-stack replay is considered.",
-      "id": "m1666-paper-route-fusion-actor-artifact-replay-first-check",
+      "command": "see experiments/manifests/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.json",
+      "hypothesis": "The M1666 first-check replay failure can be audited as behavior/proof retention regression rather than lineage contract or metric failure.",
+      "id": "m1667-paper-route-fusion-actor-artifact-first-check-failure-audit",
       "kind": "gate",
-      "notes": "Pending: run checkpoint sanity plus first public proof replay checks before audit",
-      "priority": 16610,
+      "notes": "Pending: audit first-check failure before repair or PPO",
+      "priority": 16620,
       "status": "pending",
-      "success_artifact": "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json"
+      "success_artifact": "docs/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.md"
     },
-    "updated_at_utc": "20260529T221114Z"
+    "updated_at_utc": "20260529T221629Z"
 }

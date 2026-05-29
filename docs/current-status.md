@@ -16,20 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1665-paper-route-fusion-actor-artifact-replay-gate-design
+m1666-paper-route-fusion-actor-artifact-replay-first-check
 ```
 
 Current next task:
 
 ```text
-m1666-paper-route-fusion-actor-artifact-replay-first-check
+m1667-paper-route-fusion-actor-artifact-first-check-failure-audit
 ```
 
-M1665 designed staged public replay gates for the M1663 objective-sanity
-artifact. M1666 may run only checkpoint load/P0 contract sanity plus two first
-public proof replay checks: M183/M170 and M267/M264. Full-stack replay, PPO,
-promotion, private holdout, actor-input changes, paper-level claims, and level3
-self-ID claims remain blocked until a result audit.
+M1666 ran the first public replay checks for the M1663 objective-sanity
+artifact. Checkpoint checksum and P0 actor contract passed, but M183/M170 and
+M267/M264 both failed. The failure is cleanly classified as behavior/proof
+retention regression: wrong-history gap retention stayed true, but normal
+history behavior collapsed, so success-drop proof collapsed. The next task is
+M1667 failure audit before any repair, PPO, promotion, or private holdout.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

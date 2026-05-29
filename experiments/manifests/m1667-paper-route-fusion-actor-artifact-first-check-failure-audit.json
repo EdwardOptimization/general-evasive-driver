@@ -1,0 +1,163 @@
+{
+  "id": "m1667-paper-route-fusion-actor-artifact-first-check-failure-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "proof_washout",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json",
+      "runs/m1666_fusion_actor_artifact_replay_first_check/checkpoint_sanity.json",
+      "runs/m1666_fusion_actor_artifact_replay_first_check/first_check_gate_summary.csv",
+      "docs/m1666-paper-route-fusion-actor-artifact-replay-first-check.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1666-paper-route-fusion-actor-artifact-replay-first-check.json"
+    ],
+    "parent_objective": [
+      "audit first-check replay failure before any repair or PPO route"
+    ],
+    "derived_from": [
+      "m1666-paper-route-fusion-actor-artifact-replay-first-check"
+    ],
+    "blocked_by": [
+      "M1666 first-check replay failed both M183/M170 and M267/M264"
+    ],
+    "supersedes": [
+      "direct behavior-retention repair after M1666",
+      "direct PPO after M1666",
+      "direct promotion after M1666",
+      "private holdout after M1666"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.md",
+  "public_gates": [
+    "M1667 must audit M1666 negative first-check result",
+    "M1667 must classify behavior_regression and proof_washout contributions",
+    "M1667 must distinguish lineage/contract/metric failures from real replay failures",
+    "M1667 must decide stop repair-design source-refresh synthesis or other route",
+    "M1667 must not run repair replay PPO training promotion private holdout actor-input changes or level3 claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun replay",
+    "do not run repair",
+    "do not run PPO",
+    "do not train",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not rerun artifact materialization",
+    "do not tune repair parameters",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_ppo_proposal_projection_repair",
+    "evidence_axis": "E_fusion_actor_artifact_first_check_failure_audit",
+    "evidence_increment": "audits first-check replay failure and selects the next safe route",
+    "claim_scope": "process audit only; no repair, replay rerun, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit minimizes the first-check failure",
+      "stop if audit routes directly to repair or PPO without classifying root cause",
+      "stop if audit treats wrong-history gap retention as full proof retention",
+      "stop if private holdout or promotion is admitted"
+    ],
+    "fallback_plan": [
+      "design behavior-retention repair only if normal-branch regression is the primary blocker",
+      "pivot to artifact/source refresh if the artifact route is too brittle",
+      "synthesize branch if accumulated objective-to-replay evidence suggests a branch-level decision",
+      "stop artifact route if first-check failure invalidates the artifact as a replay candidate"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1666 first-check replay failed both public proof surfaces",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit fusion_actor artifact first-check replay failure",
+    "admission_evidence": [
+      "M1666 checkpoint sanity passed",
+      "M1666 M183/M170 and M267/M264 first-check replay failed",
+      "M1666 guardrails were clean"
+    ],
+    "blocked_shortcuts": [
+      "do not run repair",
+      "do not run PPO",
+      "do not train",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1667 audit document",
+      "M1667 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits repair design source refresh synthesis or stop"
+    ],
+    "next_stage_criteria": [
+      "failure root cause is classified",
+      "supported and unsupported claims are explicit",
+      "next route is explicit",
+      "promotion and private holdout remain blocked unless a later design admits them"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1667 audits a public first-check replay failure and does not prove level3 self-identification.",
+    "history_necessity_tests": [
+      "M1666 wrong-history gap retention passed but normal branch behavior failed; audit must not overclaim history necessity"
+    ],
+    "temporal_evidence_window": "M1362, M1630, M1650-M1666 public artifacts only.",
+    "negative_result_policy": "Record the failure as evidence that exact objective artifact materialization is insufficient for replay retention without behavior-retention constraints.",
+    "allowed_claims": [
+      "first-check replay failure audit and route decision",
+      "no repair, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1666 first-check replay failure can be audited as behavior/proof retention regression rather than lineage contract or metric failure.",
+  "success_criteria": [
+    "docs/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.md exists",
+    "audit records M183/M170 and M267/M264 failure metrics",
+    "audit classifies behavior_regression and proof_washout",
+    "audit distinguishes lineage contract and metric artifact counts as zero",
+    "audit explicitly routes next step",
+    "repair PPO training promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats first-check failure as pass",
+    "audit runs repair replay PPO promotion private holdout or actor-input changes",
+    "audit routes directly to promotion private holdout or paper evidence",
+    "audit claims level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json",
+    "runs/m1666_fusion_actor_artifact_replay_first_check/first_check_gate_summary.csv",
+    "docs/m1666-paper-route-fusion-actor-artifact-replay-first-check.md"
+  ],
+  "decision_rule": "M1667 passes if it audits the first-check failure and chooses a safe next route before repair or PPO.",
+  "next_blocker": "m1667-paper-route-fusion-actor-artifact-first-check-failure-audit"
+}

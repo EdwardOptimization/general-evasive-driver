@@ -26684,3 +26684,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: replay execution, full-stack replay, PPO, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1666-paper-route-fusion-actor-artifact-replay-first-check.json`
 - next: `m1666-paper-route-fusion-actor-artifact-replay-first-check`
+
+## M1666 Paper-Route Fusion Actor Artifact Replay First Check
+
+- status: completed
+- decision: `fusion_actor_artifact_first_check_failed_route_to_audit`
+- artifact: `docs/m1666-paper-route-fusion-actor-artifact-replay-first-check.md`
+- summary: `runs/m1666_fusion_actor_artifact_replay_first_check/summary.json`
+- checkpoint sanity: `true`
+- artifact sha match: `true`
+- P0 actor contract: `true`
+- M183/M170 first-check pass: `false`
+- M267/M264 first-check pass: `false`
+- first-check pass: `false`
+- result class: `fusion_actor_artifact_first_check_m183_m170_failure`
+- proof_washout_count: `2`
+- behavior_regression_count: `2`
+- lineage_invalid_count: `0`
+- contract_violation_count: `0`
+- metric_artifact_count: `0`
+- replay_execution_error_count: `0`
+- M183/M170: normal_success_delta `-1.0`, success_drop_count_delta `-17`, wrong_history_gap_retention_pass `true`
+- M267/M264: normal_success_delta `-0.8823529411764706`, success_drop_count_delta `-15`, wrong_history_gap_retention_pass `true`
+- supported: artifact loads and first-check replay failure is real behavior/proof retention regression
+- unsupported: full-stack replay, PPO, repair, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.json`
+- next: `m1667-paper-route-fusion-actor-artifact-first-check-failure-audit`

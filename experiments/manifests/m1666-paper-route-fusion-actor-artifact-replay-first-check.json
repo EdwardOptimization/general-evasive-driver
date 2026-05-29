@@ -4,7 +4,8 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "proof_washout",
+    "behavior_regression"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -170,6 +171,30 @@
     "docs/m1665-paper-route-fusion-actor-artifact-replay-gate-design.md",
     "runs/m1663_fusion_actor_checkpoint_artifact/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1666-paper-route-fusion-actor-artifact-replay-first-check.md",
+    "summary_json": "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json",
+    "decision": "fusion_actor_artifact_first_check_failed_route_to_audit",
+    "failure_taxonomy": [
+      "proof_washout",
+      "behavior_regression"
+    ],
+    "checkpoint_sanity_pass": true,
+    "artifact_sha256_match": true,
+    "p0_actor_contract_pass": true,
+    "m183_m170_first_check_pass": false,
+    "m267_m264_first_check_pass": false,
+    "first_check_pass": false,
+    "proof_washout_count": 2,
+    "behavior_regression_count": 2,
+    "lineage_invalid_count": 0,
+    "contract_violation_count": 0,
+    "metric_artifact_count": 0,
+    "replay_execution_error_count": 0,
+    "route": "failure audit before repair",
+    "next_manifest": "experiments/manifests/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.json"
+  },
   "decision_rule": "M1666 passes only if checkpoint sanity and the first public proof replay checks pass, then routes to audit before full-stack replay or promotion.",
-  "next_blocker": "m1666-paper-route-fusion-actor-artifact-replay-first-check"
+  "next_blocker": "m1667-paper-route-fusion-actor-artifact-first-check-failure-audit"
 }
