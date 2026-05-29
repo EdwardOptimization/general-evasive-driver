@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1522-paper-route-t5-timing-amplified-intervention-result-audit
+m1523-paper-route-t5-response-mismatch-intervention-design
 ```
 
 Current next task:
 
 ```text
-m1523-paper-route-t5-response-mismatch-intervention-design
+m1524-paper-route-t5-response-mismatch-intervention-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -76,12 +76,46 @@ implementation. The next branch is `paper_route_t5_timing_amplified_intervention
 M1521 implemented the timing-amplified smoke and found outcome-relevant margin
 gaps above `0.02`, but no success drops and wrong-history donor hidden remained
 near-null. M1522 audited this as positive timing sensitivity but not self-ID,
-and routes to stricter response/action-history mismatch diagnostics. The current
-public-gate base remains M1362 alpha `0.1`:
+and routes to stricter response/action-history mismatch diagnostics. M1523
+designed those diagnostics while preserving target scene context and the
+deployed actor contract. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1523 T5 response mismatch intervention design:
+
+```text
+decision: t5_response_mismatch_design_admit_bounded_implementation
+artifact: docs/m1523-paper-route-t5-response-mismatch-intervention-design.md
+eligible_source_family: t5_high_speed_close_obstacle
+eligible_target_count: 4
+anchors:
+  reveal
+  decision_minus_8
+  decision
+variants:
+  normal
+  donor_response_current_frame_at_anchor
+  donor_ego_response_stream_from_anchor
+  donor_action_history_stream_from_anchor
+  donor_response_action_stream_from_anchor
+  donor_response_action_plus_hidden_from_anchor
+  zero_current_response_from_anchor
+diagnostic_observation_surgery_defined: true
+target_scene_context_preserved: true
+deployed_actor_contract_changed: false
+response_mismatch_strength_metric_defined: true
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1524-paper-route-t5-response-mismatch-intervention-implementation
+```
+
+M1523 is design only. The implementation must be audited before any
+materialization, corpus export, or self-ID claim.
 
 M1522 T5 timing-amplified intervention result audit:
 

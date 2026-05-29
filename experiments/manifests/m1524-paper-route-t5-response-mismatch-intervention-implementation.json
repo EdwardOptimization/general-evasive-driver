@@ -1,0 +1,166 @@
+{
+  "id": "m1524-paper-route-t5-response-mismatch-intervention-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1523-paper-route-t5-response-mismatch-intervention-design.md",
+      "runs/m1521_t5_timing_amplified_intervention_smoke/timing_intervention_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1523-paper-route-t5-response-mismatch-intervention-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded response/action-history mismatch diagnostics"
+    ],
+    "derived_from": [
+      "m1523-paper-route-t5-response-mismatch-intervention-design"
+    ],
+    "blocked_by": [
+      "M1523 designed response/action-history mismatch diagnostics after hidden-only donor stayed near-null"
+    ],
+    "supersedes": [
+      "hidden-only donor response mismatch"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1524-paper-route-t5-response-mismatch-intervention-implementation.md",
+  "public_gates": [
+    "M1524 must implement bounded response/action-history mismatch smoke",
+    "M1524 must preserve target scene context and deployed actor contract",
+    "M1524 must write row pair anchor variant guardrail and summary artifacts",
+    "M1524 must keep candidate materialization and corpus export false",
+    "M1524 must not train run PPO promote use private holdout or alter actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add deployed actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not claim self-identification from response-mismatch plumbing"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_t5_timing_amplified_intervention",
+    "evidence_axis": "G_t5_response_mismatch_runtime",
+    "evidence_increment": "implements the response/action-history mismatch diagnostic designed in M1523",
+    "claim_scope": "diagnostic intervention runtime evidence only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if implementation changes deployed actor inputs",
+      "stop if target scene context cannot be preserved",
+      "stop if donor response streams are missing or silently dropped",
+      "stop if implementation would materialize candidates or export corpus"
+    ],
+    "fallback_plan": [
+      "if full stream variants are too broad, narrow to donor_response_current_frame and donor_response_action_stream",
+      "if donor response mismatch strength is low, route to donor-selection repair",
+      "if artifacts are written, route to mandatory response-mismatch audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1523 admitted bounded response/action mismatch implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "T5 response mismatch intervention implementation",
+    "admission_evidence": [
+      "M1523 designed diagnostic observation surgery that preserves target scene context and perturbs only response/action-history stream"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change deployed actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "response-mismatch intervention module and tests",
+      "bounded public response-mismatch smoke artifacts",
+      "status queue scoreboard research log and review",
+      "one mandatory follow-up response-mismatch audit manifest"
+    ],
+    "next_stage_criteria": [
+      "response mismatch artifacts are complete",
+      "guardrails remain false",
+      "response mismatch strength is measurable or failures explicit",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1524 can test response/action-stream dependence, but diagnostic observation surgery is not a deployable self-ID proof by itself.",
+    "history_necessity_tests": [
+      "donor response/action current-frame mismatch",
+      "donor response/action stream mismatch",
+      "donor response/action plus hidden mismatch"
+    ],
+    "temporal_evidence_window": "M1521 T5 timing rows and M1523 response-mismatch windows.",
+    "negative_result_policy": "If response mismatch remains null, record whether donor mismatch strength was high enough before closing the subset.",
+    "allowed_claims": [
+      "M1524 implements bounded response/action mismatch diagnostics",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Bounded response/action-history mismatch diagnostics can reveal whether the actor depends on the response stream more directly than hidden-only donor injection.",
+  "success_criteria": [
+    "response-mismatch intervention code exists",
+    "focused tests exist and pass",
+    "runs/m1524_t5_response_mismatch_intervention_smoke/summary.json exists",
+    "all configured targets anchors and variants are attempted or failures explicit",
+    "row pair anchor variant guardrail and summary artifacts are written",
+    "guardrail_violation_count equals zero",
+    "candidate_materialized training replay PPO promotion private holdout and deployed actor-input changes remain false"
+  ],
+  "failure_criteria": [
+    "response-mismatch module or tests are missing",
+    "target or donor replay failures are hidden",
+    "target scene context is not preserved",
+    "candidate materialization corpus export training PPO promotion private holdout or deployed actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_decisive_history_t5_response_mismatch.py -q"
+    },
+    {
+      "name": "response-mismatch-smoke",
+      "command": "PYTHONPATH=src python -m autodrift.decisive_history_t5_response_mismatch --run-dir runs/m1524_t5_response_mismatch_intervention_smoke --continuation-steps 64 --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/decisive_history_t5_response_mismatch.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_decisive_history_t5_response_mismatch.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m1524_t5_response_mismatch_intervention_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1523-paper-route-t5-response-mismatch-intervention-design.md",
+    "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json"
+  ],
+  "decision_rule": "M1524 passes if bounded response/action-history mismatch diagnostics run or fail explicitly with artifacts and all guardrails false.",
+  "next_blocker": "m1524-paper-route-t5-response-mismatch-intervention-implementation"
+}

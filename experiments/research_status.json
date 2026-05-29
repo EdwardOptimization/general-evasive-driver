@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1531,
+    "completed": 1532,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md",
+    "command_log": "docs/m1523-paper-route-t5-response-mismatch-intervention-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md",
+    "run_dir": "docs/m1523-paper-route-t5-response-mismatch-intervention-design.md",
     "status": "completed",
-    "task_id": "m1522-paper-route-t5-timing-amplified-intervention-result-audit"
+    "task_id": "m1523-paper-route-t5-response-mismatch-intervention-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1523-paper-route-t5-response-mismatch-intervention-design.json",
-    "hypothesis": "A response/action-history mismatch design can test whether the actor depends on the response stream more directly than hidden-only donor injection.",
-    "id": "m1523-paper-route-t5-response-mismatch-intervention-design",
-    "kind": "gate",
-    "notes": "Pending: design stronger response/action-history mismatch diagnostics after wrong-history donor hidden remained near-null",
-    "priority": 15180,
+    "command": "see experiments/manifests/m1524-paper-route-t5-response-mismatch-intervention-implementation.json",
+    "hypothesis": "Bounded response/action-history mismatch diagnostics can reveal whether the actor depends on the response stream more directly than hidden-only donor injection.",
+    "id": "m1524-paper-route-t5-response-mismatch-intervention-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded response/action-history mismatch diagnostics",
+    "priority": 15190,
     "status": "pending",
-    "success_artifact": "docs/m1523-paper-route-t5-response-mismatch-intervention-design.md"
+    "success_artifact": "runs/m1524_t5_response_mismatch_intervention_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T100303Z"
+  "updated_at_utc": "20260529T100539Z"
 }

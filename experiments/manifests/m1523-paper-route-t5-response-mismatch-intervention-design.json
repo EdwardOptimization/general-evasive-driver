@@ -147,6 +147,45 @@
     "docs/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md",
     "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1523-paper-route-t5-response-mismatch-intervention-design.md",
+    "decision": "t5_response_mismatch_design_admit_bounded_implementation",
+    "eligible_source_family": "t5_high_speed_close_obstacle",
+    "eligible_target_count": 4,
+    "anchor_names": [
+      "reveal",
+      "decision_minus_8",
+      "decision"
+    ],
+    "variant_names": [
+      "normal",
+      "donor_response_current_frame_at_anchor",
+      "donor_ego_response_stream_from_anchor",
+      "donor_action_history_stream_from_anchor",
+      "donor_response_action_stream_from_anchor",
+      "donor_response_action_plus_hidden_from_anchor",
+      "zero_current_response_from_anchor"
+    ],
+    "diagnostic_observation_surgery_defined": true,
+    "target_scene_context_preserved": true,
+    "deployed_actor_contract_changed": false,
+    "primary_outcome_relevance_threshold": "success_drop_from_normal or margin_gap_from_normal >= 0.02",
+    "response_mismatch_strength_metric_defined": true,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1524-paper-route-t5-response-mismatch-intervention-implementation.json"
+  },
+  "decision": "t5_response_mismatch_design_admit_bounded_implementation",
   "decision_rule": "M1523 passes if it designs bounded response/action mismatch diagnostics while preserving all no-training no-materialization guardrails.",
-  "next_blocker": "m1523-paper-route-t5-response-mismatch-intervention-design"
+  "next_blocker": "m1524-paper-route-t5-response-mismatch-intervention-implementation"
 }

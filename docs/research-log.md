@@ -22881,3 +22881,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1522 audits M1521 as useful timing-sensitivity evidence, but not wrong-history or level3 self-ID evidence; next is a stricter response/action-history mismatch design.
 - follow-up manifest: `experiments/manifests/m1523-paper-route-t5-response-mismatch-intervention-design.json`.
 - next: `m1523-paper-route-t5-response-mismatch-intervention-design`
+
+## M1523 Paper-Route T5 Response Mismatch Intervention Design
+
+- status: completed
+- decision: `t5_response_mismatch_design_admit_bounded_implementation`
+- artifact: `docs/m1523-paper-route-t5-response-mismatch-intervention-design.md`
+- eligible source family: `t5_high_speed_close_obstacle`
+- eligible target count: 4
+- anchors: `reveal`, `decision_minus_8`, `decision`
+- variants: `normal`, `donor_response_current_frame_at_anchor`, `donor_ego_response_stream_from_anchor`, `donor_action_history_stream_from_anchor`, `donor_response_action_stream_from_anchor`, `donor_response_action_plus_hidden_from_anchor`, `zero_current_response_from_anchor`
+- diagnostic observation surgery defined: true
+- target scene context preserved: true
+- deployed actor contract changed: false
+- response mismatch strength metric defined: true
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1523 designs a stricter diagnostic for response/action-stream dependence after hidden-only donor injection remained near-null.
+- follow-up manifest: `experiments/manifests/m1524-paper-route-t5-response-mismatch-intervention-implementation.json`.
+- next: `m1524-paper-route-t5-response-mismatch-intervention-implementation`
