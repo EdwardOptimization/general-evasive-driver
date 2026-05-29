@@ -25267,3 +25267,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1601-paper-route-contour-aware-source-rule-design.json`
 - next: `m1601-paper-route-contour-aware-source-rule-design`
+
+## M1601 Paper-Route Contour-Aware Source Rule Design
+
+- status: completed
+- decision: `contour_aware_source_rule_design_admit_offline_selector_implementation`
+- artifact: `docs/m1601-paper-route-contour-aware-source-rule-design.md`
+- failure taxonomy: `scenario_sampling_failure`, `objective_overfit`
+- primary selection source: `clean_edge_window`
+- primary source edges: `actuator_delay_step|capability_step_up`, `curved_boundary_obstacle|t5_boundary_axis_retarget`, `actuator_delay_step|t5_near_boundary_warmup`, `capability_step_down|t5_near_boundary_warmup`
+- primary directed pair count: 144
+- primary clean directed pair count: 39
+- primary clean source-edge count: 4
+- max primary clean source-edge share: 0.3333333333333333
+- endpoint-neighbor primary count: 0
+- diagnostic rows: mixed dominated edge, negative diagnostic edges, endpoint-neighbor exclusions
+- route decision: admit offline selector implementation before any replay
+- replay started: false
+- history interventions executed: false in M1601
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1602-paper-route-contour-aware-source-rule-implementation.json`
+- next: `m1602-paper-route-contour-aware-source-rule-implementation`

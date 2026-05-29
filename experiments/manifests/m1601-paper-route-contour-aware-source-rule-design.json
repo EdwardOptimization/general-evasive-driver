@@ -159,6 +159,50 @@
     "runs/m1599_clean_active_set_contour_mapper/summary.json",
     "docs/m1600-paper-route-clean-contour-mapper-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1601-paper-route-contour-aware-source-rule-design.md",
+    "decision": "contour_aware_source_rule_design_admit_offline_selector_implementation",
+    "failure_taxonomy": [
+      "scenario_sampling_failure",
+      "objective_overfit"
+    ],
+    "primary_selection_source": "clean_edge_window",
+    "primary_rule_directed_pair_count": 144,
+    "primary_clean_directed_pair_count": 39,
+    "primary_clean_source_edge_count": 4,
+    "max_primary_clean_source_edge_share": 0.3333333333333333,
+    "endpoint_neighbor_primary_count": 0,
+    "next_manifest": "experiments/manifests/m1602-paper-route-contour-aware-source-rule-implementation.json",
+    "supported_claims": [
+      "a strict clean_edge_window primary rule is justified",
+      "endpoint-neighbor rows should be excluded from primary clean evidence",
+      "negative diagnostic and mixed dominated edges should remain diagnostic",
+      "one offline source-rule selector implementation is admitted before replay"
+    ],
+    "unsupported_claims": [
+      "candidate materialization",
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "paper-level self-identification",
+      "level3 anticipatory self-identification",
+      "immediate replay without implementation audit"
+    ],
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1601 passes if it designs a contour-aware source rule before any replay, materialization, or training.",
-  "next_blocker": "m1601-paper-route-contour-aware-source-rule-design"
+  "next_blocker": "m1602-paper-route-contour-aware-source-rule-implementation"
 }

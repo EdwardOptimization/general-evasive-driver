@@ -16,20 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1600-paper-route-clean-contour-mapper-result-audit
+m1601-paper-route-contour-aware-source-rule-design
 ```
 
 Current next task:
 
 ```text
-m1601-paper-route-contour-aware-source-rule-design
+m1602-paper-route-contour-aware-source-rule-implementation
 ```
 
-M1600 audited the offline contour mapper. The primary contour is
-`clean_edge_window`; broad `clean_endpoint_neighbor` expansion is null-heavy and
-explains M1595. The next task is M1601 design-only contour-aware source rule.
-Replay, simulator rerun, materialization, training, PPO, promotion, private
-holdout, and threshold relaxation remain blocked.
+M1601 designed a strict contour-aware source rule. Primary rows are limited to
+`clean_edge_window` on four source edges, with endpoint-neighbor, mixed dominated,
+and negative diagnostic rows excluded from primary evidence. The next task is
+M1602 offline selector implementation. Replay, simulator rerun, materialization,
+training-corpus export, training, PPO, promotion, private holdout, and threshold
+relaxation remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

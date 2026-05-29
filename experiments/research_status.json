@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1609,
+    "completed": 1610,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1600-paper-route-clean-contour-mapper-result-audit.md",
+    "command_log": "docs/m1601-paper-route-contour-aware-source-rule-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1600-paper-route-clean-contour-mapper-result-audit"
+    "task_id": "m1601-paper-route-contour-aware-source-rule-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1601-paper-route-contour-aware-source-rule-design.json",
-    "hypothesis": "M1599's contour map can define a safer contour-aware source rule before any replay.",
-    "id": "m1601-paper-route-contour-aware-source-rule-design",
-    "kind": "gate",
-    "notes": "Pending: design contour-aware source rule without replay",
-    "priority": 15960,
+    "command": "see experiments/manifests/m1602-paper-route-contour-aware-source-rule-implementation.json",
+    "hypothesis": "An offline selector can implement the M1601 contour-aware source rule without replay or materialization.",
+    "id": "m1602-paper-route-contour-aware-source-rule-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement primary/diagnostic offline selector without replay",
+    "priority": 15970,
     "status": "pending",
-    "success_artifact": "docs/m1601-paper-route-contour-aware-source-rule-design.md"
+    "success_artifact": "runs/m1602_contour_aware_source_rule/summary.json"
   },
-  "updated_at_utc": "20260529T170713Z"
+  "updated_at_utc": "20260529T171205Z"
 }
