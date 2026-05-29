@@ -16,21 +16,38 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1406-paper-route-mild-warmup-outcome-result-audit
+m1407-paper-route-pre-emergency-gate-stimulus-design
 ```
 
 Current next task:
 
 ```text
-m1407-paper-route-pre-emergency-gate-stimulus-design
+m1408-paper-route-staged-obstacle-warmup-api-implementation
 ```
 
-M1406 audited the M1405 mild warmup outcome result. The current public-gate base
-remains M1362 alpha `0.1`:
+M1407 designed the pre-emergency gate stimulus route after M1406 blocked
+training from reset-only evidence. The current public-gate base remains M1362
+alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1407 result:
+
+```text
+decision: pre_emergency_gate_stimulus_design_admit_staged_obstacle_api_implementation
+selected_mvp: staged_slot0_warmup_gate_then_emergency_obstacle
+actor_input_contract_changed: false
+implementation_started: false
+source_smoke_started: false
+next: m1408-paper-route-staged-obstacle-warmup-api-implementation
+```
+
+M1408 should implement a disabled-by-default staged warmup gate API and focused
+tests. It must preserve default env behavior and actor observation shape, and
+must not run source smoke, outcome interventions, corpus export, PPO, training,
+private holdout, promotion, or claim expansion.
 
 M1406 result:
 

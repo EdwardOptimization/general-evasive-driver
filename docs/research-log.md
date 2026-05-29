@@ -20759,3 +20759,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1407-paper-route-pre-emergency-gate-stimulus-design.json`.
 - next: `m1407-paper-route-pre-emergency-gate-stimulus-design`
+
+## 20260529T040000Z - m1407-paper-route-pre-emergency-gate-stimulus-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1407-paper-route-pre-emergency-gate-stimulus-design.md`
+- decision: `pre_emergency_gate_stimulus_design_admit_staged_obstacle_api_implementation`
+- selected MVP: staged slot0 warmup gate, then emergency obstacle. This preserves actor input dimensionality and avoids relying on slots 1-3 before the actor has been trained or validated on them.
+- route: M1408 should implement a disabled-by-default `WarmupGateConfig` or equivalent with tests for default behavior, warmup visibility, switch to emergency obstacle, finite diagnostics, and unchanged 72-dim observation shape.
+- guardrail: no implementation, source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1408-paper-route-staged-obstacle-warmup-api-implementation.json`.
+- next: `m1408-paper-route-staged-obstacle-warmup-api-implementation`
