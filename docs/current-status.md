@@ -16,21 +16,49 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1441-paper-route-geometry-first-action-divergence-enrichment-design
+m1442-paper-route-geometry-first-action-divergence-enrichment-implementation
 ```
 
 Current next task:
 
 ```text
-m1442-paper-route-geometry-first-action-divergence-enrichment-implementation
+m1443-paper-route-geometry-first-source-pipeline-smoke
 ```
 
-M1441 designed geometry-first source-step action-divergence enrichment. The current
+M1442 implemented geometry-first source-step action-divergence enrichment. The current
 public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1442 result:
+
+```text
+decision: geometry_first_action_divergence_enrichment_implemented_admit_public_source_pipeline_smoke
+implementation: src/autodrift/source_action_divergence_enrichment.py
+supporting runner update: src/autodrift/trace_source_geometry_materializer.py
+tests: tests/test_source_action_divergence_enrichment.py
+focused_test_result: 14 passed with materializer tests
+selected_rows_m1438_compatible: true
+variant_time_anchor: source_step
+outcome_classification_implemented: false
+public_source_materialization_run_started: false
+public_source_enrichment_run_started: false
+next: m1443-paper-route-geometry-first-source-pipeline-smoke
+```
+
+M1443 should run the no-training public source pipeline smoke:
+
+```text
+M1419 matched/bucketed rows
+  -> trace-backed source geometry materialization
+  -> source-step action-divergence enrichment
+```
+
+It must not run source preflight, bounded replay, outcome interventions,
+training, PPO, promotion, private holdout, corpus export, or actor-input
+changes.
 
 M1441 result:
 
@@ -45,10 +73,8 @@ direct_source_smoke_admitted: false
 next: m1442-paper-route-geometry-first-action-divergence-enrichment-implementation
 ```
 
-M1442 should implement source-step action-divergence enrichment and focused
-tests only. It must not run public source materialization, source enrichment,
-source preflight, replay, training, PPO, promotion, private holdout, corpus
-export, or actor-input changes.
+M1441 designed source-step action-divergence enrichment and blocked stale M1425
+metric reuse. M1442 completed the implementation.
 
 M1440 result:
 

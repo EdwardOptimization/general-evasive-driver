@@ -156,6 +156,54 @@
   "baseline_artifacts": [
     "docs/m1441-paper-route-geometry-first-action-divergence-enrichment-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1442-paper-route-geometry-first-action-divergence-enrichment-implementation.md",
+    "decision": "geometry_first_action_divergence_enrichment_implemented_admit_public_source_pipeline_smoke",
+    "implementation_files": [
+      "src/autodrift/source_action_divergence_enrichment.py",
+      "tests/test_source_action_divergence_enrichment.py",
+      "src/autodrift/trace_source_geometry_materializer.py"
+    ],
+    "implemented_functions": [
+      "prepare_source_geometry_frame",
+      "trace_prefix_to_step",
+      "build_source_step_variant_hiddens",
+      "evaluate_source_step_variant_actions",
+      "enrich_source_geometry_row",
+      "enrich_source_geometry_rows",
+      "select_enriched_source_rows",
+      "build_enrichment_summary",
+      "write_enrichment_outputs",
+      "run_source_action_divergence_enrichment_from_rows",
+      "run_source_action_divergence_enrichment"
+    ],
+    "focused_tests": [
+      "tests/test_source_action_divergence_enrichment.py",
+      "tests/test_trace_source_geometry_materializer.py"
+    ],
+    "focused_test_result": "14 passed",
+    "selected_rows_m1438_compatible": true,
+    "variant_time_anchor": "source_step",
+    "outcome_classification_implemented": false,
+    "public_source_materialization_run_started": false,
+    "public_source_enrichment_run_started": false,
+    "source_mining_started": false,
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1443-paper-route-geometry-first-source-pipeline-smoke.json"
+  },
+  "decision": "geometry_first_action_divergence_enrichment_implemented_admit_public_source_pipeline_smoke",
   "decision_rule": "M1442 passes if it implements geometry-first source-step action-divergence enrichment with focused tests and no run.",
-  "next_blocker": "m1442-paper-route-geometry-first-action-divergence-enrichment-implementation"
+  "next_blocker": "m1443-paper-route-geometry-first-source-pipeline-smoke"
 }

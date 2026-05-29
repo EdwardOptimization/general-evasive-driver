@@ -1,0 +1,168 @@
+{
+  "id": "m1443-paper-route-geometry-first-source-pipeline-smoke",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1419_warmup_gate_invasiveness_retune_source_smoke/matched_or_bucketed_rows.csv",
+      "docs/m1442-paper-route-geometry-first-action-divergence-enrichment-implementation.md"
+    ],
+    "parent_config": [
+      "configs/m1419_warmup_gate_invasiveness_retune_source_wave.json",
+      "experiments/manifests/m1442-paper-route-geometry-first-action-divergence-enrichment-implementation.json"
+    ],
+    "parent_objective": [
+      "run a no-training geometry-first source pipeline smoke after materializer and enrichment implementation"
+    ],
+    "derived_from": [
+      "m1442-paper-route-geometry-first-action-divergence-enrichment-implementation"
+    ],
+    "blocked_by": [
+      "source pipeline has not yet been run on public M1419 source rows after trace-backed geometry and source-step enrichment implementation"
+    ],
+    "supersedes": [
+      "M1425 reveal-step pressure rows as the source pool"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1443-paper-route-geometry-first-source-pipeline-smoke.md",
+  "public_gates": [
+    "M1443 must run source materialization and source-step action enrichment only",
+    "M1443 must not run source preflight bounded replay outcome interventions train PPO promote use private holdout export corpus or change actor inputs",
+    "M1443 must report materialized source geometry counts and selected enriched rows"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not use M1425 reveal-step pressure metrics as source-step action evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_geometry_aware_preflight_validation",
+    "evidence_axis": "S_geometry_first_source_pipeline_smoke",
+    "evidence_increment": "runs trace-backed source geometry materialization and source-step action enrichment on public M1419 rows before source preflight",
+    "claim_scope": "source-pipeline smoke only; no source preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if trace-backed materialization produces zero source geometry rows",
+      "stop if enrichment produces zero selected action-divergent history rows",
+      "stop if source_body_x geometry remains too late for M1438/M1431 gates",
+      "stop if run requires actor input changes or stale M1425 metric reuse"
+    ],
+    "fallback_plan": [
+      "route to source-pipeline result audit if source materialization or enrichment gates fail",
+      "route to M1438 row-level forward miner smoke if source pipeline passes",
+      "route to branch synthesis if the source pipeline exposes another missing layer"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1442 implements source-step enrichment and admits public source-pipeline smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "geometry-first source materialization and action-divergence enrichment smoke",
+    "admission_evidence": [
+      "M1440 implements trace-backed source geometry materializer",
+      "M1442 implements source-step action-divergence enrichment"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "runs/m1443_trace_source_geometry_materialization_smoke",
+      "runs/m1443_geometry_first_action_enrichment_smoke",
+      "M1443 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up row-level forward miner smoke or audit manifest"
+    ],
+    "next_stage_criteria": [
+      "source geometry rows are materialized",
+      "selected enriched rows are nonzero",
+      "source geometry and diversity summaries are recorded",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1443 source-pipeline smoke does not prove history necessity because it measures action divergence before outcome replay.",
+    "history_necessity_tests": [
+      "future bounded replay must test whether selected history variants affect outcome",
+      "source-step action divergence alone cannot count as history-positive outcome evidence"
+    ],
+    "temporal_evidence_window": "M1442 source-step action-divergence enrichment implementation.",
+    "negative_result_policy": "If selected enriched rows are zero, route to audit rather than lowering geometry gates or claiming no-history evidence.",
+    "allowed_claims": [
+      "source-pipeline materialization and action-enrichment counts",
+      "no replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The geometry-first source pipeline can materialize forward source geometry and then produce source-step action-divergent history rows on public M1419 rows without stale M1425 metric reuse.",
+  "success_criteria": [
+    "runs/m1443_trace_source_geometry_materialization_smoke/summary.json exists",
+    "runs/m1443_geometry_first_action_enrichment_smoke/summary.json exists",
+    "materialized source geometry rows are nonzero",
+    "selected enriched rows are nonzero",
+    "docs/m1443-paper-route-geometry-first-source-pipeline-smoke.md exists",
+    "no source preflight replay training PPO promotion private holdout corpus export or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "source geometry summary is missing",
+    "enrichment summary is missing",
+    "materialized source geometry rows are zero",
+    "selected enriched rows are zero",
+    "run uses M1425 reveal-step pressure metrics as source-step evidence",
+    "run starts source preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "materialize_source_geometry",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.trace_source_geometry_materializer --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m1419_warmup_gate_invasiveness_retune_source_wave.json --source-rows runs/m1419_warmup_gate_invasiveness_retune_source_smoke/matched_or_bucketed_rows.csv --source-step-offsets -32,-24,-16,-8,0 --max-source-rows 64 --history-length 56 --device cpu --run-dir runs/m1443_trace_source_geometry_materialization_smoke"
+    },
+    {
+      "name": "enrich_source_actions",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_action_divergence_enrichment --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m1419_warmup_gate_invasiveness_retune_source_wave.json --source-geometry-rows runs/m1443_trace_source_geometry_materialization_smoke/source_geometry_rows.csv --sequence-horizon 8 --max-candidates 128 --history-length 56 --device cpu --run-dir runs/m1443_geometry_first_action_enrichment_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1443_trace_source_geometry_materialization_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1443_geometry_first_action_enrichment_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1443-paper-route-geometry-first-source-pipeline-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1442-paper-route-geometry-first-action-divergence-enrichment-implementation.md"
+  ],
+  "decision_rule": "M1443 passes if the no-training source pipeline produces nonzero materialized geometry and selected enriched action-divergent history rows without running preflight or replay.",
+  "next_blocker": "m1443-paper-route-geometry-first-source-pipeline-smoke"
+}

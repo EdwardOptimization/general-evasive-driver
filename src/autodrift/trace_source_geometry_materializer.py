@@ -16,9 +16,18 @@ import numpy as np
 import pandas as pd
 
 from autodrift.artifacts import write_csv_rows, write_json
-from autodrift.capability_step_sequence_intervention_probe import TracePoint
+from autodrift.capability_step_sequence_intervention_probe import (
+    TracePoint,
+    collect_fault_trace_window,
+    fault_map_from_config,
+)
+from autodrift.checkpoints import load_actor_critic_checkpoint
+from autodrift.evaluate import load_env_config
+from autodrift.extreme_dynamics_scenario_corpus import load_scenario_config
 from autodrift.forward_geometry_source_miner import DEFAULT_SOURCE_STEP_OFFSETS, source_steps_for_reveal
 from autodrift.matched_history_outcome_gate import OutcomeSnapshot
+from autodrift.source_balanced_bc_v2_objective import model_parameter_checksum
+from autodrift.train_ppo import resolve_device
 from autodrift.warmup_latched_outcome_probe import source_diversity
 from autodrift.wrong_history_boundary_relocation_surface import obstacle_body_geometry
 
@@ -326,6 +335,7 @@ def build_trace_source_geometry_summary(
     source_rows: pd.DataFrame,
     rejected_rows: pd.DataFrame,
     source_materialization_started: bool = False,
+    actor_parameters_changed: bool = False,
 ) -> dict[str, Any]:
     source_body_x = _numeric_summary(source_rows, "source_body_x")
     source_to_reveal = _numeric_summary(source_rows, "source_to_reveal_steps")
@@ -351,6 +361,7 @@ def build_trace_source_geometry_summary(
         "promoted": False,
         "private_holdout_used": False,
         "training_corpus_exported": False,
+        "actor_parameters_changed": bool(actor_parameters_changed),
         "actor_input_contract_changed": False,
     }
 
@@ -361,12 +372,14 @@ def write_trace_source_geometry_outputs(
     source_rows: pd.DataFrame,
     rejected_rows: pd.DataFrame,
     source_materialization_started: bool = False,
+    actor_parameters_changed: bool = False,
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     summary = build_trace_source_geometry_summary(
         source_rows=source_rows,
         rejected_rows=rejected_rows,
         source_materialization_started=source_materialization_started,
+        actor_parameters_changed=actor_parameters_changed,
     )
     summary["source_geometry_rows_csv"] = run_dir / "source_geometry_rows.csv"
     summary["rejected_rows_csv"] = run_dir / "rejected_rows.csv"
@@ -389,6 +402,7 @@ def run_trace_source_geometry_materializer_from_rows(
     source_step_offsets: tuple[int, ...] = DEFAULT_SOURCE_STEP_OFFSETS,
     max_source_rows: int = 0,
     source_materialization_started: bool = False,
+    actor_parameters_changed: bool = False,
 ) -> dict[str, Any]:
     source_frame = pd.read_csv(source_rows_path)
     source_rows, rejected_rows = materialize_trace_source_geometry_from_rows(
@@ -402,30 +416,100 @@ def run_trace_source_geometry_materializer_from_rows(
         source_rows=source_rows,
         rejected_rows=rejected_rows,
         source_materialization_started=source_materialization_started,
+        actor_parameters_changed=actor_parameters_changed,
     )
+
+
+def run_trace_source_geometry_materializer(
+    *,
+    checkpoint_path: Path,
+    config_path: Path,
+    source_rows_path: Path,
+    run_dir: Path,
+    device: str,
+    history_length: int,
+    source_step_offsets: tuple[int, ...] = DEFAULT_SOURCE_STEP_OFFSETS,
+    max_source_rows: int = 0,
+) -> dict[str, Any]:
+    config = load_scenario_config(config_path)
+    env_config = load_env_config(Path(config.get("env_config", "configs/ppo_m541_matched_l3_variance_4096.json")))
+    fault_by_name = fault_map_from_config(config)
+    resolved_device = resolve_device(device)
+    model, _ = load_actor_critic_checkpoint(checkpoint_path, device=str(resolved_device))
+    model.eval()
+    checksum_before = model_parameter_checksum(model)
+    trace_cache: dict[tuple[int, str, int, int], list[TracePoint]] = {}
+
+    def trace_for(seed: int, fault_name: str, reveal_step: int) -> list[TracePoint]:
+        key = (int(seed), str(fault_name), int(reveal_step), int(history_length))
+        if key not in trace_cache:
+            trace_cache[key] = collect_fault_trace_window(
+                model=model,
+                env_config=env_config,
+                fault=fault_by_name[str(fault_name)],
+                seed=int(seed),
+                target_step=int(reveal_step),
+                history_length=int(history_length),
+                device=resolved_device,
+            )
+        return trace_cache[key]
+
+    summary = run_trace_source_geometry_materializer_from_rows(
+        source_rows_path=source_rows_path,
+        trace_for=trace_for,
+        run_dir=run_dir,
+        source_step_offsets=source_step_offsets,
+        max_source_rows=max_source_rows,
+        source_materialization_started=True,
+        actor_parameters_changed=str(model_parameter_checksum(model)) != str(checksum_before),
+    )
+    summary["checkpoint_path"] = str(checkpoint_path)
+    summary["config_path"] = str(config_path)
+    summary["source_rows_path"] = str(source_rows_path)
+    write_json(run_dir / "summary.json", summary)
+    return summary
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--checkpoint", type=Path)
+    parser.add_argument("--config", type=Path)
     parser.add_argument("--source-rows", type=Path, required=True)
     parser.add_argument("--source-step-offsets", type=parse_int_tuple, default=DEFAULT_SOURCE_STEP_OFFSETS)
     parser.add_argument("--max-source-rows", type=int, default=0)
+    parser.add_argument("--history-length", type=int, default=56)
+    parser.add_argument("--device", type=str, default="cpu")
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument(
         "--no-run",
         action="store_true",
-        help="Validate arguments only. Full checkpoint-backed execution is intentionally not implemented in M1440.",
+        help="Validate arguments only without loading a checkpoint or materializing traces.",
     )
     return parser
 
 
 def main(argv: list[str] | None = None) -> None:
     args = build_arg_parser().parse_args(argv)
-    if not args.no_run:
-        raise SystemExit("M1440 exposes helper logic only; use --no-run or a later run milestone.")
-    print("trace source geometry materializer arguments validated")
-    print(f"source_rows={args.source_rows}")
-    print(f"run_dir={args.run_dir}")
+    if args.no_run:
+        print("trace source geometry materializer arguments validated")
+        print(f"source_rows={args.source_rows}")
+        print(f"run_dir={args.run_dir}")
+        return
+    if args.checkpoint is None or args.config is None:
+        raise SystemExit("--checkpoint and --config are required unless --no-run is set")
+    summary = run_trace_source_geometry_materializer(
+        checkpoint_path=args.checkpoint,
+        config_path=args.config,
+        source_rows_path=args.source_rows,
+        run_dir=args.run_dir,
+        device=args.device,
+        history_length=int(args.history_length),
+        source_step_offsets=tuple(args.source_step_offsets),
+        max_source_rows=int(args.max_source_rows),
+    )
+    print(f"summary_json={args.run_dir / 'summary.json'}")
+    print(f"source_geometry_rows={summary['source_geometry_rows']}")
+    print(f"rejected_rows={summary['rejected_rows']}")
 
 
 if __name__ == "__main__":

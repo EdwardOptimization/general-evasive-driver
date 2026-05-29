@@ -21328,3 +21328,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no public source materialization run, source enrichment run, source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1442-paper-route-geometry-first-action-divergence-enrichment-implementation.json`.
 - next: `m1442-paper-route-geometry-first-action-divergence-enrichment-implementation`
+
+## 20260529T034658Z - m1442-paper-route-geometry-first-action-divergence-enrichment-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1442-paper-route-geometry-first-action-divergence-enrichment-implementation.md`
+- decision: `geometry_first_action_divergence_enrichment_implemented_admit_public_source_pipeline_smoke`
+- implementation: `src/autodrift/source_action_divergence_enrichment.py`
+- supporting runner update: `src/autodrift/trace_source_geometry_materializer.py`
+- tests: `tests/test_source_action_divergence_enrichment.py`
+- focused result: `14 passed` across source-action enrichment and materializer tests.
+- capability: enriches trace-backed source geometry rows with source-step history variants and action-distance metrics, selecting M1438-compatible action-divergent history rows.
+- boundary: no terminal outcome, collision, clearance margin, obstacle-completion, preflight, replay, training, PPO, promotion, or source corpus export occurred.
+- guardrail: no public source materialization run, source enrichment run, source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1443-paper-route-geometry-first-source-pipeline-smoke.json`.
+- next: `m1443-paper-route-geometry-first-source-pipeline-smoke`

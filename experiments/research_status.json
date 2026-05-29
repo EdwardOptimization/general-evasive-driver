@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1451,
+    "completed": 1452,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1441-paper-route-geometry-first-action-divergence-enrichment-design.md",
+    "command_log": "docs/m1442-paper-route-geometry-first-action-divergence-enrichment-implementation.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1441-paper-route-geometry-first-action-divergence-enrichment-design"
+    "task_id": "m1442-paper-route-geometry-first-action-divergence-enrichment-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1442-paper-route-geometry-first-action-divergence-enrichment-implementation.json",
-    "hypothesis": "Source-step action-divergence enrichment can be implemented after trace-backed geometry filtering and can emit M1438-compatible rows without stale reveal-step metric reuse.",
-    "id": "m1442-paper-route-geometry-first-action-divergence-enrichment-implementation",
+    "command": "see experiments/manifests/m1443-paper-route-geometry-first-source-pipeline-smoke.json",
+    "hypothesis": "The geometry-first source pipeline can materialize forward source geometry and then produce source-step action-divergent history rows on public M1419 rows without stale M1425 metric reuse.",
+    "id": "m1443-paper-route-geometry-first-source-pipeline-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: implement source-step action-divergence enrichment and focused tests only",
-    "priority": 14370,
+    "notes": "Pending: run trace-backed source geometry materialization plus source-step action enrichment on public M1419 rows without preflight replay or training",
+    "priority": 14380,
     "status": "pending",
-    "success_artifact": "docs/m1442-paper-route-geometry-first-action-divergence-enrichment-implementation.md"
+    "success_artifact": "docs/m1443-paper-route-geometry-first-source-pipeline-smoke.md"
   },
-  "updated_at_utc": "20260529T033559Z"
+  "updated_at_utc": "20260529T034658Z"
 }
