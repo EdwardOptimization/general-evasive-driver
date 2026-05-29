@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1557 audits M1556 as clean implementation but sparse source-concentrated active-set failure and routes to branch synthesis before more implementation",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats sparse M1556 result as positive self-ID evidence",
+    "audit routes directly to training promotion private holdout or materialization",
+    "audit changes actor inputs or weakens the evidence standard"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T131004Z",
+  "hypothesis": "M1556's clean-plumbing but sparse-active-set result can be classified cleanly enough to decide whether to broaden task/source generation, redesign perturbation scoring, or synthesize and pivot.",
+  "lineage": {
+    "blocked_by": [
+      "M1556 active-set public gates failed after invalid NaN replay artifacts were filtered out"
+    ],
+    "derived_from": [
+      "m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke/summary.json",
+      "docs/m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation.md"
+    ],
+    "parent_objective": [
+      "audit corrected temporal active-set miner smoke after local action-sensitive anchors are sparse"
+    ],
+    "supersedes": [
+      "direct history intervention design over M1556 sparse active anchors"
+    ]
+  },
+  "milestone": "m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit",
+  "next_blocker": "m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "temporal_active_set_miner_audit_sparse_active_set_route_to_branch_synthesis",
+  "public_gates": [
+    "M1557 must audit corrected local action-sensitivity counts and failure modes",
+    "M1557 must separate implementation plumbing from active-set evidence quality",
+    "M1557 must classify whether the next route is broader task generation, stronger local perturbation design, or branch synthesis",
+    "M1557 must preserve P0 actor input contract",
+    "M1557 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "temporal_active_set_miner_audit_sparse_active_set_route_to_branch_synthesis",
+    "milestone": "m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit",
+    "reason": "M1557 audits M1556 as clean implementation but sparse source-concentrated active-set failure and routes to branch synthesis before more implementation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.md exists",
+    "M1556 implementation plumbing and active-set evidence are audited separately",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "type": "gate"
+}

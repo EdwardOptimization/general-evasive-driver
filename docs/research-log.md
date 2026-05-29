@@ -23913,3 +23913,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1556 is clean infrastructure but a sparse active-set negative result. Under the current calibrated pair-expansion source construction, local action sensitivity is concentrated in `curved_boundary_obstacle` at `reveal`; it is not source-diverse enough for history-intervention materialization.
 - follow-up manifest: `experiments/manifests/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.json`.
 - next: `m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit`
+
+## M1557 Paper-Route Temporal Active-Set Anchor-Sensitivity Miner Result Audit
+
+- status: completed
+- decision: `temporal_active_set_miner_audit_sparse_active_set_route_to_branch_synthesis`
+- artifact: `docs/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.md`
+- implementation plumbing verdict: pass
+- active-set evidence verdict: sparse source-concentrated fail
+- failure taxonomy: `scenario_sampling_failure`
+- anchor candidate count: 96
+- local perturbation row count: 576
+- action-sensitive anchor count: 2
+- predecision-sensitive anchor count: 2
+- active source family count: 1
+- active anchor window count: 1
+- success flip count: 4
+- collision flip count: 0
+- near-boundary anchor count: 21
+- near-boundary collision anchor count: 21
+- near-boundary success flip count: 0
+- near-boundary collision flip count: 0
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1556 does not justify direct history replay. The current branch has repaired pair coverage but still lacks recoverable source-diverse temporal active-set anchors, so another same-branch narrow miner would risk public-row overfitting.
+- follow-up manifest: `experiments/manifests/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.json`.
+- next: `m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner`

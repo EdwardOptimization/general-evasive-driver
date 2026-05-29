@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation
+m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit
 ```
 
 Current next task:
 
 ```text
-m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit
+m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -269,6 +269,14 @@ materialization, training, PPO, promotion, private holdout, actor-input changes,
 corpus export, and level3 self-ID claims remain blocked. M1557 must audit
 whether this is scenario/source sampling failure, perturbation-design weakness,
 or a branch stop/synthesis condition.
+M1557 audited M1556 as clean plumbing but insufficient active-set evidence. The
+corrected active rows are not near-boundary; they are high-clearance
+`curved_boundary_obstacle` reveal cases where local overrides affect completion
+timing. M1556 did contain `21` near-boundary anchors, but all were already
+collision outcomes and one-step local overrides produced no success or collision
+flips there. The audit classifies the result as `scenario_sampling_failure` and
+blocks direct history replay or another same-branch narrow miner. The next task
+is M1558 branch synthesis over M1549-M1557 before any further implementation.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

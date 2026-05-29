@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1565,
+    "completed": 1566,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation.md",
+    "command_log": "docs/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation"
+    "task_id": "m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.json",
-    "hypothesis": "M1556's clean-plumbing but sparse-active-set result can be classified cleanly enough to decide whether to broaden task/source generation, redesign perturbation scoring, or synthesize and pivot.",
-    "id": "m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit",
+    "command": "see experiments/manifests/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.json",
+    "hypothesis": "After M1557, the calibrated pair-expansion branch has enough evidence and negative results to require synthesis before any further implementation milestone.",
+    "id": "m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner",
     "kind": "gate",
-    "notes": "Pending: audit M1556 sparse active-set result before any history intervention replay",
-    "priority": 15520,
+    "notes": "Pending: synthesize M1549-M1557 before any further implementation milestone",
+    "priority": 15530,
     "status": "pending",
-    "success_artifact": "docs/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.md"
+    "success_artifact": "docs/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md"
   },
-  "updated_at_utc": "20260529T130500Z"
+  "updated_at_utc": "20260529T130908Z"
 }

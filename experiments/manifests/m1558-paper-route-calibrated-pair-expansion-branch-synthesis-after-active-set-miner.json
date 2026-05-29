@@ -1,0 +1,189 @@
+{
+  "id": "m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1550_calibrated_pair_expansion_planner_smoke/summary.json",
+      "runs/m1553_pair_expanded_calibrated_history_intervention_smoke/summary.json",
+      "runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke/summary.json",
+      "docs/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.json",
+      "experiments/manifests/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize calibrated pair-expansion branch after pair-expanded history-null and sparse active-set miner results"
+    ],
+    "derived_from": [
+      "m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis",
+      "m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit"
+    ],
+    "blocked_by": [
+      "M1553 repaired pair coverage but history interventions were null",
+      "M1556 temporal active-set miner found only sparse source-concentrated active anchors",
+      "workflow synthesis cadence is due before another narrow implementation"
+    ],
+    "supersedes": [
+      "another calibrated pair-expansion miner without branch synthesis",
+      "direct history intervention replay over sparse M1556 anchors"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md",
+  "public_gates": [
+    "M1558 must synthesize M1549-M1557 calibrated pair-expansion evidence",
+    "M1558 must separate pair coverage, history-null replay, active-set sparsity, and metric-artifact correction",
+    "M1558 must state supported and unsupported claims",
+    "M1558 must assess public-gate overfit risk",
+    "M1558 must choose continue, pivot, stop, or promote_to_next_branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not run history interventions",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_calibrated_pair_expansion",
+    "evidence_axis": "S_calibrated_pair_expansion_branch_synthesis_after_active_set_miner",
+    "evidence_increment": "synthesizes M1549-M1557 after pair coverage repair, pair-expanded history-null replay, temporal active-set miner implementation, and sparse active-set audit",
+    "claim_scope": "branch synthesis only; no implementation smoke, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats pair coverage as history evidence",
+      "stop if synthesis ignores M1553 history-null result",
+      "stop if synthesis ignores M1556 active-set sparsity and corrected NaN artifact",
+      "stop if synthesis routes directly to training, corpus export, or candidate materialization",
+      "stop if synthesis continues the same branch past cadence without a branch decision"
+    ],
+    "fallback_plan": [
+      "promote to a new recoverable active-set task-generation branch if the blocker is source/anchor generation",
+      "pivot to stronger local controllability diagnostics if one-step perturbations are too weak",
+      "stop terminal-boundary history-intervention materialization if no credible recoverable active-set route exists",
+      "keep M1534/M1538 non-terminal positives as public diagnostic evidence only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1557 reaches the synthesis point for paper_route_calibrated_pair_expansion after a sparse active-set result",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated pair-expansion branch synthesis after active-set miner",
+    "admission_evidence": [
+      "M1550 fixed calibrated pair coverage enough for a bounded intervention design",
+      "M1553 pair-expanded interventions were history-null despite broad pair coverage",
+      "M1556 implemented temporal local action-sensitivity mining but active anchors were sparse and source-concentrated",
+      "M1557 audited the sparse active-set result and blocked direct history replay"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote a checkpoint",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1558 synthesis document",
+      "M1558 status queue scoreboard research log and review",
+      "one follow-up manifest in a new branch if synthesis promotes or pivots"
+    ],
+    "next_stage_criteria": [
+      "synthesis decision is explicit",
+      "supported and unsupported claims are explicit",
+      "next branch decision is explicit",
+      "public-gate overfit risk is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1558 must not convert pair coverage, active-set plumbing, or local action sensitivity into level3 self-ID claims.",
+    "history_necessity_tests": [
+      "synthesize M1553 wrong-history and donor-plus-hidden null results",
+      "synthesize M1556 local action-sensitivity sparsity",
+      "decide whether a recoverable active-set route is still justified before any history interventions"
+    ],
+    "temporal_evidence_window": "M1549-M1557 calibrated pair-expansion public evidence.",
+    "negative_result_policy": "If terminal-boundary active-set evidence remains sparse, close or pivot the branch before another narrow implementation.",
+    "allowed_claims": [
+      "branch synthesis and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "After M1557, the calibrated pair-expansion branch has enough evidence and negative results to require synthesis before any further implementation milestone.",
+  "success_criteria": [
+    "docs/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md exists",
+    "synthesis summarizes M1549-M1557 evidence",
+    "supported and unsupported claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis treats M1550 pair coverage or M1556 sparse active rows as level3 self-ID evidence",
+    "synthesis ignores M1553 history-null result",
+    "synthesis routes directly to training PPO promotion private holdout corpus export actor-input changes or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1550_calibrated_pair_expansion_planner_smoke/summary.json",
+    "runs/m1553_pair_expanded_calibrated_history_intervention_smoke/summary.json",
+    "runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke/summary.json",
+    "docs/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.md"
+  ],
+  "decision_rule": "M1558 passes if it synthesizes M1549-M1557 and chooses the next branch before another implementation milestone.",
+  "next_blocker": "m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner"
+}

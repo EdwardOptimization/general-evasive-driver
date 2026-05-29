@@ -144,6 +144,43 @@
     "runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke/summary.json",
     "docs/m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.md",
+    "decision": "temporal_active_set_miner_audit_sparse_active_set_route_to_branch_synthesis",
+    "implementation_plumbing_verdict": "pass",
+    "active_set_evidence_verdict": "sparse_source_concentrated_fail",
+    "failure_taxonomy": [
+      "scenario_sampling_failure"
+    ],
+    "anchor_candidate_count": 96,
+    "local_perturbation_row_count": 576,
+    "action_sensitive_anchor_count": 2,
+    "predecision_sensitive_anchor_count": 2,
+    "active_source_family_count": 1,
+    "active_anchor_window_count": 1,
+    "success_flip_count": 4,
+    "collision_flip_count": 0,
+    "near_boundary_anchor_count": 21,
+    "near_boundary_collision_anchor_count": 21,
+    "near_boundary_success_flip_count": 0,
+    "near_boundary_collision_flip_count": 0,
+    "admitted_route": "calibrated_pair_expansion_branch_synthesis",
+    "next_manifest": "experiments/manifests/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
+  "decision": "temporal_active_set_miner_audit_sparse_active_set_route_to_branch_synthesis",
   "decision_rule": "M1557 passes if it classifies M1556 and selects the next route while preserving all no-materialization guardrails.",
-  "next_blocker": "m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit"
+  "next_blocker": "m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner"
 }
