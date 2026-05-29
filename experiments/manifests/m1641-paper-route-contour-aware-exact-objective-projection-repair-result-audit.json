@@ -157,6 +157,47 @@
     "runs/m1640_contour_aware_exact_objective_projection_repair/optimization_trace.csv",
     "docs/m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.md",
+    "decision": "contour_aware_projection_repair_audit_admit_damped_backtracking_design",
+    "failure_taxonomy": [
+      "training_instability"
+    ],
+    "m1640_passes_public_smoke_gates": false,
+    "m1640_null_result_classification": "projection_residual_not_reduced",
+    "m1640_initial_positive_exact_residual_mean": 0.0003143580979667604,
+    "m1640_repaired_positive_exact_residual_mean": 0.0003143580979667604,
+    "m1640_positive_exact_residual_reduction_ratio": 0.0,
+    "m1640_grad_norm_max": 4.537821292877197,
+    "m1640_step1_positive_exact_residual_mean": 0.03115139901638031,
+    "m1640_best_post_step_positive_exact_residual_mean": 0.0005202809115871787,
+    "m1640_guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1642-paper-route-contour-aware-damped-projection-repair-design.json",
+    "supported_claims": [
+      "M1640 projection plumbing and guardrails worked",
+      "M1640 exact objective gradient reached actor_mean",
+      "M1640 Adam lr=1e-3 recipe is optimizer-step unstable for the small perturbation",
+      "one damped/backtracking projection design is justified"
+    ],
+    "unsupported_claims": [
+      "M1640 projection recipe passes",
+      "projection repair is solved",
+      "checkpoint artifact generation",
+      "PPO proposal repair",
+      "closed-loop improvement",
+      "promotion",
+      "private-holdout evidence",
+      "paper-level or level3 self-identification evidence"
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1641 passes if it audits the M1640 negative result and chooses a safe next route before any tuned rerun or training.",
-  "next_blocker": "m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit"
+  "next_blocker": "m1642-paper-route-contour-aware-damped-projection-repair-design"
 }

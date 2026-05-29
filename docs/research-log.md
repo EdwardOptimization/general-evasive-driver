@@ -26158,3 +26158,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: projection repair success, checkpoint artifact, PPO proposal repair, closed-loop improvement, promotion, private-holdout evidence, paper-level evidence, level3 self-ID
 - follow-up manifest: `experiments/manifests/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.json`
 - next: `m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit`
+
+## M1641 Paper-Route Contour-Aware Exact Objective Projection Repair Result Audit
+
+- status: completed
+- decision: `contour_aware_projection_repair_audit_admit_damped_backtracking_design`
+- artifact: `docs/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.md`
+- failure taxonomy: `training_instability`
+- audited result: M1640 focused tests and guardrails passed, but public smoke gate failed because repaired positive exact residual equaled the initial perturbed residual
+- M1640 initial positive exact residual mean: `0.0003143580979667604`
+- M1640 repaired positive exact residual mean: `0.0003143580979667604`
+- M1640 reduction ratio: `0.0`
+- M1640 grad_norm_max: `4.537821292877197`
+- M1640 step 1 residual: `0.03115139901638031`
+- M1640 best post-step residual: `0.0005202809115871787`
+- M1640 guardrail violation count: `0`
+- classification: projection optimizer-step instability, not tensor materialization/evaluator/guardrail failure
+- supported: M1640 gradient signal reached actor_mean and no-checkpoint role guardrails held
+- unsupported: M1640 projection recipe success, checkpoint artifact generation, PPO proposal repair, closed-loop improvement, promotion, private-holdout evidence, paper-level or level3 self-ID evidence
+- route decision: admit one damped/backtracking exact-objective projection design before any rerun
+- follow-up manifest: `experiments/manifests/m1642-paper-route-contour-aware-damped-projection-repair-design.json`
+- next: `m1642-paper-route-contour-aware-damped-projection-repair-design`

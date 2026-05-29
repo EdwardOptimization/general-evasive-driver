@@ -1,0 +1,162 @@
+{
+  "id": "m1642-paper-route-contour-aware-damped-projection-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.md",
+      "runs/m1640_contour_aware_exact_objective_projection_repair/summary.json",
+      "runs/m1640_contour_aware_exact_objective_projection_repair/optimization_trace.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.json"
+    ],
+    "parent_objective": [
+      "design damped/backtracking exact-objective projection repair after M1640 optimizer-step instability"
+    ],
+    "derived_from": [
+      "m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit"
+    ],
+    "blocked_by": [
+      "M1640 Adam lr=1e-3 projection overshot the controlled scale_1e-3 perturbation and did not reduce exact residual"
+    ],
+    "supersedes": [
+      "rerunning M1640 with ad hoc learning-rate tuning",
+      "direct checkpoint artifact after M1641",
+      "direct PPO after M1641",
+      "direct promotion after M1641"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1642-paper-route-contour-aware-damped-projection-repair-design.md",
+  "public_gates": [
+    "M1642 must design a damped/backtracking projection repair before any rerun",
+    "M1642 must keep optimization scope to actor_mean.weight and actor_mean.bias",
+    "M1642 must keep diagnostics zero-weight and donor-plus actions excluded from loss",
+    "M1642 must pre-register trust-region and exact-residual acceptance rules",
+    "M1642 must keep checkpoint artifacts PPO promotion private holdout and actor-input changes blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run projection",
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop evaluation",
+    "do not write checkpoint artifacts",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_damped_projection_repair_design",
+    "evidence_increment": "designs a bounded damped/backtracking projection route after the M1640 optimizer-step negative result",
+    "claim_scope": "design only; no projection rerun, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design weakens role guardrails",
+      "stop if design routes directly to checkpoint artifact PPO promotion or private holdout",
+      "stop if design lacks deterministic step-size/backtracking selection rule",
+      "stop if design does not address public-row overfit risk"
+    ],
+    "fallback_plan": [
+      "admit one bounded damped projection implementation if the design is complete",
+      "pivot away from actor_mean-only projection if no credible step-size rule exists",
+      "route to branch synthesis if another implementation would exceed cadence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1641 admits damped/backtracking projection design after M1640 negative result",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design damped/backtracking exact-objective projection repair",
+    "admission_evidence": [
+      "M1640 gradient signal reached actor_mean",
+      "M1640 Adam lr=1e-3 overshot the small perturbation",
+      "M1641 audited the negative result and admitted a damped/backtracking design"
+    ],
+    "blocked_shortcuts": [
+      "do not run projection",
+      "do not train",
+      "do not run PPO",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not write checkpoint artifacts",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1642 design document",
+      "M1642 status queue scoreboard research log and review",
+      "one follow-up implementation or synthesis manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "step-size/backtracking rule is specified",
+      "trust-region and exact residual acceptance criteria are specified",
+      "public-row overfit guardrails are specified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1642 is design-only for fixed-tensor objective repair and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "future implementation may evaluate correct/wrong hidden exact residual but cannot claim closed-loop self-identification"
+    ],
+    "temporal_evidence_window": "public M1630/M1633/M1636/M1640 tensor rows only.",
+    "negative_result_policy": "If no damped projection design is credible, stop or pivot instead of tuning public rows ad hoc.",
+    "allowed_claims": [
+      "damped/backtracking projection design and next route",
+      "no projection run, no training, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A deterministic damped/backtracking projection design can address M1640 optimizer-step instability while preserving exact-objective role guardrails.",
+  "success_criteria": [
+    "docs/m1642-paper-route-contour-aware-damped-projection-repair-design.md exists",
+    "design specifies actor_mean-only gradient scope",
+    "design specifies full-batch exact objective and diagnostic zero-weight policy",
+    "design specifies deterministic damping/backtracking candidate selection",
+    "design specifies residual and trust-region acceptance criteria",
+    "design keeps checkpoint artifacts PPO promotion private holdout actor-input changes and level3 claims blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design admits ad hoc learning-rate search without pre-registered selection",
+    "design lets diagnostics or donor-plus actions enter the loss target",
+    "design routes directly to checkpoint artifact PPO promotion private holdout or actor-input changes",
+    "design claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1642-paper-route-contour-aware-damped-projection-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1642-paper-route-contour-aware-damped-projection-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.md",
+    "runs/m1640_contour_aware_exact_objective_projection_repair/summary.json",
+    "runs/m1640_contour_aware_exact_objective_projection_repair/optimization_trace.csv"
+  ],
+  "decision_rule": "M1642 passes if it pre-registers a deterministic damped projection repair route before any rerun.",
+  "next_blocker": "m1642-paper-route-contour-aware-damped-projection-repair-design"
+}

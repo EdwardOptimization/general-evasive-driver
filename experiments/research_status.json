@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1649,
+    "completed": 1650,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation.md",
+      "command_log": "docs/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1640_contour_aware_exact_objective_projection_repair",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation"
+      "task_id": "m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.json",
-      "hypothesis": "The M1640 negative result can be classified as projection optimizer-step instability while preserving the exact-objective plumbing evidence and deciding a safe next route.",
-      "id": "m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit",
+      "command": "see experiments/manifests/m1642-paper-route-contour-aware-damped-projection-repair-design.json",
+      "hypothesis": "A deterministic damped/backtracking projection design can address M1640 optimizer-step instability while preserving exact-objective role guardrails.",
+      "id": "m1642-paper-route-contour-aware-damped-projection-repair-design",
       "kind": "gate",
-      "notes": "Pending: audit M1640 negative projection result before any tuned rerun checkpoint artifact PPO promotion or private holdout",
-      "priority": 16360,
+      "notes": "Pending: design damped/backtracking exact-objective projection before any rerun checkpoint artifact PPO promotion or private holdout",
+      "priority": 16370,
       "status": "pending",
-      "success_artifact": "docs/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.md"
+      "success_artifact": "docs/m1642-paper-route-contour-aware-damped-projection-repair-design.md"
     },
-    "updated_at_utc": "20260529T201000Z"
+    "updated_at_utc": "20260529T201603Z"
 }

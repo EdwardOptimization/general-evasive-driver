@@ -16,25 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation
+m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit
+m1642-paper-route-contour-aware-damped-projection-repair-design
 ```
 
-M1640 implemented the no-checkpoint actor_mean-only projection probe from the
-M1636 `scale_1e-3` perturbation. The code and focused tests passed, gradients
-reached `actor_mean`, no checkpoint was written, and all role/contract
-guardrails stayed clean. The official run is negative: positive exact residual
-remained `0.0003143580979667604` before and after repair, so
-`passes_public_smoke_gates=false` and `null_result_classification` is
-`projection_residual_not_reduced`. The trace shows Adam `lr=1e-3` overshot the
-small perturbation on step 1. The next task is M1641 result audit before any
-tuned rerun, checkpoint artifact, PPO, promotion, private holdout, actor-input
-change, or level3 self-ID claim.
+M1641 audited M1640 as a clean negative result. M1640 projection plumbing and
+guardrails worked, but Adam `lr=1e-3` was too aggressive for the
+`scale_1e-3` actor_mean perturbation: step 1 moved residual from
+`0.0003143580979667604` to `0.03115139901638031`, and no post-step candidate
+beat the initial residual. M1641 classifies this as optimizer-step instability
+and admits M1642 design of a deterministic damped/backtracking full-batch exact
+projection rule. Projection reruns, checkpoint artifacts, PPO, promotion,
+private holdout, actor-input changes, and level3 self-ID claims remain blocked
+until that design is written.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
