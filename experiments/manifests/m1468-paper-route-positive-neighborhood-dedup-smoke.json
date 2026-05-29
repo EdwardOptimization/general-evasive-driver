@@ -158,6 +158,39 @@
   "baseline_artifacts": [
     "docs/m1467-paper-route-positive-neighborhood-dedup-repair.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1468-paper-route-positive-neighborhood-dedup-smoke.md",
+    "summary": "runs/m1468_positive_neighborhood_dedup_smoke/summary.json",
+    "decision": "positive_neighborhood_dedup_smoke_pass_route_to_preflight_design",
+    "history_positive_anchor_rows": 2,
+    "control_positive_rows": 8,
+    "candidate_pool_rows": 104,
+    "proposal_rows": 24960,
+    "selected_candidate_rows": 192,
+    "selected_unique_positive_neighborhood_keys": 192,
+    "selected_duplicate_positive_neighborhood_key_rows": 0,
+    "selected_anchor_source_rows": 32,
+    "selected_neighbor_source_rows": 160,
+    "selected_unique_source_seeds": 5,
+    "selected_unique_capability_pairs": 9,
+    "selected_unique_reveal_buckets": 8,
+    "selected_unique_variants": 3,
+    "candidate_step_column": "source_step",
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1469-paper-route-positive-neighborhood-preflight-design.json"
+  },
+  "decision": "positive_neighborhood_dedup_smoke_pass_route_to_preflight_design",
   "decision_rule": "M1468 passes if proposal generation produces deduplicated source-step candidates without preflight or replay.",
-  "next_blocker": "m1468-paper-route-positive-neighborhood-dedup-smoke"
+  "next_blocker": "m1469-paper-route-positive-neighborhood-preflight-design"
 }

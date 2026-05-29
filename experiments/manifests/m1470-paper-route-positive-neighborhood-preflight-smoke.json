@@ -1,0 +1,167 @@
+{
+  "id": "m1470-paper-route-positive-neighborhood-preflight-smoke",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1468_positive_neighborhood_dedup_smoke/positive_neighborhood_candidate_rows.csv",
+      "docs/m1469-paper-route-positive-neighborhood-preflight-design.md"
+    ],
+    "parent_config": [
+      "configs/m1419_warmup_gate_invasiveness_retune_source_wave.json",
+      "experiments/manifests/m1469-paper-route-positive-neighborhood-preflight-design.json"
+    ],
+    "parent_objective": [
+      "run preflight-only validation on M1468 deduplicated positive-neighborhood candidates"
+    ],
+    "derived_from": [
+      "m1469-paper-route-positive-neighborhood-preflight-design"
+    ],
+    "blocked_by": [
+      "deduplicated positive-neighborhood candidates have not yet passed source-step preflight"
+    ],
+    "supersedes": [
+      "bounded replay directly from M1468 proposal rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1470-paper-route-positive-neighborhood-preflight-smoke.md",
+  "public_gates": [
+    "M1470 must run --preflight-only with --candidate-step-column source_step",
+    "M1470 must not run bounded replay train PPO promote use private holdout export corpus or change actor inputs",
+    "M1470 must report geometry pass rows selected rows clipping share diversity and unique-key retention"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not mutate reveal_step values",
+    "do not count preflight rows as replay or history-positive evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_step_boundary_retarget_validation",
+    "evidence_axis": "S_positive_neighborhood_preflight_smoke",
+    "evidence_increment": "runs source-step preflight-only validation on deduplicated positive-neighborhood candidates",
+    "claim_scope": "positive-neighborhood source-step preflight smoke only; no bounded replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if selected_candidate_rows < 64",
+      "stop if geometry_pass_rows < 64",
+      "stop if selected_diversity.unique_source_seeds < 2",
+      "stop if selected_diversity.unique_capability_pairs < 2",
+      "stop if relocation_clipped_share > 0.10",
+      "stop if replay_started is true"
+    ],
+    "fallback_plan": [
+      "route to positive-neighborhood preflight result audit if source-step preflight gates fail",
+      "route to bounded replay design if positive-neighborhood preflight gates pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1469 designs positive-neighborhood preflight validation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "positive-neighborhood source-step preflight smoke",
+    "admission_evidence": [
+      "M1469 designed a source-step preflight-only command for M1468 deduplicated candidates"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "runs/m1470_positive_neighborhood_preflight_smoke",
+      "M1470 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up bounded replay design or audit manifest"
+    ],
+    "next_stage_criteria": [
+      "source-step preflight completed",
+      "source geometry, uniqueness, and diversity gates pass or fail clearly",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1470 only checks positive-neighborhood source-step geometry and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "future bounded replay must test whether selected history variants affect outcomes",
+      "preflight rows cannot count as actual history-positive replay evidence"
+    ],
+    "temporal_evidence_window": "M1468 selected deduplicated candidates through M1469 design.",
+    "negative_result_policy": "If preflight gates fail, record source limitation and audit instead of weakening replay or history standards.",
+    "allowed_claims": [
+      "positive-neighborhood source-step preflight smoke result",
+      "no replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1468 deduplicated positive-neighborhood candidates remain forward, unclipped, source-diverse, unique-key preserved, and source_step anchored when reconstructed by preflight.",
+  "success_criteria": [
+    "runs/m1470_positive_neighborhood_preflight_smoke/summary.json exists",
+    "summary candidate_step_column equals source_step",
+    "geometry_pass_rows >= 64",
+    "selected_candidate_rows >= 64",
+    "selected_diversity.unique_source_seeds >= 2",
+    "selected_diversity.unique_capability_pairs >= 2",
+    "selected_diversity.max_single_seed_share <= 0.40",
+    "relocation_clipped_share <= 0.10",
+    "source_body_x_min >= 4.0",
+    "replay_started false",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "failure_criteria": [
+    "summary missing",
+    "candidate_step_column is not source_step",
+    "geometry or diversity gates fail",
+    "preflight rows are counted as replay evidence",
+    "run starts replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "positive_neighborhood_preflight_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.bounded_relocation_replay_probe --preflight-only --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m1419_warmup_gate_invasiveness_retune_source_wave.json --candidate-rows runs/m1468_positive_neighborhood_dedup_smoke/positive_neighborhood_candidate_rows.csv --max-candidate-rows 192 --per-capability-pair-cap 32 --per-seed-cap 48 --per-reveal-bucket-cap 24 --per-variant-cap 96 --history-length 56 --min-sequence-action-l2 0.025 --min-source-body-x 4.0 --candidate-step-column source_step --device cpu --run-dir runs/m1470_positive_neighborhood_preflight_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1470_positive_neighborhood_preflight_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1470-paper-route-positive-neighborhood-preflight-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1469-paper-route-positive-neighborhood-preflight-design.md"
+  ],
+  "decision_rule": "M1470 passes if positive-neighborhood source-step preflight gates pass without replay or training.",
+  "next_blocker": "m1470-paper-route-positive-neighborhood-preflight-smoke"
+}

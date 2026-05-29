@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1476,
+    "completed": 1478,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1467-paper-route-positive-neighborhood-dedup-repair.md",
+    "command_log": "docs/m1469-paper-route-positive-neighborhood-preflight-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1467-paper-route-positive-neighborhood-dedup-repair"
+    "task_id": "m1469-paper-route-positive-neighborhood-preflight-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1468-paper-route-positive-neighborhood-dedup-smoke.json",
-    "hypothesis": "After M1467, positive-neighborhood proposal selection contains no duplicate positive_neighborhood_key rows.",
-    "id": "m1468-paper-route-positive-neighborhood-dedup-smoke",
+    "command": "see experiments/manifests/m1470-paper-route-positive-neighborhood-preflight-smoke.json",
+    "hypothesis": "M1468 deduplicated positive-neighborhood candidates remain forward, unclipped, source-diverse, unique-key preserved, and source_step anchored when reconstructed by preflight.",
+    "id": "m1470-paper-route-positive-neighborhood-preflight-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: rerun proposal generation after dedup repair and verify selected duplicate key count is zero",
-    "priority": 14630,
+    "notes": "Pending: run preflight-only validation on M1468 deduplicated positive-neighborhood candidates without replay training or corpus export",
+    "priority": 14650,
     "status": "pending",
-    "success_artifact": "docs/m1468-paper-route-positive-neighborhood-dedup-smoke.md"
+    "success_artifact": "docs/m1470-paper-route-positive-neighborhood-preflight-smoke.md"
   },
-  "updated_at_utc": "20260529T062000Z"
+  "updated_at_utc": "20260529T063000Z"
 }

@@ -21768,3 +21768,37 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1468-paper-route-positive-neighborhood-dedup-smoke.json`.
 - next: `m1468-paper-route-positive-neighborhood-dedup-smoke`
+
+## 20260529T063000Z - m1468-paper-route-positive-neighborhood-dedup-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `proof`
+- artifact: `docs/m1468-paper-route-positive-neighborhood-dedup-smoke.md`
+- run artifact: `runs/m1468_positive_neighborhood_dedup_smoke/summary.json`
+- decision: `positive_neighborhood_dedup_smoke_pass_route_to_preflight_design`
+- proposal rows: `24960`
+- selected candidate rows: `192`
+- selected unique positive-neighborhood keys: `192`
+- selected duplicate positive-neighborhood key rows: `0`
+- selected source groups: `32` anchor-source, `160` neighbor-source.
+- selected diversity: `5` seeds, `9` capability pairs, `8` reveal buckets, `3` variants.
+- candidate step column: `source_step`
+- interpretation: M1467 repaired the M1465 metric artifact; selected candidates are now unique-key preserving and source-diverse enough for preflight design.
+- guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1469-paper-route-positive-neighborhood-preflight-design.json`.
+- next: `m1469-paper-route-positive-neighborhood-preflight-design`
+
+## 20260529T063100Z - m1469-paper-route-positive-neighborhood-preflight-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1469-paper-route-positive-neighborhood-preflight-design.md`
+- decision: `positive_neighborhood_preflight_design_admit_smoke`
+- candidate source: `runs/m1468_positive_neighborhood_dedup_smoke/positive_neighborhood_candidate_rows.csv`
+- required candidate step column: `source_step`
+- design: run preflight-only validation with max `192` candidates and require geometry, diversity, clipping, and unique-key retention diagnostics before bounded replay.
+- guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1470-paper-route-positive-neighborhood-preflight-smoke.json`.
+- next: `m1470-paper-route-positive-neighborhood-preflight-smoke`

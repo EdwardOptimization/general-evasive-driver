@@ -16,30 +16,29 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1467-paper-route-positive-neighborhood-dedup-repair
+m1469-paper-route-positive-neighborhood-preflight-design
 ```
 
 Current next task:
 
 ```text
-m1468-paper-route-positive-neighborhood-dedup-smoke
+m1470-paper-route-positive-neighborhood-preflight-smoke
 ```
 
-M1467 repaired duplicate-key selection in the positive-neighborhood generator.
-The current public-gate base remains M1362 alpha `0.1`:
+M1468 verified the duplicate-key repair and M1469 designed preflight-only
+validation. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1467 result:
+M1469 design:
 
 ```text
-decision: positive_neighborhood_dedup_repair_implemented_admit_rerun
-focused_test_result: 31 passed in 0.99s
-dedup_key: positive_neighborhood_key
-new summary fields: selected_unique_positive_neighborhood_keys / selected_duplicate_positive_neighborhood_key_rows
-next: m1468-paper-route-positive-neighborhood-dedup-smoke
+decision: positive_neighborhood_preflight_design_admit_smoke
+source_candidates: runs/m1468_positive_neighborhood_dedup_smoke/positive_neighborhood_candidate_rows.csv
+candidate_step_column: source_step
+next: m1470-paper-route-positive-neighborhood-preflight-smoke
 ```
 
 M1465 result:
@@ -52,9 +51,17 @@ duplicate_rows: 172
 interpretation: selected count is inflated by duplicate geometry keys
 ```
 
-M1468 should rerun proposal generation and verify selected duplicate keys are
-zero. It must not run preflight, bounded replay, training, PPO, promotion,
-private holdout, corpus export, or actor-input changes.
+M1468 repaired that issue:
+
+```text
+selected_candidate_rows: 192
+selected_unique_positive_neighborhood_keys: 192
+selected_duplicate_positive_neighborhood_key_rows: 0
+selected diversity: 5 seeds / 9 capability pairs / 8 reveal buckets / 3 variants
+```
+
+M1470 should run preflight only. It must not run bounded replay, training, PPO,
+promotion, private holdout, corpus export, or actor-input changes.
 
 M1455 result:
 
