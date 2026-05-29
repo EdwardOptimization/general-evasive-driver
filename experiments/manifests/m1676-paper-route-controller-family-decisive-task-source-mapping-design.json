@@ -157,6 +157,13 @@
     "runs/m1674_controller_family_one_seed_public_pilot/profile_aggregate.csv",
     "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1676-paper-route-controller-family-decisive-task-source-mapping-design.md",
+    "decision": "decisive_task_source_mapping_design_admit_metadata_preflight",
+    "m1615_use_policy": "diagnostic_metadata_only_no_hidden_tensor_or_action_targets",
+    "next_manifest": "experiments/manifests/m1677-paper-route-controller-family-decisive-task-source-mapping-preflight.json"
+  },
   "decision_rule": "M1676 passes if it designs a controller-family-compatible decisive task-source mapping route and chooses the next step before execution.",
-  "next_blocker": "m1676-paper-route-controller-family-decisive-task-source-mapping-design"
+  "next_blocker": "m1677-paper-route-controller-family-decisive-task-source-mapping-preflight"
 }

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1684,
+    "completed": 1685,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.md",
+      "command_log": "docs/m1676-paper-route-controller-family-decisive-task-source-mapping-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1675-paper-route-controller-family-one-seed-public-pilot-result-audit"
+      "task_id": "m1676-paper-route-controller-family-decisive-task-source-mapping-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1676-paper-route-controller-family-decisive-task-source-mapping-design.json",
-      "hypothesis": "A controller-family-compatible decisive task-source mapping route can be designed from existing public task infrastructure without leaking L3-specific proof artifacts.",
-      "id": "m1676-paper-route-controller-family-decisive-task-source-mapping-design",
-      "kind": "gate",
-      "notes": "Pending: design controller-family-compatible decisive task-source mapping route",
-      "priority": 16710,
+      "command": "see experiments/manifests/m1677-paper-route-controller-family-decisive-task-source-mapping-preflight.json",
+      "hypothesis": "Existing public decisive-history metadata can be mapped into a controller-family-compatible task-source preflight without leaking L3-specific proof tensors.",
+      "id": "m1677-paper-route-controller-family-decisive-task-source-mapping-preflight",
+      "kind": "infrastructure",
+      "notes": "Pending: materialize no-training controller-family decisive task-source metadata preflight",
+      "priority": 16720,
       "status": "pending",
-      "success_artifact": "docs/m1676-paper-route-controller-family-decisive-task-source-mapping-design.md"
+      "success_artifact": "runs/m1677_controller_family_decisive_task_source_mapping_preflight/summary.json"
     },
-    "updated_at_utc": "20260529T225225Z"
+    "updated_at_utc": "20260529T225847Z"
 }

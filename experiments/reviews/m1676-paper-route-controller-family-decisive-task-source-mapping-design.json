@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M1676 designs a controller-family-compatible T4/T5 task-source mapping route keeps M1615 diagnostic-only and admits no-training metadata preflight",
+  "failure_criteria": [
+    "design document is missing",
+    "design treats M1615 as direct benchmark without mapping",
+    "design omits current-response current-tiled or reset controls",
+    "design routes directly to private holdout promotion or paper evidence",
+    "design claims level3 self-identification evidence"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not repair the M1663 artifact",
+    "do not use M1615 as direct benchmark without mapping",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T225949Z",
+  "hypothesis": "A controller-family-compatible decisive task-source mapping route can be designed from existing public task infrastructure without leaking L3-specific proof artifacts.",
+  "lineage": {
+    "blocked_by": [
+      "standard profile layer is not decisive for history necessity",
+      "M1615 clean package may be L3-specific and must not be used as a direct benchmark without mapping"
+    ],
+    "derived_from": [
+      "m1675-paper-route-controller-family-one-seed-public-pilot-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_source_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.md",
+      "runs/m1674_controller_family_one_seed_public_pilot/summary.json",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_aggregate.csv",
+      "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json"
+    ],
+    "parent_objective": [
+      "design controller-family-compatible decisive task-source mapping after standard-layer plumbing pass"
+    ],
+    "supersedes": [
+      "direct standard-layer repeat after M1675",
+      "direct private holdout after M1675",
+      "direct M1615 benchmark after M1675"
+    ]
+  },
+  "milestone": "m1676-paper-route-controller-family-decisive-task-source-mapping-design",
+  "next_blocker": "m1677-paper-route-controller-family-decisive-task-source-mapping-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "decisive_task_source_mapping_design_admit_metadata_preflight",
+  "public_gates": [
+    "M1676 must design task-source mapping without running training or replay",
+    "M1676 must decide whether M1615 is diagnostic-only or safely mappable",
+    "M1676 must preserve L1 current-response, L2 current-tiled, and L3 reset controls",
+    "M1676 must specify source-diversity and control-substitution stop rules",
+    "M1676 must keep private holdout promotion actor-input changes paper-level claims and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1676-paper-route-controller-family-decisive-task-source-mapping-design.md",
+    "clearance_margin_mean": "",
+    "decision": "decisive_task_source_mapping_design_admit_metadata_preflight",
+    "milestone": "m1676-paper-route-controller-family-decisive-task-source-mapping-design",
+    "reason": "M1676 designs a controller-family-compatible T4/T5 task-source mapping route keeps M1615 diagnostic-only and admits no-training metadata preflight",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1676-paper-route-controller-family-decisive-task-source-mapping-design.md exists",
+    "design states whether M1615 is diagnostic-only or safely mappable",
+    "design specifies T4/T5 source families and source-diversity gates",
+    "design specifies L1/L2-current-tiled/L3-reset control-substitution gates",
+    "design chooses a concrete next source preflight mapping audit or stop route",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

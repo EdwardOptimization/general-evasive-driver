@@ -26847,3 +26847,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1676-paper-route-controller-family-decisive-task-source-mapping-design.json`
 - next: `m1676-paper-route-controller-family-decisive-task-source-mapping-design`
+
+## M1676 Paper-Route Controller-Family Decisive Task-Source Mapping Design
+
+- status: completed
+- decision: `decisive_task_source_mapping_design_admit_metadata_preflight`
+- artifact: `docs/m1676-paper-route-controller-family-decisive-task-source-mapping-design.md`
+- M1615 policy: diagnostic metadata only; do not use M1615 hidden tensors/actions as controller-family labels or benchmark targets
+- task-source route: map source-diverse public T4/T5 metadata before any decisive rollout, training, replay, PPO, private holdout, promotion, actor-input change, paper-level claim, or level3 self-ID claim
+- required future controls: L1 one-step, L2 normal windows, matched L2 current-tiled windows, L3 online GRU, and L3 corrected reset control
+- preflight artifact route: `runs/m1677_controller_family_decisive_task_source_mapping_preflight/summary.json` and `runs/m1677_controller_family_decisive_task_source_mapping_preflight/task_source_mapping.json`
+- supported: controller-family-compatible metadata preflight is justified before decisive task rollout
+- unsupported: controller-family ranking, direct M1615 benchmark validity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1677-paper-route-controller-family-decisive-task-source-mapping-preflight.json`
+- next: `m1677-paper-route-controller-family-decisive-task-source-mapping-preflight`

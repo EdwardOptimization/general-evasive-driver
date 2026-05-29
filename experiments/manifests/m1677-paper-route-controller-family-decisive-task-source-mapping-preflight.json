@@ -1,0 +1,169 @@
+{
+  "id": "m1677-paper-route-controller-family-decisive-task-source-mapping-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_mapping_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m1676-paper-route-controller-family-decisive-task-source-mapping-design.md",
+      "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json",
+      "runs/m1615_contour_aware_candidate_corpus/summary.json",
+      "docs/m1591-paper-route-history-pairability-source-generation-branch-synthesis.md",
+      "docs/m1597-paper-route-clean-source-repair-branch-synthesis.md",
+      "docs/m1608-paper-route-clean-active-set-contour-mapping-branch-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1676-paper-route-controller-family-decisive-task-source-mapping-design.json"
+    ],
+    "parent_objective": [
+      "materialize no-training metadata preflight for controller-family decisive task-source mapping"
+    ],
+    "derived_from": [
+      "m1676-paper-route-controller-family-decisive-task-source-mapping-design"
+    ],
+    "blocked_by": [
+      "need metadata-level source mapping before any task-source rollout or controller-family benchmark"
+    ],
+    "supersedes": [
+      "direct decisive task rollout after M1676",
+      "direct M1615 benchmark after M1676",
+      "direct private holdout after M1676"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1677-paper-route-controller-family-decisive-task-source-mapping-preflight.md",
+  "public_gates": [
+    "M1677 must write summary and task_source_mapping artifacts",
+    "M1677 must not run training replay PPO or environment rollout",
+    "M1677 must classify M1615 use as diagnostic-only or safely mappable",
+    "M1677 must report source-family task-family edge window and source-share counts",
+    "M1677 must keep private holdout promotion actor-input changes paper-level claims and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not run environment rollout",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not repair the M1663 artifact",
+    "do not use M1615 hidden tensors or actions as benchmark targets",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_decisive_evidence_matrix",
+    "evidence_axis": "C_decisive_task_source_mapping_preflight",
+    "evidence_increment": "writes no-training task-source mapping metadata before any decisive rollout",
+    "claim_scope": "metadata preflight only; no training, replay, PPO, promotion, private holdout, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if mapping artifacts are missing",
+      "stop if private holdout is used",
+      "stop if M1615 hidden tensors/actions become benchmark targets",
+      "stop if source-diversity counts are not reported"
+    ],
+    "fallback_plan": [
+      "route to fresh source-generation design if metadata mapping fails",
+      "route to mapping audit if metadata preflight passes",
+      "route to standard-layer negative story only if decisive mapping is impossible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1676 admits exactly one no-training metadata preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "decisive task-source metadata preflight",
+    "admission_evidence": [
+      "M1676 designs metadata-only mapping route",
+      "M1675 shows standard layer is non-decisive"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not run environment rollout",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "mapping preflight tooling if needed",
+      "runs/m1677_controller_family_decisive_task_source_mapping_preflight artifacts",
+      "M1677 status queue scoreboard research log and review",
+      "one follow-up audit manifest"
+    ],
+    "next_stage_criteria": [
+      "summary and task_source_mapping artifacts exist",
+      "source-diversity counts are reported",
+      "M1615 mapping policy is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; metadata preflight must reserve L1/current-tiled/reset controls as challengers.",
+    "history_necessity_tests": [
+      "preflight must report whether T4/T5 task sources can support L2 current-tiled and L3 reset controls",
+      "preflight must not claim history necessity from metadata"
+    ],
+    "temporal_evidence_window": "metadata from existing public task-source artifacts only.",
+    "negative_result_policy": "If metadata cannot support controller-family-compatible decisive tasks, record scenario-sampling limitation and route to fresh source generation.",
+    "allowed_claims": [
+      "metadata preflight and route decision",
+      "no training, no replay, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Existing public decisive-history metadata can be mapped into a controller-family-compatible task-source preflight without leaking L3-specific proof tensors.",
+  "success_criteria": [
+    "runs/m1677_controller_family_decisive_task_source_mapping_preflight/summary.json exists",
+    "runs/m1677_controller_family_decisive_task_source_mapping_preflight/task_source_mapping.json exists",
+    "M1615 use policy is reported",
+    "candidate source-family task-family edge window and source-share counts are reported",
+    "guardrail violation count is reported",
+    "training replay PPO environment rollout promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "mapping artifacts are missing",
+    "M1615 hidden tensors/actions are used as benchmark targets",
+    "source-diversity counts are omitted",
+    "private holdout promotion actor-input changes or environment rollout occur",
+    "metadata preflight claims controller-family ranking or level3 self-ID"
+  ],
+  "commands": [
+    {
+      "name": "preflight",
+      "command": "create or run no-training decisive task-source mapping metadata preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1677_controller_family_decisive_task_source_mapping_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1677_controller_family_decisive_task_source_mapping_preflight/task_source_mapping.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_mapping_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m1676-paper-route-controller-family-decisive-task-source-mapping-design.md",
+    "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json",
+    "runs/m1615_contour_aware_candidate_corpus/summary.json"
+  ],
+  "decision_rule": "M1677 passes if it writes metadata-only task-source mapping artifacts and chooses the next route without execution or leakage.",
+  "next_blocker": "m1677-paper-route-controller-family-decisive-task-source-mapping-preflight"
+}
