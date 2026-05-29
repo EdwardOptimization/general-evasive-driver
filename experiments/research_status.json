@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1582,
+    "completed": 1583,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation.md",
+    "command_log": "docs/m1574-paper-route-source-diverse-history-intervention-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1573_source_diverse_flip_anchor_history_intervention_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation"
+    "task_id": "m1574-paper-route-source-diverse-history-intervention-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1574-paper-route-source-diverse-history-intervention-result-audit.json",
-    "hypothesis": "M1573's public-pass/evidence-narrow result can be audited into a defensible next route without overstating self-identification evidence.",
-    "id": "m1574-paper-route-source-diverse-history-intervention-result-audit",
+    "command": "see experiments/manifests/m1575-paper-route-history-sensitive-active-set-mining-design.json",
+    "hypothesis": "A history-sensitive active-set miner can be designed to find source-diverse anchors where policy history interventions change closed-loop outcome.",
+    "id": "m1575-paper-route-history-sensitive-active-set-mining-design",
     "kind": "gate",
-    "notes": "Pending: audit M1573 public pass and source-family-narrow evidence-quality failure",
-    "priority": 15690,
+    "notes": "Pending: design history-sensitive active-set miner after M1573 source-narrow intervention result",
+    "priority": 15700,
     "status": "pending",
-    "success_artifact": "docs/m1574-paper-route-source-diverse-history-intervention-result-audit.md"
+    "success_artifact": "docs/m1575-paper-route-history-sensitive-active-set-mining-design.md"
   },
-  "updated_at_utc": "20260529T144653Z"
+  "updated_at_utc": "20260529T145012Z"
 }

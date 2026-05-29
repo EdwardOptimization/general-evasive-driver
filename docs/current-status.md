@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation
+m1574-paper-route-source-diverse-history-intervention-result-audit
 ```
 
 Current next task:
 
 ```text
-m1574-paper-route-source-diverse-history-intervention-result-audit
+m1575-paper-route-history-sensitive-active-set-mining-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -401,6 +401,12 @@ source-narrow: `history_positive_source_family_count` was `1`, all positive
 history evidence concentrated in `t5_near_boundary_warmup`, while high-speed
 third-source and late-reveal stayed history-null. M1574 must audit before any
 repair, materialization, corpus export, or training.
+M1574 audited M1573 as a live intervention harness but not source-diverse
+history evidence. Donor mismatch is unlikely to explain the high-speed null
+because high-speed donor hidden/response distances are larger than the positive
+near-boundary cases. The next route is M1575 design: mine active-set rows using
+history intervention outcome degradation as the primary acceptance criterion,
+rather than assuming local forced-control flip anchors are history-sensitive.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

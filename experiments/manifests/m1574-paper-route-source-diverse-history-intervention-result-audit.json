@@ -155,6 +155,36 @@
     "runs/m1573_source_diverse_flip_anchor_history_intervention_smoke/summary.json",
     "docs/m1573-paper-route-source-diverse-flip-anchor-history-intervention-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1574-paper-route-source-diverse-history-intervention-result-audit.md",
+    "decision": "source_diverse_history_intervention_audit_admit_history_sensitive_active_set_mining_design",
+    "failure_taxonomy": [
+      "scenario_sampling_failure"
+    ],
+    "m1573_public_pass": true,
+    "m1573_evidence_quality_pass": false,
+    "max_history_margin_gap": 0.388129872572502,
+    "history_success_drop_count": 3,
+    "history_positive_source_family_count": 1,
+    "positive_source_family": "t5_near_boundary_warmup",
+    "high_speed_history_positive_count": 0,
+    "late_reveal_history_positive_count": 0,
+    "donor_mismatch_likely": false,
+    "next_manifest": "experiments/manifests/m1575-paper-route-history-sensitive-active-set-mining-design.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1574 passes if it audits M1573 and chooses the next route before any repair, materialization, or training.",
-  "next_blocker": "m1574-paper-route-source-diverse-history-intervention-result-audit"
+  "next_blocker": "m1575-paper-route-history-sensitive-active-set-mining-design"
 }

@@ -1,0 +1,157 @@
+{
+  "id": "m1575-paper-route-history-sensitive-active-set-mining-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1573_source_diverse_flip_anchor_history_intervention_smoke/summary.json",
+      "docs/m1574-paper-route-source-diverse-history-intervention-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1574-paper-route-source-diverse-history-intervention-result-audit.json"
+    ],
+    "parent_objective": [
+      "design active-set mining that uses history sensitivity as the acceptance criterion"
+    ],
+    "derived_from": [
+      "m1574-paper-route-source-diverse-history-intervention-result-audit"
+    ],
+    "blocked_by": [
+      "M1573 history-positive evidence is source-narrow despite live intervention harness"
+    ],
+    "supersedes": [
+      "candidate materialization after M1573",
+      "donor-pairing-only repair without source-sensitive mining"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1575-paper-route-history-sensitive-active-set-mining-design.md",
+  "public_gates": [
+    "M1575 must design a bounded no-training history-sensitive active-set miner",
+    "M1575 must use wrong-history/donor-plus-hidden outcome degradation as a primary acceptance criterion",
+    "M1575 must include current-frame substitution controls",
+    "M1575 must pre-register source-family and high-speed/late-reveal reporting gates",
+    "M1575 must not run implementation smoke or history interventions",
+    "M1575 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_recoverable_active_set_generation",
+    "evidence_axis": "D_history_sensitive_active_set_mining_design",
+    "evidence_increment": "designs a miner that directly targets history-sensitive active-set anchors after M1573 source-narrow intervention evidence",
+    "claim_scope": "design only; no simulator run, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design treats M1573 t5_near-only positives as source-diverse proof",
+      "stop if design omits current-frame controls",
+      "stop if design routes directly to materialization, training, PPO, or private holdout"
+    ],
+    "fallback_plan": [
+      "route to bounded public miner implementation if design is explicit",
+      "route to branch synthesis if history-sensitive mining cannot be made source-diverse",
+      "keep M1573 as live-harness public diagnostic evidence only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1574 admits a new history-sensitive active-set mining design after source-narrow result",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "history-sensitive active-set mining design",
+    "admission_evidence": [
+      "M1573 intervention harness is live but history positives are source-narrow",
+      "M1574 rejects materialization and routes to history-sensitive mining"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1575 design document",
+      "M1575 status queue scoreboard research log and review",
+      "one follow-up implementation manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "history-sensitive acceptance criteria are explicit",
+      "source-family gates are explicit",
+      "current-frame controls are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1575 is design-only but must include controls to prevent current-frame substitution from being misread as history evidence.",
+    "history_necessity_tests": [
+      "design wrong-history/donor-plus-hidden acceptance",
+      "design donor response/action stream control",
+      "design reset/zero-current/zero-action controls"
+    ],
+    "temporal_evidence_window": "M1573 public intervention result.",
+    "negative_result_policy": "If later mining remains source-narrow, synthesize or pivot rather than lowering source-diversity or self-ID standards.",
+    "allowed_claims": [
+      "history-sensitive active-set mining design",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A history-sensitive active-set miner can be designed to find source-diverse anchors where policy history interventions change closed-loop outcome.",
+  "success_criteria": [
+    "docs/m1575-paper-route-history-sensitive-active-set-mining-design.md exists",
+    "design uses history intervention outcome degradation as an acceptance criterion",
+    "design includes current-frame substitution controls",
+    "design pre-registers source-family and high-speed/late-reveal gates",
+    "design blocks materialization training PPO promotion private holdout corpus export and self-ID claims"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design treats M1573 source-narrow positives as source-diverse self-ID evidence",
+    "design omits current-frame controls",
+    "design routes directly to training PPO promotion private holdout corpus export actor-input changes candidate materialization or implementation without gates"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1575-paper-route-history-sensitive-active-set-mining-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1575-paper-route-history-sensitive-active-set-mining-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1573_source_diverse_flip_anchor_history_intervention_smoke/summary.json",
+    "docs/m1574-paper-route-source-diverse-history-intervention-result-audit.md"
+  ],
+  "decision_rule": "M1575 passes if it designs a bounded history-sensitive active-set miner before implementation.",
+  "next_blocker": "m1575-paper-route-history-sensitive-active-set-mining-design"
+}

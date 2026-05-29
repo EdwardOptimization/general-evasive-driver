@@ -24470,3 +24470,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1573 proves the intervention harness is live, but the history-positive signal is source-narrow and not present on the high-speed third-source anchors; route to audit, not materialization or training.
 - follow-up manifest: `experiments/manifests/m1574-paper-route-source-diverse-history-intervention-result-audit.json`
 - next: `m1574-paper-route-source-diverse-history-intervention-result-audit`
+
+## M1574 Paper-Route Source-Diverse History-Intervention Result Audit
+
+- status: completed
+- decision: `source_diverse_history_intervention_audit_admit_history_sensitive_active_set_mining_design`
+- artifact: `docs/m1574-paper-route-source-diverse-history-intervention-result-audit.md`
+- failure taxonomy: `scenario_sampling_failure`
+- M1573 public pass: true
+- M1573 evidence quality pass: false
+- max history margin gap: 0.388129872572502
+- history success drop count: 3
+- history positive source family count: 1
+- positive source family: `t5_near_boundary_warmup`
+- high-speed history positive count: 0
+- late-reveal history positive count: 0
+- donor mismatch likely: false
+- interpretation: M1573 proves the intervention harness is live but not source-diverse; high-speed donor hidden/response distances are not weak, so the high-speed null is more likely an active-set/history-sensitivity mismatch than a donor-pairing-only problem
+- route decision: design a history-sensitive active-set miner that accepts anchors by wrong-history/donor-plus-hidden outcome degradation, with current-frame controls and source-family gates
+- history interventions executed: false in M1574
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1575-paper-route-history-sensitive-active-set-mining-design.json`
+- next: `m1575-paper-route-history-sensitive-active-set-mining-design`
