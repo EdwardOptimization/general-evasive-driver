@@ -148,6 +148,37 @@
   "baseline_artifacts": [
     "docs/m1483-paper-route-neighbor-viability-calibration-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1484-paper-route-neighbor-viability-calibration-implementation.md",
+    "decision": "neighbor_viability_calibration_generator_implemented_admit_proposal_smoke",
+    "implementation": "src/autodrift/neighbor_viability_calibration.py",
+    "tests": "tests/test_neighbor_viability_calibration.py",
+    "focused_test_result": "32 passed in 2.17s",
+    "candidate_step_column": "source_step",
+    "original_source_separation": true,
+    "control_positive_separation": true,
+    "viability_classes": [
+      "too_hard",
+      "near_boundary",
+      "too_easy"
+    ],
+    "source_diversity_caps": true,
+    "duplicate_neighbor_viability_key_filtering": true,
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1485-paper-route-neighbor-viability-calibration-proposal-smoke.json"
+  },
+  "decision": "neighbor_viability_calibration_generator_implemented_admit_proposal_smoke",
   "decision_rule": "M1484 passes if the neighbor viability calibration generator is implemented with focused tests and no preflight or replay run.",
-  "next_blocker": "m1484-paper-route-neighbor-viability-calibration-implementation"
+  "next_blocker": "m1485-paper-route-neighbor-viability-calibration-proposal-smoke"
 }

@@ -22050,3 +22050,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1484-paper-route-neighbor-viability-calibration-implementation.json`.
 - next: `m1484-paper-route-neighbor-viability-calibration-implementation`
+
+## 20260529T074500Z - m1484-paper-route-neighbor-viability-calibration-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1484-paper-route-neighbor-viability-calibration-implementation.md`
+- decision: `neighbor_viability_calibration_generator_implemented_admit_proposal_smoke`
+- implementation: `src/autodrift/neighbor_viability_calibration.py`
+- tests: `tests/test_neighbor_viability_calibration.py`
+- focused test result: `32 passed in 2.17s`
+- implemented separation: original-source diagnostics, neighbor-source calibration candidates, and control diagnostics.
+- implemented classes: `too_hard`, `near_boundary`, `too_easy`
+- required preservation: `candidate_step_column == source_step`.
+- guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1485-paper-route-neighbor-viability-calibration-proposal-smoke.json`.
+- next: `m1485-paper-route-neighbor-viability-calibration-proposal-smoke`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1492,
+    "completed": 1493,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1483-paper-route-neighbor-viability-calibration-design.md",
+    "command_log": "docs/m1484-paper-route-neighbor-viability-calibration-implementation.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1483-paper-route-neighbor-viability-calibration-design"
+    "task_id": "m1484-paper-route-neighbor-viability-calibration-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1484-paper-route-neighbor-viability-calibration-implementation.json",
-    "hypothesis": "A no-training generator can calibrate M1481 neighbor rows into normal-viable source-diverse candidates while keeping controls separate.",
-    "id": "m1484-paper-route-neighbor-viability-calibration-implementation",
+    "command": "see experiments/manifests/m1485-paper-route-neighbor-viability-calibration-proposal-smoke.json",
+    "hypothesis": "The neighbor viability calibration generator can produce a calibrated source-diverse candidate pool from M1481 artifacts without replay or training.",
+    "id": "m1485-paper-route-neighbor-viability-calibration-proposal-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: implement no-training calibration generator and focused tests without preflight replay training PPO promotion or corpus export",
-    "priority": 14790,
+    "notes": "Pending: run proposal generation only without preflight replay training PPO promotion or corpus export",
+    "priority": 14800,
     "status": "pending",
-    "success_artifact": "docs/m1484-paper-route-neighbor-viability-calibration-implementation.md"
+    "success_artifact": "runs/m1485_neighbor_viability_calibration_proposal_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T074000Z"
+  "updated_at_utc": "20260529T074500Z"
 }
