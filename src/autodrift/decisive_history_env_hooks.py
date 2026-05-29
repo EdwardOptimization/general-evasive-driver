@@ -118,36 +118,30 @@ def _obstacle_config_for_family(source_family: str, reveal_step: int) -> Obstacl
         "max_sample_attempts": 200,
         "clearance_margin_reward_scale": 0.0,
         "dense_clearance_margin_reward_scale": 0.0,
+        "allowed_labels": ("aeb_feasible", "aes_feasible", "drift_required", "unavoidable"),
     }
     if source_family == "t5_high_speed_close_obstacle":
         return ObstacleTaskConfig(
             **common,
             distance_range=(10.0, 22.0),
             half_width_range=(0.75, 1.35),
-            allowed_labels=("aes_feasible", "drift_required", "unavoidable"),
-            max_threshold_score=0.35,
         )
     if source_family == "t5_boundary_axis_retarget":
         return ObstacleTaskConfig(
             **common,
             distance_range=(12.0, 34.0),
             half_width_range=(0.65, 1.45),
-            allowed_labels=("aes_feasible", "drift_required", "unavoidable"),
-            max_threshold_score=0.25,
         )
     if source_family == "t5_near_boundary_warmup":
         return ObstacleTaskConfig(
             **common,
             distance_range=(12.0, 30.0),
             half_width_range=(0.65, 1.35),
-            allowed_labels=("aes_feasible", "drift_required", "unavoidable"),
-            max_threshold_score=0.30,
         )
     return ObstacleTaskConfig(
         **common,
         distance_range=(14.0, 42.0),
         half_width_range=(0.55, 1.20),
-        allowed_labels=("aes_feasible", "drift_required", "unavoidable"),
     )
 
 

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1505-paper-route-decisive-history-env-hook-implementation
+m1506-paper-route-decisive-history-env-hook-runtime-smoke
 ```
 
 Current next task:
 
 ```text
-m1506-paper-route-decisive-history-env-hook-runtime-smoke
+m1507-paper-route-decisive-history-rollout-candidate-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -52,12 +52,36 @@ candidate-generation route. M1502 implemented the no-training source-plan
 planner. M1503 ran the public metadata-scale planner smoke and passed all
 pre-registered M1501 thresholds. M1504 designed the no-training current-sim
 hook/spec layer needed before rollout probes. M1505 implemented that dry
-hook/spec layer and produced no-training dry-smoke artifacts. The current
-public-gate base remains M1362 alpha `0.1`:
+hook/spec layer and produced no-training dry-smoke artifacts. M1506 passed
+reset-only current-sim runtime smoke for all six source families after a hook
+sampling repair. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1506 decisive history env-hook runtime smoke:
+
+```text
+decision: decisive_history_env_hook_runtime_smoke_pass_admit_rollout_candidate_design
+artifact: docs/m1506-paper-route-decisive-history-env-hook-runtime-smoke.md
+code_paths:
+  src/autodrift/decisive_history_env_runtime_smoke.py
+  tests/test_decisive_history_env_runtime_smoke.py
+  src/autodrift/decisive_history_env_hooks.py
+runtime_repair: broadened reset-smoke obstacle label acceptance
+runtime_scope: reset_only
+reset_success/failure_count: 6/0
+source_family_count: 6
+guardrail_violation_count: 0
+env_step_called: false
+candidate_materialized: false
+policy_replay/replay/training/PPO used: false
+next: m1507-paper-route-decisive-history-rollout-candidate-design
+```
+
+M1506 is reset/runtime plumbing only. It does not materialize candidates or
+prove self-ID. Next is rollout candidate-generation design.
 
 M1505 decisive history env-hook implementation:
 

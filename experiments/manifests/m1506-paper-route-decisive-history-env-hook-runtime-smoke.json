@@ -153,6 +153,45 @@
     "docs/m1505-paper-route-decisive-history-env-hook-implementation.md",
     "runs/m1505_decisive_history_env_hook_dry_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1506-paper-route-decisive-history-env-hook-runtime-smoke.md",
+    "decision": "decisive_history_env_hook_runtime_smoke_pass_admit_rollout_candidate_design",
+    "code_paths": [
+      "src/autodrift/decisive_history_env_runtime_smoke.py",
+      "tests/test_decisive_history_env_runtime_smoke.py",
+      "src/autodrift/decisive_history_env_hooks.py"
+    ],
+    "runtime_repair": "broadened reset-smoke obstacle label acceptance and removed max_threshold_score restrictions from hook configs",
+    "focused_test_command": "PYTHONPATH=src python -m pytest tests/test_decisive_history_env_runtime_smoke.py tests/test_decisive_history_env_hooks.py -q",
+    "focused_test_result": "9 passed in 0.13s",
+    "runtime_smoke_run_dir": "runs/m1506_decisive_history_env_hook_runtime_smoke",
+    "runtime_smoke_summary": "runs/m1506_decisive_history_env_hook_runtime_smoke/summary.json",
+    "result_class": "decisive_history_env_hook_runtime_smoke",
+    "runtime_scope": "reset_only",
+    "hook_spec_count": 6,
+    "source_family_count": 6,
+    "reset_success_count": 6,
+    "reset_failure_count": 0,
+    "all_source_families_reset": true,
+    "guardrail_violation_count": 0,
+    "env_reset_called": true,
+    "env_step_called": false,
+    "candidate_materialized": false,
+    "policy_replay_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1507-paper-route-decisive-history-rollout-candidate-design.json"
+  },
+  "decision": "decisive_history_env_hook_runtime_smoke_pass_admit_rollout_candidate_design",
   "decision_rule": "M1506 passes if reset-only/current-sim runtime checks succeed for the source-diverse hook subset with no guardrail violations.",
-  "next_blocker": "m1506-paper-route-decisive-history-env-hook-runtime-smoke"
+  "next_blocker": "m1507-paper-route-decisive-history-rollout-candidate-design"
 }

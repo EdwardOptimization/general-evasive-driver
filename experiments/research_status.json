@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1514,
+    "completed": 1515,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1505-paper-route-decisive-history-env-hook-implementation.md",
+    "command_log": "docs/m1506-paper-route-decisive-history-env-hook-runtime-smoke.md",
     "returncode": 0,
-    "run_dir": "runs/m1505_decisive_history_env_hook_dry_smoke",
+    "run_dir": "runs/m1506_decisive_history_env_hook_runtime_smoke",
     "status": "completed",
-    "task_id": "m1505-paper-route-decisive-history-env-hook-implementation"
+    "task_id": "m1506-paper-route-decisive-history-env-hook-runtime-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1506-paper-route-decisive-history-env-hook-runtime-smoke.json",
-    "hypothesis": "The M1505 hook specs can instantiate current-sim env configs for a tiny source-diverse subset without actor-input or guardrail violations.",
-    "id": "m1506-paper-route-decisive-history-env-hook-runtime-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: run reset-only current-sim runtime smoke for env-hook specs without policy replay or training",
-    "priority": 15010,
+    "command": "see experiments/manifests/m1507-paper-route-decisive-history-rollout-candidate-design.json",
+    "hypothesis": "The M1506 reset-viable hook specs can be extended into a no-training rollout candidate-generation design that measures T4/T5 history necessity without actor-input leakage.",
+    "id": "m1507-paper-route-decisive-history-rollout-candidate-design",
+    "kind": "gate",
+    "notes": "Pending: design measured rollout candidate generation before implementation, corpus export, or training",
+    "priority": 15020,
     "status": "pending",
-    "success_artifact": "runs/m1506_decisive_history_env_hook_runtime_smoke/summary.json"
+    "success_artifact": "docs/m1507-paper-route-decisive-history-rollout-candidate-design.md"
   },
-  "updated_at_utc": "20260529T082936Z"
+  "updated_at_utc": "20260529T083559Z"
 }

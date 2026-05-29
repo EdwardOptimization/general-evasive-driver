@@ -22463,3 +22463,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1505 implements dry env-hook scaffolding only; current-sim reset/runtime viability and candidate materialization remain untested.
 - follow-up manifest: `experiments/manifests/m1506-paper-route-decisive-history-env-hook-runtime-smoke.json`.
 - next: `m1506-paper-route-decisive-history-env-hook-runtime-smoke`
+
+## M1506 Paper-Route Decisive History Env-Hook Runtime Smoke
+
+- status: completed
+- decision: `decisive_history_env_hook_runtime_smoke_pass_admit_rollout_candidate_design`
+- artifact: `docs/m1506-paper-route-decisive-history-env-hook-runtime-smoke.md`
+- code paths: `src/autodrift/decisive_history_env_runtime_smoke.py`, `tests/test_decisive_history_env_runtime_smoke.py`, `src/autodrift/decisive_history_env_hooks.py`
+- runtime repair: broadened reset-smoke obstacle label acceptance and removed max-threshold restrictions from hook configs
+- focused tests: `PYTHONPATH=src python -m pytest tests/test_decisive_history_env_runtime_smoke.py tests/test_decisive_history_env_hooks.py -q`
+- focused test result: 9 passed in 0.13s
+- runtime smoke run: `runs/m1506_decisive_history_env_hook_runtime_smoke`
+- runtime smoke summary: `runs/m1506_decisive_history_env_hook_runtime_smoke/summary.json`
+- runtime scope: reset only
+- hook spec count: 6
+- source family count: 6
+- reset success/failure count: 6/0
+- all source families reset: true
+- guardrail violation count: 0
+- env reset called: true
+- env step called: false
+- candidate materialized: false
+- policy replay/replay/training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- interpretation: reset/runtime viability is now proven for a tiny source-diverse hook subset, but rollout candidate evidence is still unproven.
+- follow-up manifest: `experiments/manifests/m1507-paper-route-decisive-history-rollout-candidate-design.json`.
+- next: `m1507-paper-route-decisive-history-rollout-candidate-design`
