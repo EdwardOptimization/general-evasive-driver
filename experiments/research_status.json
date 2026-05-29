@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1449,
+    "completed": 1450,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1439-paper-route-trace-backed-source-geometry-materialization-design.md",
+    "command_log": "docs/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1439-paper-route-trace-backed-source-geometry-materialization-design"
+    "task_id": "m1440-paper-route-trace-backed-source-geometry-materialization-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.json",
-    "hypothesis": "Trace-backed source geometry materialization can be implemented to compute emergency-obstacle source_body_x/source_body_y/source_half_width rows at earlier source steps without running public source mining.",
-    "id": "m1440-paper-route-trace-backed-source-geometry-materialization-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement trace-backed source geometry materializer and focused tests only",
-    "priority": 14350,
+    "command": "see experiments/manifests/m1441-paper-route-geometry-first-action-divergence-enrichment-design.json",
+    "hypothesis": "Trace-backed source geometry rows can be enriched with source-step history variants and action-divergence metrics after geometry filtering, without using stale reveal-step pressure metrics.",
+    "id": "m1441-paper-route-geometry-first-action-divergence-enrichment-design",
+    "kind": "gate",
+    "notes": "Pending: design source-step action-divergence enrichment after trace-backed geometry materialization",
+    "priority": 14360,
     "status": "pending",
-    "success_artifact": "docs/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.md"
+    "success_artifact": "docs/m1441-paper-route-geometry-first-action-divergence-enrichment-design.md"
   },
-  "updated_at_utc": "20260529T032343Z"
+  "updated_at_utc": "20260529T033159Z"
 }

@@ -21296,3 +21296,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source materialization run, source mining, source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.json`.
 - next: `m1440-paper-route-trace-backed-source-geometry-materialization-implementation`
+
+## 20260529T033159Z - m1440-paper-route-trace-backed-source-geometry-materialization-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.md`
+- decision: `trace_backed_source_geometry_materializer_implemented_route_to_action_divergence_enrichment_design`
+- implementation: `src/autodrift/trace_source_geometry_materializer.py`
+- tests: `tests/test_trace_source_geometry_materializer.py`
+- focused result: `7 passed`
+- capability: materializes preferred-branch emergency-obstacle geometry from `TracePoint -> OutcomeSnapshot -> obstacle_body_geometry` at source steps, with active-obstacle fields kept diagnostic-only.
+- boundary: source-step action-divergence enrichment is still missing, so no public source smoke is admitted yet.
+- guardrail: no public source materialization run, source mining, source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1441-paper-route-geometry-first-action-divergence-enrichment-design.json`.
+- next: `m1441-paper-route-geometry-first-action-divergence-enrichment-design`

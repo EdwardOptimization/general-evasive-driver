@@ -16,21 +16,38 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1439-paper-route-trace-backed-source-geometry-materialization-design
+m1440-paper-route-trace-backed-source-geometry-materialization-implementation
 ```
 
 Current next task:
 
 ```text
-m1440-paper-route-trace-backed-source-geometry-materialization-implementation
+m1441-paper-route-geometry-first-action-divergence-enrichment-design
 ```
 
-M1439 designed trace-backed source geometry materialization. The current
+M1440 implemented trace-backed source geometry materialization. The current
 public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1440 result:
+
+```text
+decision: trace_backed_source_geometry_materializer_implemented_route_to_action_divergence_enrichment_design
+implementation: src/autodrift/trace_source_geometry_materializer.py
+tests: tests/test_trace_source_geometry_materializer.py
+focused_test_result: 7 passed
+canonical geometry: preferred-branch emergency obstacle geometry from TracePoint-backed OutcomeSnapshot
+active_obstacle_canonical_selector_geometry: false
+source_action_divergence_enrichment_implemented: false
+direct_source_smoke_admitted: false
+next: m1441-paper-route-geometry-first-action-divergence-enrichment-design
+```
+
+M1441 should design source-step action-divergence enrichment after trace-backed
+geometry materialization and before any public source smoke.
 
 M1439 result:
 
@@ -44,10 +61,9 @@ action_divergence_enrichment_required_before_source_smoke: true
 next: m1440-paper-route-trace-backed-source-geometry-materialization-implementation
 ```
 
-M1440 should implement the trace-backed materializer and focused tests only. It
-must not run source materialization on public data, source mining, source
-preflight, replay, training, PPO, promotion, private holdout, corpus export, or
-actor-input changes.
+M1439 designed trace-backed source geometry materialization and blocked direct
+source smoke until source-step action evidence is explicit. M1440 completed the
+implementation-only step.
 
 M1438 result:
 

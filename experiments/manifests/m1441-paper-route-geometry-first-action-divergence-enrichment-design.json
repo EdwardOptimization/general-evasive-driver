@@ -1,0 +1,152 @@
+{
+  "id": "m1441-paper-route-geometry-first-action-divergence-enrichment-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.md",
+      "src/autodrift/trace_source_geometry_materializer.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.json"
+    ],
+    "parent_objective": [
+      "design source-step action-divergence enrichment after trace-backed geometry materialization"
+    ],
+    "derived_from": [
+      "m1440-paper-route-trace-backed-source-geometry-materialization-implementation"
+    ],
+    "blocked_by": [
+      "M1440 materializes source geometry but does not compute source-step history variants or action-divergence metrics required by M1438 selection"
+    ],
+    "supersedes": [
+      "using M1425 reveal-step pressure metrics as source-step action evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1441-paper-route-geometry-first-action-divergence-enrichment-design.md",
+  "public_gates": [
+    "M1441 must design geometry-first source-step action-divergence enrichment before implementation or run",
+    "M1441 must keep trace-backed source geometry ahead of action scoring",
+    "M1441 must not run source materialization source mining source preflight replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source materialization on public data",
+    "do not run source mining",
+    "do not run source preflight",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not use M1425 reveal-step pressure metrics as source-step action evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_geometry_aware_preflight_validation",
+    "evidence_axis": "D_geometry_first_action_divergence_enrichment",
+    "evidence_increment": "designs how to enrich trace-backed source geometry rows with source-step history variants and action divergence before source smoke",
+    "claim_scope": "design only; no source materialization run, source preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design scores action divergence before geometry",
+      "stop if design reuses M1425 reveal-step action metrics as source-step evidence",
+      "stop if design requires actor input changes",
+      "stop if design routes directly to source smoke without enrichment implementation"
+    ],
+    "fallback_plan": [
+      "route to implementation if source-step action-divergence enrichment is feasible",
+      "route to trace API repair if source-step hidden/action replay cannot be computed from materialized rows",
+      "route to branch synthesis if enrichment design exposes another missing layer"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1440 implements trace-backed geometry materialization but not source-step action evidence",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "geometry-first source-step action-divergence enrichment design",
+    "admission_evidence": [
+      "M1440 implements trace-backed source geometry materializer",
+      "M1438 selector requires history variant and action divergence fields"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source materialization on public data",
+      "do not run source mining",
+      "do not run source preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1441 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up implementation manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "source-step action metric definitions are specified",
+      "history variant expansion is specified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1441 is design and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "future enriched rows only enable later history replay tests",
+      "action divergence without replay cannot count as actual history-positive outcome evidence"
+    ],
+    "temporal_evidence_window": "M1440 trace-backed source geometry materialization implementation.",
+    "negative_result_policy": "If source-step action evidence cannot be computed cleanly, route to trace API repair or branch synthesis rather than weakening geometry-first ordering.",
+    "allowed_claims": [
+      "geometry-first source-step action-divergence enrichment design and next route decision",
+      "no source-mining result, replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Trace-backed source geometry rows can be enriched with source-step history variants and action-divergence metrics after geometry filtering, without using stale reveal-step pressure metrics.",
+  "success_criteria": [
+    "docs/m1441-paper-route-geometry-first-action-divergence-enrichment-design.md exists",
+    "design specifies source-step action divergence metrics",
+    "design specifies history variant expansion",
+    "design chooses a non-training next route without source materialization run source preflight replay PPO promotion private holdout corpus export or actor-input changes"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design scores action divergence before geometry",
+    "design uses stale M1425 reveal-step pressure metrics as source-step evidence",
+    "design routes directly to source smoke replay training PPO promotion private holdout corpus export or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1441-paper-route-geometry-first-action-divergence-enrichment-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1441-paper-route-geometry-first-action-divergence-enrichment-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.md"
+  ],
+  "decision_rule": "M1441 passes if it designs geometry-first source-step action-divergence enrichment before implementation or run.",
+  "next_blocker": "m1441-paper-route-geometry-first-action-divergence-enrichment-design"
+}

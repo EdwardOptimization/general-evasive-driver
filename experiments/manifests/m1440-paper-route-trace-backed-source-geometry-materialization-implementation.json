@@ -155,6 +155,49 @@
   "baseline_artifacts": [
     "docs/m1439-paper-route-trace-backed-source-geometry-materialization-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.md",
+    "decision": "trace_backed_source_geometry_materializer_implemented_route_to_action_divergence_enrichment_design",
+    "implementation_files": [
+      "src/autodrift/trace_source_geometry_materializer.py",
+      "tests/test_trace_source_geometry_materializer.py"
+    ],
+    "implemented_functions": [
+      "prepare_reveal_source_frame",
+      "trace_point_to_outcome_snapshot",
+      "emergency_obstacle_geometry_from_trace_point",
+      "active_obstacle_diagnostics",
+      "trace_point_at_step",
+      "materialize_source_geometry_for_row",
+      "materialize_trace_source_geometry_from_rows",
+      "build_trace_source_geometry_summary",
+      "write_trace_source_geometry_outputs",
+      "run_trace_source_geometry_materializer_from_rows"
+    ],
+    "focused_tests": "tests/test_trace_source_geometry_materializer.py",
+    "focused_test_result": "7 passed",
+    "canonical_geometry": "preferred-branch emergency obstacle geometry from TracePoint-backed OutcomeSnapshot",
+    "active_obstacle_canonical_selector_geometry": false,
+    "source_action_divergence_enrichment_implemented": false,
+    "direct_source_smoke_admitted": false,
+    "source_materialization_run_started": false,
+    "source_mining_started": false,
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1441-paper-route-geometry-first-action-divergence-enrichment-design.json"
+  },
+  "decision": "trace_backed_source_geometry_materializer_implemented_route_to_action_divergence_enrichment_design",
   "decision_rule": "M1440 passes if it implements trace-backed source geometry materialization with focused tests and no run.",
-  "next_blocker": "m1440-paper-route-trace-backed-source-geometry-materialization-implementation"
+  "next_blocker": "m1441-paper-route-geometry-first-action-divergence-enrichment-design"
 }
