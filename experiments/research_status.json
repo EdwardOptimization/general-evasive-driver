@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1498,
+    "completed": 1499,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1489-paper-route-neighbor-viability-bounded-replay-design.md",
+    "command_log": "docs/m1490-paper-route-neighbor-viability-bounded-replay-smoke.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1490_neighbor_viability_bounded_replay_smoke",
     "status": "completed",
-    "task_id": "m1489-paper-route-neighbor-viability-bounded-replay-design"
+    "task_id": "m1490-paper-route-neighbor-viability-bounded-replay-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1490-paper-route-neighbor-viability-bounded-replay-smoke.json",
-    "hypothesis": "A bounded replay smoke over M1487 calibrated candidates can test whether neighbor viability calibration transfers to outcome-sensitive replay rows.",
-    "id": "m1490-paper-route-neighbor-viability-bounded-replay-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: run one calibrated bounded replay over M1487 selected candidates without training PPO promotion or corpus export",
-    "priority": 14850,
+    "command": "see experiments/manifests/m1491-paper-route-neighbor-viability-replay-result-audit.json",
+    "hypothesis": "M1490 should be treated as replay-positive but not source-diverse corpus-ready, and the source-diverse pressure loop should pivot to the self-ID go/no-go matrix.",
+    "id": "m1491-paper-route-neighbor-viability-replay-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1490 source-singleton/control-sensitive positives and apply hard stop before any further replay or training",
+    "priority": 14860,
     "status": "pending",
-    "success_artifact": "runs/m1490_neighbor_viability_bounded_replay_smoke/summary.json"
+    "success_artifact": "docs/m1491-paper-route-neighbor-viability-replay-result-audit.md"
   },
-  "updated_at_utc": "20260529T064453Z"
+  "updated_at_utc": "20260529T064850Z"
 }

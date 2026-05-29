@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1489-paper-route-neighbor-viability-bounded-replay-design
+m1490-paper-route-neighbor-viability-bounded-replay-smoke
 ```
 
 Current next task:
 
 ```text
-m1490-paper-route-neighbor-viability-bounded-replay-smoke
+m1491-paper-route-neighbor-viability-replay-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -36,11 +36,35 @@ calibrated source-step candidate set. M1486 designed source-step preflight-only
 validation for those candidates. M1487 ran preflight-only validation and passed.
 M1488 synthesized the branch and admits exactly one calibrated bounded replay
 design before mandatory audit. M1489 designed that replay smoke. The current
-public-gate base remains M1362 alpha `0.1`:
+M1490 ran the bounded replay and produced local positives that are still
+source-singleton/control-sensitive. The current public-gate base remains M1362
+alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1490 bounded replay:
+
+```text
+decision: neighbor_viability_bounded_replay_positive_source_singleton_route_to_audit
+run: runs/m1490_neighbor_viability_bounded_replay_smoke
+selected_candidate_rows: 68
+actual_replay_rows: 204
+history_positive_rows: 7
+control_positive_rows: 12
+normal_failed_rows: 147
+actual replay diversity: 5 seeds / 6 capability pairs / 6 reveal buckets / 5 variants
+history positive diversity: 1 seed / 1 capability pair / 1 reveal bucket / 1 variant
+control positive diversity: 1 seed / 1 capability pair
+next: m1491-paper-route-neighbor-viability-replay-result-audit
+```
+
+M1491 must audit M1490 before any further replay or training. Current evidence
+already triggers the M1488 hard-stop logic: positives remain source-singleton
+and controls are same-family. The likely next route is pivoting this branch to
+the L0/L1/L2/L3 go/no-go matrix rather than continuing source-diverse pressure
+replay.
 
 M1489 bounded replay design:
 
@@ -54,10 +78,6 @@ replay run dir: runs/m1490_neighbor_viability_bounded_replay_smoke
 mandatory_followup_audit: true
 next: m1490-paper-route-neighbor-viability-bounded-replay-smoke
 ```
-
-M1490 should run exactly one calibrated bounded replay. It must not train, run
-PPO, promote, use private holdout, export corpus, or change actor inputs. The
-result must route to audit before any further route decision.
 
 M1488 synthesis:
 

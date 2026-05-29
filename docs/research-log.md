@@ -22154,3 +22154,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1490-paper-route-neighbor-viability-bounded-replay-smoke.json`.
 - next: `m1490-paper-route-neighbor-viability-bounded-replay-smoke`
+
+## M1490 Paper-Route Neighbor Viability Bounded Replay Smoke
+
+- status: completed
+- decision: `neighbor_viability_bounded_replay_positive_source_singleton_route_to_audit`
+- run dir: `runs/m1490_neighbor_viability_bounded_replay_smoke`
+- summary: `runs/m1490_neighbor_viability_bounded_replay_smoke/summary.json`
+- selected candidate rows: 68
+- actual replay rows: 204
+- history positive rows: 7
+- control positive rows: 12
+- normal failed rows: 147
+- actual replay diversity: 5 seeds, 6 capability pairs, 6 reveal buckets, 5 variants
+- history positive diversity: 1 seed, 1 capability pair, 1 reveal bucket, 1 variant
+- history positive family: seed 141901, `brake_authority_drop->mass_cg_shift`, `warmup_removed`
+- control positive diversity: 1 seed, 1 capability pair, variants `reset_hidden` and `zero_current_response`
+- guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1491-paper-route-neighbor-viability-replay-result-audit.json`.
+- next: `m1491-paper-route-neighbor-viability-replay-result-audit`

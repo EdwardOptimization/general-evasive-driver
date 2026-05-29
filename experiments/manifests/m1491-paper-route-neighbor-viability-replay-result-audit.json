@@ -1,0 +1,151 @@
+{
+  "id": "m1491-paper-route-neighbor-viability-replay-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1490_neighbor_viability_bounded_replay_smoke/summary.json",
+      "runs/m1490_neighbor_viability_bounded_replay_smoke/history_positive_rows.csv",
+      "runs/m1490_neighbor_viability_bounded_replay_smoke/control_positive_rows.csv",
+      "docs/m1490-paper-route-neighbor-viability-bounded-replay-smoke.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1490-paper-route-neighbor-viability-bounded-replay-smoke.json"
+    ],
+    "parent_objective": [
+      "audit calibrated neighbor viability bounded replay result before any corpus export or training"
+    ],
+    "derived_from": [
+      "m1490-paper-route-neighbor-viability-bounded-replay-smoke"
+    ],
+    "blocked_by": [
+      "M1490 history positives are replay-positive but still source-singleton and control-sensitive"
+    ],
+    "supersedes": [
+      "direct corpus export from M1490 positive rows",
+      "another source-diverse pressure replay loop without go/no-go pivot"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1491-paper-route-neighbor-viability-replay-result-audit.md",
+  "public_gates": [
+    "M1491 must audit M1490 before corpus export or training",
+    "M1491 must separate actual replay diversity from history-positive source diversity",
+    "M1491 must report control positives separately",
+    "M1491 must apply the M1488 hard stop and route to L0/L1/L2/L3 go/no-go design if positives remain source-singleton or control-explained"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim source-diverse history necessity from source-singleton positives"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_diverse_pressure_validation",
+    "evidence_axis": "S_neighbor_viability_replay_result_audit",
+    "evidence_increment": "audits M1490 as replay-positive but history-positive rows remain source-singleton and control-sensitive",
+    "claim_scope": "result audit only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats source-singleton positives as source-diverse corpus",
+      "stop if audit ignores control positives",
+      "stop if audit admits another source-diverse pressure replay loop before go/no-go pivot",
+      "stop if audit admits promotion or corpus export"
+    ],
+    "fallback_plan": [
+      "route to L0/L1/L2/L3 go/no-go matrix design if replay positives remain source-singleton or control-sensitive",
+      "route to bounded replay refinement only if audit finds source-diverse positives"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1490 bounded replay finds replay positives but source diversity remains unresolved",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "neighbor viability replay result audit",
+    "admission_evidence": [
+      "M1490 produced 7 history-positive rows and 12 control-positive rows, all from one source family"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1491 audit document",
+      "status queue scoreboard research log and review",
+      "one follow-up go/no-go matrix design or branch synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "positive rows are classified",
+      "control positives are reported separately",
+      "M1488 hard stop is applied",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1491 audits public replay rows and cannot claim level3 self-identification.",
+    "history_necessity_tests": [
+      "M1490 normal history versus warmup_removed produced seven history-positive rows",
+      "M1490 zero_current_response and reset_hidden produced twelve control positives on the same source family"
+    ],
+    "temporal_evidence_window": "M1490 neighbor viability bounded replay smoke.",
+    "negative_result_policy": "Source-singleton positives are preserved as evidence but should stop this replay loop and route to L0/L1/L2/L3 go/no-go design.",
+    "allowed_claims": [
+      "M1490 found replay-positive local rows but not source-diverse history-positive rows",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1490 should be treated as replay-positive but not source-diverse corpus-ready, and the source-diverse pressure loop should pivot to the self-ID go/no-go matrix.",
+  "success_criteria": [
+    "docs/m1491-paper-route-neighbor-viability-replay-result-audit.md exists",
+    "audit records actual replay diversity and history-positive diversity separately",
+    "audit records control positives separately",
+    "audit blocks corpus export training PPO promotion private holdout and actor-input changes",
+    "audit applies the M1488 hard stop",
+    "audit routes to L0/L1/L2/L3 go/no-go design or a clearly justified alternative"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats source-singleton positives as source-diverse corpus",
+    "audit ignores zero-current/reset control positives",
+    "audit starts replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1491-paper-route-neighbor-viability-replay-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1491-paper-route-neighbor-viability-replay-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1490_neighbor_viability_bounded_replay_smoke/summary.json",
+    "docs/self-id-go-no-go-paper-route-plan.md"
+  ],
+  "decision_rule": "M1491 passes if it audits M1490 and applies the hard stop before any further training or replay.",
+  "next_blocker": "m1491-paper-route-neighbor-viability-replay-result-audit"
+}
