@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1550-paper-route-calibrated-pair-expansion-planner-implementation
+m1551-paper-route-calibrated-pair-expansion-planner-result-audit
 ```
 
 Current next task:
 
 ```text
-m1551-paper-route-calibrated-pair-expansion-planner-result-audit
+m1552-paper-route-calibrated-pair-expanded-history-intervention-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -220,6 +220,15 @@ still failed because measured snapshot count was only `13`, below the
 pre-registered trace gate. No history interventions were executed. The next
 task is M1551 audit to decide whether snapshot coverage must be repaired before
 pair-expanded interventions.
+M1551 audited M1550 as a pair-gate pass with a snapshot-count caveat.
+`measured_snapshot_count` remains below the trace threshold, but the accepted
+pair set is large and diverse enough for one bounded intervention design:
+`accepted_pair_count=21`, `accepted_source_family_edge_count=5`,
+`accepted_terminal_family_count=4`, `accepted_window_bucket_count=3`, and
+`max_endpoint_share=0.14285714285714285`. The next task is M1552 design only;
+history intervention implementation, materialization, training, PPO, promotion,
+private holdout, actor-input changes, corpus export, and level3 self-ID claims
+remain blocked.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

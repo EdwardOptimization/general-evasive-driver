@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M1551 admits one bounded pair-expanded intervention design because M1550 pair gates passed with max endpoint share 0.143 despite snapshot-count caveat",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1550 pair coverage as history evidence",
+    "audit routes directly to training promotion private holdout or materialization",
+    "audit changes actor inputs or weakens self-ID standards"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T123735Z",
+  "hypothesis": "M1550's pair-gate pass and trace-gate failure can be classified cleanly enough to decide whether to design pair-expanded interventions or repair snapshot coverage first.",
+  "lineage": {
+    "blocked_by": [
+      "M1550 pair gates passed but trace gates failed because measured_snapshot_count was below threshold"
+    ],
+    "derived_from": [
+      "m1550-paper-route-calibrated-pair-expansion-planner-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1550-paper-route-calibrated-pair-expansion-planner-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m1550_calibrated_pair_expansion_planner_smoke/summary.json",
+      "docs/m1550-paper-route-calibrated-pair-expansion-planner-implementation.md"
+    ],
+    "parent_objective": [
+      "audit calibrated pair-expansion planner before any intervention design"
+    ],
+    "supersedes": [
+      "direct pair-expanded history intervention design without M1550 audit"
+    ]
+  },
+  "milestone": "m1551-paper-route-calibrated-pair-expansion-planner-result-audit",
+  "next_blocker": "m1552-paper-route-calibrated-pair-expanded-history-intervention-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "calibrated_pair_expansion_audit_pair_gate_pass_admit_intervention_design_with_snapshot_caveat",
+  "public_gates": [
+    "M1551 must audit M1550 pair gates and trace gates separately",
+    "M1551 must classify whether the snapshot-count failure blocks intervention design",
+    "M1551 must preserve P0 actor input contract",
+    "M1551 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "calibrated_pair_expansion_audit_pair_gate_pass_admit_intervention_design_with_snapshot_caveat",
+    "milestone": "m1551-paper-route-calibrated-pair-expansion-planner-result-audit",
+    "reason": "M1551 admits one bounded pair-expanded intervention design because M1550 pair gates passed with max endpoint share 0.143 despite snapshot-count caveat",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.md exists",
+    "M1550 pair and trace gates are audited separately",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "type": "gate"
+}

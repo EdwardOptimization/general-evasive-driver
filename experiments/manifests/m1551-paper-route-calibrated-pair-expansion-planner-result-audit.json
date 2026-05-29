@@ -142,6 +142,35 @@
     "runs/m1550_calibrated_pair_expansion_planner_smoke/summary.json",
     "docs/m1550-paper-route-calibrated-pair-expansion-planner-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.md",
+    "decision": "calibrated_pair_expansion_audit_pair_gate_pass_admit_intervention_design_with_snapshot_caveat",
+    "pair_gate_verdict": "pass",
+    "trace_gate_verdict": "snapshot_count_fail_but_not_blocking_for_design",
+    "accepted_pair_count": 21,
+    "accepted_source_family_edge_count": 5,
+    "max_single_pair_source_edge_share": 0.38095238095238093,
+    "accepted_terminal_family_count": 4,
+    "accepted_window_bucket_count": 3,
+    "measured_snapshot_count": 13,
+    "max_endpoint_share": 0.14285714285714285,
+    "admitted_route": "bounded_pair_expanded_intervention_design",
+    "next_manifest": "experiments/manifests/m1552-paper-route-calibrated-pair-expanded-history-intervention-design.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
+  "decision": "calibrated_pair_expansion_audit_pair_gate_pass_admit_intervention_design_with_snapshot_caveat",
   "decision_rule": "M1551 passes if it classifies M1550 and selects the next route while preserving all no-materialization guardrails.",
-  "next_blocker": "m1551-paper-route-calibrated-pair-expansion-planner-result-audit"
+  "next_blocker": "m1552-paper-route-calibrated-pair-expanded-history-intervention-design"
 }

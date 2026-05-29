@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1559,
+    "completed": 1560,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1550_calibrated_pair_expansion_planner_smoke/summary.json",
+    "command_log": "docs/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1550_calibrated_pair_expansion_planner_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1550-paper-route-calibrated-pair-expansion-planner-implementation"
+    "task_id": "m1551-paper-route-calibrated-pair-expansion-planner-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.json",
-    "hypothesis": "M1550's pair-gate pass and trace-gate failure can be classified cleanly enough to decide whether to design pair-expanded interventions or repair snapshot coverage first.",
-    "id": "m1551-paper-route-calibrated-pair-expansion-planner-result-audit",
+    "command": "see experiments/manifests/m1552-paper-route-calibrated-pair-expanded-history-intervention-design.json",
+    "hypothesis": "A bounded intervention design over the M1550 accepted pairs can test whether pair-expanded terminal-boundary rows produce history-sensitive effects while preserving all no-training guardrails.",
+    "id": "m1552-paper-route-calibrated-pair-expanded-history-intervention-design",
     "kind": "gate",
-    "notes": "Pending: audit calibrated pair-expansion planner result",
-    "priority": 15460,
+    "notes": "Pending: design pair-expanded calibrated history interventions",
+    "priority": 15470,
     "status": "pending",
-    "success_artifact": "docs/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.md"
+    "success_artifact": "docs/m1552-paper-route-calibrated-pair-expanded-history-intervention-design.md"
   },
-  "updated_at_utc": "20260529T125500Z"
+  "updated_at_utc": "20260529T130500Z"
 }

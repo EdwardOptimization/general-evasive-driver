@@ -23727,3 +23727,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1550 is a partial positive. Pairability-first expansion fixed the M1547 pair-diversity bottleneck, but measured snapshot coverage remains below the pre-registered trace threshold. Audit before intervention design.
 - follow-up manifest: `experiments/manifests/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.json`.
 - next: `m1551-paper-route-calibrated-pair-expansion-planner-result-audit`
+
+## M1551 Paper-Route Calibrated Pair-Expansion Planner Result Audit
+
+- status: completed
+- decision: `calibrated_pair_expansion_audit_pair_gate_pass_admit_intervention_design_with_snapshot_caveat`
+- artifact: `docs/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.md`
+- pair gate verdict: pass
+- trace gate verdict: snapshot-count fail but not blocking for design
+- accepted pair count: 21
+- accepted source-family edge count: 5
+- max single pair source-edge share: 0.38095238095238093
+- accepted terminal family count: 4
+- accepted window bucket count: 3
+- measured snapshot count: 13
+- max endpoint share: 0.14285714285714285
+- admitted route: bounded pair-expanded intervention design
+- candidate materialized: false
+- training/replay/PPO used: false
+- history interventions executed: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1551 admits design, not implementation or materialization. M1552 must preserve the snapshot-count caveat, endpoint-reuse diagnostics, source-edge diagnostics, and history/control separation.
+- follow-up manifest: `experiments/manifests/m1552-paper-route-calibrated-pair-expanded-history-intervention-design.json`.
+- next: `m1552-paper-route-calibrated-pair-expanded-history-intervention-design`
