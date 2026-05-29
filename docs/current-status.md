@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1531-paper-route-fresh-ambiguity-measured-mining-implementation
+m1532-paper-route-fresh-ambiguity-measured-mining-result-audit
 ```
 
 Current next task:
 
 ```text
-m1532-paper-route-fresh-ambiguity-measured-mining-result-audit
+m1533-paper-route-fresh-ambiguity-history-intervention-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -103,11 +103,38 @@ M1531 implemented the measured miner and ran a bounded public smoke: 1226 trace
 rows, 10 measured pairs, 3 accepted pairs, public smoke gates passed, but
 history interventions were not executed, so evidence-quality targets remain
 false and materialization is still blocked.
+M1532 audited this as a clean measured-pair plumbing pass and admitted only a
+bounded history-intervention design over the accepted measured pairs.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1532 fresh ambiguity measured-mining result audit:
+
+```text
+decision: fresh_ambiguity_measured_mining_audit_admit_history_intervention_design
+artifact: docs/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.md
+audited_run: runs/m1531_fresh_ambiguity_measured_mining_smoke
+measured_pair_candidate_count: 10
+accepted_measured_pair_count: 3
+history_interventions_executed: false
+passes_public_smoke_gates: true
+passes_evidence_quality_targets: false
+source_diversity_verdict: pass_for_intervention_design
+measured_pair_quality_verdict: partial_pass
+history_intervention_evidence_verdict: missing
+history_intervention_design_admitted: true
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1533-paper-route-fresh-ambiguity-history-intervention-design
+```
+
+M1532 explicitly blocks materialization and self-ID claims until wrong-history
+or donor-response continuations are measured.
 
 M1531 fresh ambiguity measured-mining implementation:
 

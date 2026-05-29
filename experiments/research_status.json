@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1540,
+    "completed": 1541,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json",
+    "command_log": "docs/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1531_fresh_ambiguity_measured_mining_smoke",
+    "run_dir": "docs/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.md",
     "status": "completed",
-    "task_id": "m1531-paper-route-fresh-ambiguity-measured-mining-implementation"
+    "task_id": "m1532-paper-route-fresh-ambiguity-measured-mining-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.json",
-    "hypothesis": "M1531 measured source mining is a clean plumbing pass with enough measured pairs to justify a bounded history-intervention design, but not candidate materialization.",
-    "id": "m1532-paper-route-fresh-ambiguity-measured-mining-result-audit",
+    "command": "see experiments/manifests/m1533-paper-route-fresh-ambiguity-history-intervention-design.json",
+    "hypothesis": "A bounded intervention design can test whether M1531 accepted measured pairs exhibit wrong-history or donor-response sensitivity without materializing candidates.",
+    "id": "m1533-paper-route-fresh-ambiguity-history-intervention-design",
     "kind": "gate",
-    "notes": "Pending: audit M1531 measured mining result before intervention design or materialization",
-    "priority": 15270,
+    "notes": "Pending: design bounded history interventions over M1531 accepted measured pairs",
+    "priority": 15280,
     "status": "pending",
-    "success_artifact": "docs/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.md"
+    "success_artifact": "docs/m1533-paper-route-fresh-ambiguity-history-intervention-design.md"
   },
-  "updated_at_utc": "20260529T104806Z"
+  "updated_at_utc": "20260529T105111Z"
 }

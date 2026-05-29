@@ -23125,3 +23125,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1531 shows measured source mining plumbing works and finds measured pairs, but missing wrong-history/donor-response continuations keep materialization and self-ID claims blocked.
 - follow-up manifest: `experiments/manifests/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.json`.
 - next: `m1532-paper-route-fresh-ambiguity-measured-mining-result-audit`
+
+## M1532 Paper-Route Fresh Ambiguity Measured-Mining Result Audit
+
+- status: completed
+- decision: `fresh_ambiguity_measured_mining_audit_admit_history_intervention_design`
+- artifact: `docs/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.md`
+- audited run: `runs/m1531_fresh_ambiguity_measured_mining_smoke`
+- measured pair candidate count: 10
+- accepted measured pair count: 3
+- history interventions executed: false
+- passes public smoke gates: true
+- passes evidence quality targets: false
+- source diversity verdict: `pass_for_intervention_design`
+- measured pair quality verdict: `partial_pass`
+- history intervention evidence verdict: `missing`
+- history intervention design admitted: true
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1532 allows only the next intervention design; M1531 measured pairs are not self-ID evidence until wrong-history or donor response/action continuations are measured and audited.
+- follow-up manifest: `experiments/manifests/m1533-paper-route-fresh-ambiguity-history-intervention-design.json`.
+- next: `m1533-paper-route-fresh-ambiguity-history-intervention-design`

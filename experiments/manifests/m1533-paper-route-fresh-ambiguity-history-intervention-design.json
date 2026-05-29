@@ -1,0 +1,152 @@
+{
+  "id": "m1533-paper-route-fresh-ambiguity-history-intervention-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json",
+      "docs/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.json"
+    ],
+    "parent_objective": [
+      "design history interventions over M1531 accepted measured pairs"
+    ],
+    "derived_from": [
+      "m1532-paper-route-fresh-ambiguity-measured-mining-result-audit"
+    ],
+    "blocked_by": [
+      "M1531 measured pairs exist but history interventions were not executed"
+    ],
+    "supersedes": [
+      "candidate materialization from normal measured pairs"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1533-paper-route-fresh-ambiguity-history-intervention-design.md",
+  "public_gates": [
+    "M1533 must design bounded history interventions over accepted measured pairs",
+    "M1533 must separate reset zero-current wrong-history and donor-response channels",
+    "M1533 must keep candidate materialization and training blocked",
+    "M1533 must not claim self-identification from design alone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates during design",
+    "do not run history interventions during design",
+    "do not claim self-identification from intervention design"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "G_fresh_ambiguity_history_intervention_design",
+    "evidence_increment": "designs bounded wrong-history and donor-response interventions for M1531 measured pairs",
+    "claim_scope": "intervention design only; no candidate materialization, measured intervention run, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design collapses reset positives into self-ID claims",
+      "stop if design cannot replay accepted measured pairs to anchor",
+      "stop if design routes directly to materialization or training",
+      "stop if actor input contract changes"
+    ],
+    "fallback_plan": [
+      "repair measured pair selection if anchors cannot be replayed",
+      "route to measured intervention implementation if design is complete",
+      "synthesize if measured pairs are too weak for intervention"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1532 admitted history-intervention design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fresh ambiguity history-intervention design",
+    "admission_evidence": [
+      "M1532 audited M1531 as a measured-pair plumbing pass with missing history interventions"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not run measured interventions in design",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "M1533 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up bounded intervention implementation manifest"
+    ],
+    "next_stage_criteria": [
+      "anchor replay contract is explicit",
+      "wrong-history donor selection is explicit",
+      "donor response/action stream intervention is explicit",
+      "candidate materialization remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1533 designs interventions only; self-ID evidence requires measured wrong-history or donor-response degradation later.",
+    "history_necessity_tests": [
+      "wrong_history_donor_hidden_at_anchor",
+      "donor_response_action_stream_from_anchor",
+      "delayed_hidden_8_or_16_at_anchor",
+      "reset and zero-current controls"
+    ],
+    "temporal_evidence_window": "future measured intervention branch only.",
+    "negative_result_policy": "If measured interventions are null, record that as evidence about the current source/pair set and audit before retargeting.",
+    "allowed_claims": [
+      "M1533 designs history interventions",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded intervention design can test whether M1531 accepted measured pairs exhibit wrong-history or donor-response sensitivity without materializing candidates.",
+  "success_criteria": [
+    "docs/m1533-paper-route-fresh-ambiguity-history-intervention-design.md exists",
+    "design defines anchor replay donor selection variants metrics artifacts and guardrails",
+    "design keeps intervention run candidate materialization training PPO promotion private holdout actor-input changes and corpus export blocked",
+    "design routes to one bounded intervention implementation or records a blocker"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design lacks wrong-history or donor-response intervention details",
+    "design routes directly to materialization training or private holdout",
+    "design claims self-identification"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1533-paper-route-fresh-ambiguity-history-intervention-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1533-paper-route-fresh-ambiguity-history-intervention-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json",
+    "docs/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.md"
+  ],
+  "decision_rule": "M1533 passes if it designs bounded measured history interventions while preserving no-materialization and no-training guardrails.",
+  "next_blocker": "m1533-paper-route-fresh-ambiguity-history-intervention-design"
+}
