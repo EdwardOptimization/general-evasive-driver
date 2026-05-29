@@ -24896,3 +24896,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1588-paper-route-history-vs-control-active-set-selector-implementation.json`
 - next: `m1588-paper-route-history-vs-control-active-set-selector-implementation`
+
+## M1588 Paper-Route History-vs-Control Active-Set Selector Implementation
+
+- status: completed
+- decision: `history_vs_control_active_set_selector_public_pass_clean_shortfall_route_to_audit`
+- artifact: `runs/m1588_history_vs_control_active_set_selector/summary.json`
+- doc: `docs/m1588-paper-route-history-vs-control-active-set-selector-implementation.md`
+- code: `src/autodrift/history_vs_control_active_set_selector.py`
+- tests: `tests/test_history_vs_control_active_set_selector.py`
+- focused test result: `3 passed`
+- input directed pair count: 144
+- classified directed pair count: 144
+- required variant coverage complete: true
+- clean directed pair count: 7
+- clean source-edge count: 4
+- clean endpoint source-family count: 6
+- max clean source-edge share: 0.2857142857142857
+- dominated history-positive directed pair count: 16
+- control-only positive directed pair count: 28
+- history-null all-controls-null directed pair count: 93
+- invalid directed pair count: 0
+- passes public smoke gates: true
+- passes evidence-quality targets: false
+- null result classification: `selector_public_pass_clean_shortfall`
+- interpretation: selector clean surface is real and source-spread but one directed pair below evidence-quality count target, so source repair needs audit before any implementation
+- history interventions executed: false
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1589-paper-route-history-vs-control-selector-result-audit.json`
+- next: `m1589-paper-route-history-vs-control-selector-result-audit`

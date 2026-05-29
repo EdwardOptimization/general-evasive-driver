@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1588 selector public gates pass with 7 clean directed pairs across 4 edges but evidence-quality fails clean count target",
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "implementation reruns simulator or history interventions",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke that reruns simulator",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T161354Z",
+  "hypothesis": "A selector-only classifier can make M1585's clean history-vs-control sub-surface explicit and decide whether source-generation repair is needed.",
+  "lineage": {
+    "blocked_by": [
+      "M1587 design has not yet been implemented"
+    ],
+    "derived_from": [
+      "m1587-paper-route-history-vs-control-active-set-selector-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1587-paper-route-history-vs-control-active-set-selector-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m1585_source_diverse_pairability_history_intervention_smoke/intervention_rows.csv",
+      "docs/m1587-paper-route-history-vs-control-active-set-selector-design.md"
+    ],
+    "parent_objective": [
+      "implement selector-only history-vs-control active-set classification over M1585 rows"
+    ],
+    "supersedes": [
+      "another source-diverse intervention implementation before selector audit",
+      "candidate materialization after M1585"
+    ]
+  },
+  "milestone": "m1588-paper-route-history-vs-control-active-set-selector-implementation",
+  "next_blocker": "m1589-paper-route-history-vs-control-selector-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "history_vs_control_active_set_selector_public_pass_clean_shortfall_route_to_audit",
+  "public_gates": [
+    "M1588 must classify M1585 directed pairs into clean dominated null and invalid labels",
+    "M1588 must not rerun simulator or interventions",
+    "M1588 must report source-edge and source-family diversity of clean rows",
+    "M1588 must report whether clean count is sufficient or a source-generation repair is needed",
+    "M1588 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1588_history_vs_control_active_set_selector/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "history_vs_control_active_set_selector_public_pass_clean_shortfall_route_to_audit",
+    "milestone": "m1588-paper-route-history-vs-control-active-set-selector-implementation",
+    "reason": "M1588 selector public gates pass with 7 clean directed pairs across 4 edges but evidence-quality fails clean count target",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "selector implementation module exists",
+    "focused tests cover clean/dominated/null labels and summary gates",
+    "runs/m1588_history_vs_control_active_set_selector/summary.json exists",
+    "classified and clean row artifacts exist",
+    "no simulator rerun or history intervention is executed",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "type": "infrastructure"
+}

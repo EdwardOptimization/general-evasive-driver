@@ -150,6 +150,26 @@
     {
       "path": "runs/m1588_history_vs_control_active_set_selector/summary.json",
       "type": "json"
+    },
+    {
+      "path": "runs/m1588_history_vs_control_active_set_selector/classified_directed_pair_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1588_history_vs_control_active_set_selector/clean_directed_pair_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1588_history_vs_control_active_set_selector/source_edge_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1588_history_vs_control_active_set_selector/label_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1588-paper-route-history-vs-control-active-set-selector-implementation.md",
+      "type": "md"
     }
   ],
   "baseline_checkpoints": [
@@ -159,6 +179,46 @@
     "runs/m1585_source_diverse_pairability_history_intervention_smoke/intervention_rows.csv",
     "docs/m1587-paper-route-history-vs-control-active-set-selector-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1588_history_vs_control_active_set_selector/summary.json",
+    "doc": "docs/m1588-paper-route-history-vs-control-active-set-selector-implementation.md",
+    "code": "src/autodrift/history_vs_control_active_set_selector.py",
+    "tests": "tests/test_history_vs_control_active_set_selector.py",
+    "decision": "history_vs_control_active_set_selector_public_pass_clean_shortfall_route_to_audit",
+    "failure_taxonomy": [
+      "scenario_sampling_failure"
+    ],
+    "focused_test_result": "3 passed",
+    "input_directed_pair_count": 144,
+    "classified_directed_pair_count": 144,
+    "required_variant_coverage_complete": true,
+    "clean_directed_pair_count": 7,
+    "clean_source_edge_count": 4,
+    "clean_endpoint_source_family_count": 6,
+    "max_clean_source_edge_share": 0.2857142857142857,
+    "dominated_history_positive_directed_pair_count": 16,
+    "control_only_positive_directed_pair_count": 28,
+    "history_null_all_controls_null_directed_pair_count": 93,
+    "invalid_directed_pair_count": 0,
+    "passes_public_smoke_gates": true,
+    "passes_evidence_quality_targets": false,
+    "null_result_classification": "selector_public_pass_clean_shortfall",
+    "guardrail_violation_count": 0,
+    "history_interventions_executed": false,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1589-paper-route-history-vs-control-selector-result-audit.json"
+  },
   "decision_rule": "M1588 passes as selector implementation if it classifies existing rows with clean guardrails and routes to audit before any repair, materialization, or training.",
-  "next_blocker": "m1588-paper-route-history-vs-control-active-set-selector-implementation"
+  "next_blocker": "m1589-paper-route-history-vs-control-selector-result-audit"
 }

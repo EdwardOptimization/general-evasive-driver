@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1587-paper-route-history-vs-control-active-set-selector-design
+m1588-paper-route-history-vs-control-active-set-selector-implementation
 ```
 
 Current next task:
 
 ```text
-m1588-paper-route-history-vs-control-active-set-selector-implementation
+m1589-paper-route-history-vs-control-selector-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -489,6 +489,12 @@ directed pairs without rerunning the simulator: labels are
 `replay_or_metric_invalid`. Expected clean count is `7`, so M1588 may pass
 public diagnostic gates while failing evidence-quality targets; it must route to
 audit before source repair or any materialization.
+M1588 implemented that selector. It classified `144` directed pairs with
+complete variant coverage: `7` clean, `16` history-positive/control-dominated,
+`28` control-only positive, and `93` history-null/all-controls-null. Public
+selector gates passed, evidence-quality failed because clean count is below `8`,
+and the null class is `selector_public_pass_clean_shortfall`. M1589 must audit
+before any source-generation repair.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
