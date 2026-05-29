@@ -147,6 +147,36 @@
     "docs/m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit.md",
     "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1546-paper-route-calibrated-terminal-boundary-history-intervention-design.md",
+    "decision": "calibrated_terminal_boundary_history_intervention_design_admit_bounded_implementation",
+    "accepted_calibrated_row_count": 8,
+    "accepted_terminal_family_count": 4,
+    "max_pairs": 12,
+    "max_scene_context_distance": 0.12,
+    "max_current_ego_distance": 0.12,
+    "min_first_action_l2": 0.04,
+    "min_terminal_margin_gap": 0.02,
+    "accepted_pair_count_min": 4,
+    "accepted_source_family_edge_count_min": 3,
+    "max_single_pair_source_edge_share": 0.5,
+    "terminal_margin_gap_threshold": 0.02,
+    "terminal_control_to_history_gap_ratio_max": 4.0,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation.json"
+  },
+  "decision": "calibrated_terminal_boundary_history_intervention_design_admit_bounded_implementation",
   "decision_rule": "M1546 passes if it designs calibrated terminal-boundary interventions without weakening pair matching, controls, or guardrails.",
-  "next_blocker": "m1546-paper-route-calibrated-terminal-boundary-history-intervention-design"
+  "next_blocker": "m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation"
 }

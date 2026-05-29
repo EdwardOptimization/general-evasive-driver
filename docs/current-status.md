@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit
+m1546-paper-route-calibrated-terminal-boundary-history-intervention-design
 ```
 
 Current next task:
 
 ```text
-m1546-paper-route-calibrated-terminal-boundary-history-intervention-design
+m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -184,6 +184,12 @@ small, lacks `late_reveal_boundary`, has zero preferred-decision-window hits,
 and includes collision/post-decision rows. The next task is a calibrated
 terminal-boundary history-intervention design that first reconstructs measured
 response/context snapshots and matched pairs.
+M1546 designed that calibrated intervention route. It requires reconstructing
+M1544 calibration specs, rerunning measured traces with response/context
+snapshots, building matched scene/current-state pairs, and only then running
+wrong-history/donor/stream/delayed/reset/zero-current interventions. The next
+task is the bounded M1547 implementation smoke; materialization and training
+remain blocked.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

@@ -1,0 +1,158 @@
+{
+  "id": "m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1546-paper-route-calibrated-terminal-boundary-history-intervention-design.md",
+      "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1546-paper-route-calibrated-terminal-boundary-history-intervention-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded calibrated terminal-boundary measured-pair history interventions"
+    ],
+    "derived_from": [
+      "m1546-paper-route-calibrated-terminal-boundary-history-intervention-design"
+    ],
+    "blocked_by": [
+      "calibrated terminal-boundary history interventions have not yet been run"
+    ],
+    "supersedes": [
+      "direct materialization of M1544 calibrated rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation.md",
+  "public_gates": [
+    "M1547 must reconstruct calibrated measured traces with response/context vectors",
+    "M1547 must build matched scene/current-state pairs before interventions",
+    "M1547 must preserve P0 actor input contract",
+    "M1547 must keep materialization and training blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "G_calibrated_terminal_boundary_history_intervention_implementation",
+    "evidence_increment": "runs a bounded calibrated intervention smoke over actual near-boundary terminal rows",
+    "claim_scope": "infrastructure and bounded public smoke only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if measured pair construction fails",
+      "stop if actor input contract changes",
+      "stop if guardrails are violated",
+      "stop after intervention smoke and route to audit"
+    ],
+    "fallback_plan": [
+      "route to audit after any completed intervention smoke",
+      "route to branch synthesis if calibrated pairs cannot be formed",
+      "route to stop if history effects are null/control dominated after clean calibrated intervention"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1546 admits bounded calibrated intervention implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "calibrated terminal-boundary history-intervention implementation",
+    "admission_evidence": [
+      "M1546 pre-registered measured trace, pair, intervention, control, and guardrail gates"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "calibrated terminal-boundary intervention module and tests",
+      "bounded public intervention smoke artifacts",
+      "M1547 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "measured trace, pair, and intervention artifacts are written",
+      "history/control metrics are reported",
+      "guardrails are clean or failures explicit",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1547 may report intervention effects but must not claim level3 self-ID before audit.",
+    "history_necessity_tests": [
+      "wrong_history_donor_hidden_at_anchor",
+      "donor_response_action_plus_hidden_from_anchor",
+      "donor_response_action_stream_from_anchor",
+      "delayed hidden variants",
+      "reset and zero-current controls"
+    ],
+    "temporal_evidence_window": "M1547 bounded calibrated terminal-boundary public smoke only.",
+    "negative_result_policy": "If calibrated interventions are null or control dominated, record the blocker and audit before another repair.",
+    "allowed_claims": [
+      "M1547 implements calibrated intervention plumbing and public smoke",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded implementation can run calibrated terminal-boundary history interventions over matched measured pairs without changing actor inputs or materializing candidates.",
+  "success_criteria": [
+    "calibrated terminal-boundary intervention module exists",
+    "focused tests cover calibrated spec reconstruction pair gates and summary schema",
+    "runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json exists",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "implementation or smoke artifacts are missing",
+    "implementation skips measured response/context pair construction",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation materializes candidates exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_calibrated_terminal_boundary_history_interventions.py -q"
+    },
+    {
+      "name": "smoke",
+      "command": "PYTHONPATH=src python -m autodrift.calibrated_terminal_boundary_history_interventions --output-dir runs/m1547_calibrated_terminal_boundary_history_intervention_smoke --accepted-calibrated-rows runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv --seed 1843 --seed-count 2 --max-base-rows 20 --max-calibration-specs 160 --max-pairs 12"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1546-paper-route-calibrated-terminal-boundary-history-intervention-design.md",
+    "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv"
+  ],
+  "decision_rule": "M1547 passes if calibrated intervention artifacts are written and all no-materialization/no-training guardrails remain clean.",
+  "next_blocker": "m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation"
+}

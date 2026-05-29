@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1546 designs measured response/context pair construction and calibrated history/control interventions over M1544 near-boundary rows with materialization blocked",
+  "failure_criteria": [
+    "design document is missing",
+    "design treats M1544 calibration as history-necessity evidence",
+    "design skips matched scene/current-state pair construction",
+    "design routes directly to training promotion private holdout or materialization"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T120836Z",
+  "hypothesis": "A calibrated terminal-boundary history-intervention design can test whether wrong-history or donor response/action history changes outcome on actual near-boundary rows while preserving controls and guardrails.",
+  "lineage": {
+    "blocked_by": [
+      "history interventions have not yet been run on calibrated terminal-boundary rows"
+    ],
+    "derived_from": [
+      "m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit.md",
+      "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/summary.json",
+      "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv"
+    ],
+    "parent_objective": [
+      "design calibrated terminal-boundary history interventions over actual near-boundary rows"
+    ],
+    "supersedes": [
+      "direct materialization of M1544 calibrated rows"
+    ]
+  },
+  "milestone": "m1546-paper-route-calibrated-terminal-boundary-history-intervention-design",
+  "next_blocker": "m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "calibrated_terminal_boundary_history_intervention_design_admit_bounded_implementation",
+  "public_gates": [
+    "M1546 must design calibrated measured traces before interventions",
+    "M1546 must preserve P0 actor input contract",
+    "M1546 must separate history interventions from reset/zero-current controls",
+    "M1546 must keep materialization and training blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1546-paper-route-calibrated-terminal-boundary-history-intervention-design.md",
+    "clearance_margin_mean": "",
+    "decision": "calibrated_terminal_boundary_history_intervention_design_admit_bounded_implementation",
+    "milestone": "m1546-paper-route-calibrated-terminal-boundary-history-intervention-design",
+    "reason": "M1546 designs measured response/context pair construction and calibrated history/control interventions over M1544 near-boundary rows with materialization blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1546-paper-route-calibrated-terminal-boundary-history-intervention-design.md exists",
+    "design defines calibrated measured trace reconstruction and pair gates",
+    "design defines history interventions, controls, and terminal-positive thresholds",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up implementation manifest exists"
+  ],
+  "type": "gate"
+}

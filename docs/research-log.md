@@ -23563,3 +23563,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1545 admits a calibrated intervention design because M1544 fixed the near-boundary source-window blocker, but it blocks materialization and requires measured response/context snapshots and matched pairs before interventions.
 - follow-up manifest: `experiments/manifests/m1546-paper-route-calibrated-terminal-boundary-history-intervention-design.json`.
 - next: `m1546-paper-route-calibrated-terminal-boundary-history-intervention-design`
+
+## M1546 Paper-Route Calibrated Terminal-Boundary History-Intervention Design
+
+- status: completed
+- decision: `calibrated_terminal_boundary_history_intervention_design_admit_bounded_implementation`
+- artifact: `docs/m1546-paper-route-calibrated-terminal-boundary-history-intervention-design.md`
+- accepted calibrated row count: 8
+- accepted terminal family count: 4
+- max pairs: 12
+- max scene/context distance: 0.12
+- max current ego distance: 0.12
+- min first action L2: 0.04
+- min terminal margin gap: 0.02
+- accepted pair count min: 4
+- accepted source-family edge count min: 3
+- max single pair source-edge share: 0.5
+- terminal margin-gap threshold: 0.02
+- terminal control-to-history ratio max: 4.0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1546 admits a bounded implementation that must reconstruct M1544 calibrated specs, rerun measured traces with response/context vectors, build matched current-state/scene pairs, and run history interventions with reset/zero-current controls separated.
+- follow-up manifest: `experiments/manifests/m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation.json`.
+- next: `m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation`
