@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1436,
+    "completed": 1437,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1426-paper-route-action-divergent-pressure-result-audit.md",
+    "command_log": "docs/m1427-paper-route-bounded-relocation-replay-design.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1426-paper-route-action-divergent-pressure-result-audit"
+    "task_id": "m1427-paper-route-bounded-relocation-replay-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1427-paper-route-bounded-relocation-replay-design.json",
-    "hypothesis": "A bounded relocation replay probe can test whether M1425's action-divergent proxy pressure rows become actual history-positive terminal-margin rows under relocated obstacle geometry.",
-    "id": "m1427-paper-route-bounded-relocation-replay-design",
-    "kind": "gate",
-    "notes": "Pending: design no-training bounded relocation replay probe before implementation or run",
-    "priority": 14220,
+    "command": "see experiments/manifests/m1428-paper-route-bounded-relocation-replay-implementation.json",
+    "hypothesis": "A focused implementation can reconstruct M1425 traces, apply bounded obstacle relocation, and emit actual replay accounting without changing actor inputs or running training.",
+    "id": "m1428-paper-route-bounded-relocation-replay-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded relocation replay probe and focused tests; no public replay run training or promotion",
+    "priority": 14230,
     "status": "pending",
-    "success_artifact": "docs/m1427-paper-route-bounded-relocation-replay-design.md"
+    "success_artifact": "docs/m1428-paper-route-bounded-relocation-replay-implementation.md"
   },
-  "updated_at_utc": "20260529T021141Z"
+  "updated_at_utc": "20260529T021624Z"
 }

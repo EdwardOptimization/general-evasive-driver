@@ -16,21 +16,38 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1426-paper-route-action-divergent-pressure-result-audit
+m1427-paper-route-bounded-relocation-replay-design
 ```
 
 Current next task:
 
 ```text
-m1427-paper-route-bounded-relocation-replay-design
+m1428-paper-route-bounded-relocation-replay-implementation
 ```
 
-M1426 audited the M1425 negative source-smoke result. The current public-gate
-base remains M1362 alpha `0.1`:
+M1427 designed the bounded relocation replay route. The current public-gate base
+remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1427 result:
+
+```text
+decision: bounded_relocation_replay_design_admit_implementation
+selected_route: implement_bounded_no_training_relocation_replay_probe
+candidate_source: runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv
+max_candidate_rows: 128
+per_capability_pair_cap: 12
+history_positive_requires_actual_replay: true
+proxy_rows_count_as_evidence: false
+next: m1428-paper-route-bounded-relocation-replay-implementation
+```
+
+M1428 should implement the bounded relocation replay probe and focused tests
+only. It must not run the public replay probe, train, export a corpus, promote,
+use private holdout, or change actor inputs.
 
 M1426 result:
 
@@ -41,11 +58,6 @@ supported: M1425 source rows are action-divergent and source-diverse
 falsified: shared-margin proxy pressure is sufficient for history-positive terminal separation
 next: m1427-paper-route-bounded-relocation-replay-design
 ```
-
-M1427 should design a bounded no-training relocation replay probe before any
-implementation or run. Relocation remains scenario generation, not actor input.
-No training, corpus export, promotion, private holdout, or claim expansion is
-admitted.
 
 M1425 result:
 

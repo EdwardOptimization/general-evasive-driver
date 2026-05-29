@@ -1,0 +1,165 @@
+{
+  "id": "m1428-paper-route-bounded-relocation-replay-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1427-paper-route-bounded-relocation-replay-design.md",
+      "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1427-paper-route-bounded-relocation-replay-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded no-training relocation replay probe and focused tests"
+    ],
+    "derived_from": [
+      "m1427-paper-route-bounded-relocation-replay-design"
+    ],
+    "blocked_by": [
+      "M1427 admits implementation only after replay mechanics and gates are designed"
+    ],
+    "supersedes": [
+      "direct replay run without implementation tests",
+      "training from M1425 proxy rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1428-paper-route-bounded-relocation-replay-implementation.md",
+  "public_gates": [
+    "M1428 must implement the bounded relocation replay probe only",
+    "M1428 must include focused tests for relocation bounds history-positive accounting and contract flags",
+    "M1428 must not run the public replay probe train run PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run the public replay probe",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not count proxy rows as replay evidence",
+    "do not count reset or zero-current controls as history-positive"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_action_divergent_outcome_pressure_design",
+    "evidence_axis": "I_bounded_relocation_replay_probe",
+    "evidence_increment": "implements the no-training bounded relocation replay probe designed in M1427 without running the public probe yet",
+    "claim_scope": "infrastructure implementation only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if implementation changes actor inputs",
+      "stop if implementation cannot reconstruct trace and hidden variants",
+      "stop if history-positive accounting can include reset or zero-current controls",
+      "stop if public replay is run before a separate manifest"
+    ],
+    "fallback_plan": [
+      "fall back to trace-reconstruction preflight if relocation replay is too large for one milestone",
+      "route to design audit if source columns are insufficient",
+      "admit public replay only after focused tests pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_new_branch_after_m1422_pivot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "bounded relocation replay implementation",
+    "admission_evidence": [
+      "M1427 specifies replay mechanics and gates",
+      "M1425 pressure rows require actual replay before interpretation"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run public replay probe",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus"
+    ],
+    "allowed_updates": [
+      "src/autodrift/bounded_relocation_replay_probe.py",
+      "tests/test_bounded_relocation_replay_probe.py",
+      "M1428 implementation document",
+      "status queue scoreboard research log and review",
+      "one follow-up public replay manifest if implementation passes"
+    ],
+    "next_stage_criteria": [
+      "replay CLI exists",
+      "focused tests pass",
+      "contract flags are emitted",
+      "next public replay route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1428 is infrastructure and must not claim history necessity.",
+    "history_necessity_tests": [
+      "fixture-level history-positive accounting from actual replay rows",
+      "reset and zero-current control separation",
+      "relocation-bound validation",
+      "contract flags in summary"
+    ],
+    "temporal_evidence_window": "M1427 design only; no public replay run in M1428.",
+    "negative_result_policy": "If implementation cannot preserve accounting discipline, record it and audit before any replay run.",
+    "allowed_claims": [
+      "bounded relocation replay implementation result",
+      "no replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A focused implementation can reconstruct M1425 traces, apply bounded obstacle relocation, and emit actual replay accounting without changing actor inputs or running training.",
+  "success_criteria": [
+    "src/autodrift/bounded_relocation_replay_probe.py exists",
+    "tests/test_bounded_relocation_replay_probe.py exists",
+    "focused tests cover relocation bounds",
+    "focused tests cover history-positive versus control accounting",
+    "focused tests cover output summary schema and contract flags",
+    "docs/m1428-paper-route-bounded-relocation-replay-implementation.md exists",
+    "implementation chooses next route without public replay training PPO promotion private holdout corpus export or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "replay implementation is missing",
+    "tests are missing",
+    "history-positive accounting counts reset or zero-current controls",
+    "implementation changes actor inputs",
+    "implementation runs public replay or routes directly to training PPO promotion private holdout corpus export or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "implement bounded no-training relocation replay probe with focused tests"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/bounded_relocation_replay_probe.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_bounded_relocation_replay_probe.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1428-paper-route-bounded-relocation-replay-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1427-paper-route-bounded-relocation-replay-design.md",
+    "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv"
+  ],
+  "decision_rule": "M1428 passes if it implements and tests the no-training replay probe without running the public replay.",
+  "next_blocker": "m1428-paper-route-bounded-relocation-replay-implementation"
+}

@@ -21084,3 +21084,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no closed-loop replay, outcome intervention run, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1427-paper-route-bounded-relocation-replay-design.json`.
 - next: `m1427-paper-route-bounded-relocation-replay-design`
+
+## 20260529T021624Z - m1427-paper-route-bounded-relocation-replay-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1427-paper-route-bounded-relocation-replay-design.md`
+- decision: `bounded_relocation_replay_design_admit_implementation`
+- selected route: implement a no-training bounded relocation replay probe with focused tests before any public replay run.
+- mechanics: reconstruct preferred/wrong warmup traces, build variant hiddens, apply bounded obstacle relocation to the preferred snapshot, and replay normal/history/control variants under the same relocated scenario.
+- accounting: history-positive rows require actual replay success drop or margin gap; proxy rows and reset/zero-current controls cannot count.
+- first replay gates: selected candidates `>=64`, actual replay rows `>=192`, history-positive rows `>=8`, with at least `3` seeds, `3` capability pairs, and `2` reveal buckets.
+- guardrail: no closed-loop replay, outcome intervention run, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1428-paper-route-bounded-relocation-replay-implementation.json`.
+- next: `m1428-paper-route-bounded-relocation-replay-implementation`

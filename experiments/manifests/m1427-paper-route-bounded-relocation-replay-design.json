@@ -152,6 +152,30 @@
     "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv",
     "docs/m1426-paper-route-action-divergent-pressure-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1427-paper-route-bounded-relocation-replay-design.md",
+    "decision": "bounded_relocation_replay_design_admit_implementation",
+    "selected_route": "implement_bounded_no_training_relocation_replay_probe",
+    "candidate_source": "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv",
+    "max_candidate_rows": 128,
+    "per_capability_pair_cap": 12,
+    "history_positive_requires_actual_replay": true,
+    "proxy_rows_count_as_evidence": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1428-paper-route-bounded-relocation-replay-implementation.json"
+  },
+  "decision": "bounded_relocation_replay_design_admit_implementation",
   "decision_rule": "M1427 passes if it defines a bounded no-training relocation replay route and pre-registers gates before implementation.",
-  "next_blocker": "m1427-paper-route-bounded-relocation-replay-design"
+  "next_blocker": "m1428-paper-route-bounded-relocation-replay-implementation"
 }
