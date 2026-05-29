@@ -165,6 +165,37 @@
     "docs/m1487-paper-route-neighbor-viability-preflight-smoke.md",
     "docs/self-id-go-no-go-paper-route-plan.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1488-paper-route-source-diverse-pressure-validation-synthesis.md",
+    "decision": "source_diverse_pressure_validation_synthesis_continue_to_calibrated_bounded_replay_design",
+    "synthesis_decision": "continue",
+    "m1481_actual_replay_rows": 252,
+    "m1481_history_positive_rows": 12,
+    "m1481_history_positive_unique_source_seeds": 1,
+    "m1481_control_positive_rows": 15,
+    "m1487_geometry_pass_rows": 96,
+    "m1487_selected_candidate_rows": 96,
+    "m1487_selected_neighbor_source_rows": 88,
+    "m1487_selected_unique_source_seeds": 5,
+    "m1487_selected_unique_capability_pairs": 6,
+    "m1487_duplicate_neighbor_viability_key_rows": 0,
+    "public_gate_overfit_risk": "medium_high",
+    "hard_stop_after_next_replay_audit": true,
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1489-paper-route-neighbor-viability-bounded-replay-design.json"
+  },
+  "decision": "source_diverse_pressure_validation_synthesis_continue_to_calibrated_bounded_replay_design",
   "decision_rule": "M1488 passes if it synthesizes M1478-M1487 and chooses the next branch before replay or training.",
-  "next_blocker": "m1488-paper-route-source-diverse-pressure-validation-synthesis"
+  "next_blocker": "m1489-paper-route-neighbor-viability-bounded-replay-design"
 }

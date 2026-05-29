@@ -22123,3 +22123,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1488-paper-route-source-diverse-pressure-validation-synthesis.json`.
 - next: `m1488-paper-route-source-diverse-pressure-validation-synthesis`
+
+## M1488 Paper-Route Source-Diverse Pressure Validation Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `source_diverse_pressure_validation_synthesis_continue_to_calibrated_bounded_replay_design`
+- artifact: `docs/m1488-paper-route-source-diverse-pressure-validation-synthesis.md`
+- evidence summary: M1481 replay was runnable and positive but source-singleton; M1487 calibrated neighbor-viability candidates passed preflight with 96 selected rows, 88 neighbor-source rows, 5 seeds, 6 capability pairs, and zero duplicate keys.
+- supported claim: calibrated candidates are geometry-valid and source-step anchored enough to justify one bounded replay attempt.
+- blocked claim: source-diverse history-positive replay evidence, level3 self-ID, training corpus quality, promotion readiness, and GRU recurrent-belief advantage remain unproven.
+- failure taxonomy: `scenario_sampling_failure` from M1481 remains the main unresolved replay-level failure type.
+- public gate overfit risk: medium-high.
+- hard stop: after the next replay audit, if positives remain source-singleton or control-explained, stop this source-diverse pressure loop and pivot to the L0/L1/L2/L3 go/no-go matrix.
+- guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1489-paper-route-neighbor-viability-bounded-replay-design.json`.
+- next: `m1489-paper-route-neighbor-viability-bounded-replay-design`

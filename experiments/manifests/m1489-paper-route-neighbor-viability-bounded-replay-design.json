@@ -1,0 +1,151 @@
+{
+  "id": "m1489-paper-route-neighbor-viability-bounded-replay-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1487_neighbor_viability_preflight_smoke/selected_candidate_rows.csv",
+      "runs/m1487_neighbor_viability_preflight_smoke/summary.json",
+      "docs/m1488-paper-route-source-diverse-pressure-validation-synthesis.md"
+    ],
+    "parent_config": [
+      "configs/m1419_warmup_gate_invasiveness_retune_source_wave.json",
+      "experiments/manifests/m1488-paper-route-source-diverse-pressure-validation-synthesis.json"
+    ],
+    "parent_objective": [
+      "design one calibrated bounded replay smoke over M1487 preflight-pass candidates"
+    ],
+    "derived_from": [
+      "m1488-paper-route-source-diverse-pressure-validation-synthesis"
+    ],
+    "blocked_by": [
+      "bounded replay has not yet been designed for M1487 calibrated preflight-pass candidates"
+    ],
+    "supersedes": [
+      "preflight-only evidence as outcome-sensitive replay evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1489-paper-route-neighbor-viability-bounded-replay-design.md",
+  "public_gates": [
+    "M1489 must design bounded replay only",
+    "M1489 must use M1487 selected candidate rows with --candidate-step-column source_step",
+    "M1489 must use --geometry-aware-selector",
+    "M1489 must block training PPO promotion private holdout corpus export and actor-input changes",
+    "M1489 must require replay result audit immediately after the replay run"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run bounded replay in this design milestone",
+    "do not run outcome interventions outside the future replay command",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat preflight result as history-positive evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_diverse_pressure_validation",
+    "evidence_axis": "S_neighbor_viability_bounded_replay_design",
+    "evidence_increment": "designs one calibrated bounded replay smoke over M1487 preflight-pass candidates after branch synthesis",
+    "claim_scope": "bounded replay design only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design uses non-preflighted candidates",
+      "stop if design drops candidate_step_column source_step",
+      "stop if design admits corpus export or training before replay result audit",
+      "stop if design does not require immediate replay audit"
+    ],
+    "fallback_plan": [
+      "route to bounded replay smoke if design passes",
+      "route to branch audit if replay cannot be specified without overfitting"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1488 synthesis admits exactly one calibrated bounded replay design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "neighbor viability bounded replay design",
+    "admission_evidence": [
+      "M1487 preflight passed with 96 selected rows, 88 neighbor-source rows, 5 seeds, 6 capability pairs, and zero duplicate neighbor viability keys",
+      "M1488 synthesis allows exactly one calibrated bounded replay before audit"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay in this design milestone",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1489 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up bounded replay smoke manifest"
+    ],
+    "next_stage_criteria": [
+      "bounded replay command is explicit",
+      "guardrails are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1489 is design and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future replay must test calibrated neighbor-source rows under normal history, warmup interventions, reset hidden, and zero-current controls",
+      "future audit must separate source-diverse history positives from reset/zero-current controls"
+    ],
+    "temporal_evidence_window": "M1487 preflight and M1488 branch synthesis.",
+    "negative_result_policy": "If replay produces no source-diverse history positives, audit and pivot to the L0/L1/L2/L3 go/no-go matrix rather than weakening the claim standard.",
+    "allowed_claims": [
+      "neighbor viability bounded replay design",
+      "no replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded replay smoke over M1487 preflight-pass calibrated candidates can test whether neighbor viability calibration transfers to outcome-sensitive replay rows.",
+  "success_criteria": [
+    "docs/m1489-paper-route-neighbor-viability-bounded-replay-design.md exists",
+    "design uses runs/m1487_neighbor_viability_preflight_smoke/selected_candidate_rows.csv",
+    "design uses --geometry-aware-selector",
+    "design uses candidate_step_column source_step",
+    "design blocks training PPO promotion private holdout corpus export and actor-input changes",
+    "design routes to bounded replay smoke followed by mandatory audit"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design starts replay",
+    "design does not use source_step",
+    "design starts training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1489-paper-route-neighbor-viability-bounded-replay-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1489-paper-route-neighbor-viability-bounded-replay-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1488-paper-route-source-diverse-pressure-validation-synthesis.md"
+  ],
+  "decision_rule": "M1489 passes if it designs bounded replay for M1487 candidates without running replay or training.",
+  "next_blocker": "m1489-paper-route-neighbor-viability-bounded-replay-design"
+}

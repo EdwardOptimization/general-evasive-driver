@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1496,
+    "completed": 1497,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1487-paper-route-neighbor-viability-preflight-smoke.md",
+    "command_log": "docs/m1488-paper-route-source-diverse-pressure-validation-synthesis.md",
     "returncode": 0,
-    "run_dir": "runs/m1487_neighbor_viability_preflight_smoke",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1487-paper-route-neighbor-viability-preflight-smoke"
+    "task_id": "m1488-paper-route-source-diverse-pressure-validation-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1488-paper-route-source-diverse-pressure-validation-synthesis.json",
-    "hypothesis": "After M1487, the branch should synthesize evidence and decide whether to run one calibrated bounded replay or pivot to the broader self-ID go/no-go matrix.",
-    "id": "m1488-paper-route-source-diverse-pressure-validation-synthesis",
+    "command": "see experiments/manifests/m1489-paper-route-neighbor-viability-bounded-replay-design.json",
+    "hypothesis": "A bounded replay smoke over M1487 preflight-pass calibrated candidates can test whether neighbor viability calibration transfers to outcome-sensitive replay rows.",
+    "id": "m1489-paper-route-neighbor-viability-bounded-replay-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1478-M1487 with the self-ID go/no-go paper route before any replay design",
-    "priority": 14830,
+    "notes": "Pending: design one calibrated bounded replay over M1487 selected candidates followed by mandatory audit",
+    "priority": 14840,
     "status": "pending",
-    "success_artifact": "docs/m1488-paper-route-source-diverse-pressure-validation-synthesis.md"
+    "success_artifact": "docs/m1489-paper-route-neighbor-viability-bounded-replay-design.md"
   },
-  "updated_at_utc": "20260529T063753Z"
+  "updated_at_utc": "20260529T064000Z"
 }
