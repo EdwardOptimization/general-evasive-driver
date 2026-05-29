@@ -16,25 +16,25 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1631-paper-route-contour-aware-full-target-materialization-result-audit
+m1632-paper-route-contour-aware-policy-target-objective-design
 ```
 
 Current next task:
 
 ```text
-m1632-paper-route-contour-aware-policy-target-objective-design
+m1633-paper-route-contour-aware-policy-target-exact-evaluator-implementation
 ```
 
-M1631 audited the clean M1630 full materialization result and admits exactly
-one design-only contour-aware policy-target objective planning step. The
-materialized public package has 39 positive rows and 232 diagnostic guardrails,
-canonical 72-dim observations, hidden dim `128`, action tensors `[N,3]`, finite
-tensors, exact source-action reproduction, zero missing rows, diagnostic
-`used_as_positive=false` and `role_weight=0.0`, and no
-loss/objective/training/PPO/promotion/private-holdout artifacts. The next task
-is M1632: design role-safe objective semantics. Loss implementation, objective
-config artifacts, actor update, training, PPO, promotion, private holdout,
-actor-input changes, and level3 self-ID claims remain blocked.
+M1632 designed role-safe objective semantics over the clean M1630 tensor
+package. V1 uses same-observation correct/wrong hidden action residuals:
+correct history should reproduce `preferred_action`, wrong history should
+reproduce `wrong_history_action`, and the two branches should not collapse.
+Diagnostics remain zero-weight guardrails. M1632 explicitly forbids using
+`donor_plus_hidden_action` as a loss target because M1630 did not persist the
+corresponding donor-response observation. The next task is M1633: implement a
+no-update exact evaluator only. Objective config artifacts, actor update,
+training, PPO, promotion, private holdout, actor-input changes, and level3
+self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

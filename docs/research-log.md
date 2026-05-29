@@ -25991,3 +25991,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: admit one design-only contour-aware policy-target objective milestone while keeping implementation and training blocked
 - follow-up manifest: `experiments/manifests/m1632-paper-route-contour-aware-policy-target-objective-design.json`
 - next: `m1632-paper-route-contour-aware-policy-target-objective-design`
+
+## M1632 Paper-Route Contour-Aware Policy Target Objective Design
+
+- status: completed
+- decision: `contour_aware_policy_target_objective_design_admit_exact_evaluator`
+- artifact: `docs/m1632-paper-route-contour-aware-policy-target-objective-design.md`
+- failure taxonomy: `none`
+- design scope: role-safe objective semantics over the M1630 materialized positive and diagnostic tensors
+- positive objective: same-observation correct/wrong hidden action residuals, plus separation-collapse guard
+- diagnostic contract: diagnostics remain zero-weight guardrails and cannot reduce a positive scalar objective
+- donor-plus limitation: `donor_plus_hidden_action` cannot become a loss target because donor-response observation was not persisted
+- supported: one no-update exact evaluator implementation is admitted
+- unsupported: loss implementation, objective config artifact, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- follow-up manifest: `experiments/manifests/m1633-paper-route-contour-aware-policy-target-exact-evaluator-implementation.json`
+- next: `m1633-paper-route-contour-aware-policy-target-exact-evaluator-implementation`

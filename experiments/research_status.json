@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1640,
+    "completed": 1641,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1631-paper-route-contour-aware-full-target-materialization-result-audit.md",
+      "command_log": "docs/m1632-paper-route-contour-aware-policy-target-objective-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1631-paper-route-contour-aware-full-target-materialization-result-audit"
+      "task_id": "m1632-paper-route-contour-aware-policy-target-objective-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1632-paper-route-contour-aware-policy-target-objective-design.json",
-      "hypothesis": "The M1630 materialized positive and diagnostic tensor bundles are sufficient to design a role-safe contour-aware policy-target objective.",
-      "id": "m1632-paper-route-contour-aware-policy-target-objective-design",
-      "kind": "gate",
-      "notes": "Pending: design role-safe policy-target objective semantics only; no implementation training PPO promotion or private holdout",
-      "priority": 16270,
+      "command": "see experiments/manifests/m1633-paper-route-contour-aware-policy-target-exact-evaluator-implementation.json",
+      "hypothesis": "A no-update exact evaluator can evaluate the M1632 role-safe objective semantics on the M1630 tensors while preserving all guardrails.",
+      "id": "m1633-paper-route-contour-aware-policy-target-exact-evaluator-implementation",
+      "kind": "infrastructure",
+      "notes": "Pending: implement no-update exact evaluator only; no objective config actor update training PPO promotion or private holdout",
+      "priority": 16280,
       "status": "pending",
-      "success_artifact": "docs/m1632-paper-route-contour-aware-policy-target-objective-design.md"
+      "success_artifact": "runs/m1633_contour_aware_policy_target_exact_evaluator/summary.json"
     },
-    "updated_at_utc": "20260529T193101Z"
+    "updated_at_utc": "20260529T193437Z"
 }
