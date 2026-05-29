@@ -21099,3 +21099,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no closed-loop replay, outcome intervention run, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1428-paper-route-bounded-relocation-replay-implementation.json`.
 - next: `m1428-paper-route-bounded-relocation-replay-implementation`
+
+## 20260529T022540Z - m1428-paper-route-bounded-relocation-replay-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1428-paper-route-bounded-relocation-replay-implementation.md`
+- decision: `bounded_relocation_replay_implementation_admit_public_replay_smoke`
+- implementation: `src/autodrift/bounded_relocation_replay_probe.py`
+- tests: `tests/test_bounded_relocation_replay_probe.py`
+- focused result: `4 passed`
+- capability: the tool can select M1425 pressure rows, reconstruct warmup traces, apply bounded obstacle relocation, replay normal/history/control variants, and emit actual replay accounting.
+- accounting: history-positive rows require actual replay; proxy rows and reset/zero-current controls cannot count.
+- guardrail: no public replay run, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1429-paper-route-bounded-relocation-replay-smoke.json`.
+- next: `m1429-paper-route-bounded-relocation-replay-smoke`

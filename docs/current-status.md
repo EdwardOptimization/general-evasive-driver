@@ -16,21 +16,37 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1427-paper-route-bounded-relocation-replay-design
+m1428-paper-route-bounded-relocation-replay-implementation
 ```
 
 Current next task:
 
 ```text
-m1428-paper-route-bounded-relocation-replay-implementation
+m1429-paper-route-bounded-relocation-replay-smoke
 ```
 
-M1427 designed the bounded relocation replay route. The current public-gate base
-remains M1362 alpha `0.1`:
+M1428 implemented the bounded relocation replay probe. The current public-gate
+base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1428 result:
+
+```text
+decision: bounded_relocation_replay_implementation_admit_public_replay_smoke
+implementation: src/autodrift/bounded_relocation_replay_probe.py
+focused_tests: tests/test_bounded_relocation_replay_probe.py
+focused_test_result: 4 passed
+public_replay_started: false
+training_started: false
+next: m1429-paper-route-bounded-relocation-replay-smoke
+```
+
+M1429 should run the bounded relocation replay probe once on M1425 pressure
+rows. It must remain no-training, no-promotion, no private holdout, no corpus
+export, and no actor-input change.
 
 M1427 result:
 
@@ -44,10 +60,6 @@ history_positive_requires_actual_replay: true
 proxy_rows_count_as_evidence: false
 next: m1428-paper-route-bounded-relocation-replay-implementation
 ```
-
-M1428 should implement the bounded relocation replay probe and focused tests
-only. It must not run the public replay probe, train, export a corpus, promote,
-use private holdout, or change actor inputs.
 
 M1426 result:
 

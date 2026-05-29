@@ -1,0 +1,165 @@
+{
+  "id": "m1429-paper-route-bounded-relocation-replay-smoke",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv",
+      "docs/m1428-paper-route-bounded-relocation-replay-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1428-paper-route-bounded-relocation-replay-implementation.json"
+    ],
+    "parent_objective": [
+      "run no-training bounded relocation replay smoke on M1425 pressure rows"
+    ],
+    "derived_from": [
+      "m1428-paper-route-bounded-relocation-replay-implementation"
+    ],
+    "blocked_by": [
+      "M1428 implementation must be exercised in a separately registered public replay smoke"
+    ],
+    "supersedes": [
+      "proxy-only interpretation of M1425 rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1429-paper-route-bounded-relocation-replay-smoke.md",
+  "public_gates": [
+    "M1429 must run no-training bounded relocation replay on public M1425 pressure rows",
+    "M1429 must count history-positive only from actual replay rows",
+    "M1429 must report reset and zero-current controls separately",
+    "M1429 must not train run PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not count proxy rows as replay evidence",
+    "do not count reset or zero-current controls as history-positive"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_action_divergent_outcome_pressure_design",
+    "evidence_axis": "R_bounded_relocation_replay_public_smoke",
+    "evidence_increment": "runs the bounded relocation replay probe to test actual terminal-margin sensitivity for M1425 pressure rows",
+    "claim_scope": "public proof smoke only; no training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if selected_candidate_rows < 64",
+      "stop if actual_replay_rows < 192",
+      "stop if history_positive_rows < 8",
+      "stop if control positives dominate history positives",
+      "stop if actor parameters or actor inputs change"
+    ],
+    "fallback_plan": [
+      "audit no-history-positive result if actual replay rows are sufficient but negative",
+      "audit trace/reconstruction failure if replay rows are sparse",
+      "admit branch synthesis before more retuning if public replay is negative"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_new_branch_after_m1422_pivot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "bounded relocation replay public smoke",
+    "admission_evidence": [
+      "M1428 implementation and focused tests pass",
+      "M1427 pre-registered actual replay gates"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus"
+    ],
+    "allowed_updates": [
+      "runs/m1429_bounded_relocation_replay_smoke",
+      "M1429 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up audit manifest"
+    ],
+    "next_stage_criteria": [
+      "replay smoke gates pass or fail clearly",
+      "history-positive and control-positive rows are separated",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1429 can only show public replay sensitivity; it cannot alone prove level3 anticipatory self-identification.",
+    "history_necessity_tests": [
+      "actual relocated replay with requested history variant",
+      "reset and zero-current controls separate",
+      "success-drop and terminal margin-gap criteria",
+      "source diversity of positives"
+    ],
+    "temporal_evidence_window": "M1425 pressure rows replayed under relocated obstacle geometry.",
+    "negative_result_policy": "If history-positive rows remain zero, record a negative and audit before retuning or changing thresholds.",
+    "allowed_claims": [
+      "bounded relocation replay public smoke result",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Actual bounded relocation replay can reveal history-positive terminal-margin sensitivity that the M1425 shared-margin proxy could not show.",
+  "success_criteria": [
+    "runs/m1429_bounded_relocation_replay_smoke/summary.json exists",
+    "selected_candidate_rows >= 64",
+    "actual_replay_rows >= 192",
+    "history_positive_rows >= 8",
+    "history_positive_unique_source_seeds >= 3",
+    "history_positive_unique_capability_pairs >= 3",
+    "history_positive_unique_reveal_buckets >= 2",
+    "control_positive_rows reported separately",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "failure_criteria": [
+    "summary missing",
+    "selected or replay rows are sparse",
+    "history-positive rows are zero or not source-diverse",
+    "control positives are mixed into history positives",
+    "run starts training PPO promotion private holdout corpus export or actor-input changes"
+  ],
+  "commands": [
+    {
+      "name": "replay_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.bounded_relocation_replay_probe --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m1419_warmup_gate_invasiveness_retune_source_wave.json --candidate-rows runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv --max-candidate-rows 128 --per-capability-pair-cap 12 --history-length 56 --recent-window-length 4 --max-continuation-steps 48 --device cpu --run-dir runs/m1429_bounded_relocation_replay_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1429_bounded_relocation_replay_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1429-paper-route-bounded-relocation-replay-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv",
+    "docs/m1428-paper-route-bounded-relocation-replay-implementation.md"
+  ],
+  "decision_rule": "M1429 passes only if actual replay, not proxy accounting, yields source-diverse history-positive rows without forbidden shortcuts.",
+  "next_blocker": "m1429-paper-route-bounded-relocation-replay-smoke"
+}

@@ -160,6 +160,26 @@
     "docs/m1427-paper-route-bounded-relocation-replay-design.md",
     "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1428-paper-route-bounded-relocation-replay-implementation.md",
+    "decision": "bounded_relocation_replay_implementation_admit_public_replay_smoke",
+    "implementation": "src/autodrift/bounded_relocation_replay_probe.py",
+    "focused_tests": "tests/test_bounded_relocation_replay_probe.py",
+    "focused_test_result": "4 passed",
+    "public_replay_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1429-paper-route-bounded-relocation-replay-smoke.json"
+  },
+  "decision": "bounded_relocation_replay_implementation_admit_public_replay_smoke",
   "decision_rule": "M1428 passes if it implements and tests the no-training replay probe without running the public replay.",
-  "next_blocker": "m1428-paper-route-bounded-relocation-replay-implementation"
+  "next_blocker": "m1429-paper-route-bounded-relocation-replay-smoke"
 }

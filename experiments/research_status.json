@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1437,
+    "completed": 1438,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1427-paper-route-bounded-relocation-replay-design.md",
+    "command_log": "docs/m1428-paper-route-bounded-relocation-replay-implementation.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1427-paper-route-bounded-relocation-replay-design"
+    "task_id": "m1428-paper-route-bounded-relocation-replay-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1428-paper-route-bounded-relocation-replay-implementation.json",
-    "hypothesis": "A focused implementation can reconstruct M1425 traces, apply bounded obstacle relocation, and emit actual replay accounting without changing actor inputs or running training.",
-    "id": "m1428-paper-route-bounded-relocation-replay-implementation",
+    "command": "see experiments/manifests/m1429-paper-route-bounded-relocation-replay-smoke.json",
+    "hypothesis": "Actual bounded relocation replay can reveal history-positive terminal-margin sensitivity that the M1425 shared-margin proxy could not show.",
+    "id": "m1429-paper-route-bounded-relocation-replay-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: implement bounded relocation replay probe and focused tests; no public replay run training or promotion",
-    "priority": 14230,
+    "notes": "Pending: run no-training bounded relocation replay smoke on M1425 pressure rows",
+    "priority": 14240,
     "status": "pending",
-    "success_artifact": "docs/m1428-paper-route-bounded-relocation-replay-implementation.md"
+    "success_artifact": "runs/m1429_bounded_relocation_replay_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T021624Z"
+  "updated_at_utc": "20260529T022540Z"
 }
