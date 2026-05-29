@@ -23070,3 +23070,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1529 admits only the next measured-mining design. M1528 planned rows are not measured history-necessity evidence and cannot support self-ID claims.
 - follow-up manifest: `experiments/manifests/m1530-paper-route-fresh-ambiguity-measured-mining-design.json`.
 - next: `m1530-paper-route-fresh-ambiguity-measured-mining-design`
+
+## M1530 Paper-Route Fresh Ambiguity Measured-Mining Design
+
+- status: completed
+- decision: `fresh_ambiguity_measured_mining_design_admit_bounded_implementation`
+- artifact: `docs/m1530-paper-route-fresh-ambiguity-measured-mining-design.md`
+- measured trace schema defined: true
+- measured pairing metrics defined: true
+- intervention variants defined: true
+- source diversity caps defined: true
+- artifact contract defined: true
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1530 defines the measured fixed-policy mining route from M1528 source specs, but does not run measured mining or claim self-ID.
+- follow-up manifest: `experiments/manifests/m1531-paper-route-fresh-ambiguity-measured-mining-implementation.json`.
+- next: `m1531-paper-route-fresh-ambiguity-measured-mining-implementation`

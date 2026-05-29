@@ -147,6 +147,29 @@
     "runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json",
     "docs/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1530-paper-route-fresh-ambiguity-measured-mining-design.md",
+    "decision": "fresh_ambiguity_measured_mining_design_admit_bounded_implementation",
+    "measured_trace_schema_defined": true,
+    "measured_pairing_metrics_defined": true,
+    "intervention_variants_defined": true,
+    "source_diversity_caps_defined": true,
+    "artifact_contract_defined": true,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1531-paper-route-fresh-ambiguity-measured-mining-implementation.json"
+  },
+  "decision": "fresh_ambiguity_measured_mining_design_admit_bounded_implementation",
   "decision_rule": "M1530 passes if it designs measured public source mining while preserving no-materialization and no-training guardrails.",
-  "next_blocker": "m1530-paper-route-fresh-ambiguity-measured-mining-design"
+  "next_blocker": "m1531-paper-route-fresh-ambiguity-measured-mining-implementation"
 }

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1538,
+    "completed": 1539,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.md",
+    "command_log": "docs/m1530-paper-route-fresh-ambiguity-measured-mining-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.md",
+    "run_dir": "docs/m1530-paper-route-fresh-ambiguity-measured-mining-design.md",
     "status": "completed",
-    "task_id": "m1529-paper-route-fresh-ambiguity-source-planner-result-audit"
+    "task_id": "m1530-paper-route-fresh-ambiguity-measured-mining-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1530-paper-route-fresh-ambiguity-measured-mining-design.json",
-    "hypothesis": "A bounded measured fixed-policy miner can be designed to test whether the M1528 fresh source grid contains matched-current ambiguous rows before candidate materialization.",
-    "id": "m1530-paper-route-fresh-ambiguity-measured-mining-design",
-    "kind": "gate",
-    "notes": "Pending: design measured public source mining from M1528 source-diverse grid",
-    "priority": 15250,
+    "command": "see experiments/manifests/m1531-paper-route-fresh-ambiguity-measured-mining-implementation.json",
+    "hypothesis": "A bounded measured fixed-policy miner can produce public trace, pairing, intervention, and guardrail artifacts from the M1528 source grid without materializing candidates.",
+    "id": "m1531-paper-route-fresh-ambiguity-measured-mining-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded measured fixed-policy mining smoke before any candidate materialization",
+    "priority": 15260,
     "status": "pending",
-    "success_artifact": "docs/m1530-paper-route-fresh-ambiguity-measured-mining-design.md"
+    "success_artifact": "runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T103725Z"
+  "updated_at_utc": "20260529T104040Z"
 }

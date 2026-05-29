@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1529-paper-route-fresh-ambiguity-source-planner-result-audit
+m1530-paper-route-fresh-ambiguity-measured-mining-design
 ```
 
 Current next task:
 
 ```text
-m1530-paper-route-fresh-ambiguity-measured-mining-design
+m1531-paper-route-fresh-ambiguity-measured-mining-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -96,11 +96,34 @@ before measured rollout mining.
 M1529 audited M1528 as source-diverse and guardrail-clean enough to admit a
 measured public source-mining design, while explicitly blocking candidate
 materialization and self-ID claims.
+M1530 designed that measured fixed-policy miner, including trace schema,
+scene/current-state pairing metrics, intervention variants, source-diversity
+caps, and no-materialization guardrails. The next task is implementation smoke.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1530 fresh ambiguity measured-mining design:
+
+```text
+decision: fresh_ambiguity_measured_mining_design_admit_bounded_implementation
+artifact: docs/m1530-paper-route-fresh-ambiguity-measured-mining-design.md
+measured_trace_schema_defined: true
+measured_pairing_metrics_defined: true
+intervention_variants_defined: true
+source_diversity_caps_defined: true
+artifact_contract_defined: true
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1531-paper-route-fresh-ambiguity-measured-mining-implementation
+```
+
+M1530 is design only. M1531 must still route measured results to audit before
+any candidate materialization or corpus export.
 
 M1529 fresh ambiguity source-planner result audit:
 

@@ -1,0 +1,157 @@
+{
+  "id": "m1531-paper-route-fresh-ambiguity-measured-mining-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1530-paper-route-fresh-ambiguity-measured-mining-design.md",
+      "runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1530-paper-route-fresh-ambiguity-measured-mining-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded measured fixed-policy source mining from M1530 design"
+    ],
+    "derived_from": [
+      "m1530-paper-route-fresh-ambiguity-measured-mining-design"
+    ],
+    "blocked_by": [
+      "measured source-mining runner is needed before source candidates can be audited"
+    ],
+    "supersedes": [
+      "candidate materialization from dry planner metadata"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1531-paper-route-fresh-ambiguity-measured-mining-implementation.md",
+  "public_gates": [
+    "M1531 must implement bounded measured fixed-policy mining",
+    "M1531 must write measured traces pair candidates intervention rows summaries and guardrails",
+    "M1531 must keep candidate materialization and training blocked",
+    "M1531 must not use private holdout or alter actor inputs",
+    "M1531 must route to audit before any corpus export"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not claim self-identification from measured smoke"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "G_fresh_ambiguity_measured_mining_implementation",
+    "evidence_increment": "implements bounded measured fixed-policy source mining and writes public smoke artifacts for later audit",
+    "claim_scope": "infrastructure and bounded public measured smoke only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if implementation changes actor input contract",
+      "stop if source diversity collapses to closed T5 rows",
+      "stop if candidate rows are materialized",
+      "stop if measured smoke routes directly to training"
+    ],
+    "fallback_plan": [
+      "audit as scenario_sampling_failure if measured pairs are absent",
+      "repair measured runner if artifacts or guardrails are incomplete",
+      "audit before any materialization even if measured positives appear"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1530 admitted bounded measured implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "fresh ambiguity measured-mining implementation",
+    "admission_evidence": [
+      "M1530 defined measured trace schema pairing metrics intervention variants and guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "measured mining module and focused tests",
+      "bounded public smoke artifacts",
+      "M1531 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "measured artifacts are written",
+      "guardrail summary is clean or failures explicit",
+      "measured pair count and source diversity are reported",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1531 measured smoke may find reset/zero-current sensitivity but must not claim self-ID without wrong-history or donor-response evidence.",
+    "history_necessity_tests": [
+      "measured wrong-history donor hidden",
+      "measured donor response/action stream",
+      "measured reset and zero-current controls",
+      "measured scene/current-state pairing"
+    ],
+    "temporal_evidence_window": "M1531 bounded public measured smoke only.",
+    "negative_result_policy": "If measured mining finds no source-diverse ambiguity, record the negative result and audit before retargeting.",
+    "allowed_claims": [
+      "M1531 implements measured mining plumbing and public smoke",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded measured fixed-policy miner can produce public trace, pairing, intervention, and guardrail artifacts from the M1528 source grid without materializing candidates.",
+  "success_criteria": [
+    "measured mining module exists",
+    "focused tests cover schema guardrails and bounded summary behavior",
+    "bounded smoke writes required measured artifacts and summary.json",
+    "candidate materialization training PPO promotion private holdout actor-input changes and corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "measured mining module or smoke artifacts are missing",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation materializes candidates or starts training/replay/PPO",
+    "implementation claims self-identification"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_fresh_ambiguity_measured_mining.py -q"
+    },
+    {
+      "name": "smoke",
+      "command": "PYTHONPATH=src python -m autodrift.fresh_ambiguity_measured_mining --output-dir runs/m1531_fresh_ambiguity_measured_mining_smoke --seed 1531"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1530-paper-route-fresh-ambiguity-measured-mining-design.md",
+    "runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json"
+  ],
+  "decision_rule": "M1531 passes if bounded measured mining artifacts are written and all no-materialization/no-training guardrails remain clean.",
+  "next_blocker": "m1531-paper-route-fresh-ambiguity-measured-mining-implementation"
+}
