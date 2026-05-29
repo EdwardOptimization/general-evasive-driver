@@ -1,0 +1,152 @@
+{
+  "id": "m1530-paper-route-fresh-ambiguity-measured-mining-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json",
+      "docs/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.json"
+    ],
+    "parent_objective": [
+      "design measured public source mining from M1528 dry source grid"
+    ],
+    "derived_from": [
+      "m1529-paper-route-fresh-ambiguity-source-planner-result-audit"
+    ],
+    "blocked_by": [
+      "dry source-planner rows need measured rollout design before source candidates can be audited"
+    ],
+    "supersedes": [
+      "materializing source-planner rows without measured rollout evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1530-paper-route-fresh-ambiguity-measured-mining-design.md",
+  "public_gates": [
+    "M1530 must design measured fixed-policy public source mining",
+    "M1530 must preserve M1528 source diversity and proxy-fault boundaries",
+    "M1530 must define measured scene/current-state pairing and action-divergence metrics",
+    "M1530 must keep candidate materialization and training blocked",
+    "M1530 must not use private holdout or alter actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates during design",
+    "do not run measured mining during design",
+    "do not claim self-identification from measured-mining design"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "G_fresh_ambiguity_measured_mining_design",
+    "evidence_increment": "designs measured fixed-policy source mining from M1528 source-diverse public grid",
+    "claim_scope": "measured-mining design only; no candidate materialization, measured run, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design cannot preserve source diversity",
+      "stop if measured metrics rely on oracle actor inputs",
+      "stop if design routes directly to candidate materialization or training",
+      "stop if proxy-fault semantics are overclaimed"
+    ],
+    "fallback_plan": [
+      "repair measured runner schema if matching metrics are underspecified",
+      "route back to source planner repair if measured scope is too broad",
+      "admit bounded measured implementation if design is complete"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1529 admitted measured source-mining design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fresh ambiguity measured-mining design",
+    "admission_evidence": [
+      "M1529 audited the dry planner as source-diverse and guardrail-clean enough for measured design"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not run measured mining in design",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "M1530 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up bounded measured-mining implementation manifest"
+    ],
+    "next_stage_criteria": [
+      "measured trace schema is explicit",
+      "measured pairing metrics are explicit",
+      "source diversity caps are explicit",
+      "candidate materialization remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1530 is measured-mining design only and must not claim self-ID before measured history-necessity rows exist.",
+    "history_necessity_tests": [
+      "design measured wrong-history response/action mismatch and reset controls",
+      "design measured scene/current-state pairing",
+      "keep current-frame response and history-necessity claims separate"
+    ],
+    "temporal_evidence_window": "future measured public source-mining branch only.",
+    "negative_result_policy": "If measured mining finds no source-diverse ambiguity, record the negative result and synthesize instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "M1530 designs measured public source mining",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded measured fixed-policy miner can be designed to test whether the M1528 fresh source grid contains matched-current ambiguous rows before candidate materialization.",
+  "success_criteria": [
+    "docs/m1530-paper-route-fresh-ambiguity-measured-mining-design.md exists",
+    "design defines measured trace schema pairing metrics intervention variants source-diversity caps and artifacts",
+    "design keeps measured run candidate materialization training PPO promotion private holdout actor-input changes and corpus export blocked",
+    "design routes to one bounded measured implementation or records a blocker"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design lacks measured pairing or action-divergence metrics",
+    "design routes directly to materialization training or private holdout",
+    "design claims self-identification"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1530-paper-route-fresh-ambiguity-measured-mining-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1530-paper-route-fresh-ambiguity-measured-mining-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json",
+    "docs/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.md"
+  ],
+  "decision_rule": "M1530 passes if it designs measured public source mining while preserving no-materialization and no-training guardrails.",
+  "next_blocker": "m1530-paper-route-fresh-ambiguity-measured-mining-design"
+}

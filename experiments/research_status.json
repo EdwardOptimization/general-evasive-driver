@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1537,
+    "completed": 1538,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json",
+    "command_log": "docs/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1528_fresh_ambiguity_source_planner_smoke",
+    "run_dir": "docs/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.md",
     "status": "completed",
-    "task_id": "m1528-paper-route-fresh-ambiguity-source-planner-implementation"
+    "task_id": "m1529-paper-route-fresh-ambiguity-source-planner-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.json",
-    "hypothesis": "The M1528 dry planner pass is source-diverse and guardrail-clean enough to admit a measured public source-mining design.",
-    "id": "m1529-paper-route-fresh-ambiguity-source-planner-result-audit",
+    "command": "see experiments/manifests/m1530-paper-route-fresh-ambiguity-measured-mining-design.json",
+    "hypothesis": "A bounded measured fixed-policy miner can be designed to test whether the M1528 fresh source grid contains matched-current ambiguous rows before candidate materialization.",
+    "id": "m1530-paper-route-fresh-ambiguity-measured-mining-design",
     "kind": "gate",
-    "notes": "Pending: audit M1528 dry source planner before measured mining or candidate materialization",
-    "priority": 15240,
+    "notes": "Pending: design measured public source mining from M1528 source-diverse grid",
+    "priority": 15250,
     "status": "pending",
-    "success_artifact": "docs/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.md"
+    "success_artifact": "docs/m1530-paper-route-fresh-ambiguity-measured-mining-design.md"
   },
-  "updated_at_utc": "20260529T103418Z"
+  "updated_at_utc": "20260529T103725Z"
 }

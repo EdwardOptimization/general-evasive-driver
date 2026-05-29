@@ -23037,3 +23037,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1528 is a dry planner/infrastructure pass that creates a source-diverse public grid for measured ambiguity mining; it does not prove self-ID or materialize candidates.
 - follow-up manifest: `experiments/manifests/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.json`.
 - next: `m1529-paper-route-fresh-ambiguity-source-planner-result-audit`
+
+## M1529 Paper-Route Fresh Ambiguity Source-Planner Result Audit
+
+- status: completed
+- decision: `fresh_ambiguity_source_planner_audit_admit_measured_mining_design`
+- artifact: `docs/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.md`
+- audited run: `runs/m1528_fresh_ambiguity_source_planner_smoke`
+- source plan count: 14
+- generated source specs: 112
+- accepted pair candidates: 112
+- unique source families: 14
+- unique hidden capability pairs: 24
+- unique geometry keys: 42
+- unique decision steps: 20
+- max single source family share: 0.07142857142857142
+- closed T5 subset rows: 0
+- max closed T5 subset share: 0.0
+- proxy fault family count: 7
+- symmetric proxy fault only: true
+- guardrail violation count: 0
+- passes public dry gates: true
+- source diversity verdict: `pass_for_measured_design`
+- proxy fault semantics verdict: `pass_with_scope_boundary`
+- evidence claim verdict: `planner_ready_not_self_id_evidence`
+- measured mining design admitted: true
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1529 admits only the next measured-mining design. M1528 planned rows are not measured history-necessity evidence and cannot support self-ID claims.
+- follow-up manifest: `experiments/manifests/m1530-paper-route-fresh-ambiguity-measured-mining-design.json`.
+- next: `m1530-paper-route-fresh-ambiguity-measured-mining-design`

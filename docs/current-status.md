@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1528-paper-route-fresh-ambiguity-source-planner-implementation
+m1529-paper-route-fresh-ambiguity-source-planner-result-audit
 ```
 
 Current next task:
 
 ```text
-m1529-paper-route-fresh-ambiguity-source-planner-result-audit
+m1530-paper-route-fresh-ambiguity-measured-mining-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -93,11 +93,48 @@ M1528 implemented that source planner and ran a dry public smoke: 112 rows, 14
 source families, 7 proxy fault families, closed T5 subset share `0.0`, and all
 no-training/no-materialization guardrails false. The next task is an audit
 before measured rollout mining.
+M1529 audited M1528 as source-diverse and guardrail-clean enough to admit a
+measured public source-mining design, while explicitly blocking candidate
+materialization and self-ID claims.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1529 fresh ambiguity source-planner result audit:
+
+```text
+decision: fresh_ambiguity_source_planner_audit_admit_measured_mining_design
+artifact: docs/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.md
+audited_run: runs/m1528_fresh_ambiguity_source_planner_smoke
+source_plan_count: 14
+generated_source_specs: 112
+accepted_pair_candidates: 112
+unique_source_families: 14
+unique_hidden_capability_pairs: 24
+unique_geometry_keys: 42
+unique_decision_steps: 20
+max_single_source_family_share: 0.07142857142857142
+closed_t5_subset_rows: 0
+max_closed_t5_subset_share: 0.0
+proxy_fault_family_count: 7
+symmetric_proxy_fault_only: true
+guardrail_violation_count: 0
+passes_public_dry_gates: true
+source_diversity_verdict: pass_for_measured_design
+proxy_fault_semantics_verdict: pass_with_scope_boundary
+evidence_claim_verdict: planner_ready_not_self_id_evidence
+measured_mining_design_admitted: true
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1530-paper-route-fresh-ambiguity-measured-mining-design
+```
+
+M1529 does not admit candidate materialization. It admits design of measured
+fixed-policy source mining only.
 
 M1528 fresh ambiguity source-planner implementation:
 
