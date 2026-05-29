@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -155,6 +155,46 @@
     "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv",
     "runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1550_calibrated_pair_expansion_planner_smoke/summary.json",
+    "doc": "docs/m1550-paper-route-calibrated-pair-expansion-planner-implementation.md",
+    "decision": "calibrated_pair_expansion_planner_pair_gate_pass_trace_snapshot_fail_route_to_audit",
+    "focused_tests": "PYTHONPATH=src python -m pytest tests/test_calibrated_pair_expansion_planner.py -q",
+    "focused_test_result": "5 passed",
+    "smoke_command": "PYTHONPATH=src python -m autodrift.calibrated_pair_expansion_planner --output-dir runs/m1550_calibrated_pair_expansion_planner_smoke --accepted-calibrated-rows runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv --seed 1843 --seed-count 3 --max-base-rows 24 --max-calibration-specs 240 --max-pair-candidates 256",
+    "terminal_base_source_rows": 20,
+    "calibration_spec_count": 200,
+    "measured_trace_count": 200,
+    "measured_snapshot_count": 13,
+    "measured_trace_family_count": 5,
+    "pair_candidate_count": 21,
+    "accepted_pair_count": 21,
+    "accepted_source_family_edge_count": 5,
+    "max_single_pair_source_edge_share": 0.38095238095238093,
+    "accepted_terminal_family_count": 4,
+    "accepted_window_bucket_count": 3,
+    "rollout_failure_count": 95,
+    "passes_trace_gates": false,
+    "passes_pair_gates": true,
+    "passes_public_smoke_gates": false,
+    "passes_evidence_quality_targets": false,
+    "guardrail_violation_count": 0,
+    "history_interventions_executed": false,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.json"
+  },
+  "decision": "calibrated_pair_expansion_planner_pair_gate_pass_trace_snapshot_fail_route_to_audit",
   "decision_rule": "M1550 passes if it implements and runs a bounded pair-expansion planner smoke with no interventions and clean guardrails.",
-  "next_blocker": "m1550-paper-route-calibrated-pair-expansion-planner-implementation"
+  "next_blocker": "m1551-paper-route-calibrated-pair-expansion-planner-result-audit"
 }

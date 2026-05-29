@@ -1,0 +1,147 @@
+{
+  "id": "m1551-paper-route-calibrated-pair-expansion-planner-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1550_calibrated_pair_expansion_planner_smoke/summary.json",
+      "docs/m1550-paper-route-calibrated-pair-expansion-planner-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1550-paper-route-calibrated-pair-expansion-planner-implementation.json"
+    ],
+    "parent_objective": [
+      "audit calibrated pair-expansion planner before any intervention design"
+    ],
+    "derived_from": [
+      "m1550-paper-route-calibrated-pair-expansion-planner-implementation"
+    ],
+    "blocked_by": [
+      "M1550 pair gates passed but trace gates failed because measured_snapshot_count was below threshold"
+    ],
+    "supersedes": [
+      "direct pair-expanded history intervention design without M1550 audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.md",
+  "public_gates": [
+    "M1551 must audit M1550 pair gates and trace gates separately",
+    "M1551 must classify whether the snapshot-count failure blocks intervention design",
+    "M1551 must preserve P0 actor input contract",
+    "M1551 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_calibrated_pair_expansion",
+    "evidence_axis": "G_calibrated_pair_expansion_planner_audit",
+    "evidence_increment": "audits M1550 pair-expanded planner result after pair gates pass but trace gates fail",
+    "claim_scope": "process audit only; no interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats pair gate pass as history evidence",
+      "stop if audit ignores the snapshot-count trace gate failure",
+      "stop if audit routes directly to training or materialization"
+    ],
+    "fallback_plan": [
+      "admit bounded intervention design only if pair coverage is judged sufficient despite trace gate failure",
+      "route to snapshot-window repair if measured_snapshot_count blocks evidence quality",
+      "pivot to broader terminal task generation if pair diversity remains insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1550 completed planner smoke with pair gates pass and trace gates fail",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated pair-expansion planner result audit",
+    "admission_evidence": [
+      "M1550 wrote bounded planner artifacts with clean guardrails and no interventions"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1551 audit document",
+      "M1551 status queue scoreboard research log and review",
+      "one follow-up manifest if the audit admits a route"
+    ],
+    "next_stage_criteria": [
+      "pair and trace gates are audited separately",
+      "materialization remains blocked",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1551 audits pair-source coverage only and must not claim history necessity.",
+    "history_necessity_tests": [
+      "none in M1551; history interventions remain blocked until audit decision"
+    ],
+    "temporal_evidence_window": "M1550 bounded public pair-expansion planner smoke only.",
+    "negative_result_policy": "If snapshot-count failure blocks evidence quality, route to repair before any intervention design.",
+    "allowed_claims": [
+      "M1551 audits M1550 pair coverage",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1550's pair-gate pass and trace-gate failure can be classified cleanly enough to decide whether to design pair-expanded interventions or repair snapshot coverage first.",
+  "success_criteria": [
+    "docs/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.md exists",
+    "M1550 pair and trace gates are audited separately",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1550 pair coverage as history evidence",
+    "audit routes directly to training promotion private holdout or materialization",
+    "audit changes actor inputs or weakens self-ID standards"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1550_calibrated_pair_expansion_planner_smoke/summary.json",
+    "docs/m1550-paper-route-calibrated-pair-expansion-planner-implementation.md"
+  ],
+  "decision_rule": "M1551 passes if it classifies M1550 and selects the next route while preserving all no-materialization guardrails.",
+  "next_blocker": "m1551-paper-route-calibrated-pair-expansion-planner-result-audit"
+}

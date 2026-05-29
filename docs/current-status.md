@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1549-paper-route-calibrated-pair-expansion-design
+m1550-paper-route-calibrated-pair-expansion-planner-implementation
 ```
 
 Current next task:
 
 ```text
-m1550-paper-route-calibrated-pair-expansion-planner-implementation
+m1551-paper-route-calibrated-pair-expansion-planner-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -213,6 +213,13 @@ measured pairs first, with gates `accepted_pair_count >= 8`,
 M1550 pair-expansion planner implementation. History interventions, candidate
 materialization, training corpus export, PPO, promotion, private holdout, actor
 input changes, and level3 self-ID claims remain blocked.
+M1550 implemented that planner. It fixed the immediate M1547 pair bottleneck:
+accepted pairs rose to `21`, source-family edges to `5`, accepted terminal
+families to `4`, and window buckets to `3`. Pair gates passed. Public smoke
+still failed because measured snapshot count was only `13`, below the
+pre-registered trace gate. No history interventions were executed. The next
+task is M1551 audit to decide whether snapshot coverage must be repaired before
+pair-expanded interventions.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

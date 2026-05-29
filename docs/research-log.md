@@ -23691,3 +23691,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1549 converts the M1547 bottleneck into a pairability-first planner route. The next milestone must expand calibrated terminal-boundary matched-pair coverage before any history intervention replay.
 - follow-up manifest: `experiments/manifests/m1550-paper-route-calibrated-pair-expansion-planner-implementation.json`.
 - next: `m1550-paper-route-calibrated-pair-expansion-planner-implementation`
+
+## M1550 Paper-Route Calibrated Pair-Expansion Planner Implementation
+
+- status: completed
+- decision: `calibrated_pair_expansion_planner_pair_gate_pass_trace_snapshot_fail_route_to_audit`
+- artifact: `runs/m1550_calibrated_pair_expansion_planner_smoke/summary.json`
+- doc: `docs/m1550-paper-route-calibrated-pair-expansion-planner-implementation.md`
+- code: `src/autodrift/calibrated_pair_expansion_planner.py`
+- tests: `tests/test_calibrated_pair_expansion_planner.py`
+- focused test result: `5 passed`
+- terminal base source rows: 20
+- calibration spec count: 200
+- measured trace count: 200
+- measured snapshot count: 13
+- measured trace family count: 5
+- pair candidate count: 21
+- accepted pair count: 21
+- accepted source-family edge count: 5
+- max single pair source-edge share: 0.38095238095238093
+- accepted terminal family count: 4
+- accepted window bucket count: 3
+- rollout failure count: 95
+- passes trace gates: false
+- passes pair gates: true
+- passes public smoke gates: false
+- passes evidence quality targets: false
+- guardrail violation count: 0
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1550 is a partial positive. Pairability-first expansion fixed the M1547 pair-diversity bottleneck, but measured snapshot coverage remains below the pre-registered trace threshold. Audit before intervention design.
+- follow-up manifest: `experiments/manifests/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.json`.
+- next: `m1551-paper-route-calibrated-pair-expansion-planner-result-audit`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1558,
+    "completed": 1559,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1549-paper-route-calibrated-pair-expansion-design.md",
+    "command_log": "runs/m1550_calibrated_pair_expansion_planner_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1550_calibrated_pair_expansion_planner_smoke",
     "status": "completed",
-    "task_id": "m1549-paper-route-calibrated-pair-expansion-design"
+    "task_id": "m1550-paper-route-calibrated-pair-expansion-planner-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1550-paper-route-calibrated-pair-expansion-planner-implementation.json",
-    "hypothesis": "A bounded no-training planner can expand calibrated terminal-boundary matched-pair coverage beyond the M1547 two-pair bottleneck without running interventions or changing actor inputs.",
-    "id": "m1550-paper-route-calibrated-pair-expansion-planner-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement calibrated pair-expansion planner smoke",
-    "priority": 15450,
+    "command": "see experiments/manifests/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.json",
+    "hypothesis": "M1550's pair-gate pass and trace-gate failure can be classified cleanly enough to decide whether to design pair-expanded interventions or repair snapshot coverage first.",
+    "id": "m1551-paper-route-calibrated-pair-expansion-planner-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit calibrated pair-expansion planner result",
+    "priority": 15460,
     "status": "pending",
-    "success_artifact": "runs/m1550_calibrated_pair_expansion_planner_smoke/summary.json"
+    "success_artifact": "docs/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.md"
   },
-  "updated_at_utc": "20260529T124500Z"
+  "updated_at_utc": "20260529T125500Z"
 }
