@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M1554 audits M1553 as pair bottleneck repaired but history-null and admits temporal active-set redesign before another replay",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1553 as positive self-ID evidence",
+    "audit routes directly to training promotion private holdout or materialization",
+    "audit changes actor inputs or weakens the evidence standard"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run another implementation smoke",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T124945Z",
+  "hypothesis": "M1553's public-pass history-null result can be classified cleanly enough to decide whether to stop the current pair-expanded route or redesign the task/source active set.",
+  "lineage": {
+    "blocked_by": [
+      "M1553 public smoke gates passed but history-positive gates failed"
+    ],
+    "derived_from": [
+      "m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m1553_pair_expanded_calibrated_history_intervention_smoke/summary.json",
+      "docs/m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation.md"
+    ],
+    "parent_objective": [
+      "audit pair-expanded intervention public-pass history-null result"
+    ],
+    "supersedes": [
+      "direct materialization or training after M1553"
+    ]
+  },
+  "milestone": "m1554-paper-route-pair-expanded-intervention-result-audit",
+  "next_blocker": "m1555-paper-route-temporal-active-set-redesign-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pair_expanded_intervention_audit_history_null_route_temporal_active_set_redesign",
+  "public_gates": [
+    "M1554 must audit public pass and history-null evidence separately",
+    "M1554 must classify whether pair-expanded terminal-boundary route should stop, repair, or pivot",
+    "M1554 must preserve P0 actor input contract",
+    "M1554 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1554-paper-route-pair-expanded-intervention-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "pair_expanded_intervention_audit_history_null_route_temporal_active_set_redesign",
+    "milestone": "m1554-paper-route-pair-expanded-intervention-result-audit",
+    "reason": "M1554 audits M1553 as pair bottleneck repaired but history-null and admits temporal active-set redesign before another replay",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1554-paper-route-pair-expanded-intervention-result-audit.md exists",
+    "M1553 public pass and history-null evidence are audited separately",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "type": "gate"
+}

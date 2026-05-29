@@ -23818,3 +23818,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1553 is clean public plumbing but a history-null mechanism result. Public pass must not be treated as self-ID evidence. Route to audit.
 - follow-up manifest: `experiments/manifests/m1554-paper-route-pair-expanded-intervention-result-audit.json`.
 - next: `m1554-paper-route-pair-expanded-intervention-result-audit`
+
+## M1554 Paper-Route Pair-Expanded Intervention Result Audit
+
+- status: completed
+- decision: `pair_expanded_intervention_audit_history_null_route_temporal_active_set_redesign`
+- artifact: `docs/m1554-paper-route-pair-expanded-intervention-result-audit.md`
+- public smoke verdict: pass
+- history evidence verdict: null
+- current pair bottleneck verdict: repaired not sufficient
+- terminal max history margin gap: 0.00025038157254009263
+- terminal wrong-history positive target sides: 0
+- terminal donor-plus-hidden positive target sides: 0
+- terminal wrong-or-donor success drop count: 0
+- admitted route: temporal active-set redesign design
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1554 blocks direct replay repair over the same anchors. Pair coverage was fixed, but mechanism evidence stayed null, so the next route must redesign temporal active-set and anchor criteria before another replay.
+- follow-up manifest: `experiments/manifests/m1555-paper-route-temporal-active-set-redesign-design.json`.
+- next: `m1555-paper-route-temporal-active-set-redesign-design`

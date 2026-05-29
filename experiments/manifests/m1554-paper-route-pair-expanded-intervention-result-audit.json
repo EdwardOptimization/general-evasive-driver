@@ -141,6 +141,32 @@
     "runs/m1553_pair_expanded_calibrated_history_intervention_smoke/summary.json",
     "docs/m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1554-paper-route-pair-expanded-intervention-result-audit.md",
+    "decision": "pair_expanded_intervention_audit_history_null_route_temporal_active_set_redesign",
+    "public_smoke_verdict": "pass",
+    "history_evidence_verdict": "null",
+    "current_pair_bottleneck_verdict": "repaired_not_sufficient",
+    "terminal_max_history_margin_gap": 0.00025038157254009263,
+    "terminal_wrong_history_positive_target_sides": 0,
+    "terminal_donor_plus_hidden_positive_target_sides": 0,
+    "terminal_wrong_or_donor_success_drop_count": 0,
+    "admitted_route": "temporal_active_set_redesign_design",
+    "next_manifest": "experiments/manifests/m1555-paper-route-temporal-active-set-redesign-design.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
+  "decision": "pair_expanded_intervention_audit_history_null_route_temporal_active_set_redesign",
   "decision_rule": "M1554 passes if it classifies M1553 and selects the next route while preserving all no-materialization guardrails.",
-  "next_blocker": "m1554-paper-route-pair-expanded-intervention-result-audit"
+  "next_blocker": "m1555-paper-route-temporal-active-set-redesign-design"
 }

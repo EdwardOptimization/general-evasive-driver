@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1562,
+    "completed": 1563,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1553_pair_expanded_calibrated_history_intervention_smoke/summary.json",
+    "command_log": "docs/m1554-paper-route-pair-expanded-intervention-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1553_pair_expanded_calibrated_history_intervention_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation"
+    "task_id": "m1554-paper-route-pair-expanded-intervention-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1554-paper-route-pair-expanded-intervention-result-audit.json",
-    "hypothesis": "M1553's public-pass history-null result can be classified cleanly enough to decide whether to stop the current pair-expanded route or redesign the task/source active set.",
-    "id": "m1554-paper-route-pair-expanded-intervention-result-audit",
+    "command": "see experiments/manifests/m1555-paper-route-temporal-active-set-redesign-design.json",
+    "hypothesis": "A temporal active-set redesign can address the M1553 null result by selecting anchors where small action or history perturbations can still change terminal outcome.",
+    "id": "m1555-paper-route-temporal-active-set-redesign-design",
     "kind": "gate",
-    "notes": "Pending: audit pair-expanded intervention public-pass history-null result",
-    "priority": 15490,
+    "notes": "Pending: design temporal active-set source and anchor redesign",
+    "priority": 15500,
     "status": "pending",
-    "success_artifact": "docs/m1554-paper-route-pair-expanded-intervention-result-audit.md"
+    "success_artifact": "docs/m1555-paper-route-temporal-active-set-redesign-design.md"
   },
-  "updated_at_utc": "20260529T132500Z"
+  "updated_at_utc": "20260529T133500Z"
 }

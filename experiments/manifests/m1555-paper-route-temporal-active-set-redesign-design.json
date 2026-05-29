@@ -1,0 +1,149 @@
+{
+  "id": "m1555-paper-route-temporal-active-set-redesign-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1554-paper-route-pair-expanded-intervention-result-audit.md",
+      "runs/m1553_pair_expanded_calibrated_history_intervention_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1554-paper-route-pair-expanded-intervention-result-audit.json"
+    ],
+    "parent_objective": [
+      "design temporal active-set source and anchor redesign after pair-expanded history-null result"
+    ],
+    "derived_from": [
+      "m1554-paper-route-pair-expanded-intervention-result-audit"
+    ],
+    "blocked_by": [
+      "M1553 pair-expanded interventions were history-null at the tested anchors"
+    ],
+    "supersedes": [
+      "another direct pair-expanded replay over M1550 anchors"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1555-paper-route-temporal-active-set-redesign-design.md",
+  "public_gates": [
+    "M1555 must design temporal active-set and anchor selection before another replay",
+    "M1555 must require local action-sensitivity evidence before history interventions",
+    "M1555 must preserve P0 actor input contract",
+    "M1555 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_calibrated_pair_expansion",
+    "evidence_axis": "G_temporal_active_set_redesign_design",
+    "evidence_increment": "designs active-set and anchor criteria after M1553 proves pair expansion alone is insufficient",
+    "claim_scope": "design only; no implementation smoke, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design reuses M1550 anchors without stronger active-set criteria",
+      "stop if design routes directly to training or materialization",
+      "stop if design weakens history-positive thresholds",
+      "stop if design changes actor inputs"
+    ],
+    "fallback_plan": [
+      "route to implementation only if local action-sensitivity and temporal-anchor gates are explicit",
+      "route to branch synthesis if the design cannot define a stronger source criterion",
+      "stop current pair-expanded route if another active-set redesign remains null"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1554 admits temporal active-set redesign after M1553 history-null result",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "temporal active-set redesign design",
+    "admission_evidence": [
+      "M1554 classified M1553 as public-pass but history-null"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1555 design document",
+      "M1555 status queue scoreboard research log and review",
+      "one follow-up implementation manifest if the design admits it"
+    ],
+    "next_stage_criteria": [
+      "temporal anchor and active-set gates are explicit",
+      "local action-sensitivity tests are explicit",
+      "history/control gates remain explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1555 is a design milestone and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "planned active-set anchors must precede any wrong-history intervention replay"
+    ],
+    "temporal_evidence_window": "future temporal active-set source/anchor smoke only.",
+    "negative_result_policy": "If temporal active-set redesign cannot produce action-sensitive anchors, stop or synthesize instead of weakening thresholds.",
+    "allowed_claims": [
+      "design route only",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A temporal active-set redesign can address the M1553 null result by selecting anchors where small action or history perturbations can still change terminal outcome.",
+  "success_criteria": [
+    "docs/m1555-paper-route-temporal-active-set-redesign-design.md exists",
+    "design specifies active-set, temporal-anchor, and local action-sensitivity criteria",
+    "design blocks direct replay over M1550 anchors without stronger criteria",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design routes directly to training promotion private holdout or materialization",
+    "design changes actor inputs or weakens history-positive standards",
+    "design ignores M1553 history-null result"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1555-paper-route-temporal-active-set-redesign-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1555-paper-route-temporal-active-set-redesign-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1554-paper-route-pair-expanded-intervention-result-audit.md",
+    "runs/m1553_pair_expanded_calibrated_history_intervention_smoke/summary.json"
+  ],
+  "decision_rule": "M1555 passes if it defines a no-training temporal active-set redesign with explicit local sensitivity and history/control gates.",
+  "next_blocker": "m1555-paper-route-temporal-active-set-redesign-design"
+}

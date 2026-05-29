@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation
+m1554-paper-route-pair-expanded-intervention-result-audit
 ```
 
 Current next task:
 
 ```text
-m1554-paper-route-pair-expanded-intervention-result-audit
+m1555-paper-route-temporal-active-set-redesign-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -242,6 +242,13 @@ specs, and clean guardrails. Evidence gates failed: wrong-history positives,
 donor-plus-hidden positives, donor-stream positives, and success drops were all
 `0`; max history margin gap was only `0.00025038157254009263`. The next task is
 M1554 audit before any repair or branch decision.
+M1554 audited this as a public-pass but history-null result. The M1547 pair
+bottleneck has been repaired, so the null result now points at the temporal
+active set: the tested anchors are likely too late or too terminally stable for
+history perturbations to change outcome. M1554 admits only M1555 temporal
+active-set redesign. Direct replay over the same M1550 anchors, materialization,
+training, PPO, promotion, private holdout, actor-input changes, corpus export,
+and level3 self-ID claims remain blocked.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
