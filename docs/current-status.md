@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1511-paper-route-decisive-history-bounded-runner-implementation
+m1512-paper-route-decisive-history-bounded-runner-result-audit
 ```
 
 Current next task:
 
 ```text
-m1512-paper-route-decisive-history-bounded-runner-result-audit
+m1513-paper-route-decisive-history-source-retarget-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -60,11 +60,41 @@ materialization scaffolding and guards with a synthetic smoke. M1509 synthesized
 M1499-M1508 and promoted the work to a bounded fixed-policy runner branch.
 M1510 designed the bounded fixed-policy source trace runner. M1511 implemented
 that runner and produced bounded public source traces for all six source
-families. The current public-gate base remains M1362 alpha `0.1`:
+families. M1512 audited those traces as plumbing-positive but too safe for
+candidate materialization. The current public-gate base remains M1362 alpha
+`0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1512 decisive history bounded runner result audit:
+
+```text
+decision: bounded_runner_trace_audit_plumbing_pass_margin_uninformative_route_to_source_retarget
+artifact: docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md
+audited_run: runs/m1511_decisive_history_bounded_runner_smoke
+trace_quality_verdict: pass
+candidate_materialization_verdict: not_admissible_yet
+spec/source_family_count: 6/6
+trace_row_count: 525
+snapshot_row_count: 30
+rollout_success/failure_count: 6/0
+source_families_reached_reveal/decision/post_decision: 6/6/6
+min_trace_margin: 4.170293752717424
+default_t5_near_pass_margin_max: 0.03
+label_issue: five of six source families are aeb_feasible
+guardrail_violation_count: 0
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1513-paper-route-decisive-history-source-retarget-design
+```
+
+M1512 blocks direct candidate materialization from M1511. Next is bounded public
+source retargeting so traces become near-boundary and label-diverse before any
+intervention or materialization step.
 
 M1511 decisive history bounded runner implementation:
 

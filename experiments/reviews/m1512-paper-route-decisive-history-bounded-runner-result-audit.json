@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M1512 audits M1511 as trace-plumbing positive but too safe for candidate materialization because min margin is 4.17m and five of six sources are aeb_feasible",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores M1511 guardrails",
+    "audit treats trace reachability as self-ID evidence",
+    "audit starts candidate materialization training PPO promotion private holdout or corpus export"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates during the audit",
+    "do not claim self-identification from bounded runner success"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T090833Z",
+  "hypothesis": "The M1511 bounded runner artifacts are complete enough to audit whether measured candidate materialization should proceed.",
+  "lineage": {
+    "blocked_by": [
+      "trace quality and candidate eligibility must be audited before materialization"
+    ],
+    "derived_from": [
+      "m1511-paper-route-decisive-history-bounded-runner-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1511-paper-route-decisive-history-bounded-runner-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m1511_decisive_history_bounded_runner_smoke/summary.json",
+      "runs/m1511_decisive_history_bounded_runner_smoke/source_trace_rows.csv",
+      "runs/m1511_decisive_history_bounded_runner_smoke/source_snapshot_rows.csv",
+      "docs/m1511-paper-route-decisive-history-bounded-runner-implementation.md"
+    ],
+    "parent_objective": [
+      "audit bounded source traces before measured candidate materialization"
+    ],
+    "supersedes": [
+      "direct candidate materialization from first runner smoke without audit"
+    ]
+  },
+  "milestone": "m1512-paper-route-decisive-history-bounded-runner-result-audit",
+  "next_blocker": "m1513-paper-route-decisive-history-source-retarget-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bounded_runner_trace_audit_plumbing_pass_margin_uninformative_route_to_source_retarget",
+  "public_gates": [
+    "M1512 must audit M1511 trace quality and guardrails",
+    "M1512 must summarize source-family reachability terminal patterns labels and margins",
+    "M1512 must decide whether measured candidate materialization is admissible",
+    "M1512 must not train run PPO promote use private holdout alter actor inputs or export corpus",
+    "M1512 must not claim self-identification from trace reachability alone"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "bounded_runner_trace_audit_plumbing_pass_margin_uninformative_route_to_source_retarget",
+    "milestone": "m1512-paper-route-decisive-history-bounded-runner-result-audit",
+    "reason": "M1512 audits M1511 as trace-plumbing positive but too safe for candidate materialization because min margin is 4.17m and five of six sources are aeb_feasible",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md exists",
+    "audit summarizes trace reachability terminal patterns labels and margin ranges",
+    "audit explicitly decides materialization-admit repair or stop",
+    "audit keeps training PPO promotion private holdout actor-input change corpus export and self-ID claims blocked"
+  ],
+  "type": "gate"
+}

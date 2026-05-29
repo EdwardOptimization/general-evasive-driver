@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1520,
+    "completed": 1521,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1511_decisive_history_bounded_runner_smoke/summary.json",
+    "command_log": "docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1511_decisive_history_bounded_runner_smoke",
+    "run_dir": "docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md",
     "status": "completed",
-    "task_id": "m1511-paper-route-decisive-history-bounded-runner-implementation"
+    "task_id": "m1512-paper-route-decisive-history-bounded-runner-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1512-paper-route-decisive-history-bounded-runner-result-audit.json",
-    "hypothesis": "The M1511 bounded runner artifacts are complete enough to audit whether measured candidate materialization should proceed.",
-    "id": "m1512-paper-route-decisive-history-bounded-runner-result-audit",
+    "command": "see experiments/manifests/m1513-paper-route-decisive-history-source-retarget-design.json",
+    "hypothesis": "A bounded retarget plan can turn the M1511 source families from safe trace plumbing into near-boundary public source traces suitable for later measured interventions.",
+    "id": "m1513-paper-route-decisive-history-source-retarget-design",
     "kind": "gate",
-    "notes": "Pending: audit M1511 source traces before candidate materialization or repair",
-    "priority": 15070,
+    "notes": "Pending: design bounded public source retargeting after M1512 found current traces too safe for materialization",
+    "priority": 15080,
     "status": "pending",
-    "success_artifact": "docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md"
+    "success_artifact": "docs/m1513-paper-route-decisive-history-source-retarget-design.md"
   },
-  "updated_at_utc": "20260529T090200Z"
+  "updated_at_utc": "20260529T090727Z"
 }

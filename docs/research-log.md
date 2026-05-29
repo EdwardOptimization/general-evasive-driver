@@ -22599,3 +22599,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1511 proves bounded public source trace collection works for the six current source families, but it is still trace plumbing rather than decisive-history candidate or self-ID evidence.
 - follow-up manifest: `experiments/manifests/m1512-paper-route-decisive-history-bounded-runner-result-audit.json`.
 - next: `m1512-paper-route-decisive-history-bounded-runner-result-audit`
+
+## M1512 Paper-Route Decisive History Bounded Runner Result Audit
+
+- status: completed
+- decision: `bounded_runner_trace_audit_plumbing_pass_margin_uninformative_route_to_source_retarget`
+- artifact: `docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md`
+- audited run: `runs/m1511_decisive_history_bounded_runner_smoke`
+- trace quality verdict: pass
+- candidate materialization verdict: not admissible yet
+- spec/source family count: 6/6
+- trace row count: 525
+- snapshot row count: 30
+- rollout success/failure count: 6/0
+- source families reached reveal/decision/post-decision: 6/6/6
+- min trace margin: 4.170293752717424
+- default T5 near-pass margin max: 0.03
+- label issue: five of six source families sampled `aeb_feasible`; only `t5_high_speed_close_obstacle` sampled `drift_required`
+- guardrail violation count: 0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1511 runner plumbing works, but the source specs are too safe and lack intervention margins, so direct T4/T5 materialization would be a metric artifact.
+- follow-up manifest: `experiments/manifests/m1513-paper-route-decisive-history-source-retarget-design.json`.
+- next: `m1513-paper-route-decisive-history-source-retarget-design`

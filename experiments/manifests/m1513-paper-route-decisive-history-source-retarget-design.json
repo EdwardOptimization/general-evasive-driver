@@ -1,0 +1,152 @@
+{
+  "id": "m1513-paper-route-decisive-history-source-retarget-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md",
+      "runs/m1511_decisive_history_bounded_runner_smoke/source_trace_rows.csv",
+      "runs/m1511_decisive_history_bounded_runner_smoke/source_snapshot_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1512-paper-route-decisive-history-bounded-runner-result-audit.json"
+    ],
+    "parent_objective": [
+      "design bounded public source retargeting after M1512 found traces too safe for candidate materialization"
+    ],
+    "derived_from": [
+      "m1512-paper-route-decisive-history-bounded-runner-result-audit"
+    ],
+    "blocked_by": [
+      "current M1511 traces are too high-margin and mostly aeb_feasible for decisive-history materialization"
+    ],
+    "supersedes": [
+      "candidate materialization directly from M1511 traces"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1513-paper-route-decisive-history-source-retarget-design.md",
+  "public_gates": [
+    "M1513 must design a bounded public retarget route for near-boundary source traces",
+    "M1513 must identify retarget axes and safety caps",
+    "M1513 must keep trace collection separate from candidate materialization",
+    "M1513 must not train run PPO promote use private holdout alter actor inputs or export corpus",
+    "M1513 must not claim self-identification from retarget design"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not broaden into unbounded random search",
+    "do not claim self-identification from source retargeting"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_decisive_history_bounded_runner",
+    "evidence_axis": "G_decisive_history_source_retarget_design",
+    "evidence_increment": "designs bounded source retargeting after M1512 audited M1511 traces as too safe for materialization",
+    "claim_scope": "retarget design only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if retarget design requires private holdout or broad unbounded search",
+      "stop if retarget axes would inject labels or privileged values into actor inputs",
+      "stop if design conflates retargeted trace collection with candidate materialization",
+      "stop if no bounded retarget axes can plausibly reduce margins"
+    ],
+    "fallback_plan": [
+      "if obstacle retargeting is insufficient, route to source-family redesign",
+      "if fixed policy cannot approach boundary under bounded retargets, route to scenario sampling audit",
+      "if design is sound, route to retarget implementation and small public smoke"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1512 routed from trace audit to source retarget design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded source retarget design",
+    "admission_evidence": [
+      "M1512 found M1511 trace plumbing passed but margins were far above near-pass band and labels were mostly aeb_feasible"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "M1513 retarget design document",
+      "status queue scoreboard research log and review",
+      "one follow-up retarget implementation or blocker manifest"
+    ],
+    "next_stage_criteria": [
+      "retarget axes and caps are explicit",
+      "near-boundary and label-diversity targets are explicit",
+      "trace/candidate separation is explicit",
+      "next implementation or blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1513 designs source retargeting only; it must not turn scenario hardness into a self-identification claim.",
+    "history_necessity_tests": [
+      "retargeted traces must later support wrong/delayed/current-tiled interventions before any history-necessity claim",
+      "design must preserve current/recent/older window metadata for future T4/T5 tests"
+    ],
+    "temporal_evidence_window": "M1511 bounded traces and M1512 audit only.",
+    "negative_result_policy": "If bounded retargeting cannot make traces near-boundary, record a blocker and redesign source families instead of broadening into random search.",
+    "allowed_claims": [
+      "M1513 designs bounded source retargeting",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded retarget plan can turn the M1511 source families from safe trace plumbing into near-boundary public source traces suitable for later measured interventions.",
+  "success_criteria": [
+    "docs/m1513-paper-route-decisive-history-source-retarget-design.md exists",
+    "retarget axes for obstacle distance width lateral offset reveal timing speed friction and capability ranges are explicit",
+    "design names public caps and acceptance metrics for a small retarget smoke",
+    "design keeps candidate materialization training PPO promotion private holdout actor-input changes and corpus export blocked",
+    "design routes to retarget implementation or records a blocker"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "retarget axes or caps are ambiguous",
+    "design uses private holdout or unbounded random search",
+    "design materializes candidates or starts training PPO promotion corpus export or actor-input changes"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1513-paper-route-decisive-history-source-retarget-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1513-paper-route-decisive-history-source-retarget-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md",
+    "runs/m1511_decisive_history_bounded_runner_smoke/summary.json"
+  ],
+  "decision_rule": "M1513 passes if it designs bounded public source retargeting without broad search, candidate materialization, training, or self-ID claims.",
+  "next_blocker": "m1513-paper-route-decisive-history-source-retarget-design"
+}
