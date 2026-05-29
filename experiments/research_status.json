@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1508,
+    "completed": 1509,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1499-paper-route-decisive-history-task-matrix-design.md",
+    "command_log": "docs/m1500-paper-route-decisive-history-task-harness-implementation.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1500_decisive_history_task_harness_smoke",
     "status": "completed",
-    "task_id": "m1499-paper-route-decisive-history-task-matrix-design"
+    "task_id": "m1500-paper-route-decisive-history-task-harness-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1500-paper-route-decisive-history-task-harness-implementation.json",
-    "hypothesis": "The M1499 T4/T5 decisive-history task design can be implemented as a no-training harness with matching diagnostics, intervention labels, and source-diversity summaries.",
-    "id": "m1500-paper-route-decisive-history-task-harness-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-training T4/T5 task harness scaffolding with matching diagnostics and source-diversity summaries",
-    "priority": 14950,
+    "command": "see experiments/manifests/m1501-paper-route-decisive-history-candidate-generation-design.json",
+    "hypothesis": "The decisive-history harness can be connected to a public no-training current-sim candidate-generation route with explicit matching and diversity gates.",
+    "id": "m1501-paper-route-decisive-history-candidate-generation-design",
+    "kind": "gate",
+    "notes": "Pending: design no-training T4/T5 current-sim candidate generation with explicit matching tolerances and source-diversity gates",
+    "priority": 14960,
     "status": "pending",
-    "success_artifact": "docs/m1500-paper-route-decisive-history-task-harness-implementation.md"
+    "success_artifact": "docs/m1501-paper-route-decisive-history-candidate-generation-design.md"
   },
-  "updated_at_utc": "20260529T075000Z"
+  "updated_at_utc": "20260529T080000Z"
 }

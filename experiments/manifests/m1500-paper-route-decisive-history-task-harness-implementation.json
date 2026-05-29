@@ -146,6 +146,37 @@
   "baseline_artifacts": [
     "docs/m1499-paper-route-decisive-history-task-matrix-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1500-paper-route-decisive-history-task-harness-implementation.md",
+    "decision": "decisive_history_task_harness_implemented_admit_candidate_generation_design",
+    "code_paths": [
+      "src/autodrift/decisive_history_tasks.py",
+      "tests/test_decisive_history_tasks.py"
+    ],
+    "focused_test_command": "PYTHONPATH=src python -m pytest tests/test_decisive_history_tasks.py -q",
+    "focused_test_result": "6 passed in 0.14s",
+    "smoke_run_dir": "runs/m1500_decisive_history_task_harness_smoke",
+    "smoke_summary": "runs/m1500_decisive_history_task_harness_smoke/summary.json",
+    "result_class": "decisive_history_task_harness_summary",
+    "candidate_count": 3,
+    "accepted_count": 2,
+    "accepted_t4_count": 1,
+    "accepted_t5_count": 1,
+    "validation_error_count": 1,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1501-paper-route-decisive-history-candidate-generation-design.json"
+  },
+  "decision": "decisive_history_task_harness_implemented_admit_candidate_generation_design",
   "decision_rule": "M1500 passes if it implements no-training T4/T5 task harness scaffolding with focused tests and no actor-input or training shortcut.",
-  "next_blocker": "m1500-paper-route-decisive-history-task-harness-implementation"
+  "next_blocker": "m1501-paper-route-decisive-history-candidate-generation-design"
 }

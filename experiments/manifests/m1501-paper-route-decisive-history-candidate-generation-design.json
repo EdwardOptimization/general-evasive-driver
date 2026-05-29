@@ -1,0 +1,149 @@
+{
+  "id": "m1501-paper-route-decisive-history-candidate-generation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_process_task"
+    ],
+    "parent_dataset": [
+      "docs/m1500-paper-route-decisive-history-task-harness-implementation.md",
+      "runs/m1500_decisive_history_task_harness_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1500-paper-route-decisive-history-task-harness-implementation.json"
+    ],
+    "parent_objective": [
+      "design public no-training candidate generation using the T4/T5 decisive-history harness"
+    ],
+    "derived_from": [
+      "m1500-paper-route-decisive-history-task-harness-implementation"
+    ],
+    "blocked_by": [
+      "the metadata harness exists, but current-sim candidate generation and matching sources are not yet designed"
+    ],
+    "supersedes": [
+      "direct candidate-generation smoke without source/matching design",
+      "training or replay before candidate generation is source-diverse and control-clean"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1501-paper-route-decisive-history-candidate-generation-design.md",
+  "public_gates": [
+    "M1501 must design no-training T4/T5 current-sim candidate generation",
+    "M1501 must name public seeds, source families, matching tolerances, and diversity gates",
+    "M1501 must preserve the actor input contract",
+    "M1501 must block training replay PPO promotion private holdout and corpus export"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not run candidate generation before the design is explicit"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_decisive_history_task_matrix",
+    "evidence_axis": "G_decisive_history_candidate_generation_design",
+    "evidence_increment": "designs the no-training path from current-sim sources into T4/T5 candidate rows",
+    "claim_scope": "design only; no training, PPO, replay, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if source families cannot create matched current/recent candidates",
+      "stop if candidate generation depends on forbidden actor inputs",
+      "stop if source-diversity and current/recent matching gates are not explicit",
+      "stop if design starts replay or training"
+    ],
+    "fallback_plan": [
+      "if T4 generation is too hard, design T5 terminal-boundary generation first",
+      "if both require new simulator hooks, route to a no-training env-hook implementation",
+      "if current sim cannot support decisive candidates honestly, record a simulator-scope blocker"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1500 harness implementation completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "decisive-history candidate-generation design",
+    "admission_evidence": [
+      "M1500 implemented T4/T5 metadata harness and focused tests"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1501 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up no-training candidate-generation smoke manifest"
+    ],
+    "next_stage_criteria": [
+      "source families are explicit",
+      "matching tolerances are explicit",
+      "diversity gates are explicit",
+      "follow-up smoke route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1501 designs candidate generation that explicitly controls current and recent-window substitution; it does not produce self-ID evidence.",
+    "history_necessity_tests": [
+      "design T4 same-current same-recent older-history candidate generation",
+      "design T5 near-boundary terminal-margin candidate generation",
+      "design required current-tiled reset wrong delayed controls"
+    ],
+    "temporal_evidence_window": "design only; no new temporal evidence generated.",
+    "negative_result_policy": "If current-sim candidate generation cannot construct T4/T5 without shortcuts, record that blocker before training or replay.",
+    "allowed_claims": [
+      "M1501 designs no-training candidate generation",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The decisive-history harness can be connected to a public no-training current-sim candidate-generation route with explicit matching and diversity gates.",
+  "success_criteria": [
+    "docs/m1501-paper-route-decisive-history-candidate-generation-design.md exists",
+    "design names T4/T5 source families and public seed policy",
+    "design names current/recent matching tolerances",
+    "design names source-diversity gates",
+    "design blocks training PPO replay promotion private holdout corpus export and actor-input changes"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "source families or matching tolerances are omitted",
+    "diversity gates are omitted",
+    "design starts candidate generation replay PPO training promotion corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1501-paper-route-decisive-history-candidate-generation-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1501-paper-route-decisive-history-candidate-generation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_process_task"
+  ],
+  "baseline_artifacts": [
+    "docs/m1500-paper-route-decisive-history-task-harness-implementation.md",
+    "runs/m1500_decisive_history_task_harness_smoke/summary.json"
+  ],
+  "decision_rule": "M1501 passes if it designs a no-training candidate-generation route before any smoke, replay, or training.",
+  "next_blocker": "m1501-paper-route-decisive-history-candidate-generation-design"
+}

@@ -22345,3 +22345,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1500-paper-route-decisive-history-task-harness-implementation.json`.
 - next: `m1500-paper-route-decisive-history-task-harness-implementation`
+
+## M1500 Paper-Route Decisive History Task Harness Implementation
+
+- status: completed
+- decision: `decisive_history_task_harness_implemented_admit_candidate_generation_design`
+- artifact: `docs/m1500-paper-route-decisive-history-task-harness-implementation.md`
+- code paths: `src/autodrift/decisive_history_tasks.py`, `tests/test_decisive_history_tasks.py`
+- focused tests: `PYTHONPATH=src python -m pytest tests/test_decisive_history_tasks.py -q`
+- focused test result: 6 passed in 0.14s
+- smoke run: `runs/m1500_decisive_history_task_harness_smoke`
+- smoke summary: `runs/m1500_decisive_history_task_harness_smoke/summary.json`
+- candidate count: 3
+- accepted count: 2
+- accepted T4/T5 count: 1/1
+- actor input contract changed: false
+- training/replay/PPO used: false
+- interpretation: metadata-only T4/T5 harness scaffolding is ready for no-training candidate-generation design.
+- follow-up manifest: `experiments/manifests/m1501-paper-route-decisive-history-candidate-generation-design.json`.
+- next: `m1501-paper-route-decisive-history-candidate-generation-design`

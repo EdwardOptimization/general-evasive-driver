@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1500 implements metadata-only T4/T5 harness scaffolding with 6 focused tests passing and no-training smoke accepted 2 of 3 sample candidates",
+  "failure_criteria": [
+    "implementation document is missing",
+    "T4/T5 harness requires forbidden actor inputs",
+    "matching or diversity diagnostics are missing",
+    "focused tests fail",
+    "implementation starts training replay PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim task success before runtime smoke"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260529T080323Z",
+  "hypothesis": "The M1499 T4/T5 decisive-history task design can be implemented as a no-training harness with matching diagnostics, intervention labels, and source-diversity summaries.",
+  "lineage": {
+    "blocked_by": [
+      "T4/T5 decisive task design needs concrete harness support before candidate generation"
+    ],
+    "derived_from": [
+      "m1499-paper-route-decisive-history-task-matrix-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_infrastructure_task"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1499-paper-route-decisive-history-task-matrix-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1499-paper-route-decisive-history-task-matrix-design.md"
+    ],
+    "parent_objective": [
+      "implement no-training T4/T5 decisive-history task harness scaffolding"
+    ],
+    "supersedes": [
+      "training or replay on decisive tasks before task schemas and diagnostics exist"
+    ]
+  },
+  "milestone": "m1500-paper-route-decisive-history-task-harness-implementation",
+  "next_blocker": "m1501-paper-route-decisive-history-candidate-generation-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "decisive_history_task_harness_implemented_admit_candidate_generation_design",
+  "public_gates": [
+    "M1500 must implement no-training T4/T5 task harness scaffolding",
+    "M1500 must expose source-diversity and current/recent-window matching diagnostics",
+    "M1500 must preserve the deployable actor input contract",
+    "M1500 must include focused tests and block training replay PPO promotion and private holdout"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1500_decisive_history_task_harness_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "decisive_history_task_harness_implemented_admit_candidate_generation_design",
+    "milestone": "m1500-paper-route-decisive-history-task-harness-implementation",
+    "reason": "M1500 implements metadata-only T4/T5 harness scaffolding with 6 focused tests passing and no-training smoke accepted 2 of 3 sample candidates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1500-paper-route-decisive-history-task-harness-implementation.md exists",
+    "T4/T5 task schemas or dataclasses exist",
+    "current/recent-window matching diagnostics exist",
+    "source-diversity summaries exist",
+    "focused tests pass",
+    "implementation blocks training PPO replay promotion private holdout corpus export and actor-input changes"
+  ],
+  "type": "infrastructure"
+}

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1499-paper-route-decisive-history-task-matrix-design
+m1500-paper-route-decisive-history-task-harness-implementation
 ```
 
 Current next task:
 
 ```text
-m1500-paper-route-decisive-history-task-harness-implementation
+m1501-paper-route-decisive-history-candidate-generation-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -46,12 +46,35 @@ public pilot with a stop rule. M1497 completed that three-seed public pilot with
 all 36 profile seed runs finite. M1498 audited the result, stopped standard
 profile scaling, and pivoted the paper route to decisive T4/T5
 history-necessity task design. M1499 designed that task matrix and admits a
-no-training task harness implementation. The current public-gate base remains
-M1362 alpha `0.1`:
+no-training task harness implementation. M1500 implemented metadata-only
+T4/T5 harness scaffolding and admits candidate-generation design. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1500 decisive history task harness implementation:
+
+```text
+decision: decisive_history_task_harness_implemented_admit_candidate_generation_design
+artifact: docs/m1500-paper-route-decisive-history-task-harness-implementation.md
+code_paths:
+  src/autodrift/decisive_history_tasks.py
+  tests/test_decisive_history_tasks.py
+focused_tests: 6 passed in 0.14s
+smoke: runs/m1500_decisive_history_task_harness_smoke/summary.json
+candidate_count: 3
+accepted_count: 2
+accepted_t4_count: 1
+accepted_t5_count: 1
+training/replay/PPO used: false
+next: m1501-paper-route-decisive-history-candidate-generation-design
+```
+
+M1500 is infrastructure only. It does not produce task success, training,
+replay, promotion, or self-ID evidence. Next is a no-training design for
+connecting this metadata harness to current-sim public candidate generation.
 
 M1499 decisive history task matrix design:
 
