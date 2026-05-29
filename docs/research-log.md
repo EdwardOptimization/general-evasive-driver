@@ -21250,3 +21250,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1437-paper-route-forward-geometry-source-mining-design.json`.
 - next: `m1437-paper-route-forward-geometry-source-mining-design`
+
+## 20260529T031048Z - m1437-paper-route-forward-geometry-source-mining-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1437-paper-route-forward-geometry-source-mining-design.md`
+- decision: `forward_geometry_source_mining_design_admit_implementation`
+- design: mine earlier source steps `[-32, -24, -16, -8, 0]` relative to reveal and apply source geometry before action divergence.
+- geometry gates: source body-x required `>=4.0`, preferred `>=6.0`; raw relocated body-x required `>=4.0`; relocation clipping false; negative longitudinal offsets disallowed in the first source pass.
+- source smoke targets: geometry-pass rows `>=128`, unique source seeds `>=12`, unique history variants `>=2`, max single seed share `<=0.25`, relocation clipped share `<=0.05`.
+- interpretation: the branch moves from repairing M1425 rows to mining a new geometry-valid source pool.
+- guardrail: no source mining, source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1438-paper-route-forward-geometry-source-miner-implementation.json`.
+- next: `m1438-paper-route-forward-geometry-source-miner-implementation`

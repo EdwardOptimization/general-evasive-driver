@@ -1,0 +1,156 @@
+{
+  "id": "m1438-paper-route-forward-geometry-source-miner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1437-paper-route-forward-geometry-source-mining-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1437-paper-route-forward-geometry-source-mining-design.json"
+    ],
+    "parent_objective": [
+      "implement a no-training forward-geometry source miner after M1437 design"
+    ],
+    "derived_from": [
+      "m1437-paper-route-forward-geometry-source-mining-design"
+    ],
+    "blocked_by": [
+      "M1437 admits implementation only; no source-mining run is admitted yet"
+    ],
+    "supersedes": [
+      "source mining that scores action divergence before geometry",
+      "negative longitudinal relocation offsets in the first source pass"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1438-paper-route-forward-geometry-source-miner-implementation.md",
+  "public_gates": [
+    "M1438 must implement forward geometry source miner without running it",
+    "M1438 must include focused tests for geometry-first filtering and no negative longitudinal offsets",
+    "M1438 must not run source mining source preflight replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source mining",
+    "do not run source preflight",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not lower source geometry gates"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_geometry_aware_preflight_validation",
+    "evidence_axis": "I_forward_geometry_source_miner_implementation",
+    "evidence_increment": "implements geometry-first source miner and tests before any source smoke",
+    "claim_scope": "infrastructure only; no source mining run, source preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if implementation requires actor input changes",
+      "stop if implementation scores action divergence before source geometry",
+      "stop if implementation allows negative longitudinal offsets in first source pass",
+      "stop if implementation runs source mining"
+    ],
+    "fallback_plan": [
+      "route to public source smoke if implementation passes",
+      "route to design repair if source geometry cannot be computed without replay",
+      "route to task-family redesign if implementation needs new environment API"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1437 admits implementation after source-pool timing audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "forward geometry source miner implementation",
+    "admission_evidence": [
+      "M1437 defines geometry-first source mining design",
+      "M1435 found zero geometry-pass rows in M1425 pool"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source mining",
+      "do not run source preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "source miner implementation",
+      "focused tests",
+      "M1438 implementation document",
+      "status queue scoreboard research log and review",
+      "one follow-up source smoke manifest if implementation passes"
+    ],
+    "next_stage_criteria": [
+      "source miner implementation exists",
+      "focused tests pass",
+      "summary schema is specified",
+      "next route is source smoke only"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1438 is infrastructure and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "future source rows only enable later history replay tests",
+      "source-mining rows cannot count as actual history-positive replay evidence"
+    ],
+    "temporal_evidence_window": "M1437 forward geometry source-mining design.",
+    "negative_result_policy": "If implementation cannot preserve geometry-first ordering, route to redesign rather than weakening replay gates.",
+    "allowed_claims": [
+      "source miner implementation and focused test result",
+      "no source mining result, replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A geometry-first source miner can be implemented to sample earlier forward obstacle snapshots before action divergence or replay.",
+  "success_criteria": [
+    "implementation exists",
+    "focused tests cover geometry-first rejection",
+    "focused tests cover source step offsets",
+    "focused tests cover no negative longitudinal offsets",
+    "docs/m1438-paper-route-forward-geometry-source-miner-implementation.md exists",
+    "no source mining source preflight replay training PPO promotion private holdout corpus export or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "implementation is missing",
+    "tests are missing",
+    "implementation lowers M1437 geometry gates",
+    "implementation runs source mining or replay",
+    "implementation changes actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "edit source and tests for forward geometry source miner"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1438-paper-route-forward-geometry-source-miner-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1437-paper-route-forward-geometry-source-mining-design.md"
+  ],
+  "decision_rule": "M1438 passes if it implements geometry-first source mining with focused tests and no run.",
+  "next_blocker": "m1438-paper-route-forward-geometry-source-miner-implementation"
+}

@@ -16,21 +16,40 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1436-paper-route-geometry-preflight-result-audit
+m1437-paper-route-forward-geometry-source-mining-design
 ```
 
 Current next task:
 
 ```text
-m1437-paper-route-forward-geometry-source-mining-design
+m1438-paper-route-forward-geometry-source-miner-implementation
 ```
 
-M1436 audited the geometry-aware preflight-only smoke. The current public-gate base
+M1437 designed forward-geometry source mining. The current public-gate base
 remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1437 result:
+
+```text
+decision: forward_geometry_source_mining_design_admit_implementation
+source_step_offsets_from_reveal: [-32, -24, -16, -8, 0]
+source_body_x_required_gate: 4.0
+source_body_x_preferred_gate: 6.0
+raw_relocated_body_x_required_gate: 4.0
+negative_longitudinal_offsets_allowed: false
+target_geometry_pass_rows: 128
+target_unique_source_seeds: 12
+target_unique_history_variants: 2
+next: m1438-paper-route-forward-geometry-source-miner-implementation
+```
+
+M1438 should implement the geometry-first source miner and focused tests only.
+It must not run source mining, source preflight, replay, training, PPO,
+promotion, private holdout, corpus export, or actor-input changes.
 
 M1436 result:
 
@@ -50,7 +69,7 @@ next: m1437-paper-route-forward-geometry-source-mining-design
 
 M1436 pivots to source mining that prioritizes forward/unclipped geometry before
 action divergence or replay. It explicitly blocks lowering the M1435 geometry
-gates.
+gates. M1437 completed that design.
 
 M1435 result:
 

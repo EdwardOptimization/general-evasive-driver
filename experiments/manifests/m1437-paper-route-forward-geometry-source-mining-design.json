@@ -150,6 +150,41 @@
     "runs/m1435_geometry_aware_preflight_smoke/summary.json",
     "docs/m1436-paper-route-geometry-preflight-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1437-paper-route-forward-geometry-source-mining-design.md",
+    "decision": "forward_geometry_source_mining_design_admit_implementation",
+    "selected_route": "implement_forward_geometry_source_miner_with_focused_tests_only",
+    "source_step_offsets_from_reveal": [
+      -32,
+      -24,
+      -16,
+      -8,
+      0
+    ],
+    "source_body_x_required_gate": 4.0,
+    "source_body_x_preferred_gate": 6.0,
+    "raw_relocated_body_x_required_gate": 4.0,
+    "negative_longitudinal_offsets_allowed": false,
+    "target_geometry_pass_rows": 128,
+    "target_unique_source_seeds": 12,
+    "target_unique_history_variants": 2,
+    "source_mining_started": false,
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1438-paper-route-forward-geometry-source-miner-implementation.json"
+  },
+  "decision": "forward_geometry_source_mining_design_admit_implementation",
   "decision_rule": "M1437 passes if it defines a forward geometry source-mining route before implementation or run.",
-  "next_blocker": "m1437-paper-route-forward-geometry-source-mining-design"
+  "next_blocker": "m1438-paper-route-forward-geometry-source-miner-implementation"
 }

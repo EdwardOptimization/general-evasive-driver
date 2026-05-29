@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1446,
+    "completed": 1447,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1436-paper-route-geometry-preflight-result-audit.md",
+    "command_log": "docs/m1437-paper-route-forward-geometry-source-mining-design.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1436-paper-route-geometry-preflight-result-audit"
+    "task_id": "m1437-paper-route-forward-geometry-source-mining-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1437-paper-route-forward-geometry-source-mining-design.json",
-    "hypothesis": "A new source-mining design can sample earlier or different snapshots so action-divergent rows satisfy forward unclipped geometry before replay.",
-    "id": "m1437-paper-route-forward-geometry-source-mining-design",
-    "kind": "gate",
-    "notes": "Pending: design earlier or alternate source mining that satisfies forward unclipped geometry before replay",
-    "priority": 14320,
+    "command": "see experiments/manifests/m1438-paper-route-forward-geometry-source-miner-implementation.json",
+    "hypothesis": "A geometry-first source miner can be implemented to sample earlier forward obstacle snapshots before action divergence or replay.",
+    "id": "m1438-paper-route-forward-geometry-source-miner-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement geometry-first source miner and tests without source-mining run or replay",
+    "priority": 14330,
     "status": "pending",
-    "success_artifact": "docs/m1437-paper-route-forward-geometry-source-mining-design.md"
+    "success_artifact": "docs/m1438-paper-route-forward-geometry-source-miner-implementation.md"
   },
-  "updated_at_utc": "20260529T030756Z"
+  "updated_at_utc": "20260529T031048Z"
 }
