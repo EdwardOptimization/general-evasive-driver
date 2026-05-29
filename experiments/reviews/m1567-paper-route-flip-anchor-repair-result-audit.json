@@ -1,0 +1,84 @@
+{
+  "decision_reason": "M1567 admits one targeted third-source design for high-speed and late-reveal flip anchors with mandatory synthesis fallback",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1566 as positive self-ID evidence",
+    "audit routes directly to training promotion private holdout materialization or history interventions",
+    "audit changes actor inputs or weakens the evidence standard"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T140732Z",
+  "hypothesis": "M1566's near-miss can be audited cleanly enough to decide whether another bounded source repair is scientifically justified before history interventions.",
+  "lineage": {
+    "blocked_by": [
+      "M1566 has 7 distinct collision-flip anchors and 2 flip source families against thresholds 8 and 3"
+    ],
+    "derived_from": [
+      "m1566-paper-route-flip-anchor-source-generation-repair-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1566-paper-route-flip-anchor-source-generation-repair-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json",
+      "docs/m1566-paper-route-flip-anchor-source-generation-repair-implementation.md"
+    ],
+    "parent_objective": [
+      "audit M1566 near-miss after recoverable and success-flip counts improve but collision-flip/source-family gates still fail"
+    ],
+    "supersedes": [
+      "direct history interventions after M1566 near-miss"
+    ]
+  },
+  "milestone": "m1567-paper-route-flip-anchor-repair-result-audit",
+  "next_blocker": "m1568-paper-route-targeted-third-source-flip-anchor-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "flip_anchor_repair_audit_admit_targeted_third_source_design",
+  "public_gates": [
+    "M1567 must audit M1566 improvements and remaining failures separately",
+    "M1567 must decide whether another narrow source repair is justified or whether branch synthesis is required",
+    "M1567 must preserve P0 actor input contract",
+    "M1567 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1567-paper-route-flip-anchor-repair-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "flip_anchor_repair_audit_admit_targeted_third_source_design",
+    "milestone": "m1567-paper-route-flip-anchor-repair-result-audit",
+    "reason": "M1567 admits one targeted third-source design for high-speed and late-reveal flip anchors with mandatory synthesis fallback",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1567-paper-route-flip-anchor-repair-result-audit.md exists",
+    "M1566 improvements and remaining public-gate failures are audited separately",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "type": "gate"
+}

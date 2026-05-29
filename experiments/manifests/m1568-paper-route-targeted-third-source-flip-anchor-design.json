@@ -1,0 +1,153 @@
+{
+  "id": "m1568-paper-route-targeted-third-source-flip-anchor-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json",
+      "docs/m1567-paper-route-flip-anchor-repair-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1567-paper-route-flip-anchor-repair-result-audit.json"
+    ],
+    "parent_objective": [
+      "design one targeted repair for a third flip source family after M1566 near-miss"
+    ],
+    "derived_from": [
+      "m1567-paper-route-flip-anchor-repair-result-audit"
+    ],
+    "blocked_by": [
+      "M1566 high_speed and late_reveal families have strong recoverable anchors but zero flip anchors"
+    ],
+    "supersedes": [
+      "direct history interventions after M1566",
+      "another broad generator without third-source targeting"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1568-paper-route-targeted-third-source-flip-anchor-design.md",
+  "public_gates": [
+    "M1568 must design a targeted repair for t5_high_speed_close_obstacle and late_reveal_boundary flip anchors",
+    "M1568 must pre-register a hard stop requiring branch synthesis if the next implementation still lacks a third flip source family",
+    "M1568 must not run simulator or history interventions",
+    "M1568 must preserve P0 actor input contract",
+    "M1568 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_recoverable_active_set_generation",
+    "evidence_axis": "G_targeted_third_source_flip_anchor_design",
+    "evidence_increment": "designs a final targeted third-source repair after M1567 audits M1566 as near-miss",
+    "claim_scope": "design only; no simulator run, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design weakens the third-source-family requirement",
+      "stop if design routes directly to history interventions",
+      "stop if design does not include a mandatory branch-synthesis fallback after the next implementation"
+    ],
+    "fallback_plan": [
+      "route to exactly one bounded targeted implementation if design is clean",
+      "route to branch synthesis if targeted repair is not credible",
+      "require synthesis after the next implementation if flip_anchor_source_family_count remains below 3"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1567 admits exactly one targeted third-source design after near-miss",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "targeted third-source flip-anchor repair design",
+    "admission_evidence": [
+      "M1567 finds high_speed and late_reveal have recoverable/strong anchors but zero flip anchors"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1568 design document",
+      "M1568 status queue scoreboard research log and review",
+      "one follow-up implementation manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "third-source targeting gates are explicit",
+      "branch-synthesis fallback is explicit",
+      "history interventions remain blocked",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1568 designs source generation only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "none in M1568; history interventions remain blocked until source-diverse flip anchors pass and are audited"
+    ],
+    "temporal_evidence_window": "M1566 public fixed-policy source-generation repair smoke.",
+    "negative_result_policy": "If targeted third-source repair fails, synthesize the branch instead of weakening source-diversity or self-ID standards.",
+    "allowed_claims": [
+      "targeted third-source flip-anchor repair design",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A targeted design can focus the next source-generation repair on high_speed and late_reveal third-source flip anchors without weakening the evidence standard.",
+  "success_criteria": [
+    "docs/m1568-paper-route-targeted-third-source-flip-anchor-design.md exists",
+    "design targets high_speed and late_reveal third-source flip anchors",
+    "design includes a mandatory branch-synthesis fallback if the next implementation still lacks a third flip source family",
+    "design keeps history interventions materialization training PPO promotion private holdout actor-input changes and training-corpus export blocked",
+    "the next route is explicit"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design routes directly to history interventions training promotion private holdout or materialization",
+    "design changes actor inputs or weakens the evidence standard",
+    "design omits the mandatory synthesis fallback"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1568-paper-route-targeted-third-source-flip-anchor-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1568-paper-route-targeted-third-source-flip-anchor-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json",
+    "docs/m1567-paper-route-flip-anchor-repair-result-audit.md"
+  ],
+  "decision_rule": "M1568 passes if it designs a targeted third-source repair and mandatory synthesis fallback while preserving all no-materialization guardrails.",
+  "next_blocker": "m1568-paper-route-targeted-third-source-flip-anchor-design"
+}

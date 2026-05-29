@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1575,
+    "completed": 1576,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json",
+    "command_log": "docs/m1567-paper-route-flip-anchor-repair-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1566_flip_anchor_source_generation_repair_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1566-paper-route-flip-anchor-source-generation-repair-implementation"
+    "task_id": "m1567-paper-route-flip-anchor-repair-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1567-paper-route-flip-anchor-repair-result-audit.json",
-    "hypothesis": "M1566's near-miss can be audited cleanly enough to decide whether another bounded source repair is scientifically justified before history interventions.",
-    "id": "m1567-paper-route-flip-anchor-repair-result-audit",
+    "command": "see experiments/manifests/m1568-paper-route-targeted-third-source-flip-anchor-design.json",
+    "hypothesis": "A targeted design can focus the next source-generation repair on high_speed and late_reveal third-source flip anchors without weakening the evidence standard.",
+    "id": "m1568-paper-route-targeted-third-source-flip-anchor-design",
     "kind": "gate",
-    "notes": "Pending: audit M1566 near-miss before any further implementation or history intervention design",
-    "priority": 15620,
+    "notes": "Pending: design targeted high-speed and late-reveal repair before any further implementation",
+    "priority": 15630,
     "status": "pending",
-    "success_artifact": "docs/m1567-paper-route-flip-anchor-repair-result-audit.md"
+    "success_artifact": "docs/m1568-paper-route-targeted-third-source-flip-anchor-design.md"
   },
-  "updated_at_utc": "20260529T140019Z"
+  "updated_at_utc": "20260529T140524Z"
 }

@@ -24259,3 +24259,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1566 is a source-generation near-miss. It improves success flips and adds `t5_near_boundary_warmup` flip anchors, but still misses the collision-flip threshold by one anchor and has only two flip source families.
 - follow-up manifest: `experiments/manifests/m1567-paper-route-flip-anchor-repair-result-audit.json`.
 - next: `m1567-paper-route-flip-anchor-repair-result-audit`
+
+## M1567 Paper-Route Flip-Anchor Repair Result Audit
+
+- status: completed
+- decision: `flip_anchor_repair_audit_admit_targeted_third_source_design`
+- artifact: `docs/m1567-paper-route-flip-anchor-repair-result-audit.md`
+- failure taxonomy: `scenario_sampling_failure`
+- recoverable boundary anchor count: 111
+- strong recoverable boundary anchor count: 59
+- distinct collision flip anchor count: 7
+- distinct success flip anchor count: 8
+- flip anchor source family count: 2
+- flip anchor window count: 3
+- credible third-source candidates: `t5_high_speed_close_obstacle`, `late_reveal_boundary`
+- hard stop after next implementation: branch synthesis if `flip_anchor_source_family_count < 3`
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1567 admits exactly one targeted third-source design because high-speed and late-reveal families have strong recoverable anchors but zero flips. If that targeted route fails, synthesize before more implementation.
+- follow-up manifest: `experiments/manifests/m1568-paper-route-targeted-third-source-flip-anchor-design.json`.
+- next: `m1568-paper-route-targeted-third-source-flip-anchor-design`

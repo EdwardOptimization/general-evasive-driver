@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1566-paper-route-flip-anchor-source-generation-repair-implementation
+m1567-paper-route-flip-anchor-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m1567-paper-route-flip-anchor-repair-result-audit
+m1568-paper-route-targeted-third-source-flip-anchor-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -346,6 +346,12 @@ still fail because collision flips are one anchor short and flip anchors cover
 only `2` source families (`t5_boundary_axis_retarget` and
 `t5_near_boundary_warmup`). M1567 must audit this near-miss before any further
 source repair or history-intervention design.
+M1567 audited M1566 as a near-miss that justifies exactly one targeted
+third-source design. `t5_high_speed_close_obstacle` and `late_reveal_boundary`
+already have many recoverable/strong anchors but zero flip anchors, so M1568
+will design a targeted repair for those families. If the next implementation
+still lacks a third flip source family, the branch must synthesize before more
+implementation.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

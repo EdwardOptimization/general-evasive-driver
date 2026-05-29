@@ -145,5 +145,39 @@
     "docs/m1566-paper-route-flip-anchor-source-generation-repair-implementation.md"
   ],
   "decision_rule": "M1567 passes if it audits M1566 and selects the next route while preserving all no-materialization guardrails.",
-  "next_blocker": "m1567-paper-route-flip-anchor-repair-result-audit"
+  "next_blocker": "m1568-paper-route-targeted-third-source-flip-anchor-design",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1567-paper-route-flip-anchor-repair-result-audit.md",
+    "decision": "flip_anchor_repair_audit_admit_targeted_third_source_design",
+    "failure_taxonomy": [
+      "scenario_sampling_failure"
+    ],
+    "recoverable_boundary_anchor_count": 111,
+    "strong_recoverable_boundary_anchor_count": 59,
+    "distinct_collision_flip_anchor_count": 7,
+    "distinct_success_flip_anchor_count": 8,
+    "flip_anchor_source_family_count": 2,
+    "flip_anchor_window_count": 3,
+    "credible_third_source_candidates": [
+      "t5_high_speed_close_obstacle",
+      "late_reveal_boundary"
+    ],
+    "admitted_route": "targeted_third_source_flip_anchor_design",
+    "hard_stop_after_next_implementation": "branch_synthesis_if_flip_anchor_source_family_count_below_3",
+    "next_manifest": "experiments/manifests/m1568-paper-route-targeted-third-source-flip-anchor-design.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
+  "decision": "flip_anchor_repair_audit_admit_targeted_third_source_design"
 }
