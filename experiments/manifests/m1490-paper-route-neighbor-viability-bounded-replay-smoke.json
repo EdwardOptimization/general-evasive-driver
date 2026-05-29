@@ -1,0 +1,160 @@
+{
+  "id": "m1490-paper-route-neighbor-viability-bounded-replay-smoke",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1487_neighbor_viability_preflight_smoke/selected_candidate_rows.csv",
+      "docs/m1489-paper-route-neighbor-viability-bounded-replay-design.md"
+    ],
+    "parent_config": [
+      "configs/m1419_warmup_gate_invasiveness_retune_source_wave.json",
+      "experiments/manifests/m1489-paper-route-neighbor-viability-bounded-replay-design.json"
+    ],
+    "parent_objective": [
+      "run bounded replay smoke over calibrated neighbor-viability preflight-pass candidates"
+    ],
+    "derived_from": [
+      "m1489-paper-route-neighbor-viability-bounded-replay-design"
+    ],
+    "blocked_by": [
+      "bounded replay has not yet been run on M1487 calibrated preflight-pass candidates"
+    ],
+    "supersedes": [
+      "preflight-only evidence as outcome-sensitive replay evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1490-paper-route-neighbor-viability-bounded-replay-smoke.md",
+  "public_gates": [
+    "M1490 must run bounded replay with --candidate-step-column source_step",
+    "M1490 must use --geometry-aware-selector",
+    "M1490 must not train run PPO promote use private holdout export corpus or change actor inputs",
+    "M1490 must report actual replay rows history positives control positives normal failures source diversity and viability-class counts"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat one public replay smoke as paper-level evidence",
+    "do not claim level3 self-identification from one public replay smoke"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_diverse_pressure_validation",
+    "evidence_axis": "S_neighbor_viability_bounded_replay_smoke",
+    "evidence_increment": "runs bounded replay smoke over calibrated neighbor-viability preflight-pass candidates",
+    "claim_scope": "bounded replay smoke only; no training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if selected_candidate_rows < 32",
+      "stop if actual_replay_rows == 0",
+      "stop if candidate_step_column is not source_step",
+      "stop if training_started or ppo_used or promoted is true"
+    ],
+    "fallback_plan": [
+      "route to replay result audit if smoke completes",
+      "route to replay schema audit if smoke aborts before actual replay rows"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1489 admits calibrated neighbor-viability bounded replay smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "neighbor viability bounded replay smoke",
+    "admission_evidence": [
+      "M1487 preflight passed",
+      "M1488 synthesis allowed exactly one calibrated replay before audit",
+      "M1489 bounded replay design passed"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "runs/m1490_neighbor_viability_bounded_replay_smoke",
+      "M1490 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up replay result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "replay smoke completed or failed clearly",
+      "actual replay rows and outcome counts are recorded",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1490 can only make bounded public replay claims; one smoke cannot establish level3 self-identification.",
+    "history_necessity_tests": [
+      "normal history versus selected history variants in bounded replay",
+      "reset and zero-current controls emitted by replay probe",
+      "source-diverse versus source-singleton history-positive analysis in the mandatory audit"
+    ],
+    "temporal_evidence_window": "M1487 selected calibrated candidates and M1489 design.",
+    "negative_result_policy": "If no source-diverse history positives appear, audit and pivot to the L0/L1/L2/L3 go/no-go matrix rather than weakening the claim standard.",
+    "allowed_claims": [
+      "bounded replay smoke result and row counts",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded replay smoke over M1487 calibrated candidates can test whether neighbor viability calibration transfers to outcome-sensitive replay rows.",
+  "success_criteria": [
+    "runs/m1490_neighbor_viability_bounded_replay_smoke/summary.json exists",
+    "summary candidate_step_column equals source_step",
+    "geometry_aware_selector true",
+    "selected_candidate_rows >= 32",
+    "actual_replay_rows > 0",
+    "replay_started true",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "failure_criteria": [
+    "summary missing",
+    "candidate_step_column is not source_step",
+    "actual_replay_rows is zero",
+    "run starts training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "neighbor_viability_bounded_replay_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.bounded_relocation_replay_probe --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m1419_warmup_gate_invasiveness_retune_source_wave.json --candidate-rows runs/m1487_neighbor_viability_preflight_smoke/selected_candidate_rows.csv --geometry-aware-selector --max-candidate-rows 96 --per-capability-pair-cap 16 --per-seed-cap 24 --per-reveal-bucket-cap 12 --per-variant-cap 48 --history-length 56 --recent-window-length 4 --max-continuation-steps 48 --min-margin-gap 0.02 --min-sequence-action-l2 0.025 --min-source-body-x 4.0 --candidate-step-column source_step --device cpu --run-dir runs/m1490_neighbor_viability_bounded_replay_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1490_neighbor_viability_bounded_replay_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1490-paper-route-neighbor-viability-bounded-replay-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1489-paper-route-neighbor-viability-bounded-replay-design.md"
+  ],
+  "decision_rule": "M1490 passes if calibrated neighbor viability bounded replay smoke completes and records actual replay rows without training or promotion.",
+  "next_blocker": "m1490-paper-route-neighbor-viability-bounded-replay-smoke"
+}

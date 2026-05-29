@@ -146,6 +146,29 @@
   "baseline_artifacts": [
     "docs/m1488-paper-route-source-diverse-pressure-validation-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1489-paper-route-neighbor-viability-bounded-replay-design.md",
+    "decision": "neighbor_viability_bounded_replay_design_admit_smoke",
+    "candidate_source": "runs/m1487_neighbor_viability_preflight_smoke/selected_candidate_rows.csv",
+    "candidate_step_column": "source_step",
+    "geometry_aware_selector": true,
+    "max_candidate_rows": 96,
+    "replay_run_dir": "runs/m1490_neighbor_viability_bounded_replay_smoke",
+    "mandatory_followup_audit": true,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1490-paper-route-neighbor-viability-bounded-replay-smoke.json"
+  },
+  "decision": "neighbor_viability_bounded_replay_design_admit_smoke",
   "decision_rule": "M1489 passes if it designs bounded replay for M1487 candidates without running replay or training.",
-  "next_blocker": "m1489-paper-route-neighbor-viability-bounded-replay-design"
+  "next_blocker": "m1490-paper-route-neighbor-viability-bounded-replay-smoke"
 }

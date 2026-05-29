@@ -22139,3 +22139,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1489-paper-route-neighbor-viability-bounded-replay-design.json`.
 - next: `m1489-paper-route-neighbor-viability-bounded-replay-design`
+
+## M1489 Paper-Route Neighbor Viability Bounded Replay Design
+
+- status: completed
+- decision: `neighbor_viability_bounded_replay_design_admit_smoke`
+- artifact: `docs/m1489-paper-route-neighbor-viability-bounded-replay-design.md`
+- candidate source: `runs/m1487_neighbor_viability_preflight_smoke/selected_candidate_rows.csv`
+- required replay flags: `--geometry-aware-selector` and `--candidate-step-column source_step`
+- designed replay run dir: `runs/m1490_neighbor_viability_bounded_replay_smoke`
+- designed max candidate rows: 96
+- mandatory follow-up audit: true
+- hard stop: if replay positives remain source-singleton or control-explained, pivot to the L0/L1/L2/L3 go/no-go matrix rather than continuing this source-diverse pressure loop.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1490-paper-route-neighbor-viability-bounded-replay-smoke.json`.
+- next: `m1490-paper-route-neighbor-viability-bounded-replay-smoke`

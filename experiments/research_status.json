@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1497,
+    "completed": 1498,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1488-paper-route-source-diverse-pressure-validation-synthesis.md",
+    "command_log": "docs/m1489-paper-route-neighbor-viability-bounded-replay-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1488-paper-route-source-diverse-pressure-validation-synthesis"
+    "task_id": "m1489-paper-route-neighbor-viability-bounded-replay-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1489-paper-route-neighbor-viability-bounded-replay-design.json",
-    "hypothesis": "A bounded replay smoke over M1487 preflight-pass calibrated candidates can test whether neighbor viability calibration transfers to outcome-sensitive replay rows.",
-    "id": "m1489-paper-route-neighbor-viability-bounded-replay-design",
-    "kind": "gate",
-    "notes": "Pending: design one calibrated bounded replay over M1487 selected candidates followed by mandatory audit",
-    "priority": 14840,
+    "command": "see experiments/manifests/m1490-paper-route-neighbor-viability-bounded-replay-smoke.json",
+    "hypothesis": "A bounded replay smoke over M1487 calibrated candidates can test whether neighbor viability calibration transfers to outcome-sensitive replay rows.",
+    "id": "m1490-paper-route-neighbor-viability-bounded-replay-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: run one calibrated bounded replay over M1487 selected candidates without training PPO promotion or corpus export",
+    "priority": 14850,
     "status": "pending",
-    "success_artifact": "docs/m1489-paper-route-neighbor-viability-bounded-replay-design.md"
+    "success_artifact": "runs/m1490_neighbor_viability_bounded_replay_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T064000Z"
+  "updated_at_utc": "20260529T064453Z"
 }
