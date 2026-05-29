@@ -1,0 +1,145 @@
+{
+  "id": "m1483-paper-route-neighbor-viability-calibration-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1481_source_diverse_pressure_bounded_replay_smoke/actual_replay_rows.csv",
+      "runs/m1481_source_diverse_pressure_bounded_replay_smoke/history_positive_rows.csv",
+      "runs/m1481_source_diverse_pressure_bounded_replay_smoke/control_positive_rows.csv",
+      "docs/m1482-paper-route-source-diverse-pressure-replay-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1482-paper-route-source-diverse-pressure-replay-result-audit.json"
+    ],
+    "parent_objective": [
+      "design neighbor normal-viability calibration after source-diverse pressure replay positives remain source-singleton"
+    ],
+    "derived_from": [
+      "m1482-paper-route-source-diverse-pressure-replay-result-audit"
+    ],
+    "blocked_by": [
+      "M1481 neighbor-source replay rows did not become history-positive because normal viability and margin-gap pressure were not jointly calibrated"
+    ],
+    "supersedes": [
+      "replaying M1481 source-diverse pressure rows unchanged"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1483-paper-route-neighbor-viability-calibration-design.md",
+  "public_gates": [
+    "M1483 must design neighbor-source calibration before another replay",
+    "M1483 must separate original-source positives neighbor-source failures and controls",
+    "M1483 must block replay training PPO promotion private holdout corpus export and actor-input changes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not replay M1481 rows unchanged",
+    "do not treat source-singleton positives as source-diverse evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_diverse_pressure_validation",
+    "evidence_axis": "S_neighbor_viability_calibration_design",
+    "evidence_increment": "designs neighbor-source normal-viability calibration after M1481 replay positives remain source-singleton",
+    "claim_scope": "calibration design only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design replays original-source positives unchanged",
+      "stop if design ignores neighbor normal-failure rate",
+      "stop if design mixes controls into history-positive criteria"
+    ],
+    "fallback_plan": [
+      "route to calibration implementation if design passes",
+      "route to branch synthesis if neighbor viability cannot be calibrated without overfitting"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1482 classifies M1481 as replay-positive but source-singleton",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "neighbor normal-viability calibration design",
+    "admission_evidence": [
+      "M1482 audited M1481 as replay-positive but source-singleton and control-sensitive"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay in this design milestone",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1483 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up implementation or synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "neighbor viability target is explicit",
+      "control-positive separation is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1483 is design and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future replay must test calibrated neighbor-source rows under normal history, warmup interventions, reset hidden, and zero-current controls"
+    ],
+    "temporal_evidence_window": "M1481 source-diverse pressure bounded replay smoke.",
+    "negative_result_policy": "If calibrated neighbor sources remain source-singleton, route to synthesis or source mining rather than corpus export.",
+    "allowed_claims": [
+      "neighbor normal-viability calibration design",
+      "no replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A neighbor normal-viability calibration design can target source-diverse rows that are normal-viable and margin-gap-sensitive rather than replaying the original source surface.",
+  "success_criteria": [
+    "docs/m1483-paper-route-neighbor-viability-calibration-design.md exists",
+    "design separates original-source positives neighbor-source failures and controls",
+    "design defines too_hard near_boundary and too_easy neighbor classes",
+    "design blocks training PPO promotion private holdout corpus export and actor-input changes",
+    "design routes to implementation or synthesis"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design replays original-source positives unchanged",
+    "design ignores neighbor normal viability",
+    "design starts replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1483-paper-route-neighbor-viability-calibration-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1483-paper-route-neighbor-viability-calibration-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1482-paper-route-source-diverse-pressure-replay-result-audit.md"
+  ],
+  "decision_rule": "M1483 passes if it designs neighbor normal-viability calibration without replay or training.",
+  "next_blocker": "m1483-paper-route-neighbor-viability-calibration-design"
+}

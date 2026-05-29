@@ -16,39 +16,39 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1481-paper-route-source-diverse-pressure-bounded-replay-smoke
+m1482-paper-route-source-diverse-pressure-replay-result-audit
 ```
 
 Current next task:
 
 ```text
-m1482-paper-route-source-diverse-pressure-replay-result-audit
+m1483-paper-route-neighbor-viability-calibration-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
 M1476 ran proposal generation. M1477 synthesized the branch and promoted to
 source-diverse pressure validation. M1478 designed the preflight-only smoke,
-M1479 ran it, M1480 designed bounded replay, and M1481 ran replay. The current
-public-gate base remains M1362 alpha `0.1`:
+M1479 ran it, M1480 designed bounded replay, M1481 ran replay, and M1482 audited
+the source-singleton result. The current public-gate base remains M1362 alpha
+`0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1481 result:
+M1482 audit:
 
 ```text
-decision: source_diverse_pressure_bounded_replay_positive_source_singleton_route_to_audit
-actual_replay_rows: 252
-history_positive_rows: 12
-control_positive_rows: 15
-normal_failed_rows: 150
-actual replay diversity: 5 seeds / 7 capability pairs / 7 reveal buckets / 5 variants
-history-positive diversity: 1 seed / 1 capability pair / 1 reveal bucket / 1 variant
-control-positive diversity: 1 seed / 1 capability pair / 1 reveal bucket / 2 variants
-candidate_step_column: source_step
-next: m1482-paper-route-source-diverse-pressure-replay-result-audit
+decision: source_diverse_pressure_replay_audit_positive_source_singleton_route_to_neighbor_viability_calibration_design
+failure_type: scenario_sampling_failure
+neighbor_source_rows: 216
+neighbor_normal_viable_rows: 66
+neighbor_normal_failed_rows: 150
+neighbor_history_positive_rows: 0
+original_history_positive_rows: 12
+original_control_positive_rows: 15
+next: m1483-paper-route-neighbor-viability-calibration-design
 ```
 
 M1472 result:
@@ -71,9 +71,8 @@ selected_duplicate_positive_neighborhood_key_rows: 0
 selected diversity: 5 seeds / 9 capability pairs / 8 reveal buckets / 3 variants
 ```
 
-M1482 should audit M1481 before any new replay, corpus export, training, or
-promotion. M1481 is replay-positive but still source-singleton and
-control-sensitive.
+M1483 should design neighbor normal-viability calibration before another replay.
+M1481 is replay-positive but still source-singleton and control-sensitive.
 
 M1455 result:
 

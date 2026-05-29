@@ -22014,3 +22014,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1482-paper-route-source-diverse-pressure-replay-result-audit.json`.
 - next: `m1482-paper-route-source-diverse-pressure-replay-result-audit`
+
+## 20260529T073500Z - m1482-paper-route-source-diverse-pressure-replay-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1482-paper-route-source-diverse-pressure-replay-result-audit.md`
+- decision: `source_diverse_pressure_replay_audit_positive_source_singleton_route_to_neighbor_viability_calibration_design`
+- failure type: `scenario_sampling_failure`
+- actual replay rows: `252`
+- actual replay diversity: `5` seeds, `7` capability pairs.
+- history positive rows: `12`, all one source family.
+- control positive rows: `15`, all one source family.
+- neighbor source rows: `216`
+- neighbor normal viable rows: `66`
+- neighbor normal failed rows: `150`
+- neighbor history positives: `0`
+- interpretation: source-diverse proposal/preflight reached replay, but neighbor rows did not jointly hit normal viability and intervention sensitivity.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1483-paper-route-neighbor-viability-calibration-design.json`.
+- next: `m1483-paper-route-neighbor-viability-calibration-design`
