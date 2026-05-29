@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1516,
+    "completed": 1517,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1507-paper-route-decisive-history-rollout-candidate-design.md",
+    "command_log": "docs/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m1507-paper-route-decisive-history-rollout-candidate-design.md",
+    "run_dir": "runs/m1508_decisive_history_rollout_candidate_scaffold_smoke",
     "status": "completed",
-    "task_id": "m1507-paper-route-decisive-history-rollout-candidate-design"
+    "task_id": "m1508-paper-route-decisive-history-rollout-candidate-probe-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.json",
-    "hypothesis": "The M1507 rollout candidate design can be implemented as no-training schemas, distance helpers, and materialization guards with focused tests.",
-    "id": "m1508-paper-route-decisive-history-rollout-candidate-probe-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-training rollout candidate probe scaffolding with focused tests and no corpus export or training",
-    "priority": 15030,
+    "command": "see experiments/manifests/m1509-paper-route-decisive-history-task-matrix-synthesis.json",
+    "hypothesis": "After M1508, the decisive-history task-matrix branch should synthesize evidence before continuing to bounded fixed-policy runner work.",
+    "id": "m1509-paper-route-decisive-history-task-matrix-synthesis",
+    "kind": "gate",
+    "notes": "Pending: synthesize M1499-M1508 before bounded fixed-policy runner design or broad rollout generation",
+    "priority": 15040,
     "status": "pending",
-    "success_artifact": "docs/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.md"
+    "success_artifact": "docs/m1509-paper-route-decisive-history-task-matrix-synthesis.md"
   },
-  "updated_at_utc": "20260529T083907Z"
+  "updated_at_utc": "20260529T084345Z"
 }

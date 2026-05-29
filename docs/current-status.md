@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1507-paper-route-decisive-history-rollout-candidate-design
+m1508-paper-route-decisive-history-rollout-candidate-probe-implementation
 ```
 
 Current next task:
 
 ```text
-m1508-paper-route-decisive-history-rollout-candidate-probe-implementation
+m1509-paper-route-decisive-history-task-matrix-synthesis
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -55,12 +55,38 @@ hook/spec layer needed before rollout probes. M1505 implemented that dry
 hook/spec layer and produced no-training dry-smoke artifacts. M1506 passed
 reset-only current-sim runtime smoke for all six source families after a hook
 sampling repair. M1507 designed measured rollout candidate generation before any
-candidate materialization or corpus export. The current public-gate base remains
-M1362 alpha `0.1`:
+candidate materialization or corpus export. M1508 implemented candidate
+materialization scaffolding and guards with a synthetic smoke. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1508 decisive history rollout candidate probe implementation:
+
+```text
+decision: decisive_history_rollout_candidate_scaffold_implemented_admit_branch_synthesis
+artifact: docs/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.md
+code_paths:
+  src/autodrift/decisive_history_rollout_candidates.py
+  tests/test_decisive_history_rollout_candidates.py
+focused_tests: 5 passed in 0.09s
+scaffold_smoke: runs/m1508_decisive_history_rollout_candidate_scaffold_smoke/summary.json
+measurement_count: 3
+materialized_candidate_count: 2
+rejected_count: 1
+accepted_t4_count: 1
+accepted_t5_count: 1
+candidate_materialized_from_reset_only: false
+training/replay/PPO used: false
+next: m1509-paper-route-decisive-history-task-matrix-synthesis
+```
+
+M1508 is synthetic scaffolding only. It proves the materialization guard blocks
+reset-only evidence; it does not collect real fixed-policy source traces.
+The branch has reached the workflow synthesis cadence, so next is M1509
+synthesis before bounded runner design.
 
 M1507 decisive history rollout candidate design:
 

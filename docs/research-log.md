@@ -22509,3 +22509,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1507 designs how reset-viable hook specs become measured T4/T5 rollout candidates; it is not rollout or self-ID evidence.
 - follow-up manifest: `experiments/manifests/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.json`.
 - next: `m1508-paper-route-decisive-history-rollout-candidate-probe-implementation`
+
+## M1508 Paper-Route Decisive History Rollout Candidate Probe Implementation
+
+- status: completed
+- decision: `decisive_history_rollout_candidate_scaffold_implemented_admit_branch_synthesis`
+- artifact: `docs/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.md`
+- code paths: `src/autodrift/decisive_history_rollout_candidates.py`, `tests/test_decisive_history_rollout_candidates.py`
+- focused tests: `PYTHONPATH=src python -m pytest tests/test_decisive_history_rollout_candidates.py -q`
+- focused test result: 5 passed in 0.09s
+- scaffold smoke run: `runs/m1508_decisive_history_rollout_candidate_scaffold_smoke`
+- scaffold smoke summary: `runs/m1508_decisive_history_rollout_candidate_scaffold_smoke/summary.json`
+- measurement count: 3
+- materialized candidate count: 2
+- rejected count: 1
+- accepted T4/T5 count: 1/1
+- candidate materialized from reset-only: false
+- labels enter actor input: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- interpretation: M1508 implements candidate materialization scaffolding and guards only; real fixed-policy source traces are still not collected.
+- follow-up manifest: `experiments/manifests/m1509-paper-route-decisive-history-task-matrix-synthesis.json`.
+- next: `m1509-paper-route-decisive-history-task-matrix-synthesis`

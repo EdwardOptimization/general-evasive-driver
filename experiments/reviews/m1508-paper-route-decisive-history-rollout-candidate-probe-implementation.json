@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1508 implements rollout candidate scaffolding with 5 focused tests and synthetic smoke materialized 2 measured candidates while rejecting reset-only evidence",
+  "failure_criteria": [
+    "implementation code is missing",
+    "focused tests fail",
+    "materialization guards are missing",
+    "implementation starts training, PPO, promotion, private holdout, or corpus export"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates from reset-only evidence",
+    "do not claim self-identification from scaffolding"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260529T084807Z",
+  "hypothesis": "The M1507 rollout candidate design can be implemented as no-training schemas, distance helpers, and materialization guards with focused tests.",
+  "lineage": {
+    "blocked_by": [
+      "rollout candidate-generation design must become schema/test-covered implementation before public probe"
+    ],
+    "derived_from": [
+      "m1507-paper-route-decisive-history-rollout-candidate-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_infrastructure_task"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1507-paper-route-decisive-history-rollout-candidate-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1507-paper-route-decisive-history-rollout-candidate-design.md",
+      "src/autodrift/decisive_history_env_runtime_smoke.py"
+    ],
+    "parent_objective": [
+      "implement no-training rollout candidate probe scaffolding for T4/T5 decisive-history evidence"
+    ],
+    "supersedes": [
+      "training corpus export before measured rollout candidate schemas"
+    ]
+  },
+  "milestone": "m1508-paper-route-decisive-history-rollout-candidate-probe-implementation",
+  "next_blocker": "m1509-paper-route-decisive-history-task-matrix-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "decisive_history_rollout_candidate_scaffold_implemented_admit_branch_synthesis",
+  "public_gates": [
+    "M1508 must implement rollout candidate schemas and measured-distance helpers",
+    "M1508 must keep reset-only evidence separate from materialized candidates",
+    "M1508 must include focused tests",
+    "M1508 must block training, PPO, promotion, private holdout, actor-input changes, and corpus export",
+    "M1508 must route to a public probe smoke or a bounded runner design"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1508_decisive_history_rollout_candidate_scaffold_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "decisive_history_rollout_candidate_scaffold_implemented_admit_branch_synthesis",
+    "milestone": "m1508-paper-route-decisive-history-rollout-candidate-probe-implementation",
+    "reason": "M1508 implements rollout candidate scaffolding with 5 focused tests and synthetic smoke materialized 2 measured candidates while rejecting reset-only evidence",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "rollout candidate probe implementation code exists",
+    "focused tests pass",
+    "candidate materialization guard prevents reset-only evidence from becoming candidates",
+    "matching helpers avoid forbidden actor inputs",
+    "next public probe smoke or bounded-runner route is explicit"
+  ],
+  "type": "infrastructure"
+}
