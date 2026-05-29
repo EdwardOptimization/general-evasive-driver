@@ -22381,3 +22381,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: no-training candidate-generation route is designed; next is source-plan planner scaffolding, not simulator replay or training.
 - follow-up manifest: `experiments/manifests/m1502-paper-route-decisive-history-candidate-planner-implementation.json`.
 - next: `m1502-paper-route-decisive-history-candidate-planner-implementation`
+
+## M1502 Paper-Route Decisive History Candidate Planner Implementation
+
+- status: completed
+- decision: `decisive_history_candidate_planner_implemented_admit_public_planner_smoke`
+- artifact: `docs/m1502-paper-route-decisive-history-candidate-planner-implementation.md`
+- code paths: `src/autodrift/decisive_history_candidate_planner.py`, `tests/test_decisive_history_candidate_planner.py`
+- focused tests: `PYTHONPATH=src python -m pytest tests/test_decisive_history_candidate_planner.py -q`
+- focused test result: 5 passed in 0.08s
+- smoke run: `runs/m1502_decisive_history_candidate_planner_smoke`
+- generated candidate rows: 12
+- accepted count: 12
+- accepted T4/T5 count: 6/6
+- source plan count: 6
+- unique seeds/capability pairs/geometry/reveal steps: 12/8/12/12
+- max source share: 0.08333333333333333
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- interpretation: no-training source-plan planner scaffolding is ready for public metadata-scale smoke; this is not simulator rollout or self-ID evidence.
+- follow-up manifest: `experiments/manifests/m1503-paper-route-decisive-history-public-planner-smoke.json`.
+- next: `m1503-paper-route-decisive-history-public-planner-smoke`

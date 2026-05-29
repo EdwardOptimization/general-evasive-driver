@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1501-paper-route-decisive-history-candidate-generation-design
+m1502-paper-route-decisive-history-candidate-planner-implementation
 ```
 
 Current next task:
 
 ```text
-m1502-paper-route-decisive-history-candidate-planner-implementation
+m1503-paper-route-decisive-history-public-planner-smoke
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -48,12 +48,35 @@ profile scaling, and pivoted the paper route to decisive T4/T5
 history-necessity task design. M1499 designed that task matrix and admits a
 no-training task harness implementation. M1500 implemented metadata-only
 T4/T5 harness scaffolding. M1501 designed the public no-training
-candidate-generation route and admits source-plan planner implementation. The
-current public-gate base remains M1362 alpha `0.1`:
+candidate-generation route. M1502 implemented the no-training source-plan
+planner and admits public metadata-scale planner smoke. The current public-gate
+base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1502 decisive history candidate planner implementation:
+
+```text
+decision: decisive_history_candidate_planner_implemented_admit_public_planner_smoke
+artifact: docs/m1502-paper-route-decisive-history-candidate-planner-implementation.md
+code_paths:
+  src/autodrift/decisive_history_candidate_planner.py
+  tests/test_decisive_history_candidate_planner.py
+focused_tests: 5 passed in 0.08s
+smoke: runs/m1502_decisive_history_candidate_planner_smoke/summary.json
+generated_candidate_rows: 12
+accepted_count: 12
+accepted_t4_count: 6
+accepted_t5_count: 6
+training/replay/PPO used: false
+next: m1503-paper-route-decisive-history-public-planner-smoke
+```
+
+M1502 is still metadata-only infrastructure. It proves planner compatibility,
+not simulator candidate existence or self-ID. Next is a larger public
+no-training planner smoke with seed-count 11 and M1501 threshold audit.
 
 M1501 decisive history candidate-generation design:
 

@@ -147,6 +147,42 @@
   "baseline_artifacts": [
     "docs/m1501-paper-route-decisive-history-candidate-generation-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1502-paper-route-decisive-history-candidate-planner-implementation.md",
+    "decision": "decisive_history_candidate_planner_implemented_admit_public_planner_smoke",
+    "code_paths": [
+      "src/autodrift/decisive_history_candidate_planner.py",
+      "tests/test_decisive_history_candidate_planner.py"
+    ],
+    "focused_test_command": "PYTHONPATH=src python -m pytest tests/test_decisive_history_candidate_planner.py -q",
+    "focused_test_result": "5 passed in 0.08s",
+    "smoke_run_dir": "runs/m1502_decisive_history_candidate_planner_smoke",
+    "smoke_summary": "runs/m1502_decisive_history_candidate_planner_smoke/summary.json",
+    "result_class": "decisive_history_candidate_planner_summary",
+    "source_plan_count": 6,
+    "generated_candidate_rows": 12,
+    "accepted_count": 12,
+    "accepted_t4_count": 6,
+    "accepted_t5_count": 6,
+    "unique_seeds": 12,
+    "unique_capability_pairs": 8,
+    "unique_geometry_keys": 12,
+    "unique_reveal_steps": 12,
+    "max_source_share": 0.08333333333333333,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1503-paper-route-decisive-history-public-planner-smoke.json"
+  },
+  "decision": "decisive_history_candidate_planner_implemented_admit_public_planner_smoke",
   "decision_rule": "M1502 passes if it implements no-training planner scaffolding with focused tests and no simulator replay or training shortcut.",
-  "next_blocker": "m1502-paper-route-decisive-history-candidate-planner-implementation"
+  "next_blocker": "m1503-paper-route-decisive-history-public-planner-smoke"
 }

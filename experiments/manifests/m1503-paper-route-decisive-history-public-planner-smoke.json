@@ -1,0 +1,161 @@
+{
+  "id": "m1503-paper-route-decisive-history-public-planner-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_infrastructure_task"
+    ],
+    "parent_dataset": [
+      "docs/m1502-paper-route-decisive-history-candidate-planner-implementation.md",
+      "runs/m1502_decisive_history_candidate_planner_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1502-paper-route-decisive-history-candidate-planner-implementation.json"
+    ],
+    "parent_objective": [
+      "run public no-training planner smoke against M1501 candidate-generation thresholds"
+    ],
+    "derived_from": [
+      "m1502-paper-route-decisive-history-candidate-planner-implementation"
+    ],
+    "blocked_by": [
+      "planner implementation needs public-scale no-training smoke before simulator hooks or replay"
+    ],
+    "supersedes": [
+      "simulator replay or training before planner-scale smoke"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1503-paper-route-decisive-history-public-planner-smoke.md",
+  "public_gates": [
+    "M1503 must run no-training planner smoke with seed-count 11",
+    "generated_candidate_rows must be at least 64",
+    "accepted rows and T4/T5 accepted rows must pass M1501 smoke thresholds",
+    "source diversity must pass M1501 smoke thresholds",
+    "training replay PPO promotion private holdout corpus export and actor-input changes must remain false"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run simulator replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim simulator candidate existence from planner metadata"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_decisive_history_task_matrix",
+    "evidence_axis": "G_decisive_history_public_planner_smoke",
+    "evidence_increment": "checks whether the no-training planner can satisfy public metadata-scale candidate thresholds before simulator integration",
+    "claim_scope": "metadata planner smoke only; no training, PPO, simulator replay, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if generated or accepted rows fail public smoke thresholds",
+      "stop if source diversity fails public smoke thresholds",
+      "stop if any no-training guardrail is violated",
+      "stop if result is interpreted as simulator rollout evidence"
+    ],
+    "fallback_plan": [
+      "repair source-plan planner if metadata thresholds fail",
+      "route to env-hook design only if metadata thresholds pass",
+      "record planner blocker if no-training guardrails fail"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1502 planner implementation completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "public no-training planner smoke",
+    "admission_evidence": [
+      "M1502 implements source-plan planner and deterministic focused smoke"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run simulator replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1503 run artifacts",
+      "M1503 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up route manifest"
+    ],
+    "next_stage_criteria": [
+      "planner smoke thresholds evaluated",
+      "next route to env-hook design or planner repair is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1503 is metadata planner smoke only and does not test real current-frame substitution in simulator rollouts.",
+    "history_necessity_tests": [
+      "verify planner emits T4 same-current same-recent older-history metadata",
+      "verify planner emits T5 terminal-boundary metadata",
+      "verify planner preserves current-tiled reset wrong delayed intervention labels"
+    ],
+    "temporal_evidence_window": "metadata planner smoke only; no simulator temporal evidence generated.",
+    "negative_result_policy": "If metadata planner thresholds fail, repair the planner or record the blocker before simulator replay or training.",
+    "allowed_claims": [
+      "M1503 evaluates no-training metadata planner scale",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1502 planner can satisfy M1501 public metadata-scale candidate thresholds with seed-count 11 while keeping all no-training guardrails true.",
+  "success_criteria": [
+    "runs/m1503_decisive_history_public_planner_smoke/summary.json exists",
+    "generated_candidate_rows >= 64",
+    "harness.accepted_count >= 16",
+    "harness.accepted_t4_count >= 4",
+    "harness.accepted_t5_count >= 4",
+    "harness.source_diversity.unique_seeds >= 4",
+    "harness.source_diversity.unique_capability_pairs >= 4",
+    "harness.source_diversity.unique_reveal_steps >= 4",
+    "harness.source_diversity.unique_geometry_keys >= 4",
+    "harness.source_diversity.max_source_share <= 0.35",
+    "labels_enter_actor_input is false",
+    "private_holdout_used is false",
+    "training_started evaluation_started replay_started ppo_used promoted training_corpus_exported actor_input_contract_changed are false"
+  ],
+  "failure_criteria": [
+    "run summary is missing",
+    "public metadata thresholds fail",
+    "any no-training guardrail is violated",
+    "result is interpreted as simulator rollout or self-ID evidence"
+  ],
+  "commands": [
+    {
+      "name": "public_planner_smoke",
+      "command": "PYTHONPATH=src python -m autodrift.decisive_history_candidate_planner --run-dir runs/m1503_decisive_history_public_planner_smoke --seed-count 11"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1503_decisive_history_public_planner_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1503-paper-route-decisive-history-public-planner-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_infrastructure_task"
+  ],
+  "baseline_artifacts": [
+    "docs/m1502-paper-route-decisive-history-candidate-planner-implementation.md",
+    "runs/m1502_decisive_history_candidate_planner_smoke/summary.json"
+  ],
+  "decision_rule": "M1503 passes if the no-training planner satisfies public metadata thresholds and all guardrails remain false.",
+  "next_blocker": "m1503-paper-route-decisive-history-public-planner-smoke"
+}
