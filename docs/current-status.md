@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit
+m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner
 ```
 
 Current next task:
 
 ```text
-m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner
+m1559-paper-route-recoverable-active-set-generation-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -277,6 +277,18 @@ collision outcomes and one-step local overrides produced no success or collision
 flips there. The audit classifies the result as `scenario_sampling_failure` and
 blocks direct history replay or another same-branch narrow miner. The next task
 is M1558 branch synthesis over M1549-M1557 before any further implementation.
+M1558 synthesized M1549-M1557 and closes the current calibrated pair-expansion
+branch as a useful but exhausted public evidence loop. Supported claims:
+calibrated pair expansion repaired the M1547 pair bottleneck, pair-expanded
+intervention replay is clean, and temporal active-set mining works as
+infrastructure. Unsupported claims remain terminal-boundary history necessity,
+candidate materialization, training corpus export, PPO, checkpoint promotion,
+paper-level self-ID evidence, and level3 self-identification. The synthesis
+falsifies the narrower hypotheses that pair count alone would fix the null
+result and that earlier windows over the same sources would create a usable
+active set. The next branch is `paper_route_recoverable_active_set_generation`;
+M1559 must design recoverable source generation before any implementation or
+history-intervention replay.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

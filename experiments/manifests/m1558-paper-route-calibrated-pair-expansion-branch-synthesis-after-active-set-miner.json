@@ -80,7 +80,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1557 reaches the synthesis point for paper_route_calibrated_pair_expansion after a sparse active-set result",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "promote_to_next_branch",
     "synthesis_artifact": "docs/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -184,6 +184,54 @@
     "runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke/summary.json",
     "docs/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md",
+    "decision": "calibrated_pair_expansion_synthesis_promote_to_recoverable_active_set_generation_branch",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesized_range": "M1549-M1557",
+    "supported_claims": [
+      "calibrated pair-expansion can produce larger source-diverse pair sets than M1547",
+      "pair-expanded intervention replay is deterministic and clean at the plumbing level",
+      "direct history intervention over M1550 pairs is null under the tested anchors",
+      "temporal local-action-sensitivity mining can be implemented without training or actor-input changes",
+      "current calibrated sources do not provide source-diverse recoverable active-set anchors"
+    ],
+    "unsupported_claims": [
+      "terminal-boundary history necessity",
+      "T5 terminal wrong-history success-drop evidence",
+      "candidate materialization",
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion",
+      "paper-level self-identification evidence",
+      "level3 anticipatory self-identification"
+    ],
+    "falsified_claims": [
+      "pair count alone was the reason calibrated terminal-boundary intervention was null",
+      "earlier temporal windows over the same calibrated pair-expansion sources are enough to create a usable active set"
+    ],
+    "failure_taxonomy_summary": [
+      "scenario_sampling_failure",
+      "metric_artifact"
+    ],
+    "public_gate_overfit_risk": "high",
+    "next_branch": "paper_route_recoverable_active_set_generation",
+    "next_manifest": "experiments/manifests/m1559-paper-route-recoverable-active-set-generation-design.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
+  "decision": "calibrated_pair_expansion_synthesis_promote_to_recoverable_active_set_generation_branch",
   "decision_rule": "M1558 passes if it synthesizes M1549-M1557 and chooses the next branch before another implementation milestone.",
-  "next_blocker": "m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner"
+  "next_blocker": "m1559-paper-route-recoverable-active-set-generation-design"
 }

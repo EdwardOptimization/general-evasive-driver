@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1566,
+    "completed": 1567,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.md",
+    "command_log": "docs/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit"
+    "task_id": "m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.json",
-    "hypothesis": "After M1557, the calibrated pair-expansion branch has enough evidence and negative results to require synthesis before any further implementation milestone.",
-    "id": "m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner",
+    "command": "see experiments/manifests/m1559-paper-route-recoverable-active-set-generation-design.json",
+    "hypothesis": "A source-generation route that explicitly targets recoverable active-set anchors can overcome the M1556 sparse-active-set blocker before any history intervention replay.",
+    "id": "m1559-paper-route-recoverable-active-set-generation-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1549-M1557 before any further implementation milestone",
-    "priority": 15530,
+    "notes": "Pending: design source-diverse recoverable active-set generation before history interventions",
+    "priority": 15540,
     "status": "pending",
-    "success_artifact": "docs/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md"
+    "success_artifact": "docs/m1559-paper-route-recoverable-active-set-generation-design.md"
   },
-  "updated_at_utc": "20260529T130908Z"
+  "updated_at_utc": "20260529T131300Z"
 }

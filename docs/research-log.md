@@ -23943,3 +23943,40 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1556 does not justify direct history replay. The current branch has repaired pair coverage but still lacks recoverable source-diverse temporal active-set anchors, so another same-branch narrow miner would risk public-row overfitting.
 - follow-up manifest: `experiments/manifests/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.json`.
 - next: `m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner`
+
+## M1558 Paper-Route Calibrated Pair-Expansion Branch Synthesis After Active-Set Miner
+
+- status: completed
+- decision: `calibrated_pair_expansion_synthesis_promote_to_recoverable_active_set_generation_branch`
+- synthesis decision: `promote_to_next_branch`
+- synthesized range: M1549-M1557
+- artifact: `docs/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md`
+- supported claims:
+  - calibrated pair-expansion can produce larger source-diverse pair sets than M1547
+  - pair-expanded intervention replay is deterministic and clean at the plumbing level
+  - direct history intervention over M1550 pairs is null under the tested anchors
+  - temporal local-action-sensitivity mining can be implemented without training or actor-input changes
+  - current calibrated sources do not provide source-diverse recoverable active-set anchors
+- unsupported claims:
+  - terminal-boundary history necessity
+  - T5 terminal wrong-history success-drop evidence
+  - candidate materialization
+  - training corpus export
+  - PPO continuation
+  - checkpoint promotion
+  - paper-level self-identification evidence
+  - level3 anticipatory self-identification
+- falsified claims:
+  - pair count alone was the reason calibrated terminal-boundary intervention was null
+  - earlier temporal windows over the same calibrated pair-expansion sources are enough to create a usable active set
+- failure taxonomy summary: `scenario_sampling_failure`, `metric_artifact`
+- public gate overfit risk: high
+- next branch: `paper_route_recoverable_active_set_generation`
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1558 closes the calibrated pair-expansion branch and promotes to recoverable active-set source generation. The next branch must generate source-diverse anchors that are neither already-colliding nor high-margin safe before any history-intervention replay.
+- follow-up manifest: `experiments/manifests/m1559-paper-route-recoverable-active-set-generation-design.json`.
+- next: `m1559-paper-route-recoverable-active-set-generation-design`

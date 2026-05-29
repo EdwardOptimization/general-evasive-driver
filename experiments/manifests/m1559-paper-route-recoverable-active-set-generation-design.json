@@ -1,0 +1,153 @@
+{
+  "id": "m1559-paper-route-recoverable-active-set-generation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md",
+      "runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.json"
+    ],
+    "parent_objective": [
+      "design recoverable active-set task generation after calibrated pair-expansion synthesis"
+    ],
+    "derived_from": [
+      "m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner"
+    ],
+    "blocked_by": [
+      "M1558 promoted to a new recoverable active-set generation branch before another implementation milestone"
+    ],
+    "supersedes": [
+      "another direct calibrated pair-expansion miner over M1550/M1556 sources"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1559-paper-route-recoverable-active-set-generation-design.md",
+  "public_gates": [
+    "M1559 must design source generation for recoverable terminal-boundary active-set rows",
+    "M1559 must separate already-colliding, high-margin-safe, and recoverable-boundary anchors",
+    "M1559 must specify bounded local controllability diagnostics before any history intervention",
+    "M1559 must preserve P0 actor input contract",
+    "M1559 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_recoverable_active_set_generation",
+    "evidence_axis": "G_recoverable_active_set_generation_design",
+    "evidence_increment": "designs a new branch focused on generating source-diverse recoverable active-set anchors before history interventions",
+    "claim_scope": "design only; no implementation smoke, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design reuses M1550/M1556 rows without new recoverability criteria",
+      "stop if design routes directly to history interventions",
+      "stop if design does not separate already-colliding from recoverable-boundary anchors",
+      "stop if design routes to training or materialization"
+    ],
+    "fallback_plan": [
+      "route to a bounded source generator implementation if design defines objective and gates clearly",
+      "route to broader scenario-family generation if recoverable anchors cannot be specified narrowly",
+      "route to branch stop if no non-oracle recoverable active-set criterion is credible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1558 opens the recoverable active-set generation branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "recoverable active-set generation design",
+    "admission_evidence": [
+      "M1558 closed calibrated pair expansion and promoted to recoverable active-set generation"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1559 design document",
+      "M1559 status queue scoreboard research log and review",
+      "one follow-up implementation manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "recoverable active-set criteria are explicit",
+      "local controllability diagnostics are explicit",
+      "source-diversity gates are explicit",
+      "history interventions remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1559 designs source generation only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "none in M1559; history interventions remain blocked until recoverable active-set gates pass"
+    ],
+    "temporal_evidence_window": "M1559 design-only milestone.",
+    "negative_result_policy": "If recoverable active-set criteria cannot be defined, record branch stop instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "recoverable active-set generation design",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A source-generation route that explicitly targets recoverable active-set anchors can overcome the M1556 sparse-active-set blocker before any history intervention replay.",
+  "success_criteria": [
+    "docs/m1559-paper-route-recoverable-active-set-generation-design.md exists",
+    "design specifies recoverable active-set source criteria",
+    "design specifies bounded local controllability diagnostics such as multi-step local action holds",
+    "design pre-registers source-diversity and active-set gates",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design routes directly to history interventions training promotion private holdout or materialization",
+    "design changes actor inputs or weakens self-ID standards",
+    "design does not address already-colliding versus recoverable-boundary anchors"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1559-paper-route-recoverable-active-set-generation-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1559-paper-route-recoverable-active-set-generation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md",
+    "runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke/summary.json"
+  ],
+  "decision_rule": "M1559 passes if it designs a bounded recoverable active-set source-generation route while preserving all no-materialization guardrails.",
+  "next_blocker": "m1559-paper-route-recoverable-active-set-generation-design"
+}
