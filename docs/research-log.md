@@ -23840,3 +23840,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1554 blocks direct replay repair over the same anchors. Pair coverage was fixed, but mechanism evidence stayed null, so the next route must redesign temporal active-set and anchor criteria before another replay.
 - follow-up manifest: `experiments/manifests/m1555-paper-route-temporal-active-set-redesign-design.json`.
 - next: `m1555-paper-route-temporal-active-set-redesign-design`
+
+## M1555 Paper-Route Temporal Active-Set Redesign Design
+
+- status: completed
+- decision: `temporal_active_set_redesign_admit_bounded_anchor_sensitivity_miner`
+- artifact: `docs/m1555-paper-route-temporal-active-set-redesign-design.md`
+- planned anchor windows:
+  - reveal
+  - reveal_plus_4
+  - decision_minus_16
+  - decision_minus_8
+  - decision
+  - post_decision_8
+- planned local action overrides:
+  - steer_left
+  - steer_right
+  - brake_more
+  - brake_less
+  - steer_left_brake_more
+  - steer_right_brake_more
+- planned min anchor candidates: 64
+- planned min action-sensitive anchors: 12
+- planned min predecision-sensitive anchors: 6
+- planned min source families: 4
+- planned max single family share: 0.4
+- planned min local margin gap: 0.02
+- planned min success flip count: 2
+- interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1555 changes the next evidence step from another history replay to active-set discovery. M1556 must first prove anchors are locally action-sensitive.
+- follow-up manifest: `experiments/manifests/m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation.json`.
+- next: `m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1563,
+    "completed": 1564,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1554-paper-route-pair-expanded-intervention-result-audit.md",
+    "command_log": "docs/m1555-paper-route-temporal-active-set-redesign-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1554-paper-route-pair-expanded-intervention-result-audit"
+    "task_id": "m1555-paper-route-temporal-active-set-redesign-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1555-paper-route-temporal-active-set-redesign-design.json",
-    "hypothesis": "A temporal active-set redesign can address the M1553 null result by selecting anchors where small action or history perturbations can still change terminal outcome.",
-    "id": "m1555-paper-route-temporal-active-set-redesign-design",
-    "kind": "gate",
-    "notes": "Pending: design temporal active-set source and anchor redesign",
-    "priority": 15500,
+    "command": "see experiments/manifests/m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation.json",
+    "hypothesis": "A bounded no-training miner can find temporal anchors where local action perturbations change terminal margin or success, creating a better active set before history interventions.",
+    "id": "m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement temporal active-set anchor sensitivity miner",
+    "priority": 15510,
     "status": "pending",
-    "success_artifact": "docs/m1555-paper-route-temporal-active-set-redesign-design.md"
+    "success_artifact": "runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T133500Z"
+  "updated_at_utc": "20260529T134500Z"
 }

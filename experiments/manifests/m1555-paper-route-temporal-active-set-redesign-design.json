@@ -144,6 +144,48 @@
     "docs/m1554-paper-route-pair-expanded-intervention-result-audit.md",
     "runs/m1553_pair_expanded_calibrated_history_intervention_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1555-paper-route-temporal-active-set-redesign-design.md",
+    "decision": "temporal_active_set_redesign_admit_bounded_anchor_sensitivity_miner",
+    "planned_anchor_windows": [
+      "reveal",
+      "reveal_plus_4",
+      "decision_minus_16",
+      "decision_minus_8",
+      "decision",
+      "post_decision_8"
+    ],
+    "planned_local_action_overrides": [
+      "steer_left",
+      "steer_right",
+      "brake_more",
+      "brake_less",
+      "steer_left_brake_more",
+      "steer_right_brake_more"
+    ],
+    "planned_min_anchor_candidates": 64,
+    "planned_min_action_sensitive_anchors": 12,
+    "planned_min_predecision_sensitive_anchors": 6,
+    "planned_min_source_families": 4,
+    "planned_max_single_family_share": 0.4,
+    "planned_min_local_margin_gap": 0.02,
+    "planned_min_success_flip_count": 2,
+    "interventions_executed": false,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation.json"
+  },
+  "decision": "temporal_active_set_redesign_admit_bounded_anchor_sensitivity_miner",
   "decision_rule": "M1555 passes if it defines a no-training temporal active-set redesign with explicit local sensitivity and history/control gates.",
-  "next_blocker": "m1555-paper-route-temporal-active-set-redesign-design"
+  "next_blocker": "m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation"
 }

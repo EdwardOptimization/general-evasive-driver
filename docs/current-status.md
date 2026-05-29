@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1554-paper-route-pair-expanded-intervention-result-audit
+m1555-paper-route-temporal-active-set-redesign-design
 ```
 
 Current next task:
 
 ```text
-m1555-paper-route-temporal-active-set-redesign-design
+m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -249,6 +249,11 @@ history perturbations to change outcome. M1554 admits only M1555 temporal
 active-set redesign. Direct replay over the same M1550 anchors, materialization,
 training, PPO, promotion, private holdout, actor-input changes, corpus export,
 and level3 self-ID claims remain blocked.
+M1555 designed that route. Before another wrong-history replay, M1556 must mine
+temporal anchors where local action perturbations can still change terminal
+margin or success. Planned anchors include reveal, reveal+4, decision-16,
+decision-8, decision, and post-decision+8. M1556 remains no-training and must
+not run history interventions.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
