@@ -26935,3 +26935,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: rollout task quality, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1682-paper-route-controller-family-bounded-task-source-rollout-design.json`
 - next: `m1682-paper-route-controller-family-bounded-task-source-rollout-design`
+
+## M1682 Paper-Route Controller-Family Bounded Task-Source Rollout Design
+
+- status: completed
+- decision: `bounded_task_source_rollout_design_admit_no_rollout_protocol_preflight`
+- artifact: `docs/m1682-paper-route-controller-family-bounded-task-source-rollout-design.md`
+- primary stratum / diagnostic stratum: `all_72_specs` / `explicit_window_subset`
+- all specs / explicit-window subset / unspecified-window count: `72` / `33` / `39`
+- controller profile count / planned workload cells: `12` / `864`
+- required comparisons: L1 versus L2/L3, L2 normal versus current-tiled, L3 online versus reset, T4 versus T5, all specs versus explicit-window subset
+- blocked: rollout execution, training, replay, PPO, private holdout, promotion, actor-input changes, profile-specific tuning, paper-level claims, level3 self-ID claims
+- supported: one no-rollout protocol preflight is justified
+- unsupported: rollout task quality, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1683-paper-route-controller-family-bounded-rollout-protocol-preflight.json`
+- next: `m1683-paper-route-controller-family-bounded-rollout-protocol-preflight`

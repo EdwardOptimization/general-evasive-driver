@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1690,
+    "completed": 1691,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit.md",
+      "command_log": "docs/m1682-paper-route-controller-family-bounded-task-source-rollout-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit"
+      "task_id": "m1682-paper-route-controller-family-bounded-task-source-rollout-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1682-paper-route-controller-family-bounded-task-source-rollout-design.json",
-      "hypothesis": "A bounded public rollout protocol can be designed over M1680 specs while preserving caveat strata and controller-family controls before execution.",
-      "id": "m1682-paper-route-controller-family-bounded-task-source-rollout-design",
-      "kind": "gate",
-      "notes": "Pending: design bounded rollout protocol without execution",
-      "priority": 16770,
+      "command": "see experiments/manifests/m1683-paper-route-controller-family-bounded-rollout-protocol-preflight.json",
+      "hypothesis": "A no-rollout protocol preflight can materialize a 72-spec by 12-profile workload matrix with required strata and controls before measured execution.",
+      "id": "m1683-paper-route-controller-family-bounded-rollout-protocol-preflight",
+      "kind": "infrastructure",
+      "notes": "Pending: materialize no-rollout rollout protocol and workload matrix",
+      "priority": 16780,
       "status": "pending",
-      "success_artifact": "docs/m1682-paper-route-controller-family-bounded-task-source-rollout-design.md"
+      "success_artifact": "runs/m1683_controller_family_bounded_rollout_protocol_preflight/summary.json"
     },
-    "updated_at_utc": "20260529T231947Z"
+    "updated_at_utc": "20260529T232239Z"
 }

@@ -1,0 +1,166 @@
+{
+  "id": "m1683-paper-route-controller-family-bounded-rollout-protocol-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_rollout_protocol_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m1682-paper-route-controller-family-bounded-task-source-rollout-design.md",
+      "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1682-paper-route-controller-family-bounded-task-source-rollout-design.json"
+    ],
+    "parent_objective": [
+      "materialize no-rollout protocol and workload matrix before measured execution"
+    ],
+    "derived_from": [
+      "m1682-paper-route-controller-family-bounded-task-source-rollout-design"
+    ],
+    "blocked_by": [
+      "need no-rollout protocol preflight before any environment execution"
+    ],
+    "supersedes": [
+      "direct rollout execution after M1682",
+      "direct private holdout after M1682",
+      "direct controller-family ranking after M1682"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1683-paper-route-controller-family-bounded-rollout-protocol-preflight.md",
+  "public_gates": [
+    "M1683 must write summary rollout_protocol and workload_matrix artifacts",
+    "M1683 must not run environment rollout training replay PPO or promotion",
+    "M1683 must include all_72_specs and explicit_window_subset strata",
+    "M1683 must verify 72 specs x 12 profiles workload cells",
+    "M1683 must keep private holdout actor-input changes paper-level claims and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not run environment rollout",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use M1615 hidden tensors or actions as benchmark targets",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "E_bounded_rollout_protocol_preflight",
+    "evidence_increment": "materializes no-rollout protocol and workload matrix before measured execution",
+    "claim_scope": "protocol preflight only; no rollout, training, replay, PPO, promotion, private holdout, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if protocol artifacts are missing",
+      "stop if all-spec or explicit-window strata are missing",
+      "stop if workload matrix omits profiles or specs",
+      "stop if environment rollout or profile-specific tuning occurs"
+    ],
+    "fallback_plan": [
+      "route to protocol audit if preflight passes",
+      "route to rollout-protocol repair if strata or workload cells fail",
+      "route to task-source spec repair if specs are not protocol-compatible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1682 admits exactly one no-rollout protocol preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "bounded rollout protocol preflight",
+    "admission_evidence": [
+      "M1682 designs all_72_specs and explicit_window_subset strata with 72 specs and 12 profiles before execution"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not run environment rollout",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "rollout protocol preflight tooling if needed",
+      "runs/m1683_controller_family_bounded_rollout_protocol_preflight artifacts",
+      "M1683 status queue scoreboard research log and review",
+      "one follow-up audit manifest"
+    ],
+    "next_stage_criteria": [
+      "summary rollout_protocol and workload_matrix artifacts exist",
+      "strata and profile coverage are reported",
+      "rollout count remains zero",
+      "next audit or repair route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; protocol must preserve L1, L2-current-tiled, and L3-reset controls for future rollout.",
+    "history_necessity_tests": [
+      "preflight must report L2 current-tiled and L3 reset comparison columns",
+      "preflight must not claim history necessity from protocol artifacts"
+    ],
+    "temporal_evidence_window": "M1682 design and M1680 specs only.",
+    "negative_result_policy": "If protocol cannot preserve controls or strata, repair before rollout rather than weakening evidence standards.",
+    "allowed_claims": [
+      "no-rollout protocol preflight and route decision",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-rollout protocol preflight can materialize a 72-spec by 12-profile workload matrix with required strata and controls before measured execution.",
+  "success_criteria": [
+    "runs/m1683_controller_family_bounded_rollout_protocol_preflight/summary.json exists",
+    "runs/m1683_controller_family_bounded_rollout_protocol_preflight/rollout_protocol.json exists",
+    "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv exists",
+    "all_72_specs and explicit_window_subset strata are reported",
+    "workload matrix has 864 cells and zero rollout count",
+    "environment rollout training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "required protocol artifacts are missing",
+    "all-spec or explicit-window strata are omitted",
+    "workload matrix cell count is wrong",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "preflight claims controller-family ranking or level3 self-ID"
+  ],
+  "commands": [
+    {
+      "name": "preflight",
+      "command": "create or run no-rollout bounded rollout protocol preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1683_controller_family_bounded_rollout_protocol_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1683_controller_family_bounded_rollout_protocol_preflight/rollout_protocol.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_rollout_protocol_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m1682-paper-route-controller-family-bounded-task-source-rollout-design.md",
+    "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json"
+  ],
+  "decision_rule": "M1683 passes if it writes no-rollout protocol artifacts with complete strata/profile workload coverage.",
+  "next_blocker": "m1683-paper-route-controller-family-bounded-rollout-protocol-preflight"
+}

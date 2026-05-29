@@ -153,6 +153,19 @@
     "docs/m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit.md",
     "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1682-paper-route-controller-family-bounded-task-source-rollout-design.md",
+    "decision": "bounded_task_source_rollout_design_admit_no_rollout_protocol_preflight",
+    "primary_stratum": "all_72_specs",
+    "diagnostic_stratum": "explicit_window_subset",
+    "all_spec_count": 72,
+    "explicit_window_subset_count": 33,
+    "unspecified_window_count": 39,
+    "controller_profile_count": 12,
+    "planned_workload_cells": 864,
+    "next_manifest": "experiments/manifests/m1683-paper-route-controller-family-bounded-rollout-protocol-preflight.json"
+  },
   "decision_rule": "M1682 passes if it designs a bounded rollout protocol and keeps execution blocked.",
-  "next_blocker": "m1682-paper-route-controller-family-bounded-task-source-rollout-design"
+  "next_blocker": "m1683-paper-route-controller-family-bounded-rollout-protocol-preflight"
 }
