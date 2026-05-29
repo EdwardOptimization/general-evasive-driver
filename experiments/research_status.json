@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1598,
+    "completed": 1599,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1589-paper-route-history-vs-control-selector-result-audit.md",
+    "command_log": "docs/m1590-paper-route-clean-history-control-source-generation-repair-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1589-paper-route-history-vs-control-selector-result-audit"
+    "task_id": "m1590-paper-route-clean-history-control-source-generation-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1590-paper-route-clean-history-control-source-generation-repair-design.json",
-    "hypothesis": "The clean history-vs-control selector can define a source-generation repair objective that targets more clean rows instead of broader pairability.",
-    "id": "m1590-paper-route-clean-history-control-source-generation-repair-design",
+    "command": "see experiments/manifests/m1591-paper-route-history-pairability-source-generation-branch-synthesis.json",
+    "hypothesis": "After M1590, the pairability-first source-generation branch has enough positive and negative evidence to require synthesis before any further implementation milestone.",
+    "id": "m1591-paper-route-history-pairability-source-generation-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: design clean history-vs-control source-generation repair",
-    "priority": 15850,
+    "notes": "Pending: synthesize M1581-M1590 before any further implementation",
+    "priority": 15860,
     "status": "pending",
-    "success_artifact": "docs/m1590-paper-route-clean-history-control-source-generation-repair-design.md"
+    "success_artifact": "docs/m1591-paper-route-history-pairability-source-generation-branch-synthesis.md"
   },
-  "updated_at_utc": "20260529T161452Z"
+  "updated_at_utc": "20260529T162040Z"
 }

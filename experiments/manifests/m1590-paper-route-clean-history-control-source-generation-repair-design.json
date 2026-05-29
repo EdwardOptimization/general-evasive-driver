@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -154,6 +154,48 @@
     "runs/m1588_history_vs_control_active_set_selector/clean_directed_pair_rows.csv",
     "docs/m1589-paper-route-history-vs-control-selector-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1590-paper-route-clean-history-control-source-generation-repair-design.md",
+    "decision": "clean_history_control_source_generation_repair_design_route_to_branch_synthesis_before_implementation",
+    "next_manifest": "experiments/manifests/m1591-paper-route-history-pairability-source-generation-branch-synthesis.json",
+    "clean_positive_label": "history_control_separated",
+    "clean_thresholds": {
+      "history_max_gap_min": 0.02,
+      "control_gap_ratio_max": 0.75,
+      "hidden_specific_gap_min": 0.01
+    },
+    "positive_source_edges": [
+      "actuator_delay_step|t5_near_boundary_warmup",
+      "actuator_delay_step|capability_step_up",
+      "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "capability_step_down|t5_near_boundary_warmup"
+    ],
+    "negative_diagnostic_edges": [
+      "capability_step_up|t5_near_boundary_warmup",
+      "capability_step_up|curved_boundary_obstacle",
+      "capability_step_up|t5_boundary_axis_retarget",
+      "capability_step_down|drive_loss_proxy",
+      "capability_step_down|capability_step_up"
+    ],
+    "implementation_decision": "defer_until_branch_synthesis",
+    "failure_taxonomy_summary": [
+      "scenario_sampling_failure"
+    ],
+    "public_gate_overfit_risk": "high",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1590 passes if it designs a clean history-vs-control source-generation repair route before any replay, materialization, or training.",
-  "next_blocker": "m1590-paper-route-clean-history-control-source-generation-repair-design"
+  "next_blocker": "m1591-paper-route-history-pairability-source-generation-branch-synthesis"
 }

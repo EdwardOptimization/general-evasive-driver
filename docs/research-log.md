@@ -24955,3 +24955,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1590-paper-route-clean-history-control-source-generation-repair-design.json`
 - next: `m1590-paper-route-clean-history-control-source-generation-repair-design`
+
+## M1590 Paper-Route Clean History-Control Source-Generation Repair Design
+
+- status: completed
+- decision: `clean_history_control_source_generation_repair_design_route_to_branch_synthesis_before_implementation`
+- artifact: `docs/m1590-paper-route-clean-history-control-source-generation-repair-design.md`
+- failure taxonomy: `scenario_sampling_failure`
+- clean positive label: `history_control_separated`
+- clean thresholds: history gap `>= 0.02`, control gap `< 0.75 * history gap`, hidden-specific gap `>= 0.01`
+- positive source edges:
+  - `actuator_delay_step|t5_near_boundary_warmup`
+  - `actuator_delay_step|capability_step_up`
+  - `curved_boundary_obstacle|t5_boundary_axis_retarget`
+  - `capability_step_down|t5_near_boundary_warmup`
+- negative diagnostics include capability-step-up dominated edges and capability-step-down control-only edges
+- implementation decision: defer until branch synthesis
+- public-gate overfit risk: high
+- history interventions executed: false
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1591-paper-route-history-pairability-source-generation-branch-synthesis.json`
+- next: `m1591-paper-route-history-pairability-source-generation-branch-synthesis`
