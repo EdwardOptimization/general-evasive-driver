@@ -1,0 +1,155 @@
+{
+  "id": "m1549-paper-route-calibrated-pair-expansion-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+      "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv",
+      "runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design calibrated pair expansion after M1547 pair bottleneck"
+    ],
+    "derived_from": [
+      "m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1547 accepted pair count below threshold",
+      "M1547 accepted source-family edge count is one",
+      "terminal-boundary history effects are null on the narrow pair subset"
+    ],
+    "supersedes": [
+      "direct calibrated intervention repair inside the closed fresh-ambiguity branch"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1549-paper-route-calibrated-pair-expansion-design.md",
+  "public_gates": [
+    "M1549 must design pair expansion before another intervention implementation",
+    "M1549 must keep calibrated pairability as a first-class source-generation objective",
+    "M1549 must preserve P0 actor input contract",
+    "M1549 must block materialization, training, PPO, promotion, and private holdout"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_calibrated_pair_expansion",
+    "evidence_axis": "G_calibrated_pair_expansion_design",
+    "evidence_increment": "designs a new no-training branch to expand calibrated measured pair coverage after M1547 pair-narrow null result",
+    "claim_scope": "design only; no implementation smoke, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design does not address pair diversity directly",
+      "stop if design routes directly to materialization or training",
+      "stop if design weakens history-positive thresholds to pass M1547",
+      "stop if design continues the closed paper_route_fresh_ambiguity_source_mining branch"
+    ],
+    "fallback_plan": [
+      "route to implementation only if pairability and source-diversity gates are explicit",
+      "pivot to broader task generation if pair expansion cannot be specified without overfitting to M1547",
+      "stop terminal-boundary materialization if pair-expanded intervention remains null"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1548 opens a new calibrated pair-expansion branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated pair-expansion design",
+    "admission_evidence": [
+      "M1548 closed the previous branch and promoted to calibrated pair expansion"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1549 design document",
+      "M1549 status queue scoreboard research log and review",
+      "one follow-up implementation manifest if the design admits it"
+    ],
+    "next_stage_criteria": [
+      "pair-expansion objective and caps are explicit",
+      "source-diversity and pair-diversity gates are explicit",
+      "history/control gates remain unchanged or stricter",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1549 is a design milestone and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "planned wrong-history donor-hidden interventions",
+      "planned donor response/action stream interventions",
+      "planned reset, zero-current, zero-action, and delayed controls"
+    ],
+    "temporal_evidence_window": "future calibrated pair-expanded public smoke only.",
+    "negative_result_policy": "If pair expansion remains narrow or null, record the branch result and stop or pivot rather than lowering thresholds.",
+    "allowed_claims": [
+      "design route only",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A pair-expansion design can address the M1547 bottleneck by making calibrated matched-pair diversity the source objective before any further terminal-boundary interventions.",
+  "success_criteria": [
+    "docs/m1549-paper-route-calibrated-pair-expansion-design.md exists",
+    "design specifies calibrated pairability metrics and caps",
+    "design specifies source-family edge, pair count, and max-share gates",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design routes directly to training promotion private holdout or materialization",
+    "design changes actor inputs or weakens history-positive standards",
+    "design ignores M1547 pair bottleneck"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1549-paper-route-calibrated-pair-expansion-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1549-paper-route-calibrated-pair-expansion-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+    "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv",
+    "runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json"
+  ],
+  "decision_rule": "M1549 passes if it defines a no-training calibrated pair-expansion plan with explicit pair-diversity and history/control gates.",
+  "next_blocker": "m1549-paper-route-calibrated-pair-expansion-design"
+}

@@ -1,0 +1,227 @@
+{
+  "id": "m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1538_fresh_ambiguity_history_intervention_repeat/summary.json",
+      "runs/m1541_terminal_boundary_source_repair_smoke/summary.json",
+      "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/summary.json",
+      "runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.json",
+      "experiments/manifests/m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation.json"
+    ],
+    "parent_objective": [
+      "synthesize M1538-M1547 fresh ambiguity and calibrated terminal-boundary evidence before another narrow repair"
+    ],
+    "derived_from": [
+      "m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis",
+      "m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1547",
+      "M1547 accepted only two calibrated pairs on one source-family edge",
+      "terminal-boundary history effects were null on the calibrated pair subset"
+    ],
+    "supersedes": [
+      "ordinary M1548 result audit without branch synthesis",
+      "direct calibrated terminal-boundary pair-expansion implementation without synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+  "public_gates": [
+    "M1548 must synthesize M1538-M1547 before another implementation milestone",
+    "M1548 must separate non-terminal positives, terminal source-window calibration, calibrated pair bottlenecks, and null terminal-history effects",
+    "M1548 must state supported and unsupported claims",
+    "M1548 must assess public-gate overfit risk",
+    "M1548 must choose continue, pivot, stop, or promote_to_next_branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "S_fresh_ambiguity_source_mining_branch_synthesis_after_calibrated_terminal_probe",
+    "evidence_increment": "synthesizes M1538-M1547 after source-expanded positives, terminal-boundary source repair, task calibration, and calibrated intervention null result",
+    "claim_scope": "branch synthesis only; no implementation smoke, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats M1538 non-terminal positives as terminal-boundary self-ID proof",
+      "stop if synthesis ignores M1547 pair narrowness",
+      "stop if synthesis routes directly to training, corpus export, or candidate materialization",
+      "stop if synthesis continues the same branch past cadence without a new branch decision"
+    ],
+    "fallback_plan": [
+      "promote to a new calibrated pair-expansion branch if terminal source-window calibration is useful but pair construction is the blocker",
+      "pivot to broader task generation if calibrated pair expansion is not credible",
+      "stop terminal-boundary history-positive route if another calibrated pair expansion remains null",
+      "keep non-terminal M1538 positives as public diagnostic evidence only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1547 reaches the cadence limit for paper_route_fresh_ambiguity_source_mining after a calibrated terminal-boundary intervention null result",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fresh ambiguity source-mining branch synthesis after calibrated terminal-boundary probe",
+    "admission_evidence": [
+      "M1538 produced source-expanded non-terminal history-intervention positives",
+      "M1544 produced calibrated near-boundary terminal rows",
+      "M1547 produced clean calibrated intervention plumbing but pair-narrow null effects",
+      "workflow synthesis cadence fired after M1547"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote a checkpoint",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1548 synthesis document",
+      "M1548 status queue scoreboard research log and review",
+      "one follow-up manifest in a new branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis decision is explicit",
+      "supported and unsupported claims are explicit",
+      "next branch decision is explicit",
+      "public-gate overfit risk is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1548 must not convert M1538 or M1547 public intervention signals into level3 self-ID claims.",
+    "history_necessity_tests": [
+      "synthesize M1538 wrong-history and donor-plus-hidden positives",
+      "synthesize M1541/M1547 terminal-boundary null effects",
+      "decide whether calibrated pair expansion is still justified"
+    ],
+    "temporal_evidence_window": "M1538-M1547 fresh ambiguity and calibrated terminal-boundary public evidence.",
+    "negative_result_policy": "If terminal-boundary evidence is pair-narrow or null, close the current branch and require a new branch with explicit pair-expansion stop conditions.",
+    "allowed_claims": [
+      "branch synthesis and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "After M1547, the branch has reached synthesis cadence and should close the current fresh-ambiguity source-mining loop before any further calibrated repair.",
+  "success_criteria": [
+    "docs/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md exists",
+    "synthesis summarizes M1538-M1547 evidence",
+    "supported and unsupported claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis treats M1538 or M1547 as level3 self-ID evidence",
+    "synthesis ignores M1547 pair narrowness and null effects",
+    "synthesis routes directly to training, PPO, promotion, private holdout, corpus export, actor-input changes, or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1538_fresh_ambiguity_history_intervention_repeat/summary.json",
+    "runs/m1541_terminal_boundary_source_repair_smoke/summary.json",
+    "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/summary.json",
+    "runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+    "decision": "fresh_ambiguity_source_mining_synthesis_promote_to_calibrated_pair_expansion_branch",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesized_range": "M1538-M1547",
+    "supported_claims": [
+      "M1538 provides source-expanded public non-terminal history-intervention sensitivity",
+      "M1544 repairs the terminal source-window problem enough to create calibrated near-boundary terminal rows",
+      "M1547 confirms calibrated measured trace and intervention plumbing with clean guardrails",
+      "the remaining blocker is calibrated matched-pair coverage, not actor-input contract or replay determinism"
+    ],
+    "unsupported_claims": [
+      "terminal-boundary history-positive evidence",
+      "T5 terminal wrong-history success-drop evidence",
+      "candidate materialization",
+      "training corpus export",
+      "paper-level evidence",
+      "level3 anticipatory self-identification",
+      "policy superiority"
+    ],
+    "failure_taxonomy_summary": [
+      "scenario_sampling_failure",
+      "metric_artifact"
+    ],
+    "public_gate_overfit_risk": "high",
+    "next_branch": "paper_route_calibrated_pair_expansion",
+    "next_manifest": "experiments/manifests/m1549-paper-route-calibrated-pair-expansion-design.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
+  "decision": "fresh_ambiguity_source_mining_synthesis_promote_to_calibrated_pair_expansion_branch",
+  "decision_rule": "M1548 passes if it synthesizes M1538-M1547 and promotes only to a new no-training calibrated pair-expansion branch.",
+  "next_blocker": "m1549-paper-route-calibrated-pair-expansion-design"
+}

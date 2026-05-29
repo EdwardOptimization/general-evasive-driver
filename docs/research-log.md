@@ -23589,3 +23589,77 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1546 admits a bounded implementation that must reconstruct M1544 calibrated specs, rerun measured traces with response/context vectors, build matched current-state/scene pairs, and run history interventions with reset/zero-current controls separated.
 - follow-up manifest: `experiments/manifests/m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation.json`.
 - next: `m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation`
+
+## M1547 Paper-Route Calibrated Terminal-Boundary History-Intervention Implementation
+
+- status: completed
+- decision: `calibrated_terminal_boundary_history_intervention_smoke_pair_narrow_null_route_to_audit`
+- artifact: `runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json`
+- doc: `docs/m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation.md`
+- code: `src/autodrift/calibrated_terminal_boundary_history_interventions.py`
+- tests: `tests/test_calibrated_terminal_boundary_history_interventions.py`
+- focused test result: `4 passed`
+- accepted calibrated source count: 8
+- measured trace count: 8
+- measured snapshot count: 10
+- measured trace family count: 4
+- accepted pair count: 2
+- accepted source-family edge count: 1
+- max single pair source-edge share: 1.0
+- intervention row count: 40
+- anchor replay failure count: 0
+- terminal wrong-history positive target sides: 0
+- terminal donor-plus-hidden positive target sides: 0
+- terminal donor stream positive target sides: 0
+- terminal wrong-or-donor success drop count: 0
+- terminal max history margin gap: 0.0
+- terminal max control margin gap: 0.0
+- passes measured trace gates: false
+- passes pair gates: false
+- passes history-positive gates: false
+- passes control gate: true
+- passes public smoke gates: false
+- passes evidence quality targets: false
+- guardrail violation count: 0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1547 proves calibrated intervention plumbing works, but the accepted matched-pair set is too narrow and history effects are null on that narrow set. It must route to branch synthesis before another repair.
+- follow-up manifest: `experiments/manifests/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.json`.
+- next: `m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis`
+
+## M1548 Paper-Route Fresh Ambiguity Source-Mining Branch Synthesis
+
+- status: completed
+- decision: `fresh_ambiguity_source_mining_synthesis_promote_to_calibrated_pair_expansion_branch`
+- synthesis decision: `promote_to_next_branch`
+- artifact: `docs/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md`
+- synthesized range: `M1538-M1547`
+- supported claims:
+  - M1538 provides source-expanded public non-terminal history-intervention sensitivity.
+  - M1544 repairs the terminal source-window problem enough to create calibrated near-boundary terminal rows.
+  - M1547 confirms calibrated measured trace and intervention plumbing with clean guardrails.
+  - the remaining blocker is calibrated matched-pair coverage, not actor-input contract or replay determinism.
+- unsupported claims:
+  - terminal-boundary history-positive evidence
+  - T5 terminal wrong-history success-drop evidence
+  - candidate materialization
+  - training corpus export
+  - paper-level evidence
+  - level3 anticipatory self-identification
+  - policy superiority
+- failure taxonomy summary:
+  - `scenario_sampling_failure`
+  - `metric_artifact`
+- public-gate overfit risk: high
+- next branch: `paper_route_calibrated_pair_expansion`
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1548 closes the current fresh-ambiguity source-mining branch because another narrow repair would overfit public terminal-boundary gates. It preserves non-terminal positives as diagnostic evidence and starts a no-training calibrated pair-expansion branch to address the M1547 pair bottleneck.
+- follow-up manifest: `experiments/manifests/m1549-paper-route-calibrated-pair-expansion-design.json`.
+- next: `m1549-paper-route-calibrated-pair-expansion-design`

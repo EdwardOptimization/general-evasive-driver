@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1555,
+    "completed": 1557,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1546-paper-route-calibrated-terminal-boundary-history-intervention-design.md",
+    "command_log": "docs/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1546-paper-route-calibrated-terminal-boundary-history-intervention-design"
+    "task_id": "m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation.json",
-    "hypothesis": "A bounded implementation can run calibrated terminal-boundary history interventions over matched measured pairs without changing actor inputs or materializing candidates.",
-    "id": "m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded calibrated measured-pair terminal-boundary history interventions",
-    "priority": 15420,
+    "command": "see experiments/manifests/m1549-paper-route-calibrated-pair-expansion-design.json",
+    "hypothesis": "A pair-expansion design can address the M1547 bottleneck by making calibrated matched-pair diversity the source objective before any further terminal-boundary interventions.",
+    "id": "m1549-paper-route-calibrated-pair-expansion-design",
+    "kind": "gate",
+    "notes": "Pending: design calibrated terminal-boundary pair expansion after branch synthesis",
+    "priority": 15440,
     "status": "pending",
-    "success_artifact": "runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json"
+    "success_artifact": "docs/m1549-paper-route-calibrated-pair-expansion-design.md"
   },
-  "updated_at_utc": "20260529T120744Z"
+  "updated_at_utc": "20260529T123500Z"
 }

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1546-paper-route-calibrated-terminal-boundary-history-intervention-design
+m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation
+m1549-paper-route-calibrated-pair-expansion-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -190,6 +190,21 @@ snapshots, building matched scene/current-state pairs, and only then running
 wrong-history/donor/stream/delayed/reset/zero-current interventions. The next
 task is the bounded M1547 implementation smoke; materialization and training
 remain blocked.
+M1547 implemented that smoke and produced a negative/narrow result. All `8`
+calibrated sources reran as measured traces and intervention replay had zero
+anchor failures, but only `2` accepted pairs were formed, both on the same
+`curved_boundary_obstacle -> t5_boundary_axis_retarget` edge. History and
+control interventions produced `0.0` terminal margin gap. The next task is a
+mandatory branch synthesis before another repair.
+M1548 synthesized M1538-M1547. The branch keeps M1538 as source-expanded
+non-terminal public history-sensitivity evidence and keeps M1544 as a useful
+terminal source-window calibration result, but it rejects terminal-boundary
+self-ID/materialization claims because M1547 is pair-narrow and null. M1548
+closes the current `paper_route_fresh_ambiguity_source_mining` branch and
+promotes only to a new no-training `paper_route_calibrated_pair_expansion`
+branch. The next task is M1549 pair-expansion design; training, PPO,
+materialization, private holdout, promotion, actor-input changes, and level3
+self-ID claims remain blocked.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

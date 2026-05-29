@@ -61,7 +61,7 @@
       "stop after intervention smoke and route to audit"
     ],
     "fallback_plan": [
-      "route to audit after any completed intervention smoke",
+      "route to audit or synthesis after any completed intervention smoke",
       "route to branch synthesis if calibrated pairs cannot be formed",
       "route to stop if history effects are null/control dominated after clean calibrated intervention"
     ],
@@ -89,7 +89,7 @@
       "calibrated terminal-boundary intervention module and tests",
       "bounded public intervention smoke artifacts",
       "M1547 status queue scoreboard research log and review",
-      "one follow-up result audit manifest"
+      "one follow-up branch synthesis manifest"
     ],
     "next_stage_criteria": [
       "measured trace, pair, and intervention artifacts are written",
@@ -153,6 +153,50 @@
     "docs/m1546-paper-route-calibrated-terminal-boundary-history-intervention-design.md",
     "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json",
+    "doc": "docs/m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation.md",
+    "decision": "calibrated_terminal_boundary_history_intervention_smoke_pair_narrow_null_route_to_synthesis",
+    "focused_tests": "PYTHONPATH=src python -m pytest tests/test_calibrated_terminal_boundary_history_interventions.py -q",
+    "focused_test_result": "4 passed",
+    "smoke_command": "PYTHONPATH=src python -m autodrift.calibrated_terminal_boundary_history_interventions --output-dir runs/m1547_calibrated_terminal_boundary_history_intervention_smoke --accepted-calibrated-rows runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv --seed 1843 --seed-count 2 --max-base-rows 20 --max-calibration-specs 160 --max-pairs 12",
+    "accepted_calibrated_source_count": 8,
+    "measured_trace_count": 8,
+    "measured_snapshot_count": 10,
+    "measured_trace_family_count": 4,
+    "accepted_pair_count": 2,
+    "accepted_source_family_edge_count": 1,
+    "max_single_pair_source_edge_share": 1.0,
+    "intervention_row_count": 40,
+    "anchor_replay_failure_count": 0,
+    "terminal_wrong_history_positive_target_sides": 0,
+    "terminal_donor_plus_hidden_positive_target_sides": 0,
+    "terminal_donor_stream_positive_target_sides": 0,
+    "terminal_wrong_or_donor_success_drop_count": 0,
+    "terminal_max_history_margin_gap": 0.0,
+    "terminal_max_control_margin_gap": 0.0,
+    "passes_measured_trace_gates": false,
+    "passes_pair_gates": false,
+    "passes_history_positive_gates": false,
+    "passes_control_gate": true,
+    "passes_public_smoke_gates": false,
+    "passes_evidence_quality_targets": false,
+    "guardrail_violation_count": 0,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.json"
+  },
+  "decision": "calibrated_terminal_boundary_history_intervention_smoke_pair_narrow_null_route_to_synthesis",
   "decision_rule": "M1547 passes if calibrated intervention artifacts are written and all no-materialization/no-training guardrails remain clean.",
-  "next_blocker": "m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation"
+  "next_blocker": "m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis"
 }

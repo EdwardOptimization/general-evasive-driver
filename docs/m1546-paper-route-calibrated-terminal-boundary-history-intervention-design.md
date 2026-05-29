@@ -201,8 +201,11 @@ scenario_sampling_failure
 If history effects remain null, classify as:
 
 ```text
-history_effect_null_on_calibrated_terminal_boundary_sources
+metric_artifact
 ```
+
+Record the terminal-history null in prose, but keep manifest failure types on
+the process-v2 taxonomy.
 
 If reset/zero-current controls dominate, classify as:
 

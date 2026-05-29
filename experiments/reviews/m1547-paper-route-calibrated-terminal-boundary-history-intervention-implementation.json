@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1547 reran 8 calibrated measured traces but accepted only 2 pairs on 1 source edge and all history/control terminal margin gaps were zero; route to branch synthesis",
+  "failure_criteria": [
+    "implementation or smoke artifacts are missing",
+    "implementation skips measured response/context pair construction",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation materializes candidates exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T122329Z",
+  "hypothesis": "A bounded implementation can run calibrated terminal-boundary history interventions over matched measured pairs without changing actor inputs or materializing candidates.",
+  "lineage": {
+    "blocked_by": [
+      "calibrated terminal-boundary history interventions have not yet been run"
+    ],
+    "derived_from": [
+      "m1546-paper-route-calibrated-terminal-boundary-history-intervention-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1546-paper-route-calibrated-terminal-boundary-history-intervention-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1546-paper-route-calibrated-terminal-boundary-history-intervention-design.md",
+      "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv"
+    ],
+    "parent_objective": [
+      "implement bounded calibrated terminal-boundary measured-pair history interventions"
+    ],
+    "supersedes": [
+      "direct materialization of M1544 calibrated rows"
+    ]
+  },
+  "milestone": "m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation",
+  "next_blocker": "m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "calibrated_terminal_boundary_history_intervention_smoke_pair_narrow_null_route_to_synthesis",
+  "public_gates": [
+    "M1547 must reconstruct calibrated measured traces with response/context vectors",
+    "M1547 must build matched scene/current-state pairs before interventions",
+    "M1547 must preserve P0 actor input contract",
+    "M1547 must keep materialization and training blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "calibrated_terminal_boundary_history_intervention_smoke_pair_narrow_null_route_to_synthesis",
+    "milestone": "m1547-paper-route-calibrated-terminal-boundary-history-intervention-implementation",
+    "reason": "M1547 reran 8 calibrated measured traces but accepted only 2 pairs on 1 source edge and all history/control terminal margin gaps were zero; route to branch synthesis",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "calibrated terminal-boundary intervention module exists",
+    "focused tests cover calibrated spec reconstruction pair gates and summary schema",
+    "runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json exists",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "type": "infrastructure"
+}
