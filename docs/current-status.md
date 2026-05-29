@@ -16,33 +16,33 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1477-paper-route-boundary-retarget-validation-synthesis
+m1478-paper-route-source-diverse-pressure-preflight-design
 ```
 
 Current next task:
 
 ```text
-m1478-paper-route-source-diverse-pressure-preflight-design
+m1479-paper-route-source-diverse-pressure-preflight-smoke
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
 M1476 ran proposal generation. M1477 synthesized the branch and promoted to
-source-diverse pressure validation. The current public-gate base remains M1362
-alpha `0.1`:
+source-diverse pressure validation. M1478 designed the preflight-only smoke. The
+current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1477 synthesis:
+M1478 design:
 
 ```text
-decision: boundary_retarget_validation_synthesis_promote_to_source_diverse_pressure_validation
-synthesis_decision: promote_to_next_branch
-closed_branch: paper_route_source_step_boundary_retarget_validation
-new_branch: paper_route_source_diverse_pressure_validation
-next: m1478-paper-route-source-diverse-pressure-preflight-design
+decision: source_diverse_pressure_preflight_design_admit_smoke
+candidate_source: runs/m1476_source_diverse_pressure_proposal_smoke/source_diverse_pressure_candidate_rows.csv
+candidate_step_column: source_step
+max_candidate_rows: 120
+next: m1479-paper-route-source-diverse-pressure-preflight-smoke
 ```
 
 M1472 result:
@@ -65,9 +65,8 @@ selected_duplicate_positive_neighborhood_key_rows: 0
 selected diversity: 5 seeds / 9 capability pairs / 8 reveal buckets / 3 variants
 ```
 
-M1478 should design preflight-only validation for M1476 candidates. It must not
-run preflight, replay, train, run PPO, promote, use private holdout, export
-corpus, or change actor inputs.
+M1479 should run preflight only. It must not run bounded replay, train, run PPO,
+promote, use private holdout, export corpus, or change actor inputs.
 
 M1455 result:
 

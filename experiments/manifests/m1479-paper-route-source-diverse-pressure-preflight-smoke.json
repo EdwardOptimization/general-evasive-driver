@@ -1,0 +1,162 @@
+{
+  "id": "m1479-paper-route-source-diverse-pressure-preflight-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1476_source_diverse_pressure_proposal_smoke/source_diverse_pressure_candidate_rows.csv",
+      "docs/m1478-paper-route-source-diverse-pressure-preflight-design.md"
+    ],
+    "parent_config": [
+      "configs/m1419_warmup_gate_invasiveness_retune_source_wave.json",
+      "experiments/manifests/m1478-paper-route-source-diverse-pressure-preflight-design.json"
+    ],
+    "parent_objective": [
+      "run preflight-only validation for source-diverse pressure candidates"
+    ],
+    "derived_from": [
+      "m1478-paper-route-source-diverse-pressure-preflight-design"
+    ],
+    "blocked_by": [
+      "source-diverse pressure candidates have not yet passed geometry preflight"
+    ],
+    "supersedes": [
+      "proposal-only evidence as geometry validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1479-paper-route-source-diverse-pressure-preflight-smoke.md",
+  "public_gates": [
+    "M1479 must run preflight-only with --candidate-step-column source_step",
+    "M1479 must not run replay train PPO promote use private holdout export corpus or change actor inputs",
+    "M1479 must report geometry rows selected rows clipping diversity source_group retention and duplicate pressure keys"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run bounded replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat preflight result as replay evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_diverse_pressure_validation",
+    "evidence_axis": "S_source_diverse_pressure_preflight_smoke",
+    "evidence_increment": "runs preflight-only geometry validation on M1476 source-diverse pressure candidates",
+    "claim_scope": "preflight smoke only; no replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if geometry_pass_rows < 64",
+      "stop if selected_candidate_rows < 64",
+      "stop if selected candidates collapse to one seed or capability pair",
+      "stop if candidate_step_column is not source_step",
+      "stop if replay training PPO promotion or corpus export starts"
+    ],
+    "fallback_plan": [
+      "route to bounded replay design if preflight passes",
+      "route to preflight result audit if geometry or diversity fails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1478 admits source-diverse pressure preflight smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source-diverse pressure preflight smoke",
+    "admission_evidence": [
+      "M1478 preflight design passed"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "runs/m1479_source_diverse_pressure_preflight_smoke",
+      "M1479 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up bounded replay design or preflight audit manifest"
+    ],
+    "next_stage_criteria": [
+      "preflight completed or failed clearly",
+      "geometry diversity and duplicate-key counts are recorded",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1479 is preflight-only and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future replay must test generated source-diverse candidates under normal history, warmup interventions, reset hidden, and zero-current controls"
+    ],
+    "temporal_evidence_window": "M1476 source-diverse pressure proposal smoke and M1478 preflight design.",
+    "negative_result_policy": "If preflight fails, audit geometry pressure before replay or corpus export.",
+    "allowed_claims": [
+      "source-diverse pressure preflight result",
+      "no replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1476 source-diverse pressure candidates will pass geometry preflight without clipping or diversity collapse.",
+  "success_criteria": [
+    "runs/m1479_source_diverse_pressure_preflight_smoke/summary.json exists",
+    "candidate_step_column == source_step",
+    "geometry_pass_rows >= 64",
+    "selected_candidate_rows >= 64",
+    "selected_diversity.unique_source_seeds >= 3",
+    "selected_diversity.unique_capability_pairs >= 4",
+    "relocation_clipped_share <= 0.10",
+    "source_preflight_started true",
+    "replay_started false",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "failure_criteria": [
+    "summary missing",
+    "candidate_step_column is not source_step",
+    "geometry_pass_rows < 64",
+    "selected_candidate_rows < 64",
+    "run starts replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "source_diverse_pressure_preflight_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.bounded_relocation_replay_probe --preflight-only --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m1419_warmup_gate_invasiveness_retune_source_wave.json --candidate-rows runs/m1476_source_diverse_pressure_proposal_smoke/source_diverse_pressure_candidate_rows.csv --max-candidate-rows 120 --per-capability-pair-cap 24 --per-seed-cap 24 --per-reveal-bucket-cap 24 --per-variant-cap 64 --history-length 56 --min-sequence-action-l2 0.025 --min-source-body-x 4.0 --candidate-step-column source_step --device cpu --run-dir runs/m1479_source_diverse_pressure_preflight_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1479_source_diverse_pressure_preflight_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1479-paper-route-source-diverse-pressure-preflight-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1478-paper-route-source-diverse-pressure-preflight-design.md"
+  ],
+  "decision_rule": "M1479 passes if source-diverse pressure candidates pass preflight without replay or training.",
+  "next_blocker": "m1479-paper-route-source-diverse-pressure-preflight-smoke"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1486,
+    "completed": 1487,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1477-paper-route-boundary-retarget-validation-synthesis.md",
+    "command_log": "docs/m1478-paper-route-source-diverse-pressure-preflight-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1477-paper-route-boundary-retarget-validation-synthesis"
+    "task_id": "m1478-paper-route-source-diverse-pressure-preflight-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1478-paper-route-source-diverse-pressure-preflight-design.json",
-    "hypothesis": "A preflight-only validation can test M1476 source-diverse pressure candidates before any bounded replay.",
-    "id": "m1478-paper-route-source-diverse-pressure-preflight-design",
-    "kind": "gate",
-    "notes": "Pending: design preflight-only validation for M1476 candidates without running preflight replay training PPO promotion or corpus export",
-    "priority": 14730,
+    "command": "see experiments/manifests/m1479-paper-route-source-diverse-pressure-preflight-smoke.json",
+    "hypothesis": "M1476 source-diverse pressure candidates will pass geometry preflight without clipping or diversity collapse.",
+    "id": "m1479-paper-route-source-diverse-pressure-preflight-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: run preflight-only validation without bounded replay training PPO promotion or corpus export",
+    "priority": 14740,
     "status": "pending",
-    "success_artifact": "docs/m1478-paper-route-source-diverse-pressure-preflight-design.md"
+    "success_artifact": "runs/m1479_source_diverse_pressure_preflight_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T071000Z"
+  "updated_at_utc": "20260529T071500Z"
 }
