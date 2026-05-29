@@ -16,25 +16,25 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1632-paper-route-contour-aware-policy-target-objective-design
+m1633-paper-route-contour-aware-policy-target-exact-evaluator-implementation
 ```
 
 Current next task:
 
 ```text
-m1633-paper-route-contour-aware-policy-target-exact-evaluator-implementation
+m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit
 ```
 
-M1632 designed role-safe objective semantics over the clean M1630 tensor
-package. V1 uses same-observation correct/wrong hidden action residuals:
-correct history should reproduce `preferred_action`, wrong history should
-reproduce `wrong_history_action`, and the two branches should not collapse.
-Diagnostics remain zero-weight guardrails. M1632 explicitly forbids using
-`donor_plus_hidden_action` as a loss target because M1630 did not persist the
-corresponding donor-response observation. The next task is M1633: implement a
-no-update exact evaluator only. Objective config artifacts, actor update,
-training, PPO, promotion, private holdout, actor-input changes, and level3
-self-ID claims remain blocked.
+M1633 implemented the no-update exact evaluator over the M1630 tensor package.
+It recomputed `pi(observation, correct_hidden)` and
+`pi(observation, wrong_hidden)` for all 39 positives and 232 diagnostics.
+Positive and diagnostic action residual L2 max were both `0.0`; positive exact
+residual mean was `0.0`; diagnostics remained zero-weight and non-positive;
+`donor_plus_hidden_action` was not used as a loss target; the checkpoint was
+unmutated; and no objective config/training/PPO/promotion artifacts were
+written. The next task is M1634: audit the evaluator before any actor-update
+design. Actor update, training, PPO, promotion, private holdout, actor-input
+changes, and level3 self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

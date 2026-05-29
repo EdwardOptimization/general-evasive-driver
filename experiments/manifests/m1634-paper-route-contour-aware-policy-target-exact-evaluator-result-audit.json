@@ -1,0 +1,152 @@
+{
+  "id": "m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1633_contour_aware_policy_target_exact_evaluator/summary.json",
+      "docs/m1633-paper-route-contour-aware-policy-target-exact-evaluator-implementation.md",
+      "docs/m1632-paper-route-contour-aware-policy-target-objective-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1633-paper-route-contour-aware-policy-target-exact-evaluator-implementation.json"
+    ],
+    "parent_objective": [
+      "audit no-update exact evaluator for role-safe contour-aware policy targets"
+    ],
+    "derived_from": [
+      "m1633-paper-route-contour-aware-policy-target-exact-evaluator-implementation"
+    ],
+    "blocked_by": [
+      "M1633 evaluates exact residuals but blocks actor update until result audit"
+    ],
+    "supersedes": [
+      "direct actor update from M1633",
+      "direct PPO after M1633",
+      "direct checkpoint promotion after M1633"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit.md",
+  "public_gates": [
+    "M1634 must audit the M1633 exact evaluator result",
+    "M1634 must verify positive residual and diagnostic guardrail integrity",
+    "M1634 must decide whether objective-only actor-update design is admitted or whether evaluator repair is needed",
+    "M1634 must keep PPO promotion and private holdout blocked",
+    "M1634 must not strengthen self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run actor update",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_policy_target_exact_evaluator_result_audit",
+    "evidence_increment": "audits the no-update exact evaluator result before any objective-only actor update design",
+    "claim_scope": "process audit only; no actor update, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if M1633 residuals are missing or nonfinite",
+      "stop if diagnostic role guardrails failed",
+      "stop if checkpoint mutation or donor-plus loss-target violation occurred",
+      "stop if actor-update design admission is ambiguous"
+    ],
+    "fallback_plan": [
+      "admit objective-only actor-update design if evaluator result is clean",
+      "pivot to evaluator repair if metrics or guardrails fail",
+      "route to branch synthesis if update-design admission is ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1633 writes exact evaluator artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit no-update exact evaluator result",
+    "admission_evidence": [
+      "M1633 produced exact evaluator artifacts",
+      "M1633 reported public pass and clean guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not run actor update",
+      "do not train",
+      "do not run PPO",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1634 audit document",
+      "M1634 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits actor-update design, repair, synthesis, or stop"
+    ],
+    "next_stage_criteria": [
+      "exact evaluator result is audited",
+      "objective-only update-design admission or fallback is explicit",
+      "training and PPO remain blocked unless a later design admits them"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1634 audits fixed-tensor evaluator plumbing and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "audits correct/wrong hidden action residuals on public rows"
+    ],
+    "temporal_evidence_window": "public M1630 materialized rows only.",
+    "negative_result_policy": "If evaluator result is insufficient, record the blocker and pivot before actor update design.",
+    "allowed_claims": [
+      "no-update exact evaluator audit and route decision",
+      "no actor update, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1633 exact evaluator result is clean enough to decide whether objective-only actor-update design can be admitted.",
+  "success_criteria": [
+    "docs/m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit.md exists",
+    "M1633 summary and evaluator artifacts are audited",
+    "audit states supported and unsupported claims",
+    "audit explicitly routes next step",
+    "PPO promotion and private holdout remain blocked unless a later design admits them"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit skips residual role-integrity or guardrail review",
+    "audit routes directly to PPO promotion private holdout or actor-input changes",
+    "audit claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1633_contour_aware_policy_target_exact_evaluator/summary.json",
+    "docs/m1633-paper-route-contour-aware-policy-target-exact-evaluator-implementation.md"
+  ],
+  "decision_rule": "M1634 passes if it audits the exact evaluator and chooses a safe next route before actor update design.",
+  "next_blocker": "m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit"
+}
