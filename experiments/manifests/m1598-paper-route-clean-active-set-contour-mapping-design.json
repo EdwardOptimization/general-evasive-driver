@@ -1,0 +1,168 @@
+{
+  "id": "m1598-paper-route-clean-active-set-contour-mapping-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1588_history_vs_control_active_set_selector/classified_directed_pair_rows.csv",
+      "runs/m1592_clean_history_control_source_generation_repair_smoke/classified_directed_pair_rows.csv",
+      "runs/m1595_selector_balanced_clean_source_repair_smoke/classified_directed_pair_rows.csv",
+      "docs/m1597-paper-route-clean-source-repair-branch-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1597-paper-route-clean-source-repair-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design offline clean active-set contour mapping after local cap tuning failed"
+    ],
+    "derived_from": [
+      "m1597-paper-route-clean-source-repair-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1592 near-pass and M1595 negative show active-set sensitivity",
+      "further local cap tuning risks public-row overfit"
+    ],
+    "supersedes": [
+      "another direct cap-tuning implementation",
+      "candidate materialization from M1592 near-pass",
+      "training corpus export from public clean rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1598-paper-route-clean-active-set-contour-mapping-design.md",
+  "public_gates": [
+    "M1598 must design offline contour mapping over existing public artifacts",
+    "M1598 must pre-register contour features and label splits",
+    "M1598 must preserve clean selector thresholds and source-share gate",
+    "M1598 must decide implementation, synthesis, pivot, or stop",
+    "M1598 must keep replay materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not relax clean selector thresholds",
+    "do not relax the max clean source-edge share threshold",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "Q_clean_active_set_contour_mapping_design",
+    "evidence_increment": "designs offline clean active-set contour mapping after M1597 pivot",
+    "claim_scope": "design only; no replay, simulator rerun, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design routes directly to replay or training",
+      "stop if design uses M1592 near-pass as materialization evidence",
+      "stop if design relaxes clean or source-share thresholds"
+    ],
+    "fallback_plan": [
+      "admit offline contour mapper implementation if features and null taxonomy are explicit",
+      "stop if no non-overfit contour mapping can be defined",
+      "pivot to task/source redesign if contour mapping cannot reduce public-row overfit risk"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1597 pivots to clean active-set contour mapping",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "clean active-set contour mapping design",
+    "admission_evidence": [
+      "M1592 near-pass showed high clean yield but slight source concentration",
+      "M1595 broad source-edge balancing produced clean-count shortfall",
+      "M1597 pivots away from local cap tuning"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run implementation smoke",
+      "do not rerun simulator",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not relax thresholds",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1598 design document",
+      "M1598 status queue scoreboard research log and review",
+      "one follow-up manifest if design admits offline implementation, synthesis, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "contour features are explicit",
+      "label splits are explicit",
+      "implementation or stop decision is explicit",
+      "guardrails remain clean"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1598 is design-only and must keep dominated/control-only rows as central diagnostics.",
+    "history_necessity_tests": [
+      "design label-preserving contour mapping",
+      "design dominated/control-only contrast",
+      "design public-overfit risk checks"
+    ],
+    "temporal_evidence_window": "M1588/M1592/M1595 classified public rows.",
+    "negative_result_policy": "If contour mapping cannot separate clean from dominated/null without overfitting, stop or pivot instead of weakening standards.",
+    "allowed_claims": [
+      "offline contour mapping design",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Offline contour mapping can explain why M1592 was near-pass and M1595 failed before another replay is attempted.",
+  "success_criteria": [
+    "docs/m1598-paper-route-clean-active-set-contour-mapping-design.md exists",
+    "design pre-registers contour input artifacts",
+    "design pre-registers contour features and label taxonomy",
+    "design decides implementation, synthesis, pivot, or stop",
+    "training PPO promotion private holdout corpus export materialization replay and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design treats M1592 as materialization or level3 self-ID evidence",
+    "design ignores M1595 negative result",
+    "design routes directly to training PPO promotion private holdout corpus export actor-input changes or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1598-paper-route-clean-active-set-contour-mapping-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1598-paper-route-clean-active-set-contour-mapping-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json",
+    "runs/m1595_selector_balanced_clean_source_repair_smoke/summary.json",
+    "docs/m1597-paper-route-clean-source-repair-branch-synthesis.md"
+  ],
+  "decision_rule": "M1598 passes if it designs an offline contour-mapping route before any replay, materialization, or training.",
+  "next_blocker": "m1598-paper-route-clean-active-set-contour-mapping-design"
+}

@@ -25159,3 +25159,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1597-paper-route-clean-source-repair-branch-synthesis.json`
 - next: `m1597-paper-route-clean-source-repair-branch-synthesis`
+
+## M1597 Paper-Route Clean-Source Repair Branch Synthesis
+
+- status: completed
+- decision: `clean_source_repair_synthesis_pivot_to_clean_active_set_contour_mapping`
+- artifact: `docs/m1597-paper-route-clean-source-repair-branch-synthesis.md`
+- synthesized range: M1591-M1596
+- synthesis decision: pivot
+- next branch: `paper_route_clean_active_set_contour_mapping`
+- failure taxonomy: `scenario_sampling_failure`, `objective_overfit`
+- supported:
+  - clean-source repair objective is not null
+  - M1592 is the strongest clean-source diagnostic result
+  - useful clean surface is active-set sensitive
+  - source-edge balance must be contour-aware
+- falsified:
+  - broad pairability is sufficient for clean history-control evidence
+  - source-diverse interventions automatically produce clean rows
+  - broad round-robin source-edge balancing fixes concentration
+  - more source-edge diversity monotonically improves clean evidence
+- public-gate overfit risk: high
+- route decision: pivot to offline clean active-set contour mapping before further replay
+- history interventions executed: false in M1597
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1598-paper-route-clean-active-set-contour-mapping-design.json`
+- next: `m1598-paper-route-clean-active-set-contour-mapping-design`

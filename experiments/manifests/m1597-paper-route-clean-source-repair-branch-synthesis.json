@@ -182,6 +182,57 @@
     "runs/m1595_selector_balanced_clean_source_repair_smoke/summary.json",
     "docs/m1596-paper-route-selector-balanced-repair-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1597-paper-route-clean-source-repair-branch-synthesis.md",
+    "decision": "clean_source_repair_synthesis_pivot_to_clean_active_set_contour_mapping",
+    "synthesis_decision": "pivot",
+    "synthesized_range": "M1591-M1596",
+    "next_branch": "paper_route_clean_active_set_contour_mapping",
+    "next_manifest": "experiments/manifests/m1598-paper-route-clean-active-set-contour-mapping-design.json",
+    "supported_claims": [
+      "the clean-source repair objective is not null",
+      "M1592 is the strongest clean-source diagnostic result in this branch",
+      "clean history-control rows can be generated beyond the original M1588 surface",
+      "the useful clean surface is active-set sensitive",
+      "source-edge balance must be contour-aware rather than broad round-robin",
+      "the current public branch should pivot before further replay"
+    ],
+    "unsupported_claims": [
+      "candidate materialization",
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "high-speed history sensitivity",
+      "paper-level self-identification",
+      "level3 anticipatory self-identification"
+    ],
+    "falsified_claims": [
+      "broad pairability is sufficient for clean history-control evidence",
+      "source-diverse intervention plumbing automatically produces clean rows",
+      "lowering per-edge cap and round-robining all pairable edges fixes source concentration",
+      "more selected source-edge diversity monotonically improves clean evidence",
+      "another local cap tweak is safe without synthesis"
+    ],
+    "failure_taxonomy_summary": [
+      "scenario_sampling_failure",
+      "objective_overfit"
+    ],
+    "public_gate_overfit_risk": "high",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1597 passes if it synthesizes M1591-M1596 and chooses the next route before another implementation milestone.",
-  "next_blocker": "m1597-paper-route-clean-source-repair-branch-synthesis"
+  "next_blocker": "m1598-paper-route-clean-active-set-contour-mapping-design"
 }

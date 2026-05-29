@@ -16,19 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1596-paper-route-selector-balanced-repair-result-audit
+m1597-paper-route-clean-source-repair-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1597-paper-route-clean-source-repair-branch-synthesis
+m1598-paper-route-clean-active-set-contour-mapping-design
 ```
 
-M1596 audited M1595 against M1592. M1592 remains the best near-pass clean-source
-diagnostic; M1595 is a valid negative showing that broad source-edge round-robin
-dilutes the clean active set. The next task is M1597 branch synthesis before any
-further repair design or implementation.
+M1597 synthesized M1591-M1596 and pivoted away from local cap tuning. M1592 is
+the strongest clean-source near-pass; M1595 falsified broad source-edge
+round-robin. The next branch is `paper_route_clean_active_set_contour_mapping`;
+M1598 should design an offline contour mapper over existing public artifacts
+before any new replay or implementation.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

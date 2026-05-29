@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1605,
+    "completed": 1606,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1596-paper-route-selector-balanced-repair-result-audit.md",
+    "command_log": "docs/m1597-paper-route-clean-source-repair-branch-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1596-paper-route-selector-balanced-repair-result-audit"
+    "task_id": "m1597-paper-route-clean-source-repair-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1597-paper-route-clean-source-repair-branch-synthesis.json",
-    "hypothesis": "After M1595, the clean-source repair sub-branch needs synthesis before any further implementation or design.",
-    "id": "m1597-paper-route-clean-source-repair-branch-synthesis",
+    "command": "see experiments/manifests/m1598-paper-route-clean-active-set-contour-mapping-design.json",
+    "hypothesis": "Offline contour mapping can explain why M1592 was near-pass and M1595 failed before another replay is attempted.",
+    "id": "m1598-paper-route-clean-active-set-contour-mapping-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1591-M1596 before any further repair",
-    "priority": 15920,
+    "notes": "Pending: design offline clean active-set contour mapper",
+    "priority": 15930,
     "status": "pending",
-    "success_artifact": "docs/m1597-paper-route-clean-source-repair-branch-synthesis.md"
+    "success_artifact": "docs/m1598-paper-route-clean-active-set-contour-mapping-design.md"
   },
-  "updated_at_utc": "20260529T164950Z"
+  "updated_at_utc": "20260529T165230Z"
 }
