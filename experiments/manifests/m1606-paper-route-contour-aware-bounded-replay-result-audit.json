@@ -1,0 +1,165 @@
+{
+  "id": "m1606-paper-route-contour-aware-bounded-replay-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "objective_overfit",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1605_contour_aware_bounded_replay/summary.json",
+      "runs/m1605_contour_aware_bounded_replay/primary_source_edge_summary.csv",
+      "runs/m1605_contour_aware_bounded_replay/diagnostic_rule_reason_summary.csv",
+      "docs/m1605-paper-route-contour-aware-bounded-replay-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1605-paper-route-contour-aware-bounded-replay-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M1605 primary contour pass and diagnostic control failure before any repair"
+    ],
+    "derived_from": [
+      "m1605-paper-route-contour-aware-bounded-replay-implementation"
+    ],
+    "blocked_by": [
+      "M1605 preserved the primary contour but failed diagnostic dominated/control count gate"
+    ],
+    "supersedes": [
+      "immediate diagnostic sampling tweak",
+      "candidate materialization from M1605 primary pass",
+      "training corpus export from M1605 primary pass"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1606-paper-route-contour-aware-bounded-replay-result-audit.md",
+  "public_gates": [
+    "M1606 must audit M1605 as a public-gate failure",
+    "M1606 must separate primary-contour success from diagnostic-control failure",
+    "M1606 must account for the fixed pair-id collision metric artifact",
+    "M1606 must decide repair design, synthesis, pivot, or stop before any rerun",
+    "M1606 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not relax clean selector thresholds",
+    "do not relax the max clean source-edge share threshold",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "Q_contour_aware_bounded_replay_result_audit",
+    "evidence_increment": "audits primary replay pass plus diagnostic-control failure and decides whether one diagnostic repair design is justified",
+    "claim_scope": "result audit only; no replay rerun, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats primary pass as sufficient despite diagnostic failure",
+      "stop if audit routes directly to replay rerun without repair design",
+      "stop if audit ignores the fixed pair-id collision artifact"
+    ],
+    "fallback_plan": [
+      "admit diagnostic-sampling repair design if failure is isolated to diagnostic controls",
+      "stop if diagnostic failure invalidates contour replay route",
+      "pivot to task/source redesign if both primary and diagnostics are unreliable"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1605 bounded replay completed with primary pass and diagnostic-control failure",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "contour-aware bounded replay result audit",
+    "admission_evidence": [
+      "M1605 primary replay preserved 39 clean rows but diagnostic dominated/control count was 35 < 50"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not rerun simulator",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not relax thresholds",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1606 audit document",
+      "M1606 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits repair design, synthesis, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "primary and diagnostic findings are separated",
+      "pair-id collision artifact is recorded",
+      "next route is explicit",
+      "guardrails remain clean"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1606 must not upgrade primary replay success to self-identification while diagnostic controls failed.",
+    "history_necessity_tests": [
+      "M1605 primary classified rows",
+      "M1605 diagnostic classified rows",
+      "M1605 variant summary",
+      "M1605 pair-id collision fix"
+    ],
+    "temporal_evidence_window": "M1605 bounded replay rows after source_run::pair_id fix.",
+    "negative_result_policy": "Treat diagnostic-control failure as a blocker until audited; do not tune sampling or thresholds first.",
+    "allowed_claims": [
+      "public diagnostic audit and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1605's primary-pass diagnostic-fail result can be classified before any rerun or repair.",
+  "success_criteria": [
+    "docs/m1606-paper-route-contour-aware-bounded-replay-result-audit.md exists",
+    "audit separates primary pass from diagnostic-control failure",
+    "audit records pair-id collision fix",
+    "audit decides repair design, synthesis, pivot, or stop",
+    "training PPO promotion private holdout corpus export materialization replay and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1605 as a full pass",
+    "audit ignores diagnostic-control failure or pair-id collision fix",
+    "audit routes directly to training PPO promotion private holdout corpus export actor-input changes replay or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1606-paper-route-contour-aware-bounded-replay-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1606-paper-route-contour-aware-bounded-replay-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1605_contour_aware_bounded_replay/summary.json",
+    "docs/m1605-paper-route-contour-aware-bounded-replay-implementation.md"
+  ],
+  "decision_rule": "M1606 passes if it audits M1605 without weakening gates and chooses the next route before any rerun or training.",
+  "next_blocker": "m1606-paper-route-contour-aware-bounded-replay-result-audit"
+}

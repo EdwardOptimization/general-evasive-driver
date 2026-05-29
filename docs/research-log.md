@@ -25374,3 +25374,40 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1605-paper-route-contour-aware-bounded-replay-implementation.json`
 - next: `m1605-paper-route-contour-aware-bounded-replay-implementation`
+
+## M1605 Paper-Route Contour-Aware Bounded Replay Implementation
+
+- status: completed
+- decision: `contour_aware_bounded_replay_diagnostic_control_failure_route_to_audit`
+- artifact: `runs/m1605_contour_aware_bounded_replay/summary.json`
+- doc: `docs/m1605-paper-route-contour-aware-bounded-replay-implementation.md`
+- code: `src/autodrift/contour_aware_bounded_replay.py`
+- tests: `tests/test_contour_aware_bounded_replay.py`
+- focused test result: `3 passed`
+- implementation note: fixed replay pair-id collision by using `source_run::pair_id`
+- primary replay directed pair count: 144
+- diagnostic replay directed pair count: 96
+- diagnostic reason count: 3
+- primary source-run count: 2
+- primary source-edge count: 4
+- primary clean directed pair count: 39
+- primary clean source-edge count: 4
+- max primary clean source-edge share: 0.3333333333333333
+- endpoint-neighbor primary count: 0
+- negative diagnostic primary count: 0
+- mixed diagnostic primary count: 0
+- diagnostic dominated/control count: 35
+- diagnostic clean share: 0.0
+- required variant coverage complete: true
+- anchor replay failure count: 0
+- passes public smoke gates: false
+- null result classification: `diagnostic_control_failure`
+- replay started: true
+- history interventions executed: true
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1606-paper-route-contour-aware-bounded-replay-result-audit.json`
+- next: `m1606-paper-route-contour-aware-bounded-replay-result-audit`

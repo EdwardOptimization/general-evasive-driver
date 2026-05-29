@@ -16,19 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1604-paper-route-contour-aware-bounded-replay-design
+m1605-paper-route-contour-aware-bounded-replay-implementation
 ```
 
 Current next task:
 
 ```text
-m1605-paper-route-contour-aware-bounded-replay-implementation
+m1606-paper-route-contour-aware-bounded-replay-result-audit
 ```
 
-M1604 designed one bounded replay implementation over M1602 primary rows and
-diagnostic controls. M1605 may replay those public rows and classify outcomes,
-but candidate materialization, training-corpus export, training, PPO, promotion,
-private holdout, actor-input changes, and threshold relaxation remain blocked.
+M1605 ran bounded replay. After fixing a `pair_id` collision artifact by using
+`source_run::pair_id`, primary replay preserved the clean contour (`39` clean,
+source-edge share `0.3333333333333333`), but diagnostic dominated/control count
+was only `35` against the `>= 50` gate. The next task is M1606 audit. Candidate
+materialization, training-corpus export, training, PPO, promotion, private
+holdout, actor-input changes, and threshold relaxation remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
