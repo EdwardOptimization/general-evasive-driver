@@ -16,25 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1623-paper-route-contour-aware-policy-target-traceability-preflight
+m1624-paper-route-contour-aware-policy-target-traceability-result-audit
 ```
 
 Current next task:
 
 ```text
-m1624-paper-route-contour-aware-policy-target-traceability-result-audit
+m1625-paper-route-contour-aware-tensor-capture-dry-run-design
 ```
 
-M1623 ran the source/variant traceability preflight. It passed public gates:
-all 39 positive candidates and all 232 diagnostic guardrails resolve to source
-runs, replay pairs, and required `normal`, `wrong_history_hidden`, and
-`donor_response_action_plus_hidden` variants. No tensor target corpus or
-training artifact was written. The next task is M1624: audit whether this
-traceability pass admits deterministic tensor-capture materialization or a
-smaller capture dry-run. Tensor target materialization, loss/objective config
-construction, objective update, actor update, training, PPO, promotion, private
-holdout, actor-input changes, diagnostics-as-positive-candidates, and level3
-self-ID claims remain blocked.
+M1624 audited the M1623 traceability pass. Source/variant traceability is no
+longer the blocker, but deterministic tensor capture has not been proven. The
+next task is M1625: design a minimal source-diverse tensor-capture dry run
+before any full target materialization. Tensor target materialization,
+loss/objective config construction, objective update, actor update, training,
+PPO, promotion, private holdout, actor-input changes,
+diagnostics-as-positive-candidates, and level3 self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

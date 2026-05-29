@@ -25849,3 +25849,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: tensor target materialization, objective update, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
 - follow-up manifest: `experiments/manifests/m1624-paper-route-contour-aware-policy-target-traceability-result-audit.json`
 - next: `m1624-paper-route-contour-aware-policy-target-traceability-result-audit`
+
+## M1624 Paper-Route Contour-Aware Policy Target Traceability Result Audit
+
+- status: completed
+- decision: `contour_aware_traceability_audit_admit_tensor_capture_dry_run_design`
+- artifact: `docs/m1624-paper-route-contour-aware-policy-target-traceability-result-audit.md`
+- failure taxonomy: `none`
+- audited result: M1623 traceability public pass with all positives and diagnostics matched to replay pairs and required variants
+- supported: traceability is no longer the blocker
+- remaining blocker: deterministic tensor capture has not been proven
+- route decision: admit design-only source-diverse tensor-capture dry-run planning
+- unsupported: tensor target materialization, objective update, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- follow-up manifest: `experiments/manifests/m1625-paper-route-contour-aware-tensor-capture-dry-run-design.json`
+- next: `m1625-paper-route-contour-aware-tensor-capture-dry-run-design`

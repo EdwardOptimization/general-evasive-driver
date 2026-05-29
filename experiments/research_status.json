@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1632,
+    "completed": 1633,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "runs/m1623_contour_aware_policy_target_traceability_preflight/summary.json",
+      "command_log": "docs/m1624-paper-route-contour-aware-policy-target-traceability-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1623_contour_aware_policy_target_traceability_preflight",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1623-paper-route-contour-aware-policy-target-traceability-preflight"
+      "task_id": "m1624-paper-route-contour-aware-policy-target-traceability-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1624-paper-route-contour-aware-policy-target-traceability-result-audit.json",
-      "hypothesis": "M1623 traceability artifacts can be audited before deciding whether to implement deterministic tensor capture.",
-      "id": "m1624-paper-route-contour-aware-policy-target-traceability-result-audit",
+      "command": "see experiments/manifests/m1625-paper-route-contour-aware-tensor-capture-dry-run-design.json",
+      "hypothesis": "A design-only dry run can specify the minimal tensor-capture subset and guardrails before implementation.",
+      "id": "m1625-paper-route-contour-aware-tensor-capture-dry-run-design",
       "kind": "gate",
-      "notes": "Pending: audit traceability result and decide tensor capture route; no objective update PPO promotion or private holdout",
-      "priority": 16190,
+      "notes": "Pending: design dry-run subset and tensor schema only; no implementation full materialization objective update PPO promotion or private holdout",
+      "priority": 16200,
       "status": "pending",
-      "success_artifact": "docs/m1624-paper-route-contour-aware-policy-target-traceability-result-audit.md"
+      "success_artifact": "docs/m1625-paper-route-contour-aware-tensor-capture-dry-run-design.md"
     },
-    "updated_at_utc": "20260529T184732Z"
+    "updated_at_utc": "20260529T185025Z"
 }

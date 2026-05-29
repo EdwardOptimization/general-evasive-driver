@@ -152,5 +152,5 @@
     "docs/m1623-paper-route-contour-aware-policy-target-traceability-preflight.md"
   ],
   "decision_rule": "M1624 passes if it audits M1623 and chooses a bounded next route without admitting training/PPO/promotion.",
-  "next_blocker": "m1624-paper-route-contour-aware-policy-target-traceability-result-audit"
+  "next_blocker": "m1625-paper-route-contour-aware-tensor-capture-dry-run-design"
 }
