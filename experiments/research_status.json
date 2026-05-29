@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1600,
+    "completed": 1601,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1591-paper-route-history-pairability-source-generation-branch-synthesis.md",
+    "command_log": "docs/m1592-paper-route-clean-history-control-source-generation-repair-implementation.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1592_clean_history_control_source_generation_repair_smoke",
     "status": "completed",
-    "task_id": "m1591-paper-route-history-pairability-source-generation-branch-synthesis"
+    "task_id": "m1592-paper-route-clean-history-control-source-generation-repair-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1592-paper-route-clean-history-control-source-generation-repair-implementation.json",
-    "hypothesis": "A bounded repair seeded from M1590 clean edges can increase clean history-control separated rows without relaxing the selector threshold or broadening to generic pairability.",
-    "id": "m1592-paper-route-clean-history-control-source-generation-repair-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: run exactly one bounded clean-source repair implementation and route to audit",
-    "priority": 15870,
+    "command": "see experiments/manifests/m1593-paper-route-clean-source-repair-result-audit.json",
+    "hypothesis": "M1592's near-pass clean-source repair result is informative enough to decide the next route, but not enough to pass or materialize.",
+    "id": "m1593-paper-route-clean-source-repair-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1592 near-pass source-concentrated result",
+    "priority": 15880,
     "status": "pending",
-    "success_artifact": "runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json"
+    "success_artifact": "docs/m1593-paper-route-clean-source-repair-result-audit.md"
   },
-  "updated_at_utc": "20260529T162601Z"
+  "updated_at_utc": "20260529T163539Z"
 }

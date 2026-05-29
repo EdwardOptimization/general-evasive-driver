@@ -25012,3 +25012,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1592-paper-route-clean-history-control-source-generation-repair-implementation.json`
 - next: `m1592-paper-route-clean-history-control-source-generation-repair-implementation`
+
+## M1592 Paper-Route Clean History-Control Source-Generation Repair Implementation
+
+- status: completed
+- decision: `clean_history_control_source_generation_repair_near_pass_source_concentration_route_to_audit`
+- artifact: `runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json`
+- doc: `docs/m1592-paper-route-clean-history-control-source-generation-repair-implementation.md`
+- code: `src/autodrift/clean_history_control_source_generation_repair.py`
+- tests: `tests/test_clean_history_control_source_generation_repair.py`
+- focused test result: `3 passed`
+- source spec count: 480
+- selected pair count: 96
+- directed pair count: 192
+- intervention row count: 1536
+- classified directed pair count: 192
+- required variant coverage complete: true
+- invalid directed pair count: 0
+- clean directed pair count: 34
+- clean source-edge count: 5
+- clean endpoint source-family count: 6
+- max clean source-edge share: 0.35294117647058826
+- dominated history-positive directed pair count: 39
+- control-only positive directed pair count: 18
+- history-null all-controls-null directed pair count: 101
+- passes public smoke gates: false
+- passes evidence-quality targets: false
+- null result classification: `source_concentrated_clean_surface`
+- interpretation: clean-source repair worked but narrowly failed the pre-registered source-concentration gate; do not relax gate or rerun before audit
+- history interventions executed: true
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1593-paper-route-clean-source-repair-result-audit.json`
+- next: `m1593-paper-route-clean-source-repair-result-audit`

@@ -157,7 +157,7 @@
     },
     {
       "name": "clean_source_repair_smoke",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.clean_history_control_source_generation_repair --output-dir runs/m1592_clean_history_control_source_generation_repair_smoke --seed 1912 --max-source-specs 480 --max-selected-pairs 96"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.clean_history_control_source_generation_repair --output-dir runs/m1592_clean_history_control_source_generation_repair_smoke --seed 1901 --max-source-specs 480 --max-selected-pairs 96"
     }
   ],
   "required_artifacts": [
@@ -199,6 +199,52 @@
     "docs/m1590-paper-route-clean-history-control-source-generation-repair-design.md",
     "docs/m1591-paper-route-history-pairability-source-generation-branch-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json",
+    "doc": "docs/m1592-paper-route-clean-history-control-source-generation-repair-implementation.md",
+    "code": "src/autodrift/clean_history_control_source_generation_repair.py",
+    "tests": "tests/test_clean_history_control_source_generation_repair.py",
+    "decision": "clean_history_control_source_generation_repair_near_pass_source_concentration_route_to_audit",
+    "failure_taxonomy": [
+      "scenario_sampling_failure"
+    ],
+    "focused_test_result": "3 passed",
+    "source_spec_count": 480,
+    "selected_pair_count": 96,
+    "selected_source_edge_count": 7,
+    "selected_endpoint_source_family_count": 6,
+    "selected_window_count": 6,
+    "directed_pair_count": 192,
+    "intervention_row_count": 1536,
+    "classified_directed_pair_count": 192,
+    "required_variant_coverage_complete": true,
+    "invalid_directed_pair_count": 0,
+    "clean_directed_pair_count": 34,
+    "clean_source_edge_count": 5,
+    "clean_endpoint_source_family_count": 6,
+    "max_clean_source_edge_share": 0.35294117647058826,
+    "dominated_history_positive_directed_pair_count": 39,
+    "control_only_positive_directed_pair_count": 18,
+    "history_null_all_controls_null_directed_pair_count": 101,
+    "passes_public_smoke_gates": false,
+    "passes_evidence_quality_targets": false,
+    "null_result_classification": "source_concentrated_clean_surface",
+    "guardrail_violation_count": 0,
+    "history_interventions_executed": true,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": true,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1593-paper-route-clean-source-repair-result-audit.json"
+  },
   "decision_rule": "M1592 passes as implementation only if it increases clean history-control separated rows under the existing selector and routes to audit before any next step.",
-  "next_blocker": "m1592-paper-route-clean-history-control-source-generation-repair-implementation"
+  "next_blocker": "m1593-paper-route-clean-source-repair-result-audit"
 }

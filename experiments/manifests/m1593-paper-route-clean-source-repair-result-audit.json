@@ -1,0 +1,163 @@
+{
+  "id": "m1593-paper-route-clean-source-repair-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json",
+      "runs/m1592_clean_history_control_source_generation_repair_smoke/clean_directed_pair_rows.csv",
+      "runs/m1592_clean_history_control_source_generation_repair_smoke/source_edge_summary.csv",
+      "docs/m1592-paper-route-clean-history-control-source-generation-repair-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1592-paper-route-clean-history-control-source-generation-repair-implementation.json"
+    ],
+    "parent_objective": [
+      "audit clean-source repair near-pass before any further implementation"
+    ],
+    "derived_from": [
+      "m1592-paper-route-clean-history-control-source-generation-repair-implementation"
+    ],
+    "blocked_by": [
+      "M1592 raised clean rows to 34 and clean source edges to 5 but failed max clean source-edge share 0.35294117647058826 > 0.35"
+    ],
+    "supersedes": [
+      "post-hoc relaxation of the max clean source-edge share gate",
+      "immediate second clean-source repair without audit",
+      "candidate materialization after M1592 near-pass"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1593-paper-route-clean-source-repair-result-audit.md",
+  "public_gates": [
+    "M1593 must audit M1592 as a near-pass, not a pass",
+    "M1593 must preserve the 0.35 max clean source-edge share threshold",
+    "M1593 must summarize clean, dominated, control-only, and null evidence",
+    "M1593 must decide whether to design a selector-balanced cap repair, stop, or pivot",
+    "M1593 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not relax clean selector thresholds",
+    "do not relax the max clean source-edge share threshold",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_pairability_source_generation",
+    "evidence_axis": "Q_clean_source_repair_result_audit",
+    "evidence_increment": "audits M1592 near-pass clean source-generation repair before any further implementation",
+    "claim_scope": "result audit only; no implementation smoke, simulator rerun, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats 0.35294117647058826 max clean source-edge share as passing the 0.35 gate",
+      "stop if audit routes directly to materialization, training, PPO, promotion, or private holdout",
+      "stop if audit ignores dominated/control-only evidence"
+    ],
+    "fallback_plan": [
+      "admit one design-only selector-balanced cap repair if evidence supports it",
+      "stop the branch if the current public rows are too optimized",
+      "pivot to task/source redesign if source concentration appears structural"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1592 near-pass source-concentrated result requires audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "clean-source repair near-pass audit",
+    "admission_evidence": [
+      "M1592 produced 34 clean directed pairs, 5 clean source edges, and 0 invalid directed pairs",
+      "M1592 failed only the max clean source-edge share gate at 0.35294117647058826 > 0.35",
+      "M1591 required audit after exactly one bounded implementation"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run implementation smoke",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not relax thresholds",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1593 audit document",
+      "M1593 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits a design, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "near-pass interpretation is explicit",
+      "supported and unsupported claims are explicit",
+      "next route is explicit",
+      "guardrails remain clean"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1593 audits a selector-based result where dominated/control-only rows remain substantial.",
+    "history_necessity_tests": [
+      "M1592 clean selector classification",
+      "M1592 dominated/control-only split",
+      "M1592 source-share gate"
+    ],
+    "temporal_evidence_window": "M1592 clean-source repair smoke.",
+    "negative_result_policy": "If audit cannot justify a next design without threshold relaxation, stop or pivot instead of weakening clean standards.",
+    "allowed_claims": [
+      "public diagnostic audit and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1592's near-pass clean-source repair result is informative enough to decide the next route, but not enough to pass or materialize.",
+  "success_criteria": [
+    "docs/m1593-paper-route-clean-source-repair-result-audit.md exists",
+    "audit records M1592 as a near-pass source-concentrated result",
+    "audit preserves the pre-registered 0.35 source-share gate",
+    "audit decides design, stop, or pivot",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1592 as a pass by relaxing thresholds",
+    "audit ignores dominated/control-only evidence",
+    "audit routes directly to training PPO promotion private holdout corpus export actor-input changes or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1593-paper-route-clean-source-repair-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1593-paper-route-clean-source-repair-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json",
+    "runs/m1592_clean_history_control_source_generation_repair_smoke/clean_directed_pair_rows.csv",
+    "docs/m1592-paper-route-clean-history-control-source-generation-repair-implementation.md"
+  ],
+  "decision_rule": "M1593 passes if it audits the M1592 near-pass without relaxing gates and chooses the next route before another implementation.",
+  "next_blocker": "m1593-paper-route-clean-source-repair-result-audit"
+}
