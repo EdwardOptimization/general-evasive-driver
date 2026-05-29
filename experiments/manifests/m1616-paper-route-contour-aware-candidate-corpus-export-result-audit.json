@@ -1,0 +1,155 @@
+{
+  "id": "m1616-paper-route-contour-aware-candidate-corpus-export-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1615_contour_aware_candidate_corpus/summary.json",
+      "runs/m1615_contour_aware_candidate_corpus/corpus_manifest.json",
+      "docs/m1615-paper-route-contour-aware-candidate-corpus-export-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1615-paper-route-contour-aware-candidate-corpus-export-implementation.json"
+    ],
+    "parent_objective": [
+      "audit candidate corpus package export before objective design or training"
+    ],
+    "derived_from": [
+      "m1615-paper-route-contour-aware-candidate-corpus-export-implementation"
+    ],
+    "blocked_by": [
+      "M1615 public pass still requires audit before objective design or training"
+    ],
+    "supersedes": [
+      "direct objective construction from M1615",
+      "direct actor update from M1615",
+      "direct PPO after M1615"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.md",
+  "public_gates": [
+    "M1616 must audit M1615 package files and metadata",
+    "M1616 must decide whether package export admits objective-design, another diagnostic, synthesis, pivot, or stop",
+    "M1616 must keep loss construction, training, PPO, promotion, and private holdout blocked during the audit",
+    "M1616 must not claim level3 self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not construct a loss",
+    "do not construct an objective",
+    "do not export training_corpus.csv",
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "A_contour_aware_candidate_corpus_export_result_audit",
+    "evidence_increment": "audits M1615 package export before objective design or training",
+    "claim_scope": "audit only; no loss/objective construction, training corpus export, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats M1615 as training-ready",
+      "stop if audit ignores public-proof metadata",
+      "stop if audit routes directly to PPO"
+    ],
+    "fallback_plan": [
+      "admit objective-design only if package metadata and role separation are intact",
+      "pivot if public-overfit risk is too high",
+      "stop if no next step can preserve guardrails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1615 passes candidate corpus package export and requires audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "candidate corpus package export audit",
+    "admission_evidence": [
+      "M1615 passes public gates with candidate package metadata and no training corpus export"
+    ],
+    "blocked_shortcuts": [
+      "do not construct a loss",
+      "do not construct an objective",
+      "do not export training_corpus.csv",
+      "do not train",
+      "do not run PPO",
+      "do not run implementation smoke",
+      "do not use private holdout",
+      "do not promote a checkpoint",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1616 audit document",
+      "M1616 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits design, synthesis, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "M1615 package interpretation is explicit",
+      "supported and unsupported claims are explicit",
+      "public-gate overfit risk is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1616 audits public package metadata only and cannot strengthen self-ID claims.",
+    "history_necessity_tests": [
+      "M1615 positive candidate rows",
+      "M1615 diagnostic guardrails"
+    ],
+    "temporal_evidence_window": "M1615 candidate corpus package.",
+    "negative_result_policy": "If audit finds the package too public/narrow, preserve it as artifact evidence instead of objective design.",
+    "allowed_claims": [
+      "M1615 package audit and next route",
+      "no promotion, loss/objective construction, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1615's candidate corpus package should be audited before any objective-design, actor-update, training, or PPO decision.",
+  "success_criteria": [
+    "docs/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.md exists",
+    "audit records package files and metadata",
+    "supported and unsupported claims are explicit",
+    "public-gate overfit risk is explicit",
+    "next route is explicit",
+    "loss construction training PPO promotion private holdout corpus export and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1615 as training-ready or promotion evidence",
+    "audit routes directly to training PPO promotion private holdout objective construction or actor-input changes"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1615_contour_aware_candidate_corpus/summary.json",
+    "docs/m1615-paper-route-contour-aware-candidate-corpus-export-implementation.md"
+  ],
+  "decision_rule": "M1616 passes if it audits M1615 and chooses the next route before objective construction, training, PPO, or promotion.",
+  "next_blocker": "m1616-paper-route-contour-aware-candidate-corpus-export-result-audit"
+}

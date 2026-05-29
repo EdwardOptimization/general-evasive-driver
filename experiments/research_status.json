@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1623,
+    "completed": 1624,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1614-paper-route-contour-aware-candidate-corpus-design.md",
+      "command_log": "runs/m1615_contour_aware_candidate_corpus/summary.json",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1615_contour_aware_candidate_corpus",
       "status": "completed",
-      "task_id": "m1614-paper-route-contour-aware-candidate-corpus-design"
+      "task_id": "m1615-paper-route-contour-aware-candidate-corpus-export-implementation"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1615-paper-route-contour-aware-candidate-corpus-export-implementation.json",
-      "hypothesis": "A candidate corpus package can be exported with explicit public-proof metadata while keeping training corpus export and objective construction blocked.",
-      "id": "m1615-paper-route-contour-aware-candidate-corpus-export-implementation",
-      "kind": "infrastructure",
-      "notes": "Pending: export candidate corpus package without training corpus export",
-      "priority": 16100,
+      "command": "see experiments/manifests/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.json",
+      "hypothesis": "M1615's candidate corpus package should be audited before any objective-design, actor-update, training, or PPO decision.",
+      "id": "m1616-paper-route-contour-aware-candidate-corpus-export-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit package export before any objective design",
+      "priority": 16110,
       "status": "pending",
-      "success_artifact": "runs/m1615_contour_aware_candidate_corpus/summary.json"
+      "success_artifact": "docs/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.md"
     },
-    "updated_at_utc": "20260529T181014Z"
+    "updated_at_utc": "20260529T181432Z"
 }

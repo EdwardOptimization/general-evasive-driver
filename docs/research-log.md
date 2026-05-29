@@ -25662,3 +25662,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - actor input contract changed: false
 - follow-up manifest: `experiments/manifests/m1615-paper-route-contour-aware-candidate-corpus-export-implementation.json`
 - next: `m1615-paper-route-contour-aware-candidate-corpus-export-implementation`
+
+## M1615 Paper-Route Contour-Aware Candidate Corpus Export Implementation
+
+- status: completed
+- decision: `contour_aware_candidate_corpus_export_public_pass_route_to_audit`
+- artifact: `runs/m1615_contour_aware_candidate_corpus/summary.json`
+- doc: `docs/m1615-paper-route-contour-aware-candidate-corpus-export-implementation.md`
+- focused tests: `3 passed in 2.11s`
+- candidate corpus exported: true
+- training corpus exported: false
+- loss/objective constructed: false
+- positive candidate count: 39
+- diagnostic guardrail count: 232
+- positive rows all clean: true
+- diagnostic rows used as positive: false
+- candidate pair ids unique: true
+- diagnostic pair ids unique: true
+- source-edge count: 4
+- max source-edge share: 0.3333333333333333
+- public proof metadata complete: true
+- requires export audit: true
+- requires objective design before training: true
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- guardrail violation count: 0
+- package files: `corpus_manifest.json`, `diagnostic_guardrail_rows.csv`, `guardrail_summary.csv`, `positive_candidate_rows.csv`, `role_summary.csv`, `source_edge_summary.csv`, `summary.json`
+- supported: candidate corpus package export works without training corpus export; positive candidates and diagnostic guardrails remain separated; public-proof/no-paper-claim metadata is complete
+- unsupported: training corpus export, loss/objective construction, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- follow-up manifest: `experiments/manifests/m1616-paper-route-contour-aware-candidate-corpus-export-result-audit.json`
+- next: `m1616-paper-route-contour-aware-candidate-corpus-export-result-audit`

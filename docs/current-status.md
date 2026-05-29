@@ -16,21 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1614-paper-route-contour-aware-candidate-corpus-design
+m1615-paper-route-contour-aware-candidate-corpus-export-implementation
 ```
 
 Current next task:
 
 ```text
-m1615-paper-route-contour-aware-candidate-corpus-export-implementation
+m1616-paper-route-contour-aware-candidate-corpus-export-result-audit
 ```
 
-M1614 designed a candidate corpus package with separate `positive_candidate`
-and `diagnostic_guardrail` roles plus public-proof/no-paper-claim metadata. The
-next task is M1615 offline package export. It may write a candidate corpus
-package, but not `training_corpus.csv`, loss/objective configs, checkpoints, or
-PPO configs. Training, PPO, promotion, private holdout, actor-input changes,
-diagnostics-as-positive-candidates, and level3 self-ID claims remain blocked.
+M1615 exported a candidate corpus package with 39 positive candidates, 232
+diagnostic guardrail rows, complete public-proof/no-paper-claim metadata, and no
+training corpus or objective/loss config. The next task is M1616 result audit.
+Loss/objective construction, training, PPO, promotion, private holdout,
+actor-input changes, diagnostics-as-positive-candidates, and level3 self-ID
+claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
