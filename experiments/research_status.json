@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1611,
+    "completed": 1612,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1602-paper-route-contour-aware-source-rule-implementation.md",
+    "command_log": "docs/m1603-paper-route-contour-aware-source-rule-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1602_contour_aware_source_rule",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1602-paper-route-contour-aware-source-rule-implementation"
+    "task_id": "m1603-paper-route-contour-aware-source-rule-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1603-paper-route-contour-aware-source-rule-result-audit.json",
-    "hypothesis": "M1602's source-rule pass can justify or reject a bounded replay-design milestone before any replay.",
-    "id": "m1603-paper-route-contour-aware-source-rule-result-audit",
+    "command": "see experiments/manifests/m1604-paper-route-contour-aware-bounded-replay-design.json",
+    "hypothesis": "M1602 primary and diagnostic rows can define a bounded replay design without public-row overfit shortcuts.",
+    "id": "m1604-paper-route-contour-aware-bounded-replay-design",
     "kind": "gate",
-    "notes": "Pending: audit offline selector result before any replay design",
-    "priority": 15980,
+    "notes": "Pending: design bounded replay without executing replay",
+    "priority": 15990,
     "status": "pending",
-    "success_artifact": "docs/m1603-paper-route-contour-aware-source-rule-result-audit.md"
+    "success_artifact": "docs/m1604-paper-route-contour-aware-bounded-replay-design.md"
   },
-  "updated_at_utc": "20260529T171842Z"
+  "updated_at_utc": "20260529T172157Z"
 }

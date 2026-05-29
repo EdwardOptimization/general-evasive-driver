@@ -157,6 +157,52 @@
     "runs/m1602_contour_aware_source_rule/summary.json",
     "docs/m1602-paper-route-contour-aware-source-rule-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1603-paper-route-contour-aware-source-rule-result-audit.md",
+    "decision": "contour_aware_source_rule_audit_admit_bounded_replay_design",
+    "failure_taxonomy": [
+      "scenario_sampling_failure",
+      "objective_overfit"
+    ],
+    "m1602_passes_public_smoke_gates": true,
+    "m1602_primary_rule_directed_pair_count": 144,
+    "m1602_primary_clean_directed_pair_count": 39,
+    "m1602_primary_clean_source_edge_count": 4,
+    "m1602_max_primary_clean_source_edge_share": 0.3333333333333333,
+    "m1602_endpoint_neighbor_primary_count": 0,
+    "m1602_diagnostic_directed_pair_count": 232,
+    "m1602_diagnostic_dominated_or_control_count": 81,
+    "next_manifest": "experiments/manifests/m1604-paper-route-contour-aware-bounded-replay-design.json",
+    "supported_claims": [
+      "offline contour-aware selector works",
+      "strict primary rule avoids endpoint-neighbor leakage",
+      "diagnostic rows preserve negative evidence",
+      "bounded replay design is justified before any replay"
+    ],
+    "unsupported_claims": [
+      "replay has passed",
+      "candidate materialization",
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "paper-level self-identification",
+      "level3 anticipatory self-identification"
+    ],
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1603 passes if it audits M1602 without weakening gates and chooses the next route before any replay or training.",
-  "next_blocker": "m1603-paper-route-contour-aware-source-rule-result-audit"
+  "next_blocker": "m1604-paper-route-contour-aware-bounded-replay-design"
 }

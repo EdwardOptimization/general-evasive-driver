@@ -16,21 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1602-paper-route-contour-aware-source-rule-implementation
+m1603-paper-route-contour-aware-source-rule-result-audit
 ```
 
 Current next task:
 
 ```text
-m1603-paper-route-contour-aware-source-rule-result-audit
+m1604-paper-route-contour-aware-bounded-replay-design
 ```
 
-M1602 implemented the offline contour-aware source rule and passed its public
-offline gates: `144` primary rows, `39` clean rows, `4` primary clean source
-edges, max primary clean source-edge share `0.3333333333333333`, and `232`
-diagnostic rows. The next task is M1603 audit before any replay design. Replay,
-simulator rerun, materialization, training-corpus export, training, PPO,
-promotion, private holdout, and threshold relaxation remain blocked.
+M1603 audited M1602 and admits only a bounded replay design. The source rule
+remains offline evidence: `144` primary rows, `39` clean rows, clean source-edge
+share `0.3333333333333333`, and `232` diagnostic rows. The next task is M1604
+design-only bounded replay. Replay execution, simulator rerun, materialization,
+training-corpus export, training, PPO, promotion, private holdout, and threshold
+relaxation remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

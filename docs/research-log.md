@@ -25325,3 +25325,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1603-paper-route-contour-aware-source-rule-result-audit.json`
 - next: `m1603-paper-route-contour-aware-source-rule-result-audit`
+
+## M1603 Paper-Route Contour-Aware Source Rule Result Audit
+
+- status: completed
+- decision: `contour_aware_source_rule_audit_admit_bounded_replay_design`
+- artifact: `docs/m1603-paper-route-contour-aware-source-rule-result-audit.md`
+- failure taxonomy: `scenario_sampling_failure`, `objective_overfit`
+- M1602 public pass: true
+- M1602 primary directed pair count: 144
+- M1602 primary clean directed pair count: 39
+- M1602 primary clean source-edge count: 4
+- M1602 max primary clean source-edge share: 0.3333333333333333
+- M1602 endpoint-neighbor primary count: 0
+- M1602 diagnostic directed pair count: 232
+- M1602 diagnostic dominated/control count: 81
+- supported: offline selector works, strict primary rule avoids endpoint-neighbor leakage, diagnostics preserve negative evidence
+- route decision: admit design-only bounded replay before any replay execution
+- replay started: false
+- history interventions executed: false in M1603
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1604-paper-route-contour-aware-bounded-replay-design.json`
+- next: `m1604-paper-route-contour-aware-bounded-replay-design`
