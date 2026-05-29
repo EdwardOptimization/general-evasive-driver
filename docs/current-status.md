@@ -16,30 +16,30 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1466-paper-route-boundary-retarget-validation-synthesis
+m1467-paper-route-positive-neighborhood-dedup-repair
 ```
 
 Current next task:
 
 ```text
-m1467-paper-route-positive-neighborhood-dedup-repair
+m1468-paper-route-positive-neighborhood-dedup-smoke
 ```
 
-M1466 synthesized the boundary retarget validation branch and requires dedup
-repair before more preflight or replay. The current public-gate base remains
-M1362 alpha `0.1`:
+M1467 repaired duplicate-key selection in the positive-neighborhood generator.
+The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1466 synthesis:
+M1467 result:
 
 ```text
-decision: boundary_retarget_validation_synthesis_continue_with_dedup_repair
-synthesis_decision: continue
-public_gate_overfit_risk: high
-next: m1467-paper-route-positive-neighborhood-dedup-repair
+decision: positive_neighborhood_dedup_repair_implemented_admit_rerun
+focused_test_result: 31 passed in 0.99s
+dedup_key: positive_neighborhood_key
+new summary fields: selected_unique_positive_neighborhood_keys / selected_duplicate_positive_neighborhood_key_rows
+next: m1468-paper-route-positive-neighborhood-dedup-smoke
 ```
 
 M1465 result:
@@ -52,9 +52,9 @@ duplicate_rows: 172
 interpretation: selected count is inflated by duplicate geometry keys
 ```
 
-M1467 should deduplicate `positive_neighborhood_key` before selection. It must
-not run preflight, bounded replay, training, PPO, promotion, private holdout,
-corpus export, or actor-input changes.
+M1468 should rerun proposal generation and verify selected duplicate keys are
+zero. It must not run preflight, bounded replay, training, PPO, promotion,
+private holdout, corpus export, or actor-input changes.
 
 M1455 result:
 

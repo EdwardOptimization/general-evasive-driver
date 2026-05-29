@@ -21752,3 +21752,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1467-paper-route-positive-neighborhood-dedup-repair.json`.
 - next: `m1467-paper-route-positive-neighborhood-dedup-repair`
+
+## 20260529T062000Z - m1467-paper-route-positive-neighborhood-dedup-repair
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1467-paper-route-positive-neighborhood-dedup-repair.md`
+- decision: `positive_neighborhood_dedup_repair_implemented_admit_rerun`
+- implementation: `src/autodrift/positive_neighborhood_expansion.py`
+- tests: `tests/test_positive_neighborhood_expansion.py`
+- focused result: `31 passed in 0.99s`
+- repair: `select_positive_neighborhood_candidates` skips duplicate `positive_neighborhood_key` values before applying selection caps.
+- new summary fields: `selected_unique_positive_neighborhood_keys`, `selected_duplicate_positive_neighborhood_key_rows`.
+- guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1468-paper-route-positive-neighborhood-dedup-smoke.json`.
+- next: `m1468-paper-route-positive-neighborhood-dedup-smoke`

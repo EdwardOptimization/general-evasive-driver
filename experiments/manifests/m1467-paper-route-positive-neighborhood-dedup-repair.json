@@ -140,6 +140,32 @@
   "baseline_artifacts": [
     "docs/m1466-paper-route-boundary-retarget-validation-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1467-paper-route-positive-neighborhood-dedup-repair.md",
+    "decision": "positive_neighborhood_dedup_repair_implemented_admit_rerun",
+    "implementation": "src/autodrift/positive_neighborhood_expansion.py",
+    "tests": "tests/test_positive_neighborhood_expansion.py",
+    "focused_test_result": "31 passed in 0.99s",
+    "dedup_key": "positive_neighborhood_key",
+    "summary_fields_added": [
+      "selected_unique_positive_neighborhood_keys",
+      "selected_duplicate_positive_neighborhood_key_rows"
+    ],
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1468-paper-route-positive-neighborhood-dedup-smoke.json"
+  },
+  "decision": "positive_neighborhood_dedup_repair_implemented_admit_rerun",
   "decision_rule": "M1467 passes if duplicate positive_neighborhood_key rows are removed before selection with focused tests and no preflight or replay run.",
-  "next_blocker": "m1467-paper-route-positive-neighborhood-dedup-repair"
+  "next_blocker": "m1468-paper-route-positive-neighborhood-dedup-smoke"
 }

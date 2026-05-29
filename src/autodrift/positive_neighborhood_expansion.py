@@ -241,8 +241,12 @@ def select_positive_neighborhood_candidates(
         "anchor": Counter(),
         "variant": Counter(),
     }
+    seen_keys: set[str] = set()
     selected: list[dict[str, Any]] = []
     for _, row in frame.iterrows():
+        key = str(row["positive_neighborhood_key"])
+        if key in seen_keys:
+            continue
         seed = str(row["seed"])
         pair = str(row["capability_pair"])
         anchor = str(row["anchor_index"])
@@ -264,6 +268,7 @@ def select_positive_neighborhood_candidates(
         ).to_dict()
         output["selected_expansion_rank"] = len(selected)
         selected.append(output)
+        seen_keys.add(key)
         counts["seed"][seed] += 1
         counts["pair"][pair] += 1
         counts["anchor"][anchor] += 1
@@ -290,6 +295,14 @@ def build_expansion_summary(
         "candidate_pool_rows": int(len(candidate_pool)),
         "proposal_rows": int(len(proposals)),
         "selected_candidate_rows": int(len(selected)),
+        "selected_unique_positive_neighborhood_keys": int(
+            selected["positive_neighborhood_key"].nunique() if "positive_neighborhood_key" in selected else 0
+        ),
+        "selected_duplicate_positive_neighborhood_key_rows": int(
+            len(selected) - selected["positive_neighborhood_key"].nunique()
+            if "positive_neighborhood_key" in selected
+            else 0
+        ),
         "proposal_source_group_counts": {str(k): int(v) for k, v in proposal_group_counts.items()},
         "selected_source_group_counts": {str(k): int(v) for k, v in selected_group_counts.items()},
         "selected_diversity": source_diversity(selected.to_dict("records") if not selected.empty else []),

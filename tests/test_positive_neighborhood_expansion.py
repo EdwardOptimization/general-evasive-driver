@@ -135,3 +135,30 @@ def test_select_positive_neighborhood_candidates_applies_diversity_caps():
     assert selected["seed"].value_counts().max() <= 4
     assert selected["capability_pair"].value_counts().max() <= 6
     assert len(set(selected["seed"])) >= 3
+
+
+def test_select_positive_neighborhood_candidates_deduplicates_keys():
+    anchors = pd.DataFrame([_anchor()])
+    controls = pd.DataFrame([{**_anchor(), "variant": "zero_current_response", "control_positive": True}])
+    duplicated = _base(
+        141901,
+        "brake_authority_drop->mass_cg_shift",
+        bucket="vx6|yaw-2|steer-4|ox0|oy0",
+    )
+    pool = pd.DataFrame([duplicated, dict(duplicated)])
+    proposals = generate_positive_neighborhood_proposals(
+        history_positive_rows=anchors,
+        control_positive_rows=controls,
+        candidate_pool=pool,
+    )
+
+    selected = select_positive_neighborhood_candidates(
+        proposals,
+        max_candidates=16,
+        per_seed_cap=16,
+        per_capability_pair_cap=16,
+        per_anchor_cap=16,
+        per_variant_cap=16,
+    )
+
+    assert len(selected) == selected["positive_neighborhood_key"].nunique()

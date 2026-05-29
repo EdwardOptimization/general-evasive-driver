@@ -1,0 +1,163 @@
+{
+  "id": "m1468-paper-route-positive-neighborhood-dedup-smoke",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1461_retargeted_source_step_bounded_replay_smoke/history_positive_rows.csv",
+      "runs/m1461_retargeted_source_step_bounded_replay_smoke/control_positive_rows.csv",
+      "runs/m1459_retargeted_source_step_preflight_smoke/selected_candidate_rows.csv",
+      "docs/m1467-paper-route-positive-neighborhood-dedup-repair.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1467-paper-route-positive-neighborhood-dedup-repair.json"
+    ],
+    "parent_objective": [
+      "rerun positive-neighborhood expansion proposal smoke after duplicate-key repair"
+    ],
+    "derived_from": [
+      "m1467-paper-route-positive-neighborhood-dedup-repair"
+    ],
+    "blocked_by": [
+      "dedup repair has not yet been validated on M1461/M1459 inputs"
+    ],
+    "supersedes": [
+      "m1465 duplicated selected candidates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1468-paper-route-positive-neighborhood-dedup-smoke.md",
+  "public_gates": [
+    "M1468 must run proposal generation only",
+    "M1468 must report selected_unique_positive_neighborhood_keys and selected_duplicate_positive_neighborhood_key_rows",
+    "M1468 must not run preflight replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run bounded replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat proposal rows as replay evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_step_boundary_retarget_validation",
+    "evidence_axis": "S_positive_neighborhood_dedup_smoke",
+    "evidence_increment": "reruns proposal smoke after duplicate-key repair",
+    "claim_scope": "proposal-generation smoke only; no preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if selected_duplicate_positive_neighborhood_key_rows > 0",
+      "stop if selected_candidate_rows < 16",
+      "stop if candidate_step_column is not source_step",
+      "stop if run starts preflight replay or training"
+    ],
+    "fallback_plan": [
+      "route to repair audit if duplicate keys remain",
+      "route to preflight design if deduped candidates remain source-diverse"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1467 implements duplicate-key repair after branch synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "positive-neighborhood dedup proposal smoke",
+    "admission_evidence": [
+      "M1467 dedup repair and focused tests passed"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "runs/m1468_positive_neighborhood_dedup_smoke",
+      "M1468 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up preflight design or audit manifest"
+    ],
+    "next_stage_criteria": [
+      "deduped proposal generation completed",
+      "unique key counts and diversity are recorded",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1468 is proposal generation and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future expansion replay must use deduplicated candidates"
+    ],
+    "temporal_evidence_window": "M1467 dedup repair.",
+    "negative_result_policy": "If deduped candidates are sparse or singleton, route to audit rather than replay.",
+    "allowed_claims": [
+      "deduped positive-neighborhood proposal smoke counts",
+      "no preflight result, replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "After M1467, positive-neighborhood proposal selection contains no duplicate positive_neighborhood_key rows.",
+  "success_criteria": [
+    "runs/m1468_positive_neighborhood_dedup_smoke/summary.json exists",
+    "proposal_rows >= 64",
+    "selected_candidate_rows >= 16",
+    "selected_unique_positive_neighborhood_keys == selected_candidate_rows",
+    "selected_duplicate_positive_neighborhood_key_rows == 0",
+    "candidate_step_column equals source_step",
+    "source_preflight_started false",
+    "replay_started false",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "failure_criteria": [
+    "summary missing",
+    "duplicate selected keys remain",
+    "selected candidate rows are sparse",
+    "candidate_step_column is not source_step",
+    "run starts preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "positive_neighborhood_dedup_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.positive_neighborhood_expansion --history-positive-rows runs/m1461_retargeted_source_step_bounded_replay_smoke/history_positive_rows.csv --control-positive-rows runs/m1461_retargeted_source_step_bounded_replay_smoke/control_positive_rows.csv --candidate-pool runs/m1459_retargeted_source_step_preflight_smoke/selected_candidate_rows.csv --max-candidates 192 --per-seed-cap 48 --per-capability-pair-cap 32 --per-anchor-cap 96 --per-variant-cap 96 --run-dir runs/m1468_positive_neighborhood_dedup_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1468_positive_neighborhood_dedup_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1468-paper-route-positive-neighborhood-dedup-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1467-paper-route-positive-neighborhood-dedup-repair.md"
+  ],
+  "decision_rule": "M1468 passes if proposal generation produces deduplicated source-step candidates without preflight or replay.",
+  "next_blocker": "m1468-paper-route-positive-neighborhood-dedup-smoke"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1475,
+    "completed": 1476,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1466-paper-route-boundary-retarget-validation-synthesis.md",
+    "command_log": "docs/m1467-paper-route-positive-neighborhood-dedup-repair.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1466-paper-route-boundary-retarget-validation-synthesis"
+    "task_id": "m1467-paper-route-positive-neighborhood-dedup-repair"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1467-paper-route-positive-neighborhood-dedup-repair.json",
-    "hypothesis": "Dropping duplicate positive_neighborhood_key rows before selection removes M1465's metric artifact without actor changes.",
-    "id": "m1467-paper-route-positive-neighborhood-dedup-repair",
+    "command": "see experiments/manifests/m1468-paper-route-positive-neighborhood-dedup-smoke.json",
+    "hypothesis": "After M1467, positive-neighborhood proposal selection contains no duplicate positive_neighborhood_key rows.",
+    "id": "m1468-paper-route-positive-neighborhood-dedup-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: deduplicate positive_neighborhood_key before selection and add focused tests without preflight replay or training",
-    "priority": 14620,
+    "notes": "Pending: rerun proposal generation after dedup repair and verify selected duplicate key count is zero",
+    "priority": 14630,
     "status": "pending",
-    "success_artifact": "docs/m1467-paper-route-positive-neighborhood-dedup-repair.md"
+    "success_artifact": "docs/m1468-paper-route-positive-neighborhood-dedup-smoke.md"
   },
-  "updated_at_utc": "20260529T061000Z"
+  "updated_at_utc": "20260529T062000Z"
 }
