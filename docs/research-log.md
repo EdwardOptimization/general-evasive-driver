@@ -26044,3 +26044,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: admit design-only sensitivity/projection probe before any update implementation
 - follow-up manifest: `experiments/manifests/m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design.json`
 - next: `m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design`
+
+## M1635 Paper-Route Contour-Aware Exact Objective Sensitivity Probe Design
+
+- status: completed
+- decision: `contour_aware_exact_objective_sensitivity_design_admit_bounded_implementation`
+- artifact: `docs/m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design.md`
+- failure taxonomy: `none`
+- design scope: no-update sensitivity probe for exact objective response to controlled deterministic policy-output drift
+- perturbation scope: in-memory `actor_mean.weight` and `actor_mean.bias` only
+- perturbation scales: `0.0`, `1e-4`, `3e-4`, `1e-3`
+- base requirement: residual remains zero or near-zero
+- perturbed requirement: at least one perturbed candidate produces measurable positive residual
+- guardrails: no perturbed checkpoint write, no actor update, no training, no PPO, no promotion, no private holdout
+- supported: one bounded sensitivity implementation is admitted
+- unsupported: repair/update usefulness, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- follow-up manifest: `experiments/manifests/m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation.json`
+- next: `m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation`

@@ -1,0 +1,168 @@
+{
+  "id": "m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1633_contour_aware_policy_target_exact_evaluator/summary.json",
+      "docs/m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design.json"
+    ],
+    "parent_objective": [
+      "bounded in-memory sensitivity probe for contour-aware exact objective"
+    ],
+    "derived_from": [
+      "m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design"
+    ],
+    "blocked_by": [
+      "M1635 admits a sensitivity probe but blocks repair/update/training"
+    ],
+    "supersedes": [
+      "direct objective-only repair from M1635",
+      "direct PPO after M1635",
+      "direct checkpoint promotion after M1635"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation.md",
+  "public_gates": [
+    "M1636 must evaluate base and in-memory perturbed candidates",
+    "M1636 must keep base residual near zero",
+    "M1636 must show at least one perturbed candidate has measurable positive residual",
+    "M1636 must not write perturbed checkpoints",
+    "M1636 must not run actor update training PPO promotion or private holdout"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run gradient update",
+    "do not train",
+    "do not run PPO",
+    "do not write perturbed checkpoints",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_exact_objective_sensitivity_probe",
+    "evidence_increment": "implements a bounded sensitivity probe for the exact objective before repair/update design",
+    "claim_scope": "infrastructure sensitivity probe only; no gradient update, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if base residual is not near zero",
+      "stop if controlled perturbations produce no measurable residual",
+      "stop if guardrails fail or a perturbed checkpoint is written",
+      "stop after implementation for result audit before repair/projection design"
+    ],
+    "fallback_plan": [
+      "route to result audit if sensitivity gates pass",
+      "pivot to perturbation-scope repair if perturbations are ineffective",
+      "pivot to evaluator/materialization repair if base residual is nonzero"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1635 admits exactly one bounded sensitivity implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "run no-update sensitivity probe",
+    "admission_evidence": [
+      "M1633 exact evaluator public pass",
+      "M1635 designed base versus controlled perturbation checks"
+    ],
+    "blocked_shortcuts": [
+      "do not run gradient update",
+      "do not train",
+      "do not run PPO",
+      "do not write perturbed checkpoints",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "sensitivity probe module and focused tests",
+      "M1636 run artifacts",
+      "M1636 docs status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "base and perturbed residual metrics are written",
+      "guardrails are clean",
+      "repair/update remains blocked pending audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1636 tests fixed-tensor objective sensitivity only and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "evaluates correct/wrong hidden branch residuals under controlled policy-output perturbation"
+    ],
+    "temporal_evidence_window": "public M1630/M1633 tensor rows only.",
+    "negative_result_policy": "If sensitivity is null, record whether perturbation scope or objective semantics caused the null before any repair design.",
+    "allowed_claims": [
+      "exact-objective sensitivity result over public tensors",
+      "no actor update, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Controlled in-memory perturbations of actor_mean parameters will produce measurable exact-objective residual while the base remains zero-residual.",
+  "success_criteria": [
+    "runs/m1636_contour_aware_exact_objective_sensitivity_probe/summary.json exists",
+    "base_positive_exact_residual_mean == 0.0 or base_positive_policy_action_residual_l2_max <= 1e-6",
+    "max_positive_exact_residual_mean_over_perturbations > 1e-8",
+    "max_positive_policy_action_residual_l2_max_over_perturbations > 1e-5",
+    "perturbed_checkpoint_written is false",
+    "actor_update_run training_started ppo_used promoted private_holdout_used actor_input_contract_changed labels_enter_actor_input level3_self_id_claim_made are false"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "base residual is not near zero",
+    "controlled perturbations produce no measurable positive residual",
+    "perturbed checkpoints are written",
+    "actor update training PPO promotion private holdout or actor-input changes are produced"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_contour_aware_exact_objective_sensitivity_probe.py"
+    },
+    {
+      "name": "run_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.contour_aware_exact_objective_sensitivity_probe --materialization-run-dir runs/m1630_contour_aware_full_target_materialization --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --run-dir runs/m1636_contour_aware_exact_objective_sensitivity_probe"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1636_contour_aware_exact_objective_sensitivity_probe/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1636_contour_aware_exact_objective_sensitivity_probe/candidate_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1636_contour_aware_exact_objective_sensitivity_probe/guardrail_summary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1633_contour_aware_policy_target_exact_evaluator/summary.json",
+    "docs/m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design.md"
+  ],
+  "decision_rule": "M1636 passes if base stays zero-residual, perturbations are detectable, and no update/training artifacts are produced.",
+  "next_blocker": "m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation"
+}

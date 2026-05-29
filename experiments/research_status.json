@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1643,
+    "completed": 1644,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit.md",
+      "command_log": "docs/m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit"
+      "task_id": "m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design.json",
-      "hypothesis": "The zero-residual exact evaluator can be turned into a useful retention/projection test by comparing the base checkpoint with controlled perturbed candidates.",
-      "id": "m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design",
-      "kind": "gate",
-      "notes": "Pending: design sensitivity/projection probe only; no actor update training PPO promotion or private holdout",
-      "priority": 16300,
+      "command": "see experiments/manifests/m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation.json",
+      "hypothesis": "Controlled in-memory perturbations of actor_mean parameters will produce measurable exact-objective residual while the base remains zero-residual.",
+      "id": "m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation",
+      "kind": "infrastructure",
+      "notes": "Pending: implement no-update sensitivity probe only; no checkpoint write actor update training PPO promotion or private holdout",
+      "priority": 16310,
       "status": "pending",
-      "success_artifact": "docs/m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design.md"
+      "success_artifact": "runs/m1636_contour_aware_exact_objective_sensitivity_probe/summary.json"
     },
-    "updated_at_utc": "20260529T194312Z"
+    "updated_at_utc": "20260529T194619Z"
 }

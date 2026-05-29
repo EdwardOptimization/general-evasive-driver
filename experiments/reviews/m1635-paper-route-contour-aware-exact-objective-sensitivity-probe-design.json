@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M1635 designs in-memory actor_mean perturbation sensitivity probe to test exact-objective response before repair/update design",
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores zero base residual",
+    "design treats diagnostics or donor-plus actions as positive targets",
+    "design routes directly to PPO promotion private holdout or actor-input changes",
+    "design claims paper-level or level3 self-identification evidence"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run actor update",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T194703Z",
+  "hypothesis": "The zero-residual exact evaluator can be turned into a useful retention/projection test by comparing the base checkpoint with controlled perturbed candidates.",
+  "lineage": {
+    "blocked_by": [
+      "M1634 shows direct base update is not meaningful because base residual is zero"
+    ],
+    "derived_from": [
+      "m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m1633_contour_aware_policy_target_exact_evaluator/summary.json",
+      "docs/m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit.md"
+    ],
+    "parent_objective": [
+      "design sensitivity/projection probe for contour-aware exact objective"
+    ],
+    "supersedes": [
+      "direct objective-only update from M1633",
+      "direct PPO after M1633",
+      "direct checkpoint promotion after M1633"
+    ]
+  },
+  "milestone": "m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design",
+  "next_blocker": "m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "contour_aware_exact_objective_sensitivity_design_admit_bounded_implementation",
+  "public_gates": [
+    "M1635 must design sensitivity/projection semantics only",
+    "M1635 must account for zero base residual",
+    "M1635 must define base versus controlled-perturbation checks",
+    "M1635 must keep diagnostics and donor-plus action guardrails intact",
+    "M1635 must keep actor update PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design.md",
+    "clearance_margin_mean": "",
+    "decision": "contour_aware_exact_objective_sensitivity_design_admit_bounded_implementation",
+    "milestone": "m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design",
+    "reason": "M1635 designs in-memory actor_mean perturbation sensitivity probe to test exact-objective response before repair/update design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design.md exists",
+    "design defines base and controlled-perturbation checks",
+    "design defines sensitivity metrics and stop rules",
+    "design states supported and unsupported claims",
+    "actor update PPO promotion and private holdout remain blocked"
+  ],
+  "type": "gate"
+}
