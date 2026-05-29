@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M1474 designs a no-training source-diverse pressure generator route that separates original-source positives neighbor-source pressure and zero-current controls",
+  "failure_criteria": [
+    "design document is missing",
+    "design only replays original-source positives",
+    "design mixes control positives into history-positive criteria",
+    "design starts replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat source-singleton positives as source-diverse evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T052944Z",
+  "hypothesis": "A source-diverse pressure design can use M1472 neighbor-source negatives to test whether local positives can transfer beyond the original source.",
+  "lineage": {
+    "blocked_by": [
+      "M1472 history positives expand locally but remain source-singleton"
+    ],
+    "derived_from": [
+      "m1473-paper-route-positive-neighborhood-replay-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1473-paper-route-positive-neighborhood-replay-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m1472_positive_neighborhood_bounded_replay_smoke/actual_replay_rows.csv",
+      "runs/m1472_positive_neighborhood_bounded_replay_smoke/history_positive_rows.csv",
+      "docs/m1473-paper-route-positive-neighborhood-replay-result-audit.md"
+    ],
+    "parent_objective": [
+      "design source-diverse pressure route after local positive surface remains source-singleton"
+    ],
+    "supersedes": [
+      "direct corpus export from M1472 local positives"
+    ]
+  },
+  "milestone": "m1474-paper-route-source-diverse-pressure-design",
+  "next_blocker": "m1475-paper-route-source-diverse-pressure-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_diverse_pressure_design_admit_implementation",
+  "public_gates": [
+    "M1474 must design source-diverse pressure before any corpus export or training",
+    "M1474 must separate original-source positives from neighbor-source negatives and controls",
+    "M1474 must block replay training PPO promotion private holdout corpus export and actor-input changes"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1474-paper-route-source-diverse-pressure-design.md",
+    "clearance_margin_mean": "",
+    "decision": "source_diverse_pressure_design_admit_implementation",
+    "milestone": "m1474-paper-route-source-diverse-pressure-design",
+    "reason": "M1474 designs a no-training source-diverse pressure generator route that separates original-source positives neighbor-source pressure and zero-current controls",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1474-paper-route-source-diverse-pressure-design.md exists",
+    "design separates original-source positives neighbor-source negatives and zero-current controls",
+    "design blocks training PPO promotion private holdout corpus export and actor-input changes",
+    "design routes to implementation or branch synthesis"
+  ],
+  "type": "gate"
+}

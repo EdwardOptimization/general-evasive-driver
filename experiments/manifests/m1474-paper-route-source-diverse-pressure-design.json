@@ -137,6 +137,29 @@
   "baseline_artifacts": [
     "docs/m1473-paper-route-positive-neighborhood-replay-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1474-paper-route-source-diverse-pressure-design.md",
+    "decision": "source_diverse_pressure_design_admit_implementation",
+    "failure_type": "none",
+    "design": "source-diverse pressure generator over M1472 local positive surface and neighbor-source negatives",
+    "source_separation_required": true,
+    "control_positive_separation_required": true,
+    "candidate_step_column": "source_step",
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1475-paper-route-source-diverse-pressure-implementation.json"
+  },
+  "decision": "source_diverse_pressure_design_admit_implementation",
   "decision_rule": "M1474 passes if it designs a source-diverse pressure route without replay or training.",
-  "next_blocker": "m1474-paper-route-source-diverse-pressure-design"
+  "next_blocker": "m1475-paper-route-source-diverse-pressure-implementation"
 }

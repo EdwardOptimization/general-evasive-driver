@@ -21873,3 +21873,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1474-paper-route-source-diverse-pressure-design.json`.
 - next: `m1474-paper-route-source-diverse-pressure-design`
+
+## 20260529T065500Z - m1474-paper-route-source-diverse-pressure-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1474-paper-route-source-diverse-pressure-design.md`
+- decision: `source_diverse_pressure_design_admit_implementation`
+- design target: `src/autodrift/source_diverse_pressure.py`
+- source policy: treat M1472 history positives as a boundary map, not a training corpus.
+- pressure groups: capped original-source diagnostics, neighbor-source pressure candidates, and separate zero-current control diagnostics.
+- required preservation: `candidate_step_column == source_step`.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1475-paper-route-source-diverse-pressure-implementation.json`.
+- next: `m1475-paper-route-source-diverse-pressure-implementation`
