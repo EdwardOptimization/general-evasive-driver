@@ -159,6 +159,37 @@
     "runs/m1646_contour_aware_damped_projection_stress_test/aggregate_summary.csv",
     "docs/m1646-paper-route-contour-aware-damped-projection-stress-test-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit.md",
+    "decision": "contour_aware_damped_projection_stress_audit_route_to_branch_synthesis",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "audited_run_dir": "runs/m1646_contour_aware_damped_projection_stress_test",
+    "stress_candidate_count": 9,
+    "measurable_initial_residual_count": 9,
+    "residual_reduced_count": 9,
+    "candidate_public_pass_count": 9,
+    "accepted_backtracking_candidate_count": 9,
+    "min_positive_exact_residual_reduction_ratio": 0.7070986860856349,
+    "median_positive_exact_residual_reduction_ratio": 0.7420973915926545,
+    "max_positive_exact_residual_reduction_ratio": 0.8632753818236488,
+    "max_guardrail_violation_count": 0.0,
+    "checkpoint_artifact_count": 0,
+    "base_interpolation_used_for_repair_count": 0,
+    "diagnostic_rows_used_as_positive_count": 0,
+    "donor_plus_action_used_as_loss_target_count": 0,
+    "training_started_count": 0,
+    "ppo_used_count": 0,
+    "promoted_count": 0,
+    "private_holdout_used_count": 0,
+    "actor_input_contract_changed_count": 0,
+    "level3_self_id_claim_count": 0,
+    "supported_claim": "damped projection is stable across the pre-registered fixed 3x3 controlled actor_mean perturbation grid",
+    "unsupported_claim_boundary": "no checkpoint artifact, PPO proposal repair, closed-loop improvement, behavior retention, promotion, private-holdout, paper-level, or level3 self-ID claim",
+    "next_manifest": "experiments/manifests/m1648-paper-route-contour-aware-damped-projection-branch-synthesis.json"
+  },
   "decision_rule": "M1647 passes if it audits the fixed-grid stress pass and chooses a safe next route before checkpoint artifact, PPO, or promotion.",
-  "next_blocker": "m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit"
+  "next_blocker": "m1648-paper-route-contour-aware-damped-projection-branch-synthesis"
 }

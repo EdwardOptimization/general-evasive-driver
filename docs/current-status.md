@@ -16,23 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1646-paper-route-contour-aware-damped-projection-stress-test-implementation
+m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit
 ```
 
 Current next task:
 
 ```text
-m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit
+m1648-paper-route-contour-aware-damped-projection-branch-synthesis
 ```
 
-M1646 implemented the fixed no-checkpoint damped projection stress test.
-All 9 fixed candidates reduced residual and passed candidate public gates.
-Aggregate reduction ratios were min `0.7070986860856349`, median
-`0.7420973915926545`, max `0.8632753818236488`, with zero checkpoint artifacts,
-zero base-interpolation repairs, and clean role/contract guardrails. The next
-task is M1647 audit before any checkpoint artifact, PPO-proposal repair,
-closed-loop evaluation, promotion, private holdout, actor-input change, or
-level3 self-ID claim.
+M1647 audited the M1646 fixed no-checkpoint damped projection stress-test pass.
+M1646 remains a clean infrastructure result: all 9 fixed candidates reduced
+residual and passed candidate public gates, aggregate reduction ratios were min
+`0.7070986860856349`, median `0.7420973915926545`, max
+`0.8632753818236488`, with zero checkpoint artifacts, zero base-interpolation
+repairs, and clean role/contract guardrails. M1647 does not upgrade that to
+checkpoint, PPO, closed-loop, behavior-retention, promotion, private-holdout,
+paper-level, or level3 self-ID evidence. The next task is M1648 branch
+synthesis before any further implementation route.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

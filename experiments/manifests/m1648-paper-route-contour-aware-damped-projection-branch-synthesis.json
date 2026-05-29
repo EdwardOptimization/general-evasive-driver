@@ -1,0 +1,178 @@
+{
+  "id": "m1648-paper-route-contour-aware-damped-projection-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit.md",
+      "runs/m1646_contour_aware_damped_projection_stress_test/summary.json",
+      "docs/m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation.md",
+      "docs/m1643-paper-route-contour-aware-damped-projection-repair-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize damped projection branch before checkpoint artifact or PPO proposal repair route"
+    ],
+    "derived_from": [
+      "m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation",
+      "m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit",
+      "m1642-paper-route-contour-aware-damped-projection-repair-design",
+      "m1643-paper-route-contour-aware-damped-projection-repair-implementation",
+      "m1644-paper-route-contour-aware-damped-projection-repair-result-audit",
+      "m1645-paper-route-contour-aware-damped-projection-stress-test-design",
+      "m1646-paper-route-contour-aware-damped-projection-stress-test-implementation",
+      "m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit"
+    ],
+    "blocked_by": [
+      "M1647 routes to synthesis before checkpoint artifact or PPO-proposal repair"
+    ],
+    "supersedes": [
+      "direct checkpoint artifact after M1647",
+      "direct PPO-proposal repair after M1647",
+      "direct promotion after M1647"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1648-paper-route-contour-aware-damped-projection-branch-synthesis.md",
+  "public_gates": [
+    "M1648 must synthesize M1640-M1647 before another implementation",
+    "M1648 must summarize supported and rejected claims",
+    "M1648 must assess fixed-public-row overfit risk",
+    "M1648 must decide continue pivot stop or promote_to_next_branch",
+    "M1648 must keep promotion private holdout actor-input changes and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun projection",
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop evaluation",
+    "do not write checkpoint artifacts",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_damped_projection_branch_synthesis",
+    "evidence_increment": "synthesizes the M1640-M1647 local projection repair sequence before a new branch decision",
+    "claim_scope": "branch synthesis only; no rerun, training, PPO, checkpoint artifact, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats fixed-tensor projection stability as closed-loop or checkpoint evidence",
+      "stop if synthesis routes directly to promotion private holdout or actor-input changes",
+      "stop if synthesis ignores public-row overfit risk",
+      "stop if synthesis cannot justify a next branch beyond local projection plumbing"
+    ],
+    "fallback_plan": [
+      "promote_to_next_branch toward PPO-proposal repair design if projection tooling is judged plumbing-ready",
+      "continue only if one more bounded local projection check is truly needed",
+      "pivot to broader source/generalization stress if public-row overfit risk dominates",
+      "stop local projection branch if no next evidence step is justified"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1647 audits the M1646 fixed-grid stress pass and routes to synthesis before checkpoint artifact or PPO proposal repair",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1648-paper-route-contour-aware-damped-projection-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize damped projection branch",
+    "admission_evidence": [
+      "M1640 negative Adam projection result",
+      "M1643 damped projection local pass",
+      "M1646 fixed-grid stress pass",
+      "M1647 audit routes to synthesis"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun projection",
+      "do not train",
+      "do not run PPO",
+      "do not write checkpoint artifacts",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1648 synthesis document",
+      "M1648 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits PPO-proposal repair design, checkpoint-artifact design, broader stress route, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "route decision is explicit",
+      "promotion and private holdout remain blocked unless a later design admits them"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1648 synthesizes fixed-tensor exact-objective projection plumbing and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "synthesizes correct/wrong hidden branch exact residual repair evidence but no closed-loop history intervention proof"
+    ],
+    "temporal_evidence_window": "M1640-M1647 public artifacts only.",
+    "negative_result_policy": "If synthesis finds the projection branch too public-row-specific, pivot or stop before checkpoint artifact or PPO design.",
+    "allowed_claims": [
+      "branch synthesis and route decision",
+      "no training, no PPO, no checkpoint artifact, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1640-M1647 damped projection sequence is sufficient to decide whether to promote the work into a PPO-proposal repair design branch.",
+  "success_criteria": [
+    "docs/m1648-paper-route-contour-aware-damped-projection-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "supported and unsupported claims are explicit",
+    "public-gate overfit risk is assessed",
+    "next branch decision is explicit",
+    "PPO promotion private holdout actor-input changes and level3 claims remain blocked unless a later design admits them"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis treats local fixed-tensor projection as closed-loop or paper evidence",
+    "synthesis routes directly to PPO promotion private holdout actor-input changes or checkpoint artifact generation",
+    "synthesis claims level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1648-paper-route-contour-aware-damped-projection-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1648-paper-route-contour-aware-damped-projection-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1646_contour_aware_damped_projection_stress_test/summary.json",
+    "docs/m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit.md"
+  ],
+  "decision_rule": "M1648 passes if it synthesizes the branch and chooses a route before checkpoint artifact, PPO proposal repair, or promotion.",
+  "next_blocker": "m1648-paper-route-contour-aware-damped-projection-branch-synthesis"
+}
