@@ -24062,3 +24062,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1560 is a strong generator result but not materializable. Multi-step local holds expose many recoverable anchors, but source-family concentration still blocks history-intervention design.
 - follow-up manifest: `experiments/manifests/m1561-paper-route-recoverable-active-set-generator-result-audit.json`.
 - next: `m1561-paper-route-recoverable-active-set-generator-result-audit`
+
+## M1561 Paper-Route Recoverable Active-Set Generator Result Audit
+
+- status: completed
+- decision: `recoverable_active_set_generator_audit_admit_source_balanced_selector_design`
+- artifact: `docs/m1561-paper-route-recoverable-active-set-generator-result-audit.md`
+- recoverable count verdict: pass
+- source concentration verdict: fail but selector feasible
+- failure taxonomy: `scenario_sampling_failure`
+- recoverable boundary anchor count: 86
+- strong recoverable boundary anchor count: 36
+- predecision recoverable anchor count: 80
+- active source family count: 5
+- active window count: 5
+- max single active family share: 0.45348837209302323
+- selector feasible cap per family: 12
+- selector feasible selected count: 46
+- selector feasible strong count: 31
+- selector feasible max family share: 0.2608695652173913
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1561 blocks direct history replay but admits a diagnostic-only source-balanced selector design over M1560 artifacts. The selector should repair evidence governance, not create a training corpus.
+- follow-up manifest: `experiments/manifests/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.json`.
+- next: `m1562-paper-route-source-balanced-recoverable-active-set-selector-design`

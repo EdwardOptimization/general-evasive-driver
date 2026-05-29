@@ -143,6 +143,41 @@
     "runs/m1560_recoverable_active_set_generator_smoke/summary.json",
     "docs/m1560-paper-route-recoverable-active-set-generator-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1561-paper-route-recoverable-active-set-generator-result-audit.md",
+    "decision": "recoverable_active_set_generator_audit_admit_source_balanced_selector_design",
+    "recoverable_count_verdict": "pass",
+    "source_concentration_verdict": "fail_but_selector_feasible",
+    "failure_taxonomy": [
+      "scenario_sampling_failure"
+    ],
+    "recoverable_boundary_anchor_count": 86,
+    "strong_recoverable_boundary_anchor_count": 36,
+    "predecision_recoverable_anchor_count": 80,
+    "active_source_family_count": 5,
+    "active_window_count": 5,
+    "max_single_active_family_share": 0.45348837209302323,
+    "selector_feasible_cap_per_family": 12,
+    "selector_feasible_selected_count": 46,
+    "selector_feasible_strong_count": 31,
+    "selector_feasible_max_family_share": 0.2608695652173913,
+    "admitted_route": "source_balanced_recoverable_active_set_selector_design",
+    "next_manifest": "experiments/manifests/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
+  "decision": "recoverable_active_set_generator_audit_admit_source_balanced_selector_design",
   "decision_rule": "M1561 passes if it classifies M1560 and selects the next route while preserving all no-materialization guardrails.",
-  "next_blocker": "m1561-paper-route-recoverable-active-set-generator-result-audit"
+  "next_blocker": "m1562-paper-route-source-balanced-recoverable-active-set-selector-design"
 }

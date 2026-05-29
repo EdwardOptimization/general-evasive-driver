@@ -1,0 +1,155 @@
+{
+  "id": "m1562-paper-route-source-balanced-recoverable-active-set-selector-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1560_recoverable_active_set_generator_smoke/summary.json",
+      "docs/m1561-paper-route-recoverable-active-set-generator-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1561-paper-route-recoverable-active-set-generator-result-audit.json"
+    ],
+    "parent_objective": [
+      "design source-balanced selector over M1560 recoverable active-set pool"
+    ],
+    "derived_from": [
+      "m1561-paper-route-recoverable-active-set-generator-result-audit"
+    ],
+    "blocked_by": [
+      "M1560 raw recoverable active-set pool is source-family concentrated"
+    ],
+    "supersedes": [
+      "direct history intervention design after raw M1560 pool"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.md",
+  "public_gates": [
+    "M1562 must design source-balanced selection over M1560 recoverable anchors",
+    "M1562 must not rerun simulator or run history interventions",
+    "M1562 must keep selected active-set artifacts diagnostic only, not a training corpus",
+    "M1562 must preserve P0 actor input contract",
+    "M1562 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_recoverable_active_set_generation",
+    "evidence_axis": "G_source_balanced_recoverable_active_set_selector_design",
+    "evidence_increment": "designs a source-balanced selector over the M1560 recoverable active-set pool before history interventions",
+    "claim_scope": "design only; no simulator rerun, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design treats selected rows as training corpus",
+      "stop if design routes directly to history interventions",
+      "stop if design does not cap source-family and window concentration",
+      "stop if design weakens recoverable-boundary criteria"
+    ],
+    "fallback_plan": [
+      "route to bounded selector implementation if design defines deterministic caps and gates",
+      "route back to source generation if selected count cannot meet source/window gates",
+      "route to audit if selector feasibility is ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1561 admits a source-balanced selector design after M1560 source concentration",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-balanced recoverable active-set selector design",
+    "admission_evidence": [
+      "M1561 shows a cap-based balanced subset is feasible from M1560 artifacts"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not rerun simulator",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1562 design document",
+      "M1562 status queue scoreboard research log and review",
+      "one follow-up selector implementation manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "selection caps are explicit",
+      "selection gates are explicit",
+      "diagnostic-only artifact policy is explicit",
+      "history interventions remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1562 designs a local-control selector only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "none in M1562; history interventions remain blocked until selected active set passes and is audited"
+    ],
+    "temporal_evidence_window": "M1562 design-only milestone over M1560 public artifacts.",
+    "negative_result_policy": "If source-balanced selection cannot meet gates, record scenario_sampling_failure instead of weakening standards.",
+    "allowed_claims": [
+      "source-balanced recoverable active-set selector design",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A deterministic source-balanced selector can convert M1560's raw source-concentrated recoverable pool into a balanced diagnostic active set before history interventions.",
+  "success_criteria": [
+    "docs/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.md exists",
+    "design specifies source-family and window concentration caps",
+    "design prioritizes strong recoverable anchors while retaining source/window diversity",
+    "design keeps selected artifacts diagnostic-only and not a training corpus",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design routes directly to history interventions training promotion private holdout or materialization",
+    "design changes actor inputs or weakens self-ID standards",
+    "design treats selected rows as a training corpus"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1560_recoverable_active_set_generator_smoke/summary.json",
+    "docs/m1561-paper-route-recoverable-active-set-generator-result-audit.md"
+  ],
+  "decision_rule": "M1562 passes if it designs a source-balanced selector route while preserving all no-materialization guardrails.",
+  "next_blocker": "m1562-paper-route-source-balanced-recoverable-active-set-selector-design"
+}

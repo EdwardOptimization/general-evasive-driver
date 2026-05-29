@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1561 audits M1560 as recoverable-count pass with source concentration and admits diagnostic source-balanced selector design",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1560 as positive self-ID evidence",
+    "audit routes directly to training promotion private holdout or materialization",
+    "audit changes actor inputs or weakens the evidence standard"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T133020Z",
+  "hypothesis": "M1560's strong recoverable counts but source-concentrated public gate failure can be classified cleanly enough to decide whether source-balanced repair is justified before history interventions.",
+  "lineage": {
+    "blocked_by": [
+      "M1560 public gate failed because max_single_active_family_share exceeded threshold"
+    ],
+    "derived_from": [
+      "m1560-paper-route-recoverable-active-set-generator-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1560-paper-route-recoverable-active-set-generator-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m1560_recoverable_active_set_generator_smoke/summary.json",
+      "docs/m1560-paper-route-recoverable-active-set-generator-implementation.md"
+    ],
+    "parent_objective": [
+      "audit recoverable active-set generator smoke after recoverable counts pass but active source-family concentration fails"
+    ],
+    "supersedes": [
+      "direct history intervention design after M1560 without source-balance audit"
+    ]
+  },
+  "milestone": "m1561-paper-route-recoverable-active-set-generator-result-audit",
+  "next_blocker": "m1562-paper-route-source-balanced-recoverable-active-set-selector-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "recoverable_active_set_generator_audit_admit_source_balanced_selector_design",
+  "public_gates": [
+    "M1561 must audit M1560 recoverable counts and source-family concentration separately",
+    "M1561 must classify whether source concentration blocks history-intervention design",
+    "M1561 must preserve P0 actor input contract",
+    "M1561 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1561-paper-route-recoverable-active-set-generator-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "recoverable_active_set_generator_audit_admit_source_balanced_selector_design",
+    "milestone": "m1561-paper-route-recoverable-active-set-generator-result-audit",
+    "reason": "M1561 audits M1560 as recoverable-count pass with source concentration and admits diagnostic source-balanced selector design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1561-paper-route-recoverable-active-set-generator-result-audit.md exists",
+    "M1560 recoverable counts and source concentration are audited separately",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "type": "gate"
+}

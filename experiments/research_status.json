@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1569,
+    "completed": 1570,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1560-paper-route-recoverable-active-set-generator-implementation.md",
+    "command_log": "docs/m1561-paper-route-recoverable-active-set-generator-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1560_recoverable_active_set_generator_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1560-paper-route-recoverable-active-set-generator-implementation"
+    "task_id": "m1561-paper-route-recoverable-active-set-generator-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1561-paper-route-recoverable-active-set-generator-result-audit.json",
-    "hypothesis": "M1560's strong recoverable counts but source-concentrated public gate failure can be classified cleanly enough to decide whether source-balanced repair is justified before history interventions.",
-    "id": "m1561-paper-route-recoverable-active-set-generator-result-audit",
+    "command": "see experiments/manifests/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.json",
+    "hypothesis": "A deterministic source-balanced selector can convert M1560's raw source-concentrated recoverable pool into a balanced diagnostic active set before history interventions.",
+    "id": "m1562-paper-route-source-balanced-recoverable-active-set-selector-design",
     "kind": "gate",
-    "notes": "Pending: audit M1560 recoverable count positive but source-concentrated result",
-    "priority": 15560,
+    "notes": "Pending: design diagnostic-only source-balanced selector over M1560 recoverable pool",
+    "priority": 15570,
     "status": "pending",
-    "success_artifact": "docs/m1561-paper-route-recoverable-active-set-generator-result-audit.md"
+    "success_artifact": "docs/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.md"
   },
-  "updated_at_utc": "20260529T132555Z"
+  "updated_at_utc": "20260529T132920Z"
 }

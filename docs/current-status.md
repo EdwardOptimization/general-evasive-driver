@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1560-paper-route-recoverable-active-set-generator-implementation
+m1561-paper-route-recoverable-active-set-generator-result-audit
 ```
 
 Current next task:
 
 ```text
-m1561-paper-route-recoverable-active-set-generator-result-audit
+m1562-paper-route-source-balanced-recoverable-active-set-selector-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -306,6 +306,13 @@ recoverable set is source-concentrated: `max_single_active_family_share` is
 `0.45348837209302323`, above the `0.35` limit, with `t5_near_boundary_warmup`
 contributing `39` of `86` recoverable anchors. M1561 must audit whether a
 source-balanced repair is justified. History interventions remain blocked.
+M1561 audited M1560 as a recoverable-count pass with source concentration. The
+raw pool has `86` recoverable and `36` strong recoverable anchors; a simple cap
+of `12` per source family can select `46` recoverable anchors with `31` strong
+anchors and max family share `0.2608695652173913`. M1561 therefore admits a
+diagnostic source-balanced selector design, not history interventions. M1562
+must design selection caps and gates over M1560 artifacts only; no simulator
+rerun, training corpus export, materialization, or self-ID claim is admitted.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
