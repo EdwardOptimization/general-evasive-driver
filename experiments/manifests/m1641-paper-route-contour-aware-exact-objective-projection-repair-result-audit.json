@@ -1,0 +1,162 @@
+{
+  "id": "m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "training_instability"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1640_contour_aware_exact_objective_projection_repair/summary.json",
+      "runs/m1640_contour_aware_exact_objective_projection_repair/optimization_trace.csv",
+      "docs/m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation.json"
+    ],
+    "parent_objective": [
+      "audit negative no-checkpoint exact-objective projection repair result"
+    ],
+    "derived_from": [
+      "m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation"
+    ],
+    "blocked_by": [
+      "M1640 connected gradients but failed to reduce exact residual under the pre-registered Adam lr=1e-3 actor_mean-only projection recipe"
+    ],
+    "supersedes": [
+      "immediate learning-rate rerun inside M1640",
+      "direct checkpoint artifact after M1640",
+      "direct PPO after M1640",
+      "direct promotion after M1640"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.md",
+  "public_gates": [
+    "M1641 must audit the M1640 negative projection result",
+    "M1641 must distinguish implementation plumbing from optimizer-step instability",
+    "M1641 must verify guardrails stayed clean and no checkpoint was written",
+    "M1641 must decide whether to admit damped/backtracking projection design, pivot, stop, or synthesize",
+    "M1641 must keep PPO promotion private holdout and actor-input changes blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun projection with tuned parameters",
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop evaluation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_exact_objective_projection_repair_result_audit",
+    "evidence_increment": "audits the negative M1640 no-checkpoint projection result and decides the next safe repair route",
+    "claim_scope": "process audit only; no rerun, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats M1640 as a pass",
+      "stop if audit reruns tuned parameters before documenting the failure",
+      "stop if audit routes directly to checkpoint artifact PPO promotion or private holdout",
+      "stop if failure cause cannot be separated from implementation guardrails"
+    ],
+    "fallback_plan": [
+      "admit damped/backtracking projection design if failure is optimizer-step instability",
+      "pivot away from actor_mean-only projection if trace suggests no useful gradient",
+      "stop public exact-objective repair branch if the audit finds overfit or guardrail contamination"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1640 writes negative projection repair artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M1640 negative projection repair result",
+    "admission_evidence": [
+      "M1640 focused tests passed",
+      "M1640 official run wrote summary/repair/guardrail/trace artifacts",
+      "M1640 failed positive residual reduction while preserving guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun projection with tuned parameters",
+      "do not train",
+      "do not run PPO",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1641 audit document",
+      "M1641 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits projection redesign, synthesis, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "M1640 failure cause is classified",
+      "guardrail cleanliness is audited",
+      "next route is explicit",
+      "PPO and promotion remain blocked unless a later design admits them"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1641 audits fixed-tensor exact-objective projection and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "audits correct/wrong hidden branch residual behavior under controlled actor_mean perturbation and projection attempt"
+    ],
+    "temporal_evidence_window": "public M1630/M1633/M1636/M1640 tensor rows only.",
+    "negative_result_policy": "Record M1640 as a negative result and classify the optimizer-step blocker before any retuned rerun.",
+    "allowed_claims": [
+      "M1640 projection result audit and route decision",
+      "no rerun, no training, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1640 negative result can be classified as projection optimizer-step instability while preserving the exact-objective plumbing evidence and deciding a safe next route.",
+  "success_criteria": [
+    "docs/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.md exists",
+    "audit records M1640 positive residual non-reduction",
+    "audit records gradient signal and Adam step overshoot evidence",
+    "audit verifies no checkpoint write and clean guardrails",
+    "audit states supported and unsupported claims",
+    "audit explicitly routes next step",
+    "PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores the negative projection result",
+    "audit treats M1640 as a pass",
+    "audit reruns tuned parameters before documenting the blocker",
+    "audit routes directly to PPO promotion private holdout actor-input changes or checkpoint artifact generation",
+    "audit claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1640_contour_aware_exact_objective_projection_repair/summary.json",
+    "runs/m1640_contour_aware_exact_objective_projection_repair/optimization_trace.csv",
+    "docs/m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation.md"
+  ],
+  "decision_rule": "M1641 passes if it audits the M1640 negative result and chooses a safe next route before any tuned rerun or training.",
+  "next_blocker": "m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit"
+}

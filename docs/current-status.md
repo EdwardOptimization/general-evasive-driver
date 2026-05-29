@@ -16,22 +16,25 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1639-paper-route-contour-aware-exact-objective-branch-synthesis
+m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation
 ```
 
 Current next task:
 
 ```text
-m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation
+m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit
 ```
 
-M1639 synthesized the M1629-M1638 contour-aware exact-objective sequence. It
-continues to exactly one bounded no-checkpoint projection implementation:
-start from the M1636 `scale_1e-3` actor_mean perturbation, optimize only
-`actor_mean.weight` and `actor_mean.bias` in memory, reduce positive exact
-residual, preserve diagnostics as zero-weight guardrails, and write metrics but
-no `.pt`. The next task is M1640 implementation. Training, PPO, promotion,
-private holdout, actor-input changes, and level3 self-ID claims remain blocked.
+M1640 implemented the no-checkpoint actor_mean-only projection probe from the
+M1636 `scale_1e-3` perturbation. The code and focused tests passed, gradients
+reached `actor_mean`, no checkpoint was written, and all role/contract
+guardrails stayed clean. The official run is negative: positive exact residual
+remained `0.0003143580979667604` before and after repair, so
+`passes_public_smoke_gates=false` and `null_result_classification` is
+`projection_residual_not_reduced`. The trace shows Adam `lr=1e-3` overshot the
+small perturbation on step 1. The next task is M1641 result audit before any
+tuned rerun, checkpoint artifact, PPO, promotion, private holdout, actor-input
+change, or level3 self-ID claim.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

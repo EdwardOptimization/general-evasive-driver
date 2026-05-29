@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1648,
+    "completed": 1649,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1639-paper-route-contour-aware-exact-objective-branch-synthesis.md",
+      "command_log": "docs/m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation.md",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1640_contour_aware_exact_objective_projection_repair",
       "status": "completed",
-      "task_id": "m1639-paper-route-contour-aware-exact-objective-branch-synthesis"
+      "task_id": "m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation.json",
-      "hypothesis": "A bounded actor_mean-only projection can reduce exact residual from the controlled M1636 scale_1e-3 perturbation without writing a checkpoint or violating role guardrails.",
-      "id": "m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation",
-      "kind": "objective_sanity",
-      "notes": "Pending: bounded in-memory projection probe only; no checkpoint write PPO promotion or private holdout",
-      "priority": 16350,
+      "command": "see experiments/manifests/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.json",
+      "hypothesis": "The M1640 negative result can be classified as projection optimizer-step instability while preserving the exact-objective plumbing evidence and deciding a safe next route.",
+      "id": "m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit M1640 negative projection result before any tuned rerun checkpoint artifact PPO promotion or private holdout",
+      "priority": 16360,
       "status": "pending",
-      "success_artifact": "runs/m1640_contour_aware_exact_objective_projection_repair/summary.json"
+      "success_artifact": "docs/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.md"
     },
-    "updated_at_utc": "20260529T200102Z"
+    "updated_at_utc": "20260529T201000Z"
 }

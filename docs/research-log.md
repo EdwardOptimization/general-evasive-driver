@@ -26128,3 +26128,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - public-gate overfit risk: high; mitigation is one no-checkpoint actor_mean-only implementation followed by audit
 - follow-up manifest: `experiments/manifests/m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation.json`
 - next: `m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation`
+
+## M1640 Paper-Route Contour-Aware Exact Objective Projection Repair Implementation
+
+- status: completed
+- decision: `contour_aware_projection_repair_negative_route_to_result_audit`
+- artifact: `runs/m1640_contour_aware_exact_objective_projection_repair/summary.json`
+- doc: `docs/m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation.md`
+- focused tests: `2 passed in 3.12s`
+- implementation: `src/autodrift/contour_aware_exact_objective_projection_repair.py`
+- repair scope: `actor_mean.weight` and `actor_mean.bias` only
+- input candidate: M1636 `scale_1e-3` perturbation with seed `1639`
+- initial positive exact residual mean: `0.0003143580979667604`
+- repaired positive exact residual mean: `0.0003143580979667604`
+- positive exact residual reduction ratio: `0.0`
+- initial positive action L2 max: `0.015652701258659363`
+- repaired positive action L2 max: `0.015652701258659363`
+- initial actor_mean L2 to base: `0.019672319293022156`
+- repaired actor_mean L2 to base: `0.019672319293022156`
+- grad_norm_max: `4.537821292877197`
+- guardrail violation count: `0`
+- non-actor_mean parameter delta max: `0.0`
+- repaired checkpoint written: false
+- passes public smoke gates: false
+- null result classification: `projection_residual_not_reduced`
+- failure taxonomy: `training_instability`
+- trace interpretation: gradients were connected, but Adam `lr=1e-3` overshot the small actor_mean perturbation on step 1 and no later step improved below the initial residual
+- supported: module and guardrails work; the pre-registered optimizer recipe does not reduce exact residual
+- unsupported: projection repair success, checkpoint artifact, PPO proposal repair, closed-loop improvement, promotion, private-holdout evidence, paper-level evidence, level3 self-ID
+- follow-up manifest: `experiments/manifests/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.json`
+- next: `m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit`

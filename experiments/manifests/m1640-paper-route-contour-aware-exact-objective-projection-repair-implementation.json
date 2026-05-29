@@ -4,7 +4,7 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "training_instability"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -166,6 +166,40 @@
     "runs/m1636_contour_aware_exact_objective_sensitivity_probe/summary.json",
     "docs/m1639-paper-route-contour-aware-exact-objective-branch-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1640_contour_aware_exact_objective_projection_repair/summary.json",
+    "doc": "docs/m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation.md",
+    "code": "src/autodrift/contour_aware_exact_objective_projection_repair.py",
+    "tests": "tests/test_contour_aware_exact_objective_projection_repair.py",
+    "decision": "contour_aware_projection_repair_negative_route_to_result_audit",
+    "failure_taxonomy": [
+      "training_instability"
+    ],
+    "focused_test_result": "2 passed",
+    "initial_positive_exact_residual_mean": 0.0003143580979667604,
+    "repaired_positive_exact_residual_mean": 0.0003143580979667604,
+    "positive_exact_residual_reduction": 0.0,
+    "positive_exact_residual_reduction_ratio": 0.0,
+    "initial_positive_action_l2_max": 0.015652701258659363,
+    "repaired_positive_action_l2_max": 0.015652701258659363,
+    "initial_actor_mean_l2_to_base": 0.019672319293022156,
+    "repaired_actor_mean_l2_to_base": 0.019672319293022156,
+    "grad_norm_max": 4.537821292877197,
+    "non_actor_mean_parameter_delta_max": 0.0,
+    "repaired_checkpoint_written": false,
+    "guardrail_violation_count": 0,
+    "passes_public_smoke_gates": false,
+    "null_result_classification": "projection_residual_not_reduced",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit.json"
+  },
   "decision_rule": "M1640 passes if projection reduces exact residual while writing no checkpoint and preserving guardrails.",
-  "next_blocker": "m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation"
+  "next_blocker": "m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit"
 }
