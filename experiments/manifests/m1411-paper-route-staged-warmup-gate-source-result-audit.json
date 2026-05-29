@@ -148,6 +148,32 @@
   "baseline_artifacts": [
     "runs/m1410_staged_warmup_gate_source_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1411-paper-route-staged-warmup-gate-source-result-audit.md",
+    "decision": "staged_warmup_gate_source_audit_admit_collision_stratified_outcome_probe",
+    "source_viability": "positive",
+    "result_class": "source_viable_but_invasive",
+    "m1410_source_rows": 1690,
+    "m1410_matched_or_bucketed_rows": 298,
+    "m1410_matched_or_bucketed_unique_source_seeds": 31,
+    "m1410_matched_or_bucketed_unique_capability_pairs": 16,
+    "m1410_warmup_evidence_rows": 1690,
+    "m1410_warmup_gate_collision_rows": 1070,
+    "m1410_matched_or_bucketed_warmup_gate_collision_rows": 190,
+    "selected_route": "collision_stratified_outcome_probe_before_training_or_retune",
+    "outcome_probe_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe.json"
+  },
+  "decision": "staged_warmup_gate_source_audit_admit_collision_stratified_outcome_probe",
   "decision_rule": "M1411 passes if it classifies M1410 source viability and warmup-gate invasiveness into an explicit next route before any outcome probing or training.",
-  "next_blocker": "m1411-paper-route-staged-warmup-gate-source-result-audit"
+  "next_blocker": "m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe"
 }

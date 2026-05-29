@@ -16,22 +16,43 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1410-paper-route-staged-warmup-gate-source-smoke
+m1411-paper-route-staged-warmup-gate-source-result-audit
 ```
 
 Current next task:
 
 ```text
-m1411-paper-route-staged-warmup-gate-source-result-audit
+m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe
 ```
 
-M1410 ran the first no-training source smoke for the staged slot0 warmup gate
-route admitted by M1409. The current public-gate base remains M1362 alpha
-`0.1`:
+M1411 audited the M1410 staged slot0 warmup gate source smoke. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1411 result:
+
+```text
+decision: staged_warmup_gate_source_audit_admit_collision_stratified_outcome_probe
+classification: source_viable_but_invasive
+M1410 source_rows: 1690
+M1410 matched_or_bucketed_reveal_rows: 298
+M1410 matched/bucketed unique_source_seeds: 31
+M1410 matched/bucketed unique_capability_pairs: 16
+M1410 warmup_evidence_rows: 1690 / 1690
+M1410 warmup_gate_collision_rows: 1070 / 1690
+M1410 matched/bucketed warmup_gate_collision_rows: 190 / 298
+selected route: collision-stratified no-training outcome probe
+next: m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe
+```
+
+M1412 should extend the outcome probe so source warmup gate diagnostics are
+propagated into outcome rows, then run a no-training collision-stratified
+outcome probe over M1410 matched/bucketed rows. It must not train, run PPO,
+export a corpus, use private holdout, promote, change actor inputs, or claim
+level3 self-identification.
 
 M1410 result:
 
@@ -52,13 +73,6 @@ matched/bucketed warmup_gate_collision_rows: 190 / 298
 actor_input_contract_changed: false
 next: m1411-paper-route-staged-warmup-gate-source-result-audit
 ```
-
-M1411 should audit M1410 before outcome probing. The source viability is
-structurally positive, but the warmup gate collision diagnostics are high, so
-the next decision must separate usable strong-gate source evidence from a
-possible need to retune or split mild/strong gate variants. M1411 must not run
-outcome interventions, corpus export, PPO, training, private holdout,
-promotion, or claim expansion.
 
 M1409 result:
 

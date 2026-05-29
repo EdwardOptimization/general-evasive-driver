@@ -20819,3 +20819,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1411-paper-route-staged-warmup-gate-source-result-audit.json`.
 - next: `m1411-paper-route-staged-warmup-gate-source-result-audit`
+
+## 20260529T044000Z - m1411-paper-route-staged-warmup-gate-source-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1411-paper-route-staged-warmup-gate-source-result-audit.md`
+- decision: `staged_warmup_gate_source_audit_admit_collision_stratified_outcome_probe`
+- classification: `source_viable_but_invasive`
+- evidence: M1410 has `1690` source rows and `298` matched/bucketed rows across `31` matched/bucketed seeds and `16` capability pairs; all source rows have warmup command-response evidence.
+- risk: warmup gate collision diagnostics are high (`1070/1690` all rows, `190/298` matched/bucketed rows), so outcome probing must preserve and stratify source collision diagnostics.
+- route: admit exactly one no-training collision-stratified outcome probe over M1410 matched/bucketed rows; no training, PPO, corpus export, promotion, or claim expansion is admitted.
+- guardrail: no outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe.json`.
+- next: `m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe`

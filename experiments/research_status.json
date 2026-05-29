@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1420,
+    "completed": 1421,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1410-paper-route-staged-warmup-gate-source-smoke.md",
+    "command_log": "docs/m1411-paper-route-staged-warmup-gate-source-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1410_staged_warmup_gate_source_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1410-paper-route-staged-warmup-gate-source-smoke"
+    "task_id": "m1411-paper-route-staged-warmup-gate-source-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1411-paper-route-staged-warmup-gate-source-result-audit.json",
-    "hypothesis": "The M1410 source result can be classified into a safe next route by separating source viability from warmup-gate invasiveness risk.",
-    "id": "m1411-paper-route-staged-warmup-gate-source-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M1410 source diversity warmup command-response evidence and high warmup gate collision diagnostics before outcome probing",
-    "priority": 14060,
+    "command": "see experiments/manifests/m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe.json",
+    "hypothesis": "The staged warmup gate source rows will reveal whether warmup command-response history interventions cause outcome-relevant margin/success gaps, and collision stratification will show whether any signal is only an invasive-gate artifact.",
+    "id": "m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe",
+    "kind": "infrastructure",
+    "notes": "Pending: extend outcome probe to propagate warmup gate diagnostics and run no-training collision-stratified outcome probe over M1410 matched/bucketed rows",
+    "priority": 14070,
     "status": "pending",
-    "success_artifact": "docs/m1411-paper-route-staged-warmup-gate-source-result-audit.md"
+    "success_artifact": "runs/m1412_staged_warmup_gate_collision_stratified_outcome_probe/summary.json"
   },
-  "updated_at_utc": "20260529T043000Z"
+  "updated_at_utc": "20260529T044000Z"
 }

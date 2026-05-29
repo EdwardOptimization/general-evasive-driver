@@ -1,0 +1,159 @@
+{
+  "id": "m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1410_staged_warmup_gate_source_smoke/matched_or_bucketed_rows.csv",
+      "runs/m1410_staged_warmup_gate_source_smoke/summary.json",
+      "docs/m1411-paper-route-staged-warmup-gate-source-result-audit.md"
+    ],
+    "parent_config": [
+      "configs/m1410_staged_warmup_gate_source_wave.json",
+      "experiments/manifests/m1411-paper-route-staged-warmup-gate-source-result-audit.json"
+    ],
+    "parent_objective": [
+      "run no-training outcome interventions over M1410 matched/bucketed rows while preserving warmup gate collision/source diagnostics"
+    ],
+    "derived_from": [
+      "m1411-paper-route-staged-warmup-gate-source-result-audit"
+    ],
+    "blocked_by": [
+      "M1411 admits only collision-stratified outcome probing before retune, corpus export, or training"
+    ],
+    "supersedes": [
+      "running unstratified M1410 outcome probing",
+      "training from M1410 source materialization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe.md",
+  "public_gates": [
+    "M1412 must run no-training outcome probing only",
+    "M1412 must preserve and report warmup gate collision/source diagnostics",
+    "M1412 must separate warmup-history-positive rows from reset/zero-current rows",
+    "M1412 must not train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim self-identification from source materialization",
+    "do not aggregate collision-heavy and collision-free rows without stratified reporting"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "O_staged_warmup_gate_collision_stratified_outcome",
+    "evidence_increment": "tests whether M1410 staged warmup source rows create outcome-relevant history intervention effects while stratifying warmup gate invasiveness",
+    "claim_scope": "public no-training outcome probe only; no training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if outcome rows are zero or normal viable rows collapse",
+      "stop if accepted rows are reset-only or zero-current-only",
+      "stop if history-positive rows are seed-singleton",
+      "stop if history-positive rows occur only in high-collision source strata",
+      "stop if actor input changes are required"
+    ],
+    "fallback_plan": [
+      "route to mild-gate retune if outcome positives are collision-heavy only",
+      "route to result audit if outcome positives are sparse or reset-only",
+      "route to stricter repeat if outcome positives are source-diverse and not collision-only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_after_m1409_continue_synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "collision-stratified staged warmup gate outcome probe",
+    "admission_evidence": [
+      "M1410 source structurally passed",
+      "M1410 produced measurable warmup command-response evidence",
+      "M1411 requires collision stratification before interpreting outcome rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "outcome probe warmup diagnostic propagation and summaries",
+      "M1412 run artifacts under runs/",
+      "M1412 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "outcome result is classified",
+      "collision-stratified accepted-row counts are reported",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1412 can test history intervention effects but must still distinguish warmup-history variants from reset/current-frame substitution.",
+    "history_necessity_tests": [
+      "delayed_warmup_history_8",
+      "delayed_warmup_history_16",
+      "wrong_warmup_history_same_reveal",
+      "same_recent_wrong_warmup_history",
+      "warmup_removed",
+      "warmup_shortened_8",
+      "reset_hidden and zero_current_response controls"
+    ],
+    "temporal_evidence_window": "M1410 staged warmup matched/bucketed source rows with 56-step histories.",
+    "negative_result_policy": "If accepted rows are sparse, reset-only, current-only, or collision-only, record that and route to audit or retune instead of weakening the self-ID standard.",
+    "allowed_claims": [
+      "collision-stratified no-training outcome probe result",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The staged warmup gate source rows will reveal whether warmup command-response history interventions cause outcome-relevant margin/success gaps, and collision stratification will show whether any signal is only an invasive-gate artifact.",
+  "success_criteria": [
+    "outcome probe propagates source warmup gate diagnostics into outcome artifacts",
+    "runs/m1412_staged_warmup_gate_collision_stratified_outcome_probe/summary.json exists",
+    "summary reports accepted rows by variant and warmup gate collision stratum",
+    "summary reports warmup-history-positive rows separately from reset/zero-current controls",
+    "result chooses next route without training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "outcome artifact is missing",
+    "warmup gate collision/source diagnostics are missing from outcome reporting",
+    "result aggregates collision-heavy and collision-free rows without stratification",
+    "result routes directly to training, PPO, promotion, private holdout, corpus export, or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "collision_stratified_outcome_probe",
+      "command": "extend warmup_latched_outcome_probe diagnostic propagation and run no-training outcome probe over M1410 matched/bucketed rows"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1412_staged_warmup_gate_collision_stratified_outcome_probe/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1410_staged_warmup_gate_source_smoke/matched_or_bucketed_rows.csv",
+    "runs/m1410_staged_warmup_gate_source_smoke/summary.json"
+  ],
+  "decision_rule": "M1412 passes structurally if it runs a no-training outcome probe with collision-stratified warmup diagnostics and no forbidden training or claim expansion.",
+  "next_blocker": "m1412-paper-route-staged-warmup-gate-collision-stratified-outcome-probe"
+}
