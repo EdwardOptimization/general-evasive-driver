@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1552-paper-route-calibrated-pair-expanded-history-intervention-design
+m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation
 ```
 
 Current next task:
 
 ```text
-m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation
+m1554-paper-route-pair-expanded-intervention-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -236,6 +236,12 @@ window-bucket, replay, history-positive, control-dominance, and concentration
 gates. It admits only M1553 implementation; materialization, training, PPO,
 promotion, private holdout, actor-input changes, corpus export, and level3
 self-ID claims remain blocked.
+M1553 implemented and ran that smoke. Public smoke gates passed: all `420`
+planned intervention rows ran with zero anchor replay failures, zero missing
+specs, and clean guardrails. Evidence gates failed: wrong-history positives,
+donor-plus-hidden positives, donor-stream positives, and success drops were all
+`0`; max history margin gap was only `0.00025038157254009263`. The next task is
+M1554 audit before any repair or branch decision.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

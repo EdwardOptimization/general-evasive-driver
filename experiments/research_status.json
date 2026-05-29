@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1561,
+    "completed": 1562,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1552-paper-route-calibrated-pair-expanded-history-intervention-design.md",
+    "command_log": "runs/m1553_pair_expanded_calibrated_history_intervention_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1553_pair_expanded_calibrated_history_intervention_smoke",
     "status": "completed",
-    "task_id": "m1552-paper-route-calibrated-pair-expanded-history-intervention-design"
+    "task_id": "m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation.json",
-    "hypothesis": "A bounded implementation can run pair-expanded calibrated history interventions over M1550 accepted pairs without changing actor inputs or materializing candidates.",
-    "id": "m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement pair-expanded calibrated intervention smoke",
-    "priority": 15480,
+    "command": "see experiments/manifests/m1554-paper-route-pair-expanded-intervention-result-audit.json",
+    "hypothesis": "M1553's public-pass history-null result can be classified cleanly enough to decide whether to stop the current pair-expanded route or redesign the task/source active set.",
+    "id": "m1554-paper-route-pair-expanded-intervention-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit pair-expanded intervention public-pass history-null result",
+    "priority": 15490,
     "status": "pending",
-    "success_artifact": "runs/m1553_pair_expanded_calibrated_history_intervention_smoke/summary.json"
+    "success_artifact": "docs/m1554-paper-route-pair-expanded-intervention-result-audit.md"
   },
-  "updated_at_utc": "20260529T131500Z"
+  "updated_at_utc": "20260529T132500Z"
 }

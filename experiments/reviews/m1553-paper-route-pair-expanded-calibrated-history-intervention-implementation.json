@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M1553 public smoke passed with 420 rows and zero anchor failures but history positives and success drops were zero",
+  "failure_criteria": [
+    "implementation or smoke artifacts are missing",
+    "implementation skips accepted-pair reconstruction",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation materializes candidates exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T124705Z",
+  "hypothesis": "A bounded implementation can run pair-expanded calibrated history interventions over M1550 accepted pairs without changing actor inputs or materializing candidates.",
+  "lineage": {
+    "blocked_by": [
+      "pair-expanded calibrated history interventions have not yet been run"
+    ],
+    "derived_from": [
+      "m1552-paper-route-calibrated-pair-expanded-history-intervention-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1552-paper-route-calibrated-pair-expanded-history-intervention-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1552-paper-route-calibrated-pair-expanded-history-intervention-design.md",
+      "runs/m1550_calibrated_pair_expansion_planner_smoke/accepted_pair_rows.csv",
+      "runs/m1550_calibrated_pair_expansion_planner_smoke/source_spec_rows.csv"
+    ],
+    "parent_objective": [
+      "implement bounded pair-expanded calibrated history interventions"
+    ],
+    "supersedes": [
+      "direct materialization of M1550 accepted pairs"
+    ]
+  },
+  "milestone": "m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation",
+  "next_blocker": "m1554-paper-route-pair-expanded-intervention-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pair_expanded_intervention_smoke_public_pass_history_null_route_to_audit",
+  "public_gates": [
+    "M1553 must reconstruct M1550 accepted pairs and specs deterministically",
+    "M1553 must run the ten intervention variants on both target sides",
+    "M1553 must report source-edge endpoint and window-bucket concentration",
+    "M1553 must preserve P0 actor input contract",
+    "M1553 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1553_pair_expanded_calibrated_history_intervention_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "pair_expanded_intervention_smoke_public_pass_history_null_route_to_audit",
+    "milestone": "m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation",
+    "reason": "M1553 public smoke passed with 420 rows and zero anchor failures but history positives and success drops were zero",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "pair-expanded calibrated intervention module exists",
+    "focused tests cover pair loading endpoint diagnostics and summary schema",
+    "runs/m1553_pair_expanded_calibrated_history_intervention_smoke/summary.json exists",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "type": "infrastructure"
+}

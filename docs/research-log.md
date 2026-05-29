@@ -23780,3 +23780,41 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1552 admits a bounded implementation over M1550 accepted pairs, with explicit endpoint/source-edge concentration and history/control gates. It still blocks materialization and self-ID claims.
 - follow-up manifest: `experiments/manifests/m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation.json`.
 - next: `m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation`
+
+## M1553 Paper-Route Pair-Expanded Calibrated History-Intervention Implementation
+
+- status: completed
+- decision: `pair_expanded_intervention_smoke_public_pass_history_null_route_to_audit`
+- artifact: `runs/m1553_pair_expanded_calibrated_history_intervention_smoke/summary.json`
+- doc: `docs/m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation.md`
+- code: `src/autodrift/pair_expanded_calibrated_history_interventions.py`
+- tests: `tests/test_pair_expanded_calibrated_history_interventions.py`
+- focused test result: `4 passed`
+- accepted pair count: 21
+- accepted source-family edge count: 5
+- max single pair source-edge share: 0.38095238095238093
+- max endpoint share: 0.14285714285714285
+- accepted window bucket count: 3
+- target side count: 42
+- variant count: 10
+- expected intervention row count: 420
+- intervention row count: 420
+- anchor replay failure count: 0
+- missing spec count: 0
+- terminal wrong-history positive target sides: 0
+- terminal donor-plus-hidden positive target sides: 0
+- terminal donor stream positive target sides: 0
+- terminal wrong-or-donor success drop count: 0
+- terminal max history margin gap: 0.00025038157254009263
+- terminal max control margin gap: 0.00003099723002852883
+- passes public smoke gates: true
+- passes evidence quality targets: false
+- guardrail violation count: 0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1553 is clean public plumbing but a history-null mechanism result. Public pass must not be treated as self-ID evidence. Route to audit.
+- follow-up manifest: `experiments/manifests/m1554-paper-route-pair-expanded-intervention-result-audit.json`.
+- next: `m1554-paper-route-pair-expanded-intervention-result-audit`
