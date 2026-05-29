@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1567,
+    "completed": 1568,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md",
+    "command_log": "docs/m1559-paper-route-recoverable-active-set-generation-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner"
+    "task_id": "m1559-paper-route-recoverable-active-set-generation-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1559-paper-route-recoverable-active-set-generation-design.json",
-    "hypothesis": "A source-generation route that explicitly targets recoverable active-set anchors can overcome the M1556 sparse-active-set blocker before any history intervention replay.",
-    "id": "m1559-paper-route-recoverable-active-set-generation-design",
-    "kind": "gate",
-    "notes": "Pending: design source-diverse recoverable active-set generation before history interventions",
-    "priority": 15540,
+    "command": "see experiments/manifests/m1560-paper-route-recoverable-active-set-generator-implementation.json",
+    "hypothesis": "A bounded no-training recoverable active-set generator can find source-diverse anchors where multi-step local action holds change terminal boundary outcome before history interventions.",
+    "id": "m1560-paper-route-recoverable-active-set-generator-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded no-training recoverable active-set generator with local hold diagnostics",
+    "priority": 15550,
     "status": "pending",
-    "success_artifact": "docs/m1559-paper-route-recoverable-active-set-generation-design.md"
+    "success_artifact": "runs/m1560_recoverable_active_set_generator_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T131300Z"
+  "updated_at_utc": "20260529T131627Z"
 }

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner
+m1559-paper-route-recoverable-active-set-generation-design
 ```
 
 Current next task:
 
 ```text
-m1559-paper-route-recoverable-active-set-generation-design
+m1560-paper-route-recoverable-active-set-generator-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -289,6 +289,15 @@ result and that earlier windows over the same sources would create a usable
 active set. The next branch is `paper_route_recoverable_active_set_generation`;
 M1559 must design recoverable source generation before any implementation or
 history-intervention replay.
+M1559 designed that new branch. The next generator must explicitly separate
+`already_colliding`, `high_margin_safe`, `recoverable_boundary`, and
+`strong_recoverable_boundary` anchors, and must use bounded local hold
+diagnostics with hold steps `1`, `4`, `8`, and `12` before any history
+intervention. M1560 is admitted only as a no-training generator implementation:
+it must report source-diverse recoverable anchors, local hold rows, triage
+summary, source/window summaries, and clean guardrails. History interventions,
+candidate materialization, training corpus export, PPO, promotion, private
+holdout, actor-input changes, and level3 self-ID claims remain blocked.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

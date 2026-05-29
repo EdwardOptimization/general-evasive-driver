@@ -23980,3 +23980,47 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1558 closes the calibrated pair-expansion branch and promotes to recoverable active-set source generation. The next branch must generate source-diverse anchors that are neither already-colliding nor high-margin safe before any history-intervention replay.
 - follow-up manifest: `experiments/manifests/m1559-paper-route-recoverable-active-set-generation-design.json`.
 - next: `m1559-paper-route-recoverable-active-set-generation-design`
+
+## M1559 Paper-Route Recoverable Active-Set Generation Design
+
+- status: completed
+- decision: `recoverable_active_set_generation_design_admit_bounded_generator`
+- artifact: `docs/m1559-paper-route-recoverable-active-set-generation-design.md`
+- designed branch: `paper_route_recoverable_active_set_generation`
+- planned anchor windows:
+  - reveal
+  - reveal_plus_4
+  - decision_minus_24
+  - decision_minus_16
+  - decision_minus_8
+  - decision
+- planned hold steps: 1, 4, 8, 12
+- planned local overrides:
+  - steer_left
+  - steer_right
+  - brake_more
+  - brake_less
+  - throttle_release
+  - steer_left_brake_more
+  - steer_right_brake_more
+  - steer_left_brake_less
+  - steer_right_brake_less
+- triage labels:
+  - already_colliding
+  - high_margin_safe
+  - recoverable_boundary
+  - strong_recoverable_boundary
+- planned min recoverable boundary anchors: 24
+- planned min strong recoverable boundary anchors: 8
+- planned min predecision recoverable anchors: 12
+- planned min active source families: 4
+- planned max single active family share: 0.35
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1559 changes source generation from terminal/pairability-first to recoverability-first. M1560 may implement a bounded generator, but history interventions remain blocked until recoverable active-set gates pass and are audited.
+- follow-up manifest: `experiments/manifests/m1560-paper-route-recoverable-active-set-generator-implementation.json`.
+- next: `m1560-paper-route-recoverable-active-set-generator-implementation`

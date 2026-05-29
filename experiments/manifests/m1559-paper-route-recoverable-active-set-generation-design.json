@@ -148,6 +148,63 @@
     "docs/m1558-paper-route-calibrated-pair-expansion-branch-synthesis-after-active-set-miner.md",
     "runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1559-paper-route-recoverable-active-set-generation-design.md",
+    "decision": "recoverable_active_set_generation_design_admit_bounded_generator",
+    "designed_branch": "paper_route_recoverable_active_set_generation",
+    "planned_anchor_windows": [
+      "reveal",
+      "reveal_plus_4",
+      "decision_minus_24",
+      "decision_minus_16",
+      "decision_minus_8",
+      "decision"
+    ],
+    "planned_hold_steps": [
+      1,
+      4,
+      8,
+      12
+    ],
+    "planned_local_overrides": [
+      "steer_left",
+      "steer_right",
+      "brake_more",
+      "brake_less",
+      "throttle_release",
+      "steer_left_brake_more",
+      "steer_right_brake_more",
+      "steer_left_brake_less",
+      "steer_right_brake_less"
+    ],
+    "triage_labels": [
+      "already_colliding",
+      "high_margin_safe",
+      "recoverable_boundary",
+      "strong_recoverable_boundary"
+    ],
+    "min_recoverable_boundary_anchor_count": 24,
+    "min_strong_recoverable_boundary_anchor_count": 8,
+    "min_predecision_recoverable_anchor_count": 12,
+    "min_active_source_family_count": 4,
+    "max_single_active_family_share": 0.35,
+    "admitted_route": "bounded_recoverable_active_set_generator_implementation",
+    "next_manifest": "experiments/manifests/m1560-paper-route-recoverable-active-set-generator-implementation.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
+  "decision": "recoverable_active_set_generation_design_admit_bounded_generator",
   "decision_rule": "M1559 passes if it designs a bounded recoverable active-set source-generation route while preserving all no-materialization guardrails.",
-  "next_blocker": "m1559-paper-route-recoverable-active-set-generation-design"
+  "next_blocker": "m1560-paper-route-recoverable-active-set-generator-implementation"
 }
