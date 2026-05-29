@@ -1,0 +1,204 @@
+{
+  "id": "m1592-paper-route-clean-history-control-source-generation-repair-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1588_history_vs_control_active_set_selector/summary.json",
+      "runs/m1588_history_vs_control_active_set_selector/clean_directed_pair_rows.csv",
+      "runs/m1588_history_vs_control_active_set_selector/source_edge_summary.csv",
+      "docs/m1590-paper-route-clean-history-control-source-generation-repair-design.md",
+      "docs/m1591-paper-route-history-pairability-source-generation-branch-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1591-paper-route-history-pairability-source-generation-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "implement exactly one bounded clean history-vs-control source-generation repair"
+    ],
+    "derived_from": [
+      "m1591-paper-route-history-pairability-source-generation-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1588 clean_directed_pair_count is 7 below evidence-quality target",
+      "M1591 permits exactly one bounded clean-source implementation before audit"
+    ],
+    "supersedes": [
+      "another broad pairability source miner",
+      "another broad intervention smoke without clean selector target",
+      "direct materialization after M1588"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1592-paper-route-clean-history-control-source-generation-repair-implementation.md",
+  "public_gates": [
+    "M1592 must implement exactly one bounded clean-source repair",
+    "M1592 must target M1590 clean source edges and windows",
+    "M1592 must classify results through the M1588 history-vs-control selector criteria",
+    "M1592 must report clean, dominated, control-only, and null counts",
+    "M1592 must keep materialization training PPO promotion and private holdout blocked",
+    "M1592 must route to audit whether gates pass or fail"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not relax clean selector thresholds",
+    "do not claim level3 self-identification",
+    "do not continue to another implementation without audit"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_pairability_source_generation",
+    "evidence_axis": "I_clean_history_control_source_generation_repair_implementation",
+    "evidence_increment": "implements the one bounded clean-source repair admitted by M1591 synthesis",
+    "claim_scope": "public diagnostic implementation only; no candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop after one bounded implementation and route to audit",
+      "stop if implementation relaxes the clean selector thresholds",
+      "stop if implementation writes a training corpus or materializes candidates",
+      "stop if implementation starts training, PPO, promotion, or private holdout"
+    ],
+    "fallback_plan": [
+      "route to result audit whether gates pass or fail",
+      "if clean count remains short, audit whether to stop or pivot to simulator/task-source redesign",
+      "if clean count passes, audit before any materialization or training"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1591 admits exactly one bounded clean-source repair implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "clean history-vs-control source-generation repair implementation",
+    "admission_evidence": [
+      "M1588 found 7 clean rows across 4 source edges and 6 endpoint families",
+      "M1590 defined clean-positive and dominated-negative repair targets",
+      "M1591 synthesis permits exactly one bounded implementation"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not relax clean thresholds",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "clean-source repair implementation module and focused tests",
+      "bounded public smoke artifacts",
+      "M1592 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "summary.json is written",
+      "clean/dominated/control-only/null counts are reported",
+      "source-edge diversity is reported",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1592 must keep current-frame controls as exclusion diagnostics and must not count control-dominated rows as clean.",
+    "history_necessity_tests": [
+      "history-vs-control selector criteria",
+      "dominated/control-only diagnostics",
+      "source-edge diversity gates"
+    ],
+    "temporal_evidence_window": "M1588 clean source edges and M1590 repair design.",
+    "negative_result_policy": "If the clean-source repair does not increase clean rows without threshold relaxation, route to audit or stop instead of weakening standards.",
+    "allowed_claims": [
+      "public clean-source diagnostic evidence",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded repair seeded from M1590 clean edges can increase clean history-control separated rows without relaxing the selector threshold or broadening to generic pairability.",
+  "success_criteria": [
+    "clean-source repair module or script exists",
+    "focused tests cover clean selector thresholds and guardrails",
+    "runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json exists",
+    "clean_directed_pair_count >= 12",
+    "clean_source_edge_count >= 5",
+    "clean_endpoint_source_family_count >= 6",
+    "max_clean_source_edge_share <= 0.35",
+    "required_variant_coverage_complete is true",
+    "invalid_directed_pair_count == 0",
+    "guardrail_violation_count == 0",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "clean selector thresholds are relaxed",
+    "implementation only improves broad pairability while clean count remains short",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification",
+    "implementation continues directly to another repair without audit"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_clean_history_control_source_generation_repair.py -q"
+    },
+    {
+      "name": "clean_source_repair_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.clean_history_control_source_generation_repair --output-dir runs/m1592_clean_history_control_source_generation_repair_smoke --seed 1912 --max-source-specs 480 --max-selected-pairs 96"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1592_clean_history_control_source_generation_repair_smoke/source_spec_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1592_clean_history_control_source_generation_repair_smoke/classified_directed_pair_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1592_clean_history_control_source_generation_repair_smoke/clean_directed_pair_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1592_clean_history_control_source_generation_repair_smoke/source_edge_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1592_clean_history_control_source_generation_repair_smoke/guardrail_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1592-paper-route-clean-history-control-source-generation-repair-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1588_history_vs_control_active_set_selector/summary.json",
+    "runs/m1588_history_vs_control_active_set_selector/clean_directed_pair_rows.csv",
+    "docs/m1590-paper-route-clean-history-control-source-generation-repair-design.md",
+    "docs/m1591-paper-route-history-pairability-source-generation-branch-synthesis.md"
+  ],
+  "decision_rule": "M1592 passes as implementation only if it increases clean history-control separated rows under the existing selector and routes to audit before any next step.",
+  "next_blocker": "m1592-paper-route-clean-history-control-source-generation-repair-implementation"
+}

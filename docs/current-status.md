@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1590-paper-route-clean-history-control-source-generation-repair-design
+m1591-paper-route-history-pairability-source-generation-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1591-paper-route-history-pairability-source-generation-branch-synthesis
+m1592-paper-route-clean-history-control-source-generation-repair-implementation
 ```
 
-M1590 designed the clean history-vs-control source-generation repair around the
-M1588 clean selector rows and dominated/control-only negatives. It does not
-admit implementation yet: the branch has reached synthesis cadence, so M1591
-must synthesize M1581-M1590 before deciding whether to run exactly one bounded
-clean-source repair, pivot, or stop.
+M1591 synthesized M1581-M1590. The branch has strong broad pairability and live
+intervention plumbing, but broad interventions were control-dominated and the
+clean selector surface remains small. M1591 continues to exactly one bounded
+clean-source implementation, M1592, with no materialization, training, PPO,
+promotion, private holdout, or level3 self-ID claim.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

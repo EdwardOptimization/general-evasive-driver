@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1599,
+    "completed": 1600,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1590-paper-route-clean-history-control-source-generation-repair-design.md",
+    "command_log": "docs/m1591-paper-route-history-pairability-source-generation-branch-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1590-paper-route-clean-history-control-source-generation-repair-design"
+    "task_id": "m1591-paper-route-history-pairability-source-generation-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1591-paper-route-history-pairability-source-generation-branch-synthesis.json",
-    "hypothesis": "After M1590, the pairability-first source-generation branch has enough positive and negative evidence to require synthesis before any further implementation milestone.",
-    "id": "m1591-paper-route-history-pairability-source-generation-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M1581-M1590 before any further implementation",
-    "priority": 15860,
+    "command": "see experiments/manifests/m1592-paper-route-clean-history-control-source-generation-repair-implementation.json",
+    "hypothesis": "A bounded repair seeded from M1590 clean edges can increase clean history-control separated rows without relaxing the selector threshold or broadening to generic pairability.",
+    "id": "m1592-paper-route-clean-history-control-source-generation-repair-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: run exactly one bounded clean-source repair implementation and route to audit",
+    "priority": 15870,
     "status": "pending",
-    "success_artifact": "docs/m1591-paper-route-history-pairability-source-generation-branch-synthesis.md"
+    "success_artifact": "runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T162040Z"
+  "updated_at_utc": "20260529T162601Z"
 }

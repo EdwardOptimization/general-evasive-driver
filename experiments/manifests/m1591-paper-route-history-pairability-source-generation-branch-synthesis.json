@@ -189,6 +189,59 @@
     "runs/m1588_history_vs_control_active_set_selector/summary.json",
     "docs/m1590-paper-route-clean-history-control-source-generation-repair-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1591-paper-route-history-pairability-source-generation-branch-synthesis.md",
+    "decision": "history_pairability_source_generation_synthesis_continue_to_one_bounded_clean_source_implementation",
+    "synthesis_decision": "continue",
+    "synthesized_range": "M1581-M1590",
+    "next_branch": "paper_route_history_pairability_source_generation",
+    "next_manifest": "experiments/manifests/m1592-paper-route-clean-history-control-source-generation-repair-implementation.json",
+    "supported_claims": [
+      "matched-current hidden-divergent pairs exist at scale in the current P0 public source set",
+      "source-diverse intervention plumbing is operational",
+      "wrong-history and donor-plus-hidden variants can move margins on public rows",
+      "current-frame and action-history controls can dominate apparent history positives",
+      "a small clean history-control separated public surface exists across 4 source edges and 6 endpoint families",
+      "one bounded clean-source implementation is justified before closing or pivoting the branch"
+    ],
+    "unsupported_claims": [
+      "history necessity across the scenario distribution",
+      "level3 anticipatory self-identification",
+      "high-speed history sensitivity",
+      "candidate materialization",
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "paper-level result claims",
+      "actor input contract changes"
+    ],
+    "falsified_claims": [
+      "broad pairability alone is enough for history-necessity evidence",
+      "source-diverse interventions automatically produce clean self-ID rows",
+      "large history margin gaps are meaningful without current-frame control comparisons",
+      "zero-action and zero-current controls are negligible in the current public active set",
+      "high-speed endpoint pairability or history sensitivity is solved by the M1582 capped pair set"
+    ],
+    "failure_taxonomy_summary": [
+      "objective_overfit",
+      "scenario_sampling_failure"
+    ],
+    "public_gate_overfit_risk": "high",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1591 passes if it synthesizes M1581-M1590 and chooses the next route before another implementation milestone.",
-  "next_blocker": "m1591-paper-route-history-pairability-source-generation-branch-synthesis"
+  "next_blocker": "m1592-paper-route-clean-history-control-source-generation-repair-implementation"
 }

@@ -24980,3 +24980,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1591-paper-route-history-pairability-source-generation-branch-synthesis.json`
 - next: `m1591-paper-route-history-pairability-source-generation-branch-synthesis`
+
+## M1591 Paper-Route History Pairability Source-Generation Branch Synthesis
+
+- status: completed
+- decision: `history_pairability_source_generation_synthesis_continue_to_one_bounded_clean_source_implementation`
+- artifact: `docs/m1591-paper-route-history-pairability-source-generation-branch-synthesis.md`
+- synthesized range: M1581-M1590
+- synthesis decision: continue
+- failure taxonomy: `objective_overfit`, `scenario_sampling_failure`
+- supported:
+  - M1582 broad matched-current hidden-divergent pairability passed at scale
+  - M1585 source-diverse intervention plumbing is live
+  - M1588 clean selector found 7 clean rows across 4 source edges and 6 endpoint families
+  - exactly one bounded clean-source implementation is justified before audit
+- unsupported:
+  - history necessity across distribution
+  - high-speed history sensitivity
+  - level3 anticipatory self-identification
+  - candidate materialization, training corpus export, PPO, promotion, private holdout
+- falsified:
+  - broad pairability alone is enough
+  - source-diverse interventions automatically produce clean self-ID rows
+  - large history gaps are meaningful without current-frame controls
+- public-gate overfit risk: high
+- history interventions executed: false in M1591
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1592-paper-route-clean-history-control-source-generation-repair-implementation.json`
+- next: `m1592-paper-route-clean-history-control-source-generation-repair-implementation`
