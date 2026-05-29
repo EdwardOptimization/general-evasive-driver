@@ -25243,3 +25243,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1600-paper-route-clean-contour-mapper-result-audit.json`
 - next: `m1600-paper-route-clean-contour-mapper-result-audit`
+
+## M1600 Paper-Route Clean Contour Mapper Result Audit
+
+- status: completed
+- decision: `clean_contour_mapper_audit_admit_contour_aware_source_rule_design`
+- artifact: `docs/m1600-paper-route-clean-contour-mapper-result-audit.md`
+- failure taxonomy: `scenario_sampling_failure`, `objective_overfit`
+- M1599 public pass: true
+- M1599 input directed pair count: 528
+- M1599 clean directed pair count: 51
+- M1599 feature group count: 398
+- primary selection source: `clean_edge_window`
+- endpoint-neighbor clean count: 0
+- supported: M1592 succeeded by sampling clean_edge_window; M1595 failed by over-sampling endpoint-neighbor and diagnostic edges
+- route decision: admit design-only contour-aware source rule before any replay
+- replay started: false
+- history interventions executed: false in M1600
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1601-paper-route-contour-aware-source-rule-design.json`
+- next: `m1601-paper-route-contour-aware-source-rule-design`

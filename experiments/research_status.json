@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1608,
+    "completed": 1609,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1599-paper-route-clean-active-set-contour-mapper-implementation.md",
+    "command_log": "docs/m1600-paper-route-clean-contour-mapper-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1599_clean_active_set_contour_mapper",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1599-paper-route-clean-active-set-contour-mapper-implementation"
+    "task_id": "m1600-paper-route-clean-contour-mapper-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1600-paper-route-clean-contour-mapper-result-audit.json",
-    "hypothesis": "M1599's contour map can justify or reject a contour-aware source-rule design before any replay.",
-    "id": "m1600-paper-route-clean-contour-mapper-result-audit",
+    "command": "see experiments/manifests/m1601-paper-route-contour-aware-source-rule-design.json",
+    "hypothesis": "M1599's contour map can define a safer contour-aware source rule before any replay.",
+    "id": "m1601-paper-route-contour-aware-source-rule-design",
     "kind": "gate",
-    "notes": "Pending: audit M1599 contour map before any replay design",
-    "priority": 15950,
+    "notes": "Pending: design contour-aware source rule without replay",
+    "priority": 15960,
     "status": "pending",
-    "success_artifact": "docs/m1600-paper-route-clean-contour-mapper-result-audit.md"
+    "success_artifact": "docs/m1601-paper-route-contour-aware-source-rule-design.md"
   },
-  "updated_at_utc": "20260529T170300Z"
+  "updated_at_utc": "20260529T170713Z"
 }

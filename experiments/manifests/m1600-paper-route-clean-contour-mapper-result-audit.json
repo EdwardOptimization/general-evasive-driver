@@ -157,6 +157,51 @@
     "runs/m1599_clean_active_set_contour_mapper/summary.json",
     "docs/m1599-paper-route-clean-active-set-contour-mapper-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1600-paper-route-clean-contour-mapper-result-audit.md",
+    "decision": "clean_contour_mapper_audit_admit_contour_aware_source_rule_design",
+    "failure_taxonomy": [
+      "scenario_sampling_failure",
+      "objective_overfit"
+    ],
+    "m1599_passes_public_smoke_gates": true,
+    "m1599_input_directed_pair_count": 528,
+    "m1599_clean_directed_pair_count": 51,
+    "m1599_feature_group_count": 398,
+    "primary_selection_source": "clean_edge_window",
+    "endpoint_neighbor_clean_count": 0,
+    "next_manifest": "experiments/manifests/m1601-paper-route-contour-aware-source-rule-design.json",
+    "supported_claims": [
+      "offline contour mapping is operational",
+      "M1592 succeeded because it heavily sampled clean_edge_window rows",
+      "M1595 failed because it over-sampled endpoint-neighbor and diagnostic edges",
+      "a contour-aware source-rule design is justified before any replay",
+      "dominated/control-only rows remain central to the next rule"
+    ],
+    "unsupported_claims": [
+      "candidate materialization",
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "paper-level self-identification",
+      "level3 anticipatory self-identification",
+      "immediate replay without design"
+    ],
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1600 passes if it audits M1599 without weakening gates and chooses the next route before any replay or training.",
-  "next_blocker": "m1600-paper-route-clean-contour-mapper-result-audit"
+  "next_blocker": "m1601-paper-route-contour-aware-source-rule-design"
 }
