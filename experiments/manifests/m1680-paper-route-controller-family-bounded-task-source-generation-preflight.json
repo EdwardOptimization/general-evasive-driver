@@ -161,6 +161,28 @@
     "docs/m1679-paper-route-controller-family-bounded-task-source-generation-design.md",
     "runs/m1677_controller_family_decisive_task_source_mapping_preflight/task_source_mapping.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1680_controller_family_bounded_task_source_generation_preflight/summary.json",
+    "task_source_specs": "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json",
+    "source_budget_summary": "runs/m1680_controller_family_bounded_task_source_generation_preflight/source_budget_summary.csv",
+    "result_class": "controller_family_bounded_task_source_generation_preflight_pass",
+    "spec_count": 72,
+    "task_family_counts": {
+      "T4": 36,
+      "T5": 36
+    },
+    "source_family_count": 12,
+    "source_edge_count": 15,
+    "window_tag_count": 4,
+    "max_single_source_family_share": 0.1736111111111111,
+    "max_single_source_edge_share": 0.125,
+    "max_single_metadata_role_share": 0.5416666666666666,
+    "all_caps_pass": true,
+    "hidden_action_target_key_violation_count": 0,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit.json"
+  },
   "decision_rule": "M1680 passes if it writes source-budgeted no-training specs with zero leakage and no rollout.",
-  "next_blocker": "m1680-paper-route-controller-family-bounded-task-source-generation-preflight"
+  "next_blocker": "m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit"
 }

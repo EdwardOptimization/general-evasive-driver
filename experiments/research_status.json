@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1688,
+    "completed": 1689,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1679-paper-route-controller-family-bounded-task-source-generation-design.md",
+      "command_log": "runs/m1680_controller_family_bounded_task_source_generation_preflight/summary.json",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1680_controller_family_bounded_task_source_generation_preflight",
       "status": "completed",
-      "task_id": "m1679-paper-route-controller-family-bounded-task-source-generation-design"
+      "task_id": "m1680-paper-route-controller-family-bounded-task-source-generation-preflight"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1680-paper-route-controller-family-bounded-task-source-generation-preflight.json",
-      "hypothesis": "A deterministic no-training generator can materialize source-diverse controller-family task-source specs from the audited M1677 mapping without leakage or rollout.",
-      "id": "m1680-paper-route-controller-family-bounded-task-source-generation-preflight",
-      "kind": "infrastructure",
-      "notes": "Pending: materialize no-training source-budgeted task-source specs",
-      "priority": 16750,
+      "command": "see experiments/manifests/m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit.json",
+      "hypothesis": "M1680's no-training task-source specs are clean enough to admit bounded rollout-design planning, subject to auditing the near metadata-role cap and unspecified-window caveat.",
+      "id": "m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit M1680 specs before rollout design",
+      "priority": 16760,
       "status": "pending",
-      "success_artifact": "runs/m1680_controller_family_bounded_task_source_generation_preflight/summary.json"
+      "success_artifact": "docs/m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit.md"
     },
-    "updated_at_utc": "20260529T231135Z"
+    "updated_at_utc": "20260529T231705Z"
 }

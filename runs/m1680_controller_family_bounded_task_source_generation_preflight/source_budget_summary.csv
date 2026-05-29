@@ -1,0 +1,10 @@
+metric,value,passed,threshold
+spec_count,72,True,
+target_total_specs,72,True,72
+min_task_family_share,0.5,True,0.4
+source_family_count,12,True,8
+source_edge_count,15,True,10
+window_tag_count,4,True,3
+max_single_source_family_share,0.1736111111111111,True,0.3
+max_single_source_edge_share,0.125,True,0.2
+max_single_metadata_role_share,0.5416666666666666,True,0.55

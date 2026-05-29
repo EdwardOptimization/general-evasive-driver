@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1680 writes 72 no-training specs with T4/T5 balance 12 source families 15 edges 4 windows zero leakage and all caps passing",
+  "failure_criteria": [
+    "required artifacts are missing",
+    "hidden/action target keys appear in specs",
+    "source caps or control coverage are omitted",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "preflight claims controller-family ranking or level3 self-ID"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not run environment rollout",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use M1615 hidden tensors or actions as benchmark targets",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260529T231753Z",
+  "hypothesis": "A deterministic no-training generator can materialize source-diverse controller-family task-source specs from the audited M1677 mapping without leakage or rollout.",
+  "lineage": {
+    "blocked_by": [
+      "need spec-level source budget preflight before any environment rollout"
+    ],
+    "derived_from": [
+      "m1679-paper-route-controller-family-bounded-task-source-generation-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_source_spec_preflight"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1679-paper-route-controller-family-bounded-task-source-generation-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1679-paper-route-controller-family-bounded-task-source-generation-design.md",
+      "runs/m1677_controller_family_decisive_task_source_mapping_preflight/task_source_mapping.json"
+    ],
+    "parent_objective": [
+      "materialize deterministic no-training bounded task-source specs from audited metadata"
+    ],
+    "supersedes": [
+      "direct environment rollout after M1679",
+      "direct controller-family benchmark after M1679",
+      "direct private holdout after M1679"
+    ]
+  },
+  "milestone": "m1680-paper-route-controller-family-bounded-task-source-generation-preflight",
+  "next_blocker": "m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controller_family_bounded_task_source_generation_preflight_pass",
+  "public_gates": [
+    "M1680 must write summary task_source_specs and source_budget_summary artifacts",
+    "M1680 must not run environment rollout training replay PPO or promotion",
+    "M1680 must not use M1615 hidden/action labels as task targets",
+    "M1680 must report source caps T4/T5 balance and control coverage",
+    "M1680 must keep private holdout actor-input changes paper-level claims and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1680_controller_family_bounded_task_source_generation_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "controller_family_bounded_task_source_generation_preflight_pass",
+    "milestone": "m1680-paper-route-controller-family-bounded-task-source-generation-preflight",
+    "reason": "M1680 writes 72 no-training specs with T4/T5 balance 12 source families 15 edges 4 windows zero leakage and all caps passing",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1680_controller_family_bounded_task_source_generation_preflight/summary.json exists",
+    "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json exists",
+    "runs/m1680_controller_family_bounded_task_source_generation_preflight/source_budget_summary.csv exists",
+    "source caps T4/T5 balance and control coverage are reported",
+    "hidden/action target key violation count is zero",
+    "environment rollout training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "type": "infrastructure"
+}

@@ -26905,3 +26905,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, generated task quality, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1680-paper-route-controller-family-bounded-task-source-generation-preflight.json`
 - next: `m1680-paper-route-controller-family-bounded-task-source-generation-preflight`
+
+## M1680 Paper-Route Controller-Family Bounded Task-Source Generation Preflight
+
+- status: completed
+- result class: `controller_family_bounded_task_source_generation_preflight_pass`
+- artifact: `runs/m1680_controller_family_bounded_task_source_generation_preflight/summary.json`
+- specs: `runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json`
+- budget summary: `runs/m1680_controller_family_bounded_task_source_generation_preflight/source_budget_summary.csv`
+- spec count / task family counts: `72`, `T4=36`, `T5=36`
+- source families / source edges / window tags: `12` / `15` / `4`
+- max source-family share / max source-edge share / max metadata-role share: `0.1736111111111111` / `0.125` / `0.5416666666666666`
+- all caps pass / all controller profiles covered / hidden-action key violations / guardrail violations: `true` / `true` / `0` / `0`
+- caveats for audit: metadata-role share is close to the `0.55` cap and `mapping_window_unspecified` accounts for `39 / 72` specs
+- supported: deterministic no-training spec generation from audited metadata is possible with source-budget caps and zero leakage
+- unsupported: rollout task quality, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit.json`
+- next: `m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit`
