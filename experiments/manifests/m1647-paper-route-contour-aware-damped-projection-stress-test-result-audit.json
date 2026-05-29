@@ -1,0 +1,164 @@
+{
+  "id": "m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1646_contour_aware_damped_projection_stress_test/summary.json",
+      "runs/m1646_contour_aware_damped_projection_stress_test/candidate_summary.csv",
+      "runs/m1646_contour_aware_damped_projection_stress_test/aggregate_summary.csv",
+      "docs/m1646-paper-route-contour-aware-damped-projection-stress-test-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1646-paper-route-contour-aware-damped-projection-stress-test-implementation.json"
+    ],
+    "parent_objective": [
+      "audit no-checkpoint damped projection stress-test pass before checkpoint artifact or PPO route"
+    ],
+    "derived_from": [
+      "m1646-paper-route-contour-aware-damped-projection-stress-test-implementation"
+    ],
+    "blocked_by": [
+      "M1646 passed fixed-grid stress but remains fixed-tensor public exact-objective plumbing until audit"
+    ],
+    "supersedes": [
+      "direct checkpoint artifact after M1646",
+      "direct PPO-proposal repair after M1646",
+      "direct promotion after M1646"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit.md",
+  "public_gates": [
+    "M1647 must audit the M1646 stress-test pass",
+    "M1647 must verify fixed-grid coverage and aggregate gates",
+    "M1647 must verify no checkpoint write and clean role guardrails",
+    "M1647 must decide checkpoint-artifact design, PPO-proposal repair design, synthesis, broader stress route, pivot, or stop",
+    "M1647 must keep promotion private holdout actor-input changes and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun stress test",
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop evaluation",
+    "do not write checkpoint artifacts",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_damped_projection_stress_test_result_audit",
+    "evidence_increment": "audits whether M1646 fixed-grid stress pass admits a safe next route beyond projection plumbing",
+    "claim_scope": "process audit only; no rerun, training, PPO, checkpoint artifact, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats M1646 as checkpoint/PPO/closed-loop evidence",
+      "stop if audit routes directly to promotion private holdout or actor-input changes",
+      "stop if audit ignores fixed-public-row overfit risk",
+      "stop if audit skips checkpoint-write and role guardrails"
+    ],
+    "fallback_plan": [
+      "admit checkpoint-artifact design only if audit finds stress pass clean but still local",
+      "admit PPO-proposal repair design only if audit justifies projection as plumbing-ready",
+      "route to branch synthesis if another implementation would exceed cadence",
+      "pivot or stop if fixed public stress is too narrow"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1646 writes fixed-grid stress pass artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M1646 damped projection stress result",
+    "admission_evidence": [
+      "M1646 focused tests passed",
+      "M1646 official run wrote summary candidate aggregate and guardrail artifacts",
+      "M1646 passed aggregate no-checkpoint stress gates"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun stress test",
+      "do not train",
+      "do not run PPO",
+      "do not write checkpoint artifacts",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1647 audit document",
+      "M1647 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits checkpoint-artifact design, PPO-proposal design, synthesis, broader stress route, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "M1646 result is audited",
+      "fixed-tensor claim boundary is explicit",
+      "next route is explicit",
+      "promotion and private holdout remain blocked unless a later design admits them"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1647 audits fixed-tensor exact-objective stress and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "audits correct/wrong hidden branch exact residual reduction across controlled perturbation seeds"
+    ],
+    "temporal_evidence_window": "public M1630/M1633/M1636/M1646 tensor rows only.",
+    "negative_result_policy": "If the stress pass is too narrow, route to synthesis or broader stress design before any checkpoint artifact.",
+    "allowed_claims": [
+      "M1646 stress-test result audit and route decision",
+      "no rerun, no training, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1646 no-checkpoint stress pass can be audited as projection infrastructure stability without overstating it as checkpoint, PPO, or closed-loop progress.",
+  "success_criteria": [
+    "docs/m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit.md exists",
+    "audit records fixed 9-candidate grid coverage and aggregate pass metrics",
+    "audit verifies no checkpoint write, no base-interpolation repair, and clean guardrails",
+    "audit states supported and unsupported claims",
+    "audit explicitly routes next step",
+    "PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores fixed-public-row overfit risk",
+    "audit treats M1646 as checkpoint/PPO/closed-loop or paper evidence",
+    "audit routes directly to PPO promotion private holdout actor-input changes or checkpoint artifact generation",
+    "audit claims level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1646_contour_aware_damped_projection_stress_test/summary.json",
+    "runs/m1646_contour_aware_damped_projection_stress_test/candidate_summary.csv",
+    "runs/m1646_contour_aware_damped_projection_stress_test/aggregate_summary.csv",
+    "docs/m1646-paper-route-contour-aware-damped-projection-stress-test-implementation.md"
+  ],
+  "decision_rule": "M1647 passes if it audits the fixed-grid stress pass and chooses a safe next route before checkpoint artifact, PPO, or promotion.",
+  "next_blocker": "m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit"
+}

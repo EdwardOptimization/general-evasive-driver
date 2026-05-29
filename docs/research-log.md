@@ -26265,3 +26265,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: projection stress result, checkpoint artifact generation, PPO-proposal repair, closed-loop improvement, promotion, private-holdout evidence, paper-level or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1646-paper-route-contour-aware-damped-projection-stress-test-implementation.json`
 - next: `m1646-paper-route-contour-aware-damped-projection-stress-test-implementation`
+
+## M1646 Paper-Route Contour-Aware Damped Projection Stress Test Implementation
+
+- status: completed
+- decision: `contour_aware_damped_projection_stress_public_pass_route_to_audit`
+- artifact: `runs/m1646_contour_aware_damped_projection_stress_test/summary.json`
+- doc: `docs/m1646-paper-route-contour-aware-damped-projection-stress-test-implementation.md`
+- focused tests: `5 passed in 3.15s`
+- stress candidate count: `9`
+- measurable initial residual count: `9`
+- residual reduced count: `9`
+- candidate public pass count: `9`
+- accepted backtracking candidate count: `9`
+- min positive exact residual reduction ratio: `0.7070986860856349`
+- median positive exact residual reduction ratio: `0.7420973915926545`
+- max positive exact residual reduction ratio: `0.8632753818236488`
+- max guardrail violation count: `0`
+- checkpoint artifact count: `0`
+- base interpolation used for repair count: `0`
+- diagnostic rows used as positive count: `0`
+- donor-plus action used as loss target count: `0`
+- training/PPO/promotion/private holdout/actor-input/level3 claim counts: `0`
+- passes public smoke gates: true
+- null result classification: `damped_projection_stress_public_pass`
+- supported: damped projection is stable across the pre-registered 3x3 actor_mean perturbation grid
+- unsupported: checkpoint artifact generation, PPO-proposal repair, closed-loop improvement, behavior retention, promotion, private-holdout evidence, paper-level or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit.json`
+- next: `m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit`

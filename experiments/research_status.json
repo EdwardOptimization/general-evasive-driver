@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1654,
+    "completed": 1655,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1645-paper-route-contour-aware-damped-projection-stress-test-design.md",
+      "command_log": "docs/m1646-paper-route-contour-aware-damped-projection-stress-test-implementation.md",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1646_contour_aware_damped_projection_stress_test",
       "status": "completed",
-      "task_id": "m1645-paper-route-contour-aware-damped-projection-stress-test-design"
+      "task_id": "m1646-paper-route-contour-aware-damped-projection-stress-test-implementation"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1646-paper-route-contour-aware-damped-projection-stress-test-implementation.json",
-      "hypothesis": "The damped projection rule remains stable across the fixed M1645 perturbation scale/seed grid without writing checkpoints or violating role guardrails.",
-      "id": "m1646-paper-route-contour-aware-damped-projection-stress-test-implementation",
-      "kind": "objective_sanity",
-      "notes": "Pending: implement no-checkpoint multi-scale multi-seed projection stress test and route to audit",
-      "priority": 16410,
+      "command": "see experiments/manifests/m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit.json",
+      "hypothesis": "The M1646 no-checkpoint stress pass can be audited as projection infrastructure stability without overstating it as checkpoint, PPO, or closed-loop progress.",
+      "id": "m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit fixed-grid stress pass before checkpoint artifact PPO proposal repair or synthesis route",
+      "priority": 16420,
       "status": "pending",
-      "success_artifact": "runs/m1646_contour_aware_damped_projection_stress_test/summary.json"
+      "success_artifact": "docs/m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit.md"
     },
-    "updated_at_utc": "20260529T203415Z"
+    "updated_at_utc": "20260529T204036Z"
 }
