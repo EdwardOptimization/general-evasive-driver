@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1509-paper-route-decisive-history-task-matrix-synthesis
+m1510-paper-route-decisive-history-bounded-runner-design
 ```
 
 Current next task:
 
 ```text
-m1510-paper-route-decisive-history-bounded-runner-design
+m1511-paper-route-decisive-history-bounded-runner-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -57,12 +57,36 @@ reset-only current-sim runtime smoke for all six source families after a hook
 sampling repair. M1507 designed measured rollout candidate generation before any
 candidate materialization or corpus export. M1508 implemented candidate
 materialization scaffolding and guards with a synthetic smoke. M1509 synthesized
-M1499-M1508 and promoted the work to a bounded fixed-policy runner branch. The
-current public-gate base remains M1362 alpha `0.1`:
+M1499-M1508 and promoted the work to a bounded fixed-policy runner branch.
+M1510 designed the bounded fixed-policy source trace runner. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1510 decisive history bounded runner design:
+
+```text
+decision: decisive_history_bounded_runner_design_admit_implementation
+artifact: docs/m1510-paper-route-decisive-history-bounded-runner-design.md
+checkpoint: runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
+source_family_cap: 1
+expected_spec_count: 6
+max_rollout_steps: 96
+trace_collection_defined: true
+snapshot_schema_defined: true
+separates_trace_collection_from_candidate_materialization: true
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1511-paper-route-decisive-history-bounded-runner-implementation
+```
+
+M1510 is design only. Next is implementing the fixed-policy trace runner and
+running a bounded public smoke; candidate materialization and self-ID claims
+remain blocked.
 
 M1509 decisive history task-matrix synthesis:
 

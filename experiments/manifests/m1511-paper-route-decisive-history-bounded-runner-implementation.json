@@ -1,0 +1,167 @@
+{
+  "id": "m1511-paper-route-decisive-history-bounded-runner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1510-paper-route-decisive-history-bounded-runner-design.md",
+      "docs/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1510-paper-route-decisive-history-bounded-runner-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded fixed-policy source trace runner after M1510 design"
+    ],
+    "derived_from": [
+      "m1510-paper-route-decisive-history-bounded-runner-design"
+    ],
+    "blocked_by": [
+      "source traces must be collected before measured T4/T5 candidate materialization can be audited"
+    ],
+    "supersedes": [
+      "manual or broad rollout generation without source-family caps"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1511-paper-route-decisive-history-bounded-runner-implementation.md",
+  "public_gates": [
+    "M1511 must implement bounded source trace runner",
+    "M1511 must run fixed public checkpoint only",
+    "M1511 must attempt all six source families with a small source-family cap",
+    "M1511 must write trace snapshot summary and guardrail artifacts",
+    "M1511 must not materialize candidates or export a training corpus",
+    "M1511 must not train run PPO promote use private holdout or alter actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not run broad rollout generation",
+    "do not claim self-identification from trace collection"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_decisive_history_bounded_runner",
+    "evidence_axis": "G_decisive_history_source_trace_runtime",
+    "evidence_increment": "implements a bounded public fixed-policy source trace runner and smoke after M1510 design",
+    "claim_scope": "runner implementation and public source-trace plumbing only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if checkpoint cannot load under the P0 actor contract",
+      "stop if all source families fail before decision step",
+      "stop if runner needs private holdout or broad rollouts to pass",
+      "stop if implementation would materialize candidates or export a training corpus"
+    ],
+    "fallback_plan": [
+      "if checkpoint loading fails, route to checkpoint compatibility audit",
+      "if source families fail before reset or reveal, route to env-hook repair",
+      "if source families run but not to decision, route to bounded runner audit before candidate materialization"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1510 admitted bounded runner implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "bounded source trace runner implementation",
+    "admission_evidence": [
+      "M1510 design fixes checkpoint runner budget schema and guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "bounded runner module and tests",
+      "bounded public smoke run artifacts",
+      "status queue scoreboard research log and review",
+      "one follow-up trace audit or blocker manifest"
+    ],
+    "next_stage_criteria": [
+      "runner artifacts are complete",
+      "guardrails remain false",
+      "source-family failure reasons are explicit",
+      "next audit or blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1511 collects source traces only; it must not claim that any history window is necessary.",
+    "history_necessity_tests": [
+      "trace rows must preserve reveal decision and post-decision windows for later T4/T5 materialization",
+      "no intervention outcome can be claimed until a later measured-candidate audit"
+    ],
+    "temporal_evidence_window": "bounded public fixed-policy source traces from default_hook_specs(seed_count=1).",
+    "negative_result_policy": "If traces do not reach reveal or decision, record explicit failure rows and route to audit or env-hook repair instead of broadening the run.",
+    "allowed_claims": [
+      "bounded source trace runner implemented",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded fixed-policy runner can collect public source traces for the six decisive-history source families without training or candidate materialization.",
+  "success_criteria": [
+    "src/autodrift/decisive_history_bounded_runner.py exists",
+    "tests/test_decisive_history_bounded_runner.py exists and passes",
+    "runs/m1511_decisive_history_bounded_runner_smoke/summary.json exists",
+    "runner attempts all six source families with max_rollout_steps 96",
+    "trace snapshot summary and guardrail artifacts are written",
+    "guardrail_violation_count equals zero",
+    "candidate_materialized training replay PPO promotion private holdout and actor-input changes remain false"
+  ],
+  "failure_criteria": [
+    "runner module or tests are missing",
+    "checkpoint loading or actor-contract assertion is ambiguous",
+    "runner does not write failure rows for incomplete source traces",
+    "candidate materialization corpus export training PPO promotion private holdout or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_decisive_history_bounded_runner.py -q"
+    },
+    {
+      "name": "bounded-runner-smoke",
+      "command": "PYTHONPATH=src python -m autodrift.decisive_history_bounded_runner --run-dir runs/m1511_decisive_history_bounded_runner_smoke --max-rollout-steps 96 --seed-count 1 --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/decisive_history_bounded_runner.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_decisive_history_bounded_runner.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m1511_decisive_history_bounded_runner_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1510-paper-route-decisive-history-bounded-runner-design.md",
+    "docs/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.md"
+  ],
+  "decision_rule": "M1511 passes if a bounded fixed-policy runner collects source trace artifacts with all guardrails false and no candidate materialization.",
+  "next_blocker": "m1511-paper-route-decisive-history-bounded-runner-implementation"
+}

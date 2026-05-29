@@ -22551,3 +22551,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: task-matrix infrastructure branch is complete enough to move to bounded fixed-policy runner design, but no self-ID evidence has been proven.
 - follow-up manifest: `experiments/manifests/m1510-paper-route-decisive-history-bounded-runner-design.json`.
 - next: `m1510-paper-route-decisive-history-bounded-runner-design`
+
+## M1510 Paper-Route Decisive History Bounded Runner Design
+
+- status: completed
+- decision: `decisive_history_bounded_runner_design_admit_implementation`
+- artifact: `docs/m1510-paper-route-decisive-history-bounded-runner-design.md`
+- checkpoint: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`
+- source family cap: 1
+- expected spec count: 6
+- max rollout steps: 96
+- trace collection defined: true
+- snapshot schema defined: true
+- guardrails defined: true
+- separates trace collection from candidate materialization: true
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1510 bounds the first fixed-policy source trace runner so the next milestone can collect public trace evidence without broad rollout generation or self-ID claims.
+- follow-up manifest: `experiments/manifests/m1511-paper-route-decisive-history-bounded-runner-implementation.json`.
+- next: `m1511-paper-route-decisive-history-bounded-runner-implementation`
