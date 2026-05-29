@@ -16,42 +16,44 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1469-paper-route-positive-neighborhood-preflight-design
+m1471-paper-route-positive-neighborhood-bounded-replay-design
 ```
 
 Current next task:
 
 ```text
-m1470-paper-route-positive-neighborhood-preflight-smoke
+m1472-paper-route-positive-neighborhood-bounded-replay-smoke
 ```
 
-M1468 verified the duplicate-key repair and M1469 designed preflight-only
-validation. The current public-gate base remains M1362 alpha `0.1`:
+M1470 passed positive-neighborhood preflight and M1471 designed bounded replay.
+The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1469 design:
+M1471 design:
 
 ```text
-decision: positive_neighborhood_preflight_design_admit_smoke
-source_candidates: runs/m1468_positive_neighborhood_dedup_smoke/positive_neighborhood_candidate_rows.csv
+decision: positive_neighborhood_bounded_replay_design_admit_smoke
+source_candidates: runs/m1470_positive_neighborhood_preflight_smoke/selected_candidate_rows.csv
 candidate_step_column: source_step
-next: m1470-paper-route-positive-neighborhood-preflight-smoke
+max_candidate_rows: 96
+next: m1472-paper-route-positive-neighborhood-bounded-replay-smoke
 ```
 
-M1465 result:
+M1470 result:
 
 ```text
-proposal_rows: 24960
-selected_candidate_rows: 192
-unique_positive_neighborhood_key: 20
-duplicate_rows: 172
-interpretation: selected count is inflated by duplicate geometry keys
+geometry_pass_rows: 192
+selected_candidate_rows: 171
+relocation_clipped_share: 0.0
+unique_positive_neighborhood_key: 171
+duplicate_rows: 0
+selected diversity: 5 seeds / 9 capability pairs / 8 reveal buckets / 3 variants
 ```
 
-M1468 repaired that issue:
+M1468 repaired the earlier duplicate-key issue:
 
 ```text
 selected_candidate_rows: 192
@@ -60,8 +62,8 @@ selected_duplicate_positive_neighborhood_key_rows: 0
 selected diversity: 5 seeds / 9 capability pairs / 8 reveal buckets / 3 variants
 ```
 
-M1470 should run preflight only. It must not run bounded replay, training, PPO,
-promotion, private holdout, corpus export, or actor-input changes.
+M1472 should run bounded replay only. It must not train, run PPO, promote, use
+private holdout, export corpus, or change actor inputs.
 
 M1455 result:
 

@@ -21802,3 +21802,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1470-paper-route-positive-neighborhood-preflight-smoke.json`.
 - next: `m1470-paper-route-positive-neighborhood-preflight-smoke`
+
+## 20260529T064000Z - m1470-paper-route-positive-neighborhood-preflight-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `proof`
+- artifact: `docs/m1470-paper-route-positive-neighborhood-preflight-smoke.md`
+- run artifact: `runs/m1470_positive_neighborhood_preflight_smoke/summary.json`
+- decision: `positive_neighborhood_preflight_pass_route_to_bounded_replay_design`
+- candidate step column: `source_step`
+- input rows: `192`
+- geometry pass rows: `192`
+- selected candidate rows: `171`
+- rejected rows: `0`
+- relocation clipped share: `0.0`
+- selected diversity: `5` seeds, `9` capability pairs, `8` reveal buckets, `3` variants.
+- unique-key retention: `171` selected rows, `171` unique positive-neighborhood keys, `0` duplicates.
+- interpretation: deduplicated positive-neighborhood candidates remain reconstructable, unclipped, source-diverse, and unique-key preserving after preflight.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1471-paper-route-positive-neighborhood-bounded-replay-design.json`.
+- next: `m1471-paper-route-positive-neighborhood-bounded-replay-design`
+
+## 20260529T064100Z - m1471-paper-route-positive-neighborhood-bounded-replay-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1471-paper-route-positive-neighborhood-bounded-replay-design.md`
+- decision: `positive_neighborhood_bounded_replay_design_admit_smoke`
+- candidate source: `runs/m1470_positive_neighborhood_preflight_smoke/selected_candidate_rows.csv`
+- required candidate step column: `source_step`
+- design: run bounded replay over M1470 selected candidates with geometry-aware selector, 96 max candidate rows, source-step anchoring, and unique-key diagnostics.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1472-paper-route-positive-neighborhood-bounded-replay-smoke.json`.
+- next: `m1472-paper-route-positive-neighborhood-bounded-replay-smoke`

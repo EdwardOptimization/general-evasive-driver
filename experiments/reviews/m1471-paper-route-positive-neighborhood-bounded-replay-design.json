@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M1471 designs bounded replay over M1470 selected candidates before any training PPO promotion or corpus export",
+  "failure_criteria": [
+    "design document is missing",
+    "design uses reveal_step for source-step candidates",
+    "design claims preflight rows are replay evidence",
+    "design starts replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop replay in this design milestone",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim preflight rows are replay evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T051956Z",
+  "hypothesis": "M1470 positive-neighborhood preflight rows justify one bounded replay smoke with source_step anchoring before any corpus export or training.",
+  "lineage": {
+    "blocked_by": [
+      "bounded replay has not yet been run on positive-neighborhood preflight-pass candidates"
+    ],
+    "derived_from": [
+      "m1470-paper-route-positive-neighborhood-preflight-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1470-paper-route-positive-neighborhood-preflight-smoke.json"
+    ],
+    "parent_dataset": [
+      "runs/m1470_positive_neighborhood_preflight_smoke/selected_candidate_rows.csv",
+      "docs/m1470-paper-route-positive-neighborhood-preflight-smoke.md"
+    ],
+    "parent_objective": [
+      "design bounded replay smoke after positive-neighborhood preflight passes"
+    ],
+    "supersedes": [
+      "preflight-only evidence as final outcome evidence"
+    ]
+  },
+  "milestone": "m1471-paper-route-positive-neighborhood-bounded-replay-design",
+  "next_blocker": "m1472-paper-route-positive-neighborhood-bounded-replay-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "positive_neighborhood_bounded_replay_design_admit_smoke",
+  "public_gates": [
+    "M1471 must design bounded replay smoke before running replay",
+    "M1471 must require candidate_step_column source_step",
+    "M1471 must block training PPO promotion private holdout corpus export and actor-input changes"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1471-paper-route-positive-neighborhood-bounded-replay-design.md",
+    "clearance_margin_mean": "",
+    "decision": "positive_neighborhood_bounded_replay_design_admit_smoke",
+    "milestone": "m1471-paper-route-positive-neighborhood-bounded-replay-design",
+    "reason": "M1471 designs bounded replay over M1470 selected candidates before any training PPO promotion or corpus export",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1471-paper-route-positive-neighborhood-bounded-replay-design.md exists",
+    "design command uses --candidate-step-column source_step",
+    "design blocks training PPO promotion private holdout corpus export and actor-input changes",
+    "design routes to replay result audit regardless of positive or negative outcome"
+  ],
+  "type": "gate"
+}
