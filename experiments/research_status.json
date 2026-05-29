@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1590,
+    "completed": 1591,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1581-paper-route-history-pairability-source-generation-design.md",
+    "command_log": "runs/m1582_history_pairability_source_miner_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1582_history_pairability_source_miner_smoke",
     "status": "completed",
-    "task_id": "m1581-paper-route-history-pairability-source-generation-design"
+    "task_id": "m1582-paper-route-history-pairability-source-miner-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1582-paper-route-history-pairability-source-miner-implementation.json",
-    "hypothesis": "A bounded public source miner can produce matched-current hidden-divergent pairs before history interventions.",
-    "id": "m1582-paper-route-history-pairability-source-miner-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement pairability-first source miner after M1581 design",
-    "priority": 15770,
+    "command": "see experiments/manifests/m1583-paper-route-history-pairability-source-miner-result-audit.json",
+    "hypothesis": "M1582's public-pass pairability result can be audited into a defensible next route without overstating self-identification evidence.",
+    "id": "m1583-paper-route-history-pairability-source-miner-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1582 pairability public pass before any history intervention design",
+    "priority": 15780,
     "status": "pending",
-    "success_artifact": "runs/m1582_history_pairability_source_miner_smoke/summary.json"
+    "success_artifact": "docs/m1583-paper-route-history-pairability-source-miner-result-audit.md"
   },
-  "updated_at_utc": "20260529T152956Z"
+  "updated_at_utc": "20260529T154158Z"
 }

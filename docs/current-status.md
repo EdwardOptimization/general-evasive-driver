@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1581-paper-route-history-pairability-source-generation-design
+m1582-paper-route-history-pairability-source-miner-implementation
 ```
 
 Current next task:
 
 ```text
-m1582-paper-route-history-pairability-source-miner-implementation
+m1583-paper-route-history-pairability-source-miner-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -444,6 +444,14 @@ M1581 designed that first pairability branch step. M1582 must mine pairability
 only: source-diverse matched-current/hidden-divergent anchor pairs, tiered
 threshold sweeps, source-edge/window summaries, and null classification. It must
 not run history interventions or export training data.
+M1582 implemented and ran that pairability-first source miner. The smoke passed:
+`480` source specs, `640` anchor candidates, `509` replay-ok anchors, `20000`
+capped pair rows, `20000` tier-A/tier-B pairs, `24` pairable source edges, `8`
+endpoint source families, `6` windows, `108` high-speed-or-late pairs, max edge
+share `0.0742`, clean guardrails, and no history interventions. This resolves
+the M1579 matched-pair shortfall as a broad pairability prerequisite, but it is
+not history-necessity or self-ID evidence. M1583 must audit the result before
+any source-diverse wrong-history intervention design.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

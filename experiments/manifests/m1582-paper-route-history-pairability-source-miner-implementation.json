@@ -24,7 +24,7 @@
       "m1581-paper-route-history-pairability-source-generation-design"
     ],
     "blocked_by": [
-      "M1581 design has not yet been implemented"
+      "M1581 admitted exactly one bounded pairability-first source-miner implementation before any history interventions"
     ],
     "supersedes": [
       "history interventions before pairability proof"
@@ -144,6 +144,42 @@
     {
       "path": "runs/m1582_history_pairability_source_miner_smoke/summary.json",
       "type": "json"
+    },
+    {
+      "path": "runs/m1582_history_pairability_source_miner_smoke/source_spec_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1582_history_pairability_source_miner_smoke/anchor_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1582_history_pairability_source_miner_smoke/pairability_pair_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1582_history_pairability_source_miner_smoke/pairability_source_edge_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1582_history_pairability_source_miner_smoke/pairability_source_family_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1582_history_pairability_source_miner_smoke/pairability_window_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1582_history_pairability_source_miner_smoke/threshold_sweep_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1582_history_pairability_source_miner_smoke/guardrail_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1582-paper-route-history-pairability-source-miner-implementation.md",
+      "type": "md"
     }
   ],
   "baseline_checkpoints": [
@@ -153,6 +189,47 @@
     "docs/m1581-paper-route-history-pairability-source-generation-design.md",
     "runs/m1579_high_speed_late_history_source_repair_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1582_history_pairability_source_miner_smoke/summary.json",
+    "doc": "docs/m1582-paper-route-history-pairability-source-miner-implementation.md",
+    "code": "src/autodrift/history_pairability_source_miner.py",
+    "tests": "tests/test_history_pairability_source_miner.py",
+    "decision": "history_pairability_source_miner_smoke_public_pass_route_to_audit",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "focused_test_result": "4 passed",
+    "source_spec_count": 480,
+    "anchor_candidate_count": 640,
+    "replay_ok_anchor_count": 509,
+    "pair_screen_candidate_count": 20000,
+    "tier_a_pair_count": 20000,
+    "tier_b_pair_count": 20000,
+    "tier_c_pair_count": 20000,
+    "pairable_source_edge_count": 24,
+    "pairable_target_source_family_count": 8,
+    "pairable_window_count": 6,
+    "high_speed_or_late_pair_count": 108,
+    "max_single_pairable_source_edge_share": 0.0742,
+    "passes_public_smoke_gates": true,
+    "passes_evidence_quality_targets": true,
+    "null_result_classification": "pairability_public_pass",
+    "guardrail_violation_count": 0,
+    "history_interventions_executed": false,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": true,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1583-paper-route-history-pairability-source-miner-result-audit.json"
+  },
   "decision_rule": "M1582 passes as implementation if it runs bounded public pairability mining with clean guardrails and writes required metrics; it must still route to audit before interventions.",
-  "next_blocker": "m1582-paper-route-history-pairability-source-miner-implementation"
+  "next_blocker": "m1583-paper-route-history-pairability-source-miner-result-audit"
 }

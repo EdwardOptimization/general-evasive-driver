@@ -24696,3 +24696,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1582-paper-route-history-pairability-source-miner-implementation.json`
 - next: `m1582-paper-route-history-pairability-source-miner-implementation`
+
+## M1582 Paper-Route History Pairability Source-Miner Implementation
+
+- status: completed
+- decision: `history_pairability_source_miner_smoke_public_pass_route_to_audit`
+- artifact: `runs/m1582_history_pairability_source_miner_smoke/summary.json`
+- doc: `docs/m1582-paper-route-history-pairability-source-miner-implementation.md`
+- code: `src/autodrift/history_pairability_source_miner.py`
+- tests: `tests/test_history_pairability_source_miner.py`
+- focused test result: `4 passed`
+- source spec count: 480
+- anchor candidate count: 640
+- replay-ok anchor count: 509
+- pair screen candidate count: 20000
+- tier A pair count: 20000
+- tier B pair count: 20000
+- tier C pair count: 20000
+- pairable source edge count: 24
+- pairable target source family count: 8
+- pairable window count: 6
+- high-speed-or-late pair count: 108
+- max single pairable source-edge share: 0.0742
+- passes public smoke gates: true
+- passes evidence-quality targets: true
+- null result classification: `pairability_public_pass`
+- guardrail violation count: 0
+- interpretation: M1582 removes the M1579 pairability bottleneck by proving broad public matched-current hidden-divergent pairs exist, but it is still prerequisite evidence only and not history necessity or self-ID evidence
+- history interventions executed: false
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1583-paper-route-history-pairability-source-miner-result-audit.json`
+- next: `m1583-paper-route-history-pairability-source-miner-result-audit`
