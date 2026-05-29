@@ -10677,5 +10677,12 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   level3 self-identification claim.
 - M1687 audits M1686 as a clean routing-smoke pass and routes to full measured
   rollout design rather than direct execution.
+- M1688 designs the full `72 x 12 = 864` public measured rollout. It identifies
+  that M1680/M1683 currently provide metadata/workload rows, not executable env
+  configs for all 72 specs, so direct full rollout remains blocked.
+- Because the branch reached workflow-synthesis cadence, M1688 routes to branch
+  synthesis before executable workload materialization. The logical technical
+  route after synthesis remains executable materialization before any 864-cell
+  rollout execution.
 - Current next blocker:
-  `m1688-paper-route-controller-family-full-measured-rollout-design`.
+  `m1689-paper-route-controller-family-task-source-branch-synthesis`.

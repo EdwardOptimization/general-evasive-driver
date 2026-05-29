@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1688 designs the 72x12 full public rollout but routes to branch synthesis before executable materialization because M1680 specs are metadata not direct env configs",
+  "failure_criteria": [
+    "design omits workload size or artifact schema",
+    "design allows full rollout execution before execution manifest",
+    "design claims controller-family ranking or level3 self-ID",
+    "training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute full rollout in M1688",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use profile-specific tuning",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T235226Z",
+  "hypothesis": "A complete design for the 864-cell public measured rollout can be specified from the M1683 workload and M1686 routing-smoke runner without executing or interpreting the rollout yet.",
+  "lineage": {
+    "blocked_by": [
+      "need full rollout design before executing the 864-cell public workload"
+    ],
+    "derived_from": [
+      "m1687-paper-route-controller-family-measured-routing-smoke-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1687-paper-route-controller-family-measured-routing-smoke-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1687-paper-route-controller-family-measured-routing-smoke-result-audit.md",
+      "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv",
+      "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json"
+    ],
+    "parent_objective": [
+      "design full public measured rollout after M1686 routing-smoke audit pass"
+    ],
+    "supersedes": [
+      "direct full rollout execution after M1687",
+      "direct private holdout after M1687",
+      "direct controller-family ranking after M1687"
+    ]
+  },
+  "milestone": "m1688-paper-route-controller-family-full-measured-rollout-design",
+  "next_blocker": "m1689-paper-route-controller-family-task-source-branch-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "full_rollout_design_route_to_executable_workload_materialization_preflight",
+  "public_gates": [
+    "M1688 must design but not execute the full 864-cell public rollout",
+    "M1688 must preserve the same 12 M1674 profile checkpoints",
+    "M1688 must specify exact artifacts and failure handling for the full rollout",
+    "M1688 must not train replay PPO promote use private holdout or change actor inputs",
+    "M1688 must not claim controller-family ranking paper-level evidence or level3 self-ID"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1688-paper-route-controller-family-full-measured-rollout-design.md",
+    "clearance_margin_mean": "",
+    "decision": "full_rollout_design_route_to_executable_workload_materialization_preflight",
+    "milestone": "m1688-paper-route-controller-family-full-measured-rollout-design",
+    "reason": "M1688 designs the 72x12 full public rollout but routes to branch synthesis before executable materialization because M1680 specs are metadata not direct env configs",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1688-paper-route-controller-family-full-measured-rollout-design.md exists",
+    "design specifies the 72 spec x 12 profile public workload",
+    "design specifies output artifacts and finite metric checks",
+    "design specifies profile/spec/control comparison boundaries",
+    "design specifies failure handling and no-ranking claim boundary",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

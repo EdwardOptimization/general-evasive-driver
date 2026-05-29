@@ -27022,3 +27022,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, full-distribution rollout task quality, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1688-paper-route-controller-family-full-measured-rollout-design.json`
 - next: `m1688-paper-route-controller-family-full-measured-rollout-design`
+
+## M1688 Paper-Route Controller-Family Full Measured Rollout Design
+
+- status: completed
+- decision: `full_rollout_design_route_to_executable_workload_materialization_preflight`
+- artifact: `docs/m1688-paper-route-controller-family-full-measured-rollout-design.md`
+- parent protocol: `runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv`
+- target workload: `72` task specs x `12` profiles = `864` cells
+- design finding: M1680/M1683 provide source-budgeted metadata/workload rows, not executable env configs for all 72 specs
+- required technical next step: materialize all 72 metadata specs into executable P0-compatible env specs before any 864-cell rollout
+- process constraint: workflow-synthesis cadence is reached, so the next milestone must synthesize M1669-M1688 before materialization
+- required future execution artifacts: `summary.json`, `episode_rows.csv`, `profile_aggregate.csv`, `spec_aggregate.csv`, `stratum_aggregate.csv`, `comparison_aggregate.csv`, and `failure_rows.csv`
+- supported: a full measured rollout route is now specified and the direct-execution blocker is explicit
+- unsupported: direct full rollout execution, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1689-paper-route-controller-family-task-source-branch-synthesis.json`
+- next: `m1689-paper-route-controller-family-task-source-branch-synthesis`

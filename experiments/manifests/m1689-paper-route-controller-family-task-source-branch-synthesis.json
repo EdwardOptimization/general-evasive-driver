@@ -1,0 +1,185 @@
+{
+  "id": "m1689-paper-route-controller-family-task-source-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1669-paper-route-controller-family-current-state-audit.md",
+      "docs/m1670-paper-route-controller-family-decisive-evidence-matrix-design.md",
+      "runs/m1671_controller_family_decisive_matrix_protocol/summary.json",
+      "runs/m1677_controller_family_decisive_task_source_mapping_preflight/summary.json",
+      "runs/m1680_controller_family_bounded_task_source_generation_preflight/summary.json",
+      "runs/m1683_controller_family_bounded_rollout_protocol_preflight/summary.json",
+      "runs/m1686_controller_family_measured_routing_smoke/summary.json",
+      "docs/m1688-paper-route-controller-family-full-measured-rollout-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1688-paper-route-controller-family-full-measured-rollout-design.json"
+    ],
+    "parent_objective": [
+      "synthesize the controller-family task-source branch before executable materialization"
+    ],
+    "derived_from": [
+      "m1669-paper-route-controller-family-current-state-audit",
+      "m1688-paper-route-controller-family-full-measured-rollout-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached for paper_route_controller_family_task_source_generation"
+    ],
+    "supersedes": [
+      "direct executable materialization after M1688",
+      "direct full rollout execution after M1688",
+      "direct controller-family ranking after M1688"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1689-paper-route-controller-family-task-source-branch-synthesis.md",
+  "public_gates": [
+    "M1689 must synthesize M1669-M1688 before executable workload materialization",
+    "M1689 must answer required synthesis questions",
+    "M1689 must assess public-gate and metadata overfit risk",
+    "M1689 must decide continue pivot stop or promote_to_next_branch",
+    "M1689 must keep rollout execution training replay PPO promotion private holdout actor-input changes ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not materialize executable workload",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "S_controller_family_task_source_branch_synthesis",
+    "evidence_increment": "synthesizes M1669-M1688 after protocol mapping generation rollout design routing smoke audit and full-rollout design",
+    "claim_scope": "branch synthesis only; no materialization, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if synthesis ignores that M1680/M1683 are metadata not executable env configs",
+      "stop if synthesis treats M1686 routing smoke as controller-family ranking evidence",
+      "stop if synthesis skips public-gate overfit and metadata-selection risks",
+      "stop if synthesis routes directly to 864-cell rollout execution"
+    ],
+    "fallback_plan": [
+      "continue to executable workload materialization preflight if evidence supports it",
+      "pivot to workload redesign if metadata-to-env mapping is underdefined",
+      "stop the branch if task-source evidence is too metadata-specific",
+      "promote_to_next_branch only if a different evidence axis is selected"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "branch cadence reached after M1688 before executable workload materialization",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1689-paper-route-controller-family-task-source-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1689-paper-route-controller-family-task-source-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controller-family task-source branch synthesis",
+    "admission_evidence": [
+      "M1688 designs the full rollout and identifies executable materialization as the next blocker",
+      "validator cadence requires branch synthesis before continuing"
+    ],
+    "blocked_shortcuts": [
+      "do not materialize executable workload",
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1689 synthesis document",
+      "M1689 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits materialization pivot stop or new branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "route decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; synthesis covers routing and workload infrastructure, not history necessity.",
+    "history_necessity_tests": [
+      "synthesis must preserve L1, L2-current-tiled, and L3-reset controls in any continued route"
+    ],
+    "temporal_evidence_window": "M1669-M1688 public artifacts only.",
+    "negative_result_policy": "If synthesis finds evidence too metadata-specific, pivot or stop before materialization.",
+    "allowed_claims": [
+      "branch synthesis and route decision",
+      "no materialization, no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1669-M1688 controller-family task-source branch is mature enough to decide whether executable workload materialization is justified.",
+  "success_criteria": [
+    "docs/m1689-paper-route-controller-family-task-source-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "supported and unsupported claims are explicit",
+    "public-gate and metadata overfit risk is assessed",
+    "next branch decision is explicit",
+    "rollout execution training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis treats M1686 routing smoke as controller-family ranking evidence",
+    "synthesis routes directly to full rollout execution",
+    "synthesis claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1689-paper-route-controller-family-task-source-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1689-paper-route-controller-family-task-source-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1688-paper-route-controller-family-full-measured-rollout-design.md",
+    "runs/m1686_controller_family_measured_routing_smoke/summary.json",
+    "runs/m1683_controller_family_bounded_rollout_protocol_preflight/summary.json",
+    "runs/m1680_controller_family_bounded_task_source_generation_preflight/summary.json"
+  ],
+  "decision_rule": "M1689 passes if it synthesizes the branch and chooses a route before materialization or full rollout execution.",
+  "next_blocker": "m1689-paper-route-controller-family-task-source-branch-synthesis"
+}

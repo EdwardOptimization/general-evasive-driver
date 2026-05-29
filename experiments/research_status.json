@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1696,
+    "completed": 1697,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1687-paper-route-controller-family-measured-routing-smoke-result-audit.md",
+    "command_log": "docs/m1688-paper-route-controller-family-full-measured-rollout-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1687-paper-route-controller-family-measured-routing-smoke-result-audit"
+    "task_id": "m1688-paper-route-controller-family-full-measured-rollout-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1688-paper-route-controller-family-full-measured-rollout-design.json",
-    "hypothesis": "A complete design for the 864-cell public measured rollout can be specified from the M1683 workload and M1686 routing-smoke runner without executing or interpreting the rollout yet.",
-    "id": "m1688-paper-route-controller-family-full-measured-rollout-design",
+    "command": "see experiments/manifests/m1689-paper-route-controller-family-task-source-branch-synthesis.json",
+    "hypothesis": "The M1669-M1688 controller-family task-source branch is mature enough to decide whether executable workload materialization is justified.",
+    "id": "m1689-paper-route-controller-family-task-source-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: design full measured rollout before execution",
-    "priority": 16830,
+    "notes": "Pending: synthesize controller-family task-source branch before materialization",
+    "priority": 16840,
     "status": "pending",
-    "success_artifact": "docs/m1688-paper-route-controller-family-full-measured-rollout-design.md"
+    "success_artifact": "docs/m1689-paper-route-controller-family-task-source-branch-synthesis.md"
   },
-  "updated_at_utc": "20260529T234505Z"
+  "updated_at_utc": "20260529T234815Z"
 }

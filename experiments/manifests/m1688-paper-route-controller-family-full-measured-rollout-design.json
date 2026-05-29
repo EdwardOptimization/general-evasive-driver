@@ -150,6 +150,26 @@
     "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv",
     "runs/m1686_controller_family_measured_routing_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1688-paper-route-controller-family-full-measured-rollout-design.md",
+    "decision": "full_rollout_design_route_to_executable_workload_materialization_preflight",
+    "target_task_specs": 72,
+    "target_profiles": 12,
+    "target_workload_cells": 864,
+    "direct_full_rollout_admitted": false,
+    "materialization_preflight_required": true,
+    "guardrail_violation_count": 0,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "controller_family_ranking_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1689-paper-route-controller-family-task-source-branch-synthesis.json"
+  },
   "decision_rule": "M1688 passes if it writes a complete full-rollout design and routes to a separate execution or repair manifest.",
-  "next_blocker": "m1688-paper-route-controller-family-full-measured-rollout-design"
+  "next_blocker": "m1689-paper-route-controller-family-task-source-branch-synthesis"
 }
