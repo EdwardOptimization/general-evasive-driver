@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1452,
+    "completed": 1454,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1442-paper-route-geometry-first-action-divergence-enrichment-implementation.md",
+    "command_log": "docs/m1444-paper-route-geometry-aware-preflight-validation-synthesis.md",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1442-paper-route-geometry-first-action-divergence-enrichment-implementation"
+    "task_id": "m1444-paper-route-geometry-aware-preflight-validation-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1443-paper-route-geometry-first-source-pipeline-smoke.json",
-    "hypothesis": "The geometry-first source pipeline can materialize forward source geometry and then produce source-step action-divergent history rows on public M1419 rows without stale M1425 metric reuse.",
-    "id": "m1443-paper-route-geometry-first-source-pipeline-smoke",
+    "command": "see experiments/manifests/m1445-paper-route-forward-geometry-source-miner-smoke.json",
+    "hypothesis": "M1443 selected enriched rows can pass the M1438 row-level forward geometry source miner and produce selected relocation candidates for a later preflight smoke.",
+    "id": "m1445-paper-route-forward-geometry-source-miner-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: run trace-backed source geometry materialization plus source-step action enrichment on public M1419 rows without preflight replay or training",
-    "priority": 14380,
+    "notes": "Pending: run M1438 row-level forward geometry source miner on M1443 selected enriched rows without preflight replay or training",
+    "priority": 14400,
     "status": "pending",
-    "success_artifact": "docs/m1443-paper-route-geometry-first-source-pipeline-smoke.md"
+    "success_artifact": "docs/m1445-paper-route-forward-geometry-source-miner-smoke.md"
   },
-  "updated_at_utc": "20260529T034658Z"
+  "updated_at_utc": "20260529T040000Z"
 }

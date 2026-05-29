@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M1444 synthesizes M1434-M1443 and promotes from geometry-aware preflight validation to forward source preflight validation without replay training promotion or actor-input changes",
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis overclaims M1443 source-pipeline action divergence as history necessity evidence",
+    "synthesis ignores M1435 source-pool timing failure",
+    "synthesis routes directly to training PPO promotion private holdout or corpus export"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim M1443 source-pipeline action divergence proves history necessity"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T040039Z",
+  "hypothesis": "M1434-M1443 can be synthesized into a clear next branch after the source-pipeline smoke repaired the M1435 source-pool timing failure.",
+  "lineage": {
+    "blocked_by": [
+      "workflow synthesis cadence reached for paper_route_geometry_aware_preflight_validation after M1443"
+    ],
+    "derived_from": [
+      "m1433-paper-route-action-divergent-geometry-branch-synthesis",
+      "m1443-paper-route-geometry-first-source-pipeline-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1443-paper-route-geometry-first-source-pipeline-smoke.json"
+    ],
+    "parent_dataset": [
+      "runs/m1435_geometry_aware_preflight_smoke/summary.json",
+      "runs/m1443_trace_source_geometry_materialization_smoke/summary.json",
+      "runs/m1443_geometry_first_action_enrichment_smoke/summary.json",
+      "docs/m1443-paper-route-geometry-first-source-pipeline-smoke.md"
+    ],
+    "parent_objective": [
+      "synthesize M1434-M1443 geometry-aware preflight validation branch before continuing to row-level miner smoke"
+    ],
+    "supersedes": [
+      "continuing directly to row-level miner smoke without branch synthesis"
+    ]
+  },
+  "milestone": "m1444-paper-route-geometry-aware-preflight-validation-synthesis",
+  "next_blocker": "m1445-paper-route-forward-geometry-source-miner-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "geometry_aware_preflight_validation_synthesis_promote_to_forward_source_preflight_validation",
+  "public_gates": [
+    "M1444 must synthesize M1434-M1443 before any row-level miner preflight replay training PPO promotion private holdout corpus export or actor-input expansion",
+    "M1444 must separate source-pipeline evidence from replay or history-necessity evidence",
+    "M1444 must classify public-gate overfit risk and choose continue pivot stop or promote-to-next-branch"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1444-paper-route-geometry-aware-preflight-validation-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "geometry_aware_preflight_validation_synthesis_promote_to_forward_source_preflight_validation",
+    "milestone": "m1444-paper-route-geometry-aware-preflight-validation-synthesis",
+    "reason": "M1444 synthesizes M1434-M1443 and promotes from geometry-aware preflight validation to forward source preflight validation without replay training promotion or actor-input changes",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1444-paper-route-geometry-aware-preflight-validation-synthesis.md exists",
+    "synthesis summarizes M1434-M1443 evidence",
+    "synthesis lists supported and falsified claims",
+    "synthesis classifies failure taxonomy and public-gate overfit risk",
+    "synthesis chooses continue pivot stop or promote-to-next-branch before row-level miner preflight replay corpus export training PPO promotion private holdout or actor-input expansion"
+  ],
+  "type": "gate"
+}

@@ -21345,3 +21345,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no public source materialization run, source enrichment run, source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1443-paper-route-geometry-first-source-pipeline-smoke.json`.
 - next: `m1443-paper-route-geometry-first-source-pipeline-smoke`
+
+## 20260529T035216Z - m1443-paper-route-geometry-first-source-pipeline-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `proof`
+- artifact: `docs/m1443-paper-route-geometry-first-source-pipeline-smoke.md`
+- decision: `geometry_first_source_pipeline_smoke_pass_route_to_row_level_forward_miner_smoke`
+- materialization: `320` source geometry rows, `0` rejected rows, `6` unique seeds, `16` capability pairs, `22` reveal buckets.
+- materialized source geometry: source body-x min `-1.594269`, p50 `5.601419`, p95 `12.073402`.
+- enrichment: `2880` enriched rows, `96` selected enriched rows, `0` rejected rows.
+- selected diversity: `6` seeds, `16` capability pairs, `20` reveal buckets, `3` variants, max single seed share `0.25`.
+- selected geometry/action: source body-x min `4.090512`, p50 `9.310941`, max `14.598930`; sequence action L2 mean min `0.071366`, p50 `0.465744`, max `0.725855`.
+- interpretation: the geometry-first source pipeline now produces forward source-step action-divergent history rows; this is not yet replay or history-necessity evidence.
+- guardrail: no source preflight, replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1444-paper-route-geometry-aware-preflight-validation-synthesis.json`.
+- next: `m1444-paper-route-geometry-aware-preflight-validation-synthesis`
+
+## 20260529T040000Z - m1444-paper-route-geometry-aware-preflight-validation-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1444-paper-route-geometry-aware-preflight-validation-synthesis.md`
+- decision: `geometry_aware_preflight_validation_synthesis_promote_to_forward_source_preflight_validation`
+- synthesis decision: `promote_to_next_branch`
+- closed branch: `paper_route_geometry_aware_preflight_validation`
+- new branch: `paper_route_forward_source_preflight_validation`
+- evidence summary: M1435 found `0` geometry-pass rows from late M1425 pressure rows; M1443 repaired the source-pool timing failure at source-pipeline level with `320` materialized source geometry rows and `96` selected enriched source-step action-divergent rows.
+- supported claim: geometry-first trace-backed source materialization plus source-step enrichment can produce forward source rows for the next row-level miner smoke.
+- falsified/blocked claim: source-step action divergence is not outcome or history-necessity evidence, and the branch cannot continue directly to miner without synthesis after M1443.
+- public-gate overfit risk: `medium`; rows remain public diagnostics and are not training, corpus-export, promotion, private-holdout, paper-level, or level3 self-ID evidence.
+- guardrail: no source preflight, replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1445-paper-route-forward-geometry-source-miner-smoke.json`.
+- next: `m1445-paper-route-forward-geometry-source-miner-smoke`

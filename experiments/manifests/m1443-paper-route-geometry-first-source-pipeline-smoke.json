@@ -64,7 +64,7 @@
     ],
     "fallback_plan": [
       "route to source-pipeline result audit if source materialization or enrichment gates fail",
-      "route to M1438 row-level forward miner smoke if source pipeline passes",
+      "route to branch synthesis before M1438 row-level forward miner smoke if source pipeline passes",
       "route to branch synthesis if the source pipeline exposes another missing layer"
     ],
     "synthesis_cadence": 10,
@@ -93,7 +93,7 @@
       "runs/m1443_geometry_first_action_enrichment_smoke",
       "M1443 result document",
       "status queue scoreboard research log and review",
-      "one follow-up row-level forward miner smoke or audit manifest"
+      "one follow-up branch synthesis manifest before row-level forward miner smoke or audit manifest"
     ],
     "next_stage_criteria": [
       "source geometry rows are materialized",
@@ -136,7 +136,7 @@
   "commands": [
     {
       "name": "materialize_source_geometry",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.trace_source_geometry_materializer --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m1419_warmup_gate_invasiveness_retune_source_wave.json --source-rows runs/m1419_warmup_gate_invasiveness_retune_source_smoke/matched_or_bucketed_rows.csv --source-step-offsets -32,-24,-16,-8,0 --max-source-rows 64 --history-length 56 --device cpu --run-dir runs/m1443_trace_source_geometry_materialization_smoke"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.trace_source_geometry_materializer --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m1419_warmup_gate_invasiveness_retune_source_wave.json --source-rows runs/m1419_warmup_gate_invasiveness_retune_source_smoke/matched_or_bucketed_rows.csv --source-step-offsets=-32,-24,-16,-8,0 --max-source-rows 64 --history-length 56 --device cpu --run-dir runs/m1443_trace_source_geometry_materialization_smoke"
     },
     {
       "name": "enrich_source_actions",
@@ -163,6 +163,55 @@
   "baseline_artifacts": [
     "docs/m1442-paper-route-geometry-first-action-divergence-enrichment-implementation.md"
   ],
-  "decision_rule": "M1443 passes if the no-training source pipeline produces nonzero materialized geometry and selected enriched action-divergent history rows without running preflight or replay.",
-  "next_blocker": "m1443-paper-route-geometry-first-source-pipeline-smoke"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1443-paper-route-geometry-first-source-pipeline-smoke.md",
+    "decision": "geometry_first_source_pipeline_smoke_pass_route_to_branch_synthesis_before_row_level_forward_miner",
+    "materialization_summary": "runs/m1443_trace_source_geometry_materialization_smoke/summary.json",
+    "enrichment_summary": "runs/m1443_geometry_first_action_enrichment_smoke/summary.json",
+    "source_geometry_rows": 320,
+    "materialization_rejected_rows": 0,
+    "materialized_unique_source_seeds": 6,
+    "materialized_unique_capability_pairs": 16,
+    "materialized_unique_reveal_buckets": 22,
+    "materialized_source_body_x_min": -1.5942693204911547,
+    "materialized_source_body_x_p50": 5.601419213779543,
+    "materialized_source_body_x_p95": 12.073401578931756,
+    "enriched_source_geometry_rows": 2880,
+    "selected_enriched_rows": 96,
+    "enrichment_rejected_rows": 0,
+    "selected_unique_source_seeds": 6,
+    "selected_unique_capability_pairs": 16,
+    "selected_unique_reveal_buckets": 20,
+    "selected_unique_variants": 3,
+    "selected_max_single_seed_share": 0.25,
+    "selected_max_single_capability_pair_share": 0.125,
+    "selected_source_body_x_min": 4.090512,
+    "selected_source_body_x_p50": 9.310941,
+    "selected_source_body_x_max": 14.59893,
+    "selected_sequence_action_l2_mean_min": 0.071366,
+    "selected_sequence_action_l2_mean_p50": 0.465744,
+    "selected_sequence_action_l2_mean_max": 0.725855,
+    "selected_variants": {
+      "warmup_removed": 48,
+      "warmup_shortened_8": 25,
+      "delayed_warmup_history_16": 23
+    },
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1444-paper-route-geometry-aware-preflight-validation-synthesis.json"
+  },
+  "decision": "geometry_first_source_pipeline_smoke_pass_route_to_branch_synthesis_before_row_level_forward_miner",
+  "decision_rule": "M1443 passes if the no-training source pipeline produces nonzero materialized geometry and selected enriched action-divergent history rows without running preflight or replay, then routes through workflow synthesis before row-level mining.",
+  "next_blocker": "m1444-paper-route-geometry-aware-preflight-validation-synthesis"
 }

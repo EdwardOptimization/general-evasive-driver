@@ -16,21 +16,78 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1442-paper-route-geometry-first-action-divergence-enrichment-implementation
+m1444-paper-route-geometry-aware-preflight-validation-synthesis
 ```
 
 Current next task:
 
 ```text
-m1443-paper-route-geometry-first-source-pipeline-smoke
+m1445-paper-route-forward-geometry-source-miner-smoke
 ```
 
-M1442 implemented geometry-first source-step action-divergence enrichment. The current
-public-gate base remains M1362 alpha `0.1`:
+M1444 completed the required branch synthesis after M1443 reached the
+workflow-synthesis cadence. It promotes from
+`paper_route_geometry_aware_preflight_validation` to
+`paper_route_forward_source_preflight_validation`. The current public-gate base
+remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1444 result:
+
+```text
+decision: geometry_aware_preflight_validation_synthesis_promote_to_forward_source_preflight_validation
+closed branch: paper_route_geometry_aware_preflight_validation
+new branch: paper_route_forward_source_preflight_validation
+M1435 geometry_pass_rows: 0
+M1443 materialized_source_geometry_rows: 320
+M1443 selected_enriched_rows: 96
+M1443 selected source_body_x min / p50 / max: 4.090512 / 9.310941 / 14.598930
+public_gate_overfit_risk: medium
+next: m1445-paper-route-forward-geometry-source-miner-smoke
+```
+
+M1445 should run the M1438 row-level forward geometry source miner on:
+
+```text
+runs/m1443_geometry_first_action_enrichment_smoke/selected_enriched_rows.csv
+```
+
+It must not run source preflight, bounded replay, outcome interventions,
+training, PPO, promotion, private holdout, corpus export, or actor-input
+changes.
+
+M1443 result:
+
+```text
+decision: geometry_first_source_pipeline_smoke_pass_route_to_row_level_forward_miner_smoke
+materialization source_geometry_rows: 320
+materialization rejected_rows: 0
+materialized unique seeds / pairs / buckets: 6 / 16 / 22
+materialized source_body_x p50 / p95: 5.601419 / 12.073402
+enriched_source_geometry_rows: 2880
+selected_enriched_rows: 96
+selected unique seeds / pairs / buckets / variants: 6 / 16 / 20 / 3
+selected source_body_x min / p50 / max: 4.090512 / 9.310941 / 14.598930
+selected sequence_action_l2_mean min / p50 / max: 0.071366 / 0.465744 / 0.725855
+next: m1444-paper-route-geometry-aware-preflight-validation-synthesis
+```
+
+M1443 passed the no-training geometry-first source pipeline smoke and routed to
+M1444 synthesis before row-level mining.
+
+M1444 then admitted M1445 to run the M1438 row-level forward geometry source
+miner on:
+
+```text
+runs/m1443_geometry_first_action_enrichment_smoke/selected_enriched_rows.csv
+```
+
+It must not run source preflight, bounded replay, outcome interventions,
+training, PPO, promotion, private holdout, corpus export, or actor-input
+changes.
 
 M1442 result:
 
@@ -48,17 +105,8 @@ public_source_enrichment_run_started: false
 next: m1443-paper-route-geometry-first-source-pipeline-smoke
 ```
 
-M1443 should run the no-training public source pipeline smoke:
-
-```text
-M1419 matched/bucketed rows
-  -> trace-backed source geometry materialization
-  -> source-step action-divergence enrichment
-```
-
-It must not run source preflight, bounded replay, outcome interventions,
-training, PPO, promotion, private holdout, corpus export, or actor-input
-changes.
+M1442 implemented geometry-first source-step action-divergence enrichment.
+M1443 completed the public no-training source pipeline smoke.
 
 M1441 result:
 

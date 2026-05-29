@@ -1,0 +1,155 @@
+{
+  "id": "m1445-paper-route-forward-geometry-source-miner-smoke",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1443_geometry_first_action_enrichment_smoke/selected_enriched_rows.csv",
+      "docs/m1444-paper-route-geometry-aware-preflight-validation-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1444-paper-route-geometry-aware-preflight-validation-synthesis.json"
+    ],
+    "parent_objective": [
+      "run M1438 row-level forward geometry source miner on M1443 selected enriched rows"
+    ],
+    "derived_from": [
+      "m1444-paper-route-geometry-aware-preflight-validation-synthesis"
+    ],
+    "blocked_by": [
+      "M1444 promotes to forward source preflight validation and admits row-level miner smoke"
+    ],
+    "supersedes": [
+      "running row-level miner on stale M1425 pressure rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1445-paper-route-forward-geometry-source-miner-smoke.md",
+  "public_gates": [
+    "M1445 must run M1438 row-level forward geometry source miner only",
+    "M1445 must not run source preflight bounded replay outcome interventions train PPO promote use private holdout export corpus or change actor inputs",
+    "M1445 must report forward geometry source rows and selected candidate rows"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not use M1425 reveal-step pressure metrics as source-step action evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_forward_source_preflight_validation",
+    "evidence_axis": "S_forward_geometry_row_level_miner_smoke",
+    "evidence_increment": "runs row-level forward relocation proposal miner on M1443 enriched rows before source preflight",
+    "claim_scope": "row-level source miner smoke only; no source preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if row-level miner produces zero selected candidate rows",
+      "stop if relocation clipping dominates selected rows",
+      "stop if selected diversity collapses to one seed or one variant",
+      "stop if run requires actor input changes or stale M1425 metric reuse"
+    ],
+    "fallback_plan": [
+      "route to result audit if row-level miner gates fail",
+      "route to geometry-aware source preflight smoke if row-level miner passes",
+      "route to branch synthesis if another missing layer appears"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1444 promotes to paper_route_forward_source_preflight_validation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "row-level forward geometry source miner smoke",
+    "admission_evidence": [
+      "M1443 produced 96 selected enriched rows",
+      "M1438 implements row-level forward geometry source miner"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "runs/m1445_forward_geometry_source_miner_smoke",
+      "M1445 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up preflight smoke or audit manifest"
+    ],
+    "next_stage_criteria": [
+      "forward geometry source rows are nonzero",
+      "selected candidate rows are nonzero",
+      "relocation clipped share is low",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1445 row-level source mining does not prove history necessity because it still precedes outcome replay.",
+    "history_necessity_tests": [
+      "future source preflight and bounded replay must test whether selected history variants affect outcomes",
+      "row-level geometry/action selection cannot count as actual history-positive replay evidence"
+    ],
+    "temporal_evidence_window": "M1444 branch synthesis.",
+    "negative_result_policy": "If selected candidate rows are zero, route to audit rather than lowering source geometry gates or claiming no-history evidence.",
+    "allowed_claims": [
+      "row-level source miner counts and geometry/diversity summaries",
+      "no replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1443 selected enriched rows can pass the M1438 row-level forward geometry source miner and produce selected relocation candidates for a later preflight smoke.",
+  "success_criteria": [
+    "runs/m1445_forward_geometry_source_miner_smoke/summary.json exists",
+    "forward geometry source rows are nonzero",
+    "selected candidate rows are nonzero",
+    "docs/m1445-paper-route-forward-geometry-source-miner-smoke.md exists",
+    "no source preflight replay training PPO promotion private holdout corpus export or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "forward geometry source rows are zero",
+    "selected candidate rows are zero",
+    "run starts source preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "forward_geometry_source_miner",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.forward_geometry_source_miner --source-geometry-rows runs/m1443_geometry_first_action_enrichment_smoke/selected_enriched_rows.csv --max-candidates 128 --per-seed-cap 24 --per-capability-pair-cap 12 --per-reveal-bucket-cap 12 --per-variant-cap 48 --run-dir runs/m1445_forward_geometry_source_miner_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1445_forward_geometry_source_miner_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1445-paper-route-forward-geometry-source-miner-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1444-paper-route-geometry-aware-preflight-validation-synthesis.md"
+  ],
+  "decision_rule": "M1445 passes if row-level forward geometry miner produces nonzero selected relocation candidates without running preflight or replay.",
+  "next_blocker": "m1445-paper-route-forward-geometry-source-miner-smoke"
+}
