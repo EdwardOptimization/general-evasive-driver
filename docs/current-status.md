@@ -16,20 +16,19 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1597-paper-route-clean-source-repair-branch-synthesis
+m1598-paper-route-clean-active-set-contour-mapping-design
 ```
 
 Current next task:
 
 ```text
-m1598-paper-route-clean-active-set-contour-mapping-design
+m1599-paper-route-clean-active-set-contour-mapper-implementation
 ```
 
-M1597 synthesized M1591-M1596 and pivoted away from local cap tuning. M1592 is
-the strongest clean-source near-pass; M1595 falsified broad source-edge
-round-robin. The next branch is `paper_route_clean_active_set_contour_mapping`;
-M1598 should design an offline contour mapper over existing public artifacts
-before any new replay or implementation.
+M1598 designed an offline, label-preserving clean active-set contour mapper over
+M1588/M1592/M1595 public artifacts. It blocks replay, simulator rerun,
+materialization, training, PPO, promotion, private holdout, and threshold
+relaxation. M1599 should implement that mapper and route to audit.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

@@ -1,0 +1,208 @@
+{
+  "id": "m1599-paper-route-clean-active-set-contour-mapper-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1588_history_vs_control_active_set_selector/classified_directed_pair_rows.csv",
+      "runs/m1592_clean_history_control_source_generation_repair_smoke/classified_directed_pair_rows.csv",
+      "runs/m1595_selector_balanced_clean_source_repair_smoke/classified_directed_pair_rows.csv",
+      "docs/m1598-paper-route-clean-active-set-contour-mapping-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1598-paper-route-clean-active-set-contour-mapping-design.json"
+    ],
+    "parent_objective": [
+      "implement offline clean active-set contour mapper over existing artifacts"
+    ],
+    "derived_from": [
+      "m1598-paper-route-clean-active-set-contour-mapping-design"
+    ],
+    "blocked_by": [
+      "M1592 near-pass and M1595 negative cannot be safely resolved by another cap tweak before contour mapping"
+    ],
+    "supersedes": [
+      "another immediate replay implementation",
+      "candidate materialization from M1592 near-pass",
+      "training corpus export from public clean rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1599-paper-route-clean-active-set-contour-mapper-implementation.md",
+  "public_gates": [
+    "M1599 must implement offline contour mapping only",
+    "M1599 must join classified rows with intervention metadata without replay",
+    "M1599 must report source-run, source-edge, feature-group, and selection-source summaries",
+    "M1599 must preserve clean selector labels and thresholds",
+    "M1599 must keep replay materialization training PPO promotion and private holdout blocked",
+    "M1599 must route to audit whether gates pass or fail"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke that replays the simulator",
+    "do not rerun simulator",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not relax clean selector thresholds",
+    "do not relax the max clean source-edge share threshold",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "I_clean_active_set_contour_mapper_implementation",
+    "evidence_increment": "implements offline contour mapper over M1588/M1592/M1595 public classified rows",
+    "claim_scope": "offline diagnostic implementation only; no replay, simulator rerun, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if implementation runs replay or simulator",
+      "stop if implementation writes training corpus or materializes candidates",
+      "stop if implementation relaxes clean or source-share thresholds"
+    ],
+    "fallback_plan": [
+      "route to result audit whether gates pass or fail",
+      "if metadata join fails, audit schema mismatch before patching",
+      "if contour is unclear, audit whether to stop or pivot to task/source redesign"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1598 admits offline contour mapper implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "offline clean active-set contour mapper implementation",
+    "admission_evidence": [
+      "M1598 pre-registers inputs, features, label taxonomy, and no-replay gates"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not rerun simulator",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not relax thresholds",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "offline contour mapper module and focused tests",
+      "offline public artifacts",
+      "M1599 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "summary.json is written",
+      "enriched contour rows are written",
+      "source-edge and feature-group summaries are written",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1599 maps dominated/control-only rows and cannot upgrade them to self-ID evidence.",
+    "history_necessity_tests": [
+      "offline label-preserving contour mapping",
+      "dominated/control-only contrast",
+      "metadata join coverage"
+    ],
+    "temporal_evidence_window": "M1588/M1592/M1595 public classified rows.",
+    "negative_result_policy": "If mapping cannot explain the contour, route to audit or stop instead of running another replay.",
+    "allowed_claims": [
+      "offline contour mapping diagnostics",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "An offline mapper can summarize the clean/dominated/null contour across M1588, M1592, and M1595 without replay.",
+  "success_criteria": [
+    "contour mapper module exists",
+    "focused tests cover metadata join and group summaries",
+    "runs/m1599_clean_active_set_contour_mapper/summary.json exists",
+    "input_source_run_count >= 3",
+    "input_directed_pair_count >= 528",
+    "enriched_directed_pair_count >= 528",
+    "metadata_joined_fraction >= 0.90",
+    "clean_directed_pair_count >= 51",
+    "source_edge_count >= 20",
+    "feature_group_count >= 40",
+    "guardrail_violation_count == 0",
+    "replay training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "implementation runs replay or simulator",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or materializes candidates",
+    "implementation claims level3 self-identification"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_clean_active_set_contour_mapper.py -q"
+    },
+    {
+      "name": "offline_mapper",
+      "command": "PYTHONPATH=src python -m autodrift.clean_active_set_contour_mapper --output-dir runs/m1599_clean_active_set_contour_mapper"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1599_clean_active_set_contour_mapper/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1599_clean_active_set_contour_mapper/enriched_contour_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1599_clean_active_set_contour_mapper/source_run_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1599_clean_active_set_contour_mapper/feature_group_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1599_clean_active_set_contour_mapper/selection_source_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1599_clean_active_set_contour_mapper/guardrail_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1599-paper-route-clean-active-set-contour-mapper-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1588_history_vs_control_active_set_selector/classified_directed_pair_rows.csv",
+    "runs/m1592_clean_history_control_source_generation_repair_smoke/classified_directed_pair_rows.csv",
+    "runs/m1595_selector_balanced_clean_source_repair_smoke/classified_directed_pair_rows.csv",
+    "docs/m1598-paper-route-clean-active-set-contour-mapping-design.md"
+  ],
+  "decision_rule": "M1599 passes as implementation if it maps the existing contour offline with guardrails clean and routes to audit.",
+  "next_blocker": "m1599-paper-route-clean-active-set-contour-mapper-implementation"
+}

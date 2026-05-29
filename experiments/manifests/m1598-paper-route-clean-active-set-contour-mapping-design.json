@@ -163,6 +163,36 @@
     "runs/m1595_selector_balanced_clean_source_repair_smoke/summary.json",
     "docs/m1597-paper-route-clean-source-repair-branch-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1598-paper-route-clean-active-set-contour-mapping-design.md",
+    "decision": "clean_active_set_contour_mapping_design_admit_offline_implementation",
+    "failure_taxonomy": [
+      "scenario_sampling_failure",
+      "objective_overfit"
+    ],
+    "input_artifacts": [
+      "runs/m1588_history_vs_control_active_set_selector/classified_directed_pair_rows.csv",
+      "runs/m1585_source_diverse_pairability_history_intervention_smoke/intervention_rows.csv",
+      "runs/m1592_clean_history_control_source_generation_repair_smoke/classified_directed_pair_rows.csv",
+      "runs/m1592_clean_history_control_source_generation_repair_smoke/intervention_rows.csv",
+      "runs/m1595_selector_balanced_clean_source_repair_smoke/classified_directed_pair_rows.csv",
+      "runs/m1595_selector_balanced_clean_source_repair_smoke/intervention_rows.csv"
+    ],
+    "next_manifest": "experiments/manifests/m1599-paper-route-clean-active-set-contour-mapper-implementation.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1598 passes if it designs an offline contour-mapping route before any replay, materialization, or training.",
-  "next_blocker": "m1598-paper-route-clean-active-set-contour-mapping-design"
+  "next_blocker": "m1599-paper-route-clean-active-set-contour-mapper-implementation"
 }

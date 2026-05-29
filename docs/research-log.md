@@ -25189,3 +25189,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1598-paper-route-clean-active-set-contour-mapping-design.json`
 - next: `m1598-paper-route-clean-active-set-contour-mapping-design`
+
+## M1598 Paper-Route Clean Active-Set Contour Mapping Design
+
+- status: completed
+- decision: `clean_active_set_contour_mapping_design_admit_offline_implementation`
+- artifact: `docs/m1598-paper-route-clean-active-set-contour-mapping-design.md`
+- failure taxonomy: `scenario_sampling_failure`, `objective_overfit`
+- input artifacts: M1588/M1592/M1595 classified rows and intervention metadata
+- label taxonomy: existing clean/dominated/control-only/null/invalid selector labels
+- contour features: source run, source edge, target/donor families, windows, selection source, pair distances, margin/gap bands
+- implementation decision: admit offline mapper only
+- replay started: false
+- history interventions executed: false in M1598
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1599-paper-route-clean-active-set-contour-mapper-implementation.json`
+- next: `m1599-paper-route-clean-active-set-contour-mapper-implementation`

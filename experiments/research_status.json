@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1606,
+    "completed": 1607,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1597-paper-route-clean-source-repair-branch-synthesis.md",
+    "command_log": "docs/m1598-paper-route-clean-active-set-contour-mapping-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1597-paper-route-clean-source-repair-branch-synthesis"
+    "task_id": "m1598-paper-route-clean-active-set-contour-mapping-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1598-paper-route-clean-active-set-contour-mapping-design.json",
-    "hypothesis": "Offline contour mapping can explain why M1592 was near-pass and M1595 failed before another replay is attempted.",
-    "id": "m1598-paper-route-clean-active-set-contour-mapping-design",
-    "kind": "gate",
-    "notes": "Pending: design offline clean active-set contour mapper",
-    "priority": 15930,
+    "command": "see experiments/manifests/m1599-paper-route-clean-active-set-contour-mapper-implementation.json",
+    "hypothesis": "An offline mapper can summarize the clean/dominated/null contour across M1588, M1592, and M1595 without replay.",
+    "id": "m1599-paper-route-clean-active-set-contour-mapper-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement offline clean active-set contour mapper",
+    "priority": 15940,
     "status": "pending",
-    "success_artifact": "docs/m1598-paper-route-clean-active-set-contour-mapping-design.md"
+    "success_artifact": "runs/m1599_clean_active_set_contour_mapper/summary.json"
   },
-  "updated_at_utc": "20260529T165230Z"
+  "updated_at_utc": "20260529T165623Z"
 }
