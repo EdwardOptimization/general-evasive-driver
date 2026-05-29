@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1534,
+    "completed": 1535,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1525-paper-route-t5-response-mismatch-result-audit.md",
+    "command_log": "docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "docs/m1525-paper-route-t5-response-mismatch-result-audit.md",
+    "run_dir": "docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m1525-paper-route-t5-response-mismatch-result-audit"
+    "task_id": "m1526-paper-route-t5-timing-amplified-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1526-paper-route-t5-timing-amplified-branch-synthesis.json",
-    "hypothesis": "The M1521-M1525 timing-amplified T5 branch should synthesize and pivot rather than keep tuning the same T5 rows.",
-    "id": "m1526-paper-route-t5-timing-amplified-branch-synthesis",
+    "command": "see experiments/manifests/m1527-paper-route-fresh-ambiguity-source-mining-design.json",
+    "hypothesis": "Fresh source mining can find more decisive ambiguity rows than the closed four-row T5 subset by requiring hidden-dynamics action divergence under matched scene/current-state.",
+    "id": "m1527-paper-route-fresh-ambiguity-source-mining-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1521-M1525 and pivot from current T5 wrong-history route",
-    "priority": 15210,
+    "notes": "Pending: design fresh ambiguity/source mining after closing current T5 wrong-history route",
+    "priority": 15220,
     "status": "pending",
-    "success_artifact": "docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md"
+    "success_artifact": "docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md"
   },
-  "updated_at_utc": "20260529T101741Z"
+  "updated_at_utc": "20260529T102127Z"
 }

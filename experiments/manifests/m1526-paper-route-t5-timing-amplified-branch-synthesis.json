@@ -171,6 +171,47 @@
     "docs/m1524-paper-route-t5-response-mismatch-intervention-implementation.md",
     "docs/m1525-paper-route-t5-response-mismatch-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md",
+    "decision": "t5_timing_amplified_synthesis_close_current_t5_route_promote_fresh_ambiguity_mining",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesized_range": "M1521-M1525",
+    "current_t5_wrong_history_route_verdict": "closed_as_insufficient",
+    "supported_claims": [
+      "bounded timing intervention infrastructure works",
+      "earlier interventions expose response-removal margin sensitivity",
+      "response/action mismatch harness preserves target scene context",
+      "current T5 donor-hidden and donor-response mismatch route is not strong wrong-history proof"
+    ],
+    "unsupported_claims": [
+      "success-drop evidence",
+      "candidate materialization",
+      "training corpus export",
+      "level3 anticipatory self-identification",
+      "policy superiority"
+    ],
+    "falsified_for_current_t5_route": [
+      "hidden-only donor wrong-history produces outcome-relevant changes",
+      "donor response/action mismatch produces outcome-relevant changes",
+      "the four current T5 high-speed rows are sufficient for wrong-history proof"
+    ],
+    "public_gate_overfit_risk": "high",
+    "next_branch": "paper_route_fresh_ambiguity_source_mining",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1527-paper-route-fresh-ambiguity-source-mining-design.json"
+  },
+  "decision": "t5_timing_amplified_synthesis_close_current_t5_route_promote_fresh_ambiguity_mining",
   "decision_rule": "M1526 passes if it synthesizes M1521-M1525 and chooses the next route without materialization or self-ID claims.",
-  "next_blocker": "m1526-paper-route-t5-timing-amplified-branch-synthesis"
+  "next_blocker": "m1527-paper-route-fresh-ambiguity-source-mining-design"
 }

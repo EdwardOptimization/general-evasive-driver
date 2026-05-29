@@ -1,0 +1,150 @@
+{
+  "id": "m1527-paper-route-fresh-ambiguity-source-mining-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md",
+      "runs/m1524_t5_response_mismatch_intervention_smoke/summary.json",
+      "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1526-paper-route-t5-timing-amplified-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design fresh ambiguity/source mining after closing current T5 wrong-history route"
+    ],
+    "derived_from": [
+      "m1526-paper-route-t5-timing-amplified-branch-synthesis"
+    ],
+    "blocked_by": [
+      "current four-row T5 route is insufficient for wrong-history proof"
+    ],
+    "supersedes": [
+      "continuing to tune current T5 donor mismatch rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1527-paper-route-fresh-ambiguity-source-mining-design.md",
+  "public_gates": [
+    "M1527 must design fresh ambiguity/source mining before implementation",
+    "M1527 must target matched scene/current-state with hidden-dynamics action divergence",
+    "M1527 must define source diversity and no-materialization guardrails",
+    "M1527 must not materialize candidates or export a training corpus",
+    "M1527 must not train run PPO promote use private holdout or alter actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates during design",
+    "do not claim self-identification from source-mining design"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "G_fresh_ambiguity_source_mining_design",
+    "evidence_increment": "designs fresh source mining for matched scene/current-state and hidden-dynamics action divergence after T5 route closure",
+    "claim_scope": "source-mining design only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design reuses only the closed four-row T5 subset",
+      "stop if design lacks source diversity or hidden-dynamics/action-divergence metrics",
+      "stop if design routes directly to training or materialization",
+      "stop if design uses private holdout"
+    ],
+    "fallback_plan": [
+      "if matched-current mining is too broad, start with bounded metadata/source proposal before rollout",
+      "if action divergence cannot be measured, route to teacher/oracle action-difference design",
+      "if no fresh ambiguous rows are found, synthesize and reconsider simulator/task generation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1526 promoted to fresh ambiguity/source mining branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fresh ambiguity/source mining design",
+    "admission_evidence": [
+      "M1526 closed current T5 wrong-history route and promoted to fresh ambiguity/source mining"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "M1527 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up bounded source-mining implementation or synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "fresh source criteria are explicit",
+      "action-divergence metrics are explicit",
+      "candidate materialization remains blocked",
+      "follow-up implementation or blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1527 is source-mining design and must not claim self-ID before measured history-necessity rows exist.",
+    "history_necessity_tests": [
+      "design matched scene/current-state mining",
+      "design hidden-dynamics action-divergence metrics",
+      "design wrong-history or response-mismatch prefilters before corpus export"
+    ],
+    "temporal_evidence_window": "future fresh source-mining branch only.",
+    "negative_result_policy": "If fresh source mining finds no ambiguous rows, record that result and synthesize instead of lowering self-ID standards.",
+    "allowed_claims": [
+      "M1527 designs fresh ambiguity/source mining",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Fresh source mining can find more decisive ambiguity rows than the closed four-row T5 subset by requiring hidden-dynamics action divergence under matched scene/current-state.",
+  "success_criteria": [
+    "docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md exists",
+    "design defines source families, matching criteria, action-divergence metrics, diversity gates, and artifacts",
+    "design keeps candidate materialization training PPO promotion private holdout actor-input changes and corpus export blocked",
+    "design routes to one bounded implementation or records a blocker"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design lacks action-divergence or source-diversity criteria",
+    "design uses private holdout or starts materialization/training",
+    "design claims self-identification from source-mining intent"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md"
+  ],
+  "decision_rule": "M1527 passes if it designs fresh ambiguity/source mining while preserving all no-training no-materialization guardrails.",
+  "next_blocker": "m1527-paper-route-fresh-ambiguity-source-mining-design"
+}

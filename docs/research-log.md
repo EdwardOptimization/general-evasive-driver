@@ -22959,3 +22959,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1525 closes the current T5 wrong-history route and routes to synthesis before fresh ambiguity/source mining.
 - follow-up manifest: `experiments/manifests/m1526-paper-route-t5-timing-amplified-branch-synthesis.json`.
 - next: `m1526-paper-route-t5-timing-amplified-branch-synthesis`
+
+## M1526 Paper-Route T5 Timing-Amplified Branch Synthesis
+
+- status: completed
+- decision: `t5_timing_amplified_synthesis_close_current_t5_route_promote_fresh_ambiguity_mining`
+- synthesis decision: `promote_to_next_branch`
+- artifact: `docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md`
+- synthesized range: M1521-M1525
+- current T5 wrong-history route verdict: `closed_as_insufficient`
+- supported claims: bounded timing intervention infrastructure works; earlier reset/zero-current interventions expose margin sensitivity; response/action mismatch harness preserves target scene context and measures donor mismatch strength; the current T5 donor-hidden and donor-response route is not a strong wrong-history proof route.
+- unsupported claims: success-drop evidence; candidate materialization; training corpus export; level3 anticipatory self-identification; policy superiority.
+- falsified for current T5 route: hidden-only donor wrong-history produces outcome-relevant behavior changes; donor response/action stream mismatch produces outcome-relevant behavior changes; four current T5 high-speed rows are sufficient for wrong-history proof.
+- public gate overfit risk: `high`
+- failure taxonomy: `scenario_sampling_failure`, `metric_artifact`
+- next branch: `paper_route_fresh_ambiguity_source_mining`
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1526 closes the current four-row T5 wrong-history/self-ID proof route and promotes to fresh ambiguity/source mining before any corpus export or training.
+- follow-up manifest: `experiments/manifests/m1527-paper-route-fresh-ambiguity-source-mining-design.json`.
+- next: `m1527-paper-route-fresh-ambiguity-source-mining-design`
