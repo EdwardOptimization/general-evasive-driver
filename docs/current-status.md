@@ -16,21 +16,48 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1418-paper-route-warmup-retarget-source-result-audit
+m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke
 ```
 
 Current next task:
 
 ```text
-m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke
+m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis
 ```
 
-M1418 audited the M1417 repaired warmup retarget source smoke. The current
+M1419 ran the warmup-gate invasiveness retune source smoke. The current
 public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1419 result:
+
+```text
+decision: warmup_gate_invasiveness_retune_invasiveness_pass_marginal_source_diversity_fail_route_to_synthesis
+result_class: warmup_latched_structural_pass
+source_rows: 1714
+matched_or_bucketed_reveal_rows: 252
+matched/bucketed unique_source_seeds: 27  # fail threshold >= 28
+matched/bucketed unique_capability_pairs: 16
+matched/bucketed unique_reveal_buckets: 101
+matched/bucketed warmup_response_history_l2_p95: 0.050344
+matched/bucketed warmup_action_history_l2_p95: 0.019332
+matched/bucketed warmup_gate_collision_share: 0.293651
+matched/bucketed clear_rows: 174
+matched/bucketed clear_low_margin_rows: 4
+warmup_evidence_gate_passed: true
+invasiveness_gate_passed: true
+full_pre_registered_gate_passed: false
+actor_input_contract_changed: false
+next: m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis
+```
+
+M1419 achieved the intended invasiveness reduction but missed the matched
+source-seed diversity threshold by one seed. Because this is the tenth
+non-synthesis milestone after M1409, M1420 must synthesize the branch before any
+outcome probe, another retune, training, or corpus export.
 
 M1418 result:
 
@@ -53,7 +80,7 @@ selected route: one focused no-training warmup-gate retune source smoke
 next: m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke
 ```
 
-M1419 should preserve M1417 obstacle sampling and retune only the warmup gate:
+M1419 preserved M1417 obstacle sampling and retuned only the warmup gate:
 
 ```text
 preserve obstacle.distance_range: [4.0, 20.0]

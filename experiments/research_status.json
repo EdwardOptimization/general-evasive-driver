@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1428,
+    "completed": 1429,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1418-paper-route-warmup-retarget-source-result-audit.md",
+    "command_log": "docs/m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke.md",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m1419_warmup_gate_invasiveness_retune_source_smoke",
     "status": "completed",
-    "task_id": "m1418-paper-route-warmup-retarget-source-result-audit"
+    "task_id": "m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke.json",
-    "hypothesis": "A less invasive warmup gate will preserve M1417 source materialization and warmup evidence while lowering matched/bucketed collision share enough to justify a later outcome probe.",
-    "id": "m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: run focused no-training warmup-gate invasiveness retune source smoke; no outcome, training, PPO, promotion, private holdout, or corpus export",
-    "priority": 14140,
+    "command": "see experiments/manifests/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.json",
+    "hypothesis": "M1410-M1419 staged warmup gate evidence can be synthesized into a clear next route after M1419 reduced warmup invasiveness but missed one matched/bucketed seed-diversity gate.",
+    "id": "m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis",
+    "kind": "gate",
+    "notes": "Pending: synthesize staged warmup gate branch before outcome probing or another retune",
+    "priority": 14150,
     "status": "pending",
-    "success_artifact": "runs/m1419_warmup_gate_invasiveness_retune_source_smoke/summary.json"
+    "success_artifact": "docs/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.md"
   },
-  "updated_at_utc": "20260529T055000Z"
+  "updated_at_utc": "20260529T060000Z"
 }

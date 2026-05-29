@@ -4,7 +4,7 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -180,6 +180,50 @@
     "docs/m1418-paper-route-warmup-retarget-source-result-audit.md",
     "runs/m1417_warmup_retarget_sampling_repair_source_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1419_warmup_gate_invasiveness_retune_source_smoke/summary.json",
+    "result_doc": "docs/m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke.md",
+    "decision": "warmup_gate_invasiveness_retune_invasiveness_pass_marginal_source_diversity_fail_route_to_synthesis",
+    "result_class": "warmup_latched_structural_pass",
+    "source_rows": 1714,
+    "matched_current_rows": 132,
+    "bucketed_current_rows": 158,
+    "matched_or_bucketed_reveal_rows": 252,
+    "finite_metric_rows": 1714,
+    "rejected_rows": 4814,
+    "unique_source_seeds": 34,
+    "unique_capability_pairs": 16,
+    "unique_reveal_buckets": 492,
+    "matched_or_bucketed_unique_source_seeds": 27,
+    "matched_or_bucketed_unique_capability_pairs": 16,
+    "matched_or_bucketed_unique_reveal_buckets": 101,
+    "matched_or_bucketed_warmup_gate_visible_rows": 252,
+    "matched_or_bucketed_warmup_evidence_rows": 252,
+    "matched_or_bucketed_warmup_response_history_l2_p95": 0.05034439749997964,
+    "matched_or_bucketed_warmup_action_history_l2_p95": 0.01933163173762596,
+    "matched_or_bucketed_warmup_gate_collision_share": 0.29365079365079366,
+    "matched_or_bucketed_clear_rows": 174,
+    "matched_or_bucketed_clear_low_margin_rows": 4,
+    "matched_or_bucketed_collision_rows": 74,
+    "source_structural_gate_passed": false,
+    "script_structural_smoke_passed": true,
+    "warmup_evidence_gate_passed": true,
+    "invasiveness_gate_passed": true,
+    "full_pre_registered_gate_passed": false,
+    "gate_failure": "matched_or_bucketed_unique_source_seeds_27_below_28",
+    "training_started": false,
+    "evaluation_started": false,
+    "outcome_probe_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.json"
+  },
+  "decision": "warmup_gate_invasiveness_retune_invasiveness_pass_marginal_source_diversity_fail_route_to_synthesis",
   "decision_rule": "M1419 passes only if it preserves source and warmup evidence while passing matched/bucketed invasiveness gates before any outcome probing.",
-  "next_blocker": "m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke"
+  "next_blocker": "m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis"
 }

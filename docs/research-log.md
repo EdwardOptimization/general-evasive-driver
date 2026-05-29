@@ -20944,3 +20944,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke.json`.
 - next: `m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke`
+
+## 20260529T060000Z - m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1419_warmup_gate_invasiveness_retune_source_smoke/summary.json`
+- result doc: `docs/m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke.md`
+- decision: `warmup_gate_invasiveness_retune_invasiveness_pass_marginal_source_diversity_fail_route_to_synthesis`
+- result class: `warmup_latched_structural_pass`
+- counts: `1714` source rows, `132` matched-current rows, `158` bucketed-current rows, `252` matched/bucketed rows, `1714` finite metric rows, `4814` rejected rows.
+- source diversity: `34` source seeds, `16` capability pairs, and `492` reveal buckets overall.
+- matched/bucketed diversity: `27` source seeds, `16` capability pairs, and `101` reveal buckets; this misses the pre-registered `>=28` seed gate by one.
+- warmup evidence: matched/bucketed warmup response/action history L2 p95 are `0.050344` and `0.019332`, so warmup-evidence gates pass.
+- invasiveness: matched/bucketed collision share drops to `0.293651`; clear rows are `174`, clear-low rows are `4`, and clear+low rows are `178`, so invasiveness gates pass.
+- classification: marginal `scenario_sampling_failure` because only the matched/bucketed source-seed diversity gate fails.
+- route: branch synthesis before outcome probing or any further local retune because M1419 reaches the workflow synthesis cadence.
+- guardrail: no outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.json`.
+- next: `m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis`

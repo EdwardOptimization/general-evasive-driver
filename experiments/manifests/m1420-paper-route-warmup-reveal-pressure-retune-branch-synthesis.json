@@ -1,0 +1,186 @@
+{
+  "id": "m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.md",
+      "runs/m1410_staged_warmup_gate_source_smoke/summary.json",
+      "runs/m1412_staged_warmup_gate_collision_stratified_outcome_probe/summary.json",
+      "docs/m1413-paper-route-staged-warmup-outcome-result-audit.md",
+      "docs/m1414-paper-route-clear-near-boundary-warmup-retarget-design.md",
+      "runs/m1415_clear_near_boundary_warmup_retarget_source_smoke/summary.json",
+      "docs/m1416-paper-route-warmup-retarget-sampling-repair-design.md",
+      "runs/m1417_warmup_retarget_sampling_repair_source_smoke/summary.json",
+      "docs/m1418-paper-route-warmup-retarget-source-result-audit.md",
+      "runs/m1419_warmup_gate_invasiveness_retune_source_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke.json"
+    ],
+    "parent_objective": [
+      "synthesize M1410-M1419 staged warmup gate evidence after cadence reached and M1419 marginal source-diversity failure"
+    ],
+    "derived_from": [
+      "m1409-paper-route-warmup-reveal-pressure-branch-synthesis",
+      "m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke"
+    ],
+    "blocked_by": [
+      "M1419 reached the workflow synthesis cadence for paper_route_warmup_reveal_pressure_redesign",
+      "M1419 passed warmup evidence and invasiveness gates but missed matched/bucketed unique seed threshold by one"
+    ],
+    "supersedes": [
+      "running outcome probe directly from M1419 without synthesis",
+      "running another local retune after M1419 without branch synthesis",
+      "training from M1419 source rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.md",
+  "public_gates": [
+    "M1420 must synthesize M1410-M1419 staged warmup gate evidence before outcome probing or another retune",
+    "M1420 must explicitly decide whether M1419 one-seed source diversity miss is acceptable for a no-training public outcome probe",
+    "M1420 must separate source materialization warmup evidence invasiveness and history-necessity claims",
+    "M1420 must choose continue pivot stop or promote-to-next-branch before corpus export training PPO promotion private holdout or actor-input expansion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source smoke",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat M1419 source materialization as self-ID evidence",
+    "do not ignore the M1419 matched/bucketed seed threshold miss"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "S_warmup_reveal_pressure_retune_branch_synthesis",
+    "evidence_increment": "synthesizes M1410-M1419 after staged warmup gate source/outcome/retune work reaches cadence and M1419 improves invasiveness but misses one seed-diversity threshold",
+    "claim_scope": "branch synthesis only; no source smoke outcome intervention training PPO promotion private holdout corpus export paper-level or strong self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats source materialization as self-ID evidence",
+      "stop if M1419 marginal source-diversity miss is ignored",
+      "stop if another local retune is proposed without a new branch decision",
+      "stop if training corpus export is proposed before source-diverse outcome positives"
+    ],
+    "fallback_plan": [
+      "continue to a no-training public outcome probe only if M1419 marginal diversity is judged acceptable and overfit risk is controlled",
+      "pivot to a new branch if staged warmup gate source design is judged saturated",
+      "stop if the branch no longer has a credible path to source-diverse history-necessity evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1419 is the tenth non-synthesis milestone after M1409 continue synthesis",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "warmup/reveal pressure retune branch synthesis",
+    "admission_evidence": [
+      "M1412 produced sparse but nonzero warmup-history positives from staged warmup",
+      "M1417 restored source materialization and warmup evidence but remained too invasive",
+      "M1419 preserved source and warmup evidence while passing invasiveness gates but missed matched/bucketed seed diversity by one"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source smoke before synthesis",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1420 synthesis document",
+      "status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits it"
+    ],
+    "next_stage_criteria": [
+      "M1410-M1419 evidence is summarized",
+      "supported and unsupported claims are documented",
+      "failure taxonomy and public overfit risk are summarized",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1420 must synthesize current/recent substitution risk and keep staged warmup source evidence below level3.",
+    "history_necessity_tests": [
+      "summarize M1412 sparse warmup-history positives",
+      "summarize M1417 source/warmup/invasiveness split",
+      "summarize M1419 marginal source-diversity result",
+      "decide whether a no-training outcome probe is justified"
+    ],
+    "temporal_evidence_window": "M1410-M1419 staged warmup gate public artifacts.",
+    "negative_result_policy": "Seed-thin and wrong-warmup-negative outcome evidence must remain explicit constraints before any outcome probe or training.",
+    "allowed_claims": [
+      "warmup/reveal pressure retune branch synthesis and next route decision",
+      "no promotion corpus export training PPO private-holdout high-fidelity paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1410-M1419 staged warmup gate evidence can be synthesized into a clear next route after M1419 reduced warmup invasiveness but missed one matched/bucketed seed-diversity gate.",
+  "success_criteria": [
+    "docs/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.md exists",
+    "synthesis summarizes M1410-M1419 evidence",
+    "synthesis lists supported and unsupported claims",
+    "synthesis classifies failure taxonomy and public-gate overfit risk",
+    "synthesis explicitly decides whether M1419 can feed a no-training outcome probe despite the one-seed diversity miss",
+    "synthesis chooses the next route before source smoke outcome intervention corpus export training PPO promotion private holdout or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis overclaims M1419 source materialization as self-ID evidence",
+    "synthesis ignores the M1419 matched/bucketed seed threshold miss",
+    "synthesis routes directly to training PPO promotion private holdout or corpus export"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.md from M1410-M1419 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1419_warmup_gate_invasiveness_retune_source_smoke/summary.json",
+    "docs/m1419-paper-route-warmup-gate-invasiveness-retune-source-smoke.md"
+  ],
+  "decision_rule": "M1420 passes if it synthesizes M1410-M1419 with explicit supported/unsupported claims and chooses the next route before any source smoke outcome probe training PPO promotion private holdout corpus export or actor-input expansion.",
+  "next_blocker": "m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis"
+}
