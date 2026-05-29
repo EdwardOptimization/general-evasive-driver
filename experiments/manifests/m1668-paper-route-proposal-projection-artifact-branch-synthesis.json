@@ -181,6 +181,21 @@
     "docs/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.md",
     "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md",
+    "decision": "stop_exact_residual_artifact_route_promote_to_controller_family_current_state_audit",
+    "workflow_synthesis_decision": "promote_to_next_branch",
+    "failure_taxonomy": [
+      "proof_washout",
+      "behavior_regression"
+    ],
+    "supported_claim": "fusion_actor exact repair can reduce fixed public residuals and produce a clean objective-sanity artifact",
+    "falsified_claim": "fixed-public exact residual repair alone is enough to produce a replay-worthy checkpoint artifact",
+    "public_gate_overfit_risk": "high",
+    "next_branch": "paper_route_controller_family_current_state_audit",
+    "next_manifest": "experiments/manifests/m1669-paper-route-controller-family-current-state-audit.json"
+  },
   "decision_rule": "M1668 passes if it synthesizes the branch and chooses a route before repair PPO replay or promotion.",
-  "next_blocker": "m1668-paper-route-proposal-projection-artifact-branch-synthesis"
+  "next_blocker": "m1669-paper-route-controller-family-current-state-audit"
 }

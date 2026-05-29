@@ -1,0 +1,164 @@
+{
+  "id": "m1669-paper-route-controller-family-current-state-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt"
+    ],
+    "parent_dataset": [
+      "docs/paper-route-finite-window-vs-gru-plan.md",
+      "docs/m1205-paper-route-finite-window-gru-evidence-synthesis.md",
+      "docs/m1492-paper-route-self-id-go-no-go-matrix-design.md",
+      "docs/m1498-paper-route-go-no-go-three-seed-result-audit.md",
+      "docs/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1668-paper-route-proposal-projection-artifact-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "audit current controller-family go/no-go evidence before choosing the next paper-route experiment"
+    ],
+    "derived_from": [
+      "m1205-paper-route-finite-window-gru-evidence-synthesis",
+      "m1498-paper-route-go-no-go-three-seed-result-audit",
+      "m1668-paper-route-proposal-projection-artifact-branch-synthesis"
+    ],
+    "blocked_by": [
+      "exact-residual artifact route failed first replay checks",
+      "standard profile scaling previously failed to show L2 history necessity or L3 online advantage"
+    ],
+    "supersedes": [
+      "direct exact-artifact repair after M1668",
+      "direct PPO after M1668",
+      "direct promotion after M1668",
+      "private holdout after M1668"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1669-paper-route-controller-family-current-state-audit.md",
+  "public_gates": [
+    "M1669 must inventory current L0 L1 L2 L3 evidence and configs",
+    "M1669 must identify which claims are already negative conditional or unresolved",
+    "M1669 must distinguish standard-profile evidence from decisive-history evidence",
+    "M1669 must decide the next paper-route experiment without assuming GRU superiority",
+    "M1669 must keep training replay PPO promotion private holdout actor-input changes and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not repair the M1663 artifact",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_current_state_audit",
+    "evidence_axis": "C_controller_family_current_state",
+    "evidence_increment": "reconciles historical controller-family go/no-go evidence with the exact-artifact replay failure",
+    "claim_scope": "process audit only; no training, replay, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit assumes online GRU is the answer without comparing finite-window/current-response evidence",
+      "stop if audit routes back to fixed public proof-row repair without a broader experiment reason",
+      "stop if audit ignores M1498 negative standard-profile result",
+      "stop if audit ignores M1666 exact-artifact replay failure"
+    ],
+    "fallback_plan": [
+      "route to decisive history task experiment design if missing evidence is task coverage",
+      "route to profile-matrix rerun design if missing evidence is stale or incomplete controller comparison",
+      "route to behavior-retention repair design only if audit proves repair is needed before controller-family comparison",
+      "stop self-ID strong claim if current evidence already supports a negative verdict"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1668 closes exact-residual artifact branch and promotes controller-family current-state audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controller family current-state audit",
+    "admission_evidence": [
+      "M1205 blocked finite-window and GRU superiority claims until corrected controls",
+      "M1498 found no finite-window history necessity or online-GRU advantage on standard profiles",
+      "M1668 closed exact-residual artifact route after first-check replay failure"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1669 audit document",
+      "M1669 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits an experiment design pivot or stop"
+    ],
+    "next_stage_criteria": [
+      "current evidence map is explicit",
+      "next experiment route is explicit",
+      "profile and decisive-history evidence are separated",
+      "promotion and private holdout remain blocked unless a later design admits them"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1669 exists to reassess current-frame and finite-window substitution before any recurrent self-ID claim.",
+    "history_necessity_tests": [
+      "audit must explicitly list L0 current, L1 one-step, L2 finite-window, L2 current-tiled, L3 online-GRU, and L3 reset/truncated evidence status"
+    ],
+    "temporal_evidence_window": "M1182-M1498 controller-family artifacts plus M1499-M1668 decisive-history and artifact-route evidence.",
+    "negative_result_policy": "If current-response or finite-window evidence is sufficient, route to a negative or conditional GRU claim rather than weakening standards.",
+    "allowed_claims": [
+      "controller-family current-state audit and route decision",
+      "no training, no replay, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The current repo evidence can be reconciled into a concrete next paper-route experiment without assuming GRU superiority or continuing fixed public artifact repair.",
+  "success_criteria": [
+    "docs/m1669-paper-route-controller-family-current-state-audit.md exists",
+    "audit inventories L0 L1 L2 L2-current-tiled L3 and L3-control evidence",
+    "audit separates standard-profile evidence from decisive-history evidence",
+    "audit accounts for M1668 exact-artifact branch closure",
+    "audit chooses a concrete next experiment route",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit assumes GRU superiority without evidence",
+    "audit omits finite-window or current-response controls",
+    "audit routes directly to PPO promotion private holdout or paper evidence",
+    "audit claims level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1669-paper-route-controller-family-current-state-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1669-paper-route-controller-family-current-state-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_process_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md",
+    "docs/m1498-paper-route-go-no-go-three-seed-result-audit.md",
+    "docs/m1492-paper-route-self-id-go-no-go-matrix-design.md"
+  ],
+  "decision_rule": "M1669 passes if it audits current controller-family evidence and chooses the next paper-route experiment before training replay PPO or promotion.",
+  "next_blocker": "m1669-paper-route-controller-family-current-state-audit"
+}

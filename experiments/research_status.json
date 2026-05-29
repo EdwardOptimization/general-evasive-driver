@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1676,
+    "completed": 1677,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.md",
+      "command_log": "docs/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1667-paper-route-fusion-actor-artifact-first-check-failure-audit"
+      "task_id": "m1668-paper-route-proposal-projection-artifact-branch-synthesis"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1668-paper-route-proposal-projection-artifact-branch-synthesis.json",
-      "hypothesis": "The M1660-M1667 branch can be synthesized into a clear decision after exact-objective artifact materialization failed first replay checks.",
-      "id": "m1668-paper-route-proposal-projection-artifact-branch-synthesis",
+      "command": "see experiments/manifests/m1669-paper-route-controller-family-current-state-audit.json",
+      "hypothesis": "The current repo evidence can be reconciled into a concrete next paper-route experiment without assuming GRU superiority or continuing fixed public artifact repair.",
+      "id": "m1669-paper-route-controller-family-current-state-audit",
       "kind": "gate",
-      "notes": "Pending: synthesize exact-repair artifact branch after first-check failure before any repair",
-      "priority": 16630,
+      "notes": "Pending: audit current controller-family evidence and choose the next paper-route experiment",
+      "priority": 16640,
       "status": "pending",
-      "success_artifact": "docs/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md"
+      "success_artifact": "docs/m1669-paper-route-controller-family-current-state-audit.md"
     },
-    "updated_at_utc": "20260529T221932Z"
+    "updated_at_utc": "20260529T222346Z"
 }

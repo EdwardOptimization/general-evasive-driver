@@ -16,21 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1667-paper-route-fusion-actor-artifact-first-check-failure-audit
+m1668-paper-route-proposal-projection-artifact-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1668-paper-route-proposal-projection-artifact-branch-synthesis
+m1669-paper-route-controller-family-current-state-audit
 ```
 
-M1667 audited the M1666 first-check replay failure. The failure is real
-behavior/proof retention regression, not lineage, actor-contract, or metric
-artifact: checkpoint sanity passed, wrong-history gap retention stayed true, but
-normal-history behavior collapsed on M183/M170 and M267/M264. The next task is
-M1668 branch synthesis before any new repair, replay, PPO, promotion, or private
-holdout route.
+M1668 synthesized M1660-M1667 and stopped the exact-residual artifact route. The
+branch proved that `fusion_actor` exact repair can reduce fixed public residuals
+and produce a clean objective-sanity checkpoint artifact, but M1666 falsified the
+stronger claim that this is enough for replay-worthy behavior. The next task is
+M1669 controller-family current-state audit: reconcile L0/L1/L2/L3 standard and
+decisive-history evidence before choosing the next paper-route experiment.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

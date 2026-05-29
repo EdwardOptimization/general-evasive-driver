@@ -26728,3 +26728,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repair design, PPO, full-stack replay, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1668-paper-route-proposal-projection-artifact-branch-synthesis.json`
 - next: `m1668-paper-route-proposal-projection-artifact-branch-synthesis`
+
+## M1668 Paper-Route Proposal Projection Artifact Branch Synthesis
+
+- status: completed
+- decision: `stop_exact_residual_artifact_route_promote_to_controller_family_current_state_audit`
+- workflow synthesis decision: `promote_to_next_branch`
+- artifact: `docs/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md`
+- failure taxonomy: `proof_washout`, `behavior_regression`
+- supported: `fusion_actor` exact repair can reduce fixed public residuals and produce a clean objective-sanity artifact
+- falsified: fixed-public exact residual repair alone is enough to produce a replay-worthy checkpoint artifact
+- public fixed-tensor overfit risk: high
+- next branch: `paper_route_controller_family_current_state_audit`
+- unsupported: direct repair, replay, PPO, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1669-paper-route-controller-family-current-state-audit.json`
+- next: `m1669-paper-route-controller-family-current-state-audit`
