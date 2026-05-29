@@ -24024,3 +24024,41 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1559 changes source generation from terminal/pairability-first to recoverability-first. M1560 may implement a bounded generator, but history interventions remain blocked until recoverable active-set gates pass and are audited.
 - follow-up manifest: `experiments/manifests/m1560-paper-route-recoverable-active-set-generator-implementation.json`.
 - next: `m1560-paper-route-recoverable-active-set-generator-implementation`
+
+## M1560 Paper-Route Recoverable Active-Set Generator Implementation
+
+- status: completed
+- decision: `recoverable_active_set_generator_smoke_source_concentrated_route_to_audit`
+- artifact: `runs/m1560_recoverable_active_set_generator_smoke/summary.json`
+- doc: `docs/m1560-paper-route-recoverable-active-set-generator-implementation.md`
+- code: `src/autodrift/recoverable_active_set_generator.py`
+- tests: `tests/test_recoverable_active_set_generator.py`
+- focused test result: `4 passed`
+- source spec count: 200
+- anchor candidate count: 256
+- replay-ok anchor count: 200
+- local hold row count: 9216
+- local hold failure count: 2016
+- recoverable boundary anchor count: 86
+- strong recoverable boundary anchor count: 36
+- predecision recoverable anchor count: 80
+- active source family count: 5
+- active window count: 5
+- max single active family share: 0.45348837209302323
+- max single active window share: 0.38372093023255816
+- success flip count: 66
+- collision flip count: 30
+- already colliding count: 44
+- high margin safe count: 30
+- passes public smoke gates: false
+- passes evidence quality targets: false
+- guardrail violation count: 0
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1560 is a strong generator result but not materializable. Multi-step local holds expose many recoverable anchors, but source-family concentration still blocks history-intervention design.
+- follow-up manifest: `experiments/manifests/m1561-paper-route-recoverable-active-set-generator-result-audit.json`.
+- next: `m1561-paper-route-recoverable-active-set-generator-result-audit`

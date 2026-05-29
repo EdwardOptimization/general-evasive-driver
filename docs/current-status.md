@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1559-paper-route-recoverable-active-set-generation-design
+m1560-paper-route-recoverable-active-set-generator-implementation
 ```
 
 Current next task:
 
 ```text
-m1560-paper-route-recoverable-active-set-generator-implementation
+m1561-paper-route-recoverable-active-set-generator-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -298,6 +298,14 @@ it must report source-diverse recoverable anchors, local hold rows, triage
 summary, source/window summaries, and clean guardrails. History interventions,
 candidate materialization, training corpus export, PPO, promotion, private
 holdout, actor-input changes, and level3 self-ID claims remain blocked.
+M1560 implemented that generator and ran the bounded smoke. It produced `200`
+source specs, `256` anchors, `9216` local-hold rows, `86` recoverable-boundary
+anchors, and `36` strong recoverable-boundary anchors. This repairs the M1556
+"no recoverable active set" blocker, but public gates still fail because the
+recoverable set is source-concentrated: `max_single_active_family_share` is
+`0.45348837209302323`, above the `0.35` limit, with `t5_near_boundary_warmup`
+contributing `39` of `86` recoverable anchors. M1561 must audit whether a
+source-balanced repair is justified. History interventions remain blocked.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

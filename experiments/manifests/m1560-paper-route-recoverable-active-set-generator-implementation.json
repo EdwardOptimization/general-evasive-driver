@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -153,6 +153,48 @@
     "docs/m1559-paper-route-recoverable-active-set-generation-design.md",
     "runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke/summary.json"
   ],
-  "decision_rule": "M1560 passes if it implements and runs a bounded recoverable active-set generator smoke with no history interventions and clean guardrails.",
-  "next_blocker": "m1560-paper-route-recoverable-active-set-generator-implementation"
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1560_recoverable_active_set_generator_smoke/summary.json",
+    "doc": "docs/m1560-paper-route-recoverable-active-set-generator-implementation.md",
+    "decision": "recoverable_active_set_generator_smoke_source_concentrated_route_to_audit",
+    "focused_test_result": "4 passed",
+    "source_spec_count": 200,
+    "anchor_candidate_count": 256,
+    "replay_ok_anchor_count": 200,
+    "local_hold_row_count": 9216,
+    "local_hold_failure_count": 2016,
+    "recoverable_boundary_anchor_count": 86,
+    "strong_recoverable_boundary_anchor_count": 36,
+    "predecision_recoverable_anchor_count": 80,
+    "active_source_family_count": 5,
+    "active_window_count": 5,
+    "max_single_active_family_share": 0.45348837209302323,
+    "max_single_active_window_share": 0.38372093023255816,
+    "success_flip_count": 66,
+    "collision_flip_count": 30,
+    "already_colliding_count": 44,
+    "high_margin_safe_count": 30,
+    "high_margin_active_share": 0.0,
+    "near_boundary_collision_only_share": 0.171875,
+    "passes_public_smoke_gates": false,
+    "passes_evidence_quality_targets": false,
+    "guardrail_violation_count": 0,
+    "history_interventions_executed": false,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1561-paper-route-recoverable-active-set-generator-result-audit.json"
+  },
+  "decision": "recoverable_active_set_generator_smoke_source_concentrated_route_to_audit",
+  "decision_rule": "M1560 completes if it implements and runs a bounded recoverable active-set generator smoke with no history interventions and clean guardrails; the final public gate failed on active source-family concentration and requires audit.",
+  "next_blocker": "m1561-paper-route-recoverable-active-set-generator-result-audit"
 }

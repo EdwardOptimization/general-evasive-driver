@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1568,
+    "completed": 1569,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1559-paper-route-recoverable-active-set-generation-design.md",
+    "command_log": "docs/m1560-paper-route-recoverable-active-set-generator-implementation.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1560_recoverable_active_set_generator_smoke",
     "status": "completed",
-    "task_id": "m1559-paper-route-recoverable-active-set-generation-design"
+    "task_id": "m1560-paper-route-recoverable-active-set-generator-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1560-paper-route-recoverable-active-set-generator-implementation.json",
-    "hypothesis": "A bounded no-training recoverable active-set generator can find source-diverse anchors where multi-step local action holds change terminal boundary outcome before history interventions.",
-    "id": "m1560-paper-route-recoverable-active-set-generator-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded no-training recoverable active-set generator with local hold diagnostics",
-    "priority": 15550,
+    "command": "see experiments/manifests/m1561-paper-route-recoverable-active-set-generator-result-audit.json",
+    "hypothesis": "M1560's strong recoverable counts but source-concentrated public gate failure can be classified cleanly enough to decide whether source-balanced repair is justified before history interventions.",
+    "id": "m1561-paper-route-recoverable-active-set-generator-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1560 recoverable count positive but source-concentrated result",
+    "priority": 15560,
     "status": "pending",
-    "success_artifact": "runs/m1560_recoverable_active_set_generator_smoke/summary.json"
+    "success_artifact": "docs/m1561-paper-route-recoverable-active-set-generator-result-audit.md"
   },
-  "updated_at_utc": "20260529T131627Z"
+  "updated_at_utc": "20260529T132555Z"
 }
