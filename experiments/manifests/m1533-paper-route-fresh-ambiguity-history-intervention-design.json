@@ -147,6 +147,31 @@
     "runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json",
     "docs/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1533-paper-route-fresh-ambiguity-history-intervention-design.md",
+    "decision": "fresh_ambiguity_history_intervention_design_admit_bounded_implementation",
+    "accepted_pair_count": 3,
+    "anchor_replay_contract_defined": true,
+    "wrong_history_donor_selection_defined": true,
+    "donor_response_action_stream_defined": true,
+    "reset_zero_controls_separated": true,
+    "metrics_defined": true,
+    "artifact_contract_defined": true,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1534-paper-route-fresh-ambiguity-history-intervention-implementation.json"
+  },
+  "decision": "fresh_ambiguity_history_intervention_design_admit_bounded_implementation",
   "decision_rule": "M1533 passes if it designs bounded measured history interventions while preserving no-materialization and no-training guardrails.",
-  "next_blocker": "m1533-paper-route-fresh-ambiguity-history-intervention-design"
+  "next_blocker": "m1534-paper-route-fresh-ambiguity-history-intervention-implementation"
 }

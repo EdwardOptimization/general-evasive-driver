@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1541,
+    "completed": 1542,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.md",
+    "command_log": "docs/m1533-paper-route-fresh-ambiguity-history-intervention-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.md",
+    "run_dir": "docs/m1533-paper-route-fresh-ambiguity-history-intervention-design.md",
     "status": "completed",
-    "task_id": "m1532-paper-route-fresh-ambiguity-measured-mining-result-audit"
+    "task_id": "m1533-paper-route-fresh-ambiguity-history-intervention-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1533-paper-route-fresh-ambiguity-history-intervention-design.json",
-    "hypothesis": "A bounded intervention design can test whether M1531 accepted measured pairs exhibit wrong-history or donor-response sensitivity without materializing candidates.",
-    "id": "m1533-paper-route-fresh-ambiguity-history-intervention-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded history interventions over M1531 accepted measured pairs",
-    "priority": 15280,
+    "command": "see experiments/manifests/m1534-paper-route-fresh-ambiguity-history-intervention-implementation.json",
+    "hypothesis": "A bounded intervention runner can execute wrong-history and donor-response diagnostics over M1531 accepted measured pairs without materializing candidates.",
+    "id": "m1534-paper-route-fresh-ambiguity-history-intervention-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded history interventions over M1531 accepted measured pairs",
+    "priority": 15290,
     "status": "pending",
-    "success_artifact": "docs/m1533-paper-route-fresh-ambiguity-history-intervention-design.md"
+    "success_artifact": "runs/m1534_fresh_ambiguity_history_intervention_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T105111Z"
+  "updated_at_utc": "20260529T105439Z"
 }

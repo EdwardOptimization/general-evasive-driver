@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1532-paper-route-fresh-ambiguity-measured-mining-result-audit
+m1533-paper-route-fresh-ambiguity-history-intervention-design
 ```
 
 Current next task:
 
 ```text
-m1533-paper-route-fresh-ambiguity-history-intervention-design
+m1534-paper-route-fresh-ambiguity-history-intervention-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -105,11 +105,36 @@ history interventions were not executed, so evidence-quality targets remain
 false and materialization is still blocked.
 M1532 audited this as a clean measured-pair plumbing pass and admitted only a
 bounded history-intervention design over the accepted measured pairs.
+M1533 designed those interventions over the 3 accepted measured pairs, keeping
+wrong-history, donor response/action, delayed hidden, reset, and zero-current
+channels separate.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1533 fresh ambiguity history-intervention design:
+
+```text
+decision: fresh_ambiguity_history_intervention_design_admit_bounded_implementation
+artifact: docs/m1533-paper-route-fresh-ambiguity-history-intervention-design.md
+accepted_pair_count: 3
+anchor_replay_contract_defined: true
+wrong_history_donor_selection_defined: true
+donor_response_action_stream_defined: true
+reset_zero_controls_separated: true
+metrics_defined: true
+artifact_contract_defined: true
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1534-paper-route-fresh-ambiguity-history-intervention-implementation
+```
+
+M1533 is design only. M1534 must still run a bounded public smoke and route to
+audit before any materialization or self-ID claim.
 
 M1532 fresh ambiguity measured-mining result audit:
 
