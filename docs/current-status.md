@@ -16,19 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1598-paper-route-clean-active-set-contour-mapping-design
+m1599-paper-route-clean-active-set-contour-mapper-implementation
 ```
 
 Current next task:
 
 ```text
-m1599-paper-route-clean-active-set-contour-mapper-implementation
+m1600-paper-route-clean-contour-mapper-result-audit
 ```
 
-M1598 designed an offline, label-preserving clean active-set contour mapper over
-M1588/M1592/M1595 public artifacts. It blocks replay, simulator rerun,
-materialization, training, PPO, promotion, private holdout, and threshold
-relaxation. M1599 should implement that mapper and route to audit.
+M1599 implemented the offline contour mapper and passed public gates with `528`
+enriched rows, `51` clean rows, full metadata join, and `398` feature groups.
+The strongest contour is `clean_edge_window`; broad `clean_endpoint_neighbor`
+expansion is null-heavy and explains M1595. The next task is M1600 audit before
+any replay or source-rule design.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

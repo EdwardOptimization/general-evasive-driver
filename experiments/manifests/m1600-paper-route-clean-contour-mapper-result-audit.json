@@ -1,0 +1,162 @@
+{
+  "id": "m1600-paper-route-clean-contour-mapper-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1599_clean_active_set_contour_mapper/summary.json",
+      "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "runs/m1599_clean_active_set_contour_mapper/selection_source_summary.csv",
+      "docs/m1599-paper-route-clean-active-set-contour-mapper-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1599-paper-route-clean-active-set-contour-mapper-implementation.json"
+    ],
+    "parent_objective": [
+      "audit offline contour mapper result before any contour-aware replay design"
+    ],
+    "derived_from": [
+      "m1599-paper-route-clean-active-set-contour-mapper-implementation"
+    ],
+    "blocked_by": [
+      "M1599 maps the clean contour but does not itself admit replay or materialization"
+    ],
+    "supersedes": [
+      "direct replay from M1599 contour summaries",
+      "candidate materialization from M1599 clean rows",
+      "training corpus export from enriched contour rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1600-paper-route-clean-contour-mapper-result-audit.md",
+  "public_gates": [
+    "M1600 must audit M1599 as offline diagnostic evidence only",
+    "M1600 must summarize source-run, selection-source, and source-edge contour findings",
+    "M1600 must decide design, synthesis, pivot, or stop before any replay",
+    "M1600 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not relax clean selector thresholds",
+    "do not relax the max clean source-edge share threshold",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "Q_clean_contour_mapper_result_audit",
+    "evidence_increment": "audits offline contour mapper pass and decides whether contour-aware source rule design is justified",
+    "claim_scope": "result audit only; no replay, simulator rerun, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats M1599 as training or materialization evidence",
+      "stop if audit routes directly to replay or training",
+      "stop if audit ignores M1595 negative source-balancing result"
+    ],
+    "fallback_plan": [
+      "admit design-only contour-aware source rule if evidence supports it",
+      "stop if the contour is too public-row-specific",
+      "pivot to task/source redesign if the contour cannot reduce overfit risk"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1599 offline contour mapper passed and requires audit before replay design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "clean contour mapper result audit",
+    "admission_evidence": [
+      "M1599 passed offline mapping gates with 528 enriched rows and 398 feature groups",
+      "M1599 identifies clean_edge_window as the primary clean contour and clean_endpoint_neighbor as null-heavy"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not rerun simulator",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not relax thresholds",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1600 audit document",
+      "M1600 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits design, synthesis, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "diagnostic interpretation is explicit",
+      "supported and unsupported claims are explicit",
+      "next route is explicit",
+      "guardrails remain clean"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1600 audits offline contours and must keep dominated/control-only rows as diagnostics.",
+    "history_necessity_tests": [
+      "M1599 source-run contour",
+      "M1599 selection-source contour",
+      "M1599 source-edge contour"
+    ],
+    "temporal_evidence_window": "M1588/M1592/M1595 public classified rows enriched by M1599.",
+    "negative_result_policy": "If the contour is too public-row-specific, stop or pivot instead of weakening standards.",
+    "allowed_claims": [
+      "public diagnostic audit and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1599's contour map can justify or reject a contour-aware source-rule design before any replay.",
+  "success_criteria": [
+    "docs/m1600-paper-route-clean-contour-mapper-result-audit.md exists",
+    "audit summarizes M1599 contour findings",
+    "audit decides design, synthesis, pivot, or stop",
+    "training PPO promotion private holdout corpus export materialization replay and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1599 as materialization or level3 self-ID evidence",
+    "audit ignores M1595 negative result",
+    "audit routes directly to training PPO promotion private holdout corpus export actor-input changes replay or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1600-paper-route-clean-contour-mapper-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1600-paper-route-clean-contour-mapper-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1599_clean_active_set_contour_mapper/summary.json",
+    "docs/m1599-paper-route-clean-active-set-contour-mapper-implementation.md"
+  ],
+  "decision_rule": "M1600 passes if it audits M1599 without weakening gates and chooses the next route before any replay or training.",
+  "next_blocker": "m1600-paper-route-clean-contour-mapper-result-audit"
+}

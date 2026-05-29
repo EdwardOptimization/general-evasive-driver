@@ -25209,3 +25209,37 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1599-paper-route-clean-active-set-contour-mapper-implementation.json`
 - next: `m1599-paper-route-clean-active-set-contour-mapper-implementation`
+
+## M1599 Paper-Route Clean Active-Set Contour Mapper Implementation
+
+- status: completed
+- decision: `clean_active_set_contour_mapper_public_pass_route_to_audit`
+- artifact: `runs/m1599_clean_active_set_contour_mapper/summary.json`
+- doc: `docs/m1599-paper-route-clean-active-set-contour-mapper-implementation.md`
+- code: `src/autodrift/clean_active_set_contour_mapper.py`
+- tests: `tests/test_clean_active_set_contour_mapper.py`
+- focused test result: `3 passed`
+- input source-run count: 3
+- input directed pair count: 528
+- enriched directed pair count: 528
+- metadata joined fraction: 1.0
+- clean directed pair count: 51
+- dominated history-positive directed pair count: 72
+- control-only positive directed pair count: 79
+- history-null all-controls-null directed pair count: 326
+- source-edge count: 24
+- feature group count: 398
+- clean source-edge count: 5
+- max clean source-edge share: 0.35294117647058826
+- passes public smoke gates: true
+- null result classification: `contour_mapping_public_pass`
+- contour finding: M1592 clean_edge_window rows are strong; M1595 clean_endpoint_neighbor rows are null-heavy
+- replay started: false
+- history interventions executed: false in M1599
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1600-paper-route-clean-contour-mapper-result-audit.json`
+- next: `m1600-paper-route-clean-contour-mapper-result-audit`
