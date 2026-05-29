@@ -21431,3 +21431,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source preflight, replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1448-paper-route-source-step-preflight-smoke.json`.
 - next: `m1448-paper-route-source-step-preflight-smoke`
+
+## 20260529T042700Z - m1448-paper-route-source-step-preflight-smoke
+
+- status: `failed`
+- kind: `infrastructure`
+- gate tier: `proof`
+- artifact: `docs/m1448-paper-route-source-step-preflight-smoke.md`
+- decision: `source_step_preflight_schema_failure_route_to_margin_gap_optional_repair`
+- failure type: `lineage_invalid`
+- command return code: `1`
+- error: `ValueError: candidate rows missing required columns: ['margin_gap']`
+- interpretation: this is a schema compatibility failure, not a negative preflight result; M1445 source-step geometry rows do not carry old outcome-pressure `margin_gap`.
+- guardrail: no source preflight summary, replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1449-paper-route-source-step-preflight-schema-repair-implementation.json`.
+- next: `m1449-paper-route-source-step-preflight-schema-repair-implementation`
+
+## 20260529T043000Z - m1449-paper-route-source-step-preflight-schema-repair-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1449-paper-route-source-step-preflight-schema-repair-implementation.md`
+- decision: `source_step_preflight_schema_repair_implemented_admit_preflight_rerun`
+- implementation: `src/autodrift/bounded_relocation_replay_probe.py`
+- tests: `tests/test_bounded_relocation_replay_probe.py`
+- focused result: `15 passed in 0.90s`
+- repair: `prepare_candidate_frame` now treats missing `margin_gap` as optional and fills it with neutral `0.0`.
+- guardrail: no source preflight, replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1450-paper-route-source-step-preflight-rerun.json`.
+- next: `m1450-paper-route-source-step-preflight-rerun`

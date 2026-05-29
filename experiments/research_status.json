@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1457,
-    "failed": 0,
+    "completed": 1458,
+    "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1447-paper-route-source-step-preflight-support-implementation.md",
+    "command_log": "docs/m1449-paper-route-source-step-preflight-schema-repair-implementation.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1447-paper-route-source-step-preflight-support-implementation"
+    "task_id": "m1449-paper-route-source-step-preflight-schema-repair-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1448-paper-route-source-step-preflight-smoke.json",
-    "hypothesis": "M1445 selected candidates remain forward, unclipped, source-diverse when preflight reconstructs the trace at source_step.",
-    "id": "m1448-paper-route-source-step-preflight-smoke",
+    "command": "see experiments/manifests/m1450-paper-route-source-step-preflight-rerun.json",
+    "hypothesis": "After the margin_gap optional schema repair, M1445 selected candidates remain forward, unclipped, source-diverse when preflight reconstructs at source_step.",
+    "id": "m1450-paper-route-source-step-preflight-rerun",
     "kind": "infrastructure",
-    "notes": "Pending: run preflight-only on M1445 candidates with --candidate-step-column source_step without replay or training",
-    "priority": 14430,
+    "notes": "Pending: rerun source-step preflight-only smoke after M1449 margin_gap schema repair",
+    "priority": 14450,
     "status": "pending",
-    "success_artifact": "docs/m1448-paper-route-source-step-preflight-smoke.md"
+    "success_artifact": "docs/m1450-paper-route-source-step-preflight-rerun.md"
   },
-  "updated_at_utc": "20260529T042200Z"
+  "updated_at_utc": "20260529T043000Z"
 }

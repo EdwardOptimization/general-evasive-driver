@@ -10,6 +10,7 @@ from autodrift.bounded_relocation_replay_probe import (
     classify_relocation_geometry,
     geometry_preflight_from_trace_candidates,
     geometry_preflight_frame,
+    prepare_candidate_frame,
     select_geometry_aware_replay_candidates,
     select_replay_candidates,
     write_geometry_preflight_outputs,
@@ -64,6 +65,17 @@ def test_select_replay_candidates_filters_controls_and_caps_pairs():
     assert len(selected) == 2
     assert "zero_current_response" not in set(selected["variant"])
     assert selected["capability_pair"].value_counts().max() == 1
+
+
+def test_prepare_candidate_frame_defaults_missing_margin_gap_for_source_rows():
+    row = _candidate(seed=1, capability_pair="a->b")
+    row.pop("margin_gap")
+    frame = pd.DataFrame([row])
+
+    prepared = prepare_candidate_frame(frame)
+
+    assert "margin_gap" in prepared.columns
+    assert prepared.loc[0, "margin_gap"] == 0.0
 
 
 def test_bounded_relocation_geometry_clips_forward_distance_and_width():

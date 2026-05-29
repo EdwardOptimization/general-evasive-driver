@@ -16,21 +16,60 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1447-paper-route-source-step-preflight-support-implementation
+m1449-paper-route-source-step-preflight-schema-repair-implementation
 ```
 
 Current next task:
 
 ```text
-m1448-paper-route-source-step-preflight-smoke
+m1450-paper-route-source-step-preflight-rerun
 ```
 
-M1447 implemented explicit source-step preflight/replay support. The current
-public-gate base remains M1362 alpha `0.1`:
+M1449 repaired the schema gap exposed by the first source-step preflight
+attempt. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1449 result:
+
+```text
+decision: source_step_preflight_schema_repair_implemented_admit_preflight_rerun
+implementation: src/autodrift/bounded_relocation_replay_probe.py
+tests: tests/test_bounded_relocation_replay_probe.py
+focused_test_result: 15 passed in 0.90s
+repair: margin_gap is optional and defaults to 0.0
+next: m1450-paper-route-source-step-preflight-rerun
+```
+
+M1450 should rerun preflight-only on:
+
+```text
+runs/m1445_forward_geometry_source_miner_smoke/selected_candidate_rows.csv
+```
+
+with:
+
+```text
+--candidate-step-column source_step
+```
+
+It must not run bounded replay, outcome interventions, training, PPO,
+promotion, private holdout, corpus export, or actor-input changes.
+
+M1448 result:
+
+```text
+decision: source_step_preflight_schema_failure_route_to_margin_gap_optional_repair
+returncode: 1
+failure_type: lineage_invalid
+error: ValueError: candidate rows missing required columns: ['margin_gap']
+summary_written: false
+next: m1449-paper-route-source-step-preflight-schema-repair-implementation
+```
+
+M1448 is a schema compatibility failure, not a negative preflight result.
 
 M1447 result:
 
@@ -44,7 +83,7 @@ M1445 follow-up candidate step column: source_step
 next: m1448-paper-route-source-step-preflight-smoke
 ```
 
-M1448 should run preflight-only on:
+M1448 attempted to run preflight-only on:
 
 ```text
 runs/m1445_forward_geometry_source_miner_smoke/selected_candidate_rows.csv

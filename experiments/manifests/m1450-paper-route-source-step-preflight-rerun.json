@@ -1,10 +1,10 @@
 {
-  "id": "m1448-paper-route-source-step-preflight-smoke",
+  "id": "m1450-paper-route-source-step-preflight-rerun",
   "type": "infrastructure",
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "lineage_invalid"
+    "none"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -12,31 +12,31 @@
     ],
     "parent_dataset": [
       "runs/m1445_forward_geometry_source_miner_smoke/selected_candidate_rows.csv",
-      "docs/m1447-paper-route-source-step-preflight-support-implementation.md"
+      "docs/m1449-paper-route-source-step-preflight-schema-repair-implementation.md"
     ],
     "parent_config": [
       "configs/m1419_warmup_gate_invasiveness_retune_source_wave.json",
-      "experiments/manifests/m1447-paper-route-source-step-preflight-support-implementation.json"
+      "experiments/manifests/m1449-paper-route-source-step-preflight-schema-repair-implementation.json"
     ],
     "parent_objective": [
-      "run source-step-aware preflight-only smoke on M1445 selected candidate rows"
+      "rerun source-step preflight-only smoke after margin_gap optional schema repair"
     ],
     "derived_from": [
-      "m1447-paper-route-source-step-preflight-support-implementation"
+      "m1449-paper-route-source-step-preflight-schema-repair-implementation"
     ],
     "blocked_by": [
-      "source-step preflight support is implemented but M1445 selected rows have not been preflighted at source_step"
+      "M1448 failed before preflight due missing margin_gap; M1449 repairs the schema"
     ],
     "supersedes": [
-      "running reveal-step preflight on M1445 source-step candidates"
+      "m1448-paper-route-source-step-preflight-smoke"
     ],
     "invalidates": []
   },
-  "review_artifact": "docs/reviews/m1448-paper-route-source-step-preflight-smoke.md",
+  "review_artifact": "docs/reviews/m1450-paper-route-source-step-preflight-rerun.md",
   "public_gates": [
-    "M1448 must run --preflight-only with --candidate-step-column source_step",
-    "M1448 must not run bounded replay train PPO promote use private holdout export corpus or change actor inputs",
-    "M1448 must report source-step preflight rows selected rows clipping share and diversity"
+    "M1450 must run --preflight-only with --candidate-step-column source_step",
+    "M1450 must not run bounded replay train PPO promote use private holdout export corpus or change actor inputs",
+    "M1450 must report source-step preflight rows selected rows clipping share and diversity"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -53,8 +53,8 @@
   ],
   "workflow_synthesis": {
     "branch": "paper_route_forward_source_preflight_validation",
-    "evidence_axis": "S_source_step_preflight_smoke",
-    "evidence_increment": "runs preflight-only source geometry validation on M1445 selected rows using source_step as candidate step",
+    "evidence_axis": "S_source_step_preflight_rerun",
+    "evidence_increment": "reruns source-step preflight after schema repair for missing margin_gap",
     "claim_scope": "source-step preflight smoke only; no bounded replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
     "stop_condition": [
       "stop if selected_candidate_rows < 64",
@@ -69,18 +69,17 @@
     "fallback_plan": [
       "route to preflight result audit if source-step preflight gates fail",
       "route to bounded replay design if source-step preflight gates pass",
-      "route to source-step support audit if candidate_step_column is not preserved"
+      "route to schema audit if missing optional fields still block preflight"
     ],
     "synthesis_cadence": 10,
-    "synthesis_trigger": "M1447 implements source-step preflight support",
+    "synthesis_trigger": "M1449 repairs missing margin_gap schema issue",
     "synthesis_decision": "not_applicable"
   },
   "training_stage": {
     "stage": "evaluation_only",
-    "stage_objective": "source-step preflight smoke",
+    "stage_objective": "source-step preflight rerun",
     "admission_evidence": [
-      "M1445 selected 128 source-step candidates",
-      "M1447 implemented candidate-step column support"
+      "M1449 made margin_gap optional and focused tests passed"
     ],
     "blocked_shortcuts": [
       "do not train",
@@ -93,8 +92,8 @@
       "do not export corpus"
     ],
     "allowed_updates": [
-      "runs/m1448_source_step_preflight_smoke",
-      "M1448 result document",
+      "runs/m1450_source_step_preflight_rerun",
+      "M1450 result document",
       "status queue scoreboard research log and review",
       "one follow-up bounded replay design or audit manifest"
     ],
@@ -106,21 +105,21 @@
   },
   "self_id_evidence_discipline": {
     "claim_level": "level2_history_encoded_reactive",
-    "current_frame_substitution_risk": "M1448 only checks source-step geometry and cannot claim history necessity.",
+    "current_frame_substitution_risk": "M1450 only checks source-step geometry and cannot claim history necessity.",
     "history_necessity_tests": [
       "future bounded replay must test whether selected history variants affect outcomes",
       "preflight rows cannot count as actual history-positive replay evidence"
     ],
-    "temporal_evidence_window": "M1445 selected candidates through M1447 source-step support.",
+    "temporal_evidence_window": "M1445 selected candidates through M1449 schema repair.",
     "negative_result_policy": "If preflight gates fail, record source limitation and audit instead of weakening replay or history standards.",
     "allowed_claims": [
       "source-step preflight smoke result",
       "no replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
     ]
   },
-  "hypothesis": "M1445 selected candidates remain forward, unclipped, source-diverse when preflight reconstructs the trace at source_step.",
+  "hypothesis": "After the margin_gap optional schema repair, M1445 selected candidates remain forward, unclipped, source-diverse when preflight reconstructs at source_step.",
   "success_criteria": [
-    "runs/m1448_source_step_preflight_smoke/summary.json exists",
+    "runs/m1450_source_step_preflight_rerun/summary.json exists",
     "summary candidate_step_column equals source_step",
     "geometry_pass_rows >= 64",
     "selected_candidate_rows >= 64",
@@ -148,17 +147,17 @@
   ],
   "commands": [
     {
-      "name": "source_step_preflight_smoke",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.bounded_relocation_replay_probe --preflight-only --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m1419_warmup_gate_invasiveness_retune_source_wave.json --candidate-rows runs/m1445_forward_geometry_source_miner_smoke/selected_candidate_rows.csv --max-candidate-rows 128 --per-capability-pair-cap 12 --per-seed-cap 24 --per-reveal-bucket-cap 12 --per-variant-cap 48 --history-length 56 --min-sequence-action-l2 0.025 --min-source-body-x 4.0 --candidate-step-column source_step --device cpu --run-dir runs/m1448_source_step_preflight_smoke"
+      "name": "source_step_preflight_rerun",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.bounded_relocation_replay_probe --preflight-only --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m1419_warmup_gate_invasiveness_retune_source_wave.json --candidate-rows runs/m1445_forward_geometry_source_miner_smoke/selected_candidate_rows.csv --max-candidate-rows 128 --per-capability-pair-cap 12 --per-seed-cap 24 --per-reveal-bucket-cap 12 --per-variant-cap 48 --history-length 56 --min-sequence-action-l2 0.025 --min-source-body-x 4.0 --candidate-step-column source_step --device cpu --run-dir runs/m1450_source_step_preflight_rerun"
     }
   ],
   "required_artifacts": [
     {
-      "path": "runs/m1448_source_step_preflight_smoke/summary.json",
+      "path": "runs/m1450_source_step_preflight_rerun/summary.json",
       "type": "json"
     },
     {
-      "path": "docs/m1448-paper-route-source-step-preflight-smoke.md",
+      "path": "docs/m1450-paper-route-source-step-preflight-rerun.md",
       "type": "md"
     }
   ],
@@ -166,30 +165,8 @@
     "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
   ],
   "baseline_artifacts": [
-    "docs/m1447-paper-route-source-step-preflight-support-implementation.md"
+    "docs/m1449-paper-route-source-step-preflight-schema-repair-implementation.md"
   ],
-  "result": {
-    "status": "failed",
-    "artifact": "docs/m1448-paper-route-source-step-preflight-smoke.md",
-    "returncode": 1,
-    "decision": "source_step_preflight_schema_failure_route_to_margin_gap_optional_repair",
-    "failure_type": "lineage_invalid",
-    "error": "ValueError: candidate rows missing required columns: ['margin_gap']",
-    "summary_written": false,
-    "source_preflight_started": false,
-    "replay_started": false,
-    "outcome_interventions_started": false,
-    "training_started": false,
-    "evaluation_started": false,
-    "ppo_used": false,
-    "promoted": false,
-    "private_holdout_used": false,
-    "training_corpus_exported": false,
-    "actor_input_contract_changed": false,
-    "level3_self_id_claim_made": false,
-    "next_manifest": "experiments/manifests/m1449-paper-route-source-step-preflight-schema-repair-implementation.json"
-  },
-  "decision": "source_step_preflight_schema_failure_route_to_margin_gap_optional_repair",
-  "decision_rule": "M1448 failed before preflight due a missing optional margin_gap field and routes to schema repair.",
-  "next_blocker": "m1449-paper-route-source-step-preflight-schema-repair-implementation"
+  "decision_rule": "M1450 passes if source-step preflight gates pass without replay or training.",
+  "next_blocker": "m1450-paper-route-source-step-preflight-rerun"
 }

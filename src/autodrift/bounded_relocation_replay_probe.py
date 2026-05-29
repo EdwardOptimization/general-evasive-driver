@@ -99,13 +99,14 @@ def prepare_candidate_frame(frame: pd.DataFrame) -> pd.DataFrame:
         "capability_pair",
         "preferred_reveal_bucket",
         "sequence_action_l2_mean",
-        "margin_gap",
         "body_longitudinal_offset",
         "body_lateral_offset",
         "half_width_inflation",
     )
     _require_columns(frame, required)
     output = frame.copy()
+    if "margin_gap" not in output.columns:
+        output["margin_gap"] = 0.0
     for column in (
         "sequence_action_l2_mean",
         "margin_gap",
