@@ -157,6 +157,38 @@
   "baseline_artifacts": [
     "docs/m1478-paper-route-source-diverse-pressure-preflight-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1479-paper-route-source-diverse-pressure-preflight-smoke.md",
+    "summary": "runs/m1479_source_diverse_pressure_preflight_smoke/summary.json",
+    "decision": "source_diverse_pressure_preflight_pass_route_to_bounded_replay_design",
+    "geometry_pass_rows": 108,
+    "selected_candidate_rows": 108,
+    "rejected_rows": 0,
+    "relocation_clipped_share": 0.0,
+    "source_body_x_min": 5.157241,
+    "selected_neighbor_source_rows": 96,
+    "selected_original_source_rows": 12,
+    "selected_unique_source_seeds": 5,
+    "selected_unique_capability_pairs": 7,
+    "selected_unique_reveal_buckets": 7,
+    "selected_unique_variants": 3,
+    "selected_duplicate_pressure_key_rows": 0,
+    "candidate_step_column": "source_step",
+    "source_preflight_started": true,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1480-paper-route-source-diverse-pressure-bounded-replay-design.json"
+  },
+  "decision": "source_diverse_pressure_preflight_pass_route_to_bounded_replay_design",
   "decision_rule": "M1479 passes if source-diverse pressure candidates pass preflight without replay or training.",
-  "next_blocker": "m1479-paper-route-source-diverse-pressure-preflight-smoke"
+  "next_blocker": "m1480-paper-route-source-diverse-pressure-bounded-replay-design"
 }

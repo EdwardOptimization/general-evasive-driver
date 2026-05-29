@@ -1,0 +1,145 @@
+{
+  "id": "m1480-paper-route-source-diverse-pressure-bounded-replay-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1479_source_diverse_pressure_preflight_smoke/selected_candidate_rows.csv",
+      "runs/m1479_source_diverse_pressure_preflight_smoke/summary.json",
+      "docs/m1479-paper-route-source-diverse-pressure-preflight-smoke.md"
+    ],
+    "parent_config": [
+      "configs/m1419_warmup_gate_invasiveness_retune_source_wave.json",
+      "experiments/manifests/m1479-paper-route-source-diverse-pressure-preflight-smoke.json"
+    ],
+    "parent_objective": [
+      "design bounded replay smoke over source-diverse pressure preflight-pass candidates"
+    ],
+    "derived_from": [
+      "m1479-paper-route-source-diverse-pressure-preflight-smoke"
+    ],
+    "blocked_by": [
+      "bounded replay has not yet been designed for source-diverse pressure candidates"
+    ],
+    "supersedes": [
+      "preflight-only evidence as outcome evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1480-paper-route-source-diverse-pressure-bounded-replay-design.md",
+  "public_gates": [
+    "M1480 must design bounded replay only",
+    "M1480 must use M1479 selected candidate rows with --candidate-step-column source_step",
+    "M1480 must block training PPO promotion private holdout corpus export and actor-input changes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run bounded replay in this design milestone",
+    "do not run outcome interventions outside the future replay command",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat preflight result as history-positive evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_diverse_pressure_validation",
+    "evidence_axis": "S_source_diverse_pressure_bounded_replay_design",
+    "evidence_increment": "designs bounded replay smoke over M1479 source-diverse preflight-pass candidates",
+    "claim_scope": "bounded replay design only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design uses non-preflighted candidates",
+      "stop if design drops candidate_step_column source_step",
+      "stop if design admits corpus export or training before replay result audit"
+    ],
+    "fallback_plan": [
+      "route to bounded replay smoke if design passes",
+      "route to branch audit if replay cannot be specified without overfitting"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1479 passes preflight-only validation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-diverse pressure bounded replay design",
+    "admission_evidence": [
+      "M1479 preflight passed with 108 selected rows, 96 neighbor-source rows, 5 seeds and 7 capability pairs"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay in this design milestone",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1480 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up bounded replay smoke manifest"
+    ],
+    "next_stage_criteria": [
+      "bounded replay command is explicit",
+      "guardrails are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1480 is design and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future replay must test generated source-diverse candidates under normal history, warmup interventions, reset hidden, and zero-current controls"
+    ],
+    "temporal_evidence_window": "M1479 source-diverse pressure preflight smoke.",
+    "negative_result_policy": "If replay produces no source-diverse history positives, audit scenario pressure rather than exporting corpus.",
+    "allowed_claims": [
+      "source-diverse pressure bounded replay design",
+      "no replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded replay smoke over M1479 preflight-pass source-diverse pressure candidates can test whether proposal/preflight diversity transfers to outcome-sensitive replay rows.",
+  "success_criteria": [
+    "docs/m1480-paper-route-source-diverse-pressure-bounded-replay-design.md exists",
+    "design uses runs/m1479_source_diverse_pressure_preflight_smoke/selected_candidate_rows.csv",
+    "design uses candidate_step_column source_step",
+    "design blocks training PPO promotion private holdout corpus export and actor-input changes",
+    "design routes to bounded replay smoke or audit"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design starts replay",
+    "design does not use source_step",
+    "design starts training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1480-paper-route-source-diverse-pressure-bounded-replay-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1480-paper-route-source-diverse-pressure-bounded-replay-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1479-paper-route-source-diverse-pressure-preflight-smoke.md"
+  ],
+  "decision_rule": "M1480 passes if it designs bounded replay for M1479 candidates without running replay or training.",
+  "next_blocker": "m1480-paper-route-source-diverse-pressure-bounded-replay-design"
+}

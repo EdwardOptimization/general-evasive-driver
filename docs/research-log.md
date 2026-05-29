@@ -21957,3 +21957,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1479-paper-route-source-diverse-pressure-preflight-smoke.json`.
 - next: `m1479-paper-route-source-diverse-pressure-preflight-smoke`
+
+## 20260529T072000Z - m1479-paper-route-source-diverse-pressure-preflight-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1479-paper-route-source-diverse-pressure-preflight-smoke.md`
+- run artifact: `runs/m1479_source_diverse_pressure_preflight_smoke/summary.json`
+- decision: `source_diverse_pressure_preflight_pass_route_to_bounded_replay_design`
+- geometry pass rows: `108`
+- selected candidate rows: `108`
+- rejected rows: `0`
+- relocation clipped share: `0.0`
+- source body x min: `5.157241`
+- selected group counts: `96` neighbor-source, `12` original-source, `0` control-diagnostic.
+- selected diversity: `5` seeds, `7` capability pairs, `7` reveal buckets, `3` variants.
+- duplicate pressure keys: `0`
+- interpretation: source-diverse pressure candidates pass geometry preflight but still are not replay evidence.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1480-paper-route-source-diverse-pressure-bounded-replay-design.json`.
+- next: `m1480-paper-route-source-diverse-pressure-bounded-replay-design`
