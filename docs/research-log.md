@@ -26097,3 +26097,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: admit one design-only projection/repair milestone, with audit or branch synthesis before any implementation
 - follow-up manifest: `experiments/manifests/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.json`
 - next: `m1638-paper-route-contour-aware-exact-objective-projection-repair-design`
+
+## M1638 Paper-Route Contour-Aware Exact Objective Projection Repair Design
+
+- status: completed
+- decision: `contour_aware_projection_repair_design_route_to_branch_synthesis`
+- artifact: `docs/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.md`
+- failure taxonomy: `none`
+- design scope: bounded projection/repair probe from controlled `actor_mean` perturbation back toward exact action targets
+- candidate input: M1636 `scale_1e-3` perturbation recipe
+- repair scope: optimize only `actor_mean.weight` and `actor_mean.bias`; freeze encoders GRU context critic log_std and auxiliary heads
+- target: positive exact residual reduction with diagnostics as zero-weight guardrails
+- no-checkpoint rule: first projection probe must write metrics only and no `.pt`
+- cadence rule: route to M1639 branch synthesis before any implementation
+- supported: projection/repair semantics are now documented
+- unsupported: repair works, actor update safety, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- follow-up manifest: `experiments/manifests/m1639-paper-route-contour-aware-exact-objective-branch-synthesis.json`
+- next: `m1639-paper-route-contour-aware-exact-objective-branch-synthesis`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1646,
+    "completed": 1647,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit.md",
+      "command_log": "docs/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit"
+      "task_id": "m1638-paper-route-contour-aware-exact-objective-projection-repair-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.json",
-      "hypothesis": "The M1636 sensitivity result is sufficient to design a bounded exact-objective projection/repair probe before any implementation.",
-      "id": "m1638-paper-route-contour-aware-exact-objective-projection-repair-design",
+      "command": "see experiments/manifests/m1639-paper-route-contour-aware-exact-objective-branch-synthesis.json",
+      "hypothesis": "The M1629-M1638 branch evidence is sufficient to decide whether one bounded projection implementation should be admitted.",
+      "id": "m1639-paper-route-contour-aware-exact-objective-branch-synthesis",
       "kind": "gate",
-      "notes": "Pending: design projection/repair probe only and account for synthesis cadence before implementation",
-      "priority": 16330,
+      "notes": "Pending: synthesize exact-objective branch before projection implementation; no actor update training PPO promotion or private holdout",
+      "priority": 16340,
       "status": "pending",
-      "success_artifact": "docs/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.md"
+      "success_artifact": "docs/m1639-paper-route-contour-aware-exact-objective-branch-synthesis.md"
     },
-    "updated_at_utc": "20260529T195339Z"
+    "updated_at_utc": "20260529T195809Z"
 }
