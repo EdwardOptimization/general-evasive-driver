@@ -21001,3 +21001,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1422-paper-route-m1419-outcome-result-audit.json`.
 - next: `m1422-paper-route-m1419-outcome-result-audit`
+
+## 20260529T063000Z - m1422-paper-route-m1419-outcome-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1422-paper-route-m1419-outcome-result-audit.md`
+- decision: `m1419_outcome_audit_pivot_to_action_divergent_outcome_pressure_design`
+- synthesis decision: `pivot`
+- closed branch: `paper_route_staged_warmup_outcome_validation`
+- new branch: `paper_route_action_divergent_outcome_pressure_design`
+- classification: `scenario_sampling_failure`
+- evidence: M1421 evaluated `2016` rows from `252` candidates and found `0` warmup-history-positive rows with `1` zero-current control row.
+- falsified claim: the lower-invasiveness M1419 staged warmup source does not improve source-diverse warmup-history outcome evidence over M1412.
+- overfit risk: further staged-warmup local retuning would be high-risk public-gate overfit.
+- route: pivot to designing matched-current action-divergent terminal-margin-sensitive source/outcome pressure; do not run another staged warmup geometry retune.
+- guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1423-paper-route-action-divergent-outcome-pressure-design.json`.
+- next: `m1423-paper-route-action-divergent-outcome-pressure-design`

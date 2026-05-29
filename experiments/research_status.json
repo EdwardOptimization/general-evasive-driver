@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1431,
+    "completed": 1432,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1421-paper-route-m1419-source-collision-stratified-outcome-probe.md",
+    "command_log": "docs/m1422-paper-route-m1419-outcome-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1421_m1419_source_collision_stratified_outcome_probe",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m1421-paper-route-m1419-source-collision-stratified-outcome-probe"
+    "task_id": "m1422-paper-route-m1419-outcome-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1422-paper-route-m1419-outcome-result-audit.json",
-    "hypothesis": "M1421 is a reset/current-only negative result that should stop direct staged warmup outcome probing unless a clearly new diagnostic axis is justified.",
-    "id": "m1422-paper-route-m1419-outcome-result-audit",
+    "command": "see experiments/manifests/m1423-paper-route-action-divergent-outcome-pressure-design.json",
+    "hypothesis": "A design that explicitly targets matched-current action-divergent and terminal-margin-sensitive cases is a better next evidence axis than further staged warmup geometry retuning.",
+    "id": "m1423-paper-route-action-divergent-outcome-pressure-design",
     "kind": "gate",
-    "notes": "Pending: audit M1421 zero warmup-history result before any further experiment",
-    "priority": 14170,
+    "notes": "Pending: design a new no-training action-divergent outcome-pressure route after M1421 negative result",
+    "priority": 14180,
     "status": "pending",
-    "success_artifact": "docs/m1422-paper-route-m1419-outcome-result-audit.md"
+    "success_artifact": "docs/m1423-paper-route-action-divergent-outcome-pressure-design.md"
   },
-  "updated_at_utc": "20260529T062000Z"
+  "updated_at_utc": "20260529T063000Z"
 }

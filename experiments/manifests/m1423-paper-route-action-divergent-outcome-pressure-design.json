@@ -1,0 +1,156 @@
+{
+  "id": "m1423-paper-route-action-divergent-outcome-pressure-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1421_m1419_source_collision_stratified_outcome_probe/summary.json",
+      "docs/m1422-paper-route-m1419-outcome-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1422-paper-route-m1419-outcome-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a new no-training action-divergent outcome-pressure route after staged warmup outcome validation failed"
+    ],
+    "derived_from": [
+      "m1422-paper-route-m1419-outcome-result-audit"
+    ],
+    "blocked_by": [
+      "M1421 found zero warmup-history-positive outcome rows despite clean source materialization and stratified diagnostics"
+    ],
+    "supersedes": [
+      "another staged warmup gate retune",
+      "another direct M1419 outcome probe",
+      "training from M1421 rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1423-paper-route-action-divergent-outcome-pressure-design.md",
+  "public_gates": [
+    "M1423 must design a new evidence axis rather than continuing staged warmup retuning",
+    "M1423 must target matched-current action-divergent terminal-margin-sensitive cases",
+    "M1423 must separate action-critical rows from outcome-critical rows",
+    "M1423 must not run source smoke outcome interventions train run PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source smoke",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not continue local staged warmup geometry tuning",
+    "do not claim self-identification from M1421"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_action_divergent_outcome_pressure_design",
+    "evidence_axis": "D_action_divergent_outcome_pressure_design",
+    "evidence_increment": "designs a new task/source route that turns action-divergent history effects into terminal outcome pressure after staged warmup outcome validation failed",
+    "claim_scope": "design only; no source smoke outcome intervention training PPO promotion private holdout corpus export paper-level or strong self-identification claim",
+    "stop_condition": [
+      "stop if design reuses staged warmup retuning without a new evidence axis",
+      "stop if design routes directly to training or corpus export",
+      "stop if design requires actor input changes",
+      "stop if design cannot define source-diverse outcome-pressure gates"
+    ],
+    "fallback_plan": [
+      "pivot to benchmark/generalization cleanup if no credible outcome-pressure design exists",
+      "admit one no-training implementation only if gates and stop conditions are pre-registered",
+      "route to branch synthesis if design reveals no viable new evidence axis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_new_branch_after_m1422_pivot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "action-divergent outcome-pressure design",
+    "admission_evidence": [
+      "M1421 had 1524 action-critical rows but zero warmup-history-positive outcome rows",
+      "M1422 pivots away from staged warmup geometry retuning"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source smoke",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1423 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "new evidence axis is explicit",
+      "source/outcome gates are pre-registered",
+      "forbidden shortcuts are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1423 must design tests that separate current-frame action changes from historical command-response necessity.",
+    "history_necessity_tests": [
+      "matched-current action-divergent source design",
+      "wrong-history and same-recent wrong-history variants",
+      "reset and zero-current controls",
+      "terminal-margin-sensitive outcome gates"
+    ],
+    "temporal_evidence_window": "Design follows M1421 negative outcome probe.",
+    "negative_result_policy": "If the design cannot make history interventions outcome-sensitive without shortcuts, record that and pivot or stop instead of weakening the self-ID standard.",
+    "allowed_claims": [
+      "action-divergent outcome-pressure design and next route decision",
+      "no promotion corpus export training PPO private-holdout high-fidelity paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A design that explicitly targets matched-current action-divergent and terminal-margin-sensitive cases is a better next evidence axis than further staged warmup geometry retuning.",
+  "success_criteria": [
+    "docs/m1423-paper-route-action-divergent-outcome-pressure-design.md exists",
+    "design explains why M1421 failed",
+    "design defines source-diverse action-divergent outcome-pressure gates",
+    "design pre-registers forbidden shortcuts and next route",
+    "design chooses a non-training next route without source smoke outcome intervention training PPO promotion private holdout corpus export or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design repeats staged warmup gate retuning without a new evidence axis",
+    "design routes directly to training PPO promotion private holdout corpus export or claim expansion",
+    "design ignores current-frame substitution risk"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1423-paper-route-action-divergent-outcome-pressure-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1423-paper-route-action-divergent-outcome-pressure-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1422-paper-route-m1419-outcome-result-audit.md",
+    "runs/m1421_m1419_source_collision_stratified_outcome_probe/summary.json"
+  ],
+  "decision_rule": "M1423 passes if it defines a new no-training action-divergent outcome-pressure route with gates before implementation.",
+  "next_blocker": "m1423-paper-route-action-divergent-outcome-pressure-design"
+}

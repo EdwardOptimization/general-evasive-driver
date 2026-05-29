@@ -16,21 +16,43 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1421-paper-route-m1419-source-collision-stratified-outcome-probe
+m1422-paper-route-m1419-outcome-result-audit
 ```
 
 Current next task:
 
 ```text
-m1422-paper-route-m1419-outcome-result-audit
+m1423-paper-route-action-divergent-outcome-pressure-design
 ```
 
-M1421 ran the no-training M1419 source outcome probe. The current public-gate
-base remains M1362 alpha `0.1`:
+M1422 audited the negative M1421 outcome result. The current public-gate base
+remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1422 result:
+
+```text
+decision: m1419_outcome_audit_pivot_to_action_divergent_outcome_pressure_design
+synthesis_decision: pivot
+closed_branch: paper_route_staged_warmup_outcome_validation
+new_branch: paper_route_action_divergent_outcome_pressure_design
+M1421 selected_candidate_rows: 252
+M1421 outcome_rows: 2016
+M1421 warmup_history_positive_rows: 0
+M1421 accepted_zero_current_rows: 1
+M1421 action_critical_rows: 1524
+failure_type: scenario_sampling_failure
+selected route: action-divergent outcome-pressure design
+next: m1423-paper-route-action-divergent-outcome-pressure-design
+```
+
+M1422 stops direct staged warmup outcome validation. M1421 showed that the
+cleaner M1419 source is evaluable but has zero warmup-history-positive outcome
+rows. The next branch must design a new evidence axis around matched-current,
+action-divergent, terminal-margin-sensitive cases.
 
 M1421 result:
 

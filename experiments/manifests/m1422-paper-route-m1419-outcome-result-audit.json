@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -72,8 +72,26 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "not_due_new_branch_after_m1420_promote_to_next_branch",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m1422-paper-route-m1419-outcome-result-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
+  "synthesis_artifact": "docs/m1422-paper-route-m1419-outcome-result-audit.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
   "training_stage": {
     "stage": "process",
     "stage_objective": "M1419 outcome result audit",
@@ -150,6 +168,36 @@
   "baseline_artifacts": [
     "runs/m1421_m1419_source_collision_stratified_outcome_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1422-paper-route-m1419-outcome-result-audit.md",
+    "decision": "m1419_outcome_audit_pivot_to_action_divergent_outcome_pressure_design",
+    "synthesis_decision": "pivot",
+    "closed_branch": "paper_route_staged_warmup_outcome_validation",
+    "new_branch": "paper_route_action_divergent_outcome_pressure_design",
+    "m1421_selected_candidate_rows": 252,
+    "m1421_outcome_rows": 2016,
+    "m1421_accepted_outcome_rows": 1,
+    "m1421_warmup_history_positive_rows": 0,
+    "m1421_accepted_zero_current_rows": 1,
+    "m1421_action_critical_rows": 1524,
+    "m1421_normal_failed_rows": 800,
+    "failure_type": "scenario_sampling_failure",
+    "public_gate_overfit_risk": "high_for_more_staged_warmup_retuning",
+    "selected_route": "action_divergent_outcome_pressure_design",
+    "source_smoke_started": false,
+    "outcome_probe_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1423-paper-route-action-divergent-outcome-pressure-design.json"
+  },
+  "decision": "m1419_outcome_audit_pivot_to_action_divergent_outcome_pressure_design",
   "decision_rule": "M1422 passes if it classifies M1421 and chooses a non-training next route.",
-  "next_blocker": "m1422-paper-route-m1419-outcome-result-audit"
+  "next_blocker": "m1423-paper-route-action-divergent-outcome-pressure-design"
 }
