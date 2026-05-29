@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1503,
+    "completed": 1504,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1494-paper-route-go-no-go-profile-runtime-smoke.md",
+    "command_log": "docs/m1495-paper-route-go-no-go-profile-one-seed-smoke.md",
     "returncode": 0,
-    "run_dir": "runs/m1494_go_no_go_profile_runtime_smoke",
+    "run_dir": "runs/m1495_go_no_go_profile_one_seed_smoke",
     "status": "completed",
-    "task_id": "m1494-paper-route-go-no-go-profile-runtime-smoke"
+    "task_id": "m1495-paper-route-go-no-go-profile-one-seed-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1495-paper-route-go-no-go-profile-one-seed-smoke.json",
-    "hypothesis": "The refreshed 12-profile go/no-go matrix can complete one matched fixed-budget train/eval seed per profile with finite metrics.",
-    "id": "m1495-paper-route-go-no-go-profile-one-seed-smoke",
+    "command": "see experiments/manifests/m1496-paper-route-go-no-go-one-seed-result-audit.json",
+    "hypothesis": "M1495 should be treated as a clean plumbing pass with non-conclusive but important L2 current-tiled and L3 reset-control trends.",
+    "id": "m1496-paper-route-go-no-go-one-seed-result-audit",
     "kind": "gate",
-    "notes": "Pending: run one fixed-budget train/eval seed per profile as plumbing smoke only",
-    "priority": 14900,
+    "notes": "Pending: audit M1495 one-seed completion and non-conclusive L2 current-tiled and L3 reset trends before any 3-seed pilot",
+    "priority": 14910,
     "status": "pending",
-    "success_artifact": "runs/m1495_go_no_go_profile_one_seed_smoke/summary.json"
+    "success_artifact": "docs/m1496-paper-route-go-no-go-one-seed-result-audit.md"
   },
-  "updated_at_utc": "20260529T071031Z"
+  "updated_at_utc": "20260529T071837Z"
 }

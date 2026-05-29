@@ -22247,3 +22247,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1495-paper-route-go-no-go-profile-one-seed-smoke.json`.
 - next: `m1495-paper-route-go-no-go-profile-one-seed-smoke`
+
+## M1495 Paper-Route Go/No-Go Profile One-Seed Smoke
+
+- status: completed
+- decision: `go_no_go_profile_one_seed_smoke_completed_route_to_audit`
+- result class: `corrected_profile_pilot_completed`
+- run dir: `runs/m1495_go_no_go_profile_one_seed_smoke`
+- summary: `runs/m1495_go_no_go_profile_one_seed_smoke/summary.json`
+- profile count: 12
+- total seed runs: 12
+- completed seed runs: 12
+- failed seed runs: 0
+- all selected profile seed runs complete: true
+- all eval metrics finite: true
+- private holdout used: false
+- promoted: false
+- profile specific tuning: false
+- actor input contract changed: false
+- one-seed trend: L2 windows and current-tiled controls all score success/collision 0.6875/0.3125; L3 online scores 0.0 success while corrected reset scores 0.1875.
+- interpretation: plumbing pass only; one-seed trends are non-conclusive and require audit before any 3-seed pilot.
+- guardrail: no promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1496-paper-route-go-no-go-one-seed-result-audit.json`.
+- next: `m1496-paper-route-go-no-go-one-seed-result-audit`

@@ -1,0 +1,148 @@
+{
+  "id": "m1496-paper-route-go-no-go-one-seed-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1495_go_no_go_profile_one_seed_smoke/summary.json",
+      "runs/m1495_go_no_go_profile_one_seed_smoke/profile_aggregate.csv",
+      "docs/m1495-paper-route-go-no-go-profile-one-seed-smoke.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1495-paper-route-go-no-go-profile-one-seed-smoke.json"
+    ],
+    "parent_objective": [
+      "audit one-seed go/no-go profile smoke before any 3-seed pilot"
+    ],
+    "derived_from": [
+      "m1495-paper-route-go-no-go-profile-one-seed-smoke"
+    ],
+    "blocked_by": [
+      "M1495 is a one-seed plumbing smoke and cannot support profile ranking or self-ID claims"
+    ],
+    "supersedes": [
+      "direct promotion from M1495",
+      "direct 3-seed pilot without auditing the L2 current-tiled and L3 reset trends"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1496-paper-route-go-no-go-one-seed-result-audit.md",
+  "public_gates": [
+    "M1496 must audit M1495 before any 3-seed pilot",
+    "M1496 must separate plumbing completion from one-seed trend interpretation",
+    "M1496 must report L2 normal/current-tiled and L3 online/reset trends",
+    "M1496 must block profile ranking, promotion, private holdout, corpus export, and self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim architecture ranking or recurrent self-identification from one seed"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_self_id_go_no_go_matrix",
+    "evidence_axis": "G_one_seed_profile_result_audit",
+    "evidence_increment": "audits one-seed matrix completion and decides whether 3-seed pilot is justified",
+    "claim_scope": "result audit only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats one-seed trends as profile ranking",
+      "stop if audit ignores current-tiled parity",
+      "stop if audit ignores L3 online versus reset-control trend",
+      "stop if audit admits promotion or private holdout"
+    ],
+    "fallback_plan": [
+      "route to 3-seed public pilot only if plumbing is clean and audit accepts public-trend value",
+      "route to L3 recipe repair or decisive-task route if standard profile scaling is not high leverage"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "one-seed smoke completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "one-seed profile smoke result audit",
+    "admission_evidence": [
+      "M1495 completed 12 of 12 profile runs with finite metrics"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1496 audit document",
+      "status queue scoreboard research log and review",
+      "one follow-up 3-seed public pilot or repair/design manifest"
+    ],
+    "next_stage_criteria": [
+      "plumbing completion is classified",
+      "one-seed trends are classified as non-conclusive",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1496 audits whether current-tiled controls match L2, but cannot make self-ID claims from one seed.",
+    "history_necessity_tests": [
+      "audit L2 normal versus current-tiled one-seed trend",
+      "audit L3 online versus corrected reset-control one-seed trend"
+    ],
+    "temporal_evidence_window": "one fixed-budget public seed per profile.",
+    "negative_result_policy": "Record negative trends without overclaiming; decide whether more profile scaling or a different decisive task is justified.",
+    "allowed_claims": [
+      "M1496 audits one-seed profile smoke",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1495 should be treated as a clean plumbing pass with non-conclusive but important L2 current-tiled and L3 reset-control trends.",
+  "success_criteria": [
+    "docs/m1496-paper-route-go-no-go-one-seed-result-audit.md exists",
+    "audit records completion and finite metrics",
+    "audit records L2 normal/current-tiled one-seed trend",
+    "audit records L3 online/reset one-seed trend",
+    "audit blocks promotion private holdout profile ranking corpus export and self-ID claims",
+    "audit routes to 3-seed pilot or a clearly justified alternative"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats one-seed trends as ranking",
+    "audit ignores controls",
+    "audit starts training replay PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1496-paper-route-go-no-go-one-seed-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1496-paper-route-go-no-go-one-seed-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1495_go_no_go_profile_one_seed_smoke/summary.json",
+    "runs/m1495_go_no_go_profile_one_seed_smoke/profile_aggregate.csv"
+  ],
+  "decision_rule": "M1496 passes if it audits M1495 and routes the matrix branch without overclaiming one-seed trends.",
+  "next_blocker": "m1496-paper-route-go-no-go-one-seed-result-audit"
+}

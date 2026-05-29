@@ -147,6 +147,35 @@
     "runs/m1494_go_no_go_profile_runtime_smoke/summary.json",
     "configs/paper_route_corrected_profiles"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1495-paper-route-go-no-go-profile-one-seed-smoke.md",
+    "decision": "go_no_go_profile_one_seed_smoke_completed_route_to_audit",
+    "result_class": "corrected_profile_pilot_completed",
+    "run_dir": "runs/m1495_go_no_go_profile_one_seed_smoke",
+    "summary_json": "runs/m1495_go_no_go_profile_one_seed_smoke/summary.json",
+    "profile_count": 12,
+    "main_profile_count": 7,
+    "diagnostic_profile_count": 5,
+    "total_seed_runs": 12,
+    "completed_seed_runs": 12,
+    "failed_seed_runs": 0,
+    "all_selected_profile_seed_runs_complete": true,
+    "all_eval_metrics_finite": true,
+    "runtime_seconds": 76.01888975896873,
+    "l2_success_rate": 0.6875,
+    "l2_current_tiled_success_rate": 0.6875,
+    "l3_online_success_rate": 0.0,
+    "l3_reset_success_rate": 0.1875,
+    "private_holdout_used": false,
+    "promoted": false,
+    "profile_specific_tuning": false,
+    "actor_input_contract_changed": false,
+    "self_identification_claimed": false,
+    "paper_level_claimed": false,
+    "next_manifest": "experiments/manifests/m1496-paper-route-go-no-go-one-seed-result-audit.json"
+  },
+  "decision": "go_no_go_profile_one_seed_smoke_completed_route_to_audit",
   "decision_rule": "M1495 passes if the one-seed fixed-budget profile smoke completes all 12 profile runs with finite metrics and no promotion/private holdout.",
-  "next_blocker": "m1495-paper-route-go-no-go-profile-one-seed-smoke"
+  "next_blocker": "m1496-paper-route-go-no-go-one-seed-result-audit"
 }

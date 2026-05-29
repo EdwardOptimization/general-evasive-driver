@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1494-paper-route-go-no-go-profile-runtime-smoke
+m1495-paper-route-go-no-go-profile-one-seed-smoke
 ```
 
 Current next task:
 
 ```text
-m1495-paper-route-go-no-go-profile-one-seed-smoke
+m1496-paper-route-go-no-go-one-seed-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -40,12 +40,36 @@ M1490 ran the bounded replay and produced local positives that are still
 source-singleton/control-sensitive. M1491 audited that result and applied the
 M1488 hard stop. M1492 designed the L0/L1/L2/L3 self-ID go/no-go matrix. M1493
 refreshed the config layer to the full 12-profile matrix. M1494 passed
-no-training runtime smoke for all 12 configs. The current public-gate base
-remains M1362 alpha `0.1`:
+no-training runtime smoke for all 12 configs. M1495 completed one fixed-budget
+train/eval seed per profile. The current public-gate base remains M1362 alpha
+`0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1495 one-seed smoke:
+
+```text
+decision: go_no_go_profile_one_seed_smoke_completed_route_to_audit
+run: runs/m1495_go_no_go_profile_one_seed_smoke
+result_class: corrected_profile_pilot_completed
+profile_count: 12
+total_seed_runs: 12
+completed_seed_runs: 12
+failed_seed_runs: 0
+all_eval_metrics_finite: true
+private_holdout_used: false
+promoted: false
+profile_specific_tuning: false
+actor_input_contract_changed: false
+trend: L2 windows/current-tiled controls success 0.6875; L3 online success 0.0; L3 reset success 0.1875
+next: m1496-paper-route-go-no-go-one-seed-result-audit
+```
+
+M1495 is a plumbing pass only. The one-seed trend is informative but not a
+ranking or self-ID result. M1496 must audit whether to run a 3-seed public
+pilot, repair L3 training, or pivot to decisive-task evidence.
 
 M1494 runtime smoke:
 
