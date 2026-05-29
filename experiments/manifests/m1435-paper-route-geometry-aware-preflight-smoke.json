@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -167,6 +167,39 @@
     "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv",
     "docs/m1434-paper-route-geometry-preflight-only-command-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1435_geometry_aware_preflight_smoke/summary.json",
+    "decision": "geometry_aware_preflight_no_forward_rows_route_to_audit",
+    "result_class": "geometry_aware_preflight_no_forward_rows",
+    "input_rows": 846,
+    "history_candidate_rows": 846,
+    "geometry_pass_rows": 0,
+    "selected_candidate_rows": 0,
+    "rejected_rows": 0,
+    "rejection_source_body_x_too_close": 57,
+    "rejection_source_body_x_too_close_and_clipped": 789,
+    "source_body_x_min": -3.508074,
+    "source_body_x_p50": -0.205025,
+    "source_body_x_p95": 3.812155,
+    "source_body_x_max": 3.908281,
+    "raw_relocated_body_x_p50": -1.702453,
+    "raw_relocated_body_x_p95": 2.162954,
+    "raw_relocated_body_x_max": 3.495281,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1436-paper-route-geometry-preflight-result-audit.json"
+  },
+  "decision": "geometry_aware_preflight_no_forward_rows_route_to_audit",
   "decision_rule": "M1435 passes only if preflight-only source geometry and diversity gates pass without replay or training.",
-  "next_blocker": "m1435-paper-route-geometry-aware-preflight-smoke"
+  "next_blocker": "m1436-paper-route-geometry-preflight-result-audit"
 }

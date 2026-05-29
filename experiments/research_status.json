@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1444,
+    "completed": 1445,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1434-paper-route-geometry-preflight-only-command-implementation.md",
+    "command_log": "runs/m1435_geometry_aware_preflight_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m1435_geometry_aware_preflight_smoke",
     "status": "completed",
-    "task_id": "m1434-paper-route-geometry-preflight-only-command-implementation"
+    "task_id": "m1435-paper-route-geometry-aware-preflight-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1435-paper-route-geometry-aware-preflight-smoke.json",
-    "hypothesis": "The M1425 pressure rows contain enough forward unclipped source-diverse geometry to justify a later bounded relocation replay design.",
-    "id": "m1435-paper-route-geometry-aware-preflight-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: run preflight-only source geometry validation on public M1425 rows without replay or training",
-    "priority": 14300,
+    "command": "see experiments/manifests/m1436-paper-route-geometry-preflight-result-audit.json",
+    "hypothesis": "M1435's zero geometry-pass result means the M1425 source pool is too late/near for forward unclipped replay, so source mining must be reconsidered before replay.",
+    "id": "m1436-paper-route-geometry-preflight-result-audit",
+    "kind": "gate",
+    "notes": "Pending: classify M1435 zero-forward-geometry source-pool failure and choose guarded next route",
+    "priority": 14310,
     "status": "pending",
-    "success_artifact": "runs/m1435_geometry_aware_preflight_smoke/summary.json"
+    "success_artifact": "docs/m1436-paper-route-geometry-preflight-result-audit.md"
   },
-  "updated_at_utc": "20260529T030059Z"
+  "updated_at_utc": "20260529T030432Z"
 }

@@ -1,0 +1,97 @@
+{
+  "decision_reason": "M1435 preflight-only run found 0 geometry-pass and 0 selected rows across 846 M1425 pressure rows with source_body_x max 3.908 so route to audit",
+  "failure_criteria": [
+    "summary missing",
+    "geometry or diversity gates fail",
+    "preflight rows are counted as replay evidence",
+    "run starts replay training PPO promotion private holdout corpus export or actor-input changes"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not lower geometry gates after seeing the result",
+    "do not count preflight rows as actual replay or history-positive evidence"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260529T030633Z",
+  "hypothesis": "The M1425 pressure rows contain enough forward unclipped source-diverse geometry to justify a later bounded relocation replay design.",
+  "lineage": {
+    "blocked_by": [
+      "M1434 implemented preflight-only command but source viability has not been measured"
+    ],
+    "derived_from": [
+      "m1434-paper-route-geometry-preflight-only-command-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "configs/m1419_warmup_gate_invasiveness_retune_source_wave.json",
+      "experiments/manifests/m1434-paper-route-geometry-preflight-only-command-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv",
+      "docs/m1434-paper-route-geometry-preflight-only-command-implementation.md"
+    ],
+    "parent_objective": [
+      "run public geometry-aware preflight-only smoke before bounded replay"
+    ],
+    "supersedes": [
+      "running bounded replay before geometry-aware preflight smoke"
+    ]
+  },
+  "milestone": "m1435-paper-route-geometry-aware-preflight-smoke",
+  "next_blocker": "m1436-paper-route-geometry-preflight-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "geometry_aware_preflight_no_forward_rows_route_to_audit",
+  "public_gates": [
+    "M1435 must run --preflight-only on public M1425 rows",
+    "M1435 must report forward geometry rows selected rows clipping share and source diversity",
+    "M1435 must not run bounded replay train PPO promote use private holdout export corpus or change actor inputs",
+    "M1435 must route to audit if geometry/source gates fail"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1435_geometry_aware_preflight_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "geometry_aware_preflight_no_forward_rows_route_to_audit",
+    "milestone": "m1435-paper-route-geometry-aware-preflight-smoke",
+    "reason": "M1435 preflight-only run found 0 geometry-pass and 0 selected rows across 846 M1425 pressure rows with source_body_x max 3.908 so route to audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1435_geometry_aware_preflight_smoke/summary.json exists",
+    "geometry_pass_rows >= 64",
+    "selected_candidate_rows >= 64",
+    "selected_diversity.unique_source_seeds >= 6",
+    "selected_diversity.unique_capability_pairs >= 8",
+    "selected_diversity.unique_reveal_buckets >= 6",
+    "selected_diversity.unique_variants >= 2",
+    "selected_diversity.max_single_seed_share <= 0.35",
+    "relocation_clipped_share <= 0.10",
+    "source_body_x_min >= 4.0",
+    "replay_started false",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "type": "infrastructure"
+}

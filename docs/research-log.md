@@ -21217,3 +21217,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source preflight run, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1435-paper-route-geometry-aware-preflight-smoke.json`.
 - next: `m1435-paper-route-geometry-aware-preflight-smoke`
+
+## 20260529T030432Z - m1435-paper-route-geometry-aware-preflight-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `proof`
+- artifact: `runs/m1435_geometry_aware_preflight_smoke/summary.json`
+- decision: `geometry_aware_preflight_no_forward_rows_route_to_audit`
+- result class: `geometry_aware_preflight_no_forward_rows`
+- counts: input rows `846`, history-candidate rows `846`, geometry-pass rows `0`, selected-candidate rows `0`, rejected rows `0`.
+- rejection reasons: `789` rows `source_body_x_too_close|relocation_body_x_clipped`; `57` rows `source_body_x_too_close`.
+- source body-x: min `-3.508074`, p50 `-0.205025`, p95 `3.812155`, max `3.908281`.
+- raw relocated body-x: p50 `-1.702453`, p95 `2.162954`, max `3.495281`.
+- interpretation: the full M1425 pressure-row pool is too late/near for forward unclipped replay source geometry; this is source-pool failure, not no-history evidence.
+- guardrail: no bounded replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1436-paper-route-geometry-preflight-result-audit.json`.
+- next: `m1436-paper-route-geometry-preflight-result-audit`

@@ -1,0 +1,155 @@
+{
+  "id": "m1436-paper-route-geometry-preflight-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1435_geometry_aware_preflight_smoke/summary.json",
+      "docs/m1435-paper-route-geometry-aware-preflight-smoke.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1435-paper-route-geometry-aware-preflight-smoke.json"
+    ],
+    "parent_objective": [
+      "audit zero forward-geometry rows in M1435 before threshold changes or replay"
+    ],
+    "derived_from": [
+      "m1435-paper-route-geometry-aware-preflight-smoke"
+    ],
+    "blocked_by": [
+      "M1435 geometry_pass_rows=0 and selected_candidate_rows=0 across all 846 M1425 pressure rows"
+    ],
+    "supersedes": [
+      "running bounded replay from M1435 rows",
+      "lowering source_body_x gates after seeing M1435",
+      "training or corpus export from geometry-failed rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1436-paper-route-geometry-preflight-result-audit.md",
+  "public_gates": [
+    "M1436 must classify M1435 before source mining replay retuning or training",
+    "M1436 must decide whether to pivot to earlier-reveal/source mining or stop",
+    "M1436 must not run source preflight replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not lower geometry gates after seeing M1435",
+    "do not count preflight rows as replay or history-positive evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_geometry_aware_preflight_validation",
+    "evidence_axis": "A_geometry_preflight_no_forward_rows_audit",
+    "evidence_increment": "classifies M1435 zero-forward-geometry result before choosing source mining, replay redesign, or stop",
+    "claim_scope": "process audit only; no source preflight, replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit lowers source_body_x gate",
+      "stop if audit treats preflight failure as no-history evidence",
+      "stop if audit routes directly to replay or training from M1435 rows"
+    ],
+    "fallback_plan": [
+      "route to earlier-reveal/source mining design if source-pool timing is the blocker",
+      "route to different source family if M1425 rows are exhausted",
+      "stop branch if no valid source-generation route remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_new_branch_after_m1433_promote_to_next_branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "geometry preflight result audit",
+    "admission_evidence": [
+      "M1435 input_rows=846",
+      "M1435 geometry_pass_rows=0",
+      "M1435 selected_candidate_rows=0",
+      "M1435 source_body_x max=3.908281 below 4.0 gate"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source preflight",
+      "do not run replay",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1436 audit document",
+      "status queue scoreboard research log and review",
+      "one follow-up source-mining or stop manifest"
+    ],
+    "next_stage_criteria": [
+      "failure mode classified",
+      "supported and falsified claims explicit",
+      "next route explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1436 audits source geometry only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "audit whether M1435 source pool can support future history replay",
+      "record that preflight rows are not history-positive replay evidence"
+    ],
+    "temporal_evidence_window": "M1435 public preflight-only source geometry result.",
+    "negative_result_policy": "If source geometry is invalid, record sampling limitation and route to source mining instead of weakening history standards.",
+    "allowed_claims": [
+      "M1435 result classification and next route decision",
+      "no replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1435's zero geometry-pass result means the M1425 source pool is too late/near for forward unclipped replay, so source mining must be reconsidered before replay.",
+  "success_criteria": [
+    "docs/m1436-paper-route-geometry-preflight-result-audit.md exists",
+    "audit explains M1435 geometry_pass_rows selected_candidate_rows source_body_x and clipping results",
+    "audit classifies whether M1435 is a source-pool failure or implementation failure",
+    "audit chooses a non-training next route or stop decision",
+    "audit does not run source preflight replay training PPO promotion private holdout corpus export or actor-input changes"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores zero geometry-pass rows",
+    "audit lowers geometry thresholds after seeing M1435",
+    "audit routes directly to replay training PPO promotion private holdout corpus export or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1436-paper-route-geometry-preflight-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1436-paper-route-geometry-preflight-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1435_geometry_aware_preflight_smoke/summary.json",
+    "docs/m1435-paper-route-geometry-aware-preflight-smoke.md"
+  ],
+  "decision_rule": "M1436 passes if it classifies M1435 and chooses a guarded non-training next route.",
+  "next_blocker": "m1436-paper-route-geometry-preflight-result-audit"
+}

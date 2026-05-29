@@ -16,21 +16,45 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1434-paper-route-geometry-preflight-only-command-implementation
+m1435-paper-route-geometry-aware-preflight-smoke
 ```
 
 Current next task:
 
 ```text
-m1435-paper-route-geometry-aware-preflight-smoke
+m1436-paper-route-geometry-preflight-result-audit
 ```
 
-M1434 implemented the no-replay preflight-only command. The current public-gate base
+M1435 ran the geometry-aware preflight-only smoke. The current public-gate base
 remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1435 result:
+
+```text
+decision: geometry_aware_preflight_no_forward_rows_route_to_audit
+input_rows: 846
+history_candidate_rows: 846
+geometry_pass_rows: 0
+selected_candidate_rows: 0
+source_body_x_min: -3.508074
+source_body_x_p50: -0.205025
+source_body_x_p95: 3.812155
+source_body_x_max: 3.908281
+raw_relocated_body_x_p95: 2.162954
+raw_relocated_body_x_max: 3.495281
+replay_started: false
+training_started: false
+next: m1436-paper-route-geometry-preflight-result-audit
+```
+
+M1435 shows the full M1425 pressure-row pool is too late/near for the
+forward/unclipped source-geometry gate. It does not prove history is
+unnecessary. M1436 must audit before any threshold change, replay, training, or
+source-mining pivot.
 
 M1434 result:
 
@@ -48,7 +72,8 @@ next: m1435-paper-route-geometry-aware-preflight-smoke
 
 M1435 should run the preflight-only command on public M1425 rows. It must not
 run bounded replay, train, run PPO, promote, use private holdout, export corpus,
-or change actor inputs.
+or change actor inputs. M1435 completed the preflight and found zero
+geometry-pass rows.
 
 M1433 result:
 
