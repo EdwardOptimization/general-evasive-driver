@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1673,
+    "completed": 1674,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit.md",
+      "command_log": "docs/m1665-paper-route-fusion-actor-artifact-replay-gate-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit"
+      "task_id": "m1665-paper-route-fusion-actor-artifact-replay-gate-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1665-paper-route-fusion-actor-artifact-replay-gate-design.json",
-      "hypothesis": "A staged public replay-gate design can safely evaluate the M1663 objective-sanity artifact without conflating artifact load sanity, first proof checks, full replay stack, or promotion.",
-      "id": "m1665-paper-route-fusion-actor-artifact-replay-gate-design",
+      "command": "see experiments/manifests/m1666-paper-route-fusion-actor-artifact-replay-first-check.json",
+      "hypothesis": "The M1663 artifact can pass checkpoint sanity and the first M183/M170 plus M267/M264 public proof replay checks before full-stack replay is considered.",
+      "id": "m1666-paper-route-fusion-actor-artifact-replay-first-check",
       "kind": "gate",
-      "notes": "Pending: design staged artifact replay gates before any replay execution",
-      "priority": 16600,
+      "notes": "Pending: run checkpoint sanity plus first public proof replay checks before audit",
+      "priority": 16610,
       "status": "pending",
-      "success_artifact": "docs/m1665-paper-route-fusion-actor-artifact-replay-gate-design.md"
+      "success_artifact": "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json"
     },
-    "updated_at_utc": "20260529T220836Z"
+    "updated_at_utc": "20260529T221114Z"
 }

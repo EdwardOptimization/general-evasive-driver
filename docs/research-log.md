@@ -26669,3 +26669,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: replay execution, behavior retention, PPO-proposal repair, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1665-paper-route-fusion-actor-artifact-replay-gate-design.json`
 - next: `m1665-paper-route-fusion-actor-artifact-replay-gate-design`
+
+## M1665 Paper-Route Fusion Actor Artifact Replay Gate Design
+
+- status: completed
+- decision: `fusion_actor_artifact_replay_gate_design_admit_first_check_implementation`
+- artifact: `docs/m1665-paper-route-fusion-actor-artifact-replay-gate-design.md`
+- artifact checkpoint: `runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt`
+- artifact sha256: `c7829fc0596bd6658440fd343282a4cbb2907a37b6b30424698c2e29d0b8c191`
+- stage 0: checkpoint load and P0 actor-contract sanity
+- stage 1: M183/M170 and M267/M264 first public proof replay checks
+- stage 2: full public replay stack remains blocked until later design after audit
+- supported: staged first-check replay gate design and failure taxonomy
+- unsupported: replay execution, full-stack replay, PPO, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1666-paper-route-fusion-actor-artifact-replay-first-check.json`
+- next: `m1666-paper-route-fusion-actor-artifact-replay-first-check`

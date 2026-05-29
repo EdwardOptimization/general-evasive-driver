@@ -1,0 +1,175 @@
+{
+  "id": "m1666-paper-route-fusion-actor-artifact-replay-first-check",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1665-paper-route-fusion-actor-artifact-replay-gate-design.md",
+      "runs/m1663_fusion_actor_checkpoint_artifact/summary.json",
+      "runs/m1663_fusion_actor_checkpoint_artifact/artifact_metadata.json",
+      "runs/m1663_fusion_actor_checkpoint_artifact/checksums.sha256"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1665-paper-route-fusion-actor-artifact-replay-gate-design.json"
+    ],
+    "parent_objective": [
+      "run checkpoint sanity and first public proof replay checks for the M1663 artifact"
+    ],
+    "derived_from": [
+      "m1665-paper-route-fusion-actor-artifact-replay-gate-design"
+    ],
+    "blocked_by": [
+      "M1665 admits only Stage 0 and Stage 1 first-check replay; full-stack replay PPO promotion and private holdout remain blocked"
+    ],
+    "supersedes": [
+      "direct full-stack replay after M1665",
+      "direct PPO after M1665",
+      "direct promotion after M1665",
+      "private holdout after M1665"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1666-paper-route-fusion-actor-artifact-replay-first-check.md",
+  "public_gates": [
+    "M1666 must verify artifact checksum and metadata before replay",
+    "M1666 must verify P0 human-view no-wheel actor contract",
+    "M1666 must run M183/M170 first-check replay",
+    "M1666 must run M267/M264 first-check replay",
+    "M1666 must not run full-stack replay PPO training promotion private holdout actor-input changes or level3 claims",
+    "M1666 must route to result audit regardless of pass or fail"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run full-stack replay",
+    "do not run PPO",
+    "do not train",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not rerun artifact materialization",
+    "do not tune repair parameters",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_ppo_proposal_projection_repair",
+    "evidence_axis": "E_fusion_actor_artifact_first_replay_check",
+    "evidence_increment": "executes checkpoint sanity plus M183/M170 and M267/M264 first public proof replay checks for the alpha 0.2 artifact",
+    "claim_scope": "first public proof replay check only; no full-stack replay, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if checkpoint sanity fails",
+      "stop if P0 actor contract fails",
+      "stop if first-check replay has execution errors",
+      "stop if full-stack replay or promotion is attempted",
+      "stop if private holdout or actor-input changes are used"
+    ],
+    "fallback_plan": [
+      "route to result audit on pass or fail",
+      "classify proof_washout behavior_regression lineage_invalid contract_violation or metric_artifact in audit",
+      "admit full-stack replay design only after a clean audit",
+      "pivot to repair design only after audit if first-check fails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1665 admits first-check replay implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run first public proof replay checks for M1663 artifact",
+    "admission_evidence": [
+      "M1664 audited the artifact",
+      "M1665 designed staged replay gates"
+    ],
+    "blocked_shortcuts": [
+      "do not run full-stack replay",
+      "do not run PPO",
+      "do not train",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "first-check replay gate code if needed",
+      "focused tests",
+      "runs/m1666_fusion_actor_artifact_replay_first_check artifacts",
+      "M1666 result document",
+      "M1666 status queue scoreboard research log and review",
+      "one follow-up audit manifest"
+    ],
+    "next_stage_criteria": [
+      "checkpoint sanity is recorded",
+      "M183/M170 and M267/M264 first-check pass/fail is recorded",
+      "failure taxonomy is recorded",
+      "result audit manifest is created",
+      "promotion and private holdout remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1666 first-check replay can test public proof retention but cannot by itself prove level3 anticipatory self-identification.",
+    "history_necessity_tests": [
+      "M183/M170 and M267/M264 include public correct/wrong history proof surfaces but remain public fixed gates"
+    ],
+    "temporal_evidence_window": "M1362, M1630, M1650-M1665 public artifacts only.",
+    "negative_result_policy": "If first-check fails, classify proof_washout, behavior_regression, lineage_invalid, contract_violation, or metric_artifact before any repair.",
+    "allowed_claims": [
+      "first public proof replay check result for the M1663 artifact",
+      "no full-stack replay, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1663 artifact can pass checkpoint sanity and the first M183/M170 plus M267/M264 public proof replay checks before full-stack replay is considered.",
+  "success_criteria": [
+    "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json exists",
+    "checkpoint_sanity_pass is true",
+    "m183_m170_first_check_pass is true",
+    "m267_m264_first_check_pass is true",
+    "first_check_pass is true",
+    "full-stack replay PPO training promotion private holdout actor-input changes and level3 claims remain blocked",
+    "M1667 audit manifest is created"
+  ],
+  "failure_criteria": [
+    "checkpoint sanity fails",
+    "P0 actor contract fails",
+    "M183/M170 first-check fails",
+    "M267/M264 first-check fails",
+    "replay execution errors occur",
+    "implementation runs full-stack replay PPO training promotion private holdout actor-input changes or claims level3 self-identification"
+  ],
+  "commands": [
+    {
+      "name": "focused_test",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_fusion_actor_artifact_replay_gate.py"
+    },
+    {
+      "name": "first_check",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.fusion_actor_artifact_replay_gate --checkpoint runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt --artifact-summary runs/m1663_fusion_actor_checkpoint_artifact/summary.json --run-dir runs/m1666_fusion_actor_artifact_replay_first_check --mode first_check"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1666-paper-route-fusion-actor-artifact-replay-first-check.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1665-paper-route-fusion-actor-artifact-replay-gate-design.md",
+    "runs/m1663_fusion_actor_checkpoint_artifact/summary.json"
+  ],
+  "decision_rule": "M1666 passes only if checkpoint sanity and the first public proof replay checks pass, then routes to audit before full-stack replay or promotion.",
+  "next_blocker": "m1666-paper-route-fusion-actor-artifact-replay-first-check"
+}
