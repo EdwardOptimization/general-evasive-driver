@@ -161,6 +161,39 @@
   "baseline_artifacts": [
     "docs/m1423-paper-route-action-divergent-outcome-pressure-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.md",
+    "decision": "action_divergent_outcome_pressure_constructor_implemented_admit_source_smoke",
+    "implementation": "src/autodrift/action_divergent_outcome_pressure.py",
+    "focused_tests": "tests/test_action_divergent_outcome_pressure.py",
+    "focused_test_result": "5 passed",
+    "constructor_outputs": [
+      "summary.json",
+      "candidate_rows.csv",
+      "outcome_pressure_rows.csv",
+      "history_positive_rows.csv",
+      "variant_summary.csv",
+      "source_diversity_summary.csv",
+      "relocation_summary.csv",
+      "rejected_rows.csv"
+    ],
+    "proxy_only": true,
+    "requires_replay": true,
+    "source_smoke_started": false,
+    "outcome_probe_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1425-paper-route-action-divergent-outcome-pressure-source-smoke.json"
+  },
+  "decision": "action_divergent_outcome_pressure_constructor_implemented_admit_source_smoke",
   "decision_rule": "M1424 passes if it implements and tests the no-training constructor without running the full source smoke.",
-  "next_blocker": "m1424-paper-route-action-divergent-outcome-pressure-source-implementation"
+  "next_blocker": "m1425-paper-route-action-divergent-outcome-pressure-source-smoke"
 }

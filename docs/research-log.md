@@ -21035,3 +21035,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.json`.
 - next: `m1424-paper-route-action-divergent-outcome-pressure-source-implementation`
+
+## 20260529T020341Z - m1424-paper-route-action-divergent-outcome-pressure-source-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.md`
+- decision: `action_divergent_outcome_pressure_constructor_implemented_admit_source_smoke`
+- implementation: `src/autodrift/action_divergent_outcome_pressure.py`
+- tests: `tests/test_action_divergent_outcome_pressure.py`
+- focused result: `5 passed`
+- contract: constructor output is `proxy_only` and `requires_replay`; no proxy row is treated as closed-loop outcome evidence.
+- accounting: reset-hidden and zero-current controls are diagnostic only and cannot enter `history_positive_rows`.
+- guardrail: no full source smoke, closed-loop replay, outcome intervention run, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1425-paper-route-action-divergent-outcome-pressure-source-smoke.json`.
+- next: `m1425-paper-route-action-divergent-outcome-pressure-source-smoke`

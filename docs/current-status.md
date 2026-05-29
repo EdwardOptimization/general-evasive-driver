@@ -16,21 +16,40 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1423-paper-route-action-divergent-outcome-pressure-design
+m1424-paper-route-action-divergent-outcome-pressure-source-implementation
 ```
 
 Current next task:
 
 ```text
-m1424-paper-route-action-divergent-outcome-pressure-source-implementation
+m1425-paper-route-action-divergent-outcome-pressure-source-smoke
 ```
 
-M1423 designed the next action-divergent outcome-pressure route. The current
-public-gate base remains M1362 alpha `0.1`:
+M1424 implemented the no-training action-divergent outcome-pressure constructor
+and focused tests. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1424 result:
+
+```text
+decision: action_divergent_outcome_pressure_constructor_implemented_admit_source_smoke
+implementation: src/autodrift/action_divergent_outcome_pressure.py
+focused_tests: tests/test_action_divergent_outcome_pressure.py
+focused_test_result: 5 passed
+proxy_only: true
+requires_replay: true
+source_smoke_started: false
+training_started: false
+next: m1425-paper-route-action-divergent-outcome-pressure-source-smoke
+```
+
+M1425 should run the constructor once on public M1421 outcome rows and check
+whether source-diverse proxy pressure rows exist. It must not run closed-loop
+replay, train, export a corpus, promote, use private holdout, or change actor
+inputs.
 
 M1423 result:
 
@@ -42,11 +61,6 @@ M1421 warmup_history_positive_rows: 0
 selected route: no-training source constructor implementation
 next: m1424-paper-route-action-divergent-outcome-pressure-source-implementation
 ```
-
-M1424 should implement a constructor that separates action-critical from
-outcome-critical rows and uses terminal-margin pressure to search for
-source-diverse history-positive cases. It must not run full source smoke,
-train, export a corpus, promote, use private holdout, or change actor inputs.
 
 M1422 result:
 

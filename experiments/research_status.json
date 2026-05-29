@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1433,
+    "completed": 1434,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1423-paper-route-action-divergent-outcome-pressure-design.md",
+    "command_log": "docs/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1423-paper-route-action-divergent-outcome-pressure-design"
+    "task_id": "m1424-paper-route-action-divergent-outcome-pressure-source-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.json",
-    "hypothesis": "A no-training source constructor can separate action-critical from outcome-critical history variants and emit source-diverse outcome-pressure rows for later evaluation.",
-    "id": "m1424-paper-route-action-divergent-outcome-pressure-source-implementation",
+    "command": "see experiments/manifests/m1425-paper-route-action-divergent-outcome-pressure-source-smoke.json",
+    "hypothesis": "The M1424 constructor can find enough source-diverse action-divergent proxy pressure rows in M1421 public outcome artifacts to justify a later replay probe.",
+    "id": "m1425-paper-route-action-divergent-outcome-pressure-source-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: implement no-training action-divergent outcome-pressure source constructor and focused tests",
-    "priority": 14190,
+    "notes": "Pending: run no-training constructor source smoke on public M1421 outcome rows; no replay training promotion or corpus export",
+    "priority": 14200,
     "status": "pending",
-    "success_artifact": "docs/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.md"
+    "success_artifact": "runs/m1425_action_divergent_outcome_pressure_source_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T064000Z"
+  "updated_at_utc": "20260529T020341Z"
 }

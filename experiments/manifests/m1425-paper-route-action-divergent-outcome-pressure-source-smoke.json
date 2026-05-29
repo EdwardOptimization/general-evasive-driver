@@ -1,0 +1,172 @@
+{
+  "id": "m1425-paper-route-action-divergent-outcome-pressure-source-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1421_m1419_source_collision_stratified_outcome_probe/outcome_rows.csv",
+      "docs/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.json"
+    ],
+    "parent_objective": [
+      "run no-training constructor source smoke on M1421 outcome rows"
+    ],
+    "derived_from": [
+      "m1424-paper-route-action-divergent-outcome-pressure-source-implementation"
+    ],
+    "blocked_by": [
+      "M1424 implementation must be run on public M1421 rows before any closed-loop replay probe"
+    ],
+    "supersedes": [
+      "manual selection of action-critical rows",
+      "training directly from M1421 rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1425-paper-route-action-divergent-outcome-pressure-source-smoke.md",
+  "public_gates": [
+    "M1425 must use the M1424 constructor on public M1421 outcome rows only",
+    "M1425 must report candidate_rows outcome_pressure_rows and history_positive proxy rows separately",
+    "M1425 must keep proxy_only and requires_replay flags explicit",
+    "M1425 must not run closed-loop replay outcome interventions train run PPO promote use private holdout export training corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not count reset or zero-current as history-positive",
+    "do not claim proxy rows as closed-loop evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_action_divergent_outcome_pressure_design",
+    "evidence_axis": "S_action_divergent_outcome_pressure_public_source_smoke",
+    "evidence_increment": "runs the implemented constructor on public M1421 rows to test whether source-diverse proxy pressure rows exist",
+    "claim_scope": "public constructor source smoke only; no closed-loop replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if candidate_rows < 128",
+      "stop if outcome_pressure_rows < 32",
+      "stop if history_positive_rows < 16",
+      "stop if history_positive diversity is below 6 seeds or 6 capability pairs",
+      "stop if controls are counted as history-positive",
+      "stop if outputs are not marked proxy_only and requires_replay"
+    ],
+    "fallback_plan": [
+      "audit as source-limited if proxy pressure rows are sparse",
+      "tighten or revise candidate constructor if controls contaminate history-positive accounting",
+      "admit a separately registered closed-loop replay probe only if source smoke gates pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_new_branch_after_m1422_pivot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "action-divergent outcome-pressure constructor source smoke",
+    "admission_evidence": [
+      "M1424 implemented constructor and focused tests",
+      "M1423 requires a source smoke before replay or training"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run closed-loop replay",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus"
+    ],
+    "allowed_updates": [
+      "runs/m1425_action_divergent_outcome_pressure_source_smoke",
+      "M1425 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up replay-probe or audit manifest"
+    ],
+    "next_stage_criteria": [
+      "source smoke gates pass",
+      "proxy rows are source-diverse",
+      "history-positive proxy rows are not control-only",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1425 is still proxy source construction and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "history-positive proxy accounting",
+      "wrong-history and same-recent wrong-history variant counts",
+      "reset and zero-current control separation",
+      "source diversity before any replay probe"
+    ],
+    "temporal_evidence_window": "M1421 public outcome rows processed by M1424 constructor.",
+    "negative_result_policy": "If source-diverse proxy rows are not available, record a source-limited negative and audit before changing task design.",
+    "allowed_claims": [
+      "action-divergent outcome-pressure source smoke result",
+      "no closed-loop replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1424 constructor can find enough source-diverse action-divergent proxy pressure rows in M1421 public outcome artifacts to justify a later replay probe.",
+  "success_criteria": [
+    "runs/m1425_action_divergent_outcome_pressure_source_smoke/summary.json exists",
+    "candidate_rows >= 128",
+    "outcome_pressure_rows >= 32",
+    "history_positive_rows >= 16",
+    "history_positive_unique_source_seeds >= 6",
+    "history_positive_unique_capability_pairs >= 6",
+    "history_positive_unique_reveal_buckets >= 4",
+    "summary marks proxy_only true and requires_replay true",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "candidate rows or pressure rows are sparse",
+    "history-positive rows are control-only or not source-diverse",
+    "outputs are not marked proxy_only and requires_replay",
+    "run starts closed-loop replay training PPO promotion private holdout corpus export or actor-input changes"
+  ],
+  "commands": [
+    {
+      "name": "source_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.action_divergent_outcome_pressure --outcome-rows runs/m1421_m1419_source_collision_stratified_outcome_probe/outcome_rows.csv --run-dir runs/m1425_action_divergent_outcome_pressure_source_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1425_action_divergent_outcome_pressure_source_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1425-paper-route-action-divergent-outcome-pressure-source-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1421_m1419_source_collision_stratified_outcome_probe/outcome_rows.csv",
+    "docs/m1424-paper-route-action-divergent-outcome-pressure-source-implementation.md"
+  ],
+  "decision_rule": "M1425 passes if the no-training constructor emits source-diverse proxy pressure rows without crossing any forbidden shortcut.",
+  "next_blocker": "m1425-paper-route-action-divergent-outcome-pressure-source-smoke"
+}
