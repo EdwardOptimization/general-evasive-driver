@@ -1,0 +1,157 @@
+{
+  "id": "m1452-paper-route-source-step-bounded-replay-smoke",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1450_source_step_preflight_rerun/selected_candidate_rows.csv",
+      "docs/m1451-paper-route-source-step-bounded-replay-design.md"
+    ],
+    "parent_config": [
+      "configs/m1419_warmup_gate_invasiveness_retune_source_wave.json",
+      "experiments/manifests/m1451-paper-route-source-step-bounded-replay-design.json"
+    ],
+    "parent_objective": [
+      "run source-step bounded replay smoke on M1450 selected candidates"
+    ],
+    "derived_from": [
+      "m1451-paper-route-source-step-bounded-replay-design"
+    ],
+    "blocked_by": [
+      "bounded replay has not yet been run on source-step preflight-pass candidates"
+    ],
+    "supersedes": [
+      "preflight-only evidence as final outcome evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1452-paper-route-source-step-bounded-replay-smoke.md",
+  "public_gates": [
+    "M1452 must run bounded replay with --candidate-step-column source_step",
+    "M1452 must not train run PPO promote use private holdout export corpus or change actor inputs",
+    "M1452 must report selected candidate rows actual replay rows history positives control positives and normal failures"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat a smoke positive as promotion evidence",
+    "do not claim level3 self-identification from one public replay smoke"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_forward_source_preflight_validation",
+    "evidence_axis": "S_source_step_bounded_replay_smoke",
+    "evidence_increment": "runs first actual bounded replay smoke over source-step preflight-pass candidates",
+    "claim_scope": "bounded replay smoke only; no training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if selected_candidate_rows < 32",
+      "stop if actual_replay_rows == 0",
+      "stop if candidate_step_column is not source_step",
+      "stop if training_started or ppo_used or promoted is true"
+    ],
+    "fallback_plan": [
+      "route to replay result audit if smoke completes",
+      "route to replay schema audit if smoke aborts before actual replay rows"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1451 admits source-step bounded replay smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "source-step bounded replay smoke",
+    "admission_evidence": [
+      "M1450 source-step preflight passed",
+      "M1451 designed bounded replay smoke"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "runs/m1452_source_step_bounded_replay_smoke",
+      "M1452 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up replay result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "replay smoke completed or failed clearly",
+      "actual replay rows and outcome counts are recorded",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1452 can only make bounded public replay claims; one smoke cannot establish level3 self-identification.",
+    "history_necessity_tests": [
+      "normal history versus selected history variants in bounded replay",
+      "reset and zero-current controls emitted by replay probe"
+    ],
+    "temporal_evidence_window": "M1450 selected source-step candidates.",
+    "negative_result_policy": "If no history positives appear, audit source/replay design rather than weakening the claim standard.",
+    "allowed_claims": [
+      "bounded replay smoke result and row counts",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A source-step bounded replay smoke over M1450 candidates can produce actual replay rows and possibly outcome-sensitive history-positive rows without training or actor changes.",
+  "success_criteria": [
+    "runs/m1452_source_step_bounded_replay_smoke/summary.json exists",
+    "summary candidate_step_column equals source_step",
+    "geometry_aware_selector true",
+    "selected_candidate_rows >= 32",
+    "actual_replay_rows > 0",
+    "replay_started true",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "failure_criteria": [
+    "summary missing",
+    "candidate_step_column is not source_step",
+    "actual_replay_rows is zero",
+    "run starts training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "source_step_bounded_replay_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.bounded_relocation_replay_probe --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m1419_warmup_gate_invasiveness_retune_source_wave.json --candidate-rows runs/m1450_source_step_preflight_rerun/selected_candidate_rows.csv --geometry-aware-selector --max-candidate-rows 64 --per-capability-pair-cap 8 --per-seed-cap 12 --per-reveal-bucket-cap 8 --per-variant-cap 24 --history-length 56 --recent-window-length 4 --max-continuation-steps 48 --min-margin-gap 0.02 --min-sequence-action-l2 0.025 --min-source-body-x 4.0 --candidate-step-column source_step --device cpu --run-dir runs/m1452_source_step_bounded_replay_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1452_source_step_bounded_replay_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1452-paper-route-source-step-bounded-replay-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1451-paper-route-source-step-bounded-replay-design.md"
+  ],
+  "decision_rule": "M1452 passes if source-step bounded replay smoke completes and records actual replay rows without training or promotion.",
+  "next_blocker": "m1452-paper-route-source-step-bounded-replay-smoke"
+}

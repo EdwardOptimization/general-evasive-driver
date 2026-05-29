@@ -16,20 +16,57 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1449-paper-route-source-step-preflight-schema-repair-implementation
+m1451-paper-route-source-step-bounded-replay-design
 ```
 
 Current next task:
 
 ```text
-m1450-paper-route-source-step-preflight-rerun
+m1452-paper-route-source-step-bounded-replay-smoke
 ```
 
-M1449 repaired the schema gap exposed by the first source-step preflight
-attempt. The current public-gate base remains M1362 alpha `0.1`:
+M1451 designed the first source-step bounded replay smoke after M1450 passed
+source-step preflight. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
+```
+
+M1451 result:
+
+```text
+decision: source_step_bounded_replay_design_admit_smoke
+source_candidates: runs/m1450_source_step_preflight_rerun/selected_candidate_rows.csv
+candidate_step_column: source_step
+max_candidate_rows: 64
+next: m1452-paper-route-source-step-bounded-replay-smoke
+```
+
+M1452 should run bounded replay with `--geometry-aware-selector` and:
+
+```text
+--candidate-step-column source_step
+```
+
+It must not train, run PPO, promote, use private holdout, export corpus, or
+change actor inputs. A positive or negative replay smoke must route to audit
+before any training/corpus decision.
+
+M1450 result:
+
+```text
+decision: source_step_preflight_pass_route_to_bounded_replay_design
+candidate_step_column: source_step
+input_rows: 128
+geometry_pass_rows: 128
+selected_candidate_rows: 128
+relocation_clipped_share: 0.0
+selected unique seeds / pairs / buckets / variants: 6 / 12 / 13 / 3
+source_body_x min / p50 / p95: 5.065734 / 11.133727 / 14.598930
+candidate_step min / max: 16 / 40
+reveal_step min / max: 48 / 56
+replay_started: false
+next: m1451-paper-route-source-step-bounded-replay-design
 ```
 
 M1449 result:

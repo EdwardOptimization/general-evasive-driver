@@ -21461,3 +21461,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source preflight, replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1450-paper-route-source-step-preflight-rerun.json`.
 - next: `m1450-paper-route-source-step-preflight-rerun`
+
+## 20260529T043700Z - m1450-paper-route-source-step-preflight-rerun
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `proof`
+- artifact: `docs/m1450-paper-route-source-step-preflight-rerun.md`
+- run artifact: `runs/m1450_source_step_preflight_rerun/summary.json`
+- decision: `source_step_preflight_pass_route_to_bounded_replay_design`
+- candidate step column: `source_step`
+- input/history/geometry-pass/selected rows: `128` / `128` / `128` / `128`
+- relocation clipped share: `0.0`
+- selected diversity: `6` seeds, `12` capability pairs, `13` reveal buckets, `3` variants, max single seed share `0.1875`.
+- geometry: source body-x min / p50 / p95 `5.065734` / `11.133727` / `14.598930`; candidate step min/max `16` / `40`; reveal step min/max `48` / `56`.
+- interpretation: source-step preflight passes and admits bounded replay design; it is not history-necessity or training-corpus evidence.
+- guardrail: no bounded replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1451-paper-route-source-step-bounded-replay-design.json`.
+- next: `m1451-paper-route-source-step-bounded-replay-design`
+
+## 20260529T044000Z - m1451-paper-route-source-step-bounded-replay-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1451-paper-route-source-step-bounded-replay-design.md`
+- decision: `source_step_bounded_replay_design_admit_smoke`
+- design: run a bounded replay smoke on M1450 selected candidates with `--geometry-aware-selector`, `--candidate-step-column source_step`, and `max_candidate_rows=64`.
+- interpretation rule: positive and negative replay smoke results both route to audit before corpus export or training.
+- guardrail: no bounded replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1452-paper-route-source-step-bounded-replay-smoke.json`.
+- next: `m1452-paper-route-source-step-bounded-replay-smoke`

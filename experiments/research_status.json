@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1458,
+    "completed": 1460,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1449-paper-route-source-step-preflight-schema-repair-implementation.md",
+    "command_log": "docs/m1451-paper-route-source-step-bounded-replay-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1449-paper-route-source-step-preflight-schema-repair-implementation"
+    "task_id": "m1451-paper-route-source-step-bounded-replay-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1450-paper-route-source-step-preflight-rerun.json",
-    "hypothesis": "After the margin_gap optional schema repair, M1445 selected candidates remain forward, unclipped, source-diverse when preflight reconstructs at source_step.",
-    "id": "m1450-paper-route-source-step-preflight-rerun",
+    "command": "see experiments/manifests/m1452-paper-route-source-step-bounded-replay-smoke.json",
+    "hypothesis": "A source-step bounded replay smoke over M1450 candidates can produce actual replay rows and possibly outcome-sensitive history-positive rows without training or actor changes.",
+    "id": "m1452-paper-route-source-step-bounded-replay-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: rerun source-step preflight-only smoke after M1449 margin_gap schema repair",
-    "priority": 14450,
+    "notes": "Pending: run source-step bounded replay smoke on M1450 selected candidates without training PPO promotion or corpus export",
+    "priority": 14470,
     "status": "pending",
-    "success_artifact": "docs/m1450-paper-route-source-step-preflight-rerun.md"
+    "success_artifact": "docs/m1452-paper-route-source-step-bounded-replay-smoke.md"
   },
-  "updated_at_utc": "20260529T043000Z"
+  "updated_at_utc": "20260529T044000Z"
 }
