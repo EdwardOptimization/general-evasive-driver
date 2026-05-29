@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M1589 audits M1588 clean shortfall and admits source-generation repair design without relaxing thresholds",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1588 as level3 self-ID evidence",
+    "audit relaxes clean count target post hoc",
+    "audit routes directly to training PPO promotion private holdout corpus export actor-input changes or candidate materialization"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T161651Z",
+  "hypothesis": "M1588's public-pass clean-shortfall result can be audited into a defensible next route without overstating history evidence.",
+  "lineage": {
+    "blocked_by": [
+      "M1588 public selector gates passed but clean_directed_pair_count was 7 below evidence-quality target 8"
+    ],
+    "derived_from": [
+      "m1588-paper-route-history-vs-control-active-set-selector-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1588-paper-route-history-vs-control-active-set-selector-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m1588_history_vs_control_active_set_selector/summary.json",
+      "runs/m1588_history_vs_control_active_set_selector/classified_directed_pair_rows.csv",
+      "docs/m1588-paper-route-history-vs-control-active-set-selector-implementation.md"
+    ],
+    "parent_objective": [
+      "audit selector-only clean-surface shortfall before source-generation repair"
+    ],
+    "supersedes": [
+      "source-generation repair without selector audit",
+      "candidate materialization after M1588"
+    ]
+  },
+  "milestone": "m1589-paper-route-history-vs-control-selector-result-audit",
+  "next_blocker": "m1590-paper-route-clean-history-control-source-generation-repair-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "history_vs_control_selector_audit_admit_clean_source_generation_repair_design",
+  "public_gates": [
+    "M1589 must audit M1588 public pass and clean shortfall",
+    "M1589 must separate selector diagnostic evidence from history-necessity evidence",
+    "M1589 must decide source-generation repair, clean-surface repeat design, synthesis, or stop",
+    "M1589 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1589-paper-route-history-vs-control-selector-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "history_vs_control_selector_audit_admit_clean_source_generation_repair_design",
+    "milestone": "m1589-paper-route-history-vs-control-selector-result-audit",
+    "reason": "M1589 audits M1588 clean shortfall and admits source-generation repair design without relaxing thresholds",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1589-paper-route-history-vs-control-selector-result-audit.md exists",
+    "audit summarizes M1588 public and evidence-quality results",
+    "audit separates selector diagnostic evidence from history-necessity evidence",
+    "audit chooses the next route",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked"
+  ],
+  "type": "gate"
+}

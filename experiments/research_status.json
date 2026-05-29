@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1597,
+    "completed": 1598,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1588_history_vs_control_active_set_selector/summary.json",
+    "command_log": "docs/m1589-paper-route-history-vs-control-selector-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1588_history_vs_control_active_set_selector",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1588-paper-route-history-vs-control-active-set-selector-implementation"
+    "task_id": "m1589-paper-route-history-vs-control-selector-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1589-paper-route-history-vs-control-selector-result-audit.json",
-    "hypothesis": "M1588's public-pass clean-shortfall result can be audited into a defensible next route without overstating history evidence.",
-    "id": "m1589-paper-route-history-vs-control-selector-result-audit",
+    "command": "see experiments/manifests/m1590-paper-route-clean-history-control-source-generation-repair-design.json",
+    "hypothesis": "The clean history-vs-control selector can define a source-generation repair objective that targets more clean rows instead of broader pairability.",
+    "id": "m1590-paper-route-clean-history-control-source-generation-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit M1588 selector public pass and clean shortfall before source repair",
-    "priority": 15840,
+    "notes": "Pending: design clean history-vs-control source-generation repair",
+    "priority": 15850,
     "status": "pending",
-    "success_artifact": "docs/m1589-paper-route-history-vs-control-selector-result-audit.md"
+    "success_artifact": "docs/m1590-paper-route-clean-history-control-source-generation-repair-design.md"
   },
-  "updated_at_utc": "20260529T161153Z"
+  "updated_at_utc": "20260529T161452Z"
 }

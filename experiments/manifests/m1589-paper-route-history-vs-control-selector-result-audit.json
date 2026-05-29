@@ -150,6 +150,37 @@
     "runs/m1588_history_vs_control_active_set_selector/classified_directed_pair_rows.csv",
     "docs/m1588-paper-route-history-vs-control-active-set-selector-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1589-paper-route-history-vs-control-selector-result-audit.md",
+    "decision": "history_vs_control_selector_audit_admit_clean_source_generation_repair_design",
+    "failure_taxonomy": [
+      "scenario_sampling_failure"
+    ],
+    "m1588_public_pass": true,
+    "m1588_evidence_quality_pass": false,
+    "clean_directed_pair_count": 7,
+    "clean_source_edge_count": 4,
+    "clean_endpoint_source_family_count": 6,
+    "max_clean_source_edge_share": 0.2857142857142857,
+    "dominated_history_positive_directed_pair_count": 16,
+    "control_only_positive_directed_pair_count": 28,
+    "history_null_all_controls_null_directed_pair_count": 93,
+    "audit_conclusion": "selector works and clean surface exists but is one directed pair below the evidence-quality target, so source-generation repair should target clean history-vs-control labels before more interventions",
+    "next_manifest": "experiments/manifests/m1590-paper-route-clean-history-control-source-generation-repair-design.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1589 passes if it audits M1588 and chooses the next route before any repair, materialization, or training.",
-  "next_blocker": "m1589-paper-route-history-vs-control-selector-result-audit"
+  "next_blocker": "m1590-paper-route-clean-history-control-source-generation-repair-design"
 }

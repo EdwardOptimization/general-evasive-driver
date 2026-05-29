@@ -1,0 +1,159 @@
+{
+  "id": "m1590-paper-route-clean-history-control-source-generation-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1588_history_vs_control_active_set_selector/summary.json",
+      "runs/m1588_history_vs_control_active_set_selector/clean_directed_pair_rows.csv",
+      "docs/m1589-paper-route-history-vs-control-selector-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1589-paper-route-history-vs-control-selector-result-audit.json"
+    ],
+    "parent_objective": [
+      "design source-generation repair targeting clean history-vs-control labels"
+    ],
+    "derived_from": [
+      "m1589-paper-route-history-vs-control-selector-result-audit"
+    ],
+    "blocked_by": [
+      "M1588 clean surface exists but clean_directed_pair_count is 7 below target 8"
+    ],
+    "supersedes": [
+      "another broad pairability source miner",
+      "another broad intervention smoke without clean selector target",
+      "candidate materialization after M1588"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1590-paper-route-clean-history-control-source-generation-repair-design.md",
+  "public_gates": [
+    "M1590 must design source generation around clean history-vs-control criteria",
+    "M1590 must use dominated/control-only rows as negative diagnostics",
+    "M1590 must keep high-speed endpoint absence as a caveat",
+    "M1590 must not admit materialization training PPO promotion or private holdout"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_pairability_source_generation",
+    "evidence_axis": "Q_clean_history_control_source_generation_repair_design",
+    "evidence_increment": "designs source-generation repair after selector clean-surface shortfall",
+    "claim_scope": "design only; no simulator rerun, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design relaxes clean history-vs-control criteria",
+      "stop if design treats M1588 clean rows as training corpus",
+      "stop if design routes directly to materialization, training, PPO, promotion, or private holdout"
+    ],
+    "fallback_plan": [
+      "admit one bounded implementation if design has source-generation caps and selector-based success metrics",
+      "route to branch synthesis if another implementation would overfit fixed public rows",
+      "stop if clean-source repair cannot be defined without new simulator fidelity"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1589 admits clean source-generation repair design after selector shortfall",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "clean history-vs-control source-generation repair design",
+    "admission_evidence": [
+      "M1588 selector public gates passed",
+      "M1588 evidence-quality failed only on clean count shortfall",
+      "M1589 admits design-only source-generation repair"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1590 design document",
+      "M1590 status queue scoreboard research log and review",
+      "one follow-up manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "source-generation repair objective is explicit",
+      "clean/dominated criteria are explicit",
+      "implementation or synthesis decision is explicit",
+      "guardrails remain clean"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1590 is design-only and must preserve current-frame controls as first-class negatives.",
+    "history_necessity_tests": [
+      "design clean-label target",
+      "design dominated/control-only negative diagnostics",
+      "design source-diversity gates"
+    ],
+    "temporal_evidence_window": "M1588 selector over M1585 intervention rows.",
+    "negative_result_policy": "If clean-source repair cannot be defined, route to synthesis or stop instead of weakening standards.",
+    "allowed_claims": [
+      "bounded source-generation repair design",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The clean history-vs-control selector can define a source-generation repair objective that targets more clean rows instead of broader pairability.",
+  "success_criteria": [
+    "docs/m1590-paper-route-clean-history-control-source-generation-repair-design.md exists",
+    "design pre-registers clean-positive and dominated-negative source-generation targets",
+    "design pre-registers source-diversity and guardrail gates",
+    "design decides implementation, synthesis, or stop",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design treats M1588 as history-necessity or level3 self-ID evidence",
+    "design ignores control-dominated negatives or high-speed caveat",
+    "design routes directly to training PPO promotion private holdout corpus export actor-input changes or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1590-paper-route-clean-history-control-source-generation-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1590-paper-route-clean-history-control-source-generation-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1588_history_vs_control_active_set_selector/summary.json",
+    "runs/m1588_history_vs_control_active_set_selector/clean_directed_pair_rows.csv",
+    "docs/m1589-paper-route-history-vs-control-selector-result-audit.md"
+  ],
+  "decision_rule": "M1590 passes if it designs a clean history-vs-control source-generation repair route before any replay, materialization, or training.",
+  "next_blocker": "m1590-paper-route-clean-history-control-source-generation-repair-design"
+}

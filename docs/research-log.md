@@ -24929,3 +24929,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1589-paper-route-history-vs-control-selector-result-audit.json`
 - next: `m1589-paper-route-history-vs-control-selector-result-audit`
+
+## M1589 Paper-Route History-vs-Control Selector Result Audit
+
+- status: completed
+- decision: `history_vs_control_selector_audit_admit_clean_source_generation_repair_design`
+- artifact: `docs/m1589-paper-route-history-vs-control-selector-result-audit.md`
+- failure taxonomy: `scenario_sampling_failure`
+- M1588 public pass: true
+- M1588 evidence-quality pass: false
+- clean directed pair count: 7
+- clean source-edge count: 4
+- clean endpoint source-family count: 6
+- max clean source-edge share: 0.2857142857142857
+- dominated history-positive directed pair count: 16
+- control-only positive directed pair count: 28
+- history-null all-controls-null directed pair count: 93
+- interpretation: selector works and clean surface exists, but count is one below evidence-quality target; do not relax threshold
+- route decision: admit design-only clean history-vs-control source-generation repair before any new implementation
+- history interventions executed: false in M1589
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1590-paper-route-clean-history-control-source-generation-repair-design.json`
+- next: `m1590-paper-route-clean-history-control-source-generation-repair-design`

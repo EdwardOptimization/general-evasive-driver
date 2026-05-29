@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1588-paper-route-history-vs-control-active-set-selector-implementation
+m1589-paper-route-history-vs-control-selector-result-audit
 ```
 
 Current next task:
 
 ```text
-m1589-paper-route-history-vs-control-selector-result-audit
+m1590-paper-route-clean-history-control-source-generation-repair-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -495,6 +495,10 @@ complete variant coverage: `7` clean, `16` history-positive/control-dominated,
 selector gates passed, evidence-quality failed because clean count is below `8`,
 and the null class is `selector_public_pass_clean_shortfall`. M1589 must audit
 before any source-generation repair.
+M1589 audited that shortfall as a scenario-sampling/source-generation issue, not
+a threshold issue. M1590 is admitted as design only: use the M1588 clean edges as
+positive source-generation targets and dominated/control-only rows as negative
+diagnostics, while keeping high-speed endpoint absence as an explicit caveat.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
