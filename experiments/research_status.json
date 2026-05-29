@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1557,
+    "completed": 1558,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+    "command_log": "docs/m1549-paper-route-calibrated-pair-expansion-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis"
+    "task_id": "m1549-paper-route-calibrated-pair-expansion-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1549-paper-route-calibrated-pair-expansion-design.json",
-    "hypothesis": "A pair-expansion design can address the M1547 bottleneck by making calibrated matched-pair diversity the source objective before any further terminal-boundary interventions.",
-    "id": "m1549-paper-route-calibrated-pair-expansion-design",
-    "kind": "gate",
-    "notes": "Pending: design calibrated terminal-boundary pair expansion after branch synthesis",
-    "priority": 15440,
+    "command": "see experiments/manifests/m1550-paper-route-calibrated-pair-expansion-planner-implementation.json",
+    "hypothesis": "A bounded no-training planner can expand calibrated terminal-boundary matched-pair coverage beyond the M1547 two-pair bottleneck without running interventions or changing actor inputs.",
+    "id": "m1550-paper-route-calibrated-pair-expansion-planner-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement calibrated pair-expansion planner smoke",
+    "priority": 15450,
     "status": "pending",
-    "success_artifact": "docs/m1549-paper-route-calibrated-pair-expansion-design.md"
+    "success_artifact": "runs/m1550_calibrated_pair_expansion_planner_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T123500Z"
+  "updated_at_utc": "20260529T124500Z"
 }

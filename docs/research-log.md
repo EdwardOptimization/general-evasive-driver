@@ -23663,3 +23663,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1548 closes the current fresh-ambiguity source-mining branch because another narrow repair would overfit public terminal-boundary gates. It preserves non-terminal positives as diagnostic evidence and starts a no-training calibrated pair-expansion branch to address the M1547 pair bottleneck.
 - follow-up manifest: `experiments/manifests/m1549-paper-route-calibrated-pair-expansion-design.json`.
 - next: `m1549-paper-route-calibrated-pair-expansion-design`
+
+## M1549 Paper-Route Calibrated Pair-Expansion Design
+
+- status: completed
+- decision: `calibrated_pair_expansion_design_admit_bounded_planner`
+- artifact: `docs/m1549-paper-route-calibrated-pair-expansion-design.md`
+- branch: `paper_route_calibrated_pair_expansion`
+- pairability first: true
+- planned seed count: 3
+- planned source spec cap: 240
+- planned max base rows: 24
+- planned max pair candidates: 256
+- planned measured snapshot min: 24
+- planned pair candidate min: 16
+- planned accepted pair min: 8
+- planned source-family edge min: 5
+- planned max single edge share: 0.4
+- planned accepted terminal family min: 4
+- planned accepted window bucket min: 2
+- interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1549 converts the M1547 bottleneck into a pairability-first planner route. The next milestone must expand calibrated terminal-boundary matched-pair coverage before any history intervention replay.
+- follow-up manifest: `experiments/manifests/m1550-paper-route-calibrated-pair-expansion-planner-implementation.json`.
+- next: `m1550-paper-route-calibrated-pair-expansion-planner-implementation`

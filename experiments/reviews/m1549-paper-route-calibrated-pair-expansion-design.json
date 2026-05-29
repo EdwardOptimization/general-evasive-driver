@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M1549 designs pairability-first calibrated terminal-boundary source expansion with accepted_pair_count >= 8 accepted_source_family_edge_count >= 5 and no interventions",
+  "failure_criteria": [
+    "design document is missing",
+    "design routes directly to training promotion private holdout or materialization",
+    "design changes actor inputs or weakens history-positive standards",
+    "design ignores M1547 pair bottleneck"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T122714Z",
+  "hypothesis": "A pair-expansion design can address the M1547 bottleneck by making calibrated matched-pair diversity the source objective before any further terminal-boundary interventions.",
+  "lineage": {
+    "blocked_by": [
+      "M1547 accepted pair count below threshold",
+      "M1547 accepted source-family edge count is one",
+      "terminal-boundary history effects are null on the narrow pair subset"
+    ],
+    "derived_from": [
+      "m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+      "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv",
+      "runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "design calibrated pair expansion after M1547 pair bottleneck"
+    ],
+    "supersedes": [
+      "direct calibrated intervention repair inside the closed fresh-ambiguity branch"
+    ]
+  },
+  "milestone": "m1549-paper-route-calibrated-pair-expansion-design",
+  "next_blocker": "m1550-paper-route-calibrated-pair-expansion-planner-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "calibrated_pair_expansion_design_admit_bounded_planner",
+  "public_gates": [
+    "M1549 must design pair expansion before another intervention implementation",
+    "M1549 must keep calibrated pairability as a first-class source-generation objective",
+    "M1549 must preserve P0 actor input contract",
+    "M1549 must block materialization, training, PPO, promotion, and private holdout"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1549-paper-route-calibrated-pair-expansion-design.md",
+    "clearance_margin_mean": "",
+    "decision": "calibrated_pair_expansion_design_admit_bounded_planner",
+    "milestone": "m1549-paper-route-calibrated-pair-expansion-design",
+    "reason": "M1549 designs pairability-first calibrated terminal-boundary source expansion with accepted_pair_count >= 8 accepted_source_family_edge_count >= 5 and no interventions",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1549-paper-route-calibrated-pair-expansion-design.md exists",
+    "design specifies calibrated pairability metrics and caps",
+    "design specifies source-family edge, pair count, and max-share gates",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "type": "gate"
+}

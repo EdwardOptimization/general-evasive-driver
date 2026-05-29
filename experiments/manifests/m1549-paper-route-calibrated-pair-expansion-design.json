@@ -150,6 +150,37 @@
     "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv",
     "runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1549-paper-route-calibrated-pair-expansion-design.md",
+    "decision": "calibrated_pair_expansion_design_admit_bounded_planner",
+    "next_manifest": "experiments/manifests/m1550-paper-route-calibrated-pair-expansion-planner-implementation.json",
+    "pairability_first": true,
+    "planned_source_spec_cap": 240,
+    "planned_seed_count": 3,
+    "planned_max_base_rows": 24,
+    "planned_max_pair_candidates": 256,
+    "planned_min_measured_snapshots": 24,
+    "planned_min_pair_candidates": 16,
+    "planned_min_accepted_pairs": 8,
+    "planned_min_source_family_edges": 5,
+    "planned_max_single_edge_share": 0.4,
+    "planned_min_terminal_family_count": 4,
+    "planned_min_window_bucket_count": 2,
+    "interventions_executed": false,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
+  "decision": "calibrated_pair_expansion_design_admit_bounded_planner",
   "decision_rule": "M1549 passes if it defines a no-training calibrated pair-expansion plan with explicit pair-diversity and history/control gates.",
-  "next_blocker": "m1549-paper-route-calibrated-pair-expansion-design"
+  "next_blocker": "m1550-paper-route-calibrated-pair-expansion-planner-implementation"
 }

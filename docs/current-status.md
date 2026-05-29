@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1548-paper-route-fresh-ambiguity-source-mining-branch-synthesis
+m1549-paper-route-calibrated-pair-expansion-design
 ```
 
 Current next task:
 
 ```text
-m1549-paper-route-calibrated-pair-expansion-design
+m1550-paper-route-calibrated-pair-expansion-planner-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -205,6 +205,14 @@ promotes only to a new no-training `paper_route_calibrated_pair_expansion`
 branch. The next task is M1549 pair-expansion design; training, PPO,
 materialization, private holdout, promotion, actor-input changes, and level3
 self-ID claims remain blocked.
+M1549 designed that new branch. The key rule is pairability before
+interventions: expand calibrated terminal-boundary source specs and matched
+measured pairs first, with gates `accepted_pair_count >= 8`,
+`accepted_source_family_edge_count >= 5`, `max_single_pair_source_edge_share <=
+0.4`, and `accepted_terminal_family_count >= 4`. M1549 admits only the bounded
+M1550 pair-expansion planner implementation. History interventions, candidate
+materialization, training corpus export, PPO, promotion, private holdout, actor
+input changes, and level3 self-ID claims remain blocked.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

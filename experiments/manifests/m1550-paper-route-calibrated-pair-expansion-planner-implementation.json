@@ -1,0 +1,160 @@
+{
+  "id": "m1550-paper-route-calibrated-pair-expansion-planner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1549-paper-route-calibrated-pair-expansion-design.md",
+      "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv",
+      "runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1549-paper-route-calibrated-pair-expansion-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded no-training calibrated pair-expansion planner"
+    ],
+    "derived_from": [
+      "m1549-paper-route-calibrated-pair-expansion-design"
+    ],
+    "blocked_by": [
+      "calibrated pair-expansion planner has not yet been implemented"
+    ],
+    "supersedes": [
+      "direct history-intervention replay over the M1547 two-pair subset"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1550-paper-route-calibrated-pair-expansion-planner-implementation.md",
+  "public_gates": [
+    "M1550 must implement pairability-first source/spec expansion",
+    "M1550 must write measured traces snapshots pair candidates accepted pairs and summary artifacts",
+    "M1550 must not run history interventions",
+    "M1550 must preserve P0 actor input contract",
+    "M1550 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_calibrated_pair_expansion",
+    "evidence_axis": "G_calibrated_pair_expansion_planner_implementation",
+    "evidence_increment": "implements the no-training pairability-first planner needed before another calibrated terminal-boundary intervention run",
+    "claim_scope": "infrastructure and bounded public smoke only; no interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if pairability-first source expansion cannot be implemented",
+      "stop if implementation runs interventions before pair gates pass",
+      "stop if actor input contract changes",
+      "stop after planner smoke and route to audit"
+    ],
+    "fallback_plan": [
+      "route to result audit if pair gates fail",
+      "route to intervention design only if pair gates and guardrails pass",
+      "pivot to broader task generation if pair expansion remains narrow"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1549 admits one bounded pair-expansion planner implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "calibrated pair-expansion planner implementation",
+    "admission_evidence": [
+      "M1549 pre-registered pairability-first source and pair gates"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "calibrated pair-expansion planner module and tests",
+      "bounded public planner smoke artifacts",
+      "M1550 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "source specs, measured traces, snapshots, pair candidates, accepted pairs, and summary are written",
+      "pair diversity and guardrail metrics are reported",
+      "no history interventions are executed",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1550 only builds source and pair coverage; it cannot claim history necessity.",
+    "history_necessity_tests": [
+      "none in M1550; interventions remain blocked until pair gates pass"
+    ],
+    "temporal_evidence_window": "M1550 bounded public pair-expansion smoke only.",
+    "negative_result_policy": "If pair expansion remains narrow, record scenario_sampling_failure and audit before any intervention repair.",
+    "allowed_claims": [
+      "pair-expansion planner implementation and public smoke",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded no-training planner can expand calibrated terminal-boundary matched-pair coverage beyond the M1547 two-pair bottleneck without running interventions or changing actor inputs.",
+  "success_criteria": [
+    "calibrated pair-expansion planner module exists",
+    "focused tests cover pairability scoring diversity caps and summary schema",
+    "runs/m1550_calibrated_pair_expansion_planner_smoke/summary.json exists",
+    "history interventions are not run",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "implementation or smoke artifacts are missing",
+    "implementation runs history interventions",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation materializes candidates exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_calibrated_pair_expansion_planner.py -q"
+    },
+    {
+      "name": "smoke",
+      "command": "PYTHONPATH=src python -m autodrift.calibrated_pair_expansion_planner --output-dir runs/m1550_calibrated_pair_expansion_planner_smoke --accepted-calibrated-rows runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv --seed 1843 --seed-count 3 --max-base-rows 24 --max-calibration-specs 240 --max-pair-candidates 256"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1550_calibrated_pair_expansion_planner_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1549-paper-route-calibrated-pair-expansion-design.md",
+    "runs/m1544_terminal_boundary_task_sampling_calibration_smoke/accepted_calibrated_rows.csv",
+    "runs/m1547_calibrated_terminal_boundary_history_intervention_smoke/summary.json"
+  ],
+  "decision_rule": "M1550 passes if it implements and runs a bounded pair-expansion planner smoke with no interventions and clean guardrails.",
+  "next_blocker": "m1550-paper-route-calibrated-pair-expansion-planner-implementation"
+}
