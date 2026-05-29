@@ -16,24 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1659-paper-route-proposal-projection-repair-branch-synthesis
+m1660-paper-route-fusion-actor-proposal-repair-implementation
 ```
 
 Current next task:
 
 ```text
-m1660-paper-route-fusion-actor-proposal-repair-implementation
+m1661-paper-route-fusion-actor-proposal-repair-result-audit
 ```
 
-M1659 synthesized the M1649-M1658 proposal projection repair branch. The
-synthesis decision is `continue`: M1660 may run exactly one no-checkpoint
-differentiable-feature `fusion_actor` repair implementation over the selected
-same-line proposal tensors. The branch evidence supports only objective-sanity:
-actor_mean-only repair failed, frozen-feature repair is structurally
-actor_mean-only, and differentiable `fusion_actor` has useful one-step signal.
-Checkpoint artifacts, replay gates, PPO, training, promotion, private holdout,
-actor-input changes, paper-level claims, and level3 self-ID claims remain
-blocked.
+M1660 implemented the no-checkpoint differentiable-feature `fusion_actor`
+selected-proposal repair probe and passed the public objective-sanity gate.
+All three selected candidates passed: alpha `0.2` reduced exact residual by
+`0.40519785496674926`, alpha `0.4` by `0.3681913379827455`, and alpha `1.0` by
+`0.8524941253365563`. No checkpoint artifacts were written, model state was
+restored after each temporary in-memory repair, excluded parameter deltas were
+zero, and training/PPO/replay/promotion/private-holdout/actor-input/level3
+guardrails stayed clean. The next task is M1661 audit before any checkpoint
+artifact design, replay gate, PPO route, or promotion.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

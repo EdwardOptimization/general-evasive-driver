@@ -1,0 +1,174 @@
+{
+  "id": "m1661-paper-route-fusion-actor-proposal-repair-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_2.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_4.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_1_0.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1660_fusion_actor_proposal_repair/summary.json",
+      "runs/m1660_fusion_actor_proposal_repair/candidate_summary.csv",
+      "runs/m1660_fusion_actor_proposal_repair/guardrail_summary.csv",
+      "docs/m1660-paper-route-fusion-actor-proposal-repair-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1660-paper-route-fusion-actor-proposal-repair-implementation.json"
+    ],
+    "parent_objective": [
+      "audit positive no-checkpoint fusion_actor selected-proposal repair before checkpoint artifact or replay route"
+    ],
+    "derived_from": [
+      "m1660-paper-route-fusion-actor-proposal-repair-implementation"
+    ],
+    "blocked_by": [
+      "M1660 is fixed-public-tensor objective-sanity evidence and cannot directly admit checkpoint artifacts or replay gates"
+    ],
+    "supersedes": [
+      "direct checkpoint artifact after M1660",
+      "direct replay gate after M1660",
+      "direct PPO after M1660",
+      "direct promotion after M1660"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1661-paper-route-fusion-actor-proposal-repair-result-audit.md",
+  "public_gates": [
+    "M1661 must audit the M1660 positive fusion_actor repair result",
+    "M1661 must verify candidate reductions and primary alpha 0.2 pass",
+    "M1661 must verify no checkpoint excluded-parameter training PPO replay promotion private holdout or actor-input guardrail violation",
+    "M1661 must assess public fixed-tensor overfit risk before any checkpoint artifact or replay route",
+    "M1661 must decide checkpoint-artifact design replay-preflight design pivot synthesis or stop",
+    "M1661 must keep promotion private holdout actor-input changes and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun repair",
+    "do not tune repair parameters",
+    "do not run projection",
+    "do not run PPO",
+    "do not train",
+    "do not run closed-loop evaluation",
+    "do not write checkpoint artifacts",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_ppo_proposal_projection_repair",
+    "evidence_axis": "E_fusion_actor_repair_result_audit",
+    "evidence_increment": "audits positive no-checkpoint fusion_actor repair before checkpoint artifact or replay design",
+    "claim_scope": "process audit only; no repair rerun, PPO, training, checkpoint artifact, closed-loop gate, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats fixed-tensor repair as closed-loop evidence",
+      "stop if audit routes directly to promotion or private holdout",
+      "stop if audit ignores public fixed-tensor overfit risk",
+      "stop if audit writes checkpoint artifacts or runs replay",
+      "stop if guardrail violations are present"
+    ],
+    "fallback_plan": [
+      "admit checkpoint-artifact design only if audit concludes fixed-tensor result is sufficient for artifact preflight",
+      "admit replay-preflight design only after an artifact design or explicit no-artifact replay plan",
+      "pivot to source refresh if public-row overfit risk dominates",
+      "synthesize branch if cadence or route ambiguity requires it"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1660 writes positive fusion_actor repair artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit fusion_actor repair result",
+    "admission_evidence": [
+      "M1660 focused tests passed",
+      "M1660 official run wrote summary candidate aggregate and guardrail artifacts",
+      "M1660 passed public smoke gates with clean guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun repair",
+      "do not tune repair parameters",
+      "do not run PPO",
+      "do not train",
+      "do not write checkpoint artifacts",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1661 audit document",
+      "M1661 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits checkpoint-artifact design replay-preflight design pivot synthesis or stop"
+    ],
+    "next_stage_criteria": [
+      "M1660 result is audited",
+      "supported and unsupported claims are explicit",
+      "public overfit risk is explicit",
+      "next route is explicit",
+      "promotion and private holdout remain blocked unless a later design admits them"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1661 audits fixed-tensor fusion_actor repair and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "audits exact correct/wrong hidden residual repair only; no new closed-loop history intervention"
+    ],
+    "temporal_evidence_window": "M1362, M1630, M1650-M1660 public artifacts only.",
+    "negative_result_policy": "If audit rejects next route, classify whether fixed-tensor public overfit or missing closed-loop evidence is the blocker.",
+    "allowed_claims": [
+      "fusion_actor repair result audit and route decision",
+      "no training, no PPO, no repair rerun, no checkpoint artifact, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1660 positive fusion_actor repair result can be audited as valid objective-sanity evidence while keeping checkpoint replay PPO and promotion claims blocked.",
+  "success_criteria": [
+    "docs/m1661-paper-route-fusion-actor-proposal-repair-result-audit.md exists",
+    "audit records candidate reductions and primary alpha 0.2 pass",
+    "audit verifies zero checkpoint excluded-parameter training PPO replay promotion private holdout actor-input and level3 guardrail violations",
+    "audit assesses public fixed-tensor overfit risk",
+    "audit explicitly routes next step",
+    "promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats fixed-tensor repair as checkpoint replay PPO promotion private-holdout or paper evidence",
+    "audit reruns or tunes repair",
+    "audit routes directly to promotion private holdout actor-input changes or closed-loop evidence",
+    "audit claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1661-paper-route-fusion-actor-proposal-repair-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1661-paper-route-fusion-actor-proposal-repair-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1660_fusion_actor_proposal_repair/summary.json",
+    "runs/m1660_fusion_actor_proposal_repair/candidate_summary.csv",
+    "runs/m1660_fusion_actor_proposal_repair/guardrail_summary.csv",
+    "docs/m1660-paper-route-fusion-actor-proposal-repair-implementation.md"
+  ],
+  "decision_rule": "M1661 passes if it audits M1660 and chooses a safe next route before checkpoint artifact replay PPO or promotion.",
+  "next_blocker": "m1661-paper-route-fusion-actor-proposal-repair-result-audit"
+}

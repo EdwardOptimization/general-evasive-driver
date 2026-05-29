@@ -26567,3 +26567,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next decision: continue to exactly one no-checkpoint `fusion_actor` repair implementation
 - follow-up manifest: `experiments/manifests/m1660-paper-route-fusion-actor-proposal-repair-implementation.json`
 - next: `m1660-paper-route-fusion-actor-proposal-repair-implementation`
+
+## M1660 Paper-Route Fusion Actor Proposal Repair Implementation
+
+- status: completed
+- decision: `fusion_actor_proposal_repair_public_pass_route_to_audit`
+- artifact: `runs/m1660_fusion_actor_proposal_repair/summary.json`
+- doc: `docs/m1660-paper-route-fusion-actor-proposal-repair-implementation.md`
+- code: `src/autodrift/fusion_actor_proposal_repair.py`
+- tests: `tests/test_fusion_actor_proposal_repair.py`
+- focused tests: `3 passed in 0.93s`
+- selected candidate count: `3`
+- measurable initial residual count: `3`
+- candidate public pass count: `3`
+- primary alpha `0.2` pass: `true`
+- alpha `0.2` reduction ratio: `0.40519785496674926`
+- alpha `0.4` reduction ratio: `0.3681913379827455`
+- alpha `1.0` reduction ratio: `0.8524941253365563`
+- model restored after probe count: `3`
+- excluded parameter delta violation count: `0`
+- checkpoint artifact count: `0`
+- guardrail counts: diagnostics-as-positive, donor-plus target, training, PPO, promotion, private holdout, actor-input change, level3 claim are all `0`
+- passes public smoke gates: `true`
+- null result classification: `fusion_actor_proposal_repair_public_pass`
+- supported: differentiable-feature `fusion_actor` repair reduces selected same-line proposal exact residuals with clean no-checkpoint guardrails
+- unsupported: checkpoint artifact generation, closed-loop replay improvement, behavior retention, PPO-proposal repair, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1661-paper-route-fusion-actor-proposal-repair-result-audit.json`
+- next: `m1661-paper-route-fusion-actor-proposal-repair-result-audit`

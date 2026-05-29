@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1668,
+    "completed": 1669,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1659-paper-route-proposal-projection-repair-branch-synthesis.md",
+      "command_log": "docs/m1660-paper-route-fusion-actor-proposal-repair-implementation.md",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1660_fusion_actor_proposal_repair",
       "status": "completed",
-      "task_id": "m1659-paper-route-proposal-projection-repair-branch-synthesis"
+      "task_id": "m1660-paper-route-fusion-actor-proposal-repair-implementation"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1660-paper-route-fusion-actor-proposal-repair-implementation.json",
-      "hypothesis": "Differentiable-feature fusion_actor repair can reduce the primary alpha 0.2 selected-proposal exact residual by at least 25 percent with clean no-checkpoint guardrails.",
-      "id": "m1660-paper-route-fusion-actor-proposal-repair-implementation",
-      "kind": "objective_sanity",
-      "notes": "Pending: implement no-checkpoint fusion_actor selected-proposal repair metrics after branch synthesis",
-      "priority": 16550,
+      "command": "see experiments/manifests/m1661-paper-route-fusion-actor-proposal-repair-result-audit.json",
+      "hypothesis": "The M1660 positive fusion_actor repair result can be audited as valid objective-sanity evidence while keeping checkpoint replay PPO and promotion claims blocked.",
+      "id": "m1661-paper-route-fusion-actor-proposal-repair-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit positive fusion_actor repair result before checkpoint artifact or replay route",
+      "priority": 16560,
       "status": "pending",
-      "success_artifact": "runs/m1660_fusion_actor_proposal_repair/summary.json"
+      "success_artifact": "docs/m1661-paper-route-fusion-actor-proposal-repair-result-audit.md"
     },
-    "updated_at_utc": "20260529T214420Z"
+    "updated_at_utc": "20260529T215037Z"
 }
