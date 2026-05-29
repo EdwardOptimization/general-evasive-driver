@@ -1,0 +1,159 @@
+{
+  "id": "m1610-paper-route-diagnostic-complete-bounded-replay-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1609_diagnostic_complete_bounded_replay/summary.json",
+      "runs/m1609_diagnostic_complete_bounded_replay/classified_directed_pair_rows.csv",
+      "docs/m1609-paper-route-diagnostic-complete-bounded-replay-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1609-paper-route-diagnostic-complete-bounded-replay-implementation.json"
+    ],
+    "parent_objective": [
+      "audit diagnostic-complete bounded replay public pass before materialization or training"
+    ],
+    "derived_from": [
+      "m1609-paper-route-diagnostic-complete-bounded-replay-implementation"
+    ],
+    "blocked_by": [
+      "M1609 public pass still requires process audit before any candidate export, corpus export, training, or PPO"
+    ],
+    "supersedes": [
+      "direct candidate materialization from M1609",
+      "direct training-corpus export from M1609",
+      "direct PPO after M1609"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.md",
+  "public_gates": [
+    "M1610 must audit M1609 primary and diagnostic outcomes separately",
+    "M1610 must decide whether the pass admits materialization design, another diagnostic, synthesis, pivot, or stop",
+    "M1610 must keep materialization training PPO promotion and private holdout blocked during the audit",
+    "M1610 must not claim level3 self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun replay",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not select diagnostics by labels",
+    "do not relax clean selector thresholds",
+    "do not relax the max clean source-edge share threshold",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "A_diagnostic_complete_bounded_replay_result_audit",
+    "evidence_increment": "audits M1609 full diagnostic replay public pass before any next step",
+    "claim_scope": "audit only; no replay rerun, simulator rerun, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats M1609 as sufficient for promotion or paper-level self-ID",
+      "stop if audit ignores public-row overfit risk",
+      "stop if audit routes directly to training or PPO"
+    ],
+    "fallback_plan": [
+      "admit materialization design only if public proof and diagnostic control evidence are both intact",
+      "pivot if audit finds the pass is too public-row-specific",
+      "stop if no next step can preserve guardrails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1609 passes full diagnostic replay and requires audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "diagnostic-complete bounded replay result audit",
+    "admission_evidence": [
+      "M1609 passes public smoke gates with 144 primary rows and 232 diagnostics"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run implementation smoke",
+      "do not use private holdout",
+      "do not promote a checkpoint",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not relax thresholds",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1610 audit document",
+      "M1610 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits design, synthesis, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "M1609 pass interpretation is explicit",
+      "supported and unsupported claims are explicit",
+      "public-gate overfit risk is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1610 audits public replay rows; broad self-identification and level3 claims remain unsupported.",
+    "history_necessity_tests": [
+      "M1609 primary replay",
+      "M1609 full diagnostic replay",
+      "M1609 control variants"
+    ],
+    "temporal_evidence_window": "M1609 replay rows and interventions.",
+    "negative_result_policy": "If audit finds the pass is public-row-specific, preserve it as diagnostic evidence instead of promoting or training.",
+    "allowed_claims": [
+      "M1609 public-pass audit and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1609's public pass should be audited before any candidate materialization, corpus export, training, or PPO decision.",
+  "success_criteria": [
+    "docs/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.md exists",
+    "audit records M1609 primary and diagnostic outcomes",
+    "supported and unsupported claims are explicit",
+    "public-gate overfit risk is explicit",
+    "next route is explicit",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1609 as promotion or paper-level self-ID evidence",
+    "audit routes directly to training PPO promotion private holdout corpus export actor-input changes or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1609_diagnostic_complete_bounded_replay/summary.json",
+    "docs/m1609-paper-route-diagnostic-complete-bounded-replay-implementation.md"
+  ],
+  "decision_rule": "M1610 passes if it audits M1609 and chooses the next route before any materialization, training, PPO, or promotion.",
+  "next_blocker": "m1610-paper-route-diagnostic-complete-bounded-replay-result-audit"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1617,
+    "completed": 1618,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1608-paper-route-clean-active-set-contour-mapping-branch-synthesis.md",
+      "command_log": "runs/m1609_diagnostic_complete_bounded_replay/summary.json",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1609_diagnostic_complete_bounded_replay",
       "status": "completed",
-      "task_id": "m1608-paper-route-clean-active-set-contour-mapping-branch-synthesis"
+      "task_id": "m1609-paper-route-diagnostic-complete-bounded-replay-implementation"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1609-paper-route-diagnostic-complete-bounded-replay-implementation.json",
-      "hypothesis": "Full label-blind diagnostic replay can preserve negative/control evidence while primary clean contour remains intact.",
-      "id": "m1609-paper-route-diagnostic-complete-bounded-replay-implementation",
-      "kind": "infrastructure",
-      "notes": "Pending: run configured full diagnostic replay and route to audit",
-      "priority": 16040,
+      "command": "see experiments/manifests/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.json",
+      "hypothesis": "M1609's public pass should be audited before any candidate materialization, corpus export, training, or PPO decision.",
+      "id": "m1610-paper-route-diagnostic-complete-bounded-replay-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit M1609 public pass before any next step",
+      "priority": 16050,
       "status": "pending",
-      "success_artifact": "runs/m1609_diagnostic_complete_bounded_replay/summary.json"
+      "success_artifact": "docs/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.md"
     },
-    "updated_at_utc": "20260529T174647Z"
+    "updated_at_utc": "20260529T175351Z"
 }

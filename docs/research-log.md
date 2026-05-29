@@ -25490,3 +25490,43 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1609-paper-route-diagnostic-complete-bounded-replay-implementation.json`
 - next: `m1609-paper-route-diagnostic-complete-bounded-replay-implementation`
+
+## M1609 Paper-Route Diagnostic-Complete Bounded Replay Implementation
+
+- status: completed
+- decision: `diagnostic_complete_bounded_replay_public_pass_route_to_audit`
+- artifact: `runs/m1609_diagnostic_complete_bounded_replay/summary.json`
+- doc: `docs/m1609-paper-route-diagnostic-complete-bounded-replay-implementation.md`
+- focused tests: `3 passed in 2.08s`
+- primary replay directed pairs: 144
+- diagnostic replay directed pairs: 232
+- classified directed pairs: 376
+- intervention rows: 3008
+- variant count: 8
+- primary source-run count: 2
+- primary source-edge count: 4
+- primary clean directed pairs: 39
+- primary clean source edges: 4
+- max primary clean source-edge share: 0.3333333333333333
+- diagnostic reason count: 3
+- diagnostic clean directed pairs: 2
+- diagnostic clean share: 0.008620689655172414
+- diagnostic dominated/control count: 81
+- anchor replay failure count: 0
+- invalid directed pair count: 0
+- required variant coverage complete: true
+- guardrail violation count: 0
+- passes evidence quality targets: true
+- passes public smoke gates: true
+- null result classification: `contour_aware_bounded_replay_public_pass`
+- supported: full diagnostic replay fixes the M1605 capped-diagnostic shortfall; primary clean contour remains intact; diagnostic/control evidence is preserved without label-selected diagnostics
+- unsupported: candidate materialization, corpus export, PPO, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- replay started: true
+- history interventions executed: true
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.json`
+- next: `m1610-paper-route-diagnostic-complete-bounded-replay-result-audit`
