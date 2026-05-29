@@ -1,0 +1,156 @@
+{
+  "id": "m1494-paper-route-go-no-go-profile-runtime-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1493-paper-route-go-no-go-profile-config-refresh-implementation.md",
+      "configs/paper_route_corrected_profiles",
+      "runs/m1493_go_no_go_profile_config_refresh/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1493-paper-route-go-no-go-profile-config-refresh-implementation.json"
+    ],
+    "parent_objective": [
+      "run no-training runtime smoke over the full 12-profile go/no-go config set"
+    ],
+    "derived_from": [
+      "m1493-paper-route-go-no-go-profile-config-refresh-implementation"
+    ],
+    "blocked_by": [
+      "full 12-profile configs require runtime validation before fixed-budget train/eval smoke"
+    ],
+    "supersedes": [
+      "training directly from refreshed configs without runtime smoke"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1494-paper-route-go-no-go-profile-runtime-smoke.md",
+  "public_gates": [
+    "M1494 must run no-training runtime smoke over the full 12 corrected profile configs",
+    "M1494 must verify four current-tiled L2 controls are observed",
+    "M1494 must verify corrected L3 reset-control routing",
+    "M1494 must block training PPO replay promotion private holdout corpus export and actor-input changes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim architecture ranking or recurrent self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_self_id_go_no_go_matrix",
+    "evidence_axis": "G_profile_runtime_smoke",
+    "evidence_increment": "validates runtime masking current-tiled transforms and reset-control semantics for the full 12-profile matrix",
+    "claim_scope": "infrastructure runtime smoke only; no training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if any config fails to instantiate",
+      "stop if current-tiled transforms are not observed for all four controls",
+      "stop if corrected reset-control policy is not routed every step",
+      "stop if forbidden-input flags change"
+    ],
+    "fallback_plan": [
+      "route to profile-control repair if runtime smoke fails",
+      "route to one-seed fixed-budget plumbing design only if runtime smoke passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "full config refresh complete",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "full go/no-go profile runtime smoke",
+    "admission_evidence": [
+      "M1493 generated 12 corrected profile configs with four L2 current-tiled controls"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1494 run artifact",
+      "M1494 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up one-seed fixed-budget smoke design or profile-control repair manifest"
+    ],
+    "next_stage_criteria": [
+      "runtime smoke passes for all 12 configs",
+      "current-tiled and reset controls are observed",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1494 validates current-tiled controls but does not generate performance evidence.",
+    "history_necessity_tests": [
+      "runtime support for current-tiled L2 controls",
+      "runtime support for L3 reset-control semantics"
+    ],
+    "temporal_evidence_window": "runtime smoke only; no new temporal performance evidence generated.",
+    "negative_result_policy": "If runtime controls fail, repair infrastructure before any training or ranking.",
+    "allowed_claims": [
+      "M1494 validates runtime semantics for the go/no-go profile matrix",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The refreshed 12-profile go/no-go configs instantiate cleanly and runtime wrappers observe all required masks, current-tiled transforms, and reset-control routing.",
+  "success_criteria": [
+    "runs/m1494_go_no_go_profile_runtime_smoke/summary.json exists",
+    "summary result_class is controller_profile_runtime_smoke_pass",
+    "config_count is 12",
+    "current_tiled_profile_count is 4",
+    "current_tiled_profiles_observed is true",
+    "corrected_reset_profile_count is 1",
+    "corrected_reset_policy_routing_ok is true",
+    "no training PPO replay promotion private holdout corpus export or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "runtime smoke summary is missing",
+    "any config fails to instantiate",
+    "current-tiled transforms are not observed for all controls",
+    "corrected reset-control routing fails",
+    "training replay PPO promotion corpus export or actor-input change occurs"
+  ],
+  "commands": [
+    {
+      "name": "runtime_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.controller_profile_runtime_smoke --config-dir configs/paper_route_corrected_profiles --config-glob 'm1207_*.json' --seed 149400 --run-dir runs/m1494_go_no_go_profile_runtime_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1494_go_no_go_profile_runtime_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1494-paper-route-go-no-go-profile-runtime-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1493-paper-route-go-no-go-profile-config-refresh-implementation.md",
+    "configs/paper_route_corrected_profiles"
+  ],
+  "decision_rule": "M1494 passes if the full 12-profile no-training runtime smoke passes before any training.",
+  "next_blocker": "m1494-paper-route-go-no-go-profile-runtime-smoke"
+}

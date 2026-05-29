@@ -22207,3 +22207,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1493-paper-route-go-no-go-profile-config-refresh-implementation.json`.
 - next: `m1493-paper-route-go-no-go-profile-config-refresh-implementation`
+
+## M1493 Paper-Route Go/No-Go Profile Config Refresh Implementation
+
+- status: completed
+- decision: `go_no_go_profile_config_refresh_implemented_admit_runtime_smoke`
+- artifact: `docs/m1493-paper-route-go-no-go-profile-config-refresh-implementation.md`
+- generated config summary: `runs/m1493_go_no_go_profile_config_refresh/summary.json`
+- generated config count: 12
+- current-tiled L2 controls: `L2_window_13_current_tiled`, `L2_window_25_current_tiled`, `L2_window_50_current_tiled`, `L2_window_100_current_tiled`
+- corrected reset controls: `L3_reset_control_corrected`
+- newly generated committed configs: `m1207_l2_window_50.json`, `m1207_l2_window_50_current_tiled.json`, `m1207_l2_window_100.json`, `m1207_l2_window_100_current_tiled.json`
+- code updates: `src/autodrift/corrected_profile_configs.py`, `src/autodrift/corrected_profile_pilot.py`
+- focused tests: `python -m pytest tests/test_corrected_profile_configs.py tests/test_corrected_profile_pilot.py tests/test_controller_profile_runtime_smoke.py tests/test_controller_profiles.py -q`
+- focused test result: 23 passed in 2.16s
+- interpretation: full profile config layer is ready for no-training runtime smoke, but no training, runtime smoke, profile ranking, promotion, or self-ID claim has occurred.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1494-paper-route-go-no-go-profile-runtime-smoke.json`.
+- next: `m1494-paper-route-go-no-go-profile-runtime-smoke`

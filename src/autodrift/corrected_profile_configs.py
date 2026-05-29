@@ -85,6 +85,32 @@ CORRECTED_PROFILE_SPECS: tuple[CorrectedProfileSpec, ...] = (
         description="Capacity-matched L2 window-25 control with older frames replaced by the current frame.",
     ),
     CorrectedProfileSpec(
+        name="L2_window_50",
+        source_name="L2_window_50",
+        source_filename="m1190_l2_window_50_smoke.json",
+        description="One-second finite-window command-response profile.",
+    ),
+    CorrectedProfileSpec(
+        name="L2_window_50_current_tiled",
+        source_name="L2_window_50",
+        source_filename="m1190_l2_window_50_smoke.json",
+        current_tiled=True,
+        description="Capacity-matched L2 window-50 control with older frames replaced by the current frame.",
+    ),
+    CorrectedProfileSpec(
+        name="L2_window_100",
+        source_name="L2_window_100",
+        source_filename="m1190_l2_window_100_smoke.json",
+        description="Two-second finite-window command-response profile.",
+    ),
+    CorrectedProfileSpec(
+        name="L2_window_100_current_tiled",
+        source_name="L2_window_100",
+        source_filename="m1190_l2_window_100_smoke.json",
+        current_tiled=True,
+        description="Capacity-matched L2 window-100 control with older frames replaced by the current frame.",
+    ),
+    CorrectedProfileSpec(
         name="L3_online_gru",
         source_name="L3_online_gru",
         source_filename="m1190_l3_online_gru_smoke.json",

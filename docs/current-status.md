@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1492-paper-route-self-id-go-no-go-matrix-design
+m1493-paper-route-go-no-go-profile-config-refresh-implementation
 ```
 
 Current next task:
 
 ```text
-m1493-paper-route-go-no-go-profile-config-refresh-implementation
+m1494-paper-route-go-no-go-profile-runtime-smoke
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -38,12 +38,35 @@ M1488 synthesized the branch and admits exactly one calibrated bounded replay
 design before mandatory audit. M1489 designed that replay smoke. The current
 M1490 ran the bounded replay and produced local positives that are still
 source-singleton/control-sensitive. M1491 audited that result and applied the
-M1488 hard stop. M1492 now designs the L0/L1/L2/L3 self-ID go/no-go matrix. The
-current public-gate base remains M1362 alpha `0.1`:
+M1488 hard stop. M1492 designed the L0/L1/L2/L3 self-ID go/no-go matrix. M1493
+refreshed the config layer to the full 12-profile matrix. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1493 config refresh:
+
+```text
+decision: go_no_go_profile_config_refresh_implemented_admit_runtime_smoke
+summary: runs/m1493_go_no_go_profile_config_refresh/summary.json
+generated_config_count: 12
+current_tiled_profiles:
+  L2_window_13_current_tiled
+  L2_window_25_current_tiled
+  L2_window_50_current_tiled
+  L2_window_100_current_tiled
+corrected_reset_profiles:
+  L3_reset_control_corrected
+focused tests: 23 passed in 2.16s
+next: m1494-paper-route-go-no-go-profile-runtime-smoke
+```
+
+M1493 is infrastructure only. It does not validate runtime behavior, train,
+rank profiles, promote, or support self-ID claims. M1494 must run the
+no-training runtime smoke over all 12 configs before any one-seed training
+smoke.
 
 M1492 go/no-go matrix design:
 

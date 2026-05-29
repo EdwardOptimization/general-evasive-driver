@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1501,
+    "completed": 1502,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1492-paper-route-self-id-go-no-go-matrix-design.md",
+    "command_log": "docs/m1493-paper-route-go-no-go-profile-config-refresh-implementation.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1493_go_no_go_profile_config_refresh",
     "status": "completed",
-    "task_id": "m1492-paper-route-self-id-go-no-go-matrix-design"
+    "task_id": "m1493-paper-route-go-no-go-profile-config-refresh-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1493-paper-route-go-no-go-profile-config-refresh-implementation.json",
-    "hypothesis": "The existing profile infrastructure can be refreshed into a full, contract-clean go/no-go matrix config set before any new training.",
-    "id": "m1493-paper-route-go-no-go-profile-config-refresh-implementation",
+    "command": "see experiments/manifests/m1494-paper-route-go-no-go-profile-runtime-smoke.json",
+    "hypothesis": "The refreshed 12-profile go/no-go configs instantiate cleanly and runtime wrappers observe all required masks, current-tiled transforms, and reset-control routing.",
+    "id": "m1494-paper-route-go-no-go-profile-runtime-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: add full current-tiled L2 controls and tests for the go/no-go matrix before runtime smoke or training",
-    "priority": 14880,
+    "notes": "Pending: run no-training runtime smoke over the full 12 corrected profile configs",
+    "priority": 14890,
     "status": "pending",
-    "success_artifact": "docs/m1493-paper-route-go-no-go-profile-config-refresh-implementation.md"
+    "success_artifact": "runs/m1494_go_no_go_profile_runtime_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T065903Z"
+  "updated_at_utc": "20260529T070415Z"
 }

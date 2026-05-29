@@ -21,10 +21,12 @@ def test_generated_config_paths_find_all_profiles() -> None:
 
 def test_generated_corrected_config_paths_find_all_profiles() -> None:
     paths = generated_config_paths("configs/paper_route_corrected_profiles", config_glob="m1207_*.json")
-    assert len(paths) == 8
+    assert len(paths) == 12
     assert {path.name for path in paths} >= {
         "m1207_l2_window_13_current_tiled.json",
         "m1207_l2_window_25_current_tiled.json",
+        "m1207_l2_window_50_current_tiled.json",
+        "m1207_l2_window_100_current_tiled.json",
         "m1207_l3_reset_control_corrected.json",
     }
 
@@ -92,9 +94,9 @@ def test_corrected_runtime_smoke_writes_no_training_summary(tmp_path: Path) -> N
         seed=1208,
     )
 
-    assert summary["config_count"] == 8
+    assert summary["config_count"] == 12
     assert summary["all_configs_instantiated"] is True
-    assert summary["current_tiled_profile_count"] == 2
+    assert summary["current_tiled_profile_count"] == 4
     assert summary["current_tiled_profiles_observed"] is True
     assert summary["corrected_reset_profile_count"] == 1
     assert summary["corrected_reset_policy_routing_ok"] is True

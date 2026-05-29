@@ -152,6 +152,36 @@
     "configs/paper_route_profiles",
     "configs/paper_route_corrected_profiles"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1493-paper-route-go-no-go-profile-config-refresh-implementation.md",
+    "decision": "go_no_go_profile_config_refresh_implemented_admit_runtime_smoke",
+    "generated_config_count": 12,
+    "current_tiled_profile_count": 4,
+    "current_tiled_profiles": [
+      "L2_window_13_current_tiled",
+      "L2_window_25_current_tiled",
+      "L2_window_50_current_tiled",
+      "L2_window_100_current_tiled"
+    ],
+    "corrected_reset_profile_count": 1,
+    "corrected_reset_profiles": [
+      "L3_reset_control_corrected"
+    ],
+    "focused_tests_command": "python -m pytest tests/test_corrected_profile_configs.py tests/test_corrected_profile_pilot.py tests/test_controller_profile_runtime_smoke.py tests/test_controller_profiles.py -q",
+    "focused_tests_result": "23 passed in 2.16s",
+    "run_dir": "runs/m1493_go_no_go_profile_config_refresh",
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1494-paper-route-go-no-go-profile-runtime-smoke.json"
+  },
+  "decision": "go_no_go_profile_config_refresh_implemented_admit_runtime_smoke",
   "decision_rule": "M1493 passes if full contract-clean go/no-go profile configs and focused tests are ready before any training or runtime smoke.",
-  "next_blocker": "m1493-paper-route-go-no-go-profile-config-refresh-implementation"
+  "next_blocker": "m1494-paper-route-go-no-go-profile-runtime-smoke"
 }

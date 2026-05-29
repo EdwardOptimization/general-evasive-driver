@@ -36,6 +36,8 @@ MAIN_PROFILES = {
     "L1_one_step",
     "L2_window_13",
     "L2_window_25",
+    "L2_window_50",
+    "L2_window_100",
     "L3_online_gru",
 }
 SELECTED_FINITE_METRICS = (

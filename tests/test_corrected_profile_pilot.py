@@ -12,10 +12,12 @@ from autodrift.corrected_profile_pilot import (
 
 def test_corrected_profile_config_paths_find_committed_configs() -> None:
     paths = corrected_profile_config_paths()
-    assert len(paths) == 8
+    assert len(paths) == 12
     assert {path.name for path in paths} >= {
         "m1207_l2_window_13_current_tiled.json",
         "m1207_l2_window_25_current_tiled.json",
+        "m1207_l2_window_50_current_tiled.json",
+        "m1207_l2_window_100_current_tiled.json",
         "m1207_l3_reset_control_corrected.json",
     }
 

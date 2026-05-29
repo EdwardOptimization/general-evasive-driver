@@ -19,6 +19,10 @@ def test_corrected_profile_configs_cover_expected_profiles() -> None:
         "L2_window_13_current_tiled",
         "L2_window_25",
         "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
         "L3_online_gru",
         "L3_reset_control_corrected",
     }
@@ -29,6 +33,8 @@ def test_current_tiled_l2_configs_preserve_capacity_contract() -> None:
     for tiled_name, source_name in [
         ("L2_window_13_current_tiled", "L2_window_13"),
         ("L2_window_25_current_tiled", "L2_window_25"),
+        ("L2_window_50_current_tiled", "L2_window_50"),
+        ("L2_window_100_current_tiled", "L2_window_100"),
     ]:
         tiled = configs[tiled_name]
         source = configs[source_name]
@@ -76,8 +82,13 @@ def test_write_corrected_profile_configs_outputs_json_summary_and_rows(tmp_path:
     summary = write_corrected_profile_configs(output_dir=output_dir, run_dir=run_dir)
 
     assert summary["result_class"] == "corrected_profile_configs_generated"
-    assert summary["generated_config_count"] == 8
-    assert summary["current_tiled_profiles"] == ["L2_window_13_current_tiled", "L2_window_25_current_tiled"]
+    assert summary["generated_config_count"] == 12
+    assert summary["current_tiled_profiles"] == [
+        "L2_window_13_current_tiled",
+        "L2_window_25_current_tiled",
+        "L2_window_50_current_tiled",
+        "L2_window_100_current_tiled",
+    ]
     assert summary["corrected_reset_profiles"] == ["L3_reset_control_corrected"]
     assert summary["training_started"] is False
     assert summary["ppo_used"] is False
@@ -90,6 +101,10 @@ def test_write_corrected_profile_configs_outputs_json_summary_and_rows(tmp_path:
         "m1207_l2_window_13_current_tiled.json",
         "m1207_l2_window_25.json",
         "m1207_l2_window_25_current_tiled.json",
+        "m1207_l2_window_50.json",
+        "m1207_l2_window_50_current_tiled.json",
+        "m1207_l2_window_100.json",
+        "m1207_l2_window_100_current_tiled.json",
         "m1207_l3_online_gru.json",
         "m1207_l3_reset_control_corrected.json",
     }
