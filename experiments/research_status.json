@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1622,
+    "completed": 1623,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1613-paper-route-contour-aware-candidate-materialization-result-audit.md",
+      "command_log": "docs/m1614-paper-route-contour-aware-candidate-corpus-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1613-paper-route-contour-aware-candidate-materialization-result-audit"
+      "task_id": "m1614-paper-route-contour-aware-candidate-corpus-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1614-paper-route-contour-aware-candidate-corpus-design.json",
-      "hypothesis": "A design-only corpus plan can preserve candidate and diagnostic roles before any corpus export or training.",
-      "id": "m1614-paper-route-contour-aware-candidate-corpus-design",
-      "kind": "gate",
-      "notes": "Pending: design candidate corpus roles without exporting it",
-      "priority": 16090,
+      "command": "see experiments/manifests/m1615-paper-route-contour-aware-candidate-corpus-export-implementation.json",
+      "hypothesis": "A candidate corpus package can be exported with explicit public-proof metadata while keeping training corpus export and objective construction blocked.",
+      "id": "m1615-paper-route-contour-aware-candidate-corpus-export-implementation",
+      "kind": "infrastructure",
+      "notes": "Pending: export candidate corpus package without training corpus export",
+      "priority": 16100,
       "status": "pending",
-      "success_artifact": "docs/m1614-paper-route-contour-aware-candidate-corpus-design.md"
+      "success_artifact": "runs/m1615_contour_aware_candidate_corpus/summary.json"
     },
-    "updated_at_utc": "20260529T180754Z"
+    "updated_at_utc": "20260529T181014Z"
 }

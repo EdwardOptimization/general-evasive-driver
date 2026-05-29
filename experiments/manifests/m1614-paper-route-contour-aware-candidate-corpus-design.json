@@ -155,6 +155,64 @@
     "runs/m1612_contour_aware_candidate_materialization/summary.json",
     "docs/m1613-paper-route-contour-aware-candidate-materialization-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1614-paper-route-contour-aware-candidate-corpus-design.md",
+    "decision": "contour_aware_candidate_corpus_design_admit_offline_export",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "positive_candidate_target": 39,
+    "diagnostic_guardrail_target": 232,
+    "candidate_corpus_exported": false,
+    "training_corpus_exported": false,
+    "loss_constructed": false,
+    "objective_constructed": false,
+    "metadata_required": [
+      "public_proof_artifact",
+      "private_holdout_used",
+      "paper_level_claim_supported",
+      "level3_self_id_claim_supported",
+      "training_ready",
+      "requires_export_audit",
+      "requires_objective_design_before_training"
+    ],
+    "required_artifact_plan": [
+      "summary.json",
+      "positive_candidate_rows.csv",
+      "diagnostic_guardrail_rows.csv",
+      "corpus_manifest.json",
+      "role_summary.csv",
+      "source_edge_summary.csv",
+      "guardrail_summary.csv"
+    ],
+    "next_manifest": "experiments/manifests/m1615-paper-route-contour-aware-candidate-corpus-export-implementation.json",
+    "supported_claims": [
+      "candidate and diagnostic roles can be designed without exporting a training corpus",
+      "candidate corpus export can remain separate from objective construction and training",
+      "public-proof/no-paper-claim metadata is required before any later use"
+    ],
+    "unsupported_claims": [
+      "training corpus export",
+      "loss/objective construction",
+      "actor update",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "paper-level self-identification",
+      "level3 anticipatory self-identification"
+    ],
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1614 passes if it designs corpus assembly while keeping actual corpus export, loss construction, training, PPO, and promotion blocked.",
-  "next_blocker": "m1614-paper-route-contour-aware-candidate-corpus-design"
+  "next_blocker": "m1615-paper-route-contour-aware-candidate-corpus-export-implementation"
 }

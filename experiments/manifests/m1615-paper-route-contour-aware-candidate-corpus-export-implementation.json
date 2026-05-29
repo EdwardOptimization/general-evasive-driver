@@ -1,0 +1,200 @@
+{
+  "id": "m1615-paper-route-contour-aware-candidate-corpus-export-implementation",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1612_contour_aware_candidate_materialization/candidate_rows.csv",
+      "runs/m1612_contour_aware_candidate_materialization/diagnostic_guardrail_rows.csv",
+      "docs/m1614-paper-route-contour-aware-candidate-corpus-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1614-paper-route-contour-aware-candidate-corpus-design.json"
+    ],
+    "parent_objective": [
+      "offline export contour-aware candidate corpus package without training corpus export"
+    ],
+    "derived_from": [
+      "m1614-paper-route-contour-aware-candidate-corpus-design"
+    ],
+    "blocked_by": [
+      "M1614 admits one offline candidate corpus package export"
+    ],
+    "supersedes": [
+      "direct training-corpus export",
+      "direct objective construction",
+      "direct PPO"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1615-paper-route-contour-aware-candidate-corpus-export-implementation.md",
+  "public_gates": [
+    "M1615 must export a candidate corpus package, not a training corpus",
+    "M1615 must keep positive candidates and diagnostic guardrails separate",
+    "M1615 must write public-proof and no-paper-claim metadata",
+    "M1615 must keep loss construction, training, PPO, promotion, and private holdout blocked",
+    "M1615 must route to audit whether gates pass or fail"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not export training_corpus.csv",
+    "do not construct a loss",
+    "do not construct an objective",
+    "do not train",
+    "do not run PPO",
+    "do not rerun replay",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not include diagnostic rows as positive candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "I_contour_aware_candidate_corpus_export",
+    "evidence_increment": "exports candidate corpus package metadata without training corpus or objective construction",
+    "claim_scope": "candidate corpus package only; no training corpus, loss construction, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if implementation exports training_corpus.csv",
+      "stop if implementation builds a loss/objective config",
+      "stop if diagnostics enter positive candidates"
+    ],
+    "fallback_plan": [
+      "route to result audit whether gates pass or fail",
+      "if metadata is incomplete, audit before repair",
+      "if public-overfit risk is unacceptable, stop before objective design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1614 admits one candidate corpus package export",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "contour-aware candidate corpus export implementation",
+    "admission_evidence": [
+      "M1614 pre-registers corpus roles and metadata without permitting training corpus export"
+    ],
+    "blocked_shortcuts": [
+      "do not export training_corpus.csv",
+      "do not construct a loss",
+      "do not construct an objective",
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote a checkpoint",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "candidate corpus package artifacts",
+      "M1615 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "candidate corpus package is written",
+      "training corpus export remains false",
+      "loss/objective construction remains false",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1615 exports public candidate package metadata only and cannot strengthen self-ID claims.",
+    "history_necessity_tests": [
+      "M1612 candidate rows",
+      "M1612 diagnostic guardrails"
+    ],
+    "temporal_evidence_window": "M1612 materialized candidate artifacts.",
+    "negative_result_policy": "If export fails role separation or metadata, route to audit rather than objective design.",
+    "allowed_claims": [
+      "candidate corpus package export",
+      "no promotion, training corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A candidate corpus package can be exported with explicit public-proof metadata while keeping training corpus export and objective construction blocked.",
+  "success_criteria": [
+    "runs/m1615_contour_aware_candidate_corpus/summary.json exists",
+    "candidate_corpus_exported == true",
+    "training_corpus_exported == false",
+    "loss_constructed == false",
+    "objective_constructed == false",
+    "positive_candidate_count == 39",
+    "diagnostic_guardrail_count == 232",
+    "positive_rows_all_clean == true",
+    "diagnostic_rows_used_as_positive == false",
+    "candidate_pair_ids_unique == true",
+    "diagnostic_pair_ids_unique == true",
+    "source_edge_count == 4",
+    "max_source_edge_share <= 0.35",
+    "public_proof_metadata_complete == true",
+    "requires_export_audit == true",
+    "requires_objective_design_before_training == true",
+    "training PPO promotion private holdout and self-ID claims remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "implementation exports training_corpus.csv",
+    "implementation constructs a loss or objective",
+    "diagnostic rows enter positive candidates",
+    "implementation claims level3 self-identification",
+    "implementation fails to route to audit"
+  ],
+  "commands": [
+    {
+      "name": "export",
+      "command": "PYTHONPATH=src python -m autodrift.contour_aware_candidate_corpus_export --output-dir runs/m1615_contour_aware_candidate_corpus"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1615_contour_aware_candidate_corpus/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1615_contour_aware_candidate_corpus/diagnostic_guardrail_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1615_contour_aware_candidate_corpus/corpus_manifest.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1615_contour_aware_candidate_corpus/role_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1615_contour_aware_candidate_corpus/source_edge_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1615_contour_aware_candidate_corpus/guardrail_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1615-paper-route-contour-aware-candidate-corpus-export-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1612_contour_aware_candidate_materialization/candidate_rows.csv",
+    "runs/m1612_contour_aware_candidate_materialization/diagnostic_guardrail_rows.csv",
+    "docs/m1614-paper-route-contour-aware-candidate-corpus-design.md"
+  ],
+  "decision_rule": "M1615 passes if it exports candidate corpus package artifacts while keeping training corpus export, loss construction, training, PPO, and promotion blocked.",
+  "next_blocker": "m1615-paper-route-contour-aware-candidate-corpus-export-implementation"
+}

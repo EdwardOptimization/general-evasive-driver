@@ -25641,3 +25641,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: admit design-only candidate corpus planning
 - follow-up manifest: `experiments/manifests/m1614-paper-route-contour-aware-candidate-corpus-design.json`
 - next: `m1614-paper-route-contour-aware-candidate-corpus-design`
+
+## M1614 Paper-Route Contour-Aware Candidate Corpus Design
+
+- status: completed
+- decision: `contour_aware_candidate_corpus_design_admit_offline_export`
+- artifact: `docs/m1614-paper-route-contour-aware-candidate-corpus-design.md`
+- failure taxonomy: `none`
+- positive candidate target: 39
+- diagnostic guardrail target: 232
+- candidate corpus exported: false in M1614
+- training corpus exported: false
+- loss/objective constructed: false
+- metadata required: public-proof artifact, no private holdout, no paper-level claim, no level3 self-ID claim, not training-ready, requires export audit, requires objective design before training
+- required artifact plan: `summary.json`, `positive_candidate_rows.csv`, `diagnostic_guardrail_rows.csv`, `corpus_manifest.json`, `role_summary.csv`, `source_edge_summary.csv`, `guardrail_summary.csv`
+- supported: candidate and diagnostic roles can be designed without exporting a training corpus; candidate corpus export can remain separate from objective construction and training; public-proof/no-paper-claim metadata is required before any later use
+- unsupported: training corpus export, loss/objective construction, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- follow-up manifest: `experiments/manifests/m1615-paper-route-contour-aware-candidate-corpus-export-implementation.json`
+- next: `m1615-paper-route-contour-aware-candidate-corpus-export-implementation`
