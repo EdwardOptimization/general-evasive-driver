@@ -151,6 +151,34 @@
     "docs/m1493-paper-route-go-no-go-profile-config-refresh-implementation.md",
     "configs/paper_route_corrected_profiles"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1494-paper-route-go-no-go-profile-runtime-smoke.md",
+    "decision": "go_no_go_profile_runtime_smoke_pass_admit_one_seed_smoke",
+    "result_class": "controller_profile_runtime_smoke_pass",
+    "run_dir": "runs/m1494_go_no_go_profile_runtime_smoke",
+    "summary_json": "runs/m1494_go_no_go_profile_runtime_smoke/summary.json",
+    "config_count": 12,
+    "all_configs_instantiated": true,
+    "contract_ok": true,
+    "model_forward_ok": true,
+    "l0_mask_observed": true,
+    "unmasked_profiles_unchanged": true,
+    "current_tiled_profile_count": 4,
+    "current_tiled_profiles_observed": true,
+    "corrected_reset_profile_count": 1,
+    "corrected_reset_policy_routing_ok": true,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1495-paper-route-go-no-go-profile-one-seed-smoke.json"
+  },
+  "decision": "go_no_go_profile_runtime_smoke_pass_admit_one_seed_smoke",
   "decision_rule": "M1494 passes if the full 12-profile no-training runtime smoke passes before any training.",
-  "next_blocker": "m1494-paper-route-go-no-go-profile-runtime-smoke"
+  "next_blocker": "m1495-paper-route-go-no-go-profile-one-seed-smoke"
 }

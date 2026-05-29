@@ -1,0 +1,152 @@
+{
+  "id": "m1495-paper-route-go-no-go-profile-one-seed-smoke",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1494_go_no_go_profile_runtime_smoke/summary.json",
+      "configs/paper_route_corrected_profiles"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1494-paper-route-go-no-go-profile-runtime-smoke.json"
+    ],
+    "parent_objective": [
+      "run one fixed-budget train/eval seed per profile as plumbing smoke"
+    ],
+    "derived_from": [
+      "m1494-paper-route-go-no-go-profile-runtime-smoke"
+    ],
+    "blocked_by": [
+      "full 12-profile runtime smoke has passed, but no fixed-budget training/eval plumbing has been run"
+    ],
+    "supersedes": [
+      "jumping directly to three-seed profile pilot without one-seed smoke"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1495-paper-route-go-no-go-profile-one-seed-smoke.md",
+  "public_gates": [
+    "M1495 must run exactly one fixed-budget training seed per selected profile",
+    "M1495 must use the same training budget, optimizer policy, and eval seed block for all profiles",
+    "M1495 must report completion and finite selected metrics only as plumbing evidence",
+    "M1495 must block promotion private holdout profile ranking and self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not tune one profile from results",
+    "do not claim architecture ranking or recurrent self-identification from one seed"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_self_id_go_no_go_matrix",
+    "evidence_axis": "G_one_seed_profile_plumbing",
+    "evidence_increment": "tests whether all 12 go/no-go profiles can complete one matched fixed-budget train/eval run",
+    "claim_scope": "plumbing-only public smoke; no promotion, private holdout, profile-ranking, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if any profile seed run fails",
+      "stop if selected metrics are non-finite",
+      "stop if profile-specific tuning occurs",
+      "stop if private holdout or promotion is used"
+    ],
+    "fallback_plan": [
+      "route to profile-control repair if a config family fails",
+      "route to one-seed result audit if all profile runs complete"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "runtime smoke passed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fixed-budget profile training/eval plumbing",
+    "admission_evidence": [
+      "M1494 runtime smoke passed for all 12 refreshed configs"
+    ],
+    "blocked_shortcuts": [
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not claim profile ranking"
+    ],
+    "allowed_updates": [
+      "M1495 run artifact",
+      "M1495 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up audit manifest"
+    ],
+    "next_stage_criteria": [
+      "all 12 profile seed runs complete",
+      "all selected eval metrics finite",
+      "profile-specific tuning remains false",
+      "next audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1495 is one-seed plumbing only; any trends are not self-ID evidence.",
+    "history_necessity_tests": [
+      "one-seed L2 normal versus current-tiled and L3 online versus reset data may be logged, but interpretation is deferred to audit"
+    ],
+    "temporal_evidence_window": "one fixed-budget public seed per profile.",
+    "negative_result_policy": "Treat one-seed trends as plumbing diagnostics only, whether positive or negative.",
+    "allowed_claims": [
+      "M1495 tests fixed-budget profile training/eval plumbing",
+      "no promotion, corpus export, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The refreshed 12-profile go/no-go matrix can complete one matched fixed-budget train/eval seed per profile with finite metrics.",
+  "success_criteria": [
+    "runs/m1495_go_no_go_profile_one_seed_smoke/summary.json exists",
+    "profile_count is 12",
+    "total_seed_runs is 12",
+    "completed_seed_runs is 12",
+    "failed_seed_runs is 0",
+    "all_eval_metrics_finite is true",
+    "private_holdout_used is false",
+    "promoted is false",
+    "profile_specific_tuning is false",
+    "actor_input_contract_changed is false"
+  ],
+  "failure_criteria": [
+    "run summary is missing",
+    "any profile seed run fails",
+    "selected eval metrics are non-finite",
+    "private holdout promotion profile-specific tuning or actor-input change occurs"
+  ],
+  "commands": [
+    {
+      "name": "one_seed_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.corrected_profile_pilot --config-dir configs/paper_route_corrected_profiles --config-glob 'm1207_*.json' --run-dir runs/m1495_go_no_go_profile_one_seed_smoke --training-seed-base 149500 --seed-offsets 0 --eval-seed-base 149600 --eval-episodes 32 --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1495_go_no_go_profile_one_seed_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1495-paper-route-go-no-go-profile-one-seed-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1494_go_no_go_profile_runtime_smoke/summary.json",
+    "configs/paper_route_corrected_profiles"
+  ],
+  "decision_rule": "M1495 passes if the one-seed fixed-budget profile smoke completes all 12 profile runs with finite metrics and no promotion/private holdout.",
+  "next_blocker": "m1495-paper-route-go-no-go-profile-one-seed-smoke"
+}

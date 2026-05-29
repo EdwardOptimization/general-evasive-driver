@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1493-paper-route-go-no-go-profile-config-refresh-implementation
+m1494-paper-route-go-no-go-profile-runtime-smoke
 ```
 
 Current next task:
 
 ```text
-m1494-paper-route-go-no-go-profile-runtime-smoke
+m1495-paper-route-go-no-go-profile-one-seed-smoke
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -39,12 +39,35 @@ design before mandatory audit. M1489 designed that replay smoke. The current
 M1490 ran the bounded replay and produced local positives that are still
 source-singleton/control-sensitive. M1491 audited that result and applied the
 M1488 hard stop. M1492 designed the L0/L1/L2/L3 self-ID go/no-go matrix. M1493
-refreshed the config layer to the full 12-profile matrix. The current
-public-gate base remains M1362 alpha `0.1`:
+refreshed the config layer to the full 12-profile matrix. M1494 passed
+no-training runtime smoke for all 12 configs. The current public-gate base
+remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1494 runtime smoke:
+
+```text
+decision: go_no_go_profile_runtime_smoke_pass_admit_one_seed_smoke
+run: runs/m1494_go_no_go_profile_runtime_smoke
+result_class: controller_profile_runtime_smoke_pass
+config_count: 12
+all_configs_instantiated: true
+contract_ok: true
+model_forward_ok: true
+current_tiled_profile_count: 4
+current_tiled_profiles_observed: true
+corrected_reset_profile_count: 1
+corrected_reset_policy_routing_ok: true
+next: m1495-paper-route-go-no-go-profile-one-seed-smoke
+```
+
+M1494 is still infrastructure only. It validates profile runtime semantics, not
+performance. M1495 may run exactly one fixed-budget train/eval seed per profile
+as plumbing smoke and must route to an audit before any 3-seed pilot or profile
+ranking.
 
 M1493 config refresh:
 

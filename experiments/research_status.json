@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1502,
+    "completed": 1503,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1493-paper-route-go-no-go-profile-config-refresh-implementation.md",
+    "command_log": "docs/m1494-paper-route-go-no-go-profile-runtime-smoke.md",
     "returncode": 0,
-    "run_dir": "runs/m1493_go_no_go_profile_config_refresh",
+    "run_dir": "runs/m1494_go_no_go_profile_runtime_smoke",
     "status": "completed",
-    "task_id": "m1493-paper-route-go-no-go-profile-config-refresh-implementation"
+    "task_id": "m1494-paper-route-go-no-go-profile-runtime-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1494-paper-route-go-no-go-profile-runtime-smoke.json",
-    "hypothesis": "The refreshed 12-profile go/no-go configs instantiate cleanly and runtime wrappers observe all required masks, current-tiled transforms, and reset-control routing.",
-    "id": "m1494-paper-route-go-no-go-profile-runtime-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: run no-training runtime smoke over the full 12 corrected profile configs",
-    "priority": 14890,
+    "command": "see experiments/manifests/m1495-paper-route-go-no-go-profile-one-seed-smoke.json",
+    "hypothesis": "The refreshed 12-profile go/no-go matrix can complete one matched fixed-budget train/eval seed per profile with finite metrics.",
+    "id": "m1495-paper-route-go-no-go-profile-one-seed-smoke",
+    "kind": "gate",
+    "notes": "Pending: run one fixed-budget train/eval seed per profile as plumbing smoke only",
+    "priority": 14900,
     "status": "pending",
-    "success_artifact": "runs/m1494_go_no_go_profile_runtime_smoke/summary.json"
+    "success_artifact": "runs/m1495_go_no_go_profile_one_seed_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T070415Z"
+  "updated_at_utc": "20260529T071031Z"
 }

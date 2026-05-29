@@ -22225,3 +22225,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1494-paper-route-go-no-go-profile-runtime-smoke.json`.
 - next: `m1494-paper-route-go-no-go-profile-runtime-smoke`
+
+## M1494 Paper-Route Go/No-Go Profile Runtime Smoke
+
+- status: completed
+- decision: `go_no_go_profile_runtime_smoke_pass_admit_one_seed_smoke`
+- result class: `controller_profile_runtime_smoke_pass`
+- run dir: `runs/m1494_go_no_go_profile_runtime_smoke`
+- summary: `runs/m1494_go_no_go_profile_runtime_smoke/summary.json`
+- config count: 12
+- all configs instantiated: true
+- contract ok: true
+- model forward ok: true
+- L0 mask observed: true
+- unmasked profiles unchanged: true
+- current-tiled profile count: 4
+- current-tiled profiles observed: true
+- corrected reset profile count: 1
+- corrected reset policy routing ok: true
+- interpretation: full profile runtime layer is valid, but this is not training, performance, profile-ranking, or self-ID evidence.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1495-paper-route-go-no-go-profile-one-seed-smoke.json`.
+- next: `m1495-paper-route-go-no-go-profile-one-seed-smoke`
