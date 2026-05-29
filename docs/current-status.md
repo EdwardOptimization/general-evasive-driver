@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1562-paper-route-source-balanced-recoverable-active-set-selector-design
+m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation
 ```
 
 Current next task:
 
 ```text
-m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation
+m1564-paper-route-source-balanced-selector-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -318,6 +318,14 @@ select `recoverable_boundary == true` rows, rank strong recoverable and flip
 rows first, and enforce caps of `12` per source family and `12` per anchor
 window with at most `48` selected rows. It must not rerun the simulator, run
 history interventions, export a training corpus, or materialize candidates.
+M1563 implemented and ran that selector. It selected `40` recoverable anchors,
+including `27` strong recoverable anchors, across `5` source families and `5`
+anchor windows, with max source and window shares both at `0.3`. The selector
+did not rerun simulation or run history interventions. The public selector gate
+still fails because the M1560 input pool has only `5` distinct collision-flip
+anchors and `5` distinct success-flip anchors, below the pre-registered `8`
+each threshold. M1564 must audit whether this is a source-generation gap or a
+gate-semantics issue before any history-intervention design.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

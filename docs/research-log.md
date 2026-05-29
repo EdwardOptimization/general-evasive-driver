@@ -24119,3 +24119,45 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1562 admits only a deterministic diagnostic selector over M1560 artifacts. It explicitly blocks simulator rerun, history interventions, and training-corpus export.
 - follow-up manifest: `experiments/manifests/m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation.json`.
 - next: `m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation`
+
+## M1563 Paper-Route Source-Balanced Recoverable Active-Set Selector Implementation
+
+- status: completed
+- decision: `source_balanced_recoverable_active_set_selector_clean_but_flip_anchor_gate_infeasible_route_to_audit`
+- artifact: `runs/m1563_source_balanced_recoverable_active_set_selector/summary.json`
+- doc: `docs/m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation.md`
+- code: `src/autodrift/source_balanced_recoverable_active_set_selector.py`
+- tests: `tests/test_source_balanced_recoverable_active_set_selector.py`
+- focused test result: `3 passed`
+- input recoverable boundary anchor count: 86
+- input strong recoverable boundary anchor count: 36
+- input collision flip anchor count: 5
+- input success flip anchor count: 5
+- input collision flip variant count: 30
+- input success flip variant count: 30
+- selected recoverable anchor count: 40
+- selected strong recoverable anchor count: 27
+- selected predecision anchor count: 37
+- selected source family count: 5
+- selected window count: 5
+- max selected source family share: 0.3
+- max selected window share: 0.3
+- selected collision flip anchor count: 5
+- selected success flip anchor count: 5
+- selected collision flip variant count: 30
+- selected success flip variant count: 30
+- input flip anchor gate feasible: false
+- passes public selector gates: false
+- passes evidence quality targets: false
+- failed public selector gates: `input_flip_anchor_gate_infeasible`, `selected_collision_flip_anchor_count`, `selected_success_flip_anchor_count`
+- guardrail violation count: 0
+- simulator rerun started: false
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1563 fixes source/window concentration for a diagnostic subset, but the distinct flip-anchor gate is infeasible from the M1560 input pool under a literal anchor-count interpretation.
+- follow-up manifest: `experiments/manifests/m1564-paper-route-source-balanced-selector-result-audit.json`.
+- next: `m1564-paper-route-source-balanced-selector-result-audit`

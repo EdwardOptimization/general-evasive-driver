@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1563 selected 40 balanced recoverable anchors with 27 strong but distinct flip-anchor gates failed because input pool has only 5/5 flip anchors",
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "implementation reruns simulator",
+    "implementation runs history interventions",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T134732Z",
+  "hypothesis": "A deterministic source-balanced selector can produce a compact balanced diagnostic active set from M1560 recoverable anchors without rerunning simulation or running history interventions.",
+  "lineage": {
+    "blocked_by": [
+      "source-balanced selector has not yet been implemented"
+    ],
+    "derived_from": [
+      "m1562-paper-route-source-balanced-recoverable-active-set-selector-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.md",
+      "runs/m1560_recoverable_active_set_generator_smoke/recoverable_active_anchor_rows.csv"
+    ],
+    "parent_objective": [
+      "implement deterministic source-balanced selector over M1560 recoverable active-set artifacts"
+    ],
+    "supersedes": [
+      "direct history interventions over raw M1560 source-concentrated pool"
+    ]
+  },
+  "milestone": "m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation",
+  "next_blocker": "m1564-paper-route-source-balanced-selector-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_balanced_recoverable_active_set_selector_clean_but_flip_anchor_gate_infeasible_route_to_audit",
+  "public_gates": [
+    "M1563 must implement deterministic source-balanced selection over M1560 artifacts",
+    "M1563 must not rerun simulator or run history interventions",
+    "M1563 must keep selected artifacts diagnostic-only and not a training corpus",
+    "M1563 must preserve P0 actor input contract",
+    "M1563 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "source_balanced_recoverable_active_set_selector_clean_but_flip_anchor_gate_infeasible_route_to_audit",
+    "milestone": "m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation",
+    "reason": "M1563 selected 40 balanced recoverable anchors with 27 strong but distinct flip-anchor gates failed because input pool has only 5/5 flip anchors",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "source-balanced selector module exists",
+    "focused tests cover ranking caps and summary schema",
+    "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json exists",
+    "simulator is not rerun",
+    "history interventions are not run",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "type": "infrastructure"
+}

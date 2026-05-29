@@ -1,0 +1,149 @@
+{
+  "id": "m1564-paper-route-source-balanced-selector-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json",
+      "docs/m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M1563 source-balanced selector after source/window gates pass but flip-anchor gates are infeasible from the M1560 input pool"
+    ],
+    "derived_from": [
+      "m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation"
+    ],
+    "blocked_by": [
+      "M1563 selected set has only 5 distinct collision-flip anchors and 5 distinct success-flip anchors against the pre-registered threshold of 8 each"
+    ],
+    "supersedes": [
+      "direct history intervention design after M1563 without auditing flip-anchor infeasibility"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1564-paper-route-source-balanced-selector-result-audit.md",
+  "public_gates": [
+    "M1564 must audit M1563 source/window balance separately from flip-anchor infeasibility",
+    "M1564 must decide whether the next route is source-generation repair or pre-registered gate-semantics correction",
+    "M1564 must preserve P0 actor input contract",
+    "M1564 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_recoverable_active_set_generation",
+    "evidence_axis": "G_source_balanced_recoverable_active_set_selector_result_audit",
+    "evidence_increment": "audits the M1563 selector result after balanced selection succeeds but distinct flip-anchor gates fail",
+    "claim_scope": "process audit only; no simulator rerun, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats M1563 as materializable despite failed flip-anchor gates",
+      "stop if audit silently reinterprets anchor-count gates as variant-count gates",
+      "stop if audit routes directly to history interventions without a source/gate decision"
+    ],
+    "fallback_plan": [
+      "route to source-generation repair if distinct flip anchors are scientifically required",
+      "route to a pre-registered gate-semantics correction if variant counts are the intended diagnostic quantity",
+      "route to branch synthesis if another narrow repair would only optimize public gates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1563 completed with clean selector plumbing but failed public selector gates",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-balanced selector result audit",
+    "admission_evidence": [
+      "M1563 wrote selector artifacts with clean guardrails and explicit failed gate diagnostics"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1564 audit document",
+      "M1564 status queue scoreboard research log and review",
+      "one follow-up manifest if the audit admits a route"
+    ],
+    "next_stage_criteria": [
+      "source/window balance and flip-anchor infeasibility are audited separately",
+      "history interventions remain blocked unless audit explicitly admits a later design",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1564 audits local-control selector output only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "none in M1564; M1563 did not run history interventions"
+    ],
+    "temporal_evidence_window": "M1563 selected public recoverable active-set artifacts.",
+    "negative_result_policy": "Record distinct flip-anchor shortage as scenario_sampling_failure unless the audit justifies a pre-registered gate-semantics correction.",
+    "allowed_claims": [
+      "M1564 audits M1563",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1563's source/window-balanced selector result can be audited cleanly enough to decide whether the flip-anchor blocker requires source-generation repair or gate-semantics correction before history interventions.",
+  "success_criteria": [
+    "docs/m1564-paper-route-source-balanced-selector-result-audit.md exists",
+    "M1563 source/window/strong/predecision gates and flip-anchor gates are audited separately",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1563 as positive self-ID evidence",
+    "audit routes directly to training promotion private holdout materialization or history interventions without resolving the flip-anchor blocker",
+    "audit changes actor inputs or weakens the evidence standard"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1564-paper-route-source-balanced-selector-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1564-paper-route-source-balanced-selector-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json",
+    "docs/m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation.md"
+  ],
+  "decision_rule": "M1564 passes if it audits M1563 and selects the next route while preserving all no-materialization guardrails.",
+  "next_blocker": "m1564-paper-route-source-balanced-selector-result-audit"
+}

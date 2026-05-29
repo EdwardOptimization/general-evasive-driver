@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1571,
+    "completed": 1572,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.md",
+    "command_log": "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1563_source_balanced_recoverable_active_set_selector",
     "status": "completed",
-    "task_id": "m1562-paper-route-source-balanced-recoverable-active-set-selector-design"
+    "task_id": "m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation.json",
-    "hypothesis": "A deterministic source-balanced selector can produce a compact balanced diagnostic active set from M1560 recoverable anchors without rerunning simulation or running history interventions.",
-    "id": "m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement deterministic selector over M1560 artifacts without simulator rerun or history interventions",
-    "priority": 15580,
+    "command": "see experiments/manifests/m1564-paper-route-source-balanced-selector-result-audit.json",
+    "hypothesis": "Audit M1563 selector result to decide source-generation repair versus gate-semantics correction before history interventions.",
+    "id": "m1564-paper-route-source-balanced-selector-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit clean source/window-balanced selector result and failed flip-anchor gates",
+    "priority": 15590,
     "status": "pending",
-    "success_artifact": "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json"
+    "success_artifact": "docs/m1564-paper-route-source-balanced-selector-result-audit.md"
   },
-  "updated_at_utc": "20260529T133256Z"
+  "updated_at_utc": "20260529T134405Z"
 }
