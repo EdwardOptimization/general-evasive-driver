@@ -21149,3 +21149,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1431-paper-route-geometry-aware-replay-selector-design.json`.
 - next: `m1431-paper-route-geometry-aware-replay-selector-design`
+
+## 20260529T024436Z - m1431-paper-route-geometry-aware-replay-selector-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1431-paper-route-geometry-aware-replay-selector-design.md`
+- decision: `geometry_aware_replay_selector_design_admit_implementation`
+- selected route: implement a no-training geometry preflight selector with focused tests only.
+- design gates: `source_body_x_min >= 4.0`, `forward_geometry_rows >= 64`, `selected_candidate_rows >= 64`, `unique_source_seeds >= 6`, `unique_capability_pairs >= 8`, `unique_reveal_buckets >= 6`, `unique_history_variants >= 2`, `max_single_seed_share <= 0.35`, `relocation_clipped_share <= 0.10`.
+- mechanics: reconstruct preferred traces before replay, compute source obstacle body geometry, compute relocation geometry, reject behind/too-close/clipped rows, then cap by seed, capability pair, reveal bucket, and variant.
+- interpretation: source geometry preflight is now a required gate before any bounded relocation replay retune; preflight rows still do not count as actual replay evidence.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1432-paper-route-geometry-aware-selector-implementation.json`.
+- next: `m1432-paper-route-geometry-aware-selector-implementation`

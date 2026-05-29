@@ -163,6 +163,34 @@
     "runs/m1429_bounded_relocation_replay_smoke/summary.json",
     "docs/m1430-paper-route-bounded-relocation-replay-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1431-paper-route-geometry-aware-replay-selector-design.md",
+    "decision": "geometry_aware_replay_selector_design_admit_implementation",
+    "selected_route": "implement_geometry_aware_preflight_selector_with_focused_tests_only",
+    "source_body_x_min_gate": 4.0,
+    "forward_geometry_rows_gate": 64,
+    "selected_candidate_rows_gate": 64,
+    "unique_source_seeds_gate": 6,
+    "unique_capability_pairs_gate": 8,
+    "unique_reveal_buckets_gate": 6,
+    "unique_history_variants_gate": 2,
+    "max_single_seed_share_gate": 0.35,
+    "relocation_clipped_share_gate": 0.1,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1432-paper-route-geometry-aware-selector-implementation.json"
+  },
+  "decision": "geometry_aware_replay_selector_design_admit_implementation",
   "decision_rule": "M1431 passes if it defines a geometry-aware preflight selector and pre-registers forward unclipped source-diversity gates before implementation.",
-  "next_blocker": "m1431-paper-route-geometry-aware-replay-selector-design"
+  "next_blocker": "m1432-paper-route-geometry-aware-selector-implementation"
 }

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1440,
+    "completed": 1441,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1430-paper-route-bounded-relocation-replay-result-audit.md",
+    "command_log": "docs/m1431-paper-route-geometry-aware-replay-selector-design.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1430-paper-route-bounded-relocation-replay-result-audit"
+    "task_id": "m1431-paper-route-geometry-aware-replay-selector-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1431-paper-route-geometry-aware-replay-selector-design.json",
-    "hypothesis": "A geometry-aware replay selector can prevent M1429's behind-obstacle clipping artifact by filtering candidate rows before replay and requiring source-diverse forward unclipped obstacle geometry.",
-    "id": "m1431-paper-route-geometry-aware-replay-selector-design",
-    "kind": "gate",
-    "notes": "Pending: pre-register forward unclipped source-geometry and source-diversity gates before another bounded replay run",
-    "priority": 14260,
+    "command": "see experiments/manifests/m1432-paper-route-geometry-aware-selector-implementation.json",
+    "hypothesis": "The bounded relocation replay tool can be extended with a no-training geometry preflight selector that filters behind-vehicle and clipped rows before actual replay.",
+    "id": "m1432-paper-route-geometry-aware-selector-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement preflight filtering and tests without replay training PPO promotion corpus export or actor-input changes",
+    "priority": 14270,
     "status": "pending",
-    "success_artifact": "docs/m1431-paper-route-geometry-aware-replay-selector-design.md"
+    "success_artifact": "docs/m1432-paper-route-geometry-aware-selector-implementation.md"
   },
-  "updated_at_utc": "20260529T024012Z"
+  "updated_at_utc": "20260529T024436Z"
 }

@@ -16,21 +16,44 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1430-paper-route-bounded-relocation-replay-result-audit
+m1431-paper-route-geometry-aware-replay-selector-design
 ```
 
 Current next task:
 
 ```text
-m1431-paper-route-geometry-aware-replay-selector-design
+m1432-paper-route-geometry-aware-selector-implementation
 ```
 
-M1430 audited the M1429 bounded relocation replay smoke. The current public-gate base
+M1431 designed the geometry-aware replay selector. The current public-gate base
 remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1431 result:
+
+```text
+decision: geometry_aware_replay_selector_design_admit_implementation
+selected route: implement geometry preflight selector with focused tests only
+source_body_x_min_gate: 4.0
+forward_geometry_rows_gate: 64
+selected_candidate_rows_gate: 64
+unique_source_seeds_gate: 6
+unique_capability_pairs_gate: 8
+unique_reveal_buckets_gate: 6
+unique_history_variants_gate: 2
+max_single_seed_share_gate: 0.35
+relocation_clipped_share_gate: 0.10
+next: m1432-paper-route-geometry-aware-selector-implementation
+```
+
+M1432 should implement preflight filtering and tests only. It must not run
+bounded replay, train, run PPO, promote, use private holdout, export a corpus,
+or change actor inputs. Because this branch is at the synthesis cadence limit,
+the next replay run after implementation should go through branch synthesis or
+an explicit cadence decision.
 
 M1430 result:
 
@@ -55,7 +78,8 @@ next: m1431-paper-route-geometry-aware-replay-selector-design
 M1430 classifies M1429 as a geometry selector failure, not evidence that history
 is unnecessary. The next task must design a geometry-aware preflight selector
 that rejects behind-vehicle or clipped relocation rows and enforces source and
-history-variant diversity before another replay run.
+history-variant diversity before another replay run. M1431 completed that
+design.
 
 M1429 result:
 

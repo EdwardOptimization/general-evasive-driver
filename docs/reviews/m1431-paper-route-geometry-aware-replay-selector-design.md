@@ -1,0 +1,95 @@
+# m1431-paper-route-geometry-aware-replay-selector-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260529T024643Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: geometry_aware_replay_selector_design_admit_implementation
+- Decision reason: M1431 designs source-geometry preflight with forward unclipped source-diversity and variant-diversity gates and admits implementation with focused tests only
+
+## Hypothesis
+
+A geometry-aware replay selector can prevent M1429's behind-obstacle clipping artifact by filtering candidate rows before replay and requiring source-diverse forward unclipped obstacle geometry.
+
+## Lineage
+
+- parent_checkpoint: runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
+- parent_dataset: runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv, runs/m1429_bounded_relocation_replay_smoke/summary.json, docs/m1430-paper-route-bounded-relocation-replay-result-audit.md
+- parent_config: experiments/manifests/m1430-paper-route-bounded-relocation-replay-result-audit.json
+- parent_objective: design a geometry-aware replay selector after M1429 exposed source_body_x clipping and seed concentration
+- derived_from: m1430-paper-route-bounded-relocation-replay-result-audit
+- blocked_by: M1429 selected only 3 seeds, one history variant, and mostly behind-vehicle source obstacles clipped to 2.0m
+- supersedes: another bounded replay sweep with the M1429 selector, training from M1429 rows, threshold lowering after M1429
+- invalidates: None
+
+## Success Criteria
+
+- docs/m1431-paper-route-geometry-aware-replay-selector-design.md exists
+- design specifies trace reconstruction or source-geometry preflight inputs
+- design rejects source_body_x behind or too close to the ego vehicle
+- design rejects candidates whose relocation would be clipped to the minimum body-x
+- design pre-registers forward_geometry_rows >= 64
+- design pre-registers unique_source_seeds >= 6
+- design pre-registers unique_capability_pairs >= 8
+- design pre-registers unique_reveal_buckets >= 6
+- design pre-registers unique_history_variants >= 2
+- design pre-registers max_single_seed_share <= 0.35
+- design pre-registers relocation_clipped_share <= 0.10
+- design chooses a non-training next route without running replay training PPO promotion private holdout corpus export or actor-input changes
+
+## Failure Criteria
+
+- design document is missing
+- design ignores source_body_x and relocation clipping
+- design allows one seed or one variant to dominate
+- design lowers thresholds after M1429
+- design routes directly to training PPO promotion private holdout corpus export or claim expansion
+- design changes actor inputs
+
+## Evidence Gates
+
+- M1431 must design geometry preflight before another replay run
+- M1431 must reject behind-vehicle or clipped relocation candidates
+- M1431 must pre-register source-diversity and variant-diversity gates
+- M1431 must not run replay train PPO promote use private holdout export corpus or change actor inputs
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run PPO
+- do not run closed-loop replay
+- do not run outcome interventions
+- do not promote
+- do not use private holdout
+- do not add actor inputs
+- do not export a training corpus
+- do not lower M1429 thresholds after seeing the result
+- do not count geometry-poor rows as no-history evidence
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m1431-paper-route-geometry-aware-replay-selector-design
+- type: gate
+- checkpoint: docs/m1431-paper-route-geometry-aware-replay-selector-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: geometry_aware_replay_selector_design_admit_implementation
+- reason: M1431 designs source-geometry preflight with forward unclipped source-diversity and variant-diversity gates and admits implementation with focused tests only
+
+## Next Blocker
+
+m1432-paper-route-geometry-aware-selector-implementation
