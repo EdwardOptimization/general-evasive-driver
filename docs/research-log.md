@@ -24306,3 +24306,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1568 records the targeted high-speed/late-reveal repair design, but branch cadence is due, so the next milestone must synthesize M1559-M1568 before any implementation.
 - follow-up manifest: `experiments/manifests/m1569-paper-route-recoverable-active-set-generation-branch-synthesis.json`.
 - next: `m1569-paper-route-recoverable-active-set-generation-branch-synthesis`
+
+## M1569 Paper-Route Recoverable Active-Set Generation Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `recoverable_active_set_generation_synthesis_continue_to_one_targeted_third_source_implementation`
+- artifact: `docs/m1569-paper-route-recoverable-active-set-generation-branch-synthesis.md`
+- synthesized range: M1559-M1568
+- failure taxonomy: `scenario_sampling_failure`
+- public-gate overfit risk: moderate to high
+- supported claim: source-generation progress only; multi-step local holds expose recoverable terminal-boundary anchors, source/window balancing works, and M1566 improved success flips plus expanded flip families from one to two
+- unsupported claims: history necessity, wrong-history success-drop evidence, level3 anticipatory self-identification, materialization, training-corpus export, PPO, promotion, private-holdout evidence, paper-level result claims, and actor input contract changes
+- falsified/narrowed claims: source balancing alone is enough for materializable source-diverse flip anchors; local-hold variant counts can substitute for distinct anchor IDs; broad repaired source generation already yields a third flip source family
+- next implementation admitted: exactly one bounded targeted third-source source-generation smoke
+- target families for next step: `t5_high_speed_close_obstacle`, `late_reveal_boundary`
+- required next metrics: `third_source_flip_anchor_count`, `targeted_family_flip_anchor_count`
+- hard stop: if the targeted implementation still has `flip_anchor_source_family_count < 3`, the following milestone must synthesize or pivot, not add another generator
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1570-paper-route-targeted-third-source-flip-anchor-implementation.json`
+- next: `m1570-paper-route-targeted-third-source-flip-anchor-implementation`

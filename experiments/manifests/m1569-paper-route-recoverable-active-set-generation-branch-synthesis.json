@@ -181,6 +181,58 @@
     "runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json",
     "docs/m1568-paper-route-targeted-third-source-flip-anchor-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1569-paper-route-recoverable-active-set-generation-branch-synthesis.md",
+    "decision": "recoverable_active_set_generation_synthesis_continue_to_one_targeted_third_source_implementation",
+    "synthesis_decision": "continue",
+    "synthesized_range": "M1559-M1568",
+    "supported_claims": [
+      "multi-step local holds can expose many recoverable terminal-boundary anchors",
+      "recoverable active-set anchors can be generated across five source families and five temporal windows",
+      "a source/window-balanced diagnostic subset can be selected without rerunning simulation",
+      "variant counts are not a substitute for distinct flip anchors",
+      "the repaired generator improves distinct success flips and adds a second flip source family",
+      "high-speed and late-reveal families are credible third-source targets because they have strong recoverable mass but zero flips",
+      "one bounded targeted third-source implementation is justified before closing or pivoting the branch"
+    ],
+    "unsupported_claims": [
+      "history necessity",
+      "wrong-history success-drop evidence",
+      "level3 anticipatory self-identification",
+      "candidate materialization",
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "paper-level result claims",
+      "actor input contract changes"
+    ],
+    "falsified_claims": [
+      "pair-expanded terminal rows were history-null only because the active-set miner lacked local controls",
+      "source balancing over the M1560 pool alone is enough to create materializable source-diverse flip anchors",
+      "local-hold variant counts can substitute for distinct anchor IDs",
+      "broad repaired source generation already produces a third flip source family"
+    ],
+    "failure_taxonomy_summary": [
+      "scenario_sampling_failure"
+    ],
+    "public_gate_overfit_risk": "moderate_to_high",
+    "next_branch": "paper_route_recoverable_active_set_generation",
+    "next_manifest": "experiments/manifests/m1570-paper-route-targeted-third-source-flip-anchor-implementation.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1569 passes if it synthesizes M1559-M1568 and chooses the next route before another implementation milestone.",
-  "next_blocker": "m1569-paper-route-recoverable-active-set-generation-branch-synthesis"
+  "next_blocker": "m1570-paper-route-targeted-third-source-flip-anchor-implementation"
 }

@@ -1,0 +1,171 @@
+{
+  "id": "m1570-paper-route-targeted-third-source-flip-anchor-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json",
+      "docs/m1568-paper-route-targeted-third-source-flip-anchor-design.md",
+      "docs/m1569-paper-route-recoverable-active-set-generation-branch-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1568-paper-route-targeted-third-source-flip-anchor-design.json",
+      "experiments/manifests/m1569-paper-route-recoverable-active-set-generation-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "implement one bounded targeted third-source flip-anchor repair after M1569 synthesis continues the branch"
+    ],
+    "derived_from": [
+      "m1569-paper-route-recoverable-active-set-generation-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1566 remains one collision flip and one source family short",
+      "M1569 admits exactly one targeted third-source implementation before audit or synthesis"
+    ],
+    "supersedes": [
+      "another broad source generator",
+      "direct history interventions after M1569 synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1570-paper-route-targeted-third-source-flip-anchor-implementation.md",
+  "public_gates": [
+    "M1570 must implement the M1568 targeted third-source repair for t5_high_speed_close_obstacle and late_reveal_boundary",
+    "M1570 may rerun simulator traces only for public source generation",
+    "M1570 must report third_source_flip_anchor_count and targeted_family_flip_anchor_count",
+    "M1570 must not pass solely by improving t5_boundary_axis_retarget or t5_near_boundary_warmup",
+    "M1570 must not run history interventions",
+    "M1570 must preserve P0 actor input contract",
+    "M1570 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_recoverable_active_set_generation",
+    "evidence_axis": "G_targeted_third_source_flip_anchor_implementation",
+    "evidence_increment": "implements exactly one targeted third-source source-generation repair admitted by M1569 synthesis",
+    "claim_scope": "infrastructure and public source-generation smoke only; no history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop after one bounded targeted implementation smoke and route to audit",
+      "stop if flip_anchor_source_family_count remains below 3",
+      "stop if third_source_flip_anchor_count or targeted_family_flip_anchor_count is missing",
+      "stop if implementation writes history intervention rows or training corpus"
+    ],
+    "fallback_plan": [
+      "route to result audit whether public gates pass or fail",
+      "route to branch synthesis or pivot if flip_anchor_source_family_count remains below 3",
+      "route to history-intervention design only if source-diverse flip-anchor repair passes and a later audit admits it"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1569 continues to exactly one targeted third-source implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "targeted third-source flip-anchor implementation",
+    "admission_evidence": [
+      "M1566 generated strong recoverable mass for high-speed and late-reveal families but zero flips",
+      "M1568 designed a targeted third-source repair",
+      "M1569 synthesis admitted exactly one implementation before audit"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "targeted third-source source-generation module and tests",
+      "bounded public targeted smoke artifacts",
+      "M1570 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "third-source flip metrics are reported",
+      "targeted-family flip metrics are reported",
+      "source-family and window diversity metrics are reported",
+      "history interventions remain blocked",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1570 source generation cannot claim history necessity.",
+    "history_necessity_tests": [
+      "none in M1570; history interventions remain blocked until source-diverse flip anchors pass and are audited"
+    ],
+    "temporal_evidence_window": "M1570 public fixed-policy source-generation smoke.",
+    "negative_result_policy": "If targeted repair fails to add a third flip source family, record scenario_sampling_failure and route to audit/synthesis rather than weakening source-diversity or self-ID standards.",
+    "allowed_claims": [
+      "targeted source-generation implementation and public active-set artifacts",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded targeted source-generation repair can add at least one third-source flip anchor from high-speed or late-reveal families without history interventions or actor input changes.",
+  "success_criteria": [
+    "targeted repair module exists",
+    "focused tests cover third-source and targeted-family flip counting",
+    "runs/m1570_targeted_third_source_flip_anchor_smoke/summary.json exists",
+    "third_source_flip_anchor_count is reported",
+    "targeted_family_flip_anchor_count is reported",
+    "history interventions are not run",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "implementation runs history interventions",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification",
+    "third-source or targeted-family flip metrics are missing"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_targeted_third_source_flip_anchor.py -q"
+    },
+    {
+      "name": "targeted_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.targeted_third_source_flip_anchor --output-dir runs/m1570_targeted_third_source_flip_anchor_smoke --seed 1843 --seed-count 6 --max-source-specs 360 --max-anchors 360"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1570_targeted_third_source_flip_anchor_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json",
+    "docs/m1568-paper-route-targeted-third-source-flip-anchor-design.md",
+    "docs/m1569-paper-route-recoverable-active-set-generation-branch-synthesis.md"
+  ],
+  "decision_rule": "M1570 passes as an implementation milestone if it runs one bounded public targeted repair smoke with clean guardrails and explicit third-source flip metrics; it must still route to audit before history interventions.",
+  "next_blocker": "m1570-paper-route-targeted-third-source-flip-anchor-implementation"
+}

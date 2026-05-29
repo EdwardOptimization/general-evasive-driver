@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1568-paper-route-targeted-third-source-flip-anchor-design
+m1569-paper-route-recoverable-active-set-generation-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1569-paper-route-recoverable-active-set-generation-branch-synthesis
+m1570-paper-route-targeted-third-source-flip-anchor-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -360,6 +360,16 @@ flip anchors and report `third_source_flip_anchor_count` and
 continue, pivot, stop, or promote the branch. History interventions,
 materialization, training-corpus export, PPO, promotion, private holdout, and
 level3 self-ID claims remain blocked.
+M1569 synthesized M1559-M1568 and continued the same branch to exactly one
+bounded targeted third-source implementation. The supported claim is only
+source-generation progress: multi-step local holds produced many recoverable
+anchors, source/window balancing works, and M1566 moved flip families from one
+to two. The unsupported claims remain history necessity, wrong-history success
+drop, materialization, training, PPO, promotion, private holdout, and level3
+self-ID. M1570 must target `t5_high_speed_close_obstacle` and
+`late_reveal_boundary`, report `third_source_flip_anchor_count` and
+`targeted_family_flip_anchor_count`, and route to audit whether it passes or
+fails.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
