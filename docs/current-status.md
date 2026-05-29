@@ -16,23 +16,25 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1625-paper-route-contour-aware-tensor-capture-dry-run-design
+m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation
 ```
 
 Current next task:
 
 ```text
-m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation
+m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit
 ```
 
-M1625 designed a four-row source-diverse deterministic tensor-capture dry run:
-two positive rows and two diagnostic rows spanning `m1592_clean_repair`,
-`m1595_balanced_repair`, and `m1588_selector`. The next task is M1626:
-implement only this dry-run capture, with observation `[4,72]`, hidden tensors,
-and action tensors `[4,3]` plus shape/finite/mutation guards. Full target
-materialization, loss/objective config construction, objective update, actor
-update, training, PPO, promotion, private holdout, actor-input changes,
-diagnostics-as-positive-candidates, and level3 self-ID claims remain blocked.
+M1626 implemented and ran the four-row deterministic tensor-capture dry run.
+It captured two positive rows and two diagnostic rows with canonical P0
+observation `[4,72]`, correct/wrong online-GRU hidden tensors `[4,128]`, and
+preferred / wrong-history / donor-plus-hidden action tensors `[4,3]`. All tensor
+values are finite, source-action reproduction L2 is `0.0`, diagnostics remain
+non-positive, checkpoint weights were not mutated, and no full target corpus,
+loss/objective config, actor update, training, PPO, promotion, private holdout,
+actor-input change, or level3 self-ID claim was produced. The next task is
+M1627: audit this dry-run result before deciding whether full target
+materialization design can be admitted.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

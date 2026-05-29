@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1634,
+    "completed": 1635,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1625-paper-route-contour-aware-tensor-capture-dry-run-design.md",
+      "command_log": "docs/m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation.md",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1626_contour_aware_tensor_capture_dry_run",
       "status": "completed",
-      "task_id": "m1625-paper-route-contour-aware-tensor-capture-dry-run-design"
+      "task_id": "m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation.json",
-      "hypothesis": "A bounded four-row dry run can verify deterministic observation hidden and action tensor capture before full target materialization.",
-      "id": "m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation",
-      "kind": "infrastructure",
-      "notes": "Pending: dry-run capture only; no full materialization objective update PPO promotion or private holdout",
-      "priority": 16210,
+      "command": "see experiments/manifests/m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit.json",
+      "hypothesis": "The M1626 dry-run result is sufficient to decide whether full tensor materialization design can be admitted.",
+      "id": "m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit M1626 tensor capture before any full materialization objective update training PPO promotion or private holdout",
+      "priority": 16220,
       "status": "pending",
-      "success_artifact": "runs/m1626_contour_aware_tensor_capture_dry_run/summary.json"
+      "success_artifact": "docs/m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit.md"
     },
-    "updated_at_utc": "20260529T185257Z"
+    "updated_at_utc": "20260529T190900Z"
 }

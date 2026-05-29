@@ -25877,3 +25877,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: full target materialization, objective update, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
 - follow-up manifest: `experiments/manifests/m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation.json`
 - next: `m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation`
+
+## M1626 Paper-Route Contour-Aware Tensor Capture Dry-Run Implementation
+
+- status: completed
+- decision: `contour_aware_tensor_capture_dry_run_public_pass_route_to_audit`
+- artifact: `runs/m1626_contour_aware_tensor_capture_dry_run/summary.json`
+- doc: `docs/m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation.md`
+- focused tests: `2 passed in 0.92s`
+- dry-run row count: 4
+- positive capture count: 2
+- diagnostic capture count: 2
+- observation shape: `[4, 72]`
+- hidden shapes: correct `[4, 128]`, wrong `[4, 128]`
+- action shapes: preferred/wrong-history/donor-plus-hidden `[4, 3]`
+- all tensor values finite: true
+- normal/wrong-history/donor-plus-hidden variant matches: 4/4/4
+- source action reproduction L2: 0.0 for preferred, wrong-history, and donor-plus-hidden variants
+- diagnostic rows used as positive: false
+- missing capture rows: 0
+- checkpoint weights mutated: false
+- guardrail violations: 0
+- passes public smoke gates: true
+- null result classification: `contour_aware_tensor_capture_dry_run_public_pass`
+- supported: deterministic four-row policy-side tensor capture is available for the dry-run subset
+- unsupported: full target materialization, objective update, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- follow-up manifest: `experiments/manifests/m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit.json`
+- next: `m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit`
