@@ -1,0 +1,196 @@
+{
+  "id": "m1619-paper-route-contour-aware-candidate-objective-evaluator-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1615_contour_aware_candidate_corpus/summary.json",
+      "runs/m1615_contour_aware_candidate_corpus/corpus_manifest.json",
+      "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "runs/m1615_contour_aware_candidate_corpus/diagnostic_guardrail_rows.csv",
+      "docs/m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis.json"
+    ],
+    "parent_objective": [
+      "no-update exact contour-aware candidate objective evaluator"
+    ],
+    "derived_from": [
+      "m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis"
+    ],
+    "blocked_by": [
+      "M1618 admits exactly one no-update evaluator implementation and blocks objective update/training/PPO/promotion"
+    ],
+    "supersedes": [
+      "direct objective update from M1617",
+      "direct actor update from M1615",
+      "direct PPO after M1615"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1619-paper-route-contour-aware-candidate-objective-evaluator-implementation.md",
+  "public_gates": [
+    "M1619 must implement and run a no-update exact evaluator over the full M1615 package",
+    "M1619 must verify positive-candidate and diagnostic-guardrail role integrity",
+    "M1619 must keep diagnostic guardrails out of positive objective rows",
+    "M1619 must prove checkpoint weights are not mutated",
+    "M1619 must not write loss_config.json objective_config.json training_corpus.csv or checkpoint files",
+    "M1619 must route to result audit before any objective update"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run actor update",
+    "do not write objective_config.json",
+    "do not write loss_config.json",
+    "do not export training_corpus.csv",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not claim level3 self-identification",
+    "do not treat diagnostic guardrails as positive rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_candidate_objective_evaluator",
+    "evidence_increment": "implements no-update exact candidate objective evaluator and role-integrity checks over the public candidate package",
+    "claim_scope": "infrastructure/evaluator only; no optimizer, actor update, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if diagnostics enter positive objective rows",
+      "stop if evaluator mutates checkpoint weights",
+      "stop if evaluator writes training/objective/loss artifacts",
+      "stop after M1619 for a result audit before any objective update"
+    ],
+    "fallback_plan": [
+      "route to result audit if evaluator passes",
+      "route to failure audit if role integrity or finite metrics fail",
+      "pivot to broader candidate refresh if evaluator exposes insufficient objective information"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1618 continued the branch and admitted exactly one no-update evaluator implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "no-update contour-aware candidate objective evaluator",
+    "admission_evidence": [
+      "M1615 exports a valid public candidate package with 39 positives and 232 diagnostics",
+      "M1617 designs objective semantics while keeping objective construction and training blocked",
+      "M1618 audits the design and continues the branch to exactly one evaluator implementation"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run actor update",
+      "do not write objective_config.json",
+      "do not write loss_config.json",
+      "do not export training_corpus.csv",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "exact evaluator module and focused tests",
+      "M1619 run artifacts",
+      "M1619 docs status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "full-package evaluator artifacts are written",
+      "role integrity is verified",
+      "all objective metrics are finite",
+      "checkpoint mutation guard is false",
+      "no training/objective/loss config artifacts are written"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1619 evaluates a public candidate package and does not run new history-necessity interventions.",
+    "history_necessity_tests": [
+      "M1615 positive candidate rows",
+      "M1615 diagnostic guardrail rows"
+    ],
+    "temporal_evidence_window": "M1615 public candidate package only.",
+    "negative_result_policy": "If role integrity, finite metrics, or mutation guards fail, classify as evaluator failure and audit before further design.",
+    "allowed_claims": [
+      "exact evaluator implementation and finite residuals",
+      "role-integrity and metadata guardrail validation",
+      "no promotion, objective construction, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-update exact evaluator can measure the M1615 positive candidate package while preserving diagnostic guardrail and metadata integrity.",
+  "success_criteria": [
+    "runs/m1619_contour_aware_candidate_objective_evaluator/summary.json exists",
+    "exact_evaluator_implemented is true",
+    "candidate_objective_evaluated is true",
+    "positive_candidate_count == 39",
+    "diagnostic_guardrail_count == 232",
+    "diagnostic_rows_used_as_positive is false",
+    "diagnostic_positive_weight_sum == 0.0",
+    "positive_rows_all_clean is true",
+    "role_metadata_verified is true",
+    "public_proof_metadata_complete is true",
+    "all_objective_metrics_finite is true",
+    "checkpoint_weights_mutated is false",
+    "training_started ppo_used promoted private_holdout_used actor_input_contract_changed labels_enter_actor_input level3_self_id_claim_made are false",
+    "guardrail_violation_count == 0"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "diagnostics enter positive objective rows",
+    "objective metrics are non-finite",
+    "checkpoint weights are mutated",
+    "loss/objective config training corpus checkpoint PPO promotion private holdout or actor-input changes are produced"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_contour_aware_candidate_objective_evaluator.py"
+    },
+    {
+      "name": "run_evaluator",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.contour_aware_candidate_objective_evaluator --candidate-run-dir runs/m1615_contour_aware_candidate_corpus --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --run-dir runs/m1619_contour_aware_candidate_objective_evaluator"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1619_contour_aware_candidate_objective_evaluator/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1619_contour_aware_candidate_objective_evaluator/positive_objective_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1619_contour_aware_candidate_objective_evaluator/diagnostic_guardrail_objective_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1619_contour_aware_candidate_objective_evaluator/role_integrity_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1619_contour_aware_candidate_objective_evaluator/objective_summary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1615_contour_aware_candidate_corpus/summary.json",
+    "docs/m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis.md"
+  ],
+  "decision_rule": "M1619 passes if the no-update evaluator writes finite full-package role-integrity artifacts without mutation or forbidden training/objective outputs.",
+  "next_blocker": "m1619-paper-route-contour-aware-candidate-objective-evaluator-implementation"
+}

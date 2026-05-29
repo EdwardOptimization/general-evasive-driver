@@ -16,24 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1617-paper-route-contour-aware-candidate-objective-design
+m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis
 ```
 
 Current next task:
 
 ```text
-m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis
+m1619-paper-route-contour-aware-candidate-objective-evaluator-implementation
 ```
 
-M1617 designed lexicographic objective semantics for the audited M1615 candidate
-package. Positive candidates and diagnostic guardrails remain separated:
-39 public positive candidates may be evaluated by a future exact evaluator,
-while 232 diagnostics are guardrails only and must not become positive targets.
-The next task is M1618: audit the design and synthesize the branch before any
-evaluator implementation. Loss/objective config construction, evaluator
-implementation, actor update, training, PPO, promotion, private holdout,
-actor-input changes, diagnostics-as-positive-candidates, and level3 self-ID
-claims remain blocked until that audit/synthesis passes.
+M1618 audited M1617 as a clean design-only milestone and synthesized the branch
+with decision `continue`. The evidence remains a public candidate package, not
+paper-level or training-ready evidence: 39 positive candidates, 232 diagnostic
+guardrails, diagnostics kept non-positive, and high public-overfit risk. The
+next task is M1619: implement exactly one no-update exact evaluator/sanity
+checker. Loss/objective config construction, objective update, actor update,
+training, PPO, promotion, private holdout, actor-input changes,
+diagnostics-as-positive-candidates, and level3 self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
