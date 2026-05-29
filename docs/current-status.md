@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1504-paper-route-decisive-history-env-hook-design
+m1505-paper-route-decisive-history-env-hook-implementation
 ```
 
 Current next task:
 
 ```text
-m1505-paper-route-decisive-history-env-hook-implementation
+m1506-paper-route-decisive-history-env-hook-runtime-smoke
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -51,12 +51,36 @@ T4/T5 harness scaffolding. M1501 designed the public no-training
 candidate-generation route. M1502 implemented the no-training source-plan
 planner. M1503 ran the public metadata-scale planner smoke and passed all
 pre-registered M1501 thresholds. M1504 designed the no-training current-sim
-hook/spec layer needed before rollout probes. The current public-gate base
-remains M1362 alpha `0.1`:
+hook/spec layer needed before rollout probes. M1505 implemented that dry
+hook/spec layer and produced no-training dry-smoke artifacts. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1505 decisive history env-hook implementation:
+
+```text
+decision: decisive_history_env_hook_implemented_admit_runtime_smoke
+artifact: docs/m1505-paper-route-decisive-history-env-hook-implementation.md
+code_paths:
+  src/autodrift/decisive_history_env_hooks.py
+  tests/test_decisive_history_env_hooks.py
+focused_tests: 6 passed in 0.21s
+dry_smoke: runs/m1505_decisive_history_env_hook_dry_smoke/summary.json
+hook_spec_count: 12
+source_family_count: 6
+task_family_counts: T4=6, T5=6
+guardrail_violation_count: 0
+candidate_materialized: false
+simulator_rollout/replay/training/PPO used: false
+next: m1506-paper-route-decisive-history-env-hook-runtime-smoke
+```
+
+M1505 is dry infrastructure only. It does not prove current-sim reset/runtime
+viability or materialize decisive-history candidates. Next is reset-only
+runtime smoke.
 
 M1504 decisive history env-hook design:
 

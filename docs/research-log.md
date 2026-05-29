@@ -22440,3 +22440,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1504 designs the no-training hook/spec layer needed before current-sim rollout probes; it is not simulator candidate evidence.
 - follow-up manifest: `experiments/manifests/m1505-paper-route-decisive-history-env-hook-implementation.json`.
 - next: `m1505-paper-route-decisive-history-env-hook-implementation`
+
+## M1505 Paper-Route Decisive History Env-Hook Implementation
+
+- status: completed
+- decision: `decisive_history_env_hook_implemented_admit_runtime_smoke`
+- artifact: `docs/m1505-paper-route-decisive-history-env-hook-implementation.md`
+- code paths: `src/autodrift/decisive_history_env_hooks.py`, `tests/test_decisive_history_env_hooks.py`
+- focused tests: `PYTHONPATH=src python -m pytest tests/test_decisive_history_env_hooks.py -q`
+- focused test result: 6 passed in 0.21s
+- dry smoke run: `runs/m1505_decisive_history_env_hook_dry_smoke`
+- dry smoke summary: `runs/m1505_decisive_history_env_hook_dry_smoke/summary.json`
+- hook spec count: 12
+- source family count: 6
+- task family counts: T4=6, T5=6
+- unique seeds/capability pairs/geometry/reveal steps: 12/8/12/12
+- guardrail violation count: 0
+- candidate materialized: false
+- simulator rollout/replay/training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- interpretation: M1505 implements dry env-hook scaffolding only; current-sim reset/runtime viability and candidate materialization remain untested.
+- follow-up manifest: `experiments/manifests/m1506-paper-route-decisive-history-env-hook-runtime-smoke.json`.
+- next: `m1506-paper-route-decisive-history-env-hook-runtime-smoke`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1513,
+    "completed": 1514,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1504-paper-route-decisive-history-env-hook-design.md",
+    "command_log": "docs/m1505-paper-route-decisive-history-env-hook-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m1504-paper-route-decisive-history-env-hook-design.md",
+    "run_dir": "runs/m1505_decisive_history_env_hook_dry_smoke",
     "status": "completed",
-    "task_id": "m1504-paper-route-decisive-history-env-hook-design"
+    "task_id": "m1505-paper-route-decisive-history-env-hook-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1505-paper-route-decisive-history-env-hook-implementation.json",
-    "hypothesis": "The M1504 env-hook design can be implemented as no-training source-plan-to-env-config infrastructure with dry-smoke artifacts and focused tests.",
-    "id": "m1505-paper-route-decisive-history-env-hook-implementation",
+    "command": "see experiments/manifests/m1506-paper-route-decisive-history-env-hook-runtime-smoke.json",
+    "hypothesis": "The M1505 hook specs can instantiate current-sim env configs for a tiny source-diverse subset without actor-input or guardrail violations.",
+    "id": "m1506-paper-route-decisive-history-env-hook-runtime-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: implement no-training env-hook scaffolding with focused tests and dry-smoke artifacts, no simulator rollout or replay",
-    "priority": 15000,
+    "notes": "Pending: run reset-only current-sim runtime smoke for env-hook specs without policy replay or training",
+    "priority": 15010,
     "status": "pending",
-    "success_artifact": "docs/m1505-paper-route-decisive-history-env-hook-implementation.md"
+    "success_artifact": "runs/m1506_decisive_history_env_hook_runtime_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T082315Z"
+  "updated_at_utc": "20260529T082936Z"
 }

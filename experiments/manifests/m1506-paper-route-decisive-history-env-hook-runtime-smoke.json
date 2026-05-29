@@ -1,0 +1,158 @@
+{
+  "id": "m1506-paper-route-decisive-history-env-hook-runtime-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_infrastructure_task"
+    ],
+    "parent_dataset": [
+      "docs/m1505-paper-route-decisive-history-env-hook-implementation.md",
+      "runs/m1505_decisive_history_env_hook_dry_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1505-paper-route-decisive-history-env-hook-implementation.json"
+    ],
+    "parent_objective": [
+      "run reset-only current-sim runtime smoke for decisive-history hook specs"
+    ],
+    "derived_from": [
+      "m1505-paper-route-decisive-history-env-hook-implementation"
+    ],
+    "blocked_by": [
+      "dry hook specs exist, but current-sim reset/runtime viability is untested"
+    ],
+    "supersedes": [
+      "full policy replay before reset-only hook runtime smoke"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1506-paper-route-decisive-history-env-hook-runtime-smoke.md",
+  "public_gates": [
+    "M1506 must instantiate current-sim env configs for a tiny source-diverse hook subset",
+    "M1506 must use reset-only or explicitly bounded no-policy runtime checks",
+    "M1506 must not run policy replay, PPO, training, promotion, private holdout, actor-input changes, or corpus export",
+    "M1506 must report per-source-family reset success and guardrails",
+    "M1506 must route to rollout-candidate design or env-hook repair"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run policy replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize decisive-history candidates from reset-only evidence",
+    "do not claim self-identification from reset-only runtime smoke"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_decisive_history_task_matrix",
+    "evidence_axis": "G_decisive_history_env_runtime_smoke",
+    "evidence_increment": "checks current-sim reset/runtime viability for the M1505 hook specs before rollout candidate generation",
+    "claim_scope": "runtime plumbing only; no training, PPO, policy replay, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if any source family cannot instantiate without config error",
+      "stop if reset-only smoke violates actor input contract",
+      "stop if runtime smoke drifts into policy replay or training",
+      "stop if reset-only evidence is treated as materialized candidate evidence"
+    ],
+    "fallback_plan": [
+      "repair env config factory for failing source families",
+      "if failures are source-family-specific, classify unsupported families before continuing",
+      "if all families reset, route to rollout-candidate generation design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1505 env-hook dry smoke completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "decisive-history env-hook runtime smoke",
+    "admission_evidence": [
+      "M1505 generated dry hook specs for all six source families with zero guardrail violations"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run policy replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize decisive-history candidates"
+    ],
+    "allowed_updates": [
+      "runtime-smoke helper code if needed",
+      "M1506 run artifacts",
+      "M1506 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up route manifest"
+    ],
+    "next_stage_criteria": [
+      "per-source-family reset success is reported",
+      "guardrails remain false",
+      "next route to rollout-candidate design or repair is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1506 is runtime plumbing only and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "preserve T4/T5 hook metadata for later rollout candidate generation",
+      "confirm reset-only runtime smoke does not materialize history-intervention evidence"
+    ],
+    "temporal_evidence_window": "reset-only or bounded no-policy runtime smoke; no policy temporal evidence generated.",
+    "negative_result_policy": "If reset/runtime fails, classify source-family config failures before rollout candidate generation.",
+    "allowed_claims": [
+      "M1506 evaluates reset/runtime viability of env-hook configs",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1505 hook specs can instantiate current-sim env configs for a tiny source-diverse subset without actor-input or guardrail violations.",
+  "success_criteria": [
+    "runs/m1506_decisive_history_env_hook_runtime_smoke/summary.json exists",
+    "all six source families have at least one reset/runtime pass row",
+    "reset/runtime failure count is zero or failures are explicitly classified",
+    "labels_enter_actor_input is false",
+    "actor_input_contract_changed is false",
+    "policy_replay_started training_started replay_started ppo_used promoted private_holdout_used training_corpus_exported are false",
+    "candidate_materialized is false"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "source-family reset/runtime viability is unreported",
+    "guardrail flags are violated",
+    "result is interpreted as decisive-history candidate or self-ID evidence"
+  ],
+  "commands": [
+    {
+      "name": "runtime_smoke",
+      "command": "PYTHONPATH=src python -m autodrift.decisive_history_env_runtime_smoke --run-dir runs/m1506_decisive_history_env_hook_runtime_smoke --seed-count 1"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1506_decisive_history_env_hook_runtime_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1506-paper-route-decisive-history-env-hook-runtime-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_infrastructure_task"
+  ],
+  "baseline_artifacts": [
+    "docs/m1505-paper-route-decisive-history-env-hook-implementation.md",
+    "runs/m1505_decisive_history_env_hook_dry_smoke/summary.json"
+  ],
+  "decision_rule": "M1506 passes if reset-only/current-sim runtime checks succeed for the source-diverse hook subset with no guardrail violations.",
+  "next_blocker": "m1506-paper-route-decisive-history-env-hook-runtime-smoke"
+}
