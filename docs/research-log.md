@@ -22753,3 +22753,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1517 proves the bounded intervention measurement plumbing works, but the admitted T5 subset produced only null/weak intervention effects below the pre-registered 0.02 margin-gap threshold and no success drops.
 - follow-up manifest: `experiments/manifests/m1518-paper-route-decisive-history-t5-intervention-result-audit.json`.
 - next: `m1518-paper-route-decisive-history-t5-intervention-result-audit`
+
+## M1518 Paper-Route Decisive History T5 Intervention Result Audit
+
+- status: completed
+- decision: `t5_intervention_audit_null_effect_route_to_timing_amplification`
+- artifact: `docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md`
+- audited run: `runs/m1517_decisive_history_t5_intervention_smoke`
+- eligible target count: 4
+- variant count: 7
+- intervention row count: 28
+- target/donor replay failure count: 0/0
+- max margin gap from normal: 0.016497911642290308
+- outcome-relevant variant count: 0
+- success drop count: 0
+- largest effect variant: `reset_hidden_every_step` on `low_mu_close`
+- mean reset-hidden-every-step gap: 0.008551990884898553
+- mean wrong-history-donor-hidden gap: 0.0000036857291120240276
+- mean zero-action-history gap: -0.00011307254624004504
+- failure taxonomy: `scenario_sampling_failure`, `metric_artifact`
+- candidate materialization verdict: blocked
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1518 audits M1517 as clean intervention plumbing but not history-necessity evidence; decision-step injection is likely too late or the rows have too much slack.
+- follow-up manifest: `experiments/manifests/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.json`.
+- next: `m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design`

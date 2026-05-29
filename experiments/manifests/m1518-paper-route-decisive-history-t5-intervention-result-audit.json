@@ -4,7 +4,8 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure",
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -149,6 +150,44 @@
     "runs/m1517_decisive_history_t5_intervention_smoke/intervention_rows.csv",
     "runs/m1517_decisive_history_t5_intervention_smoke/intervention_pair_summary.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md",
+    "decision": "t5_intervention_audit_null_effect_route_to_timing_amplification",
+    "audited_run": "runs/m1517_decisive_history_t5_intervention_smoke",
+    "eligible_target_count": 4,
+    "variant_count": 7,
+    "intervention_row_count": 28,
+    "target_replay_failure_count": 0,
+    "donor_replay_failure_count": 0,
+    "max_margin_gap_from_normal": 0.016497911642290308,
+    "outcome_relevant_variant_count": 0,
+    "success_drop_count": 0,
+    "largest_effect_variant": "reset_hidden_every_step",
+    "largest_effect_retarget_mode": "low_mu_close",
+    "mean_reset_hidden_every_step_gap": 0.008551990884898553,
+    "mean_wrong_history_donor_hidden_gap": 0.0000036857291120240276,
+    "mean_zero_action_history_gap": -0.00011307254624004504,
+    "candidate_materialization_verdict": "blocked",
+    "failure_types": [
+      "scenario_sampling_failure",
+      "metric_artifact"
+    ],
+    "guardrail_violation_count": 0,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.json"
+  },
+  "decision": "t5_intervention_audit_null_effect_route_to_timing_amplification",
   "decision_rule": "M1518 passes if it audits the M1517 null/weak intervention result and chooses a follow-up route without materializing candidates or claiming self-identification.",
-  "next_blocker": "m1518-paper-route-decisive-history-t5-intervention-result-audit"
+  "next_blocker": "m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design"
 }

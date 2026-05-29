@@ -1,0 +1,152 @@
+{
+  "id": "m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md",
+      "runs/m1517_decisive_history_t5_intervention_smoke/intervention_rows.csv",
+      "runs/m1517_decisive_history_t5_intervention_smoke/intervention_pair_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1518-paper-route-decisive-history-t5-intervention-result-audit.json"
+    ],
+    "parent_objective": [
+      "design bounded earlier-window interventions after decision-step interventions produced null/weak effects"
+    ],
+    "derived_from": [
+      "m1518-paper-route-decisive-history-t5-intervention-result-audit"
+    ],
+    "blocked_by": [
+      "M1517 decision-step intervention starts after the policy has already reached a viable physical state"
+    ],
+    "supersedes": [
+      "candidate materialization from decision-step-only null intervention rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md",
+  "public_gates": [
+    "M1519 must design bounded timing-amplified interventions for the admitted T5 high-speed subset",
+    "M1519 must define reveal/reveal-plus-k/decision-minus-k intervention anchors and metrics",
+    "M1519 must preserve P0 actor contract and fixed public checkpoint",
+    "M1519 must not materialize candidates or export a training corpus",
+    "M1519 must not train run PPO promote use private holdout or alter actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates during design",
+    "do not claim self-identification from timing-amplification design"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_decisive_history_bounded_runner",
+    "evidence_axis": "G_t5_timing_amplified_intervention_design",
+    "evidence_increment": "designs earlier-window interventions to test whether M1517 was null because decision-step injection was too late",
+    "claim_scope": "intervention timing design only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if timing-amplified interventions require actor-input contract changes",
+      "stop if design needs untracked simulator state mutation",
+      "stop if design would materialize candidates before measured earlier-window effects",
+      "stop if design cannot define a hard synthesis trigger after one implementation and audit"
+    ],
+    "fallback_plan": [
+      "if earlier-window interventions cannot be implemented safely, route to terminal-boundary retarget design",
+      "if implementation would be too broad, choose reveal and decision-minus-8 anchors only",
+      "if timing-amplified smoke is still null, route to branch synthesis or terminal-boundary retarget repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1518 audited M1517 as null/weak and recommended timing amplification before retarget repair",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "T5 timing-amplified intervention design",
+    "admission_evidence": [
+      "M1518 found decision-step reset hidden changed actions but did not create outcome-relevant gaps, suggesting the injection point may be too late or rows too stable"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "M1519 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up bounded timing-amplified implementation or branch synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "intervention anchors are explicit",
+      "same-current and diverging-trajectory interpretations are separated",
+      "candidate materialization remains blocked",
+      "mandatory audit or synthesis trigger is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1519 only designs earlier-window interventions. Any later null result may still mean current-frame response or scene geometry is sufficient, so self-ID claims remain blocked.",
+    "history_necessity_tests": [
+      "design reveal-to-terminal and decision-minus-k interventions that let history perturbations affect the physical setup before the emergency decision",
+      "separate same-current diagnostic variants from diverging-trajectory timing-amplified variants",
+      "pre-register that null effects lead to branch synthesis or terminal-boundary retargeting"
+    ],
+    "temporal_evidence_window": "M1517/M1518 admitted T5 high-speed rows, with interventions moved earlier than the decision step.",
+    "negative_result_policy": "If timing amplification does not produce outcome-relevant gaps, record the null result and synthesize or retarget instead of weakening the self-ID claim standard.",
+    "allowed_claims": [
+      "M1519 designs bounded timing-amplified T5 interventions",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Earlier-window interventions can test whether M1517 was null because decision-step injection was too late, while preserving no-training and no-materialization guardrails.",
+  "success_criteria": [
+    "docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md exists",
+    "design defines reveal, reveal-plus-k, and decision-minus-k intervention anchors or explicitly narrows them",
+    "design separates same-current diagnostics from diverging-trajectory timing-amplified rollouts",
+    "design keeps candidate materialization training PPO promotion private holdout actor-input changes and corpus export blocked",
+    "design routes to one bounded implementation or mandatory synthesis"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "intervention timing or interpretation is ambiguous",
+    "design changes actor inputs or uses private holdout",
+    "design materializes candidates or starts training PPO promotion corpus export"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md",
+    "runs/m1517_decisive_history_t5_intervention_smoke/summary.json"
+  ],
+  "decision_rule": "M1519 passes if it designs bounded earlier-window T5 interventions and preserves all no-training no-materialization guardrails.",
+  "next_blocker": "m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design"
+}

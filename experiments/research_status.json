@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1526,
+    "completed": 1527,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1517_decisive_history_t5_intervention_smoke/summary.json",
+    "command_log": "docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1517_decisive_history_t5_intervention_smoke/summary.json",
+    "run_dir": "docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md",
     "status": "completed",
-    "task_id": "m1517-paper-route-decisive-history-t5-intervention-implementation"
+    "task_id": "m1518-paper-route-decisive-history-t5-intervention-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1518-paper-route-decisive-history-t5-intervention-result-audit.json",
-    "hypothesis": "The M1517 null/weak measured-intervention result can be audited to choose the next highest-leverage route without over-claiming self-identification.",
-    "id": "m1518-paper-route-decisive-history-t5-intervention-result-audit",
+    "command": "see experiments/manifests/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.json",
+    "hypothesis": "Earlier-window interventions can test whether M1517 was null because decision-step injection was too late, while preserving no-training and no-materialization guardrails.",
+    "id": "m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design",
     "kind": "gate",
-    "notes": "Pending: audit M1517 null/weak intervention result before candidate materialization or repair",
-    "priority": 15130,
+    "notes": "Pending: design bounded timing-amplified T5 interventions after M1517 null result",
+    "priority": 15140,
     "status": "pending",
-    "success_artifact": "docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md"
+    "success_artifact": "docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md"
   },
-  "updated_at_utc": "20260529T093448Z"
+  "updated_at_utc": "20260529T093911Z"
 }
