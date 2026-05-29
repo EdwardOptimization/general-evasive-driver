@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1681 audits M1680 specs as clean and routes to bounded rollout design with all-spec and explicit-window strata",
+  "failure_criteria": [
+    "audit document is missing",
+    "M1680 leakage or cap status is not checked",
+    "metadata-role or unspecified-window caveats are omitted",
+    "audit routes directly to rollout execution private holdout promotion or paper evidence",
+    "audit claims controller-family ranking or level3 self-ID"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not run environment rollout",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use M1615 hidden tensors or actions as benchmark targets",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T232040Z",
+  "hypothesis": "M1680's no-training task-source specs are clean enough to admit bounded rollout-design planning, subject to auditing the near metadata-role cap and unspecified-window caveat.",
+  "lineage": {
+    "blocked_by": [
+      "M1680 specs must be audited before environment rollout design because metadata-role share and unspecified-window share are near/caveated"
+    ],
+    "derived_from": [
+      "m1680-paper-route-controller-family-bounded-task-source-generation-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_source_spec_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1680-paper-route-controller-family-bounded-task-source-generation-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m1680_controller_family_bounded_task_source_generation_preflight/summary.json",
+      "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json",
+      "runs/m1680_controller_family_bounded_task_source_generation_preflight/source_budget_summary.csv",
+      "docs/m1680-paper-route-controller-family-bounded-task-source-generation-preflight.md"
+    ],
+    "parent_objective": [
+      "audit source-budgeted task-source specs before any rollout design"
+    ],
+    "supersedes": [
+      "direct rollout design after M1680",
+      "direct controller-family benchmark after M1680",
+      "direct private holdout after M1680"
+    ]
+  },
+  "milestone": "m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit",
+  "next_blocker": "m1682-paper-route-controller-family-bounded-task-source-rollout-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_source_generation_preflight_audit_pass_route_to_bounded_rollout_design_with_caveat_strata",
+  "public_gates": [
+    "M1681 must audit M1680 summary specs and source_budget_summary",
+    "M1681 must verify hidden/action target leakage remains zero",
+    "M1681 must audit metadata-role and unspecified-window caveats",
+    "M1681 must choose rollout design, source-budget repair, or explicit-window subset route",
+    "M1681 must keep private holdout promotion actor-input changes paper-level claims and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "task_source_generation_preflight_audit_pass_route_to_bounded_rollout_design_with_caveat_strata",
+    "milestone": "m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit",
+    "reason": "M1681 audits M1680 specs as clean and routes to bounded rollout design with all-spec and explicit-window strata",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit.md exists",
+    "M1680 summary specs and source_budget_summary are audited",
+    "leakage cap and caveat status are explicit",
+    "next rollout-design or repair route is explicit",
+    "environment rollout training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

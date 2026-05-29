@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1689,
+    "completed": 1690,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "runs/m1680_controller_family_bounded_task_source_generation_preflight/summary.json",
+      "command_log": "docs/m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1680_controller_family_bounded_task_source_generation_preflight",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1680-paper-route-controller-family-bounded-task-source-generation-preflight"
+      "task_id": "m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit.json",
-      "hypothesis": "M1680's no-training task-source specs are clean enough to admit bounded rollout-design planning, subject to auditing the near metadata-role cap and unspecified-window caveat.",
-      "id": "m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit",
+      "command": "see experiments/manifests/m1682-paper-route-controller-family-bounded-task-source-rollout-design.json",
+      "hypothesis": "A bounded public rollout protocol can be designed over M1680 specs while preserving caveat strata and controller-family controls before execution.",
+      "id": "m1682-paper-route-controller-family-bounded-task-source-rollout-design",
       "kind": "gate",
-      "notes": "Pending: audit M1680 specs before rollout design",
-      "priority": 16760,
+      "notes": "Pending: design bounded rollout protocol without execution",
+      "priority": 16770,
       "status": "pending",
-      "success_artifact": "docs/m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit.md"
+      "success_artifact": "docs/m1682-paper-route-controller-family-bounded-task-source-rollout-design.md"
     },
-    "updated_at_utc": "20260529T231705Z"
+    "updated_at_utc": "20260529T231947Z"
 }

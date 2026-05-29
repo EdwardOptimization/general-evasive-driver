@@ -26922,3 +26922,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: rollout task quality, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit.json`
 - next: `m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit`
+
+## M1681 Paper-Route Controller-Family Bounded Task-Source Generation Preflight Result Audit
+
+- status: completed
+- decision: `task_source_generation_preflight_audit_pass_route_to_bounded_rollout_design_with_caveat_strata`
+- artifact: `docs/m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit.md`
+- audited M1680 result: pass with 72 specs, T4/T5 `36/36`, all caps passing, zero hidden/action key leakage, zero guardrail violations, and full controller profile coverage
+- caveat status: metadata-role share `0.5416666666666666` is near the `0.55` cap; `mapping_window_unspecified` is `39 / 72` specs
+- route constraint: first rollout design must include both `all_72_specs` and `explicit_window_subset` strata and cannot execute rollout directly
+- supported: M1680 specs are clean enough for bounded rollout protocol design
+- unsupported: rollout task quality, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1682-paper-route-controller-family-bounded-task-source-rollout-design.json`
+- next: `m1682-paper-route-controller-family-bounded-task-source-rollout-design`

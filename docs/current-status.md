@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1680-paper-route-controller-family-bounded-task-source-generation-preflight
+m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit
 ```
 
 Current next task:
 
 ```text
-m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit
+m1682-paper-route-controller-family-bounded-task-source-rollout-design
 ```
 
-M1680 materialized no-training bounded task-source specs. It produced 72 specs
-with T4/T5 36/36, 12 source families, 15 source edges, 4 window tags, zero
-hidden/action key leakage, full controller profile coverage, and all registered
-caps passing. The next task is M1681 audit before rollout design, with attention
-to the near metadata-role cap and high unspecified-window share.
+M1681 audited the M1680 specs as clean enough for rollout-design planning. It
+keeps two caveats live: metadata-role share is near the cap, and
+`mapping_window_unspecified` covers 39 of 72 specs. The next task is M1682
+design-only bounded rollout protocol with both `all_72_specs` and
+`explicit_window_subset` strata; no rollout execution is admitted yet.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

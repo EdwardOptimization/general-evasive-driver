@@ -153,6 +153,23 @@
     "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json",
     "runs/m1680_controller_family_bounded_task_source_generation_preflight/source_budget_summary.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit.md",
+    "decision": "task_source_generation_preflight_audit_pass_route_to_bounded_rollout_design_with_caveat_strata",
+    "audited_result_class": "controller_family_bounded_task_source_generation_preflight_pass",
+    "spec_count": 72,
+    "task_family_counts": {
+      "T4": 36,
+      "T5": 36
+    },
+    "all_caps_pass": true,
+    "hidden_action_target_key_violation_count": 0,
+    "guardrail_violation_count": 0,
+    "metadata_role_caveat": "max_single_metadata_role_share_0.5416666666666666_near_0.55_cap",
+    "window_caveat": "mapping_window_unspecified_39_of_72_requires_explicit_window_subset_stratum",
+    "next_manifest": "experiments/manifests/m1682-paper-route-controller-family-bounded-task-source-rollout-design.json"
+  },
   "decision_rule": "M1681 passes if it audits M1680 and admits only bounded rollout-design planning or repair.",
-  "next_blocker": "m1681-paper-route-controller-family-bounded-task-source-generation-preflight-result-audit"
+  "next_blocker": "m1682-paper-route-controller-family-bounded-task-source-rollout-design"
 }
