@@ -4,7 +4,8 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure",
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -150,6 +151,41 @@
     "runs/m1521_t5_timing_amplified_intervention_smoke/timing_intervention_pair_summary.csv",
     "runs/m1521_t5_timing_amplified_intervention_smoke/timing_intervention_anchor_summary.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md",
+    "decision": "t5_timing_audit_positive_margin_wrong_history_null_route_to_response_mismatch_design",
+    "audited_run": "runs/m1521_t5_timing_amplified_intervention_smoke",
+    "eligible_target_count": 4,
+    "anchor_count": 4,
+    "variant_count": 7,
+    "intervention_row_count": 112,
+    "max_margin_gap_from_normal": 0.027952724375794435,
+    "outcome_relevant_variant_count": 9,
+    "divergence_relevant_variant_count": 46,
+    "success_drop_count": 0,
+    "wrong_history_near_null": true,
+    "candidate_materialization_verdict": "blocked",
+    "training_corpus_export_verdict": "blocked",
+    "failure_types": [
+      "scenario_sampling_failure",
+      "metric_artifact"
+    ],
+    "guardrail_violation_count": 0,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1523-paper-route-t5-response-mismatch-intervention-design.json"
+  },
+  "decision": "t5_timing_audit_positive_margin_wrong_history_null_route_to_response_mismatch_design",
   "decision_rule": "M1522 passes if it audits M1521 timing-amplified results and chooses a follow-up route without materializing candidates or claiming self-identification.",
-  "next_blocker": "m1522-paper-route-t5-timing-amplified-intervention-result-audit"
+  "next_blocker": "m1523-paper-route-t5-response-mismatch-intervention-design"
 }

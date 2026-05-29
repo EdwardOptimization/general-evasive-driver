@@ -22858,3 +22858,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1521 confirms earlier-window interventions expose margin degradation that M1517 decision-step injection missed, but it is reset/zero-current timing sensitivity rather than wrong-history self-ID evidence.
 - follow-up manifest: `experiments/manifests/m1522-paper-route-t5-timing-amplified-intervention-result-audit.json`.
 - next: `m1522-paper-route-t5-timing-amplified-intervention-result-audit`
+
+## M1522 Paper-Route T5 Timing-Amplified Intervention Result Audit
+
+- status: completed
+- decision: `t5_timing_audit_positive_margin_wrong_history_null_route_to_response_mismatch_design`
+- artifact: `docs/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md`
+- audited run: `runs/m1521_t5_timing_amplified_intervention_smoke`
+- max margin gap from normal: 0.027952724375794435
+- outcome-relevant variant count: 9
+- divergence-relevant variant count: 46
+- success drop count: 0
+- wrong-history result: near-null
+- candidate materialization verdict: blocked
+- training corpus export verdict: blocked
+- failure taxonomy: `scenario_sampling_failure`, `metric_artifact`
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1522 audits M1521 as useful timing-sensitivity evidence, but not wrong-history or level3 self-ID evidence; next is a stricter response/action-history mismatch design.
+- follow-up manifest: `experiments/manifests/m1523-paper-route-t5-response-mismatch-intervention-design.json`.
+- next: `m1523-paper-route-t5-response-mismatch-intervention-design`

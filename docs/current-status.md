@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1521-paper-route-t5-timing-amplified-intervention-implementation
+m1522-paper-route-t5-timing-amplified-intervention-result-audit
 ```
 
 Current next task:
 
 ```text
-m1522-paper-route-t5-timing-amplified-intervention-result-audit
+m1523-paper-route-t5-response-mismatch-intervention-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -75,11 +75,38 @@ that timing-amplified smoke, and M1520 synthesized the branch before further
 implementation. The next branch is `paper_route_t5_timing_amplified_intervention`.
 M1521 implemented the timing-amplified smoke and found outcome-relevant margin
 gaps above `0.02`, but no success drops and wrong-history donor hidden remained
-near-null. The current public-gate base remains M1362 alpha `0.1`:
+near-null. M1522 audited this as positive timing sensitivity but not self-ID,
+and routes to stricter response/action-history mismatch diagnostics. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1522 T5 timing-amplified intervention result audit:
+
+```text
+decision: t5_timing_audit_positive_margin_wrong_history_null_route_to_response_mismatch_design
+artifact: docs/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md
+audited_run: runs/m1521_t5_timing_amplified_intervention_smoke
+max_margin_gap_from_normal: 0.027952724375794435
+outcome_relevant_variant_count: 9
+divergence_relevant_variant_count: 46
+success_drop_count: 0
+wrong_history_result: near-null
+candidate_materialization_verdict: blocked
+training_corpus_export_verdict: blocked
+failure_types: scenario_sampling_failure, metric_artifact
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1523-paper-route-t5-response-mismatch-intervention-design
+```
+
+M1522 blocks materialization and training. The next task is design only:
+stronger response/action-history mismatch diagnostics that keep target scene
+context but perturb the response/action stream.
 
 M1521 T5 timing-amplified intervention implementation:
 

@@ -1,0 +1,152 @@
+{
+  "id": "m1523-paper-route-t5-response-mismatch-intervention-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md",
+      "runs/m1521_t5_timing_amplified_intervention_smoke/timing_intervention_rows.csv",
+      "runs/m1521_t5_timing_amplified_intervention_smoke/timing_intervention_pair_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1522-paper-route-t5-timing-amplified-intervention-result-audit.json"
+    ],
+    "parent_objective": [
+      "design stronger wrong-history response/action mismatch interventions after hidden-only donor mismatch remained near-null"
+    ],
+    "derived_from": [
+      "m1522-paper-route-t5-timing-amplified-intervention-result-audit"
+    ],
+    "blocked_by": [
+      "M1521 showed timing sensitivity but wrong-history donor hidden remained near-null"
+    ],
+    "supersedes": [
+      "direct boundary tightening before stronger wrong-history diagnostic"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1523-paper-route-t5-response-mismatch-intervention-design.md",
+  "public_gates": [
+    "M1523 must design response/action-history mismatch interventions without changing deployed actor contract",
+    "M1523 must separate diagnostic observation surgery from deployable input design",
+    "M1523 must pre-register metrics and null-result routing",
+    "M1523 must not materialize candidates or export a training corpus",
+    "M1523 must not train run PPO promote use private holdout or alter actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates during design",
+    "do not claim self-identification from response-mismatch design"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_t5_timing_amplified_intervention",
+    "evidence_axis": "G_t5_response_mismatch_design",
+    "evidence_increment": "designs a stronger diagnostic for wrong-history and response/action-stream dependence after timing amplification produced only reset/zero-current positives",
+    "claim_scope": "diagnostic intervention design only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design would change deployed actor inputs",
+      "stop if design cannot separate target scene context from donor response/action diagnostics",
+      "stop if design routes directly to training or materialization",
+      "stop if design ignores M1521 wrong-history near-null result"
+    ],
+    "fallback_plan": [
+      "if response mismatch design is too broad, narrow to donor response current-frame and donor response window only",
+      "if diagnostic observation surgery is judged too artificial, pivot to terminal-boundary retargeting or branch synthesis",
+      "if implementation is later null, close the current T5 subset or synthesize before more tweaks"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1522 routed timing-positive but wrong-history-null evidence to stricter diagnostic design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "T5 response mismatch intervention design",
+    "admission_evidence": [
+      "M1521 produced positive margin gaps for reset/zero-current earlier-window interventions but wrong-history donor hidden stayed near-null"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change deployed actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "M1523 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up bounded response-mismatch implementation or synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "diagnostic variants are explicit",
+      "observation-surgery interpretation is explicit",
+      "candidate materialization remains blocked",
+      "null-result route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1523 is design only and response-mismatch diagnostics can still be dominated by current scene context.",
+    "history_necessity_tests": [
+      "design donor response/action current-frame mismatch",
+      "design donor response/action window mismatch",
+      "separate diagnostic response-stream causality from deployable self-ID claims"
+    ],
+    "temporal_evidence_window": "M1521 timing-amplified T5 rows and future response-mismatch windows.",
+    "negative_result_policy": "If response mismatch remains null, record the limitation and route to synthesis or subset closure rather than lowering the self-ID standard.",
+    "allowed_claims": [
+      "M1523 designs stricter response/action mismatch diagnostics",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A response/action-history mismatch design can test whether the actor depends on the response stream more directly than hidden-only donor injection.",
+  "success_criteria": [
+    "docs/m1523-paper-route-t5-response-mismatch-intervention-design.md exists",
+    "design defines donor response/action mismatch variants and anchor windows",
+    "design separates diagnostic observation surgery from deployable actor input",
+    "design keeps candidate materialization training PPO promotion private holdout actor-input changes and corpus export blocked",
+    "design routes to one bounded implementation or synthesis"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "response mismatch variants are ambiguous",
+    "design changes deployed actor inputs or uses private holdout",
+    "design materializes candidates or starts training PPO promotion corpus export"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1523-paper-route-t5-response-mismatch-intervention-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1523-paper-route-t5-response-mismatch-intervention-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md",
+    "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json"
+  ],
+  "decision_rule": "M1523 passes if it designs bounded response/action mismatch diagnostics while preserving all no-training no-materialization guardrails.",
+  "next_blocker": "m1523-paper-route-t5-response-mismatch-intervention-design"
+}

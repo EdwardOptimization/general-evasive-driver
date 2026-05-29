@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1530,
+    "completed": 1531,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json",
+    "command_log": "docs/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json",
+    "run_dir": "docs/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md",
     "status": "completed",
-    "task_id": "m1521-paper-route-t5-timing-amplified-intervention-implementation"
+    "task_id": "m1522-paper-route-t5-timing-amplified-intervention-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1522-paper-route-t5-timing-amplified-intervention-result-audit.json",
-    "hypothesis": "The M1521 timing-amplified positive margin gaps can be audited into a disciplined next route without over-claiming self-identification.",
-    "id": "m1522-paper-route-t5-timing-amplified-intervention-result-audit",
+    "command": "see experiments/manifests/m1523-paper-route-t5-response-mismatch-intervention-design.json",
+    "hypothesis": "A response/action-history mismatch design can test whether the actor depends on the response stream more directly than hidden-only donor injection.",
+    "id": "m1523-paper-route-t5-response-mismatch-intervention-design",
     "kind": "gate",
-    "notes": "Pending: audit M1521 positive margin gaps and wrong-history near-null limitation",
-    "priority": 15170,
+    "notes": "Pending: design stronger response/action-history mismatch diagnostics after wrong-history donor hidden remained near-null",
+    "priority": 15180,
     "status": "pending",
-    "success_artifact": "docs/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md"
+    "success_artifact": "docs/m1523-paper-route-t5-response-mismatch-intervention-design.md"
   },
-  "updated_at_utc": "20260529T095910Z"
+  "updated_at_utc": "20260529T100303Z"
 }
