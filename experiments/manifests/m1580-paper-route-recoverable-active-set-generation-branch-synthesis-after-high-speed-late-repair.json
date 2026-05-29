@@ -187,6 +187,52 @@
     "runs/m1579_high_speed_late_history_source_repair_smoke/summary.json",
     "docs/m1579-paper-route-high-speed-late-history-source-repair-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.md",
+    "decision": "recoverable_active_set_generation_synthesis_pivot_to_history_pairability_source_generation",
+    "synthesis_decision": "pivot",
+    "synthesized_range": "M1570-M1579",
+    "next_branch": "paper_route_history_pairability_source_generation",
+    "next_manifest": "experiments/manifests/m1581-paper-route-history-pairability-source-generation-design.json",
+    "supported_claims": [
+      "source-diverse local active-set anchors can be generated",
+      "history-intervention harness is operational",
+      "history-sensitive active-set mining finds clean positives in two families",
+      "matched-current hidden-divergent pairability is the current blocker"
+    ],
+    "unsupported_claims": [
+      "source-diverse paper-level history necessity",
+      "high-speed history sensitivity",
+      "late-reveal history sensitivity",
+      "level3 anticipatory self-identification",
+      "candidate materialization",
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion"
+    ],
+    "falsified_claims": [
+      "local forced-control flip anchors are automatically history-sensitive",
+      "large donor hidden distance alone is enough",
+      "targeted high-speed or late source pressure is useful without pairability first"
+    ],
+    "failure_taxonomy_summary": [
+      "scenario_sampling_failure"
+    ],
+    "public_gate_overfit_risk": "high",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1580 passes if it synthesizes M1570-M1579 and chooses the next route before another implementation milestone.",
-  "next_blocker": "m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair"
+  "next_blocker": "m1581-paper-route-history-pairability-source-generation-design"
 }

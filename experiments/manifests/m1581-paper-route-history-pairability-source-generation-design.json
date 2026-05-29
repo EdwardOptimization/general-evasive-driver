@@ -1,0 +1,153 @@
+{
+  "id": "m1581-paper-route-history-pairability-source-generation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.md",
+      "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json",
+      "runs/m1579_high_speed_late_history_source_repair_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.json"
+    ],
+    "parent_objective": [
+      "design pairability-first source generation before more history interventions"
+    ],
+    "derived_from": [
+      "m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair"
+    ],
+    "blocked_by": [
+      "M1579 found zero matched-current hidden-divergent high-speed/late donor pairs"
+    ],
+    "supersedes": [
+      "another recoverable active-set repair without pairability proof"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1581-paper-route-history-pairability-source-generation-design.md",
+  "public_gates": [
+    "M1581 must design a pairability-first source miner",
+    "M1581 must define matched-current hidden-divergent pairability gates before interventions",
+    "M1581 must include source-family and window diversity gates",
+    "M1581 must include stop rules if pairability is absent",
+    "M1581 must keep implementation smoke materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_pairability_source_generation",
+    "evidence_axis": "D_pairability_first_source_generation_design",
+    "evidence_increment": "designs the first branch step after pivoting from recoverable active-set generation to pairability-first source generation",
+    "claim_scope": "design only; no simulator run, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design assumes pairability instead of gating it",
+      "stop if design routes directly to interventions, materialization, training, PPO, or private holdout",
+      "stop if design omits source-family/window diversity and null classification"
+    ],
+    "fallback_plan": [
+      "admit bounded implementation only if pairability gates are explicit",
+      "synthesize or stop if current P0 source families cannot produce pairability",
+      "keep M1576/M1579 as diagnostics until pairability is proven"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1580 pivoted to pairability-first source generation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "history pairability source-generation design",
+    "admission_evidence": [
+      "M1580 pivoted after matched-pair shortfall",
+      "M1576/M1579 show history intervention evidence is blocked by source pairability"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1581 design document",
+      "M1581 status queue scoreboard research log and review",
+      "one follow-up implementation manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "pairability gates are explicit",
+      "source-family/window diversity gates are explicit",
+      "null taxonomy is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1581 is design-only; it must explicitly gate matched current response/action before hidden-history interventions.",
+    "history_necessity_tests": [
+      "design matched-current hidden-divergent pairability gates before interventions"
+    ],
+    "temporal_evidence_window": "M1580 synthesis.",
+    "negative_result_policy": "If pairability cannot be generated, synthesize or stop instead of lowering self-ID standards.",
+    "allowed_claims": [
+      "pairability-first source-generation design",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A pairability-first source miner can be designed to test whether the public simulator can produce matched-current hidden-divergent source pairs before history interventions.",
+  "success_criteria": [
+    "docs/m1581-paper-route-history-pairability-source-generation-design.md exists",
+    "design defines pairability gates before interventions",
+    "design includes source-family/window diversity gates and null taxonomy",
+    "implementation smoke materialization training PPO promotion private holdout corpus export and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design assumes pairability instead of gating it",
+    "design routes directly to training PPO promotion private holdout corpus export actor-input changes candidate materialization or interventions"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1581-paper-route-history-pairability-source-generation-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1581-paper-route-history-pairability-source-generation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.md",
+    "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json",
+    "runs/m1579_high_speed_late_history_source_repair_smoke/summary.json"
+  ],
+  "decision_rule": "M1581 passes if it designs pairability-first source generation before any new implementation.",
+  "next_blocker": "m1581-paper-route-history-pairability-source-generation-design"
+}

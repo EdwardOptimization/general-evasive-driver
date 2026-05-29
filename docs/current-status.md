@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1579-paper-route-high-speed-late-history-source-repair-implementation
+m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair
 ```
 
 Current next task:
 
 ```text
-m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair
+m1581-paper-route-history-pairability-source-generation-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -434,6 +434,12 @@ source specs, `384` anchors, and `267` replay-ok anchors, but the
 matched-current/hidden-divergent donor screen produced `0` accepted pairs from
 `24894` rejected screen candidates. No intervention rows were run. M1580 must
 synthesize the branch and decide the next route before any more implementation.
+M1580 synthesized M1570-M1579 and pivoted. The recoverable active-set generation
+branch produced valuable public diagnostics, including M1576 clean positives,
+but the current blocker is now pairability: the simulator/source generator must
+first produce matched-current hidden-divergent pairs before more history
+interventions can be meaningful. The next branch is
+`paper_route_history_pairability_source_generation`.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

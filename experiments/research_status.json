@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1588,
+    "completed": 1589,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1579-paper-route-high-speed-late-history-source-repair-implementation.md",
+    "command_log": "docs/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.md",
     "returncode": 0,
-    "run_dir": "runs/m1579_high_speed_late_history_source_repair_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1579-paper-route-high-speed-late-history-source-repair-implementation"
+    "task_id": "m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.json",
-    "hypothesis": "After M1579, the recoverable active-set generation branch has enough positive and negative evidence to require synthesis before any further implementation milestone.",
-    "id": "m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair",
+    "command": "see experiments/manifests/m1581-paper-route-history-pairability-source-generation-design.json",
+    "hypothesis": "A pairability-first source miner can be designed to test whether the public simulator can produce matched-current hidden-divergent source pairs before history interventions.",
+    "id": "m1581-paper-route-history-pairability-source-generation-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1570-M1579 after high-speed/late matched-pair shortfall",
-    "priority": 15750,
+    "notes": "Pending: design pairability-first source generation after M1580 pivot",
+    "priority": 15760,
     "status": "pending",
-    "success_artifact": "docs/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.md"
+    "success_artifact": "docs/m1581-paper-route-history-pairability-source-generation-design.md"
   },
-  "updated_at_utc": "20260529T152140Z"
+  "updated_at_utc": "20260529T152715Z"
 }

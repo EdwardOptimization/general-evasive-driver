@@ -24651,3 +24651,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.json`
 - next: `m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair`
+
+## M1580 Paper-Route Recoverable Active-Set Generation Branch Synthesis
+
+- status: completed
+- decision: `recoverable_active_set_generation_synthesis_pivot_to_history_pairability_source_generation`
+- synthesis decision: `pivot`
+- synthesized range: M1570-M1579
+- artifact: `docs/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.md`
+- failure taxonomy summary: `scenario_sampling_failure`
+- public-gate overfit risk: high
+- supported claims: source-diverse local active-set anchors can be generated; history-intervention harness is operational; history-sensitive active-set mining finds clean positives in two families; matched-current hidden-divergent pairability is the current blocker
+- unsupported claims: source-diverse paper-level history necessity, high-speed history sensitivity, late-reveal history sensitivity, level3 anticipatory self-identification, candidate materialization, corpus export, PPO, promotion
+- falsified claims: local forced-control flip anchors are automatically history-sensitive; large donor hidden distance alone is enough; targeted high-speed/late source pressure is useful without pairability first
+- next branch: `paper_route_history_pairability_source_generation`
+- route decision: design a pairability-first source miner before any further history intervention
+- history interventions executed: false in M1580
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1581-paper-route-history-pairability-source-generation-design.json`
+- next: `m1581-paper-route-history-pairability-source-generation-design`
