@@ -16,23 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1652-paper-route-selected-proposal-repair-design
+m1653-paper-route-selected-proposal-repair-implementation
 ```
 
 Current next task:
 
 ```text
-m1653-paper-route-selected-proposal-repair-implementation
+m1654-paper-route-selected-proposal-repair-result-audit
 ```
 
-M1652 designed the selected-proposal no-checkpoint repair probe. It selects
-alpha `0.2` as the primary same-line proposal, alpha `1.0` as the stress
-proposal, and alpha `0.4` as the intermediate proposal. The repair scope is
-`actor_mean.weight` and `actor_mean.bias` only, initialized from each proposal
-checkpoint, with base interpolation and checkpoint artifacts blocked. The next
-task is M1653 implementation, which may only write metrics and must not run
-PPO, replay gates, promotion, private holdout, actor-input changes, or level3
-self-ID claims.
+M1653 implemented and ran the selected-proposal no-checkpoint repair probe over
+alpha `0.2`, `0.4`, and `1.0` same-line proposal candidates. Focused tests and
+all guardrails passed, with zero checkpoint artifacts, no base interpolation, no
+PPO, no promotion, and no actor-input changes. The result is nevertheless a
+clean negative: primary alpha `0.2` did not improve, alpha `0.4` did not
+improve, and alpha `1.0` reduced exact residual by only `0.07257319479554114`,
+below the `0.25` candidate gate. The current route is M1654 result audit before
+any wider-scope repair design, alternative projection rule, checkpoint artifact,
+or replay gate.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

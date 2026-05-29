@@ -26421,3 +26421,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repair result, checkpoint artifact generation, replay improvement, behavior retention, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1653-paper-route-selected-proposal-repair-implementation.json`
 - next: `m1653-paper-route-selected-proposal-repair-implementation`
+
+## M1653 Paper-Route Selected Proposal Repair Implementation
+
+- status: completed
+- decision: `selected_proposal_repair_negative_route_to_audit`
+- artifact: `runs/m1653_selected_proposal_repair/summary.json`
+- doc: `docs/m1653-paper-route-selected-proposal-repair-implementation.md`
+- code: `src/autodrift/selected_proposal_repair.py`
+- tests: `tests/test_selected_proposal_repair.py`
+- focused tests: `3 passed in 2.10s`
+- selected candidate count: `3`
+- measurable initial residual count: `3`
+- residual reduced count: `1`
+- candidate public pass count: `0`
+- primary alpha `0.2` pass: `false`
+- alpha `0.2` reduction ratio: `0.0`
+- alpha `0.4` reduction ratio: `0.0`
+- alpha `1.0` reduction ratio: `0.07257319479554114`
+- passes public smoke gates: `false`
+- null result classification: `selected_proposal_repair_scope_insufficient`
+- failure taxonomy: `training_instability`
+- guardrail violation count: `0`
+- checkpoint artifact count: `0`
+- base interpolation used for repair count: `0`
+- diagnostics used as positives and donor-plus actions used as loss targets: `0`
+- training/PPO/promotion/private holdout/actor-input/level3 claim counts: `0`
+- supported: selected-proposal repair plumbing works, same-line proposal residuals are measurable, and no-checkpoint/actor_mean-only guardrails held
+- unsupported: selected-proposal repair works, checkpoint artifact generation, replay improvement, behavior retention, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1654-paper-route-selected-proposal-repair-result-audit.json`
+- next: `m1654-paper-route-selected-proposal-repair-result-audit`

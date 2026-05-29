@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1661,
+    "completed": 1662,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1652-paper-route-selected-proposal-repair-design.md",
+      "command_log": "docs/m1653-paper-route-selected-proposal-repair-implementation.md",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1653_selected_proposal_repair",
       "status": "completed",
-      "task_id": "m1652-paper-route-selected-proposal-repair-design"
+      "task_id": "m1653-paper-route-selected-proposal-repair-implementation"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1653-paper-route-selected-proposal-repair-implementation.json",
-      "hypothesis": "Actor_mean-only damped projection can reduce contour-aware exact residual on at least the smallest selected real same-line proposal delta without checkpoint artifacts.",
-      "id": "m1653-paper-route-selected-proposal-repair-implementation",
-      "kind": "objective_sanity",
-      "notes": "Pending: implement no-checkpoint selected-proposal actor_mean repair for alpha 0.2 0.4 and 1.0",
-      "priority": 16480,
+      "command": "see experiments/manifests/m1654-paper-route-selected-proposal-repair-result-audit.json",
+      "hypothesis": "The M1653 negative result can be audited as actor_mean-only selected-proposal repair scope insufficiency without overstating it or tuning after the fact.",
+      "id": "m1654-paper-route-selected-proposal-repair-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit negative selected-proposal repair result before rerun wider-scope design or checkpoint route",
+      "priority": 16490,
       "status": "pending",
-      "success_artifact": "runs/m1653_selected_proposal_repair/summary.json"
+      "success_artifact": "docs/m1654-paper-route-selected-proposal-repair-result-audit.md"
     },
-    "updated_at_utc": "20260529T210853Z"
+    "updated_at_utc": "20260529T211920Z"
 }

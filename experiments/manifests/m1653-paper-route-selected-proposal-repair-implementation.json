@@ -4,7 +4,7 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "training_instability"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -185,6 +185,41 @@
     "runs/m1650_proposal_source_preflight/candidate_summary.csv",
     "runs/m1630_contour_aware_full_target_materialization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1653_selected_proposal_repair/summary.json",
+    "doc": "docs/m1653-paper-route-selected-proposal-repair-implementation.md",
+    "code": "src/autodrift/selected_proposal_repair.py",
+    "tests": "tests/test_selected_proposal_repair.py",
+    "decision": "selected_proposal_repair_negative_route_to_audit",
+    "failure_taxonomy": [
+      "training_instability"
+    ],
+    "focused_test_result": "3 passed",
+    "selected_candidate_count": 3,
+    "measurable_initial_residual_count": 3,
+    "residual_reduced_count": 1,
+    "candidate_public_pass_count": 0,
+    "primary_alpha_0_2_pass": false,
+    "alpha_0_2_reduction_ratio": 0.0,
+    "alpha_0_4_reduction_ratio": 0.0,
+    "alpha_1_0_reduction_ratio": 0.07257319479554114,
+    "checkpoint_artifact_count": 0,
+    "base_interpolation_used_for_repair_count": 0,
+    "non_actor_mean_parameter_changed_count": 0,
+    "diagnostic_rows_used_as_positive_count": 0,
+    "donor_plus_action_used_as_loss_target_count": 0,
+    "guardrail_violation_count": 0,
+    "training_started_count": 0,
+    "ppo_used_count": 0,
+    "promoted_count": 0,
+    "private_holdout_used_count": 0,
+    "actor_input_contract_changed_count": 0,
+    "level3_self_id_claim_count": 0,
+    "passes_public_smoke_gates": false,
+    "null_result_classification": "selected_proposal_repair_scope_insufficient",
+    "next_manifest": "experiments/manifests/m1654-paper-route-selected-proposal-repair-result-audit.json"
+  },
   "decision_rule": "M1653 passes if the selected-proposal no-checkpoint repair reduces at least the primary alpha 0.2 exact residual with clean guardrails.",
-  "next_blocker": "m1653-paper-route-selected-proposal-repair-implementation"
+  "next_blocker": "m1654-paper-route-selected-proposal-repair-result-audit"
 }
