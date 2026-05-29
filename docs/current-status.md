@@ -16,24 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1653-paper-route-selected-proposal-repair-implementation
+m1654-paper-route-selected-proposal-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m1654-paper-route-selected-proposal-repair-result-audit
+m1655-paper-route-selected-proposal-scope-sensitivity-design
 ```
 
-M1653 implemented and ran the selected-proposal no-checkpoint repair probe over
-alpha `0.2`, `0.4`, and `1.0` same-line proposal candidates. Focused tests and
-all guardrails passed, with zero checkpoint artifacts, no base interpolation, no
-PPO, no promotion, and no actor-input changes. The result is nevertheless a
-clean negative: primary alpha `0.2` did not improve, alpha `0.4` did not
-improve, and alpha `1.0` reduced exact residual by only `0.07257319479554114`,
-below the `0.25` candidate gate. The current route is M1654 result audit before
-any wider-scope repair design, alternative projection rule, checkpoint artifact,
-or replay gate.
+M1654 audited the M1653 selected-proposal repair result as a clean negative for
+the pre-registered actor_mean-only repair rule. The primary alpha `0.2`
+proposal did not improve, alpha `0.4` did not improve, and alpha `1.0` reduced
+exact residual by only `0.07257319479554114`, below the `0.25` candidate gate.
+All M1653 guardrails were clean, so the failure is classified as
+projection/scope insufficiency rather than plumbing or contamination. The next
+task is M1655 design-only scope-sensitivity planning before any wider-scope
+repair implementation, checkpoint artifact, replay gate, PPO, promotion, private
+holdout, actor-input change, or level3 claim.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

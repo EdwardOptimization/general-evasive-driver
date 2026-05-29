@@ -26451,3 +26451,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: selected-proposal repair works, checkpoint artifact generation, replay improvement, behavior retention, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1654-paper-route-selected-proposal-repair-result-audit.json`
 - next: `m1654-paper-route-selected-proposal-repair-result-audit`
+
+## M1654 Paper-Route Selected Proposal Repair Result Audit
+
+- status: completed
+- decision: `selected_proposal_repair_audit_admit_scope_sensitivity_design`
+- artifact: `docs/m1654-paper-route-selected-proposal-repair-result-audit.md`
+- audited run: `runs/m1653_selected_proposal_repair`
+- failure taxonomy: `training_instability`
+- selected candidate count: `3`
+- measurable initial residual count: `3`
+- residual reduced count: `1`
+- candidate public pass count: `0`
+- primary alpha `0.2` pass: `false`
+- alpha `1.0` reduction ratio: `0.07257319479554114`
+- guardrail violation count: `0`
+- checkpoint artifact count: `0`
+- base interpolation used for repair count: `0`
+- training/PPO/promotion/private holdout/actor-input/level3 claim counts: `0`
+- supported: M1653 is a clean negative for the pre-registered actor_mean-only selected-proposal repair rule
+- unsupported: selected-proposal repair works, PPO-proposal repair works, checkpoint artifact generation, replay improvement, behavior retention, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- route decision: admit M1655 design-only selected-proposal scope-sensitivity preflight before any wider-scope repair implementation
+- follow-up manifest: `experiments/manifests/m1655-paper-route-selected-proposal-scope-sensitivity-design.json`
+- next: `m1655-paper-route-selected-proposal-scope-sensitivity-design`

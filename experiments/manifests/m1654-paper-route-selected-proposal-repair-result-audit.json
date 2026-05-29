@@ -173,6 +173,24 @@
     "runs/m1653_selected_proposal_repair/guardrail_summary.csv",
     "docs/m1653-paper-route-selected-proposal-repair-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1654-paper-route-selected-proposal-repair-result-audit.md",
+    "decision": "selected_proposal_repair_audit_admit_scope_sensitivity_design",
+    "failure_taxonomy": [
+      "training_instability"
+    ],
+    "audited_run": "runs/m1653_selected_proposal_repair",
+    "selected_candidate_count": 3,
+    "measurable_initial_residual_count": 3,
+    "residual_reduced_count": 1,
+    "candidate_public_pass_count": 0,
+    "primary_alpha_0_2_pass": false,
+    "alpha_1_0_reduction_ratio": 0.07257319479554114,
+    "guardrail_violation_count": 0,
+    "route": "admit design-only selected-proposal scope-sensitivity preflight",
+    "next_manifest": "experiments/manifests/m1655-paper-route-selected-proposal-scope-sensitivity-design.json"
+  },
   "decision_rule": "M1654 passes if it audits M1653 and chooses a safe next route before any rerun wider-scope repair checkpoint artifact or replay gate.",
-  "next_blocker": "m1654-paper-route-selected-proposal-repair-result-audit"
+  "next_blocker": "m1655-paper-route-selected-proposal-scope-sensitivity-design"
 }
