@@ -23492,3 +23492,43 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1543 turns M1542's source-window miss into a bounded calibration route over actual fixed-policy simulator margins. It blocks direct intervention reruns until calibrated terminal target rows exist.
 - follow-up manifest: `experiments/manifests/m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation.json`.
 - next: `m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation`
+
+## M1544 Paper-Route Terminal-Boundary Task-Sampling Calibration Implementation
+
+- status: completed
+- decision: `terminal_boundary_task_sampling_calibration_smoke_pass_route_to_audit`
+- artifact: `runs/m1544_terminal_boundary_task_sampling_calibration_smoke/summary.json`
+- doc: `docs/m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation.md`
+- code: `src/autodrift/terminal_boundary_task_sampling_calibration.py`
+- tests: `tests/test_terminal_boundary_task_sampling_calibration.py`
+- focused test result: `4 passed`
+- terminal base source rows: 10
+- terminal family count: 5
+- calibration spec count: 100
+- terminal target trace count: 57
+- trace row count: 5060
+- snapshot row count: 305
+- finite margin row count: 305
+- rollout failure count: 43
+- accepted calibrated row count: 8
+- accepted terminal family count: 4
+- decision window hit count: 4
+- post-decision window hit count: 5
+- preferred decision window hit count: 0
+- terminal window hit count: 5
+- max single terminal family share: 0.25
+- accepted source family counts: `curved_boundary_obstacle=2`, `t5_boundary_axis_retarget=2`, `t5_high_speed_close_obstacle=2`, `t5_near_boundary_warmup=2`
+- passes calibration source gates: true
+- passes near-boundary gates: true
+- passes quality gates: true
+- passes public smoke gates: true
+- passes evidence quality targets: true
+- guardrail violation count: 0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1544 repairs the M1541 source-window blocker by generating actual near-boundary terminal rows with source diversity. It still does not test history necessity and must route to audit before any calibrated intervention design.
+- follow-up manifest: `experiments/manifests/m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit.json`.
+- next: `m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit`

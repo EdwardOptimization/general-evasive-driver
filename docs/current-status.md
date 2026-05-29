@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1543-paper-route-terminal-boundary-task-sampling-calibration-design
+m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation
 ```
 
 Current next task:
 
 ```text
-m1544-paper-route-terminal-boundary-task-sampling-calibration-implementation
+m1545-paper-route-terminal-boundary-task-sampling-calibration-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -171,6 +171,13 @@ retargeting to target actual simulator decision/post-decision margins, with
 separate decision and post-decision windows, terminal-family coverage gates, and
 explicit no-materialization/no-training guardrails. The next task is the M1544
 calibration implementation smoke.
+M1544 implemented and ran that smoke. It generated `100` calibration specs from
+`10` terminal base source rows, reached decision in `57` traces, and accepted
+`8` calibrated near-boundary rows across `4` terminal families with max family
+share `0.25`. Decision-window hits were `4`, post-decision-window hits were `5`,
+and all calibration/source/quality gates passed with zero guardrail violations.
+The next task is an audit before any calibrated history-intervention design or
+materialization.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
