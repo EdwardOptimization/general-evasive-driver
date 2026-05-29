@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1546,
+    "completed": 1547,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis.md",
+    "command_log": "runs/m1538_fresh_ambiguity_history_intervention_repeat/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1538_fresh_ambiguity_history_intervention_repeat",
     "status": "completed",
-    "task_id": "m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis"
+    "task_id": "m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation.json",
-    "hypothesis": "M1534 wrong-history and donor-response positives should either repeat across more source-diverse public pairs or expose a source-pairing/control-dominance blocker.",
-    "id": "m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: run bounded source-expanded measured-mining and history-intervention repeat admitted by M1537 synthesis",
-    "priority": 15330,
+    "command": "see experiments/manifests/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.json",
+    "hypothesis": "M1538 is source-expanded and history-positive overall but its T5 absence and donor-stream weakness must be audited before any materialization route.",
+    "id": "m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1538 source-expanded positive repeat before materialization or self-ID claims",
+    "priority": 15340,
     "status": "pending",
-    "success_artifact": "runs/m1538_fresh_ambiguity_history_intervention_repeat/summary.json"
+    "success_artifact": "docs/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.md"
   },
-  "updated_at_utc": "20260529T111649Z"
+  "updated_at_utc": "20260529T112512Z"
 }

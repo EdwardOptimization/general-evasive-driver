@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1537-paper-route-fresh-ambiguity-source-mining-branch-synthesis
+m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation
 ```
 
 Current next task:
 
 ```text
-m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation
+m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -133,6 +133,14 @@ M1534 wrong-history/donor-plus-hidden positives are all present. The evidence is
 still public, source-small, T4-only, and control-sensitive, so M1537 admits
 exactly one source-expanded repeat implementation and keeps materialization,
 training, PPO, private holdout, promotion, and level3 self-ID claims blocked.
+M1538 ran that source-expanded repeat. Measured mining produced `28` source rows,
+`2497` trace rows, `18` pair candidates, `13` accepted pairs, `11` accepted
+source-family edges, and `5` T5/terminal-boundary accepted pairs. The
+intervention repeat ran `260` rows with zero anchor failures; wrong-history max
+gap was `0.1224`, donor-response/action-plus-hidden max gap was `0.1260`, and
+the max reset/zero-control gap was `0.0933`. This is source-expanded positive
+evidence, but T5/terminal-boundary history-positive target sides remain `0`, so
+the next task is an audit before any materialization.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

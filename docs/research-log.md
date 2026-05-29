@@ -23290,3 +23290,45 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1537 resets the workflow cadence and admits exactly one bounded source-expanded repeat implementation. If the repeat is source-poor, T5-absent, or control-dominated, the follow-up audit must route to pair repair, task generation, or synthesis rather than training.
 - follow-up manifest: `experiments/manifests/m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation.json`.
 - next: `m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation`
+
+## M1538 Paper-Route Fresh Ambiguity History-Intervention Repeat Implementation
+
+- status: completed
+- decision: `fresh_ambiguity_history_intervention_repeat_smoke_positive_source_expanded_route_to_audit`
+- artifact: `runs/m1538_fresh_ambiguity_history_intervention_repeat/summary.json`
+- doc: `docs/m1538-paper-route-fresh-ambiguity-history-intervention-repeat-implementation.md`
+- focused tests: `PYTHONPATH=src python -m pytest tests/test_fresh_ambiguity_measured_mining.py tests/test_fresh_ambiguity_history_interventions.py -q`
+- focused test result: 11 passed
+- measured repeat artifact: `runs/m1538_fresh_ambiguity_measured_mining_repeat/summary.json`
+- source row count: 28
+- attempted source families: 14
+- reached decision source families: 14
+- trace row count: 2497
+- measured pair candidate count: 18
+- accepted measured pair count: 13
+- accepted source-family edge count: 11
+- accepted source-family max share: 0.11538461538461539
+- T5/terminal-boundary accepted pair count: 5
+- intervention row count: 260
+- anchor replay success/failure count: 260/0
+- wrong-history max margin gap: 0.12242202469492369
+- donor response/action max margin gap: 0.12600996295198996
+- max reset/zero-control margin gap: 0.09327067729080696
+- control-to-history gap ratio: 0.7401849433631154
+- wrong-history positive target sides/pairs/edges: 4/4/3
+- donor-plus-hidden positive target sides/pairs/edges: 4/4/3
+- donor response/action stream positive target sides: 0
+- T5/terminal-boundary history-positive target sides: 0
+- success drop count: 12
+- wrong-or-donor success drop count: 1
+- passes public smoke gates: true
+- passes evidence quality targets: true
+- guardrail violation count: 0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1538 is a source-expanded positive repeat for wrong-history and donor-plus-hidden margin sensitivity, but it still lacks T5/terminal-boundary history-positive evidence and direct donor response/action stream sensitivity. It must route to audit before materialization.
+- follow-up manifest: `experiments/manifests/m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit.json`.
+- next: `m1539-paper-route-fresh-ambiguity-history-intervention-repeat-result-audit`
