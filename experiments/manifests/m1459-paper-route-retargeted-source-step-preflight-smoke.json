@@ -164,6 +164,41 @@
   "baseline_artifacts": [
     "docs/m1458-paper-route-retargeted-source-step-preflight-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1459-paper-route-retargeted-source-step-preflight-smoke.md",
+    "summary": "runs/m1459_retargeted_source_step_preflight_smoke/summary.json",
+    "decision": "retargeted_source_step_preflight_pass_route_to_bounded_replay_design",
+    "candidate_step_column": "source_step",
+    "input_rows": 128,
+    "history_candidate_rows": 128,
+    "geometry_pass_rows": 128,
+    "selected_candidate_rows": 104,
+    "rejected_rows": 0,
+    "relocation_clipped_share": 0.0,
+    "selected_unique_source_seeds": 5,
+    "selected_unique_capability_pairs": 9,
+    "selected_unique_reveal_buckets": 8,
+    "selected_unique_variants": 3,
+    "selected_max_single_seed_share": 0.2692307692307692,
+    "selected_max_single_capability_pair_share": 0.15384615384615385,
+    "source_body_x_min": 5.0657344757795615,
+    "source_body_x_p50": 9.589191310906713,
+    "source_body_x_p95": 11.98035055522438,
+    "source_preflight_started": true,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1460-paper-route-retargeted-source-step-bounded-replay-design.json"
+  },
+  "decision": "retargeted_source_step_preflight_pass_route_to_bounded_replay_design",
   "decision_rule": "M1459 passes if retargeted source-step preflight gates pass without replay or training.",
-  "next_blocker": "m1459-paper-route-retargeted-source-step-preflight-smoke"
+  "next_blocker": "m1460-paper-route-retargeted-source-step-bounded-replay-design"
 }

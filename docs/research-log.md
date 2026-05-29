@@ -21608,3 +21608,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1459-paper-route-retargeted-source-step-preflight-smoke.json`.
 - next: `m1459-paper-route-retargeted-source-step-preflight-smoke`
+
+## 20260529T053000Z - m1459-paper-route-retargeted-source-step-preflight-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `proof`
+- artifact: `docs/m1459-paper-route-retargeted-source-step-preflight-smoke.md`
+- run artifact: `runs/m1459_retargeted_source_step_preflight_smoke/summary.json`
+- decision: `retargeted_source_step_preflight_pass_route_to_bounded_replay_design`
+- candidate step column: `source_step`
+- input rows: `128`
+- geometry pass rows: `128`
+- selected candidate rows: `104`
+- rejected rows: `0`
+- relocation clipped share: `0.0`
+- selected diversity: `5` seeds, `9` capability pairs, `8` reveal buckets, `3` variants.
+- source body x min/p50/p95: `5.065734` / `9.589191` / `11.980351`.
+- interpretation: retargeted candidates remain reconstructable, unclipped, source-diverse, and source-step anchored; this is not replay evidence.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1460-paper-route-retargeted-source-step-bounded-replay-design.json`.
+- next: `m1460-paper-route-retargeted-source-step-bounded-replay-design`
+
+## 20260529T053100Z - m1460-paper-route-retargeted-source-step-bounded-replay-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1460-paper-route-retargeted-source-step-bounded-replay-design.md`
+- decision: `retargeted_source_step_bounded_replay_design_admit_smoke`
+- candidate source: `runs/m1459_retargeted_source_step_preflight_smoke/selected_candidate_rows.csv`
+- required candidate step column: `source_step`
+- design: run bounded replay over M1459 selected candidates with geometry-aware selector, 64 max candidate rows, and source-step anchoring.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1461-paper-route-retargeted-source-step-bounded-replay-smoke.json`.
+- next: `m1461-paper-route-retargeted-source-step-bounded-replay-smoke`

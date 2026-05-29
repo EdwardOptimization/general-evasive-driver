@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1467,
+    "completed": 1469,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1458-paper-route-retargeted-source-step-preflight-design.md",
+    "command_log": "docs/m1460-paper-route-retargeted-source-step-bounded-replay-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1458-paper-route-retargeted-source-step-preflight-design"
+    "task_id": "m1460-paper-route-retargeted-source-step-bounded-replay-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1459-paper-route-retargeted-source-step-preflight-smoke.json",
-    "hypothesis": "M1457 retarget candidates remain forward, unclipped, source-diverse, and source_step anchored when reconstructed by preflight.",
-    "id": "m1459-paper-route-retargeted-source-step-preflight-smoke",
+    "command": "see experiments/manifests/m1461-paper-route-retargeted-source-step-bounded-replay-smoke.json",
+    "hypothesis": "A bounded replay smoke over retargeted M1459 candidates can produce actual replay rows and possibly outcome-sensitive history-positive rows without training or actor changes.",
+    "id": "m1461-paper-route-retargeted-source-step-bounded-replay-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: run preflight-only validation on M1457 retarget candidates without bounded replay training promotion corpus export or actor-input changes",
-    "priority": 14540,
+    "notes": "Pending: run bounded replay on M1459 selected candidates without training PPO promotion corpus export or actor-input changes",
+    "priority": 14560,
     "status": "pending",
-    "success_artifact": "docs/m1459-paper-route-retargeted-source-step-preflight-smoke.md"
+    "success_artifact": "docs/m1461-paper-route-retargeted-source-step-bounded-replay-smoke.md"
   },
-  "updated_at_utc": "20260529T052000Z"
+  "updated_at_utc": "20260529T053000Z"
 }

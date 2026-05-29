@@ -1,0 +1,97 @@
+{
+  "decision_reason": "M1459 passes retargeted source-step preflight with 128 geometry-pass rows 104 selected candidates zero clipping and source_step anchoring",
+  "failure_criteria": [
+    "summary missing",
+    "candidate_step_column is not source_step",
+    "geometry or diversity gates fail",
+    "preflight rows are counted as replay evidence",
+    "run starts replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not mutate reveal_step values",
+    "do not count preflight rows as replay or history-positive evidence"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260529T045017Z",
+  "hypothesis": "M1457 retarget candidates remain forward, unclipped, source-diverse, and source_step anchored when reconstructed by preflight.",
+  "lineage": {
+    "blocked_by": [
+      "retargeted candidates have not yet passed source-step preflight"
+    ],
+    "derived_from": [
+      "m1458-paper-route-retargeted-source-step-preflight-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "configs/m1419_warmup_gate_invasiveness_retune_source_wave.json",
+      "experiments/manifests/m1458-paper-route-retargeted-source-step-preflight-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m1457_source_step_boundary_retarget_smoke/retarget_candidate_rows.csv",
+      "docs/m1458-paper-route-retargeted-source-step-preflight-design.md"
+    ],
+    "parent_objective": [
+      "run preflight-only validation on M1457 retarget candidates"
+    ],
+    "supersedes": [
+      "bounded replay directly from M1457 proposals"
+    ]
+  },
+  "milestone": "m1459-paper-route-retargeted-source-step-preflight-smoke",
+  "next_blocker": "m1460-paper-route-retargeted-source-step-bounded-replay-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "retargeted_source_step_preflight_pass_route_to_bounded_replay_design",
+  "public_gates": [
+    "M1459 must run --preflight-only with --candidate-step-column source_step",
+    "M1459 must not run bounded replay train PPO promote use private holdout export corpus or change actor inputs",
+    "M1459 must report geometry pass rows selected rows clipping share and diversity"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1459_retargeted_source_step_preflight_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "retargeted_source_step_preflight_pass_route_to_bounded_replay_design",
+    "milestone": "m1459-paper-route-retargeted-source-step-preflight-smoke",
+    "reason": "M1459 passes retargeted source-step preflight with 128 geometry-pass rows 104 selected candidates zero clipping and source_step anchoring",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1459_retargeted_source_step_preflight_smoke/summary.json exists",
+    "summary candidate_step_column equals source_step",
+    "geometry_pass_rows >= 64",
+    "selected_candidate_rows >= 64",
+    "selected_diversity.unique_source_seeds >= 4",
+    "selected_diversity.unique_capability_pairs >= 6",
+    "selected_diversity.unique_variants >= 2",
+    "selected_diversity.max_single_seed_share <= 0.40",
+    "relocation_clipped_share <= 0.10",
+    "source_body_x_min >= 4.0",
+    "replay_started false",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "type": "infrastructure"
+}

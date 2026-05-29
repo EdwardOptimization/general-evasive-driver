@@ -16,47 +16,46 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1458-paper-route-retargeted-source-step-preflight-design
+m1460-paper-route-retargeted-source-step-bounded-replay-design
 ```
 
 Current next task:
 
 ```text
-m1459-paper-route-retargeted-source-step-preflight-smoke
+m1461-paper-route-retargeted-source-step-bounded-replay-smoke
 ```
 
-M1457 ran the source-step boundary retarget proposal smoke and M1458 designed
-the next retargeted preflight-only smoke. The current public-gate base remains
-M1362 alpha `0.1`:
+M1459 ran retargeted source-step preflight and M1460 designed the next bounded
+replay smoke. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1458 result:
+M1460 result:
 
 ```text
-decision: retargeted_source_step_preflight_design_admit_smoke
-source_candidates: runs/m1457_source_step_boundary_retarget_smoke/retarget_candidate_rows.csv
+decision: retargeted_source_step_bounded_replay_design_admit_smoke
+source_candidates: runs/m1459_retargeted_source_step_preflight_smoke/selected_candidate_rows.csv
 candidate_step_column: source_step
-next: m1459-paper-route-retargeted-source-step-preflight-smoke
+next: m1461-paper-route-retargeted-source-step-bounded-replay-smoke
 ```
 
-M1457 result:
+M1459 result:
 
 ```text
-decision: source_step_boundary_retarget_smoke_pass_route_to_preflight_design
-proposal_rows: 798
-selected_retarget_rows: 128
-selected_class_counts: normal_boundary 32 / too_easy 32 / too_hard 64
+decision: retargeted_source_step_preflight_pass_route_to_bounded_replay_design
+input_rows: 128
+geometry_pass_rows: 128
+selected_candidate_rows: 104
+relocation_clipped_share: 0.0
 selected diversity: 5 seeds / 9 capability pairs / 8 reveal buckets / 3 variants
 candidate_step_column: source_step
 ```
 
-M1459 should run `bounded_relocation_replay_probe --preflight-only` on the
-M1457 retarget candidates. It must not run bounded replay, outcome
-interventions, training, PPO, promotion, private holdout, corpus export, or
-actor-input changes.
+M1461 should run bounded replay on the M1459 selected candidates. It must not
+train, run PPO, promote, use private holdout, export corpus, or change actor
+inputs.
 
 M1455 result:
 
