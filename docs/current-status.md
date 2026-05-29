@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1551-paper-route-calibrated-pair-expansion-planner-result-audit
+m1552-paper-route-calibrated-pair-expanded-history-intervention-design
 ```
 
 Current next task:
 
 ```text
-m1552-paper-route-calibrated-pair-expanded-history-intervention-design
+m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -229,6 +229,13 @@ pair set is large and diverse enough for one bounded intervention design:
 history intervention implementation, materialization, training, PPO, promotion,
 private holdout, actor-input changes, corpus export, and level3 self-ID claims
 remain blocked.
+M1552 designed the bounded pair-expanded calibrated intervention smoke over all
+`21` M1550 accepted pairs and both target sides. The planned smoke has `10`
+variants and `420` intervention rows, with explicit source-edge, endpoint,
+window-bucket, replay, history-positive, control-dominance, and concentration
+gates. It admits only M1553 implementation; materialization, training, PPO,
+promotion, private holdout, actor-input changes, corpus export, and level3
+self-ID claims remain blocked.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

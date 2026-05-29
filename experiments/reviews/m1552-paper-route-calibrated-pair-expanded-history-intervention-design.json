@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M1552 designs a bounded 420-row pair-expanded calibrated intervention smoke with source-edge endpoint history and control gates",
+  "failure_criteria": [
+    "design document is missing",
+    "design routes directly to training promotion private holdout or materialization",
+    "design changes actor inputs or weakens history-positive standards",
+    "design ignores M1550 snapshot-count caveat"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T124017Z",
+  "hypothesis": "A bounded intervention design over the M1550 accepted pairs can test whether pair-expanded terminal-boundary rows produce history-sensitive effects while preserving all no-training guardrails.",
+  "lineage": {
+    "blocked_by": [
+      "pair-expanded interventions have not yet been designed"
+    ],
+    "derived_from": [
+      "m1551-paper-route-calibrated-pair-expansion-planner-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m1550_calibrated_pair_expansion_planner_smoke/accepted_pair_rows.csv",
+      "runs/m1550_calibrated_pair_expansion_planner_smoke/summary.json",
+      "docs/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.md"
+    ],
+    "parent_objective": [
+      "design pair-expanded calibrated history interventions after M1550 pair gate pass"
+    ],
+    "supersedes": [
+      "direct implementation of pair-expanded interventions without audit caveats"
+    ]
+  },
+  "milestone": "m1552-paper-route-calibrated-pair-expanded-history-intervention-design",
+  "next_blocker": "m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pair_expanded_history_intervention_design_admit_bounded_implementation",
+  "public_gates": [
+    "M1552 must design interventions over M1550 accepted pairs",
+    "M1552 must preserve source-edge and endpoint-reuse diagnostics",
+    "M1552 must include reset zero-current zero-action delayed wrong-history donor-hidden and donor-response variants",
+    "M1552 must preserve P0 actor input contract",
+    "M1552 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1552-paper-route-calibrated-pair-expanded-history-intervention-design.md",
+    "clearance_margin_mean": "",
+    "decision": "pair_expanded_history_intervention_design_admit_bounded_implementation",
+    "milestone": "m1552-paper-route-calibrated-pair-expanded-history-intervention-design",
+    "reason": "M1552 designs a bounded 420-row pair-expanded calibrated intervention smoke with source-edge endpoint history and control gates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1552-paper-route-calibrated-pair-expanded-history-intervention-design.md exists",
+    "design specifies intervention variants and accepted-pair filters",
+    "design specifies endpoint reuse, edge diversity, replay, history, and control gates",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "type": "gate"
+}

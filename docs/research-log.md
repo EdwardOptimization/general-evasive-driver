@@ -23752,3 +23752,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1551 admits design, not implementation or materialization. M1552 must preserve the snapshot-count caveat, endpoint-reuse diagnostics, source-edge diagnostics, and history/control separation.
 - follow-up manifest: `experiments/manifests/m1552-paper-route-calibrated-pair-expanded-history-intervention-design.json`.
 - next: `m1552-paper-route-calibrated-pair-expanded-history-intervention-design`
+
+## M1552 Paper-Route Calibrated Pair-Expanded History-Intervention Design
+
+- status: completed
+- decision: `pair_expanded_history_intervention_design_admit_bounded_implementation`
+- artifact: `docs/m1552-paper-route-calibrated-pair-expanded-history-intervention-design.md`
+- planned pair count: 21
+- planned source-family edge count: 5
+- planned max single edge share: 0.38095238095238093
+- planned max endpoint share: 0.14285714285714285
+- planned variant count: 10
+- planned target side count: 42
+- planned intervention row count: 420
+- planned anchor replay failure rate max: 0.05
+- planned min wrong-or-donor positive target sides: 4
+- planned min success drop count: 2
+- planned control-to-history ratio max: 4.0
+- planned positive edge share max: 0.5
+- planned positive endpoint share max: 0.25
+- interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1552 admits a bounded implementation over M1550 accepted pairs, with explicit endpoint/source-edge concentration and history/control gates. It still blocks materialization and self-ID claims.
+- follow-up manifest: `experiments/manifests/m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation.json`.
+- next: `m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation`

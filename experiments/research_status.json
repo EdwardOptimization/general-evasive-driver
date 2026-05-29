@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1560,
+    "completed": 1561,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1551-paper-route-calibrated-pair-expansion-planner-result-audit.md",
+    "command_log": "docs/m1552-paper-route-calibrated-pair-expanded-history-intervention-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1551-paper-route-calibrated-pair-expansion-planner-result-audit"
+    "task_id": "m1552-paper-route-calibrated-pair-expanded-history-intervention-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1552-paper-route-calibrated-pair-expanded-history-intervention-design.json",
-    "hypothesis": "A bounded intervention design over the M1550 accepted pairs can test whether pair-expanded terminal-boundary rows produce history-sensitive effects while preserving all no-training guardrails.",
-    "id": "m1552-paper-route-calibrated-pair-expanded-history-intervention-design",
-    "kind": "gate",
-    "notes": "Pending: design pair-expanded calibrated history interventions",
-    "priority": 15470,
+    "command": "see experiments/manifests/m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation.json",
+    "hypothesis": "A bounded implementation can run pair-expanded calibrated history interventions over M1550 accepted pairs without changing actor inputs or materializing candidates.",
+    "id": "m1553-paper-route-pair-expanded-calibrated-history-intervention-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement pair-expanded calibrated intervention smoke",
+    "priority": 15480,
     "status": "pending",
-    "success_artifact": "docs/m1552-paper-route-calibrated-pair-expanded-history-intervention-design.md"
+    "success_artifact": "runs/m1553_pair_expanded_calibrated_history_intervention_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T130500Z"
+  "updated_at_utc": "20260529T131500Z"
 }
