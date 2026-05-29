@@ -16,21 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1592-paper-route-clean-history-control-source-generation-repair-implementation
+m1593-paper-route-clean-source-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m1593-paper-route-clean-source-repair-result-audit
+m1594-paper-route-selector-balanced-clean-source-repair-design
 ```
 
-M1592 implemented the bounded clean-source repair. It improved the clean surface
-substantially, from 7 clean directed pairs in M1588 to 34, and from 4 clean
-source edges to 5, with 0 invalid directed pairs. It still failed the strict
-source concentration gate because max clean source-edge share was
-`0.35294117647058826`, just above the `0.35` threshold. The next task is M1593
-audit; do not relax the threshold or run another repair before the audit.
+M1593 audited M1592 as a near-pass, not a pass. The clean-source repair is
+useful, but the strict `0.35` max clean source-edge share gate remains binding.
+The next task is M1594, a design-only selector-balanced cap repair. Do not rerun
+the implementation, relax the threshold, materialize candidates, train, run PPO,
+or promote before that design.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

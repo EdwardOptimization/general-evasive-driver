@@ -25048,3 +25048,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1593-paper-route-clean-source-repair-result-audit.json`
 - next: `m1593-paper-route-clean-source-repair-result-audit`
+
+## M1593 Paper-Route Clean-Source Repair Result Audit
+
+- status: completed
+- decision: `clean_source_repair_audit_admit_selector_balanced_cap_design_before_any_rerun`
+- artifact: `docs/m1593-paper-route-clean-source-repair-result-audit.md`
+- failure taxonomy: `scenario_sampling_failure`
+- M1592 result classification: near-pass source-concentrated
+- clean directed pair count: 34
+- clean source-edge count: 5
+- clean endpoint source-family count: 6
+- max clean source-edge share: 0.35294117647058826
+- preserved gate: max clean source-edge share `<= 0.35`
+- interpretation: M1592 is useful but not a pass; threshold must not be relaxed
+- route decision: admit design-only selector-balanced cap repair before any rerun
+- history interventions executed: false in M1593
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1594-paper-route-selector-balanced-clean-source-repair-design.json`
+- next: `m1594-paper-route-selector-balanced-clean-source-repair-design`

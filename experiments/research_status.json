@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1601,
+    "completed": 1602,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1592-paper-route-clean-history-control-source-generation-repair-implementation.md",
+    "command_log": "docs/m1593-paper-route-clean-source-repair-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1592_clean_history_control_source_generation_repair_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1592-paper-route-clean-history-control-source-generation-repair-implementation"
+    "task_id": "m1593-paper-route-clean-source-repair-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1593-paper-route-clean-source-repair-result-audit.json",
-    "hypothesis": "M1592's near-pass clean-source repair result is informative enough to decide the next route, but not enough to pass or materialize.",
-    "id": "m1593-paper-route-clean-source-repair-result-audit",
+    "command": "see experiments/manifests/m1594-paper-route-selector-balanced-clean-source-repair-design.json",
+    "hypothesis": "M1592's near-pass can be converted into a threshold-preserving selector-balanced cap design before any rerun.",
+    "id": "m1594-paper-route-selector-balanced-clean-source-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit M1592 near-pass source-concentrated result",
-    "priority": 15880,
+    "notes": "Pending: design threshold-preserving selector-balanced cap repair",
+    "priority": 15890,
     "status": "pending",
-    "success_artifact": "docs/m1593-paper-route-clean-source-repair-result-audit.md"
+    "success_artifact": "docs/m1594-paper-route-selector-balanced-clean-source-repair-design.md"
   },
-  "updated_at_utc": "20260529T163539Z"
+  "updated_at_utc": "20260529T163915Z"
 }

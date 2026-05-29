@@ -1,0 +1,163 @@
+{
+  "id": "m1594-paper-route-selector-balanced-clean-source-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json",
+      "runs/m1592_clean_history_control_source_generation_repair_smoke/source_edge_summary.csv",
+      "docs/m1593-paper-route-clean-source-repair-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1593-paper-route-clean-source-repair-result-audit.json"
+    ],
+    "parent_objective": [
+      "design selector-balanced cap repair after M1592 source concentration near-pass"
+    ],
+    "derived_from": [
+      "m1593-paper-route-clean-source-repair-result-audit"
+    ],
+    "blocked_by": [
+      "M1592 improved clean rows but failed max clean source-edge share 0.35294117647058826 > 0.35"
+    ],
+    "supersedes": [
+      "immediate second clean-source implementation",
+      "post-hoc threshold relaxation",
+      "candidate materialization after M1592 near-pass"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1594-paper-route-selector-balanced-clean-source-repair-design.md",
+  "public_gates": [
+    "M1594 must design a source-balanced cap repair without rerun",
+    "M1594 must preserve the 0.35 max clean source-edge share gate",
+    "M1594 must preserve clean selector thresholds",
+    "M1594 must keep dominated/control-only diagnostics explicit",
+    "M1594 must decide implementation, synthesis, pivot, or stop",
+    "M1594 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not relax clean selector thresholds",
+    "do not relax the max clean source-edge share threshold",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_pairability_source_generation",
+    "evidence_axis": "Q_selector_balanced_clean_source_repair_design",
+    "evidence_increment": "designs source-balanced cap repair after M1592 near-pass source concentration",
+    "claim_scope": "design only; no implementation smoke, simulator rerun, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design relaxes clean thresholds or the 0.35 source-share gate",
+      "stop if design routes directly to materialization, training, PPO, promotion, or private holdout",
+      "stop if design ignores dominated/control-only evidence"
+    ],
+    "fallback_plan": [
+      "admit one bounded implementation if the source-balanced cap is pre-registered and no thresholds are weakened",
+      "route to synthesis if another implementation would overfit public rows",
+      "stop or pivot if no selector-balanced design is possible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1593 admits selector-balanced cap design after M1592 near-pass",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "selector-balanced clean-source repair design",
+    "admission_evidence": [
+      "M1592 increased clean rows from 7 to 34 and clean source edges from 4 to 5",
+      "M1592 failed only the max clean source-edge share threshold at 0.35294117647058826 > 0.35",
+      "M1593 admits design-only repair before any rerun"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run implementation smoke",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not relax thresholds",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1594 design document",
+      "M1594 status queue scoreboard research log and review",
+      "one follow-up manifest if design admits implementation, synthesis, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "source-balanced cap design is explicit",
+      "threshold preservation is explicit",
+      "implementation or stop decision is explicit",
+      "guardrails remain clean"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1594 is design-only and must preserve dominated/control-only diagnostics.",
+    "history_necessity_tests": [
+      "design clean selector-preserving source cap",
+      "design dominated/control-only diagnostics",
+      "design source-share gates"
+    ],
+    "temporal_evidence_window": "M1592 clean-source repair smoke.",
+    "negative_result_policy": "If no balanced design can preserve thresholds, route to synthesis or stop instead of weakening standards.",
+    "allowed_claims": [
+      "bounded source-balanced repair design",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1592's near-pass can be converted into a threshold-preserving selector-balanced cap design before any rerun.",
+  "success_criteria": [
+    "docs/m1594-paper-route-selector-balanced-clean-source-repair-design.md exists",
+    "design preserves clean selector thresholds",
+    "design preserves the 0.35 max clean source-edge share gate",
+    "design pre-registers a stricter source-balanced selection rule",
+    "design decides implementation, synthesis, pivot, or stop",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design treats M1592 as a pass by relaxing thresholds",
+    "design ignores dominated/control-only evidence",
+    "design routes directly to training PPO promotion private holdout corpus export actor-input changes or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1594-paper-route-selector-balanced-clean-source-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1594-paper-route-selector-balanced-clean-source-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json",
+    "docs/m1593-paper-route-clean-source-repair-result-audit.md"
+  ],
+  "decision_rule": "M1594 passes if it designs a threshold-preserving source-balanced cap repair route before any replay, materialization, or training.",
+  "next_blocker": "m1594-paper-route-selector-balanced-clean-source-repair-design"
+}

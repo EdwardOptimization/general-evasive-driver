@@ -158,6 +158,51 @@
     "runs/m1592_clean_history_control_source_generation_repair_smoke/clean_directed_pair_rows.csv",
     "docs/m1592-paper-route-clean-history-control-source-generation-repair-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1593-paper-route-clean-source-repair-result-audit.md",
+    "decision": "clean_source_repair_audit_admit_selector_balanced_cap_design_before_any_rerun",
+    "failure_taxonomy": [
+      "scenario_sampling_failure"
+    ],
+    "source_result": "near_pass_source_concentrated",
+    "clean_directed_pair_count": 34,
+    "clean_source_edge_count": 5,
+    "clean_endpoint_source_family_count": 6,
+    "max_clean_source_edge_share": 0.35294117647058826,
+    "max_clean_source_edge_share_gate": 0.35,
+    "next_manifest": "experiments/manifests/m1594-paper-route-selector-balanced-clean-source-repair-design.json",
+    "supported_claims": [
+      "M1592 clean-source repair is not null",
+      "the clean selector identified many more clean rows under targeted pair selection",
+      "the source surface expanded from 4 clean edges to 5 clean edges",
+      "the remaining blocker is source concentration rather than missing variants or replay invalidity",
+      "one design-only selector-balanced cap repair is justified before any rerun"
+    ],
+    "unsupported_claims": [
+      "M1592 public gate pass",
+      "candidate materialization",
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "high-speed history sensitivity",
+      "paper-level self-identification",
+      "level3 anticipatory self-identification"
+    ],
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1593 passes if it audits the M1592 near-pass without relaxing gates and chooses the next route before another implementation.",
-  "next_blocker": "m1593-paper-route-clean-source-repair-result-audit"
+  "next_blocker": "m1594-paper-route-selector-balanced-clean-source-repair-design"
 }
