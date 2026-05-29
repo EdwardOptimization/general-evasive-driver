@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1460,
+    "completed": 1462,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1451-paper-route-source-step-bounded-replay-design.md",
+    "command_log": "docs/m1453-paper-route-source-step-bounded-replay-result-audit.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1451-paper-route-source-step-bounded-replay-design"
+    "task_id": "m1453-paper-route-source-step-bounded-replay-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1452-paper-route-source-step-bounded-replay-smoke.json",
-    "hypothesis": "A source-step bounded replay smoke over M1450 candidates can produce actual replay rows and possibly outcome-sensitive history-positive rows without training or actor changes.",
-    "id": "m1452-paper-route-source-step-bounded-replay-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: run source-step bounded replay smoke on M1450 selected candidates without training PPO promotion or corpus export",
-    "priority": 14470,
+    "command": "see experiments/manifests/m1454-paper-route-source-step-replay-boundary-retarget-design.json",
+    "hypothesis": "M1452 failed to produce history positives because replay pressure was not normal-viable near-boundary enough, so a boundary retarget design is the next admissible step.",
+    "id": "m1454-paper-route-source-step-replay-boundary-retarget-design",
+    "kind": "gate",
+    "notes": "Pending: design normal-viable near-boundary retargeting from M1452 actual replay diagnostics",
+    "priority": 14490,
     "status": "pending",
-    "success_artifact": "docs/m1452-paper-route-source-step-bounded-replay-smoke.md"
+    "success_artifact": "docs/m1454-paper-route-source-step-replay-boundary-retarget-design.md"
   },
-  "updated_at_utc": "20260529T044000Z"
+  "updated_at_utc": "20260529T045000Z"
 }

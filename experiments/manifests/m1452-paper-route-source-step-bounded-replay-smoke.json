@@ -152,6 +152,41 @@
   "baseline_artifacts": [
     "docs/m1451-paper-route-source-step-bounded-replay-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1452-paper-route-source-step-bounded-replay-smoke.md",
+    "summary": "runs/m1452_source_step_bounded_replay_smoke/summary.json",
+    "decision": "source_step_bounded_replay_no_history_positive_route_to_audit",
+    "result_class": "bounded_relocation_replay_no_history_positive",
+    "candidate_step_column": "source_step",
+    "geometry_aware_selector": true,
+    "selected_candidate_rows": 64,
+    "actual_replay_rows": 192,
+    "history_positive_rows": 0,
+    "control_positive_rows": 0,
+    "normal_failed_rows": 120,
+    "actual_replay_unique_source_seeds": 6,
+    "actual_replay_unique_capability_pairs": 11,
+    "actual_replay_unique_reveal_buckets": 12,
+    "actual_replay_unique_variants": 5,
+    "normal_margin_min": -0.261073,
+    "normal_margin_p50": 1.197823,
+    "normal_margin_max": 5.494914,
+    "margin_gap_min": -0.716577,
+    "margin_gap_p50": -0.018147,
+    "margin_gap_max": 0.230136,
+    "replay_started": true,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1453-paper-route-source-step-bounded-replay-result-audit.json"
+  },
+  "decision": "source_step_bounded_replay_no_history_positive_route_to_audit",
   "decision_rule": "M1452 passes if source-step bounded replay smoke completes and records actual replay rows without training or promotion.",
-  "next_blocker": "m1452-paper-route-source-step-bounded-replay-smoke"
+  "next_blocker": "m1453-paper-route-source-step-bounded-replay-result-audit"
 }

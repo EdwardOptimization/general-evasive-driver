@@ -1,0 +1,165 @@
+{
+  "id": "m1453-paper-route-source-step-bounded-replay-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1452_source_step_bounded_replay_smoke/summary.json",
+      "docs/m1452-paper-route-source-step-bounded-replay-smoke.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1452-paper-route-source-step-bounded-replay-smoke.json"
+    ],
+    "parent_objective": [
+      "audit M1452 source-step bounded replay no-history-positive result"
+    ],
+    "derived_from": [
+      "m1452-paper-route-source-step-bounded-replay-smoke"
+    ],
+    "blocked_by": [
+      "M1452 found zero history-positive rows and many normal-failed rows"
+    ],
+    "supersedes": [
+      "treating M1452 no-history-positive result as final evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1453-paper-route-source-step-bounded-replay-result-audit.md",
+  "public_gates": [
+    "M1453 must classify M1452 before any threshold changes or training",
+    "M1453 must not treat zero history positives as proof history is useless",
+    "M1453 must route to boundary retargeting or stop"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim no-history evidence from M1452"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_forward_source_preflight_validation",
+    "evidence_axis": "S_source_step_replay_result_audit",
+    "evidence_increment": "audits first source-step bounded replay smoke as no-history-positive but replay-runnable",
+    "claim_scope": "result audit only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit claims history is useless from one public replay smoke",
+      "stop if audit admits training or corpus export from zero-positive rows",
+      "stop if audit ignores normal_failed_rows"
+    ],
+    "fallback_plan": [
+      "route to boundary retarget design if normal failures dominate",
+      "route to source-step branch synthesis if replay pressure cannot be retargeted"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1452 replay smoke completed with zero history positives",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-step bounded replay result audit",
+    "admission_evidence": [
+      "M1452 actual_replay_rows=192",
+      "M1452 history_positive_rows=0",
+      "M1452 normal_failed_rows=120"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay in this audit",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1453 audit document",
+      "status queue scoreboard research log and review",
+      "one follow-up boundary retarget design manifest"
+    ],
+    "next_stage_criteria": [
+      "failure taxonomy is explicit",
+      "supported and falsified claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1453 is an audit and makes no level3 self-identification claim.",
+    "history_necessity_tests": [
+      "M1452 tested normal history against selected interventions but did not find history-positive terminal outcomes"
+    ],
+    "temporal_evidence_window": "M1452 source-step replay rows.",
+    "negative_result_policy": "Record zero history positives as replay pressure evidence, not as a lowered self-ID standard.",
+    "allowed_claims": [
+      "M1452 result audit and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1452 should be classified as replay pressure / boundary targeting failure, not as evidence that history is unnecessary.",
+  "success_criteria": [
+    "docs/m1453-paper-route-source-step-bounded-replay-result-audit.md exists",
+    "audit records zero history positives and normal_failed_rows",
+    "audit blocks training and corpus export",
+    "audit routes to boundary retarget design or stop"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores normal_failed_rows",
+    "audit claims history is unnecessary",
+    "audit admits training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1453-paper-route-source-step-bounded-replay-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1453-paper-route-source-step-bounded-replay-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1452_source_step_bounded_replay_smoke/summary.json"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1453-paper-route-source-step-bounded-replay-result-audit.md",
+    "decision": "source_step_bounded_replay_audit_route_to_boundary_retarget_design",
+    "failure_type": "scenario_sampling_failure",
+    "specific_failure": "source_step_replay_boundary_targeting_failure",
+    "m1452_selected_candidate_rows": 64,
+    "m1452_actual_replay_rows": 192,
+    "m1452_history_positive_rows": 0,
+    "m1452_control_positive_rows": 0,
+    "m1452_normal_failed_rows": 120,
+    "replay_started": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1454-paper-route-source-step-replay-boundary-retarget-design.json"
+  },
+  "decision": "source_step_bounded_replay_audit_route_to_boundary_retarget_design",
+  "decision_rule": "M1453 passes if it audits M1452 as replay pressure evidence and blocks direct training or corpus export.",
+  "next_blocker": "m1454-paper-route-source-step-replay-boundary-retarget-design"
+}

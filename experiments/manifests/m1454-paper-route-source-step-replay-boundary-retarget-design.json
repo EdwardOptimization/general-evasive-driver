@@ -1,0 +1,140 @@
+{
+  "id": "m1454-paper-route-source-step-replay-boundary-retarget-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1452_source_step_bounded_replay_smoke/actual_replay_rows.csv",
+      "docs/m1453-paper-route-source-step-bounded-replay-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1453-paper-route-source-step-bounded-replay-result-audit.json"
+    ],
+    "parent_objective": [
+      "design boundary retargeting after source-step replay smoke found zero history positives and many normal failures"
+    ],
+    "derived_from": [
+      "m1453-paper-route-source-step-bounded-replay-result-audit"
+    ],
+    "blocked_by": [
+      "M1452 replay pressure is not normal-viable near-boundary enough"
+    ],
+    "supersedes": [
+      "training from M1452 zero-positive replay rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1454-paper-route-source-step-replay-boundary-retarget-design.md",
+  "public_gates": [
+    "M1454 must design normal-viable near-boundary retargeting before any replay rerun",
+    "M1454 must use M1452 actual replay diagnostics",
+    "M1454 must not run replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_forward_source_preflight_validation",
+    "evidence_axis": "S_source_step_replay_boundary_retarget_design",
+    "evidence_increment": "designs replay boundary retargeting from M1452 diagnostics",
+    "claim_scope": "design only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design ignores normal viability",
+      "stop if design routes directly to training",
+      "stop if design lowers self-ID standard because M1452 was negative"
+    ],
+    "fallback_plan": [
+      "route to implementation if retarget design is concrete",
+      "route to branch synthesis if replay retargeting is not justified"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1453 admits boundary retarget design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-step replay boundary retarget design",
+    "admission_evidence": [
+      "M1452 normal_failed_rows=120",
+      "M1452 history_positive_rows=0"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay in this design",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1454 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up implementation or synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "boundary retarget controls are explicit",
+      "normal viability filters are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1454 is design and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future retargeted replay must again test normal history against history interventions"
+    ],
+    "temporal_evidence_window": "M1452 replay diagnostics.",
+    "negative_result_policy": "Use M1452 negative result to improve task pressure, not to lower the evidence bar.",
+    "allowed_claims": [
+      "boundary retarget design",
+      "no replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1452 failed to produce history positives because replay pressure was not normal-viable near-boundary enough, so a boundary retarget design is the next admissible step.",
+  "success_criteria": [
+    "docs/m1454-paper-route-source-step-replay-boundary-retarget-design.md exists",
+    "design uses M1452 actual replay diagnostics",
+    "design includes normal viability filters",
+    "design blocks training and corpus export"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores normal_failed_rows",
+    "design routes directly to training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1454-paper-route-source-step-replay-boundary-retarget-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1454-paper-route-source-step-replay-boundary-retarget-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1453-paper-route-source-step-bounded-replay-result-audit.md"
+  ],
+  "decision_rule": "M1454 passes if it designs normal-viable near-boundary retargeting before replay rerun or training.",
+  "next_blocker": "m1454-paper-route-source-step-replay-boundary-retarget-design"
+}

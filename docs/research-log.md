@@ -21492,3 +21492,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no bounded replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1452-paper-route-source-step-bounded-replay-smoke.json`.
 - next: `m1452-paper-route-source-step-bounded-replay-smoke`
+
+## 20260529T044600Z - m1452-paper-route-source-step-bounded-replay-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `proof`
+- artifact: `docs/m1452-paper-route-source-step-bounded-replay-smoke.md`
+- run artifact: `runs/m1452_source_step_bounded_replay_smoke/summary.json`
+- decision: `source_step_bounded_replay_no_history_positive_route_to_audit`
+- result class: `bounded_relocation_replay_no_history_positive`
+- selected candidate rows: `64`
+- actual replay rows: `192`
+- history positive rows: `0`
+- control positive rows: `0`
+- normal failed rows: `120`
+- replay diversity: `6` seeds, `11` capability pairs, `12` reveal buckets, `5` variants.
+- margin diagnostics: normal margin min/p50/max `-0.261073` / `1.197823` / `5.494914`; margin gap min/p50/max `-0.716577` / `-0.018147` / `0.230136`.
+- interpretation: source-step replay route runs, but current replay pressure is not outcome-boundary aligned; this is not no-history proof.
+- guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1453-paper-route-source-step-bounded-replay-result-audit.json`.
+- next: `m1453-paper-route-source-step-bounded-replay-result-audit`
+
+## 20260529T045000Z - m1453-paper-route-source-step-bounded-replay-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1453-paper-route-source-step-bounded-replay-result-audit.md`
+- decision: `source_step_bounded_replay_audit_route_to_boundary_retarget_design`
+- failure type: `scenario_sampling_failure`
+- specific failure: `source_step_replay_boundary_targeting_failure`
+- audit: M1452 is replay-runnable but zero-history-positive; 120/192 normal-failed rows mean the pressure distribution is not normal-viable near-boundary enough.
+- blocked shortcuts: no corpus export, actor update, PPO, training, promotion, private holdout, paper-level claim, or level3 self-ID claim.
+- follow-up manifest: `experiments/manifests/m1454-paper-route-source-step-replay-boundary-retarget-design.json`.
+- next: `m1454-paper-route-source-step-replay-boundary-retarget-design`

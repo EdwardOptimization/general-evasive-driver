@@ -16,21 +16,60 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1451-paper-route-source-step-bounded-replay-design
+m1453-paper-route-source-step-bounded-replay-result-audit
 ```
 
 Current next task:
 
 ```text
-m1452-paper-route-source-step-bounded-replay-smoke
+m1454-paper-route-source-step-replay-boundary-retarget-design
 ```
 
-M1451 designed the first source-step bounded replay smoke after M1450 passed
-source-step preflight. The current public-gate base remains M1362 alpha `0.1`:
+M1453 audited the first source-step bounded replay smoke. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1453 result:
+
+```text
+decision: source_step_bounded_replay_audit_route_to_boundary_retarget_design
+failure_type: scenario_sampling_failure
+specific_failure: source_step_replay_boundary_targeting_failure
+M1452 selected_candidate_rows: 64
+M1452 actual_replay_rows: 192
+M1452 history_positive_rows: 0
+M1452 control_positive_rows: 0
+M1452 normal_failed_rows: 120
+next: m1454-paper-route-source-step-replay-boundary-retarget-design
+```
+
+M1454 should design normal-viable near-boundary retargeting from M1452 replay
+diagnostics before any replay rerun, corpus export, actor update, PPO, or
+promotion.
+
+M1452 result:
+
+```text
+decision: source_step_bounded_replay_no_history_positive_route_to_audit
+candidate_step_column: source_step
+geometry_aware_selector: true
+selected_candidate_rows: 64
+actual_replay_rows: 192
+history_positive_rows: 0
+control_positive_rows: 0
+normal_failed_rows: 120
+actual replay unique seeds / pairs / buckets / variants: 6 / 11 / 12 / 5
+normal_margin min / p50 / max: -0.261073 / 1.197823 / 5.494914
+margin_gap min / p50 / max: -0.716577 / -0.018147 / 0.230136
+next: m1453-paper-route-source-step-bounded-replay-result-audit
+```
+
+M1452 proves the source-step replay route is runnable, but it is a no-history-
+positive smoke. The audit classifies this as boundary-targeting failure, not as
+evidence that history is useless.
 
 M1451 result:
 
