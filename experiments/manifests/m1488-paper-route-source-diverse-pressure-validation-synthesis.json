@@ -1,0 +1,170 @@
+{
+  "id": "m1488-paper-route-source-diverse-pressure-validation-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1477-paper-route-boundary-retarget-validation-synthesis.md",
+      "docs/m1487-paper-route-neighbor-viability-preflight-smoke.md",
+      "runs/m1487_neighbor_viability_preflight_smoke/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1487-paper-route-neighbor-viability-preflight-smoke.json"
+    ],
+    "parent_objective": [
+      "synthesize source-diverse pressure validation evidence before any replay design continues"
+    ],
+    "derived_from": [
+      "m1487-paper-route-neighbor-viability-preflight-smoke"
+    ],
+    "blocked_by": [
+      "workflow synthesis is required before continuing from calibrated preflight to replay"
+    ],
+    "supersedes": [
+      "directly starting bounded replay from M1487 preflight pass"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1488-paper-route-source-diverse-pressure-validation-synthesis.md",
+  "public_gates": [
+    "M1488 must synthesize M1478-M1487 before replay continues",
+    "M1488 must separate preflight evidence from replay and self-ID evidence",
+    "M1488 must incorporate the self-ID go/no-go paper route plan",
+    "M1488 must choose continue pivot stop or promote-to-next-branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run preflight",
+    "do not run replay",
+    "do not promote checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_diverse_pressure_validation",
+    "evidence_axis": "S_source_diverse_pressure_validation_synthesis",
+    "evidence_increment": "synthesizes M1478-M1487 preflight, bounded replay, audit, neighbor viability calibration, proposal, and preflight evidence against the updated self-ID go/no-go paper route",
+    "claim_scope": "branch synthesis only; no preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats preflight rows as replay evidence",
+      "stop if synthesis ignores M1481 source-singleton positives",
+      "stop if synthesis ignores M1487 preflight pass",
+      "stop if synthesis admits corpus export or training before source-diverse replay validation"
+    ],
+    "fallback_plan": [
+      "continue to calibrated bounded replay design if synthesis judges M1487 preflight enough to justify one replay attempt",
+      "pivot to self-ID go/no-go decisive matrix design if calibrated replay is no longer the highest-leverage experiment",
+      "stop the source-diverse pressure branch if public overfit risk outweighs expected replay value"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1487 reaches the planned synthesis point after calibrated neighbor viability preflight",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1488-paper-route-source-diverse-pressure-validation-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1488-paper-route-source-diverse-pressure-validation-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-diverse pressure validation branch synthesis",
+    "admission_evidence": [
+      "M1487 passed source-step preflight with 96 selected rows, 88 neighbor-source rows, 5 seeds, 6 capability pairs, and zero duplicate neighbor viability keys"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote checkpoint",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1488 synthesis document",
+      "status queue scoreboard research log and review",
+      "one follow-up branch manifest"
+    ],
+    "next_stage_criteria": [
+      "synthesis decision is explicit",
+      "preflight-level and replay-level claims are separated",
+      "self-ID go/no-go route implications are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1488 is synthesis and makes no level3 self-identification claim.",
+    "history_necessity_tests": [
+      "M1481 produced source-singleton history-positive replay rows",
+      "M1487 produced source-diverse calibrated preflight rows that still require replay"
+    ],
+    "temporal_evidence_window": "M1478-M1487 source-diverse pressure validation branch and self-ID go/no-go paper-route plan.",
+    "negative_result_policy": "If synthesis judges calibrated replay too public-row-specific, pivot to the broader L0/L1/L2/L3 go/no-go matrix rather than forcing replay.",
+    "allowed_claims": [
+      "branch synthesis and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "After M1487, the branch should synthesize evidence and decide whether to run one calibrated bounded replay or pivot to the broader self-ID go/no-go matrix.",
+  "success_criteria": [
+    "docs/m1488-paper-route-source-diverse-pressure-validation-synthesis.md exists",
+    "synthesis summarizes M1478-M1487 evidence",
+    "synthesis decision is explicit",
+    "preflight-level claims remain separate from replay-level claims",
+    "self-ID go/no-go paper route implications are explicit",
+    "training and corpus export remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis treats preflight rows as replay evidence",
+    "synthesis ignores source-singleton replay positives",
+    "synthesis routes directly to training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1488-paper-route-source-diverse-pressure-validation-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1488-paper-route-source-diverse-pressure-validation-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1487-paper-route-neighbor-viability-preflight-smoke.md",
+    "docs/self-id-go-no-go-paper-route-plan.md"
+  ],
+  "decision_rule": "M1488 passes if it synthesizes M1478-M1487 and chooses the next branch before replay or training.",
+  "next_blocker": "m1488-paper-route-source-diverse-pressure-validation-synthesis"
+}

@@ -22102,3 +22102,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1487-paper-route-neighbor-viability-preflight-smoke.json`.
 - next: `m1487-paper-route-neighbor-viability-preflight-smoke`
+
+## M1487 Paper-Route Neighbor Viability Preflight Smoke
+
+- status: completed
+- decision: `neighbor_viability_preflight_pass_route_to_branch_synthesis`
+- run dir: `runs/m1487_neighbor_viability_preflight_smoke`
+- summary: `runs/m1487_neighbor_viability_preflight_smoke/summary.json`
+- input rows: 96
+- geometry pass rows: 96
+- selected candidate rows: 96
+- rejected rows: 0
+- relocation clipped share: 0.0
+- source body x min / p50 / p95: 5.157241 / 10.361459 / 11.980351
+- selected source groups: 88 neighbor-source, 8 original-source, 0 control-diagnostic
+- selected viability classes: 64 too-hard, 24 too-easy, 8 near-boundary
+- selected diversity: 5 seeds, 6 capability pairs, 6 reveal buckets, 3 variants
+- duplicate `neighbor_viability_key` rows: 0
+- required preservation: `candidate_step_column == source_step`.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1488-paper-route-source-diverse-pressure-validation-synthesis.json`.
+- next: `m1488-paper-route-source-diverse-pressure-validation-synthesis`

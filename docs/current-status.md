@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1486-paper-route-neighbor-viability-preflight-design
+m1487-paper-route-neighbor-viability-preflight-smoke
 ```
 
 Current next task:
 
 ```text
-m1487-paper-route-neighbor-viability-preflight-smoke
+m1488-paper-route-source-diverse-pressure-validation-synthesis
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -33,12 +33,37 @@ M1479 ran it, M1480 designed bounded replay, M1481 ran replay, M1482 audited the
 source-singleton result, M1483 designed neighbor viability calibration, and
 M1484 implemented the generator. M1485 ran proposal generation and selected a
 calibrated source-step candidate set. M1486 designed source-step preflight-only
-validation for those candidates. The current public-gate base remains M1362
-alpha `0.1`:
+validation for those candidates. M1487 ran preflight-only validation and passed.
+The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1487 preflight smoke:
+
+```text
+decision: neighbor_viability_preflight_pass_route_to_branch_synthesis
+run: runs/m1487_neighbor_viability_preflight_smoke
+geometry_pass_rows: 96
+selected_candidate_rows: 96
+selected source groups: 88 neighbor-source / 8 original-source / 0 control-diagnostic
+selected viability classes: 64 too-hard / 24 too-easy / 8 near-boundary
+selected diversity: 5 seeds / 6 capability pairs / 6 reveal buckets / 3 variants
+duplicate neighbor_viability_key rows: 0
+relocation_clipped_share: 0.0
+candidate_step_column: source_step
+next: m1488-paper-route-source-diverse-pressure-validation-synthesis
+```
+
+M1488 should synthesize M1478-M1487 against:
+
+```text
+docs/self-id-go-no-go-paper-route-plan.md
+```
+
+It must separate preflight evidence from replay/self-ID evidence and choose the
+next route before any bounded replay design.
 
 M1486 preflight design:
 
@@ -50,10 +75,6 @@ max_candidate_rows: 112
 preflight run dir: runs/m1487_neighbor_viability_preflight_smoke
 next: m1487-paper-route-neighbor-viability-preflight-smoke
 ```
-
-M1487 should run preflight-only validation. It must not run replay, train, run
-PPO, promote, use private holdout, export corpus, or change actor inputs. If it
-passes, route to branch synthesis before any replay design.
 
 M1485 proposal smoke:
 
