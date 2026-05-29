@@ -25783,3 +25783,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: objective update, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
 - follow-up manifest: `experiments/manifests/m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit.json`
 - next: `m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit`
+
+## M1620 Paper-Route Contour-Aware Candidate Objective Evaluator Result Audit
+
+- status: completed
+- decision: `contour_aware_candidate_evaluator_audit_pivot_to_policy_target_materialization_design`
+- artifact: `docs/m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit.md`
+- failure taxonomy: `none`
+- audited result: M1619 evaluator public pass with finite metrics, 39 positives, 232 diagnostics, zero diagnostic-positive weight, and no checkpoint mutation
+- main limitation: evaluator residual is metadata/row-metric only and lacks observation hidden/action tensors for actor-objective updates
+- public-gate overfit risk: `high`
+- supported: evaluator is useful as a sanity/audit layer
+- unsupported: direct objective update, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- route decision: pivot to design-only policy-side target materialization before any objective update
+- follow-up manifest: `experiments/manifests/m1621-paper-route-contour-aware-policy-target-materialization-design.json`
+- next: `m1621-paper-route-contour-aware-policy-target-materialization-design`

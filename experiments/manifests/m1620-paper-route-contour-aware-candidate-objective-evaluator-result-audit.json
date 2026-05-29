@@ -155,5 +155,5 @@
     "docs/m1619-paper-route-contour-aware-candidate-objective-evaluator-implementation.md"
   ],
   "decision_rule": "M1620 passes if it audits M1619 and chooses a bounded next route without admitting training/PPO/promotion.",
-  "next_blocker": "m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit"
+  "next_blocker": "m1621-paper-route-contour-aware-policy-target-materialization-design"
 }

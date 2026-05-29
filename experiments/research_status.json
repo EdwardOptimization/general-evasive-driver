@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1628,
+    "completed": 1629,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "runs/m1619_contour_aware_candidate_objective_evaluator/summary.json",
+      "command_log": "docs/m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1619_contour_aware_candidate_objective_evaluator",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1619-paper-route-contour-aware-candidate-objective-evaluator-implementation"
+      "task_id": "m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit.json",
-      "hypothesis": "M1619 evaluator artifacts can be audited before any objective-update design or broader route decision.",
-      "id": "m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit",
+      "command": "see experiments/manifests/m1621-paper-route-contour-aware-policy-target-materialization-design.json",
+      "hypothesis": "A design-only materialization plan can specify how to convert contour-aware candidate rows into policy-side target artifacts before any optimizer is built.",
+      "id": "m1621-paper-route-contour-aware-policy-target-materialization-design",
       "kind": "gate",
-      "notes": "Pending: audit evaluator residual and decide route; no optimizer actor update PPO promotion or private holdout",
-      "priority": 16150,
+      "notes": "Pending: design traceability and target schemas only; no implementation objective update PPO promotion or private holdout",
+      "priority": 16160,
       "status": "pending",
-      "success_artifact": "docs/m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit.md"
+      "success_artifact": "docs/m1621-paper-route-contour-aware-policy-target-materialization-design.md"
     },
-    "updated_at_utc": "20260529T183348Z"
+    "updated_at_utc": "20260529T183656Z"
 }
