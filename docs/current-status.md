@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair
+m1581-paper-route-history-pairability-source-generation-design
 ```
 
 Current next task:
 
 ```text
-m1581-paper-route-history-pairability-source-generation-design
+m1582-paper-route-history-pairability-source-miner-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -440,6 +440,10 @@ but the current blocker is now pairability: the simulator/source generator must
 first produce matched-current hidden-divergent pairs before more history
 interventions can be meaningful. The next branch is
 `paper_route_history_pairability_source_generation`.
+M1581 designed that first pairability branch step. M1582 must mine pairability
+only: source-diverse matched-current/hidden-divergent anchor pairs, tiered
+threshold sweeps, source-edge/window summaries, and null classification. It must
+not run history interventions or export training data.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

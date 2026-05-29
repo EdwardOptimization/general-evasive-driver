@@ -148,6 +148,33 @@
     "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json",
     "runs/m1579_high_speed_late_history_source_repair_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1581-paper-route-history-pairability-source-generation-design.md",
+    "decision": "history_pairability_source_generation_design_admit_bounded_implementation",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "next_branch": "paper_route_history_pairability_source_generation",
+    "pairability_tiers": [
+      "tier_a_strict",
+      "tier_b_moderate",
+      "tier_c_diagnostic"
+    ],
+    "implementation_manifest": "experiments/manifests/m1582-paper-route-history-pairability-source-miner-implementation.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1581 passes if it designs pairability-first source generation before any new implementation.",
-  "next_blocker": "m1581-paper-route-history-pairability-source-generation-design"
+  "next_blocker": "m1582-paper-route-history-pairability-source-miner-implementation"
 }

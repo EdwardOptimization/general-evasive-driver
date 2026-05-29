@@ -1,0 +1,158 @@
+{
+  "id": "m1582-paper-route-history-pairability-source-miner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1581-paper-route-history-pairability-source-generation-design.md",
+      "runs/m1579_high_speed_late_history_source_repair_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1581-paper-route-history-pairability-source-generation-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded pairability-first source miner before history interventions"
+    ],
+    "derived_from": [
+      "m1581-paper-route-history-pairability-source-generation-design"
+    ],
+    "blocked_by": [
+      "M1581 design has not yet been implemented"
+    ],
+    "supersedes": [
+      "history interventions before pairability proof"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1582-paper-route-history-pairability-source-miner-implementation.md",
+  "public_gates": [
+    "M1582 must implement bounded pairability-first source miner",
+    "M1582 must not run history interventions",
+    "M1582 must report tier_a/tier_b/tier_c pairability counts",
+    "M1582 must report source-edge, source-family, and window diversity",
+    "M1582 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_pairability_source_generation",
+    "evidence_axis": "I_pairability_first_source_miner_implementation",
+    "evidence_increment": "implements the first pairability-first public source miner after M1580 pivot",
+    "claim_scope": "public bounded pairability-mining implementation only; no history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop after one bounded implementation smoke and route to audit",
+      "stop if implementation runs history interventions",
+      "stop if implementation changes actor inputs or writes training corpus"
+    ],
+    "fallback_plan": [
+      "route to result audit whether gates pass or fail",
+      "if pairability is absent, audit simulator/source-family limitations before more repair",
+      "keep M1576/M1579 as diagnostics until pairability is proven"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1581 admits a bounded pairability-first implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "history pairability source miner implementation",
+    "admission_evidence": [
+      "M1581 pre-registers pairability tiers, artifacts, gates, and null taxonomy"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "pairability miner module and focused tests",
+      "bounded public smoke artifacts",
+      "M1582 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "pairability pair rows are written",
+      "threshold sweep summary is written",
+      "source-edge and window summaries are written",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1582 only mines pairability and does not run history interventions.",
+    "history_necessity_tests": [
+      "none; pairability prerequisite only"
+    ],
+    "temporal_evidence_window": "public pairability source miner smoke.",
+    "negative_result_policy": "If pairability is absent, audit or synthesize instead of weakening self-ID evidence standards.",
+    "allowed_claims": [
+      "public pairability diagnostic evidence",
+      "no history-necessity claim, promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded public source miner can produce matched-current hidden-divergent pairs before history interventions.",
+  "success_criteria": [
+    "pairability miner module exists",
+    "focused tests cover tier classification and summary gates",
+    "runs/m1582_history_pairability_source_miner_smoke/summary.json exists",
+    "history_interventions_executed is false",
+    "pairability tiers and source diversity are reported",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "implementation runs history interventions",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_history_pairability_source_miner.py -q"
+    },
+    {
+      "name": "pairability_miner_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.history_pairability_source_miner --output-dir runs/m1582_history_pairability_source_miner_smoke --seed 1901 --seed-count 6 --max-source-specs 480 --max-anchor-candidates 640 --max-pairs 20000"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1582_history_pairability_source_miner_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1581-paper-route-history-pairability-source-generation-design.md",
+    "runs/m1579_high_speed_late_history_source_repair_smoke/summary.json"
+  ],
+  "decision_rule": "M1582 passes as implementation if it runs bounded public pairability mining with clean guardrails and writes required metrics; it must still route to audit before interventions.",
+  "next_blocker": "m1582-paper-route-history-pairability-source-miner-implementation"
+}

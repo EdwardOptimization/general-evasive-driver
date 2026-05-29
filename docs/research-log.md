@@ -24674,3 +24674,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1581-paper-route-history-pairability-source-generation-design.json`
 - next: `m1581-paper-route-history-pairability-source-generation-design`
+
+## M1581 Paper-Route History Pairability Source-Generation Design
+
+- status: completed
+- decision: `history_pairability_source_generation_design_admit_bounded_implementation`
+- artifact: `docs/m1581-paper-route-history-pairability-source-generation-design.md`
+- failure taxonomy: `none`
+- branch: `paper_route_history_pairability_source_generation`
+- design scope: pairability-first source miner; no history interventions
+- pairability tiers: `tier_a_strict`, `tier_b_moderate`, `tier_c_diagnostic`
+- tier A: response/action L2 <= 0.55 and hidden L2 >= 3.0
+- tier B: response/action L2 <= 0.75 and hidden L2 >= 2.0
+- tier C: response/action L2 <= 1.00 and hidden L2 >= 2.5
+- public gates: source specs >= 360, anchors >= 512, replay-ok anchors >= 256, pair screen candidates >= 10000, tier B pairs >= 64, tier A pairs >= 8, source edges >= 4, target source families >= 3, windows >= 3, high-speed/late pairs >= 8
+- required guardrail: `history_interventions_executed == false`
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1582-paper-route-history-pairability-source-miner-implementation.json`
+- next: `m1582-paper-route-history-pairability-source-miner-implementation`
