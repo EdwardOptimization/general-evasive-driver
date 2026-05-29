@@ -1,0 +1,196 @@
+{
+  "id": "m1659-paper-route-proposal-projection-repair-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_2.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_4.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_1_0.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1649-paper-route-ppo-proposal-damped-projection-repair-design.md",
+      "runs/m1650_proposal_source_preflight/summary.json",
+      "docs/m1651-paper-route-proposal-source-preflight-result-audit.md",
+      "docs/m1652-paper-route-selected-proposal-repair-design.md",
+      "runs/m1653_selected_proposal_repair/summary.json",
+      "docs/m1654-paper-route-selected-proposal-repair-result-audit.md",
+      "docs/m1655-paper-route-selected-proposal-scope-sensitivity-design.md",
+      "runs/m1656_selected_proposal_scope_sensitivity/summary.json",
+      "docs/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.md",
+      "docs/m1658-paper-route-fusion-actor-proposal-repair-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1658-paper-route-fusion-actor-proposal-repair-design.json"
+    ],
+    "parent_objective": [
+      "synthesize M1649-M1658 proposal projection repair branch before any fusion_actor repair implementation"
+    ],
+    "derived_from": [
+      "m1649-paper-route-ppo-proposal-damped-projection-repair-design",
+      "m1658-paper-route-fusion-actor-proposal-repair-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1658"
+    ],
+    "supersedes": [
+      "direct fusion_actor repair implementation after M1658",
+      "continuing proposal repair branch without synthesis",
+      "direct checkpoint artifact after M1658",
+      "direct replay gate after M1658",
+      "direct PPO after M1658",
+      "direct promotion after M1658"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1659-paper-route-proposal-projection-repair-branch-synthesis.md",
+  "public_gates": [
+    "M1659 must synthesize M1649-M1658 before another implementation",
+    "M1659 must summarize supported and rejected claims",
+    "M1659 must assess fixed-public-row overfit risk",
+    "M1659 must decide continue pivot stop or promote_to_next_branch before fusion_actor implementation checkpoint artifact replay PPO or promotion",
+    "M1659 must keep promotion private holdout actor-input changes and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run repair",
+    "do not run projection",
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop evaluation",
+    "do not write checkpoint artifacts",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_ppo_proposal_projection_repair",
+    "evidence_axis": "S_proposal_projection_repair_branch_synthesis",
+    "evidence_increment": "synthesizes M1649-M1658 and decides whether fusion_actor repair implementation is justified after cadence reached",
+    "claim_scope": "branch synthesis only; no repair, projection, training, PPO, checkpoint artifact, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats M1656 one-step sensitivity as full repair evidence",
+      "stop if synthesis ignores M1653 actor_mean-only failure",
+      "stop if synthesis ignores public fixed-tensor overfit risk",
+      "stop if synthesis routes directly to checkpoint artifact replay PPO or promotion",
+      "stop if synthesis widens beyond fusion_actor without new evidence"
+    ],
+    "fallback_plan": [
+      "continue to one bounded no-checkpoint fusion_actor repair implementation if the branch evidence supports it",
+      "pivot to proposal-source or active-set refresh if public exact tensors dominate",
+      "stop proposal repair branch if the evidence is too fixed-row-specific",
+      "promote_to_next_branch only if synthesis chooses a different evidence axis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1658 reaches workflow synthesis cadence for paper_route_ppo_proposal_projection_repair",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1659-paper-route-proposal-projection-repair-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1659-paper-route-proposal-projection-repair-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "proposal projection repair branch synthesis",
+    "admission_evidence": [
+      "M1653 actor_mean-only selected-proposal repair failed with clean guardrails",
+      "M1656 scope-sensitivity pass found differentiable fusion_actor signal",
+      "M1658 designed minimal fusion_actor repair but cadence requires synthesis before implementation"
+    ],
+    "blocked_shortcuts": [
+      "do not run repair",
+      "do not run projection",
+      "do not run PPO",
+      "do not train",
+      "do not write checkpoint artifacts",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1659 synthesis document",
+      "M1659 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits fusion_actor implementation pivot stop or new branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "route decision is explicit",
+      "promotion and private holdout remain blocked unless a later design admits them"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1659 synthesizes fixed-tensor proposal repair evidence and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "synthesizes exact correct/wrong hidden residual repair evidence but no new closed-loop history intervention"
+    ],
+    "temporal_evidence_window": "M1649-M1658 public artifacts only.",
+    "negative_result_policy": "If synthesis finds the branch too public-row-specific, pivot or stop before fusion_actor implementation.",
+    "allowed_claims": [
+      "branch synthesis and route decision",
+      "no repair run, no training, no PPO, no checkpoint artifact, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1649-M1658 proposal projection repair branch is sufficient to decide whether one no-checkpoint fusion_actor repair implementation is justified.",
+  "success_criteria": [
+    "docs/m1659-paper-route-proposal-projection-repair-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "supported and unsupported claims are explicit",
+    "public-gate overfit risk is assessed",
+    "next branch decision is explicit",
+    "PPO promotion private holdout actor-input changes and level3 claims remain blocked unless a later design admits them"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis treats one-step scope sensitivity as full repair or checkpoint evidence",
+    "synthesis routes directly to PPO promotion private holdout actor-input changes or checkpoint artifact generation",
+    "synthesis claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1659-paper-route-proposal-projection-repair-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1659-paper-route-proposal-projection-repair-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1658-paper-route-fusion-actor-proposal-repair-design.md",
+    "runs/m1656_selected_proposal_scope_sensitivity/summary.json",
+    "runs/m1653_selected_proposal_repair/summary.json"
+  ],
+  "decision_rule": "M1659 passes if it synthesizes the branch and chooses a route before fusion_actor implementation checkpoint artifact PPO replay or promotion.",
+  "next_blocker": "m1659-paper-route-proposal-projection-repair-branch-synthesis"
+}

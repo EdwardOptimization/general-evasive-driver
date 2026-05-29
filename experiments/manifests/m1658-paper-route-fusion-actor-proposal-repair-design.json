@@ -46,7 +46,7 @@
     "M1658 must choose fusion_actor as the minimal wider scope justified by M1656",
     "M1658 must define differentiable-feature no-checkpoint repair metrics and guardrails",
     "M1658 must define acceptance thresholds for primary alpha 0.2 and stress candidates",
-    "M1658 must decide one bounded implementation route, pivot, synthesis, or stop",
+      "M1658 must route to branch synthesis before implementation because cadence is reached",
     "M1658 must keep checkpoint artifacts replay gates PPO training promotion private holdout actor-input changes and level3 claims blocked"
   ],
   "private_holdout_policy": "not_used",
@@ -79,9 +79,9 @@
       "stop if public-row overfit mitigation is absent"
     ],
     "fallback_plan": [
-      "admit one bounded no-checkpoint fusion_actor repair implementation if design is clean",
-      "pivot to objective/source audit if public exact tensors are too narrow",
-      "synthesize branch if cadence or overfit risk requires it before implementation"
+      "route to branch synthesis because cadence is reached",
+      "admit one bounded no-checkpoint fusion_actor repair implementation only after synthesis continues",
+      "pivot to objective/source audit if public exact tensors are too narrow"
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1657 admits minimal wider-scope fusion_actor repair design",
@@ -108,7 +108,7 @@
     "allowed_updates": [
       "M1658 design document",
       "M1658 status queue scoreboard research log and review",
-      "one follow-up manifest if design admits fusion_actor implementation pivot synthesis or stop"
+      "one follow-up synthesis manifest before implementation pivot or stop"
     ],
     "next_stage_criteria": [
       "fusion_actor scope is explicit",
@@ -167,6 +167,27 @@
     "runs/m1656_selected_proposal_scope_sensitivity/scope_summary.csv",
     "runs/m1630_contour_aware_full_target_materialization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1658-paper-route-fusion-actor-proposal-repair-design.md",
+    "decision": "fusion_actor_repair_design_route_to_branch_synthesis",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "selected_scope": "fusion_actor",
+    "scope_parameters": [
+      "response_context_fusion.0.weight",
+      "response_context_fusion.0.bias",
+      "actor_mean.weight",
+      "actor_mean.bias"
+    ],
+    "primary_alpha": 0.2,
+    "minimum_reduction_ratio": 0.25,
+    "checkpoint_artifacts_allowed": false,
+    "training_allowed": false,
+    "ppo_allowed": false,
+    "next_manifest": "experiments/manifests/m1659-paper-route-proposal-projection-repair-branch-synthesis.json"
+  },
   "decision_rule": "M1658 passes if it designs a bounded no-checkpoint fusion_actor repair route without running repair projection PPO replay or writing checkpoints.",
-  "next_blocker": "m1658-paper-route-fusion-actor-proposal-repair-design"
+  "next_blocker": "m1659-paper-route-proposal-projection-repair-branch-synthesis"
 }

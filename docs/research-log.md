@@ -26535,3 +26535,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: admit M1658 design-only no-checkpoint `fusion_actor` selected-proposal repair planning
 - follow-up manifest: `experiments/manifests/m1658-paper-route-fusion-actor-proposal-repair-design.json`
 - next: `m1658-paper-route-fusion-actor-proposal-repair-design`
+
+## M1658 Paper-Route Fusion Actor Proposal Repair Design
+
+- status: completed
+- decision: `fusion_actor_repair_design_route_to_branch_synthesis`
+- artifact: `docs/m1658-paper-route-fusion-actor-proposal-repair-design.md`
+- failure taxonomy: `none`
+- selected scope: `fusion_actor`
+- trainable parameters: `response_context_fusion.0.weight`, `response_context_fusion.0.bias`, `actor_mean.weight`, `actor_mean.bias`
+- feature mode: differentiable feature mode only for repair
+- primary alpha: `0.2`
+- minimum reduction ratio: `0.25`
+- blocked: checkpoint artifacts, scope wider than `fusion_actor`, frozen-feature repair, training, PPO, closed-loop replay, promotion, private holdout, actor-input changes, paper-level claims, level3 self-ID claims
+- supported: one bounded no-checkpoint fusion_actor repair design exists, but branch synthesis is required before implementation
+- unsupported: fusion_actor repair result, checkpoint artifact generation, replay improvement, behavior retention, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1659-paper-route-proposal-projection-repair-branch-synthesis.json`
+- next: `m1659-paper-route-proposal-projection-repair-branch-synthesis`

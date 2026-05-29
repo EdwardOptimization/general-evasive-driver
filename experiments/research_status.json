@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1666,
+    "completed": 1667,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1657-paper-route-selected-proposal-scope-sensitivity-result-audit.md",
+      "command_log": "docs/m1658-paper-route-fusion-actor-proposal-repair-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1657-paper-route-selected-proposal-scope-sensitivity-result-audit"
+      "task_id": "m1658-paper-route-fusion-actor-proposal-repair-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1658-paper-route-fusion-actor-proposal-repair-design.json",
-      "hypothesis": "A design-only fusion_actor repair route is the minimal justified next step after M1656 showed wider differentiable-feature scope signal.",
-      "id": "m1658-paper-route-fusion-actor-proposal-repair-design",
+      "command": "see experiments/manifests/m1659-paper-route-proposal-projection-repair-branch-synthesis.json",
+      "hypothesis": "The M1649-M1658 proposal projection repair branch is sufficient to decide whether one no-checkpoint fusion_actor repair implementation is justified.",
+      "id": "m1659-paper-route-proposal-projection-repair-branch-synthesis",
       "kind": "gate",
-      "notes": "Pending: design no-checkpoint fusion_actor selected-proposal repair before implementation or checkpoint route",
-      "priority": 16530,
+      "notes": "Pending: synthesize proposal projection repair branch before any fusion_actor implementation",
+      "priority": 16540,
       "status": "pending",
-      "success_artifact": "docs/m1658-paper-route-fusion-actor-proposal-repair-design.md"
+      "success_artifact": "docs/m1659-paper-route-proposal-projection-repair-branch-synthesis.md"
     },
-    "updated_at_utc": "20260529T213641Z"
+    "updated_at_utc": "20260529T213904Z"
 }

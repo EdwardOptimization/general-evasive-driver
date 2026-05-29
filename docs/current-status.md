@@ -16,25 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1657-paper-route-selected-proposal-scope-sensitivity-result-audit
+m1658-paper-route-fusion-actor-proposal-repair-design
 ```
 
 Current next task:
 
 ```text
-m1658-paper-route-fusion-actor-proposal-repair-design
+m1659-paper-route-proposal-projection-repair-branch-synthesis
 ```
 
-M1657 audited the M1656 scope-sensitivity result as valid objective-sanity
-evidence and selected `fusion_actor` as the next minimal wider scope. M1656
-showed that frozen-feature mode has zero upstream gradients, while
-differentiable-feature mode gives one-step primary alpha `0.2` reductions across
-all wider scopes. `fusion_actor` is chosen because it is the smallest wider
-scope and reduced the primary alpha `0.2` residual by `0.40519785496674926`,
-essentially matching larger scopes. The next task is M1658 design-only
-fusion_actor repair planning. Checkpoint artifacts, replay gates, PPO, training,
-promotion, private holdout, actor-input changes, paper-level claims, and level3
-self-ID claims remain blocked.
+M1658 designed the minimal wider-scope repair route after M1657. The next
+repair implementation must use differentiable features and only the
+`fusion_actor` scope: `response_context_fusion.0.*` plus `actor_mean.*`.
+However, the workflow synthesis cadence has been reached. The current next task
+is M1659 branch synthesis over M1649-M1658 before any implementation. Checkpoint
+artifacts, replay gates, PPO, training, promotion, private holdout, actor-input
+changes, paper-level claims, and level3 self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
