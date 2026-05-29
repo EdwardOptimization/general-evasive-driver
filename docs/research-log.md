@@ -26084,3 +26084,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repair/update usefulness, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
 - follow-up manifest: `experiments/manifests/m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit.json`
 - next: `m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit`
+
+## M1637 Paper-Route Contour-Aware Exact Objective Sensitivity Probe Result Audit
+
+- status: completed
+- decision: `contour_aware_sensitivity_audit_admit_projection_repair_design`
+- artifact: `docs/m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit.md`
+- failure taxonomy: `none`
+- audited result: M1636 sensitivity pass with zero base residual, measurable actor_mean perturbation residual, no perturbed checkpoint writes, and clean guardrails
+- supported: exact objective can serve as a retention/projection metric for controlled policy-output drift
+- unsupported: repair/projection works, actor update safety, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- route decision: admit one design-only projection/repair milestone, with audit or branch synthesis before any implementation
+- follow-up manifest: `experiments/manifests/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.json`
+- next: `m1638-paper-route-contour-aware-exact-objective-projection-repair-design`

@@ -16,23 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation
+m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit
 ```
 
 Current next task:
 
 ```text
-m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit
+m1638-paper-route-contour-aware-exact-objective-projection-repair-design
 ```
 
-M1636 implemented the no-update exact-objective sensitivity probe. The base
-stayed at zero residual, while in-memory `actor_mean` perturbations produced
-measurable residuals: max positive exact residual mean `0.0003143580689195087`
-and max positive action residual L2 `0.015652681982969475`. No perturbed
-checkpoint was written, and actor update/training/PPO/promotion/private-holdout
-guardrails stayed false. The next task is M1637: audit this sensitivity result
-before any repair/projection design. Actor update, training, PPO, promotion,
-private holdout, actor-input changes, and level3 self-ID claims remain blocked.
+M1637 audited the clean M1636 sensitivity pass. The exact objective detects
+controlled `actor_mean` output drift while keeping the base residual at zero
+and writing no perturbed checkpoints. The next task is M1638: design a bounded
+projection/repair probe that reduces exact residual from a controlled perturbed
+candidate back toward the base targets. Because the branch is near synthesis
+cadence, M1638 must route to audit or branch synthesis before implementation.
+Actor update implementation, training, PPO, promotion, private holdout,
+actor-input changes, and level3 self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

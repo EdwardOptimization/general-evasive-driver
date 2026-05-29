@@ -1,0 +1,152 @@
+{
+  "id": "m1638-paper-route-contour-aware-exact-objective-projection-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1636_contour_aware_exact_objective_sensitivity_probe/summary.json",
+      "docs/m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit.json"
+    ],
+    "parent_objective": [
+      "design projection/repair probe for contour-aware exact objective"
+    ],
+    "derived_from": [
+      "m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit"
+    ],
+    "blocked_by": [
+      "M1637 admits repair/projection design but blocks implementation and PPO"
+    ],
+    "supersedes": [
+      "direct repair implementation from M1636",
+      "direct PPO after M1636",
+      "direct checkpoint promotion after M1636"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.md",
+  "public_gates": [
+    "M1638 must design repair/projection semantics only",
+    "M1638 must reduce from controlled perturbed candidates back toward exact targets",
+    "M1638 must define trust-region and no-promotion guardrails",
+    "M1638 must not route directly to PPO promotion or private holdout",
+    "M1638 must account for branch synthesis cadence before implementation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run actor update",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_exact_objective_projection_repair_design",
+    "evidence_increment": "designs projection/repair semantics after sensitivity pass",
+    "claim_scope": "design only; no actor update implementation, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if repair design cannot preserve no-promotion and public-only caveats",
+      "stop if design would use diagnostics or donor-plus actions as positive targets",
+      "stop if trust-region and exact gate order are not specified",
+      "stop before implementation and route to audit or branch synthesis"
+    ],
+    "fallback_plan": [
+      "admit audit/synthesis if projection design is clean",
+      "pivot to exact objective repair if projection semantics are ambiguous",
+      "route to branch synthesis before any implementation if cadence requires it"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1637 admits design-only repair/projection planning and branch is near cadence limit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design exact-objective projection/repair probe",
+    "admission_evidence": [
+      "M1636 sensitivity probe public pass",
+      "M1637 audit admitted projection/repair design"
+    ],
+    "blocked_shortcuts": [
+      "do not run actor update",
+      "do not train",
+      "do not run PPO",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1638 design document",
+      "M1638 status queue scoreboard research log and review",
+      "one follow-up manifest for audit/synthesis, implementation admission, repair, or stop"
+    ],
+    "next_stage_criteria": [
+      "projection/repair semantics are documented",
+      "trust-region and exact gate order are explicit",
+      "implementation admission, audit, synthesis, or fallback is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1638 designs fixed-tensor repair semantics and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "design must preserve correct/wrong hidden branch residuals and later closed-loop intervention requirements"
+    ],
+    "temporal_evidence_window": "public M1630/M1633/M1636 tensor rows only.",
+    "negative_result_policy": "If repair design is not meaningful, record why and pivot before implementation.",
+    "allowed_claims": [
+      "projection/repair design over public exact objective",
+      "no actor update implementation, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1636 sensitivity result is sufficient to design a bounded exact-objective projection/repair probe before any implementation.",
+  "success_criteria": [
+    "docs/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.md exists",
+    "design defines controlled perturbed input candidate and repair target",
+    "design defines exact residual reduction metrics and trust-region guardrails",
+    "design states supported and unsupported claims",
+    "PPO promotion and private holdout remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores public-only and no-promotion caveats",
+    "design treats diagnostics or donor-plus actions as positive targets",
+    "design routes directly to PPO promotion private holdout or actor-input changes",
+    "design claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1636_contour_aware_exact_objective_sensitivity_probe/summary.json",
+    "docs/m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit.md"
+  ],
+  "decision_rule": "M1638 passes if it designs a bounded projection/repair route and keeps PPO/promotion blocked.",
+  "next_blocker": "m1638-paper-route-contour-aware-exact-objective-projection-repair-design"
+}

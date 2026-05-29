@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1645,
+    "completed": 1646,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation.md",
+      "command_log": "docs/m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1636_contour_aware_exact_objective_sensitivity_probe",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation"
+      "task_id": "m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit.json",
-      "hypothesis": "The M1636 sensitivity result is clean enough to decide whether repair/projection design can be admitted.",
-      "id": "m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit",
+      "command": "see experiments/manifests/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.json",
+      "hypothesis": "The M1636 sensitivity result is sufficient to design a bounded exact-objective projection/repair probe before any implementation.",
+      "id": "m1638-paper-route-contour-aware-exact-objective-projection-repair-design",
       "kind": "gate",
-      "notes": "Pending: audit sensitivity result before repair/projection design; no actor update PPO promotion or private holdout",
-      "priority": 16320,
+      "notes": "Pending: design projection/repair probe only and account for synthesis cadence before implementation",
+      "priority": 16330,
       "status": "pending",
-      "success_artifact": "docs/m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit.md"
+      "success_artifact": "docs/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.md"
     },
-    "updated_at_utc": "20260529T195055Z"
+    "updated_at_utc": "20260529T195339Z"
 }
