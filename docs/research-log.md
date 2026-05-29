@@ -25411,3 +25411,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1606-paper-route-contour-aware-bounded-replay-result-audit.json`
 - next: `m1606-paper-route-contour-aware-bounded-replay-result-audit`
+
+## M1606 Paper-Route Contour-Aware Bounded Replay Result Audit
+
+- status: completed
+- decision: `contour_aware_bounded_replay_audit_admit_diagnostic_completeness_repair_design`
+- artifact: `docs/m1606-paper-route-contour-aware-bounded-replay-result-audit.md`
+- failure taxonomy: `scenario_sampling_failure`, `objective_overfit`, `metric_artifact`
+- pair-id collision fix recorded: true
+- M1605 public pass: false
+- M1605 null result classification: `diagnostic_control_failure`
+- primary replay directed pair count: 144
+- primary clean directed pair count: 39
+- primary clean source-edge count: 4
+- max primary clean source-edge share: 0.3333333333333333
+- diagnostic replay directed pair count: 96
+- diagnostic dominated/control count: 35
+- diagnostic clean share: 0.0
+- supported: stable replay ids are required and applied; primary contour replay preserved 39 clean rows; M1605 diagnostic sample is insufficient
+- route decision: admit design-only diagnostic-complete replay repair; no rerun before design
+- replay started: false in M1606
+- history interventions executed: false in M1606
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1607-paper-route-diagnostic-complete-bounded-replay-design.json`
+- next: `m1607-paper-route-diagnostic-complete-bounded-replay-design`

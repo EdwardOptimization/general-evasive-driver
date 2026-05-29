@@ -160,6 +160,55 @@
     "runs/m1605_contour_aware_bounded_replay/summary.json",
     "docs/m1605-paper-route-contour-aware-bounded-replay-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1606-paper-route-contour-aware-bounded-replay-result-audit.md",
+    "decision": "contour_aware_bounded_replay_audit_admit_diagnostic_completeness_repair_design",
+    "failure_taxonomy": [
+      "scenario_sampling_failure",
+      "objective_overfit",
+      "metric_artifact"
+    ],
+    "pair_id_collision_fix_recorded": true,
+    "m1605_passes_public_smoke_gates": false,
+    "m1605_null_result_classification": "diagnostic_control_failure",
+    "primary_replay_directed_pair_count": 144,
+    "primary_clean_directed_pair_count": 39,
+    "primary_clean_source_edge_count": 4,
+    "max_primary_clean_source_edge_share": 0.3333333333333333,
+    "diagnostic_replay_directed_pair_count": 96,
+    "diagnostic_dominated_or_control_count": 35,
+    "diagnostic_clean_share": 0.0,
+    "next_manifest": "experiments/manifests/m1607-paper-route-diagnostic-complete-bounded-replay-design.json",
+    "supported_claims": [
+      "stable replay ids are required and applied",
+      "primary contour replay preserved 39 clean rows",
+      "M1605 diagnostic sample is insufficient",
+      "one diagnostic-completeness repair design is justified"
+    ],
+    "unsupported_claims": [
+      "M1605 public pass",
+      "candidate materialization",
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "paper-level self-identification",
+      "level3 anticipatory self-identification"
+    ],
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1606 passes if it audits M1605 without weakening gates and chooses the next route before any rerun or training.",
-  "next_blocker": "m1606-paper-route-contour-aware-bounded-replay-result-audit"
+  "next_blocker": "m1607-paper-route-diagnostic-complete-bounded-replay-design"
 }

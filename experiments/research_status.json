@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1614,
+    "completed": 1615,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1605-paper-route-contour-aware-bounded-replay-implementation.md",
+    "command_log": "docs/m1606-paper-route-contour-aware-bounded-replay-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1605_contour_aware_bounded_replay",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1605-paper-route-contour-aware-bounded-replay-implementation"
+    "task_id": "m1606-paper-route-contour-aware-bounded-replay-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1606-paper-route-contour-aware-bounded-replay-result-audit.json",
-    "hypothesis": "M1605's primary-pass diagnostic-fail result can be classified before any rerun or repair.",
-    "id": "m1606-paper-route-contour-aware-bounded-replay-result-audit",
+    "command": "see experiments/manifests/m1607-paper-route-diagnostic-complete-bounded-replay-design.json",
+    "hypothesis": "A label-blind diagnostic-complete replay design can test whether M1605's diagnostic failure was caused by the 96-row cap.",
+    "id": "m1607-paper-route-diagnostic-complete-bounded-replay-design",
     "kind": "gate",
-    "notes": "Pending: audit diagnostic-control failure and pair-id collision fix before rerun",
-    "priority": 16010,
+    "notes": "Pending: design full diagnostic replay without executing replay or selecting by label",
+    "priority": 16020,
     "status": "pending",
-    "success_artifact": "docs/m1606-paper-route-contour-aware-bounded-replay-result-audit.md"
+    "success_artifact": "docs/m1607-paper-route-diagnostic-complete-bounded-replay-design.md"
   },
-  "updated_at_utc": "20260529T173454Z"
+  "updated_at_utc": "20260529T173809Z"
 }

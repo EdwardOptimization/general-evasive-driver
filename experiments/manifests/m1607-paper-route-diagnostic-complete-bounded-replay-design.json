@@ -1,0 +1,168 @@
+{
+  "id": "m1607-paper-route-diagnostic-complete-bounded-replay-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1602_contour_aware_source_rule/primary_rule_rows.csv",
+      "runs/m1602_contour_aware_source_rule/diagnostic_rule_rows.csv",
+      "runs/m1605_contour_aware_bounded_replay/summary.json",
+      "docs/m1606-paper-route-contour-aware-bounded-replay-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1606-paper-route-contour-aware-bounded-replay-result-audit.json"
+    ],
+    "parent_objective": [
+      "design diagnostic-complete bounded replay repair after M1605 diagnostic-control failure"
+    ],
+    "derived_from": [
+      "m1606-paper-route-contour-aware-bounded-replay-result-audit"
+    ],
+    "blocked_by": [
+      "M1605 diagnostic sample was too weak while primary replay passed"
+    ],
+    "supersedes": [
+      "rerunning the same 96-row diagnostic sample",
+      "label-selected diagnostic row repair",
+      "candidate export from M1605 primary pass"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1607-paper-route-diagnostic-complete-bounded-replay-design.md",
+  "public_gates": [
+    "M1607 must design diagnostic-complete replay without running it",
+    "M1607 must keep all 144 primary rows and all 232 diagnostic rows",
+    "M1607 must forbid label-based diagnostic row selection",
+    "M1607 must preserve clean selector thresholds and source-share gate",
+    "M1607 must decide implementation, synthesis, pivot, or stop",
+    "M1607 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not select diagnostic rows by M1602 labels",
+    "do not relax clean selector thresholds",
+    "do not relax the max clean source-edge share threshold",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "Q_diagnostic_complete_bounded_replay_design",
+    "evidence_increment": "designs label-blind full-diagnostic replay repair after M1605 diagnostic-control failure",
+    "claim_scope": "design only; no replay rerun, simulator rerun, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design selects diagnostics by labels",
+      "stop if design drops primary replay checks",
+      "stop if design routes directly to materialization or training"
+    ],
+    "fallback_plan": [
+      "admit one diagnostic-complete replay implementation if gates are explicit",
+      "stop if full diagnostic replay is too public-row-specific",
+      "pivot to task/source redesign if diagnostic controls cannot be tested without label selection"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1606 admits diagnostic-completeness repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "diagnostic-complete bounded replay design",
+    "admission_evidence": [
+      "M1606 isolates failure to bounded diagnostic sample and blocks immediate rerun"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not rerun simulator",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not select diagnostic rows by labels",
+      "do not relax thresholds",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1607 design document",
+      "M1607 status queue scoreboard research log and review",
+      "one follow-up manifest if design admits implementation, synthesis, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "primary and diagnostic replay inputs are explicit",
+      "label-blind diagnostic rule is explicit",
+      "implementation or stop decision is explicit",
+      "guardrails remain clean"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1607 is design-only and must preserve diagnostic controls before any self-ID claim.",
+    "history_necessity_tests": [
+      "design all-primary replay",
+      "design all-diagnostic replay",
+      "design no-label-selection guardrail",
+      "design diagnostic-control gates"
+    ],
+    "temporal_evidence_window": "M1605 bounded replay rows and M1602 diagnostic rows.",
+    "negative_result_policy": "If full diagnostic replay cannot be justified without label selection, stop or pivot instead of weakening standards.",
+    "allowed_claims": [
+      "diagnostic-complete bounded replay design",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A label-blind diagnostic-complete replay design can test whether M1605's diagnostic failure was caused by the 96-row cap.",
+  "success_criteria": [
+    "docs/m1607-paper-route-diagnostic-complete-bounded-replay-design.md exists",
+    "design uses all 144 primary rows and all 232 diagnostic rows",
+    "design forbids diagnostic row selection by labels",
+    "design preserves clean selector thresholds and source-share gate",
+    "design decides implementation, synthesis, pivot, or stop",
+    "training PPO promotion private holdout corpus export materialization replay and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design treats M1605 as a full pass",
+    "design selects diagnostics by M1602 labels",
+    "design routes directly to training PPO promotion private holdout corpus export actor-input changes replay or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1607-paper-route-diagnostic-complete-bounded-replay-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1607-paper-route-diagnostic-complete-bounded-replay-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1605_contour_aware_bounded_replay/summary.json",
+    "docs/m1606-paper-route-contour-aware-bounded-replay-result-audit.md"
+  ],
+  "decision_rule": "M1607 passes if it designs a label-blind diagnostic-complete replay without executing replay or weakening gates.",
+  "next_blocker": "m1607-paper-route-diagnostic-complete-bounded-replay-design"
+}

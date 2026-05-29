@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M1606 audits M1605 split result and admits label-blind diagnostic-complete replay design",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1605 as a full pass",
+    "audit ignores diagnostic-control failure or pair-id collision fix",
+    "audit routes directly to training PPO promotion private holdout corpus export actor-input changes replay or candidate materialization"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "objective_overfit",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not relax clean selector thresholds",
+    "do not relax the max clean source-edge share threshold",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T173957Z",
+  "hypothesis": "M1605's primary-pass diagnostic-fail result can be classified before any rerun or repair.",
+  "lineage": {
+    "blocked_by": [
+      "M1605 preserved the primary contour but failed diagnostic dominated/control count gate"
+    ],
+    "derived_from": [
+      "m1605-paper-route-contour-aware-bounded-replay-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1605-paper-route-contour-aware-bounded-replay-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m1605_contour_aware_bounded_replay/summary.json",
+      "runs/m1605_contour_aware_bounded_replay/primary_source_edge_summary.csv",
+      "runs/m1605_contour_aware_bounded_replay/diagnostic_rule_reason_summary.csv",
+      "docs/m1605-paper-route-contour-aware-bounded-replay-implementation.md"
+    ],
+    "parent_objective": [
+      "audit M1605 primary contour pass and diagnostic control failure before any repair"
+    ],
+    "supersedes": [
+      "immediate diagnostic sampling tweak",
+      "candidate materialization from M1605 primary pass",
+      "training corpus export from M1605 primary pass"
+    ]
+  },
+  "milestone": "m1606-paper-route-contour-aware-bounded-replay-result-audit",
+  "next_blocker": "m1607-paper-route-diagnostic-complete-bounded-replay-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "contour_aware_bounded_replay_audit_admit_diagnostic_completeness_repair_design",
+  "public_gates": [
+    "M1606 must audit M1605 as a public-gate failure",
+    "M1606 must separate primary-contour success from diagnostic-control failure",
+    "M1606 must account for the fixed pair-id collision metric artifact",
+    "M1606 must decide repair design, synthesis, pivot, or stop before any rerun",
+    "M1606 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1606-paper-route-contour-aware-bounded-replay-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "contour_aware_bounded_replay_audit_admit_diagnostic_completeness_repair_design",
+    "milestone": "m1606-paper-route-contour-aware-bounded-replay-result-audit",
+    "reason": "M1606 audits M1605 split result and admits label-blind diagnostic-complete replay design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1606-paper-route-contour-aware-bounded-replay-result-audit.md exists",
+    "audit separates primary pass from diagnostic-control failure",
+    "audit records pair-id collision fix",
+    "audit decides repair design, synthesis, pivot, or stop",
+    "training PPO promotion private holdout corpus export materialization replay and self-ID claims remain blocked"
+  ],
+  "type": "gate"
+}
