@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1603,
+    "completed": 1604,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1594-paper-route-selector-balanced-clean-source-repair-design.md",
+    "command_log": "docs/m1595-paper-route-selector-balanced-clean-source-repair-implementation.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1595_selector_balanced_clean_source_repair_smoke",
     "status": "completed",
-    "task_id": "m1594-paper-route-selector-balanced-clean-source-repair-design"
+    "task_id": "m1595-paper-route-selector-balanced-clean-source-repair-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1595-paper-route-selector-balanced-clean-source-repair-implementation.json",
-    "hypothesis": "A stricter source-edge balanced pair selector can preserve M1592's clean-row growth while bringing max clean source-edge share below 0.35.",
-    "id": "m1595-paper-route-selector-balanced-clean-source-repair-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement selector-balanced cap repair and route to audit",
-    "priority": 15900,
+    "command": "see experiments/manifests/m1596-paper-route-selector-balanced-repair-result-audit.json",
+    "hypothesis": "M1595's over-balanced clean-count shortfall can clarify whether the branch should stop, synthesize, or design a more selective active-set contour.",
+    "id": "m1596-paper-route-selector-balanced-repair-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1595 over-balanced negative result",
+    "priority": 15910,
     "status": "pending",
-    "success_artifact": "runs/m1595_selector_balanced_clean_source_repair_smoke/summary.json"
+    "success_artifact": "docs/m1596-paper-route-selector-balanced-repair-result-audit.md"
   },
-  "updated_at_utc": "20260529T164203Z"
+  "updated_at_utc": "20260529T164647Z"
 }

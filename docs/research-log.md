@@ -25096,3 +25096,42 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1595-paper-route-selector-balanced-clean-source-repair-implementation.json`
 - next: `m1595-paper-route-selector-balanced-clean-source-repair-implementation`
+
+## M1595 Paper-Route Selector-Balanced Clean-Source Repair Implementation
+
+- status: completed
+- decision: `selector_balanced_clean_source_repair_overbalanced_clean_shortfall_route_to_audit`
+- artifact: `runs/m1595_selector_balanced_clean_source_repair_smoke/summary.json`
+- doc: `docs/m1595-paper-route-selector-balanced-clean-source-repair-implementation.md`
+- code: `src/autodrift/clean_history_control_source_generation_repair.py`
+- tests: `tests/test_clean_history_control_source_generation_repair.py`
+- focused test result: `4 passed`
+- source spec count: 480
+- selected pair count: 96
+- selected source-edge count: 24
+- selected endpoint source-family count: 8
+- selected window count: 6
+- directed pair count: 192
+- intervention row count: 1536
+- classified directed pair count: 192
+- required variant coverage complete: true
+- invalid directed pair count: 0
+- clean directed pair count: 10
+- clean source-edge count: 4
+- clean endpoint source-family count: 6
+- max clean source-edge share: 0.4
+- dominated history-positive directed pair count: 17
+- control-only positive directed pair count: 33
+- history-null all-controls-null directed pair count: 132
+- passes public smoke gates: false
+- passes evidence-quality targets: false
+- null result classification: `clean_count_shortfall`
+- interpretation: source-edge round robin was too broad and diluted clean signal; do not tune again before audit
+- history interventions executed: true
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1596-paper-route-selector-balanced-repair-result-audit.json`
+- next: `m1596-paper-route-selector-balanced-repair-result-audit`

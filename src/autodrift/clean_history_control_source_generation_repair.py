@@ -125,6 +125,7 @@ def select_clean_source_repair_pairability_rows(
     max_pairs_per_source_edge: int = SOURCE_EDGE_CAP,
     max_pairs_per_endpoint_family: int = ENDPOINT_FAMILY_CAP,
     max_pairs_per_window: int = WINDOW_CAP,
+    min_selected_source_edges: int = 0,
 ) -> list[dict[str, Any]]:
     """Select pairability rows around clean source edges plus negative diagnostics."""
 
@@ -141,22 +142,81 @@ def select_clean_source_repair_pairability_rows(
         if _parse_bool(row.get("tier_a_strict", False)) and _parse_bool(row.get("context_ok", False))
     ]
     eligible.sort(key=lambda row: _selection_rank(row, clean_windows_by_edge, clean_families))
+    by_edge: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in eligible:
+        by_edge[_source_edge(row)].append(row)
+    edge_order = sorted(
+        by_edge,
+        key=lambda edge: min(_selection_rank(row, clean_windows_by_edge, clean_families) for row in by_edge[edge]),
+    )
     selected: list[dict[str, Any]] = []
     source_edge_counts: Counter[str] = Counter()
     family_counts: Counter[str] = Counter()
     window_counts: Counter[str] = Counter()
     seen_pair_ids: set[str] = set()
-    for row in eligible:
-        if len(selected) >= int(max_selected_pairs):
+    cursors: dict[str, int] = {edge: 0 for edge in edge_order}
+    while len(selected) < int(max_selected_pairs):
+        progressed = False
+        for edge in edge_order:
+            if len(selected) >= int(max_selected_pairs):
+                break
+            row = _next_selectable_row(
+                by_edge[edge],
+                start_index=cursors[edge],
+                seen_pair_ids=seen_pair_ids,
+                source_edge_counts=source_edge_counts,
+                family_counts=family_counts,
+                window_counts=window_counts,
+                max_pairs_per_source_edge=max_pairs_per_source_edge,
+                max_pairs_per_endpoint_family=max_pairs_per_endpoint_family,
+                max_pairs_per_window=max_pairs_per_window,
+            )
+            cursors[edge] = int(row.pop("__next_cursor")) if row is not None else len(by_edge[edge])
+            if row is None:
+                continue
+            item = dict(row)
+            item["selected_pair_id"] = f"selected-{len(selected):04d}"
+            item["selection_rank"] = len(selected) + 1
+            item["selection_source"] = _selection_source(row, clean_windows_by_edge, clean_families)
+            selected.append(item)
+            seen_pair_ids.add(str(row.get("pair_id", "")))
+            left_family, right_family = _endpoint_families(row)
+            left_window, right_window = _endpoint_windows(row)
+            source_edge_counts[edge] += 1
+            family_counts[left_family] += 1
+            family_counts[right_family] += 1
+            window_counts[left_window] += 1
+            window_counts[right_window] += 1
+            progressed = True
+        if not progressed:
             break
+    if int(min_selected_source_edges) > 0 and len(source_edge_counts) < int(min_selected_source_edges):
+        return selected
+    return selected
+
+
+def _next_selectable_row(
+    rows: Sequence[dict[str, Any]],
+    *,
+    start_index: int,
+    seen_pair_ids: set[str],
+    source_edge_counts: Counter[str],
+    family_counts: Counter[str],
+    window_counts: Counter[str],
+    max_pairs_per_source_edge: int,
+    max_pairs_per_endpoint_family: int,
+    max_pairs_per_window: int,
+) -> dict[str, Any] | None:
+    for index in range(int(start_index), len(rows)):
+        row = rows[index]
+        edge = _source_edge(row)
         pair_id = str(row.get("pair_id", ""))
         if pair_id in seen_pair_ids:
             continue
-        edge = _source_edge(row)
         left_family, right_family = _endpoint_families(row)
         left_window, right_window = _endpoint_windows(row)
         if source_edge_counts[edge] >= int(max_pairs_per_source_edge):
-            continue
+            return None
         if family_counts[left_family] >= int(max_pairs_per_endpoint_family):
             continue
         if family_counts[right_family] >= int(max_pairs_per_endpoint_family):
@@ -166,17 +226,9 @@ def select_clean_source_repair_pairability_rows(
         if window_counts[right_window] >= int(max_pairs_per_window):
             continue
         item = dict(row)
-        item["selected_pair_id"] = f"selected-{len(selected):04d}"
-        item["selection_rank"] = len(selected) + 1
-        item["selection_source"] = _selection_source(row, clean_windows_by_edge, clean_families)
-        selected.append(item)
-        seen_pair_ids.add(pair_id)
-        source_edge_counts[edge] += 1
-        family_counts[left_family] += 1
-        family_counts[right_family] += 1
-        window_counts[left_window] += 1
-        window_counts[right_window] += 1
-    return selected
+        item["__next_cursor"] = index + 1
+        return item
+    return None
 
 
 def _selection_source(row: Mapping[str, Any], clean_windows_by_edge: Mapping[str, set[str]], clean_families: set[str]) -> str:
@@ -208,6 +260,7 @@ def build_repair_summary(
     selected_rows: Sequence[Mapping[str, Any]],
     intervention_rows: Sequence[Mapping[str, Any]],
     classified_rows: Sequence[Mapping[str, Any]],
+    min_selected_source_edges: int = 0,
 ) -> dict[str, Any]:
     """Build the M1592 clean-source repair summary."""
 
@@ -221,6 +274,7 @@ def build_repair_summary(
         "source_spec_count": int(source_spec_count),
         "selected_pair_count": len(selected_rows),
         "selected_source_edge_count": len({_source_edge(row) for row in selected_rows}),
+        "min_selected_source_edges_gate": int(min_selected_source_edges),
         "selected_endpoint_source_family_count": len(
             {family for row in selected_rows for family in _endpoint_families(row) if family}
         ),
@@ -248,6 +302,10 @@ def build_repair_summary(
     summary["passes_public_smoke_gates"] = (
         int(summary["source_spec_count"]) >= 360
         and int(summary["selected_pair_count"]) >= 64
+        and (
+            int(summary["min_selected_source_edges_gate"]) <= 0
+            or int(summary["selected_source_edge_count"]) >= int(summary["min_selected_source_edges_gate"])
+        )
         and int(summary["classified_directed_pair_count"]) >= 128
         and bool(summary["required_variant_coverage_complete"])
         and int(summary["clean_directed_pair_count"]) >= CLEAN_TARGET_COUNT
@@ -292,6 +350,8 @@ def run_clean_history_control_source_generation_repair_smoke(
     max_source_specs: int = 480,
     max_anchor_candidates: int = 640,
     max_selected_pairs: int = 96,
+    max_pairs_per_source_edge: int = SOURCE_EDGE_CAP,
+    min_selected_source_edges: int = 0,
     continuation_steps: int = 64,
     device: str = "cpu",
 ) -> dict[str, Any]:
@@ -305,6 +365,8 @@ def run_clean_history_control_source_generation_repair_smoke(
         input_pair_rows,
         input_clean_rows,
         max_selected_pairs=max_selected_pairs,
+        max_pairs_per_source_edge=max_pairs_per_source_edge,
+        min_selected_source_edges=min_selected_source_edges,
     )
     directed_pairs = build_directed_pairs(selected_rows)
     specs = pairability_source_specs(seed=seed, seed_count=seed_count, max_source_specs=max_source_specs)
@@ -356,6 +418,7 @@ def run_clean_history_control_source_generation_repair_smoke(
         selected_rows=selected_rows,
         intervention_rows=intervention_rows,
         classified_rows=classified_rows,
+        min_selected_source_edges=min_selected_source_edges,
     )
 
     write_csv_rows(output / "source_spec_rows.csv", _asdict_rows([spec.artifact_row for spec in specs]))
@@ -382,6 +445,8 @@ def main() -> None:
     parser.add_argument("--max-source-specs", type=int, default=480)
     parser.add_argument("--max-anchor-candidates", type=int, default=640)
     parser.add_argument("--max-selected-pairs", type=int, default=96)
+    parser.add_argument("--max-pairs-per-source-edge", type=int, default=SOURCE_EDGE_CAP)
+    parser.add_argument("--min-selected-source-edges", type=int, default=0)
     parser.add_argument("--continuation-steps", type=int, default=64)
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="cpu")
     args = parser.parse_args()
@@ -395,6 +460,8 @@ def main() -> None:
         max_source_specs=int(args.max_source_specs),
         max_anchor_candidates=int(args.max_anchor_candidates),
         max_selected_pairs=int(args.max_selected_pairs),
+        max_pairs_per_source_edge=int(args.max_pairs_per_source_edge),
+        min_selected_source_edges=int(args.min_selected_source_edges),
         continuation_steps=int(args.continuation_steps),
         device=args.device,
     )

@@ -56,6 +56,49 @@ def test_selector_prioritizes_clean_edges_and_tags_sources() -> None:
     assert selected[0]["selected_pair_id"] == "selected-0000"
 
 
+def test_selector_round_robins_source_edges_under_cap() -> None:
+    clean_rows = [
+        {
+            "source_edge": "actuator_delay_step|t5_near_boundary_warmup",
+            "target_source_family": "actuator_delay_step",
+            "donor_source_family": "t5_near_boundary_warmup",
+            "target_anchor_window": "reveal_plus_4",
+            "donor_anchor_window": "reveal_plus_4",
+        }
+    ]
+    pair_rows = []
+    for index in range(6):
+        pair_rows.append(
+            _pair(
+                f"clean-{index}",
+                "actuator_delay_step|t5_near_boundary_warmup",
+                "actuator_delay_step",
+                "t5_near_boundary_warmup",
+                response=0.01 + index * 0.001,
+            )
+        )
+        pair_rows.append(
+            _pair(
+                f"neighbor-{index}",
+                "capability_step_up|t5_near_boundary_warmup",
+                "capability_step_up",
+                "t5_near_boundary_warmup",
+                response=0.02 + index * 0.001,
+            )
+        )
+
+    selected = select_clean_source_repair_pairability_rows(
+        pair_rows,
+        clean_rows,
+        max_selected_pairs=4,
+        max_pairs_per_source_edge=2,
+        min_selected_source_edges=2,
+    )
+
+    assert [row["source_edge"] for row in selected].count("actuator_delay_step|t5_near_boundary_warmup") == 2
+    assert [row["source_edge"] for row in selected].count("capability_step_up|t5_near_boundary_warmup") == 2
+
+
 def test_build_repair_summary_passes_clean_targets() -> None:
     classified = []
     for index in range(12):
