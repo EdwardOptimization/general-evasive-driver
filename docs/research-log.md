@@ -25931,3 +25931,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: continue to full target materialization design
 - follow-up manifest: `experiments/manifests/m1629-paper-route-contour-aware-full-target-materialization-design.json`
 - next: `m1629-paper-route-contour-aware-full-target-materialization-design`
+
+## M1629 Paper-Route Contour-Aware Full Target Materialization Design
+
+- status: completed
+- decision: `contour_aware_full_target_materialization_design_admit_implementation`
+- artifact: `docs/m1629-paper-route-contour-aware-full-target-materialization-design.md`
+- failure taxonomy: `none`
+- design scope: full 39-positive / 232-diagnostic policy-target materialization using the M1626 capture path
+- expected positive tensors: observation `[39,72]`, correct/wrong hidden `[39,hidden_dim]`, preferred/wrong-history/donor-plus-hidden actions `[39,3]`
+- expected diagnostic tensors: observation `[232,72]`, correct/wrong hidden `[232,hidden_dim]`, preferred/wrong-history/donor-plus-hidden actions `[232,3]`
+- diagnostic contract: `used_as_positive=false`, `role_weight=0.0`, `training_ready=false`
+- success gates: row counts, shape/finite guards, source-action L2 <= `1e-6`, no missing capture rows, checkpoint unmutated, no training/objective artifacts
+- supported: exactly one bounded full materialization implementation is admitted
+- unsupported: objective/loss construction, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- follow-up manifest: `experiments/manifests/m1630-paper-route-contour-aware-full-target-materialization-implementation.json`
+- next: `m1630-paper-route-contour-aware-full-target-materialization-implementation`

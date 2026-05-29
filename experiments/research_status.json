@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1637,
+    "completed": 1638,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.md",
+      "command_log": "docs/m1629-paper-route-contour-aware-full-target-materialization-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis"
+      "task_id": "m1629-paper-route-contour-aware-full-target-materialization-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1629-paper-route-contour-aware-full-target-materialization-design.json",
-      "hypothesis": "A full policy-target materialization design can safely scale the M1626 capture path to all 39 positive and 232 diagnostic public rows while preserving role integrity.",
-      "id": "m1629-paper-route-contour-aware-full-target-materialization-design",
-      "kind": "gate",
-      "notes": "Pending: design full target materialization only; no implementation objective update training PPO promotion or private holdout",
-      "priority": 16240,
+      "command": "see experiments/manifests/m1630-paper-route-contour-aware-full-target-materialization-implementation.json",
+      "hypothesis": "The M1626 capture path can scale to all 39 positive and 232 diagnostic public rows while preserving role integrity and actor-contract guardrails.",
+      "id": "m1630-paper-route-contour-aware-full-target-materialization-implementation",
+      "kind": "infrastructure",
+      "notes": "Pending: implement full target materialization only; no loss objective training PPO promotion or private holdout",
+      "priority": 16250,
       "status": "pending",
-      "success_artifact": "docs/m1629-paper-route-contour-aware-full-target-materialization-design.md"
+      "success_artifact": "runs/m1630_contour_aware_full_target_materialization/summary.json"
     },
-    "updated_at_utc": "20260529T192900Z"
+    "updated_at_utc": "20260529T193900Z"
 }

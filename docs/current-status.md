@@ -16,25 +16,25 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis
+m1629-paper-route-contour-aware-full-target-materialization-design
 ```
 
 Current next task:
 
 ```text
-m1629-paper-route-contour-aware-full-target-materialization-design
+m1630-paper-route-contour-aware-full-target-materialization-implementation
 ```
 
-M1628 synthesized M1619-M1627 and continued the branch to design-only full
-target materialization. Current evidence: M1619 no-update evaluator passed but
-was metadata-only, M1623 full-package traceability passed for 39 positives and
-232 diagnostics, and M1626 dry-run tensor capture passed on four public rows
-with observation `[4,72]`, hidden `[4,128]`, action tensors `[4,3]`, exact
-source-action reproduction, no missing rows, diagnostic zero-weight preservation,
-and clean guardrails. The next task is M1629: design the full materialization
-schema/gates only. Full materialization implementation, loss/objective config,
-actor update, training, PPO, promotion, private holdout, actor-input changes,
-and level3 self-ID claims remain blocked.
+M1629 designed full 39-positive / 232-diagnostic policy-target materialization
+using the M1626 capture path. The design requires separate positive and
+diagnostic NPZ bundles, positive observation `[39,72]`, diagnostic observation
+`[232,72]`, hidden/action tensor shape and finite guards, source-action
+reproduction L2 <= `1e-6`, zero missing capture rows, diagnostic
+`used_as_positive=false` and `role_weight=0.0`, checkpoint mutation guard, and
+audit-before-objective discipline. The next task is M1630: implement
+materialization only. Loss/objective config, actor update, training, PPO,
+promotion, private holdout, actor-input changes, and level3 self-ID claims
+remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

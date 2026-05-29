@@ -1,0 +1,192 @@
+{
+  "id": "m1630-paper-route-contour-aware-full-target-materialization-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1629-paper-route-contour-aware-full-target-materialization-design.md",
+      "runs/m1615_contour_aware_candidate_corpus/summary.json",
+      "runs/m1623_contour_aware_policy_target_traceability_preflight/summary.json",
+      "runs/m1626_contour_aware_tensor_capture_dry_run/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1629-paper-route-contour-aware-full-target-materialization-design.json"
+    ],
+    "parent_objective": [
+      "bounded full contour-aware policy-target materialization"
+    ],
+    "derived_from": [
+      "m1629-paper-route-contour-aware-full-target-materialization-design"
+    ],
+    "blocked_by": [
+      "M1629 admits exactly one full materialization implementation and blocks objective update/training"
+    ],
+    "supersedes": [
+      "direct objective update from M1629",
+      "direct PPO after M1629",
+      "direct checkpoint promotion after M1629"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1630-paper-route-contour-aware-full-target-materialization-implementation.md",
+  "public_gates": [
+    "M1630 must materialize exactly 39 positive and 232 diagnostic rows",
+    "M1630 must verify canonical 72-dim observations and hidden/action tensor shapes",
+    "M1630 must keep diagnostics zero-weight and non-positive",
+    "M1630 must not construct loss/objective config or train",
+    "M1630 must route to result audit before objective design"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not construct a loss",
+    "do not construct an objective config",
+    "do not train",
+    "do not run PPO",
+    "do not run actor update",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not claim level3 self-identification",
+    "do not treat diagnostics as positive targets"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_full_policy_target_materialization_implementation",
+    "evidence_increment": "implements full policy-target materialization after M1629 design",
+    "claim_scope": "infrastructure materialization only; no loss/objective construction, actor update, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if positive count is not 39 or diagnostic count is not 232",
+      "stop if canonical observation or hidden/action tensor shapes fail",
+      "stop if diagnostics become positive targets",
+      "stop after implementation for result audit before objective design"
+    ],
+    "fallback_plan": [
+      "route to result audit if full materialization passes",
+      "pivot to capture-tool repair if row capture fails",
+      "pivot to source-artifact discovery if traceability unexpectedly fails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1629 admits exactly one bounded full materialization implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "bounded full policy-target materialization",
+    "admission_evidence": [
+      "M1623 traceability preflight passed for all target rows",
+      "M1626 dry-run tensor capture passed",
+      "M1628 synthesis continued to full materialization design",
+      "M1629 design specified schemas and gates"
+    ],
+    "blocked_shortcuts": [
+      "do not construct a loss",
+      "do not construct an objective config",
+      "do not train",
+      "do not run PPO",
+      "do not run actor update",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification",
+      "do not treat diagnostics as positive targets"
+    ],
+    "allowed_updates": [
+      "full materialization module and focused tests",
+      "M1630 run artifacts",
+      "M1630 docs status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "positive and diagnostic tensor bundles are written",
+      "shape finite and mutation guards pass",
+      "diagnostics remain zero-weight and non-positive",
+      "objective update remains blocked pending audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1630 materializes tensors only and cannot strengthen self-ID claims.",
+    "history_necessity_tests": [
+      "captures correct/wrong hidden tensors for public rows"
+    ],
+    "temporal_evidence_window": "public M1615/M1609 rows only.",
+    "negative_result_policy": "If full materialization fails, write missing-capture artifacts and pivot before objective design.",
+    "allowed_claims": [
+      "full public policy-target materialization result",
+      "no objective update, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1626 capture path can scale to all 39 positive and 232 diagnostic public rows while preserving role integrity and actor-contract guardrails.",
+  "success_criteria": [
+    "runs/m1630_contour_aware_full_target_materialization/summary.json exists",
+    "positive_policy_target_count == 39",
+    "diagnostic_policy_guardrail_count == 232",
+    "positive observation/action/hidden shapes are correct and finite",
+    "diagnostic observation/action/hidden shapes are correct and finite",
+    "missing_capture_row_count == 0",
+    "diagnostic_rows_used_as_positive is false",
+    "diagnostic_positive_weight_sum == 0.0",
+    "checkpoint_weights_mutated is false",
+    "training_ready training_corpus_exported loss_constructed objective_constructed training_started ppo_used promoted private_holdout_used actor_input_contract_changed labels_enter_actor_input level3_self_id_claim_made are false"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "positive or diagnostic row counts mismatch",
+    "tensor shapes are missing or nonfinite",
+    "diagnostics become positive targets",
+    "loss/objective config training PPO promotion private holdout or actor-input changes are produced"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_contour_aware_full_target_materialization.py"
+    },
+    {
+      "name": "run_materialization",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.contour_aware_full_target_materialization --candidate-run-dir runs/m1615_contour_aware_candidate_corpus --replay-run-dir runs/m1609_diagnostic_complete_bounded_replay --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --run-dir runs/m1630_contour_aware_full_target_materialization"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1630_contour_aware_full_target_materialization/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1630_contour_aware_full_target_materialization/positive_policy_target_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1630_contour_aware_full_target_materialization/diagnostic_policy_guardrail_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1630_contour_aware_full_target_materialization/positive_policy_targets.npz",
+      "type": "npz"
+    },
+    {
+      "path": "runs/m1630_contour_aware_full_target_materialization/diagnostic_policy_guardrails.npz",
+      "type": "npz"
+    },
+    {
+      "path": "runs/m1630_contour_aware_full_target_materialization/shape_summary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1629-paper-route-contour-aware-full-target-materialization-design.md",
+    "runs/m1626_contour_aware_tensor_capture_dry_run/summary.json",
+    "runs/m1623_contour_aware_policy_target_traceability_preflight/summary.json"
+  ],
+  "decision_rule": "M1630 passes if full public materialization writes finite tensors and guardrails without objective/training artifacts.",
+  "next_blocker": "m1630-paper-route-contour-aware-full-target-materialization-implementation"
+}
