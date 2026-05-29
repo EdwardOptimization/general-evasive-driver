@@ -1,0 +1,94 @@
+# m1686-paper-route-controller-family-measured-routing-smoke Research Review
+
+## Summary
+
+- Generated at UTC: 20260529T234253Z
+- Type: gate
+- Gate tier: infrastructure
+- Promotion decision: controller_family_measured_routing_smoke_pass
+- Decision reason: M1686 completes 48 episode public routing smoke with 12 profiles 4 executable specs finite selected metrics and zero forbidden guardrail violations
+
+## Hypothesis
+
+A bounded public routing smoke can execute the 12 controller profiles on a small executable task-source subset with clean guardrails and finite metrics.
+
+## Lineage
+
+- parent_checkpoint: runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt
+- parent_dataset: docs/m1685-paper-route-controller-family-measured-execution-design.md, runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv, runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json
+- parent_config: experiments/manifests/m1685-paper-route-controller-family-measured-execution-design.json, runs/m1674_controller_family_one_seed_public_pilot/configs/*_seed167400.json
+- parent_objective: execute bounded public routing smoke over 12 controller profiles and a small executable task-source subset
+- derived_from: m1685-paper-route-controller-family-measured-execution-design
+- blocked_by: need measured routing-smoke evidence before full 864-cell rollout design or execution
+- supersedes: direct full rollout execution after M1685, direct private holdout after M1685, direct controller-family ranking after M1685
+- invalidates: None
+
+## Success Criteria
+
+- runs/m1686_controller_family_measured_routing_smoke/summary.json exists
+- runs/m1686_controller_family_measured_routing_smoke/episode_rows.csv exists
+- runs/m1686_controller_family_measured_routing_smoke/profile_aggregate.csv exists
+- runs/m1686_controller_family_measured_routing_smoke/spec_aggregate.csv exists
+- episode_count == 48
+- profile_count == 12
+- spec_count >= 4
+- selected metrics are finite
+- guardrail_violation_count == 0
+- training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked
+
+## Failure Criteria
+
+- required artifacts are missing
+- episode count profile count or spec count is below target
+- runner exceptions or non-finite selected metrics occur
+- training replay PPO private holdout promotion or actor-input changes occur
+- smoke claims controller-family ranking or level3 self-ID
+
+## Evidence Gates
+
+- M1686 may run bounded public environment rollout only for routing smoke
+- M1686 must not train replay PPO promote use private holdout or change actor inputs
+- M1686 must run 12 profiles over at least 4 executable public specs
+- M1686 must report episode profile and spec aggregates with finite selected metrics
+- M1686 must not claim controller-family ranking paper-level evidence or level3 self-ID
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not add actor inputs
+- do not use M1615 hidden tensors or actions as benchmark targets
+- do not use profile-specific tuning
+- do not claim controller-family ranking
+- do not claim paper-level evidence
+- do not claim level3 self-identification
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m1686-paper-route-controller-family-measured-routing-smoke
+- type: gate
+- checkpoint: runs/m1686_controller_family_measured_routing_smoke/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: controller_family_measured_routing_smoke_pass
+- reason: M1686 completes 48 episode public routing smoke with 12 profiles 4 executable specs finite selected metrics and zero forbidden guardrail violations
+
+## Next Blocker
+
+m1687-paper-route-controller-family-measured-routing-smoke-result-audit

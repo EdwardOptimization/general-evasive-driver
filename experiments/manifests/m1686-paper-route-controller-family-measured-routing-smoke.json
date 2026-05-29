@@ -171,6 +171,36 @@
     "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv",
     "runs/m1674_controller_family_one_seed_public_pilot/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1686_controller_family_measured_routing_smoke/summary.json",
+    "episode_rows": "runs/m1686_controller_family_measured_routing_smoke/episode_rows.csv",
+    "profile_aggregate": "runs/m1686_controller_family_measured_routing_smoke/profile_aggregate.csv",
+    "spec_aggregate": "runs/m1686_controller_family_measured_routing_smoke/spec_aggregate.csv",
+    "selected_specs": "runs/m1686_controller_family_measured_routing_smoke/selected_specs.csv",
+    "result_class": "controller_family_measured_routing_smoke_pass",
+    "episode_count": 48,
+    "profile_count": 12,
+    "spec_count": 4,
+    "selected_source_families": [
+      "t4_staged_warmup_capability",
+      "t4_actuator_delay_response",
+      "t5_near_boundary_warmup",
+      "t5_boundary_axis_retarget"
+    ],
+    "all_selected_metrics_finite": true,
+    "all_episodes_completed": true,
+    "guardrail_violation_count": 0,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "controller_family_ranking_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1687-paper-route-controller-family-measured-routing-smoke-result-audit.json"
+  },
   "decision_rule": "M1686 passes if it executes the bounded public routing smoke with complete artifacts finite metrics and clean guardrails.",
-  "next_blocker": "m1686-paper-route-controller-family-measured-routing-smoke"
+  "next_blocker": "m1687-paper-route-controller-family-measured-routing-smoke-result-audit"
 }

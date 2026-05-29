@@ -10658,3 +10658,22 @@ Suggested future profile ladder:
 Every profile must use the same gate sequence: probe, frozen PPO recipe,
 matched-current wrong-history, reset/zero-current ablation, and outcome boundary
 proof. Do not tune PPO separately for one profile and compare it directly.
+
+## Latest Paper-Route Status
+
+- M1686 completed the small public measured routing smoke admitted by M1685.
+  It ran the 12 M1674 controller-family profile checkpoints over 4 executable
+  public specs for `48` total episodes.
+- M1686 result class:
+  `controller_family_measured_routing_smoke_pass`.
+- Required artifacts were written:
+  `runs/m1686_controller_family_measured_routing_smoke/summary.json`,
+  `episode_rows.csv`, `profile_aggregate.csv`, `spec_aggregate.csv`, and
+  `selected_specs.csv`.
+- Counts: episodes `48`, profiles `12`, specs `4`; selected metrics finite:
+  `true`; forbidden guardrail violations: `0`.
+- Claim boundary: routing/plumbing evidence only. No controller-family ranking,
+  no paper-level evidence, no private-holdout evidence, no promotion, and no
+  level3 self-identification claim.
+- Next blocker:
+  `m1687-paper-route-controller-family-measured-routing-smoke-result-audit`.

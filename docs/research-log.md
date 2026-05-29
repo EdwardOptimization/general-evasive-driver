@@ -26992,3 +26992,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: rollout task quality, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1686-paper-route-controller-family-measured-routing-smoke.json`
 - next: `m1686-paper-route-controller-family-measured-routing-smoke`
+
+## M1686 Paper-Route Controller-Family Measured Routing Smoke
+
+- status: completed
+- result class: `controller_family_measured_routing_smoke_pass`
+- artifact: `runs/m1686_controller_family_measured_routing_smoke/summary.json`
+- episode/profile/spec artifacts: `episode_rows.csv`, `profile_aggregate.csv`, `spec_aggregate.csv`, `selected_specs.csv`
+- selected executable public source families: `t4_staged_warmup_capability`, `t4_actuator_delay_response`, `t5_near_boundary_warmup`, `t5_boundary_axis_retarget`
+- episodes / profiles / specs: `48` / `12` / `4`
+- all selected metrics finite / all episodes completed / guardrail violations: `true` / `true` / `0`
+- guardrails: no training, replay, PPO, promotion, private holdout, actor-input change, profile-specific tuning, paper-level claim, controller-family ranking claim, or level3 self-ID claim
+- supported: the M1674 12-profile controller-family checkpoints can be routed through a small source-diverse public executable task subset with complete finite routing-smoke metrics
+- unsupported: controller-family ranking, rollout task quality at full scale, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1687-paper-route-controller-family-measured-routing-smoke-result-audit.json`
+- next: `m1687-paper-route-controller-family-measured-routing-smoke-result-audit`
