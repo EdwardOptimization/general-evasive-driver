@@ -152,6 +152,13 @@
     "runs/m1674_controller_family_one_seed_public_pilot/summary.json",
     "runs/m1674_controller_family_one_seed_public_pilot/profile_aggregate.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.md",
+    "decision": "one_seed_public_pilot_audit_route_to_decisive_task_source_mapping_design",
+    "result_class": "one_seed_public_plumbing_pass_standard_layer_nondecisive",
+    "next_manifest": "experiments/manifests/m1676-paper-route-controller-family-decisive-task-source-mapping-design.json"
+  },
   "decision_rule": "M1675 passes if it audits M1674 and chooses a next route before any interpretation, repeat, decisive mapping, promotion, or private holdout.",
-  "next_blocker": "m1675-paper-route-controller-family-one-seed-public-pilot-result-audit"
+  "next_blocker": "m1676-paper-route-controller-family-decisive-task-source-mapping-design"
 }

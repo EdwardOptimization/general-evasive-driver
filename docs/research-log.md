@@ -26833,3 +26833,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - diagnostic interpretation: plumbing pass only; one seed does not support controller-family ranking; L2 current-tiled parity and L3 reset superiority must be audited
 - follow-up manifest: `experiments/manifests/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.json`
 - next: `m1675-paper-route-controller-family-one-seed-public-pilot-result-audit`
+
+## M1675 Paper-Route Controller-Family One-Seed Public Pilot Result Audit
+
+- status: completed
+- decision: `one_seed_public_pilot_audit_route_to_decisive_task_source_mapping_design`
+- artifact: `docs/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.md`
+- M1674 gate verdict: plumbing pass, all 12 profile runs complete with finite metrics and guardrails false
+- L2 diagnostic: normal and current-tiled success/collision are identical on this seed; mean-margin delta is only about `+0.022`
+- L3 diagnostic: reset control beats online GRU on success, collision, and mean margin on this seed
+- interpretation: standard layer remains non-decisive for history necessity or recurrent advantage
+- supported: runner/profile matrix works and can feed later task-source work
+- unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1676-paper-route-controller-family-decisive-task-source-mapping-design.json`
+- next: `m1676-paper-route-controller-family-decisive-task-source-mapping-design`

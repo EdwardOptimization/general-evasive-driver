@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1683,
+    "completed": 1684,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "runs/m1674_controller_family_one_seed_public_pilot/summary.json",
+      "command_log": "docs/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1674_controller_family_one_seed_public_pilot",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1674-paper-route-controller-family-one-seed-public-pilot-implementation"
+      "task_id": "m1675-paper-route-controller-family-one-seed-public-pilot-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.json",
-      "hypothesis": "M1674 can be audited as a plumbing pass while keeping controller-family interpretation blocked.",
-      "id": "m1675-paper-route-controller-family-one-seed-public-pilot-result-audit",
+      "command": "see experiments/manifests/m1676-paper-route-controller-family-decisive-task-source-mapping-design.json",
+      "hypothesis": "A controller-family-compatible decisive task-source mapping route can be designed from existing public task infrastructure without leaking L3-specific proof artifacts.",
+      "id": "m1676-paper-route-controller-family-decisive-task-source-mapping-design",
       "kind": "gate",
-      "notes": "Pending: audit one-seed public pilot before repeat, mapping, or interpretation",
-      "priority": 16700,
+      "notes": "Pending: design controller-family-compatible decisive task-source mapping route",
+      "priority": 16710,
       "status": "pending",
-      "success_artifact": "docs/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.md"
+      "success_artifact": "docs/m1676-paper-route-controller-family-decisive-task-source-mapping-design.md"
     },
-    "updated_at_utc": "20260529T224919Z"
+    "updated_at_utc": "20260529T225225Z"
 }

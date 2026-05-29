@@ -1,0 +1,162 @@
+{
+  "id": "m1676-paper-route-controller-family-decisive-task-source-mapping-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_source_design"
+    ],
+    "parent_dataset": [
+      "docs/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.md",
+      "runs/m1674_controller_family_one_seed_public_pilot/summary.json",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_aggregate.csv",
+      "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.json"
+    ],
+    "parent_objective": [
+      "design controller-family-compatible decisive task-source mapping after standard-layer plumbing pass"
+    ],
+    "derived_from": [
+      "m1675-paper-route-controller-family-one-seed-public-pilot-result-audit"
+    ],
+    "blocked_by": [
+      "standard profile layer is not decisive for history necessity",
+      "M1615 clean package may be L3-specific and must not be used as a direct benchmark without mapping"
+    ],
+    "supersedes": [
+      "direct standard-layer repeat after M1675",
+      "direct private holdout after M1675",
+      "direct M1615 benchmark after M1675"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1676-paper-route-controller-family-decisive-task-source-mapping-design.md",
+  "public_gates": [
+    "M1676 must design task-source mapping without running training or replay",
+    "M1676 must decide whether M1615 is diagnostic-only or safely mappable",
+    "M1676 must preserve L1 current-response, L2 current-tiled, and L3 reset controls",
+    "M1676 must specify source-diversity and control-substitution stop rules",
+    "M1676 must keep private holdout promotion actor-input changes paper-level claims and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not repair the M1663 artifact",
+    "do not use M1615 as direct benchmark without mapping",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_decisive_evidence_matrix",
+    "evidence_axis": "C_decisive_task_source_mapping_design",
+    "evidence_increment": "designs controller-family-compatible decisive task-source mapping after standard-layer plumbing pass",
+    "claim_scope": "design only; no training, replay, PPO, promotion, private holdout, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if design treats M1615 as a private holdout",
+      "stop if L1/current-tiled/reset controls are omitted",
+      "stop if source-diversity and control-substitution gates are not specified",
+      "stop if implementation or pilot execution is admitted directly"
+    ],
+    "fallback_plan": [
+      "route to source-generation preflight if M1615 is diagnostic-only",
+      "route to package-mapping audit if M1615 has reusable task metadata",
+      "route to standard-layer negative story only if decisive task mapping is impossible under current sim"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1675 audits the standard-layer one-seed pilot and routes to decisive task-source mapping",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "decisive task-source mapping design",
+    "admission_evidence": [
+      "M1674 plumbing passed across all 12 profiles",
+      "M1675 identified standard-layer task limitation and M1615 mapping caveat"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1676 design document",
+      "M1676 status queue scoreboard research log and review",
+      "one follow-up manifest if design admits source preflight or mapping audit"
+    ],
+    "next_stage_criteria": [
+      "task-source mapping policy is explicit",
+      "M1615 use policy is explicit",
+      "source-diversity and control-substitution gates are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; design must create tasks where current-response and current-tiled controls are explicit challengers.",
+    "history_necessity_tests": [
+      "design must require L2 normal versus current-tiled comparisons",
+      "design must require L3 online versus reset-control comparisons",
+      "design must require wrong/delayed history only after controller-family-compatible task sources exist"
+    ],
+    "temporal_evidence_window": "M1675 audit and prior public source packages only.",
+    "negative_result_policy": "If current-sim cannot create decisive task sources, record a scenario-sampling limitation rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "task-source mapping design and route decision",
+      "no training, no replay, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A controller-family-compatible decisive task-source mapping route can be designed from existing public task infrastructure without leaking L3-specific proof artifacts.",
+  "success_criteria": [
+    "docs/m1676-paper-route-controller-family-decisive-task-source-mapping-design.md exists",
+    "design states whether M1615 is diagnostic-only or safely mappable",
+    "design specifies T4/T5 source families and source-diversity gates",
+    "design specifies L1/L2-current-tiled/L3-reset control-substitution gates",
+    "design chooses a concrete next source preflight mapping audit or stop route",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design treats M1615 as direct benchmark without mapping",
+    "design omits current-response current-tiled or reset controls",
+    "design routes directly to private holdout promotion or paper evidence",
+    "design claims level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1676-paper-route-controller-family-decisive-task-source-mapping-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1676-paper-route-controller-family-decisive-task-source-mapping-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_source_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1675-paper-route-controller-family-one-seed-public-pilot-result-audit.md",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_aggregate.csv",
+    "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json"
+  ],
+  "decision_rule": "M1676 passes if it designs a controller-family-compatible decisive task-source mapping route and chooses the next step before execution.",
+  "next_blocker": "m1676-paper-route-controller-family-decisive-task-source-mapping-design"
+}
