@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1445,
+    "completed": 1446,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1435_geometry_aware_preflight_smoke/summary.json",
+    "command_log": "docs/m1436-paper-route-geometry-preflight-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1435_geometry_aware_preflight_smoke",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m1435-paper-route-geometry-aware-preflight-smoke"
+    "task_id": "m1436-paper-route-geometry-preflight-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1436-paper-route-geometry-preflight-result-audit.json",
-    "hypothesis": "M1435's zero geometry-pass result means the M1425 source pool is too late/near for forward unclipped replay, so source mining must be reconsidered before replay.",
-    "id": "m1436-paper-route-geometry-preflight-result-audit",
+    "command": "see experiments/manifests/m1437-paper-route-forward-geometry-source-mining-design.json",
+    "hypothesis": "A new source-mining design can sample earlier or different snapshots so action-divergent rows satisfy forward unclipped geometry before replay.",
+    "id": "m1437-paper-route-forward-geometry-source-mining-design",
     "kind": "gate",
-    "notes": "Pending: classify M1435 zero-forward-geometry source-pool failure and choose guarded next route",
-    "priority": 14310,
+    "notes": "Pending: design earlier or alternate source mining that satisfies forward unclipped geometry before replay",
+    "priority": 14320,
     "status": "pending",
-    "success_artifact": "docs/m1436-paper-route-geometry-preflight-result-audit.md"
+    "success_artifact": "docs/m1437-paper-route-forward-geometry-source-mining-design.md"
   },
-  "updated_at_utc": "20260529T030432Z"
+  "updated_at_utc": "20260529T030756Z"
 }

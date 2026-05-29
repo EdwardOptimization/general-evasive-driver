@@ -21234,3 +21234,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no bounded replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1436-paper-route-geometry-preflight-result-audit.json`.
 - next: `m1436-paper-route-geometry-preflight-result-audit`
+
+## 20260529T030756Z - m1436-paper-route-geometry-preflight-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1436-paper-route-geometry-preflight-result-audit.md`
+- decision: `geometry_preflight_audit_pivot_to_forward_geometry_source_mining_design`
+- classification: `scenario_sampling_failure_source_pool_timing_failure`
+- supported claims: M1435 preflight-only command works and does not run replay; M1425 pressure rows are not a valid forward/unclipped source pool; M1429 geometry issue was not only top-128 selection bias.
+- falsified claims: M1425 rows contain enough forward unclipped source geometry; bounded replay should proceed from M1425 rows; threshold lowering is justified; M1435 says anything about history necessity.
+- source timing: M1435 source body-x max `3.908281` is below the `4.0m` gate, with p50 `-0.205025` and raw relocated body-x max `3.495281`.
+- selected route: forward-geometry source-mining design before any implementation or run.
+- guardrail: no source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1437-paper-route-forward-geometry-source-mining-design.json`.
+- next: `m1437-paper-route-forward-geometry-source-mining-design`

@@ -16,21 +16,41 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1435-paper-route-geometry-aware-preflight-smoke
+m1436-paper-route-geometry-preflight-result-audit
 ```
 
 Current next task:
 
 ```text
-m1436-paper-route-geometry-preflight-result-audit
+m1437-paper-route-forward-geometry-source-mining-design
 ```
 
-M1435 ran the geometry-aware preflight-only smoke. The current public-gate base
+M1436 audited the geometry-aware preflight-only smoke. The current public-gate base
 remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1436 result:
+
+```text
+decision: geometry_preflight_audit_pivot_to_forward_geometry_source_mining_design
+classification: scenario_sampling_failure_source_pool_timing_failure
+M1435 input_rows: 846
+M1435 geometry_pass_rows: 0
+M1435 selected_candidate_rows: 0
+M1435 source_body_x_p50: -0.205025
+M1435 source_body_x_p95: 3.812155
+M1435 source_body_x_max: 3.908281
+M1435 raw_relocated_body_x_p95: 2.162954
+M1435 raw_relocated_body_x_max: 3.495281
+next: m1437-paper-route-forward-geometry-source-mining-design
+```
+
+M1436 pivots to source mining that prioritizes forward/unclipped geometry before
+action divergence or replay. It explicitly blocks lowering the M1435 geometry
+gates.
 
 M1435 result:
 
@@ -54,7 +74,8 @@ next: m1436-paper-route-geometry-preflight-result-audit
 M1435 shows the full M1425 pressure-row pool is too late/near for the
 forward/unclipped source-geometry gate. It does not prove history is
 unnecessary. M1436 must audit before any threshold change, replay, training, or
-source-mining pivot.
+source-mining pivot. M1436 completed that audit and selected source-mining
+design.
 
 M1434 result:
 

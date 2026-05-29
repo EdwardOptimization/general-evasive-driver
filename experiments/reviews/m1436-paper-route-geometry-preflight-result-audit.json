@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M1436 classifies M1435 as source-pool timing failure and pivots to forward-geometry source-mining design without lowering gates",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores zero geometry-pass rows",
+    "audit lowers geometry thresholds after seeing M1435",
+    "audit routes directly to replay training PPO promotion private holdout corpus export or claim expansion"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not lower geometry gates after seeing M1435",
+    "do not count preflight rows as replay or history-positive evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T030950Z",
+  "hypothesis": "M1435's zero geometry-pass result means the M1425 source pool is too late/near for forward unclipped replay, so source mining must be reconsidered before replay.",
+  "lineage": {
+    "blocked_by": [
+      "M1435 geometry_pass_rows=0 and selected_candidate_rows=0 across all 846 M1425 pressure rows"
+    ],
+    "derived_from": [
+      "m1435-paper-route-geometry-aware-preflight-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1435-paper-route-geometry-aware-preflight-smoke.json"
+    ],
+    "parent_dataset": [
+      "runs/m1435_geometry_aware_preflight_smoke/summary.json",
+      "docs/m1435-paper-route-geometry-aware-preflight-smoke.md"
+    ],
+    "parent_objective": [
+      "audit zero forward-geometry rows in M1435 before threshold changes or replay"
+    ],
+    "supersedes": [
+      "running bounded replay from M1435 rows",
+      "lowering source_body_x gates after seeing M1435",
+      "training or corpus export from geometry-failed rows"
+    ]
+  },
+  "milestone": "m1436-paper-route-geometry-preflight-result-audit",
+  "next_blocker": "m1437-paper-route-forward-geometry-source-mining-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "geometry_preflight_audit_pivot_to_forward_geometry_source_mining_design",
+  "public_gates": [
+    "M1436 must classify M1435 before source mining replay retuning or training",
+    "M1436 must decide whether to pivot to earlier-reveal/source mining or stop",
+    "M1436 must not run source preflight replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1436-paper-route-geometry-preflight-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "geometry_preflight_audit_pivot_to_forward_geometry_source_mining_design",
+    "milestone": "m1436-paper-route-geometry-preflight-result-audit",
+    "reason": "M1436 classifies M1435 as source-pool timing failure and pivots to forward-geometry source-mining design without lowering gates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1436-paper-route-geometry-preflight-result-audit.md exists",
+    "audit explains M1435 geometry_pass_rows selected_candidate_rows source_body_x and clipping results",
+    "audit classifies whether M1435 is a source-pool failure or implementation failure",
+    "audit chooses a non-training next route or stop decision",
+    "audit does not run source preflight replay training PPO promotion private holdout corpus export or actor-input changes"
+  ],
+  "type": "gate"
+}

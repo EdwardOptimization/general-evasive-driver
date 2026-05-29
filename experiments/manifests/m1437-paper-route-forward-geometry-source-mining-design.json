@@ -1,0 +1,155 @@
+{
+  "id": "m1437-paper-route-forward-geometry-source-mining-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1435_geometry_aware_preflight_smoke/summary.json",
+      "docs/m1436-paper-route-geometry-preflight-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1436-paper-route-geometry-preflight-result-audit.json"
+    ],
+    "parent_objective": [
+      "design source mining that produces forward unclipped geometry before replay"
+    ],
+    "derived_from": [
+      "m1436-paper-route-geometry-preflight-result-audit"
+    ],
+    "blocked_by": [
+      "M1435 found zero geometry-pass rows across all M1425 pressure rows"
+    ],
+    "supersedes": [
+      "lowering geometry gates",
+      "replaying M1425 pressure rows",
+      "training from geometry-failed rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1437-paper-route-forward-geometry-source-mining-design.md",
+  "public_gates": [
+    "M1437 must design forward geometry source mining before implementation or run",
+    "M1437 must pre-register source geometry before action divergence or replay",
+    "M1437 must not lower M1435 geometry gates",
+    "M1437 must not run source mining replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source mining",
+    "do not run source preflight",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not lower source_body_x or clipping gates"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_geometry_aware_preflight_validation",
+    "evidence_axis": "D_forward_geometry_source_mining_design",
+    "evidence_increment": "designs a source-mining route that prioritizes forward unclipped obstacle geometry after M1435 exhausted M1425 rows",
+    "claim_scope": "design only; no source mining run, source preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design lowers M1435 geometry gates",
+      "stop if design relies on replay before geometry source viability",
+      "stop if design cannot define earlier-source timing or alternative source family",
+      "stop if design routes directly to training"
+    ],
+    "fallback_plan": [
+      "route to implementation if source mining can prioritize forward geometry",
+      "route to task-family redesign if existing M1419/M1425 pool is exhausted",
+      "stop branch if no valid forward geometry route is available"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_new_branch_after_m1433_promote_to_next_branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "forward geometry source mining design",
+    "admission_evidence": [
+      "M1436 classifies M1435 as source_pool_timing_failure",
+      "M1435 source_body_x max=3.908281 and geometry_pass_rows=0"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source mining",
+      "do not run source preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1437 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up implementation manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "source timing and geometry gates are specified",
+      "candidate diversity gates are specified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1437 is source design only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "future source mining must enable later wrong-history replay on forward geometry",
+      "source rows cannot count as actual history-positive replay evidence"
+    ],
+    "temporal_evidence_window": "M1435/M1436 source geometry audit.",
+    "negative_result_policy": "If design cannot create forward geometry, route to task-family redesign or stop instead of lowering gates.",
+    "allowed_claims": [
+      "forward geometry source-mining design and next route decision",
+      "no source mining result, replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A new source-mining design can sample earlier or different snapshots so action-divergent rows satisfy forward unclipped geometry before replay.",
+  "success_criteria": [
+    "docs/m1437-paper-route-forward-geometry-source-mining-design.md exists",
+    "design specifies source_body_x and raw_relocated_body_x gates before action divergence",
+    "design specifies earlier reveal or source timing changes",
+    "design specifies seed capability reveal-bucket and variant diversity gates",
+    "design chooses a non-training next route without source mining preflight replay PPO promotion private holdout corpus export or actor-input changes"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design lowers M1435 geometry gates",
+    "design routes directly to replay training PPO promotion private holdout corpus export or claim expansion",
+    "design does not address source_body_x timing"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1437-paper-route-forward-geometry-source-mining-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1437-paper-route-forward-geometry-source-mining-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1435_geometry_aware_preflight_smoke/summary.json",
+    "docs/m1436-paper-route-geometry-preflight-result-audit.md"
+  ],
+  "decision_rule": "M1437 passes if it defines a forward geometry source-mining route before implementation or run.",
+  "next_blocker": "m1437-paper-route-forward-geometry-source-mining-design"
+}

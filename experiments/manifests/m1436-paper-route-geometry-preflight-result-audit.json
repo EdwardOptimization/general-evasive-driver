@@ -150,6 +150,35 @@
     "runs/m1435_geometry_aware_preflight_smoke/summary.json",
     "docs/m1435-paper-route-geometry-aware-preflight-smoke.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1436-paper-route-geometry-preflight-result-audit.md",
+    "decision": "geometry_preflight_audit_pivot_to_forward_geometry_source_mining_design",
+    "classification": "scenario_sampling_failure_source_pool_timing_failure",
+    "m1435_input_rows": 846,
+    "m1435_geometry_pass_rows": 0,
+    "m1435_selected_candidate_rows": 0,
+    "m1435_source_body_x_p50": -0.205025,
+    "m1435_source_body_x_p95": 3.812155,
+    "m1435_source_body_x_max": 3.908281,
+    "m1435_raw_relocated_body_x_p95": 2.162954,
+    "m1435_raw_relocated_body_x_max": 3.495281,
+    "selected_route": "forward_geometry_source_mining_design",
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1437-paper-route-forward-geometry-source-mining-design.json"
+  },
+  "decision": "geometry_preflight_audit_pivot_to_forward_geometry_source_mining_design",
   "decision_rule": "M1436 passes if it classifies M1435 and chooses a guarded non-training next route.",
-  "next_blocker": "m1436-paper-route-geometry-preflight-result-audit"
+  "next_blocker": "m1437-paper-route-forward-geometry-source-mining-design"
 }
