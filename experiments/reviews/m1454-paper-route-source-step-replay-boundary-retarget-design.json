@@ -1,0 +1,78 @@
+{
+  "decision_reason": "M1454 designs normal-viable near-boundary retargeting from M1452 replay diagnostics and routes to synthesis before implementation",
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores normal_failed_rows",
+    "design routes directly to training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T043256Z",
+  "hypothesis": "M1452 failed to produce history positives because replay pressure was not normal-viable near-boundary enough, so a boundary retarget design is the next admissible step.",
+  "lineage": {
+    "blocked_by": [
+      "M1452 replay pressure is not normal-viable near-boundary enough"
+    ],
+    "derived_from": [
+      "m1453-paper-route-source-step-bounded-replay-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1453-paper-route-source-step-bounded-replay-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m1452_source_step_bounded_replay_smoke/actual_replay_rows.csv",
+      "docs/m1453-paper-route-source-step-bounded-replay-result-audit.md"
+    ],
+    "parent_objective": [
+      "design boundary retargeting after source-step replay smoke found zero history positives and many normal failures"
+    ],
+    "supersedes": [
+      "training from M1452 zero-positive replay rows"
+    ]
+  },
+  "milestone": "m1454-paper-route-source-step-replay-boundary-retarget-design",
+  "next_blocker": "m1455-paper-route-forward-source-preflight-validation-branch-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_step_replay_boundary_retarget_design_route_to_branch_synthesis",
+  "public_gates": [
+    "M1454 must design normal-viable near-boundary retargeting before any replay rerun",
+    "M1454 must use M1452 actual replay diagnostics",
+    "M1454 must not run replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1454-paper-route-source-step-replay-boundary-retarget-design.md",
+    "clearance_margin_mean": "",
+    "decision": "source_step_replay_boundary_retarget_design_route_to_branch_synthesis",
+    "milestone": "m1454-paper-route-source-step-replay-boundary-retarget-design",
+    "reason": "M1454 designs normal-viable near-boundary retargeting from M1452 replay diagnostics and routes to synthesis before implementation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1454-paper-route-source-step-replay-boundary-retarget-design.md exists",
+    "design uses M1452 actual replay diagnostics",
+    "design includes normal viability filters",
+    "design blocks training and corpus export"
+  ],
+  "type": "gate"
+}

@@ -135,6 +135,34 @@
   "baseline_artifacts": [
     "docs/m1453-paper-route-source-step-bounded-replay-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1454-paper-route-source-step-replay-boundary-retarget-design.md",
+    "decision": "source_step_replay_boundary_retarget_design_route_to_branch_synthesis",
+    "m1452_selected_groups": 64,
+    "m1452_normal_success_groups": 24,
+    "m1452_normal_failed_groups": 40,
+    "normal_success_margin_min": 0.797596,
+    "normal_success_margin_p50": 4.62702,
+    "normal_success_margin_max": 5.494914,
+    "normal_success_margin_le_0_5": 0,
+    "normal_success_margin_le_1_0": 5,
+    "retarget_classes": [
+      "normal_boundary",
+      "too_easy",
+      "too_hard"
+    ],
+    "replay_started": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1455-paper-route-forward-source-preflight-validation-branch-synthesis.json"
+  },
+  "decision": "source_step_replay_boundary_retarget_design_route_to_branch_synthesis",
   "decision_rule": "M1454 passes if it designs normal-viable near-boundary retargeting before replay rerun or training.",
-  "next_blocker": "m1454-paper-route-source-step-replay-boundary-retarget-design"
+  "next_blocker": "m1455-paper-route-forward-source-preflight-validation-branch-synthesis"
 }

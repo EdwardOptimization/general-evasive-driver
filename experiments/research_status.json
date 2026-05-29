@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1462,
+    "completed": 1464,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1453-paper-route-source-step-bounded-replay-result-audit.md",
+    "command_log": "docs/m1455-paper-route-forward-source-preflight-validation-branch-synthesis.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1453-paper-route-source-step-bounded-replay-result-audit"
+    "task_id": "m1455-paper-route-forward-source-preflight-validation-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1454-paper-route-source-step-replay-boundary-retarget-design.json",
-    "hypothesis": "M1452 failed to produce history positives because replay pressure was not normal-viable near-boundary enough, so a boundary retarget design is the next admissible step.",
-    "id": "m1454-paper-route-source-step-replay-boundary-retarget-design",
-    "kind": "gate",
-    "notes": "Pending: design normal-viable near-boundary retargeting from M1452 actual replay diagnostics",
-    "priority": 14490,
+    "command": "see experiments/manifests/m1456-paper-route-source-step-boundary-retarget-implementation.json",
+    "hypothesis": "A retarget proposal generator can convert M1452 diagnostics into source-step candidate rows for a later preflight/replay rerun without actor changes.",
+    "id": "m1456-paper-route-source-step-boundary-retarget-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement retarget proposal generator with focused tests and no preflight replay or training",
+    "priority": 14510,
     "status": "pending",
-    "success_artifact": "docs/m1454-paper-route-source-step-replay-boundary-retarget-design.md"
+    "success_artifact": "docs/m1456-paper-route-source-step-boundary-retarget-implementation.md"
   },
-  "updated_at_utc": "20260529T045000Z"
+  "updated_at_utc": "20260529T050000Z"
 }

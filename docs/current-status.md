@@ -16,20 +16,53 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1453-paper-route-source-step-bounded-replay-result-audit
+m1455-paper-route-forward-source-preflight-validation-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1454-paper-route-source-step-replay-boundary-retarget-design
+m1456-paper-route-source-step-boundary-retarget-implementation
 ```
 
-M1453 audited the first source-step bounded replay smoke. The current
-public-gate base remains M1362 alpha `0.1`:
+M1455 synthesized the forward source preflight validation branch and opened the
+source-step boundary retarget validation branch. The current public-gate base
+remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
+```
+
+M1455 result:
+
+```text
+decision: forward_source_preflight_validation_synthesis_promote_to_boundary_retarget_validation
+synthesis_decision: promote_to_next_branch
+closed_branch: paper_route_forward_source_preflight_validation
+new_branch: paper_route_source_step_boundary_retarget_validation
+M1452 actual_replay_rows: 192
+M1452 history_positive_rows: 0
+M1452 normal_failed_rows: 120
+public_gate_overfit_risk: medium
+next: m1456-paper-route-source-step-boundary-retarget-implementation
+```
+
+M1456 should implement the retarget proposal generator only. It must not run
+preflight, replay, training, PPO, promotion, private holdout, corpus export, or
+actor-input changes.
+
+M1454 result:
+
+```text
+decision: source_step_replay_boundary_retarget_design_route_to_branch_synthesis
+M1452 selected groups: 64
+normal_success groups: 24
+normal_failed groups: 40
+normal_success margin min / p50 / max: 0.797596 / 4.627020 / 5.494914
+normal_success margin <= 0.5: 0
+normal_success margin <= 1.0: 5
+retarget classes: normal_boundary / too_easy / too_hard
+next: m1455-paper-route-forward-source-preflight-validation-branch-synthesis
 ```
 
 M1453 result:

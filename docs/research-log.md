@@ -21527,3 +21527,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked shortcuts: no corpus export, actor update, PPO, training, promotion, private holdout, paper-level claim, or level3 self-ID claim.
 - follow-up manifest: `experiments/manifests/m1454-paper-route-source-step-replay-boundary-retarget-design.json`.
 - next: `m1454-paper-route-source-step-replay-boundary-retarget-design`
+
+## 20260529T045700Z - m1454-paper-route-source-step-replay-boundary-retarget-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1454-paper-route-source-step-replay-boundary-retarget-design.md`
+- decision: `source_step_replay_boundary_retarget_design_route_to_branch_synthesis`
+- M1452 grouped diagnostics: `64` selected groups, `24` normal-success groups, `40` normal-failed groups.
+- normal-success margins: min `0.797596`, p50 `4.627020`, max `5.494914`; no normal-success rows below `0.5` margin and only `5` at or below `1.0`.
+- design: classify rows as `normal_boundary`, `too_easy`, or `too_hard`, then generate conservative source-step relocation proposals that increase pressure for too-easy rows and relax pressure for too-hard rows.
+- cadence: routes to branch synthesis before implementation.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1455-paper-route-forward-source-preflight-validation-branch-synthesis.json`.
+- next: `m1455-paper-route-forward-source-preflight-validation-branch-synthesis`
+
+## 20260529T050000Z - m1455-paper-route-forward-source-preflight-validation-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1455-paper-route-forward-source-preflight-validation-branch-synthesis.md`
+- decision: `forward_source_preflight_validation_synthesis_promote_to_boundary_retarget_validation`
+- synthesis decision: `promote_to_next_branch`
+- closed branch: `paper_route_forward_source_preflight_validation`
+- new branch: `paper_route_source_step_boundary_retarget_validation`
+- evidence summary: M1445-M1450 made source-step geometry/preflight/replay runnable; M1452 replay produced 192 actual rows but 0 history positives and 120 normal-failed rows; M1454 designed boundary retargeting.
+- public overfit risk: `medium`.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1456-paper-route-source-step-boundary-retarget-implementation.json`.
+- next: `m1456-paper-route-source-step-boundary-retarget-implementation`

@@ -1,0 +1,80 @@
+{
+  "decision_reason": "M1455 synthesizes M1445-M1454 and opens source-step boundary retarget validation without replay training or actor-input changes",
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis treats M1452 as no-history proof",
+    "synthesis routes directly to training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T043256Z",
+  "hypothesis": "The forward source preflight validation branch should close and promote to boundary retarget validation before implementation continues.",
+  "lineage": {
+    "blocked_by": [
+      "workflow synthesis cadence reached for paper_route_forward_source_preflight_validation"
+    ],
+    "derived_from": [
+      "m1454-paper-route-source-step-replay-boundary-retarget-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1454-paper-route-source-step-replay-boundary-retarget-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1454-paper-route-source-step-replay-boundary-retarget-design.md",
+      "runs/m1452_source_step_bounded_replay_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "synthesize forward source preflight validation branch before continuing to boundary retarget implementation"
+    ],
+    "supersedes": [
+      "continuing directly to retarget implementation without synthesis"
+    ]
+  },
+  "milestone": "m1455-paper-route-forward-source-preflight-validation-branch-synthesis",
+  "next_blocker": "m1456-paper-route-source-step-boundary-retarget-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "forward_source_preflight_validation_synthesis_promote_to_boundary_retarget_validation",
+  "public_gates": [
+    "M1455 must synthesize M1445-M1454 before implementation continues",
+    "M1455 must separate replay-runnable evidence from history-positive evidence",
+    "M1455 must choose continue pivot stop or promote-to-next-branch"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1455-paper-route-forward-source-preflight-validation-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "forward_source_preflight_validation_synthesis_promote_to_boundary_retarget_validation",
+    "milestone": "m1455-paper-route-forward-source-preflight-validation-branch-synthesis",
+    "reason": "M1455 synthesizes M1445-M1454 and opens source-step boundary retarget validation without replay training or actor-input changes",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1455-paper-route-forward-source-preflight-validation-branch-synthesis.md exists",
+    "synthesis summarizes M1445-M1454 evidence",
+    "synthesis decision is promote_to_next_branch",
+    "new branch is explicit",
+    "training and corpus export remain blocked"
+  ],
+  "type": "gate"
+}
