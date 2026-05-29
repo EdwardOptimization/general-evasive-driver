@@ -1,0 +1,149 @@
+{
+  "id": "m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke/summary.json",
+      "docs/m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation.json"
+    ],
+    "parent_objective": [
+      "audit corrected temporal active-set miner smoke after local action-sensitive anchors are sparse"
+    ],
+    "derived_from": [
+      "m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation"
+    ],
+    "blocked_by": [
+      "M1556 active-set public gates failed after invalid NaN replay artifacts were filtered out"
+    ],
+    "supersedes": [
+      "direct history intervention design over M1556 sparse active anchors"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.md",
+  "public_gates": [
+    "M1557 must audit corrected local action-sensitivity counts and failure modes",
+    "M1557 must separate implementation plumbing from active-set evidence quality",
+    "M1557 must classify whether the next route is broader task generation, stronger local perturbation design, or branch synthesis",
+    "M1557 must preserve P0 actor input contract",
+    "M1557 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_calibrated_pair_expansion",
+    "evidence_axis": "G_temporal_active_set_anchor_sensitivity_audit",
+    "evidence_increment": "audits M1556 corrected active-set miner result before deciding whether another source/anchor route is justified",
+    "claim_scope": "process audit only; no history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats M1556 smoke plumbing as mechanism evidence",
+      "stop if audit ignores active-source concentration and sparse action-sensitive anchors",
+      "stop if audit routes directly to materialization or training"
+    ],
+    "fallback_plan": [
+      "route to broader task generation if active-set sparsity is a source/task sampling issue",
+      "route to stronger local perturbation design only if the audit identifies a bounded non-oracle correction",
+      "route to branch synthesis if another narrow miner would overfit current public rows"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1556 completed with clean guardrails but failed active-set public gates",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "temporal active-set miner result audit",
+    "admission_evidence": [
+      "M1556 implemented the no-training miner and wrote corrected smoke artifacts"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1557 audit document",
+      "M1557 status queue scoreboard research log and review",
+      "one follow-up manifest if the audit admits a route"
+    ],
+    "next_stage_criteria": [
+      "active-set gate failure is classified",
+      "implementation artifact and evidence-quality result are separated",
+      "materialization remains blocked",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1557 audits a local action-sensitivity miner only; it cannot claim history necessity.",
+    "history_necessity_tests": [
+      "none in M1557; history interventions remain blocked until active-set evidence is audited"
+    ],
+    "temporal_evidence_window": "M1556 bounded public active-set miner smoke only.",
+    "negative_result_policy": "Record sparse active anchors as a scenario_sampling_failure unless the audit identifies a bounded implementation issue.",
+    "allowed_claims": [
+      "M1557 audits M1556",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1556's clean-plumbing but sparse-active-set result can be classified cleanly enough to decide whether to broaden task/source generation, redesign perturbation scoring, or synthesize and pivot.",
+  "success_criteria": [
+    "docs/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.md exists",
+    "M1556 implementation plumbing and active-set evidence are audited separately",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats sparse M1556 result as positive self-ID evidence",
+    "audit routes directly to training promotion private holdout or materialization",
+    "audit changes actor inputs or weakens the evidence standard"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke/summary.json",
+    "docs/m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation.md"
+  ],
+  "decision_rule": "M1557 passes if it classifies M1556 and selects the next route while preserving all no-materialization guardrails.",
+  "next_blocker": "m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit"
+}

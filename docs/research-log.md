@@ -23876,3 +23876,40 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1555 changes the next evidence step from another history replay to active-set discovery. M1556 must first prove anchors are locally action-sensitive.
 - follow-up manifest: `experiments/manifests/m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation.json`.
 - next: `m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation`
+
+## M1556 Paper-Route Temporal Active-Set Anchor-Sensitivity Miner Implementation
+
+- status: completed
+- decision: `temporal_active_set_miner_smoke_sparse_active_set_route_to_audit`
+- artifact: `runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke/summary.json`
+- doc: `docs/m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation.md`
+- code: `src/autodrift/temporal_active_set_anchor_sensitivity_miner.py`
+- tests: `tests/test_temporal_active_set_anchor_sensitivity_miner.py`
+- focused test result: `4 passed`
+- anchor candidate count: 96
+- local perturbation row count: 576
+- action-sensitive anchor count: 2
+- predecision-sensitive anchor count: 2
+- source family count: 5
+- max single family share: 0.20833333333333334
+- active source family count: 1
+- max single active family share: 1.0
+- active anchor window count: 1
+- success flip count: 4
+- collision flip count: 0
+- max abs terminal margin gap: 0.010894415363880583
+- anchor replay failure count: 20
+- local perturbation failure count: 120
+- passes public smoke gates: false
+- passes evidence quality targets: false
+- guardrail violation count: 0
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- implementation correction: failed-anchor NaN rows are excluded from active-anchor counting and collapsed duplicate `calibration_id@anchor_step` windows are de-duplicated.
+- interpretation: M1556 is clean infrastructure but a sparse active-set negative result. Under the current calibrated pair-expansion source construction, local action sensitivity is concentrated in `curved_boundary_obstacle` at `reveal`; it is not source-diverse enough for history-intervention materialization.
+- follow-up manifest: `experiments/manifests/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.json`.
+- next: `m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit`

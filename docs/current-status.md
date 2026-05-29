@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1555-paper-route-temporal-active-set-redesign-design
+m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation
 ```
 
 Current next task:
 
 ```text
-m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation
+m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -254,6 +254,21 @@ temporal anchors where local action perturbations can still change terminal
 margin or success. Planned anchors include reveal, reveal+4, decision-16,
 decision-8, decision, and post-decision+8. M1556 remains no-training and must
 not run history interventions.
+M1556 implemented that no-training temporal active-set miner and ran the
+bounded smoke. The implementation writes source spec, anchor candidate, local
+perturbation, accepted active-anchor, source-family, window, guardrail, and
+summary artifacts. A NaN/failed-replay metric artifact was fixed before the
+final result by requiring successful normal and local replays for active-anchor
+counting and de-duplicating collapsed `calibration_id@anchor_step` windows.
+The corrected smoke ran `96` anchors and `576` local perturbation rows with
+clean guardrails, but failed active-set gates: only `2` action-sensitive anchors
+were found, both in `curved_boundary_obstacle` at `reveal`; `success_flip_count`
+was `4`, `collision_flip_count` was `0`, and max terminal-margin gap was only
+`0.010894415363880583`, below the `0.02` threshold. History interventions,
+materialization, training, PPO, promotion, private holdout, actor-input changes,
+corpus export, and level3 self-ID claims remain blocked. M1557 must audit
+whether this is scenario/source sampling failure, perturbation-design weakness,
+or a branch stop/synthesis condition.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

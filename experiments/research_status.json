@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1564,
+    "completed": 1565,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1555-paper-route-temporal-active-set-redesign-design.md",
+    "command_log": "docs/m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke",
     "status": "completed",
-    "task_id": "m1555-paper-route-temporal-active-set-redesign-design"
+    "task_id": "m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation.json",
-    "hypothesis": "A bounded no-training miner can find temporal anchors where local action perturbations change terminal margin or success, creating a better active set before history interventions.",
-    "id": "m1556-paper-route-temporal-active-set-anchor-sensitivity-miner-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement temporal active-set anchor sensitivity miner",
-    "priority": 15510,
+    "command": "see experiments/manifests/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.json",
+    "hypothesis": "M1556's clean-plumbing but sparse-active-set result can be classified cleanly enough to decide whether to broaden task/source generation, redesign perturbation scoring, or synthesize and pivot.",
+    "id": "m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1556 sparse active-set result before any history intervention replay",
+    "priority": 15520,
     "status": "pending",
-    "success_artifact": "runs/m1556_temporal_active_set_anchor_sensitivity_miner_smoke/summary.json"
+    "success_artifact": "docs/m1557-paper-route-temporal-active-set-anchor-sensitivity-miner-result-audit.md"
   },
-  "updated_at_utc": "20260529T134500Z"
+  "updated_at_utc": "20260529T130500Z"
 }
