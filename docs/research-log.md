@@ -20715,3 +20715,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, new source sweep, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, threshold relaxation, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1404-paper-route-mild-warmup-stimulus-source-smoke.json`.
 - next: `m1404-paper-route-mild-warmup-stimulus-source-smoke`
+
+## 20260529T033000Z - m1404-paper-route-mild-warmup-stimulus-source-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1404_mild_warmup_stimulus_source_smoke/summary.json`
+- decision: `mild_warmup_source_smoke_structural_pass_admit_margin_banded_outcome_probe`
+- result class: `warmup_latched_structural_pass`
+- counts: `1528` source rows, `158` matched-current rows, `188` bucketed-current rows, `282` matched/bucketed rows, `1528` finite metric rows, `6632` rejected rows.
+- source diversity: `30` source seeds, `16` capability pairs, `409` reveal buckets; matched/bucketed diversity: `27` source seeds, `16` capability pairs, `101` reveal buckets.
+- reveal-step diagnostic: steps `48/56/64` produce matched/bucketed rows; steps `72/80` have source rows but no matched/bucketed current rows under this stimulus.
+- guardrail: no outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1405-paper-route-mild-warmup-stimulus-outcome-probe.json`.
+- next: `m1405-paper-route-mild-warmup-stimulus-outcome-probe`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1413,
+    "completed": 1414,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1403-paper-route-mild-warmup-stimulus-design.md",
+    "command_log": "runs/m1404_mild_warmup_stimulus_source_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1404_mild_warmup_stimulus_source_smoke",
     "status": "completed",
-    "task_id": "m1403-paper-route-mild-warmup-stimulus-design"
+    "task_id": "m1404-paper-route-mild-warmup-stimulus-source-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1404-paper-route-mild-warmup-stimulus-source-smoke.json",
-    "hypothesis": "A figure-eight mild warmup stimulus config can materialize source-diverse matched/bucketed reveal rows without actor-input changes.",
-    "id": "m1404-paper-route-mild-warmup-stimulus-source-smoke",
+    "command": "see experiments/manifests/m1405-paper-route-mild-warmup-stimulus-outcome-probe.json",
+    "hypothesis": "No-training margin-banded outcome interventions over M1404 mild warmup stimulus rows can determine whether the figure-eight stimulus creates source-diverse history-relevant outcome gaps.",
+    "id": "m1405-paper-route-mild-warmup-stimulus-outcome-probe",
     "kind": "infrastructure",
-    "notes": "Pending: create mild warmup stimulus configs and run source smoke before outcome probing",
-    "priority": 13990,
+    "notes": "Pending: run margin-banded outcome interventions over M1404 matched/bucketed rows before training or corpus export",
+    "priority": 14000,
     "status": "pending",
-    "success_artifact": "runs/m1404_mild_warmup_stimulus_source_smoke/summary.json"
+    "success_artifact": "runs/m1405_mild_warmup_stimulus_outcome_probe/summary.json"
   },
-  "updated_at_utc": "20260529T032000Z"
+  "updated_at_utc": "20260529T033000Z"
 }

@@ -16,21 +16,41 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1403-paper-route-mild-warmup-stimulus-design
+m1404-paper-route-mild-warmup-stimulus-source-smoke
 ```
 
 Current next task:
 
 ```text
-m1404-paper-route-mild-warmup-stimulus-source-smoke
+m1405-paper-route-mild-warmup-stimulus-outcome-probe
 ```
 
-M1403 designed the mild warmup stimulus route after M1402 rejected another
-late-reveal grid. The current public-gate base remains M1362 alpha `0.1`:
+M1404 created the figure-eight mild warmup stimulus configs and ran a
+no-training source smoke. The current public-gate base remains M1362 alpha
+`0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1404 result:
+
+```text
+decision: mild_warmup_source_smoke_structural_pass_admit_margin_banded_outcome_probe
+result_class: warmup_latched_structural_pass
+source_rows: 1528
+matched_or_bucketed_reveal_rows: 282
+matched/bucketed unique_source_seeds: 27
+matched/bucketed unique_capability_pairs: 16
+matched/bucketed unique_reveal_buckets: 101
+viable matched/bucketed reveal steps: 48,56,64
+actor_input_contract_changed: false
+next: m1405-paper-route-mild-warmup-stimulus-outcome-probe
+```
+
+M1405 should run no-training margin-banded outcome interventions over M1404
+matched/bucketed rows before any corpus export, PPO, training, private holdout,
+promotion, or claim expansion.
 
 M1403 result:
 

@@ -2,7 +2,7 @@
   "id": "m1404-paper-route-mild-warmup-stimulus-source-smoke",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -157,6 +157,43 @@
     "docs/m1403-paper-route-mild-warmup-stimulus-design.md",
     "runs/m1401_warmup_reveal_pressure_outcome_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1404_mild_warmup_stimulus_source_smoke/summary.json",
+    "result_doc": "docs/m1404-paper-route-mild-warmup-stimulus-source-smoke.md",
+    "decision": "mild_warmup_source_smoke_structural_pass_admit_margin_banded_outcome_probe",
+    "result_class": "warmup_latched_structural_pass",
+    "source_rows": 1528,
+    "matched_current_rows": 158,
+    "bucketed_current_rows": 188,
+    "matched_or_bucketed_reveal_rows": 282,
+    "finite_metric_rows": 1528,
+    "rejected_rows": 6632,
+    "source_unique_source_seeds": 30,
+    "source_unique_capability_pairs": 16,
+    "source_unique_reveal_buckets": 409,
+    "matched_or_bucketed_unique_source_seeds": 27,
+    "matched_or_bucketed_unique_capability_pairs": 16,
+    "matched_or_bucketed_unique_reveal_buckets": 101,
+    "matched_or_bucketed_reveal_steps_with_rows": [
+      48,
+      56,
+      64
+    ],
+    "warmup_history_l2_p95": 0.05837412715574564,
+    "current_hidden_l2_p95": 0.5503433060643004,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "actor_parameters_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1405-paper-route-mild-warmup-stimulus-outcome-probe.json"
+  },
+  "decision": "mild_warmup_source_smoke_structural_pass_admit_margin_banded_outcome_probe",
   "decision_rule": "M1404 passes structurally if it creates mild warmup configs and materializes or cleanly rejects source rows with matching and diversity metrics before outcome probing.",
-  "next_blocker": "m1404-paper-route-mild-warmup-stimulus-source-smoke"
+  "next_blocker": "m1405-paper-route-mild-warmup-stimulus-outcome-probe"
 }

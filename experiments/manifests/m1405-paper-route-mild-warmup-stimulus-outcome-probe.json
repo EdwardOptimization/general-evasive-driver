@@ -1,0 +1,160 @@
+{
+  "id": "m1405-paper-route-mild-warmup-stimulus-outcome-probe",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1404-paper-route-mild-warmup-stimulus-source-smoke.md",
+      "runs/m1404_mild_warmup_stimulus_source_smoke/summary.json",
+      "runs/m1404_mild_warmup_stimulus_source_smoke/matched_or_bucketed_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1404-paper-route-mild-warmup-stimulus-source-smoke.json",
+      "configs/m1404_mild_warmup_stimulus_source_wave.json"
+    ],
+    "parent_objective": [
+      "run no-training margin-banded outcome probe over M1404 mild warmup stimulus matched/bucketed rows"
+    ],
+    "derived_from": [
+      "m1404-paper-route-mild-warmup-stimulus-source-smoke"
+    ],
+    "blocked_by": [
+      "M1404 source smoke structurally passed but did not test outcome interventions"
+    ],
+    "supersedes": [
+      "training directly from M1404 source rows",
+      "claiming self-identification from M1404 source materialization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1405-paper-route-mild-warmup-stimulus-outcome-probe.md",
+  "public_gates": [
+    "M1405 must run no-training outcome interventions over M1404 matched/bucketed rows",
+    "M1405 must report normal-margin bands and accepted-row source/reveal-step diversity",
+    "M1405 must separate wrong-warmup and delayed-history variants from reset/zero-current controls",
+    "M1405 must not train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not count source materialization as outcome evidence",
+    "do not count action-only evidence as self-identification",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "G_mild_warmup_outcome_probe",
+    "evidence_increment": "tests whether the M1404 figure-eight mild warmup stimulus source rows produce near-boundary outcome gaps under history interventions",
+    "claim_scope": "public no-training outcome probe only; no training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if near-boundary candidates remain too sparse",
+      "stop if accepted rows remain seed-singleton",
+      "stop if wrong-warmup and delayed-history variants remain zero",
+      "stop if reset or zero-current controls dominate accepted outcomes",
+      "stop if action differences do not change clearance or success"
+    ],
+    "fallback_plan": [
+      "route to mild stimulus result audit if outcome gaps are absent or control-dominated",
+      "route to config redesign if normal margins are mostly high or failed",
+      "route to branch synthesis if this branch remains action-only after M1405"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "mild warmup stimulus margin-banded outcome probe",
+    "admission_evidence": [
+      "M1404 structurally passed with 1528 source rows and 282 matched/bucketed rows",
+      "M1404 matched/bucketed rows span 27 seeds, 16 capability pairs, and 101 reveal buckets",
+      "M1404 did not train, run outcome interventions, promote, export corpus, or change actor inputs"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "outcome probe artifacts under runs/",
+      "M1405 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "outcome intervention variants are materialized or infeasibility is classified",
+      "normal-margin bands are reported",
+      "accepted-row source and reveal-step diversity are reported",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1405 must distinguish history effects from reset/zero-current controls and from source materialization.",
+    "history_necessity_tests": [
+      "normal_vs_reset_hidden",
+      "normal_vs_zero_current_response",
+      "normal_vs_delayed_warmup_history",
+      "normal_vs_wrong_warmup_history_same_reveal",
+      "normal_vs_same_recent_wrong_warmup_history",
+      "normal_vs_warmup_removed_or_shortened",
+      "normal_margin_band_analysis"
+    ],
+    "temporal_evidence_window": "No-training outcome interventions over M1404 figure-eight mild warmup matched/bucketed rows.",
+    "negative_result_policy": "If outcome gaps are absent, control-dominated, or source-narrow, record the negative and route to audit or redesign before training.",
+    "allowed_claims": [
+      "public mild-warmup margin-banded outcome-intervention result",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "No-training margin-banded outcome interventions over M1404 mild warmup stimulus rows can determine whether the figure-eight stimulus creates source-diverse history-relevant outcome gaps.",
+  "success_criteria": [
+    "runs/m1405_mild_warmup_stimulus_outcome_probe/summary.json exists",
+    "normal reset zero-current delayed wrong-warmup same-recent-wrong-warmup and shortened/removed-warmup variants are reported or cleanly rejected",
+    "normal-margin bands and accepted-row source/reveal-step diversity are reported",
+    "result chooses next route without training, PPO, promotion, private holdout, training corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "outcome probe artifact is missing",
+    "normal-margin band reporting is missing",
+    "source or reveal-step diversity is not reported",
+    "result routes directly to training or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "mild_warmup_outcome_probe",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.warmup_latched_outcome_probe --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m1404_mild_warmup_stimulus_source_wave.json --candidate-rows runs/m1404_mild_warmup_stimulus_source_smoke/matched_or_bucketed_rows.csv --max-candidate-rows 384 --per-capability-pair-cap 48 --history-length 56 --recent-window-length 4 --max-continuation-steps 48 --min-margin-gap 0.02 --min-sequence-action-l2 0.025 --device cpu --run-dir runs/m1405_mild_warmup_stimulus_outcome_probe"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1405_mild_warmup_stimulus_outcome_probe/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1404-paper-route-mild-warmup-stimulus-source-smoke.md",
+    "runs/m1404_mild_warmup_stimulus_source_smoke/summary.json",
+    "runs/m1404_mild_warmup_stimulus_source_smoke/matched_or_bucketed_rows.csv"
+  ],
+  "decision_rule": "M1405 passes structurally if it materializes no-training margin-banded outcome interventions over M1404 rows and reports source/reveal-step diversity without claim expansion.",
+  "next_blocker": "m1405-paper-route-mild-warmup-stimulus-outcome-probe"
+}
