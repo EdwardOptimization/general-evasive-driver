@@ -16,23 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1650-paper-route-proposal-source-preflight-implementation
+m1651-paper-route-proposal-source-preflight-result-audit
 ```
 
 Current next task:
 
 ```text
-m1651-paper-route-proposal-source-preflight-result-audit
+m1652-paper-route-selected-proposal-repair-design
 ```
 
-M1650 implemented and ran no-checkpoint proposal-source preflight over M1362
-same-line interpolation candidates. It found `10` branch-compatible sources,
-`1` base anchor, `5` larger proposal candidates, and `5` selected repair
-candidates as metadata only. Guardrails were clean: zero checkpoint artifacts,
-projection, proposal repair, PPO, training, promotion, private holdout,
-actor-input changes, diagnostic-positive leakage, donor-plus loss targets, or
-level3 self-ID claims. The next task is M1651 audit before any
-selected-proposal repair design.
+M1651 audited the M1650 proposal-source preflight. The result is clean but
+strictly metadata-only: M1650 found `10` branch-compatible M1362 same-line
+sources, `1` base anchor, `5` larger proposal candidates, and selected alphas
+`0.2`, `0.4`, `0.6`, `0.8`, `1.0` as repair-candidate metadata. These are not
+PPO proposals and not repaired checkpoints. The next task is M1652
+selected-proposal no-checkpoint repair design before any repair run, checkpoint
+artifact, replay gate, promotion, private holdout, or level3 claim.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

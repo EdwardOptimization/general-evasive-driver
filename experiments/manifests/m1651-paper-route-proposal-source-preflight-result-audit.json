@@ -163,6 +163,30 @@
     "runs/m1650_proposal_source_preflight/guardrail_summary.csv",
     "docs/m1650-paper-route-proposal-source-preflight-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1651-paper-route-proposal-source-preflight-result-audit.md",
+    "decision": "proposal_source_preflight_audit_admit_selected_proposal_repair_design",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "audited_run_dir": "runs/m1650_proposal_source_preflight",
+    "source_candidate_count": 10,
+    "branch_compatible_candidate_count": 10,
+    "base_anchor_count": 1,
+    "larger_proposal_candidate_count": 5,
+    "selected_repair_candidate_count": 5,
+    "selected_alphas": [
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      1.0
+    ],
+    "claim_boundary": "selected candidates are same-line M1362 interpolation proposals, not PPO proposals and not repaired checkpoints",
+    "unsupported_claim_boundary": "no selected-proposal repair, PPO-proposal repair, checkpoint artifact, closed-loop improvement, behavior retention, promotion, private-holdout, paper-level, or level3 self-ID claim",
+    "next_manifest": "experiments/manifests/m1652-paper-route-selected-proposal-repair-design.json"
+  },
   "decision_rule": "M1651 passes if it audits M1650 and chooses a safe next route before selected-proposal repair or checkpoint artifact generation.",
-  "next_blocker": "m1651-paper-route-proposal-source-preflight-result-audit"
+  "next_blocker": "m1652-paper-route-selected-proposal-repair-design"
 }

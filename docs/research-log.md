@@ -26384,3 +26384,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: proposal repair, PPO-proposal repair, checkpoint artifact generation, closed-loop replay improvement, behavior retention, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1651-paper-route-proposal-source-preflight-result-audit.json`
 - next: `m1651-paper-route-proposal-source-preflight-result-audit`
+
+## M1651 Paper-Route Proposal Source Preflight Result Audit
+
+- status: completed
+- decision: `proposal_source_preflight_audit_admit_selected_proposal_repair_design`
+- artifact: `docs/m1651-paper-route-proposal-source-preflight-result-audit.md`
+- audited run: `runs/m1650_proposal_source_preflight`
+- failure taxonomy: `none`
+- source candidate count: `10`
+- branch-compatible candidate count: `10`
+- base anchor count: `1`
+- larger proposal candidate count: `5`
+- selected repair candidate count: `5`
+- selected alphas: `0.2`, `0.4`, `0.6`, `0.8`, `1.0`
+- claim boundary: selected candidates are same-line M1362 interpolation proposals not PPO proposals and not repaired checkpoints
+- supported: M1650 artifacts are sufficient to design selected-proposal no-checkpoint repair
+- unsupported: selected-proposal repair, PPO-proposal repair, checkpoint artifact generation, closed-loop improvement, behavior retention, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1652-paper-route-selected-proposal-repair-design.json`
+- next: `m1652-paper-route-selected-proposal-repair-design`

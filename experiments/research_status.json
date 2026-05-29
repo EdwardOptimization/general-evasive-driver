@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1659,
+    "completed": 1660,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1650-paper-route-proposal-source-preflight-implementation.md",
+      "command_log": "docs/m1651-paper-route-proposal-source-preflight-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1650_proposal_source_preflight",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1650-paper-route-proposal-source-preflight-implementation"
+      "task_id": "m1651-paper-route-proposal-source-preflight-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1651-paper-route-proposal-source-preflight-result-audit.json",
-      "hypothesis": "The M1650 source preflight is sufficient to admit selected-proposal no-checkpoint repair design without overstating it as repair or closed-loop evidence.",
-      "id": "m1651-paper-route-proposal-source-preflight-result-audit",
+      "command": "see experiments/manifests/m1652-paper-route-selected-proposal-repair-design.json",
+      "hypothesis": "A selected-proposal no-checkpoint repair design can safely test whether damped actor_mean projection repairs real same-line proposal deltas before checkpoint artifacts or replay gates.",
+      "id": "m1652-paper-route-selected-proposal-repair-design",
       "kind": "gate",
-      "notes": "Pending: audit proposal-source preflight before selected-proposal repair design",
-      "priority": 16460,
+      "notes": "Pending: design no-checkpoint selected-proposal repair over audited M1650 candidates",
+      "priority": 16470,
       "status": "pending",
-      "success_artifact": "docs/m1651-paper-route-proposal-source-preflight-result-audit.md"
+      "success_artifact": "docs/m1652-paper-route-selected-proposal-repair-design.md"
     },
-    "updated_at_utc": "20260529T210118Z"
+    "updated_at_utc": "20260529T210604Z"
 }
