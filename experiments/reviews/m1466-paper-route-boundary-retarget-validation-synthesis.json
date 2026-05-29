@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1466 synthesizes M1456-M1465 continues the branch because live positives exist but requires dedup repair before more replay",
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis treats M1461 singleton positives as corpus-ready",
+    "synthesis ignores duplicate selected keys",
+    "synthesis routes directly to training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T050850Z",
+  "hypothesis": "Boundary retarget validation should continue only after repairing M1465 duplicate selected keys.",
+  "lineage": {
+    "blocked_by": [
+      "workflow synthesis cadence reached and M1465 exposed duplicate selected keys"
+    ],
+    "derived_from": [
+      "m1465-paper-route-positive-neighborhood-expansion-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1465-paper-route-positive-neighborhood-expansion-smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m1465-paper-route-positive-neighborhood-expansion-smoke.md",
+      "runs/m1465_positive_neighborhood_expansion_smoke/summary.json",
+      "runs/m1461_retargeted_source_step_bounded_replay_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "synthesize boundary retarget validation branch before continuing after M1465"
+    ],
+    "supersedes": [
+      "continuing directly to preflight or replay from duplicated selected candidates"
+    ]
+  },
+  "milestone": "m1466-paper-route-boundary-retarget-validation-synthesis",
+  "next_blocker": "m1467-paper-route-positive-neighborhood-dedup-repair",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "boundary_retarget_validation_synthesis_continue_with_dedup_repair",
+  "public_gates": [
+    "M1466 must synthesize M1456-M1465 before replay continues",
+    "M1466 must separate live positive evidence from corpus readiness",
+    "M1466 must choose continue pivot stop or promote-to-next-branch"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1466-paper-route-boundary-retarget-validation-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "boundary_retarget_validation_synthesis_continue_with_dedup_repair",
+    "milestone": "m1466-paper-route-boundary-retarget-validation-synthesis",
+    "reason": "M1466 synthesizes M1456-M1465 continues the branch because live positives exist but requires dedup repair before more replay",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1466-paper-route-boundary-retarget-validation-synthesis.md exists",
+    "synthesis summarizes M1456-M1465 evidence",
+    "synthesis decision is continue",
+    "duplicate-key repair is the next blocker",
+    "training and corpus export remain blocked"
+  ],
+  "type": "gate"
+}

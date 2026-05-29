@@ -21711,3 +21711,44 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1465-paper-route-positive-neighborhood-expansion-smoke.json`.
 - next: `m1465-paper-route-positive-neighborhood-expansion-smoke`
+
+## 20260529T061000Z - m1465-paper-route-positive-neighborhood-expansion-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `proof`
+- artifact: `docs/m1465-paper-route-positive-neighborhood-expansion-smoke.md`
+- run artifact: `runs/m1465_positive_neighborhood_expansion_smoke/summary.json`
+- decision: `positive_neighborhood_expansion_smoke_counts_pass_duplicate_key_repair_required`
+- failure type: `metric_artifact`
+- history positive anchor rows: `2`
+- control positive rows: `8`
+- candidate pool rows: `104`
+- proposal rows: `24960`
+- selected candidate rows: `192`
+- unique positive neighborhood keys: `20`
+- duplicate selected rows: `172`
+- selected source groups: `32` anchor-source, `160` neighbor-source.
+- selected diversity: `5` seeds, `9` capability pairs, `8` reveal buckets, `3` variants.
+- interpretation: proposal generation is broad and source-diverse by seed/pair, but selected row count is inflated by duplicate geometry keys; do not replay before dedup repair.
+- guardrail: no preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1466-paper-route-boundary-retarget-validation-synthesis.json`.
+- next: `m1466-paper-route-boundary-retarget-validation-synthesis`
+
+## 20260529T061100Z - m1466-paper-route-boundary-retarget-validation-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1466-paper-route-boundary-retarget-validation-synthesis.md`
+- decision: `boundary_retarget_validation_synthesis_continue_with_dedup_repair`
+- synthesis decision: `continue`
+- branch: `paper_route_source_step_boundary_retarget_validation`
+- evidence summary: M1457 generated retarget proposals, M1459 passed retargeted preflight, M1461 found 2 live history-positive rows, and M1465 generated broad candidates but exposed duplicate selected keys.
+- supported claim: source-step retargeting can move replay pressure toward an outcome-sensitive boundary.
+- unsupported claim: source-diverse corpus is ready for training or promotion.
+- public overfit risk: `high`.
+- next route: M1467 deduplicates `positive_neighborhood_key` before more preflight or replay.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1467-paper-route-positive-neighborhood-dedup-repair.json`.
+- next: `m1467-paper-route-positive-neighborhood-dedup-repair`

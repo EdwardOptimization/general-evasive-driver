@@ -1,0 +1,145 @@
+{
+  "id": "m1467-paper-route-positive-neighborhood-dedup-repair",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1465_positive_neighborhood_expansion_smoke/summary.json",
+      "docs/m1466-paper-route-boundary-retarget-validation-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1466-paper-route-boundary-retarget-validation-synthesis.json"
+    ],
+    "parent_objective": [
+      "repair duplicate selected positive_neighborhood_key rows before further preflight or replay"
+    ],
+    "derived_from": [
+      "m1466-paper-route-boundary-retarget-validation-synthesis"
+    ],
+    "blocked_by": [
+      "M1465 selected 192 rows but only 20 unique positive_neighborhood_key values"
+    ],
+    "supersedes": [
+      "replaying duplicated M1465 selected candidates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1467-paper-route-positive-neighborhood-dedup-repair.md",
+  "public_gates": [
+    "M1467 must deduplicate positive_neighborhood_key before selection",
+    "M1467 must add tests for duplicate candidate-pool rows",
+    "M1467 must not run preflight replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run bounded replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_step_boundary_retarget_validation",
+    "evidence_axis": "S_positive_neighborhood_dedup_repair",
+    "evidence_increment": "repairs M1465 duplicate-key metric artifact before rerunning proposal smoke",
+    "claim_scope": "implementation repair and focused tests only; no preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if selected rows can still contain duplicate positive_neighborhood_key values",
+      "stop if repair requires actor changes",
+      "stop if repair starts preflight or replay"
+    ],
+    "fallback_plan": [
+      "route to repair audit if dedup cannot preserve diversity",
+      "route to rerun proposal smoke if repair passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1466 continue synthesis resets the branch counter and requires dedup repair",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "positive-neighborhood dedup repair",
+    "admission_evidence": [
+      "M1466 synthesis classified M1465 duplicate selected rows as a metric artifact"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "positive-neighborhood generator dedup code",
+      "focused tests",
+      "M1467 repair document",
+      "status queue scoreboard research log and review",
+      "one follow-up rerun proposal smoke manifest"
+    ],
+    "next_stage_criteria": [
+      "dedup tests pass",
+      "research validation passes",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1467 is infrastructure and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future expansion replay must use deduplicated candidates"
+    ],
+    "temporal_evidence_window": "M1465 duplicate-key result.",
+    "negative_result_policy": "If dedup repair cannot preserve diversity, route to audit or synthesis rather than replay.",
+    "allowed_claims": [
+      "dedup repair implementation",
+      "no preflight result, replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Dropping duplicate positive_neighborhood_key rows before selection removes M1465's metric artifact without actor changes.",
+  "success_criteria": [
+    "dedup repair is implemented",
+    "focused tests pass for duplicate candidate-pool rows",
+    "focused tests pass for unique selected positive_neighborhood_key",
+    "docs/m1467-paper-route-positive-neighborhood-dedup-repair.md exists",
+    "no preflight replay training PPO promotion private holdout corpus export or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "implementation is missing",
+    "tests do not cover duplicate selected keys",
+    "implementation starts preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_positive_neighborhood_expansion.py tests/test_research_validate.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1467-paper-route-positive-neighborhood-dedup-repair.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1466-paper-route-boundary-retarget-validation-synthesis.md"
+  ],
+  "decision_rule": "M1467 passes if duplicate positive_neighborhood_key rows are removed before selection with focused tests and no preflight or replay run.",
+  "next_blocker": "m1467-paper-route-positive-neighborhood-dedup-repair"
+}

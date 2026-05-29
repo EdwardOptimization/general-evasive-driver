@@ -1,0 +1,187 @@
+{
+  "id": "m1466-paper-route-boundary-retarget-validation-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1465-paper-route-positive-neighborhood-expansion-smoke.md",
+      "runs/m1465_positive_neighborhood_expansion_smoke/summary.json",
+      "runs/m1461_retargeted_source_step_bounded_replay_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1465-paper-route-positive-neighborhood-expansion-smoke.json"
+    ],
+    "parent_objective": [
+      "synthesize boundary retarget validation branch before continuing after M1465"
+    ],
+    "derived_from": [
+      "m1465-paper-route-positive-neighborhood-expansion-smoke"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached and M1465 exposed duplicate selected keys"
+    ],
+    "supersedes": [
+      "continuing directly to preflight or replay from duplicated selected candidates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1466-paper-route-boundary-retarget-validation-synthesis.md",
+  "public_gates": [
+    "M1466 must synthesize M1456-M1465 before replay continues",
+    "M1466 must separate live positive evidence from corpus readiness",
+    "M1466 must choose continue pivot stop or promote-to-next-branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_step_boundary_retarget_validation",
+    "evidence_axis": "S_boundary_retarget_validation_synthesis",
+    "evidence_increment": "synthesizes retarget proposal, preflight, bounded replay, positive expansion, and duplicate-key evidence",
+    "claim_scope": "branch synthesis only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats M1461 singleton positives as corpus-ready",
+      "stop if synthesis ignores M1465 duplicate-key metric artifact",
+      "stop if synthesis admits replay or training before dedup repair"
+    ],
+    "fallback_plan": [
+      "continue with dedup repair if branch evidence remains useful",
+      "pivot to source mining if dedup repair still leaves singleton candidates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1465 reaches the workflow synthesis cadence for paper_route_source_step_boundary_retarget_validation",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1466-paper-route-boundary-retarget-validation-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1466-paper-route-boundary-retarget-validation-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "boundary retarget validation branch synthesis",
+    "admission_evidence": [
+      "M1461 produced 2 live history-positive rows",
+      "M1465 produced source-diverse proposals but duplicated selected keys"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote checkpoint",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1466 synthesis document",
+      "status queue scoreboard research log and review",
+      "one follow-up dedup repair manifest"
+    ],
+    "next_stage_criteria": [
+      "synthesis decision is explicit",
+      "duplicate-key artifact is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1466 is synthesis and makes no level3 self-identification claim.",
+    "history_necessity_tests": [
+      "M1461 produced singleton history-positive rows",
+      "future replay requires deduplicated source-diverse candidates"
+    ],
+    "temporal_evidence_window": "M1456-M1465 boundary retarget validation branch.",
+    "negative_result_policy": "Treat duplicate selected keys as a metric artifact and repair before replay.",
+    "allowed_claims": [
+      "branch synthesis and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Boundary retarget validation should continue only after repairing M1465 duplicate selected keys.",
+  "success_criteria": [
+    "docs/m1466-paper-route-boundary-retarget-validation-synthesis.md exists",
+    "synthesis summarizes M1456-M1465 evidence",
+    "synthesis decision is continue",
+    "duplicate-key repair is the next blocker",
+    "training and corpus export remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis treats M1461 singleton positives as corpus-ready",
+    "synthesis ignores duplicate selected keys",
+    "synthesis routes directly to training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1466-paper-route-boundary-retarget-validation-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1466-paper-route-boundary-retarget-validation-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1465-paper-route-positive-neighborhood-expansion-smoke.md"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1466-paper-route-boundary-retarget-validation-synthesis.md",
+    "decision": "boundary_retarget_validation_synthesis_continue_with_dedup_repair",
+    "synthesis_decision": "continue",
+    "branch": "paper_route_source_step_boundary_retarget_validation",
+    "m1461_history_positive_rows": 2,
+    "m1461_control_positive_rows": 8,
+    "m1465_selected_candidate_rows": 192,
+    "m1465_unique_positive_neighborhood_key": 20,
+    "m1465_duplicate_rows": 172,
+    "public_gate_overfit_risk": "high",
+    "replay_started": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1467-paper-route-positive-neighborhood-dedup-repair.json"
+  },
+  "decision": "boundary_retarget_validation_synthesis_continue_with_dedup_repair",
+  "decision_rule": "M1466 passes if it synthesizes M1456-M1465 and routes to dedup repair before replay.",
+  "next_blocker": "m1467-paper-route-positive-neighborhood-dedup-repair"
+}

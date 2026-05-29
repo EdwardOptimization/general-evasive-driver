@@ -4,7 +4,7 @@
   "gate_tier": "proof",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "metric_artifact"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -160,6 +160,41 @@
   "baseline_artifacts": [
     "docs/m1464-paper-route-positive-neighborhood-expansion-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1465-paper-route-positive-neighborhood-expansion-smoke.md",
+    "summary": "runs/m1465_positive_neighborhood_expansion_smoke/summary.json",
+    "decision": "positive_neighborhood_expansion_smoke_counts_pass_duplicate_key_repair_required",
+    "history_positive_anchor_rows": 2,
+    "control_positive_rows": 8,
+    "candidate_pool_rows": 104,
+    "proposal_rows": 24960,
+    "selected_candidate_rows": 192,
+    "unique_positive_neighborhood_key": 20,
+    "duplicate_rows": 172,
+    "proposal_anchor_source_rows": 3840,
+    "proposal_neighbor_source_rows": 21120,
+    "selected_anchor_source_rows": 32,
+    "selected_neighbor_source_rows": 160,
+    "selected_unique_source_seeds": 5,
+    "selected_unique_capability_pairs": 9,
+    "selected_unique_reveal_buckets": 8,
+    "selected_unique_variants": 3,
+    "candidate_step_column": "source_step",
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1466-paper-route-boundary-retarget-validation-synthesis.json"
+  },
+  "decision": "positive_neighborhood_expansion_smoke_counts_pass_duplicate_key_repair_required",
   "decision_rule": "M1465 passes if proposal generation produces source-diverse source-step candidates without preflight or replay.",
-  "next_blocker": "m1465-paper-route-positive-neighborhood-expansion-smoke"
+  "next_blocker": "m1466-paper-route-boundary-retarget-validation-synthesis"
 }

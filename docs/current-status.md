@@ -16,46 +16,45 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1464-paper-route-positive-neighborhood-expansion-implementation
+m1466-paper-route-boundary-retarget-validation-synthesis
 ```
 
 Current next task:
 
 ```text
-m1465-paper-route-positive-neighborhood-expansion-smoke
+m1467-paper-route-positive-neighborhood-dedup-repair
 ```
 
-M1464 implemented the positive-neighborhood expansion generator. The current
-public-gate base remains M1362 alpha `0.1`:
+M1466 synthesized the boundary retarget validation branch and requires dedup
+repair before more preflight or replay. The current public-gate base remains
+M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1464 result:
+M1466 synthesis:
 
 ```text
-decision: positive_neighborhood_expansion_generator_implemented_admit_proposal_smoke
-implementation: src/autodrift/positive_neighborhood_expansion.py
-tests: tests/test_positive_neighborhood_expansion.py
-focused_test_result: 30 passed in 0.89s
-candidate_step_column: source_step
-control_positive_separation: true
-source_diversity_caps: true
-next: m1465-paper-route-positive-neighborhood-expansion-smoke
+decision: boundary_retarget_validation_synthesis_continue_with_dedup_repair
+synthesis_decision: continue
+public_gate_overfit_risk: high
+next: m1467-paper-route-positive-neighborhood-dedup-repair
 ```
 
-M1462 audit:
+M1465 result:
 
 ```text
-history_positive_rows: 2
-control_positive_rows: 8
-interpretation: live positive neighborhood exists but is source-singleton and control-sensitive
+proposal_rows: 24960
+selected_candidate_rows: 192
+unique_positive_neighborhood_key: 20
+duplicate_rows: 172
+interpretation: selected count is inflated by duplicate geometry keys
 ```
 
-M1465 should run proposal generation only around the M1461 live positive
-neighborhood. It must not run preflight, bounded replay, training, PPO,
-promotion, private holdout, corpus export, or actor-input changes.
+M1467 should deduplicate `positive_neighborhood_key` before selection. It must
+not run preflight, bounded replay, training, PPO, promotion, private holdout,
+corpus export, or actor-input changes.
 
 M1455 result:
 

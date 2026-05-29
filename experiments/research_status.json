@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1473,
+    "completed": 1475,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1464-paper-route-positive-neighborhood-expansion-implementation.md",
+    "command_log": "docs/m1466-paper-route-boundary-retarget-validation-synthesis.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1464-paper-route-positive-neighborhood-expansion-implementation"
+    "task_id": "m1466-paper-route-boundary-retarget-validation-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1465-paper-route-positive-neighborhood-expansion-smoke.json",
-    "hypothesis": "The M1464 generator can expand M1461's live singleton boundary into a source-step anchored candidate pool with controls separated.",
-    "id": "m1465-paper-route-positive-neighborhood-expansion-smoke",
+    "command": "see experiments/manifests/m1467-paper-route-positive-neighborhood-dedup-repair.json",
+    "hypothesis": "Dropping duplicate positive_neighborhood_key rows before selection removes M1465's metric artifact without actor changes.",
+    "id": "m1467-paper-route-positive-neighborhood-dedup-repair",
     "kind": "infrastructure",
-    "notes": "Pending: run proposal generator around M1461 live positive neighborhood without preflight replay training or corpus export",
-    "priority": 14600,
+    "notes": "Pending: deduplicate positive_neighborhood_key before selection and add focused tests without preflight replay or training",
+    "priority": 14620,
     "status": "pending",
-    "success_artifact": "docs/m1465-paper-route-positive-neighborhood-expansion-smoke.md"
+    "success_artifact": "docs/m1467-paper-route-positive-neighborhood-dedup-repair.md"
   },
-  "updated_at_utc": "20260529T060000Z"
+  "updated_at_utc": "20260529T061000Z"
 }
