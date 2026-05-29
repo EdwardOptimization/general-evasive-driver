@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1522,
+    "completed": 1523,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1513-paper-route-decisive-history-source-retarget-design.md",
+    "command_log": "runs/m1514_decisive_history_source_retarget_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1513-paper-route-decisive-history-source-retarget-design.md",
+    "run_dir": "runs/m1514_decisive_history_source_retarget_smoke",
     "status": "completed",
-    "task_id": "m1513-paper-route-decisive-history-source-retarget-design"
+    "task_id": "m1514-paper-route-decisive-history-source-retarget-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1514-paper-route-decisive-history-source-retarget-implementation.json",
-    "hypothesis": "Bounded retargeted source specs can reduce margins and improve label diversity relative to M1511 while keeping the P0 actor contract and no-training guardrails.",
-    "id": "m1514-paper-route-decisive-history-source-retarget-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded public source retargeting and run small fixed-policy smoke",
-    "priority": 15090,
+    "command": "see experiments/manifests/m1515-paper-route-decisive-history-source-retarget-result-audit.json",
+    "hypothesis": "The M1514 retarget smoke produced enough near-boundary signal to audit whether a measured intervention subset should be designed next.",
+    "id": "m1515-paper-route-decisive-history-source-retarget-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1514 retarget traces before measured intervention design or repair",
+    "priority": 15100,
     "status": "pending",
-    "success_artifact": "runs/m1514_decisive_history_source_retarget_smoke/summary.json"
+    "success_artifact": "docs/m1515-paper-route-decisive-history-source-retarget-result-audit.md"
   },
-  "updated_at_utc": "20260529T091108Z"
+  "updated_at_utc": "20260529T091753Z"
 }

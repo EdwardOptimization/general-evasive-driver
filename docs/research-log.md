@@ -22647,3 +22647,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1513 designs a bounded source-retarget smoke that should reduce M1511 margins and improve label diversity without claiming self-ID or materializing candidates.
 - follow-up manifest: `experiments/manifests/m1514-paper-route-decisive-history-source-retarget-implementation.json`.
 - next: `m1514-paper-route-decisive-history-source-retarget-implementation`
+
+## M1514 Paper-Route Decisive History Source Retarget Implementation
+
+- status: completed
+- decision: `decisive_history_source_retarget_smoke_pass_route_to_retarget_audit`
+- artifact: `runs/m1514_decisive_history_source_retarget_smoke/summary.json`
+- doc: `docs/m1514-paper-route-decisive-history-source-retarget-implementation.md`
+- code paths: `src/autodrift/decisive_history_source_retarget.py`, `tests/test_decisive_history_source_retarget.py`
+- checkpoint: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`
+- focused tests: `PYTHONPATH=src python -m pytest tests/test_decisive_history_source_retarget.py -q`
+- focused test result: 5 passed in 2.08s
+- smoke command: `PYTHONPATH=src python -m autodrift.decisive_history_source_retarget --run-dir runs/m1514_decisive_history_source_retarget_smoke --max-rollout-steps 128 --seed-count 1 --source-family-cap 4 --device cpu`
+- spec/source family/retarget mode count: 24/6/4
+- trace row count: 1576
+- snapshot row count: 95
+- rollout success/failure count: 19/5
+- failure type counts: `reset_failure=4`, `did_not_reach_decision_step=1`
+- global min margin: -0.042059208331689746
+- near-boundary proxy count: 39
+- non-aeb label source family count: 2
+- guardrail violation count: 0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: bounded retargeting moved traces toward near-boundary and non-AEB conditions, but failures and lack of interventions require an audit before candidate materialization.
+- follow-up manifest: `experiments/manifests/m1515-paper-route-decisive-history-source-retarget-result-audit.json`.
+- next: `m1515-paper-route-decisive-history-source-retarget-result-audit`

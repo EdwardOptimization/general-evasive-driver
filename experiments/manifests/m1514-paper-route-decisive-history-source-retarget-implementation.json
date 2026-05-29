@@ -143,6 +143,10 @@
   ],
   "required_artifacts": [
     {
+      "path": "docs/m1514-paper-route-decisive-history-source-retarget-implementation.md",
+      "type": "md"
+    },
+    {
       "path": "src/autodrift/decisive_history_source_retarget.py",
       "type": "py"
     },
@@ -162,6 +166,44 @@
     "docs/m1513-paper-route-decisive-history-source-retarget-design.md",
     "runs/m1511_decisive_history_bounded_runner_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1514_decisive_history_source_retarget_smoke/summary.json",
+    "doc_artifact": "docs/m1514-paper-route-decisive-history-source-retarget-implementation.md",
+    "decision": "decisive_history_source_retarget_smoke_pass_route_to_retarget_audit",
+    "checkpoint": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "focused_tests": "5 passed",
+    "run_dir": "runs/m1514_decisive_history_source_retarget_smoke",
+    "spec_count": 24,
+    "source_family_count": 6,
+    "retarget_mode_count": 4,
+    "max_rollout_steps": 128,
+    "trace_row_count": 1576,
+    "snapshot_row_count": 95,
+    "rollout_success_count": 19,
+    "rollout_failure_count": 5,
+    "failure_type_counts": {
+      "did_not_reach_decision_step": 1,
+      "reset_failure": 4
+    },
+    "global_min_margin": -0.042059208331689746,
+    "near_boundary_proxy_count": 39,
+    "non_aeb_label_source_family_count": 2,
+    "guardrail_violation_count": 0,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1515-paper-route-decisive-history-source-retarget-result-audit.json"
+  },
+  "decision": "decisive_history_source_retarget_smoke_pass_route_to_retarget_audit",
   "decision_rule": "M1514 passes if bounded retargeting runs a small public fixed-policy smoke with complete artifacts and all guardrails false.",
-  "next_blocker": "m1514-paper-route-decisive-history-source-retarget-implementation"
+  "next_blocker": "m1515-paper-route-decisive-history-source-retarget-result-audit"
 }

@@ -1,0 +1,152 @@
+{
+  "id": "m1515-paper-route-decisive-history-source-retarget-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1514_decisive_history_source_retarget_smoke/summary.json",
+      "runs/m1514_decisive_history_source_retarget_smoke/retarget_trace_rows.csv",
+      "runs/m1514_decisive_history_source_retarget_smoke/retarget_source_family_summary.csv",
+      "docs/m1514-paper-route-decisive-history-source-retarget-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1514-paper-route-decisive-history-source-retarget-implementation.json"
+    ],
+    "parent_objective": [
+      "audit bounded retarget smoke before measured intervention or candidate materialization"
+    ],
+    "derived_from": [
+      "m1514-paper-route-decisive-history-source-retarget-implementation"
+    ],
+    "blocked_by": [
+      "retarget smoke produced useful near-boundary traces plus failures that need audit"
+    ],
+    "supersedes": [
+      "direct measured intervention or candidate materialization from M1514 without auditing failures"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1515-paper-route-decisive-history-source-retarget-result-audit.md",
+  "public_gates": [
+    "M1515 must audit M1514 retarget margins labels and failures",
+    "M1515 must decide whether measured intervention design is admissible for any subset",
+    "M1515 must identify source-family or retarget-mode repairs",
+    "M1515 must not materialize candidates or export a training corpus",
+    "M1515 must not train run PPO promote use private holdout or alter actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates during the audit",
+    "do not claim self-identification from retargeted near-boundary traces"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_decisive_history_bounded_runner",
+    "evidence_axis": "G_decisive_history_source_retarget_audit",
+    "evidence_increment": "audits M1514 retarget smoke to choose measured intervention subset or retarget repair",
+    "claim_scope": "retarget result audit and next-route decision only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if retarget artifacts are missing or malformed",
+      "stop if audit ignores reset failures or pre-decision collision",
+      "stop if audit treats near-boundary traces as self-identification evidence",
+      "stop if audit routes directly to training or corpus export"
+    ],
+    "fallback_plan": [
+      "if near-boundary subset is usable, route to measured intervention design",
+      "if failures dominate, route to source-retarget repair",
+      "if traces are too hard or too easy, route to capped retarget calibration"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1514 produced bounded retarget artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source retarget result audit",
+    "admission_evidence": [
+      "M1514 reduced global min margin to -0.042 and produced 39 near-boundary proxy rows while keeping guardrails false"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "M1515 audit document",
+      "status queue scoreboard research log and review",
+      "one follow-up measured-intervention or retarget-repair manifest"
+    ],
+    "next_stage_criteria": [
+      "near-boundary subset verdict is explicit",
+      "failure interpretation is explicit",
+      "candidate materialization remains blocked or is routed through measured intervention design",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1515 audits scenario retargeting only; near-boundary success or collision is not history necessity evidence.",
+    "history_necessity_tests": [
+      "audit whether M1514 traces are suitable for future wrong/delayed/current-tiled intervention continuations",
+      "do not claim history necessity until intervention margin gaps are measured"
+    ],
+    "temporal_evidence_window": "M1514 bounded public retarget traces only.",
+    "negative_result_policy": "If retarget traces are too hard or sampling failures dominate, route to repair rather than materializing weak candidates.",
+    "allowed_claims": [
+      "M1515 audits retarget trace quality",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1514 retarget smoke produced enough near-boundary signal to audit whether a measured intervention subset should be designed next.",
+  "success_criteria": [
+    "docs/m1515-paper-route-decisive-history-source-retarget-result-audit.md exists",
+    "audit summarizes retarget margins labels failures and guardrails",
+    "audit explicitly decides measured-intervention-admit retarget-repair or stop",
+    "audit keeps candidate materialization training PPO promotion private holdout actor-input change corpus export and self-ID claims blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores M1514 failures",
+    "audit treats near-boundary traces as self-ID evidence",
+    "audit starts candidate materialization training PPO promotion private holdout or corpus export"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1515-paper-route-decisive-history-source-retarget-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1515-paper-route-decisive-history-source-retarget-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1514_decisive_history_source_retarget_smoke/summary.json",
+    "runs/m1514_decisive_history_source_retarget_smoke/retarget_trace_rows.csv",
+    "runs/m1514_decisive_history_source_retarget_smoke/retarget_source_family_summary.csv"
+  ],
+  "decision_rule": "M1515 passes if it audits retarget trace quality and chooses the next route without materializing candidates or claiming self-identification.",
+  "next_blocker": "m1515-paper-route-decisive-history-source-retarget-result-audit"
+}

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1513-paper-route-decisive-history-source-retarget-design
+m1514-paper-route-decisive-history-source-retarget-implementation
 ```
 
 Current next task:
 
 ```text
-m1514-paper-route-decisive-history-source-retarget-implementation
+m1515-paper-route-decisive-history-source-retarget-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -61,12 +61,43 @@ M1499-M1508 and promoted the work to a bounded fixed-policy runner branch.
 M1510 designed the bounded fixed-policy source trace runner. M1511 implemented
 that runner and produced bounded public source traces for all six source
 families. M1512 audited those traces as plumbing-positive but too safe for
-candidate materialization. M1513 designed a bounded public retarget route. The
-current public-gate base remains M1362 alpha `0.1`:
+candidate materialization. M1513 designed a bounded public retarget route.
+M1514 implemented it and produced near-boundary retarget traces with explicit
+failures. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1514 decisive history source retarget implementation:
+
+```text
+decision: decisive_history_source_retarget_smoke_pass_route_to_retarget_audit
+artifact: runs/m1514_decisive_history_source_retarget_smoke/summary.json
+doc: docs/m1514-paper-route-decisive-history-source-retarget-implementation.md
+code_paths:
+  src/autodrift/decisive_history_source_retarget.py
+  tests/test_decisive_history_source_retarget.py
+focused_tests: 5 passed
+spec/source_family/retarget_mode_count: 24/6/4
+trace_row_count: 1576
+snapshot_row_count: 95
+rollout_success/failure_count: 19/5
+failure_type_counts: reset_failure=4; did_not_reach_decision_step=1
+global_min_margin: -0.042059208331689746
+near_boundary_proxy_count: 39
+non_aeb_label_source_family_count: 2
+guardrail_violation_count: 0
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1515-paper-route-decisive-history-source-retarget-result-audit
+```
+
+M1514 is positive retarget evidence but still not candidate or self-ID
+evidence. Next is auditing which retargeted rows are usable for measured
+intervention design and which modes need repair.
 
 M1513 decisive history source retarget design:
 
