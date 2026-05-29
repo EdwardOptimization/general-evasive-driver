@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1672,
+    "completed": 1673,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1663-paper-route-fusion-actor-checkpoint-artifact-implementation.md",
+      "command_log": "docs/m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1663_fusion_actor_checkpoint_artifact",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1663-paper-route-fusion-actor-checkpoint-artifact-implementation"
+      "task_id": "m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit.json",
-      "hypothesis": "The M1663 checkpoint artifact can be audited as a clean objective-sanity artifact while keeping replay and promotion blocked.",
-      "id": "m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit",
+      "command": "see experiments/manifests/m1665-paper-route-fusion-actor-artifact-replay-gate-design.json",
+      "hypothesis": "A staged public replay-gate design can safely evaluate the M1663 objective-sanity artifact without conflating artifact load sanity, first proof checks, full replay stack, or promotion.",
+      "id": "m1665-paper-route-fusion-actor-artifact-replay-gate-design",
       "kind": "gate",
-      "notes": "Pending: audit alpha 0.2 artifact metadata checksums and guardrails before any replay design",
-      "priority": 16590,
+      "notes": "Pending: design staged artifact replay gates before any replay execution",
+      "priority": 16600,
       "status": "pending",
-      "success_artifact": "docs/m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit.md"
+      "success_artifact": "docs/m1665-paper-route-fusion-actor-artifact-replay-gate-design.md"
     },
-    "updated_at_utc": "20260529T220640Z"
+    "updated_at_utc": "20260529T220836Z"
 }

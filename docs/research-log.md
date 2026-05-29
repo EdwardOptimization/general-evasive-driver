@@ -26651,3 +26651,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: replay improvement, behavior retention, PPO-proposal repair, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit.json`
 - next: `m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit`
+
+## M1664 Paper-Route Fusion Actor Checkpoint Artifact Result Audit
+
+- status: completed
+- decision: `fusion_actor_checkpoint_artifact_audit_admit_replay_gate_design`
+- artifact: `docs/m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit.md`
+- audited run: `runs/m1663_fusion_actor_checkpoint_artifact`
+- checkpoint artifact: `runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt`
+- artifact sha256: `c7829fc0596bd6658440fd343282a4cbb2907a37b6b30424698c2e29d0b8c191`
+- checkpoint artifact count: `1`
+- unexpected checkpoint artifact count: `0`
+- metadata/checksums complete: `true`
+- exact residual reduction ratio: `0.40519785496674926`
+- guardrail violation count: `0`
+- supported: M1663 artifact is clean objective-sanity checkpoint evidence and can enter replay-gate design
+- unsupported: replay execution, behavior retention, PPO-proposal repair, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1665-paper-route-fusion-actor-artifact-replay-gate-design.json`
+- next: `m1665-paper-route-fusion-actor-artifact-replay-gate-design`

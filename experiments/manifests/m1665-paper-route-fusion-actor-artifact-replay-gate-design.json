@@ -1,0 +1,165 @@
+{
+  "id": "m1665-paper-route-fusion-actor-artifact-replay-gate-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit.md",
+      "runs/m1663_fusion_actor_checkpoint_artifact/summary.json",
+      "runs/m1663_fusion_actor_checkpoint_artifact/artifact_metadata.json",
+      "runs/m1663_fusion_actor_checkpoint_artifact/checksums.sha256"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit.json"
+    ],
+    "parent_objective": [
+      "design public replay proof gate sequence for the M1663 objective-sanity artifact"
+    ],
+    "derived_from": [
+      "m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit"
+    ],
+    "blocked_by": [
+      "M1664 admits replay-gate design only; replay execution PPO promotion and private holdout remain blocked"
+    ],
+    "supersedes": [
+      "direct replay execution after M1664",
+      "direct PPO after M1664",
+      "direct promotion after M1664",
+      "private holdout after M1664"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1665-paper-route-fusion-actor-artifact-replay-gate-design.md",
+  "public_gates": [
+    "M1665 must be design-only",
+    "M1665 must define checkpoint load and P0 actor-contract sanity checks",
+    "M1665 must define staged public proof replay order for the M1663 artifact",
+    "M1665 must define exact pass/fail and failure taxonomy for first-check and full-stack replay gates",
+    "M1665 must require result audit before PPO promotion or private holdout",
+    "M1665 must keep replay execution PPO training promotion private holdout actor-input changes and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run replay",
+    "do not run PPO",
+    "do not train",
+    "do not run closed-loop evaluation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not rerun artifact materialization",
+    "do not tune repair parameters",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_ppo_proposal_projection_repair",
+    "evidence_axis": "E_fusion_actor_artifact_replay_gate_design",
+    "evidence_increment": "designs staged public replay proof gates for the alpha 0.2 fusion_actor objective-sanity artifact",
+    "claim_scope": "design only; no replay execution, PPO, training, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design runs replay instead of designing it",
+      "stop if design routes directly to promotion or private holdout",
+      "stop if first-check and full-stack replay gates are not separated",
+      "stop if failure taxonomy is omitted",
+      "stop if artifact public-overfit risk is ignored"
+    ],
+    "fallback_plan": [
+      "admit one bounded first-check replay implementation if design is clean",
+      "pivot to artifact/source refresh if replay design cannot isolate failures",
+      "synthesize branch if cadence or route ambiguity requires it",
+      "stop replay route if artifact is not suitable for replay evaluation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1664 admits replay-gate design after artifact audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design staged public replay gates for M1663 artifact",
+    "admission_evidence": [
+      "M1663 wrote one alpha 0.2 checkpoint artifact",
+      "M1664 audited metadata checksums and guardrails",
+      "artifact remains objective-sanity only"
+    ],
+    "blocked_shortcuts": [
+      "do not run replay",
+      "do not run PPO",
+      "do not train",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1665 design document",
+      "M1665 status queue scoreboard research log and review",
+      "one follow-up manifest if design admits first-check replay implementation pivot synthesis or stop"
+    ],
+    "next_stage_criteria": [
+      "checkpoint sanity and P0 contract checks are explicit",
+      "first-check replay gates are explicit",
+      "full-stack replay escalation is explicit",
+      "failure taxonomy and audit requirement are explicit",
+      "promotion and private holdout remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1665 designs replay gates for an artifact and does not by itself prove history necessity.",
+    "history_necessity_tests": [
+      "design may include public wrong-history and response-history replay gates but does not execute them"
+    ],
+    "temporal_evidence_window": "M1362, M1630, M1650-M1664 public artifacts only.",
+    "negative_result_policy": "If replay design cannot separate artifact-load failure proof replay failure and behavior regression, pivot before execution.",
+    "allowed_claims": [
+      "staged replay gate design for the M1663 artifact",
+      "no replay execution, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A staged public replay-gate design can safely evaluate the M1663 objective-sanity artifact without conflating artifact load sanity, first proof checks, full replay stack, or promotion.",
+  "success_criteria": [
+    "docs/m1665-paper-route-fusion-actor-artifact-replay-gate-design.md exists",
+    "design defines checkpoint load and actor-contract sanity checks",
+    "design defines first-check replay gates and full-stack escalation",
+    "design defines pass/fail failure taxonomy and audit requirement",
+    "design explicitly routes next step",
+    "replay execution PPO training promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs replay or closed-loop evaluation",
+    "design routes directly to promotion private holdout actor-input changes or paper evidence",
+    "design omits failure taxonomy or audit requirement",
+    "design claims level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1665-paper-route-fusion-actor-artifact-replay-gate-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1665-paper-route-fusion-actor-artifact-replay-gate-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit.md",
+    "runs/m1663_fusion_actor_checkpoint_artifact/summary.json",
+    "runs/m1663_fusion_actor_checkpoint_artifact/artifact_metadata.json"
+  ],
+  "decision_rule": "M1665 passes if it designs staged replay gates without running them and chooses a safe next route before PPO or promotion.",
+  "next_blocker": "m1665-paper-route-fusion-actor-artifact-replay-gate-design"
+}

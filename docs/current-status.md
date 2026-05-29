@@ -16,24 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1663-paper-route-fusion-actor-checkpoint-artifact-implementation
+m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit
 ```
 
 Current next task:
 
 ```text
-m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit
+m1665-paper-route-fusion-actor-artifact-replay-gate-design
 ```
 
-M1663 materialized exactly one alpha `0.2` `fusion_actor` repaired checkpoint
-artifact as objective-sanity evidence only:
+M1664 audited the M1663 alpha `0.2` `fusion_actor` repaired checkpoint artifact
+as clean objective-sanity evidence only:
 `runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt`.
-It reproduced the M1660 alpha `0.2` exact residual reduction ratio
-`0.40519785496674926`, recorded artifact checksum
-`c7829fc0596bd6658440fd343282a4cbb2907a37b6b30424698c2e29d0b8c191`, and kept
-guardrails clean. The next task is M1664 artifact audit before any replay gate.
-Replay, PPO, promotion, private holdout, actor-input changes, paper-level
-claims, and level3 self-ID claims remain blocked.
+The audit verified exactly one checkpoint file, complete metadata/checksums,
+M1660 alpha `0.2` exact residual reduction ratio `0.40519785496674926`, artifact
+checksum `c7829fc0596bd6658440fd343282a4cbb2907a37b6b30424698c2e29d0b8c191`,
+and clean guardrails. The next task is M1665 design-only staged replay gates.
+Replay execution, PPO, promotion, private holdout, actor-input changes,
+paper-level claims, and level3 self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
