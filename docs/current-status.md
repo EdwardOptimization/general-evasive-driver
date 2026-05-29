@@ -16,21 +16,46 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1429-paper-route-bounded-relocation-replay-smoke
+m1430-paper-route-bounded-relocation-replay-result-audit
 ```
 
 Current next task:
 
 ```text
-m1430-paper-route-bounded-relocation-replay-result-audit
+m1431-paper-route-geometry-aware-replay-selector-design
 ```
 
-M1429 ran the bounded relocation replay smoke. The current public-gate base
+M1430 audited the M1429 bounded relocation replay smoke. The current public-gate base
 remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1430 result:
+
+```text
+decision: bounded_relocation_replay_audit_admit_geometry_aware_selector_design
+classification: scenario_sampling_failure_geometry_selector_failure
+selected_candidate_rows: 128
+actual_replay_rows: 384
+history_positive_rows: 0
+control_positive_rows: 0
+normal_failed_rows: 177
+selected_unique_source_seeds: 3
+selected_unique_capability_pairs: 13
+selected_unique_reveal_buckets: 9
+selected_unique_variants: 1
+selected_max_single_seed_share: 0.75
+source_body_x_median: -1.678050
+relocated_body_x_clipped_groups: 126
+next: m1431-paper-route-geometry-aware-replay-selector-design
+```
+
+M1430 classifies M1429 as a geometry selector failure, not evidence that history
+is unnecessary. The next task must design a geometry-aware preflight selector
+that rejects behind-vehicle or clipped relocation rows and enforces source and
+history-variant diversity before another replay run.
 
 M1429 result:
 
@@ -53,7 +78,8 @@ next: m1430-paper-route-bounded-relocation-replay-result-audit
 
 M1429 proves the replay tool is live, but the selected source rows are
 geometry-poor: most obstacles were behind the car and got clipped to the minimum
-forward distance. M1430 must audit before any replay retune or training.
+forward distance. M1430 audited this as selector failure before replay retuning
+or training.
 
 M1428 result:
 

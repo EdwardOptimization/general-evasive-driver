@@ -147,6 +147,47 @@
     "runs/m1429_bounded_relocation_replay_smoke/summary.json",
     "docs/m1429-paper-route-bounded-relocation-replay-smoke.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1430-paper-route-bounded-relocation-replay-result-audit.md",
+    "decision": "bounded_relocation_replay_audit_admit_geometry_aware_selector_design",
+    "classification": "scenario_sampling_failure_geometry_selector_failure",
+    "supported_claims": [
+      "M1429 bounded relocation replay tool is live and emitted 384 actual replay rows",
+      "M1429 separated history-positive accounting from reset and zero-current controls",
+      "M1429 found zero history-positive and zero control-positive rows on the selected sample"
+    ],
+    "falsified_claims": [
+      "M1429 selected rows are sufficient for valid forward-obstacle replay proof",
+      "M1429 zero history-positive result is strong evidence that history is unnecessary",
+      "another replay sweep with the same selector is justified before geometry preflight"
+    ],
+    "selected_candidate_rows": 128,
+    "actual_replay_rows": 384,
+    "history_positive_rows": 0,
+    "control_positive_rows": 0,
+    "normal_failed_rows": 177,
+    "selected_unique_source_seeds": 3,
+    "selected_unique_capability_pairs": 13,
+    "selected_unique_reveal_buckets": 9,
+    "selected_unique_variants": 1,
+    "selected_max_single_seed_share": 0.75,
+    "source_body_x_median": -1.67805,
+    "relocated_body_x_clipped_groups": 126,
+    "next_route": "geometry_aware_replay_selector_design",
+    "replay_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1431-paper-route-geometry-aware-replay-selector-design.json"
+  },
+  "decision": "bounded_relocation_replay_audit_admit_geometry_aware_selector_design",
   "decision_rule": "M1430 passes if it classifies the M1429 negative result and chooses a guarded non-training next route.",
-  "next_blocker": "m1430-paper-route-bounded-relocation-replay-result-audit"
+  "next_blocker": "m1431-paper-route-geometry-aware-replay-selector-design"
 }

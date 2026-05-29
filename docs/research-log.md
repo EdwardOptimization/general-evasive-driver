@@ -21132,3 +21132,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1430-paper-route-bounded-relocation-replay-result-audit.json`.
 - next: `m1430-paper-route-bounded-relocation-replay-result-audit`
+
+## 20260529T024012Z - m1430-paper-route-bounded-relocation-replay-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1430-paper-route-bounded-relocation-replay-result-audit.md`
+- decision: `bounded_relocation_replay_audit_admit_geometry_aware_selector_design`
+- classification: `scenario_sampling_failure_geometry_selector_failure`
+- supported claims: M1429 bounded relocation replay tool is live, emitted `384` actual replay rows, and kept history-positive accounting separate from reset and zero-current controls.
+- falsified claims: M1429 selected rows are sufficient for valid forward-obstacle replay proof, and M1429 zero history-positive result is strong evidence that history is unnecessary.
+- counts: selected candidates `128`, actual replay rows `384`, history-positive rows `0`, control-positive rows `0`, normal-failed rows `177`.
+- geometry diagnostic: selected sample spans only `3` seeds and `1` history variant, has max single seed share `0.75`, source body-x median `-1.678050`, and `126/128` selected groups clipped to relocated body-x `2.0m`.
+- interpretation: M1429 is a useful negative about the selector, not about the self-ID hypothesis; source geometry preflight is required before another replay run.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1431-paper-route-geometry-aware-replay-selector-design.json`.
+- next: `m1431-paper-route-geometry-aware-replay-selector-design`

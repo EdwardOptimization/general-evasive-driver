@@ -1,0 +1,168 @@
+{
+  "id": "m1431-paper-route-geometry-aware-replay-selector-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv",
+      "runs/m1429_bounded_relocation_replay_smoke/summary.json",
+      "docs/m1430-paper-route-bounded-relocation-replay-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1430-paper-route-bounded-relocation-replay-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a geometry-aware replay selector after M1429 exposed source_body_x clipping and seed concentration"
+    ],
+    "derived_from": [
+      "m1430-paper-route-bounded-relocation-replay-result-audit"
+    ],
+    "blocked_by": [
+      "M1429 selected only 3 seeds, one history variant, and mostly behind-vehicle source obstacles clipped to 2.0m"
+    ],
+    "supersedes": [
+      "another bounded replay sweep with the M1429 selector",
+      "training from M1429 rows",
+      "threshold lowering after M1429"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1431-paper-route-geometry-aware-replay-selector-design.md",
+  "public_gates": [
+    "M1431 must design geometry preflight before another replay run",
+    "M1431 must reject behind-vehicle or clipped relocation candidates",
+    "M1431 must pre-register source-diversity and variant-diversity gates",
+    "M1431 must not run replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not lower M1429 thresholds after seeing the result",
+    "do not count geometry-poor rows as no-history evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_action_divergent_outcome_pressure_design",
+    "evidence_axis": "D_geometry_aware_replay_selector_design",
+    "evidence_increment": "designs a preflight selector that filters M1425/M1429 candidate rows for forward unclipped obstacle geometry and source diversity before any replay retune",
+    "claim_scope": "design only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design requires actor input changes",
+      "stop if design cannot detect behind-vehicle obstacle sources before replay",
+      "stop if design cannot prevent one-seed or one-variant dominance",
+      "stop if design routes directly to training"
+    ],
+    "fallback_plan": [
+      "route to implementation if preflight is mechanically feasible",
+      "route to branch synthesis if M1425 rows cannot support forward unclipped geometry",
+      "route back to source mining if the source pool is geometry-poor after preflight"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_branch_count_9_of_10_after_m1422_pivot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "geometry-aware replay selector design",
+    "admission_evidence": [
+      "M1430 classifies M1429 as scenario_sampling_failure_geometry_selector_failure",
+      "M1429 selected_candidate_rows=128 but source_body_x median=-1.678050 and relocated_body_x clipped to 2.0m for 126/128 selected groups",
+      "M1429 selected sample has only 3 source seeds and one history variant"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus"
+    ],
+    "allowed_updates": [
+      "M1431 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up implementation manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "geometry preflight metrics are specified",
+      "source and variant diversity gates are specified",
+      "clipping rejection rules are specified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1431 is design-only and cannot claim history necessity; it only prevents invalid source geometry from masking history tests.",
+    "history_necessity_tests": [
+      "future replay must test requested history variants on forward unclipped obstacle geometry",
+      "future replay must keep reset and zero-current controls separate",
+      "future replay must require actual success drop or terminal margin gap",
+      "future replay must report source diversity before interpreting negative results"
+    ],
+    "temporal_evidence_window": "M1425 pressure rows filtered by M1429 geometry diagnostics.",
+    "negative_result_policy": "If geometry-aware preflight cannot find a source-diverse forward set, route to synthesis or source mining rather than weakening no-history standards.",
+    "allowed_claims": [
+      "geometry-aware replay selector design and next route decision",
+      "no closed-loop replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A geometry-aware replay selector can prevent M1429's behind-obstacle clipping artifact by filtering candidate rows before replay and requiring source-diverse forward unclipped obstacle geometry.",
+  "success_criteria": [
+    "docs/m1431-paper-route-geometry-aware-replay-selector-design.md exists",
+    "design specifies trace reconstruction or source-geometry preflight inputs",
+    "design rejects source_body_x behind or too close to the ego vehicle",
+    "design rejects candidates whose relocation would be clipped to the minimum body-x",
+    "design pre-registers forward_geometry_rows >= 64",
+    "design pre-registers unique_source_seeds >= 6",
+    "design pre-registers unique_capability_pairs >= 8",
+    "design pre-registers unique_reveal_buckets >= 6",
+    "design pre-registers unique_history_variants >= 2",
+    "design pre-registers max_single_seed_share <= 0.35",
+    "design pre-registers relocation_clipped_share <= 0.10",
+    "design chooses a non-training next route without running replay training PPO promotion private holdout corpus export or actor-input changes"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design ignores source_body_x and relocation clipping",
+    "design allows one seed or one variant to dominate",
+    "design lowers thresholds after M1429",
+    "design routes directly to training PPO promotion private holdout corpus export or claim expansion",
+    "design changes actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1431-paper-route-geometry-aware-replay-selector-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1431-paper-route-geometry-aware-replay-selector-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv",
+    "runs/m1429_bounded_relocation_replay_smoke/summary.json",
+    "docs/m1430-paper-route-bounded-relocation-replay-result-audit.md"
+  ],
+  "decision_rule": "M1431 passes if it defines a geometry-aware preflight selector and pre-registers forward unclipped source-diversity gates before implementation.",
+  "next_blocker": "m1431-paper-route-geometry-aware-replay-selector-design"
+}

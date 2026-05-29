@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1439,
+    "completed": 1440,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1429_bounded_relocation_replay_smoke/summary.json",
+    "command_log": "docs/m1430-paper-route-bounded-relocation-replay-result-audit.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1429-paper-route-bounded-relocation-replay-smoke"
+    "task_id": "m1430-paper-route-bounded-relocation-replay-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1430-paper-route-bounded-relocation-replay-result-audit.json",
-    "hypothesis": "M1429's zero history-positive result is dominated by geometry-poor source selection, so a source geometry audit must precede any replay retune or training.",
-    "id": "m1430-paper-route-bounded-relocation-replay-result-audit",
+    "command": "see experiments/manifests/m1431-paper-route-geometry-aware-replay-selector-design.json",
+    "hypothesis": "A geometry-aware replay selector can prevent M1429's behind-obstacle clipping artifact by filtering candidate rows before replay and requiring source-diverse forward unclipped obstacle geometry.",
+    "id": "m1431-paper-route-geometry-aware-replay-selector-design",
     "kind": "gate",
-    "notes": "Pending: audit M1429 zero history-positive replay result and source geometry clipping",
-    "priority": 14250,
+    "notes": "Pending: pre-register forward unclipped source-geometry and source-diversity gates before another bounded replay run",
+    "priority": 14260,
     "status": "pending",
-    "success_artifact": "docs/m1430-paper-route-bounded-relocation-replay-result-audit.md"
+    "success_artifact": "docs/m1431-paper-route-geometry-aware-replay-selector-design.md"
   },
-  "updated_at_utc": "20260529T023134Z"
+  "updated_at_utc": "20260529T024012Z"
 }
