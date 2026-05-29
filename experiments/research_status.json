@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1414,
+    "completed": 1415,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1404_mild_warmup_stimulus_source_smoke/summary.json",
+    "command_log": "runs/m1405_mild_warmup_stimulus_outcome_probe/summary.json",
     "returncode": 0,
-    "run_dir": "runs/m1404_mild_warmup_stimulus_source_smoke",
+    "run_dir": "runs/m1405_mild_warmup_stimulus_outcome_probe",
     "status": "completed",
-    "task_id": "m1404-paper-route-mild-warmup-stimulus-source-smoke"
+    "task_id": "m1405-paper-route-mild-warmup-stimulus-outcome-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1405-paper-route-mild-warmup-stimulus-outcome-probe.json",
-    "hypothesis": "No-training margin-banded outcome interventions over M1404 mild warmup stimulus rows can determine whether the figure-eight stimulus creates source-diverse history-relevant outcome gaps.",
-    "id": "m1405-paper-route-mild-warmup-stimulus-outcome-probe",
-    "kind": "infrastructure",
-    "notes": "Pending: run margin-banded outcome interventions over M1404 matched/bucketed rows before training or corpus export",
-    "priority": 14000,
+    "command": "see experiments/manifests/m1406-paper-route-mild-warmup-outcome-result-audit.json",
+    "hypothesis": "A process audit can determine the next route after M1405 improves near-boundary candidates but finds no warmup-history-positive outcome rows.",
+    "id": "m1406-paper-route-mild-warmup-outcome-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit reset-only M1405 result before another source redesign or training",
+    "priority": 14010,
     "status": "pending",
-    "success_artifact": "runs/m1405_mild_warmup_stimulus_outcome_probe/summary.json"
+    "success_artifact": "docs/m1406-paper-route-mild-warmup-outcome-result-audit.md"
   },
-  "updated_at_utc": "20260529T033000Z"
+  "updated_at_utc": "20260529T034000Z"
 }

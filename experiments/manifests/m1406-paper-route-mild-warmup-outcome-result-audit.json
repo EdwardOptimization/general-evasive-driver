@@ -1,0 +1,151 @@
+{
+  "id": "m1406-paper-route-mild-warmup-outcome-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1405-paper-route-mild-warmup-stimulus-outcome-probe.md",
+      "runs/m1405_mild_warmup_stimulus_outcome_probe/summary.json",
+      "runs/m1405_mild_warmup_stimulus_outcome_probe/normal_margin_band_summary.csv",
+      "runs/m1405_mild_warmup_stimulus_outcome_probe/variant_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1405-paper-route-mild-warmup-stimulus-outcome-probe.json"
+    ],
+    "parent_objective": [
+      "audit reset-only mild warmup outcome result before new source changes or training"
+    ],
+    "derived_from": [
+      "m1405-paper-route-mild-warmup-stimulus-outcome-probe"
+    ],
+    "blocked_by": [
+      "M1405 improved near-boundary candidates but found zero warmup-history-positive outcome rows"
+    ],
+    "supersedes": [
+      "training from M1405 reset-only rows",
+      "running another mild-warmup outcome probe without a route decision"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1406-paper-route-mild-warmup-outcome-result-audit.md",
+  "public_gates": [
+    "M1406 must audit M1405 before new source changes or training",
+    "M1406 must separate near-boundary progress from self-identification evidence",
+    "M1406 must classify reset-only accepted rows and zero warmup-history-positive rows",
+    "M1406 must choose config redesign, task API extension, branch synthesis, or another explicit route",
+    "M1406 must not train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not count reset-only rows as self-identification",
+    "do not count near-boundary candidates without outcome gaps as self-identification",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "G_mild_warmup_outcome_result_audit",
+    "evidence_increment": "classifies M1405 reset-only outcome result and selects the next route",
+    "claim_scope": "process audit only; no training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if audit treats reset-only rows as self-ID evidence",
+      "stop if audit ignores preferred near-boundary progress",
+      "stop if next route repeats the same source/outcome grid without a new evidence axis"
+    ],
+    "fallback_plan": [
+      "route to stronger non-oracle warmup stimulus if passive figure-eight is insufficient",
+      "route to config redesign if normal margins need tighter outcome pressure",
+      "route to branch synthesis if no credible public next route remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "mild warmup outcome result audit",
+    "admission_evidence": [
+      "M1405 found 26 preferred near-boundary candidates but 0 warmup-history-positive rows",
+      "M1405 found 2 accepted outcome rows, both reset-hidden high-margin effects from one seed",
+      "M1405 did not train, promote, use private holdout, export corpus, or change actor inputs"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1406 audit document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "M1405 result is classified",
+      "next route is explicit",
+      "no training or corpus export is admitted from reset-only evidence"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1406 must treat reset-only and action-only effects as insufficient for history necessity.",
+    "history_necessity_tests": [
+      "m1405_zero_warmup_history_positive_rows",
+      "m1405_reset_only_accepted_rows",
+      "m1405_preferred_near_boundary_progress"
+    ],
+    "temporal_evidence_window": "Process audit over M1405 no-training outcome artifacts.",
+    "negative_result_policy": "If mild-warmup outcome evidence is absent, route to a new source/task design or branch synthesis before training.",
+    "allowed_claims": [
+      "M1405 reset-only outcome result audit",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A process audit can determine the next route after M1405 improves near-boundary candidates but finds no warmup-history-positive outcome rows.",
+  "success_criteria": [
+    "docs/m1406-paper-route-mild-warmup-outcome-result-audit.md exists",
+    "audit classifies reset-only accepted rows and zero warmup-history-positive rows",
+    "audit chooses a next route without corpus export, training, PPO, promotion, private holdout, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats reset-only rows as self-ID evidence",
+    "audit ignores near-boundary progress",
+    "audit routes directly to training or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1406-paper-route-mild-warmup-outcome-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1406-paper-route-mild-warmup-outcome-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1405-paper-route-mild-warmup-stimulus-outcome-probe.md",
+    "runs/m1405_mild_warmup_stimulus_outcome_probe/summary.json"
+  ],
+  "decision_rule": "M1406 passes if it audits M1405 and chooses a redesign or synthesis route before any training, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
+  "next_blocker": "m1406-paper-route-mild-warmup-outcome-result-audit"
+}

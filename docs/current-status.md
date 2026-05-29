@@ -16,22 +16,43 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1404-paper-route-mild-warmup-stimulus-source-smoke
+m1405-paper-route-mild-warmup-stimulus-outcome-probe
 ```
 
 Current next task:
 
 ```text
-m1405-paper-route-mild-warmup-stimulus-outcome-probe
+m1406-paper-route-mild-warmup-outcome-result-audit
 ```
 
-M1404 created the figure-eight mild warmup stimulus configs and ran a
-no-training source smoke. The current public-gate base remains M1362 alpha
-`0.1`:
+M1405 ran the no-training outcome probe over M1404 figure-eight mild warmup
+matched/bucketed rows. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1405 result:
+
+```text
+decision: mild_warmup_outcome_reset_only_route_to_result_audit
+result_class: warmup_latched_outcome_reset_or_current_only
+selected_candidate_rows: 282
+outcome_rows: 2256
+broad_near_boundary_candidate_rows: 93
+preferred_near_boundary_candidate_rows: 26
+accepted_outcome_rows: 2
+warmup_history_positive_rows: 0
+accepted_reset_rows: 2
+action_critical_rows: 1584
+next: m1406-paper-route-mild-warmup-outcome-result-audit
+```
+
+M1405 fixes the M1401 preferred-window sparsity but still does not support
+warmup-history outcome necessity. The two accepted rows are reset-hidden,
+high-margin, one-seed effects. M1406 must audit this before another source
+redesign, corpus export, PPO, training, private holdout, promotion, or claim
+expansion.
 
 M1404 result:
 

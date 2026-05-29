@@ -20730,3 +20730,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1405-paper-route-mild-warmup-stimulus-outcome-probe.json`.
 - next: `m1405-paper-route-mild-warmup-stimulus-outcome-probe`
+
+## 20260529T034000Z - m1405-paper-route-mild-warmup-stimulus-outcome-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1405_mild_warmup_stimulus_outcome_probe/summary.json`
+- decision: `mild_warmup_outcome_reset_only_route_to_result_audit`
+- result class: `warmup_latched_outcome_reset_or_current_only`
+- counts: `282` selected candidate rows, `2256` outcome rows, `93` broad near-boundary candidates, `26` preferred near-boundary candidates, `2` accepted outcome rows, `0` warmup-history-positive rows, `1584` action-critical rows, `744` normal-failed rows.
+- interpretation: M1405 fixes the M1401 preferred-window sparsity but still does not create wrong-warmup, delayed-history, removed-warmup, or shortened-warmup outcome positives.
+- accepted rows: both accepted rows are `reset_hidden`, high-margin, margin-gap-only effects from seed `140404` and one capability pair; they do not support self-identification.
+- guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1406-paper-route-mild-warmup-outcome-result-audit.json`.
+- next: `m1406-paper-route-mild-warmup-outcome-result-audit`
