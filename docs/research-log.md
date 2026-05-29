@@ -26758,3 +26758,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family decisive-task ranking, checkpoint promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1670-paper-route-controller-family-decisive-evidence-matrix-design.json`
 - next: `m1670-paper-route-controller-family-decisive-evidence-matrix-design`
+
+## M1670 Paper-Route Controller-Family Decisive Evidence Matrix Design
+
+- status: completed
+- decision: `controller_family_decisive_matrix_design_admit_protocol_preflight`
+- artifact: `docs/m1670-paper-route-controller-family-decisive-evidence-matrix-design.md`
+- controller families: L0 current masked, L1 one-step, L2 windows 13/25/50/100, L2 current-tiled controls, L3 online GRU, L3 corrected reset control
+- evidence layers: standard M1497 profile baseline, T4/T5 decisive-history task families, M1615 clean active-set package, M1666 artifact-route regression guardrail
+- stage plan: protocol preflight, one-seed public plumbing pilot, three-seed public decisive matrix, later source-diverse holdout design
+- claim rules: negative/reactive, finite-window, recurrent advantage, and strong self-ID claims are separated by explicit controller and intervention evidence
+- stop rules: actor-contract violation, missing current-tiled/reset controls, hidden-specific package leakage, public-row overfit, profile-specific tuning, or private-holdout contamination
+- supported: the next evidence increment should be fair controller-family protocol preflight rather than exact-residual artifact repair
+- unsupported: controller-family ranking, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1671-paper-route-controller-family-decisive-matrix-protocol-preflight.json`
+- next: `m1671-paper-route-controller-family-decisive-matrix-protocol-preflight`

@@ -16,21 +16,19 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1669-paper-route-controller-family-current-state-audit
+m1670-paper-route-controller-family-decisive-evidence-matrix-design
 ```
 
 Current next task:
 
 ```text
-m1670-paper-route-controller-family-decisive-evidence-matrix-design
+m1671-paper-route-controller-family-decisive-matrix-protocol-preflight
 ```
 
-M1669 audited the current controller-family evidence after M1668 closed the
-exact-residual artifact route. Standard profile evidence remains negative or
-conditional for L2 history necessity and L3 online-GRU advantage; the project has
-clean public active-set rows in the M1615 package, but no controller-family
-ranking on decisive-history tasks. The next task is M1670: design a fair
-L0/L1/L2/L2-current-tiled/L3/L3-reset decisive evidence matrix before any
+M1670 designed the fair controller-family decisive evidence matrix. The next
+step is M1671 no-training protocol preflight: verify all 12 corrected profile
+configs, standard-profile summaries, clean active-set package, and artifact
+failure summaries are readable, then write `matrix_protocol.json` before any
 training, replay, PPO, promotion, private holdout, actor-input change, or
 level3 claim.
 

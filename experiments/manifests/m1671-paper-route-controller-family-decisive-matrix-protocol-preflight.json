@@ -1,0 +1,173 @@
+{
+  "id": "m1671-paper-route-controller-family-decisive-matrix-protocol-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_protocol_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m1670-paper-route-controller-family-decisive-evidence-matrix-design.md",
+      "configs/paper_route_corrected_profiles",
+      "runs/m1497_go_no_go_profile_three_seed_public_pilot/summary.json",
+      "runs/m1615_contour_aware_candidate_corpus/summary.json",
+      "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1670-paper-route-controller-family-decisive-evidence-matrix-design.json"
+    ],
+    "parent_objective": [
+      "materialize a no-training controller-family decisive matrix protocol preflight"
+    ],
+    "derived_from": [
+      "m1670-paper-route-controller-family-decisive-evidence-matrix-design"
+    ],
+    "blocked_by": [
+      "need machine-readable matrix protocol before any training or replay"
+    ],
+    "supersedes": [
+      "direct one-seed matrix pilot after M1670",
+      "direct private holdout after M1670",
+      "direct artifact repair after M1670"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1671-paper-route-controller-family-decisive-matrix-protocol-preflight.md",
+  "public_gates": [
+    "M1671 must not train or replay policies",
+    "M1671 must verify all 12 corrected profile configs exist",
+    "M1671 must verify standard profile, clean package, and artifact-failure summaries are readable",
+    "M1671 must write a machine-readable matrix protocol",
+    "M1671 must keep private holdout, promotion, PPO, actor-input changes, and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not repair the M1663 artifact",
+    "do not run a one-seed pilot",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_decisive_evidence_matrix",
+    "evidence_axis": "C_matrix_protocol_preflight",
+    "evidence_increment": "creates a no-training protocol artifact for the controller-family decisive evidence matrix",
+    "claim_scope": "infrastructure preflight only; no training, replay, PPO, promotion, private holdout, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if any corrected profile config is missing",
+      "stop if clean package or standard profile artifacts cannot be read",
+      "stop if the protocol treats public proof rows as private holdout",
+      "stop if protocol creation requires actor input changes or profile-specific tuning"
+    ],
+    "fallback_plan": [
+      "route to config repair if profiles are missing or stale",
+      "route to artifact audit if M1615 or M1497 summaries are unreadable",
+      "route to task-source design if clean package cannot be mapped honestly",
+      "route back to M1670 design audit if protocol assumptions conflict with the claim ladder"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1670 admits one no-training protocol preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "controller-family decisive matrix protocol preflight",
+    "admission_evidence": [
+      "M1670 defines controller families, evidence layers, metrics, and stop rules",
+      "M1670 blocks training and replay until a machine-readable protocol exists"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "protocol preflight tooling if needed",
+      "runs/m1671_controller_family_decisive_matrix_protocol artifacts",
+      "M1671 status queue scoreboard research log and review",
+      "one follow-up manifest after audit"
+    ],
+    "next_stage_criteria": [
+      "matrix_protocol.json exists",
+      "summary.json reports profile config availability",
+      "summary.json reports artifact readability",
+      "summary.json reports guardrail violations",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; preflight must preserve current-response and current-tiled controls as first-class matrix entries.",
+    "history_necessity_tests": [
+      "protocol must include L2 current-tiled controls",
+      "protocol must include L3 reset-control",
+      "protocol must keep reset zero-current zero-action wrong-history and delayed-history metrics separated where later applicable"
+    ],
+    "temporal_evidence_window": "M1670 design and referenced public artifacts only.",
+    "negative_result_policy": "If preflight finds the clean package is L3-specific, route to task-source regeneration rather than forcing a self-ID claim.",
+    "allowed_claims": [
+      "protocol preflight infrastructure only",
+      "no training, no replay, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-training preflight can materialize the controller-family decisive matrix protocol and verify required configs and artifacts before any costly run.",
+  "success_criteria": [
+    "runs/m1671_controller_family_decisive_matrix_protocol/summary.json exists",
+    "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json exists",
+    "all 12 corrected profile configs are accounted for",
+    "M1497 standard profile summary is readable",
+    "M1615 clean package summary is readable",
+    "M1666 artifact-failure summary is readable",
+    "guardrail violation count is reported",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "protocol artifact is missing",
+    "profile configs are missing",
+    "referenced public summaries are unreadable",
+    "protocol treats public rows as private holdout",
+    "training replay PPO promotion private holdout or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "preflight",
+      "command": "create or run no-training controller-family decisive matrix protocol preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1671_controller_family_decisive_matrix_protocol/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_protocol_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m1670-paper-route-controller-family-decisive-evidence-matrix-design.md",
+    "configs/paper_route_corrected_profiles",
+    "runs/m1497_go_no_go_profile_three_seed_public_pilot/summary.json",
+    "runs/m1615_contour_aware_candidate_corpus/summary.json",
+    "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json"
+  ],
+  "decision_rule": "M1671 passes if it materializes the matrix protocol and verifies config/artifact availability without training, replay, PPO, promotion, private holdout, or actor-input changes.",
+  "next_blocker": "m1671-paper-route-controller-family-decisive-matrix-protocol-preflight"
+}

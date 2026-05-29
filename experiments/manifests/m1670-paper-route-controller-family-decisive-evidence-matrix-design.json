@@ -168,6 +168,14 @@
     "runs/m1615_contour_aware_candidate_corpus/summary.json",
     "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1670-paper-route-controller-family-decisive-evidence-matrix-design.md",
+    "decision": "controller_family_decisive_matrix_design_admit_protocol_preflight",
+    "supported_claim": "the next paper-route evidence increment should be a fair controller-family decisive matrix protocol, not artifact repair",
+    "unsupported_claim": "controller-family ranking, paper-level evidence, or level3 self-identification",
+    "next_manifest": "experiments/manifests/m1671-paper-route-controller-family-decisive-matrix-protocol-preflight.json"
+  },
   "decision_rule": "M1670 passes if it designs the fair controller-family decisive evidence matrix and chooses the next route before implementation, training, replay, PPO, promotion, or private holdout.",
-  "next_blocker": "m1670-paper-route-controller-family-decisive-evidence-matrix-design"
+  "next_blocker": "m1671-paper-route-controller-family-decisive-matrix-protocol-preflight"
 }
