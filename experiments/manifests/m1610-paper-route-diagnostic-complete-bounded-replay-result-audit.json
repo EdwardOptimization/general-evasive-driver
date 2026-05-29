@@ -154,6 +154,52 @@
     "runs/m1609_diagnostic_complete_bounded_replay/summary.json",
     "docs/m1609-paper-route-diagnostic-complete-bounded-replay-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.md",
+    "decision": "diagnostic_complete_bounded_replay_audit_admit_materialization_design",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "primary_replay_directed_pair_count": 144,
+    "diagnostic_replay_directed_pair_count": 232,
+    "primary_clean_directed_pair_count": 39,
+    "primary_clean_source_edge_count": 4,
+    "max_primary_clean_source_edge_share": 0.3333333333333333,
+    "diagnostic_dominated_or_control_count": 81,
+    "diagnostic_clean_share": 0.008620689655172414,
+    "guardrail_violation_count": 0,
+    "public_gate_overfit_risk": "medium_high",
+    "supported_claims": [
+      "M1609 fixed the M1605 capped-diagnostic shortfall",
+      "the M1602 primary clean contour survives full diagnostic replay",
+      "the full diagnostic replay preserves enough dominated/control evidence",
+      "the public-pass rows are eligible for design-only materialization planning"
+    ],
+    "unsupported_claims": [
+      "candidate materialization",
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "paper-level self-identification",
+      "level3 anticipatory self-identification",
+      "broad distribution generalization"
+    ],
+    "next_manifest": "experiments/manifests/m1611-paper-route-contour-aware-candidate-materialization-design.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1610 passes if it audits M1609 and chooses the next route before any materialization, training, PPO, or promotion.",
-  "next_blocker": "m1610-paper-route-diagnostic-complete-bounded-replay-result-audit"
+  "next_blocker": "m1611-paper-route-contour-aware-candidate-materialization-design"
 }

@@ -16,23 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1609-paper-route-diagnostic-complete-bounded-replay-implementation
+m1610-paper-route-diagnostic-complete-bounded-replay-result-audit
 ```
 
 Current next task:
 
 ```text
-m1610-paper-route-diagnostic-complete-bounded-replay-result-audit
+m1611-paper-route-contour-aware-candidate-materialization-design
 ```
 
-M1609 ran the label-blind diagnostic-complete bounded replay using all `144`
-primary rows and all `232` diagnostic rows. Public gates passed:
-`primary_clean_directed_pair_count=39`, `diagnostic_dominated_or_control_count=81`,
-`diagnostic_clean_share=0.008620689655172414`, and `guardrail_violation_count=0`.
-The next task is M1610 result audit. Candidate materialization,
-training-corpus export, training, PPO, promotion, private holdout,
-actor-input changes, threshold relaxation, label-selected diagnostics, and
-level3 self-ID claims remain blocked.
+M1610 audited the M1609 diagnostic-complete replay pass and admits design-only
+materialization planning. The pass supports that the M1602 primary clean contour
+survives full diagnostic replay and that diagnostic/control evidence is
+preserved, but it remains public proof evidence only. The next task is M1611
+materialization design. Actual candidate materialization, training-corpus
+export, training, PPO, promotion, private holdout, actor-input changes,
+threshold relaxation, label-selected diagnostics, and level3 self-ID claims
+remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

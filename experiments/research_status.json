@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1618,
+    "completed": 1619,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "runs/m1609_diagnostic_complete_bounded_replay/summary.json",
+      "command_log": "docs/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1609_diagnostic_complete_bounded_replay",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1609-paper-route-diagnostic-complete-bounded-replay-implementation"
+      "task_id": "m1610-paper-route-diagnostic-complete-bounded-replay-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.json",
-      "hypothesis": "M1609's public pass should be audited before any candidate materialization, corpus export, training, or PPO decision.",
-      "id": "m1610-paper-route-diagnostic-complete-bounded-replay-result-audit",
+      "command": "see experiments/manifests/m1611-paper-route-contour-aware-candidate-materialization-design.json",
+      "hypothesis": "A design-only materialization plan can preserve M1609 primary clean evidence and diagnostic controls before any candidate export.",
+      "id": "m1611-paper-route-contour-aware-candidate-materialization-design",
       "kind": "gate",
-      "notes": "Pending: audit M1609 public pass before any next step",
-      "priority": 16050,
+      "notes": "Pending: design candidate materialization without executing it",
+      "priority": 16060,
       "status": "pending",
-      "success_artifact": "docs/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.md"
+      "success_artifact": "docs/m1611-paper-route-contour-aware-candidate-materialization-design.md"
     },
-    "updated_at_utc": "20260529T175351Z"
+    "updated_at_utc": "20260529T175657Z"
 }

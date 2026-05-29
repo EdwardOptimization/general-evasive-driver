@@ -1,0 +1,165 @@
+{
+  "id": "m1611-paper-route-contour-aware-candidate-materialization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1609_diagnostic_complete_bounded_replay/summary.json",
+      "runs/m1609_diagnostic_complete_bounded_replay/primary_classified_rows.csv",
+      "runs/m1609_diagnostic_complete_bounded_replay/diagnostic_classified_rows.csv",
+      "docs/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.json"
+    ],
+    "parent_objective": [
+      "design contour-aware candidate materialization after diagnostic-complete replay audit"
+    ],
+    "derived_from": [
+      "m1610-paper-route-diagnostic-complete-bounded-replay-result-audit"
+    ],
+    "blocked_by": [
+      "M1610 admits design-only materialization planning but still blocks actual materialization and corpus export"
+    ],
+    "supersedes": [
+      "direct candidate materialization from M1609",
+      "direct training-corpus export from M1609",
+      "direct PPO after M1609"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1611-paper-route-contour-aware-candidate-materialization-design.md",
+  "public_gates": [
+    "M1611 must design materialization without executing it",
+    "M1611 must preserve primary and diagnostic row separation",
+    "M1611 must define row eligibility from M1609 primary clean rows and diagnostic guardrails",
+    "M1611 must preserve exact replay ids and source-edge accounting",
+    "M1611 must require a post-materialization audit before corpus export or training",
+    "M1611 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not materialize candidates",
+    "do not export a training corpus",
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun replay",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not select diagnostics by labels",
+    "do not relax clean selector thresholds",
+    "do not relax the max clean source-edge share threshold",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_candidate_materialization_design",
+    "evidence_increment": "designs candidate materialization from M1609 public-pass rows without executing it",
+    "claim_scope": "design only; no materialization, replay rerun, simulator rerun, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design materializes candidates or exports a corpus",
+      "stop if design drops diagnostic guardrails",
+      "stop if design routes directly to training or PPO"
+    ],
+    "fallback_plan": [
+      "admit one materialization implementation only if row eligibility and audit guardrails are explicit",
+      "pivot if materialization cannot preserve diagnostic separation",
+      "stop if the materialization path is too public-row-specific"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1610 admits design-only materialization planning",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "contour-aware candidate materialization design",
+    "admission_evidence": [
+      "M1609 public pass preserves primary clean rows and diagnostic controls",
+      "M1610 admits design-only materialization planning"
+    ],
+    "blocked_shortcuts": [
+      "do not materialize candidates",
+      "do not export a training corpus",
+      "do not train",
+      "do not run PPO",
+      "do not run implementation smoke",
+      "do not use private holdout",
+      "do not promote a checkpoint",
+      "do not change actor inputs",
+      "do not relax thresholds",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1611 design document",
+      "M1611 status queue scoreboard research log and review",
+      "one follow-up manifest if design admits implementation, synthesis, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "row eligibility is explicit",
+      "diagnostic guardrails are explicit",
+      "required artifacts are explicit",
+      "post-materialization audit is required",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1611 is design-only over public rows and cannot strengthen self-ID claims.",
+    "history_necessity_tests": [
+      "M1609 primary clean rows",
+      "M1609 diagnostic/control rows",
+      "M1609 history/control labels"
+    ],
+    "temporal_evidence_window": "M1609 replay rows and classifications.",
+    "negative_result_policy": "If materialization design cannot preserve diagnostic guardrails, stop or pivot rather than exporting a corpus.",
+    "allowed_claims": [
+      "materialization design and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A design-only materialization plan can preserve M1609 primary clean evidence and diagnostic controls before any candidate export.",
+  "success_criteria": [
+    "docs/m1611-paper-route-contour-aware-candidate-materialization-design.md exists",
+    "design preserves primary and diagnostic row separation",
+    "row eligibility from M1609 is explicit",
+    "source-edge and exact replay-id accounting are explicit",
+    "post-materialization audit requirement is explicit",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design materializes candidates or exports a corpus",
+    "design drops diagnostic guardrails",
+    "design routes directly to training PPO promotion private holdout corpus export actor-input changes or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1611-paper-route-contour-aware-candidate-materialization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1611-paper-route-contour-aware-candidate-materialization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1609_diagnostic_complete_bounded_replay/summary.json",
+    "docs/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.md"
+  ],
+  "decision_rule": "M1611 passes if it designs materialization while keeping actual materialization, corpus export, training, PPO, and promotion blocked.",
+  "next_blocker": "m1611-paper-route-contour-aware-candidate-materialization-design"
+}

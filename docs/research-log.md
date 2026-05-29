@@ -25530,3 +25530,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.json`
 - next: `m1610-paper-route-diagnostic-complete-bounded-replay-result-audit`
+
+## M1610 Paper-Route Diagnostic-Complete Bounded Replay Result Audit
+
+- status: completed
+- decision: `diagnostic_complete_bounded_replay_audit_admit_materialization_design`
+- artifact: `docs/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.md`
+- failure taxonomy: `none`
+- primary replay directed pairs: 144
+- diagnostic replay directed pairs: 232
+- primary clean directed pairs: 39
+- primary clean source edges: 4
+- max primary clean source-edge share: 0.3333333333333333
+- diagnostic dominated/control count: 81
+- diagnostic clean share: 0.008620689655172414
+- guardrail violation count: 0
+- public-gate overfit risk: `medium_high`
+- supported: M1609 fixed the M1605 capped-diagnostic shortfall; primary clean contour survives full diagnostic replay; diagnostic/control evidence is preserved; public-pass rows are eligible for design-only materialization planning
+- unsupported: candidate materialization, corpus export, PPO, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification, broad distribution generalization
+- route decision: admit design-only contour-aware candidate materialization planning
+- replay started: false in M1610
+- history interventions executed: false in M1610
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1611-paper-route-contour-aware-candidate-materialization-design.json`
+- next: `m1611-paper-route-contour-aware-candidate-materialization-design`
