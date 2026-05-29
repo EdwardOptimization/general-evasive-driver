@@ -26355,3 +26355,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked: PPO, training, projection, proposal repair, checkpoint artifact, closed-loop evaluation, promotion, private holdout, actor-input changes, paper-level and level3 self-ID claims
 - follow-up manifest: `experiments/manifests/m1650-paper-route-proposal-source-preflight-implementation.json`
 - next: `m1650-paper-route-proposal-source-preflight-implementation`
+
+## M1650 Paper-Route Proposal Source Preflight Implementation
+
+- status: completed
+- decision: `proposal_source_preflight_public_pass_route_to_audit`
+- artifact: `runs/m1650_proposal_source_preflight/summary.json`
+- doc: `docs/m1650-paper-route-proposal-source-preflight-implementation.md`
+- code: `src/autodrift/proposal_source_preflight.py`
+- tests: `tests/test_proposal_source_preflight.py`
+- focused tests: `2 passed in 2.05s`
+- source candidate count: `10`
+- branch-compatible candidate count: `10`
+- base anchor count: `1`
+- larger proposal candidate count: `5`
+- selected repair candidate count: `5`
+- selected alphas: `0.2`, `0.4`, `0.6`, `0.8`, `1.0`
+- checkpoint artifact count: `0`
+- projection used count: `0`
+- proposal repaired count: `0`
+- diagnostic rows used as positive count: `0`
+- donor-plus action used as loss target count: `0`
+- actor input contract changed count: `0`
+- training/PPO/promotion/private holdout/level3 claim counts: `0`
+- passes public smoke gates: true
+- null result classification: `proposal_source_preflight_public_pass`
+- supported: M1362 same-line interpolation candidates provide branch-compatible proposal-source metadata for selected-proposal repair design
+- unsupported: proposal repair, PPO-proposal repair, checkpoint artifact generation, closed-loop replay improvement, behavior retention, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1651-paper-route-proposal-source-preflight-result-audit.json`
+- next: `m1651-paper-route-proposal-source-preflight-result-audit`

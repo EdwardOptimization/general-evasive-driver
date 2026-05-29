@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1658,
+    "completed": 1659,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1649-paper-route-ppo-proposal-damped-projection-repair-design.md",
+      "command_log": "docs/m1650-paper-route-proposal-source-preflight-implementation.md",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1650_proposal_source_preflight",
       "status": "completed",
-      "task_id": "m1649-paper-route-ppo-proposal-damped-projection-repair-design"
+      "task_id": "m1650-paper-route-proposal-source-preflight-implementation"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1650-paper-route-proposal-source-preflight-implementation.json",
-      "hypothesis": "M1362 same-line interpolation candidates provide branch-compatible proposal sources for a later no-checkpoint damped projection repair probe.",
-      "id": "m1650-paper-route-proposal-source-preflight-implementation",
-      "kind": "infrastructure",
-      "notes": "Pending: implement no-checkpoint proposal-source preflight before any repair projection or checkpoint artifact",
-      "priority": 16450,
+      "command": "see experiments/manifests/m1651-paper-route-proposal-source-preflight-result-audit.json",
+      "hypothesis": "The M1650 source preflight is sufficient to admit selected-proposal no-checkpoint repair design without overstating it as repair or closed-loop evidence.",
+      "id": "m1651-paper-route-proposal-source-preflight-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit proposal-source preflight before selected-proposal repair design",
+      "priority": 16460,
       "status": "pending",
-      "success_artifact": "runs/m1650_proposal_source_preflight/summary.json"
+      "success_artifact": "docs/m1651-paper-route-proposal-source-preflight-result-audit.md"
     },
-    "updated_at_utc": "20260529T205612Z"
+    "updated_at_utc": "20260529T210118Z"
 }

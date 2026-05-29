@@ -185,6 +185,37 @@
     "runs/m1362_bidirectional_active_set_interpolation_preflight/alpha_summary.csv",
     "runs/m1630_contour_aware_full_target_materialization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1650_proposal_source_preflight/summary.json",
+    "doc": "docs/m1650-paper-route-proposal-source-preflight-implementation.md",
+    "code": "src/autodrift/proposal_source_preflight.py",
+    "tests": "tests/test_proposal_source_preflight.py",
+    "decision": "proposal_source_preflight_public_pass_route_to_audit",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "focused_test_result": "2 passed",
+    "source_candidate_count": 10,
+    "branch_compatible_candidate_count": 10,
+    "base_anchor_count": 1,
+    "larger_proposal_candidate_count": 5,
+    "selected_repair_candidate_count": 5,
+    "checkpoint_artifact_count": 0,
+    "projection_used_count": 0,
+    "proposal_repaired_count": 0,
+    "diagnostic_rows_used_as_positive_count": 0,
+    "donor_plus_action_used_as_loss_target_count": 0,
+    "actor_input_contract_changed_count": 0,
+    "training_started_count": 0,
+    "ppo_used_count": 0,
+    "promoted_count": 0,
+    "private_holdout_used_count": 0,
+    "level3_self_id_claim_count": 0,
+    "passes_public_smoke_gates": true,
+    "null_result_classification": "proposal_source_preflight_public_pass",
+    "next_manifest": "experiments/manifests/m1651-paper-route-proposal-source-preflight-result-audit.json"
+  },
   "decision_rule": "M1650 passes if it identifies branch-compatible proposal sources and selected repair candidates without projection repair PPO or checkpoint artifacts.",
-  "next_blocker": "m1650-paper-route-proposal-source-preflight-implementation"
+  "next_blocker": "m1651-paper-route-proposal-source-preflight-result-audit"
 }
