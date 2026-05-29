@@ -21415,3 +21415,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source preflight, replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1447-paper-route-source-step-preflight-support-implementation.json`.
 - next: `m1447-paper-route-source-step-preflight-support-implementation`
+
+## 20260529T042200Z - m1447-paper-route-source-step-preflight-support-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1447-paper-route-source-step-preflight-support-implementation.md`
+- decision: `source_step_preflight_support_implemented_admit_source_step_preflight_smoke`
+- implementation: `src/autodrift/bounded_relocation_replay_probe.py`
+- tests: `tests/test_bounded_relocation_replay_probe.py`
+- focused result: `14 passed in 0.97s`
+- behavior: added `--candidate-step-column`, defaulting to `reveal_step`, with `source_step` support for M1445 follow-up.
+- artifact contract: preflight and replay rows preserve `reveal_step` and add `candidate_step` plus `candidate_step_column`.
+- guardrail: no source preflight, replay, outcome intervention, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1448-paper-route-source-step-preflight-smoke.json`.
+- next: `m1448-paper-route-source-step-preflight-smoke`

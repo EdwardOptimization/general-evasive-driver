@@ -1,0 +1,81 @@
+{
+  "decision_reason": "M1447 implements explicit candidate-step column support with default reveal_step compatibility and focused tests passing without preflight replay training or actor-input changes",
+  "failure_criteria": [
+    "implementation is missing",
+    "default reveal_step behavior regresses",
+    "source_step behavior is untested",
+    "implementation starts source preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not mutate candidate CSVs to fake source_step support"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260529T041122Z",
+  "hypothesis": "The bounded relocation probe can support source_step candidates through an explicit candidate-step column without breaking reveal_step compatibility.",
+  "lineage": {
+    "blocked_by": [
+      "source-step candidates cannot be preflighted or replayed until the tool can use source_step instead of reveal_step"
+    ],
+    "derived_from": [
+      "m1446-paper-route-source-step-preflight-support-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1446-paper-route-source-step-preflight-support-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1446-paper-route-source-step-preflight-support-design.md"
+    ],
+    "parent_objective": [
+      "implement candidate-step column support in bounded relocation preflight and replay"
+    ],
+    "supersedes": [
+      "manual CSV mutation of reveal_step to source_step"
+    ]
+  },
+  "milestone": "m1447-paper-route-source-step-preflight-support-implementation",
+  "next_blocker": "m1448-paper-route-source-step-preflight-smoke",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_step_preflight_support_implemented_admit_source_step_preflight_smoke",
+  "public_gates": [
+    "M1447 must implement candidate-step column support with default reveal_step compatibility",
+    "M1447 must add focused tests for source_step and reveal_step behavior",
+    "M1447 must not run source preflight bounded replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1447-paper-route-source-step-preflight-support-implementation.md",
+    "clearance_margin_mean": "",
+    "decision": "source_step_preflight_support_implemented_admit_source_step_preflight_smoke",
+    "milestone": "m1447-paper-route-source-step-preflight-support-implementation",
+    "reason": "M1447 implements explicit candidate-step column support with default reveal_step compatibility and focused tests passing without preflight replay training or actor-input changes",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "candidate-step column support is implemented",
+    "focused tests pass for source_step and reveal_step behavior",
+    "docs/m1447-paper-route-source-step-preflight-support-implementation.md exists",
+    "no source preflight replay training PPO promotion private holdout corpus export or actor-input change occurs"
+  ],
+  "type": "infrastructure"
+}

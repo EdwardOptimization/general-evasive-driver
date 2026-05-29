@@ -16,24 +16,48 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1446-paper-route-source-step-preflight-support-design
+m1447-paper-route-source-step-preflight-support-implementation
 ```
 
 Current next task:
 
 ```text
-m1447-paper-route-source-step-preflight-support-implementation
+m1448-paper-route-source-step-preflight-smoke
 ```
 
-M1446 completed the source-step preflight support design. M1445 passed the
-row-level forward source miner, but it exposed that the current bounded
-relocation preflight/replay tool reconstructs traces at `reveal_step` while the
-new candidate pool is intentionally anchored at `source_step`. The current
+M1447 implemented explicit source-step preflight/replay support. The current
 public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1447 result:
+
+```text
+decision: source_step_preflight_support_implemented_admit_source_step_preflight_smoke
+implementation: src/autodrift/bounded_relocation_replay_probe.py
+tests: tests/test_bounded_relocation_replay_probe.py
+focused_test_result: 14 passed in 0.97s
+default candidate step column: reveal_step
+M1445 follow-up candidate step column: source_step
+next: m1448-paper-route-source-step-preflight-smoke
+```
+
+M1448 should run preflight-only on:
+
+```text
+runs/m1445_forward_geometry_source_miner_smoke/selected_candidate_rows.csv
+```
+
+with:
+
+```text
+--candidate-step-column source_step
+```
+
+It must not run bounded replay, outcome interventions, training, PPO,
+promotion, private holdout, corpus export, or actor-input changes.
 
 M1446 result:
 
@@ -46,8 +70,13 @@ default candidate step column: reveal_step
 next: m1447-paper-route-source-step-preflight-support-implementation
 ```
 
-M1447 should implement explicit `--candidate-step-column` support in the
-bounded relocation preflight/replay probe:
+M1446 completed the source-step preflight support design. M1445 passed the
+row-level forward source miner, but it exposed that the current bounded
+relocation preflight/replay tool reconstructs traces at `reveal_step` while the
+new candidate pool is intentionally anchored at `source_step`.
+
+M1447 implemented explicit `--candidate-step-column` support in the bounded
+relocation preflight/replay probe:
 
 ```text
 default: reveal_step

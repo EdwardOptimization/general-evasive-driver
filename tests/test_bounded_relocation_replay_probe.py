@@ -5,8 +5,10 @@ from autodrift.bounded_relocation_replay_probe import (
     build_arg_parser,
     build_geometry_preflight_summary,
     build_replay_summary,
+    candidate_step_for_row,
     classify_actual_replay_result,
     classify_relocation_geometry,
+    geometry_preflight_from_trace_candidates,
     geometry_preflight_frame,
     select_geometry_aware_replay_candidates,
     select_replay_candidates,
@@ -167,6 +169,96 @@ def test_geometry_preflight_frame_filters_forward_unclipped_candidates():
     assert "relocation_body_x_clipped" in preflight.loc[2, "geometry_rejection_reason"]
 
 
+def test_candidate_step_defaults_to_reveal_step_and_supports_source_step():
+    row = {"reveal_step": 48, "source_step": 24}
+
+    assert candidate_step_for_row(row, "reveal_step") == 48
+    assert candidate_step_for_row(row, "source_step") == 24
+
+
+def test_candidate_step_missing_column_raises_clear_error():
+    row = {"reveal_step": 48}
+
+    try:
+        candidate_step_for_row(row, "source_step")
+    except ValueError as exc:
+        assert "candidate step column not found: source_step" in str(exc)
+    else:  # pragma: no cover - assertion clarity.
+        raise AssertionError("expected missing candidate step column to raise")
+
+
+def test_geometry_preflight_from_trace_candidates_uses_source_step(monkeypatch):
+    calls: list[tuple[int, str, int]] = []
+    frame = pd.DataFrame(
+        [
+            {
+                **_candidate(seed=7, capability_pair="a->b"),
+                "source_step": 24,
+                "body_longitudinal_offset": 0.5,
+            }
+        ]
+    )
+
+    def trace_for(seed: int, fault: str, step: int):
+        calls.append((seed, fault, step))
+        return [object()]
+
+    monkeypatch.setattr(
+        "autodrift.bounded_relocation_replay_probe._trace_to_outcome_snapshot",
+        lambda point: object(),
+    )
+    monkeypatch.setattr(
+        "autodrift.bounded_relocation_replay_probe.obstacle_body_geometry",
+        lambda snapshot: (8.0, 0.0, 0.5),
+    )
+
+    preflight, rejected = geometry_preflight_from_trace_candidates(
+        frame,
+        trace_for=trace_for,
+        candidate_step_column="source_step",
+    )
+
+    assert calls == [(7, "preferred", 24)]
+    assert rejected == []
+    assert preflight.loc[0, "reveal_step"] == 48
+    assert preflight.loc[0, "candidate_step"] == 24
+    assert preflight.loc[0, "candidate_step_column"] == "source_step"
+    assert bool(preflight.loc[0, "geometry_pass"]) is True
+
+
+def test_geometry_preflight_from_trace_candidates_defaults_to_reveal_step(monkeypatch):
+    calls: list[tuple[int, str, int]] = []
+    frame = pd.DataFrame(
+        [
+            {
+                **_candidate(seed=8, capability_pair="a->b"),
+                "source_step": 24,
+                "body_longitudinal_offset": 0.5,
+            }
+        ]
+    )
+
+    def trace_for(seed: int, fault: str, step: int):
+        calls.append((seed, fault, step))
+        return [object()]
+
+    monkeypatch.setattr(
+        "autodrift.bounded_relocation_replay_probe._trace_to_outcome_snapshot",
+        lambda point: object(),
+    )
+    monkeypatch.setattr(
+        "autodrift.bounded_relocation_replay_probe.obstacle_body_geometry",
+        lambda snapshot: (8.0, 0.0, 0.5),
+    )
+
+    preflight, rejected = geometry_preflight_from_trace_candidates(frame, trace_for=trace_for)
+
+    assert calls == [(8, "preferred", 48)]
+    assert rejected == []
+    assert preflight.loc[0, "candidate_step"] == 48
+    assert preflight.loc[0, "candidate_step_column"] == "reveal_step"
+
+
 def test_select_geometry_aware_replay_candidates_enforces_caps_and_diversity():
     frame = pd.DataFrame(
         [
@@ -259,6 +351,7 @@ def test_arg_parser_exposes_preflight_only_without_replay_flag():
 
     assert args.preflight_only is True
     assert args.geometry_aware_selector is False
+    assert args.candidate_step_column == "reveal_step"
 
 
 def test_build_replay_summary_emits_contract_flags(tmp_path):

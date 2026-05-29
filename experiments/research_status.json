@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1456,
+    "completed": 1457,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1446-paper-route-source-step-preflight-support-design.md",
+    "command_log": "docs/m1447-paper-route-source-step-preflight-support-implementation.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1446-paper-route-source-step-preflight-support-design"
+    "task_id": "m1447-paper-route-source-step-preflight-support-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1447-paper-route-source-step-preflight-support-implementation.json",
-    "hypothesis": "The bounded relocation probe can support source_step candidates through an explicit candidate-step column without breaking reveal_step compatibility.",
-    "id": "m1447-paper-route-source-step-preflight-support-implementation",
+    "command": "see experiments/manifests/m1448-paper-route-source-step-preflight-smoke.json",
+    "hypothesis": "M1445 selected candidates remain forward, unclipped, source-diverse when preflight reconstructs the trace at source_step.",
+    "id": "m1448-paper-route-source-step-preflight-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: implement explicit candidate-step column support and focused tests without running source preflight replay or training",
-    "priority": 14420,
+    "notes": "Pending: run preflight-only on M1445 candidates with --candidate-step-column source_step without replay or training",
+    "priority": 14430,
     "status": "pending",
-    "success_artifact": "docs/m1447-paper-route-source-step-preflight-support-implementation.md"
+    "success_artifact": "docs/m1448-paper-route-source-step-preflight-smoke.md"
   },
-  "updated_at_utc": "20260529T041200Z"
+  "updated_at_utc": "20260529T042200Z"
 }

@@ -46,6 +46,7 @@ DEFAULT_MIN_SOURCE_BODY_X = 4.0
 DEFAULT_PER_SEED_CAP = 24
 DEFAULT_PER_REVEAL_BUCKET_CAP = 12
 DEFAULT_PER_VARIANT_CAP = 48
+DEFAULT_CANDIDATE_STEP_COLUMN = "reveal_step"
 
 
 def _finite(value: Any, default: float = float("nan")) -> float:
@@ -71,6 +72,15 @@ def _source_key(row: pd.Series | dict[str, Any]) -> str:
         str(row.get(column, ""))
         for column in ("source_index", "seed", "reveal_step", "preferred_fault", "wrong_fault")
     )
+
+
+def candidate_step_for_row(row: pd.Series | dict[str, Any], candidate_step_column: str) -> int:
+    if candidate_step_column not in row:
+        raise ValueError(f"candidate step column not found: {candidate_step_column}")
+    value = row.get(candidate_step_column)
+    if pd.isna(value):
+        raise ValueError(f"candidate step column is not finite: {candidate_step_column}")
+    return int(value)
 
 
 def _require_columns(frame: pd.DataFrame, required: tuple[str, ...]) -> None:
@@ -539,18 +549,22 @@ def geometry_preflight_from_trace_candidates(
     candidates: pd.DataFrame,
     *,
     trace_for: Callable[[int, str, int], list[TracePoint]],
+    candidate_step_column: str = DEFAULT_CANDIDATE_STEP_COLUMN,
     min_source_body_x: float = DEFAULT_MIN_SOURCE_BODY_X,
     min_body_x: float = DEFAULT_MIN_BODY_X,
     min_half_width: float = DEFAULT_MIN_HALF_WIDTH,
 ) -> tuple[pd.DataFrame, list[dict[str, Any]]]:
+    if candidate_step_column not in candidates.columns:
+        raise ValueError(f"candidate step column not found: {candidate_step_column}")
     preflight_rows: list[dict[str, Any]] = []
     rejected_rows: list[dict[str, Any]] = []
     for preflight_index, row in candidates.reset_index(drop=True).iterrows():
         seed = int(row["seed"])
         reveal_step = int(row["reveal_step"])
+        candidate_step = candidate_step_for_row(row, candidate_step_column)
         preferred_fault = str(row["preferred_fault"])
         try:
-            preferred_trace = trace_for(seed, preferred_fault, reveal_step)
+            preferred_trace = trace_for(seed, preferred_fault, candidate_step)
             snapshot = _trace_to_outcome_snapshot(preferred_trace[-1])
             source_x, source_y, source_half_width = obstacle_body_geometry(snapshot)
             preflight = classify_relocation_geometry(
@@ -570,6 +584,8 @@ def geometry_preflight_from_trace_candidates(
                     "preflight_index": int(preflight_index),
                     "seed": seed,
                     "reveal_step": reveal_step,
+                    "candidate_step": int(candidate_step),
+                    "candidate_step_column": str(candidate_step_column),
                     "preferred_fault": preferred_fault,
                     "variant": str(row.get("variant", "")),
                     "geometry_rejection_reason": "trace_or_geometry_failed",
@@ -579,6 +595,9 @@ def geometry_preflight_from_trace_candidates(
             continue
         output = dict(row)
         output["preflight_index"] = int(preflight_index)
+        output["reveal_step"] = reveal_step
+        output["candidate_step"] = int(candidate_step)
+        output["candidate_step_column"] = str(candidate_step_column)
         output.update(preflight)
         preflight_rows.append(output)
     return pd.DataFrame(preflight_rows), rejected_rows
@@ -695,6 +714,7 @@ def run_geometry_preflight_only_probe(
     history_length: int,
     min_sequence_action_l2: float,
     min_source_body_x: float,
+    candidate_step_column: str,
     device: str,
     run_dir: Path,
 ) -> dict[str, Any]:
@@ -725,6 +745,7 @@ def run_geometry_preflight_only_probe(
     preflight, rejected_rows = geometry_preflight_from_trace_candidates(
         candidate_pool,
         trace_for=trace_for,
+        candidate_step_column=candidate_step_column,
         min_source_body_x=min_source_body_x,
     )
     selected = select_geometry_aware_replay_candidates(
@@ -745,7 +766,9 @@ def run_geometry_preflight_only_probe(
     summary["checkpoint_path"] = str(checkpoint_path)
     summary["config_path"] = str(config_path)
     summary["candidate_rows_path"] = str(candidate_rows_path)
+    summary["candidate_step_column"] = str(candidate_step_column)
     summary["actor_parameters_changed"] = False
+    write_json(run_dir / "summary.json", summary)
     return summary
 
 
@@ -763,6 +786,7 @@ def run_bounded_relocation_replay_probe(
     min_sequence_action_l2: float,
     geometry_aware_selector: bool,
     min_source_body_x: float,
+    candidate_step_column: str,
     per_seed_cap: int,
     per_reveal_bucket_cap: int,
     per_variant_cap: int,
@@ -810,6 +834,7 @@ def run_bounded_relocation_replay_probe(
         preflight_frame, geometry_rejected_rows = geometry_preflight_from_trace_candidates(
             candidate_pool,
             trace_for=trace_for,
+            candidate_step_column=candidate_step_column,
             min_source_body_x=min_source_body_x,
         )
         selected = select_geometry_aware_replay_candidates(
@@ -827,13 +852,14 @@ def run_bounded_relocation_replay_probe(
     for selected_index, row in selected.reset_index(drop=True).iterrows():
         seed = int(row["seed"])
         reveal_step = int(row["reveal_step"])
+        candidate_step = candidate_step_for_row(row, candidate_step_column)
         preferred_fault = str(row["preferred_fault"])
         wrong_fault = str(row["wrong_fault"])
         requested_variant = str(row["variant"])
         variants = tuple(dict.fromkeys((requested_variant, "reset_hidden", "zero_current_response")))
         try:
-            preferred_trace = trace_for(seed, preferred_fault, reveal_step)
-            wrong_trace = trace_for(seed, wrong_fault, reveal_step)
+            preferred_trace = trace_for(seed, preferred_fault, candidate_step)
+            wrong_trace = trace_for(seed, wrong_fault, candidate_step)
             relocated_point, relocation = relocate_trace_point(
                 preferred_trace[-1],
                 body_longitudinal_offset=float(row["body_longitudinal_offset"]),
@@ -853,6 +879,8 @@ def run_bounded_relocation_replay_probe(
                     "selected_index": int(selected_index),
                     "seed": seed,
                     "reveal_step": reveal_step,
+                    "candidate_step": int(candidate_step),
+                    "candidate_step_column": str(candidate_step_column),
                     "preferred_fault": preferred_fault,
                     "wrong_fault": wrong_fault,
                     "variant": requested_variant,
@@ -914,6 +942,8 @@ def run_bounded_relocation_replay_probe(
                     "source_index": int(row.get("source_index", selected_index)),
                     "seed": seed,
                     "reveal_step": reveal_step,
+                    "candidate_step": int(candidate_step),
+                    "candidate_step_column": str(candidate_step_column),
                     "preferred_fault": preferred_fault,
                     "wrong_fault": wrong_fault,
                     "capability_pair": str(row.get("capability_pair", "")),
@@ -958,6 +988,7 @@ def run_bounded_relocation_replay_probe(
         min_sequence_action_l2=min_sequence_action_l2,
     )
     summary["geometry_aware_selector"] = bool(geometry_aware_selector)
+    summary["candidate_step_column"] = str(candidate_step_column)
     if geometry_aware_selector:
         geometry_summary = build_geometry_preflight_summary(
             preflight_rows=preflight_records,
@@ -999,6 +1030,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--geometry-aware-selector", action="store_true")
     parser.add_argument("--preflight-only", action="store_true")
     parser.add_argument("--min-source-body-x", type=float, default=DEFAULT_MIN_SOURCE_BODY_X)
+    parser.add_argument("--candidate-step-column", default=DEFAULT_CANDIDATE_STEP_COLUMN)
     parser.add_argument("--per-seed-cap", type=int, default=DEFAULT_PER_SEED_CAP)
     parser.add_argument("--per-reveal-bucket-cap", type=int, default=DEFAULT_PER_REVEAL_BUCKET_CAP)
     parser.add_argument("--per-variant-cap", type=int, default=DEFAULT_PER_VARIANT_CAP)
@@ -1023,6 +1055,7 @@ def main(argv: list[str] | None = None) -> None:
             history_length=args.history_length,
             min_sequence_action_l2=args.min_sequence_action_l2,
             min_source_body_x=args.min_source_body_x,
+            candidate_step_column=args.candidate_step_column,
             device=args.device,
             run_dir=run_dir,
         )
@@ -1044,6 +1077,7 @@ def main(argv: list[str] | None = None) -> None:
         min_sequence_action_l2=args.min_sequence_action_l2,
         geometry_aware_selector=args.geometry_aware_selector,
         min_source_body_x=args.min_source_body_x,
+        candidate_step_column=args.candidate_step_column,
         per_seed_cap=args.per_seed_cap,
         per_reveal_bucket_cap=args.per_reveal_bucket_cap,
         per_variant_cap=args.per_variant_cap,
