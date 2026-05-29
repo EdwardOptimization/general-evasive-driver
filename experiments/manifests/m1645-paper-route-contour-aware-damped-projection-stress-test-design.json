@@ -1,0 +1,158 @@
+{
+  "id": "m1645-paper-route-contour-aware-damped-projection-stress-test-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1644-paper-route-contour-aware-damped-projection-repair-result-audit.md",
+      "runs/m1643_contour_aware_damped_projection_repair/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1644-paper-route-contour-aware-damped-projection-repair-result-audit.json"
+    ],
+    "parent_objective": [
+      "design no-checkpoint damped projection perturbation stress test before checkpoint artifact or PPO route"
+    ],
+    "derived_from": [
+      "m1644-paper-route-contour-aware-damped-projection-repair-result-audit"
+    ],
+    "blocked_by": [
+      "M1643 passed one controlled perturbation but remains public-row local objective plumbing"
+    ],
+    "supersedes": [
+      "direct checkpoint artifact after M1644",
+      "direct PPO-proposal repair after M1644",
+      "direct promotion after M1644"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1645-paper-route-contour-aware-damped-projection-stress-test-design.md",
+  "public_gates": [
+    "M1645 must design a no-checkpoint perturbation stress test before any checkpoint artifact",
+    "M1645 must pre-register scales, seeds, pass thresholds, and guardrails",
+    "M1645 must keep projection mode damped_backtracking and actor_mean-only",
+    "M1645 must keep diagnostics zero-weight and donor-plus actions excluded from loss",
+    "M1645 must keep PPO promotion private holdout and actor-input changes blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run projection",
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop evaluation",
+    "do not write checkpoint artifacts",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_damped_projection_stress_test_design",
+    "evidence_increment": "designs a no-checkpoint multi-scale multi-seed projection stress test after the M1643 local pass",
+    "claim_scope": "design only; no projection run, training, PPO, checkpoint artifact, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design admits checkpoint artifact before stress test",
+      "stop if design lacks pre-registered scale/seed grid",
+      "stop if design weakens no-base-reset or diagnostics-zero-weight guardrails",
+      "stop if design routes directly to PPO promotion or private holdout"
+    ],
+    "fallback_plan": [
+      "admit one bounded no-checkpoint stress implementation if design is complete",
+      "route to branch synthesis if another implementation would exceed cadence",
+      "stop or pivot if local projection stress is judged too public-row-specific"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1644 admits stress-test design after M1643 local pass",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design no-checkpoint damped projection perturbation stress test",
+    "admission_evidence": [
+      "M1643 reduced exact residual for one controlled perturbation",
+      "M1644 audited the pass as local exact-objective plumbing and admitted stress-test design"
+    ],
+    "blocked_shortcuts": [
+      "do not run projection",
+      "do not train",
+      "do not run PPO",
+      "do not write checkpoint artifacts",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1645 design document",
+      "M1645 status queue scoreboard research log and review",
+      "one follow-up implementation or synthesis manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "scale/seed grid is specified",
+      "aggregate pass thresholds are specified",
+      "no-checkpoint and no-base-reset guardrails are specified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1645 is design-only for fixed-tensor objective stress and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "future implementation may evaluate correct/wrong hidden exact residual across perturbation seeds but cannot claim closed-loop self-identification"
+    ],
+    "temporal_evidence_window": "public M1630/M1633/M1636/M1643 tensor rows only.",
+    "negative_result_policy": "If stress design is too public-row-specific, route to synthesis or stop instead of checkpoint artifact.",
+    "allowed_claims": [
+      "damped projection stress-test design and next route",
+      "no projection run, no training, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A pre-registered no-checkpoint perturbation stress test can determine whether the damped projection rule is stable across small actor_mean perturbation scales and seeds before any checkpoint artifact route.",
+  "success_criteria": [
+    "docs/m1645-paper-route-contour-aware-damped-projection-stress-test-design.md exists",
+    "design specifies perturbation scales and seeds",
+    "design specifies damped_backtracking projection mode and actor_mean-only scope",
+    "design specifies aggregate pass thresholds and guardrails",
+    "design keeps checkpoint artifacts PPO promotion private holdout actor-input changes and level3 claims blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design lacks a fixed scale/seed grid",
+    "design admits checkpoint artifact before stress test",
+    "design lets diagnostics or donor-plus actions enter the loss target",
+    "design routes directly to PPO promotion private holdout actor-input changes or checkpoint artifact generation",
+    "design claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1645-paper-route-contour-aware-damped-projection-stress-test-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1645-paper-route-contour-aware-damped-projection-stress-test-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1644-paper-route-contour-aware-damped-projection-repair-result-audit.md",
+    "runs/m1643_contour_aware_damped_projection_repair/summary.json"
+  ],
+  "decision_rule": "M1645 passes if it pre-registers a no-checkpoint perturbation stress test before any checkpoint artifact or PPO route.",
+  "next_blocker": "m1645-paper-route-contour-aware-damped-projection-stress-test-design"
+}

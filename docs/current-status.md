@@ -16,21 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1643-paper-route-contour-aware-damped-projection-repair-implementation
+m1644-paper-route-contour-aware-damped-projection-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m1644-paper-route-contour-aware-damped-projection-repair-result-audit
+m1645-paper-route-contour-aware-damped-projection-stress-test-design
 ```
 
-M1643 implemented the M1642 damped/backtracking projection and passed the
-public objective-sanity gate. It reduced positive exact residual from
-`0.0003143580979667604` to `0.00003198102058377117` with one accepted
-backtracking step, a reduction ratio of `0.8982656378486144`, while preserving
-actor_mean trust-region non-expansion and writing no checkpoint. The next task
-is M1644 audit before any checkpoint artifact, PPO-proposal repair,
+M1644 audited the M1643 damped projection pass as clean local exact-objective
+plumbing, not checkpoint/PPO/closed-loop progress. The projection reduced
+positive exact residual by `0.8982656378486144` with clean no-checkpoint and
+no-base-reset guardrails, but it remains one public controlled perturbation.
+The next task is M1645 design of a no-checkpoint multi-scale multi-seed
+projection stress test before any checkpoint artifact, PPO-proposal repair,
 closed-loop evaluation, promotion, private holdout, actor-input change, or
 level3 self-ID claim.
 

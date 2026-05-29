@@ -159,6 +159,40 @@
     "runs/m1643_contour_aware_damped_projection_repair/backtracking_candidate_trace.csv",
     "docs/m1643-paper-route-contour-aware-damped-projection-repair-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1644-paper-route-contour-aware-damped-projection-repair-result-audit.md",
+    "decision": "contour_aware_damped_projection_audit_admit_stress_test_design",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "m1643_passes_public_smoke_gates": true,
+    "m1643_null_result_classification": "contour_aware_exact_objective_projection_repair_public_pass",
+    "m1643_positive_exact_residual_reduction_ratio": 0.8982656378486144,
+    "m1643_accepted_backtracking_step_count": 1,
+    "m1643_guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1645-paper-route-contour-aware-damped-projection-stress-test-design.json",
+    "supported_claims": [
+      "M1643 damped projection passed local objective-sanity gates",
+      "M1643 fixed the M1640 optimizer-step instability for one controlled perturbation",
+      "a no-checkpoint multi-scale multi-seed stress-test design is justified"
+    ],
+    "unsupported_claims": [
+      "checkpoint artifact generation",
+      "PPO-proposal repair",
+      "closed-loop replay improvement",
+      "promotion",
+      "private-holdout evidence",
+      "paper-level or level3 self-identification evidence"
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1644 passes if it audits the local projection pass and chooses a safe next route before checkpoint artifact, PPO, or promotion.",
-  "next_blocker": "m1644-paper-route-contour-aware-damped-projection-repair-result-audit"
+  "next_blocker": "m1645-paper-route-contour-aware-damped-projection-stress-test-design"
 }
