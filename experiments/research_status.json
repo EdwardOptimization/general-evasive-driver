@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1591,
+    "completed": 1592,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1582_history_pairability_source_miner_smoke/summary.json",
+    "command_log": "docs/m1583-paper-route-history-pairability-source-miner-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1582_history_pairability_source_miner_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1582-paper-route-history-pairability-source-miner-implementation"
+    "task_id": "m1583-paper-route-history-pairability-source-miner-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1583-paper-route-history-pairability-source-miner-result-audit.json",
-    "hypothesis": "M1582's public-pass pairability result can be audited into a defensible next route without overstating self-identification evidence.",
-    "id": "m1583-paper-route-history-pairability-source-miner-result-audit",
+    "command": "see experiments/manifests/m1584-paper-route-source-diverse-pairability-history-intervention-design.json",
+    "hypothesis": "A source-edge/window capped intervention design over the M1582 pairable set can test history necessity without overstating pairability evidence.",
+    "id": "m1584-paper-route-source-diverse-pairability-history-intervention-design",
     "kind": "gate",
-    "notes": "Pending: audit M1582 pairability public pass before any history intervention design",
-    "priority": 15780,
+    "notes": "Pending: design source-diverse pairability-grounded history interventions with high-speed caveat",
+    "priority": 15790,
     "status": "pending",
-    "success_artifact": "docs/m1583-paper-route-history-pairability-source-miner-result-audit.md"
+    "success_artifact": "docs/m1584-paper-route-source-diverse-pairability-history-intervention-design.md"
   },
-  "updated_at_utc": "20260529T154158Z"
+  "updated_at_utc": "20260529T154635Z"
 }

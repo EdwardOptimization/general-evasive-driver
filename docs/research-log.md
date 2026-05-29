@@ -24731,3 +24731,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1583-paper-route-history-pairability-source-miner-result-audit.json`
 - next: `m1583-paper-route-history-pairability-source-miner-result-audit`
+
+## M1583 Paper-Route History Pairability Source-Miner Result Audit
+
+- status: completed
+- decision: `history_pairability_audit_admit_source_diverse_intervention_design_with_high_speed_caveat`
+- artifact: `docs/m1583-paper-route-history-pairability-source-miner-result-audit.md`
+- failure taxonomy: `none`
+- M1582 public pass: true
+- M1582 evidence-quality pass: true
+- source spec count: 480
+- anchor candidate count: 640
+- replay-ok anchor count: 509
+- pair screen candidate count: 20000
+- tier A pair count: 20000
+- tier B pair count: 20000
+- pairable source edge count: 24
+- pairable target source family count: 8
+- pairable window count: 6
+- max single pairable source-edge share: 0.0742
+- late-reveal endpoint pair count: 108
+- high-speed endpoint pair count: 0
+- brake-fade endpoint pair count: 0
+- grip-loss endpoint pair count: 0
+- interpretation: broad pairability prerequisite is passed, but high-speed/brake-fade/grip-loss endpoint absence remains a caveat and cannot be claimed as solved
+- route decision: admit a design-only source-diverse pairability-grounded history-intervention milestone with source-edge/window caps and current-frame substitution controls
+- history interventions executed: false in M1583
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1584-paper-route-source-diverse-pairability-history-intervention-design.json`
+- next: `m1584-paper-route-source-diverse-pairability-history-intervention-design`

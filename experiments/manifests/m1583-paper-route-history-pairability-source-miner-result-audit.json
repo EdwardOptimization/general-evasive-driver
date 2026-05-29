@@ -154,6 +154,44 @@
     "runs/m1582_history_pairability_source_miner_smoke/pairability_pair_rows.csv",
     "docs/m1582-paper-route-history-pairability-source-miner-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1583-paper-route-history-pairability-source-miner-result-audit.md",
+    "decision": "history_pairability_audit_admit_source_diverse_intervention_design_with_high_speed_caveat",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "m1582_public_pass": true,
+    "m1582_evidence_quality_pass": true,
+    "source_spec_count": 480,
+    "anchor_candidate_count": 640,
+    "replay_ok_anchor_count": 509,
+    "pair_screen_candidate_count": 20000,
+    "tier_a_pair_count": 20000,
+    "tier_b_pair_count": 20000,
+    "pairable_source_edge_count": 24,
+    "pairable_target_source_family_count": 8,
+    "pairable_window_count": 6,
+    "max_single_pairable_source_edge_share": 0.0742,
+    "late_reveal_endpoint_pair_count": 108,
+    "high_speed_endpoint_pair_count": 0,
+    "brake_fade_endpoint_pair_count": 0,
+    "grip_loss_endpoint_pair_count": 0,
+    "audit_conclusion": "broad pairability prerequisite passed, but high-speed, brake-fade, and grip-loss endpoint families are absent from the capped top pair set and must remain explicit diagnostics",
+    "next_manifest": "experiments/manifests/m1584-paper-route-source-diverse-pairability-history-intervention-design.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1583 passes if it audits M1582 and chooses the next route before any intervention, materialization, or training.",
-  "next_blocker": "m1583-paper-route-history-pairability-source-miner-result-audit"
+  "next_blocker": "m1584-paper-route-source-diverse-pairability-history-intervention-design"
 }

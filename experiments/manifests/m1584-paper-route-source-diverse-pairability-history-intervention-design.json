@@ -1,0 +1,164 @@
+{
+  "id": "m1584-paper-route-source-diverse-pairability-history-intervention-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1582_history_pairability_source_miner_smoke/summary.json",
+      "runs/m1582_history_pairability_source_miner_smoke/pairability_pair_rows.csv",
+      "docs/m1583-paper-route-history-pairability-source-miner-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1583-paper-route-history-pairability-source-miner-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a bounded source-diverse history intervention over the audited M1582 pairable set"
+    ],
+    "derived_from": [
+      "m1583-paper-route-history-pairability-source-miner-result-audit"
+    ],
+    "blocked_by": [
+      "M1583 admitted design only; no source-diverse intervention design exists yet for M1582 pair rows"
+    ],
+    "supersedes": [
+      "direct intervention implementation after M1583 without design",
+      "candidate materialization after M1583",
+      "training corpus export after M1583"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1584-paper-route-source-diverse-pairability-history-intervention-design.md",
+  "public_gates": [
+    "M1584 must design a bounded source-edge/window capped intervention subset over M1582 pair rows",
+    "M1584 must keep pairability evidence separate from history-necessity evidence",
+    "M1584 must pre-register wrong-history and current-frame substitution controls",
+    "M1584 must pre-register high-speed as unresolved diagnostic coverage rather than a pass claim",
+    "M1584 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_pairability_source_generation",
+    "evidence_axis": "K_source_diverse_pairability_intervention_design",
+    "evidence_increment": "designs the first source-diverse intervention layer after pairability-first public pass",
+    "claim_scope": "design only; no simulator rerun, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design treats pairability as history necessity",
+      "stop if design ignores current-frame substitution controls",
+      "stop if design turns M1582 pair rows into a training corpus",
+      "stop if design routes directly to materialization, training, PPO, promotion, or private holdout"
+    ],
+    "fallback_plan": [
+      "admit bounded implementation if design has source-edge/window caps, controls, and guardrails",
+      "route back to source audit if design cannot form a balanced pair subset",
+      "route to synthesis if the branch starts optimizing only capped public rows"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1583 admitted a design-only intervention route after pairability audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-diverse pairability-grounded history-intervention design",
+    "admission_evidence": [
+      "M1582 broad pairability public gates passed",
+      "M1583 audited M1582 as prerequisite evidence only and admitted design",
+      "high-speed endpoint coverage remains unresolved and must be tracked separately"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1584 design document",
+      "M1584 status queue scoreboard research log and review",
+      "one follow-up implementation manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "intervention variants and controls are pre-registered",
+      "source-edge/window pair selection is pre-registered",
+      "success and null classifications are explicit",
+      "high-speed caveat is explicit",
+      "guardrails remain clean"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1584 is design-only, but the planned implementation must include current-frame substitution controls before any history-necessity claim.",
+    "history_necessity_tests": [
+      "pre-register wrong-history hidden intervention",
+      "pre-register donor response/action plus hidden intervention",
+      "pre-register donor response/action control",
+      "pre-register reset hidden, zero-current, zero-action, zero-all, and delayed-history controls"
+    ],
+    "temporal_evidence_window": "M1582 pairable reveal and pre-decision anchor windows.",
+    "negative_result_policy": "If implementation later shows null or control-dominated effects, record it and route to audit rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "bounded design for public source-diverse history interventions",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A source-edge/window capped intervention design over the M1582 pairable set can test history necessity without overstating pairability evidence.",
+  "success_criteria": [
+    "docs/m1584-paper-route-source-diverse-pairability-history-intervention-design.md exists",
+    "design pre-registers pair selection caps and intervention variants",
+    "design pre-registers current-frame substitution controls",
+    "design pre-registers public gates, evidence-quality targets, and null taxonomy",
+    "design keeps high-speed endpoint absence as a caveat",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design treats M1582 as history-necessity or level3 self-ID evidence",
+    "design ignores current-frame controls or high-speed caveat",
+    "design routes directly to training PPO promotion private holdout corpus export actor-input changes or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1584-paper-route-source-diverse-pairability-history-intervention-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1584-paper-route-source-diverse-pairability-history-intervention-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1582_history_pairability_source_miner_smoke/summary.json",
+    "runs/m1582_history_pairability_source_miner_smoke/pairability_pair_rows.csv",
+    "docs/m1583-paper-route-history-pairability-source-miner-result-audit.md"
+  ],
+  "decision_rule": "M1584 passes if it designs the source-diverse pairability-grounded intervention route before any replay, materialization, or training.",
+  "next_blocker": "m1584-paper-route-source-diverse-pairability-history-intervention-design"
+}

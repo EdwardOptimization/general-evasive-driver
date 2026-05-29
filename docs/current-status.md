@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1582-paper-route-history-pairability-source-miner-implementation
+m1583-paper-route-history-pairability-source-miner-result-audit
 ```
 
 Current next task:
 
 ```text
-m1583-paper-route-history-pairability-source-miner-result-audit
+m1584-paper-route-source-diverse-pairability-history-intervention-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -452,6 +452,13 @@ share `0.0742`, clean guardrails, and no history interventions. This resolves
 the M1579 matched-pair shortfall as a broad pairability prerequisite, but it is
 not history-necessity or self-ID evidence. M1583 must audit the result before
 any source-diverse wrong-history intervention design.
+M1583 audited M1582 as a broad pairability prerequisite pass, not a self-ID
+result. The capped top pair set is source-diverse, but it excludes
+`t5_high_speed_close_obstacle`, `brake_fade_or_loss_proxy`, and
+`grip_loss_proxy` as endpoint families; the `108` high-speed-or-late pairs are
+late-reveal pairs only. M1584 is admitted as design only: source-edge/window
+capped history interventions over M1582 pair rows, with high-speed kept as an
+explicit caveat/diagnostic and materialization/training/PPO still blocked.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
