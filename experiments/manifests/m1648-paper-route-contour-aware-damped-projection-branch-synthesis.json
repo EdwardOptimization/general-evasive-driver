@@ -173,6 +173,21 @@
     "runs/m1646_contour_aware_damped_projection_stress_test/summary.json",
     "docs/m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1648-paper-route-contour-aware-damped-projection-branch-synthesis.md",
+    "decision": "promote_to_next_branch_ppo_proposal_projection_repair_design",
+    "workflow_synthesis_decision": "promote_to_next_branch",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "evidence_summary": "M1640-M1647 resolved optimizer-step instability with damped full-batch projection and passed a fixed 3x3 no-checkpoint stress grid.",
+    "supported_claim": "damped projection repairs controlled actor_mean policy-output drift on public exact tensors with clean role guardrails.",
+    "unsupported_claim_boundary": "no checkpoint artifact, PPO proposal repair, closed-loop improvement, behavior retention, promotion, private-holdout, paper-level, or level3 self-ID claim.",
+    "public_gate_overfit_risk": "high because evidence remains fixed public 39-positive 232-diagnostic exact-tensor plumbing.",
+    "next_branch": "paper_route_ppo_proposal_projection_repair",
+    "next_manifest": "experiments/manifests/m1649-paper-route-ppo-proposal-damped-projection-repair-design.json"
+  },
   "decision_rule": "M1648 passes if it synthesizes the branch and chooses a route before checkpoint artifact, PPO proposal repair, or promotion.",
-  "next_blocker": "m1648-paper-route-contour-aware-damped-projection-branch-synthesis"
+  "next_blocker": "m1649-paper-route-ppo-proposal-damped-projection-repair-design"
 }

@@ -26320,3 +26320,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: synthesize M1640-M1647 before checkpoint artifact, PPO-proposal repair, or another local projection implementation
 - follow-up manifest: `experiments/manifests/m1648-paper-route-contour-aware-damped-projection-branch-synthesis.json`
 - next: `m1648-paper-route-contour-aware-damped-projection-branch-synthesis`
+
+## M1648 Paper-Route Contour-Aware Damped Projection Branch Synthesis
+
+- status: completed
+- synthesis decision: `promote_to_next_branch`
+- route decision: `admit design-only PPO-proposal damped projection repair planning`
+- artifact: `docs/m1648-paper-route-contour-aware-damped-projection-branch-synthesis.md`
+- failure taxonomy summary: M1640 `training_instability`; M1641-M1647 `none`
+- evidence summary: M1640 Adam projection failed from step-scale instability; M1643 damped projection reduced residual by `0.8982656378486144`; M1646 stress test passed with 9/9 residual reductions
+- M1646 min positive exact residual reduction ratio: `0.7070986860856349`
+- M1646 median positive exact residual reduction ratio: `0.7420973915926545`
+- M1646 max positive exact residual reduction ratio: `0.8632753818236488`
+- supported: contour-aware exact tensors detect and repair controlled actor_mean policy-output drift with clean diagnostic/donor-plus/no-checkpoint guardrails
+- falsified or rejected: M1640 Adam `lr=1e-3` recipe is adequate; fixed-public-tensor repair is checkpoint/PPO/closed-loop/paper-level/level3 evidence; another local stress implementation is highest leverage
+- public-gate overfit risk: high because evidence is fixed public 39-positive 232-diagnostic exact-tensor plumbing
+- next branch: `paper_route_ppo_proposal_projection_repair`
+- follow-up manifest: `experiments/manifests/m1649-paper-route-ppo-proposal-damped-projection-repair-design.json`
+- next: `m1649-paper-route-ppo-proposal-damped-projection-repair-design`

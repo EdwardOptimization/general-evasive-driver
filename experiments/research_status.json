@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1656,
+    "completed": 1657,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit.md",
+      "command_log": "docs/m1648-paper-route-contour-aware-damped-projection-branch-synthesis.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1647-paper-route-contour-aware-damped-projection-stress-test-result-audit"
+      "task_id": "m1648-paper-route-contour-aware-damped-projection-branch-synthesis"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1648-paper-route-contour-aware-damped-projection-branch-synthesis.json",
-      "hypothesis": "The M1640-M1647 damped projection sequence is sufficient to decide whether to promote the work into a PPO-proposal repair design branch.",
-      "id": "m1648-paper-route-contour-aware-damped-projection-branch-synthesis",
+      "command": "see experiments/manifests/m1649-paper-route-ppo-proposal-damped-projection-repair-design.json",
+      "hypothesis": "The damped projection rule can be designed as a post-proposal feasibility restoration step while keeping exact public objectives separate from replay and promotion evidence.",
+      "id": "m1649-paper-route-ppo-proposal-damped-projection-repair-design",
       "kind": "gate",
-      "notes": "Pending: synthesize local projection branch before checkpoint artifact PPO proposal repair or further implementation",
-      "priority": 16430,
+      "notes": "Pending: design bounded PPO proposal damped projection repair route without running PPO projection or writing checkpoint artifacts",
+      "priority": 16440,
       "status": "pending",
-      "success_artifact": "docs/m1648-paper-route-contour-aware-damped-projection-branch-synthesis.md"
+      "success_artifact": "docs/m1649-paper-route-ppo-proposal-damped-projection-repair-design.md"
     },
-    "updated_at_utc": "20260529T204611Z"
+    "updated_at_utc": "20260529T205113Z"
 }
